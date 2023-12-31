@@ -613,13 +613,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %sign, ptr noundef %outError) unnamed_addr #5 {
 entry:
+  %src.coerce034 = ptrtoint ptr %src.coerce0 to i64
   %bigintDigits = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
   %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %src.coerce0, i64 %src.coerce1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #17
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %src.coerce0 to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i64 noundef %src.coerce1) #17
   store i32 0, ptr %sign, align 4
   %cmp.i = icmp sgt i64 %src.coerce1, 0
@@ -634,12 +634,12 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %ref.tmp.sroa.33.0 = phi ptr [ %add.ptr.i.i.i, %entry ], [ %spec.select, %land.lhs.true.i ]
-  %end_.i.promoted.i34 = ptrtoint ptr %ref.tmp.sroa.33.0 to i64
+  %end_.i.promoted.i33 = ptrtoint ptr %ref.tmp.sroa.33.0 to i64
   %cmp79.i = icmp ugt ptr %ref.tmp.sroa.33.0, %src.coerce0
   br i1 %cmp79.i, label %land.rhs.preheader.i, label %while.end.i
 
 land.rhs.preheader.i:                             ; preds = %if.end.i
-  %1 = sub i64 %end_.i.promoted.i34, %sub.ptr.rhs.cast.i.i
+  %1 = sub i64 %end_.i.promoted.i33, %src.coerce034
   %scevgep.i = getelementptr i8, ptr %src.coerce0, i64 %1
   br label %land.rhs.i
 
@@ -656,23 +656,23 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr11.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr11.i, %ref.tmp.sroa.33.0
   br i1 %exitcond.not.i, label %while.end.i.loopexit, label %land.rhs.i, !llvm.loop !11
 
 while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.body.i
   %ref.tmp.sroa.0.1.ph = phi ptr [ %ref.tmp.sroa.0.0, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
-  %.pre35 = ptrtoint ptr %ref.tmp.sroa.0.1.ph to i64
+  %.pre37 = ptrtoint ptr %ref.tmp.sroa.0.1.ph to i64
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i
-  %.lcssa.i33.pre-phi = phi i64 [ %.pre35, %while.end.i.loopexit ], [ %sub.ptr.rhs.cast.i.i, %if.end.i ]
+  %.lcssa.i35.pre-phi = phi i64 [ %.pre37, %while.end.i.loopexit ], [ %src.coerce034, %if.end.i ]
   %ref.tmp.sroa.0.1 = phi ptr [ %ref.tmp.sroa.0.1.ph, %while.end.i.loopexit ], [ %src.coerce0, %if.end.i ]
   %cmp1512.i = icmp ult ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.33.0
   br i1 %cmp1512.i, label %land.rhs16.i.preheader, label %_ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit
 
 land.rhs16.i.preheader:                           ; preds = %while.end.i
-  %3 = sub i64 %.lcssa.i33.pre-phi, %end_.i.promoted.i34
-  %scevgep = getelementptr i8, ptr %ref.tmp.sroa.33.0, i64 %3
+  %3 = sub i64 %.lcssa.i35.pre-phi, %end_.i.promoted.i33
+  %scevgep36 = getelementptr i8, ptr %ref.tmp.sroa.33.0, i64 %3
   br label %land.rhs16.i
 
 land.rhs16.i:                                     ; preds = %land.rhs16.i.preheader, %while.body22.i
@@ -692,7 +692,7 @@ while.body22.i:                                   ; preds = %land.rhs16.i, %land
   br i1 %cmp15.i, label %land.rhs16.i, label %_ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit, !llvm.loop !12
 
 _ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit: ; preds = %land.rhs16.i, %while.body22.i, %while.end.i
-  %ref.tmp.sroa.33.2 = phi ptr [ %ref.tmp.sroa.33.0, %while.end.i ], [ %scevgep, %while.body22.i ], [ %ref.tmp.sroa.33.1, %land.rhs16.i ]
+  %ref.tmp.sroa.33.2 = phi ptr [ %ref.tmp.sroa.33.0, %while.end.i ], [ %scevgep36, %while.body22.i ], [ %ref.tmp.sroa.33.1, %land.rhs16.i ]
   %cmp.i.not.i = icmp ult ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.33.2
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i1
 
@@ -1024,13 +1024,13 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %35, label %if.then9.i.i, label %if.end23.i
 
 if.then9.i.i:                                     ; preds = %while.body.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i
-  %this.val433.i.i37 = phi ptr [ %ref.tmp.sroa.0.18, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i ], [ %ref.tmp.sroa.0.17, %while.body.i.i ]
+  %this.val433.i.i39 = phi ptr [ %ref.tmp.sroa.0.18, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i ], [ %ref.tmp.sroa.0.17, %while.body.i.i ]
   store i8 10, ptr %radix, align 1
-  %36 = load i8, ptr %this.val433.i.i37, align 1
+  %36 = load i8, ptr %this.val433.i.i39, align 1
   %37 = add i8 %36, -48
   %switch.i.i.i.i.i.i = icmp ult i8 %37, 10
   %ref.tmp.sroa.0.20.idx = zext i1 %switch.i.i.i.i.i.i to i64
-  %ref.tmp.sroa.0.20 = getelementptr inbounds i8, ptr %this.val433.i.i37, i64 %ref.tmp.sroa.0.20.idx
+  %ref.tmp.sroa.0.20 = getelementptr inbounds i8, ptr %this.val433.i.i39, i64 %ref.tmp.sroa.0.20.idx
   br i1 %switch.i.i.i.i.i.i, label %while.body.i.i.i.i.preheader, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i
 
 while.body.i.i.i.i.preheader:                     ; preds = %if.then9.i.i

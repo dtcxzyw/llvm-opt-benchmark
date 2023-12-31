@@ -959,8 +959,6 @@ for.body443.preheader.i:                          ; preds = %for.cond441.prehead
   %121 = add i32 %nWriteCountSum.0207.i, %120
   %122 = trunc i64 %100 to i32
   %123 = sub i32 %121, %122
-  %124 = sub i64 %98, %100
-  %scevgep226.i = getelementptr i8, ptr %99, i64 %124
   br label %for.body443.i
 
 for.body443.i:                                    ; preds = %if.end447.i, %for.body443.preheader.i
@@ -971,7 +969,7 @@ for.body443.i:                                    ; preds = %if.end447.i, %for.b
 
 if.end447.i:                                      ; preds = %for.body443.i
   %incdec.ptr450.i = getelementptr inbounds i8, ptr %p.2205.i, i64 1
-  %exitcond227.not.i = icmp eq ptr %incdec.ptr450.i, %scevgep226.i
+  %exitcond227.not.i = icmp eq ptr %incdec.ptr450.i, %97
   br i1 %exitcond227.not.i, label %for.inc465.i, label %for.body443.i, !llvm.loop !14
 
 if.else452.i:                                     ; preds = %if.else435.i

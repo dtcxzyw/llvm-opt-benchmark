@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @k_cOptionsNull = internal unnamed_addr constant %struct.LZ4F_compressOptions_t zeroinitializer, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4F_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @LZ4F_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %code, -22
   %conv = zext i1 %cmp to i32
@@ -70,7 +70,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4F_getErrorCode(i64 noundef %functionResult) local_unnamed_addr #0 {
+define noundef i32 @LZ4F_getErrorCode(i64 noundef %functionResult) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i64 %functionResult, -21
   %0 = trunc i64 %functionResult to i32
@@ -80,13 +80,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4F_getVersion() local_unnamed_addr #0 {
+define noundef i32 @LZ4F_getVersion() local_unnamed_addr #0 {
 entry:
   ret i32 100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4F_compressionLevel_max() local_unnamed_addr #0 {
+define noundef i32 @LZ4F_compressionLevel_max() local_unnamed_addr #0 {
 entry:
   ret i32 12
 }
@@ -382,10 +382,8 @@ LZ4F_compressEnd.exit:                            ; preds = %if.end19.i, %if.the
   br i1 %cmp.i37, label %do.end45, label %return
 
 do.end45:                                         ; preds = %LZ4F_compressEnd.exit
-  %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr35, i64 %sub.ptr.sub.i
-  %sub.ptr.lhs.cast47 = ptrtoint ptr %add.ptr46 to i64
   %sub.ptr.rhs.cast48 = ptrtoint ptr %dstBuffer to i64
-  %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
+  %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast48
   br label %return
 
 return:                                           ; preds = %if.then23.i, %if.then9.i, %do.end.i, %do.end34, %LZ4F_compressFrameBound.exit, %LZ4F_compressEnd.exit, %do.end26, %do.end, %do.end45
@@ -1188,7 +1186,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @LZ4F_createCompressionContext_advanced(ptr nocapture noundef readonly byval(%struct.LZ4F_CustomMem) align 8 %customMem, i32 noundef %version) local_unnamed_addr #4 {
+define noundef ptr @LZ4F_createCompressionContext_advanced(ptr nocapture noundef readonly byval(%struct.LZ4F_CustomMem) align 8 %customMem, i32 noundef %version) local_unnamed_addr #4 {
 entry:
   %customMem5.sroa.0.0.copyload = load ptr, ptr %customMem, align 8
   %customMem5.sroa.4.0.customMem.sroa_idx = getelementptr inbounds i8, ptr %customMem, i64 8
@@ -1239,7 +1237,7 @@ return:                                           ; preds = %if.end5.i, %LZ4F_ca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define i64 @LZ4F_createCompressionContext(ptr noundef writeonly %LZ4F_compressionContextPtr, i32 noundef %version) local_unnamed_addr #6 {
+define noundef i64 @LZ4F_createCompressionContext(ptr noundef writeonly %LZ4F_compressionContextPtr, i32 noundef %version) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %LZ4F_compressionContextPtr, null
   br i1 %cmp, label %return, label %LZ4F_calloc.exit.i
@@ -1266,7 +1264,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_freeCompressionContext(ptr noundef %cctxPtr) local_unnamed_addr #4 {
+define noundef i64 @LZ4F_freeCompressionContext(ptr noundef %cctxPtr) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %cctxPtr, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2208,7 +2206,7 @@ return:                                           ; preds = %do.body4, %do.body,
 declare i32 @LZ4_XXH32_digest(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @LZ4F_createDecompressionContext_advanced(ptr nocapture noundef readonly byval(%struct.LZ4F_CustomMem) align 8 %customMem, i32 noundef %version) local_unnamed_addr #4 {
+define noundef ptr @LZ4F_createDecompressionContext_advanced(ptr nocapture noundef readonly byval(%struct.LZ4F_CustomMem) align 8 %customMem, i32 noundef %version) local_unnamed_addr #4 {
 entry:
   %customMem4.sroa.0.0.copyload = load ptr, ptr %customMem, align 8
   %customMem4.sroa.4.0.customMem.sroa_idx = getelementptr inbounds i8, ptr %customMem, i64 8
@@ -2257,7 +2255,7 @@ return:                                           ; preds = %if.end5.i, %LZ4F_ca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define i64 @LZ4F_createDecompressionContext(ptr noundef writeonly %LZ4F_decompressionContextPtr, i32 noundef %versionNumber) local_unnamed_addr #6 {
+define noundef i64 @LZ4F_createDecompressionContext(ptr noundef writeonly %LZ4F_decompressionContextPtr, i32 noundef %versionNumber) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %LZ4F_decompressionContextPtr, null
   br i1 %cmp, label %return, label %LZ4F_calloc.exit.i
@@ -2345,7 +2343,7 @@ if.end:                                           ; preds = %if.end.i19, %if.the
   ret i64 %result.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LZ4F_resetDecompressionContext(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #7 {
 entry:
   %dStage = getelementptr inbounds %struct.LZ4F_dctx_s, ptr %dctx, i64 0, i32 3
@@ -3939,7 +3937,7 @@ declare void @LZ4_resetStreamHC_fast(ptr noundef, i32 noundef) local_unnamed_add
 declare void @LZ4_attach_HC_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @LZ4F_doNotCompressBlock(ptr nocapture readnone %ctx, ptr nocapture readnone %src, ptr nocapture readnone %dst, i32 %srcSize, i32 %dstCapacity, i32 %level, ptr nocapture readnone %cdict) unnamed_addr #0 {
+define internal noundef i32 @LZ4F_doNotCompressBlock(ptr nocapture readnone %ctx, ptr nocapture readnone %src, ptr nocapture readnone %dst, i32 %srcSize, i32 %dstCapacity, i32 %level, ptr nocapture readnone %cdict) unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -4095,7 +4093,7 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

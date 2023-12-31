@@ -3079,22 +3079,20 @@ if.then.i.invoke.cont220_crit_edge:               ; preds = %if.then.i
   br label %invoke.cont220
 
 if.else.i:                                        ; preds = %invoke.cont206
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i126, %sub.ptr.sub219
-  br i1 %cmp4.i, label %if.then5.i, label %invoke.cont220
+  %cmp4.i = icmp ule i64 %sub.ptr.sub.i.i126, %sub.ptr.sub219
+  %tobool.not.i.i = icmp eq ptr %76, %add.ptr.i120
+  %or.cond = or i1 %tobool.not.i.i, %cmp4.i
+  br i1 %or.cond, label %invoke.cont220, label %invoke.cont.i.i
 
-if.then5.i:                                       ; preds = %if.else.i
+invoke.cont.i.i:                                  ; preds = %if.else.i
   %add.ptr.i127 = getelementptr inbounds i8, ptr %75, i64 %sub.ptr.sub219
-  %tobool.not.i.i = icmp eq ptr %76, %add.ptr.i127
-  br i1 %tobool.not.i.i, label %invoke.cont220, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i127, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont220
 
-invoke.cont220:                                   ; preds = %if.then.i.invoke.cont220_crit_edge, %invoke.cont.i.i, %if.then5.i, %if.else.i
-  %sub.ptr.rhs.cast.i.i131.pre-phi = phi i64 [ %.pre143, %if.then.i.invoke.cont220_crit_edge ], [ %sub.ptr.rhs.cast218, %invoke.cont.i.i ], [ %sub.ptr.rhs.cast218, %if.then5.i ], [ %sub.ptr.rhs.cast218, %if.else.i ]
-  %77 = phi ptr [ %.pre140, %if.then.i.invoke.cont220_crit_edge ], [ %add.ptr.i127, %invoke.cont.i.i ], [ %76, %if.then5.i ], [ %76, %if.else.i ]
-  %78 = phi ptr [ %.pre139, %if.then.i.invoke.cont220_crit_edge ], [ %75, %invoke.cont.i.i ], [ %75, %if.then5.i ], [ %75, %if.else.i ]
+invoke.cont220:                                   ; preds = %if.then.i.invoke.cont220_crit_edge, %invoke.cont.i.i, %if.else.i
+  %sub.ptr.rhs.cast.i.i131.pre-phi = phi i64 [ %.pre143, %if.then.i.invoke.cont220_crit_edge ], [ %sub.ptr.rhs.cast218, %invoke.cont.i.i ], [ %sub.ptr.rhs.cast218, %if.else.i ]
+  %77 = phi ptr [ %.pre140, %if.then.i.invoke.cont220_crit_edge ], [ %add.ptr.i127, %invoke.cont.i.i ], [ %76, %if.else.i ]
+  %78 = phi ptr [ %.pre139, %if.then.i.invoke.cont220_crit_edge ], [ %75, %invoke.cont.i.i ], [ %75, %if.else.i ]
   %sub.ptr.lhs.cast.i.i130 = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i.i132 = sub i64 %sub.ptr.lhs.cast.i.i130, %sub.ptr.rhs.cast.i.i131.pre-phi
   store ptr %78, ptr %text_message_with_prefix_and_newline_and_nul_.i, align 8

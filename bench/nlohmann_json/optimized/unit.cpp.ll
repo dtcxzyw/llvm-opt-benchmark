@@ -33152,13 +33152,12 @@ if.else:                                          ; preds = %if.then
   %incdec.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds ptr, ptr %6, i64 -1
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIPN7doctest9IReporterESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %.pre.i.i.i.i.i.i
@@ -33188,7 +33187,6 @@ _ZNKSt6vectorIPN7doctest9IReporterESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds =
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
   %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i7 to i64
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIPN7doctest9IReporterESaIS2_EE11_M_allocateEm.exit.i, label %cond.true.i.i
@@ -33213,7 +33211,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIPN7doctest9IReporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt12_Vector_baseIPN7doctest9IReporterESaIS2_EE11_M_allocateEm.exit.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i
   %incdec.ptr.i9 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
-  %sub.ptr.sub.i.i.i13.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
+  %sub.ptr.sub.i.i.i13.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i
   %cmp.i.i.i14.i = icmp sgt i64 %sub.ptr.sub.i.i.i13.i, 0
   br i1 %cmp.i.i.i14.i, label %if.then.i.i.i16.i, label %_ZNSt6vectorIPN7doctest9IReporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i
 

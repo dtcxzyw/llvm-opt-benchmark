@@ -364,10 +364,10 @@ if.end:                                           ; preds = %entry
   %15 = load ptr, ptr %BufferStart.i, align 8
   %BufferEnd.i.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %14, i64 0, i32 2
   %16 = load ptr, ptr %BufferEnd.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i, 0
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i
+  %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
@@ -379,9 +379,9 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.end
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIhSaIhEEC2IPKcvEET_S5_RKS0_.exit, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #21
-  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %15, i64 %sub.ptr.sub.i.i, i1 false)
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #21
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %15, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i

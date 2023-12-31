@@ -24169,8 +24169,7 @@ if.else:                                          ; preds = %if.then
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.402", ptr %6, i64 -1
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIPN4cvc58internal12NodeTemplateILb0EEES4_ET0_T_S6_S5_.exit.i
@@ -24247,13 +24246,13 @@ for.inc.i.i.i.i.i.i:                              ; preds = %invoke.cont.i, %for
   store ptr %13, ptr %__cur.09.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i10 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.402", ptr %__first.addr.08.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i11 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.402", ptr %__cur.09.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i10, %add.ptr.i7
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i10, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont10.i, label %for.inc.i.i.i.i.i.i, !llvm.loop !274
 
 invoke.cont10.i:                                  ; preds = %for.inc.i.i.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i19.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i.i.i11, %for.inc.i.i.i.i.i.i ]
   %incdec.ptr.i12 = getelementptr %"class.cvc5::internal::NodeTemplate.402", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
-  %cmp.not7.i.i.i.i.i20.i = icmp eq ptr %1, %add.ptr.i7
+  %cmp.not7.i.i.i.i.i20.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i20.i, label %invoke.cont14.i, label %for.inc.i.i.i.i.i21.i
 
 for.inc.i.i.i.i.i21.i:                            ; preds = %invoke.cont10.i, %for.inc.i.i.i.i.i21.i

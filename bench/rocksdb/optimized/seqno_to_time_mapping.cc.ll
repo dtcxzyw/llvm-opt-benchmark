@@ -1952,9 +1952,8 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %sub.ptr.lhs.cast.i8 = ptrtoint ptr %add.ptr.i4 to i64
   %sub.ptr.rhs.cast.i9 = ptrtoint ptr %call2.i5 to i64
-  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.rhs.cast.i9
+  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i9
   store ptr %call2.i5, ptr %input, align 8
   store i64 %sub.ptr.sub.i10, ptr %size_.i.i, align 8
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6

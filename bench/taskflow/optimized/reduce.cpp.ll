@@ -11753,19 +11753,17 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
+  %cmp4.i = icmp ule i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %tobool.not.i.i = icmp eq ptr %.lcssa, %__first.sroa.0.119.i.i
+  %or.cond = or i1 %tobool.not.i.i, %cmp4.i
+  br i1 %or.cond, label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
 
-if.then5.i:                                       ; preds = %if.else.i
+invoke.cont.i.i:                                  ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i.i
-  %tobool.not.i.i = icmp eq ptr %.lcssa, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit:   ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit:   ; preds = %if.then.i, %if.else.i, %invoke.cont.i.i
   ret void
 }
 

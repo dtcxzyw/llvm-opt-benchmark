@@ -1252,15 +1252,13 @@ if.then.i190:                                     ; preds = %if.then49
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit191:        ; preds = %if.then49
   %add.ptr.i184 = getelementptr inbounds i8, ptr %sp.coerce0, i64 %tokenStartPos.1
-  %add.ptr.i.i187 = getelementptr inbounds i8, ptr %sp.coerce0, i64 %sub.ptr.sub.i
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i192) #20, !noalias !60
   %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result.i192, i64 0, i32 2
   store ptr %44, ptr %result.i192, align 8, !tbaa !33, !noalias !60
   %_M_string_length.i.i.i.i193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result.i192, i64 0, i32 1
-  %sub.ptr.lhs.cast.i.i.i.i194 = ptrtoint ptr %add.ptr.i.i187 to i64
   %sub.ptr.rhs.cast.i.i.i.i195 = ptrtoint ptr %add.ptr.i184 to i64
-  %sub.ptr.sub.i.i.i.i196 = sub i64 %sub.ptr.lhs.cast.i.i.i.i194, %sub.ptr.rhs.cast.i.i.i.i195
+  %sub.ptr.sub.i.i.i.i196 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i195
   %cmp.i.i.i.i.i197 = icmp ugt i64 %sub.ptr.sub.i.i.i.i196, 4611686018427387903
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %_M_string_length.i.i.i.i193, i8 0, i64 9, i1 false), !noalias !60
   br i1 %cmp.i.i.i.i.i197, label %if.then.i.i.i.i.i214, label %_ZN5folly7parseToENS_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i198
@@ -2315,15 +2313,13 @@ if.then.i168:                                     ; preds = %if.then35
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit169:        ; preds = %if.then35
   %add.ptr.i162 = getelementptr inbounds i8, ptr %sp.coerce0, i64 %tokenStartPos.1
-  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %sp.coerce0, i64 %sub.ptr.sub.i
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i170) #20, !noalias !104
   %43 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result.i170, i64 0, i32 2
   store ptr %43, ptr %result.i170, align 8, !tbaa !33, !noalias !104
   %_M_string_length.i.i.i.i171 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result.i170, i64 0, i32 1
-  %sub.ptr.lhs.cast.i.i.i.i172 = ptrtoint ptr %add.ptr.i.i165 to i64
   %sub.ptr.rhs.cast.i.i.i.i173 = ptrtoint ptr %add.ptr.i162 to i64
-  %sub.ptr.sub.i.i.i.i174 = sub i64 %sub.ptr.lhs.cast.i.i.i.i172, %sub.ptr.rhs.cast.i.i.i.i173
+  %sub.ptr.sub.i.i.i.i174 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i173
   %cmp.i.i.i.i.i175 = icmp ugt i64 %sub.ptr.sub.i.i.i.i174, 4611686018427387903
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %_M_string_length.i.i.i.i171, i8 0, i64 9, i1 false), !noalias !104
   br i1 %cmp.i.i.i.i.i175, label %if.then.i.i.i.i.i192, label %_ZN5folly7parseToENS_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i176

@@ -311,7 +311,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.temp_allocate_frame = private unnamed_addr constant [6 x i64] [i64 4, i64 8, i64 16, i64 8, i64 16, i64 16], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @gen_new_label() local_unnamed_addr #0 {
+define dso_local noundef ptr @gen_new_label() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -726,9 +726,9 @@ vaarg.end.thread:                                 ; preds = %entry
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   %3 = load i64, ptr %overflow_arg_area, align 8
   %4 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i46213 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i47214 = sub i64 %3, %sub.ptr.rhs.cast.i.i46213
-  %5 = inttoptr i64 %sub.ptr.sub.i.i47214 to ptr
+  %sub.ptr.rhs.cast.i.i46212 = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i.i47213 = sub i64 %3, %sub.ptr.rhs.cast.i.i46212
+  %5 = inttoptr i64 %sub.ptr.sub.i.i47213 to ptr
   br label %vaarg.in_mem11
 
 vaarg.end:                                        ; preds = %entry
@@ -757,8 +757,8 @@ vaarg.in_reg9:                                    ; preds = %vaarg.end
 
 vaarg.in_mem11:                                   ; preds = %vaarg.end.thread, %vaarg.end
   %17 = phi ptr [ %5, %vaarg.end.thread ], [ %12, %vaarg.end ]
-  %sub.ptr.sub.i.i47218 = phi i64 [ %sub.ptr.sub.i.i47214, %vaarg.end.thread ], [ %sub.ptr.sub.i.i47, %vaarg.end ]
-  %gp_offset7216 = phi i32 [ %gp_offset, %vaarg.end.thread ], [ %9, %vaarg.end ]
+  %sub.ptr.sub.i.i47217 = phi i64 [ %sub.ptr.sub.i.i47213, %vaarg.end.thread ], [ %sub.ptr.sub.i.i47, %vaarg.end ]
+  %gp_offset7215 = phi i32 [ %gp_offset, %vaarg.end.thread ], [ %9, %vaarg.end ]
   %overflow_arg_area_p12 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
   %overflow_arg_area13 = load ptr, ptr %overflow_arg_area_p12, align 8
   %overflow_arg_area.next14 = getelementptr i8, ptr %overflow_arg_area13, i64 8
@@ -767,8 +767,8 @@ vaarg.in_mem11:                                   ; preds = %vaarg.end.thread, %
 
 vaarg.end15:                                      ; preds = %vaarg.in_mem11, %vaarg.in_reg9
   %18 = phi ptr [ %12, %vaarg.in_reg9 ], [ %17, %vaarg.in_mem11 ]
-  %sub.ptr.sub.i.i47217 = phi i64 [ %sub.ptr.sub.i.i47, %vaarg.in_reg9 ], [ %sub.ptr.sub.i.i47218, %vaarg.in_mem11 ]
-  %gp_offset36 = phi i32 [ %16, %vaarg.in_reg9 ], [ %gp_offset7216, %vaarg.in_mem11 ]
+  %sub.ptr.sub.i.i47216 = phi i64 [ %sub.ptr.sub.i.i47, %vaarg.in_reg9 ], [ %sub.ptr.sub.i.i47217, %vaarg.in_mem11 ]
+  %gp_offset36 = phi i32 [ %16, %vaarg.in_reg9 ], [ %gp_offset7215, %vaarg.in_mem11 ]
   %vaarg.addr16 = phi ptr [ %15, %vaarg.in_reg9 ], [ %overflow_arg_area13, %vaarg.in_mem11 ]
   %19 = load i64, ptr %vaarg.addr16, align 8
   switch i32 %opc, label %sw.epilog [
@@ -809,13 +809,13 @@ sw.bb.i:                                          ; preds = %sw.bb17
   %23 = inttoptr i64 %sub.ptr.sub.i.i.i47.i to ptr
   %add.ptr.i.i.i.i = getelementptr i8, ptr %22, i64 %sub.ptr.sub.i.i.i.i
   %24 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %add.ptr.i.i.i48.i = getelementptr i8, ptr %22, i64 %sub.ptr.sub.i.i47217
+  %add.ptr.i.i.i48.i = getelementptr i8, ptr %22, i64 %sub.ptr.sub.i.i47216
   %25 = ptrtoint ptr %add.ptr.i.i.i48.i to i64
   call void @vec_gen_3(i32 noundef 201, i32 noundef %type, i32 noundef 0, i64 noundef %24, i64 noundef %25, i64 noundef %25) #28
   %26 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i50.i = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i.i.i47.i
   %27 = ptrtoint ptr %add.ptr.i.i.i50.i to i64
-  %add.ptr.i.i.i51.i = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i.i47217
+  %add.ptr.i.i.i51.i = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i.i47216
   %28 = ptrtoint ptr %add.ptr.i.i.i51.i to i64
   call void @vec_gen_3(i32 noundef 202, i32 noundef %type, i32 noundef 0, i64 noundef %27, i64 noundef %28, i64 noundef %28) #28
   %add.i = add i64 %19, 8
@@ -1037,7 +1037,7 @@ if.then6.i:                                       ; preds = %if.end.i49
   %60 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i.i72 = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i
   %61 = ptrtoint ptr %add.ptr.i.i.i.i72 to i64
-  %add.ptr.i.i.i23.i = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i47217
+  %add.ptr.i.i.i23.i = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i47216
   %62 = ptrtoint ptr %add.ptr.i.i.i23.i to i64
   call void @vec_gen_4(i32 noundef 203, i32 noundef %type, i32 noundef %vece, i64 noundef %61, i64 noundef %62, i64 noundef %62, i64 noundef %19) #28
   br label %sw.epilog
@@ -1323,8 +1323,8 @@ if.then.i38.i.i:                                  ; preds = %if.end34.i.i
   unreachable
 
 tcg_temp_alloc.exit.i.i:                          ; preds = %if.end34.i.i
-  %idxprom.i.i.i166 = sext i32 %104 to i64
-  %arrayidx.i.i228.i = getelementptr %struct.TCGContext, ptr %98, i64 0, i32 37, i64 %idxprom.i.i.i166
+  %idxprom.i.i.i165 = sext i32 %104 to i64
+  %arrayidx.i.i228.i = getelementptr %struct.TCGContext, ptr %98, i64 0, i32 37, i64 %idxprom.i.i.i165
   %105 = getelementptr inbounds i8, ptr %arrayidx.i.i228.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %105, i8 0, i64 48, i1 false)
   store i64 549823184896, ptr %arrayidx.i.i228.i, align 8
@@ -1407,45 +1407,45 @@ tcg_temp_new_internal.exit260.i:                  ; preds = %tcg_temp_alloc.exit
   %arrayidx.i.i.i125 = getelementptr %struct.TCGContext, ptr %115, i64 0, i32 35, i64 4
   %117 = load ptr, ptr %arrayidx.i.i.i125, align 8
   %cmp.i.i.i126 = icmp eq ptr %117, null
-  br i1 %cmp.i.i.i126, label %if.then.i.i.i164, label %if.end.i.i.i127
+  br i1 %cmp.i.i.i126, label %if.then.i.i.i163, label %if.end.i.i.i127
 
-if.then.i.i.i164:                                 ; preds = %tcg_temp_new_internal.exit260.i
-  %call.i.i.i165 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #28
-  store ptr %call.i.i.i165, ptr %arrayidx.i.i.i125, align 8
+if.then.i.i.i163:                                 ; preds = %tcg_temp_new_internal.exit260.i
+  %call.i.i.i164 = call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #28
+  store ptr %call.i.i.i164, ptr %arrayidx.i.i.i125, align 8
   br label %if.end.i.i.i127
 
-if.end.i.i.i127:                                  ; preds = %if.then.i.i.i164, %tcg_temp_new_internal.exit260.i
-  %h.0.i.i.i128 = phi ptr [ %call.i.i.i165, %if.then.i.i.i164 ], [ %117, %tcg_temp_new_internal.exit260.i ]
+if.end.i.i.i127:                                  ; preds = %if.then.i.i.i163, %tcg_temp_new_internal.exit260.i
+  %h.0.i.i.i128 = phi ptr [ %call.i.i.i164, %if.then.i.i.i163 ], [ %117, %tcg_temp_new_internal.exit260.i ]
   %call4.i.i.i129 = call ptr @g_hash_table_lookup(ptr noundef %h.0.i.i.i128, ptr noundef nonnull %val.addr.i.i.i111) #28
   %cmp5.i.i.i130 = icmp eq ptr %call4.i.i.i129, null
-  br i1 %cmp5.i.i.i130, label %if.then6.i.i.i154, label %tcg_constant_vec.exit.i131
+  br i1 %cmp5.i.i.i130, label %if.then6.i.i.i153, label %tcg_constant_vec.exit.i131
 
-if.then6.i.i.i154:                                ; preds = %if.end.i.i.i127
-  %nb_temps.i.i.i.i155 = getelementptr inbounds %struct.TCGContext, ptr %115, i64 0, i32 7
-  %118 = load i32, ptr %nb_temps.i.i.i.i155, align 8
-  %inc.i.i.i.i156 = add i32 %118, 1
-  store i32 %inc.i.i.i.i156, ptr %nb_temps.i.i.i.i155, align 8
-  %cmp.i.i.i.i157 = icmp sgt i32 %118, 511
-  br i1 %cmp.i.i.i.i157, label %if.then.i.i.i.i163, label %tcg_temp_alloc.exit.i.i.i158
+if.then6.i.i.i153:                                ; preds = %if.end.i.i.i127
+  %nb_temps.i.i.i.i154 = getelementptr inbounds %struct.TCGContext, ptr %115, i64 0, i32 7
+  %118 = load i32, ptr %nb_temps.i.i.i.i154, align 8
+  %inc.i.i.i.i155 = add i32 %118, 1
+  store i32 %inc.i.i.i.i155, ptr %nb_temps.i.i.i.i154, align 8
+  %cmp.i.i.i.i156 = icmp sgt i32 %118, 511
+  br i1 %cmp.i.i.i.i156, label %if.then.i.i.i.i162, label %tcg_temp_alloc.exit.i.i.i157
 
-if.then.i.i.i.i163:                               ; preds = %if.then6.i.i.i154
+if.then.i.i.i.i162:                               ; preds = %if.then6.i.i.i153
   call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %115) #29
   unreachable
 
-tcg_temp_alloc.exit.i.i.i158:                     ; preds = %if.then6.i.i.i154
-  %idxprom.i.i.i.i159 = sext i32 %118 to i64
-  %arrayidx.i.i.i.i160 = getelementptr %struct.TCGContext, ptr %115, i64 0, i32 37, i64 %idxprom.i.i.i.i159
-  %119 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i160, i64 8
+tcg_temp_alloc.exit.i.i.i157:                     ; preds = %if.then6.i.i.i153
+  %idxprom.i.i.i.i158 = sext i32 %118 to i64
+  %arrayidx.i.i.i.i159 = getelementptr %struct.TCGContext, ptr %115, i64 0, i32 37, i64 %idxprom.i.i.i.i158
+  %119 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i159, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 48, i1 false)
-  store i64 567003054080, ptr %arrayidx.i.i.i.i160, align 8
+  store i64 567003054080, ptr %arrayidx.i.i.i.i159, align 8
   %120 = load i64, ptr %val.addr.i.i.i111, align 8
-  %val20.i.i.i161 = getelementptr %struct.TCGContext, ptr %115, i64 0, i32 37, i64 %idxprom.i.i.i.i159, i32 1
-  store i64 %120, ptr %val20.i.i.i161, align 8
-  %call22.i.i.i162 = call i32 @g_hash_table_insert(ptr noundef %h.0.i.i.i128, ptr noundef nonnull %val20.i.i.i161, ptr noundef nonnull %arrayidx.i.i.i.i160) #28
+  %val20.i.i.i160 = getelementptr %struct.TCGContext, ptr %115, i64 0, i32 37, i64 %idxprom.i.i.i.i158, i32 1
+  store i64 %120, ptr %val20.i.i.i160, align 8
+  %call22.i.i.i161 = call i32 @g_hash_table_insert(ptr noundef %h.0.i.i.i128, ptr noundef nonnull %val20.i.i.i160, ptr noundef nonnull %arrayidx.i.i.i.i159) #28
   br label %tcg_constant_vec.exit.i131
 
-tcg_constant_vec.exit.i131:                       ; preds = %tcg_temp_alloc.exit.i.i.i158, %if.end.i.i.i127
-  %ts.0.i.i.i132 = phi ptr [ %arrayidx.i.i.i.i160, %tcg_temp_alloc.exit.i.i.i158 ], [ %call4.i.i.i129, %if.end.i.i.i127 ]
+tcg_constant_vec.exit.i131:                       ; preds = %tcg_temp_alloc.exit.i.i.i157, %if.end.i.i.i127
+  %ts.0.i.i.i132 = phi ptr [ %arrayidx.i.i.i.i159, %tcg_temp_alloc.exit.i.i.i157 ], [ %call4.i.i.i129, %if.end.i.i.i127 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i.i.i111)
   %121 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i51.i = ptrtoint ptr %ts.0.i.i.i132 to i64
@@ -1453,115 +1453,113 @@ tcg_constant_vec.exit.i131:                       ; preds = %tcg_temp_alloc.exit
   %sub.ptr.sub.i.i.i53.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i51.i, %sub.ptr.rhs.cast.i.i.i52.i
   %add.ptr.i.i.i.i133 = getelementptr i8, ptr %121, i64 %sub.ptr.sub.i.i.i.i124
   %122 = ptrtoint ptr %add.ptr.i.i.i.i133 to i64
-  %add.ptr.i.i.i54.i134 = getelementptr i8, ptr %121, i64 %sub.ptr.sub.i.i47217
+  %add.ptr.i.i.i54.i134 = getelementptr i8, ptr %121, i64 %sub.ptr.sub.i.i47216
   %123 = ptrtoint ptr %add.ptr.i.i.i54.i134 to i64
-  %add.ptr.i.i.i55.i135 = getelementptr i8, ptr %121, i64 %sub.ptr.sub.i.i.i53.i
-  %124 = ptrtoint ptr %add.ptr.i.i.i55.i135 to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef 4, i32 noundef 0, i64 noundef %122, i64 noundef %123, i64 noundef %124) #28
-  %125 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i56.i136 = getelementptr i8, ptr %125, i64 %sub.ptr.sub.i.i.i50.i
-  %126 = ptrtoint ptr %add.ptr.i.i.i56.i136 to i64
-  %add.ptr.i.i.i57.i = getelementptr i8, ptr %125, i64 %sub.ptr.sub.i.i.i53.i
-  %127 = ptrtoint ptr %add.ptr.i.i.i57.i to i64
-  %add.ptr.i.i.i58.i = getelementptr i8, ptr %125, i64 %sub.ptr.sub.i.i110
-  %128 = ptrtoint ptr %add.ptr.i.i.i58.i to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef 4, i32 noundef 0, i64 noundef %126, i64 noundef %127, i64 noundef %128) #28
+  call void @vec_gen_3(i32 noundef 201, i32 noundef 4, i32 noundef 0, i64 noundef %122, i64 noundef %123, i64 noundef %sub.ptr.lhs.cast.i.i.i.i51.i) #28
+  %124 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i56.i135 = getelementptr i8, ptr %124, i64 %sub.ptr.sub.i.i.i50.i
+  %125 = ptrtoint ptr %add.ptr.i.i.i56.i135 to i64
+  %add.ptr.i.i.i57.i = getelementptr i8, ptr %124, i64 %sub.ptr.sub.i.i.i53.i
+  %126 = ptrtoint ptr %add.ptr.i.i.i57.i to i64
+  %add.ptr.i.i.i58.i = getelementptr i8, ptr %124, i64 %sub.ptr.sub.i.i110
+  %127 = ptrtoint ptr %add.ptr.i.i.i58.i to i64
+  call void @vec_gen_3(i32 noundef 201, i32 noundef 4, i32 noundef 0, i64 noundef %125, i64 noundef %126, i64 noundef %127) #28
   call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %107, ptr noundef %107, ptr noundef %116) #28
   call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %107, ptr noundef %107, i64 noundef 8) #28
-  %129 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i59.i137 = getelementptr i8, ptr %129, i64 %sub.ptr.sub.i.i
-  %130 = ptrtoint ptr %add.ptr.i.i.i59.i137 to i64
-  %add.ptr.i.i.i60.i = getelementptr i8, ptr %129, i64 %sub.ptr.sub.i.i.i.i124
-  %131 = ptrtoint ptr %add.ptr.i.i.i60.i to i64
-  call void @vec_gen_3(i32 noundef 198, i32 noundef 4, i32 noundef 0, i64 noundef %130, i64 noundef %131, i64 noundef %131) #28
-  %132 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i62.i = getelementptr i8, ptr %132, i64 %sub.ptr.sub.i.i.i.i124
-  %bf.load.i.i.i138 = load i64, ptr %add.ptr.i.i.i62.i, align 8
-  %bf.lshr.i.i.i139 = lshr i64 %bf.load.i.i.i138, 32
-  %133 = trunc i64 %bf.lshr.i.i.i139 to i32
-  %bf.cast.i.i.i140 = and i32 %133, 7
-  switch i32 %bf.cast.i.i.i140, label %do.body12.i.i.i153 [
-    i32 4, label %tcg_temp_free_vec.exit.i152
-    i32 1, label %tcg_temp_free_vec.exit.i152
-    i32 0, label %do.body.i.i.i141
+  %128 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i59.i136 = getelementptr i8, ptr %128, i64 %sub.ptr.sub.i.i
+  %129 = ptrtoint ptr %add.ptr.i.i.i59.i136 to i64
+  %add.ptr.i.i.i60.i = getelementptr i8, ptr %128, i64 %sub.ptr.sub.i.i.i.i124
+  %130 = ptrtoint ptr %add.ptr.i.i.i60.i to i64
+  call void @vec_gen_3(i32 noundef 198, i32 noundef 4, i32 noundef 0, i64 noundef %129, i64 noundef %130, i64 noundef %130) #28
+  %131 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i62.i = getelementptr i8, ptr %131, i64 %sub.ptr.sub.i.i.i.i124
+  %bf.load.i.i.i137 = load i64, ptr %add.ptr.i.i.i62.i, align 8
+  %bf.lshr.i.i.i138 = lshr i64 %bf.load.i.i.i137, 32
+  %132 = trunc i64 %bf.lshr.i.i.i138 to i32
+  %bf.cast.i.i.i139 = and i32 %132, 7
+  switch i32 %bf.cast.i.i.i139, label %do.body12.i.i.i152 [
+    i32 4, label %tcg_temp_free_vec.exit.i151
+    i32 1, label %tcg_temp_free_vec.exit.i151
+    i32 0, label %do.body.i.i.i140
   ]
 
-do.body.i.i.i141:                                 ; preds = %tcg_constant_vec.exit.i131
-  %134 = and i64 %bf.load.i.i.i138, 549755813888
-  %cmp.i.i63.i = icmp ne i64 %134, 0
+do.body.i.i.i140:                                 ; preds = %tcg_constant_vec.exit.i131
+  %133 = and i64 %bf.load.i.i.i137, 549755813888
+  %cmp.i.i63.i = icmp ne i64 %133, 0
   call void @llvm.assume(i1 %cmp.i.i63.i)
-  %bf.clear7.i.i.i142 = and i64 %bf.load.i.i.i138, -549755813889
-  store i64 %bf.clear7.i.i.i142, ptr %add.ptr.i.i.i62.i, align 8
-  %135 = load ptr, ptr %0, align 8
-  %temps.i.i.i.i143 = getelementptr inbounds %struct.TCGContext, ptr %135, i64 0, i32 37
-  %sub.ptr.lhs.cast.i.i.i.i144 = ptrtoint ptr %add.ptr.i.i.i62.i to i64
-  %sub.ptr.rhs.cast.i.i.i64.i = ptrtoint ptr %temps.i.i.i.i143 to i64
-  %sub.ptr.sub.i.i.i65.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i144, %sub.ptr.rhs.cast.i.i.i64.i
-  %sub.ptr.div.i.i.i.i145 = sdiv exact i64 %sub.ptr.sub.i.i.i65.i, 56
-  %136 = lshr i64 %bf.load.i.i.i138, 16
-  %bf.cast11.i.i.i146 = and i64 %136, 255
-  %arrayidx.i.i66.i = getelementptr %struct.TCGContext, ptr %132, i64 0, i32 36, i64 %bf.cast11.i.i.i146
-  %rem.i.i.i.i147 = and i64 %sub.ptr.div.i.i.i.i145, 63
-  %shl.i.i.i.i148 = shl nuw i64 1, %rem.i.i.i.i147
-  %div2.i.i.i.i149 = lshr i64 %sub.ptr.div.i.i.i.i145, 6
-  %add.ptr.i.i1.i.i150 = getelementptr i64, ptr %arrayidx.i.i66.i, i64 %div2.i.i.i.i149
-  %137 = load i64, ptr %add.ptr.i.i1.i.i150, align 8
-  %or.i.i.i.i151 = or i64 %shl.i.i.i.i148, %137
-  store i64 %or.i.i.i.i151, ptr %add.ptr.i.i1.i.i150, align 8
+  %bf.clear7.i.i.i141 = and i64 %bf.load.i.i.i137, -549755813889
+  store i64 %bf.clear7.i.i.i141, ptr %add.ptr.i.i.i62.i, align 8
+  %134 = load ptr, ptr %0, align 8
+  %temps.i.i.i.i142 = getelementptr inbounds %struct.TCGContext, ptr %134, i64 0, i32 37
+  %sub.ptr.lhs.cast.i.i.i.i143 = ptrtoint ptr %add.ptr.i.i.i62.i to i64
+  %sub.ptr.rhs.cast.i.i.i64.i = ptrtoint ptr %temps.i.i.i.i142 to i64
+  %sub.ptr.sub.i.i.i65.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i143, %sub.ptr.rhs.cast.i.i.i64.i
+  %sub.ptr.div.i.i.i.i144 = sdiv exact i64 %sub.ptr.sub.i.i.i65.i, 56
+  %135 = lshr i64 %bf.load.i.i.i137, 16
+  %bf.cast11.i.i.i145 = and i64 %135, 255
+  %arrayidx.i.i66.i = getelementptr %struct.TCGContext, ptr %131, i64 0, i32 36, i64 %bf.cast11.i.i.i145
+  %rem.i.i.i.i146 = and i64 %sub.ptr.div.i.i.i.i144, 63
+  %shl.i.i.i.i147 = shl nuw i64 1, %rem.i.i.i.i146
+  %div2.i.i.i.i148 = lshr i64 %sub.ptr.div.i.i.i.i144, 6
+  %add.ptr.i.i1.i.i149 = getelementptr i64, ptr %arrayidx.i.i66.i, i64 %div2.i.i.i.i148
+  %136 = load i64, ptr %add.ptr.i.i1.i.i149, align 8
+  %or.i.i.i.i150 = or i64 %shl.i.i.i.i147, %136
+  store i64 %or.i.i.i.i150, ptr %add.ptr.i.i1.i.i149, align 8
   %.pre273.i = load ptr, ptr %0, align 8
-  br label %tcg_temp_free_vec.exit.i152
+  br label %tcg_temp_free_vec.exit.i151
 
-do.body12.i.i.i153:                               ; preds = %tcg_constant_vec.exit.i131
+do.body12.i.i.i152:                               ; preds = %tcg_constant_vec.exit.i131
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1808, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #27
   unreachable
 
-tcg_temp_free_vec.exit.i152:                      ; preds = %do.body.i.i.i141, %tcg_constant_vec.exit.i131, %tcg_constant_vec.exit.i131
-  %138 = phi ptr [ %132, %tcg_constant_vec.exit.i131 ], [ %132, %tcg_constant_vec.exit.i131 ], [ %.pre273.i, %do.body.i.i.i141 ]
-  %add.ptr.i.i.i67.i = getelementptr i8, ptr %138, i64 %sub.ptr.sub.i.i.i50.i
+tcg_temp_free_vec.exit.i151:                      ; preds = %do.body.i.i.i140, %tcg_constant_vec.exit.i131, %tcg_constant_vec.exit.i131
+  %137 = phi ptr [ %131, %tcg_constant_vec.exit.i131 ], [ %131, %tcg_constant_vec.exit.i131 ], [ %.pre273.i, %do.body.i.i.i140 ]
+  %add.ptr.i.i.i67.i = getelementptr i8, ptr %137, i64 %sub.ptr.sub.i.i.i50.i
   %bf.load.i.i68.i = load i64, ptr %add.ptr.i.i.i67.i, align 8
   %bf.lshr.i.i69.i = lshr i64 %bf.load.i.i68.i, 32
-  %139 = trunc i64 %bf.lshr.i.i69.i to i32
-  %bf.cast.i.i70.i = and i32 %139, 7
+  %138 = trunc i64 %bf.lshr.i.i69.i to i32
+  %bf.cast.i.i70.i = and i32 %138, 7
   switch i32 %bf.cast.i.i70.i, label %do.body12.i.i86.i [
     i32 4, label %sw.epilog
     i32 1, label %sw.epilog
     i32 0, label %sw.epilog.sink.split.i118
   ]
 
-do.body12.i.i86.i:                                ; preds = %tcg_temp_free_vec.exit.i152
+do.body12.i.i86.i:                                ; preds = %tcg_temp_free_vec.exit.i151
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1808, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #27
   unreachable
 
 sw.bb12.i113:                                     ; preds = %sw.bb28, %sw.bb28
   %call.i88.i = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
-  %140 = load ptr, ptr %0, align 8
+  %139 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i89.i114 = ptrtoint ptr %call.i88.i to i64
-  %sub.ptr.rhs.cast.i.i.i90.i115 = ptrtoint ptr %140 to i64
+  %sub.ptr.rhs.cast.i.i.i90.i115 = ptrtoint ptr %139 to i64
   %sub.ptr.sub.i.i.i91.i116 = sub i64 %sub.ptr.lhs.cast.i.i.i.i89.i114, %sub.ptr.rhs.cast.i.i.i90.i115
-  %141 = inttoptr i64 %sub.ptr.sub.i.i.i91.i116 to ptr
+  %140 = inttoptr i64 %sub.ptr.sub.i.i.i91.i116 to ptr
   %call.i92.i = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
-  %142 = load ptr, ptr %0, align 8
+  %141 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i93.i = ptrtoint ptr %call.i92.i to i64
-  %sub.ptr.rhs.cast.i.i.i94.i = ptrtoint ptr %142 to i64
+  %sub.ptr.rhs.cast.i.i.i94.i = ptrtoint ptr %141 to i64
   %sub.ptr.sub.i.i.i95.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i93.i, %sub.ptr.rhs.cast.i.i.i94.i
-  %143 = inttoptr i64 %sub.ptr.sub.i.i.i95.i to ptr
+  %142 = inttoptr i64 %sub.ptr.sub.i.i.i95.i to ptr
   %call.i96.i = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
-  %144 = load ptr, ptr %0, align 8
+  %143 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i97.i = ptrtoint ptr %call.i96.i to i64
-  %sub.ptr.rhs.cast.i.i.i98.i = ptrtoint ptr %144 to i64
+  %sub.ptr.rhs.cast.i.i.i98.i = ptrtoint ptr %143 to i64
   %sub.ptr.sub.i.i.i99.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i97.i, %sub.ptr.rhs.cast.i.i.i98.i
-  %145 = inttoptr i64 %sub.ptr.sub.i.i.i99.i to ptr
+  %144 = inttoptr i64 %sub.ptr.sub.i.i.i99.i to ptr
   %call.i100.i = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
-  %146 = load ptr, ptr %0, align 8
+  %145 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i101.i = ptrtoint ptr %call.i100.i to i64
-  %sub.ptr.rhs.cast.i.i.i102.i = ptrtoint ptr %146 to i64
+  %sub.ptr.rhs.cast.i.i.i102.i = ptrtoint ptr %145 to i64
   %sub.ptr.sub.i.i.i103.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i101.i, %sub.ptr.rhs.cast.i.i.i102.i
-  %147 = inttoptr i64 %sub.ptr.sub.i.i.i103.i to ptr
+  %146 = inttoptr i64 %sub.ptr.sub.i.i.i103.i to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i.i104.i)
   store i64 0, ptr %val.addr.i.i104.i, align 8
-  %arrayidx.i.i105.i = getelementptr %struct.TCGContext, ptr %146, i64 0, i32 35, i64 4
-  %148 = load ptr, ptr %arrayidx.i.i105.i, align 8
-  %cmp.i.i106.i = icmp eq ptr %148, null
+  %arrayidx.i.i105.i = getelementptr %struct.TCGContext, ptr %145, i64 0, i32 35, i64 4
+  %147 = load ptr, ptr %arrayidx.i.i105.i, align 8
+  %cmp.i.i106.i = icmp eq ptr %147, null
   br i1 %cmp.i.i106.i, label %if.then.i.i125.i, label %if.end.i.i107.i
 
 if.then.i.i125.i:                                 ; preds = %sw.bb12.i113
@@ -1570,91 +1568,89 @@ if.then.i.i125.i:                                 ; preds = %sw.bb12.i113
   br label %if.end.i.i107.i
 
 if.end.i.i107.i:                                  ; preds = %if.then.i.i125.i, %sw.bb12.i113
-  %h.0.i.i108.i = phi ptr [ %call.i.i126.i, %if.then.i.i125.i ], [ %148, %sw.bb12.i113 ]
+  %h.0.i.i108.i = phi ptr [ %call.i.i126.i, %if.then.i.i125.i ], [ %147, %sw.bb12.i113 ]
   %call4.i.i109.i = call ptr @g_hash_table_lookup(ptr noundef %h.0.i.i108.i, ptr noundef nonnull %val.addr.i.i104.i) #28
   %cmp5.i.i110.i = icmp eq ptr %call4.i.i109.i, null
   br i1 %cmp5.i.i110.i, label %if.then6.i.i115.i, label %tcg_constant_vec.exit127.i
 
 if.then6.i.i115.i:                                ; preds = %if.end.i.i107.i
-  %nb_temps.i.i.i116.i = getelementptr inbounds %struct.TCGContext, ptr %146, i64 0, i32 7
-  %149 = load i32, ptr %nb_temps.i.i.i116.i, align 8
-  %inc.i.i.i117.i = add i32 %149, 1
+  %nb_temps.i.i.i116.i = getelementptr inbounds %struct.TCGContext, ptr %145, i64 0, i32 7
+  %148 = load i32, ptr %nb_temps.i.i.i116.i, align 8
+  %inc.i.i.i117.i = add i32 %148, 1
   store i32 %inc.i.i.i117.i, ptr %nb_temps.i.i.i116.i, align 8
-  %cmp.i.i.i118.i = icmp sgt i32 %149, 511
+  %cmp.i.i.i118.i = icmp sgt i32 %148, 511
   br i1 %cmp.i.i.i118.i, label %if.then.i.i.i124.i, label %tcg_temp_alloc.exit.i.i119.i
 
 if.then.i.i.i124.i:                               ; preds = %if.then6.i.i115.i
-  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %146) #29
+  call fastcc void @tcg_raise_tb_overflow(ptr noundef nonnull %145) #29
   unreachable
 
 tcg_temp_alloc.exit.i.i119.i:                     ; preds = %if.then6.i.i115.i
-  %idxprom.i.i.i120.i = sext i32 %149 to i64
-  %arrayidx.i.i.i121.i = getelementptr %struct.TCGContext, ptr %146, i64 0, i32 37, i64 %idxprom.i.i.i120.i
-  %150 = getelementptr inbounds i8, ptr %arrayidx.i.i.i121.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %150, i8 0, i64 48, i1 false)
+  %idxprom.i.i.i120.i = sext i32 %148 to i64
+  %arrayidx.i.i.i121.i = getelementptr %struct.TCGContext, ptr %145, i64 0, i32 37, i64 %idxprom.i.i.i120.i
+  %149 = getelementptr inbounds i8, ptr %arrayidx.i.i.i121.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %149, i8 0, i64 48, i1 false)
   store i64 567003054080, ptr %arrayidx.i.i.i121.i, align 8
-  %151 = load i64, ptr %val.addr.i.i104.i, align 8
-  %val20.i.i122.i = getelementptr %struct.TCGContext, ptr %146, i64 0, i32 37, i64 %idxprom.i.i.i120.i, i32 1
-  store i64 %151, ptr %val20.i.i122.i, align 8
+  %150 = load i64, ptr %val.addr.i.i104.i, align 8
+  %val20.i.i122.i = getelementptr %struct.TCGContext, ptr %145, i64 0, i32 37, i64 %idxprom.i.i.i120.i, i32 1
+  store i64 %150, ptr %val20.i.i122.i, align 8
   %call22.i.i123.i = call i32 @g_hash_table_insert(ptr noundef %h.0.i.i108.i, ptr noundef nonnull %val20.i.i122.i, ptr noundef nonnull %arrayidx.i.i.i121.i) #28
   br label %tcg_constant_vec.exit127.i
 
 tcg_constant_vec.exit127.i:                       ; preds = %tcg_temp_alloc.exit.i.i119.i, %if.end.i.i107.i
   %ts.0.i.i111.i = phi ptr [ %arrayidx.i.i.i121.i, %tcg_temp_alloc.exit.i.i119.i ], [ %call4.i.i109.i, %if.end.i.i107.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i.i104.i)
-  %152 = load ptr, ptr %0, align 8
+  %151 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i112.i = ptrtoint ptr %ts.0.i.i111.i to i64
-  %sub.ptr.rhs.cast.i.i.i113.i = ptrtoint ptr %152 to i64
+  %sub.ptr.rhs.cast.i.i.i113.i = ptrtoint ptr %151 to i64
   %sub.ptr.sub.i.i.i114.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i112.i, %sub.ptr.rhs.cast.i.i.i113.i
-  %add.ptr.i.i.i128.i = getelementptr i8, ptr %152, i64 %sub.ptr.sub.i.i.i91.i116
-  %153 = ptrtoint ptr %add.ptr.i.i.i128.i to i64
-  %add.ptr.i.i.i129.i = getelementptr i8, ptr %152, i64 %sub.ptr.sub.i.i47217
-  %154 = ptrtoint ptr %add.ptr.i.i.i129.i to i64
-  %add.ptr.i.i.i130.i = getelementptr i8, ptr %152, i64 %sub.ptr.sub.i.i.i114.i
-  %155 = ptrtoint ptr %add.ptr.i.i.i130.i to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef %type, i32 noundef 0, i64 noundef %153, i64 noundef %154, i64 noundef %155) #28
-  %156 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i131.i = getelementptr i8, ptr %156, i64 %sub.ptr.sub.i.i.i95.i
-  %157 = ptrtoint ptr %add.ptr.i.i.i131.i to i64
-  %add.ptr.i.i.i132.i = getelementptr i8, ptr %156, i64 %sub.ptr.sub.i.i.i114.i
-  %158 = ptrtoint ptr %add.ptr.i.i.i132.i to i64
-  %add.ptr.i.i.i133.i = getelementptr i8, ptr %156, i64 %sub.ptr.sub.i.i110
-  %159 = ptrtoint ptr %add.ptr.i.i.i133.i to i64
-  call void @vec_gen_3(i32 noundef 201, i32 noundef %type, i32 noundef 0, i64 noundef %157, i64 noundef %158, i64 noundef %159) #28
-  %160 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i134.i = getelementptr i8, ptr %160, i64 %sub.ptr.sub.i.i.i99.i
-  %161 = ptrtoint ptr %add.ptr.i.i.i134.i to i64
-  %add.ptr.i.i.i135.i = getelementptr i8, ptr %160, i64 %sub.ptr.sub.i.i47217
-  %162 = ptrtoint ptr %add.ptr.i.i.i135.i to i64
-  %add.ptr.i.i.i136.i = getelementptr i8, ptr %160, i64 %sub.ptr.sub.i.i.i114.i
-  %163 = ptrtoint ptr %add.ptr.i.i.i136.i to i64
-  call void @vec_gen_3(i32 noundef 202, i32 noundef %type, i32 noundef 0, i64 noundef %161, i64 noundef %162, i64 noundef %163) #28
-  %164 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i137.i = getelementptr i8, ptr %164, i64 %sub.ptr.sub.i.i.i103.i
-  %165 = ptrtoint ptr %add.ptr.i.i.i137.i to i64
-  %add.ptr.i.i.i138.i = getelementptr i8, ptr %164, i64 %sub.ptr.sub.i.i.i114.i
-  %166 = ptrtoint ptr %add.ptr.i.i.i138.i to i64
-  %add.ptr.i.i.i139.i = getelementptr i8, ptr %164, i64 %sub.ptr.sub.i.i110
-  %167 = ptrtoint ptr %add.ptr.i.i.i139.i to i64
-  call void @vec_gen_3(i32 noundef 202, i32 noundef %type, i32 noundef 0, i64 noundef %165, i64 noundef %166, i64 noundef %167) #28
-  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %141, ptr noundef %141, ptr noundef %143) #28
-  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %145, ptr noundef %145, ptr noundef %147) #28
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %141, ptr noundef %141, i64 noundef 8) #28
-  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %145, ptr noundef %145, i64 noundef 8) #28
-  %168 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i140.i = getelementptr i8, ptr %168, i64 %sub.ptr.sub.i.i
-  %169 = ptrtoint ptr %add.ptr.i.i.i140.i to i64
-  %add.ptr.i.i.i141.i = getelementptr i8, ptr %168, i64 %sub.ptr.sub.i.i.i91.i116
-  %170 = ptrtoint ptr %add.ptr.i.i.i141.i to i64
-  %add.ptr.i.i.i142.i = getelementptr i8, ptr %168, i64 %sub.ptr.sub.i.i.i99.i
-  %171 = ptrtoint ptr %add.ptr.i.i.i142.i to i64
-  call void @vec_gen_3(i32 noundef 198, i32 noundef %type, i32 noundef 0, i64 noundef %169, i64 noundef %170, i64 noundef %171) #28
-  %172 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i143.i = getelementptr i8, ptr %172, i64 %sub.ptr.sub.i.i.i91.i116
+  %add.ptr.i.i.i128.i = getelementptr i8, ptr %151, i64 %sub.ptr.sub.i.i.i91.i116
+  %152 = ptrtoint ptr %add.ptr.i.i.i128.i to i64
+  %add.ptr.i.i.i129.i = getelementptr i8, ptr %151, i64 %sub.ptr.sub.i.i47216
+  %153 = ptrtoint ptr %add.ptr.i.i.i129.i to i64
+  call void @vec_gen_3(i32 noundef 201, i32 noundef %type, i32 noundef 0, i64 noundef %152, i64 noundef %153, i64 noundef %sub.ptr.lhs.cast.i.i.i.i112.i) #28
+  %154 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i131.i = getelementptr i8, ptr %154, i64 %sub.ptr.sub.i.i.i95.i
+  %155 = ptrtoint ptr %add.ptr.i.i.i131.i to i64
+  %add.ptr.i.i.i132.i = getelementptr i8, ptr %154, i64 %sub.ptr.sub.i.i.i114.i
+  %156 = ptrtoint ptr %add.ptr.i.i.i132.i to i64
+  %add.ptr.i.i.i133.i = getelementptr i8, ptr %154, i64 %sub.ptr.sub.i.i110
+  %157 = ptrtoint ptr %add.ptr.i.i.i133.i to i64
+  call void @vec_gen_3(i32 noundef 201, i32 noundef %type, i32 noundef 0, i64 noundef %155, i64 noundef %156, i64 noundef %157) #28
+  %158 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i134.i = getelementptr i8, ptr %158, i64 %sub.ptr.sub.i.i.i99.i
+  %159 = ptrtoint ptr %add.ptr.i.i.i134.i to i64
+  %add.ptr.i.i.i135.i = getelementptr i8, ptr %158, i64 %sub.ptr.sub.i.i47216
+  %160 = ptrtoint ptr %add.ptr.i.i.i135.i to i64
+  %add.ptr.i.i.i136.i = getelementptr i8, ptr %158, i64 %sub.ptr.sub.i.i.i114.i
+  %161 = ptrtoint ptr %add.ptr.i.i.i136.i to i64
+  call void @vec_gen_3(i32 noundef 202, i32 noundef %type, i32 noundef 0, i64 noundef %159, i64 noundef %160, i64 noundef %161) #28
+  %162 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i137.i = getelementptr i8, ptr %162, i64 %sub.ptr.sub.i.i.i103.i
+  %163 = ptrtoint ptr %add.ptr.i.i.i137.i to i64
+  %add.ptr.i.i.i138.i = getelementptr i8, ptr %162, i64 %sub.ptr.sub.i.i.i114.i
+  %164 = ptrtoint ptr %add.ptr.i.i.i138.i to i64
+  %add.ptr.i.i.i139.i = getelementptr i8, ptr %162, i64 %sub.ptr.sub.i.i110
+  %165 = ptrtoint ptr %add.ptr.i.i.i139.i to i64
+  call void @vec_gen_3(i32 noundef 202, i32 noundef %type, i32 noundef 0, i64 noundef %163, i64 noundef %164, i64 noundef %165) #28
+  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %140, ptr noundef %140, ptr noundef %142) #28
+  call void @tcg_gen_mul_vec(i32 noundef 1, ptr noundef %144, ptr noundef %144, ptr noundef %146) #28
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %140, ptr noundef %140, i64 noundef 8) #28
+  call void @tcg_gen_shri_vec(i32 noundef 1, ptr noundef %144, ptr noundef %144, i64 noundef 8) #28
+  %166 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i140.i = getelementptr i8, ptr %166, i64 %sub.ptr.sub.i.i
+  %167 = ptrtoint ptr %add.ptr.i.i.i140.i to i64
+  %add.ptr.i.i.i141.i = getelementptr i8, ptr %166, i64 %sub.ptr.sub.i.i.i91.i116
+  %168 = ptrtoint ptr %add.ptr.i.i.i141.i to i64
+  %add.ptr.i.i.i142.i = getelementptr i8, ptr %166, i64 %sub.ptr.sub.i.i.i99.i
+  %169 = ptrtoint ptr %add.ptr.i.i.i142.i to i64
+  call void @vec_gen_3(i32 noundef 198, i32 noundef %type, i32 noundef 0, i64 noundef %167, i64 noundef %168, i64 noundef %169) #28
+  %170 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i143.i = getelementptr i8, ptr %170, i64 %sub.ptr.sub.i.i.i91.i116
   %bf.load.i.i144.i = load i64, ptr %add.ptr.i.i.i143.i, align 8
   %bf.lshr.i.i145.i = lshr i64 %bf.load.i.i144.i, 32
-  %173 = trunc i64 %bf.lshr.i.i145.i to i32
-  %bf.cast.i.i146.i = and i32 %173, 7
+  %171 = trunc i64 %bf.lshr.i.i145.i to i32
+  %bf.cast.i.i146.i = and i32 %171, 7
   switch i32 %bf.cast.i.i146.i, label %do.body12.i.i162.i [
     i32 4, label %tcg_temp_free_vec.exit163.i
     i32 1, label %tcg_temp_free_vec.exit163.i
@@ -1662,26 +1658,26 @@ tcg_constant_vec.exit127.i:                       ; preds = %tcg_temp_alloc.exit
   ]
 
 do.body.i.i147.i:                                 ; preds = %tcg_constant_vec.exit127.i
-  %174 = and i64 %bf.load.i.i144.i, 549755813888
-  %cmp.i.i148.i = icmp ne i64 %174, 0
+  %172 = and i64 %bf.load.i.i144.i, 549755813888
+  %cmp.i.i148.i = icmp ne i64 %172, 0
   call void @llvm.assume(i1 %cmp.i.i148.i)
   %bf.clear7.i.i149.i = and i64 %bf.load.i.i144.i, -549755813889
   store i64 %bf.clear7.i.i149.i, ptr %add.ptr.i.i.i143.i, align 8
-  %175 = load ptr, ptr %0, align 8
-  %temps.i.i.i150.i = getelementptr inbounds %struct.TCGContext, ptr %175, i64 0, i32 37
+  %173 = load ptr, ptr %0, align 8
+  %temps.i.i.i150.i = getelementptr inbounds %struct.TCGContext, ptr %173, i64 0, i32 37
   %sub.ptr.lhs.cast.i.i.i151.i = ptrtoint ptr %add.ptr.i.i.i143.i to i64
   %sub.ptr.rhs.cast.i.i.i152.i = ptrtoint ptr %temps.i.i.i150.i to i64
   %sub.ptr.sub.i.i.i153.i = sub i64 %sub.ptr.lhs.cast.i.i.i151.i, %sub.ptr.rhs.cast.i.i.i152.i
   %sub.ptr.div.i.i.i154.i = sdiv exact i64 %sub.ptr.sub.i.i.i153.i, 56
-  %176 = lshr i64 %bf.load.i.i144.i, 16
-  %bf.cast11.i.i155.i = and i64 %176, 255
-  %arrayidx.i.i156.i = getelementptr %struct.TCGContext, ptr %172, i64 0, i32 36, i64 %bf.cast11.i.i155.i
+  %174 = lshr i64 %bf.load.i.i144.i, 16
+  %bf.cast11.i.i155.i = and i64 %174, 255
+  %arrayidx.i.i156.i = getelementptr %struct.TCGContext, ptr %170, i64 0, i32 36, i64 %bf.cast11.i.i155.i
   %rem.i.i.i157.i = and i64 %sub.ptr.div.i.i.i154.i, 63
   %shl.i.i.i158.i = shl nuw i64 1, %rem.i.i.i157.i
   %div2.i.i.i159.i = lshr i64 %sub.ptr.div.i.i.i154.i, 6
   %add.ptr.i.i1.i160.i = getelementptr i64, ptr %arrayidx.i.i156.i, i64 %div2.i.i.i159.i
-  %177 = load i64, ptr %add.ptr.i.i1.i160.i, align 8
-  %or.i.i.i161.i = or i64 %shl.i.i.i158.i, %177
+  %175 = load i64, ptr %add.ptr.i.i1.i160.i, align 8
+  %or.i.i.i161.i = or i64 %shl.i.i.i158.i, %175
   store i64 %or.i.i.i161.i, ptr %add.ptr.i.i1.i160.i, align 8
   %.pre.i117 = load ptr, ptr %0, align 8
   br label %tcg_temp_free_vec.exit163.i
@@ -1691,12 +1687,12 @@ do.body12.i.i162.i:                               ; preds = %tcg_constant_vec.ex
   unreachable
 
 tcg_temp_free_vec.exit163.i:                      ; preds = %do.body.i.i147.i, %tcg_constant_vec.exit127.i, %tcg_constant_vec.exit127.i
-  %178 = phi ptr [ %172, %tcg_constant_vec.exit127.i ], [ %172, %tcg_constant_vec.exit127.i ], [ %.pre.i117, %do.body.i.i147.i ]
-  %add.ptr.i.i.i164.i = getelementptr i8, ptr %178, i64 %sub.ptr.sub.i.i.i95.i
+  %176 = phi ptr [ %170, %tcg_constant_vec.exit127.i ], [ %170, %tcg_constant_vec.exit127.i ], [ %.pre.i117, %do.body.i.i147.i ]
+  %add.ptr.i.i.i164.i = getelementptr i8, ptr %176, i64 %sub.ptr.sub.i.i.i95.i
   %bf.load.i.i165.i = load i64, ptr %add.ptr.i.i.i164.i, align 8
   %bf.lshr.i.i166.i = lshr i64 %bf.load.i.i165.i, 32
-  %179 = trunc i64 %bf.lshr.i.i166.i to i32
-  %bf.cast.i.i167.i = and i32 %179, 7
+  %177 = trunc i64 %bf.lshr.i.i166.i to i32
+  %bf.cast.i.i167.i = and i32 %177, 7
   switch i32 %bf.cast.i.i167.i, label %do.body12.i.i183.i [
     i32 4, label %tcg_temp_free_vec.exit184.i
     i32 1, label %tcg_temp_free_vec.exit184.i
@@ -1704,26 +1700,26 @@ tcg_temp_free_vec.exit163.i:                      ; preds = %do.body.i.i147.i, %
   ]
 
 do.body.i.i168.i:                                 ; preds = %tcg_temp_free_vec.exit163.i
-  %180 = and i64 %bf.load.i.i165.i, 549755813888
-  %cmp.i.i169.i = icmp ne i64 %180, 0
+  %178 = and i64 %bf.load.i.i165.i, 549755813888
+  %cmp.i.i169.i = icmp ne i64 %178, 0
   call void @llvm.assume(i1 %cmp.i.i169.i)
   %bf.clear7.i.i170.i = and i64 %bf.load.i.i165.i, -549755813889
   store i64 %bf.clear7.i.i170.i, ptr %add.ptr.i.i.i164.i, align 8
-  %181 = load ptr, ptr %0, align 8
-  %temps.i.i.i171.i = getelementptr inbounds %struct.TCGContext, ptr %181, i64 0, i32 37
+  %179 = load ptr, ptr %0, align 8
+  %temps.i.i.i171.i = getelementptr inbounds %struct.TCGContext, ptr %179, i64 0, i32 37
   %sub.ptr.lhs.cast.i.i.i172.i = ptrtoint ptr %add.ptr.i.i.i164.i to i64
   %sub.ptr.rhs.cast.i.i.i173.i = ptrtoint ptr %temps.i.i.i171.i to i64
   %sub.ptr.sub.i.i.i174.i = sub i64 %sub.ptr.lhs.cast.i.i.i172.i, %sub.ptr.rhs.cast.i.i.i173.i
   %sub.ptr.div.i.i.i175.i = sdiv exact i64 %sub.ptr.sub.i.i.i174.i, 56
-  %182 = lshr i64 %bf.load.i.i165.i, 16
-  %bf.cast11.i.i176.i = and i64 %182, 255
-  %arrayidx.i.i177.i = getelementptr %struct.TCGContext, ptr %178, i64 0, i32 36, i64 %bf.cast11.i.i176.i
+  %180 = lshr i64 %bf.load.i.i165.i, 16
+  %bf.cast11.i.i176.i = and i64 %180, 255
+  %arrayidx.i.i177.i = getelementptr %struct.TCGContext, ptr %176, i64 0, i32 36, i64 %bf.cast11.i.i176.i
   %rem.i.i.i178.i = and i64 %sub.ptr.div.i.i.i175.i, 63
   %shl.i.i.i179.i = shl nuw i64 1, %rem.i.i.i178.i
   %div2.i.i.i180.i = lshr i64 %sub.ptr.div.i.i.i175.i, 6
   %add.ptr.i.i1.i181.i = getelementptr i64, ptr %arrayidx.i.i177.i, i64 %div2.i.i.i180.i
-  %183 = load i64, ptr %add.ptr.i.i1.i181.i, align 8
-  %or.i.i.i182.i = or i64 %shl.i.i.i179.i, %183
+  %181 = load i64, ptr %add.ptr.i.i1.i181.i, align 8
+  %or.i.i.i182.i = or i64 %shl.i.i.i179.i, %181
   store i64 %or.i.i.i182.i, ptr %add.ptr.i.i1.i181.i, align 8
   %.pre271.i = load ptr, ptr %0, align 8
   br label %tcg_temp_free_vec.exit184.i
@@ -1733,12 +1729,12 @@ do.body12.i.i183.i:                               ; preds = %tcg_temp_free_vec.e
   unreachable
 
 tcg_temp_free_vec.exit184.i:                      ; preds = %do.body.i.i168.i, %tcg_temp_free_vec.exit163.i, %tcg_temp_free_vec.exit163.i
-  %184 = phi ptr [ %178, %tcg_temp_free_vec.exit163.i ], [ %178, %tcg_temp_free_vec.exit163.i ], [ %.pre271.i, %do.body.i.i168.i ]
-  %add.ptr.i.i.i185.i = getelementptr i8, ptr %184, i64 %sub.ptr.sub.i.i.i99.i
+  %182 = phi ptr [ %176, %tcg_temp_free_vec.exit163.i ], [ %176, %tcg_temp_free_vec.exit163.i ], [ %.pre271.i, %do.body.i.i168.i ]
+  %add.ptr.i.i.i185.i = getelementptr i8, ptr %182, i64 %sub.ptr.sub.i.i.i99.i
   %bf.load.i.i186.i = load i64, ptr %add.ptr.i.i.i185.i, align 8
   %bf.lshr.i.i187.i = lshr i64 %bf.load.i.i186.i, 32
-  %185 = trunc i64 %bf.lshr.i.i187.i to i32
-  %bf.cast.i.i188.i = and i32 %185, 7
+  %183 = trunc i64 %bf.lshr.i.i187.i to i32
+  %bf.cast.i.i188.i = and i32 %183, 7
   switch i32 %bf.cast.i.i188.i, label %do.body12.i.i204.i [
     i32 4, label %tcg_temp_free_vec.exit205.i
     i32 1, label %tcg_temp_free_vec.exit205.i
@@ -1746,26 +1742,26 @@ tcg_temp_free_vec.exit184.i:                      ; preds = %do.body.i.i168.i, %
   ]
 
 do.body.i.i189.i:                                 ; preds = %tcg_temp_free_vec.exit184.i
-  %186 = and i64 %bf.load.i.i186.i, 549755813888
-  %cmp.i.i190.i = icmp ne i64 %186, 0
+  %184 = and i64 %bf.load.i.i186.i, 549755813888
+  %cmp.i.i190.i = icmp ne i64 %184, 0
   call void @llvm.assume(i1 %cmp.i.i190.i)
   %bf.clear7.i.i191.i = and i64 %bf.load.i.i186.i, -549755813889
   store i64 %bf.clear7.i.i191.i, ptr %add.ptr.i.i.i185.i, align 8
-  %187 = load ptr, ptr %0, align 8
-  %temps.i.i.i192.i = getelementptr inbounds %struct.TCGContext, ptr %187, i64 0, i32 37
+  %185 = load ptr, ptr %0, align 8
+  %temps.i.i.i192.i = getelementptr inbounds %struct.TCGContext, ptr %185, i64 0, i32 37
   %sub.ptr.lhs.cast.i.i.i193.i = ptrtoint ptr %add.ptr.i.i.i185.i to i64
   %sub.ptr.rhs.cast.i.i.i194.i = ptrtoint ptr %temps.i.i.i192.i to i64
   %sub.ptr.sub.i.i.i195.i = sub i64 %sub.ptr.lhs.cast.i.i.i193.i, %sub.ptr.rhs.cast.i.i.i194.i
   %sub.ptr.div.i.i.i196.i = sdiv exact i64 %sub.ptr.sub.i.i.i195.i, 56
-  %188 = lshr i64 %bf.load.i.i186.i, 16
-  %bf.cast11.i.i197.i = and i64 %188, 255
-  %arrayidx.i.i198.i = getelementptr %struct.TCGContext, ptr %184, i64 0, i32 36, i64 %bf.cast11.i.i197.i
+  %186 = lshr i64 %bf.load.i.i186.i, 16
+  %bf.cast11.i.i197.i = and i64 %186, 255
+  %arrayidx.i.i198.i = getelementptr %struct.TCGContext, ptr %182, i64 0, i32 36, i64 %bf.cast11.i.i197.i
   %rem.i.i.i199.i = and i64 %sub.ptr.div.i.i.i196.i, 63
   %shl.i.i.i200.i = shl nuw i64 1, %rem.i.i.i199.i
   %div2.i.i.i201.i = lshr i64 %sub.ptr.div.i.i.i196.i, 6
   %add.ptr.i.i1.i202.i = getelementptr i64, ptr %arrayidx.i.i198.i, i64 %div2.i.i.i201.i
-  %189 = load i64, ptr %add.ptr.i.i1.i202.i, align 8
-  %or.i.i.i203.i = or i64 %shl.i.i.i200.i, %189
+  %187 = load i64, ptr %add.ptr.i.i1.i202.i, align 8
+  %or.i.i.i203.i = or i64 %shl.i.i.i200.i, %187
   store i64 %or.i.i.i203.i, ptr %add.ptr.i.i1.i202.i, align 8
   %.pre272.i = load ptr, ptr %0, align 8
   br label %tcg_temp_free_vec.exit205.i
@@ -1775,12 +1771,12 @@ do.body12.i.i204.i:                               ; preds = %tcg_temp_free_vec.e
   unreachable
 
 tcg_temp_free_vec.exit205.i:                      ; preds = %do.body.i.i189.i, %tcg_temp_free_vec.exit184.i, %tcg_temp_free_vec.exit184.i
-  %190 = phi ptr [ %184, %tcg_temp_free_vec.exit184.i ], [ %184, %tcg_temp_free_vec.exit184.i ], [ %.pre272.i, %do.body.i.i189.i ]
-  %add.ptr.i.i.i206.i = getelementptr i8, ptr %190, i64 %sub.ptr.sub.i.i.i103.i
+  %188 = phi ptr [ %182, %tcg_temp_free_vec.exit184.i ], [ %182, %tcg_temp_free_vec.exit184.i ], [ %.pre272.i, %do.body.i.i189.i ]
+  %add.ptr.i.i.i206.i = getelementptr i8, ptr %188, i64 %sub.ptr.sub.i.i.i103.i
   %bf.load.i.i207.i = load i64, ptr %add.ptr.i.i.i206.i, align 8
   %bf.lshr.i.i208.i = lshr i64 %bf.load.i.i207.i, 32
-  %191 = trunc i64 %bf.lshr.i.i208.i to i32
-  %bf.cast.i.i209.i = and i32 %191, 7
+  %189 = trunc i64 %bf.lshr.i.i208.i to i32
+  %bf.cast.i.i209.i = and i32 %189, 7
   switch i32 %bf.cast.i.i209.i, label %do.body12.i.i225.i [
     i32 4, label %sw.epilog
     i32 1, label %sw.epilog
@@ -1795,48 +1791,48 @@ do.body33.i:                                      ; preds = %sw.bb28
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3895, ptr noundef nonnull @__func__.expand_vec_mul, ptr noundef null) #27
   unreachable
 
-sw.epilog.sink.split.i118:                        ; preds = %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit.i152
-  %bf.load.i.i68.sink287.i = phi i64 [ %bf.load.i.i68.i, %tcg_temp_free_vec.exit.i152 ], [ %bf.load.i.i207.i, %tcg_temp_free_vec.exit205.i ]
-  %add.ptr.i.i.i67.sink284.i = phi ptr [ %add.ptr.i.i.i67.i, %tcg_temp_free_vec.exit.i152 ], [ %add.ptr.i.i.i206.i, %tcg_temp_free_vec.exit205.i ]
-  %.sink.i119 = phi ptr [ %138, %tcg_temp_free_vec.exit.i152 ], [ %190, %tcg_temp_free_vec.exit205.i ]
-  %192 = and i64 %bf.load.i.i68.sink287.i, 549755813888
-  %cmp.i.i72.i = icmp ne i64 %192, 0
+sw.epilog.sink.split.i118:                        ; preds = %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit.i151
+  %bf.load.i.i68.sink287.i = phi i64 [ %bf.load.i.i68.i, %tcg_temp_free_vec.exit.i151 ], [ %bf.load.i.i207.i, %tcg_temp_free_vec.exit205.i ]
+  %add.ptr.i.i.i67.sink284.i = phi ptr [ %add.ptr.i.i.i67.i, %tcg_temp_free_vec.exit.i151 ], [ %add.ptr.i.i.i206.i, %tcg_temp_free_vec.exit205.i ]
+  %.sink.i119 = phi ptr [ %137, %tcg_temp_free_vec.exit.i151 ], [ %188, %tcg_temp_free_vec.exit205.i ]
+  %190 = and i64 %bf.load.i.i68.sink287.i, 549755813888
+  %cmp.i.i72.i = icmp ne i64 %190, 0
   call void @llvm.assume(i1 %cmp.i.i72.i)
   %bf.clear7.i.i73.i = and i64 %bf.load.i.i68.sink287.i, -549755813889
   store i64 %bf.clear7.i.i73.i, ptr %add.ptr.i.i.i67.sink284.i, align 8
-  %193 = load ptr, ptr %0, align 8
-  %temps.i.i.i74.i = getelementptr inbounds %struct.TCGContext, ptr %193, i64 0, i32 37
+  %191 = load ptr, ptr %0, align 8
+  %temps.i.i.i74.i = getelementptr inbounds %struct.TCGContext, ptr %191, i64 0, i32 37
   %sub.ptr.lhs.cast.i.i.i75.i = ptrtoint ptr %add.ptr.i.i.i67.sink284.i to i64
   %sub.ptr.rhs.cast.i.i.i76.i = ptrtoint ptr %temps.i.i.i74.i to i64
   %sub.ptr.sub.i.i.i77.i = sub i64 %sub.ptr.lhs.cast.i.i.i75.i, %sub.ptr.rhs.cast.i.i.i76.i
   %sub.ptr.div.i.i.i78.i = sdiv exact i64 %sub.ptr.sub.i.i.i77.i, 56
-  %194 = lshr i64 %bf.load.i.i68.sink287.i, 16
-  %bf.cast11.i.i79.i = and i64 %194, 255
+  %192 = lshr i64 %bf.load.i.i68.sink287.i, 16
+  %bf.cast11.i.i79.i = and i64 %192, 255
   %arrayidx.i.i80.i = getelementptr %struct.TCGContext, ptr %.sink.i119, i64 0, i32 36, i64 %bf.cast11.i.i79.i
   %rem.i.i.i81.i = and i64 %sub.ptr.div.i.i.i78.i, 63
   %shl.i.i.i82.i = shl nuw i64 1, %rem.i.i.i81.i
   %div2.i.i.i83.i = lshr i64 %sub.ptr.div.i.i.i78.i, 6
   %add.ptr.i.i1.i84.i = getelementptr i64, ptr %arrayidx.i.i80.i, i64 %div2.i.i.i83.i
-  %195 = load i64, ptr %add.ptr.i.i1.i84.i, align 8
-  %or.i.i.i224.i = or i64 %shl.i.i.i82.i, %195
+  %193 = load i64, ptr %add.ptr.i.i1.i84.i, align 8
+  %or.i.i.i224.i = or i64 %shl.i.i.i82.i, %193
   store i64 %or.i.i.i224.i, ptr %add.ptr.i.i1.i84.i, align 8
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %vaarg.end15
-  %196 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i167 = ptrtoint ptr %196 to i64
-  %sub.ptr.sub.i.i168 = sub i64 %19, %sub.ptr.rhs.cast.i.i167
-  %197 = inttoptr i64 %sub.ptr.sub.i.i168 to ptr
+  %194 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i166 = ptrtoint ptr %194 to i64
+  %sub.ptr.sub.i.i167 = sub i64 %19, %sub.ptr.rhs.cast.i.i166
+  %195 = inttoptr i64 %sub.ptr.sub.i.i167 to ptr
   %fits_in_gp37 = icmp ult i32 %gp_offset36, 41
   br i1 %fits_in_gp37, label %vaarg.in_reg38, label %vaarg.in_mem40
 
 vaarg.in_reg38:                                   ; preds = %sw.bb31
-  %198 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
-  %reg_save_area39 = load ptr, ptr %198, align 16
-  %199 = zext nneg i32 %gp_offset36 to i64
-  %200 = getelementptr i8, ptr %reg_save_area39, i64 %199
-  %201 = add nuw nsw i32 %gp_offset36, 8
-  store i32 %201, ptr %va, align 16
+  %196 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %reg_save_area39 = load ptr, ptr %196, align 16
+  %197 = zext nneg i32 %gp_offset36 to i64
+  %198 = getelementptr i8, ptr %reg_save_area39, i64 %197
+  %199 = add nuw nsw i32 %gp_offset36, 8
+  store i32 %199, ptr %va, align 16
   br label %vaarg.end44
 
 vaarg.in_mem40:                                   ; preds = %sw.bb31
@@ -1847,21 +1843,21 @@ vaarg.in_mem40:                                   ; preds = %sw.bb31
   br label %vaarg.end44
 
 vaarg.end44:                                      ; preds = %vaarg.in_mem40, %vaarg.in_reg38
-  %vaarg.addr45 = phi ptr [ %200, %vaarg.in_reg38 ], [ %overflow_arg_area42, %vaarg.in_mem40 ]
-  %202 = load i64, ptr %vaarg.addr45, align 8
-  %conv = trunc i64 %202 to i32
-  %call.i = call fastcc zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %2, ptr noundef %18, ptr noundef %197, i32 noundef %conv)
-  br i1 %call.i, label %if.then.i170, label %sw.epilog
+  %vaarg.addr45 = phi ptr [ %198, %vaarg.in_reg38 ], [ %overflow_arg_area42, %vaarg.in_mem40 ]
+  %200 = load i64, ptr %vaarg.addr45, align 8
+  %conv = trunc i64 %200 to i32
+  %call.i = call fastcc zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %2, ptr noundef %18, ptr noundef %195, i32 noundef %conv)
+  br i1 %call.i, label %if.then.i169, label %sw.epilog
 
-if.then.i170:                                     ; preds = %vaarg.end44
+if.then.i169:                                     ; preds = %vaarg.end44
   call void @tcg_gen_not_vec(i32 noundef %vece, ptr noundef %2, ptr noundef %2) #28
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %vaarg.end15
-  %203 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i171 = ptrtoint ptr %203 to i64
-  %sub.ptr.sub.i.i172 = sub i64 %19, %sub.ptr.rhs.cast.i.i171
-  %204 = inttoptr i64 %sub.ptr.sub.i.i172 to ptr
+  %201 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i170 = ptrtoint ptr %201 to i64
+  %sub.ptr.sub.i.i171 = sub i64 %19, %sub.ptr.rhs.cast.i.i170
+  %202 = inttoptr i64 %sub.ptr.sub.i.i171 to ptr
   %fits_in_gp52 = icmp ult i32 %gp_offset36, 41
   br i1 %fits_in_gp52, label %vaarg.end59, label %vaarg.end59.thread
 
@@ -1870,68 +1866,68 @@ vaarg.end59.thread:                               ; preds = %sw.bb46
   %overflow_arg_area57 = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next58 = getelementptr i8, ptr %overflow_arg_area57, i64 8
   store ptr %overflow_arg_area.next58, ptr %overflow_arg_area_p56, align 8
-  %205 = load i64, ptr %overflow_arg_area57, align 8
-  %206 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i173221 = ptrtoint ptr %206 to i64
-  %sub.ptr.sub.i.i174222 = sub i64 %205, %sub.ptr.rhs.cast.i.i173221
-  %207 = inttoptr i64 %sub.ptr.sub.i.i174222 to ptr
+  %203 = load i64, ptr %overflow_arg_area57, align 8
+  %204 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i172220 = ptrtoint ptr %204 to i64
+  %sub.ptr.sub.i.i173221 = sub i64 %203, %sub.ptr.rhs.cast.i.i172220
+  %205 = inttoptr i64 %sub.ptr.sub.i.i173221 to ptr
   br label %vaarg.end73.thread
 
 vaarg.end59:                                      ; preds = %sw.bb46
-  %208 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
-  %reg_save_area54 = load ptr, ptr %208, align 16
-  %209 = zext nneg i32 %gp_offset36 to i64
-  %210 = getelementptr i8, ptr %reg_save_area54, i64 %209
-  %211 = add nuw nsw i32 %gp_offset36, 8
-  store i32 %211, ptr %va, align 16
-  %212 = load i64, ptr %210, align 8
-  %213 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i173 = ptrtoint ptr %213 to i64
-  %sub.ptr.sub.i.i174 = sub i64 %212, %sub.ptr.rhs.cast.i.i173
-  %214 = inttoptr i64 %sub.ptr.sub.i.i174 to ptr
+  %206 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %reg_save_area54 = load ptr, ptr %206, align 16
+  %207 = zext nneg i32 %gp_offset36 to i64
+  %208 = getelementptr i8, ptr %reg_save_area54, i64 %207
+  %209 = add nuw nsw i32 %gp_offset36, 8
+  store i32 %209, ptr %va, align 16
+  %210 = load i64, ptr %208, align 8
+  %211 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i172 = ptrtoint ptr %211 to i64
+  %sub.ptr.sub.i.i173 = sub i64 %210, %sub.ptr.rhs.cast.i.i172
+  %212 = inttoptr i64 %sub.ptr.sub.i.i173 to ptr
   %fits_in_gp66 = icmp ult i32 %gp_offset36, 33
   br i1 %fits_in_gp66, label %vaarg.end73, label %vaarg.end73.thread
 
 vaarg.end73.thread:                               ; preds = %vaarg.end59, %vaarg.end59.thread
-  %215 = phi ptr [ %207, %vaarg.end59.thread ], [ %214, %vaarg.end59 ]
+  %213 = phi ptr [ %205, %vaarg.end59.thread ], [ %212, %vaarg.end59 ]
   %overflow_arg_area_p70 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
   %overflow_arg_area71 = load ptr, ptr %overflow_arg_area_p70, align 8
   %overflow_arg_area.next72 = getelementptr i8, ptr %overflow_arg_area71, i64 8
   store ptr %overflow_arg_area.next72, ptr %overflow_arg_area_p70, align 8
-  %216 = load i64, ptr %overflow_arg_area71, align 8
-  %217 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i175227 = ptrtoint ptr %217 to i64
-  %sub.ptr.sub.i.i176228 = sub i64 %216, %sub.ptr.rhs.cast.i.i175227
-  %218 = inttoptr i64 %sub.ptr.sub.i.i176228 to ptr
+  %214 = load i64, ptr %overflow_arg_area71, align 8
+  %215 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i174226 = ptrtoint ptr %215 to i64
+  %sub.ptr.sub.i.i175227 = sub i64 %214, %sub.ptr.rhs.cast.i.i174226
+  %216 = inttoptr i64 %sub.ptr.sub.i.i175227 to ptr
   br label %vaarg.in_mem83
 
 vaarg.end73:                                      ; preds = %vaarg.end59
-  %219 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
-  %reg_save_area68 = load ptr, ptr %219, align 16
-  %220 = zext nneg i32 %211 to i64
-  %221 = getelementptr i8, ptr %reg_save_area68, i64 %220
-  %222 = add nuw nsw i32 %gp_offset36, 16
-  store i32 %222, ptr %va, align 16
-  %223 = load i64, ptr %221, align 8
-  %224 = load ptr, ptr %0, align 8
-  %sub.ptr.rhs.cast.i.i175 = ptrtoint ptr %224 to i64
-  %sub.ptr.sub.i.i176 = sub i64 %223, %sub.ptr.rhs.cast.i.i175
-  %225 = inttoptr i64 %sub.ptr.sub.i.i176 to ptr
+  %217 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %reg_save_area68 = load ptr, ptr %217, align 16
+  %218 = zext nneg i32 %209 to i64
+  %219 = getelementptr i8, ptr %reg_save_area68, i64 %218
+  %220 = add nuw nsw i32 %gp_offset36, 16
+  store i32 %220, ptr %va, align 16
+  %221 = load i64, ptr %219, align 8
+  %222 = load ptr, ptr %0, align 8
+  %sub.ptr.rhs.cast.i.i174 = ptrtoint ptr %222 to i64
+  %sub.ptr.sub.i.i175 = sub i64 %221, %sub.ptr.rhs.cast.i.i174
+  %223 = inttoptr i64 %sub.ptr.sub.i.i175 to ptr
   %fits_in_gp80 = icmp ult i32 %gp_offset36, 25
   br i1 %fits_in_gp80, label %vaarg.in_reg81, label %vaarg.in_mem83
 
 vaarg.in_reg81:                                   ; preds = %vaarg.end73
-  %226 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
-  %reg_save_area82 = load ptr, ptr %226, align 16
-  %227 = zext nneg i32 %222 to i64
-  %228 = getelementptr i8, ptr %reg_save_area82, i64 %227
-  %229 = add nuw nsw i32 %gp_offset36, 24
-  store i32 %229, ptr %va, align 16
+  %224 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %reg_save_area82 = load ptr, ptr %224, align 16
+  %225 = zext nneg i32 %220 to i64
+  %226 = getelementptr i8, ptr %reg_save_area82, i64 %225
+  %227 = add nuw nsw i32 %gp_offset36, 24
+  store i32 %227, ptr %va, align 16
   br label %vaarg.end87
 
 vaarg.in_mem83:                                   ; preds = %vaarg.end73.thread, %vaarg.end73
-  %230 = phi ptr [ %218, %vaarg.end73.thread ], [ %225, %vaarg.end73 ]
-  %231 = phi ptr [ %215, %vaarg.end73.thread ], [ %214, %vaarg.end73 ]
+  %228 = phi ptr [ %216, %vaarg.end73.thread ], [ %223, %vaarg.end73 ]
+  %229 = phi ptr [ %213, %vaarg.end73.thread ], [ %212, %vaarg.end73 ]
   %overflow_arg_area_p84 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
   %overflow_arg_area85 = load ptr, ptr %overflow_arg_area_p84, align 8
   %overflow_arg_area.next86 = getelementptr i8, ptr %overflow_arg_area85, i64 8
@@ -1939,73 +1935,73 @@ vaarg.in_mem83:                                   ; preds = %vaarg.end73.thread,
   br label %vaarg.end87
 
 vaarg.end87:                                      ; preds = %vaarg.in_mem83, %vaarg.in_reg81
-  %232 = phi ptr [ %225, %vaarg.in_reg81 ], [ %230, %vaarg.in_mem83 ]
-  %233 = phi ptr [ %214, %vaarg.in_reg81 ], [ %231, %vaarg.in_mem83 ]
-  %vaarg.addr88 = phi ptr [ %228, %vaarg.in_reg81 ], [ %overflow_arg_area85, %vaarg.in_mem83 ]
-  %234 = load i64, ptr %vaarg.addr88, align 8
-  %conv89 = trunc i64 %234 to i32
-  %call.i.i177 = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
+  %230 = phi ptr [ %223, %vaarg.in_reg81 ], [ %228, %vaarg.in_mem83 ]
+  %231 = phi ptr [ %212, %vaarg.in_reg81 ], [ %229, %vaarg.in_mem83 ]
+  %vaarg.addr88 = phi ptr [ %226, %vaarg.in_reg81 ], [ %overflow_arg_area85, %vaarg.in_mem83 ]
+  %232 = load i64, ptr %vaarg.addr88, align 8
+  %conv89 = trunc i64 %232 to i32
+  %call.i.i176 = call fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef 0)
+  %233 = load ptr, ptr %0, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i177 = ptrtoint ptr %call.i.i176 to i64
+  %sub.ptr.rhs.cast.i.i.i.i178 = ptrtoint ptr %233 to i64
+  %sub.ptr.sub.i.i.i.i179 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i177, %sub.ptr.rhs.cast.i.i.i.i178
+  %234 = inttoptr i64 %sub.ptr.sub.i.i.i.i179 to ptr
+  %call1.i = call fastcc zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %234, ptr noundef %18, ptr noundef %202, i32 noundef %conv89)
+  %spec.select.i = select i1 %call1.i, ptr %231, ptr %230
+  %spec.select8.i = select i1 %call1.i, ptr %230, ptr %231
   %235 = load ptr, ptr %0, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i178 = ptrtoint ptr %call.i.i177 to i64
-  %sub.ptr.rhs.cast.i.i.i.i179 = ptrtoint ptr %235 to i64
-  %sub.ptr.sub.i.i.i.i180 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i178, %sub.ptr.rhs.cast.i.i.i.i179
-  %236 = inttoptr i64 %sub.ptr.sub.i.i.i.i180 to ptr
-  %call1.i = call fastcc zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %236, ptr noundef %18, ptr noundef %204, i32 noundef %conv89)
-  %spec.select.i = select i1 %call1.i, ptr %233, ptr %232
-  %spec.select8.i = select i1 %call1.i, ptr %232, ptr %233
-  %237 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i181 = getelementptr i8, ptr %237, i64 %sub.ptr.sub.i.i
-  %238 = ptrtoint ptr %add.ptr.i.i.i.i181 to i64
-  %239 = ptrtoint ptr %spec.select.i to i64
-  %add.ptr.i.i.i9.i = getelementptr i8, ptr %237, i64 %239
-  %240 = ptrtoint ptr %add.ptr.i.i.i9.i to i64
-  %241 = ptrtoint ptr %spec.select8.i to i64
-  %add.ptr.i.i.i10.i = getelementptr i8, ptr %237, i64 %241
-  %242 = ptrtoint ptr %add.ptr.i.i.i10.i to i64
-  %add.ptr.i.i.i11.i = getelementptr i8, ptr %237, i64 %sub.ptr.sub.i.i.i.i180
-  %243 = ptrtoint ptr %add.ptr.i.i.i11.i to i64
-  call void @vec_gen_4(i32 noundef 195, i32 noundef %type, i32 noundef %vece, i64 noundef %238, i64 noundef %240, i64 noundef %242, i64 noundef %243) #28
-  %244 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i12.i = getelementptr i8, ptr %244, i64 %sub.ptr.sub.i.i.i.i180
-  %bf.load.i.i.i182 = load i64, ptr %add.ptr.i.i.i12.i, align 8
-  %bf.lshr.i.i.i183 = lshr i64 %bf.load.i.i.i182, 32
-  %245 = trunc i64 %bf.lshr.i.i.i183 to i32
-  %bf.cast.i.i.i184 = and i32 %245, 7
-  switch i32 %bf.cast.i.i.i184, label %do.body12.i.i.i199 [
+  %add.ptr.i.i.i.i180 = getelementptr i8, ptr %235, i64 %sub.ptr.sub.i.i
+  %236 = ptrtoint ptr %add.ptr.i.i.i.i180 to i64
+  %237 = ptrtoint ptr %spec.select.i to i64
+  %add.ptr.i.i.i9.i = getelementptr i8, ptr %235, i64 %237
+  %238 = ptrtoint ptr %add.ptr.i.i.i9.i to i64
+  %239 = ptrtoint ptr %spec.select8.i to i64
+  %add.ptr.i.i.i10.i = getelementptr i8, ptr %235, i64 %239
+  %240 = ptrtoint ptr %add.ptr.i.i.i10.i to i64
+  %add.ptr.i.i.i11.i = getelementptr i8, ptr %235, i64 %sub.ptr.sub.i.i.i.i179
+  %241 = ptrtoint ptr %add.ptr.i.i.i11.i to i64
+  call void @vec_gen_4(i32 noundef 195, i32 noundef %type, i32 noundef %vece, i64 noundef %236, i64 noundef %238, i64 noundef %240, i64 noundef %241) #28
+  %242 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i12.i = getelementptr i8, ptr %242, i64 %sub.ptr.sub.i.i.i.i179
+  %bf.load.i.i.i181 = load i64, ptr %add.ptr.i.i.i12.i, align 8
+  %bf.lshr.i.i.i182 = lshr i64 %bf.load.i.i.i181, 32
+  %243 = trunc i64 %bf.lshr.i.i.i182 to i32
+  %bf.cast.i.i.i183 = and i32 %243, 7
+  switch i32 %bf.cast.i.i.i183, label %do.body12.i.i.i198 [
     i32 4, label %sw.epilog
     i32 1, label %sw.epilog
-    i32 0, label %do.body.i.i.i185
+    i32 0, label %do.body.i.i.i184
   ]
 
-do.body.i.i.i185:                                 ; preds = %vaarg.end87
-  %246 = and i64 %bf.load.i.i.i182, 549755813888
-  %cmp.i.i.i186 = icmp ne i64 %246, 0
-  call void @llvm.assume(i1 %cmp.i.i.i186)
-  %bf.clear7.i.i.i187 = and i64 %bf.load.i.i.i182, -549755813889
-  store i64 %bf.clear7.i.i.i187, ptr %add.ptr.i.i.i12.i, align 8
-  %247 = load ptr, ptr %0, align 8
-  %temps.i.i.i.i188 = getelementptr inbounds %struct.TCGContext, ptr %247, i64 0, i32 37
-  %sub.ptr.lhs.cast.i.i.i.i189 = ptrtoint ptr %add.ptr.i.i.i12.i to i64
-  %sub.ptr.rhs.cast.i.i.i13.i = ptrtoint ptr %temps.i.i.i.i188 to i64
-  %sub.ptr.sub.i.i.i14.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i189, %sub.ptr.rhs.cast.i.i.i13.i
-  %sub.ptr.div.i.i.i.i190 = sdiv exact i64 %sub.ptr.sub.i.i.i14.i, 56
-  %248 = lshr i64 %bf.load.i.i.i182, 16
-  %bf.cast11.i.i.i191 = and i64 %248, 255
-  %arrayidx.i.i.i192 = getelementptr %struct.TCGContext, ptr %244, i64 0, i32 36, i64 %bf.cast11.i.i.i191
-  %rem.i.i.i.i193 = and i64 %sub.ptr.div.i.i.i.i190, 63
-  %shl.i.i.i.i194 = shl nuw i64 1, %rem.i.i.i.i193
-  %div2.i.i.i.i195 = lshr i64 %sub.ptr.div.i.i.i.i190, 6
-  %add.ptr.i.i1.i.i196 = getelementptr i64, ptr %arrayidx.i.i.i192, i64 %div2.i.i.i.i195
-  %249 = load i64, ptr %add.ptr.i.i1.i.i196, align 8
-  %or.i.i.i.i197 = or i64 %shl.i.i.i.i194, %249
-  store i64 %or.i.i.i.i197, ptr %add.ptr.i.i1.i.i196, align 8
+do.body.i.i.i184:                                 ; preds = %vaarg.end87
+  %244 = and i64 %bf.load.i.i.i181, 549755813888
+  %cmp.i.i.i185 = icmp ne i64 %244, 0
+  call void @llvm.assume(i1 %cmp.i.i.i185)
+  %bf.clear7.i.i.i186 = and i64 %bf.load.i.i.i181, -549755813889
+  store i64 %bf.clear7.i.i.i186, ptr %add.ptr.i.i.i12.i, align 8
+  %245 = load ptr, ptr %0, align 8
+  %temps.i.i.i.i187 = getelementptr inbounds %struct.TCGContext, ptr %245, i64 0, i32 37
+  %sub.ptr.lhs.cast.i.i.i.i188 = ptrtoint ptr %add.ptr.i.i.i12.i to i64
+  %sub.ptr.rhs.cast.i.i.i13.i = ptrtoint ptr %temps.i.i.i.i187 to i64
+  %sub.ptr.sub.i.i.i14.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i188, %sub.ptr.rhs.cast.i.i.i13.i
+  %sub.ptr.div.i.i.i.i189 = sdiv exact i64 %sub.ptr.sub.i.i.i14.i, 56
+  %246 = lshr i64 %bf.load.i.i.i181, 16
+  %bf.cast11.i.i.i190 = and i64 %246, 255
+  %arrayidx.i.i.i191 = getelementptr %struct.TCGContext, ptr %242, i64 0, i32 36, i64 %bf.cast11.i.i.i190
+  %rem.i.i.i.i192 = and i64 %sub.ptr.div.i.i.i.i189, 63
+  %shl.i.i.i.i193 = shl nuw i64 1, %rem.i.i.i.i192
+  %div2.i.i.i.i194 = lshr i64 %sub.ptr.div.i.i.i.i189, 6
+  %add.ptr.i.i1.i.i195 = getelementptr i64, ptr %arrayidx.i.i.i191, i64 %div2.i.i.i.i194
+  %247 = load i64, ptr %add.ptr.i.i1.i.i195, align 8
+  %or.i.i.i.i196 = or i64 %shl.i.i.i.i193, %247
+  store i64 %or.i.i.i.i196, ptr %add.ptr.i.i1.i.i195, align 8
   br label %sw.epilog
 
-do.body12.i.i.i199:                               ; preds = %vaarg.end87
+do.body12.i.i.i198:                               ; preds = %vaarg.end87
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1808, ptr noundef nonnull @__func__.tcg_temp_free_internal, ptr noundef null) #27
   unreachable
 
-sw.epilog:                                        ; preds = %do.body.i.i.i185, %vaarg.end87, %vaarg.end87, %if.then.i170, %vaarg.end44, %sw.epilog.sink.split.i118, %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit.i152, %tcg_temp_free_vec.exit.i152, %do.body.i.i38.i, %if.end18.i, %if.end18.i, %do.body.i.i.i58, %if.end9.i, %if.end9.i, %if.then6.i, %if.then.i73, %sw.epilog.sink.split.i, %if.end.i, %if.end.i, %tcg_temp_free_vec.exit.i, %tcg_temp_free_vec.exit.i, %vaarg.end15, %sw.bb25, %sw.bb22, %sw.bb
+sw.epilog:                                        ; preds = %do.body.i.i.i184, %vaarg.end87, %vaarg.end87, %if.then.i169, %vaarg.end44, %sw.epilog.sink.split.i118, %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit205.i, %tcg_temp_free_vec.exit.i151, %tcg_temp_free_vec.exit.i151, %do.body.i.i38.i, %if.end18.i, %if.end18.i, %do.body.i.i.i58, %if.end9.i, %if.end9.i, %if.then6.i, %if.then.i73, %sw.epilog.sink.split.i, %if.end.i, %if.end.i, %tcg_temp_free_vec.exit.i, %tcg_temp_free_vec.exit.i, %vaarg.end15, %sw.bb25, %sw.bb22, %sw.bb
   call void @llvm.va_end(ptr nonnull %va)
   ret void
 }
@@ -2438,7 +2434,7 @@ tcg_register_jit_int.exit:                        ; preds = %if.end.i130.i, %fin
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
 define dso_local void @tcg_register_thread() local_unnamed_addr #8 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -3975,7 +3971,7 @@ do.body30:                                        ; preds = %tcg_target_qemu_pro
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @tcg_out_pool_finalize(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc noundef i32 @tcg_out_pool_finalize(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %pool_labels = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 31
   %0 = load ptr, ptr %pool_labels, align 8
@@ -4207,7 +4203,7 @@ do.body23:                                        ; preds = %lor.lhs.false, %for
 
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @tcg_set_frame(ptr noundef %s, i32 noundef %reg, i64 noundef %start, i64 noundef %size) local_unnamed_addr #12 {
 entry:
   %frame_start = getelementptr inbounds %struct.TCGContext, ptr %s, i64 0, i32 18
@@ -4481,7 +4477,7 @@ tcg_temp_new_internal.exit:                       ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc noundef ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef %kind) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -5679,7 +5675,7 @@ entry:
   ret ptr %call5
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
 define dso_local zeroext i1 @tcg_op_supported(i32 noundef %op) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
@@ -6762,7 +6758,7 @@ if.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tcg_emit_op(i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @tcg_emit_op(i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs)
   %link = getelementptr inbounds %struct.TCGOp, ptr %call, i64 0, i32 2
@@ -6784,7 +6780,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs) unnamed_addr #0 {
+define internal fastcc noundef ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -6924,7 +6920,7 @@ found:                                            ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tcg_op_insert_before(ptr nocapture noundef readnone %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @tcg_op_insert_before(ptr nocapture noundef readnone %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs)
   %tql_prev = getelementptr inbounds %struct.TCGOp, ptr %old_op, i64 0, i32 2, i32 0, i32 1
@@ -6940,7 +6936,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tcg_op_insert_after(ptr nocapture noundef writeonly %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @tcg_op_insert_after(ptr nocapture noundef writeonly %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs)
   %link = getelementptr inbounds %struct.TCGOp, ptr %old_op, i64 0, i32 2
@@ -16416,7 +16412,7 @@ declare void @tcg_gen_shrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @tcg_gen_mul_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %v0, ptr noundef %v1, ptr noundef %v2, i32 noundef %cond) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %v0, ptr noundef %v1, ptr noundef %v2, i32 noundef %cond) unnamed_addr #0 {
 entry:
   switch i32 %cond, label %do.body [
     i32 8, label %do.body56
@@ -17727,7 +17723,7 @@ if.end58:                                         ; preds = %if.else51, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
 define internal fastcc void @tcg_out_opc(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i32 noundef %x) unnamed_addr #16 {
 entry:
   %and = and i32 %opc, 32768
@@ -17862,7 +17858,7 @@ if.end50:                                         ; preds = %if.then43, %if.then
 
 declare i32 @arch_prctl(i32 noundef, i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
 define internal fastcc void @tgen_arithr(ptr nocapture noundef %s, i32 noundef %subop, i32 noundef %dest, i32 noundef %src) unnamed_addr #16 {
 entry:
   %and = and i32 %subop, -8
@@ -20853,7 +20849,7 @@ if.end45:                                         ; preds = %tcg_out_reloc.exit,
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
 define internal fastcc void @tcg_out_shifti(ptr nocapture noundef %s, i32 noundef %subopc, i32 noundef %reg, i32 noundef %count) unnamed_addr #16 {
 entry:
   %and = and i32 %subopc, -8
@@ -20894,7 +20890,7 @@ if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @tcg_out_ctz(ptr nocapture noundef %s, i32 noundef %rexw, i32 noundef %dest, i32 noundef %arg1, i64 noundef %arg2, i1 noundef zeroext %const_a2) unnamed_addr #20 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
@@ -23114,7 +23110,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @prepare_host_addr(ptr noundef %s, ptr nocapture noundef writeonly %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
+define internal fastcc noundef ptr @prepare_host_addr(ptr noundef %s, ptr nocapture noundef writeonly %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %is_ld to i8
   %shr.i = lshr i32 %oi, 4
@@ -24634,7 +24630,7 @@ return:                                           ; preds = %if.end17, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
 define internal fastcc void @tcg_out_xchg(ptr nocapture noundef %s, i32 noundef %type, i32 noundef %r1, i32 noundef %r2) unnamed_addr #16 {
 entry:
   %cmp = icmp eq i32 %type, 0
@@ -24726,19 +24722,19 @@ attributes #4 = { mustprogress nofree norecurse nounwind sspstrong willreturn me
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nofree nounwind }

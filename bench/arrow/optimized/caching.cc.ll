@@ -3531,22 +3531,20 @@ if.then.i:                                        ; preds = %_ZSt9remove_ifIN9__
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_ET_SG_SG_T0_.exit
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
+  %cmp4.i = icmp ule i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %tobool.not.i.i = icmp eq ptr %11, %retval.sroa.0.2.i.i
+  %or.cond = or i1 %tobool.not.i.i, %cmp4.i
+  br i1 %or.cond, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
 
-if.then5.i:                                       ; preds = %if.else.i
+invoke.cont.i.i:                                  ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
-  %tobool.not.i.i = icmp eq ptr %11, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %sub.ptr.rhs.cast.i8.pre-phi = phi i64 [ %.pre143, %if.then.i ], [ %sub.ptr.rhs.cast.i.pre-phi, %if.else.i ], [ %sub.ptr.rhs.cast.i.pre-phi, %if.then5.i ], [ %sub.ptr.rhs.cast.i.pre-phi, %invoke.cont.i.i ]
-  %13 = phi ptr [ %.pre139, %if.then.i ], [ %12, %if.else.i ], [ %12, %if.then5.i ], [ %12, %invoke.cont.i.i ]
-  %14 = phi ptr [ %.pre138, %if.then.i ], [ %11, %if.else.i ], [ %11, %if.then5.i ], [ %add.ptr.i, %invoke.cont.i.i ]
+_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %invoke.cont.i.i
+  %sub.ptr.rhs.cast.i8.pre-phi = phi i64 [ %.pre143, %if.then.i ], [ %sub.ptr.rhs.cast.i.pre-phi, %if.else.i ], [ %sub.ptr.rhs.cast.i.pre-phi, %invoke.cont.i.i ]
+  %13 = phi ptr [ %.pre139, %if.then.i ], [ %12, %if.else.i ], [ %12, %invoke.cont.i.i ]
+  %14 = phi ptr [ %.pre138, %if.then.i ], [ %11, %if.else.i ], [ %add.ptr.i, %invoke.cont.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %futures, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8.pre-phi

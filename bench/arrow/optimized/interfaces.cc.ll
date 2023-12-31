@@ -8669,21 +8669,19 @@ if.then.i.i:                                      ; preds = %_ZSt6uniqueIN9__gnu
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %tobool.not.i.i.i = icmp eq ptr %23, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i.i, %cmp4.i.i
+  br i1 %or.cond.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i, label %invoke.cont.i.i.i
 
-if.then5.i.i:                                     ; preds = %if.else.i.i
+invoke.cont.i.i.i:                                ; preds = %if.else.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i.i
-  %tobool.not.i.i.i = icmp eq ptr %23, %add.ptr.i.i
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i, label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.then5.i.i
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !187
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i
 
-_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i: ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %.noexc
-  %24 = phi ptr [ %.pre149.i, %.noexc ], [ %23, %if.else.i.i ], [ %23, %if.then5.i.i ], [ %add.ptr.i.i, %invoke.cont.i.i.i ]
-  %25 = phi ptr [ %.pre148.i, %.noexc ], [ %22, %if.else.i.i ], [ %22, %if.then5.i.i ], [ %22, %invoke.cont.i.i.i ]
+_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i: ; preds = %invoke.cont.i.i.i, %if.else.i.i, %.noexc
+  %24 = phi ptr [ %.pre149.i, %.noexc ], [ %23, %if.else.i.i ], [ %add.ptr.i.i, %invoke.cont.i.i.i ]
+  %25 = phi ptr [ %.pre148.i, %.noexc ], [ %22, %if.else.i.i ], [ %22, %invoke.cont.i.i.i ]
   %cmp.i.i22.i = icmp eq ptr %25, %24
   br i1 %cmp.i.i22.i, label %if.then32.i, label %if.end33.i
 

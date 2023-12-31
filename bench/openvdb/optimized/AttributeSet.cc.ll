@@ -6894,12 +6894,10 @@ if.end.i.i15.i:                                   ; preds = %invoke.cont10.i
   %sub.ptr.lhs.cast.i.i10.i = ptrtoint ptr %incdec.ptr.i6.i.i.i to i64
   %sub.ptr.sub.i.i12.i = sub i64 %sub.ptr.lhs.cast.i.i10.i, %25
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i, i64 %sub.ptr.sub.i.i12.i
-  %tobool.not.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i.i12.i
-  %spec.select.i = select i1 %tobool.not.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i
   br label %invoke.cont19.i
 
 invoke.cont19.i:                                  ; preds = %while.cond.i.i.i.i, %if.end.i.i15.i, %invoke.cont10.i
-  %toRemove.sroa.9.0.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %invoke.cont10.i ], [ %spec.select.i, %if.end.i.i15.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i ]
+  %toRemove.sroa.9.0.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %invoke.cont10.i ], [ %add.ptr.i.i.i, %if.end.i.i15.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i ]
   %31 = load i64, ptr %call5.i.i.i.i2.i6.i.i, align 8
   %_M_finish.i16.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeSet", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %32 = load ptr, ptr %_M_finish.i16.i, align 8
@@ -12134,12 +12132,10 @@ if.end.i.i15:                                     ; preds = %invoke.cont10
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %incdec.ptr.i6.i.i to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i12
-  %tobool.not.i.i.i = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i12
-  %spec.select = select i1 %tobool.not.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %while.cond.i.i.i, %if.end.i.i15, %invoke.cont10
-  %toRemove.sroa.9.0 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %invoke.cont10 ], [ %spec.select, %if.end.i.i15 ], [ %add.ptr.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i ]
+  %toRemove.sroa.9.0 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %invoke.cont10 ], [ %add.ptr.i.i, %if.end.i.i15 ], [ %add.ptr.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i ]
   %7 = load i64, ptr %call5.i.i.i.i2.i6.i, align 8
   %_M_finish.i16 = getelementptr inbounds %"struct.std::_Vector_base<openvdb::v11_0::points::AttributeSet::Util::NameAndType, std::allocator<openvdb::v11_0::points::AttributeSet::Util::NameAndType>>::_Vector_impl_data", ptr %vec, i64 0, i32 1
   %8 = load ptr, ptr %_M_finish.i16, align 8

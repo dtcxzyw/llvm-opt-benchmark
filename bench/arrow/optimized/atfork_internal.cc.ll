@@ -2282,17 +2282,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<arrow::internal::AtForkHandler>, std::allocator<std::weak_ptr<arrow::internal::AtForkHandler>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i1.not.i = icmp eq ptr %1, %add.ptr.i5
-  br i1 %cmp.i1.not.i, label %if.then.if.end_crit_edge.i, label %if.then6.i
-
-if.then.if.end_crit_edge.i:                       ; preds = %if.then.i
-  %.pre10.i = ptrtoint ptr %add.ptr.i5 to i64
-  br label %if.end.i
+  %cmp.i1.not.i = icmp eq ptr %1, %__last.coerce
+  br i1 %cmp.i1.not.i, label %if.end.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i1
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %cmp6.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end.i
@@ -2349,11 +2344,10 @@ if.end.loopexit.i:                                ; preds = %_ZNSt8weak_ptrIN5ar
   %.pre11.i = ptrtoint ptr %.pre.i to i64
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then6.i, %if.then.if.end_crit_edge.i
-  %sub.ptr.lhs.cast.i.pre-phi.i = phi i64 [ %.pre10.i, %if.then.if.end_crit_edge.i ], [ %.pre11.i, %if.end.loopexit.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i, %if.then6.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %.pre10.i, %if.then.if.end_crit_edge.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %if.end.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %if.then6.i ]
-  %8 = phi ptr [ %add.ptr.i5, %if.then.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %1, %if.then6.i ]
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i, %sub.ptr.rhs.cast.i.pre-phi.i
+if.end.i:                                         ; preds = %if.then.i, %if.end.loopexit.i, %if.then6.i
+  %sub.ptr.lhs.cast.i.pre-phi.i = phi i64 [ %.pre11.i, %if.end.loopexit.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i, %if.then6.i ], [ %sub.ptr.lhs.cast.i1, %if.then.i ]
+  %8 = phi ptr [ %.pre.i, %if.end.loopexit.i ], [ %1, %if.then6.i ], [ %add.ptr.i5, %if.then.i ]
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i, %sub.ptr.lhs.cast.i1
   %add.ptr.i6 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i
   %tobool.not.i.i = icmp eq ptr %8, %add.ptr.i6
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EESA_.exit, label %for.body.i.i.i.i.i

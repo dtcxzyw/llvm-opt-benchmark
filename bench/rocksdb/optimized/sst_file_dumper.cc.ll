@@ -9131,16 +9131,14 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp.i28.not, label %if.else32, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %land.lhs.true
-  %sub.ptr.lhs.cast.i30 = ptrtoint ptr %add.ptr.i26 to i64
   %sub.ptr.rhs.cast.i31 = ptrtoint ptr %call2.i27 to i64
-  %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
+  %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i31
   %size_ = getelementptr inbounds %"class.rocksdb::BlobIndex", ptr %this, i64 0, i32 6
   %add.ptr.i35 = getelementptr inbounds i8, ptr %call2.i27, i64 %sub.ptr.sub.i32
   %call2.i36 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %call2.i27, ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull %size_)
   %cmp.i37 = icmp ne ptr %call2.i36, null
-  %sub.ptr.lhs.cast.i39 = ptrtoint ptr %add.ptr.i35 to i64
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %call2.i36 to i64
-  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
+  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i40
   %cmp29 = icmp eq i64 %sub.ptr.sub.i41, 1
   %or.cond = and i1 %cmp.i37, %cmp29
   br i1 %or.cond, label %if.then30, label %if.else32

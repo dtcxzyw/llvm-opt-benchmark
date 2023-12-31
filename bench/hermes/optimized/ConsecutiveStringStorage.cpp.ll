@@ -508,12 +508,12 @@ entry:
   %Vec.val3.i.i = load ptr, ptr %asciiStrings_, align 8
   %0 = getelementptr inbounds %"class.(anonymous namespace)::StringTableBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %Vec.val2.i.i = load ptr, ptr %0, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %Vec.val2.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %Vec.val3.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   br i1 %optimize, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %Vec.val2.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %Vec.val3.i.i to i64
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %prefixSet.i)
@@ -559,7 +559,6 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then
   br label %_ZN4llvh8DenseSetIjNS_12DenseMapInfoIjEEECI2NS_6detail12DenseSetImplIjNS_8DenseMapIjNS4_13DenseSetEmptyES2_NS4_12DenseSetPairIjEEEES2_EEEj.exit.i.i
 
 _ZN4llvh8DenseSetIjNS_12DenseMapInfoIjEEECI2NS_6detail12DenseSetImplIjNS_8DenseMapIjNS4_13DenseSetEmptyES2_NS4_12DenseSetPairIjEEEES2_EEEj.exit.i.i: ; preds = %if.else.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %Vec.val3.i.i, i64 %sub.ptr.sub.i.i.i
   %cmp.not12.i.i = icmp eq ptr %Vec.val2.i.i, %Vec.val3.i.i
   br i1 %cmp.not12.i.i, label %_ZN12_GLOBAL__N_112StringPackerIhE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.thread.i, label %for.body.lr.ph.i.i
 
@@ -647,7 +646,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then12.i.i.i.i.i
 
 for.inc.i.i:                                      ; preds = %if.end13.i.i.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.i.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<unsigned char>::StringEntry", ptr %__begin0.013.i.i, i64 1
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %Vec.val2.i.i
   br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_112StringPackerIhE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.i, label %for.body.i.i
 
 _ZN12_GLOBAL__N_112StringPackerIhE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.i: ; preds = %for.inc.i.i
@@ -1162,7 +1161,7 @@ while.cond.backedge.i.i:                          ; preds = %if.end9.i.i.i.i.i, 
 
 for.inc.i31.i:                                    ; preds = %while.cond.backedge.i.i, %if.end.i.i, %for.body.i10.i
   %incdec.ptr.i32.i = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<unsigned char>::StringEntry", ptr %__begin0.097.i.i, i64 1
-  %cmp.not.i33.i = icmp eq ptr %incdec.ptr.i32.i, %add.ptr.i.i.i
+  %cmp.not.i33.i = icmp eq ptr %incdec.ptr.i32.i, %Vec.val2.i.i
   br i1 %cmp.not.i33.i, label %for.end.i.i, label %for.body.i10.i
 
 for.end.i.i:                                      ; preds = %for.inc.i31.i
@@ -1815,7 +1814,7 @@ _ZN12_GLOBAL__N_112StringPackerIhE32computeOverlapsAndParentForEntryEPNS1_11Stri
   %overlaps.val38.i16.i.i = phi ptr [ %overlaps.val38.i15.i.i, %for.body.i43.i ], [ %overlaps.val38.i.i.i, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIhE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E0_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val38.i18.i.i, %for.inc48.i.i.i ], [ %overlaps.val38.i.i.i, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIhE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val38.i.i.i, %for.body.i.i.i ]
   %overlaps.val.i11.i.i = phi ptr [ %overlaps.val.i10.i.i, %for.body.i43.i ], [ %overlaps.val.i.i.i, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIhE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E0_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val.i13.i.i, %for.inc48.i.i.i ], [ %overlaps.val.i.i.i, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIhE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val.i.i.i, %for.body.i.i.i ]
   %incdec.ptr.i44.i = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<unsigned char>::StringEntry", ptr %__begin0.07.i.i, i64 1
-  %cmp.not.i45.i = icmp eq ptr %incdec.ptr.i44.i, %add.ptr.i.i.i
+  %cmp.not.i45.i = icmp eq ptr %incdec.ptr.i44.i, %Vec.val2.i.i
   br i1 %cmp.not.i45.i, label %_ZN12_GLOBAL__N_112StringPackerIhE25computeOverlapsAndParentsEN4llvh15MutableArrayRefINS1_11StringEntryEEENS2_8ArrayRefINS1_16SuffixArrayEntryEEE.exit.i, label %for.body.i43.i
 
 _ZN12_GLOBAL__N_112StringPackerIhE25computeOverlapsAndParentsEN4llvh15MutableArrayRefINS1_11StringEntryEEENS2_8ArrayRefINS1_16SuffixArrayEntryEEE.exit.i: ; preds = %_ZN12_GLOBAL__N_112StringPackerIhE32computeOverlapsAndParentForEntryEPNS1_11StringEntryEN4llvh8ArrayRefINS1_16SuffixArrayEntryEEEPSt6vectorIS8_INS1_7OverlapESaIS9_EESaISB_EE.exit.i.i
@@ -2156,7 +2155,7 @@ for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_112
   %__begin0.0225.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %Vec.val3.i.i, %_ZN12_GLOBAL__N_112StringPackerIhE10planLayoutERKSt6vectorIS2_INS1_7OverlapESaIS3_EESaIS5_EE.exit.i ]
   call fastcc void @_ZN12_GLOBAL__N_112StringPackerIhE14layoutIfNeededEPNS1_11StringEntryEPSt6vectorIhSaIhEE(ptr noundef %__begin0.0225.i, ptr noundef nonnull %ref.tmp)
   %incdec.ptr.i = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<unsigned char>::StringEntry", ptr %__begin0.0225.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %Vec.val2.i.i
   br i1 %cmp.not.i, label %nrvo.skipdtor.i, label %for.body.i
 
 nrvo.skipdtor.i:                                  ; preds = %for.body.i
@@ -2291,7 +2290,6 @@ if.else.i.i.i.i.i.i878:                           ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZN4llvh8DenseSetImNS_12DenseMapInfoImEEECI2NS_6detail12DenseSetImplImNS_8DenseMapImNS4_13DenseSetEmptyES2_NS4_12DenseSetPairImEEEES2_EEEj.exit.i.i
 
 _ZN4llvh8DenseSetImNS_12DenseMapInfoImEEECI2NS_6detail12DenseSetImplImNS_8DenseMapImNS4_13DenseSetEmptyES2_NS4_12DenseSetPairImEEEES2_EEEj.exit.i.i: ; preds = %if.else.i.i.i.i.i.i878, %for.body.preheader.i.i.i.i.i.i.i36
-  %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %Vec.val3.i.i22, i64 %sub.ptr.sub.i.i.i27
   %cmp.not12.i.i59 = icmp eq ptr %Vec.val2.i.i24, %Vec.val3.i.i22
   br i1 %cmp.not12.i.i59, label %_ZN12_GLOBAL__N_112StringPackerIDsE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.thread.i, label %for.body.lr.ph.i.i60
 
@@ -2380,7 +2378,7 @@ if.end.i.i.i.i875:                                ; preds = %if.then12.i.i.i.i.i
 
 for.inc.i.i67:                                    ; preds = %if.end13.i.i.i.i.i.i861, %if.end.i.i.i.i875, %if.end.i.i.i.i.i.i848, %for.body.i.i62
   %incdec.ptr.i.i68 = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<char16_t>::StringEntry", ptr %__begin0.013.i.i63, i64 1
-  %cmp.not.i.i69 = icmp eq ptr %incdec.ptr.i.i68, %add.ptr.i.i.i58
+  %cmp.not.i.i69 = icmp eq ptr %incdec.ptr.i.i68, %Vec.val2.i.i24
   br i1 %cmp.not.i.i69, label %_ZN12_GLOBAL__N_112StringPackerIDsE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.i, label %for.body.i.i62
 
 _ZN12_GLOBAL__N_112StringPackerIDsE21buildPrefixTrigramSetEN4llvh8ArrayRefINS1_11StringEntryEEE.exit.i: ; preds = %for.inc.i.i67
@@ -2900,7 +2898,7 @@ while.cond.backedge.i.i206:                       ; preds = %if.end9.i.i.i.i.i13
 
 for.inc.i32.i:                                    ; preds = %while.cond.backedge.i.i206, %if.end.i.i108, %for.body.i10.i104
   %incdec.ptr.i33.i = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<char16_t>::StringEntry", ptr %__begin0.097.i.i105, i64 1
-  %cmp.not.i34.i = icmp eq ptr %incdec.ptr.i33.i, %add.ptr.i.i.i58
+  %cmp.not.i34.i = icmp eq ptr %incdec.ptr.i33.i, %Vec.val2.i.i24
   br i1 %cmp.not.i34.i, label %for.end.i.i208, label %for.body.i10.i104
 
 for.end.i.i208:                                   ; preds = %for.inc.i32.i
@@ -3553,7 +3551,7 @@ _ZN12_GLOBAL__N_112StringPackerIDsE32computeOverlapsAndParentForEntryEPNS1_11Str
   %overlaps.val38.i16.i.i316 = phi ptr [ %overlaps.val38.i15.i.i287, %for.body.i43.i282 ], [ %overlaps.val38.i.i.i303, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIDsE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E0_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val38.i18.i.i533, %for.inc48.i.i.i528 ], [ %overlaps.val38.i.i.i303, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIDsE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val38.i.i.i303, %for.body.i.i.i298 ]
   %overlaps.val.i11.i.i317 = phi ptr [ %overlaps.val.i10.i.i288, %for.body.i43.i282 ], [ %overlaps.val.i.i.i304, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIDsE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E0_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val.i13.i.i534, %for.inc48.i.i.i528 ], [ %overlaps.val.i.i.i304, %_ZSt15partition_pointIPKN12_GLOBAL__N_112StringPackerIDsE16SuffixArrayEntryEZNS2_32computeOverlapsAndParentForEntryEPNS2_11StringEntryEN4llvh8ArrayRefIS3_EEPSt6vectorISB_INS2_7OverlapESaISC_EESaISE_EEEUlRS4_E_ET_SK_SK_T0_.exit.i.i.i ], [ %overlaps.val.i.i.i304, %for.body.i.i.i298 ]
   %incdec.ptr.i44.i318 = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<char16_t>::StringEntry", ptr %__begin0.07.i.i289, i64 1
-  %cmp.not.i45.i319 = icmp eq ptr %incdec.ptr.i44.i318, %add.ptr.i.i.i58
+  %cmp.not.i45.i319 = icmp eq ptr %incdec.ptr.i44.i318, %Vec.val2.i.i24
   br i1 %cmp.not.i45.i319, label %_ZN12_GLOBAL__N_112StringPackerIDsE25computeOverlapsAndParentsEN4llvh15MutableArrayRefINS1_11StringEntryEEENS2_8ArrayRefINS1_16SuffixArrayEntryEEE.exit.i, label %for.body.i43.i282
 
 _ZN12_GLOBAL__N_112StringPackerIDsE25computeOverlapsAndParentsEN4llvh15MutableArrayRefINS1_11StringEntryEEENS2_8ArrayRefINS1_16SuffixArrayEntryEEE.exit.i: ; preds = %_ZN12_GLOBAL__N_112StringPackerIDsE32computeOverlapsAndParentForEntryEPNS1_11StringEntryEN4llvh8ArrayRefINS1_16SuffixArrayEntryEEEPSt6vectorIS8_INS1_7OverlapESaIS9_EESaISB_EE.exit.i.i
@@ -3894,7 +3892,7 @@ for.body.i343:                                    ; preds = %_ZN12_GLOBAL__N_112
   %__begin0.0226.i = phi ptr [ %incdec.ptr.i344, %for.body.i343 ], [ %Vec.val3.i.i22, %_ZN12_GLOBAL__N_112StringPackerIDsE10planLayoutERKSt6vectorIS2_INS1_7OverlapESaIS3_EESaIS5_EE.exit.i ]
   call fastcc void @_ZN12_GLOBAL__N_112StringPackerIDsE14layoutIfNeededEPNS1_11StringEntryEPSt6vectorIDsSaIDsEE(ptr noundef %__begin0.0226.i, ptr noundef nonnull %ref.tmp8)
   %incdec.ptr.i344 = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<char16_t>::StringEntry", ptr %__begin0.0226.i, i64 1
-  %cmp.not.i345 = icmp eq ptr %incdec.ptr.i344, %add.ptr.i.i.i58
+  %cmp.not.i345 = icmp eq ptr %incdec.ptr.i344, %Vec.val2.i.i24
   br i1 %cmp.not.i345, label %nrvo.skipdtor.i346, label %for.body.i343
 
 nrvo.skipdtor.i346:                               ; preds = %for.body.i343
@@ -3975,7 +3973,6 @@ _ZNSt6vectorIDsSaIDsEEaSEOS1_.exit:               ; preds = %_ZN12_GLOBAL__N_112
 if.else:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false), !alias.scope !140
-  %add.ptr.i.i894 = getelementptr inbounds i8, ptr %Vec.val3.i.i, i64 %sub.ptr.sub.i.i.i
   %cmp.not10.i = icmp eq ptr %Vec.val2.i.i, %Vec.val3.i.i
   br i1 %cmp.not10.i, label %_ZN12_GLOBAL__N_112StringPackerIhE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit, label %for.body.lr.ph.i
 
@@ -4000,7 +3997,7 @@ for.body.i895:                                    ; preds = %for.body.i895, %for
   %add.ptr.i.i.i897 = getelementptr inbounds i8, ptr %217, i64 %sub.ptr.sub.i.i
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr %add.ptr.i.i.i897, ptr noundef %218, ptr noundef %add.ptr.i9.i)
   %incdec.ptr.i898 = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<unsigned char>::StringEntry", ptr %__begin0.011.i, i64 1
-  %cmp.not.i899 = icmp eq ptr %incdec.ptr.i898, %add.ptr.i.i894
+  %cmp.not.i899 = icmp eq ptr %incdec.ptr.i898, %Vec.val2.i.i
   br i1 %cmp.not.i899, label %_ZN12_GLOBAL__N_112StringPackerIhE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit.loopexit, label %for.body.i895
 
 _ZN12_GLOBAL__N_112StringPackerIhE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit.loopexit: ; preds = %for.body.i895
@@ -4035,12 +4032,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit910:                 ; preds = %_ZN12_GLOBAL__N_112
   %Vec.val3.i.i911 = load ptr, ptr %u16Strings_17, align 8
   %224 = getelementptr inbounds %"class.(anonymous namespace)::StringTableBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %Vec.val2.i.i913 = load ptr, ptr %224, align 8
-  %sub.ptr.lhs.cast.i.i.i914 = ptrtoint ptr %Vec.val2.i.i913 to i64
-  %sub.ptr.rhs.cast.i.i.i915 = ptrtoint ptr %Vec.val3.i.i911 to i64
-  %sub.ptr.sub.i.i.i916 = sub i64 %sub.ptr.lhs.cast.i.i.i914, %sub.ptr.rhs.cast.i.i.i915
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp15, i8 0, i64 24, i1 false), !alias.scope !143
-  %add.ptr.i.i918 = getelementptr inbounds i8, ptr %Vec.val3.i.i911, i64 %sub.ptr.sub.i.i.i916
   %cmp.not10.i919 = icmp eq ptr %Vec.val2.i.i913, %Vec.val3.i.i911
   br i1 %cmp.not10.i919, label %_ZN12_GLOBAL__N_112StringPackerIDsE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit, label %for.body.lr.ph.i920
 
@@ -4066,7 +4059,7 @@ for.body.i922:                                    ; preds = %for.body.i922, %for
   %add.ptr.i.i.i931 = getelementptr inbounds i8, ptr %226, i64 %sub.ptr.sub.i.i926
   call void @_ZNSt6vectorIDsSaIDsEE15_M_range_insertIPKDsEEvN9__gnu_cxx17__normal_iteratorIPDsS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp15, ptr %add.ptr.i.i.i931, ptr noundef %227, ptr noundef %add.ptr.i9.i930)
   %incdec.ptr.i932 = getelementptr inbounds %"struct.(anonymous namespace)::StringPacker<char16_t>::StringEntry", ptr %__begin0.011.i923, i64 1
-  %cmp.not.i933 = icmp eq ptr %incdec.ptr.i932, %add.ptr.i.i918
+  %cmp.not.i933 = icmp eq ptr %incdec.ptr.i932, %Vec.val2.i.i913
   br i1 %cmp.not.i933, label %_ZN12_GLOBAL__N_112StringPackerIDsE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit.loopexit, label %for.body.i922
 
 _ZN12_GLOBAL__N_112StringPackerIDsE15fastPackStringsEN4llvh15MutableArrayRefINS1_11StringEntryEEE.exit.loopexit: ; preds = %for.body.i922

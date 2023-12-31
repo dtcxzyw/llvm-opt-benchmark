@@ -12647,8 +12647,7 @@ _ZNSt6vectorIN6Assimp15MorphTimeValuesESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds %"struct.Assimp::MorphTimeValues", ptr %15, i64 -1
   %sub.ptr.lhs.cast.i.i.i.i.i.i13 = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i14 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i13, %sub.ptr.rhs.cast.i.i.i.i.i.i14
+  %sub.ptr.sub.i.i.i.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i13, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i16 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i15, 5
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i16, 0
   br i1 %cmp4.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIPN6Assimp15MorphTimeValuesES2_ET0_T_S4_S3_.exit.i

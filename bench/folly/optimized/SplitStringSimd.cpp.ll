@@ -366,21 +366,18 @@ $_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr = comdat any
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly6detail19SimdSplitByCharImplISt6vectorINS_5RangeIPKcEESaIS6_EEE9keepEmptyEcS6_RS8_(i8 noundef signext %sep, ptr %what.coerce0, ptr %what.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %res) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sub.ptr.lhs.cast.i107 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i108 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i109 = sub i64 %sub.ptr.lhs.cast.i107, %sub.ptr.rhs.cast.i108
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i109
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre319 = ptrtoint ptr %add.ptr.i to i64
+  %.pre319 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i108 = ptrtoint ptr %what.coerce0 to i64
   %and.i9 = and i64 %sub.ptr.rhs.cast.i108, -16
   %0 = inttoptr i64 %and.i9 to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i108, 15
@@ -624,7 +621,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit15
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -867,17 +864,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly6detail19SimdSplitByCharImplISt6vectorINS_5RangeIPKcEESaIS6_EEE9dropEmptyEcS6_RS8_(i8 noundef signext %sep, ptr %what.coerce0, ptr %what.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %res) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -1118,7 +1112,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -1241,15 +1235,14 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !64
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74 ]
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74 ]
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   %_M_finish.i204 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
   %27 = load ptr, ptr %_M_finish.i204, align 8, !tbaa !10
   %_M_end_of_storage.i205 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
@@ -1323,7 +1316,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cx
   store ptr %add.ptr28.i.i244, ptr %_M_end_of_storage.i205, align 8, !tbaa !12
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit: ; preds = %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i243, %if.then.i207, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit: ; preds = %entry, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i243, %if.then.i207, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
   ret void
 }
 
@@ -1338,21 +1331,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -1491,7 +1481,7 @@ _ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -2125,17 +2115,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -2288,7 +2279,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -2367,18 +2358,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !91
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %e_.i141 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
   %21 = load ptr, ptr %e_.i141, align 8, !tbaa !72
@@ -2404,7 +2394,7 @@ _ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit152, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit152, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -2424,21 +2414,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre272 = ptrtoint ptr %add.ptr.i to i64
+  %.pre272 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -2682,7 +2669,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -3206,17 +3193,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -3469,7 +3457,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -3598,18 +3586,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !105
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %42 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %42 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %42, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %42, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %42, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %43 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i195 = icmp eq i64 %43, 0
@@ -3685,7 +3672,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit229, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit229, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -3705,21 +3692,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -3913,7 +3897,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -4273,17 +4257,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -4486,7 +4471,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -4590,18 +4575,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !118
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 2
@@ -4653,7 +4637,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -4673,21 +4657,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -4881,7 +4862,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -5241,17 +5222,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -5454,7 +5436,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -5558,18 +5540,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !131
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 3
@@ -5621,7 +5602,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -5641,21 +5622,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -5849,7 +5827,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -6209,17 +6187,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -6422,7 +6401,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -6526,18 +6505,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !144
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 4
@@ -6589,7 +6567,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -6609,21 +6587,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -6817,7 +6792,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -7177,17 +7152,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -7390,7 +7366,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -7494,18 +7470,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !157
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 5
@@ -7557,7 +7532,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -7577,21 +7552,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -7785,7 +7757,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -8145,17 +8117,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -8358,7 +8331,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -8462,18 +8435,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !170
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 6
@@ -8525,7 +8497,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -8545,21 +8517,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -8753,7 +8722,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -9113,17 +9082,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -9326,7 +9296,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -9430,18 +9400,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !183
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 7
@@ -9493,7 +9462,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -9513,21 +9482,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre252 = ptrtoint ptr %add.ptr.i to i64
+  %.pre252 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -9721,7 +9687,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -10081,17 +10047,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -10294,7 +10261,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -10398,18 +10365,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58, !llvm.loop !196
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i181 = icmp ult i64 %27, 8
@@ -10461,7 +10427,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit.thread, %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -10469,21 +10435,18 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly6detail19SimdSplitByCharImplISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEE9keepEmptyEcNS_5RangeIPKcEERS8_(i8 noundef signext %sep, ptr %what.coerce0, ptr %what.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %res) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre299 = ptrtoint ptr %add.ptr.i to i64
+  %.pre299 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -10723,7 +10686,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJR
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -10927,17 +10890,14 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJR
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly6detail19SimdSplitByCharImplISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEE9dropEmptyEcNS_5RangeIPKcEERS8_(i8 noundef signext %sep, ptr %what.coerce0, ptr %what.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %res) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -11174,7 +11134,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -11295,15 +11255,14 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %while.body.i58, !llvm.loop !247
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74 ]
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74 ]
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   %_M_finish.i200 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
   %27 = load ptr, ptr %_M_finish.i200, align 8, !tbaa !10
   %_M_end_of_storage.i201 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
@@ -11375,7 +11334,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
   store ptr %add.ptr21.i.i238, ptr %_M_end_of_storage.i201, align 8, !tbaa !197
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i237, %if.then.i203, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit: ; preds = %entry, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i237, %if.then.i203, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
   ret void
 }
 
@@ -11390,21 +11349,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -11541,7 +11497,7 @@ _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_b
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -11886,17 +11842,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -12047,7 +12004,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -12125,18 +12082,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %while.body.i58, !llvm.loop !265
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %e_.i139 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
   %21 = load ptr, ptr %e_.i139, align 8, !tbaa !253
@@ -12161,7 +12117,7 @@ _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_b
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit: ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit149, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit.thread, %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit149, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -12181,21 +12137,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre265 = ptrtoint ptr %add.ptr.i to i64
+  %.pre265 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -12435,7 +12388,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -12897,17 +12850,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -13156,7 +13110,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -13283,18 +13237,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !276
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %42 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %42 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %42, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %42, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %42, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %43 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i190 = icmp eq i64 %43, 0
@@ -13368,7 +13321,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplace_backIJRPKclEEERS4_DpOT_.exit222, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplace_backIJRPKclEEERS4_DpOT_.exit222, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -13388,21 +13341,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -13592,7 +13542,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -13947,17 +13897,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -14156,7 +14107,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -14258,18 +14209,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !289
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 2
@@ -14319,7 +14269,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -14339,21 +14289,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -14543,7 +14490,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -14898,17 +14845,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -15107,7 +15055,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -15209,18 +15157,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !302
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 3
@@ -15270,7 +15217,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -15290,21 +15237,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -15494,7 +15438,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -15849,17 +15793,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -16058,7 +16003,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -16160,18 +16105,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !315
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 4
@@ -16221,7 +16165,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -16241,21 +16185,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -16445,7 +16386,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -16800,17 +16741,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -17009,7 +16951,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -17111,18 +17053,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !328
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 5
@@ -17172,7 +17113,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -17192,21 +17133,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -17396,7 +17334,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -17751,17 +17689,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -17960,7 +17899,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -18062,18 +18001,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !341
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 6
@@ -18123,7 +18061,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -18143,21 +18081,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -18347,7 +18282,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -18702,17 +18637,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -18911,7 +18847,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19013,18 +18949,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !354
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 7
@@ -19074,7 +19009,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -19094,21 +19029,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre245 = ptrtoint ptr %add.ptr.i to i64
+  %.pre245 = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -19298,7 +19230,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19653,17 +19585,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -19862,7 +19795,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19964,18 +19897,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58, !llvm.loop !367
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %27 = load i64, ptr %res, align 8, !tbaa !92
   %cmp.i176 = icmp ult i64 %27, 8
@@ -20025,7 +19957,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit.thread, %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -20042,21 +19974,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -20215,7 +20144,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -20607,17 +20536,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -20790,7 +20720,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -20846,24 +20776,23 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %while.body.i58, !llvm.loop !396
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %call.i9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKclEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %res, ptr noundef nonnull align 8 dereferenceable(8) %f.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit: ; preds = %if.end.i5, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit.thread, %if.end.i5, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -20883,21 +20812,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -21190,7 +21116,7 @@ _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_core
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -21892,17 +21818,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -22201,7 +22128,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -22353,18 +22280,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %while.body.i58, !llvm.loop !425
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %_M_finish.i140 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
   %39 = load ptr, ptr %_M_finish.i140, align 8, !tbaa !10
@@ -22463,7 +22389,7 @@ _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_core
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit: ; preds = %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit149, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit.thread, %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit149, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -22483,21 +22409,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -22722,7 +22645,7 @@ _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE1
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -23428,17 +23351,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -23677,7 +23601,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -23799,18 +23723,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %while.body.i58, !llvm.loop !441
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %e_.i170 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
   %42 = load ptr, ptr %e_.i170, align 8, !tbaa !426
@@ -23881,7 +23804,7 @@ _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit: ; preds = %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit193, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit.thread, %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit193, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }
@@ -23901,21 +23824,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i95
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
   br i1 %cmp.i, label %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit_crit_edge, label %if.end.i
 
 entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit_crit_edge: ; preds = %entry
-  %.pre = ptrtoint ptr %add.ptr.i to i64
+  %.pre = ptrtoint ptr %what.coerce1 to i64
   br label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i94, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
@@ -24208,7 +24128,7 @@ _ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_cor
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -24878,17 +24798,18 @@ entry:
   %ref.tmp.i.i = alloca i64, align 8
   %f.addr.i = alloca ptr, align 8
   %ref.tmp.i3 = alloca i64, align 8
-  %sub.ptr.lhs.cast.i99 = ptrtoint ptr %what.coerce1 to i64
-  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
-  %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  %add.ptr.i = getelementptr inbounds i8, ptr %what.coerce0, i64 %sub.ptr.sub.i101
   %cmp.i = icmp eq ptr %what.coerce1, %what.coerce0
-  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit.thread, label %if.end.i
+
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
+  br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i100 = ptrtoint ptr %what.coerce0 to i64
   %and.i50.i = and i64 %sub.ptr.rhs.cast.i100, -16
   %0 = inttoptr i64 %and.i50.i to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %what.coerce1 to i64
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
@@ -25187,7 +25108,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %what.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -25339,18 +25260,17 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
   %tobool.not.i57 = icmp ult i16 %shr.i62, 2
   br i1 %tobool.not.i57, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %while.body.i58, !llvm.loop !454
 
-_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %entry
-  %prev.i.7 = phi ptr [ %what.coerce1, %entry ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i74 ]
+_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit: ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i74, %if.end16.i, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit
+  %prev.i.7 = phi ptr [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %prev.i.4, %if.end16.i ], [ %add.ptr6.i67, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i74 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.addr.i)
   store ptr %prev.i.7, ptr %f.addr.i, align 8, !tbaa !10
-  %cmp.i4 = icmp eq ptr %prev.i.7, %add.ptr.i
+  %cmp.i4 = icmp eq ptr %prev.i.7, %what.coerce1
   br i1 %cmp.i4, label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
-  %sub.ptr.lhs.cast.i6 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
+  %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
   %e_.i141 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
   %39 = load ptr, ptr %e_.i141, align 8, !tbaa !442
@@ -25449,7 +25369,7 @@ _ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_cor
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3) #24
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit
 
-_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit: ; preds = %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit150, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit
+_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit: ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit.thread, %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit150, %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %f.addr.i)
   ret void
 }

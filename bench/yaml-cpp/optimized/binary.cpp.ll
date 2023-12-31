@@ -375,14 +375,18 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i.i.
 
 if.else.i:                                        ; preds = %for.end
   %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
+  br i1 %cmp4.i, label %if.then5.i, label %cleanup.thread
+
+if.then5.i:                                       ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i23, i64 %sub.ptr.sub
-  %spec.select = select i1 %cmp4.i, ptr %add.ptr.i, ptr %__first.addr.0.i.i.i.i.i
+  %tobool.not.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i, %out.0.lcssa
+  %spec.select = select i1 %tobool.not.i.i, ptr %__first.addr.0.i.i.i.i.i, ptr %add.ptr.i
   br label %cleanup.thread
 
-cleanup.thread:                                   ; preds = %if.else.i, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i
-  %ret.sroa.0.1 = phi ptr [ %cond.i19.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.else.i ]
-  %ret.sroa.11.1 = phi ptr [ %add.ptr36.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select, %if.else.i ]
-  %ret.sroa.18.1 = phi ptr [ %add.ptr39.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+cleanup.thread:                                   ; preds = %if.then5.i, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i, %if.else.i
+  %ret.sroa.0.1 = phi ptr [ %call5.i.i.i.i1.i.i23, %if.else.i ], [ %cond.i19.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.then5.i ]
+  %ret.sroa.11.1 = phi ptr [ %__first.addr.0.i.i.i.i.i, %if.else.i ], [ %add.ptr36.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select, %if.then5.i ]
+  %ret.sroa.18.1 = phi ptr [ %add.ptr.i.i.i, %if.else.i ], [ %add.ptr39.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i.i, %if.then5.i ]
   store ptr %ret.sroa.0.1, ptr %agg.result, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   store ptr %ret.sroa.11.1, ptr %_M_finish.i.i.i.i, align 8

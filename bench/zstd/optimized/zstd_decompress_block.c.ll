@@ -282,11 +282,11 @@ if.then164:                                       ; preds = %if.end161
   br i1 %singleStream.0, label %if.else, label %if.then166
 
 if.then166:                                       ; preds = %if.then164
-  %call169 = tail call i64 @HUF_decompress1X_usingDTable(ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr171, i64 noundef %litCSize.0, ptr noundef %17, i32 noundef %or52) #17
+  %call169 = tail call i64 @HUF_decompress1X_usingDTable(ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr171, i64 noundef %litCSize.0, ptr noundef %17, i32 noundef %or52) #16
   br label %if.end192
 
 if.else:                                          ; preds = %if.then164
-  %call173 = tail call i64 @HUF_decompress4X_usingDTable(ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr171, i64 noundef %litCSize.0, ptr noundef %17, i32 noundef %or52) #17
+  %call173 = tail call i64 @HUF_decompress4X_usingDTable(ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr171, i64 noundef %litCSize.0, ptr noundef %17, i32 noundef %or52) #16
   br label %if.end192
 
 if.else175:                                       ; preds = %if.end161
@@ -296,11 +296,11 @@ if.else175:                                       ; preds = %if.end161
   br i1 %singleStream.0, label %if.else182, label %if.then177
 
 if.then177:                                       ; preds = %if.else175
-  %call181 = tail call i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef nonnull %hufTable184, ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr187, i64 noundef %litCSize.0, ptr noundef nonnull %workspace188, i64 noundef 2560, i32 noundef %or52) #17
+  %call181 = tail call i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef nonnull %hufTable184, ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr187, i64 noundef %litCSize.0, ptr noundef nonnull %workspace188, i64 noundef 2560, i32 noundef %or52) #16
   br label %if.end192
 
 if.else182:                                       ; preds = %if.else175
-  %call190 = tail call i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef nonnull %hufTable184, ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr187, i64 noundef %litCSize.0, ptr noundef nonnull %workspace188, i64 noundef 2560, i32 noundef %or52) #17
+  %call190 = tail call i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef nonnull %hufTable184, ptr noundef %14, i64 noundef %litSize.0, ptr noundef nonnull %add.ptr187, i64 noundef %litCSize.0, ptr noundef nonnull %workspace188, i64 noundef 2560, i32 noundef %or52) #16
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then177, %if.else182, %if.then166, %if.else
@@ -647,7 +647,7 @@ sw.epilog508:                                     ; preds = %do.body462, %do.bod
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ZSTD_buildFSETable(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, ptr nocapture noundef readonly %baseValue, ptr nocapture noundef readonly %nbAdditionalBits, i32 noundef %tableLog, ptr nocapture noundef %wksp, i64 %wkspSize, i32 noundef %bmi2) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %bmi2, 0
@@ -885,7 +885,7 @@ return:                                           ; preds = %for.body132.i.i, %i
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, ptr nocapture noundef readonly %baseValue, ptr nocapture noundef readonly %nbAdditionalBits, i32 noundef %tableLog, ptr nocapture noundef %wksp) unnamed_addr #3 {
 entry:
   %add.ptr.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %dt, i64 1
@@ -1267,7 +1267,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 sw.bb51.i:                                        ; preds = %do.end85
   %sub.ptr.rhs.cast94 = ptrtoint ptr %add.ptr72 to i64
   %sub.ptr.sub95 = sub i64 %sub.ptr.lhs.cast93, %sub.ptr.rhs.cast94
-  %call.i = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i, ptr noundef nonnull %max.addr.i, ptr noundef nonnull %tableLog.i, ptr noundef nonnull %add.ptr72, i64 noundef %sub.ptr.sub95) #17
+  %call.i = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i, ptr noundef nonnull %max.addr.i, ptr noundef nonnull %tableLog.i, ptr noundef nonnull %add.ptr72, i64 noundef %sub.ptr.sub95) #16
   %cmp.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i, label %do.body66.i, label %ZSTD_buildSeqTable.exit.thread
 
@@ -1379,7 +1379,7 @@ for.body.i84:                                     ; preds = %for.body.i84, %if.t
 sw.bb51.i67:                                      ; preds = %do.end111
   %sub.ptr.rhs.cast116 = ptrtoint ptr %add.ptr112 to i64
   %sub.ptr.sub117 = sub i64 %sub.ptr.lhs.cast93, %sub.ptr.rhs.cast116
-  %call.i68 = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i66, ptr noundef nonnull %max.addr.i64, ptr noundef nonnull %tableLog.i65, ptr noundef nonnull %add.ptr112, i64 noundef %sub.ptr.sub117) #17
+  %call.i68 = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i66, ptr noundef nonnull %max.addr.i64, ptr noundef nonnull %tableLog.i65, ptr noundef nonnull %add.ptr112, i64 noundef %sub.ptr.sub117) #16
   %cmp.i.i69 = icmp ult i64 %call.i68, -119
   br i1 %cmp.i.i69, label %do.body66.i71, label %ZSTD_buildSeqTable.exit103.thread
 
@@ -1489,7 +1489,7 @@ for.body.i126:                                    ; preds = %for.body.i126, %if.
 sw.bb51.i109:                                     ; preds = %do.end137
   %sub.ptr.rhs.cast142 = ptrtoint ptr %add.ptr138 to i64
   %sub.ptr.sub143 = sub i64 %sub.ptr.lhs.cast93, %sub.ptr.rhs.cast142
-  %call.i110 = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i108, ptr noundef nonnull %max.addr.i106, ptr noundef nonnull %tableLog.i107, ptr noundef nonnull %add.ptr138, i64 noundef %sub.ptr.sub143) #17
+  %call.i110 = call i64 @FSE_readNCount(ptr noundef nonnull %norm.i108, ptr noundef nonnull %max.addr.i106, ptr noundef nonnull %tableLog.i107, ptr noundef nonnull %add.ptr138, i64 noundef %sub.ptr.sub143) #16
   %cmp.i.i111 = icmp ult i64 %call.i110, -119
   br i1 %cmp.i.i111, label %do.body66.i113, label %ZSTD_buildSeqTable.exit145.thread
 
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %if.end30, %cond.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind uwtable
 define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #4 {
 entry:
   %litPtr.i.i = alloca ptr, align 8
@@ -5080,7 +5080,7 @@ ZSTD_initFseState.exit1094.i:                     ; preds = %if.end18.i.i1076.i,
   %add.ptr.i1071.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %42, i64 1
   %table.i1072.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i.i, i64 0, i32 3, i32 1
   store ptr %add.ptr.i1071.i, ptr %table.i1072.i, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %prevOffset91.i380.i.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i.i, i64 0, i32 4
   %arrayidx105.i376.i.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i.i, i64 0, i32 4, i64 1
   %arrayidx107.i378.i.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i.i, i64 0, i32 4, i64 2
@@ -6085,11 +6085,11 @@ if.end96.i.i:                                     ; preds = %ZSTD_execSequence.e
   br i1 %cmp97.i.i, label %for.body102.i.lr.ph.i, label %if.end119.i.i
 
 for.body102.i.lr.ph.i:                            ; preds = %if.end96.i.i
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !39
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !41
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !43
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !41
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
   %sequence103.i.sroa.4.0.sequence103433.i.sroa_idx.i = getelementptr inbounds i8, ptr %sequence103433.i.i, i64 8
   %sequence103.i.sroa.7.0.sequence103433.i.sroa_idx.i = getelementptr inbounds i8, ptr %sequence103433.i.i, i64 16
   br label %for.body102.i.i
@@ -7147,11 +7147,11 @@ ZSTD_initFseState.exit516.i:                      ; preds = %if.end18.i.i498.i, 
   %add.ptr.i493.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %44, i64 1
   %table.i494.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i.i, i64 0, i32 3, i32 1
   store ptr %add.ptr.i493.i, ptr %table.i494.i, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !50
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !51
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !53
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !50
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !51
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
   %sequence.i.sroa.4.0.sequence101.i.sroa_idx.i = getelementptr inbounds i8, ptr %sequence101.i.i, i64 8
   %sequence.i.sroa.7.0.sequence101.i.sroa_idx.i = getelementptr inbounds i8, ptr %sequence101.i.i, i64 16
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 -32
@@ -7901,7 +7901,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: nofree nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind uwtable
 define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #11 {
 entry:
   %litPtr.i = alloca ptr, align 8
@@ -10908,7 +10908,7 @@ ZSTD_decompressSequencesLong_body.exit:           ; preds = %do.body53.i, %do.bo
   ret i64 %retval.i.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op, ptr noundef %oend, ptr nocapture noundef readonly byval(%struct.seq_t) align 8 %sequence, ptr nocapture noundef %litPtr, ptr noundef %litLimit, ptr noundef %prefixStart, ptr noundef %virtualStart, ptr noundef readonly %dictEnd) unnamed_addr #12 {
 entry:
   %0 = load i64, ptr %sequence, align 8
@@ -11010,7 +11010,7 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   %10 = load <2 x i64>, ptr %add.ptr14.i.i, align 1
   store <2 x i64> %10, ptr %add.ptr13.i.i, align 1
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %op.i.1.i, i64 32
-  %cmp23.i.i = icmp ult ptr %add.ptr18.i.i, %add.ptr.i.i
+  %cmp23.i.i = icmp ult ptr %add.ptr18.i.i, %add.ptr5
   br i1 %cmp23.i.i, label %do.body11.i.i, label %ZSTD_wildcopy.exit.i, !llvm.loop !27
 
 ZSTD_wildcopy.exit.i:                             ; preds = %do.body11.i.i, %if.then10.i
@@ -11079,7 +11079,7 @@ return:                                           ; preds = %do.body38, %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_safecopy(ptr noundef %op, ptr noundef %oend_w, ptr noundef %ip, i64 noundef %length, i32 noundef %ovtype) unnamed_addr #13 {
+define internal fastcc void @ZSTD_safecopy(ptr noundef %op, ptr noundef %oend_w, ptr noundef %ip, i64 noundef %length, i32 noundef %ovtype) unnamed_addr #12 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %op to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ip to i64
@@ -11275,7 +11275,7 @@ while.end28:                                      ; preds = %do.body11.i47, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #13 {
 entry:
   %sequence449.i = alloca %struct.seq_t, align 8
   %sequence103433.i = alloca %struct.seq_t, align 8
@@ -11651,7 +11651,7 @@ ZSTD_initFseState.exit1094:                       ; preds = %if.then.i.i1093, %i
   %add.ptr.i1071 = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %41, i64 1
   %table.i1072 = getelementptr inbounds %struct.seqState_t, ptr %seqState.i, i64 0, i32 3, i32 1
   store ptr %add.ptr.i1071, ptr %table.i1072, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %prevOffset91.i380.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i, i64 0, i32 4
   %arrayidx105.i376.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i, i64 0, i32 4, i64 1
   %arrayidx107.i378.i = getelementptr inbounds %struct.seqState_t, ptr %seqState.i, i64 0, i32 4, i64 2
@@ -12656,11 +12656,11 @@ if.end96.i:                                       ; preds = %ZSTD_execSequence.e
   br i1 %cmp97.i, label %for.body102.i.lr.ph, label %if.end119.i
 
 for.body102.i.lr.ph:                              ; preds = %if.end96.i
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !39
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !40
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !41
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !43
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !41
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !43
   %sequence103.i.sroa.4.0.sequence103433.i.sroa_idx = getelementptr inbounds i8, ptr %sequence103433.i, i64 8
   %sequence103.i.sroa.7.0.sequence103433.i.sroa_idx = getelementptr inbounds i8, ptr %sequence103433.i, i64 16
   br label %for.body102.i
@@ -13306,7 +13306,7 @@ ZSTD_decompressSequences_bodySplitLitBuffer.exit: ; preds = %do.body53.i, %do.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #14 {
+define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %seqStart, i64 noundef %seqSize, i32 noundef %nbSeq) unnamed_addr #13 {
 entry:
   %sequence101.i = alloca %struct.seq_t, align 8
   %litPtr.i = alloca ptr, align 8
@@ -13697,11 +13697,11 @@ ZSTD_initFseState.exit516:                        ; preds = %if.then.i.i515, %if
   %add.ptr.i493 = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %43, i64 1
   %table.i494 = getelementptr inbounds %struct.seqState_t, ptr %seqState.i, i64 0, i32 3, i32 1
   store ptr %add.ptr.i493, ptr %table.i494, align 8
-  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !50
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !51
-  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
-  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !53
-  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
+  tail call void asm sideeffect ".p2align 6", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !50
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !51
+  tail call void asm sideeffect ".p2align 4", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
+  tail call void asm sideeffect "nop", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
+  tail call void asm sideeffect ".p2align 3", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
   %sequence.i.sroa.4.0.sequence101.i.sroa_idx = getelementptr inbounds i8, ptr %sequence101.i, i64 8
   %sequence.i.sroa.7.0.sequence101.i.sroa_idx = getelementptr inbounds i8, ptr %sequence101.i, i64 16
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %cond.i, i64 -32
@@ -14309,38 +14309,37 @@ ZSTD_decompressSequences_body.exit:               ; preds = %if.then28.i.i, %ZST
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #15
+declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
+attributes #11 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

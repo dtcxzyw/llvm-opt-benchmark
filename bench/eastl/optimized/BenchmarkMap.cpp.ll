@@ -409,10 +409,6 @@ _ZN10TestObjectD2Ev.exit176:                      ; preds = %for.cond37.preheade
   store i64 %inc3.i175, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %36 = load ptr, ptr %stdVector, align 8
   %37 = load ptr, ptr %mpEnd.i7.i, align 8
-  %sub.ptr.lhs.cast.i178 = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast.i179 = ptrtoint ptr %36 to i64
-  %sub.ptr.sub.i180 = sub i64 %sub.ptr.lhs.cast.i178, %sub.ptr.rhs.cast.i179
-  %add.ptr = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub.i180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %38 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %38, 1
@@ -443,7 +439,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i: ; preds = %if.then.i.i.i.
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i, %if.then2.i.i.i
   %.sink.i.i.i = phi i64 [ %39, %if.then2.i.i.i ], [ %add.i.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i ]
   store i64 %.sink.i.i.i, ptr %stopwatch1, align 8
-  %cmp.not3.i.i.i = icmp eq ptr %37, %36
+  %cmp.not3.i.i.i = icmp eq ptr %36, %37
   br i1 %cmp.not3.i.i.i, label %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE6insertIPKS3_IS0_jEEEvT_SC_.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i, %call.i.i.i.noexc
@@ -555,7 +551,7 @@ _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit.i.i, %cleanup.thread.i
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %37
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE6insertIPKS3_IS0_jEEEvT_SC_.exit.i, label %for.body.i.i.i, !llvm.loop !10
 
 _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE6insertIPKS3_IS0_jEEEvT_SC_.exit.i: ; preds = %call.i.i.i.noexc, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
@@ -605,10 +601,6 @@ if.then.i.i182:                                   ; preds = %lor.rhs.i.i, %_ZNSt
 invoke.cont62:                                    ; preds = %lor.rhs.i.i, %if.then.i.i182
   %62 = load ptr, ptr %eaVector, align 8
   %63 = load ptr, ptr %mpEnd.i7.i53, align 8
-  %sub.ptr.lhs.cast.i186 = ptrtoint ptr %63 to i64
-  %sub.ptr.rhs.cast.i187 = ptrtoint ptr %62 to i64
-  %sub.ptr.sub.i188 = sub i64 %sub.ptr.lhs.cast.i186, %sub.ptr.rhs.cast.i187
-  %add.ptr66 = getelementptr inbounds i8, ptr %62, i64 %sub.ptr.sub.i188
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %64 = load i32, ptr %mnUnits.i.i.i191, align 8
@@ -640,7 +632,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i196: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i200:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i196, %if.then2.i.i.i207
   %.sink.i.i.i201 = phi i64 [ %65, %if.then2.i.i.i207 ], [ %add.i.i.i.i199, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i196 ]
   store i64 %.sink.i.i.i201, ptr %stopwatch2, align 8
-  %cmp.not3.i.i = icmp eq ptr %63, %62
+  %cmp.not3.i.i = icmp eq ptr %62, %63
   br i1 %cmp.not3.i.i, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE6insertIPKNS2_IS1_jEEEEvT_SF_.exit.i, label %for.body.i.i202
 
 for.body.i.i202:                                  ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i200, %.noexc208
@@ -765,7 +757,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use
 
 .noexc208:                                        ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS4_EE.exit.i, %.noexc1226
   %incdec.ptr.i.i203 = getelementptr inbounds %"struct.eastl::pair", ptr %first.addr.04.i.i, i64 1
-  %cmp.not.i.i204 = icmp eq ptr %incdec.ptr.i.i203, %add.ptr66
+  %cmp.not.i.i204 = icmp eq ptr %incdec.ptr.i.i203, %63
   br i1 %cmp.not.i.i204, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE6insertIPKNS2_IS1_jEEEEvT_SF_.exit.i, label %for.body.i.i202, !llvm.loop !19
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE6insertIPKNS2_IS1_jEEEEvT_SF_.exit.i: ; preds = %.noexc208, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i200
@@ -1095,10 +1087,6 @@ _ZN5eastl4pairIK10TestObjectjED2Ev.exit356:       ; preds = %_ZN5eastl4pairIK10T
 if.end105:                                        ; preds = %invoke.cont102, %_ZN10TestObjectD2Ev.exit334
   %121 = load ptr, ptr %stdVector, align 8
   %122 = load ptr, ptr %mpEnd.i7.i, align 8
-  %sub.ptr.lhs.cast.i365 = ptrtoint ptr %122 to i64
-  %sub.ptr.rhs.cast.i366 = ptrtoint ptr %121 to i64
-  %sub.ptr.sub.i367 = sub i64 %sub.ptr.lhs.cast.i365, %sub.ptr.rhs.cast.i366
-  %add.ptr109 = getelementptr inbounds i8, ptr %121, i64 %sub.ptr.sub.i367
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %123 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i371 = icmp eq i32 %123, 1
@@ -1129,7 +1117,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i375: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i379:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i375, %if.then2.i.i.i404
   %.sink.i.i.i380 = phi i64 [ %124, %if.then2.i.i.i404 ], [ %add.i.i.i.i378, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i375 ]
   store i64 %.sink.i.i.i380, ptr %stopwatch1, align 8
-  %cmp.not6.i = icmp eq ptr %122, %121
+  %cmp.not6.i = icmp eq ptr %121, %122
   br i1 %cmp.not6.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i379, %.noexc406
@@ -1273,7 +1261,7 @@ _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEEixERS4_.exit.i: ; preds = 
 
 .noexc406:                                        ; preds = %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEEixERS4_.exit.i
   %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.07.i, i64 1
-  %cmp.not.i399 = icmp eq ptr %incdec.ptr.i, %add.ptr109
+  %cmp.not.i399 = icmp eq ptr %incdec.ptr.i, %122
   br i1 %cmp.not.i399, label %while.end.i, label %while.body.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %.noexc406, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i379
@@ -1283,10 +1271,6 @@ while.end.i:                                      ; preds = %.noexc406, %_ZN2EA4
 invoke.cont110:                                   ; preds = %while.end.i
   %150 = load ptr, ptr %eaVector, align 8
   %151 = load ptr, ptr %mpEnd.i7.i53, align 8
-  %sub.ptr.lhs.cast.i409 = ptrtoint ptr %151 to i64
-  %sub.ptr.rhs.cast.i410 = ptrtoint ptr %150 to i64
-  %sub.ptr.sub.i411 = sub i64 %sub.ptr.lhs.cast.i409, %sub.ptr.rhs.cast.i410
-  %add.ptr114 = getelementptr inbounds i8, ptr %150, i64 %sub.ptr.sub.i411
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %152 = load i32, ptr %mnUnits.i.i.i191, align 8
   %cmp.i.i.i415 = icmp eq i32 %152, 1
@@ -1317,7 +1301,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i419: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i423:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i419, %if.then2.i.i.i439
   %.sink.i.i.i424 = phi i64 [ %153, %if.then2.i.i.i439 ], [ %add.i.i.i.i422, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i419 ]
   store i64 %.sink.i.i.i424, ptr %stopwatch2, align 8
-  %cmp.not5.i = icmp eq ptr %151, %150
+  %cmp.not5.i = icmp eq ptr %150, %151
   br i1 %cmp.not5.i, label %while.end.i435, label %while.body.i427
 
 while.body.i427:                                  ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i423, %.noexc441
@@ -1556,7 +1540,7 @@ _ZN5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEEixERKS1_.exit.i: ; preds
 
 .noexc441:                                        ; preds = %_ZN5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEEixERKS1_.exit.i
   %incdec.ptr.i433 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.06.i, i64 1
-  %cmp.not.i434 = icmp eq ptr %incdec.ptr.i433, %add.ptr114
+  %cmp.not.i434 = icmp eq ptr %incdec.ptr.i433, %151
   br i1 %cmp.not.i434, label %while.end.i435, label %while.body.i427, !llvm.loop !42
 
 while.end.i435:                                   ; preds = %.noexc441, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i423
@@ -1582,10 +1566,6 @@ invoke.cont122:                                   ; preds = %invoke.cont120
 if.end125:                                        ; preds = %invoke.cont122, %invoke.cont115
   %195 = load ptr, ptr %stdVector, align 8
   %196 = load ptr, ptr %mpEnd.i7.i, align 8
-  %sub.ptr.lhs.cast.i445 = ptrtoint ptr %196 to i64
-  %sub.ptr.rhs.cast.i446 = ptrtoint ptr %195 to i64
-  %sub.ptr.sub.i447 = sub i64 %sub.ptr.lhs.cast.i445, %sub.ptr.rhs.cast.i446
-  %add.ptr129 = getelementptr inbounds i8, ptr %195, i64 %sub.ptr.sub.i447
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %197 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i451 = icmp eq i32 %197, 1
@@ -1616,7 +1596,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i459:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455, %if.then2.i.i.i477
   %.sink.i.i.i460 = phi i64 [ %198, %if.then2.i.i.i477 ], [ %add.i.i.i.i458, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i455 ]
   store i64 %.sink.i.i.i460, ptr %stopwatch1, align 8
-  %cmp.not5.i461 = icmp eq ptr %196, %195
+  %cmp.not5.i461 = icmp eq ptr %195, %196
   br i1 %cmp.not5.i461, label %while.end.i474, label %while.body.i464
 
 while.body.i464:                                  ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i459, %.noexc478
@@ -1665,7 +1645,7 @@ _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE4findERS4_.exit.i: ; preds
 
 .noexc478:                                        ; preds = %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE4findERS4_.exit.i
   %incdec.ptr.i472 = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.06.i465, i64 1
-  %cmp.not.i473 = icmp eq ptr %incdec.ptr.i472, %add.ptr129
+  %cmp.not.i473 = icmp eq ptr %incdec.ptr.i472, %196
   br i1 %cmp.not.i473, label %while.end.i474, label %while.body.i464, !llvm.loop !43
 
 while.end.i474:                                   ; preds = %.noexc478, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i459
@@ -1675,10 +1655,6 @@ while.end.i474:                                   ; preds = %.noexc478, %_ZN2EA4
 invoke.cont130:                                   ; preds = %while.end.i474
   %206 = load ptr, ptr %eaVector, align 8
   %207 = load ptr, ptr %mpEnd.i7.i53, align 8
-  %sub.ptr.lhs.cast.i481 = ptrtoint ptr %207 to i64
-  %sub.ptr.rhs.cast.i482 = ptrtoint ptr %206 to i64
-  %sub.ptr.sub.i483 = sub i64 %sub.ptr.lhs.cast.i481, %sub.ptr.rhs.cast.i482
-  %add.ptr134 = getelementptr inbounds i8, ptr %206, i64 %sub.ptr.sub.i483
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %208 = load i32, ptr %mnUnits.i.i.i191, align 8
   %cmp.i.i.i487 = icmp eq i32 %208, 1
@@ -1709,7 +1685,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i491: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i495:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i491, %if.then2.i.i.i513
   %.sink.i.i.i496 = phi i64 [ %209, %if.then2.i.i.i513 ], [ %add.i.i.i.i494, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i491 ]
   store i64 %.sink.i.i.i496, ptr %stopwatch2, align 8
-  %cmp.not5.i497 = icmp eq ptr %207, %206
+  %cmp.not5.i497 = icmp eq ptr %206, %207
   br i1 %cmp.not5.i497, label %while.end.i510, label %while.body.i499
 
 while.body.i499:                                  ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i495, %.noexc514
@@ -1759,7 +1735,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use
 
 .noexc514:                                        ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE4findERS3_.exit.i
   %incdec.ptr.i508 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.06.i500, i64 1
-  %cmp.not.i509 = icmp eq ptr %incdec.ptr.i508, %add.ptr134
+  %cmp.not.i509 = icmp eq ptr %incdec.ptr.i508, %207
   br i1 %cmp.not.i509, label %while.end.i510, label %while.body.i499, !llvm.loop !48
 
 while.end.i510:                                   ; preds = %.noexc514, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i495
@@ -1859,7 +1835,7 @@ _ZNKSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE5countERS4_.exit.i: ; pre
   %conv.i.i555 = zext i1 %cmp.i.i6.i to i32
   %add.i556 = add i32 %temp.09.i, %conv.i.i555
   %incdec.ptr.i557 = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.08.i, i64 1
-  %cmp.not.i558 = icmp eq ptr %incdec.ptr.i557, %add.ptr129
+  %cmp.not.i558 = icmp eq ptr %incdec.ptr.i557, %196
   br i1 %cmp.not.i558, label %while.end.i559, label %while.body.i537, !llvm.loop !50
 
 while.end.i559:                                   ; preds = %_ZNKSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE5countERS4_.exit.i, %while.body.lr.ph.i534, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i532
@@ -1946,7 +1922,7 @@ _ZNK5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEE5countERKS1_.exit.i: ; 
   %conv.i.i589 = zext i1 %cmp.i.i5.i to i32
   %add.i590 = add i32 %temp.09.i584, %conv.i.i589
   %incdec.ptr.i591 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.07.i585, i64 1
-  %cmp.not.i592 = icmp eq ptr %incdec.ptr.i591, %add.ptr134
+  %cmp.not.i592 = icmp eq ptr %incdec.ptr.i591, %207
   br i1 %cmp.not.i592, label %while.end.i593, label %while.body.i583, !llvm.loop !54
 
 while.end.i593:                                   ; preds = %_ZNK5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEE5countERKS1_.exit.i, %while.body.lr.ph.i582, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i579
@@ -2037,7 +2013,7 @@ _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11lower_boundERS4_.exit.i:
 
 .noexc642:                                        ; preds = %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11lower_boundERS4_.exit.i
   %incdec.ptr.i636 = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.05.i, i64 1
-  %cmp.not.i637 = icmp eq ptr %incdec.ptr.i636, %add.ptr129
+  %cmp.not.i637 = icmp eq ptr %incdec.ptr.i636, %196
   br i1 %cmp.not.i637, label %while.end.i638, label %while.body.i621, !llvm.loop !55
 
 while.end.i638:                                   ; preds = %.noexc642, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i616
@@ -2109,7 +2085,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use
 
 .noexc682:                                        ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE11lower_boundERS3_.exit.i
   %incdec.ptr.i676 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.06.i665, i64 1
-  %cmp.not.i677 = icmp eq ptr %incdec.ptr.i676, %add.ptr134
+  %cmp.not.i677 = icmp eq ptr %incdec.ptr.i676, %207
   br i1 %cmp.not.i677, label %while.end.i678, label %while.body.i664, !llvm.loop !59
 
 while.end.i678:                                   ; preds = %.noexc682, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i659
@@ -2198,7 +2174,7 @@ _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11upper_boundERS4_.exit.i:
 
 .noexc729:                                        ; preds = %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11upper_boundERS4_.exit.i
   %incdec.ptr.i723 = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.05.i707, i64 1
-  %cmp.not.i724 = icmp eq ptr %incdec.ptr.i723, %add.ptr129
+  %cmp.not.i724 = icmp eq ptr %incdec.ptr.i723, %196
   br i1 %cmp.not.i724, label %while.end.i725, label %while.body.i706, !llvm.loop !61
 
 while.end.i725:                                   ; preds = %.noexc729, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i700
@@ -2270,7 +2246,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use
 
 .noexc774:                                        ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE11upper_boundERS3_.exit.i
   %incdec.ptr.i768 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.06.i752, i64 1
-  %cmp.not.i769 = icmp eq ptr %incdec.ptr.i768, %add.ptr134
+  %cmp.not.i769 = icmp eq ptr %incdec.ptr.i768, %207
   br i1 %cmp.not.i769, label %while.end.i770, label %while.body.i751, !llvm.loop !66
 
 while.end.i770:                                   ; preds = %.noexc774, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i746
@@ -2392,7 +2368,7 @@ _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11equal_rangeERS4_.exit.i:
 
 .noexc808:                                        ; preds = %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEE11equal_rangeERS4_.exit.i
   %incdec.ptr.i801 = getelementptr inbounds %"struct.std::pair", ptr %pArrayBegin.addr.09.i, i64 1
-  %cmp.not.i802 = icmp eq ptr %incdec.ptr.i801, %add.ptr129
+  %cmp.not.i802 = icmp eq ptr %incdec.ptr.i801, %196
   br i1 %cmp.not.i802, label %while.end.i803, label %while.body.i797, !llvm.loop !68
 
 while.end.i803:                                   ; preds = %.noexc808, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i792
@@ -2480,7 +2456,7 @@ _ZN5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit
 
 .noexc857:                                        ; preds = %_ZN5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i
   %incdec.ptr.i850 = getelementptr inbounds %"struct.eastl::pair", ptr %pArrayBegin.addr.06.i831, i64 1
-  %cmp.not.i851 = icmp eq ptr %incdec.ptr.i850, %add.ptr134
+  %cmp.not.i851 = icmp eq ptr %incdec.ptr.i850, %207
   br i1 %cmp.not.i851, label %while.end.i852, label %while.body.i830, !llvm.loop !75
 
 while.end.i852:                                   ; preds = %.noexc857, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i825
@@ -2504,7 +2480,10 @@ invoke.cont222:                                   ; preds = %invoke.cont220
           to label %if.end225 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end225:                                        ; preds = %invoke.cont222, %invoke.cont215
-  %sub.ptr.div.i864 = ashr exact i64 %sub.ptr.sub.i447, 5
+  %sub.ptr.lhs.cast.i861 = ptrtoint ptr %196 to i64
+  %sub.ptr.rhs.cast.i862 = ptrtoint ptr %195 to i64
+  %sub.ptr.sub.i863 = sub i64 %sub.ptr.lhs.cast.i861, %sub.ptr.rhs.cast.i862
+  %sub.ptr.div.i864 = ashr exact i64 %sub.ptr.sub.i863, 5
   %div22922 = lshr i64 %sub.ptr.div.i864, 1
   %add.ptr230 = getelementptr inbounds %"struct.std::pair", ptr %195, i64 %div22922
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)

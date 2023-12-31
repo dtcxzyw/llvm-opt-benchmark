@@ -550,7 +550,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.05.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr
   br i1 %exitcond.not.i, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit, label %land.rhs.i, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %land.rhs.i, %while.body.i, %while.cond
@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %q.09.i, i64 1
-  %exitcond.not.i29 = icmp eq ptr %incdec.ptr.i28, %scevgep.i27
+  %exitcond.not.i29 = icmp eq ptr %incdec.ptr.i28, %add.ptr
   br i1 %exitcond.not.i29, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !7
 
 for.end.loopexit.i:                               ; preds = %for.inc.i, %for.body.i, %for.body.i, %for.body.i
@@ -683,7 +683,7 @@ land.rhs.i38:                                     ; preds = %while.body.i41, %la
 
 while.body.i41:                                   ; preds = %land.rhs.i38
   %incdec.ptr.i42 = getelementptr inbounds i8, ptr %p.addr.05.i39, i64 1
-  %exitcond.not.i43 = icmp eq ptr %incdec.ptr.i42, %scevgep.i37
+  %exitcond.not.i43 = icmp eq ptr %incdec.ptr.i42, %add.ptr
   br i1 %exitcond.not.i43, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44, label %land.rhs.i38, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44: ; preds = %land.rhs.i38, %while.body.i41, %if.end32
@@ -716,7 +716,7 @@ land.rhs.i51:                                     ; preds = %while.body.i54, %la
 
 while.body.i54:                                   ; preds = %land.rhs.i51
   %incdec.ptr.i55 = getelementptr inbounds i8, ptr %p.addr.05.i52, i64 1
-  %exitcond.not.i56 = icmp eq ptr %incdec.ptr.i55, %scevgep.i50
+  %exitcond.not.i56 = icmp eq ptr %incdec.ptr.i55, %add.ptr
   br i1 %exitcond.not.i56, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit57, label %land.rhs.i51, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit57: ; preds = %land.rhs.i51, %while.body.i54, %if.then40
@@ -749,7 +749,7 @@ land.rhs.i64:                                     ; preds = %while.body.i67, %la
 
 while.body.i67:                                   ; preds = %land.rhs.i64
   %incdec.ptr.i68 = getelementptr inbounds i8, ptr %p.addr.05.i65, i64 1
-  %exitcond.not.i69 = icmp eq ptr %incdec.ptr.i68, %scevgep.i63
+  %exitcond.not.i69 = icmp eq ptr %incdec.ptr.i68, %add.ptr
   br i1 %exitcond.not.i69, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit70, label %land.rhs.i64, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit70: ; preds = %land.rhs.i64, %while.body.i67, %lor.lhs.false47
@@ -789,7 +789,7 @@ land.rhs.i77:                                     ; preds = %while.body.i80, %la
 
 while.body.i80:                                   ; preds = %land.rhs.i77
   %incdec.ptr.i81 = getelementptr inbounds i8, ptr %p.addr.05.i78, i64 1
-  %exitcond.not.i82 = icmp eq ptr %incdec.ptr.i81, %scevgep.i76
+  %exitcond.not.i82 = icmp eq ptr %incdec.ptr.i81, %add.ptr
   br i1 %exitcond.not.i82, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83, label %land.rhs.i77, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83: ; preds = %land.rhs.i77, %while.body.i80, %if.end61
@@ -897,7 +897,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.05.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %limit
   br i1 %exitcond.not.i, label %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit, label %land.rhs.i, !llvm.loop !4
 
 _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %land.rhs.i, %while.body.i, %entry

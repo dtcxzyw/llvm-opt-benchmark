@@ -1463,11 +1463,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %8 = load ptr, ptr %cjsModuleTable_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i.i.i
-  %cmp.not24 = icmp eq ptr %9, %8
+  %cmp.not24 = icmp eq ptr %8, %9
   br i1 %cmp.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
@@ -1513,7 +1509,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13: ; preds = %_ZN6
   %add.i.i9 = add i64 %18, 4
   store i64 %add.i.i9, ptr %loc_.i, align 8
   %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__begin1.025, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %9
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
@@ -2217,11 +2213,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %9 = load ptr, ptr %stringTable_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i.i
-  %cmp.not11 = icmp eq ptr %10, %9
+  %cmp.not11 = icmp eq ptr %9, %10
   br i1 %cmp.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
@@ -2282,7 +2274,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvR
   %conv = zext i1 %cmp.i9 to i32
   %add = add i32 %overflowCount.013, %conv
   %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.012, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %10
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
@@ -2349,11 +2341,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %8 = load ptr, ptr %stringTable_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %7, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i.i.i
-  %cmp.not27 = icmp eq ptr %9, %8
+  %cmp.not27 = icmp eq ptr %8, %9
   br i1 %cmp.not27, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, %for.inc
@@ -2397,7 +2385,7 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
 for.inc:                                          ; preds = %for.body, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit
   %17 = phi i32 [ %10, %for.body ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
   %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.028, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %9
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc

@@ -10094,9 +10094,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i4 = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i5 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i4
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %incdec.ptr.i.i.i.i20 = getelementptr inbounds i8, ptr %first.coerce, i64 %sub.ptr.sub.i.i.i
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i7.not21 = icmp eq ptr %incdec.ptr.i.i.i.i20, %1
+  %cmp.i7.not21 = icmp eq ptr %1, %last.coerce
   br i1 %cmp.i7.not21, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -10116,15 +10115,16 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %this, align 8
-  %.pre24 = ptrtoint ptr %.pre to i64
+  %.pre24 = ptrtoint ptr %incdec.ptr.i.i.i.i to i64
+  %.pre25 = ptrtoint ptr %.pre to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre24, %for.end.loopexit ], [ %sub.ptr.rhs.cast.i.i.i4, %if.end ]
+  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre25, %for.end.loopexit ], [ %sub.ptr.rhs.cast.i.i.i4, %if.end ]
+  %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre24, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i.i.i, %if.end ]
   %3 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %if.end ]
-  %.lcssa = phi ptr [ %incdec.ptr.i.i.i.i, %for.end.loopexit ], [ %incdec.ptr.i.i.i.i20, %if.end ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %.lcssa to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.pre-phi
+  %.lcssa = phi ptr [ %incdec.ptr.i.i.i.i, %for.end.loopexit ], [ %last.coerce, %if.end ]
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.rhs.cast.i.pre-phi
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
   %cmp.i16 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i

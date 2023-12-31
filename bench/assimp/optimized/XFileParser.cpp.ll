@@ -1271,19 +1271,12 @@ while.cond.preheader:                             ; preds = %entry
   %2 = load ptr, ptr %mEnd, align 8
   %mP.promoted = load ptr, ptr %mP, align 8
   %cmp4 = icmp ult ptr %mP.promoted, %2
-  br i1 %cmp4, label %while.body.preheader, label %while.end
+  br i1 %cmp4, label %while.body, label %while.end
 
-while.body.preheader:                             ; preds = %while.cond.preheader
-  %mP.promoted7 = ptrtoint ptr %mP.promoted to i64
-  %3 = ptrtoint ptr %2 to i64
-  %4 = sub i64 %3, %mP.promoted7
-  %scevgep = getelementptr i8, ptr %mP.promoted, i64 %4
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end9
-  %incdec.ptr1135 = phi ptr [ %incdec.ptr11, %if.end9 ], [ %mP.promoted, %while.body.preheader ]
-  %5 = load i8, ptr %incdec.ptr1135, align 1
-  switch i8 %5, label %if.end9 [
+while.body:                                       ; preds = %while.cond.preheader, %if.end9
+  %incdec.ptr1135 = phi ptr [ %incdec.ptr11, %if.end9 ], [ %mP.promoted, %while.cond.preheader ]
+  %3 = load i8, ptr %incdec.ptr1135, align 1
+  switch i8 %3, label %if.end9 [
     i8 10, label %if.then7
     i8 13, label %if.then7
   ]
@@ -1292,15 +1285,15 @@ if.then7:                                         ; preds = %while.body, %while.
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr1135, i64 1
   store ptr %incdec.ptr, ptr %mP, align 8
   %mLineNumber = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %6 = load i32, ptr %mLineNumber, align 8
-  %inc = add i32 %6, 1
+  %4 = load i32, ptr %mLineNumber, align 8
+  %inc = add i32 %4, 1
   store i32 %inc, ptr %mLineNumber, align 8
   br label %while.end
 
 if.end9:                                          ; preds = %while.body
   %incdec.ptr11 = getelementptr inbounds i8, ptr %incdec.ptr1135, i64 1
   store ptr %incdec.ptr11, ptr %mP, align 8
-  %exitcond.not = icmp eq ptr %incdec.ptr11, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr11, %2
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end9, %while.cond.preheader, %entry, %if.then7
@@ -2832,22 +2825,21 @@ while.cond.preheader.i:                           ; preds = %entry
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
   %mLineNumber.i = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %44 = ptrtoint ptr %43 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %45 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %46 = load i8, ptr %45, align 1
-  %conv.i = zext i8 %46 to i32
+  %44 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %44 to i32
   %call.i = call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %46, 10
+  %cmp9.i = icmp eq i8 %44, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -2858,86 +2850,78 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %45, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i18, align 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %43
   br i1 %cmp.i, label %land.rhs.i.backedge, label %invoke.cont209
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %50, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %46, label %invoke.cont209 [
+  switch i8 %44, label %invoke.cont209 [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %45, i64 1
-  %47 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %47, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %invoke.cont209
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %45 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %45, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %invoke.cont209
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %45 to i64
-  %48 = sub i64 %44, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %45, i64 %48
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %45, %while.body.preheader.i.i ]
-  %49 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %49, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %46 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %46, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i18, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i18, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %43
+  br i1 %exitcond.not.i.i, label %if.then213, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %50 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %50, %43
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i18, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %43
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %invoke.cont209
 
 invoke.cont209:                                   ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end17.i, %if.end11.i, %while.cond.preheader.i
-  %51 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %50, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %45, %land.lhs.true.i ], [ %45, %if.end17.i ], [ %incdec.ptr.i, %if.end11.i ]
-  %cmp212.not = icmp ult ptr %51, %43
+  %47 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i16.i, %if.end17.i ], [ %incdec.ptr.i, %if.end11.i ]
+  %cmp212.not = icmp ult ptr %47, %43
   br i1 %cmp212.not, label %while.cond, label %if.then213
 
-if.then213:                                       ; preds = %invoke.cont209
+if.then213:                                       ; preds = %if.end9.i.i, %invoke.cont209
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %cleanup
 
 while.cond:                                       ; preds = %invoke.cont209, %if.end244
-  %52 = load ptr, ptr %mP.i18, align 8
-  %53 = load ptr, ptr %mEnd.i, align 8
-  %cmp217 = icmp ult ptr %52, %53
+  %48 = load ptr, ptr %mP.i18, align 8
+  %49 = load ptr, ptr %mEnd.i, align 8
+  %cmp217 = icmp ult ptr %48, %49
   br i1 %cmp217, label %land.rhs, label %if.end249
 
 land.rhs:                                         ; preds = %while.cond
-  %54 = load i8, ptr %52, align 1
-  %conv219 = zext i8 %54 to i32
+  %50 = load i8, ptr %48, align 1
+  %conv219 = zext i8 %50 to i32
   %call220 = call i32 @isspace(i32 noundef %conv219) #23
   %tobool221.not = icmp eq i32 %call220, 0
   br i1 %tobool221.not, label %while.body, label %if.end249
 
 while.body:                                       ; preds = %land.rhs
-  switch i8 %54, label %if.end244 [
+  switch i8 %50, label %if.end244 [
     i8 59, label %if.then236
     i8 125, label %if.then236
     i8 123, label %if.then236
@@ -2950,16 +2934,16 @@ if.then236:                                       ; preds = %while.body, %while.
   br i1 %tobool238.not, label %if.then239, label %if.end249
 
 if.then239:                                       ; preds = %if.then236
-  %55 = load ptr, ptr %mP.i18, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %55, i64 1
+  %51 = load ptr, ptr %mP.i18, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %51, i64 1
   store ptr %incdec.ptr, ptr %mP.i18, align 8
-  %call242 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %55, i64 noundef 1)
+  %call242 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %51, i64 noundef 1)
           to label %if.end249 unwind label %lpad.loopexit.split-lp
 
 if.end244:                                        ; preds = %while.body
-  %incdec.ptr246 = getelementptr inbounds i8, ptr %52, i64 1
+  %incdec.ptr246 = getelementptr inbounds i8, ptr %48, i64 1
   store ptr %incdec.ptr246, ptr %mP.i18, align 8
-  %call248 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %52, i64 noundef 1)
+  %call248 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %48, i64 noundef 1)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !15
 
 if.end249:                                        ; preds = %land.rhs, %while.cond, %if.then239, %if.then236, %if.end
@@ -4969,22 +4953,21 @@ while.cond.preheader.i:                           ; preds = %entry
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
   %mLineNumber.i = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %12 = ptrtoint ptr %11 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %13 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %14 = load i8, ptr %13, align 1
-  %conv.i = zext i8 %14 to i32
+  %12 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %12 to i32
   %call.i = tail call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %14, 10
+  %cmp9.i = icmp eq i8 %12, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -4995,100 +4978,92 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i3, align 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %11
   br i1 %cmp.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %18, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %14, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %12, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %13, i64 1
-  %15 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %15, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %13 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %13, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %13 to i64
-  %16 = sub i64 %12, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %13, i64 %16
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %13, %while.body.preheader.i.i ]
-  %17 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %17, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %14 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %14, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i3, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i3, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %11
+  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %18 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %18, %11
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i3, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %11
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
-_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %land.lhs.true.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %if.end11.i, %while.cond.preheader.i
-  %19 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %13, %if.end17.i ], [ %13, %land.lhs.true.i ], [ %18, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
-  %call50 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(10) @.str.104, i64 noundef 9) #23
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %land.lhs.true.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %if.end11.i, %if.end9.i.i, %while.cond.preheader.i
+  %15 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %11, %if.end9.i.i ], [ %incdec.ptr.i16.i, %if.end17.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
+  %call50 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.104, i64 noundef 9) #23
   %cmp51 = icmp eq i32 %call50, 0
   br i1 %cmp51, label %if.then55, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %call53 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.105, i64 noundef 8) #23
+  %call53 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.105, i64 noundef 8) #23
   %cmp54 = icmp eq i32 %call53, 0
   br i1 %cmp54, label %if.then55, label %if.else58
 
 if.then55:                                        ; preds = %lor.lhs.false, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %add.ptr57 = getelementptr inbounds i8, ptr %19, i64 9
+  %add.ptr57 = getelementptr inbounds i8, ptr %15, i64 9
   store ptr %add.ptr57, ptr %mP.i3, align 8
   tail call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   br label %return
 
 if.else58:                                        ; preds = %lor.lhs.false
-  %call60 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.106, i64 noundef 8) #23
+  %call60 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.106, i64 noundef 8) #23
   %cmp61 = icmp eq i32 %call60, 0
   br i1 %cmp61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.else58
-  %add.ptr64 = getelementptr inbounds i8, ptr %19, i64 8
+  %add.ptr64 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %add.ptr64, ptr %mP.i3, align 8
   tail call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   br label %return
 
 if.end66:                                         ; preds = %if.else58
   store float 0.000000e+00, ptr %result67, align 4
-  %call69 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %result67, i1 noundef zeroext true)
+  %call69 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %result67, i1 noundef zeroext true)
   store ptr %call69, ptr %mP.i3, align 8
   call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %20 = load float, ptr %result67, align 4
+  %16 = load float, ptr %result67, align 4
   br label %return
 
 return:                                           ; preds = %if.end66, %if.then62, %if.then55, %if.else45, %if.then40, %if.else30, %if.then26
-  %retval.0 = phi float [ %conv29, %if.then26 ], [ 0.000000e+00, %if.else30 ], [ %result41.0.copyload, %if.then40 ], [ 0.000000e+00, %if.else45 ], [ 0.000000e+00, %if.then55 ], [ 0.000000e+00, %if.then62 ], [ %20, %if.end66 ]
+  %retval.0 = phi float [ %conv29, %if.then26 ], [ 0.000000e+00, %if.else30 ], [ %result41.0.copyload, %if.then40 ], [ 0.000000e+00, %if.else45 ], [ 0.000000e+00, %if.then55 ], [ 0.000000e+00, %if.then62 ], [ %16, %if.end66 ]
   ret float %retval.0
 }
 
@@ -5209,22 +5184,21 @@ while.cond.preheader.i:                           ; preds = %entry
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
   %mLineNumber.i = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %11 = ptrtoint ptr %10 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %12 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %13 = load i8, ptr %12, align 1
-  %conv.i = zext i8 %13 to i32
+  %11 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %11 to i32
   %call.i = tail call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %13, 10
+  %cmp9.i = icmp eq i8 %11, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -5235,96 +5209,88 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i9, align 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %10
   br i1 %cmp.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %17, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %13, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %11, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %12, i64 1
-  %14 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %14, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %12 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %12, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %12 to i64
-  %15 = sub i64 %11, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %12, i64 %15
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %12, %while.body.preheader.i.i ]
-  %16 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %16, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %13 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %13, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i9, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i9, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %10
+  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %17, %10
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i9, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %10
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
-_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end11.i, %while.cond.preheader.i
-  %.ph = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %17, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %12, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end11.i, %if.end9.i.i, %while.cond.preheader.i
+  %.ph = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %10, %if.end9.i.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
   %.pr = load i8, ptr %.ph, align 1
   br label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
-  %18 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %13, %if.end17.i ]
-  %19 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %12, %if.end17.i ]
-  %cmp32 = icmp eq i8 %18, 45
+  %14 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %11, %if.end17.i ]
+  %15 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %incdec.ptr.i16.i, %if.end17.i ]
+  %cmp32 = icmp eq i8 %14, 45
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %19, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %incdec.ptr, ptr %mP.i9, align 8
-  %.pre27 = load i8, ptr %incdec.ptr, align 1
+  %.pre29 = load i8, ptr %incdec.ptr, align 1
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %20 = phi i8 [ %.pre27, %if.then33 ], [ %18, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit ]
-  %mP30.promoted = phi ptr [ %incdec.ptr, %if.then33 ], [ %19, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit ]
-  %conv37 = zext i8 %20 to i32
+  %16 = phi i8 [ %.pre29, %if.then33 ], [ %14, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit ]
+  %mP30.promoted = phi ptr [ %incdec.ptr, %if.then33 ], [ %15, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit ]
+  %conv37 = zext i8 %16 to i32
   %isdigittmp = add nsw i32 %conv37, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   br i1 %isdigit, label %while.cond.preheader, label %if.then40
 
 while.cond.preheader:                             ; preds = %if.end35
-  %cmp4416 = icmp ult ptr %mP30.promoted, %10
-  br i1 %cmp4416, label %while.body.preheader, label %while.end
+  %cmp4417 = icmp ult ptr %mP30.promoted, %10
+  br i1 %cmp4417, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %mP30.promoted25 = ptrtoint ptr %mP30.promoted to i64
-  %21 = ptrtoint ptr %10 to i64
-  %22 = sub i64 %21, %mP30.promoted25
-  %scevgep = getelementptr i8, ptr %mP30.promoted, i64 %22
+  %mP30.promoted27 = ptrtoint ptr %mP30.promoted to i64
+  %17 = ptrtoint ptr %10 to i64
+  %18 = sub i64 %17, %mP30.promoted27
+  %scevgep = getelementptr i8, ptr %mP30.promoted, i64 %18
   br label %while.body
 
 if.then40:                                        ; preds = %if.end35
@@ -5332,26 +5298,26 @@ if.then40:                                        ; preds = %if.end35
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %if.end50
-  %number.018 = phi i32 [ %add, %if.end50 ], [ 0, %while.body.preheader ]
-  %incdec.ptr541517 = phi ptr [ %incdec.ptr54, %if.end50 ], [ %mP30.promoted, %while.body.preheader ]
-  %23 = load i8, ptr %incdec.ptr541517, align 1
-  %conv46 = zext i8 %23 to i32
+  %number.019 = phi i32 [ %add, %if.end50 ], [ 0, %while.body.preheader ]
+  %incdec.ptr541618 = phi ptr [ %incdec.ptr54, %if.end50 ], [ %mP30.promoted, %while.body.preheader ]
+  %19 = load i8, ptr %incdec.ptr541618, align 1
+  %conv46 = zext i8 %19 to i32
   %isdigittmp3 = add nsw i32 %conv46, -48
   %isdigit4 = icmp ult i32 %isdigittmp3, 10
   br i1 %isdigit4, label %if.end50, label %while.end
 
 if.end50:                                         ; preds = %while.body
-  %mul = mul i32 %number.018, 10
-  %conv52 = sext i8 %23 to i32
+  %mul = mul i32 %number.019, 10
+  %conv52 = sext i8 %19 to i32
   %sub = add i32 %mul, -48
   %add = add i32 %sub, %conv52
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %incdec.ptr541517, i64 1
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %incdec.ptr541618, i64 1
   store ptr %incdec.ptr54, ptr %mP.i9, align 8
   %exitcond.not = icmp eq ptr %incdec.ptr54, %scevgep
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %if.end50, %while.body, %while.cond.preheader
-  %number.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %number.018, %while.body ], [ %add, %if.end50 ]
+  %number.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %number.019, %while.body ], [ %add, %if.end50 ]
   tail call void @_ZN6Assimp11XFileParser17CheckForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %sub56 = sub nsw i32 0, %number.0.lcssa
   %cond = select i1 %cmp32, i32 %sub56, i32 %number.0.lcssa
@@ -5398,22 +5364,21 @@ while.cond.preheader.i:                           ; preds = %entry
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
   %mLineNumber.i = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %3 = ptrtoint ptr %2 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %4 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %5 = load i8, ptr %4, align 1
-  %conv.i = zext i8 %5 to i32
+  %3 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %3 to i32
   %call.i = tail call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %5, 10
+  %cmp9.i = icmp eq i8 %3, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -5424,80 +5389,72 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i, align 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %2
   br i1 %cmp.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %9, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %5, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %3, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %4, i64 1
-  %6 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %6, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %4 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %4, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %4 to i64
-  %7 = sub i64 %3, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %4, i64 %7
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %4, %while.body.preheader.i.i ]
-  %8 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %8, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %5 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %5, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %2
+  br i1 %exitcond.not.i.i, label %if.end11, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %9 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %9, %2
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %2
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %land.lhs.true.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %if.end11.i, %while.cond.preheader.i
-  %10 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %4, %if.end17.i ], [ %4, %land.lhs.true.i ], [ %9, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
-  %cmp.not = icmp ult ptr %10, %2
+  %6 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %incdec.ptr.i16.i, %if.end17.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
+  %cmp.not = icmp ult ptr %6, %2
   br i1 %cmp.not, label %if.end3, label %if.end11
 
 if.end3:                                          ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %11 = load i8, ptr %10, align 1
-  switch i8 %11, label %if.end11 [
+  %7 = load i8, ptr %6, align 1
+  switch i8 %7, label %if.end11 [
     i8 59, label %if.then9
     i8 44, label %if.then9
   ]
 
 if.then9:                                         ; preds = %if.end3, %if.end3
-  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr, ptr %mP.i, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %if.end3, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %entry, %if.then9
+if.end11:                                         ; preds = %if.end9.i.i, %if.end3, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %entry, %if.then9
   ret void
 }
 
@@ -5967,8 +5924,8 @@ invoke.cont.i.i:                                  ; preds = %if.then7.i
   br label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit
 
 _ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %if.then.i, %if.else.i, %if.then7.i, %invoke.cont.i.i
-  %cmp824.not = icmp eq i32 %call, 0
-  br i1 %cmp824.not, label %for.end, label %for.body.lr.ph
+  %cmp825.not = icmp eq i32 %call, 0
+  br i1 %cmp825.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit
   %mIsBinaryFormat = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 2
@@ -5978,7 +5935,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorI9aiCol
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %a.025 = phi i32 [ 0, %for.body.lr.ph ], [ %inc30, %for.inc ]
+  %a.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc30, %for.inc ]
   %call9 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %conv10 = zext i32 %call9 to i64
   %5 = load ptr, ptr %_M_finish.i, align 8
@@ -6021,22 +5978,21 @@ while.cond.preheader.i:                           ; preds = %if.end15
   br i1 %cmp1019.i, label %land.rhs.lr.ph.lr.ph.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
-  %11 = ptrtoint ptr %10 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %12 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %13 = load i8, ptr %12, align 1
-  %conv.i = zext i8 %13 to i32
+  %11 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %11 to i32
   %call.i16 = call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i16, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %13, 10
+  %cmp9.i = icmp eq i8 %11, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -6047,82 +6003,74 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i, align 8
   %cmp.i17 = icmp ult ptr %incdec.ptr.i, %10
   br i1 %cmp.i17, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %17, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %13, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %11, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %12, i64 1
-  %14 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %14, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %12 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %12, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %12 to i64
-  %15 = sub i64 %11, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %12, i64 %15
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %12, %while.body.preheader.i.i ]
-  %16 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %16, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %13 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %13, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %10
+  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %17, %10
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %10
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
-_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end11.i, %while.cond.preheader.i
-  %.ph = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %17, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %12, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end11.i, %if.end9.i.i, %while.cond.preheader.i
+  %.ph = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %10, %if.end9.i.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
   %.pr = load i8, ptr %.ph, align 1
   br label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
-  %18 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %13, %if.end17.i ]
-  %19 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %12, %if.end17.i ]
-  switch i8 %18, label %for.inc [
+  %14 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %11, %if.end17.i ]
+  %15 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %incdec.ptr.i16.i, %if.end17.i ]
+  switch i8 %14, label %for.inc [
     i8 59, label %if.then26
     i8 44, label %if.then26
   ]
 
 if.then26:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %19, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %incdec.ptr, ptr %mP.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %if.end15, %if.then26
-  %inc30 = add nuw i32 %a.025, 1
+  %inc30 = add nuw i32 %a.026, 1
   %exitcond.not = icmp eq i32 %inc30, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
@@ -7073,22 +7021,21 @@ while.cond.preheader.i:                           ; preds = %entry
 
 land.rhs.lr.ph.lr.ph.i:                           ; preds = %while.cond.preheader.i
   %mLineNumber.i = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %3 = ptrtoint ptr %2 to i64
   %mLineNumber.promoted21.i = load i32, ptr %mLineNumber.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.lr.ph.i
-  %4 = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %.be, %land.rhs.i.backedge ]
   %mLineNumber.promoted24.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %mLineNumber.promoted24.i.be, %land.rhs.i.backedge ]
+  %incdec.ptr.i16.i = phi ptr [ %mP.promoted14.i, %land.rhs.lr.ph.lr.ph.i ], [ %incdec.ptr.i16.i.be, %land.rhs.i.backedge ]
   %inc13.i = phi i32 [ %mLineNumber.promoted21.i, %land.rhs.lr.ph.lr.ph.i ], [ %inc13.i.be, %land.rhs.i.backedge ]
-  %5 = load i8, ptr %4, align 1
-  %conv.i = zext i8 %5 to i32
+  %3 = load i8, ptr %incdec.ptr.i16.i, align 1
+  %conv.i = zext i8 %3 to i32
   %call.i = tail call i32 @isspace(i32 noundef %conv.i) #23
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %5, 10
+  %cmp9.i = icmp eq i8 %3, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
@@ -7099,76 +7046,68 @@ if.then10.i:                                      ; preds = %while.body6.i
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted22.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted24.i, %while.body6.i ]
   %inc12.i = phi i32 [ %inc.i, %if.then10.i ], [ %inc13.i, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i, align 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %2
   br i1 %cmp.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
-  %.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %9, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %mLineNumber.promoted23.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %mLineNumber.promoted24.i.be = phi i32 [ %mLineNumber.promoted22.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i16.i.be = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %inc13.i.be = phi i32 [ %inc12.i, %if.end11.i ], [ %inc.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %5, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %3, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
-    i8 35, label %while.body.preheader.i.i
+    i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %4, i64 1
-  %6 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %6, 47
-  br i1 %cmp24.i, label %while.body.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
+  %arrayidx22.i = getelementptr inbounds i8, ptr %incdec.ptr.i16.i, i64 1
+  %4 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %4, 47
+  br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
-while.body.preheader.i.i:                         ; preds = %land.lhs.true.i, %if.end17.i
-  %mP.promoted7.i.i = ptrtoint ptr %4 to i64
-  %7 = sub i64 %3, %mP.promoted7.i.i
-  %scevgep.i.i = getelementptr i8, ptr %4, i64 %7
+while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.preheader.i.i
-  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %4, %while.body.preheader.i.i ]
-  %8 = load i8, ptr %incdec.ptr1135.i.i, align 1
-  switch i8 %8, label %if.end9.i.i [
-    i8 10, label %if.then7.i.i
-    i8 13, label %if.then7.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
+  %incdec.ptr1135.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %incdec.ptr.i16.i, %while.body.i.i.preheader ]
+  %5 = load i8, ptr %incdec.ptr1135.i.i, align 1
+  switch i8 %5, label %if.end9.i.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   ]
-
-if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
-  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
-  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
-  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %2
+  br i1 %exitcond.not.i.i, label %if.then2, label %while.body.i.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
-  %9 = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %scevgep.i.i, %if.end9.i.i ]
-  %mLineNumber.promoted23.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted24.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %9, %2
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i.i, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
+  %inc.i.i = add i32 %mLineNumber.promoted24.i, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i, align 8
+  %cmp10.i = icmp ult ptr %incdec.ptr.i.i, %2
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %land.lhs.true.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %if.end11.i, %while.cond.preheader.i
-  %10 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %4, %if.end17.i ], [ %4, %land.lhs.true.i ], [ %9, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
-  %cmp.not = icmp ult ptr %10, %2
+  %6 = phi ptr [ %mP.promoted14.i, %while.cond.preheader.i ], [ %incdec.ptr.i16.i, %if.end17.i ], [ %incdec.ptr.i16.i, %land.lhs.true.i ], [ %incdec.ptr.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i, %if.end11.i ]
+  %cmp.not = icmp ult ptr %6, %2
   br i1 %cmp.not, label %if.end3, label %if.then2
 
-if.then2:                                         ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
+if.then2:                                         ; preds = %if.end9.i.i, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
   %mScene = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 8
-  %11 = load ptr, ptr %mScene, align 8
-  %isnull = icmp eq ptr %11, null
+  %7 = load ptr, ptr %mScene, align 8
+  %isnull = icmp eq ptr %7, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then2
-  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %11) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #26
+  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %7) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #26
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then2
@@ -7176,19 +7115,19 @@ delete.end:                                       ; preds = %delete.notnull, %if
   unreachable
 
 if.end3:                                          ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %12 = load i8, ptr %10, align 1
-  %cmp5.not = icmp eq i8 %12, 34
+  %8 = load i8, ptr %6, align 1
+  %cmp5.not = icmp eq i8 %8, 34
   br i1 %cmp5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
   %mScene7 = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 8
-  %13 = load ptr, ptr %mScene7, align 8
-  %isnull8 = icmp eq ptr %13, null
+  %9 = load ptr, ptr %mScene7, align 8
+  %isnull8 = icmp eq ptr %9, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
 
 delete.notnull9:                                  ; preds = %if.then6
-  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %13) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #26
+  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %9) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #26
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %if.then6
@@ -7196,47 +7135,47 @@ delete.end10:                                     ; preds = %delete.notnull9, %i
   unreachable
 
 if.end11:                                         ; preds = %if.end3
-  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr, ptr %mP.i, align 8
-  %cmp1515 = icmp ult ptr %incdec.ptr, %2
-  br i1 %cmp1515, label %land.rhs.preheader, label %while.end
+  %cmp1516 = icmp ult ptr %incdec.ptr, %2
+  br i1 %cmp1516, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %if.end11
-  %14 = load i8, ptr %incdec.ptr, align 1
-  %cmp18.not39 = icmp eq i8 %14, 34
-  br i1 %cmp18.not39, label %while.end, label %while.body
+  %10 = load i8, ptr %incdec.ptr, align 1
+  %cmp18.not40 = icmp eq i8 %10, 34
+  br i1 %cmp18.not40, label %while.end, label %while.body
 
 land.rhs:                                         ; preds = %while.body
-  %15 = load i8, ptr %17, align 1
-  %cmp18.not = icmp eq i8 %15, 34
+  %11 = load i8, ptr %13, align 1
+  %cmp18.not = icmp eq i8 %11, 34
   br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !43
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
-  %16 = phi ptr [ %17, %land.rhs ], [ %incdec.ptr, %land.rhs.preheader ]
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %16, i64 1
+  %12 = phi ptr [ %13, %land.rhs ], [ %incdec.ptr, %land.rhs.preheader ]
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %incdec.ptr20, ptr %mP.i, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %poString, ptr noundef nonnull %16, i64 noundef 1)
-  %17 = load ptr, ptr %mP.i, align 8
-  %18 = load ptr, ptr %mEnd.i, align 8
-  %cmp15 = icmp ult ptr %17, %18
+  %call21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %poString, ptr noundef nonnull %12, i64 noundef 1)
+  %13 = load ptr, ptr %mP.i, align 8
+  %14 = load ptr, ptr %mEnd.i, align 8
+  %cmp15 = icmp ult ptr %13, %14
   br i1 %cmp15, label %land.rhs, label %while.end, !llvm.loop !43
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.preheader, %if.end11
-  %.lcssa9 = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr, %land.rhs.preheader ], [ %17, %land.rhs ], [ %17, %while.body ]
-  %.lcssa = phi ptr [ %2, %if.end11 ], [ %2, %land.rhs.preheader ], [ %18, %land.rhs ], [ %18, %while.body ]
+  %.lcssa10 = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr, %land.rhs.preheader ], [ %13, %land.rhs ], [ %13, %while.body ]
+  %.lcssa = phi ptr [ %2, %if.end11 ], [ %2, %land.rhs.preheader ], [ %14, %land.rhs ], [ %14, %while.body ]
   %add.ptr = getelementptr inbounds i8, ptr %.lcssa, i64 -1
-  %cmp24.not = icmp ult ptr %.lcssa9, %add.ptr
+  %cmp24.not = icmp ult ptr %.lcssa10, %add.ptr
   br i1 %cmp24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %while.end
   %mScene26 = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 8
-  %19 = load ptr, ptr %mScene26, align 8
-  %isnull27 = icmp eq ptr %19, null
+  %15 = load ptr, ptr %mScene26, align 8
+  %isnull27 = icmp eq ptr %15, null
   br i1 %isnull27, label %delete.end29, label %delete.notnull28
 
 delete.notnull28:                                 ; preds = %if.then25
-  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %19) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #26
+  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %15) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #26
   br label %delete.end29
 
 delete.end29:                                     ; preds = %delete.notnull28, %if.then25
@@ -7244,25 +7183,25 @@ delete.end29:                                     ; preds = %delete.notnull28, %
   unreachable
 
 if.end30:                                         ; preds = %while.end
-  %arrayidx = getelementptr inbounds i8, ptr %.lcssa9, i64 1
-  %20 = load i8, ptr %arrayidx, align 1
-  %cmp33.not = icmp eq i8 %20, 59
+  %arrayidx = getelementptr inbounds i8, ptr %.lcssa10, i64 1
+  %16 = load i8, ptr %arrayidx, align 1
+  %cmp33.not = icmp eq i8 %16, 59
   br i1 %cmp33.not, label %lor.lhs.false, label %if.then38
 
 lor.lhs.false:                                    ; preds = %if.end30
-  %21 = load i8, ptr %.lcssa9, align 1
-  %cmp37.not = icmp eq i8 %21, 34
+  %17 = load i8, ptr %.lcssa10, align 1
+  %cmp37.not = icmp eq i8 %17, 34
   br i1 %cmp37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %lor.lhs.false, %if.end30
   %mScene39 = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 8
-  %22 = load ptr, ptr %mScene39, align 8
-  %isnull40 = icmp eq ptr %22, null
+  %18 = load ptr, ptr %mScene39, align 8
+  %isnull40 = icmp eq ptr %18, null
   br i1 %isnull40, label %delete.end42, label %delete.notnull41
 
 delete.notnull41:                                 ; preds = %if.then38
-  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %22) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #26
+  tail call void @_ZN6Assimp5XFile5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %18) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #26
   br label %delete.end42
 
 delete.end42:                                     ; preds = %delete.notnull41, %if.then38
@@ -7270,7 +7209,7 @@ delete.end42:                                     ; preds = %delete.notnull41, %
   unreachable
 
 if.end43:                                         ; preds = %lor.lhs.false
-  %add.ptr45 = getelementptr inbounds i8, ptr %.lcssa9, i64 2
+  %add.ptr45 = getelementptr inbounds i8, ptr %.lcssa10, i64 2
   store ptr %add.ptr45, ptr %mP.i, align 8
   br label %return
 
@@ -7543,7 +7482,6 @@ while.cond.preheader:                             ; preds = %entry
 
 land.rhs.lr.ph.lr.ph:                             ; preds = %while.cond.preheader
   %mLineNumber = getelementptr inbounds %"class.Assimp::XFileParser", ptr %this, i64 0, i32 7
-  %3 = ptrtoint ptr %2 to i64
   %mLineNumber.promoted21 = load i32, ptr %mLineNumber, align 8
   br label %land.rhs
 
@@ -7551,14 +7489,14 @@ land.rhs:                                         ; preds = %land.rhs.backedge, 
   %mLineNumber.promoted24 = phi i32 [ %mLineNumber.promoted21, %land.rhs.lr.ph.lr.ph ], [ %mLineNumber.promoted24.be, %land.rhs.backedge ]
   %incdec.ptr.i16 = phi ptr [ %mP.promoted14, %land.rhs.lr.ph.lr.ph ], [ %incdec.ptr.i16.be, %land.rhs.backedge ]
   %inc13 = phi i32 [ %mLineNumber.promoted21, %land.rhs.lr.ph.lr.ph ], [ %inc13.be, %land.rhs.backedge ]
-  %4 = load i8, ptr %incdec.ptr.i16, align 1
-  %conv = zext i8 %4 to i32
+  %3 = load i8, ptr %incdec.ptr.i16, align 1
+  %conv = zext i8 %3 to i32
   %call = tail call i32 @isspace(i32 noundef %conv) #23
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.end17, label %while.body6
 
 while.body6:                                      ; preds = %land.rhs
-  %cmp9 = icmp eq i8 %4, 10
+  %cmp9 = icmp eq i8 %3, 10
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %while.body6
@@ -7575,57 +7513,49 @@ if.end11:                                         ; preds = %if.then10, %while.b
   br i1 %cmp, label %land.rhs.backedge, label %while.end31
 
 land.rhs.backedge:                                ; preds = %if.end11, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit
-  %mLineNumber.promoted24.be = phi i32 [ %mLineNumber.promoted22, %if.end11 ], [ %mLineNumber.promoted23, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
-  %incdec.ptr.i16.be = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr.i15, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
-  %inc13.be = phi i32 [ %inc12, %if.end11 ], [ %mLineNumber.promoted23, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
+  %mLineNumber.promoted24.be = phi i32 [ %mLineNumber.promoted22, %if.end11 ], [ %inc.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
+  %incdec.ptr.i16.be = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
+  %inc13.be = phi i32 [ %inc12, %if.end11 ], [ %inc.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
   br label %land.rhs, !llvm.loop !14
 
 if.end17:                                         ; preds = %land.rhs
-  switch i8 %4, label %while.end31 [
+  switch i8 %3, label %while.end31 [
     i8 47, label %land.lhs.true
-    i8 35, label %while.body.preheader.i
+    i8 35, label %while.body.i.preheader
   ]
 
 land.lhs.true:                                    ; preds = %if.end17
   %arrayidx22 = getelementptr inbounds i8, ptr %incdec.ptr.i16, i64 1
-  %5 = load i8, ptr %arrayidx22, align 1
-  %cmp24 = icmp eq i8 %5, 47
-  br i1 %cmp24, label %while.body.preheader.i, label %while.end31
+  %4 = load i8, ptr %arrayidx22, align 1
+  %cmp24 = icmp eq i8 %4, 47
+  br i1 %cmp24, label %while.body.i.preheader, label %while.end31
 
-while.body.preheader.i:                           ; preds = %land.lhs.true, %if.end17
-  %mP.promoted7.i = ptrtoint ptr %incdec.ptr.i16 to i64
-  %6 = sub i64 %3, %mP.promoted7.i
-  %scevgep.i = getelementptr i8, ptr %incdec.ptr.i16, i64 %6
+while.body.i.preheader:                           ; preds = %land.lhs.true, %if.end17
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end9.i, %while.body.preheader.i
-  %incdec.ptr1135.i = phi ptr [ %incdec.ptr11.i, %if.end9.i ], [ %incdec.ptr.i16, %while.body.preheader.i ]
-  %7 = load i8, ptr %incdec.ptr1135.i, align 1
-  switch i8 %7, label %if.end9.i [
-    i8 10, label %if.then7.i
-    i8 13, label %if.then7.i
+while.body.i:                                     ; preds = %while.body.i.preheader, %if.end9.i
+  %incdec.ptr1135.i = phi ptr [ %incdec.ptr11.i, %if.end9.i ], [ %incdec.ptr.i16, %while.body.i.preheader ]
+  %5 = load i8, ptr %incdec.ptr1135.i, align 1
+  switch i8 %5, label %if.end9.i [
+    i8 10, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit
+    i8 13, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit
   ]
-
-if.then7.i:                                       ; preds = %while.body.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i, i64 1
-  store ptr %incdec.ptr.i, ptr %mP, align 8
-  %inc.i = add i32 %mLineNumber.promoted24, 1
-  store i32 %inc.i, ptr %mLineNumber, align 8
-  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit
 
 if.end9.i:                                        ; preds = %while.body.i
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i, i64 1
   store ptr %incdec.ptr11.i, ptr %mP, align 8
-  %exitcond.not.i = icmp eq ptr %incdec.ptr11.i, %scevgep.i
-  br i1 %exitcond.not.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit, label %while.body.i, !llvm.loop !7
+  %exitcond.not.i = icmp eq ptr %incdec.ptr11.i, %2
+  br i1 %exitcond.not.i, label %while.end31, label %while.body.i, !llvm.loop !7
 
-_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit: ; preds = %if.end9.i, %if.then7.i
-  %mLineNumber.promoted23 = phi i32 [ %inc.i, %if.then7.i ], [ %mLineNumber.promoted24, %if.end9.i ]
-  %incdec.ptr.i15 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep.i, %if.end9.i ]
-  %cmp10 = icmp ult ptr %incdec.ptr.i15, %2
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit: ; preds = %while.body.i, %while.body.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr1135.i, i64 1
+  store ptr %incdec.ptr.i, ptr %mP, align 8
+  %inc.i = add i32 %mLineNumber.promoted24, 1
+  store i32 %inc.i, ptr %mLineNumber, align 8
+  %cmp10 = icmp ult ptr %incdec.ptr.i, %2
   br i1 %cmp10, label %land.rhs.backedge, label %while.end31
 
-while.end31:                                      ; preds = %if.end17, %land.lhs.true, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit, %if.end11, %while.cond.preheader, %entry
+while.end31:                                      ; preds = %if.end17, %land.lhs.true, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit, %if.end11, %if.end9.i, %while.cond.preheader, %entry
   ret void
 }
 

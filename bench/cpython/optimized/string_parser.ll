@@ -119,7 +119,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %s.08.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i.i, %scevgep.i.i
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %exitcond.not.i.i, label %while.end.loopexit.i.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i, %land.rhs.i.i
@@ -609,7 +609,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc noundef i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
 entry:
   %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
   %0 = load i32, ptr %call_invalid_rules, align 4

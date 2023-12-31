@@ -217,9 +217,8 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %add.ptr.i8 to i64
   %sub.ptr.rhs.cast.i13 = ptrtoint ptr %call2.i9 to i64
-  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
+  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i13
   store ptr %call2.i9, ptr %input, align 8
   store i64 %sub.ptr.sub.i14, ptr %size_.i.i, align 8
   %garbage_blob_bytes_ = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 2
@@ -229,9 +228,8 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp.i23.not, label %if.then10, label %_ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit28
 
 _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit28:    ; preds = %if.end8
-  %sub.ptr.lhs.cast.i25 = ptrtoint ptr %add.ptr.i21 to i64
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %call2.i22 to i64
-  %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
+  %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i26
   store ptr %call2.i22, ptr %input, align 8
   store i64 %sub.ptr.sub.i27, ptr %size_.i.i, align 8
   br label %while.body

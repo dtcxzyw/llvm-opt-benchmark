@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.seqStore_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32 }
 %struct.seqDef_s = type { i32, i16, i16 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocapture noundef %ms, ptr noundef %ip) local_unnamed_addr #0 {
 entry:
   %base1 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
@@ -344,7 +344,7 @@ for.end159:                                       ; preds = %for.end154, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %ms, ptr noundef %ip) local_unnamed_addr #1 {
+define i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %ms, ptr noundef %ip) local_unnamed_addr #0 {
 entry:
   %minMatch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 4
   %0 = load i32, ptr %minMatch, align 8
@@ -529,7 +529,7 @@ ZSTD_insertAndFindFirstIndex_internal.exit:       ; preds = %sw.bb7.i.i, %sw.bb5
   ret i32 %19
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ZSTD_row_update(ptr nocapture noundef %ms, ptr noundef %ip) local_unnamed_addr #0 {
 entry:
   %searchLog = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16, i32 3
@@ -678,7 +678,7 @@ ZSTD_row_update_internalImpl.exit87:              ; preds = %cond.false.i60.us20
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -725,7 +725,7 @@ entry:
   %offset_1.i.0 = select i1 %cmp110.i, i32 0, i32 %3
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14711506 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14711506, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -1341,7 +1341,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -1385,7 +1385,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14101440 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14101440, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -2003,7 +2003,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -2047,7 +2047,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14101440 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14101440, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -2665,7 +2665,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -2919,7 +2919,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1685.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1570, %ZSTD_row_prefetch.exit119.us1543, %for.body.i, %for.body.i.us1576, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15961628 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15961628, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -3644,7 +3644,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -3895,7 +3895,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1634.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1518, %ZSTD_row_prefetch.exit119.us1491, %for.body.i, %for.body.i.us1524, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15441576 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15441576, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -4662,7 +4662,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -4913,7 +4913,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1634.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1518, %ZSTD_row_prefetch.exit119.us1491, %for.body.i, %for.body.i.us1524, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15441576 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15441576, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -5680,7 +5680,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -5728,7 +5728,7 @@ entry:
   %offset_1.i.0 = select i1 %cmp110.i, i32 0, i32 %3
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15511581 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i15511581, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -6502,7 +6502,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -6547,7 +6547,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14061436 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14061436, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -7282,7 +7282,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -7327,7 +7327,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14061436 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14061436, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -8062,7 +8062,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -8317,7 +8317,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1793.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1658, %ZSTD_row_prefetch.exit119.us1631, %for.body.i, %for.body.i.us1664, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i16851717 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i16851717, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -9294,7 +9294,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -9546,7 +9546,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1644.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1510, %ZSTD_row_prefetch.exit119.us1483, %for.body.i, %for.body.i.us1516, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15371569 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15371569, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -10484,7 +10484,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -10736,7 +10736,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1644.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1510, %ZSTD_row_prefetch.exit119.us1483, %for.body.i, %for.body.i.us1516, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15371569 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15371569, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -11674,7 +11674,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -11723,7 +11723,7 @@ entry:
   %offset_1.i.0 = select i1 %cmp110.i, i32 0, i32 %3
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i16291678 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i16291678, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -12675,7 +12675,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -12721,7 +12721,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14131460 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14131460, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -13557,7 +13557,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -13603,7 +13603,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i14131460 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i14131460, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -14439,7 +14439,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -14695,7 +14695,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1914.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1745, %ZSTD_row_prefetch.exit119.us1718, %for.body.i, %for.body.i.us1751, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i17721823 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i17721823, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -15904,7 +15904,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -16157,7 +16157,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1690.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1526, %ZSTD_row_prefetch.exit119.us1499, %for.body.i, %for.body.i.us1532, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15531602 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15531602, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -17250,7 +17250,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -17503,7 +17503,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1690.not, label %if.end121.i, label %for.body.i, !llvm.loop !24
 
 if.end121.i:                                      ; preds = %ZSTD_row_prefetch.exit119.us1526, %ZSTD_row_prefetch.exit119.us1499, %for.body.i, %for.body.i.us1532, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i15531602 = icmp ult ptr %add.ptr98.i, %add.ptr2.i
   br i1 %cmp122.i15531602, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -18596,7 +18596,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -18645,7 +18645,7 @@ entry:
   %offset_1.i.0 = select i1 %cmp110.i, i32 0, i32 %3
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i19141963 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i19141963, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -20004,7 +20004,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -20050,7 +20050,7 @@ entry:
   %add.ptr98.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext97.i
   %lazySkipping.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
   store i32 0, ptr %lazySkipping.i, align 4
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %cmp122.i17021749 = icmp ult ptr %add.ptr98.i, %add.ptr1.i
   br i1 %cmp122.i17021749, label %while.body.i.lr.ph.lr.ph, label %while.end679.i
 
@@ -21282,7 +21282,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -21314,7 +21314,7 @@ entry:
   %cmp61.i = icmp eq ptr %add.ptr7.i, %src
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i12821312 = icmp ult ptr %add.ptr63.i, %add.ptr1.i
   br i1 %cmp66.i12821312, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -21949,7 +21949,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -22188,7 +22188,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1516.not, label %if.end.i, label %for.body.i, !llvm.loop !24
 
 if.end.i:                                         ; preds = %ZSTD_row_prefetch.exit119.us1401, %ZSTD_row_prefetch.exit119.us1374, %for.body.i, %for.body.i.us1407, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i14271459 = icmp ult ptr %add.ptr63.i, %add.ptr2.i
   br i1 %cmp66.i14271459, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -22972,7 +22972,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -23005,7 +23005,7 @@ entry:
   %cmp61.i = icmp eq ptr %add.ptr7.i, %src
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i12831313 = icmp ult ptr %add.ptr63.i, %add.ptr1.i
   br i1 %cmp66.i12831313, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -23767,7 +23767,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -24007,7 +24007,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1539.not, label %if.end.i, label %for.body.i, !llvm.loop !24
 
 if.end.i:                                         ; preds = %ZSTD_row_prefetch.exit119.us1401, %ZSTD_row_prefetch.exit119.us1374, %for.body.i, %for.body.i.us1407, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i14281460 = icmp ult ptr %add.ptr63.i, %add.ptr2.i
   br i1 %cmp66.i14281460, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -24972,7 +24972,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -25006,7 +25006,7 @@ entry:
   %cmp61.i = icmp eq ptr %add.ptr7.i, %src
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i12981346 = icmp ult ptr %add.ptr63.i, %add.ptr1.i
   br i1 %cmp66.i12981346, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -25879,7 +25879,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -26120,7 +26120,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph.sp
   br i1 %exitcond1594.not, label %if.end.i, label %for.body.i, !llvm.loop !24
 
 if.end.i:                                         ; preds = %ZSTD_row_prefetch.exit119.us1425, %ZSTD_row_prefetch.exit119.us1398, %for.body.i, %for.body.i.us1431, %ZSTD_hashPtrSalted.exit91.us, %entry
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i14521502 = icmp ult ptr %add.ptr63.i, %add.ptr2.i
   br i1 %cmp66.i14521502, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -27250,7 +27250,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -27284,7 +27284,7 @@ entry:
   %cmp61.i = icmp eq ptr %add.ptr7.i, %src
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   %cmp66.i15871635 = icmp ult ptr %add.ptr63.i, %add.ptr1.i
   br i1 %cmp66.i15871635, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_lazy_extDict_generic.exit
 
@@ -28561,10 +28561,10 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #3
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #2
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone %iEnd, ptr noundef %mEnd, ptr nocapture noundef readonly %iStart) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone %iEnd, ptr noundef %mEnd, ptr nocapture noundef readonly %iStart) unnamed_addr #3 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %mEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %match to i64
@@ -28785,12 +28785,12 @@ return:                                           ; preds = %ZSTD_count.exit, %Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -29098,8 +29098,7 @@ if.then87.i.us283:                                ; preds = %if.end56.i.us278
   %add89.i.us285 = sub i32 %sub88.i, %matchIndex.i.0235.us241
   %conv90.i.us286 = zext i32 %add89.i.us285 to i64
   store i64 %conv90.i.us286, ptr %offsetPtr, align 8
-  %add.ptr91.i.us287 = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i.us281
-  %cmp92.i.us288 = icmp eq ptr %add.ptr91.i.us287, %iLimit
+  %cmp92.i.us288 = icmp eq ptr %pIn.addr.4.i.us279, %iLimit
   br i1 %cmp92.i.us288, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i.us289
 
 if.end96.i.us289:                                 ; preds = %if.then87.i.us283, %if.end56.i.us278, %if.then58.i.us240
@@ -29173,8 +29172,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0235
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -29198,7 +29196,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -29504,8 +29502,7 @@ if.then87.i.us282:                                ; preds = %if.end56.i.us277
   %add89.i.us284 = sub i32 %sub88.i, %matchIndex.i.0234.us240
   %conv90.i.us285 = zext i32 %add89.i.us284 to i64
   store i64 %conv90.i.us285, ptr %offsetPtr, align 8
-  %add.ptr91.i.us286 = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i.us280
-  %cmp92.i.us287 = icmp eq ptr %add.ptr91.i.us286, %iLimit
+  %cmp92.i.us287 = icmp eq ptr %pIn.addr.4.i.us278, %iLimit
   br i1 %cmp92.i.us287, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i.us288
 
 if.end96.i.us288:                                 ; preds = %if.then87.i.us282, %if.end56.i.us277, %if.then58.i.us239
@@ -29579,8 +29576,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0234
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -29604,7 +29600,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -29910,8 +29906,7 @@ if.then87.i.us282:                                ; preds = %if.end56.i.us277
   %add89.i.us284 = sub i32 %sub88.i, %matchIndex.i.0234.us240
   %conv90.i.us285 = zext i32 %add89.i.us284 to i64
   store i64 %conv90.i.us285, ptr %offsetPtr, align 8
-  %add.ptr91.i.us286 = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i.us280
-  %cmp92.i.us287 = icmp eq ptr %add.ptr91.i.us286, %iLimit
+  %cmp92.i.us287 = icmp eq ptr %pIn.addr.4.i.us278, %iLimit
   br i1 %cmp92.i.us287, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i.us288
 
 if.end96.i.us288:                                 ; preds = %if.then87.i.us282, %if.end56.i.us277, %if.then58.i.us239
@@ -29985,8 +29980,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0234
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %ZSTD_HcFindBestMatch.exit, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -30010,8 +30004,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -30289,7 +30283,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %54 = zext i8 %50 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -30493,8 +30487,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -30787,7 +30781,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
   br i1 %cmp84.i554.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i535 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i535 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i535 to i64
   br label %for.body.i
 
@@ -30991,8 +30985,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -31318,7 +31312,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %50 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -31521,8 +31515,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -31801,7 +31795,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %50 = zext i8 %46 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %48, i16 %48, i16 %50)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %48, i16 %48, i16 %50)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -32005,8 +31999,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -32300,7 +32294,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
   br i1 %cmp84.i553.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i534 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i534 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i534 to i64
   br label %for.body.i
 
@@ -32504,8 +32498,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -32832,7 +32826,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %46 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -33035,8 +33029,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -33315,7 +33309,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %50 = zext i8 %46 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %48, i16 %48, i16 %50)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %48, i16 %48, i16 %50)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -33519,8 +33513,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -33814,7 +33808,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
   br i1 %cmp84.i553.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i534 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i534 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i534 to i64
   br label %for.body.i
 
@@ -34018,8 +34012,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef readnone %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -34346,7 +34340,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %46 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -34549,7 +34543,7 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -34828,7 +34822,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -35105,7 +35099,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -35382,8 +35376,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end100.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -35668,7 +35662,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %56 = zext i8 %52 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -35892,8 +35886,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -36193,7 +36187,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
   br i1 %cmp84.i556.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i536 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i536 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i536 to i64
   br label %for.body.i
 
@@ -36417,8 +36411,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -36751,7 +36745,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %52 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -36974,8 +36968,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -37261,7 +37255,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %52 = zext i8 %48 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %50, i16 %50, i16 %52)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %50, i16 %50, i16 %52)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -37485,8 +37479,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -37787,7 +37781,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
   br i1 %cmp84.i555.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i535 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i535 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i535 to i64
   br label %for.body.i
 
@@ -38011,8 +38005,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -38346,7 +38340,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %48 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -38569,8 +38563,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -38856,7 +38850,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %52 = zext i8 %48 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %50, i16 %50, i16 %52)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %50, i16 %50, i16 %52)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -39080,8 +39074,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -39382,7 +39376,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
   br i1 %cmp84.i555.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i535 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i535 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i535 to i64
   br label %for.body.i
 
@@ -39606,8 +39600,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -39941,7 +39935,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %48 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -40164,7 +40158,7 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end173.i, %if.th
   ret i64 %ml.i.2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -40486,8 +40480,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0245
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %if.then110.i, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -40595,7 +40588,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end176.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -40915,8 +40908,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0244
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %if.then110.i, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -41024,7 +41016,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end176.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #0 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
@@ -41344,8 +41336,7 @@ if.then87.i:                                      ; preds = %if.end56.i
   %add89.i = sub i32 %sub88.i, %matchIndex.i.0244
   %conv90.i = zext i32 %add89.i to i64
   store i64 %conv90.i, ptr %offsetPtr, align 8
-  %add.ptr91.i = getelementptr inbounds i8, ptr %ip, i64 %sub.ptr.sub59.i
-  %cmp92.i = icmp eq ptr %add.ptr91.i, %iLimit
+  %cmp92.i = icmp eq ptr %pIn.addr.4.i, %iLimit
   br i1 %cmp92.i, label %if.then110.i, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then58.i, %if.then87.i, %if.end56.i
@@ -41453,8 +41444,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %if.end176.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -41755,7 +41746,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %61 = zext i8 %57 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %59, i16 %59, i16 %61)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %59, i16 %59, i16 %61)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -41980,7 +41971,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
   %80 = zext i8 %76 to i16
-  %conv5.i547 = tail call i16 @llvm.fshr.i16(i16 %78, i16 %78, i16 %80)
+  %conv5.i547 = tail call noundef i16 @llvm.fshr.i16(i16 %78, i16 %78, i16 %80)
   %conv7.i69 = zext i16 %conv5.i547 to i64
   br label %for.body213.i
 
@@ -42072,8 +42063,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -42391,7 +42382,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
   br i1 %cmp84.i567.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i541 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i541 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i541 to i64
   br label %for.body.i
 
@@ -42624,7 +42615,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
   br i1 %87, label %for.body213.i.preheader, label %ZSTD_RowFindBestMatch.exit
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
-  %or.i548 = tail call i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
+  %or.i548 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
   %conv14.i65 = zext i32 %or.i548 to i64
   br label %for.body213.i
 
@@ -42716,8 +42707,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i34 = alloca [4 x i32], align 16
   %matches.i11 = alloca [4 x i32], align 16
@@ -43071,7 +43062,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %57 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -43327,7 +43318,7 @@ if.end15.i45:                                     ; preds = %for.body.i70
 
 for.body213.i.preheader:                          ; preds = %if.end15.i45
   %sh_prom.i547 = zext i8 %80 to i64
-  %or.i548 = tail call i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i547)
+  %or.i548 = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i547)
   br label %for.body213.i
 
 for.body213.i:                                    ; preds = %for.body213.i.preheader, %for.inc235.i
@@ -43418,8 +43409,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -43721,7 +43712,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %56 = zext i8 %52 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -43946,7 +43937,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
   %75 = zext i8 %71 to i16
-  %conv5.i546 = tail call i16 @llvm.fshr.i16(i16 %73, i16 %73, i16 %75)
+  %conv5.i546 = tail call noundef i16 @llvm.fshr.i16(i16 %73, i16 %73, i16 %75)
   %conv7.i69 = zext i16 %conv5.i546 to i64
   br label %for.body213.i
 
@@ -44038,8 +44029,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -44358,7 +44349,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
   br i1 %cmp84.i566.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i540 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i540 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i540 to i64
   br label %for.body.i
 
@@ -44591,7 +44582,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
   br i1 %82, label %for.body213.i.preheader, label %ZSTD_RowFindBestMatch.exit
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
-  %or.i547 = tail call i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
+  %or.i547 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
   %conv14.i65 = zext i32 %or.i547 to i64
   br label %for.body213.i
 
@@ -44683,8 +44674,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i34 = alloca [4 x i32], align 16
   %matches.i11 = alloca [4 x i32], align 16
@@ -45039,7 +45030,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %52 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -45295,7 +45286,7 @@ if.end15.i45:                                     ; preds = %for.body.i70
 
 for.body213.i.preheader:                          ; preds = %if.end15.i45
   %sh_prom.i546 = zext i8 %75 to i64
-  %or.i547 = tail call i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i546)
+  %or.i547 = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i546)
   br label %for.body213.i
 
 for.body213.i:                                    ; preds = %for.body213.i.preheader, %for.inc235.i
@@ -45386,8 +45377,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -45689,7 +45680,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %56 = zext i8 %52 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %54, i16 %54, i16 %56)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -45914,7 +45905,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
   %75 = zext i8 %71 to i16
-  %conv5.i546 = tail call i16 @llvm.fshr.i16(i16 %73, i16 %73, i16 %75)
+  %conv5.i546 = tail call noundef i16 @llvm.fshr.i16(i16 %73, i16 %73, i16 %75)
   %conv7.i69 = zext i16 %conv5.i546 to i64
   br label %for.body213.i
 
@@ -46006,8 +45997,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %matchBuffer200.i = alloca [64 x i32], align 16
@@ -46326,7 +46317,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
   br i1 %cmp84.i566.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i540 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i540 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i540 to i64
   br label %for.body.i
 
@@ -46559,7 +46550,7 @@ if.then185.i:                                     ; preds = %if.end173.i, %if.th
   br i1 %82, label %for.body213.i.preheader, label %ZSTD_RowFindBestMatch.exit
 
 for.body213.i.preheader:                          ; preds = %if.then185.i
-  %or.i547 = tail call i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
+  %or.i547 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i63, i32 %or.i63, i32 %and198.i)
   %conv14.i65 = zext i32 %or.i547 to i64
   br label %for.body213.i
 
@@ -46651,8 +46642,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i34 = alloca [4 x i32], align 16
   %matches.i11 = alloca [4 x i32], align 16
@@ -47007,7 +46998,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %52 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -47263,7 +47254,7 @@ if.end15.i45:                                     ; preds = %for.body.i70
 
 for.body213.i.preheader:                          ; preds = %if.end15.i45
   %sh_prom.i546 = zext i8 %75 to i64
-  %or.i547 = tail call i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i546)
+  %or.i547 = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i58, i64 %or29.i58, i64 %sh_prom.i546)
   br label %for.body213.i
 
 for.body213.i:                                    ; preds = %for.body213.i.preheader, %for.inc235.i
@@ -47354,8 +47345,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %if.end271.i, %if.th
   ret i64 %ml.i.5
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
   %chainTable2.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 11
@@ -47795,8 +47786,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.t
   ret i64 %retval.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
   %chainTable2.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 11
@@ -48234,8 +48225,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.t
   ret i64 %retval.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
 entry:
   %cParams1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
   %chainTable2.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 11
@@ -48673,8 +48664,8 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.t
   ret i64 %retval.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -48972,7 +48963,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %58 = zext i8 %54 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %56, i16 %56, i16 %58)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %56, i16 %56, i16 %58)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -49346,8 +49337,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -49660,7 +49651,7 @@ if.end71.i:                                       ; preds = %sw.bb.i580.i, %ZSTD
   br i1 %cmp84.i573.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i542 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i542 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i542 to i64
   br label %for.body.i
 
@@ -50034,8 +50025,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -50381,7 +50372,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %54 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -50754,8 +50745,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -51054,7 +51045,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %54 = zext i8 %50 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -51428,8 +51419,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -51743,7 +51734,7 @@ if.end71.i:                                       ; preds = %sw.bb1.i578.i, %ZST
   br i1 %cmp84.i572.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i541 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i541 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i541 to i64
   br label %for.body.i
 
@@ -52117,8 +52108,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -52465,7 +52456,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %50 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -52838,8 +52829,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -53138,7 +53129,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
 
 for.body.i.preheader:                             ; preds = %if.end71.i
   %54 = zext i8 %50 to i16
-  %conv5.i = tail call i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
+  %conv5.i = tail call noundef i16 @llvm.fshr.i16(i16 %52, i16 %52, i16 %54)
   %conv7.i = zext i16 %conv5.i to i64
   br label %for.body.i
 
@@ -53512,8 +53503,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matchBuffer.i = alloca [64 x i32], align 16
   %hashTable1.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
@@ -53827,7 +53818,7 @@ if.end71.i:                                       ; preds = %sw.bb3.i576.i, %ZST
   br i1 %cmp84.i572.not, label %for.end.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end71.i
-  %or.i541 = tail call i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
+  %or.i541 = tail call noundef i32 @llvm.fshr.i32(i32 %or.i, i32 %or.i, i32 %and81.i)
   %conv14.i = zext i32 %or.i541 to i64
   br label %for.body.i
 
@@ -54201,8 +54192,8 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iLimit, ptr nocapture noundef writeonly %offsetPtr) unnamed_addr #5 {
 entry:
   %matches.i11 = alloca [4 x i32], align 16
   %matchBuffer.i = alloca [64 x i32], align 16
@@ -54549,7 +54540,7 @@ if.end15.i:                                       ; preds = %for.body.i20
 
 for.body.i.preheader:                             ; preds = %if.end15.i
   %sh_prom.i = zext i8 %50 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %or29.i, i64 %or29.i, i64 %sh_prom.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -54922,7 +54913,7 @@ ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if
   ret i64 %retval.i714.i.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %ms, ptr noundef %ip, ptr noundef %iend, ptr nocapture noundef %offBasePtr, i32 noundef %mls, i32 noundef %dictMode) unnamed_addr #0 {
 entry:
   %dummy32.i = alloca i32, align 4
@@ -55708,50 +55699,49 @@ if.end182:                                        ; preds = %for.inc.i193, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #9
+declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshr.i16(i16, i16, i16) #9
+declare i16 @llvm.fshr.i16(i16, i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #9
+declare i32 @llvm.fshr.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #9
+declare i64 @llvm.fshr.i64(i64, i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #4 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

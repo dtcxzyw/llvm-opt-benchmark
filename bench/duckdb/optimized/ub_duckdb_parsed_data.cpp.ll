@@ -32670,15 +32670,18 @@ if.else:                                          ; preds = %if.then
 
 if.then27:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN6duckdb13TableFunctionEPS4_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %0, ptr noundef %3)
+  %9 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !30
+  %cmp.i.not6.i.i.i = icmp eq ptr %call.i.i.i.i, %9
+  br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101.preheader
+
+for.body.i.i.i101.preheader:                      ; preds = %if.then27
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i90
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %9 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !30
-  %cmp.i.not6.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %9
-  br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101
+  br label %for.body.i.i.i101
 
-for.body.i.i.i101:                                ; preds = %if.then27, %for.body.i.i.i101
-  %__first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i101 ], [ %add.ptr.i.i.i.i, %if.then27 ]
+for.body.i.i.i101:                                ; preds = %for.body.i.i.i101.preheader, %for.body.i.i.i101
+  %__first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i101 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i101.preheader ]
   %vtable.i.i.i.i102 = load ptr, ptr %__first.sroa.0.07.i.i.i, align 8, !tbaa !8
   %10 = load ptr, ptr %vtable.i.i.i.i102, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(360) %__first.sroa.0.07.i.i.i) #29

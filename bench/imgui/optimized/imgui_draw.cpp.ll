@@ -8618,7 +8618,7 @@ land.rhs.i.us:                                    ; preds = %while.body.i.us, %l
 
 while.body.i.us:                                  ; preds = %land.rhs.i.us, %land.rhs.i.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %text.addr.07.i.us, i64 1
-  %exitcond.not.i.us = icmp eq ptr %incdec.ptr.i.us, %scevgep.i.us
+  %exitcond.not.i.us = icmp eq ptr %incdec.ptr.i.us, %text_end.addr.0
   br i1 %exitcond.not.i.us, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us, label %land.rhs.i.us, !llvm.loop !30
 
 _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %land.rhs.i.us, %while.body.i.us, %while.body.us
@@ -8847,7 +8847,7 @@ land.rhs.i223:                                    ; preds = %while.body.i225, %l
 
 while.body.i225:                                  ; preds = %land.rhs.i223, %land.rhs.i223
   %incdec.ptr.i226 = getelementptr inbounds i8, ptr %text.addr.07.i224, i64 1
-  %exitcond.not.i227 = icmp eq ptr %incdec.ptr.i226, %scevgep.i222
+  %exitcond.not.i227 = icmp eq ptr %incdec.ptr.i226, %text_end.addr.1
   br i1 %exitcond.not.i227, label %while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge, label %land.rhs.i223, !llvm.loop !30
 
 while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge: ; preds = %while.body.i225
@@ -23508,7 +23508,7 @@ land.rhs.i.us:                                    ; preds = %if.then10.split.us.
 
 while.body.i.us:                                  ; preds = %land.rhs.i.us, %land.rhs.i.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %text.addr.07.i.us, i64 1
-  %exitcond.not.i.us = icmp eq ptr %incdec.ptr.i.us, %scevgep.i.us
+  %exitcond.not.i.us = icmp eq ptr %incdec.ptr.i.us, %text_end.addr.0
   br i1 %exitcond.not.i.us, label %while.body.i.us._ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us_crit_edge, label %land.rhs.i.us, !llvm.loop !30
 
 while.body.i.us._ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us_crit_edge: ; preds = %while.body.i.us

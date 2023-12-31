@@ -521,9 +521,8 @@ _ZNK5folly5RangeIPKhE8subpieceEmm.exit111:        ; preds = %if.end17
   %6 = load i32, ptr %flags, align 4, !tbaa !52
   %flags29 = getelementptr inbounds %"struct.folly::EventRecvmsgMultishotCallback::ParsedRecvMsgMultishot", ptr %out, i64 0, i32 3
   store i32 %6, ptr %flags29, align 8, !tbaa !53
-  %sub.ptr.lhs.cast.i113 = ptrtoint ptr %add.ptr.i.i107 to i64
   %sub.ptr.rhs.cast.i114 = ptrtoint ptr %add.ptr.i105 to i64
-  %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i113, %sub.ptr.rhs.cast.i114
+  %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i114
   %cmp34.not = icmp eq i64 %sub.ptr.sub.i115, %conv28
   br i1 %cmp34.not, label %cleanup51, label %if.then35
 

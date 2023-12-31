@@ -1500,13 +1500,12 @@ if.else.i:                                        ; preds = %if.then.i
   %incdec.ptr.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %4, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr9.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %4, i64 -1
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i.i, %add.ptr.i.i
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.neg.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, -48
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %4, i64 %sub.ptr.div.neg.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i, ptr align 8 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
@@ -3939,12 +3938,12 @@ if.end54:                                         ; preds = %land.rhs28.i.i151, 
   br label %return
 
 if.end55:                                         ; preds = %if.end35
-  %cmp56 = icmp eq ptr %tr.1, %add.ptr
+  %cmp56 = icmp eq ptr %tr.1, %0
   br i1 %cmp56, label %if.then57, label %if.end92
 
 if.then57:                                        ; preds = %if.end55
-  %incdec.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1
-  %prev_civil_sec58 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4
+  %incdec.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1
+  %prev_civil_sec58 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4
   %92 = load i64, ptr %prev_civil_sec58, align 8
   %93 = load i64, ptr %cs, align 8
   %cmp.i.i202 = icmp slt i64 %92, %93
@@ -3955,7 +3954,7 @@ lor.rhs.i.i203:                                   ; preds = %if.then57
   br i1 %cmp4.i.i204, label %land.rhs.i.i205, label %if.end91
 
 land.rhs.i.i205:                                  ; preds = %lor.rhs.i.i203
-  %m.i.i.i206 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4, i32 0, i32 1
+  %m.i.i.i206 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4, i32 0, i32 1
   %94 = load i8, ptr %m.i.i.i206, align 8
   %m.i21.i.i207 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %cs, i64 0, i32 1
   %95 = load i8, ptr %m.i21.i.i207, align 8
@@ -3967,7 +3966,7 @@ lor.rhs8.i.i209:                                  ; preds = %land.rhs.i.i205
   br i1 %cmp11.i.i210, label %land.rhs12.i.i211, label %if.end91
 
 land.rhs12.i.i211:                                ; preds = %lor.rhs8.i.i209
-  %d.i.i.i212 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4, i32 0, i32 2
+  %d.i.i.i212 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4, i32 0, i32 2
   %96 = load i8, ptr %d.i.i.i212, align 1
   %d.i28.i.i213 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %cs, i64 0, i32 2
   %97 = load i8, ptr %d.i28.i.i213, align 1
@@ -3979,7 +3978,7 @@ lor.rhs16.i.i215:                                 ; preds = %land.rhs12.i.i211
   br i1 %cmp19.i.i216, label %land.rhs20.i.i217, label %if.end91
 
 land.rhs20.i.i217:                                ; preds = %lor.rhs16.i.i215
-  %hh.i.i.i218 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4, i32 0, i32 3
+  %hh.i.i.i218 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4, i32 0, i32 3
   %98 = load i8, ptr %hh.i.i.i218, align 2
   %hh.i35.i.i219 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %cs, i64 0, i32 3
   %99 = load i8, ptr %hh.i35.i.i219, align 2
@@ -3991,7 +3990,7 @@ lor.rhs24.i.i221:                                 ; preds = %land.rhs20.i.i217
   br i1 %cmp27.i.i222, label %land.rhs28.i.i223, label %if.end91
 
 land.rhs28.i.i223:                                ; preds = %lor.rhs24.i.i221
-  %mm.i.i.i224 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4, i32 0, i32 4
+  %mm.i.i.i224 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4, i32 0, i32 4
   %100 = load i8, ptr %mm.i.i.i224, align 1
   %mm.i42.i.i225 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %cs, i64 0, i32 4
   %101 = load i8, ptr %mm.i42.i.i225, align 1
@@ -4003,7 +4002,7 @@ lor.rhs32.i.i227:                                 ; preds = %land.rhs28.i.i223
   br i1 %cmp35.i.i228, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %if.end91
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i.i227
-  %ss.i.i.i230 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 4, i32 0, i32 5
+  %ss.i.i.i230 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 4, i32 0, i32 5
   %102 = load i8, ptr %ss.i.i.i230, align 4
   %ss.i49.i.i231 = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %cs, i64 0, i32 5
   %103 = load i8, ptr %ss.i49.i.i231, align 4
@@ -4101,7 +4100,7 @@ _ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeI
 
 if.end72:                                         ; preds = %land.lhs.true61, %if.then60
   %transition_types_74 = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this, i64 0, i32 2
-  %type_index75 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 1
+  %type_index75 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 1
   %118 = load i8, ptr %type_index75, align 8
   %conv76 = zext i8 %118 to i64
   %119 = load ptr, ptr %transition_types_74, align 8
@@ -4184,8 +4183,9 @@ if.end84:                                         ; preds = %lor.rhs32.i.i269, %
   %131 = load i64, ptr %incdec.ptr, align 8
   %agg.tmp86.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %cs, i64 8
   %agg.tmp86.sroa.2.0.copyload = load i64, ptr %agg.tmp86.sroa.2.0..sroa_idx, align 8
-  %agg.tmp87.sroa.0.0.copyload = load i64, ptr %civil_sec7, align 8
-  %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 -1, i32 3, i32 0, i32 1
+  %civil_sec88 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 3
+  %agg.tmp87.sroa.0.0.copyload = load i64, ptr %civil_sec88, align 8
+  %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 -1, i32 3, i32 0, i32 1
   %agg.tmp87.sroa.2.0.copyload = load i64, ptr %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx, align 8
   %132 = trunc i64 %agg.tmp86.sroa.2.0.copyload to i32
   %133 = trunc i64 %agg.tmp87.sroa.2.0.copyload to i32
@@ -4711,16 +4711,12 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %2 = load i64, ptr %0, align 8
   %cmp = icmp slt i64 %2, -576460752303423487
   %spec.select.idx = zext i1 %cmp to i64
   %spec.select = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %spec.select.idx
   %retval.sroa.0.0.copyload.i.i1.i = load i64, ptr %tp, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp12.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
@@ -4747,7 +4743,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit: ; preds = %while.body.i.i, %if.end
   %__first.addr.0.lcssa.i.i = phi ptr [ %spec.select, %if.end ], [ %__first.addr.1.i.i, %while.body.i.i ]
-  %cmp12.not25 = icmp eq ptr %__first.addr.0.lcssa.i.i, %add.ptr
+  %cmp12.not25 = icmp eq ptr %__first.addr.0.lcssa.i.i, %1
   br i1 %cmp12.not25, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit
@@ -4797,7 +4793,7 @@ _ZNK4absl13time_internal4cctz12TimeZoneInfo16EquivTransitionsEhh.exit: ; preds =
 
 for.inc:                                          ; preds = %for.body, %_ZNK4absl13time_internal4cctz12TimeZoneInfo16EquivTransitionsEhh.exit
   %incdec.ptr20 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %tr.026, i64 1
-  %cmp12.not = icmp eq ptr %incdec.ptr20, %add.ptr
+  %cmp12.not = icmp eq ptr %incdec.ptr20, %1
   br i1 %cmp12.not, label %return, label %for.body, !llvm.loop !82
 
 if.end23:                                         ; preds = %if.end10.i, %if.end.i, %_ZNK4absl13time_internal4cctz12TimeZoneInfo16EquivTransitionsEhh.exit
@@ -4843,16 +4839,12 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end25
 
 if.end25:                                         ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %2 = load i64, ptr %0, align 8
   %cmp = icmp slt i64 %2, -576460752303423487
   %spec.select.idx = zext i1 %cmp to i64
   %spec.select = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %spec.select.idx
   %retval.sroa.0.0.copyload.i.i1.i = load i64, ptr %tp, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp12.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0

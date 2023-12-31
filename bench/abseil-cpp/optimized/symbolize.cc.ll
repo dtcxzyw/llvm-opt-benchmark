@@ -1562,7 +1562,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %switch.early.test.i
   %conv11.i.i.i.i.i.i = sext i32 %cond.i.i.i.i.i.i to i64
   %or.i.i.i.i.i.i = or i64 %shl.i.i.i.i.i.i, %conv11.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p.021.i.i.i.i.i.i, i64 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %scevgep.i.i.i.i.i.i
+  %exitcond.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %call.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %for.end.i.loopexit.i.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !17
 
 for.end.i.loopexit.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i
@@ -1643,7 +1643,7 @@ if.then.i.i34.i.i.i.i:                            ; preds = %switch.early.test.i
   %conv11.i.i41.i.i.i.i = sext i32 %cond.i.i40.i.i.i.i to i64
   %or.i.i42.i.i.i.i = or i64 %shl.i.i35.i.i.i.i, %conv11.i.i41.i.i.i.i
   %incdec.ptr.i.i43.i.i.i.i = getelementptr inbounds i8, ptr %p.021.i.i29.i.i.i.i, i64 1
-  %exitcond.not.i.i44.i.i.i.i = icmp eq ptr %incdec.ptr.i.i43.i.i.i.i, %scevgep.i.i26.i.i.i.i
+  %exitcond.not.i.i44.i.i.i.i = icmp eq ptr %incdec.ptr.i.i43.i.i.i.i, %call.i.i.i.i.i.i
   br i1 %exitcond.not.i.i44.i.i.i.i, label %for.end.i.loopexit.i45.i.i.i.i, label %for.body.i.i27.i.i.i.i, !llvm.loop !17
 
 for.end.i.loopexit.i45.i.i.i.i:                   ; preds = %if.then.i.i34.i.i.i.i, %switch.early.test.i.i33.i.i.i.i
@@ -1761,7 +1761,7 @@ if.then.i50.i.i.i.i:                              ; preds = %switch.early.test.i
   %conv11.i.i.i.i.i = sext i32 %cond.i.i.i.i.i to i64
   %or.i.i.i.i.i = or i64 %shl.i.i.i.i.i, %conv11.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %p.021.i.i.i.i.i, i64 1
-  %exitcond.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %scevgep.i.i.i.i.i
+  %exitcond.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %call.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !17
 
 for.end.i.i.i.i.i:                                ; preds = %if.then.i50.i.i.i.i, %switch.early.test.i.i.i.i.i, %if.end67.i.i.i.i

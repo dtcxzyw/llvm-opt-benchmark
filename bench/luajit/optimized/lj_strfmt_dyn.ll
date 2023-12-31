@@ -217,7 +217,7 @@ if.end120:                                        ; preds = %if.then109, %if.end
   br label %return
 
 for.inc132:                                       ; preds = %for.body
-  %exitcond.not = icmp eq ptr %arrayidx, %scevgep
+  %exitcond.not = icmp eq ptr %arrayidx, %2
   br i1 %exitcond.not, label %retlit, label %for.body, !llvm.loop !5
 
 retlit:                                           ; preds = %for.inc132, %entry, %if.else, %if.then8
@@ -411,7 +411,7 @@ dig1:                                             ; preds = %if.then2, %dig2
   ret ptr %incdec.ptr93
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly %p, ptr noundef %v) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %v to i64
@@ -579,7 +579,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare hidden ptr @lj_strfmt_putfnum(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putint(ptr noundef returned %sb, i32 noundef %k) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putint(ptr noundef returned %sb, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %e.i = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
   %0 = load ptr, ptr %e.i, align 8
@@ -611,7 +611,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putptr(ptr noundef returned %sb, ptr noundef %v) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putptr(ptr noundef returned %sb, ptr noundef %v) local_unnamed_addr #5 {
 entry:
   %e.i = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
   %0 = load ptr, ptr %e.i, align 8
@@ -687,7 +687,7 @@ lj_strfmt_wptr.exit:                              ; preds = %if.then.i9, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putquoted(ptr noundef returned %sb, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putquoted(ptr noundef returned %sb, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds %struct.GCstr, ptr %str, i64 1
   %len = getelementptr inbounds %struct.GCstr, ptr %str, i64 0, i32 7
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @strfmt_putquotedlen(ptr noundef returned %sb, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #5 {
+define internal fastcc noundef ptr @strfmt_putquotedlen(ptr noundef returned %sb, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #5 {
 entry:
   %e.i.i53 = getelementptr inbounds %struct.SBuf, ptr %sb, i64 0, i32 1
   %0 = load ptr, ptr %e.i.i53, align 8
@@ -841,7 +841,7 @@ lj_buf_putb.exit:                                 ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putfchar(ptr noundef returned %sb, i32 noundef %sf, i32 noundef %c) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfchar(ptr noundef returned %sb, i32 noundef %sf, i32 noundef %c) local_unnamed_addr #5 {
 entry:
   %shr = lshr i32 %sf, 16
   %and = and i32 %shr, 255
@@ -904,7 +904,7 @@ if.end10:                                         ; preds = %if.then7, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putfstr(ptr noundef returned %sb, i32 noundef %sf, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfstr(ptr noundef returned %sb, i32 noundef %sf, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds %struct.GCstr, ptr %str, i64 1
   %len = getelementptr inbounds %struct.GCstr, ptr %str, i64 0, i32 7
@@ -972,7 +972,7 @@ strfmt_putfstrlen.exit:                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putfxint(ptr noundef returned %sb, i32 noundef %sf, i64 noundef %k) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %sb, i32 noundef %sf, i64 noundef %k) local_unnamed_addr #5 {
 entry:
   %buf = alloca [23 x i8], align 16
   %and = and i32 %sf, 15
@@ -1268,7 +1268,7 @@ if.end154:                                        ; preds = %while.body151.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putfnum_int(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
 entry:
   %conv = fptosi double %n to i64
   %0 = add i64 %conv, 2147483648
@@ -1308,7 +1308,7 @@ return:                                           ; preds = %if.else, %lj_strfmt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putfnum_uint(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfnum_uint(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
 entry:
   %cmp = fcmp ult double %n, 0x43E0000000000000
   %sub = fadd double %n, 0xC3F0000000000000
@@ -1506,7 +1506,7 @@ lj_strfmt_parse.exit.thread146:                   ; preds = %if.end102.i, %if.th
   br label %if.then9
 
 for.inc132.i:                                     ; preds = %for.body.i
-  %exitcond.not.i = icmp eq ptr %arrayidx.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %arrayidx.i, %add.ptr.i
   br i1 %exitcond.not.i, label %retlit.i, label %for.body.i, !llvm.loop !5
 
 retlit.i:                                         ; preds = %for.inc132.i, %if.else.i, %if.then8.i, %while.cond
@@ -2584,7 +2584,7 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

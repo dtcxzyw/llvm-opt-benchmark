@@ -268,10 +268,10 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   br i1 %cmp.not.i.i.not, label %invoke.cont, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
+  %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %pName to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %pName, i64 %sub.ptr.sub.i.i
+  %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %pName, i64 %sub.ptr.sub.i5.i
   %call19.i.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef %pName, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -352,9 +352,9 @@ while.cond.i.i25:                                 ; preds = %invoke.cont3, %whil
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i29:          ; preds = %while.cond.i.i25
   %msNotes = getelementptr inbounds %"struct.Benchmark::Result", ptr %result, i64 0, i32 6
-  %sub.ptr.lhs.cast.i.i30 = ptrtoint ptr %pCurrent.0.i.i26 to i64
-  %sub.ptr.rhs.cast.i.i31 = ptrtoint ptr %pNotes to i64
-  %sub.ptr.sub.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i30, %sub.ptr.rhs.cast.i.i31
+  %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %pNotes to i64
+  %sub.ptr.lhs.cast.i3.i31 = ptrtoint ptr %pCurrent.0.i.i26 to i64
+  %sub.ptr.sub.i5.i32 = sub i64 %sub.ptr.lhs.cast.i3.i31, %sub.ptr.rhs.cast.i.i30
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i1.i, align 1
   %tobool.i.i.i.i34 = icmp slt i8 %2, 0
   %mnSize.i.i.i.i35 = getelementptr inbounds %"struct.Benchmark::Result", ptr %result, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -362,7 +362,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i29:          ; preds = %while.cond.i.i25
   %conv.i.i.i.i36 = zext nneg i8 %2 to i64
   %sub.i.i.i.i37 = sub nsw i64 23, %conv.i.i.i.i36
   %cond.i.i.i38 = select i1 %tobool.i.i.i.i34, i64 %3, i64 %sub.i.i.i.i37
-  %cmp.not.i.i39 = icmp ugt i64 %sub.ptr.sub.i.i32, %cond.i.i.i38
+  %cmp.not.i.i39 = icmp ugt i64 %sub.ptr.sub.i5.i32, %cond.i.i.i38
   br i1 %cmp.not.i.i39, label %if.else.i.i69, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i29
@@ -372,7 +372,7 @@ if.then.i.i40:                                    ; preds = %_ZN5eastl10CharStrl
 if.then3.i.i42:                                   ; preds = %if.then.i.i40
   %4 = load ptr, ptr %msNotes, align 8
   %spec.select.i.i.i43 = select i1 %tobool.i.i.i.i34, ptr %4, ptr %msNotes
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i43, ptr nonnull align 1 %pNotes, i64 %sub.ptr.sub.i.i32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i43, ptr nonnull align 1 %pNotes, i64 %sub.ptr.sub.i5.i32, i1 false)
   %.pre.i.i44 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i1.i, align 1
   %.pre34.i.i45 = load i64, ptr %mnSize.i.i.i.i35, align 8
   %.pre35.i.i46 = zext nneg i8 %.pre.i.i44 to i64
@@ -386,7 +386,7 @@ if.end.i.i48:                                     ; preds = %if.then3.i.i42, %if
   %tobool.i.i11.i.i50 = icmp slt i8 %6, 0
   %7 = load ptr, ptr %msNotes, align 8
   %spec.select.i12.i.i51 = select i1 %tobool.i.i11.i.i50, ptr %7, ptr %msNotes
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %spec.select.i12.i.i51, i64 %sub.ptr.sub.i.i32
+  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %spec.select.i12.i.i51, i64 %sub.ptr.sub.i5.i32
   %add.ptr.i.i.i.i53 = getelementptr inbounds i8, ptr %7, i64 %5
   %add.ptr.i1.i.i.i54 = getelementptr inbounds i8, ptr %msNotes, i64 %sub.i.i.i.pre-phi.i.i49
   %cond.i16.i.i55 = select i1 %tobool.i.i11.i.i50, ptr %add.ptr.i.i.i.i53, ptr %add.ptr.i1.i.i.i54
@@ -419,7 +419,7 @@ cond.false.i.i.i.i66:                             ; preds = %if.then.i.i.i57
   br label %if.end
 
 if.else.i.i69:                                    ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i29
-  %add.ptr.i70 = getelementptr inbounds i8, ptr %pNotes, i64 %sub.ptr.sub.i.i32
+  %add.ptr.i70 = getelementptr inbounds i8, ptr %pNotes, i64 %sub.ptr.sub.i5.i32
   %12 = load ptr, ptr %msNotes, align 8
   %spec.select.i21.i.i71 = select i1 %tobool.i.i.i.i34, ptr %12, ptr %msNotes
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i21.i.i71, ptr nonnull align 1 %pNotes, i64 %cond.i.i.i38, i1 false)

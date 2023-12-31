@@ -6474,8 +6474,8 @@ if.then31:                                        ; preds = %land.lhs.true
   %add.ptr32 = getelementptr inbounds i8, ptr %ptr.0, i64 3
   br label %for.condthread-pre-split.backedge
 
-for.condthread-pre-split.backedge:                ; preds = %if.then31, %if.then23, %sw.bb13, %if.then.i, %if.then.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i.i, %if.then48
-  %ptr.0.ph.be = phi ptr [ %incdec.ptr, %sw.bb13 ], [ %add.ptr, %if.then23 ], [ %add.ptr32, %if.then31 ], [ %call45, %if.then.i ], [ %call45, %if.then.i.i ], [ %call45, %if.end.i.i.i.i ], [ %call45, %if.then.i.i.i.i.i ], [ %23, %if.then48 ]
+for.condthread-pre-split.backedge:                ; preds = %if.then31, %if.then23, %sw.bb13, %if.then.i, %if.then.i.i, %if.then.i.i.i.i.i, %if.then48
+  %ptr.0.ph.be = phi ptr [ %incdec.ptr, %sw.bb13 ], [ %add.ptr, %if.then23 ], [ %add.ptr32, %if.then31 ], [ %call45, %if.then.i ], [ %call45, %if.then.i.i ], [ %call45, %if.then.i.i.i.i.i ], [ %22, %if.then48 ]
   br label %for.condthread-pre-split, !llvm.loop !65
 
 sw.bb34:                                          ; preds = %for.cond
@@ -6510,36 +6510,11 @@ if.then.i.i:                                      ; preds = %if.then.i
   %20 = load ptr, ptr %commentStorage_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i
   %21 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %21 to i64
-  %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i3.i.i.i
   %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %21
-  br i1 %cmp.i.not.i.i.i.i, label %for.condthread-pre-split.backedge, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %for.condthread-pre-split.backedge, label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %cmp.i1.not.i.i.i.i = icmp eq ptr %21, %add.ptr.i5.i.i.i
-  br i1 %cmp.i1.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i, ptr align 8 %add.ptr.i5.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i.i = load ptr, ptr %_M_finish.i, align 8
-  %.pre9.i.i.i.i = ptrtoint ptr %.pre.i.i.i.i to i64
-  br label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i, %if.then.i.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %.pre9.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %22 = phi ptr [ %.pre.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %21, %if.then.i.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i
-  %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i.i = icmp eq ptr %22, %add.ptr.i6.i.i.i
-  br i1 %tobool.not.i.i.i.i.i, label %for.condthread-pre-split.backedge, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  store ptr %add.ptr.i6.i.i.i, ptr %_M_finish.i, align 8
+if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i, align 8
   br label %for.condthread-pre-split.backedge
 
 sw.default:                                       ; preds = %for.cond
@@ -6550,7 +6525,7 @@ if.then48:                                        ; preds = %sw.bb24, %land.lhs.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i)
   store ptr %ptr.0, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
-  %23 = load ptr, ptr %at.addr.i, align 8
+  %22 = load ptr, ptr %at.addr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i)
   %call50 = call noundef zeroext i1 @_ZN6hermes18isUnicodeOnlySpaceEj(i32 noundef %call.i) #21
   br i1 %call50, label %for.condthread-pre-split.backedge, label %return
@@ -6703,39 +6678,14 @@ if.then.i.i:                                      ; preds = %if.then.i11
   %18 = load ptr, ptr %commentStorage_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   %19 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i3.i.i.i
   %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %19
-  br i1 %cmp.i.not.i.i.i.i, label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit", label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit", label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %cmp.i1.not.i.i.i.i = icmp eq ptr %19, %add.ptr.i5.i.i.i
-  br i1 %cmp.i1.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i, ptr align 8 %add.ptr.i5.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i.i = load ptr, ptr %_M_finish.i, align 8
-  %.pre9.i.i.i.i = ptrtoint ptr %.pre.i.i.i.i to i64
-  br label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i, %if.then.i.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %.pre9.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %20 = phi ptr [ %.pre.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i ], [ %19, %if.then.i.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i
-  %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i.i = icmp eq ptr %20, %add.ptr.i6.i.i.i
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit", label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  store ptr %add.ptr.i6.i.i.i, ptr %_M_finish.i, align 8
+if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i, align 8
   br label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit"
 
-"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit": ; preds = %if.then.i11, %if.then.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i.i
+"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit": ; preds = %if.then.i11, %if.then.i.i, %if.then.i.i.i.i.i
   %suppress.sroa.2.8.extract.trunc = trunc i64 %6 to i40
   store i40 %suppress.sroa.2.8.extract.trunc, ptr %suppressMessages_.i, align 8
   %retval.sroa.4.0.insert.ext = zext nneg i8 %retval.sroa.4.1 to i64

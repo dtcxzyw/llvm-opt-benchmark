@@ -1833,11 +1833,7 @@ entry:
   %0 = load ptr, ptr %types, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl_data", ptr %types, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
-  %cmp.not444 = icmp eq ptr %1, %0
+  %cmp.not444 = icmp eq ptr %0, %1
   br i1 %cmp.not444, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -2572,7 +2568,7 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
 
 for.inc:                                          ; preds = %for.inc.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i426, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i416, %_ZN5arrow10TypeHolderD2Ev.exit406, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i324, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i314, %_ZN5arrow10TypeHolderD2Ev.exit304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i222, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i212, %_ZN5arrow10TypeHolderD2Ev.exit202, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110, %_ZN5arrow10TypeHolderD2Ev.exit100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN5arrow10TypeHolderD2Ev.exit, %for.body
   %incdec.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %it.0445, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry

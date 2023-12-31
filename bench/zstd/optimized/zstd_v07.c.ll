@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTDv07_execSequence.dec64table = internal unnamed_addr constant [8 x i32] [i32 8, i32 8, i32 8, i32 7, i32 8, i32 9, i32 10, i32 11], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @FSEv07_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @FSEv07_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -52,12 +52,12 @@ entry:
   %0 = trunc i64 %code to i32
   %conv.i.i = sub i32 0, %0
   %retval.0.i.i = select i1 %cmp.i.i.i, i32 0, i32 %conv.i.i
-  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #28
+  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #25
   ret ptr %call1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @HUFv07_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @HUFv07_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -71,11 +71,11 @@ entry:
   %0 = trunc i64 %code to i32
   %conv.i.i = sub i32 0, %0
   %retval.0.i.i = select i1 %cmp.i.i.i, i32 0, i32 %conv.i.i
-  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #28
+  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #25
   ret ptr %call1.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @FSEv07_readNCount(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %headerBuffer, i64 %hbSize
@@ -252,7 +252,7 @@ if.end86:                                         ; preds = %if.else71, %if.then
   %count.1 = trunc i32 %count.1.in to i16
   %bitCount.5 = add nsw i32 %sub69.pn, %bitCount.4
   %dec = add i16 %count.1, -1
-  %9 = tail call i16 @llvm.abs.i16(i16 %dec, i1 false)
+  %9 = tail call noundef i16 @llvm.abs.i16(i16 %dec, i1 false)
   %conv88 = sext i16 %9 to i32
   %sub89 = sub nsw i32 %remaining.0122, %conv88
   %inc90 = add i32 %charnum.2, 1
@@ -317,7 +317,7 @@ return:                                           ; preds = %land.rhs, %while.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_readStats(ptr noundef %huffWeight, i64 noundef %hwSize, ptr nocapture noundef %rankStats, ptr nocapture noundef writeonly %nbSymbolsPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i64 %srcSize, 0
@@ -480,7 +480,7 @@ return:                                           ; preds = %for.body55, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @FSEv07_decompress(ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %symbolNext.i = alloca [256 x i16], align 16
@@ -657,13 +657,13 @@ return:                                           ; preds = %FSEv07_buildDTable.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @FSEv07_createDTable(i32 noundef %tableLog) local_unnamed_addr #5 {
+define noalias noundef ptr @FSEv07_createDTable(i32 noundef %tableLog) local_unnamed_addr #5 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %tableLog, i32 15)
   %add = shl nuw nsw i32 4, %spec.store.select
   %0 = add nuw nsw i32 %add, 4
   %mul = zext nneg i32 %0 to i64
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #29
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #26
   ret ptr %call
 }
 
@@ -673,15 +673,15 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @FSEv07_freeDTable(ptr nocapture noundef %dt) local_unnamed_addr #7 {
 entry:
-  tail call void @free(ptr noundef %dt) #28
+  tail call void @free(ptr noundef %dt) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @FSEv07_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef i64 @FSEv07_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) local_unnamed_addr #9 {
 entry:
   %symbolNext = alloca [256 x i16], align 16
   %add.ptr = getelementptr inbounds i32, ptr %dt, i64 1
@@ -829,7 +829,7 @@ return:                                           ; preds = %for.body71, %for.en
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i64 @FSEv07_buildDTable_rle(ptr nocapture noundef writeonly %dt, i8 noundef zeroext %symbolValue) local_unnamed_addr #11 {
+define noundef i64 @FSEv07_buildDTable_rle(ptr nocapture noundef writeonly %dt, i8 noundef zeroext %symbolValue) local_unnamed_addr #11 {
 entry:
   %add.ptr = getelementptr inbounds i32, ptr %dt, i64 1
   store i16 0, ptr %dt, align 2
@@ -844,7 +844,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i64 @FSEv07_buildDTable_raw(ptr nocapture noundef writeonly %dt, i32 noundef %nbBits) local_unnamed_addr #12 {
+define noundef i64 @FSEv07_buildDTable_raw(ptr nocapture noundef writeonly %dt, i32 noundef %nbBits) local_unnamed_addr #12 {
 entry:
   %add.ptr = getelementptr inbounds i32, ptr %dt, i64 1
   %cmp = icmp eq i32 %nbBits, 0
@@ -878,7 +878,7 @@ return:                                           ; preds = %for.body, %entry
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @FSEv07_decompress_usingDTable(ptr noundef %dst, i64 noundef %originalSize, ptr noundef readonly %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %dt) local_unnamed_addr #13 {
 entry:
   %fastMode1 = getelementptr inbounds %struct.FSEv07_DTableHeader, ptr %dt, i64 0, i32 1
@@ -1904,7 +1904,7 @@ return:                                           ; preds = %if.end74.i43, %BITv
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_readDTableX2(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
 entry:
   %huffWeight = alloca [256 x i8], align 16
@@ -2012,7 +2012,7 @@ return:                                           ; preds = %for.end41, %for.con
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -2029,7 +2029,7 @@ return:                                           ; preds = %entry, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #3 {
 entry:
   %bitD = alloca %struct.BITv07_DStream_t, align 8
@@ -2174,7 +2174,7 @@ return:                                           ; preds = %sw.epilog.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X2_DCtx(ptr nocapture noundef %DCtx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @HUFv07_readDTableX2(ptr noundef %DCtx, ptr noundef %cSrc, i64 noundef %cSrcSize)
@@ -2196,7 +2196,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %DTable = alloca [2049 x i32], align 16
@@ -2221,7 +2221,7 @@ HUFv07_decompress1X2_DCtx.exit:                   ; preds = %entry, %if.end.i, %
   ret i64 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -2238,7 +2238,7 @@ return:                                           ; preds = %entry, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #3 {
 entry:
   %bitD1 = alloca %struct.BITv07_DStream_t, align 8
@@ -3171,7 +3171,7 @@ return:                                           ; preds = %sw.epilog.i174, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X2_DCtx(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @HUFv07_readDTableX2(ptr noundef %dctx, ptr noundef %cSrc, i64 noundef %cSrcSize)
@@ -3193,7 +3193,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #3 {
 entry:
   %DTable = alloca [2049 x i32], align 16
@@ -3218,7 +3218,7 @@ HUFv07_decompress4X2_DCtx.exit:                   ; preds = %entry, %if.end.i, %
   ret i64 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_readDTableX4(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
 entry:
   %rankVal.i.i = alloca [17 x i32], align 16
@@ -3553,7 +3553,7 @@ return:                                           ; preds = %if.end9, %if.end, %
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -3570,7 +3570,7 @@ return:                                           ; preds = %entry, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #3 {
 entry:
   %bitD = alloca %struct.BITv07_DStream_t, align 8
@@ -3715,7 +3715,7 @@ return:                                           ; preds = %sw.epilog.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X4_DCtx(ptr nocapture noundef %DCtx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @HUFv07_readDTableX4(ptr noundef %DCtx, ptr noundef %cSrc, i64 noundef %cSrcSize)
@@ -3737,7 +3737,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X4(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %DTable = alloca [4097 x i32], align 16
@@ -3762,7 +3762,7 @@ HUFv07_decompress1X4_DCtx.exit:                   ; preds = %entry, %if.end.i, %
   ret i64 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -3779,7 +3779,7 @@ return:                                           ; preds = %entry, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #3 {
 entry:
   %bitD1 = alloca %struct.BITv07_DStream_t, align 8
@@ -4760,7 +4760,7 @@ return:                                           ; preds = %sw.epilog.i189, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X4_DCtx(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @HUFv07_readDTableX4(ptr noundef %dctx, ptr noundef %cSrc, i64 noundef %cSrcSize)
@@ -4782,7 +4782,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X4(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #3 {
 entry:
   %DTable = alloca [4097 x i32], align 16
@@ -4807,7 +4807,7 @@ HUFv07_decompress4X4_DCtx.exit:                   ; preds = %entry, %if.end.i, %
   ret i64 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X_usingDTable(ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -4828,7 +4828,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i64 %cond
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X_usingDTable(ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable) local_unnamed_addr #3 {
 entry:
   %DTable.val = load i32, ptr %DTable, align 4
@@ -4927,7 +4927,7 @@ if.end9:                                          ; preds = %if.end6
   %idxprom = zext i1 %cmp.i to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @HUFv07_decompress.decompress, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %call10 = tail call i64 %5(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #28
+  %call10 = tail call i64 %5(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #25
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end9, %if.then8, %if.then5
@@ -4935,7 +4935,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X_DCtx(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %dstSize, 0
@@ -5020,7 +5020,7 @@ return:                                           ; preds = %if.end3.i27, %if.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress4X_hufOnly(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %dstSize, 0
@@ -5090,7 +5090,7 @@ return:                                           ; preds = %if.end3.i17, %if.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUFv07_decompress1X_DCtx(ptr nocapture noundef %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %dstSize, 0
@@ -5176,7 +5176,7 @@ return:                                           ; preds = %if.end3.i27, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ZSTDv07_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @ZSTDv07_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -5190,12 +5190,12 @@ entry:
   %0 = trunc i64 %code to i32
   %conv.i.i = sub i32 0, %0
   %retval.0.i.i = select i1 %cmp.i.i.i, i32 0, i32 %conv.i.i
-  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #28
+  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #25
   ret ptr %call1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ZBUFFv07_isError(i64 noundef %errorCode) local_unnamed_addr #0 {
+define noundef i32 @ZBUFFv07_isError(i64 noundef %errorCode) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %errorCode, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -5209,24 +5209,24 @@ entry:
   %0 = trunc i64 %errorCode to i32
   %conv.i.i = sub i32 0, %0
   %retval.0.i.i = select i1 %cmp.i.i.i, i32 0, i32 %conv.i.i
-  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #28
+  %call1.i = tail call ptr @ERR_getErrorString(i32 noundef %retval.0.i.i) #25
   ret ptr %call1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTDv07_sizeofDCtx(ptr nocapture noundef readnone %dctx) local_unnamed_addr #0 {
+define noundef i64 @ZSTDv07_sizeofDCtx(ptr nocapture noundef readnone %dctx) local_unnamed_addr #0 {
 entry:
   ret i64 152864
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTDv07_estimateDCtxSize() local_unnamed_addr #0 {
+define noundef i64 @ZSTDv07_estimateDCtxSize() local_unnamed_addr #0 {
 entry:
   ret i64 152864
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTDv07_decompressBegin(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i64 @ZSTDv07_decompressBegin(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #14 {
 entry:
   %expected = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 8
   store i64 5, ptr %expected, align 8
@@ -5273,7 +5273,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.end7:                                          ; preds = %if.end
   %opaque = getelementptr inbounds %struct.ZSTDv07_customMem, ptr %customMem, i64 0, i32 2
   %4 = load ptr, ptr %opaque, align 8
-  %call = tail call ptr %3(ptr noundef %4, i64 noundef 152864) #28
+  %call = tail call ptr %3(ptr noundef %4, i64 noundef 152864) #25
   %tobool9.not = icmp eq ptr %call, null
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -5304,9 +5304,9 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias ptr @ZSTDv07_createDCtx() local_unnamed_addr #15 {
+define noalias noundef ptr @ZSTDv07_createDCtx() local_unnamed_addr #15 {
 if.end7.i:
-  %call.i7 = tail call noalias dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #29
+  %call.i7 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #26
   %tobool9.not.i = icmp eq ptr %call.i7, null
   br i1 %tobool9.not.i, label %ZSTDv07_createDCtx_advanced.exit, label %if.end11.i
 
@@ -5340,7 +5340,7 @@ ZSTDv07_createDCtx_advanced.exit:                 ; preds = %if.end7.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDv07_freeDCtx(ptr noundef %dctx) local_unnamed_addr #1 {
+define noundef i64 @ZSTDv07_freeDCtx(ptr noundef %dctx) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dctx, null
   br i1 %cmp, label %return, label %if.end
@@ -5350,21 +5350,21 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %customFree, align 8
   %opaque = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 19, i32 2
   %1 = load ptr, ptr %opaque, align 8
-  tail call void %0(ptr noundef %1, ptr noundef nonnull %dctx) #28
+  tail call void %0(ptr noundef %1, ptr noundef nonnull %dctx) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.end
   ret i64 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTDv07_copyDCtx(ptr nocapture noundef writeonly %dstDCtx, ptr nocapture noundef readonly %srcDCtx) local_unnamed_addr #14 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21766) %dstDCtx, ptr noundef nonnull align 8 dereferenceable(21766) %srcDCtx, i64 21766, i1 false)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTDv07_getFrameParams(ptr nocapture noundef writeonly %fparamsPtr, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #14 {
 entry:
   %cmp = icmp ult i64 %srcSize, 5
@@ -5535,7 +5535,7 @@ return:                                           ; preds = %sw.epilog86, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTDv07_getDecompressedSize(ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #14 {
 entry:
   %fparams = alloca %struct.ZSTDv07_frameParams, align 8
@@ -5546,7 +5546,7 @@ entry:
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @ZSTDv07_decompressBlock(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
 entry:
   %previousDstEnd.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 4
@@ -5576,7 +5576,7 @@ ZSTDv07_checkContinuity.exit:                     ; preds = %entry, %if.then.i
   ret i64 %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #3 {
 entry:
   %seqState.i = alloca %struct.seqState_t, align 8
@@ -6036,9 +6036,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !37
 
 for.end.i:                                        ; preds = %for.body.i
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr10.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %cmp.i44.i = icmp eq i64 %sub.ptr.sub63.i.i, %sub
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast61.i.i
+  %cmp.i44.i = icmp eq ptr %add.ptr.i12, %add.ptr60.i.i
   br i1 %cmp.i44.i, label %ZSTDv07_decompressSequences.exit, label %if.end.i45.i
 
 if.end.i45.i:                                     ; preds = %for.end.i
@@ -6187,7 +6186,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %BITv07_reloadDStream.exit.sink.split.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %cmp13.i.i.i = icmp eq ptr %50, %add.ptr10.i
+  %cmp13.i.i.i = icmp eq ptr %50, %add.ptr60.i.i
   br i1 %cmp13.i.i.i, label %FSEv07_initDState.exit.i, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end10.i.i.i
@@ -6195,9 +6194,9 @@ if.end22.i.i.i:                                   ; preds = %if.end10.i.i.i
   %idx.ext26.i.i.i = zext nneg i32 %shr24.i.i.i to i64
   %idx.neg27.i.i.i = sub nsw i64 0, %idx.ext26.i.i.i
   %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %50, i64 %idx.neg27.i.i.i
-  %cmp30.i.i.i = icmp ult ptr %add.ptr28.i.i.i, %add.ptr10.i
+  %cmp30.i.i.i = icmp ult ptr %add.ptr28.i.i.i, %add.ptr60.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %50 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast61.i.i
   %conv35.i.i.i = trunc i64 %sub.ptr.sub.i.i.i to i32
   %nbBytes.0.i.i.i = select i1 %cmp30.i.i.i, i32 %conv35.i.i.i, i32 %shr24.i.i.i
   %idx.ext38.i.i.i = zext i32 %nbBytes.0.i.i.i to i64
@@ -6254,7 +6253,7 @@ if.then4.i.i76.i:                                 ; preds = %if.end.i.i71.i
   br label %BITv07_reloadDStream.exit.sink.split.i82.i
 
 if.end10.i.i88.i:                                 ; preds = %if.end.i.i71.i
-  %cmp13.i.i89.i = icmp eq ptr %53, %add.ptr10.i
+  %cmp13.i.i89.i = icmp eq ptr %53, %add.ptr60.i.i
   br i1 %cmp13.i.i89.i, label %FSEv07_initDState.exit106.i, label %if.end22.i.i90.i
 
 if.end22.i.i90.i:                                 ; preds = %if.end10.i.i88.i
@@ -6262,9 +6261,9 @@ if.end22.i.i90.i:                                 ; preds = %if.end10.i.i88.i
   %idx.ext26.i.i92.i = zext nneg i32 %shr24.i.i91.i to i64
   %idx.neg27.i.i93.i = sub nsw i64 0, %idx.ext26.i.i92.i
   %add.ptr28.i.i94.i = getelementptr inbounds i8, ptr %53, i64 %idx.neg27.i.i93.i
-  %cmp30.i.i95.i = icmp ult ptr %add.ptr28.i.i94.i, %add.ptr10.i
+  %cmp30.i.i95.i = icmp ult ptr %add.ptr28.i.i94.i, %add.ptr60.i.i
   %sub.ptr.lhs.cast.i.i96.i = ptrtoint ptr %53 to i64
-  %sub.ptr.sub.i.i98.i = sub i64 %sub.ptr.lhs.cast.i.i96.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i.i98.i = sub i64 %sub.ptr.lhs.cast.i.i96.i, %sub.ptr.lhs.cast61.i.i
   %conv35.i.i99.i = trunc i64 %sub.ptr.sub.i.i98.i to i32
   %nbBytes.0.i.i100.i = select i1 %cmp30.i.i95.i, i32 %conv35.i.i99.i, i32 %shr24.i.i91.i
   %idx.ext38.i.i101.i = zext i32 %nbBytes.0.i.i100.i to i64
@@ -6329,7 +6328,7 @@ FSEv07_initDState.exit155.thread329.i:            ; preds = %if.end.i.i120.i
   br label %if.end.i158.lr.ph.i
 
 if.end10.i.i137.i:                                ; preds = %if.end.i.i120.i
-  %cmp13.i.i138.i = icmp eq ptr %55, %add.ptr10.i
+  %cmp13.i.i138.i = icmp eq ptr %55, %add.ptr60.i.i
   br i1 %cmp13.i.i138.i, label %FSEv07_initDState.exit155.thread324.i, label %FSEv07_initDState.exit155.i
 
 FSEv07_initDState.exit155.thread324.i:            ; preds = %if.end10.i.i137.i
@@ -6343,9 +6342,9 @@ FSEv07_initDState.exit155.i:                      ; preds = %if.end10.i.i137.i
   %idx.ext26.i.i141.i = zext nneg i32 %shr24.i.i140.i to i64
   %idx.neg27.i.i142.i = sub nsw i64 0, %idx.ext26.i.i141.i
   %add.ptr28.i.i143.i = getelementptr inbounds i8, ptr %55, i64 %idx.neg27.i.i142.i
-  %cmp30.i.i144.i = icmp ult ptr %add.ptr28.i.i143.i, %add.ptr10.i
+  %cmp30.i.i144.i = icmp ult ptr %add.ptr28.i.i143.i, %add.ptr60.i.i
   %sub.ptr.lhs.cast.i.i145.i = ptrtoint ptr %55 to i64
-  %sub.ptr.sub.i.i147.i = sub i64 %sub.ptr.lhs.cast.i.i145.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i.i147.i = sub i64 %sub.ptr.lhs.cast.i.i145.i, %sub.ptr.lhs.cast61.i.i
   %conv35.i.i148.i = trunc i64 %sub.ptr.sub.i.i147.i to i32
   %nbBytes.0.i.i149.i = select i1 %cmp30.i.i144.i, i32 %conv35.i.i148.i, i32 %shr24.i.i140.i
   %idx.ext38.i.i150.i = zext i32 %nbBytes.0.i.i149.i to i64
@@ -6808,25 +6807,21 @@ if.end79.i.i:                                     ; preds = %if.else.i230.i, %if
 
 if.then84.i.i:                                    ; preds = %if.end79.i.i
   %cmp85.i.i = icmp ult ptr %add.ptr80.i.i, %add.ptr3.i222.i
-  br i1 %cmp85.i.i, label %if.then86.i.i, label %if.end94.i.i
+  br i1 %cmp85.i.i, label %do.body.i72.i.i, label %if.end94.i.i
 
-if.then86.i.i:                                    ; preds = %if.then84.i.i
-  %sub.ptr.rhs.cast88.i.i = ptrtoint ptr %add.ptr80.i.i to i64
-  %sub.ptr.sub89.i.i = sub i64 %sub.ptr.lhs.cast87.i.i, %sub.ptr.rhs.cast88.i.i
-  %add.ptr.i71.i.i = getelementptr inbounds i8, ptr %add.ptr80.i.i, i64 %sub.ptr.sub89.i.i
-  br label %do.body.i72.i.i
-
-do.body.i72.i.i:                                  ; preds = %do.body.i72.i.i, %if.then86.i.i
-  %op.0.i73.i.i = phi ptr [ %add.ptr80.i.i, %if.then86.i.i ], [ %add.ptr1.i76.i.i, %do.body.i72.i.i ]
-  %ip.0.i74.i.i = phi ptr [ %add.ptr81.i.i, %if.then86.i.i ], [ %add.ptr2.i77.i.i, %do.body.i72.i.i ]
+do.body.i72.i.i:                                  ; preds = %if.then84.i.i, %do.body.i72.i.i
+  %op.0.i73.i.i = phi ptr [ %add.ptr1.i76.i.i, %do.body.i72.i.i ], [ %add.ptr80.i.i, %if.then84.i.i ]
+  %ip.0.i74.i.i = phi ptr [ %add.ptr2.i77.i.i, %do.body.i72.i.i ], [ %add.ptr81.i.i, %if.then84.i.i ]
   %ip.0.val.i75.i.i = load i64, ptr %ip.0.i74.i.i, align 1
   store i64 %ip.0.val.i75.i.i, ptr %op.0.i73.i.i, align 1
   %add.ptr1.i76.i.i = getelementptr inbounds i8, ptr %op.0.i73.i.i, i64 8
   %add.ptr2.i77.i.i = getelementptr inbounds i8, ptr %ip.0.i74.i.i, i64 8
-  %cmp.i78.i.i = icmp ult ptr %add.ptr1.i76.i.i, %add.ptr.i71.i.i
+  %cmp.i78.i.i = icmp ult ptr %add.ptr1.i76.i.i, %add.ptr3.i222.i
   br i1 %cmp.i78.i.i, label %do.body.i72.i.i, label %ZSTDv07_wildcopy.exit79.i.i, !llvm.loop !41
 
 ZSTDv07_wildcopy.exit79.i.i:                      ; preds = %do.body.i72.i.i
+  %sub.ptr.rhs.cast88.i.i = ptrtoint ptr %add.ptr80.i.i to i64
+  %sub.ptr.sub89.i.i = sub i64 %sub.ptr.lhs.cast87.i.i, %sub.ptr.rhs.cast88.i.i
   %add.ptr93.i.i = getelementptr inbounds i8, ptr %add.ptr81.i.i, i64 %sub.ptr.sub89.i.i
   br label %if.end94.i.i
 
@@ -6919,7 +6914,7 @@ return:                                           ; preds = %if.end79.thread.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTDv07_insertBlock(ptr nocapture noundef %dctx, ptr noundef %blockStart, i64 noundef returned %blockSize) local_unnamed_addr #16 {
+define noundef i64 @ZSTDv07_insertBlock(ptr nocapture noundef %dctx, ptr noundef %blockStart, i64 noundef returned %blockSize) local_unnamed_addr #14 {
 entry:
   %previousDstEnd.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 4
   %0 = load ptr, ptr %previousDstEnd.i, align 8
@@ -6975,8 +6970,8 @@ ZSTDv07_checkContinuity.exit:                     ; preds = %entry, %if.then.i
   ret i64 %call1
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @ZSTDv07_decompressBegin_usingDict(ptr nocapture noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i64 @ZSTDv07_decompressBegin_usingDict(ptr nocapture noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #3 {
 if.end:
   %symbolNext.i.i.i = alloca [256 x i16], align 16
   %offcodeNCount.i.i = alloca [29 x i16], align 16
@@ -7402,7 +7397,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 
 if.then7.i:                                       ; preds = %if.end.i
   %xxhState.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 15
-  %call8.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #28
+  %call8.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #25
   br label %ZSTDv07_decodeFrameHeader.exit
 
 ZSTDv07_decodeFrameHeader.exit:                   ; preds = %if.end.i, %if.then7.i
@@ -7512,7 +7507,7 @@ if.end49:                                         ; preds = %if.then2.i, %if.end
   br i1 %tobool50.not, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %op.0120, i64 noundef %decodedSize.0.ph108) #28
+  %call52 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %op.0120, i64 noundef %decodedSize.0.ph108) #25
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end49
@@ -7573,7 +7568,7 @@ ZSTDv07_decompress_usingDict.exit:                ; preds = %entry, %if.then.i.i
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv07_decompress(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
-  %call.i7.i = tail call noalias dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #29
+  %call.i7.i = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #26
   %tobool9.not.i.i = icmp eq ptr %call.i7.i, null
   br i1 %tobool9.not.i.i, label %return, label %if.end
 
@@ -7615,7 +7610,7 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %if.end, %if.then.i.
   %call1.i.i = tail call fastcc i64 @ZSTDv07_decompressFrame(ptr noundef nonnull %call.i7.i, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize)
   %0 = load ptr, ptr %defaultCustomMem.sroa.6.0.customMem12.i.sroa_idx.i, align 8
   %1 = load ptr, ptr %defaultCustomMem.sroa.7.0.customMem12.i.sroa_idx.i, align 8
-  tail call void %0(ptr noundef %1, ptr noundef nonnull %call.i7.i) #28
+  tail call void %0(ptr noundef %1, ptr noundef nonnull %call.i7.i) #25
   br label %return
 
 return:                                           ; preds = %entry, %ZSTDv07_freeDCtx.exit
@@ -7624,7 +7619,7 @@ return:                                           ; preds = %entry, %ZSTDv07_fre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %src, i64 noundef %srcSize, ptr nocapture noundef writeonly %cSize, ptr nocapture noundef writeonly %dBound) local_unnamed_addr #17 {
+define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %src, i64 noundef %srcSize, ptr nocapture noundef writeonly %cSize, ptr nocapture noundef writeonly %dBound) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %srcSize, 8
   br i1 %cmp, label %if.then, label %if.end
@@ -7755,7 +7750,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ZSTDv07_nextSrcSizeToDecompress(ptr nocapture noundef readonly %dctx) local_unnamed_addr #18 {
+define i64 @ZSTDv07_nextSrcSizeToDecompress(ptr nocapture noundef readonly %dctx) local_unnamed_addr #16 {
 entry:
   %expected = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 8
   %0 = load i64, ptr %expected, align 8
@@ -7763,7 +7758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ZSTDv07_isSkipFrame(ptr nocapture noundef readonly %dctx) local_unnamed_addr #18 {
+define i32 @ZSTDv07_isSkipFrame(ptr nocapture noundef readonly %dctx) local_unnamed_addr #16 {
 entry:
   %stage = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 12
   %0 = load i32, ptr %stage, align 4
@@ -7910,7 +7905,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
 
 if.then7.i:                                       ; preds = %if.end.i
   %xxhState.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 15
-  %call8.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #28
+  %call8.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #25
   br label %ZSTDv07_decodeFrameHeader.exit
 
 ZSTDv07_decodeFrameHeader.exit:                   ; preds = %if.end.i, %if.then7.i
@@ -7955,7 +7950,7 @@ if.then49:                                        ; preds = %sw.bb42
 
 if.then51:                                        ; preds = %if.then49
   %xxhState = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 15
-  %call52 = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState) #30
+  %call52 = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState) #27
   %shr = lshr i64 %call52, 11
   %conv = trunc i64 %shr to i32
   %and53 = and i32 %conv, 4194303
@@ -8036,7 +8031,7 @@ if.end86:                                         ; preds = %sw.epilog.thread, %
 
 if.then91:                                        ; preds = %if.end86
   %xxhState92 = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 15
-  %call93 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState92, ptr nocapture noundef %dst, i64 noundef %rSize.098) #28
+  %call93 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState92, ptr nocapture noundef %dst, i64 noundef %rSize.098) #25
   br label %return
 
 sw.bb95:                                          ; preds = %if.end2
@@ -8060,16 +8055,16 @@ return:                                           ; preds = %land.lhs.true.i, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @ZSTD_XXH64_digest(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @ZSTD_XXH64_digest(ptr nocapture noundef) local_unnamed_addr #17
 
-declare i32 @ZSTD_XXH64_update(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @ZSTD_XXH64_update(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ZSTDv07_createDDict(ptr nocapture noundef readonly %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
+define noalias noundef ptr @ZSTDv07_createDDict(ptr nocapture noundef readonly %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
 if.end.i:
-  %call.i5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #29
-  %call.i = tail call noalias ptr @malloc(i64 noundef %dictSize) #29
-  %call.i6 = tail call noalias dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #29
+  %call.i5 = tail call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %dictSize) #26
+  %call.i6 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #26
   %tobool9.not.i.i = icmp eq ptr %call.i6, null
   br i1 %tobool9.not.i.i, label %if.then18.i, label %ZSTDv07_createDCtx_advanced.exit.i
 
@@ -8102,9 +8097,9 @@ ZSTDv07_createDCtx_advanced.exit.i:               ; preds = %if.end.i
   br i1 %or.cond2.i, label %if.end25.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %ZSTDv07_createDCtx_advanced.exit.i, %if.end.i
-  tail call void @free(ptr noundef %call.i) #28
-  tail call void @free(ptr noundef %call.i5) #28
-  tail call void @free(ptr noundef %call.i6) #28
+  tail call void @free(ptr noundef %call.i) #25
+  tail call void @free(ptr noundef %call.i5) #25
+  tail call void @free(ptr noundef %call.i6) #25
   br label %ZSTDv07_createDDict_advanced.exit
 
 if.end25.i:                                       ; preds = %ZSTDv07_createDCtx_advanced.exit.i
@@ -8114,9 +8109,9 @@ if.end25.i:                                       ; preds = %ZSTDv07_createDCtx_
   br i1 %cmp.i.i, label %if.end36.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end25.i
-  tail call void @free(ptr noundef nonnull %call.i) #28
-  tail call void @free(ptr noundef nonnull %call.i5) #28
-  tail call void @free(ptr noundef nonnull %call.i6) #28
+  tail call void @free(ptr noundef nonnull %call.i) #25
+  tail call void @free(ptr noundef nonnull %call.i5) #25
+  tail call void @free(ptr noundef nonnull %call.i6) #25
   br label %ZSTDv07_createDDict_advanced.exit
 
 if.end36.i:                                       ; preds = %if.end25.i
@@ -8133,7 +8128,7 @@ ZSTDv07_createDDict_advanced.exit:                ; preds = %if.then18.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDv07_freeDDict(ptr noundef %ddict) local_unnamed_addr #1 {
+define noundef i64 @ZSTDv07_freeDDict(ptr noundef %ddict) local_unnamed_addr #1 {
 ZSTDv07_freeDCtx.exit:
   %refContext = getelementptr inbounds %struct.ZSTDv07_DDict_s, ptr %ddict, i64 0, i32 2
   %0 = load ptr, ptr %refContext, align 8
@@ -8141,10 +8136,10 @@ ZSTDv07_freeDCtx.exit:
   %1 = load ptr, ptr %customFree, align 8
   %opaque3 = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %0, i64 0, i32 19, i32 2
   %2 = load ptr, ptr %opaque3, align 8
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #28
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #25
   %3 = load ptr, ptr %ddict, align 8
-  tail call void %1(ptr noundef %2, ptr noundef %3) #28
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %ddict) #28
+  tail call void %1(ptr noundef %2, ptr noundef %3) #25
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %ddict) #25
   ret i64 0
 }
 
@@ -8180,9 +8175,9 @@ ZSTDv07_decompress_usingPreparedDCtx.exit:        ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias ptr @ZBUFFv07_createDCtx() local_unnamed_addr #21 {
+define noalias noundef ptr @ZBUFFv07_createDCtx() local_unnamed_addr #19 {
 if.end7.i:
-  %call.i7 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #29
+  %call.i7 = tail call noalias noundef dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #26
   %cmp.i = icmp eq ptr %call.i7, null
   br i1 %cmp.i, label %ZBUFFv07_createDCtx_advanced.exit, label %if.end7.i.i
 
@@ -8194,12 +8189,12 @@ if.end7.i.i:                                      ; preds = %if.end7.i
   store ptr @ZSTDv07_defaultFreeFunction, ptr %defaultCustomMem.sroa.6.0.customMem11.i.sroa_idx, align 8
   %defaultCustomMem.sroa.7.0.customMem11.i.sroa_idx = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %call.i7, i64 0, i32 13, i32 2
   store ptr null, ptr %defaultCustomMem.sroa.7.0.customMem11.i.sroa_idx, align 8
-  %call.i = tail call noalias dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #29
+  %call.i = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #26
   %tobool9.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool9.not.i.i, label %ZBUFFv07_freeDCtx.exit.i, label %if.end17.i
 
 ZBUFFv07_freeDCtx.exit.i:                         ; preds = %if.end7.i.i
-  tail call void @free(ptr noundef nonnull %call.i7) #28
+  tail call void @free(ptr noundef nonnull %call.i7) #25
   br label %ZBUFFv07_createDCtx_advanced.exit
 
 if.end17.i:                                       ; preds = %if.end7.i.i
@@ -8261,7 +8256,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.end7:                                          ; preds = %if.end
   %opaque = getelementptr inbounds %struct.ZSTDv07_customMem, ptr %customMem, i64 0, i32 2
   %4 = load ptr, ptr %opaque, align 8
-  %call = tail call ptr %3(ptr noundef %4, i64 noundef 160) #28
+  %call = tail call ptr %3(ptr noundef %4, i64 noundef 160) #25
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end7.i
 
@@ -8269,7 +8264,7 @@ if.end7.i:                                        ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %call, i8 0, i64 136, i1 false)
   %customMem11 = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %call, i64 0, i32 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem11, ptr noundef nonnull align 8 dereferenceable(24) %customMem, i64 24, i1 false)
-  %call.i = tail call ptr %3(ptr noundef %4, i64 noundef 152864) #28
+  %call.i = tail call ptr %3(ptr noundef %4, i64 noundef 152864) #25
   %tobool9.not.i = icmp eq ptr %call.i, null
   br i1 %tobool9.not.i, label %ZSTDv07_freeDCtx.exit.i, label %if.end17
 
@@ -8285,7 +8280,7 @@ if.then1.i:                                       ; preds = %ZSTDv07_freeDCtx.ex
   %6 = load ptr, ptr %customFree.i11, align 8
   %opaque.i12 = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %call, i64 0, i32 13, i32 2
   %7 = load ptr, ptr %opaque.i12, align 8
-  tail call void %6(ptr noundef %7, ptr noundef nonnull %5) #28
+  tail call void %6(ptr noundef %7, ptr noundef nonnull %5) #25
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then1.i, %ZSTDv07_freeDCtx.exit.i
@@ -8299,7 +8294,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %9 = load ptr, ptr %customFree8.i, align 8
   %opaque10.i = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %call, i64 0, i32 13, i32 2
   %10 = load ptr, ptr %opaque10.i, align 8
-  tail call void %9(ptr noundef %10, ptr noundef nonnull %8) #28
+  tail call void %9(ptr noundef %10, ptr noundef nonnull %8) #25
   br label %ZBUFFv07_freeDCtx.exit
 
 ZBUFFv07_freeDCtx.exit:                           ; preds = %if.end4.i, %if.then6.i
@@ -8307,7 +8302,7 @@ ZBUFFv07_freeDCtx.exit:                           ; preds = %if.end4.i, %if.then
   %11 = load ptr, ptr %customFree14.i, align 8
   %opaque16.i = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %call, i64 0, i32 13, i32 2
   %12 = load ptr, ptr %opaque16.i, align 8
-  tail call void %11(ptr noundef %12, ptr noundef nonnull %call) #28
+  tail call void %11(ptr noundef %12, ptr noundef nonnull %call) #25
   br label %return
 
 if.end17:                                         ; preds = %if.end7.i
@@ -8344,7 +8339,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZBUFFv07_freeDCtx(ptr noundef %zbd) local_unnamed_addr #1 {
+define noundef i64 @ZBUFFv07_freeDCtx(ptr noundef %zbd) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %zbd, null
   br i1 %cmp, label %return, label %if.end
@@ -8359,7 +8354,7 @@ if.end.i:                                         ; preds = %if.end
   %1 = load ptr, ptr %customFree.i, align 8
   %opaque.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %0, i64 0, i32 19, i32 2
   %2 = load ptr, ptr %opaque.i, align 8
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #28
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #25
   br label %ZSTDv07_freeDCtx.exit
 
 ZSTDv07_freeDCtx.exit:                            ; preds = %if.end, %if.end.i
@@ -8373,7 +8368,7 @@ if.then1:                                         ; preds = %ZSTDv07_freeDCtx.ex
   %4 = load ptr, ptr %customFree, align 8
   %opaque = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %zbd, i64 0, i32 13, i32 2
   %5 = load ptr, ptr %opaque, align 8
-  tail call void %4(ptr noundef %5, ptr noundef nonnull %3) #28
+  tail call void %4(ptr noundef %5, ptr noundef nonnull %3) #25
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %ZSTDv07_freeDCtx.exit
@@ -8387,7 +8382,7 @@ if.then6:                                         ; preds = %if.end4
   %7 = load ptr, ptr %customFree8, align 8
   %opaque10 = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %zbd, i64 0, i32 13, i32 2
   %8 = load ptr, ptr %opaque10, align 8
-  tail call void %7(ptr noundef %8, ptr noundef nonnull %6) #28
+  tail call void %7(ptr noundef %8, ptr noundef nonnull %6) #25
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %if.end4
@@ -8395,15 +8390,15 @@ if.end12:                                         ; preds = %if.then6, %if.end4
   %9 = load ptr, ptr %customFree14, align 8
   %opaque16 = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %zbd, i64 0, i32 13, i32 2
   %10 = load ptr, ptr %opaque16, align 8
-  tail call void %9(ptr noundef %10, ptr noundef nonnull %zbd) #28
+  tail call void %9(ptr noundef %10, ptr noundef nonnull %zbd) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.end12
   ret i64 0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @ZBUFFv07_decompressInitDictionary(ptr nocapture noundef %zbd, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i64 @ZBUFFv07_decompressInitDictionary(ptr nocapture noundef %zbd, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #3 {
 entry:
   %stage = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %zbd, i64 0, i32 2
   store i32 1, ptr %stage, align 8
@@ -8418,8 +8413,8 @@ entry:
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @ZBUFFv07_decompressInit(ptr nocapture noundef %zbd) local_unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i64 @ZBUFFv07_decompressInit(ptr nocapture noundef %zbd) local_unnamed_addr #20 {
 entry:
   %stage.i = getelementptr inbounds %struct.ZBUFFv07_DCtx_s, ptr %zbd, i64 0, i32 2
   store i32 1, ptr %stage.i, align 8
@@ -8583,11 +8578,11 @@ if.then76:                                        ; preds = %if.end57
   %14 = load ptr, ptr %customFree, align 8
   %15 = load ptr, ptr %opaque, align 8
   %16 = load ptr, ptr %inBuff, align 8
-  tail call void %14(ptr noundef %15, ptr noundef %16) #28
+  tail call void %14(ptr noundef %15, ptr noundef %16) #25
   store i64 %conv, ptr %inBuffSize, align 8
   %17 = load ptr, ptr %customMem, align 8
   %18 = load ptr, ptr %opaque, align 8
-  %call82 = tail call ptr %17(ptr noundef %18, i64 noundef %conv) #28
+  %call82 = tail call ptr %17(ptr noundef %18, i64 noundef %conv) #25
   store ptr %call82, ptr %inBuff, align 8
   %cmp85 = icmp eq ptr %call82, null
   br i1 %cmp85, label %return, label %if.then76.if.end89_crit_edge
@@ -8609,11 +8604,11 @@ if.then97:                                        ; preds = %if.end89
   %21 = load ptr, ptr %customFree, align 8
   %22 = load ptr, ptr %opaque, align 8
   %23 = load ptr, ptr %outBuff, align 8
-  tail call void %21(ptr noundef %22, ptr noundef %23) #28
+  tail call void %21(ptr noundef %22, ptr noundef %23) #25
   store i64 %add94, ptr %outBuffSize, align 8
   %24 = load ptr, ptr %customMem, align 8
   %25 = load ptr, ptr %opaque, align 8
-  %call107 = tail call ptr %24(ptr noundef %25, i64 noundef %add94) #28
+  %call107 = tail call ptr %24(ptr noundef %25, i64 noundef %add94) #25
   store ptr %call107, ptr %outBuff, align 8
   %cmp110 = icmp eq ptr %call107, null
   br i1 %cmp110, label %return, label %if.end114
@@ -8817,24 +8812,24 @@ return:                                           ; preds = %if.end188, %sw.bb16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZBUFFv07_recommendedDInSize() local_unnamed_addr #0 {
+define noundef i64 @ZBUFFv07_recommendedDInSize() local_unnamed_addr #0 {
 entry:
   ret i64 131075
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZBUFFv07_recommendedDOutSize() local_unnamed_addr #0 {
+define noundef i64 @ZBUFFv07_recommendedDOutSize() local_unnamed_addr #0 {
 entry:
   ret i64 131072
 }
 
-declare ptr @ERR_getErrorString(i32 noundef) local_unnamed_addr #20
+declare ptr @ERR_getErrorString(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i64 @BITv07_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef i64 @BITv07_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #14 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -8978,7 +8973,7 @@ return:                                           ; preds = %if.end69, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @BITv07_reloadDStream(ptr nocapture noundef %bitD) unnamed_addr #24 {
+define internal fastcc i32 @BITv07_reloadDStream(ptr nocapture noundef %bitD) unnamed_addr #22 {
 entry:
   %bitsConsumed = getelementptr inbounds %struct.BITv07_DStream_t, ptr %bitD, i64 0, i32 1
   %0 = load i32, ptr %bitsConsumed, align 8
@@ -9044,7 +9039,7 @@ return:                                           ; preds = %if.then15, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv07_decodeStreamX2(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #25 {
+define internal fastcc void @HUFv07_decodeStreamX2(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #3 {
 entry:
   %bitsConsumed.i = getelementptr inbounds %struct.BITv07_DStream_t, ptr %bitDPtr, i64 0, i32 1
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
@@ -9290,7 +9285,7 @@ while.end33:                                      ; preds = %while.body30, %BITv
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @HUFv07_decodeStreamX4(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #3 {
 entry:
   %bitsConsumed.i = getelementptr inbounds %struct.BITv07_DStream_t, ptr %bitDPtr, i64 0, i32 1
@@ -9598,20 +9593,20 @@ if.end47:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @ZSTDv07_defaultAllocFunction(ptr nocapture readnone %opaque, i64 noundef %size) #5 {
+define internal noalias noundef ptr @ZSTDv07_defaultAllocFunction(ptr nocapture readnone %opaque, i64 noundef %size) #5 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #29
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #26
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @ZSTDv07_defaultFreeFunction(ptr nocapture readnone %opaque, ptr nocapture noundef %address) #7 {
 entry:
-  tail call void @free(ptr noundef %address) #28
+  tail call void @free(ptr noundef %address) #25
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTDv07_buildSeqTable(ptr nocapture noundef %DTable, i32 noundef %type, i32 noundef %max, i32 noundef %maxLog, ptr noundef %src, i64 noundef %srcSize, ptr nocapture noundef readonly %defaultNorm, i32 noundef %defaultLog, i32 noundef %flagRepeatTable) unnamed_addr #2 {
 entry:
   %symbolNext.i12 = alloca [256 x i16], align 16
@@ -9949,60 +9944,57 @@ return:                                           ; preds = %if.end15, %sw.bb10,
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
-declare i32 @ZSTD_XXH64_reset(ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @ZSTD_XXH64_reset(ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #26
+declare i16 @llvm.abs.i16(i16, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nounwind }
-attributes #29 = { nounwind allocsize(0) }
-attributes #30 = { nounwind willreturn memory(read) }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

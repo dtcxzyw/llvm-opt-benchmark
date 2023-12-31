@@ -7030,13 +7030,12 @@ if.else:                                          ; preds = %if.then
   %incdec.ptr.i = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %4, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %4, i64 -1
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE13_M_insert_auxIS6_EEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEOT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 5
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %4, i64 %.pre.i.i.i.i.i.i
@@ -7087,13 +7086,13 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.06.i.i.i.i, i64 32, i1 false), !alias.scope !176
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i7
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i, label %for.body.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i9 = getelementptr %"class.fmt::v10::basic_format_arg", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %cmp.not5.i.i.i11.i = icmp eq ptr %1, %add.ptr.i7
+  %cmp.not5.i.i.i11.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i11.i, label %_ZNSt6vectorIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i12.i
 
 for.body.i.i.i12.i:                               ; preds = %_ZNSt6vectorIN3fmt3v1016basic_format_argINS1_20basic_format_contextINS1_8appenderEcEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i, %for.body.i.i.i12.i

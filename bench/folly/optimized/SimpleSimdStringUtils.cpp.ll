@@ -6,17 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5folly6detail26simdHasSpaceOrCntrlSymbolsENS_5RangeIPKcEE(ptr %s.coerce0, ptr %s.coerce1) local_unnamed_addr #0 {
 entry:
-  %sub.ptr.lhs.cast.i237 = ptrtoint ptr %s.coerce1 to i64
-  %sub.ptr.rhs.cast.i238 = ptrtoint ptr %s.coerce0 to i64
-  %sub.ptr.sub.i239 = sub i64 %sub.ptr.lhs.cast.i237, %sub.ptr.rhs.cast.i238
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.coerce0, i64 %sub.ptr.sub.i239
   %cmp.i = icmp eq ptr %s.coerce1, %s.coerce0
   br i1 %cmp.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
+  %sub.ptr.rhs.cast.i238 = ptrtoint ptr %s.coerce0 to i64
   %and.i4 = and i64 %sub.ptr.rhs.cast.i238, -16
   %0 = inttoptr i64 %and.i4 to ptr
-  %1 = ptrtoint ptr %add.ptr.i to i64
+  %1 = ptrtoint ptr %s.coerce1 to i64
   %and.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i238, 15
@@ -147,7 +144,7 @@ _ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdF
   br i1 %tobool.i114.not, label %for.cond.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit: ; preds = %lor.rhs.i130, %lor.rhs.i107, %lor.rhs.i, %while.body.i.loopexit, %if.end7.i
-  %cmp13.i = icmp eq ptr %add.ptr.i, %2
+  %cmp13.i = icmp eq ptr %2, %s.coerce1
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit, %if.end.i

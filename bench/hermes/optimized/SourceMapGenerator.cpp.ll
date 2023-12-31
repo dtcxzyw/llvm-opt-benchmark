@@ -2299,10 +2299,6 @@ entry:
   %0 = load ptr, ptr %ref.tmp4, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::StringRef, std::allocator<llvh::StringRef>>::_Vector_impl_data", ptr %ref.tmp4, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i.i
   %cmp.not5.i = icmp eq ptr %1, %0
   br i1 %cmp.not5.i, label %_ZN6hermes11JSONEmitter10emitValuesIN4llvh9StringRefEEEvNS2_8ArrayRefIT_EE.exit, label %for.body.i
 
@@ -2313,7 +2309,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #16
   %incdec.ptr.i = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin0.06.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %_ZN6hermes11JSONEmitter10emitValuesIN4llvh9StringRefEEEvNS2_8ArrayRefIT_EE.exit, label %for.body.i
 
 _ZN6hermes11JSONEmitter10emitValuesIN4llvh9StringRefEEEvNS2_8ArrayRefIT_EE.exit: ; preds = %for.body.i, %entry
@@ -2444,10 +2440,6 @@ for.body31:                                       ; preds = %_ZNK4llvh12DenseMap
   %19 = load ptr, ptr %second, align 8
   %_M_finish.i.i23 = getelementptr inbounds %"struct.std::pair.54", ptr %__begin225.sroa.0.041, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %20 = load ptr, ptr %_M_finish.i.i23, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %19, i64 %sub.ptr.sub.i.i
   %cmp.not5.i25 = icmp eq ptr %20, %19
   br i1 %cmp.not5.i25, label %_ZN6hermes11JSONEmitter10emitValuesIjEEvN4llvh8ArrayRefIT_EE.exit, label %for.body.i26
 
@@ -2456,7 +2448,7 @@ for.body.i26:                                     ; preds = %for.body31, %for.bo
   %21 = load i32, ptr %__begin0.06.i27, align 4
   call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %21) #16
   %incdec.ptr.i28 = getelementptr inbounds i32, ptr %__begin0.06.i27, i64 1
-  %cmp.not.i29 = icmp eq ptr %incdec.ptr.i28, %add.ptr.i.i24
+  %cmp.not.i29 = icmp eq ptr %incdec.ptr.i28, %20
   br i1 %cmp.not.i29, label %_ZN6hermes11JSONEmitter10emitValuesIjEEvN4llvh8ArrayRefIT_EE.exit, label %for.body.i26
 
 _ZN6hermes11JSONEmitter10emitValuesIjEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %for.body.i26, %for.body31

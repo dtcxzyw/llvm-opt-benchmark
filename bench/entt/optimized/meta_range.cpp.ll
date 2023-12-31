@@ -2984,7 +2984,7 @@ cleanup.cont322:                                  ; preds = %_ZNKSt14default_del
   store ptr %4, ptr %ref.tmp328, align 8
   %229 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp328, i64 0, i32 1
   store ptr %cond-lvalue.i.i, ptr %229, align 8
-  %cmp.i.i.i.i.i1350 = icmp eq ptr %add.ptr.i.i.i.i1341, %4
+  %cmp.i.i.i.i.i1350 = icmp eq ptr %226, %4
   br i1 %cmp.i.i.i.i.i1350, label %if.then.i.i1352, label %if.end.i.i1351
 
 if.then.i.i1352:                                  ; preds = %cleanup.cont322

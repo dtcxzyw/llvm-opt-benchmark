@@ -3377,7 +3377,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not148 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not148, label %if.end, label %cleanup90, !prof !52
 
@@ -3395,7 +3394,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0149, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup90, !prof !53, !llvm.loop !54
 
 for.end:                                          ; preds = %if.end
@@ -3421,7 +3420,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0149, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup90, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -3433,13 +3432,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -3453,7 +3451,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i109 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i109, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i109, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !56
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -3600,7 +3598,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not147 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not147, label %if.end, label %cleanup89, !prof !52
 
@@ -3618,7 +3615,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0148, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup89, !prof !53, !llvm.loop !58
 
 for.end:                                          ; preds = %if.end
@@ -3644,7 +3641,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0148, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup89, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -3656,13 +3653,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -3676,7 +3672,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i108 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i108, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i108, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !59
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -3771,7 +3767,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not113 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not113, label %if.end, label %cleanup76, !prof !52
 
@@ -3789,7 +3784,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0114, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup76, !prof !53, !llvm.loop !60
 
 for.end:                                          ; preds = %if.end
@@ -3800,13 +3795,12 @@ for.end:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %for.end
   %add.ptr40 = getelementptr inbounds i8, ptr %b.0114, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr40, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr40, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end39
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr40 to i64
-  %4 = sub i64 %e8.i, %b9.i
+  %4 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr40, i64 %4
   br label %for.body.i
 
@@ -3820,7 +3814,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !61
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end39
@@ -3899,7 +3893,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not147 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not147, label %if.end, label %cleanup88, !prof !52
 
@@ -3917,7 +3910,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0148, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup88, !prof !53, !llvm.loop !62
 
 for.end:                                          ; preds = %if.end
@@ -3943,7 +3936,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0148, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup88, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -3955,13 +3948,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -3975,7 +3967,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !63
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -4068,7 +4060,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not113 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not113, label %if.end, label %cleanup75, !prof !52
 
@@ -4086,7 +4077,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0114, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup75, !prof !53, !llvm.loop !64
 
 for.end:                                          ; preds = %if.end
@@ -4097,13 +4088,12 @@ for.end:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %for.end
   %add.ptr40 = getelementptr inbounds i8, ptr %b.0114, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr40, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr40, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end39
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr40 to i64
-  %4 = sub i64 %e8.i, %b9.i
+  %4 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr40, i64 %4
   br label %for.body.i
 
@@ -4117,7 +4107,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !65
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end39
@@ -4189,7 +4179,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not150 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not150, label %if.end, label %cleanup88, !prof !52
 
@@ -4207,7 +4196,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0151, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup88, !prof !53, !llvm.loop !66
 
 for.end:                                          ; preds = %if.end
@@ -4233,7 +4222,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0151, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup88, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -4245,13 +4234,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -4265,7 +4253,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !67
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -4358,7 +4346,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not115 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not115, label %if.end, label %cleanup75, !prof !52
 
@@ -4376,7 +4363,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0116, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup75, !prof !53, !llvm.loop !68
 
 for.end:                                          ; preds = %if.end
@@ -4387,13 +4374,12 @@ for.end:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %for.end
   %add.ptr40 = getelementptr inbounds i8, ptr %b.0116, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr40, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr40, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end39
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr40 to i64
-  %4 = sub i64 %e8.i, %b9.i
+  %4 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr40, i64 %4
   br label %for.body.i
 
@@ -4407,7 +4393,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !69
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end39
@@ -4479,7 +4465,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not154 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not154, label %if.end, label %cleanup88, !prof !52
 
@@ -4497,7 +4482,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0155, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup88, !prof !53, !llvm.loop !70
 
 for.end:                                          ; preds = %if.end
@@ -4523,7 +4508,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0155, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup88, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -4535,13 +4520,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -4555,7 +4539,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !71
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -4646,7 +4630,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not119 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not119, label %if.end, label %cleanup75, !prof !52
 
@@ -4664,7 +4647,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0120, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup75, !prof !53, !llvm.loop !72
 
 for.end:                                          ; preds = %if.end
@@ -4675,13 +4658,12 @@ for.end:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %for.end
   %add.ptr40 = getelementptr inbounds i8, ptr %b.0120, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr40, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr40, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end39
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr40 to i64
-  %4 = sub i64 %e8.i, %b9.i
+  %4 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr40, i64 %4
   br label %for.body.i
 
@@ -4695,7 +4677,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !73
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end39
@@ -4769,7 +4751,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not154 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not154, label %if.end, label %cleanup88, !prof !52
 
@@ -4787,7 +4768,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0155, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup88, !prof !53, !llvm.loop !74
 
 for.end:                                          ; preds = %if.end
@@ -4813,7 +4794,7 @@ if.end10.i:                                       ; preds = %if.then3.i, %if.the
 if.end25:                                         ; preds = %if.end10.i, %for.end
   %sgn.sroa.0.1.ph = phi i1 [ %3, %if.end10.i ], [ true, %for.end ]
   %b.1.ph = phi ptr [ %incdec.ptr.i, %if.end10.i ], [ %b.0155, %for.end ]
-  %cmp26.not = icmp ult ptr %b.1.ph, %add.ptr
+  %cmp26.not = icmp ult ptr %b.1.ph, %1
   br i1 %cmp26.not, label %if.end37, label %cleanup88, !prof !55
 
 if.end37:                                         ; preds = %if.end25
@@ -4825,13 +4806,12 @@ if.end37:                                         ; preds = %if.end25
 
 if.end51:                                         ; preds = %if.end37
   %add.ptr52 = getelementptr inbounds i8, ptr %b.1.ph, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr52, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr52, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end51
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr52 to i64
-  %6 = sub i64 %e8.i, %b9.i
+  %6 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr52, i64 %6
   br label %for.body.i
 
@@ -4845,7 +4825,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i107, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !75
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end51
@@ -4936,7 +4916,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %cmp.not119 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.not119, label %if.end, label %cleanup75, !prof !52
 
@@ -4954,7 +4933,7 @@ if.end:                                           ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0120, i64 1
-  %cmp.not = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp ult ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.end, label %cleanup75, !prof !53, !llvm.loop !76
 
 for.end:                                          ; preds = %if.end
@@ -4965,13 +4944,12 @@ for.end:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %for.end
   %add.ptr40 = getelementptr inbounds i8, ptr %b.0120, i64 1
-  %cmp5.i = icmp ult ptr %add.ptr40, %add.ptr
+  %cmp5.i = icmp ult ptr %add.ptr40, %1
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
 
 for.body.preheader.i:                             ; preds = %if.end39
-  %e8.i = ptrtoint ptr %add.ptr to i64
   %b9.i = ptrtoint ptr %add.ptr40 to i64
-  %4 = sub i64 %e8.i, %b9.i
+  %4 = sub i64 %sub.ptr.lhs.cast.i, %b9.i
   %scevgep.i = getelementptr i8, ptr %add.ptr40, i64 %4
   br label %for.body.i
 
@@ -4985,7 +4963,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.06.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %for.body.i, !llvm.loop !77
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.inc.i, %for.body.i, %if.end39
@@ -5088,7 +5066,7 @@ if.end:                                           ; preds = %for.inc, %if.end.pr
 
 for.inc:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %b.0225, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %1
   %scevgep243 = getelementptr i8, ptr %indvars.iv, i64 1
   %scevgep248 = getelementptr i8, ptr %indvars.iv247, i64 1
   %scevgep253 = getelementptr i8, ptr %indvars.iv252, i64 1

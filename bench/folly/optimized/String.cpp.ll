@@ -2956,7 +2956,7 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %invoke.cont21, %sw.
 if.end32:                                         ; preds = %_ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit, %invoke.cont21
   %piecer.sroa.0.1349.pre-phi = phi i64 [ %.pre, %_ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit ], [ %sub.ptr.rhs.cast.i.i, %invoke.cont21 ]
   %piecer.sroa.0.1 = phi ptr [ %add.ptr30, %_ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit ], [ %2, %invoke.cont21 ]
-  %cmp38.not288 = icmp eq ptr %piecer.sroa.0.1, %add.ptr.i
+  %cmp38.not288 = icmp eq ptr %piecer.sroa.0.1, %3
   br i1 %cmp38.not288, label %for.end75.thread, label %for.body
 
 for.body:                                         ; preds = %if.end32, %for.inc
@@ -3094,7 +3094,7 @@ for.inc:                                          ; preds = %if.else, %if.then46
   %max_length.1 = phi i64 [ %.sroa.speculated, %if.else ], [ %max_length.0290, %if.then46 ]
   %indent.1.fr = freeze i64 %indent.1
   %incdec.ptr = getelementptr inbounds %"class.folly::Range", ptr %piece.0291, i64 1
-  %cmp38.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp38.not = icmp eq ptr %incdec.ptr, %3
   br i1 %cmp38.not, label %for.body62.preheader, label %for.body, !llvm.loop !101
 
 for.body62.preheader:                             ; preds = %for.inc
@@ -3124,7 +3124,7 @@ _ZN5folly5RangeIPKcE5eraseES2_S2_.exit:           ; preds = %for.body62
 
 for.inc73:                                        ; preds = %_ZN5folly5RangeIPKcE5eraseES2_S2_.exit, %if.then65
   %incdec.ptr74 = getelementptr inbounds %"class.folly::Range", ptr %piece.1294, i64 1
-  %cmp61.not = icmp eq ptr %incdec.ptr74, %add.ptr.i
+  %cmp61.not = icmp eq ptr %incdec.ptr74, %3
   br i1 %cmp61.not, label %if.end.i.i.i231, label %for.body62, !llvm.loop !102
 
 for.end75.thread:                                 ; preds = %if.end32
@@ -3148,7 +3148,7 @@ if.end.i.i.i231:                                  ; preds = %for.inc73
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %incdec.ptr19.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %piecer.sroa.0.1, i64 1
-  %cmp2.not20.i.i.i = icmp eq ptr %incdec.ptr19.i.i.i, %add.ptr.i
+  %cmp2.not20.i.i.i = icmp eq ptr %incdec.ptr19.i.i.i, %3
   br i1 %cmp2.not20.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i.preheader
 
 while.body.i.i.i.preheader:                       ; preds = %if.end.i.i.i231
@@ -3220,7 +3220,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.lhs.cast.i16.i.i.i
   %add4.i.i.i = sub i64 %add.i.i.i, %sub.ptr.rhs.cast.i17.i.i.i
   %incdec.ptr.i.i.i232 = getelementptr inbounds %"class.folly::Range", ptr %incdec.ptr23.i.i.i, i64 1
-  %cmp2.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i232, %add.ptr.i
+  %cmp2.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i232, %3
   br i1 %cmp2.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !107
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %middle.block, %if.end.i.i.i231

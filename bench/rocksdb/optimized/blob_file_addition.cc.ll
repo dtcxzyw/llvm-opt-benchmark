@@ -259,9 +259,8 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %add.ptr.i10 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %call2.i11 to i64
-  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
+  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i15
   store ptr %call2.i11, ptr %input, align 8
   store i64 %sub.ptr.sub.i16, ptr %size_.i.i, align 8
   %total_blob_bytes_ = getelementptr inbounds %"class.rocksdb::BlobFileAddition", ptr %this, i64 0, i32 2
@@ -282,9 +281,8 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %add.ptr.i23 to i64
   %sub.ptr.rhs.cast.i28 = ptrtoint ptr %call2.i24 to i64
-  %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
+  %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i28
   store ptr %call2.i24, ptr %input, align 8
   store i64 %sub.ptr.sub.i29, ptr %size_.i.i, align 8
   %size_.i35 = getelementptr inbounds %"class.rocksdb::Slice", ptr %checksum_method, i64 0, i32 1
@@ -316,7 +314,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i: ; preds =
 land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i
   %3 = phi i32 [ %conv.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %.pre.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
   %4 = phi ptr [ %add.ptr.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %call.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store ptr %4, ptr %input, align 8

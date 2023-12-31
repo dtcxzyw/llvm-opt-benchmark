@@ -199,8 +199,8 @@ if.then:                                          ; preds = %entry
   %add.i.i.i.i.i = add i64 %16, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %17
   %18 = and i64 %sub1.i.i.i.i.i, 7
-  %.neg157 = add i64 %17, 7
-  %sub.i.i.i.i = sub i64 %.neg157, %18
+  %.neg153 = add i64 %17, 7
+  %sub.i.i.i.i = sub i64 %.neg153, %18
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
   %19 = load ptr, ptr %state_.i.i.i, align 8
   %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %19, i64 0, i32 1
@@ -210,7 +210,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then
@@ -245,7 +245,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %retval.sroa.0.0.copyload.i.i7.i = load ptr, ptr %range_.i, align 8
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   %24 = load i32, ptr %call2.i, align 8
   %cmp.i10 = icmp eq i32 %24, 1
@@ -262,7 +262,7 @@ _ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit: ; preds 
 if.then11:                                        ; preds = %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit
   %range_.i.i13 = getelementptr inbounds %"class.hermes::parser::Token", ptr %call2.i, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i14 = load ptr, ptr %range_.i.i13, align 8
-  %call2.i20 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #5
+  %call2.i20 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #4
   store ptr %call2.i20, ptr %tok_, align 8
   %recursionDepth_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 6
   %27 = load i32, ptr %recursionDepth_.i, align 8
@@ -272,7 +272,7 @@ if.then11:                                        ; preds = %_ZNK6hermes6parser6
   br i1 %cmp.i22, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
 
 _ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit: ; preds = %if.then11
-  %call.i = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #5
+  %call.i = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #4
   br i1 %call.i, label %cleanup147.critedge, label %if.end
 
 if.end:                                           ; preds = %if.then11, %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
@@ -300,8 +300,8 @@ if.end21:                                         ; preds = %if.end
   %add.i.i.i.i.i31 = add i64 %37, 7
   %sub1.i.i.i.i.i32 = add i64 %add.i.i.i.i.i31, %38
   %39 = and i64 %sub1.i.i.i.i.i32, 7
-  %.neg160 = add i64 %38, 7
-  %sub.i.i.i.i33 = sub i64 %.neg160, %39
+  %.neg156 = add i64 %38, 7
+  %sub.i.i.i.i33 = sub i64 %.neg156, %39
   store i64 %sub.i.i.i.i33, ptr %offset.i.i.i30, align 8
   %40 = load ptr, ptr %state_.i.i.i27, align 8
   %offset8.i.i.i34 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %40, i64 0, i32 1
@@ -311,7 +311,7 @@ if.end21:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i36, label %if.then.i.i.i40, label %if.end.i.i.i37
 
 if.then.i.i.i40:                                  ; preds = %if.end21
-  %call11.i.i.i41 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i41 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 64, i64 noundef 8) #4
   br label %if.end33
 
 if.end.i.i.i37:                                   ; preds = %if.end21
@@ -364,81 +364,34 @@ land.lhs.true.i:                                  ; preds = %if.end21.i
 
 if.then27.i:                                      ; preds = %land.lhs.true.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %48, i64 %sub.ptr.sub.i.i.i.i
-  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %48, i64 %sub.ptr.sub.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i.i, %47
-  br i1 %cmp.i.not.i.i.i, label %if.end49.i, label %if.then.i.i.i52
+  br i1 %cmp.i.not.i.i.i, label %if.end49.i, label %if.then.i.i.i.i
 
-if.then.i.i.i52:                                  ; preds = %if.then27.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %47, %add.ptr.i5.i.i
-  br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i53, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %if.then.i.i.i52
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i, ptr nonnull align 8 %add.ptr.i5.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
-  br label %if.end.i.i.i53
-
-if.end.i.i.i53:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %if.then.i.i.i52
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre9.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i.i, %if.then.i.i.i52 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i.i, %if.then.i.i.i52 ]
-  %49 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %47, %if.then.i.i.i52 ]
-  %sub.ptr.sub.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
-  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i54
-  %tobool.not.i.i.i.i = icmp eq ptr %49, %add.ptr.i6.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end49.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i53
-  store ptr %add.ptr.i6.i.i, ptr %_M_finish.i.i.i.i, align 8
+if.then.i.i.i.i:                                  ; preds = %if.then27.i
+  store ptr %add.ptr.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %if.end49.i
 
-if.end49.i:                                       ; preds = %if.then.i.i.i.i, %if.end.i.i.i53, %if.then27.i, %land.lhs.true.i, %if.end21.i
+if.end49.i:                                       ; preds = %if.then.i.i.i.i, %if.then27.i, %land.lhs.true.i, %if.end21.i
   %storeTokens_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 8
-  %50 = load i8, ptr %storeTokens_.i.i, align 2
-  %51 = and i8 %50, 1
-  %tobool.i.not.i = icmp eq i8 %51, 0
-  br i1 %tobool.i.not.i, label %if.then34, label %if.then52.i
+  %49 = load i8, ptr %storeTokens_.i.i, align 2
+  %50 = and i8 %49, 1
+  %tobool.i.not.i = icmp eq i8 %50, 0
+  br i1 %tobool.i.not.i, label %if.then34thread-pre-split, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end49.i
-  %52 = load ptr, ptr %tokenStorage_.i.i, align 8
-  %add.ptr.i11.i = getelementptr inbounds i8, ptr %52, i64 %sub.ptr.sub.i.i.i11.i
-  %53 = load ptr, ptr %_M_finish.i.i.i8.i, align 8
-  %sub.ptr.rhs.cast.i.i14.i = ptrtoint ptr %52 to i64
-  %sub.ptr.lhs.cast.i1.i17.i = ptrtoint ptr %53 to i64
-  %sub.ptr.sub.i3.i18.i = sub i64 %sub.ptr.lhs.cast.i1.i17.i, %sub.ptr.rhs.cast.i.i14.i
-  %add.ptr.i5.i19.i = getelementptr inbounds i8, ptr %52, i64 %sub.ptr.sub.i3.i18.i
-  %cmp.i.not.i.i20.i = icmp eq ptr %add.ptr.i11.i, %53
-  br i1 %cmp.i.not.i.i20.i, label %if.then34, label %if.then.i.i21.i
+  %51 = load ptr, ptr %tokenStorage_.i.i, align 8
+  %add.ptr.i11.i = getelementptr inbounds i8, ptr %51, i64 %sub.ptr.sub.i.i.i11.i
+  %52 = load ptr, ptr %_M_finish.i.i.i8.i, align 8
+  %cmp.i.not.i.i20.i = icmp eq ptr %add.ptr.i11.i, %52
+  br i1 %cmp.i.not.i.i20.i, label %if.then34thread-pre-split, label %if.then.i.i.i33.i
 
-if.then.i.i21.i:                                  ; preds = %if.then52.i
-  %cmp.i1.not.i.i23.i = icmp eq ptr %53, %add.ptr.i5.i19.i
-  br i1 %cmp.i1.not.i.i23.i, label %if.end.i.i29.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %if.then.i.i21.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i25.i = ptrtoint ptr %add.ptr.i5.i19.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i26.i = sub i64 %sub.ptr.lhs.cast.i1.i17.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i11.i, ptr align 8 %add.ptr.i5.i19.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i26.i, i1 false)
-  %.pre.i.i27.i = load ptr, ptr %_M_finish.i.i.i8.i, align 8
-  %.pre9.i.i28.i = ptrtoint ptr %.pre.i.i27.i to i64
-  br label %if.end.i.i29.i
-
-if.end.i.i29.i:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %if.then.i.i21.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i30.i = phi i64 [ %.pre9.i.i28.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i17.i, %if.then.i.i21.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i31.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i25.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i17.i, %if.then.i.i21.i ]
-  %54 = phi ptr [ %.pre.i.i27.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %53, %if.then.i.i21.i ]
-  %sub.ptr.sub.i.i.i32.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i30.i, %sub.ptr.rhs.cast.i.pre-phi.i.i31.i
-  %add.ptr.i6.i33.i = getelementptr inbounds i8, ptr %add.ptr.i11.i, i64 %sub.ptr.sub.i.i.i32.i
-  %tobool.not.i.i.i34.i = icmp eq ptr %54, %add.ptr.i6.i33.i
-  br i1 %tobool.not.i.i.i34.i, label %if.then34, label %if.then.i.i.i35.i
-
-if.then.i.i.i35.i:                                ; preds = %if.end.i.i29.i
-  store ptr %add.ptr.i6.i33.i, ptr %_M_finish.i.i.i8.i, align 8
-  br label %if.then34
+if.then.i.i.i33.i:                                ; preds = %if.then52.i
+  store ptr %add.ptr.i11.i, ptr %_M_finish.i.i.i8.i, align 8
+  br label %if.then34thread-pre-split
 
 if.end33:                                         ; preds = %if.end.i.i.i37, %if.then.i.i.i40
   %retval.0.i.i.i39 = phi ptr [ %call11.i.i.i41, %if.then.i.i.i40 ], [ %42, %if.end.i.i.i37 ]
-  %55 = inttoptr i64 %29 to ptr
+  %53 = inttoptr i64 %29 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i39, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i39, i64 0, i32 1
   store i32 217, ptr %kind_.i.i.i, align 8
@@ -447,246 +400,249 @@ if.end33:                                         ; preds = %if.end.i.i.i37, %if
   %_parameterName.i = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %retval.0.i.i.i39, i64 0, i32 1
   store ptr %retval.0.i.i.i, ptr %_parameterName.i, align 8
   %_typeAnnotation.i43 = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %retval.0.i.i.i39, i64 0, i32 2
-  store ptr %55, ptr %_typeAnnotation.i43, align 8
+  store ptr %53, ptr %_typeAnnotation.i43, align 8
   %sourceRange_.i.i44 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i39, i64 0, i32 3
   store ptr %retval.sroa.0.0.copyload.i, ptr %sourceRange_.i.i44, align 8
   %End.i.i45 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i39, i64 0, i32 3, i32 1
   store ptr %retval.sroa.0.0.copyload.i.i26, ptr %End.i.i45, align 8
   %debugLoc_.i.i46 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i39, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i, ptr %debugLoc_.i.i46, align 8
-  %56 = load i32, ptr %recursionDepth_.i, align 8
-  %dec.i = add i32 %56, -1
+  %54 = load i32, ptr %recursionDepth_.i, align 8
+  %dec.i = add i32 %54, -1
   store i32 %dec.i, ptr %recursionDepth_.i, align 8
   br label %if.end95
 
-if.then34:                                        ; preds = %if.then.i.i.i35.i, %if.end.i.i29.i, %if.then52.i, %if.end49.i, %entry
-  %57 = load ptr, ptr %tok_, align 8
-  %58 = load i32, ptr %57, align 8
-  switch i32 %58, label %if.else85 [
+if.then34thread-pre-split:                        ; preds = %if.end49.i, %if.then52.i, %if.then.i.i.i33.i
+  %.pr = load i32, ptr %call2.i, align 8
+  br label %if.then34
+
+if.then34:                                        ; preds = %if.then34thread-pre-split, %entry
+  %55 = phi i32 [ %.pr, %if.then34thread-pre-split ], [ %2, %entry ]
+  switch i32 %55, label %if.else85 [
     i32 27, label %if.then36
     i32 74, label %if.then63
   ]
 
 if.then36:                                        ; preds = %if.then34
-  %lexer_.i68 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i69 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i68, i32 noundef 3) #5
-  store ptr %call2.i69, ptr %tok_, align 8
-  %59 = load i32, ptr %call2.i69, align 8
-  %cmp.i71 = icmp eq i32 %59, 74
-  br i1 %cmp.i71, label %if.then40, label %if.end47
+  %lexer_.i65 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
+  %call2.i66 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i65, i32 noundef 3) #4
+  store ptr %call2.i66, ptr %tok_, align 8
+  %56 = load i32, ptr %call2.i66, align 8
+  %cmp.i68 = icmp eq i32 %56, 74
+  br i1 %cmp.i68, label %if.then40, label %if.end47
 
 if.then40:                                        ; preds = %if.then36
   %call41 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTSTypeParametersEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %60 = extractvalue { i64, i8 } %call41, 1
-  %61 = and i8 %60, 1
-  %tobool.i73.not = icmp eq i8 %61, 0
-  br i1 %tobool.i73.not, label %cleanup147, label %if.end45
+  %57 = extractvalue { i64, i8 } %call41, 1
+  %58 = and i8 %57, 1
+  %tobool.i70.not = icmp eq i8 %58, 0
+  br i1 %tobool.i70.not, label %cleanup147, label %if.end45
 
 if.end45:                                         ; preds = %if.then40
-  %62 = extractvalue { i64, i8 } %call41, 0
-  %63 = inttoptr i64 %62 to ptr
+  %59 = extractvalue { i64, i8 } %call41, 0
+  %60 = inttoptr i64 %59 to ptr
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end45, %if.then36
-  %typeParams.0 = phi ptr [ %63, %if.end45 ], [ null, %if.then36 ]
-  %call50 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #5
+  %typeParams.0 = phi ptr [ %60, %if.end45 ], [ null, %if.then36 ]
+  %call50 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call50, label %if.end52, label %cleanup147
 
 if.end52:                                         ; preds = %if.end47
   %call55 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseTSFunctionOrParenthesizedTypeEN4llvh5SMLocEPNS_6ESTree4NodeENS2_17IsConstructorTypeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %typeParams.0, i32 noundef 1)
-  %64 = extractvalue { i64, i8 } %call55, 1
-  %65 = and i8 %64, 1
-  %tobool.i77.not = icmp eq i8 %65, 0
-  br i1 %tobool.i77.not, label %cleanup147, label %if.end59
+  %61 = extractvalue { i64, i8 } %call55, 1
+  %62 = and i8 %61, 1
+  %tobool.i74.not = icmp eq i8 %62, 0
+  br i1 %tobool.i74.not, label %cleanup147, label %if.end59
 
 if.end59:                                         ; preds = %if.end52
-  %66 = extractvalue { i64, i8 } %call55, 0
-  %67 = inttoptr i64 %66 to ptr
+  %63 = extractvalue { i64, i8 } %call55, 0
+  %64 = inttoptr i64 %63 to ptr
   br label %if.end95
 
 if.then63:                                        ; preds = %if.then34
   %call65 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTSTypeParametersEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %68 = extractvalue { i64, i8 } %call65, 0
-  %69 = extractvalue { i64, i8 } %call65, 1
-  %70 = and i8 %69, 1
-  %tobool.i82.not = icmp eq i8 %70, 0
-  br i1 %tobool.i82.not, label %cleanup147, label %if.end69
+  %65 = extractvalue { i64, i8 } %call65, 0
+  %66 = extractvalue { i64, i8 } %call65, 1
+  %67 = and i8 %66, 1
+  %tobool.i79.not = icmp eq i8 %67, 0
+  br i1 %tobool.i79.not, label %cleanup147, label %if.end69
 
 if.end69:                                         ; preds = %if.then63
-  %call72 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 53, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #5
+  %call72 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 53, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call72, label %if.end74, label %cleanup147
 
 if.end74:                                         ; preds = %if.end69
-  %71 = inttoptr i64 %68 to ptr
-  %call79 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseTSFunctionOrParenthesizedTypeEN4llvh5SMLocEPNS_6ESTree4NodeENS2_17IsConstructorTypeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %71, i32 noundef 0)
-  %72 = extractvalue { i64, i8 } %call79, 1
-  %73 = and i8 %72, 1
-  %tobool.i86.not = icmp eq i8 %73, 0
-  br i1 %tobool.i86.not, label %cleanup147, label %if.end83
+  %68 = inttoptr i64 %65 to ptr
+  %call79 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseTSFunctionOrParenthesizedTypeEN4llvh5SMLocEPNS_6ESTree4NodeENS2_17IsConstructorTypeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %68, i32 noundef 0)
+  %69 = extractvalue { i64, i8 } %call79, 1
+  %70 = and i8 %69, 1
+  %tobool.i83.not = icmp eq i8 %70, 0
+  br i1 %tobool.i83.not, label %cleanup147, label %if.end83
 
 if.end83:                                         ; preds = %if.end74
-  %74 = extractvalue { i64, i8 } %call79, 0
-  %75 = inttoptr i64 %74 to ptr
+  %71 = extractvalue { i64, i8 } %call79, 0
+  %72 = inttoptr i64 %71 to ptr
   br label %if.end95
 
 if.else85:                                        ; preds = %if.then34
   %call87 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl16parseTSUnionTypeEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %76 = extractvalue { i64, i8 } %call87, 1
-  %77 = and i8 %76, 1
-  %tobool.i89.not = icmp eq i8 %77, 0
-  br i1 %tobool.i89.not, label %cleanup147, label %if.end91
+  %73 = extractvalue { i64, i8 } %call87, 1
+  %74 = and i8 %73, 1
+  %tobool.i86.not = icmp eq i8 %74, 0
+  br i1 %tobool.i86.not, label %cleanup147, label %if.end91
 
 if.end91:                                         ; preds = %if.else85
-  %78 = extractvalue { i64, i8 } %call87, 0
-  %79 = inttoptr i64 %78 to ptr
+  %75 = extractvalue { i64, i8 } %call87, 0
+  %76 = inttoptr i64 %75 to ptr
   br label %if.end95
 
 if.end95:                                         ; preds = %if.end33, %if.end59, %if.end91, %if.end83
-  %result.1 = phi ptr [ %67, %if.end59 ], [ %75, %if.end83 ], [ %79, %if.end91 ], [ %retval.0.i.i.i39, %if.end33 ]
-  %call96 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 3) #5
+  %result.1 = phi ptr [ %64, %if.end59 ], [ %72, %if.end83 ], [ %76, %if.end91 ], [ %retval.0.i.i.i39, %if.end33 ]
+  %call96 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 3) #4
   br i1 %call96, label %if.then97, label %if.end136
 
 if.then97:                                        ; preds = %if.end95
   %call99 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
-  %80 = extractvalue { i64, i8 } %call99, 0
-  %81 = extractvalue { i64, i8 } %call99, 1
-  %82 = and i8 %81, 1
-  %tobool.i93.not = icmp eq i8 %82, 0
-  br i1 %tobool.i93.not, label %cleanup147, label %if.end103
+  %77 = extractvalue { i64, i8 } %call99, 0
+  %78 = extractvalue { i64, i8 } %call99, 1
+  %79 = and i8 %78, 1
+  %tobool.i90.not = icmp eq i8 %79, 0
+  br i1 %tobool.i90.not, label %cleanup147, label %if.end103
 
 if.end103:                                        ; preds = %if.then97
-  %call106 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 91, i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #5
+  %call106 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 91, i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call106, label %if.end108, label %cleanup147
 
 if.end108:                                        ; preds = %if.end103
   %call110 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
-  %83 = extractvalue { i64, i8 } %call110, 0
-  %84 = extractvalue { i64, i8 } %call110, 1
-  %85 = and i8 %84, 1
-  %tobool.i98.not = icmp eq i8 %85, 0
-  br i1 %tobool.i98.not, label %cleanup147, label %if.end114
+  %80 = extractvalue { i64, i8 } %call110, 0
+  %81 = extractvalue { i64, i8 } %call110, 1
+  %82 = and i8 %81, 1
+  %tobool.i95.not = icmp eq i8 %82, 0
+  br i1 %tobool.i95.not, label %cleanup147, label %if.end114
 
 if.end114:                                        ; preds = %if.end108
-  %call117 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #5
+  %call117 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call117, label %if.end119, label %cleanup147
 
 if.end119:                                        ; preds = %if.end114
   %call121 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
-  %86 = extractvalue { i64, i8 } %call121, 1
-  %87 = and i8 %86, 1
-  %tobool.i103.not = icmp eq i8 %87, 0
-  br i1 %tobool.i103.not, label %cleanup147, label %if.end125
+  %83 = extractvalue { i64, i8 } %call121, 1
+  %84 = and i8 %83, 1
+  %tobool.i100.not = icmp eq i8 %84, 0
+  br i1 %tobool.i100.not, label %cleanup147, label %if.end125
 
 if.end125:                                        ; preds = %if.end119
-  %88 = extractvalue { i64, i8 } %call121, 0
-  %prevTokenEndLoc_.i.i105 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 12
-  %retval.sroa.0.0.copyload.i.i106 = load ptr, ptr %prevTokenEndLoc_.i.i105, align 8
-  %89 = load ptr, ptr %this, align 8
-  %call130 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %89, i64 noundef 8)
-  %90 = inttoptr i64 %80 to ptr
-  %91 = inttoptr i64 %83 to ptr
-  %92 = inttoptr i64 %88 to ptr
+  %85 = extractvalue { i64, i8 } %call121, 0
+  %prevTokenEndLoc_.i.i102 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 12
+  %retval.sroa.0.0.copyload.i.i103 = load ptr, ptr %prevTokenEndLoc_.i.i102, align 8
+  %86 = load ptr, ptr %this, align 8
+  %call130 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %86, i64 noundef 8)
+  %87 = inttoptr i64 %77 to ptr
+  %88 = inttoptr i64 %80 to ptr
+  %89 = inttoptr i64 %85 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call130, i8 0, i64 16, i1 false)
-  %kind_.i.i.i107 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 1
-  store i32 237, ptr %kind_.i.i.i107, align 8
-  %parens_.i.i.i108 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i108, i8 0, i64 28, i1 false)
+  %kind_.i.i.i104 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 1
+  store i32 237, ptr %kind_.i.i.i104, align 8
+  %parens_.i.i.i105 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i105, i8 0, i64 28, i1 false)
   %_checkType.i = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %call130, i64 0, i32 1
   store ptr %result.1, ptr %_checkType.i, align 8
   %_extendsType.i = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %call130, i64 0, i32 2
-  store ptr %90, ptr %_extendsType.i, align 8
+  store ptr %87, ptr %_extendsType.i, align 8
   %_trueType.i = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %call130, i64 0, i32 3
-  store ptr %91, ptr %_trueType.i, align 8
+  store ptr %88, ptr %_trueType.i, align 8
   %_falseType.i = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %call130, i64 0, i32 4
-  store ptr %92, ptr %_falseType.i, align 8
+  store ptr %89, ptr %_falseType.i, align 8
   %sourceRange_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %result.1, i64 0, i32 3
-  %retval.sroa.0.0.copyload.i.i.i109 = load ptr, ptr %sourceRange_.i.i.i, align 8
-  %sourceRange_.i.i110 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 3
-  store ptr %retval.sroa.0.0.copyload.i.i.i109, ptr %sourceRange_.i.i110, align 8
-  %End.i.i111 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 3, i32 1
-  store ptr %retval.sroa.0.0.copyload.i.i106, ptr %End.i.i111, align 8
+  %retval.sroa.0.0.copyload.i.i.i106 = load ptr, ptr %sourceRange_.i.i.i, align 8
+  %sourceRange_.i.i107 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 3
+  store ptr %retval.sroa.0.0.copyload.i.i.i106, ptr %sourceRange_.i.i107, align 8
+  %End.i.i108 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 3, i32 1
+  store ptr %retval.sroa.0.0.copyload.i.i103, ptr %End.i.i108, align 8
   %retval.sroa.0.0.copyload.i.i6.i = load ptr, ptr %sourceRange_.i.i.i, align 8
-  %debugLoc_.i.i112 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 4
-  store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i112, align 8
+  %debugLoc_.i.i109 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call130, i64 0, i32 4
+  store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i109, align 8
   br label %if.end136
 
 if.end136:                                        ; preds = %if.end125, %if.end95
   %result.2 = phi ptr [ %call130, %if.end125 ], [ %result.1, %if.end95 ]
-  %93 = and i8 %wrappedStart.coerce1, 1
-  %tobool.i114.not = icmp eq i8 %93, 0
-  br i1 %tobool.i114.not, label %if.end146, label %if.then138
+  %90 = and i8 %wrappedStart.coerce1, 1
+  %tobool.i111.not = icmp eq i8 %90, 0
+  br i1 %tobool.i111.not, label %if.end146, label %if.then138
 
 if.then138:                                       ; preds = %if.end136
-  %94 = inttoptr i64 %wrappedStart.coerce0 to ptr
-  %95 = load ptr, ptr %this, align 8
-  %state_.i.i.i115 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %95, i64 0, i32 1
-  %96 = load ptr, ptr %state_.i.i.i115, align 8
-  %97 = load i32, ptr %96, align 8
-  %conv.i.i.i116 = zext i32 %97 to i64
-  %98 = load ptr, ptr %95, align 8
-  %add.ptr.i.i.i.i117 = getelementptr inbounds %"class.std::unique_ptr.73", ptr %98, i64 %conv.i.i.i116
-  %99 = load ptr, ptr %add.ptr.i.i.i.i117, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %offset.i.i.i118 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %96, i64 0, i32 1
-  %101 = load i64, ptr %offset.i.i.i118, align 8
-  %add.i.i.i.i.i119 = add i64 %100, 7
-  %sub1.i.i.i.i.i120 = add i64 %add.i.i.i.i.i119, %101
-  %102 = and i64 %sub1.i.i.i.i.i120, 7
-  %.neg163 = add i64 %101, 7
-  %sub.i.i.i.i121 = sub i64 %.neg163, %102
-  store i64 %sub.i.i.i.i121, ptr %offset.i.i.i118, align 8
-  %103 = load ptr, ptr %state_.i.i.i115, align 8
-  %offset8.i.i.i122 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %103, i64 0, i32 1
-  %104 = load i64, ptr %offset8.i.i.i122, align 8
-  %add.i.i.i123 = add i64 %104, 56
-  %cmp9.i.i.i124 = icmp ugt i64 %add.i.i.i123, 262144
-  br i1 %cmp9.i.i.i124, label %if.then.i.i.i128, label %if.end.i.i.i125
+  %91 = inttoptr i64 %wrappedStart.coerce0 to ptr
+  %92 = load ptr, ptr %this, align 8
+  %state_.i.i.i112 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %92, i64 0, i32 1
+  %93 = load ptr, ptr %state_.i.i.i112, align 8
+  %94 = load i32, ptr %93, align 8
+  %conv.i.i.i113 = zext i32 %94 to i64
+  %95 = load ptr, ptr %92, align 8
+  %add.ptr.i.i.i.i114 = getelementptr inbounds %"class.std::unique_ptr.73", ptr %95, i64 %conv.i.i.i113
+  %96 = load ptr, ptr %add.ptr.i.i.i.i114, align 8
+  %97 = ptrtoint ptr %96 to i64
+  %offset.i.i.i115 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %93, i64 0, i32 1
+  %98 = load i64, ptr %offset.i.i.i115, align 8
+  %add.i.i.i.i.i116 = add i64 %97, 7
+  %sub1.i.i.i.i.i117 = add i64 %add.i.i.i.i.i116, %98
+  %99 = and i64 %sub1.i.i.i.i.i117, 7
+  %.neg159 = add i64 %98, 7
+  %sub.i.i.i.i118 = sub i64 %.neg159, %99
+  store i64 %sub.i.i.i.i118, ptr %offset.i.i.i115, align 8
+  %100 = load ptr, ptr %state_.i.i.i112, align 8
+  %offset8.i.i.i119 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %100, i64 0, i32 1
+  %101 = load i64, ptr %offset8.i.i.i119, align 8
+  %add.i.i.i120 = add i64 %101, 56
+  %cmp9.i.i.i121 = icmp ugt i64 %add.i.i.i120, 262144
+  br i1 %cmp9.i.i.i121, label %if.then.i.i.i125, label %if.end.i.i.i122
 
-if.then.i.i.i128:                                 ; preds = %if.then138
-  %call11.i.i.i129 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %95, i64 noundef 56, i64 noundef 8) #5
-  br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130
+if.then.i.i.i125:                                 ; preds = %if.then138
+  %call11.i.i.i126 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %92, i64 noundef 56, i64 noundef 8) #4
+  br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127
 
-if.end.i.i.i125:                                  ; preds = %if.then138
-  %add14.i.i.i126 = add i64 %104, %100
-  %105 = inttoptr i64 %add14.i.i.i126 to ptr
-  store i64 %add.i.i.i123, ptr %offset8.i.i.i122, align 8
-  br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130
+if.end.i.i.i122:                                  ; preds = %if.then138
+  %add14.i.i.i123 = add i64 %101, %97
+  %102 = inttoptr i64 %add14.i.i.i123 to ptr
+  store i64 %add.i.i.i120, ptr %offset8.i.i.i119, align 8
+  br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127
 
-_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130: ; preds = %if.then.i.i.i128, %if.end.i.i.i125
-  %retval.0.i.i.i127 = phi ptr [ %call11.i.i.i129, %if.then.i.i.i128 ], [ %105, %if.end.i.i.i125 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i127, i8 0, i64 16, i1 false)
-  %kind_.i.i.i131 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i127, i64 0, i32 1
-  store i32 198, ptr %kind_.i.i.i131, align 8
-  %parens_.i.i.i132 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i127, i64 0, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i132, i8 0, i64 28, i1 false)
-  %_typeAnnotation.i133 = getelementptr inbounds %"class.hermes::ESTree::TSTypeAnnotationNode", ptr %retval.0.i.i.i127, i64 0, i32 1
-  store ptr %result.2, ptr %_typeAnnotation.i133, align 8
-  %sourceRange_.i.i134 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i127, i64 0, i32 3
-  store ptr %94, ptr %sourceRange_.i.i134, align 8
-  %End.i.i.i135 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %result.2, i64 0, i32 3, i32 1
-  %retval.sroa.0.0.copyload.i.i.i136 = load ptr, ptr %End.i.i.i135, align 8
-  %End.i.i137 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i127, i64 0, i32 3, i32 1
-  store ptr %retval.sroa.0.0.copyload.i.i.i136, ptr %End.i.i137, align 8
-  %debugLoc_.i.i138 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i127, i64 0, i32 4
-  store ptr %94, ptr %debugLoc_.i.i138, align 8
-  %106 = ptrtoint ptr %retval.0.i.i.i127 to i64
+_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127: ; preds = %if.then.i.i.i125, %if.end.i.i.i122
+  %retval.0.i.i.i124 = phi ptr [ %call11.i.i.i126, %if.then.i.i.i125 ], [ %102, %if.end.i.i.i122 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i124, i8 0, i64 16, i1 false)
+  %kind_.i.i.i128 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i124, i64 0, i32 1
+  store i32 198, ptr %kind_.i.i.i128, align 8
+  %parens_.i.i.i129 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i124, i64 0, i32 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i129, i8 0, i64 28, i1 false)
+  %_typeAnnotation.i130 = getelementptr inbounds %"class.hermes::ESTree::TSTypeAnnotationNode", ptr %retval.0.i.i.i124, i64 0, i32 1
+  store ptr %result.2, ptr %_typeAnnotation.i130, align 8
+  %sourceRange_.i.i131 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i124, i64 0, i32 3
+  store ptr %91, ptr %sourceRange_.i.i131, align 8
+  %End.i.i.i132 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %result.2, i64 0, i32 3, i32 1
+  %retval.sroa.0.0.copyload.i.i.i133 = load ptr, ptr %End.i.i.i132, align 8
+  %End.i.i134 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i124, i64 0, i32 3, i32 1
+  store ptr %retval.sroa.0.0.copyload.i.i.i133, ptr %End.i.i134, align 8
+  %debugLoc_.i.i135 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i124, i64 0, i32 4
+  store ptr %91, ptr %debugLoc_.i.i135, align 8
+  %103 = ptrtoint ptr %retval.0.i.i.i124 to i64
   br label %cleanup147
 
 if.end146:                                        ; preds = %if.end136
-  %107 = ptrtoint ptr %result.2 to i64
+  %104 = ptrtoint ptr %result.2 to i64
   br label %cleanup147
 
 cleanup147.critedge:                              ; preds = %if.end, %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
-  %108 = load i32, ptr %recursionDepth_.i, align 8
-  %dec.i142 = add i32 %108, -1
-  store i32 %dec.i142, ptr %recursionDepth_.i, align 8
+  %105 = load i32, ptr %recursionDepth_.i, align 8
+  %dec.i139 = add i32 %105, -1
+  store i32 %dec.i139, ptr %recursionDepth_.i, align 8
   br label %cleanup147
 
-cleanup147:                                       ; preds = %if.end119, %if.end114, %if.end108, %if.end103, %if.then97, %if.else85, %if.end74, %if.end69, %if.then63, %if.end52, %if.end47, %if.then40, %cleanup147.critedge, %if.end146, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130
-  %retval.sroa.0.0 = phi i64 [ undef, %cleanup147.critedge ], [ %106, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130 ], [ %107, %if.end146 ], [ undef, %if.then40 ], [ undef, %if.end47 ], [ undef, %if.end52 ], [ undef, %if.then63 ], [ undef, %if.end69 ], [ undef, %if.end74 ], [ undef, %if.else85 ], [ undef, %if.then97 ], [ undef, %if.end103 ], [ undef, %if.end108 ], [ undef, %if.end114 ], [ undef, %if.end119 ]
-  %retval.sroa.3.1 = phi i8 [ 0, %cleanup147.critedge ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit130 ], [ 1, %if.end146 ], [ 0, %if.then40 ], [ 0, %if.end47 ], [ 0, %if.end52 ], [ 0, %if.then63 ], [ 0, %if.end69 ], [ 0, %if.end74 ], [ 0, %if.else85 ], [ 0, %if.then97 ], [ 0, %if.end103 ], [ 0, %if.end108 ], [ 0, %if.end114 ], [ 0, %if.end119 ]
-  %109 = and i8 %0, 1
-  store i8 %109, ptr %allowAnonFunctionType_, align 4
+cleanup147:                                       ; preds = %if.end119, %if.end114, %if.end108, %if.end103, %if.then97, %if.else85, %if.end74, %if.end69, %if.then63, %if.end52, %if.end47, %if.then40, %cleanup147.critedge, %if.end146, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127
+  %retval.sroa.0.0 = phi i64 [ undef, %cleanup147.critedge ], [ %103, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127 ], [ %104, %if.end146 ], [ undef, %if.then40 ], [ undef, %if.end47 ], [ undef, %if.end52 ], [ undef, %if.then63 ], [ undef, %if.end69 ], [ undef, %if.end74 ], [ undef, %if.else85 ], [ undef, %if.then97 ], [ undef, %if.end103 ], [ undef, %if.end108 ], [ undef, %if.end114 ], [ undef, %if.end119 ]
+  %retval.sroa.3.1 = phi i8 [ 0, %cleanup147.critedge ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit127 ], [ 1, %if.end146 ], [ 0, %if.then40 ], [ 0, %if.end47 ], [ 0, %if.end52 ], [ 0, %if.then63 ], [ 0, %if.end69 ], [ 0, %if.end74 ], [ 0, %if.else85 ], [ 0, %if.then97 ], [ 0, %if.end103 ], [ 0, %if.end108 ], [ 0, %if.end114 ], [ 0, %if.end119 ]
+  %106 = and i8 %0, 1
+  store i8 %106, ptr %allowAnonFunctionType_, align 4
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -724,7 +680,7 @@ lor.rhs.i.i:                                      ; preds = %entry
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
-  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i64 noundef %size, i64 noundef %alignment) #5
+  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i64 noundef %size, i64 noundef %alignment) #4
   br label %_ZN6hermes7Context12allocateNodeEmm.exit
 
 if.end.i.i:                                       ; preds = %lor.rhs.i.i
@@ -747,7 +703,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   store ptr %params, ptr %params, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %params, i64 0, i32 1
@@ -771,7 +727,7 @@ if.end:                                           ; preds = %do.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %5, i64 0, i32 1
   store ptr %4, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %4, ptr %params, align 8
-  %call5 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call5 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   %.pre = load ptr, ptr %tok_.i, align 8
   br i1 %call5, label %do.cond, label %do.end
 
@@ -783,7 +739,7 @@ do.cond:                                          ; preds = %if.end
 do.end:                                           ; preds = %if.end, %do.cond
   %End.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %.pre, i64 0, i32 2, i32 1
   %retval.sroa.0.0.copyload.i = load ptr, ptr %End.i, align 8
-  %call12 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 75, i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call12 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 75, i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %do.end
@@ -812,7 +768,7 @@ if.end14:                                         ; preds = %do.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end14
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end14
@@ -879,7 +835,7 @@ entry:
   %ref.tmp36 = alloca %"class.llvh::Twine", align 8
   %tok_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 3
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   %cmp = icmp ne ptr %typeParams, null
   %frombool = zext i1 %cmp to i8
@@ -891,7 +847,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end39
 
 if.then:                                          ; preds = %entry
-  %call3 = call i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i64 0) #5
+  %call3 = call i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i64 0) #4
   %1 = and i64 %call3, 4294967296
   %tobool.i.not = icmp eq i64 %1, 0
   br i1 %tobool.i.not, label %if.end39, label %land.lhs.true
@@ -907,9 +863,9 @@ if.then7:                                         ; preds = %land.lhs.true
   %2 = load ptr, ptr %tok_.i, align 8
   %range_.i.i20 = getelementptr inbounds %"class.hermes::parser::Token", ptr %2, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i21 = load ptr, ptr %range_.i.i20, align 8
-  %call2.i27 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i27 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i27, ptr %tok_.i, align 8
-  %call2.i36 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i36 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i36, ptr %tok_.i, align 8
   %recursionDepth_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 6
   %3 = load i32, ptr %recursionDepth_.i, align 8
@@ -919,7 +875,7 @@ if.then7:                                         ; preds = %land.lhs.true
   br i1 %cmp.i38, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
 
 _ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit: ; preds = %if.then7
-  %call.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #5
+  %call.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #4
   br i1 %call.i, label %cleanup.thread, label %if.end
 
 if.end:                                           ; preds = %if.then7, %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
@@ -958,7 +914,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end18
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 72, i64 noundef 8) #4
   br label %cleanup
 
 if.end.i.i.i:                                     ; preds = %if.end18
@@ -1002,7 +958,7 @@ cleanup:                                          ; preds = %if.end.i.i.i, %if.t
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %21, i64 0, i32 1
   store ptr %retval.0.i.i.i, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %params, align 8
-  %call28 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call28 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   %22 = load i32, ptr %recursionDepth_.i, align 8
   %dec.i = add i32 %22, -1
   store i32 %dec.i, ptr %recursionDepth_.i, align 8
@@ -1021,7 +977,7 @@ if.then33:                                        ; preds = %land.lhs.true
   store i8 3, ptr %LHSKind.i, align 8
   %sm_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 1
   %24 = load ptr, ptr %sm_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %24, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp36, i32 noundef 2) #5
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %24, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp36, i32 noundef 2) #4
   br label %return
 
 if.end39:                                         ; preds = %land.lhs.true, %if.then, %cleanup, %entry
@@ -1032,7 +988,7 @@ if.end39:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool.not, label %if.else58, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %if.end39
-  %call41 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 59, i32 noundef 3) #5
+  %call41 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 59, i32 noundef 3) #4
   br i1 %call41, label %if.then42, label %if.else58
 
 if.then42:                                        ; preds = %land.lhs.true40
@@ -1071,7 +1027,7 @@ if.end47:                                         ; preds = %if.then42
   br i1 %cmp9.i.i.i63, label %if.then.i.i.i67, label %if.end.i.i.i64
 
 if.then.i.i.i67:                                  ; preds = %if.end47
-  %call11.i.i.i68 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i68 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 56, i64 noundef 8) #4
   br label %land.lhs.true117.thread
 
 if.end.i.i.i64:                                   ; preds = %if.end47
@@ -1204,7 +1160,7 @@ lor.lhs.false114:                                 ; preds = %if.end112
 land.lhs.true117:                                 ; preds = %if.else58, %lor.lhs.false101, %if.then95, %cond.end, %lor.lhs.false114, %if.end112
   %isFunction.1219 = phi i8 [ 0, %lor.lhs.false114 ], [ 1, %if.end112 ], [ 1, %cond.end ], [ 1, %if.then95 ], [ 1, %lor.lhs.false101 ], [ 1, %if.else58 ]
   %type.0217 = phi ptr [ %type.0, %lor.lhs.false114 ], [ %type.0, %if.end112 ], [ %call98, %cond.end ], [ %61, %if.then95 ], [ %call98, %lor.lhs.false101 ], [ null, %if.else58 ]
-  %call118 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call118 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call118, label %while.cond, label %if.end149
 
 land.lhs.true117.thread:                          ; preds = %if.end.i.i.i64, %if.then.i.i.i67
@@ -1230,7 +1186,7 @@ land.lhs.true117.thread:                          ; preds = %if.end.i.i.i64, %if
   %Next2.i7.i.i.i.i74 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %67, i64 0, i32 1
   store ptr %retval.0.i.i.i66, ptr %Next2.i7.i.i.i.i74, align 8
   store ptr %retval.0.i.i.i66, ptr %params, align 8
-  %call118247 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call118247 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call118247, label %while.cond.us, label %if.end149
 
 while.cond.us:                                    ; preds = %land.lhs.true117.thread, %if.else143.us
@@ -1256,7 +1212,7 @@ if.else143.us:                                    ; preds = %while.body.us
   %Next2.i7.i.i.i.i127.us = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %74, i64 0, i32 1
   store ptr %73, ptr %Next2.i7.i.i.i.i127.us, align 8
   store ptr %73, ptr %params, align 8
-  %call146.us = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call146.us = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call146.us, label %while.cond.us, label %if.end149, !llvm.loop !6
 
 while.cond:                                       ; preds = %land.lhs.true117, %if.else143
@@ -1266,7 +1222,7 @@ while.cond:                                       ; preds = %land.lhs.true117, %
   br i1 %cmp.i96, label %if.end149, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call122 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 59, i32 noundef 3) #5
+  %call122 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 59, i32 noundef 3) #4
   %call125 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl24parseTSFunctionTypeParamEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %77 = extractvalue { i64, i8 } %call125, 0
   %78 = extractvalue { i64, i8 } %call125, 1
@@ -1305,7 +1261,7 @@ if.then131:                                       ; preds = %if.end129
   br i1 %cmp9.i.i.i111, label %if.then.i.i.i115, label %if.end.i.i.i112
 
 if.then.i.i.i115:                                 ; preds = %if.then131
-  %call11.i.i.i116 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %80, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i116 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %80, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117
 
 if.end.i.i.i112:                                  ; preds = %if.then131
@@ -1337,7 +1293,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117: ; preds = %if.then.i.i.i115, %
   %Next2.i7.i.i.i.i125 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %92, i64 0, i32 1
   store ptr %retval.0.i.i.i114, ptr %Next2.i7.i.i.i.i125, align 8
   store ptr %retval.0.i.i.i114, ptr %params, align 8
-  %call142 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call142 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br label %if.end149
 
 if.else143:                                       ; preds = %if.end129
@@ -1349,17 +1305,17 @@ if.else143:                                       ; preds = %if.end129
   %Next2.i7.i.i.i.i127 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %94, i64 0, i32 1
   store ptr %93, ptr %Next2.i7.i.i.i.i127, align 8
   store ptr %93, ptr %params, align 8
-  %call146 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call146 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call146, label %while.cond, label %if.end149, !llvm.loop !6
 
 if.end149:                                        ; preds = %if.else143.us, %while.cond.us, %if.else143, %while.cond, %land.lhs.true117.thread, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117, %land.lhs.true117
   %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0217, %land.lhs.true117 ], [ null, %land.lhs.true117.thread ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ], [ null, %while.cond.us ], [ null, %if.else143.us ]
   %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %isFunction.1219, %land.lhs.true117 ], [ 1, %land.lhs.true117.thread ], [ 1, %while.cond ], [ 1, %if.else143 ], [ 1, %while.cond.us ], [ 1, %if.else143.us ]
-  %call152 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #5
+  %call152 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br i1 %call152, label %if.end154, label %return
 
 if.end149.thread:                                 ; preds = %lor.lhs.false114
-  %call152255 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #5
+  %call152255 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br i1 %call152255, label %if.else162, label %return
 
 if.end154:                                        ; preds = %if.end149
@@ -1367,7 +1323,7 @@ if.end154:                                        ; preds = %if.end149
   br i1 %tobool155.not, label %if.else162, label %if.then156
 
 if.then156:                                       ; preds = %if.end154
-  %call159 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 109, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr %start.coerce) #5
+  %call159 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 109, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr %start.coerce) #4
   br i1 %call159, label %if.end173, label %return
 
 if.else162:                                       ; preds = %if.end149.thread, %if.end154
@@ -1378,7 +1334,7 @@ if.else162:                                       ; preds = %if.end149.thread, %
   br i1 %tobool164.not, label %if.then172, label %if.then165
 
 if.then165:                                       ; preds = %if.else162
-  %call166 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 109, i32 noundef 3) #5
+  %call166 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 109, i32 noundef 3) #4
   br i1 %call166, label %if.end173, label %if.then172
 
 if.then172:                                       ; preds = %if.else162, %if.then165
@@ -1431,7 +1387,7 @@ if.then181:                                       ; preds = %if.end179
   br i1 %cmp9.i.i.i148, label %if.then.i.i.i152, label %if.end.i.i.i149
 
 if.then.i.i.i152:                                 ; preds = %if.then181
-  %call11.i.i.i153 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef 80, i64 noundef 8) #5
+  %call11.i.i.i153 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef 80, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154
 
 if.end.i.i.i149:                                  ; preds = %if.then181
@@ -1490,7 +1446,7 @@ if.end193:                                        ; preds = %if.end179
   br i1 %cmp9.i.i.i148, label %if.then.i.i.i176, label %if.end.i.i.i173
 
 if.then.i.i.i176:                                 ; preds = %if.end193
-  %call11.i.i.i177 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef 80, i64 noundef 8) #5
+  %call11.i.i.i177 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 noundef 80, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit178
 
 if.end.i.i.i173:                                  ; preds = %if.end193
@@ -1561,7 +1517,7 @@ entry:
   %0 = load ptr, ptr %tok_, align 8
   %range_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %call2 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #5
+  %call2 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #4
   %call3 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseTSIntersectionTypeEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %1 = extractvalue { i64, i8 } %call3, 0
   %2 = extractvalue { i64, i8 } %call3, 1
@@ -1583,7 +1539,7 @@ if.end9:                                          ; preds = %if.end
   store ptr %types, ptr %6, align 8
   store ptr %6, ptr %Next2.i.i.i.i.i, align 8
   store ptr %6, ptr %types, align 8
-  %call1112 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #5
+  %call1112 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #4
   br i1 %call1112, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end9, %if.end16
@@ -1603,7 +1559,7 @@ if.end16:                                         ; preds = %while.body
   %Next2.i7.i.i.i.i7 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %11, i64 0, i32 1
   store ptr %10, ptr %Next2.i7.i.i.i.i7, align 8
   store ptr %10, ptr %types, align 8
-  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #5
+  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 84, i32 noundef 3) #4
   br i1 %call11, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end16, %if.end9
@@ -1634,7 +1590,7 @@ while.end:                                        ; preds = %if.end16, %if.end9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %while.end
@@ -1704,7 +1660,7 @@ entry:
   %0 = load ptr, ptr %tok_, align 8
   %range_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %call2 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #5
+  %call2 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #4
   %call3 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl18parseTSPostfixTypeEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %1 = extractvalue { i64, i8 } %call3, 0
   %2 = extractvalue { i64, i8 } %call3, 1
@@ -1726,7 +1682,7 @@ if.end9:                                          ; preds = %if.end
   store ptr %types, ptr %6, align 8
   store ptr %6, ptr %Next2.i.i.i.i.i, align 8
   store ptr %6, ptr %types, align 8
-  %call1112 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #5
+  %call1112 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #4
   br i1 %call1112, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end9, %if.end16
@@ -1746,7 +1702,7 @@ if.end16:                                         ; preds = %while.body
   %Next2.i7.i.i.i.i7 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %11, i64 0, i32 1
   store ptr %10, ptr %Next2.i7.i.i.i.i7, align 8
   store ptr %10, ptr %types, align 8
-  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #5
+  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 82, i32 noundef 3) #4
   br i1 %call11, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end16, %if.end9
@@ -1777,7 +1733,7 @@ while.end:                                        ; preds = %if.end16, %if.end9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %while.end
@@ -1867,7 +1823,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end37
   %storemerge141 = phi ptr [ %6, %land.rhs.lr.ph ], [ %retval.0.i.i.i22.sink44, %if.end37 ]
-  %call7 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 55, i32 noundef 3) #5
+  %call7 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 55, i32 noundef 3) #4
   br i1 %call7, label %while.body, label %while.end.loopexit
 
 while.body:                                       ; preds = %land.rhs
@@ -1879,7 +1835,7 @@ while.body:                                       ; preds = %land.rhs
 if.then9:                                         ; preds = %while.body
   %retval.sroa.2.0.range_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %7, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i, align 8
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   %9 = load ptr, ptr %this, align 8
   %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %9, i64 0, i32 1
@@ -1906,7 +1862,7 @@ if.then9:                                         ; preds = %while.body
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then9
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then9
@@ -1935,7 +1891,7 @@ if.else:                                          ; preds = %while.body
   br i1 %tobool.i6.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.else
-  %call24 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #5
+  %call24 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call24, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.end21
@@ -1965,7 +1921,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp9.i.i.i19, label %if.then.i.i.i23, label %if.end.i.i.i20
 
 if.then.i.i.i23:                                  ; preds = %if.end26
-  %call11.i.i.i24 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i24 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit25
 
 if.end.i.i.i20:                                   ; preds = %if.end26
@@ -2024,7 +1980,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   store ptr %types, ptr %types, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %types, i64 0, i32 1
@@ -2054,18 +2010,18 @@ if.end:                                           ; preds = %while.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %7, i64 0, i32 1
   store ptr %6, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %6, ptr %types, align 8
-  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call6, label %while.cond, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end, %while.cond
-  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %while.end
   %8 = load ptr, ptr %tok_.i, align 8
   %retval.sroa.2.0.range_.sroa_idx.i.i8 = getelementptr inbounds %"class.hermes::parser::Token", ptr %8, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i9 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i8, align 8
-  %call2.i13 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i13 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i13, ptr %tok_.i, align 8
   %9 = load ptr, ptr %this, align 8
   %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %9, i64 0, i32 1
@@ -2092,7 +2048,7 @@ if.end13:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end13
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end13
@@ -2199,7 +2155,7 @@ _ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStrin
   br i1 %cmp4.i.i.i, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %while.body, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   %5 = load i32, ptr %call2.i, align 8
   switch i32 %5, label %if.end7 [
@@ -2217,7 +2173,7 @@ if.end7:                                          ; preds = %if.then, %while.bod
   br i1 %or.cond144, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %if.end7
-  %call2.i32 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i32 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i32, ptr %tok_, align 8
   %8 = load i32, ptr %call2.i32, align 8
   switch i32 %8, label %if.end17 [
@@ -2242,7 +2198,7 @@ _ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit: ; 
   br i1 %cmp4.i.i, label %if.then21, label %if.end27
 
 if.then21:                                        ; preds = %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit
-  %call2.i50 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i50 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i50, ptr %tok_, align 8
   %13 = load i32, ptr %call2.i50, align 8
   switch i32 %13, label %if.end27 [
@@ -2271,7 +2227,7 @@ _ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStrin
   br i1 %cmp4.i.i.i64, label %if.then31, label %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit89
 
 if.then31:                                        ; preds = %if.then29, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit65
-  %call2.i74 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i74 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i74, ptr %tok_, align 8
   %18 = load i32, ptr %call2.i74, align 8
   switch i32 %18, label %if.end38 [
@@ -2310,7 +2266,7 @@ _ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStrin
   br i1 %cmp4.i.i.i88, label %if.then40, label %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit113
 
 if.then40:                                        ; preds = %if.end38, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit89
-  %call2.i98 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i98 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i98, ptr %tok_, align 8
   %25 = load i32, ptr %call2.i98, align 8
   switch i32 %25, label %if.end47 [
@@ -2340,7 +2296,7 @@ _ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStrin
   br i1 %cmp4.i.i.i112, label %if.then49, label %while.end
 
 if.then49:                                        ; preds = %if.end47, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit113
-  %call2.i122 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i122 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i122, ptr %tok_, align 8
   %32 = load i32, ptr %call2.i122, align 8
   switch i32 %32, label %while.end [
@@ -2355,7 +2311,7 @@ if.then53:                                        ; preds = %if.then49, %if.then
 
 while.end:                                        ; preds = %if.then49, %while.cond, %if.end47, %if.end27, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit113
   %accessibilityNode.0.lcssa = phi ptr [ null, %if.then49 ], [ %accessibilityNode.0, %while.cond ], [ null, %if.end47 ], [ %accessibilityNode.0, %if.end27 ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit113 ]
-  %call59 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl19parseBindingElementENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #5
+  %call59 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl19parseBindingElementENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #4
   %34 = extractvalue { i64, i8 } %call59, 0
   %35 = extractvalue { i64, i8 } %call59, 1
   %36 = and i8 %35, 1
@@ -2400,7 +2356,7 @@ if.then70:                                        ; preds = %if.end63
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then70
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then70
@@ -2480,7 +2436,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then
@@ -2530,7 +2486,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i27, label %if.then.i.i.i31, label %if.end.i.i.i28
 
 if.then.i.i.i31:                                  ; preds = %if.then4
-  %call11.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33
 
 if.end.i.i.i28:                                   ; preds = %if.then4
@@ -2580,7 +2536,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %cmp9.i.i.i53, label %if.then.i.i.i57, label %if.end.i.i.i54
 
 if.then.i.i.i57:                                  ; preds = %if.then10
-  %call11.i.i.i58 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i58 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit59
 
 if.end.i.i.i54:                                   ; preds = %if.then10
@@ -2630,7 +2586,7 @@ if.then16:                                        ; preds = %if.end14
   br i1 %cmp9.i.i.i79, label %if.then.i.i.i83, label %if.end.i.i.i80
 
 if.then.i.i.i83:                                  ; preds = %if.then16
-  %call11.i.i.i84 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i84 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit85
 
 if.end.i.i.i80:                                   ; preds = %if.then16
@@ -2680,7 +2636,7 @@ if.then22:                                        ; preds = %if.end20
   br i1 %cmp9.i.i.i105, label %if.then.i.i.i109, label %if.end.i.i.i106
 
 if.then.i.i.i109:                                 ; preds = %if.then22
-  %call11.i.i.i110 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i110 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111
 
 if.end.i.i.i106:                                  ; preds = %if.then22
@@ -2704,7 +2660,7 @@ if.end26:                                         ; preds = %if.end20
   br i1 %cmp9.i.i.i131, label %if.then.i.i.i135, label %if.end.i.i.i132
 
 if.then.i.i.i135:                                 ; preds = %if.end26
-  %call11.i.i.i136 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i136 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit137
 
 if.end.i.i.i132:                                  ; preds = %if.end26
@@ -2747,7 +2703,7 @@ define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl25parseT
 entry:
   %tok_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 3
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   br label %while.cond
 
@@ -2774,11 +2730,11 @@ if.end:                                           ; preds = %while.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
   store ptr %5, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %5, ptr %params, align 8
-  %call7 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call7 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call7, label %while.cond, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %while.cond
-  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #5
+  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br label %return
 
 return:                                           ; preds = %while.body, %while.end
@@ -2816,7 +2772,7 @@ if.then:                                          ; preds = %entry, %_ZNK6hermes
 if.end:                                           ; preds = %entry, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit
   %typeIdent_ = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 41
   %4 = load ptr, ptr %typeIdent_, align 8
-  %call5 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatEPNS_12UniqueStringENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef %4, i32 noundef 3) #5
+  %call5 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatEPNS_12UniqueStringENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef %4, i32 noundef 3) #4
   br i1 %call5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end
@@ -2861,7 +2817,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   %1 = load i32, ptr %call2.i, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -2873,7 +2829,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr %retval.sroa.0.0.copyload.i.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr %retval.sroa.0.0.copyload.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
@@ -2903,7 +2859,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end
@@ -2939,7 +2895,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %retval.sroa.0.0.copyload.i.i7.i = load ptr, ptr %range_.i.i.i, align 8
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
-  %call2.i13 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i13 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i13, ptr %tok_.i, align 8
   %16 = load i32, ptr %call2.i13, align 8
   %cmp.i15 = icmp eq i32 %16, 74
@@ -2962,7 +2918,7 @@ if.end19:                                         ; preds = %if.end17, %_ZN6herm
   store ptr %extends, ptr %extends, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %extends, i64 0, i32 1
   store ptr %extends, ptr %Next2.i.i.i.i.i, align 8
-  %call20 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 0) #5
+  %call20 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 0) #4
   br i1 %call20, label %do.body.preheader, label %if.end45
 
 do.body.preheader:                                ; preds = %if.end19
@@ -3015,7 +2971,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp9.i.i.i30, label %if.then.i.i.i34, label %if.end.i.i.i31
 
 if.then.i.i.i34:                                  ; preds = %if.end31
-  %call11.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36
 
 if.end.i.i.i31:                                   ; preds = %if.end31
@@ -3048,7 +3004,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36:  ; preds = %if.then.i.i.i34, %i
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
   store ptr %retval.0.i.i.i33, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %retval.0.i.i.i33, ptr %extends, align 8
-  %call41 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call41 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call41, label %do.cond, label %if.end45
 
 do.cond:                                          ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36
@@ -3061,7 +3017,7 @@ if.end45:                                         ; preds = %do.cond, %_ZN6herme
   %40 = load ptr, ptr %tok_.i, align 8
   %range_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %40, i64 0, i32 2
   %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %call51 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call51 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call51, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.end45
@@ -3097,14 +3053,14 @@ if.end60:                                         ; preds = %while.body
   br i1 %switch, label %if.then64, label %while.end
 
 if.then64:                                        ; preds = %if.end60
-  %call2.i63 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i63 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i63, ptr %tok_.i, align 8
   %51 = load i32, ptr %call2.i63, align 8
   %cmp.i46 = icmp eq i32 %51, 51
   br i1 %cmp.i46, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.then64, %if.end60, %if.end53
-  %call70 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call70 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call70, label %if.end72, label %return
 
 if.end72:                                         ; preds = %while.end
@@ -3135,7 +3091,7 @@ if.end72:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i76, label %if.then.i.i.i80, label %if.end.i.i.i77
 
 if.then.i.i.i80:                                  ; preds = %if.end72
-  %call11.i.i.i81 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i81 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit82
 
 if.end.i.i.i77:                                   ; preds = %if.end72
@@ -3210,7 +3166,7 @@ _ZN6hermes6ESTree19TSInterfaceBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.ex
   br i1 %cmp9.i.i.i99, label %if.then.i.i.i103, label %if.end.i.i.i100
 
 if.then.i.i.i103:                                 ; preds = %_ZN6hermes6ESTree19TSInterfaceBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
-  %call11.i.i.i104 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 noundef 88, i64 noundef 8) #5
+  %call11.i.i.i104 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 noundef 88, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit105
 
 if.end.i.i.i100:                                  ; preds = %_ZN6hermes6ESTree19TSInterfaceBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -3279,7 +3235,7 @@ declare noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl27parseTSTypeAliasDeclarationEN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %start.coerce) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr %start.coerce) #5
+  %call = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr %start.coerce) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3310,7 +3266,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end
@@ -3347,7 +3303,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   %14 = load i32, ptr %call2.i, align 8
   %cmp.i = icmp eq i32 %14, 74
@@ -3367,7 +3323,7 @@ if.end15:                                         ; preds = %if.then10
 
 if.end17:                                         ; preds = %if.end15, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %typeParams.0 = phi ptr [ %18, %if.end15 ], [ null, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
-  %call20 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr %start.coerce) #5
+  %call20 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr %start.coerce) #4
   br i1 %call20, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end17
@@ -3380,7 +3336,7 @@ if.end22:                                         ; preds = %if.end17
 if.end28:                                         ; preds = %if.end22
   %21 = extractvalue { i64, i8 } %call24, 0
   %22 = inttoptr i64 %21 to ptr
-  %call30 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl7eatSemiEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i1 noundef zeroext true) #5
+  %call30 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl7eatSemiEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i1 noundef zeroext true) #4
   br i1 %call30, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end28
@@ -3411,7 +3367,7 @@ if.end32:                                         ; preds = %if.end28
   br i1 %cmp9.i.i.i19, label %if.then.i.i.i23, label %if.end.i.i.i20
 
 if.then.i.i.i23:                                  ; preds = %if.end32
-  %call11.i.i.i24 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i24 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit25
 
 if.end.i.i.i20:                                   ; preds = %if.end32
@@ -3460,7 +3416,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   %call2 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl20parseTSQualifiedNameEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %1 = extractvalue { i64, i8 } %call2, 1
@@ -3471,14 +3427,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
   %3 = extractvalue { i64, i8 } %call2, 0
   %4 = inttoptr i64 %3 to ptr
-  %call8 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call8 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
@@ -3494,11 +3450,11 @@ while.cond:                                       ; preds = %while.body, %if.end
   br i1 %cmp.i, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22parseStatementListItemENS1_5ParamENS2_17AllowImportExportERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %members) #5
+  %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22parseStatementListItemENS1_5ParamENS2_17AllowImportExportERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %members) #4
   br i1 %call14, label %while.cond, label %return, !llvm.loop !15
 
 while.end:                                        ; preds = %while.cond
-  %call19 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call19 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %while.end
@@ -3529,7 +3485,7 @@ if.end21:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end21
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end21
@@ -3604,7 +3560,7 @@ _ZN6hermes6ESTree17TSModuleBlockNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
   br i1 %cmp9.i.i.i17, label %if.then.i.i.i21, label %if.end.i.i.i18
 
 if.then.i.i.i21:                                  ; preds = %_ZN6hermes6ESTree17TSModuleBlockNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
-  %call11.i.i.i22 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i22 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23
 
 if.end.i.i.i18:                                   ; preds = %_ZN6hermes6ESTree17TSModuleBlockNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -3651,9 +3607,9 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
-  %call2 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #5
+  %call2 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #4
   %1 = extractvalue { i64, i8 } %call2, 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -3662,14 +3618,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
   %3 = extractvalue { i64, i8 } %call2, 0
   %4 = inttoptr i64 %3 to ptr
-  %call10 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call10 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 49, i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end
@@ -3701,11 +3657,11 @@ if.end18:                                         ; preds = %while.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %11, i64 0, i32 1
   store ptr %10, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %10, ptr %members, align 8
-  %call20 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call20 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call20, label %while.cond, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end18, %while.cond
-  %call25 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call25 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call25, label %if.end27, label %return
 
 if.end27:                                         ; preds = %while.end
@@ -3736,7 +3692,7 @@ if.end27:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end27
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end27
@@ -3860,7 +3816,7 @@ if.end14:                                         ; preds = %if.end12, %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end14
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end14
@@ -3915,7 +3871,7 @@ if.then:                                          ; preds = %entry
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %params, i64 0, i32 1
   store ptr %params, ptr %Next2.i.i.i.i.i, align 8
   %lexer_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i.i = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i, i32 noundef 3) #5
+  %call2.i.i = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i, i32 noundef 3) #4
   store ptr %call2.i.i, ptr %tok_, align 8
   br label %while.cond.i
 
@@ -3942,15 +3898,15 @@ if.end.i:                                         ; preds = %while.body.i
   %Next2.i7.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
   store ptr %7, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %7, ptr %params, align 8
-  %call7.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call7.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call7.i, label %while.cond.i, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit, !llvm.loop !12
 
 _ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit: ; preds = %while.cond.i, %if.end.i
-  %call11.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #5
+  %call11.i = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call11.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit
-  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3) #5
+  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3) #4
   br i1 %call6, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end
@@ -3994,7 +3950,7 @@ if.end15:                                         ; preds = %if.end13, %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end15
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end15
@@ -4047,7 +4003,7 @@ _ZN6hermes6ESTree30TSCallSignatureDeclarationNodeC2EON4llvh12simple_ilistINS0_4N
   br label %return
 
 if.end24:                                         ; preds = %entry
-  %call25 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 55, i32 noundef 3) #5
+  %call25 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 55, i32 noundef 3) #4
   br i1 %call25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %if.end24
@@ -4058,7 +4014,7 @@ if.then26:                                        ; preds = %if.end24
 
 if.then28:                                        ; preds = %if.then26
   %lexer_ = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call30 = tail call i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i64 0) #5
+  %call30 = tail call i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i64 0) #4
   %31 = and i64 %call30, 8589934591
   %or.cond = icmp eq i64 %31, 4294967388
   br i1 %or.cond, label %if.then33, label %if.end39
@@ -4070,14 +4026,14 @@ if.then33:                                        ; preds = %if.then28
   br label %return
 
 if.end39:                                         ; preds = %if.then28, %if.then26
-  %call42 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS1_5ParamENS2_23AllowTypedArrowFunctionENS2_20CoverTypedParametersEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #5
+  %call42 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS1_5ParamENS2_23AllowTypedArrowFunctionENS2_20CoverTypedParametersEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #4
   %34 = extractvalue { i64, i8 } %call42, 1
   %35 = and i8 %34, 1
   %tobool.i20.not = icmp eq i8 %35, 0
   br i1 %tobool.i20.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end39
-  %call50 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr %retval.sroa.0.0.copyload.i) #5
+  %call50 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call50, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.end46
@@ -4086,7 +4042,7 @@ if.end52:                                         ; preds = %if.end46
   br label %if.end72
 
 if.else:                                          ; preds = %if.end24
-  %call58 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr %retval.sroa.0.0.copyload.i) #5
+  %call58 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call58, label %if.end60, label %return
 
 if.end60:                                         ; preds = %if.else
@@ -4116,7 +4072,7 @@ if.end60:                                         ; preds = %if.else
   br i1 %cmp9.i.i.i33, label %if.then.i.i.i37, label %if.end.i.i.i34
 
 if.then.i.i.i37:                                  ; preds = %if.end60
-  %call11.i.i.i38 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i38 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39
 
 if.end.i.i.i34:                                   ; preds = %if.end60
@@ -4153,13 +4109,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39:  ; preds = %if.then.i.i.i37, %i
   %debugLoc_.i.i42 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i36, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i42, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39, %if.end52
   %key.0 = phi ptr [ %37, %if.end52 ], [ %retval.0.i.i.i36, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39 ]
-  %call69 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 91, i32 noundef 3) #5
+  %call69 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 91, i32 noundef 3) #4
   %52 = load ptr, ptr %tok_, align 8
   %53 = load i32, ptr %52, align 8
   switch i32 %53, label %if.end151 [
@@ -4171,7 +4127,7 @@ if.then74:                                        ; preds = %if.end72
   %range_.i.i48 = getelementptr inbounds %"class.hermes::parser::Token", ptr %52, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i49 = load ptr, ptr %range_.i.i48, align 8
   %lexer_.i54 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i55 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i54, i32 noundef 3) #5
+  %call2.i55 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i54, i32 noundef 3) #4
   store ptr %call2.i55, ptr %tok_, align 8
   %54 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i49 to i64
   %call79 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 %54, i8 1)
@@ -4209,7 +4165,7 @@ if.end83:                                         ; preds = %if.then74
   br i1 %cmp9.i.i.i71, label %if.then.i.i.i75, label %if.end.i.i.i72
 
 if.then.i.i.i75:                                  ; preds = %if.end83
-  %call11.i.i.i76 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef 80, i64 noundef 8) #5
+  %call11.i.i.i76 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef 80, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit77
 
 if.end.i.i.i72:                                   ; preds = %if.end83
@@ -4258,7 +4214,7 @@ if.then101:                                       ; preds = %if.end72
   %Next2.i.i.i.i.i88 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %params102, i64 0, i32 1
   store ptr %params102, ptr %Next2.i.i.i.i.i88, align 8
   %lexer_.i.i90 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i.i91 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i90, i32 noundef 3) #5
+  %call2.i.i91 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i90, i32 noundef 3) #4
   store ptr %call2.i.i91, ptr %tok_, align 8
   br label %while.cond.i92
 
@@ -4285,11 +4241,11 @@ if.end.i97:                                       ; preds = %while.body.i94
   %Next2.i7.i.i.i.i.i99 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %77, i64 0, i32 1
   store ptr %76, ptr %Next2.i7.i.i.i.i.i99, align 8
   store ptr %76, ptr %params102, align 8
-  %call7.i100 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call7.i100 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call7.i100, label %while.cond.i92, label %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104, !llvm.loop !12
 
 _ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104: ; preds = %while.cond.i92, %if.end.i97
-  %call11.i102 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #5
+  %call11.i102 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %retval.sroa.0.0.copyload.i) #4
   br i1 %call11.i102, label %if.end107, label %return
 
 if.end107:                                        ; preds = %_ZN6hermes6parser6detail12JSParserImpl25parseTSFunctionTypeParamsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE.exit104
@@ -4301,7 +4257,7 @@ if.end107:                                        ; preds = %_ZN6hermes6parser6d
 if.then110:                                       ; preds = %if.end107
   %range_.i.i109 = getelementptr inbounds %"class.hermes::parser::Token", ptr %78, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i110 = load ptr, ptr %range_.i.i109, align 8
-  %call2.i116 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i90, i32 noundef 3) #5
+  %call2.i116 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i.i90, i32 noundef 3) #4
   store ptr %call2.i116, ptr %tok_, align 8
   %80 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i110 to i64
   %call117 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 %80, i8 1)
@@ -4359,7 +4315,7 @@ if.end151:                                        ; preds = %if.end72
   br i1 %cmp9.i.i.i153, label %if.then.i.i.i157, label %if.end.i.i.i154
 
 if.then.i.i.i157:                                 ; preds = %if.end151
-  %call11.i.i.i158 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %87, i64 noundef 80, i64 noundef 8) #5
+  %call11.i.i.i158 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %87, i64 noundef 80, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit159
 
 if.end.i.i.i154:                                  ; preds = %if.end151
@@ -4418,7 +4374,7 @@ entry:
   %0 = load ptr, ptr %tok_, align 8
   %range_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %call3 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #5
+  %call3 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #4
   %1 = extractvalue { i64, i8 } %call3, 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -4427,18 +4383,18 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr %retval.sroa.0.0.copyload.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr %retval.sroa.0.0.copyload.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
 if.end:                                           ; preds = %entry
   %3 = extractvalue { i64, i8 } %call3, 0
   %4 = inttoptr i64 %3 to ptr
-  %call9 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 0) #5
+  %call9 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 0) #4
   br i1 %call9, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %if.end
-  %call13 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS1_5ParamENS2_23AllowTypedArrowFunctionENS2_20CoverTypedParametersEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #5
+  %call13 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS1_5ParamENS2_23AllowTypedArrowFunctionENS2_20CoverTypedParametersEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #4
   %5 = extractvalue { i64, i8 } %call13, 1
   %6 = and i8 %5, 1
   %tobool.i2.not = icmp eq i8 %6, 0
@@ -4478,7 +4434,7 @@ if.end19:                                         ; preds = %if.end17, %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end19
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end19
@@ -4550,7 +4506,7 @@ entry:
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -4586,9 +4542,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
-  %call974 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #5
+  %call974 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
   br i1 %call974, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -4608,7 +4564,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
@@ -4638,7 +4594,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp9.i.i.i11, label %if.then.i.i.i15, label %if.end.i.i.i12
 
 if.then.i.i.i15:                                  ; preds = %if.end
-  %call11.i.i.i16 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i16 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit17
 
 if.end.i.i.i12:                                   ; preds = %if.end
@@ -4674,7 +4630,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit17:  ; preds = %if.then.i.i.i15, %i
   %retval.sroa.0.0.copyload.i.i7.i30 = load ptr, ptr %range_.i.i.i24, align 8
   %debugLoc_.i.i31 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i14, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i30, ptr %debugLoc_.i.i31, align 8
-  %call2.i40 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i40 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i40, ptr %tok_, align 8
   %retval.sroa.0.0.copyload.i.i41 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %30 = load ptr, ptr %this, align 8
@@ -4702,7 +4658,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit17:  ; preds = %if.then.i.i.i15, %i
   br i1 %cmp9.i.i.i51, label %if.then.i.i.i55, label %if.end.i.i.i52
 
 if.then.i.i.i55:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit17
-  %call11.i.i.i56 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i56 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57
 
 if.end.i.i.i52:                                   ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit17
@@ -4731,7 +4687,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57:  ; preds = %if.then.i.i.i55, %i
   %retval.sroa.0.0.copyload.i.i6.i = load ptr, ptr %sourceRange_.i.i.i, align 8
   %debugLoc_.i.i61 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i54, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i61, align 8
-  %call9 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #5
+  %call9 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
   br i1 %call9, label %while.body, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit57, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -4756,7 +4712,7 @@ entry:
   %0 = load ptr, ptr %tok_, align 8
   %range_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %call3 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.24, ptr noundef null, ptr null) #5
+  %call3 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 1, ptr noundef nonnull @.str.24, ptr noundef null, ptr null) #4
   br i1 %call3, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4786,7 +4742,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end
@@ -4823,9 +4779,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
-  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 3) #5
+  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 38, i32 noundef 3) #4
   br i1 %call11, label %if.then12, label %if.end20
 
 if.then12:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -4842,7 +4798,7 @@ if.end18:                                         ; preds = %if.then12
 
 if.end20:                                         ; preds = %if.end18, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
   %constraint.0 = phi ptr [ %18, %if.end18 ], [ null, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
-  %call21 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 3) #5
+  %call21 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 3) #4
   br i1 %call21, label %if.then22, label %if.end31
 
 if.then22:                                        ; preds = %if.end20
@@ -4886,7 +4842,7 @@ if.end31:                                         ; preds = %if.end29, %if.end20
   br i1 %cmp9.i.i.i17, label %if.then.i.i.i21, label %if.end.i.i.i18
 
 if.then.i.i.i21:                                  ; preds = %if.end31
-  %call11.i.i.i22 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i22 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit23
 
 if.end.i.i.i18:                                   ; preds = %if.end31
@@ -4937,7 +4893,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
 
 _ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit: ; preds = %entry
-  %call.i = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #5
+  %call.i = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #4
   br i1 %call.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit
@@ -4969,7 +4925,7 @@ sw.bb:                                            ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_, align 8
   %3 = load ptr, ptr %this, align 8
   %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %3, i64 0, i32 1
@@ -4996,7 +4952,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %sw.bb
@@ -5055,7 +5011,7 @@ sw.bb29:                                          ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i6 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i7 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i6, align 8
   %lexer_.i10 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i11 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i10, i32 noundef 3) #5
+  %call2.i11 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i10, i32 noundef 3) #4
   store ptr %call2.i11, ptr %tok_, align 8
   %25 = load ptr, ptr %this, align 8
   %state_.i.i.i12 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %25, i64 0, i32 1
@@ -5082,7 +5038,7 @@ sw.bb29:                                          ; preds = %if.end
   br i1 %cmp9.i.i.i21, label %if.then.i.i.i25, label %if.end.i.i.i22
 
 if.then.i.i.i25:                                  ; preds = %sw.bb29
-  %call11.i.i.i26 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i26 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit27
 
 if.end.i.i.i22:                                   ; preds = %sw.bb29
@@ -5119,7 +5075,7 @@ if.then44:                                        ; preds = %sw.bb41
   %retval.sroa.2.0.range_.sroa_idx.i.i37 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i38 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i37, align 8
   %lexer_.i41 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i42 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i41, i32 noundef 3) #5
+  %call2.i42 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i41, i32 noundef 3) #4
   store ptr %call2.i42, ptr %tok_, align 8
   %39 = load ptr, ptr %this, align 8
   %state_.i.i.i43 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %39, i64 0, i32 1
@@ -5146,7 +5102,7 @@ if.then44:                                        ; preds = %sw.bb41
   br i1 %cmp9.i.i.i52, label %if.then.i.i.i56, label %if.end.i.i.i53
 
 if.then.i.i.i56:                                  ; preds = %if.then44
-  %call11.i.i.i57 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i57 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit58
 
 if.end.i.i.i53:                                   ; preds = %if.then44
@@ -5181,7 +5137,7 @@ if.then60:                                        ; preds = %if.end56
   %retval.sroa.2.0.range_.sroa_idx.i.i69 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i70 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i69, align 8
   %lexer_.i73 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i74 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i73, i32 noundef 3) #5
+  %call2.i74 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i73, i32 noundef 3) #4
   store ptr %call2.i74, ptr %tok_, align 8
   %52 = load ptr, ptr %this, align 8
   %call68 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %52, i64 noundef 8)
@@ -5209,7 +5165,7 @@ if.then76:                                        ; preds = %if.end72
   %retval.sroa.2.0.range_.sroa_idx.i.i85 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i86 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i85, align 8
   %lexer_.i89 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i90 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i89, i32 noundef 3) #5
+  %call2.i90 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i89, i32 noundef 3) #4
   store ptr %call2.i90, ptr %tok_, align 8
   %55 = load ptr, ptr %this, align 8
   %call84 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %55, i64 noundef 8)
@@ -5237,7 +5193,7 @@ if.then92:                                        ; preds = %if.end88
   %retval.sroa.2.0.range_.sroa_idx.i.i101 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i102 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i101, align 8
   %lexer_.i105 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i106 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i105, i32 noundef 3) #5
+  %call2.i106 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i105, i32 noundef 3) #4
   store ptr %call2.i106, ptr %tok_, align 8
   %58 = load ptr, ptr %this, align 8
   %call100 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %58, i64 noundef 8)
@@ -5265,7 +5221,7 @@ if.then108:                                       ; preds = %if.end104
   %retval.sroa.2.0.range_.sroa_idx.i.i117 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i118 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i117, align 8
   %lexer_.i121 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i122 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i121, i32 noundef 3) #5
+  %call2.i122 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i121, i32 noundef 3) #4
   store ptr %call2.i122, ptr %tok_, align 8
   %61 = load ptr, ptr %this, align 8
   %call116 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %61, i64 noundef 8)
@@ -5293,7 +5249,7 @@ if.then124:                                       ; preds = %if.end120
   %retval.sroa.2.0.range_.sroa_idx.i.i133 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i134 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i133, align 8
   %lexer_.i137 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i138 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i137, i32 noundef 3) #5
+  %call2.i138 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i137, i32 noundef 3) #4
   store ptr %call2.i138, ptr %tok_, align 8
   %64 = load ptr, ptr %this, align 8
   %call132 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %64, i64 noundef 8)
@@ -5321,7 +5277,7 @@ if.then140:                                       ; preds = %if.end136
   %retval.sroa.2.0.range_.sroa_idx.i.i149 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i150 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i149, align 8
   %lexer_.i153 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i154 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i153, i32 noundef 3) #5
+  %call2.i154 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i153, i32 noundef 3) #4
   store ptr %call2.i154, ptr %tok_, align 8
   %67 = load ptr, ptr %this, align 8
   %call148 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %67, i64 noundef 8)
@@ -5349,7 +5305,7 @@ if.then156:                                       ; preds = %if.end152
   %retval.sroa.2.0.range_.sroa_idx.i.i165 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i166 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i165, align 8
   %lexer_.i169 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i170 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i169, i32 noundef 3) #5
+  %call2.i170 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i169, i32 noundef 3) #4
   store ptr %call2.i170, ptr %tok_, align 8
   %70 = load ptr, ptr %this, align 8
   %call164 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %70, i64 noundef 8)
@@ -5377,7 +5333,7 @@ if.then172:                                       ; preds = %if.end168
   %retval.sroa.2.0.range_.sroa_idx.i.i181 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i182 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i181, align 8
   %lexer_.i185 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i186 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i185, i32 noundef 3) #5
+  %call2.i186 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i185, i32 noundef 3) #4
   store ptr %call2.i186, ptr %tok_, align 8
   %73 = load ptr, ptr %this, align 8
   %call180 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(656) %73, i64 noundef 8)
@@ -5408,7 +5364,7 @@ sw.bb192:                                         ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i198 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i199 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i198, align 8
   %lexer_.i202 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i203 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i202, i32 noundef 3) #5
+  %call2.i203 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i202, i32 noundef 3) #4
   store ptr %call2.i203, ptr %tok_, align 8
   %78 = load ptr, ptr %this, align 8
   %state_.i.i.i204 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %78, i64 0, i32 1
@@ -5435,7 +5391,7 @@ sw.bb192:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i213, label %if.then.i.i.i217, label %if.end.i.i.i214
 
 if.then.i.i.i217:                                 ; preds = %sw.bb192
-  %call11.i.i.i218 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %78, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i218 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %78, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit219
 
 if.end.i.i.i214:                                  ; preds = %sw.bb192
@@ -5471,7 +5427,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit219: ; preds = %if.then.i.i.i217, %
   br i1 %cmp9.i.i.i229, label %if.then.i.i.i233, label %if.end.i.i.i230
 
 if.then.i.i.i233:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit219
-  %call11.i.i.i234 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %89, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i234 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %89, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit235
 
 if.end.i.i.i230:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit219
@@ -5513,7 +5469,7 @@ sw.bb211:                                         ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i248 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i249 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i248, align 8
   %lexer_.i252 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i253 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i252, i32 noundef 3) #5
+  %call2.i253 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i252, i32 noundef 3) #4
   store ptr %call2.i253, ptr %tok_, align 8
   %101 = load ptr, ptr %this, align 8
   %state_.i.i.i254 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %101, i64 0, i32 1
@@ -5540,7 +5496,7 @@ sw.bb211:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i263, label %if.then.i.i.i267, label %if.end.i.i.i264
 
 if.then.i.i.i267:                                 ; preds = %sw.bb211
-  %call11.i.i.i268 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %101, i64 noundef 48, i64 noundef 8) #5
+  %call11.i.i.i268 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %101, i64 noundef 48, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit269
 
 if.end.i.i.i264:                                  ; preds = %sw.bb211
@@ -5571,7 +5527,7 @@ sw.bb223:                                         ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i279 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i280 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i279, align 8
   %lexer_.i283 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i284 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i283, i32 noundef 3) #5
+  %call2.i284 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i283, i32 noundef 3) #4
   store ptr %call2.i284, ptr %tok_, align 8
   %114 = load ptr, ptr %this, align 8
   %state_.i.i.i285 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %114, i64 0, i32 1
@@ -5598,7 +5554,7 @@ sw.bb223:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i294, label %if.then.i.i.i298, label %if.end.i.i.i295
 
 if.then.i.i.i298:                                 ; preds = %sw.bb223
-  %call11.i.i.i299 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %114, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i299 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %114, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit300
 
 if.end.i.i.i295:                                  ; preds = %sw.bb223
@@ -5634,7 +5590,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit300: ; preds = %if.then.i.i.i298, %
   br i1 %cmp9.i.i.i310, label %if.then.i.i.i314, label %if.end.i.i.i311
 
 if.then.i.i.i314:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit300
-  %call11.i.i.i315 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %125, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i315 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %125, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit316
 
 if.end.i.i.i311:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit300
@@ -5680,7 +5636,7 @@ sw.bb245:                                         ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i332 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i333 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i332, align 8
   %lexer_.i336 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i337 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i336, i32 noundef 3) #5
+  %call2.i337 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i336, i32 noundef 3) #4
   store ptr %call2.i337, ptr %tok_, align 8
   %138 = load ptr, ptr %this, align 8
   %state_.i.i.i338 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %138, i64 0, i32 1
@@ -5707,7 +5663,7 @@ sw.bb245:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i347, label %if.then.i.i.i351, label %if.end.i.i.i348
 
 if.then.i.i.i351:                                 ; preds = %sw.bb245
-  %call11.i.i.i352 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %138, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i352 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %138, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit353
 
 if.end.i.i.i348:                                  ; preds = %sw.bb245
@@ -5743,7 +5699,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit353: ; preds = %if.then.i.i.i351, %
   br i1 %cmp9.i.i.i363, label %if.then.i.i.i367, label %if.end.i.i.i364
 
 if.then.i.i.i367:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit353
-  %call11.i.i.i368 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %149, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i368 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %149, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit369
 
 if.end.i.i.i364:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit353
@@ -5789,7 +5745,7 @@ sw.bb268:                                         ; preds = %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i386 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i387 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i386, align 8
   %lexer_.i390 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i391 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i390, i32 noundef 3) #5
+  %call2.i391 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i390, i32 noundef 3) #4
   store ptr %call2.i391, ptr %tok_, align 8
   %162 = load ptr, ptr %this, align 8
   %state_.i.i.i392 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %162, i64 0, i32 1
@@ -5816,7 +5772,7 @@ sw.bb268:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i401, label %if.then.i.i.i405, label %if.end.i.i.i402
 
 if.then.i.i.i405:                                 ; preds = %sw.bb268
-  %call11.i.i.i406 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %162, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i406 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %162, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit407
 
 if.end.i.i.i402:                                  ; preds = %sw.bb268
@@ -5852,7 +5808,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit407: ; preds = %if.then.i.i.i405, %
   br i1 %cmp9.i.i.i417, label %if.then.i.i.i421, label %if.end.i.i.i418
 
 if.then.i.i.i421:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit407
-  %call11.i.i.i422 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %173, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i422 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %173, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit423
 
 if.end.i.i.i418:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit407
@@ -5897,7 +5853,7 @@ sw.bb290:                                         ; preds = %if.end, %if.end
   %retval.sroa.2.0.range_.sroa_idx.i.i441 = getelementptr inbounds %"class.hermes::parser::Token", ptr %1, i64 0, i32 2, i32 1
   %retval.sroa.2.0.copyload.i.i442 = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i441, align 8
   %lexer_.i445 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i446 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i445, i32 noundef 3) #5
+  %call2.i446 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i445, i32 noundef 3) #4
   store ptr %call2.i446, ptr %tok_, align 8
   %185 = load ptr, ptr %this, align 8
   %state_.i.i.i447 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %185, i64 0, i32 1
@@ -5924,7 +5880,7 @@ sw.bb290:                                         ; preds = %if.end, %if.end
   br i1 %cmp9.i.i.i456, label %if.then.i.i.i460, label %if.end.i.i.i457
 
 if.then.i.i.i460:                                 ; preds = %sw.bb290
-  %call11.i.i.i461 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %185, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i461 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %185, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit462
 
 if.end.i.i.i457:                                  ; preds = %sw.bb290
@@ -5960,7 +5916,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit462: ; preds = %if.then.i.i.i460, %
   br i1 %cmp9.i.i.i472, label %if.then.i.i.i476, label %if.end.i.i.i473
 
 if.then.i.i.i476:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit462
-  %call11.i.i.i477 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %196, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i477 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %196, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit478
 
 if.end.i.i.i473:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit462
@@ -6023,7 +5979,7 @@ if.end322:                                        ; preds = %sw.default
   store i8 3, ptr %LHSKind.i, align 8
   %sm_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 1
   %212 = load ptr, ptr %sm_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %212, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp327, i32 noundef 2) #5
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %212, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp327, i32 noundef 2) #4
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then313, %if.end184, %_ZN6hermes6parser6detail12JSParserImpl19recursionDepthCheckEv.exit, %if.end322, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit478, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit423, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit369, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit316, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit269, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit235, %if.then172, %if.then156, %if.then140, %if.then124, %if.then108, %if.then92, %if.then76, %if.then60, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit58, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit27, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb12, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -6046,7 +6002,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   store ptr %members, ptr %members, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %members, i64 0, i32 1
@@ -6079,14 +6035,14 @@ if.end:                                           ; preds = %while.body
   br i1 %switch, label %if.then7, label %while.end
 
 if.then7:                                         ; preds = %if.end
-  %call2.i13 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i13 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i13, ptr %tok_.i, align 8
   %10 = load i32, ptr %call2.i13, align 8
   %cmp.i = icmp eq i32 %10, 51
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.then7, %if.end, %entry
-  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call11 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 51, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %while.end
@@ -6117,7 +6073,7 @@ if.end13:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end13
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end13
@@ -6185,7 +6141,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   %1 = load i32, ptr %call2.i, align 8
   %2 = add i32 %1, -4
@@ -6197,7 +6153,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr %retval.sroa.0.0.copyload.i.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr %retval.sroa.0.0.copyload.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
@@ -6227,7 +6183,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end
@@ -6263,9 +6219,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %retval.sroa.0.0.copyload.i.i7.i = load ptr, ptr %range_.i.i.i, align 8
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i, align 8
-  %call2.i12 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i12 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i12, ptr %tok_.i, align 8
-  %call11115 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #5
+  %call11115 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
   br i1 %call11115, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -6285,7 +6241,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then15:                                        ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i16)
   store i32 1, ptr %k1.addr.i16, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i16, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i.i) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i16, i64 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr %retval.sroa.0.0.copyload.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i16)
   br label %return
 
@@ -6315,7 +6271,7 @@ if.end18:                                         ; preds = %while.body
   br i1 %cmp9.i.i.i27, label %if.then.i.i.i31, label %if.end.i.i.i28
 
 if.then.i.i.i31:                                  ; preds = %if.end18
-  %call11.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33
 
 if.end.i.i.i28:                                   ; preds = %if.end18
@@ -6351,7 +6307,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33:  ; preds = %if.then.i.i.i31, %i
   %retval.sroa.0.0.copyload.i.i7.i46 = load ptr, ptr %range_.i.i.i40, align 8
   %debugLoc_.i.i47 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i30, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i46, ptr %debugLoc_.i.i47, align 8
-  %call2.i56 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i56 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i56, ptr %tok_.i, align 8
   %retval.sroa.0.0.copyload.i.i57 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %32 = load ptr, ptr %this, align 8
@@ -6379,7 +6335,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33:  ; preds = %if.then.i.i.i31, %i
   br i1 %cmp9.i.i.i67, label %if.then.i.i.i71, label %if.end.i.i.i68
 
 if.then.i.i.i71:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33
-  %call11.i.i.i72 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i72 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73
 
 if.end.i.i.i68:                                   ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit33
@@ -6408,7 +6364,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73:  ; preds = %if.then.i.i.i71, %i
   %retval.sroa.0.0.copyload.i.i6.i = load ptr, ptr %sourceRange_.i.i.i, align 8
   %debugLoc_.i.i77 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i70, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i6.i, ptr %debugLoc_.i.i77, align 8
-  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #5
+  %call11 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 57, i32 noundef 3) #4
   br i1 %call11, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit73, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -6440,7 +6396,7 @@ while.end:                                        ; preds = %_ZN6hermes6ESTree4N
   br i1 %cmp9.i.i.i89, label %if.then.i.i.i93, label %if.end.i.i.i90
 
 if.then.i.i.i93:                                  ; preds = %while.end
-  %call11.i.i.i94 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %43, i64 noundef 56, i64 noundef 8) #5
+  %call11.i.i.i94 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %43, i64 noundef 56, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit95
 
 if.end.i.i.i90:                                   ; preds = %while.end
@@ -6484,7 +6440,7 @@ entry:
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %0, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   store ptr %params, ptr %params, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %params, i64 0, i32 1
@@ -6514,7 +6470,7 @@ if.end:                                           ; preds = %while.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %7, i64 0, i32 1
   store ptr %6, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %6, ptr %params, align 8
-  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call6 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call6, label %while.cond, label %if.end.while.end_crit_edge, !llvm.loop !20
 
 if.end.while.end_crit_edge:                       ; preds = %if.end
@@ -6525,7 +6481,7 @@ while.end:                                        ; preds = %while.cond, %if.end
   %8 = phi ptr [ %.pre, %if.end.while.end_crit_edge ], [ %1, %while.cond ]
   %End.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %8, i64 0, i32 2, i32 1
   %retval.sroa.0.0.copyload.i = load ptr, ptr %End.i, align 8
-  %call13 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 75, i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr %retval.sroa.0.0.copyload.i.i) #5
+  %call13 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 75, i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr %retval.sroa.0.0.copyload.i.i) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %while.end
@@ -6554,7 +6510,7 @@ if.end15:                                         ; preds = %while.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end15
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 64, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end15
@@ -6630,7 +6586,7 @@ while.cond:                                       ; preds = %if.end, %entry
   br i1 %cmp.i, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call3 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #5
+  %call3 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseBindingIdentifierENS1_5ParamE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 0) #4
   %2 = extractvalue { i64, i8 } %call3, 1
   %3 = and i8 %2, 1
   %tobool.i.not = icmp eq i8 %3, 0
@@ -6639,7 +6595,7 @@ while.body:                                       ; preds = %while.cond
 if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.addr.i)
   store i32 1, ptr %k1.addr.i, align 4
-  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr %start.coerce) #5
+  call void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nonnull %k1.addr.i, i64 1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, ptr %start.coerce) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.addr.i)
   br label %return
 
@@ -6653,11 +6609,11 @@ if.end:                                           ; preds = %while.body
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
   store ptr %5, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %5, ptr %params, align 8
-  %call9 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #5
+  %call9 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call9, label %while.cond, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %if.end, %while.cond
-  %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr %start.coerce) #5
+  %call14 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr %start.coerce) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %while.end
@@ -6670,7 +6626,7 @@ if.then18:                                        ; preds = %if.end16
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %7, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
-  %call2.i = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #5
+  %call2.i = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
   store ptr %call2.i, ptr %tok_.i, align 8
   %9 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   %call21 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 %9, i8 1)
@@ -6713,7 +6669,7 @@ if.end27:                                         ; preds = %if.end25, %if.end16
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end27
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 72, i64 noundef 8) #5
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 72, i64 noundef 8) #4
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end27
@@ -6825,9 +6781,6 @@ declare noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr
 
 declare noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl22recursionDepthExceededEv(ptr noundef nonnull align 8 dereferenceable(2752)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
-
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8ArrayRefINS0_9TokenKindEEEPKcS8_NS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752), ptr, i64, ptr noundef, ptr noundef, ptr) local_unnamed_addr #1
@@ -6835,17 +6788,16 @@ declare void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh8Array
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -256,7 +256,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.cond.preheader.i:                           ; preds = %while.cond.i.i.i
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i
-  %cmp17.i = icmp ult ptr %in.addr.0.i.i.i, %add.ptr
+  %cmp17.i = icmp ult ptr %in.addr.0.i.i.i, %6
   br i1 %cmp17.i, label %land.rhs.i, label %invoke.cont15
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
@@ -264,7 +264,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   br label %while.cond.i.i.i, !llvm.loop !4
 
 while.cond.loopexit.i:                            ; preds = %while.cond.i.i11.i
-  %cmp.i = icmp ult ptr %.in.i, %add.ptr
+  %cmp.i = icmp ult ptr %.in.i, %6
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont15, !llvm.loop !6
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.cond.loopexit.i
@@ -465,7 +465,7 @@ while.cond.i.i.i110:                              ; preds = %while.body.i.i.i112
   ]
 
 while.cond.preheader.i114:                        ; preds = %while.cond.i.i.i110
-  %cmp17.i115 = icmp ult ptr %in.addr.0.i.i.i111, %add.ptr
+  %cmp17.i115 = icmp ult ptr %in.addr.0.i.i.i111, %6
   br i1 %cmp17.i115, label %land.rhs.i116, label %if.end91
 
 while.body.i.i.i112:                              ; preds = %while.cond.i.i.i110, %while.cond.i.i.i110, %while.cond.i.i.i110, %while.cond.i.i.i110
@@ -473,7 +473,7 @@ while.body.i.i.i112:                              ; preds = %while.cond.i.i.i110
   br label %while.cond.i.i.i110, !llvm.loop !4
 
 while.cond.loopexit.i132:                         ; preds = %while.cond.i.i11.i128
-  %cmp.i133 = icmp ult ptr %.in.i129, %add.ptr
+  %cmp.i133 = icmp ult ptr %.in.i129, %6
   br i1 %cmp.i133, label %land.rhs.i116, label %if.end91, !llvm.loop !6
 
 land.rhs.i116:                                    ; preds = %while.cond.preheader.i114, %while.cond.loopexit.i132
@@ -543,7 +543,7 @@ while.cond.i.i.i138:                              ; preds = %while.cond.i.i.i138
   ]
 
 while.cond.preheader.i142:                        ; preds = %while.cond.i.i.i138
-  %cmp17.i143 = icmp ult ptr %in.addr.0.i.i.i139, %add.ptr
+  %cmp17.i143 = icmp ult ptr %in.addr.0.i.i.i139, %6
   br i1 %cmp17.i143, label %land.rhs.i144, label %invoke.cont77
 
 while.body.i.i.i140:                              ; preds = %while.cond.i.i.i138, %while.cond.i.i.i138, %while.cond.i.i.i138, %while.cond.i.i.i138
@@ -551,7 +551,7 @@ while.body.i.i.i140:                              ; preds = %while.cond.i.i.i138
   br label %while.cond.i.i.i138, !llvm.loop !4
 
 while.cond.loopexit.i160:                         ; preds = %while.cond.i.i11.i156
-  %cmp.i161 = icmp ult ptr %.in.i157, %add.ptr
+  %cmp.i161 = icmp ult ptr %.in.i157, %6
   br i1 %cmp.i161, label %land.rhs.i144, label %invoke.cont77, !llvm.loop !6
 
 land.rhs.i144:                                    ; preds = %while.cond.preheader.i142, %while.cond.loopexit.i160
@@ -672,7 +672,7 @@ while.cond.i.i.i166:                              ; preds = %while.body.i.i.i168
   ]
 
 while.cond.preheader.i170:                        ; preds = %while.cond.i.i.i166
-  %cmp17.i171 = icmp ult ptr %in.addr.0.i.i.i167, %add.ptr
+  %cmp17.i171 = icmp ult ptr %in.addr.0.i.i.i167, %6
   br i1 %cmp17.i171, label %land.rhs.i172, label %if.end96
 
 while.body.i.i.i168:                              ; preds = %while.cond.i.i.i166, %while.cond.i.i.i166, %while.cond.i.i.i166, %while.cond.i.i.i166
@@ -681,7 +681,7 @@ while.body.i.i.i168:                              ; preds = %while.cond.i.i.i166
   br label %while.cond.i.i.i166, !llvm.loop !4
 
 while.cond.loopexit.i188:                         ; preds = %while.cond.i.i11.i184
-  %cmp.i189 = icmp ult ptr %.in.i185, %add.ptr
+  %cmp.i189 = icmp ult ptr %.in.i185, %6
   br i1 %cmp.i189, label %land.rhs.i172, label %if.end96, !llvm.loop !6
 
 land.rhs.i172:                                    ; preds = %while.cond.preheader.i170, %while.cond.loopexit.i188
@@ -774,7 +774,7 @@ while.cond.i.i.i194:                              ; preds = %while.body.i.i.i196
   ]
 
 while.cond.preheader.i198:                        ; preds = %while.cond.i.i.i194
-  %cmp17.i199 = icmp ult ptr %in.addr.0.i.i.i195, %add.ptr
+  %cmp17.i199 = icmp ult ptr %in.addr.0.i.i.i195, %6
   br i1 %cmp17.i199, label %land.rhs.i200, label %invoke.cont104
 
 while.body.i.i.i196:                              ; preds = %while.cond.i.i.i194, %while.cond.i.i.i194, %while.cond.i.i.i194, %while.cond.i.i.i194
@@ -783,7 +783,7 @@ while.body.i.i.i196:                              ; preds = %while.cond.i.i.i194
   br label %while.cond.i.i.i194, !llvm.loop !4
 
 while.cond.loopexit.i216:                         ; preds = %while.cond.i.i11.i212
-  %cmp.i217 = icmp ult ptr %.in.i213, %add.ptr
+  %cmp.i217 = icmp ult ptr %.in.i213, %6
   br i1 %cmp.i217, label %land.rhs.i200, label %invoke.cont104, !llvm.loop !6
 
 land.rhs.i200:                                    ; preds = %while.cond.preheader.i198, %while.cond.loopexit.i216
@@ -880,7 +880,7 @@ while.cond.i.i.i235:                              ; preds = %while.body.i.i.i237
   ]
 
 while.cond.preheader.i239:                        ; preds = %while.cond.i.i.i235
-  %cmp17.i240 = icmp ult ptr %in.addr.0.i.i.i236, %add.ptr
+  %cmp17.i240 = icmp ult ptr %in.addr.0.i.i.i236, %6
   br i1 %cmp17.i240, label %land.rhs.i241, label %invoke.cont107
 
 while.body.i.i.i237:                              ; preds = %while.cond.i.i.i235, %while.cond.i.i.i235, %while.cond.i.i.i235, %while.cond.i.i.i235
@@ -889,7 +889,7 @@ while.body.i.i.i237:                              ; preds = %while.cond.i.i.i235
   br label %while.cond.i.i.i235, !llvm.loop !4
 
 while.cond.loopexit.i257:                         ; preds = %while.cond.i.i11.i253
-  %cmp.i258 = icmp ult ptr %.in.i254, %add.ptr
+  %cmp.i258 = icmp ult ptr %.in.i254, %6
   br i1 %cmp.i258, label %land.rhs.i241, label %invoke.cont107, !llvm.loop !6
 
 land.rhs.i241:                                    ; preds = %while.cond.preheader.i239, %while.cond.loopexit.i257
@@ -986,7 +986,7 @@ while.cond.i.i.i276:                              ; preds = %while.body.i.i.i278
   ]
 
 while.cond.preheader.i280:                        ; preds = %while.cond.i.i.i276
-  %cmp17.i281 = icmp ult ptr %in.addr.0.i.i.i277, %add.ptr
+  %cmp17.i281 = icmp ult ptr %in.addr.0.i.i.i277, %6
   br i1 %cmp17.i281, label %land.rhs.i282, label %invoke.cont110
 
 while.body.i.i.i278:                              ; preds = %while.cond.i.i.i276, %while.cond.i.i.i276, %while.cond.i.i.i276, %while.cond.i.i.i276
@@ -995,7 +995,7 @@ while.body.i.i.i278:                              ; preds = %while.cond.i.i.i276
   br label %while.cond.i.i.i276, !llvm.loop !4
 
 while.cond.loopexit.i298:                         ; preds = %while.cond.i.i11.i294
-  %cmp.i299 = icmp ult ptr %.in.i295, %add.ptr
+  %cmp.i299 = icmp ult ptr %.in.i295, %6
   br i1 %cmp.i299, label %land.rhs.i282, label %invoke.cont110, !llvm.loop !6
 
 land.rhs.i282:                                    ; preds = %while.cond.preheader.i280, %while.cond.loopexit.i298
@@ -1085,7 +1085,7 @@ while.cond.i.i.i317:                              ; preds = %while.cond.i.i.i317
   ]
 
 while.cond.preheader.i321:                        ; preds = %while.cond.i.i.i317
-  %cmp17.i322 = icmp ult ptr %in.addr.0.i.i.i318, %add.ptr
+  %cmp17.i322 = icmp ult ptr %in.addr.0.i.i.i318, %6
   br i1 %cmp17.i322, label %land.rhs.i323, label %invoke.cont113
 
 while.body.i.i.i319:                              ; preds = %while.cond.i.i.i317, %while.cond.i.i.i317, %while.cond.i.i.i317, %while.cond.i.i.i317
@@ -1094,7 +1094,7 @@ while.body.i.i.i319:                              ; preds = %while.cond.i.i.i317
   br label %while.cond.i.i.i317, !llvm.loop !4
 
 while.cond.loopexit.i339:                         ; preds = %while.cond.i.i11.i335
-  %cmp.i340 = icmp ult ptr %.in.i336, %add.ptr
+  %cmp.i340 = icmp ult ptr %.in.i336, %6
   br i1 %cmp.i340, label %land.rhs.i323, label %invoke.cont113, !llvm.loop !6
 
 land.rhs.i323:                                    ; preds = %while.cond.preheader.i321, %while.cond.loopexit.i339
@@ -1246,7 +1246,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 new.ctorloop144:                                  ; preds = %arrayctor.cont
   %90 = add nsw i64 %89, -12
   %91 = urem i64 %90, 12
-  %92 = sub nsw i64 %90, %91
+  %92 = sub nuw nsw i64 %90, %91
   %93 = add nsw i64 %92, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call142, i8 0, i64 %93, i1 false)
   store ptr %call142, ptr %mVertices.i, align 8

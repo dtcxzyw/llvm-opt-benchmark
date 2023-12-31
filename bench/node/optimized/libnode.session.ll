@@ -18927,15 +18927,18 @@ if.else:                                          ; preds = %if.then
 
 if.then27:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKSt10shared_ptrIN4node6crypto13KeyObjectDataEEPS7_EET0_T_SC_SB_(ptr noundef %1, ptr noundef %0, ptr noundef %3)
+  %24 = load ptr, ptr %_M_finish.i23, align 8
+  %cmp.i.not3.i.i.i = icmp eq ptr %call.i.i.i.i, %24
+  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30.preheader
+
+for.body.i.i.i30.preheader:                       ; preds = %if.then27
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i15
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %24 = load ptr, ptr %_M_finish.i23, align 8
-  %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %24
-  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30
+  br label %for.body.i.i.i30
 
-for.body.i.i.i30:                                 ; preds = %if.then27, %_ZSt8_DestroyISt10shared_ptrIN4node6crypto13KeyObjectDataEEEvPT_.exit.i.i.i43
-  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN4node6crypto13KeyObjectDataEEEvPT_.exit.i.i.i43 ], [ %add.ptr.i.i.i.i, %if.then27 ]
+for.body.i.i.i30:                                 ; preds = %for.body.i.i.i30.preheader, %_ZSt8_DestroyISt10shared_ptrIN4node6crypto13KeyObjectDataEEEvPT_.exit.i.i.i43
+  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN4node6crypto13KeyObjectDataEEEvPT_.exit.i.i.i43 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i30.preheader ]
   %_M_refcount.i.i.i.i.i.i31 = getelementptr inbounds %"class.std::__shared_ptr.606", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 1
   %25 = load ptr, ptr %_M_refcount.i.i.i.i.i.i31, align 8
   %cmp.not.i.i.i.i.i.i.i32 = icmp eq ptr %25, null
@@ -19271,15 +19274,18 @@ if.else:                                          ; preds = %if.then
 
 if.then27:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4node4quic5StoreEPS5_EET0_T_SA_S9_(ptr noundef %1, ptr noundef %0, ptr noundef %3)
+  %24 = load ptr, ptr %_M_finish.i23, align 8
+  %cmp.i.not3.i.i.i = icmp eq ptr %call.i.i.i.i, %24
+  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30.preheader
+
+for.body.i.i.i30.preheader:                       ; preds = %if.then27
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i15
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %24 = load ptr, ptr %_M_finish.i23, align 8
-  %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %24
-  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30
+  br label %for.body.i.i.i30
 
-for.body.i.i.i30:                                 ; preds = %if.then27, %_ZSt8_DestroyIN4node4quic5StoreEEvPT_.exit.i.i.i43
-  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4node4quic5StoreEEvPT_.exit.i.i.i43 ], [ %add.ptr.i.i.i.i, %if.then27 ]
+for.body.i.i.i30:                                 ; preds = %for.body.i.i.i30.preheader, %_ZSt8_DestroyIN4node4quic5StoreEEvPT_.exit.i.i.i43
+  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4node4quic5StoreEEvPT_.exit.i.i.i43 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i30.preheader ]
   %_M_refcount.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.node::quic::Store", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 1, i32 0, i32 1
   %25 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i31, align 8
   %cmp.not.i.i.i.i.i.i.i.i32 = icmp eq ptr %25, null

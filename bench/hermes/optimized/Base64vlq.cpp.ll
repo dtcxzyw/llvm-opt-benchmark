@@ -58,23 +58,20 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %end32 = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
-  %1 = sub i64 %end32, %sub.ptr.rhs.cast
-  %scevgep = getelementptr i8, ptr %0, i64 %1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %result.027 = phi i64 [ 0, %for.body.lr.ph ], [ %or, %for.inc ]
   %cursor.026 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %2 = load i8, ptr %cursor.026, align 1
+  %1 = load i8, ptr %cursor.026, align 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body
   %__begin2.0.idx6.i = phi i64 [ 0, %for.body ], [ %__begin2.0.add.i, %for.inc.i ]
   %__begin2.0.ptr.i = getelementptr inbounds i8, ptr @_ZN6hermes9base64vlqL11Base64CharsE, i64 %__begin2.0.idx6.i
-  %3 = load i8, ptr %__begin2.0.ptr.i, align 1
-  %cmp2.i = icmp eq i8 %3, %2
+  %2 = load i8, ptr %__begin2.0.ptr.i, align 1
+  %cmp2.i = icmp eq i8 %2, %1
   br i1 %cmp2.i, label %_ZN6hermes9base64vlqL12base64DecodeEc.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -85,8 +82,8 @@ for.inc.i:                                        ; preds = %for.body.i
 _ZN6hermes9base64vlqL12base64DecodeEc.exit:       ; preds = %for.body.i
   %sub.ptr.lhs.cast = ptrtoint ptr %cursor.026 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %4 = trunc i64 %sub.ptr.sub to i32
-  %conv = mul i32 %4, 5
+  %3 = trunc i64 %sub.ptr.sub to i32
+  %conv = mul i32 %3, 5
   %cmp2 = icmp slt i32 %conv, 33
   %or.cond.not = and i1 %cmp2.i, %cmp2
   br i1 %or.cond.not, label %if.end, label %return
@@ -105,24 +102,24 @@ if.end8:                                          ; preds = %if.end
   %tobool10.not = icmp eq i64 %and9, 0
   %sub = sub nsw i64 0, %or
   %spec.select = select i1 %tobool10.not, i64 %or, i64 %sub
-  %5 = add i64 %spec.select, -4294967296
-  %or.cond1 = icmp ult i64 %5, -8589934593
+  %4 = add i64 %spec.select, -4294967296
+  %or.cond1 = icmp ult i64 %4, -8589934593
   br i1 %or.cond1, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end8
   %div = sdiv i64 %spec.select, 2
   %add.ptr = getelementptr inbounds i8, ptr %cursor.026, i64 1
   store ptr %add.ptr, ptr %begin, align 8
-  %6 = and i64 %div, 4294967295
+  %5 = and i64 %div, 4294967295
   br label %return
 
 for.inc:                                          ; preds = %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %cursor.026, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %_ZN6hermes9base64vlqL12base64DecodeEc.exit, %for.inc, %for.inc.i, %entry, %if.end8, %if.end17
-  %retval.sroa.0.0 = phi i64 [ %6, %if.end17 ], [ 0, %if.end8 ], [ 0, %entry ], [ 0, %for.inc.i ], [ 0, %for.inc ], [ 0, %_ZN6hermes9base64vlqL12base64DecodeEc.exit ]
+  %retval.sroa.0.0 = phi i64 [ %5, %if.end17 ], [ 0, %if.end8 ], [ 0, %entry ], [ 0, %for.inc.i ], [ 0, %for.inc ], [ 0, %_ZN6hermes9base64vlqL12base64DecodeEc.exit ]
   %retval.sroa.5.0 = phi i64 [ 4294967296, %if.end17 ], [ 0, %if.end8 ], [ 0, %entry ], [ 0, %for.inc.i ], [ 0, %for.inc ], [ 0, %_ZN6hermes9base64vlqL12base64DecodeEc.exit ]
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.5.0, %retval.sroa.0.0
   ret i64 %retval.sroa.0.0.insert.insert

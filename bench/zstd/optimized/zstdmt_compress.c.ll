@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ZSTDMT_initCStream_internal = private unnamed_addr constant [5 x i32] [i32 2, i32 2, i32 1, i32 1, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
-define ptr @ZSTDMT_createCCtx_advanced(i32 noundef %nbWorkers, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem, ptr noundef %pool) local_unnamed_addr #0 {
+define noundef ptr @ZSTDMT_createCCtx_advanced(i32 noundef %nbWorkers, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem, ptr noundef %pool) local_unnamed_addr #0 {
 entry:
   %nbJobs.i = alloca i32, align 4
   %cMem1 = alloca %struct.ZSTD_customMem, align 8
@@ -172,7 +172,7 @@ ZSTDMT_createCCtx_advanced_internal.exit:         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDMT_freeCCtx(ptr noundef %mtctx) local_unnamed_addr #0 {
+define noundef i64 @ZSTDMT_freeCCtx(ptr noundef %mtctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mtctx, null
   br i1 %cmp, label %return, label %if.end
@@ -885,7 +885,7 @@ return:                                           ; preds = %entry, %cond.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDMT_initCStream_internal(ptr noundef %mtctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, ptr noundef %cdict, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTDMT_initCStream_internal(ptr noundef %mtctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, ptr noundef %cdict, ptr nocapture noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #0 {
 entry:
   %params100 = alloca %struct.ZSTD_CCtx_params_s, align 8
   %cMem.i.i.i = alloca %struct.ZSTD_customMem, align 8
@@ -1900,8 +1900,8 @@ while.cond.i.i:                                   ; preds = %if.then.i30.i, %do.
   %ldmWindow6.sroa.7.0.copyload.i.i = load i32, ptr %ldmWindow6.sroa.7.0.ldmWindow.sroa_idx.i.i, align 1
   %cmp.i.i.i.i = icmp eq ptr %ldmWindow6.sroa.5.0.copyload.i.i, null
   %cmp6.i.i.i.i = icmp eq i32 %ldmWindow6.sroa.6.0.copyload.i.i, %ldmWindow6.sroa.7.0.copyload.i.i
-  %or.cond100.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %or.cond100.i.i, label %lor.rhs.i.i.i, label %ZSTDMT_isOverlapped.exit.i.i.i
+  %or.cond81.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
+  br i1 %or.cond81.i.i, label %lor.rhs.i.i.i, label %ZSTDMT_isOverlapped.exit.i.i.i
 
 ZSTDMT_isOverlapped.exit.i.i.i:                   ; preds = %while.cond.i.i
   %sub.i.i.i = sub i32 %ldmWindow6.sroa.6.0.copyload.i.i, %ldmWindow6.sroa.7.0.copyload.i.i
@@ -1919,15 +1919,11 @@ lor.rhs.i.i.i:                                    ; preds = %ZSTDMT_isOverlapped
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %ldmWindow6.sroa.4.0.copyload.i.i, i64 %idx.ext3.i.i.i
   %cmp.i3.i.i.i = icmp eq ptr %ldmWindow6.sroa.4.0.copyload.i.i, null
   %cmp6.i8.i.i.i = icmp eq ptr %ldmWindow6.sroa.0.0.copyload.i.i, %add.ptr4.i.i.i
-  %or.cond101.i.i = select i1 %cmp.i3.i.i.i, i1 true, i1 %cmp6.i8.i.i.i
-  br i1 %or.cond101.i.i, label %do.end10.i.i, label %ZSTDMT_doesOverlapWindow.exit.i.i
+  %or.cond82.i.i = select i1 %cmp.i3.i.i.i, i1 true, i1 %cmp6.i8.i.i.i
+  br i1 %or.cond82.i.i, label %do.end10.i.i, label %ZSTDMT_doesOverlapWindow.exit.i.i
 
 ZSTDMT_doesOverlapWindow.exit.i.i:                ; preds = %lor.rhs.i.i.i
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %ldmWindow6.sroa.0.0.copyload.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr4.i.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr3.i11.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %cmp9.i13.i.i.i = icmp ule ptr %add.ptr3.i11.i.i.i, %buffer.coerce0.fr.i.i
+  %cmp9.i13.i.i.i = icmp ule ptr %ldmWindow6.sroa.0.0.copyload.i.i, %buffer.coerce0.fr.i.i
   %cmp10.i14.i.i.i = icmp ule ptr %add.ptr.i.i.i.i, %add.ptr4.i.i.i
   %.not.i.i = select i1 %cmp9.i13.i.i.i, i1 true, i1 %cmp10.i14.i.i.i
   br i1 %.not.i.i, label %do.end10.i.i, label %do.end6.i.i
@@ -1968,14 +1964,14 @@ ZSTDMT_isOverlapped.exit47.i:                     ; preds = %if.end.i36.i
   %add.ptr.i42.i = getelementptr inbounds i8, ptr %buffer.coerce0.fr.i48.i, i64 %buffer.coerce1.fr.i53.i
   %cmp9.i43.i = icmp ule ptr %add.ptr3.i41.i, %buffer.coerce0.fr.i48.i
   %cmp10.i44.i = icmp ule ptr %add.ptr.i42.i, %retval.sroa.0.0.i.i
-  %.not107.i = select i1 %cmp9.i43.i, i1 true, i1 %cmp10.i44.i
-  br i1 %.not107.i, label %if.end30.i, label %if.end14thread-pre-split
+  %.not103.i = select i1 %cmp9.i43.i, i1 true, i1 %cmp10.i44.i
+  br i1 %.not103.i, label %if.end30.i, label %if.end14thread-pre-split
 
 if.end30.i:                                       ; preds = %ZSTDMT_isOverlapped.exit47.i, %if.end.i36.i, %if.end18.i
   %ldmParams.i49.i = getelementptr inbounds %struct.ZSTDMT_CCtx_s, ptr %mtctx, i64 0, i32 5, i32 13
   %22 = load i32, ptr %ldmParams.i49.i, align 8
   %cmp.i50.i = icmp eq i32 %22, 1
-  br i1 %cmp.i50.i, label %if.then.i52.i, label %ZSTDMT_waitForLdmComplete.exit102.i
+  br i1 %cmp.i50.i, label %if.then.i52.i, label %ZSTDMT_waitForLdmComplete.exit98.i
 
 if.then.i52.i:                                    ; preds = %if.end30.i
   %ldmWindowMutex.i54.i = getelementptr inbounds %struct.ZSTDMT_CCtx_s, ptr %mtctx, i64 0, i32 11, i32 6
@@ -1990,7 +1986,7 @@ if.then.i52.i:                                    ; preds = %if.end30.i
   %ldmWindowCond.i63.i = getelementptr inbounds %struct.ZSTDMT_CCtx_s, ptr %mtctx, i64 0, i32 11, i32 7
   %cmp4.i7.i.i64.i = icmp eq i64 %buffer.coerce1.fr.i53.i, 0
   %or.cond.i65.i = or i1 %cmp4.i7.i.i64.i, %cmp2.i.i.i61.i
-  br i1 %or.cond.i65.i, label %do.end10.i100.i, label %while.cond.i66.i
+  br i1 %or.cond.i65.i, label %do.end10.i96.i, label %while.cond.i66.i
 
 while.cond.i66.i:                                 ; preds = %if.then.i52.i, %do.end6.i84.i
   %ldmWindow6.sroa.0.0.copyload.i67.i = load ptr, ptr %ldmWindow.i56.i, align 1
@@ -2000,8 +1996,8 @@ while.cond.i66.i:                                 ; preds = %if.then.i52.i, %do.
   %ldmWindow6.sroa.7.0.copyload.i71.i = load i32, ptr %ldmWindow6.sroa.7.0.ldmWindow.sroa_idx.i60.i, align 1
   %cmp.i.i.i72.i = icmp eq ptr %ldmWindow6.sroa.5.0.copyload.i69.i, null
   %cmp6.i.i.i73.i = icmp eq i32 %ldmWindow6.sroa.6.0.copyload.i70.i, %ldmWindow6.sroa.7.0.copyload.i71.i
-  %or.cond100.i74.i = select i1 %cmp.i.i.i72.i, i1 true, i1 %cmp6.i.i.i73.i
-  br i1 %or.cond100.i74.i, label %lor.rhs.i.i86.i, label %ZSTDMT_isOverlapped.exit.i.i75.i
+  %or.cond81.i74.i = select i1 %cmp.i.i.i72.i, i1 true, i1 %cmp6.i.i.i73.i
+  br i1 %or.cond81.i74.i, label %lor.rhs.i.i86.i, label %ZSTDMT_isOverlapped.exit.i.i75.i
 
 ZSTDMT_isOverlapped.exit.i.i75.i:                 ; preds = %while.cond.i66.i
   %sub.i.i76.i = sub i32 %ldmWindow6.sroa.6.0.copyload.i70.i, %ldmWindow6.sroa.7.0.copyload.i71.i
@@ -2019,28 +2015,24 @@ lor.rhs.i.i86.i:                                  ; preds = %ZSTDMT_isOverlapped
   %add.ptr4.i.i88.i = getelementptr inbounds i8, ptr %ldmWindow6.sroa.4.0.copyload.i68.i, i64 %idx.ext3.i.i87.i
   %cmp.i3.i.i89.i = icmp eq ptr %ldmWindow6.sroa.4.0.copyload.i68.i, null
   %cmp6.i8.i.i90.i = icmp eq ptr %ldmWindow6.sroa.0.0.copyload.i67.i, %add.ptr4.i.i88.i
-  %or.cond101.i91.i = select i1 %cmp.i3.i.i89.i, i1 true, i1 %cmp6.i8.i.i90.i
-  br i1 %or.cond101.i91.i, label %do.end10.i100.i, label %ZSTDMT_doesOverlapWindow.exit.i92.i
+  %or.cond82.i91.i = select i1 %cmp.i3.i.i89.i, i1 true, i1 %cmp6.i8.i.i90.i
+  br i1 %or.cond82.i91.i, label %do.end10.i96.i, label %ZSTDMT_doesOverlapWindow.exit.i92.i
 
 ZSTDMT_doesOverlapWindow.exit.i92.i:              ; preds = %lor.rhs.i.i86.i
-  %sub.ptr.lhs.cast.i.i93.i = ptrtoint ptr %ldmWindow6.sroa.0.0.copyload.i67.i to i64
-  %sub.ptr.rhs.cast.i.i94.i = ptrtoint ptr %add.ptr4.i.i88.i to i64
-  %sub.ptr.sub.i.i95.i = sub i64 %sub.ptr.lhs.cast.i.i93.i, %sub.ptr.rhs.cast.i.i94.i
-  %add.ptr3.i11.i.i96.i = getelementptr inbounds i8, ptr %add.ptr4.i.i88.i, i64 %sub.ptr.sub.i.i95.i
-  %cmp9.i13.i.i97.i = icmp ule ptr %add.ptr3.i11.i.i96.i, %buffer.coerce0.fr.i48.i
-  %cmp10.i14.i.i98.i = icmp ule ptr %add.ptr.i.i.i62.i, %add.ptr4.i.i88.i
-  %.not.i99.i = select i1 %cmp9.i13.i.i97.i, i1 true, i1 %cmp10.i14.i.i98.i
-  br i1 %.not.i99.i, label %do.end10.i100.i, label %do.end6.i84.i
+  %cmp9.i13.i.i93.i = icmp ule ptr %ldmWindow6.sroa.0.0.copyload.i67.i, %buffer.coerce0.fr.i48.i
+  %cmp10.i14.i.i94.i = icmp ule ptr %add.ptr.i.i.i62.i, %add.ptr4.i.i88.i
+  %.not.i95.i = select i1 %cmp9.i13.i.i93.i, i1 true, i1 %cmp10.i14.i.i94.i
+  br i1 %.not.i95.i, label %do.end10.i96.i, label %do.end6.i84.i
 
 do.end6.i84.i:                                    ; preds = %ZSTDMT_doesOverlapWindow.exit.i92.i, %ZSTDMT_isOverlapped.exit.i.i75.i
   %call8.i85.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %ldmWindowCond.i63.i, ptr noundef nonnull %ldmWindowMutex.i54.i) #14
   br label %while.cond.i66.i, !llvm.loop !16
 
-do.end10.i100.i:                                  ; preds = %ZSTDMT_doesOverlapWindow.exit.i92.i, %lor.rhs.i.i86.i, %if.then.i52.i
-  %call11.i101.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ldmWindowMutex.i54.i) #14
-  br label %ZSTDMT_waitForLdmComplete.exit102.i
+do.end10.i96.i:                                   ; preds = %ZSTDMT_doesOverlapWindow.exit.i92.i, %lor.rhs.i.i86.i, %if.then.i52.i
+  %call11.i97.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ldmWindowMutex.i54.i) #14
+  br label %ZSTDMT_waitForLdmComplete.exit98.i
 
-ZSTDMT_waitForLdmComplete.exit102.i:              ; preds = %do.end10.i100.i, %if.end30.i
+ZSTDMT_waitForLdmComplete.exit98.i:               ; preds = %do.end10.i96.i, %if.end30.i
   store ptr %buffer.coerce0.fr.i48.i, ptr %buffer, align 8
   %buffer.sroa.7.0.buffer36.sroa_idx.i = getelementptr inbounds %struct.ZSTDMT_CCtx_s, ptr %mtctx, i64 0, i32 9, i32 1, i32 1
   store i64 %buffer.coerce1.fr.i53.i, ptr %buffer.sroa.7.0.buffer36.sroa_idx.i, align 8
@@ -2052,8 +2044,8 @@ if.end14thread-pre-split:                         ; preds = %ZSTDMT_isOverlapped
   %.pr = load ptr, ptr %buffer, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.end14thread-pre-split, %ZSTDMT_waitForLdmComplete.exit102.i
-  %23 = phi ptr [ %.pr, %if.end14thread-pre-split ], [ %buffer.coerce0.fr.i48.i, %ZSTDMT_waitForLdmComplete.exit102.i ]
+if.end14:                                         ; preds = %if.end14thread-pre-split, %ZSTDMT_waitForLdmComplete.exit98.i
+  %23 = phi ptr [ %.pr, %if.end14thread-pre-split ], [ %buffer.coerce0.fr.i48.i, %ZSTDMT_waitForLdmComplete.exit98.i ]
   %cmp18.not = icmp eq ptr %23, null
   br i1 %cmp18.not, label %if.end43, label %if.end14.if.then19_crit_edge
 
@@ -2894,7 +2886,7 @@ return:                                           ; preds = %if.end, %if.else.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %maxNbBuffers, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZSTDMT_createBufferPool(i32 noundef %maxNbBuffers, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %cMem.val13 = load ptr, ptr %cMem, align 8
   %0 = getelementptr inbounds i8, ptr %cMem, i64 16
@@ -2976,7 +2968,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ZSTDMT_createCCtxPool(i32 noundef %nbWorkers, ptr noundef byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZSTDMT_createCCtxPool(i32 noundef %nbWorkers, ptr noundef byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %cMem.val15 = load ptr, ptr %cMem, align 8
   %0 = getelementptr inbounds i8, ptr %cMem, i64 16

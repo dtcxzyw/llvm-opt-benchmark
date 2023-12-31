@@ -11525,19 +11525,18 @@ _ZN5folly7dynamic3getISt6vectorIS0_SaIS0_EEEERT_v.exit35: ; preds = %entry
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %last.coerce to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i
   %add.ptr.i40 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i38
-  %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %add.ptr.i40 to i64
   %cmp.i.not.i.i = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly7dynamic3getISt6vectorIS0_SaIS0_EEEERT_v.exit35
   %_M_finish.i.i.i = getelementptr inbounds %"struct.folly::dynamic", ptr %this, i64 0, i32 1, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !16
-  %cmp.i23.not.i.i = icmp eq ptr %2, %add.ptr.i40
+  %cmp.i23.not.i.i = icmp eq ptr %2, %last.coerce
   br i1 %cmp.i23.not.i.i, label %if.end.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i18.i
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i36
   %cmp7.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %if.end.i.i
 
@@ -11562,9 +11561,9 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then6.i.i, %if.then.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre31.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i ]
+  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre31.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i36, %if.then.i.i ]
   %3 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %2, %if.then6.i.i ], [ %add.ptr.i40, %if.then.i.i ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i18.i
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i36
   %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %3, %add.ptr.i23.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %for.body.i.i.i.i.i.i

@@ -1897,17 +1897,12 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i: ; preds = %if
 
 if.then.i.i40.i:                                  ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i
   %this.val2.i.i.i = load ptr, ptr %29, align 8
-  %cmp.i5.not.i.i.i = icmp eq ptr %this.val2.i.i.i, %add.ptr.i8.i.i
-  br i1 %cmp.i5.not.i.i.i, label %if.then.if.end_crit_edge.i.i.i, label %if.then6.i.i.i
-
-if.then.if.end_crit_edge.i.i.i:                   ; preds = %if.then.i.i40.i
-  %.pre.i.i.i = ptrtoint ptr %add.ptr.i8.i.i to i64
-  br label %if.end.i.i.i
+  %cmp.i5.not.i.i.i = icmp eq ptr %this.val2.i.i.i, %call40.val.i
+  br i1 %cmp.i5.not.i.i.i, label %if.end.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i40.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %this.val2.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i8.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i4.i.i
   %cmp6.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i, label %if.end.i.i.i
 
@@ -1935,11 +1930,10 @@ if.end.loopexit.i.i.i:                            ; preds = %for.body.i.i.i.i.i.
   %.pre7.i.i.i = ptrtoint ptr %this.val.pre.i.i.i to i64
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i.i, %if.then6.i.i.i, %if.then.if.end_crit_edge.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %if.then.if.end_crit_edge.i.i.i ], [ %.pre7.i.i.i, %if.end.loopexit.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %if.then6.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %if.then.if.end_crit_edge.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.end.loopexit.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.then6.i.i.i ]
-  %this.val.i.i.i = phi ptr [ %add.ptr.i8.i.i, %if.then.if.end_crit_edge.i.i.i ], [ %this.val.pre.i.i.i, %if.end.loopexit.i.i.i ], [ %this.val2.i.i.i, %if.then6.i.i.i ]
-  %sub.ptr.sub.i.i.i41.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
+if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i.i, %if.then6.i.i.i, %if.then.i.i40.i
+  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre7.i.i.i, %if.end.loopexit.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %sub.ptr.lhs.cast.i4.i.i, %if.then.i.i40.i ]
+  %this.val.i.i.i = phi ptr [ %this.val.pre.i.i.i, %if.end.loopexit.i.i.i ], [ %this.val2.i.i.i, %if.then6.i.i.i ], [ %add.ptr.i8.i.i, %if.then.i.i40.i ]
+  %sub.ptr.sub.i.i.i41.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.lhs.cast.i4.i.i
   %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i39.i, i64 %sub.ptr.sub.i.i.i41.i
   %tobool.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, %add.ptr.i9.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_120PrependVModuleLockedESt17basic_string_viewIcSt11char_traitsIcEEi.exit, label %for.body.i.i.i.i.i.i.i

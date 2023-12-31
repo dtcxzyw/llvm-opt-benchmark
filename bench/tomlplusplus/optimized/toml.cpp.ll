@@ -7261,46 +7261,23 @@ entry:
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i, i64 %n)
   %sext = shl i64 %spec.select, 32
+  %cmp.i.not.i.i = icmp eq i64 %sext, 0
+  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %entry
   %conv7 = ashr exact i64 %sext, 32
   %idx.neg.i = sub nsw i64 0, %conv7
   %add.ptr.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %0, i64 %idx.neg.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i
-  %add.ptr.i5.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
-  %cmp.i.not.i.i = icmp eq i64 %sext, 0
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %cmp.i1.not.i.i = icmp eq ptr %0, %add.ptr.i5.i
-  br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %if.then6.i.i
-
-if.then6.i.i:                                     ; preds = %if.then.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %cmp6.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %if.end.i.i
-
-for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %if.then6.i.i
-  %call.i.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4toml2v314path_componentaSEOS1_(ptr noundef nonnull align 8 dereferenceable(33) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(33) %add.ptr.i5.i) #39
-  %.pre.i.i = load ptr, ptr %_M_finish.i, align 8
-  %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.preheader.i.i.i.i.i.i.i, %if.then6.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %sub.ptr.lhs.cast.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
-  %2 = phi ptr [ %.pre.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %0, %if.then6.i.i ], [ %0, %if.then.i.i ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %2, %add.ptr.i6.i
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %for.body.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i, %_ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i ], [ %add.ptr.i6.i, %if.end.i.i ]
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
   %type_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 1
-  %3 = load i8, ptr %type_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 1
+  %2 = load i8, ptr %type_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.i
@@ -7309,14 +7286,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
 
 _ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !60
 
 invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyIN4toml2v314path_componentEEvPT_.exit.i.i.i.i.i.i
-  store ptr %add.ptr.i6.i, ptr %_M_finish.i, align 8
+  store ptr %add.ptr.i.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
 
-_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %entry, %if.end.i.i, %invoke.cont.i.i.i
+_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %entry, %invoke.cont.i.i.i
   ret ptr %this
 }
 
@@ -8630,8 +8607,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr9.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %6, i64 -1
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
   %cmp4.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.i.i.i
@@ -9076,17 +9052,12 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds %"class.toml::v3::array", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i1.not.i.i = icmp eq ptr %1, %add.ptr.i5.i
-  br i1 %cmp.i1.not.i.i, label %if.then.if.end_crit_edge.i.i, label %if.then6.i.i
-
-if.then.if.end_crit_edge.i.i:                     ; preds = %if.then.i.i
-  %.pre8.i.i = ptrtoint ptr %add.ptr.i5.i to i64
-  br label %if.end.i.i
+  %cmp.i1.not.i.i = icmp eq ptr %1, %last.coerce
+  br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i1.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %cmp6.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %if.end.i.i
@@ -9121,11 +9092,10 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt10unique_ptrIN
   %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then6.i.i, %if.then.if.end_crit_edge.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.if.end_crit_edge.i.i ], [ %.pre9.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.if.end_crit_edge.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ]
-  %5 = phi ptr [ %add.ptr.i5.i, %if.then.if.end_crit_edge.i.i ], [ %.pre.i.i, %if.end.loopexit.i.i ], [ %1, %if.then6.i.i ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
+if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then6.i.i, %if.then.i.i
+  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i1.i, %if.then.i.i ]
+  %5 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %1, %if.then6.i.i ], [ %add.ptr.i5.i, %if.then.i.i ]
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i1.i
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %5, %add.ptr.i6.i
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i
@@ -11393,7 +11363,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @_ZN4toml2v35table5eraseESt23_Rb_tree_const_iteratorISt4pairIKNS0_3keyESt10unique_ptrINS0_4nodeESt14default_deleteIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr %pos.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4toml2v35table5eraseESt23_Rb_tree_const_iteratorISt4pairIKNS0_3keyESt10unique_ptrINS0_4nodeESt14default_deleteIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr %pos.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this, i64 0, i32 1
   %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %pos.coerce) #40

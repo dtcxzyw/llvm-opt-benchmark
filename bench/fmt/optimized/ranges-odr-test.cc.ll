@@ -5650,11 +5650,7 @@ if.end62:                                         ; preds = %if.end51
   %21 = load ptr, ptr %escape, align 8
   %end = getelementptr inbounds %"struct.fmt::v10::detail::find_escape_result", ptr %escape, i64 0, i32 1
   %22 = load ptr, ptr %end, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub
-  %cmp68.not68 = icmp eq ptr %22, %21
+  %cmp68.not68 = icmp eq ptr %21, %22
   br i1 %cmp68.not68, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end62, %for.body
@@ -5664,7 +5660,7 @@ for.body:                                         ; preds = %if.end62, %for.body
   %conv71 = zext i8 %23 to i32
   %call74 = tail call ptr @_ZN3fmt3v106detail15write_codepointILm2EcNS0_8appenderEEET1_S4_cj(ptr %out.sroa.0.069, i8 noundef signext 120, i32 noundef %conv71)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.070, i64 1
-  %cmp68.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp68.not = icmp eq ptr %incdec.ptr, %22
   br i1 %cmp68.not, label %return, label %for.body
 
 sw.epilog:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit

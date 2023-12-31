@@ -1159,7 +1159,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.prehe
 
 while.body:                                       ; preds = %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %pText.addr.022, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %pTextEnd
   br i1 %exitcond.not, label %while.end.thread, label %land.lhs.true, !llvm.loop !14
 
 while.end:                                        ; preds = %land.lhs.true, %land.lhs.true
@@ -1345,7 +1345,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %storemerge49, i64 1
   store ptr %incdec.ptr, ptr %pToken, align 8
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %pTextEnd
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
@@ -2947,7 +2947,7 @@ return:                                           ; preds = %if.then7, %if.then7
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC16BoyerMooreSearchEPKciS2_iPiS3_S3_i(ptr nocapture noundef readonly %pPattern, i32 noundef %nPatternLength, ptr nocapture noundef readonly %pSearchString, i32 noundef %nSearchStringLength, ptr nocapture noundef %pPatternBuffer1, ptr nocapture noundef %pPatternBuffer2, ptr nocapture noundef %pAlphabetBuffer, i32 noundef %nAlphabetBufferSize) local_unnamed_addr #10 {
 entry:
   %sub.i = add nsw i32 %nPatternLength, -1
@@ -3294,7 +3294,7 @@ attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { builtin nounwind }
 
