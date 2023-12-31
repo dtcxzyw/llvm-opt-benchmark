@@ -189,7 +189,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.137 = private unnamed_addr constant [10 x i8] c"SECLEVEL=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_load_ciphers(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @ssl_load_ciphers(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tmpeng.i116 = alloca ptr, align 8
   %pkey_id.i117 = alloca i32, align 4
@@ -667,7 +667,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_cipher_get_evp_cipher(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %sslc, ptr nocapture noundef writeonly %enc) local_unnamed_addr #0 {
+define noundef i32 @ssl_cipher_get_evp_cipher(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %sslc, ptr nocapture noundef writeonly %enc) local_unnamed_addr #0 {
 entry:
   %algorithm_enc = getelementptr inbounds %struct.ssl_cipher_st, ptr %sslc, i64 0, i32 6
   %0 = load i32, ptr %algorithm_enc, align 4
@@ -737,7 +737,7 @@ declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @ssl_evp_cipher_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_cipher_get_evp(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %s, ptr noundef %enc, ptr noundef %md, ptr noundef %mac_pkey_type, ptr noundef writeonly %mac_secret_size, ptr noundef writeonly %comp, i32 noundef %use_etm) local_unnamed_addr #0 {
+define noundef i32 @ssl_cipher_get_evp(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %s, ptr noundef %enc, ptr noundef %md, ptr noundef %mac_pkey_type, ptr noundef writeonly %mac_secret_size, ptr noundef writeonly %comp, i32 noundef %use_etm) local_unnamed_addr #0 {
 entry:
   %ctmp = alloca %struct.ssl_comp_st, align 8
   %cipher = getelementptr inbounds %struct.ssl_session_st, ptr %s, i64 0, i32 20
@@ -1099,7 +1099,7 @@ ssl_md.exit:                                      ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_CTX_set_ciphersuites(ptr nocapture noundef %ctx, ptr noundef %str) local_unnamed_addr #0 {
+define noundef i32 @SSL_CTX_set_ciphersuites(ptr nocapture noundef %ctx, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %tls13_ciphersuites = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 4
   %call = tail call fastcc i32 @set_ciphersuites(ptr noundef nonnull %tls13_ciphersuites, ptr noundef %str), !range !8
@@ -1124,7 +1124,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_ciphersuites(ptr nocapture noundef %currciphers, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_ciphersuites(ptr nocapture noundef %currciphers, ptr noundef %str) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OPENSSL_sk_new_null() #15
   %cmp = icmp eq ptr %call, null
@@ -1164,7 +1164,7 @@ return:                                           ; preds = %entry, %if.end12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_cipher_list(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %cipher_list, ptr nocapture noundef %cipher_list_by_id, ptr noundef %tls13_ciphersuites) unnamed_addr #0 {
+define internal fastcc noundef i32 @update_cipher_list(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %cipher_list, ptr nocapture noundef %cipher_list_by_id, ptr noundef %tls13_ciphersuites) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cipher_list, align 8
   %call1 = tail call ptr @OPENSSL_sk_dup(ptr noundef %0) #15
@@ -1257,7 +1257,7 @@ return:                                           ; preds = %entry, %if.end27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_set_ciphersuites(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define noundef i32 @SSL_set_ciphersuites(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -3032,7 +3032,7 @@ return:                                           ; preds = %check_suiteb_cipher
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id, i32 noundef %alg_mkey, i32 noundef %alg_auth, i32 noundef %alg_enc, i32 noundef %alg_mac, i32 noundef %min_tls, i32 noundef %algo_strength, i32 noundef %rule, i32 noundef %strength_bits, ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #4 {
 entry:
   %cmp = icmp ne i32 %rule, 3
@@ -3431,7 +3431,7 @@ for.end:                                          ; preds = %for.cond.backedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_cipher_strength_sort(ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #0 {
+define internal fastcc noundef i32 @ssl_cipher_strength_sort(ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #0 {
 entry:
   %curr.019 = load ptr, ptr %head_p, align 8
   %cmp.not20 = icmp eq ptr %curr.019, null
@@ -3617,7 +3617,7 @@ for.cond:                                         ; preds = %for.condthread-pre-
   %0 = phi i8 [ %.pr, %for.condthread-pre-split ], [ %30, %if.end395 ]
   %l.0 = phi ptr [ %l.0.ph, %for.condthread-pre-split ], [ %l.8, %if.end395 ]
   %retval1.0 = phi i32 [ %retval1.0.ph, %for.condthread-pre-split ], [ %retval1.2, %if.end395 ]
-  switch i8 %0, label %for.cond46.preheader264 [
+  switch i8 %0, label %for.cond46.preheader262 [
     i8 0, label %return
     i8 45, label %if.then6
     i8 43, label %if.then10
@@ -3631,19 +3631,19 @@ for.cond:                                         ; preds = %for.condthread-pre-
 
 if.then6:                                         ; preds = %for.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader262
 
 if.then10:                                        ; preds = %for.cond
   %incdec.ptr11 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader262
 
 if.then16:                                        ; preds = %for.cond
   %incdec.ptr17 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader262
 
-for.cond46.preheader264:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
-  %l.1291298 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
-  %rule.0293297 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
+for.cond46.preheader262:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
+  %l.1289296 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
+  %rule.0291295 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
   br label %for.cond46
 
 while.cond.us.preheader:                          ; preds = %for.cond
@@ -3660,8 +3660,8 @@ while.cond.us:                                    ; preds = %while.cond.us.prehe
   %2 = and i8 %ch.0.fr.us, -33
   %3 = add i8 %2, -65
   %4 = icmp ult i8 %3, 26
-  %or.cond212.us = or i1 %4, %or.cond4.us
-  br i1 %or.cond212.us, label %while.body.us, label %switch.early.test.us
+  %or.cond210.us = or i1 %4, %or.cond4.us
+  br i1 %or.cond210.us, label %while.body.us, label %switch.early.test.us
 
 switch.early.test.us:                             ; preds = %while.cond.us
   switch i8 %ch.0.fr.us, label %while.end.us [
@@ -3687,14 +3687,14 @@ if.then43:                                        ; preds = %for.cond, %for.cond
   %incdec.ptr44 = getelementptr inbounds i8, ptr %l.0, i64 1
   br label %for.condthread-pre-split
 
-for.cond46:                                       ; preds = %for.cond46.preheader264, %if.end302
-  %alg_mkey.0 = phi i32 [ %alg_mkey.1, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_auth.0 = phi i32 [ %alg_auth.1, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_enc.0 = phi i32 [ %alg_enc.1, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_mac.0 = phi i32 [ %alg_mac.1, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %algo_strength.0 = phi i32 [ %algo_strength.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %min_tls.0 = phi i32 [ %min_tls.1, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1291298, %for.cond46.preheader264 ]
+for.cond46:                                       ; preds = %for.cond46.preheader262, %if.end302
+  %alg_mkey.0 = phi i32 [ %alg_mkey.1, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %alg_auth.0 = phi i32 [ %alg_auth.1, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %alg_enc.0 = phi i32 [ %alg_enc.1, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %alg_mac.0 = phi i32 [ %alg_mac.1, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %algo_strength.0 = phi i32 [ %algo_strength.2, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %min_tls.0 = phi i32 [ %min_tls.1, %if.end302 ], [ 0, %for.cond46.preheader262 ]
+  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1289296, %for.cond46.preheader262 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond46
@@ -3707,8 +3707,8 @@ while.cond:                                       ; preds = %while.body, %for.co
   %6 = and i8 %ch.0.fr, -33
   %7 = add i8 %6, -65
   %8 = icmp ult i8 %7, 26
-  %or.cond212 = or i1 %8, %or.cond4
-  br i1 %or.cond212, label %while.body, label %switch.early.test
+  %or.cond210 = or i1 %8, %or.cond4
+  br i1 %or.cond210, label %while.body, label %switch.early.test
 
 switch.early.test:                                ; preds = %while.cond
   switch i8 %ch.0.fr, label %while.end [
@@ -3737,8 +3737,8 @@ if.end88:                                         ; preds = %while.end
   %cmp94.not = icmp eq i8 %ch.0.fr, 43
   %incdec.ptr97 = getelementptr inbounds i8, ptr %l.3, i64 1
   %9 = load ptr, ptr %ca_list, align 8
-  %tobool.not245 = icmp eq ptr %9, null
-  br i1 %tobool.not245, label %while.cond368.preheader, label %while.body101.lr.ph
+  %tobool.not243 = icmp eq ptr %9, null
+  br i1 %tobool.not243, label %while.cond368.preheader, label %while.body101.lr.ph
 
 while.body101.lr.ph:                              ; preds = %if.end88
   %conv104 = zext nneg i32 %buflen.0 to i64
@@ -3902,7 +3902,7 @@ if.end302:                                        ; preds = %if.then286, %if.els
   br i1 %cmp94.not, label %for.cond46, label %if.then366
 
 while.cond368.preheader:                          ; preds = %if.then286, %if.then231, %if.then209, %if.then190, %if.then171, %if.then153, %if.end88, %if.else140
-  %l.4.le256 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
+  %l.4.le254 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
   br label %while.cond368
 
 land.lhs.true311:                                 ; preds = %while.end.us
@@ -3920,9 +3920,9 @@ cond.true:                                        ; preds = %land.lhs.true320
   %24 = load i8, ptr %add.ptr, align 1
   %25 = add i8 %24, -54
   %or.cond9 = icmp ult i8 %25, -6
-  br i1 %or.cond9, label %if.end336.thread.sink.split, label %if.end336.thread173
+  br i1 %or.cond9, label %if.end336.thread.sink.split, label %if.end336.thread172
 
-if.end336.thread173:                              ; preds = %cond.true
+if.end336.thread172:                              ; preds = %cond.true
   %conv325 = zext nneg i8 %24 to i32
   %sub = add nsw i32 %conv325, -48
   store i32 %sub, ptr %sec_level, align 8
@@ -3930,8 +3930,7 @@ if.end336.thread173:                              ; preds = %cond.true
 
 if.end336:                                        ; preds = %land.lhs.true311
   %call316 = tail call fastcc i32 @ssl_cipher_strength_sort(ptr noundef %head_p, ptr noundef %tail_p), !range !8
-  %call316.fr = freeze i32 %call316
-  %cmp337 = icmp eq i32 %call316.fr, 0
+  %cmp337 = icmp eq i32 %call316, 0
   br i1 %cmp337, label %if.end336.thread, label %26
 
 if.end336.thread.sink.split:                      ; preds = %land.lhs.true320, %land.lhs.true311, %while.end.us, %cond.true
@@ -3944,8 +3943,8 @@ if.end336.thread.sink.split:                      ; preds = %land.lhs.true320, %
 if.end336.thread:                                 ; preds = %if.end336.thread.sink.split, %if.end336
   br label %26
 
-26:                                               ; preds = %if.end336.thread173, %if.end336, %if.end336.thread
-  %27 = phi i32 [ 0, %if.end336.thread ], [ %retval1.0, %if.end336 ], [ %retval1.0, %if.end336.thread173 ]
+26:                                               ; preds = %if.end336.thread172, %if.end336, %if.end336.thread
+  %27 = phi i32 [ 0, %if.end336.thread ], [ %retval1.0, %if.end336 ], [ %retval1.0, %if.end336.thread172 ]
   br label %while.cond341
 
 while.cond341:                                    ; preds = %lor.rhs356, %26
@@ -3964,12 +3963,12 @@ lor.rhs356:                                       ; preds = %while.cond341
   br label %while.cond341, !llvm.loop !22
 
 if.then366:                                       ; preds = %if.end302
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.2, i32 noundef %alg_mkey.1, i32 noundef %alg_auth.1, i32 noundef %alg_enc.1, i32 noundef %alg_mac.1, i32 noundef %min_tls.1, i32 noundef %algo_strength.2, i32 noundef %rule.0293297, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
-  %.pr211 = load i8, ptr %l.3, align 1
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.2, i32 noundef %alg_mkey.1, i32 noundef %alg_auth.1, i32 noundef %alg_enc.1, i32 noundef %alg_mac.1, i32 noundef %min_tls.1, i32 noundef %algo_strength.2, i32 noundef %rule.0291295, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
+  %.pr209 = load i8, ptr %l.3, align 1
   br label %if.end395
 
 while.cond368:                                    ; preds = %while.cond368.preheader, %lor.rhs384
-  %l.7 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.4.le256, %while.cond368.preheader ]
+  %l.7 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.4.le254, %while.cond368.preheader ]
   %29 = load i8, ptr %l.7, align 1
   switch i8 %29, label %lor.rhs384 [
     i8 0, label %if.end395
@@ -3984,7 +3983,7 @@ lor.rhs384:                                       ; preds = %while.cond368
   br label %while.cond368, !llvm.loop !23
 
 if.end395:                                        ; preds = %while.cond341, %while.cond341, %while.cond341, %while.cond341, %while.cond341, %while.cond368, %while.cond368, %while.cond368, %while.cond368, %while.cond368, %if.then366
-  %30 = phi i8 [ %.pr211, %if.then366 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ]
+  %30 = phi i8 [ %.pr209, %if.then366 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ]
   %l.8 = phi ptr [ %l.3, %if.then366 ], [ %l.7, %while.cond368 ], [ %l.7, %while.cond368 ], [ %l.7, %while.cond368 ], [ %l.7, %while.cond368 ], [ %l.7, %while.cond368 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ]
   %retval1.2 = phi i32 [ %retval1.0, %if.then366 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ]
   %cmp397 = icmp eq i8 %30, 0
@@ -3996,7 +3995,7 @@ return:                                           ; preds = %if.end395, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_default_cipher_list() local_unnamed_addr #6 {
+define noundef nonnull ptr @OSSL_default_cipher_list() local_unnamed_addr #6 {
 entry:
   ret ptr @.str.62
 }
@@ -4012,7 +4011,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_cipher_list_by_id(ptr nocapture noundef %cipher_list_by_id, ptr noundef %cipherstack) unnamed_addr #0 {
+define internal fastcc noundef i32 @update_cipher_list_by_id(ptr nocapture noundef %cipher_list_by_id, ptr noundef %cipherstack) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @OPENSSL_sk_dup(ptr noundef %cipherstack) #15
   %cmp = icmp eq ptr %call1, null
@@ -4423,7 +4422,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ssl3_comp_find(ptr noundef %sk, i32 noundef %n) local_unnamed_addr #0 {
+define noundef ptr @ssl3_comp_find(ptr noundef %sk, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %n, 0
   %cmp1 = icmp eq ptr %sk, null
@@ -4487,7 +4486,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_COMP_add_compression_method(i32 noundef %id, ptr noundef %cm) local_unnamed_addr #0 {
+define noundef i32 @SSL_COMP_add_compression_method(i32 noundef %id, ptr noundef %cm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -4845,7 +4844,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_cipher_get_overhead(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %mac_overhead, ptr nocapture noundef writeonly %int_overhead, ptr nocapture noundef writeonly %blocksize, ptr nocapture noundef writeonly %ext_overhead) local_unnamed_addr #0 {
+define noundef i32 @ssl_cipher_get_overhead(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %mac_overhead, ptr nocapture noundef writeonly %int_overhead, ptr nocapture noundef writeonly %blocksize, ptr nocapture noundef writeonly %ext_overhead) local_unnamed_addr #0 {
 entry:
   %algorithm_enc = getelementptr inbounds %struct.ssl_cipher_st, ptr %c, i64 0, i32 6
   %0 = load i32, ptr %algorithm_enc, align 4
@@ -5001,7 +5000,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare ptr @ssl_cert_lookup_by_idx(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_default_ciphersuites() local_unnamed_addr #6 {
+define noundef nonnull ptr @OSSL_default_ciphersuites() local_unnamed_addr #6 {
 entry:
   ret ptr @.str.63
 }
@@ -5077,7 +5076,7 @@ declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #1
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ciphersuite_cb(ptr nocapture noundef readonly %elem, i32 noundef %len, ptr noundef %arg) #0 {
+define internal noundef i32 @ciphersuite_cb(ptr nocapture noundef readonly %elem, i32 noundef %len, ptr noundef %arg) #0 {
 entry:
   %name = alloca [80 x i8], align 16
   %cmp = icmp sgt i32 %len, 79
@@ -5132,7 +5131,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -75,13 +75,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [11 x i8] c"custom_buf\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond.outer
 
@@ -127,7 +127,7 @@ declare i32 @opt_next() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_builtin_provider() #1 {
+define internal noundef i32 @test_builtin_provider() #1 {
 entry:
   %libctx = alloca ptr, align 8
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
@@ -157,7 +157,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_builtin_provider_with_child() #1 {
+define internal noundef i32 @test_builtin_provider_with_child() #1 {
 entry:
   %libctx = alloca ptr, align 8
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
@@ -197,7 +197,7 @@ return:                                           ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_loaded_provider() #1 {
+define internal noundef i32 @test_loaded_provider() #1 {
 entry:
   %custom_buf.i = alloca [16 x i8], align 16
   %libctx = alloca ptr, align 8
@@ -213,7 +213,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 281, ptr noundef nonnull @.str.21, ptr noundef %call3) #5
   %tobool5.not = icmp eq i32 %call4, 0
   %tobool8.not = icmp eq i32 %call2, 0
-  %or.cond = select i1 %tobool5.not, i1 true, i1 %tobool8.not
+  %or.cond = or i1 %tobool8.not, %tobool5.not
   br i1 %or.cond, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
@@ -327,7 +327,7 @@ declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @p_test_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_provider(ptr nocapture noundef %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_provider(ptr nocapture noundef %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
 entry:
   %expected_greeting = alloca [256 x i8], align 16
   %cmp.not = icmp eq ptr %legacy, null

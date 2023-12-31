@@ -63,7 +63,7 @@ entry:
 declare i32 @InitGainAnalysis(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__replaygain_analyze(ptr nocapture noundef readonly %input, i32 noundef %is_stereo, i32 noundef %bps, i32 noundef %samples) local_unnamed_addr #0 {
+define dso_local noundef i32 @grabbag__replaygain_analyze(ptr nocapture noundef readonly %input, i32 noundef %is_stereo, i32 noundef %bps, i32 noundef %samples) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %bps, 16
   br i1 %cmp, label %if.then, label %if.else71
@@ -337,7 +337,7 @@ entry:
 declare float @GetTitleGain() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__replaygain_analyze_file(ptr noundef %filename, ptr nocapture noundef writeonly %title_gain, ptr nocapture noundef writeonly %title_peak) local_unnamed_addr #0 {
+define dso_local noundef ptr @grabbag__replaygain_analyze_file(ptr noundef %filename, ptr nocapture noundef writeonly %title_gain, ptr nocapture noundef writeonly %title_peak) local_unnamed_addr #0 {
 entry:
   %instance = alloca %struct.DecoderInstance, align 4
   %call = tail call ptr @FLAC__stream_decoder_new() #15
@@ -392,7 +392,7 @@ declare i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef, i32 noundef)
 declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
+define internal noundef i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
 entry:
   %bits_per_sample1 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 4
   %0 = load i32, ptr %bits_per_sample1, align 8
@@ -429,23 +429,16 @@ land.lhs.true14:                                  ; preds = %land.lhs.true11
   %cmp16 = icmp eq i32 %2, %8
   br i1 %cmp16, label %if.end, label %if.end.thread
 
-if.end.thread:                                    ; preds = %land.lhs.true, %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %entry
-  store i32 1, ptr %error, align 4
-  br label %9
-
 if.end:                                           ; preds = %land.lhs.true14
   %conv = zext i1 %cmp to i32
   %call = tail call i32 @grabbag__replaygain_analyze(ptr noundef %buffer, i32 noundef %conv, i32 noundef %0, i32 noundef %3), !range !14
-  %call.fr = freeze i32 %call
-  %lnot.ext = xor i32 %call.fr, 1
-  store i32 %lnot.ext, ptr %error, align 4
-  %tobool22.not = icmp ne i32 %lnot.ext, 0
-  %spec.select = zext i1 %tobool22.not to i32
-  br label %9
+  %lnot.ext = xor i32 %call, 1
+  br label %if.end.thread
 
-9:                                                ; preds = %if.end, %if.end.thread
-  %10 = phi i32 [ 1, %if.end.thread ], [ %spec.select, %if.end ]
-  ret i32 %10
+if.end.thread:                                    ; preds = %entry, %land.lhs.true8, %land.lhs.true11, %land.lhs.true14, %land.lhs.true, %if.end
+  %storemerge = phi i32 [ %lnot.ext, %if.end ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true14 ], [ 1, %land.lhs.true11 ], [ 1, %land.lhs.true8 ], [ 1, %entry ]
+  store i32 %storemerge, ptr %error, align 4
+  ret i32 %storemerge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

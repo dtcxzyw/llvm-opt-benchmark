@@ -465,43 +465,43 @@ for.inc.i24:                                      ; preds = %while.body.preheade
   br i1 %cmp1.i26, label %for.body.i18, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i24
-  %cmp53.i.i = icmp sgt i32 %52, 0
-  br i1 %cmp53.i.i, label %for.body.i.i, label %if.end9.thread.i
+  %cmp51.i.i = icmp sgt i32 %52, 0
+  br i1 %cmp51.i.i, label %for.body.i.i, label %if.end9.thread.i
 
 for.body.i.i:                                     ; preds = %for.end.i, %if.end5.i.i
-  %.pre64.i.i = phi i32 [ %.pre65.i.i, %if.end5.i.i ], [ %52, %for.end.i ]
+  %.pre62.i.i = phi i32 [ %.pre63.i.i, %if.end5.i.i ], [ %52, %for.end.i ]
   %54 = phi i32 [ %59, %if.end5.i.i ], [ %52, %for.end.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end5.i.i ], [ 0, %for.end.i ]
-  %size.056.i.i = phi i32 [ %add.i37.i, %if.end5.i.i ], [ 0, %for.end.i ]
-  %loc.sroa.0.055.i.i = phi i64 [ %loc.sroa.0.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
-  %loc.sroa.5.054.i.i = phi i64 [ %loc.sroa.5.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
+  %size.054.i.i = phi i32 [ %add.i37.i, %if.end5.i.i ], [ 0, %for.end.i ]
+  %loc.sroa.0.053.i.i = phi i64 [ %loc.sroa.0.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
+  %loc.sroa.5.052.i.i = phi i64 [ %loc.sroa.5.1.i.i, %if.end5.i.i ], [ -1, %for.end.i ]
   %55 = load ptr, ptr %instrs, align 8
   %arrayidx.i.i27 = getelementptr %struct._PyCompile_Instruction, ptr %55, i64 %indvars.iv.i.i
   %i_loc.i.i = getelementptr %struct._PyCompile_Instruction, ptr %55, i64 %indvars.iv.i.i, i32 2
   %56 = load i64, ptr %i_loc.i.i, align 4
   %57 = getelementptr inbounds { i64, i64 }, ptr %i_loc.i.i, i64 0, i32 1
   %58 = load i64, ptr %57, align 4
-  %a.sroa.3.8.extract.trunc.i.i.i = trunc i64 %loc.sroa.5.054.i.i to i32
+  %a.sroa.3.8.extract.trunc.i.i.i = trunc i64 %loc.sroa.5.052.i.i to i32
   %b.sroa.3.8.extract.trunc.i.i.i = trunc i64 %58 to i32
-  %or.cond.i.i.i = icmp eq i64 %loc.sroa.0.055.i.i, %56
+  %or.cond.i.i.i = icmp eq i64 %loc.sroa.0.053.i.i, %56
   %cmp6.i.i.i = icmp eq i32 %a.sroa.3.8.extract.trunc.i.i.i, %b.sroa.3.8.extract.trunc.i.i.i
   %or.cond1.i.i.i = select i1 %or.cond.i.i.i, i1 %cmp6.i.i.i, i1 false
-  %cmp8.unshifted.i.i.i = xor i64 %58, %loc.sroa.5.054.i.i
+  %cmp8.unshifted.i.i.i = xor i64 %58, %loc.sroa.5.052.i.i
   %cmp8.i.i.i = icmp ult i64 %cmp8.unshifted.i.i.i, 4294967296
   %or.cond.i.i = select i1 %or.cond1.i.i.i, i1 %cmp8.i.i.i, i1 false
   br i1 %or.cond.i.i, label %if.end5.i.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %for.body.i.i
-  %cmp.i.i26.i = icmp eq i32 %size.056.i.i, 0
+  %cmp.i.i26.i = icmp eq i32 %size.054.i.i, 0
   br i1 %cmp.i.i26.i, label %if.end5.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.then.i25.i
-  %cmp18.i.i.i = icmp sgt i32 %size.056.i.i, 8
+  %cmp18.i.i.i = icmp sgt i32 %size.054.i.i, 8
   br i1 %cmp18.i.i.i, label %while.body.i.i.i, label %assemble_emit_location.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %if.end4.i.i.i
-  %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.056.i.i, %while.cond.preheader.i.i.i ]
-  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8), !range !12
+  %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.054.i.i, %while.cond.preheader.i.i.i ]
+  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.053.i.i, i64 %loc.sroa.5.052.i.i, i32 noundef 8), !range !12
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %if.end9, label %if.end4.i.i.i
 
@@ -511,8 +511,8 @@ if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp1.i.i41.i, label %while.body.i.i.i, label %assemble_emit_location.exit.i.i, !llvm.loop !13
 
 assemble_emit_location.exit.i.i:                  ; preds = %if.end4.i.i.i, %while.cond.preheader.i.i.i
-  %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.056.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
-  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i), !range !12
+  %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.054.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
+  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.053.i.i, i64 %loc.sroa.5.052.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i), !range !12
   %cmp2.i.i = icmp slt i32 %call5.i.i.i, 0
   br i1 %cmp2.i.i, label %if.end9, label %assemble_emit_location.exit.if.end_crit_edge.i.i
 
@@ -523,11 +523,11 @@ assemble_emit_location.exit.if.end_crit_edge.i.i: ; preds = %assemble_emit_locat
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %assemble_emit_location.exit.if.end_crit_edge.i.i, %if.then.i25.i, %for.body.i.i
-  %.pre65.i.i = phi i32 [ %.pre64.i.i, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre64.i.i, %if.then.i25.i ]
-  %59 = phi i32 [ %54, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre64.i.i, %if.then.i25.i ]
-  %loc.sroa.5.1.i.i = phi i64 [ %loc.sroa.5.054.i.i, %for.body.i.i ], [ %loc.sroa.5.0.copyload10.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %58, %if.then.i25.i ]
-  %loc.sroa.0.1.i.i = phi i64 [ %loc.sroa.0.055.i.i, %for.body.i.i ], [ %loc.sroa.0.0.copyload9.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %56, %if.then.i25.i ]
-  %size.1.i.i = phi i32 [ %size.056.i.i, %for.body.i.i ], [ 0, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ 0, %if.then.i25.i ]
+  %.pre63.i.i = phi i32 [ %.pre62.i.i, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre62.i.i, %if.then.i25.i ]
+  %59 = phi i32 [ %54, %for.body.i.i ], [ %.pre.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %.pre62.i.i, %if.then.i25.i ]
+  %loc.sroa.5.1.i.i = phi i64 [ %loc.sroa.5.052.i.i, %for.body.i.i ], [ %loc.sroa.5.0.copyload10.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %58, %if.then.i25.i ]
+  %loc.sroa.0.1.i.i = phi i64 [ %loc.sroa.0.053.i.i, %for.body.i.i ], [ %loc.sroa.0.0.copyload9.pre.i.i, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ %56, %if.then.i25.i ]
+  %size.1.i.i = phi i32 [ %size.054.i.i, %for.body.i.i ], [ 0, %assemble_emit_location.exit.if.end_crit_edge.i.i ], [ 0, %if.then.i25.i ]
   %arrayidx.val.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %60 = getelementptr i8, ptr %arrayidx.i.i27, i64 4
   %arrayidx.val16.i.i = load i32, ptr %60, align 4
@@ -572,8 +572,7 @@ if.end4.i30.i.i:                                  ; preds = %while.body.i26.i.i
 assemble_emit_location.exit33.i.i:                ; preds = %if.end4.i30.i.i, %while.cond.preheader.i20.i.i
   %isize.addr.0.lcssa.i23.i.i = phi i32 [ %add.i37.i, %while.cond.preheader.i20.i.i ], [ %sub.i31.i.i, %if.end4.i30.i.i ]
   %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i), !range !12
-  %call5.i24.fr.i.i = freeze i32 %call5.i24.i.i
-  %cmp8.i39.i = icmp slt i32 %call5.i24.fr.i.i, 0
+  %cmp8.i39.i = icmp slt i32 %call5.i24.i.i, 0
   br i1 %cmp8.i39.i, label %if.end9, label %assemble_emit_location.exit33.i.if.end9_crit_edge.i
 
 assemble_emit_location.exit33.i.if.end9_crit_edge.i: ; preds = %assemble_emit_location.exit33.i.i
@@ -585,7 +584,7 @@ if.end9.thread.i:                                 ; preds = %for.end.i, %for.con
   br label %if.end13.i
 
 if.end9.i:                                        ; preds = %assemble_emit_location.exit33.i.if.end9_crit_edge.i, %for.end.i.i
-  %63 = phi i32 [ %.pre.i28, %assemble_emit_location.exit33.i.if.end9_crit_edge.i ], [ %.pre65.i.i, %for.end.i.i ]
+  %63 = phi i32 [ %.pre.i28, %assemble_emit_location.exit33.i.if.end9_crit_edge.i ], [ %.pre63.i.i, %for.end.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %handler.i.i)
   store i32 -1, ptr %handler.i.i, align 4
   %h_startdepth.i.i = getelementptr inbounds %struct._PyCompile_ExceptHandlerInfo, ptr %handler.i.i, i64 0, i32 1
@@ -1221,7 +1220,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %isize) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_location_info_entry(ptr noundef %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %isize) unnamed_addr #0 {
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.9.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -1575,7 +1574,7 @@ return:                                           ; preds = %if.then, %write_loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef readonly %handler) unnamed_addr #0 {
+define internal fastcc noundef i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef readonly %handler) unnamed_addr #0 {
 entry:
   %a_except_table = getelementptr inbounds %struct.assembler, ptr %a, i64 0, i32 2
   %0 = load ptr, ptr %a_except_table, align 8

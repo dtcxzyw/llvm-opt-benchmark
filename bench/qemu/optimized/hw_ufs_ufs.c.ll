@@ -206,7 +206,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.96 = private unnamed_addr constant [34 x i8] c"%s cannot be connected to ufs-bus\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_ufs_register_types, ptr null }]
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ufs_build_upiu_header(ptr nocapture noundef %req, i8 noundef zeroext %trans_type, i8 noundef zeroext %flags, i8 noundef zeroext %response, i8 noundef zeroext %scsi_status, i16 noundef zeroext %data_segment_length) local_unnamed_addr #0 {
 entry:
   %rsp_upiu = getelementptr inbounds %struct.UfsRequest, ptr %req, i64 0, i32 5
@@ -219,7 +219,7 @@ entry:
   store i8 %response, ptr %response10, align 2
   %scsi_status13 = getelementptr inbounds %struct.UfsRequest, ptr %req, i64 0, i32 5, i32 0, i32 7
   store i8 %scsi_status, ptr %scsi_status13, align 1
-  %0 = tail call i16 @llvm.bswap.i16(i16 %data_segment_length)
+  %0 = tail call noundef i16 @llvm.bswap.i16(i16 %data_segment_length)
   %data_segment_length16 = getelementptr inbounds %struct.UfsRequest, ptr %req, i64 0, i32 5, i32 0, i32 10
   store i16 %0, ptr %data_segment_length16, align 2
   ret void
@@ -840,7 +840,7 @@ trace_ufs_err_dma_read_req_upiu.exit.i.i.i:       ; preds = %if.else.i.i.i29.i.i
 if.end.i.i.i:                                     ; preds = %ufs_addr_read.exit.i30.i.i
   %data_segment_length4.i.i.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 4, i32 0, i32 10
   %38 = load i16, ptr %data_segment_length4.i.i.i, align 1
-  %39 = tail call i16 @llvm.bswap.i16(i16 %38)
+  %39 = tail call noundef i16 @llvm.bswap.i16(i16 %38)
   %conv.i.i.i = zext i16 %39 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 32
   %sub.i18.i.i.i = add i64 %add.i15.i.i.i, %add.i.i.i
@@ -1260,7 +1260,7 @@ sw.bb1.i.i.i:                                     ; preds = %if.then.i38.i
   %109 = load i8, ptr %idn1.i.i.i.i, align 1
   %length3.i.i.i.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 4, i32 1, i32 0, i32 5
   %110 = load i16, ptr %length3.i.i.i.i, align 2
-  %111 = tail call i16 @llvm.bswap.i16(i16 %110)
+  %111 = tail call noundef i16 @llvm.bswap.i16(i16 %110)
   switch i8 %109, label %sw.default.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i
     i8 2, label %sw.bb4.i.i.i.i
@@ -1653,10 +1653,9 @@ trace_ufs_err_query_invalid_opcode.exit.i17.i.i:  ; preds = %if.else.i.i.i28.i.i
 
 ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query_invalid_opcode.exit.i17.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i11.i.i, %sw.bb1.i12.i.i, %if.then7.i.i, %trace_ufs_err_query_invalid_opcode.exit.i.i.i, %sw.bb4.i.i.i, %sw.bb2.i.i.i, %ufs_read_desc.exit.i.i.i, %if.then.i38.i, %trace_ufs_exec_query_cmd.exit.i.i
   %status.0.i.i = phi i32 [ 255, %trace_ufs_exec_query_cmd.exit.i.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i.i.i ], [ %call5.i.i.i, %sw.bb4.i.i.i ], [ %call3.i.i.i, %sw.bb2.i.i.i ], [ %status.0.i.i.i.i, %ufs_read_desc.exit.i.i.i ], [ 0, %if.then.i38.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i17.i.i ], [ %call8.i.i.i, %sw.bb7.i.i.i ], [ %call6.i.i.i, %sw.bb5.i.i.i ], [ %call4.i.i.i, %sw.bb3.i.i.i ], [ %call.i.i.i, %sw.bb2.i11.i.i ], [ 247, %sw.bb1.i12.i.i ], [ 0, %if.then7.i.i ]
-  %status.0.fr.i.i = freeze i32 %status.0.i.i
   %length.i.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 5, i32 1, i32 0, i32 5
   %161 = load i16, ptr %length.i.i, align 2
-  %conv12.i.i = trunc i32 %status.0.fr.i.i to i8
+  %conv12.i.i = trunc i32 %status.0.i.i to i8
   %rsp_upiu.i.i32.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu.i.i32.i, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu1.i.i.i, i64 12, i1 false)
   store i8 54, ptr %rsp_upiu.i.i32.i, align 8
@@ -1668,7 +1667,7 @@ ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query
   store i8 0, ptr %scsi_status13.i.i36.i, align 1
   %data_segment_length16.i.i37.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 5, i32 0, i32 10
   store i16 %161, ptr %data_segment_length16.i.i37.i, align 2
-  %cmp13.not.i.i = icmp ne i32 %status.0.fr.i.i, 0
+  %cmp13.not.i.i = icmp ne i32 %status.0.i.i, 0
   %spec.select.i.i = zext i1 %cmp13.not.i.i to i32
   br label %if.then10.i
 
@@ -1782,7 +1781,7 @@ if.end:                                           ; preds = %for.body
   %rsp_upiu.i.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 5
   %data_segment_length4.i.i = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv, i32 5, i32 0, i32 10
   %7 = load i16, ptr %data_segment_length4.i.i, align 2
-  %8 = tail call i16 @llvm.bswap.i16(i16 %7)
+  %8 = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   %conv6.i.i = zext i16 %8 to i32
   %add.i.i = add nuw nsw i32 %conv6.i.i, 32
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %add.i.i, i32 %mul.i.i)
@@ -2035,7 +2034,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc noundef i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
 entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2226,7 +2225,7 @@ sw.bb20.i:                                        ; preds = %if.then2
 sw.bb23.i:                                        ; preds = %if.then2
   %dyn_cap_needed.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 9
   %25 = load i32, ptr %dyn_cap_needed.i, align 4
-  %26 = tail call i32 @llvm.bswap.i32(i32 %25)
+  %26 = tail call noundef i32 @llvm.bswap.i32(i32 %25)
   br label %if.end7
 
 sw.bb25.i:                                        ; preds = %if.then2
@@ -2250,27 +2249,27 @@ sw.bb31.i:                                        ; preds = %if.then2
 sw.bb34.i:                                        ; preds = %if.then2
   %exception_event_control.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 13
   %30 = load i16, ptr %exception_event_control.i, align 4
-  %31 = tail call i16 @llvm.bswap.i16(i16 %30)
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
   %conv37.i = zext i16 %31 to i32
   br label %if.end7
 
 sw.bb38.i:                                        ; preds = %if.then2
   %exception_event_status.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 14
   %32 = load i16, ptr %exception_event_status.i, align 2
-  %33 = tail call i16 @llvm.bswap.i16(i16 %32)
+  %33 = tail call noundef i16 @llvm.bswap.i16(i16 %32)
   %conv41.i = zext i16 %33 to i32
   br label %if.end7
 
 sw.bb42.i:                                        ; preds = %if.then2
   %seconds_passed.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 15
   %34 = load i32, ptr %seconds_passed.i, align 8
-  %35 = tail call i32 @llvm.bswap.i32(i32 %34)
+  %35 = tail call noundef i32 @llvm.bswap.i32(i32 %34)
   br label %if.end7
 
 sw.bb45.i:                                        ; preds = %if.then2
   %context_conf.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 16
   %36 = load i16, ptr %context_conf.i, align 4
-  %37 = tail call i16 @llvm.bswap.i16(i16 %36)
+  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %36)
   %conv48.i = zext i16 %37 to i32
   br label %if.end7
 
@@ -2290,7 +2289,7 @@ sw.bb52.i:                                        ; preds = %if.then2
 sw.bb56.i:                                        ; preds = %if.then2
   %psa_data_size.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 19
   %41 = load i32, ptr %psa_data_size.i, align 8
-  %42 = tail call i32 @llvm.bswap.i32(i32 %41)
+  %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
   br label %if.end7
 
 sw.bb59.i:                                        ; preds = %if.then2
@@ -2344,7 +2343,7 @@ sw.bb80.i:                                        ; preds = %if.then2
 sw.bb83.i:                                        ; preds = %if.then2
   %current_wb_buffer_size.i = getelementptr inbounds %struct.UfsHc, ptr %0, i64 0, i32 14, i32 28
   %51 = load i32, ptr %current_wb_buffer_size.i, align 4
-  %52 = tail call i32 @llvm.bswap.i32(i32 %51)
+  %52 = tail call noundef i32 @llvm.bswap.i32(i32 %51)
   br label %if.end7
 
 sw.bb86.i:                                        ; preds = %if.then2
@@ -2368,7 +2367,7 @@ sw.bb92.i:                                        ; preds = %if.then2
 if.else:                                          ; preds = %if.end
   %value5 = getelementptr inbounds %struct.UfsRequest, ptr %req, i64 0, i32 4, i32 1, i32 0, i32 6
   %56 = load i32, ptr %value5, align 4
-  %57 = tail call i32 @llvm.bswap.i32(i32 %56)
+  %57 = tail call noundef i32 @llvm.bswap.i32(i32 %56)
   switch i8 %1, label %if.end7 [
     i8 3, label %sw.bb.i27
     i8 7, label %sw.bb2.i25
@@ -2436,7 +2435,7 @@ sw.bb23.i11:                                      ; preds = %if.else
 
 if.end7:                                          ; preds = %sw.bb23.i11, %sw.bb20.i13, %sw.bb17.i15, %sw.bb14.i17, %sw.bb11.i19, %sw.bb8.i21, %sw.bb5.i23, %sw.bb2.i25, %sw.bb.i27, %if.else, %sw.bb92.i, %sw.bb89.i, %sw.bb86.i, %sw.bb83.i, %sw.bb80.i, %sw.bb77.i, %sw.bb74.i, %sw.bb71.i, %sw.bb68.i, %sw.bb65.i, %sw.bb62.i, %sw.bb59.i, %sw.bb56.i, %sw.bb52.i, %sw.bb49.i, %sw.bb45.i, %sw.bb42.i, %sw.bb38.i, %sw.bb34.i, %sw.bb31.i, %sw.bb28.i, %sw.bb25.i, %sw.bb23.i, %sw.bb20.i, %sw.bb17.i, %sw.bb14.i, %sw.bb11.i, %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb.i, %if.then2
   %value.0 = phi i32 [ %conv94.i, %sw.bb92.i ], [ %conv91.i, %sw.bb89.i ], [ %conv88.i, %sw.bb86.i ], [ %52, %sw.bb83.i ], [ %conv82.i, %sw.bb80.i ], [ %conv79.i, %sw.bb77.i ], [ %conv76.i, %sw.bb74.i ], [ %conv73.i, %sw.bb71.i ], [ %conv70.i, %sw.bb68.i ], [ %conv67.i, %sw.bb65.i ], [ %conv64.i, %sw.bb62.i ], [ %conv61.i, %sw.bb59.i ], [ %42, %sw.bb56.i ], [ %40, %sw.bb52.i ], [ %conv51.i, %sw.bb49.i ], [ %conv48.i, %sw.bb45.i ], [ %35, %sw.bb42.i ], [ %conv41.i, %sw.bb38.i ], [ %conv37.i, %sw.bb34.i ], [ %conv33.i, %sw.bb31.i ], [ %conv30.i, %sw.bb28.i ], [ %conv27.i, %sw.bb25.i ], [ %26, %sw.bb23.i ], [ %conv22.i, %sw.bb20.i ], [ %conv19.i, %sw.bb17.i ], [ %conv16.i, %sw.bb14.i ], [ %conv13.i, %sw.bb11.i ], [ %conv10.i, %sw.bb8.i ], [ %conv7.i, %sw.bb5.i ], [ %conv4.i, %sw.bb2.i ], [ %conv1.i, %sw.bb.i ], [ 0, %if.then2 ], [ %57, %if.else ], [ %57, %sw.bb.i27 ], [ %57, %sw.bb2.i25 ], [ %57, %sw.bb5.i23 ], [ %57, %sw.bb8.i21 ], [ %57, %sw.bb11.i19 ], [ %57, %sw.bb14.i17 ], [ %57, %sw.bb17.i15 ], [ %57, %sw.bb20.i13 ], [ %57, %sw.bb23.i11 ]
-  %60 = tail call i32 @llvm.bswap.i32(i32 %value.0)
+  %60 = tail call noundef i32 @llvm.bswap.i32(i32 %value.0)
   %value9 = getelementptr inbounds %struct.UfsRequest, ptr %req, i64 0, i32 5, i32 1, i32 0, i32 6
   store i32 %60, ptr %value9, align 4
   br label %return
@@ -2447,7 +2446,7 @@ return:                                           ; preds = %entry, %trace_ufs_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc noundef i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i5.i = alloca %struct.timeval, align 8
@@ -3434,7 +3433,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @ufs_bus_check_address(ptr nocapture readnone %qbus, ptr noundef %qdev, ptr noundef %errp) #2 {
+define internal noundef zeroext i1 @ufs_bus_check_address(ptr nocapture readnone %qbus, ptr noundef %qdev, ptr noundef %errp) #2 {
 entry:
   %call = tail call ptr @object_get_typename(ptr noundef %qdev) #14
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(7) @.str.95) #17
@@ -3477,7 +3476,7 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #11
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

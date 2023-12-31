@@ -1976,17 +1976,17 @@ if.else57:                                        ; preds = %if.then53
   %call.i = call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add45, i32 noundef 0)
   %call1.i = call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add45, i32 noundef 1)
   %call3.i = call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add45, i32 noundef 2)
-  %26 = select i1 %call.i, i1 %call1.i, i1 false
-  %27 = select i1 %26, i1 %call3.i, i1 false
+  %spec.select.demorgan.i = and i1 %call1.i, %call3.i
+  %lnot.demorgan.i = and i1 %call.i, %spec.select.demorgan.i
   %or60 = or disjoint i32 %read_flags.1, 1024
-  %spec.select77 = select i1 %27, i32 %read_flags.1, i32 %or60
+  %spec.select77 = select i1 %lnot.demorgan.i, i32 %read_flags.1, i32 %or60
   br label %if.end71
 
 if.else64:                                        ; preds = %memory_region_is_romd.exit, %if.end40
   %addend.0115 = phi i64 [ %add, %if.end40 ], [ 0, %memory_region_is_romd.exit ]
   %call65 = call i64 @memory_region_section_get_iotlb(ptr noundef %cpu, ptr noundef nonnull %call10) #18
-  %28 = load i64, ptr %xlat, align 8
-  %add66 = add i64 %28, %call65
+  %26 = load i64, ptr %xlat, align 8
+  %add66 = add i64 %26, %call65
   %or67 = or disjoint i32 %read_flags.1, 512
   %spec.select78 = select i1 %18, i32 %read_flags.1, i32 %or67
   br label %if.end71
@@ -1998,39 +1998,39 @@ if.end71:                                         ; preds = %if.else64, %if.else
   %read_flags.2 = phi i32 [ %read_flags.1, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %read_flags.1, %if.else57 ], [ %spec.select78, %if.else64 ]
   %call72 = call i32 @cpu_watchpoint_address_matches(ptr noundef %cpu, i64 noundef %and, i64 noundef 4096) #18
   %arrayidx.i80 = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 2, i64 %idxprom
-  %29 = load i64, ptr %arrayidx.i80, align 16
-  %shr.i = lshr i64 %29, 5
+  %27 = load i64, ptr %arrayidx.i80, align 16
+  %shr.i = lshr i64 %27, 5
   %shr1.i = lshr i64 %addr, 12
   %and.i81 = and i64 %shr.i, %shr1.i
   %table.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 2, i64 %idxprom, i32 1
-  %30 = load ptr, ptr %table.i, align 8
-  %arrayidx1.i = getelementptr %union.CPUTLBEntry, ptr %30, i64 %and.i81
-  %31 = atomicrmw xchg ptr %neg, i32 1 seq_cst, align 4
-  %tobool.not3.i = icmp eq i32 %31, 0
+  %28 = load ptr, ptr %table.i, align 8
+  %arrayidx1.i = getelementptr %union.CPUTLBEntry, ptr %28, i64 %and.i81
+  %29 = atomicrmw xchg ptr %neg, i32 1 seq_cst, align 4
+  %tobool.not3.i = icmp eq i32 %29, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
 
 while.cond.loopexit.i:                            ; preds = %while.body16.i, %while.cond6.preheader.i
-  %32 = atomicrmw xchg ptr %neg, i32 1 seq_cst, align 4
-  %tobool.not.i82 = icmp eq i32 %32, 0
+  %30 = atomicrmw xchg ptr %neg, i32 1 seq_cst, align 4
+  %tobool.not.i82 = icmp eq i32 %30, 0
   br i1 %tobool.not.i82, label %qemu_spin_lock.exit, label %while.cond6.preheader.i, !llvm.loop !8
 
 while.cond6.preheader.i:                          ; preds = %if.end71, %while.cond.loopexit.i
-  %33 = load atomic i32, ptr %neg monotonic, align 4
-  %tobool15.not2.i = icmp eq i32 %33, 0
+  %31 = load atomic i32, ptr %neg monotonic, align 4
+  %tobool15.not2.i = icmp eq i32 %31, 0
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
-  %34 = load atomic i32, ptr %neg monotonic, align 4
-  %tobool15.not.i = icmp eq i32 %34, 0
+  %32 = load atomic i32, ptr %neg monotonic, align 4
+  %tobool15.not.i = icmp eq i32 %32, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
 
 qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit.i, %if.end71
   %shl78 = shl nuw i32 1, %mmu_idx
   %dirty = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 0, i32 1
-  %35 = load i16, ptr %dirty, align 4
-  %36 = trunc i32 %shl78 to i16
-  %conv82 = or i16 %35, %36
+  %33 = load i16, ptr %dirty, align 4
+  %34 = trunc i32 %shl78 to i16
+  %conv82 = or i16 %33, %34
   store i16 %conv82, ptr %dirty, align 4
   %n_used_entries.i.i.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 4
   br label %for.body.i.i
@@ -2038,29 +2038,29 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
 for.body.i.i:                                     ; preds = %for.inc.i.i, %qemu_spin_lock.exit
   %indvars.iv.i.i = phi i64 [ 0, %qemu_spin_lock.exit ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx3.i.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 6, i64 %indvars.iv.i.i
-  %37 = load i64, ptr %arrayidx3.i.i, align 8
-  %and2.i.i.i.i = and i64 %37, -2048
+  %35 = load i64, ptr %arrayidx3.i.i, align 8
+  %and2.i.i.i.i = and i64 %35, -2048
   %cmp.i.i.i.i = icmp eq i64 %and2.i.i.i.i, %and
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %for.body.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr [4 x i64], ptr %arrayidx3.i.i, i64 0, i64 1
-  %38 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8
-  %and3.i.i.i.i = and i64 %38, -2048
+  %36 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8
+  %and3.i.i.i.i = and i64 %36, -2048
   %cmp4.i.i.i.i = icmp eq i64 %and3.i.i.i.i, %and
   br i1 %cmp4.i.i.i.i, label %if.then.i.i, label %tlb_hit_page_mask_anyprot.exit.i.i.i
 
 tlb_hit_page_mask_anyprot.exit.i.i.i:             ; preds = %lor.lhs.false.i.i.i.i
   %addr_code.i.i.i.i = getelementptr inbounds %struct.anon.2, ptr %arrayidx3.i.i, i64 0, i32 2
-  %39 = load i64, ptr %addr_code.i.i.i.i, align 8
-  %and5.i.i.i.i = and i64 %39, -2048
+  %37 = load i64, ptr %addr_code.i.i.i.i, align 8
+  %and5.i.i.i.i = and i64 %37, -2048
   %cmp6.i.i.i.i = icmp eq i64 %and5.i.i.i.i, %and
   br i1 %cmp6.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %tlb_hit_page_mask_anyprot.exit.i.i.i, %lor.lhs.false.i.i.i.i, %for.body.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx3.i.i, i8 -1, i64 32, i1 false)
-  %40 = load i64, ptr %n_used_entries.i.i.i, align 8
-  %dec.i.i.i = add i64 %40, -1
+  %38 = load i64, ptr %n_used_entries.i.i.i, align 8
+  %dec.i.i.i = add i64 %38, -1
   store i64 %dec.i.i.i, ptr %n_used_entries.i.i.i, align 8
   br label %for.inc.i.i
 
@@ -2070,64 +2070,64 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %tlb_h
   br i1 %exitcond.not.i.i, label %tlb_flush_vtlb_page_locked.exit, label %for.body.i.i, !llvm.loop !16
 
 tlb_flush_vtlb_page_locked.exit:                  ; preds = %for.inc.i.i
-  %41 = load i64, ptr %arrayidx1.i, align 8
-  %and2.i.i = and i64 %41, -2048
+  %39 = load i64, ptr %arrayidx1.i, align 8
+  %and2.i.i = and i64 %39, -2048
   %cmp.i.i = icmp eq i64 %and2.i.i, %and
   br i1 %cmp.i.i, label %if.end94, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %tlb_flush_vtlb_page_locked.exit
   %arrayidx.i.i.i.i = getelementptr [4 x i64], ptr %arrayidx1.i, i64 0, i64 1
-  %42 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8
-  %and3.i.i = and i64 %42, -2048
+  %40 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8
+  %and3.i.i = and i64 %40, -2048
   %cmp4.i.i = icmp eq i64 %and3.i.i, %and
   br i1 %cmp4.i.i, label %if.end94, label %tlb_hit_page_anyprot.exit
 
 tlb_hit_page_anyprot.exit:                        ; preds = %lor.lhs.false.i.i
   %addr_code.i.i = getelementptr inbounds %struct.anon.2, ptr %arrayidx1.i, i64 0, i32 2
-  %43 = load i64, ptr %addr_code.i.i, align 8
-  %and5.i.i = and i64 %43, -2048
+  %41 = load i64, ptr %addr_code.i.i, align 8
+  %and5.i.i = and i64 %41, -2048
   %cmp6.i.i = icmp eq i64 %and5.i.i, %and
   br i1 %cmp6.i.i, label %if.end94, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %tlb_hit_page_anyprot.exit
-  %44 = and i64 %41, %42
-  %45 = and i64 %44, %43
-  %or.cond117 = icmp eq i64 %45, -1
+  %42 = and i64 %39, %40
+  %43 = and i64 %42, %41
+  %or.cond117 = icmp eq i64 %43, -1
   br i1 %or.cond117, label %if.end94, label %if.then85
 
 if.then85:                                        ; preds = %land.lhs.true
   %vindex = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 5
-  %46 = load i64, ptr %vindex, align 8
-  %inc = add i64 %46, 1
+  %44 = load i64, ptr %vindex, align 8
+  %inc = add i64 %44, 1
   store i64 %inc, ptr %vindex, align 8
-  %conv86 = and i64 %46, 7
+  %conv86 = and i64 %44, 7
   %arrayidx88 = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 6, i64 %conv86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx88, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
   %arrayidx90 = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 7, i64 %conv86
   %fulltlb = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 8
-  %47 = load ptr, ptr %fulltlb, align 8
+  %45 = load ptr, ptr %fulltlb, align 8
   %idxprom91 = and i64 %and.i81, 4294967295
-  %arrayidx92 = getelementptr %struct.CPUTLBEntryFull, ptr %47, i64 %idxprom91
+  %arrayidx92 = getelementptr %struct.CPUTLBEntryFull, ptr %45, i64 %idxprom91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx90, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx92, i64 32, i1 false)
-  %48 = load i64, ptr %n_used_entries.i.i.i, align 8
-  %dec.i = add i64 %48, -1
+  %46 = load i64, ptr %n_used_entries.i.i.i, align 8
+  %dec.i = add i64 %46, -1
   store i64 %dec.i, ptr %n_used_entries.i.i.i, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %land.lhs.true, %tlb_flush_vtlb_page_locked.exit, %lor.lhs.false.i.i, %if.then85, %tlb_hit_page_anyprot.exit
   %fulltlb95 = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %idxprom, i32 8
-  %49 = load ptr, ptr %fulltlb95, align 8
+  %47 = load ptr, ptr %fulltlb95, align 8
   %idxprom96 = and i64 %and.i81, 4294967295
-  %arrayidx97 = getelementptr %struct.CPUTLBEntryFull, ptr %49, i64 %idxprom96
+  %arrayidx97 = getelementptr %struct.CPUTLBEntryFull, ptr %47, i64 %idxprom96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx97, ptr noundef nonnull align 8 dereferenceable(32) %full, i64 32, i1 false)
-  %50 = load ptr, ptr %fulltlb95, align 8
-  %arrayidx100 = getelementptr %struct.CPUTLBEntryFull, ptr %50, i64 %idxprom96
+  %48 = load ptr, ptr %fulltlb95, align 8
+  %arrayidx100 = getelementptr %struct.CPUTLBEntryFull, ptr %48, i64 %idxprom96
   %sub = sub i64 %iotlb.0, %and
   store i64 %sub, ptr %arrayidx100, align 8
-  %phys_addr101 = getelementptr %struct.CPUTLBEntryFull, ptr %50, i64 %idxprom96, i32 1
+  %phys_addr101 = getelementptr %struct.CPUTLBEntryFull, ptr %48, i64 %idxprom96, i32 1
   store i64 %and5, ptr %phys_addr101, align 8
-  %51 = load i32, ptr %prot, align 4
-  %and104 = and i32 %51, 4
+  %49 = load i32, ptr %prot, align 4
+  %and104 = and i32 %49, 4
   %tobool105.not = icmp eq i32 %and104, 0
   br i1 %tobool105.not, label %tlb_set_compare.exit, label %if.then.i
 
@@ -2141,16 +2141,16 @@ if.then.i:                                        ; preds = %if.end94
 
 if.then3.i:                                       ; preds = %if.then.i
   %or4.i = or i64 %or.i, 128
-  %52 = trunc i32 %and1.i to i8
+  %50 = trunc i32 %and1.i to i8
   br label %tlb_set_compare.exit
 
 tlb_set_compare.exit:                             ; preds = %if.end94, %if.then.i, %if.then3.i
-  %flags.addr.0.i = phi i8 [ %52, %if.then3.i ], [ 0, %if.then.i ], [ 0, %if.end94 ]
+  %flags.addr.0.i = phi i8 [ %50, %if.then3.i ], [ 0, %if.then.i ], [ 0, %if.end94 ]
   %address.addr.0.i = phi i64 [ %or4.i, %if.then3.i ], [ %or.i, %if.then.i ], [ -1, %if.end94 ]
-  %arrayidx8.i = getelementptr %struct.CPUTLBEntryFull, ptr %50, i64 %idxprom96, i32 5, i64 2
+  %arrayidx8.i = getelementptr %struct.CPUTLBEntryFull, ptr %48, i64 %idxprom96, i32 5, i64 2
   store i8 %flags.addr.0.i, ptr %arrayidx8.i, align 1
-  %53 = load i32, ptr %prot, align 4
-  %and111 = and i32 %53, 1
+  %51 = load i32, ptr %prot, align 4
+  %and111 = and i32 %51, 1
   %tobool112.not = icmp eq i32 %and111, 0
   br i1 %tobool112.not, label %tlb_set_compare.exit98, label %if.then.i90
 
@@ -2166,25 +2166,25 @@ if.then.i90:                                      ; preds = %tlb_set_compare.exi
 
 if.then3.i96:                                     ; preds = %if.then.i90
   %or4.i97 = or i64 %or.i93, 128
-  %54 = trunc i32 %and1.i94 to i8
+  %52 = trunc i32 %and1.i94 to i8
   br label %tlb_set_compare.exit98
 
 tlb_set_compare.exit98:                           ; preds = %tlb_set_compare.exit, %if.then.i90, %if.then3.i96
-  %flags.addr.0.i87 = phi i8 [ %54, %if.then3.i96 ], [ 0, %if.then.i90 ], [ 0, %tlb_set_compare.exit ]
+  %flags.addr.0.i87 = phi i8 [ %52, %if.then3.i96 ], [ 0, %if.then.i90 ], [ 0, %tlb_set_compare.exit ]
   %address.addr.0.i88 = phi i64 [ %or4.i97, %if.then3.i96 ], [ %or.i93, %if.then.i90 ], [ -1, %tlb_set_compare.exit ]
-  %arrayidx8.i89 = getelementptr %struct.CPUTLBEntryFull, ptr %50, i64 %idxprom96, i32 5, i64 0
+  %arrayidx8.i89 = getelementptr %struct.CPUTLBEntryFull, ptr %48, i64 %idxprom96, i32 5, i64 0
   store i8 %flags.addr.0.i87, ptr %arrayidx8.i89, align 1
-  %55 = load i32, ptr %prot, align 4
-  %and123 = and i32 %55, 2
+  %53 = load i32, ptr %prot, align 4
+  %and123 = and i32 %53, 2
   %tobool124.not = icmp eq i32 %and123, 0
   br i1 %tobool124.not, label %tlb_set_compare.exit111, label %if.then.i103
 
 if.then.i103:                                     ; preds = %tlb_set_compare.exit98
-  %and113 = shl i32 %55, 6
-  %56 = and i32 %and113, 2048
+  %and113 = shl i32 %53, 6
+  %54 = and i32 %and113, 2048
   %and118 = and i32 %call72, 2
   %write_flags.0.masked = and i32 %write_flags.0, 3968
-  %and.i104 = or i32 %56, %write_flags.0.masked
+  %and.i104 = or i32 %54, %write_flags.0.masked
   %conv.i105 = zext nneg i32 %and.i104 to i64
   %or.i106 = or disjoint i64 %and, %conv.i105
   %write_flags.0.masked116 = and i32 %write_flags.0, 3
@@ -2194,14 +2194,14 @@ if.then.i103:                                     ; preds = %tlb_set_compare.exi
 
 if.then3.i109:                                    ; preds = %if.then.i103
   %or4.i110 = or i64 %or.i106, 128
-  %57 = trunc i32 %and1.i107 to i8
+  %55 = trunc i32 %and1.i107 to i8
   br label %tlb_set_compare.exit111
 
 tlb_set_compare.exit111:                          ; preds = %tlb_set_compare.exit98, %if.then.i103, %if.then3.i109
-  %flags.addr.0.i99 = phi i8 [ %57, %if.then3.i109 ], [ 0, %if.then.i103 ], [ 0, %tlb_set_compare.exit98 ]
+  %flags.addr.0.i99 = phi i8 [ %55, %if.then3.i109 ], [ 0, %if.then.i103 ], [ 0, %tlb_set_compare.exit98 ]
   %address.addr.0.i100 = phi i64 [ %or4.i110, %if.then3.i109 ], [ %or.i106, %if.then.i103 ], [ -1, %tlb_set_compare.exit98 ]
   %sub102 = sub i64 %addend.0114, %and
-  %arrayidx8.i102 = getelementptr %struct.CPUTLBEntryFull, ptr %50, i64 %idxprom96, i32 5, i64 1
+  %arrayidx8.i102 = getelementptr %struct.CPUTLBEntryFull, ptr %48, i64 %idxprom96, i32 5, i64 1
   store i8 %flags.addr.0.i99, ptr %arrayidx8.i102, align 1
   store i64 %address.addr.0.i88, ptr %arrayidx1.i, align 8
   %tn.sroa.2.0.arrayidx1.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx1.i, i64 8
@@ -2210,8 +2210,8 @@ tlb_set_compare.exit111:                          ; preds = %tlb_set_compare.exi
   store i64 %address.addr.0.i, ptr %tn.sroa.3.0.arrayidx1.i.sroa_idx, align 8
   %tn.sroa.4.0.arrayidx1.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx1.i, i64 24
   store i64 %sub102, ptr %tn.sroa.4.0.arrayidx1.i.sroa_idx, align 8
-  %58 = load i64, ptr %n_used_entries.i.i.i, align 8
-  %inc.i = add i64 %58, 1
+  %56 = load i64, ptr %n_used_entries.i.i.i, align 8
+  %inc.i = add i64 %56, 1
   store i64 %inc.i, ptr %n_used_entries.i.i.i, align 8
   store atomic i32 0, ptr %neg release, align 4
   ret void
@@ -2645,38 +2645,38 @@ cpu_physical_memory_set_dirty_range.exit:         ; preds = %if.end.i.i.i, %whil
   %call.i = tail call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add, i32 noundef 0)
   %call1.i = tail call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add, i32 noundef 1)
   %call3.i = tail call fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %add, i32 noundef 2)
-  %18 = select i1 %call.i, i1 %call1.i, i1 false
-  %19 = select i1 %18, i1 %call3.i, i1 false
-  br i1 %19, label %if.then2, label %if.end3
+  %spec.select.demorgan.i = and i1 %call1.i, %call3.i
+  %lnot.demorgan.i = and i1 %call.i, %spec.select.demorgan.i
+  br i1 %lnot.demorgan.i, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %cpu_physical_memory_set_dirty_range.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i10)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i11 = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_MEMORY_NOTDIRTY_SET_DIRTY_DSTATE, align 2
-  %tobool4.i.i12 = icmp ne i16 %21, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i11 = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_MEMORY_NOTDIRTY_SET_DIRTY_DSTATE, align 2
+  %tobool4.i.i12 = icmp ne i16 %19, 0
   %or.cond.i.i13 = select i1 %tobool.i.i11, i1 %tobool4.i.i12, i1 false
   br i1 %or.cond.i.i13, label %land.lhs.true5.i.i14, label %trace_memory_notdirty_set_dirty.exit
 
 land.lhs.true5.i.i14:                             ; preds = %if.then2
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i15 = and i32 %22, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i15 = and i32 %20, 32768
   %cmp.i.not.i.i16 = icmp eq i32 %and.i.i.i15, 0
   br i1 %cmp.i.not.i.i16, label %trace_memory_notdirty_set_dirty.exit, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i14
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %24 = and i8 %23, 1
-  %tobool7.not.i.i18 = icmp eq i8 %24, 0
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %22 = and i8 %21, 1
+  %tobool7.not.i.i18 = icmp eq i8 %22, 0
   br i1 %tobool7.not.i.i18, label %if.else.i.i23, label %if.then8.i.i19
 
 if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #18
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #18
-  %25 = load i64, ptr %_now.i.i10, align 8
+  %23 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
-  %26 = load i64, ptr %tv_usec.i.i22, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i21, i64 noundef %25, i64 noundef %26, i64 noundef %mem_vaddr) #18
+  %24 = load i64, ptr %tv_usec.i.i22, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i21, i64 noundef %23, i64 noundef %24, i64 noundef %mem_vaddr) #18
   br label %trace_memory_notdirty_set_dirty.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i17
@@ -2687,24 +2687,24 @@ trace_memory_notdirty_set_dirty.exit:             ; preds = %if.then2, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i10)
   %and.i = and i64 %mem_vaddr, -4096
   %neg.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65
-  %27 = atomicrmw xchg ptr %neg.i, i32 1 seq_cst, align 4
-  %tobool.not3.i.i = icmp eq i32 %27, 0
+  %25 = atomicrmw xchg ptr %neg.i, i32 1 seq_cst, align 4
+  %tobool.not3.i.i = icmp eq i32 %25, 0
   br i1 %tobool.not3.i.i, label %qemu_spin_lock.exit.i, label %while.cond6.preheader.i.i
 
 while.cond.loopexit.i.i:                          ; preds = %while.body16.i.i, %while.cond6.preheader.i.i
-  %28 = atomicrmw xchg ptr %neg.i, i32 1 seq_cst, align 4
-  %tobool.not.i.i = icmp eq i32 %28, 0
+  %26 = atomicrmw xchg ptr %neg.i, i32 1 seq_cst, align 4
+  %tobool.not.i.i = icmp eq i32 %26, 0
   br i1 %tobool.not.i.i, label %qemu_spin_lock.exit.i, label %while.cond6.preheader.i.i, !llvm.loop !8
 
 while.cond6.preheader.i.i:                        ; preds = %trace_memory_notdirty_set_dirty.exit, %while.cond.loopexit.i.i
-  %29 = load atomic i32, ptr %neg.i monotonic, align 4
-  %tobool15.not2.i.i = icmp eq i32 %29, 0
+  %27 = load atomic i32, ptr %neg.i monotonic, align 4
+  %tobool15.not2.i.i = icmp eq i32 %27, 0
   br i1 %tobool15.not2.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i
 
 while.body16.i.i:                                 ; preds = %while.cond6.preheader.i.i, %while.body16.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
-  %30 = load atomic i32, ptr %neg.i monotonic, align 4
-  %tobool15.not.i.i = icmp eq i32 %30, 0
+  %28 = load atomic i32, ptr %neg.i monotonic, align 4
+  %tobool15.not.i.i = icmp eq i32 %28, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !10
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %trace_memory_notdirty_set_dirty.exit
@@ -2715,14 +2715,14 @@ qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit
 for.body.i:                                       ; preds = %tlb_set_dirty1_locked.exit.i, %qemu_spin_lock.exit.i
   %indvars.iv.i24 = phi i64 [ 0, %qemu_spin_lock.exit.i ], [ %indvars.iv.next.i26, %tlb_set_dirty1_locked.exit.i ]
   %table.i.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 2, i64 %indvars.iv.i24, i32 1
-  %31 = load ptr, ptr %table.i.i, align 8
+  %29 = load ptr, ptr %table.i.i, align 8
   %arrayidx.i.i.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 2, i64 %indvars.iv.i24
-  %32 = load i64, ptr %arrayidx.i.i.i, align 16
-  %shr.i.i.i = lshr i64 %32, 5
+  %30 = load i64, ptr %arrayidx.i.i.i, align 16
+  %shr.i.i.i = lshr i64 %30, 5
   %and.i.i.i25 = and i64 %shr.i.i.i, %shr1.i.i.i
-  %addr_write.i.i = getelementptr %union.CPUTLBEntry, ptr %31, i64 %and.i.i.i25, i32 0, i32 1
-  %33 = load i64, ptr %addr_write.i.i, align 8
-  %cmp.i.i = icmp eq i64 %33, %or.i.i
+  %addr_write.i.i = getelementptr %union.CPUTLBEntry, ptr %29, i64 %and.i.i.i25, i32 0, i32 1
+  %31 = load i64, ptr %addr_write.i.i, align 8
+  %cmp.i.i = icmp eq i64 %31, %or.i.i
   br i1 %cmp.i.i, label %if.then.i.i28, label %tlb_set_dirty1_locked.exit.i
 
 if.then.i.i28:                                    ; preds = %for.body.i
@@ -2741,8 +2741,8 @@ for.cond5.preheader.i:                            ; preds = %tlb_set_dirty1_lock
 for.body8.i:                                      ; preds = %tlb_set_dirty1_locked.exit18.i, %for.cond5.preheader.i
   %indvars.iv23.i = phi i64 [ 0, %for.cond5.preheader.i ], [ %indvars.iv.next24.i, %tlb_set_dirty1_locked.exit18.i ]
   %addr_write.i14.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 1, i64 %indvars.iv27.i, i32 6, i64 %indvars.iv23.i, i32 0, i32 1
-  %34 = load i64, ptr %addr_write.i14.i, align 8
-  %cmp.i16.i = icmp eq i64 %34, %or.i.i
+  %32 = load i64, ptr %addr_write.i14.i, align 8
+  %cmp.i16.i = icmp eq i64 %32, %or.i.i
   br i1 %cmp.i16.i, label %if.then.i17.i, label %tlb_set_dirty1_locked.exit18.i
 
 if.then.i17.i:                                    ; preds = %for.body8.i
@@ -2945,7 +2945,7 @@ declare i32 @riscv_cpu_mmu_index(ptr noundef, i1 noundef zeroext) local_unnamed_
 declare i64 @qemu_ram_addr_from_host_nofail(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @tlb_plugin_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %mmu_idx, i1 noundef zeroext %is_store, ptr nocapture noundef writeonly %data) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @tlb_plugin_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %mmu_idx, i1 noundef zeroext %is_store, ptr nocapture noundef writeonly %data) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %mmu_idx to i64
   %table.i = getelementptr %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 0, i32 2, i64 %conv, i32 1
@@ -6806,7 +6806,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local { i64, i64 } @helper_nonatomic_cmpxchgo(ptr nocapture noundef readnone %env, i64 noundef %addr, i64 noundef %cmpv.coerce0, i64 noundef %cmpv.coerce1, i64 noundef %newv.coerce0, i64 noundef %newv.coerce1, i32 noundef %oi) local_unnamed_addr #10 {
+define dso_local noundef { i64, i64 } @helper_nonatomic_cmpxchgo(ptr nocapture noundef readnone %env, i64 noundef %addr, i64 noundef %cmpv.coerce0, i64 noundef %cmpv.coerce1, i64 noundef %newv.coerce0, i64 noundef %newv.coerce1, i32 noundef %oi) local_unnamed_addr #10 {
 entry:
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 67, ptr noundef nonnull @__func__.helper_nonatomic_cmpxchgo, ptr noundef null) #21
   unreachable
@@ -12168,7 +12168,7 @@ declare ptr @get_ptr_rcu_reader() local_unnamed_addr #1
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %addr, i32 noundef %client) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %addr, i32 noundef %client) unnamed_addr #0 {
 entry:
   %and.i = add i64 %addr, 4096
   %shr.i = lshr i64 %and.i, 12
@@ -12271,7 +12271,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @bitmap_set_atomic(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %type, ptr nocapture noundef %l) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %type, ptr nocapture noundef %l) unnamed_addr #0 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %memop = getelementptr inbounds %struct.MMULookupLocals, ptr %l, i64 0, i32 1
@@ -12501,7 +12501,7 @@ if.end127:                                        ; preds = %if.end54, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @mmu_lookup1(ptr noundef %cpu, ptr nocapture noundef %data, i32 noundef %mmu_idx, i32 noundef %access_type, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mmu_lookup1(ptr noundef %cpu, ptr nocapture noundef %data, i32 noundef %mmu_idx, i32 noundef %access_type, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %tmptlb.sroa.0.i = alloca %struct.anon.2, align 8
   %tmpf.i = alloca %struct.CPUTLBEntryFull, align 8
@@ -12836,14 +12836,14 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
 sw.bb.i:                                          ; preds = %do.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 4) ]
   %8 = load atomic i32, ptr %haddr.0.i monotonic, align 4
-  %9 = tail call i32 @llvm.bswap.i32(i32 %8)
+  %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   %conv4.i = zext i32 %9 to i64
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %do.body.i, %do.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 2) ]
   %10 = load atomic i16, ptr %haddr.0.i monotonic, align 2
-  %11 = tail call i16 @llvm.bswap.i16(i16 %10)
+  %11 = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %conv9.i = zext i16 %11 to i64
   br label %sw.epilog.i
 
@@ -12896,7 +12896,7 @@ if.then17:                                        ; preds = %cond.false13, %cond
   %add.ptr.i23 = getelementptr i8, ptr %16, i64 %idx.neg.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i23, i64 8) ]
   %17 = load atomic i64, ptr %add.ptr.i23 monotonic, align 8
-  %18 = tail call i64 @llvm.bswap.i64(i64 %17)
+  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
   %conv.i24 = shl i64 %15, 3
   %mul.i = and i64 %conv.i24, 56
   %shl.i = shl i64 %18, %mul.i
@@ -13372,14 +13372,14 @@ do.body.i:                                        ; preds = %sw.epilog.i, %sw.bb
 sw.bb.i:                                          ; preds = %do.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 4) ]
   %7 = load atomic i32, ptr %haddr.0.i monotonic, align 4
-  %8 = tail call i32 @llvm.bswap.i32(i32 %7)
+  %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   %conv4.i = zext i32 %8 to i64
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %do.body.i, %do.body.i
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i, i64 2) ]
   %9 = load atomic i16, ptr %haddr.0.i monotonic, align 2
-  %10 = tail call i16 @llvm.bswap.i16(i16 %9)
+  %10 = tail call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv9.i = zext i16 %10 to i64
   br label %sw.epilog.i
 
@@ -13429,14 +13429,14 @@ do.body.i35:                                      ; preds = %sw.epilog.i45, %do_
 sw.bb.i55:                                        ; preds = %do.body.i35
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i37, i64 4) ]
   %13 = load atomic i32, ptr %haddr.0.i37 monotonic, align 4
-  %14 = tail call i32 @llvm.bswap.i32(i32 %13)
+  %14 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
   %conv4.i56 = zext i32 %14 to i64
   br label %sw.epilog.i45
 
 sw.bb6.i43:                                       ; preds = %do.body.i35, %do.body.i35
   call void @llvm.assume(i1 true) [ "align"(ptr %haddr.0.i37, i64 2) ]
   %15 = load atomic i16, ptr %haddr.0.i37 monotonic, align 2
-  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
+  %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
   %conv9.i44 = zext i16 %16 to i64
   br label %sw.epilog.i45
 

@@ -481,7 +481,7 @@ sw.bb:                                            ; preds = %entry
 sw.bb5:                                           ; preds = %sw.bb
   %tag1.i = getelementptr inbounds %struct.uas_iu_header, ptr %iu, i64 0, i32 2
   %4 = load i16, ptr %tag1.i, align 1
-  %5 = call i16 @llvm.bswap.i16(i16 %4)
+  %5 = call noundef i16 @llvm.bswap.i16(i16 %4)
   %add_cdb_length.i = getelementptr inbounds %struct.uas_iu, ptr %iu, i64 0, i32 1, i32 0, i32 1
   %6 = load i8, ptr %add_cdb_length.i, align 1
   %conv.i = zext i8 %6 to i64
@@ -504,7 +504,7 @@ if.end9.i:                                        ; preds = %sw.bb5
   %uas.val50.i = load i32, ptr %8, align 8
   %cmp.i51.i = icmp eq i32 %uas.val50.i, 3
   %cmp13.i = icmp ugt i16 %5, 16
-  %or.cond.i = select i1 %cmp.i51.i, i1 %cmp13.i, i1 false
+  %or.cond.i = and i1 %cmp13.i, %cmp.i51.i
   br i1 %or.cond.i, label %invalid_tag.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
@@ -530,11 +530,11 @@ if.end20.i:                                       ; preds = %for.inc.i.i, %if.en
   %uas1.i.i = getelementptr inbounds %struct.UASRequest, ptr %call.i.i, i64 0, i32 2
   store ptr %call.i, ptr %uas1.i.i, align 8
   %10 = load i16, ptr %tag1.i, align 1
-  %11 = call i16 @llvm.bswap.i16(i16 %10)
+  %11 = call noundef i16 @llvm.bswap.i16(i16 %10)
   store i16 %11, ptr %call.i.i, align 8
   %lun.i.i = getelementptr inbounds %struct.uas_iu, ptr %iu, i64 0, i32 1, i32 0, i32 2, i64 1
   %12 = load i64, ptr %lun.i.i, align 1
-  %13 = call i64 @llvm.bswap.i64(i64 %12)
+  %13 = call noundef i64 @llvm.bswap.i64(i64 %12)
   %lun5.i.i = getelementptr inbounds %struct.UASRequest, ptr %call.i.i, i64 0, i32 1
   store i64 %13, ptr %lun5.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %13, 72057594037927936
@@ -690,11 +690,11 @@ bad_target.i:                                     ; preds = %usb_uas_alloc_reque
 sw.bb6:                                           ; preds = %sw.bb
   %tag1.i77 = getelementptr inbounds %struct.uas_iu_header, ptr %iu, i64 0, i32 2
   %34 = load i16, ptr %tag1.i77, align 1
-  %35 = call i16 @llvm.bswap.i16(i16 %34)
+  %35 = call noundef i16 @llvm.bswap.i16(i16 %34)
   %36 = getelementptr inbounds %struct.uas_iu, ptr %iu, i64 0, i32 1
   %lun.i = getelementptr inbounds %struct.uas_iu, ptr %iu, i64 0, i32 1, i32 0, i32 2, i64 1
   %37 = load i64, ptr %lun.i, align 1
-  %38 = call i64 @llvm.bswap.i64(i64 %37)
+  %38 = call noundef i64 @llvm.bswap.i64(i64 %37)
   %cmp.not.i.i = icmp ult i64 %38, 72057594037927936
   br i1 %cmp.not.i.i, label %if.end.i.i, label %entry.usb_uas_get_dev.exit_crit_edge.i
 
@@ -718,12 +718,12 @@ usb_uas_get_dev.exit.i:                           ; preds = %if.end.i.i, %entry.
   %uas.val.i80 = load i32, ptr %40, align 8
   %cmp.i.i = icmp eq i32 %uas.val.i80, 3
   %cmp.i = icmp ugt i16 %35, 16
-  %or.cond.i81 = select i1 %cmp.i.i, i1 %cmp.i, i1 false
+  %or.cond.i81 = and i1 %cmp.i, %cmp.i.i
   br i1 %or.cond.i81, label %invalid_tag.i108, label %if.end.i
 
 if.end.i:                                         ; preds = %usb_uas_get_dev.exit.i
   %41 = load i16, ptr %tag1.i77, align 1
-  %42 = call i16 @llvm.bswap.i16(i16 %41)
+  %42 = call noundef i16 @llvm.bswap.i16(i16 %41)
   %requests.i.i82 = getelementptr inbounds %struct.UASDevice, ptr %call.i, i64 0, i32 4
   %req.04.i.i83 = load ptr, ptr %requests.i.i82, align 8
   %tobool.not5.i.i84 = icmp eq ptr %req.04.i.i83, null
@@ -755,7 +755,7 @@ if.end17.i:                                       ; preds = %if.end13.i
 sw.bb.i:                                          ; preds = %if.end17.i
   %task_tag19.i = getelementptr inbounds %struct.uas_iu, ptr %iu, i64 0, i32 1, i32 0, i32 1
   %45 = load i16, ptr %task_tag19.i, align 1
-  %46 = call i16 @llvm.bswap.i16(i16 %45)
+  %46 = call noundef i16 @llvm.bswap.i16(i16 %45)
   %addr.i91 = getelementptr inbounds %struct.USBDevice, ptr %call.i, i64 0, i32 10
   %47 = load i8, ptr %addr.i91, align 8
   %conv22.i = zext i8 %47 to i32
@@ -1392,7 +1392,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
   %call.i.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1
   store i8 3, ptr %status.i.i, align 4
-  %19 = tail call i16 @llvm.bswap.i16(i16 %18)
+  %19 = tail call noundef i16 @llvm.bswap.i16(i16 %18)
   %tag5.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1, i32 0, i32 2
   store i16 %19, ptr %tag5.i.i, align 2
   %length.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 2
@@ -1467,7 +1467,7 @@ if.then.i:                                        ; preds = %trace_usb_uas_sense
   %sense_data.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1, i32 1, i32 0, i32 4
   %call11.i = tail call i32 @scsi_req_get_sense(ptr noundef %32, ptr noundef nonnull %sense_data.i, i32 noundef 18) #9
   %conv12.i = trunc i32 %call11.i to i16
-  %33 = tail call i16 @llvm.bswap.i16(i16 %conv12.i)
+  %33 = tail call noundef i16 @llvm.bswap.i16(i16 %conv12.i)
   %sense_length.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1, i32 1, i32 0, i32 3
   store i16 %33, ptr %sense_length.i, align 2
   %34 = add i32 %call11.i, 12
@@ -1764,7 +1764,7 @@ if.then7:                                         ; preds = %land.lhs.true
   %call.i.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1
   store i8 6, ptr %status.i.i, align 4
-  %10 = tail call i16 @llvm.bswap.i16(i16 %9)
+  %10 = tail call noundef i16 @llvm.bswap.i16(i16 %9)
   %tag5.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 1, i32 0, i32 2
   store i16 %10, ptr %tag5.i.i, align 2
   %length.i.i = getelementptr inbounds %struct.UASStatus, ptr %call.i.i, i64 0, i32 2
@@ -1877,7 +1877,7 @@ if.then17:                                        ; preds = %land.lhs.true15
   %call.i.i19 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i.i20 = getelementptr inbounds %struct.UASStatus, ptr %call.i.i19, i64 0, i32 1
   store i8 7, ptr %status.i.i20, align 4
-  %31 = tail call i16 @llvm.bswap.i16(i16 %30)
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
   %tag5.i.i21 = getelementptr inbounds %struct.UASStatus, ptr %call.i.i19, i64 0, i32 1, i32 0, i32 2
   store i16 %31, ptr %tag5.i.i21, align 2
   %length.i.i22 = getelementptr inbounds %struct.UASStatus, ptr %call.i.i19, i64 0, i32 2
@@ -2049,7 +2049,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 1
   store i8 3, ptr %status.i, align 4
-  %0 = tail call i16 @llvm.bswap.i16(i16 %tag)
+  %0 = tail call noundef i16 @llvm.bswap.i16(i16 %tag)
   %tag5.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 1, i32 0, i32 2
   store i16 %0, ptr %tag5.i, align 2
   %length.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 2
@@ -2133,7 +2133,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 1
   store i8 4, ptr %status.i, align 4
-  %0 = tail call i16 @llvm.bswap.i16(i16 %tag)
+  %0 = tail call noundef i16 @llvm.bswap.i16(i16 %tag)
   %tag5.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 1, i32 0, i32 2
   store i16 %0, ptr %tag5.i, align 2
   %length.i = getelementptr inbounds %struct.UASStatus, ptr %call.i, i64 0, i32 2

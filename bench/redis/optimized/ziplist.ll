@@ -70,7 +70,7 @@ entry:
   ret i64 %conv
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @zipStoreEntryEncoding(ptr noundef writeonly %p, i8 noundef zeroext %encoding, i32 noundef %rawlen) local_unnamed_addr #1 {
 entry:
   %buf = alloca [5 x i8], align 1
@@ -154,7 +154,7 @@ return:                                           ; preds = %if.else50, %if.else
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly %p, i32 noundef %len) local_unnamed_addr #3 {
+define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly %p, i32 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -170,7 +170,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @zipStorePrevEntryLength(ptr noundef writeonly %p, i32 noundef %len) local_unnamed_addr #3 {
+define dso_local noundef i32 @zipStorePrevEntryLength(ptr noundef writeonly %p, i32 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %p, null
   %cmp1 = icmp ult i32 %len, 254
@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zipTryEncoding(ptr noundef %entry1, i32 noundef %entrylen, ptr nocapture noundef writeonly %v, ptr nocapture noundef writeonly %encoding) local_unnamed_addr #4 {
+define dso_local noundef i32 @zipTryEncoding(ptr noundef %entry1, i32 noundef %entrylen, ptr nocapture noundef writeonly %v, ptr nocapture noundef writeonly %encoding) local_unnamed_addr #4 {
 entry:
   %value = alloca i64, align 8
   %0 = add i32 %entrylen, -32
@@ -221,7 +221,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %entrylen to i64
-  %call = call i32 @string2ll(ptr noundef %entry1, i64 noundef %conv, ptr noundef nonnull %value) #17
+  %call = call i32 @string2ll(ptr noundef %entry1, i64 noundef %conv, ptr noundef nonnull %value) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then3
 
@@ -310,8 +310,8 @@ if.else25:                                        ; preds = %entry
   br i1 %or.cond, label %if.end38, label %if.else33
 
 if.else33:                                        ; preds = %if.else25
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #16
+  tail call void @abort() #17
   unreachable
 
 if.end38:                                         ; preds = %if.then6, %if.then18, %if.else25, %if.then24, %if.then12, %if.then
@@ -370,8 +370,8 @@ if.then32:                                        ; preds = %if.else25
   br label %if.end40
 
 if.else35:                                        ; preds = %if.else25
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  tail call void @abort() #17
   unreachable
 
 if.end40:                                         ; preds = %if.then6, %if.then18, %if.then32, %if.then24, %if.then12, %if.then
@@ -380,9 +380,9 @@ if.end40:                                         ; preds = %if.then6, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @ziplistNew() local_unnamed_addr #4 {
+define dso_local noalias noundef ptr @ziplistNew() local_unnamed_addr #4 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(11) ptr @zmalloc(i64 noundef 11) #19
+  %call = tail call noalias dereferenceable_or_null(11) ptr @zmalloc(i64 noundef 11) #18
   store i32 11, ptr %call, align 4
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 10, ptr %add.ptr, align 4
@@ -397,18 +397,18 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistResize(ptr noundef %zl, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistResize(ptr noundef %zl, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %len, 4294967295
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call = tail call ptr @zrealloc(ptr noundef %zl, i64 noundef %len) #20
+  %call = tail call ptr @zrealloc(ptr noundef %zl, i64 noundef %len) #19
   %conv2 = trunc i64 %len to i32
   store i32 %conv2, ptr %call, align 4
   %0 = getelementptr i8, ptr %call, i64 %len
@@ -421,7 +421,7 @@ cond.end:                                         ; preds = %entry
 declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__ziplistCascadeUpdate(ptr noundef %zl, ptr noundef %p) local_unnamed_addr #4 {
+define dso_local noundef ptr @__ziplistCascadeUpdate(ptr noundef %zl, ptr noundef %p) local_unnamed_addr #4 {
 entry:
   %cur = alloca %struct.zlentry, align 8
   %0 = load i32, ptr %zl, align 4
@@ -466,8 +466,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 771) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 771) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %while.body
@@ -515,8 +515,8 @@ if.end35:                                         ; preds = %if.end20
   br i1 %8, label %cond.end52, label %cond.false51
 
 cond.false51:                                     ; preds = %if.end35
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 789) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 789) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end52:                                       ; preds = %if.end35
@@ -577,14 +577,14 @@ if.end90:                                         ; preds = %if.end90.sink.split
   br i1 %cmp.i75, label %ziplistResize.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end90
-  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #16
+  tail call void @abort() #17
   unreachable
 
 ziplistResize.exit:                               ; preds = %if.end90
   %sub.ptr.lhs.cast91 = ptrtoint ptr %p.addr.099 to i64
   %sub.ptr.sub93 = sub i64 %sub.ptr.lhs.cast91, %sub.ptr.rhs.cast
-  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add94) #20
+  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add94) #19
   %conv2.i = trunc i64 %add94 to i32
   store i32 %conv2.i, ptr %call.i, align 4
   %17 = getelementptr i8, ptr %call.i, i64 %add94
@@ -833,8 +833,8 @@ if.else164:                                       ; preds = %if.else153
   br label %cond.false
 
 cond.false:                                       ; preds = %if.else164, %if.else111
-  tail call void @_serverAssert(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 620) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 620) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end.sink.split:                              ; preds = %if.else117, %if.then137, %if.then151, %if.then144, %if.then130, %if.then49, %if.then82, %if.then61
@@ -855,7 +855,7 @@ cond.end:                                         ; preds = %cond.end.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #9 {
+define internal fastcc noundef i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %zl, i64 10
   %add.ptr1 = getelementptr inbounds i8, ptr %zl, i64 %zlbytes
@@ -1278,7 +1278,7 @@ return:                                           ; preds = %do.end182, %zipEnco
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__ziplistDelete(ptr noundef %zl, ptr noundef %p, i32 noundef %num) local_unnamed_addr #4 {
+define dso_local noundef ptr @__ziplistDelete(ptr noundef %zl, ptr noundef %p, i32 noundef %num) local_unnamed_addr #4 {
 entry:
   %e.i = alloca %struct.zlentry, align 8
   %first = alloca %struct.zlentry, align 8
@@ -1306,8 +1306,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %zi
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
 cond.false.i:                                     ; preds = %for.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit:                       ; preds = %for.body
@@ -1339,8 +1339,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 863) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 863) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %for.end
@@ -1373,8 +1373,8 @@ if.then19:                                        ; preds = %if.then
   br i1 %9, label %if.else.i, label %cond.false39
 
 cond.false39:                                     ; preds = %if.then19
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 879) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 879) #16
+  tail call void @abort() #17
   unreachable
 
 if.else.i:                                        ; preds = %if.then19
@@ -1399,8 +1399,8 @@ zipStorePrevEntryLength.exit:                     ; preds = %if.then4.i, %zipSto
   br i1 %tobool45.not, label %cond.false53, label %cond.end54
 
 cond.false53:                                     ; preds = %zipStorePrevEntryLength.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 888) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 888) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end54:                                       ; preds = %zipStorePrevEntryLength.exit
@@ -1444,14 +1444,14 @@ if.end75:                                         ; preds = %if.else, %cond.end5
   br i1 %cmp.i48, label %ziplistResize.exit, label %cond.false.i49
 
 cond.false.i49:                                   ; preds = %if.end75
-  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #16
+  tail call void @abort() #17
   unreachable
 
 ziplistResize.exit:                               ; preds = %if.end75
   %sub.ptr.rhs.cast78 = ptrtoint ptr %zl to i64
   %sub.ptr.sub79 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast78
-  %call.i50 = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %sub82) #20
+  %call.i50 = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %sub82) #19
   %conv2.i = trunc i64 %sub82 to i32
   store i32 %conv2.i, ptr %call.i50, align 4
   %16 = getelementptr i8, ptr %call.i50, i64 %sub82
@@ -1475,8 +1475,8 @@ if.end96:                                         ; preds = %if.then89, %ziplist
   br i1 %cmp99.not, label %cond.false108, label %cond.end109
 
 cond.false108:                                    ; preds = %if.end96
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 914) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 914) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end109:                                      ; preds = %if.end96
@@ -1495,7 +1495,7 @@ if.end116:                                        ; preds = %cond.end109, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__ziplistInsert(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
+define dso_local noundef ptr @__ziplistInsert(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [5 x i8], align 1
   %value.i = alloca i64, align 8
@@ -1534,8 +1534,8 @@ if.then35:                                        ; preds = %if.else29
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
 cond.false.i:                                     ; preds = %if.then35
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit:                       ; preds = %if.then35
@@ -1556,7 +1556,7 @@ if.end37:                                         ; preds = %if.else29, %zipRawE
 
 if.end.i:                                         ; preds = %if.end37
   %conv.i = zext nneg i32 %slen to i64
-  %call.i76 = call i32 @string2ll(ptr noundef %s, i64 noundef %conv.i, ptr noundef nonnull %value.i) #17
+  %call.i76 = call i32 @string2ll(ptr noundef %s, i64 noundef %conv.i, ptr noundef nonnull %value.i) #16
   %tobool.not.i77 = icmp eq i32 %call.i76, 0
   br i1 %tobool.not.i77, label %if.then.i.thread, label %if.then3.i
 
@@ -1676,12 +1676,12 @@ cond.end:                                         ; preds = %zipStoreEntryEncodi
   br i1 %cmp.i86, label %ziplistResize.exit, label %cond.false.i87
 
 cond.false.i87:                                   ; preds = %cond.end
-  call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 724) #16
+  call void @abort() #17
   unreachable
 
 ziplistResize.exit:                               ; preds = %cond.end
-  %call.i88 = call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add64) #20
+  %call.i88 = call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add64) #19
   %conv2.i = trunc i64 %add64 to i32
   store i32 %conv2.i, ptr %call.i88, align 4
   %16 = getelementptr i8, ptr %call.i88, i64 %add64
@@ -1734,8 +1734,8 @@ if.end87:                                         ; preds = %zipStorePrevEntryLe
   br i1 %tobool95.not, label %cond.false100, label %cond.end101
 
 cond.false100:                                    ; preds = %if.end87
-  call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 995) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 995) #16
+  call void @abort() #17
   unreachable
 
 cond.end101:                                      ; preds = %if.end87
@@ -1892,8 +1892,8 @@ if.else25.i:                                      ; preds = %if.else143
   br i1 %or.cond.i122, label %if.end144, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else25.i
-  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #16
+  call void @abort() #17
   unreachable
 
 if.end144:                                        ; preds = %if.else25.i, %if.then24.i, %if.then18.i, %if.then12.i, %if.then6.i, %if.then.i120, %if.then141
@@ -1912,7 +1912,7 @@ if.end155:                                        ; preds = %if.then149, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistMerge(ptr noundef %first, ptr noundef %second) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistMerge(ptr noundef %first, ptr noundef %second) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %first, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1950,8 +1950,8 @@ if.end8:                                          ; preds = %lor.lhs.false4
   br i1 %cmp21, label %cond.end27, label %cond.false26
 
 cond.false26:                                     ; preds = %if.end8
-  tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1086) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1086) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end27:                                       ; preds = %if.end8
@@ -1962,7 +1962,7 @@ cond.end27:                                       ; preds = %if.end8
   %conv29 = zext i32 %6 to i64
   %add.ptr30 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %add.ptr30, align 4
-  %call = tail call ptr @zrealloc(ptr noundef nonnull %., i64 noundef %sub17) #20
+  %call = tail call ptr @zrealloc(ptr noundef nonnull %., i64 noundef %sub17) #19
   %add.ptr39 = getelementptr inbounds i8, ptr %call, i64 %conv
   %add.ptr40 = getelementptr inbounds i8, ptr %add.ptr39, i64 -1
   %sub42 = add nsw i64 %conv10, -10
@@ -1995,7 +1995,7 @@ if.end44:                                         ; preds = %if.else38, %if.then
   %add.ptr53 = getelementptr inbounds i8, ptr %call, i64 %conv29
   %call54 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr53)
   %8 = load ptr, ptr %first.second, align 8
-  tail call void @zfree(ptr noundef %8) #17
+  tail call void @zfree(ptr noundef %8) #16
   store ptr null, ptr %first.second, align 8
   store ptr %call54, ptr %second.first, align 8
   br label %return
@@ -2008,7 +2008,7 @@ return:                                           ; preds = %if.end44, %entry, %
 declare void @zfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistPush(ptr noundef %zl, ptr noundef %s, i32 noundef %slen, i32 noundef %where) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistPush(ptr noundef %zl, ptr noundef %s, i32 noundef %slen, i32 noundef %where) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %where, 0
   br i1 %cmp, label %cond.true, label %cond.false
@@ -2031,7 +2031,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistIndex(ptr noundef %zl, i32 noundef %index) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistIndex(ptr noundef %zl, i32 noundef %index) local_unnamed_addr #4 {
 entry:
   %e.i42 = alloca %struct.zlentry, align 8
   %e.i = alloca %struct.zlentry, align 8
@@ -2067,8 +2067,8 @@ do.end.thread:                                    ; preds = %if.then
   br i1 %cmp1750, label %if.else36, label %cond.false
 
 cond.false:                                       ; preds = %do.end.thread, %do.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1164) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1164) #16
+  tail call void @abort() #17
   unreachable
 
 if.then33:                                        ; preds = %do.end
@@ -2104,8 +2104,8 @@ while.body:                                       ; preds = %land.rhs
   br i1 %5, label %do.body75, label %cond.false72
 
 cond.false72:                                     ; preds = %while.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1168) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1168) #16
+  tail call void @abort() #17
   unreachable
 
 do.body75:                                        ; preds = %while.body
@@ -2147,8 +2147,8 @@ while.body112:                                    ; preds = %while.cond109
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
 cond.false.i:                                     ; preds = %while.body112
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit:                       ; preds = %while.body112
@@ -2184,8 +2184,8 @@ if.end130:                                        ; preds = %if.end122
   br i1 %tobool.not.i44, label %cond.false.i45, label %zipAssertValidEntry.exit
 
 cond.false.i45:                                   ; preds = %if.end130
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %if.end130
@@ -2198,7 +2198,7 @@ return:                                           ; preds = %if.end122, %zipAsse
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistNext(ptr noundef %zl, ptr noundef %p) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistNext(ptr noundef %zl, ptr noundef %p) local_unnamed_addr #4 {
 entry:
   %e.i7 = alloca %struct.zlentry, align 8
   %e.i = alloca %struct.zlentry, align 8
@@ -2230,8 +2230,8 @@ if.end8:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %cond.false.i, label %zipAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %if.end8
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %if.end8
@@ -2285,8 +2285,8 @@ do.end38:                                         ; preds = %if.then21, %if.else
   br i1 %cmp39.not, label %cond.false44, label %cond.end45
 
 cond.false44:                                     ; preds = %do.end38
-  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1228) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1228) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end45:                                       ; preds = %do.end38
@@ -2301,8 +2301,8 @@ cond.end45:                                       ; preds = %do.end38
   br i1 %tobool.not.i, label %cond.false.i, label %zipAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %cond.end45
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %cond.end45
@@ -2315,7 +2315,7 @@ return:                                           ; preds = %if.else, %zipAssert
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ziplistGet(ptr noundef %p, ptr noundef writeonly %sstr, ptr nocapture noundef writeonly %slen, ptr noundef writeonly %sval) local_unnamed_addr #4 {
+define dso_local noundef i32 @ziplistGet(ptr noundef %p, ptr noundef writeonly %sstr, ptr nocapture noundef writeonly %slen, ptr noundef writeonly %sval) local_unnamed_addr #4 {
 entry:
   %entry1 = alloca %struct.zlentry, align 8
   %cmp = icmp eq ptr %p, null
@@ -2410,8 +2410,8 @@ if.then32.i:                                      ; preds = %if.else25.i
   br label %zipLoadInteger.exit
 
 if.else35.i:                                      ; preds = %if.else25.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  tail call void @abort() #17
   unreachable
 
 zipLoadInteger.exit:                              ; preds = %if.then.i, %if.then6.i, %if.then12.i, %if.then18.i, %if.then24.i, %if.then32.i
@@ -2425,14 +2425,14 @@ return:                                           ; preds = %if.end5, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistInsert(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistInsert(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
 entry:
   %call = tail call ptr @__ziplistInsert(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistDelete(ptr noundef %zl, ptr nocapture noundef %p) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistDelete(ptr noundef %zl, ptr nocapture noundef %p) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
@@ -2445,7 +2445,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistDeleteRange(ptr noundef %zl, i32 noundef %index, i32 noundef %num) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistDeleteRange(ptr noundef %zl, i32 noundef %index, i32 noundef %num) local_unnamed_addr #4 {
 entry:
   %call = tail call ptr @ziplistIndex(ptr noundef %zl, i32 noundef %index)
   %cmp = icmp eq ptr %call, null
@@ -2461,7 +2461,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistReplace(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistReplace(ptr noundef %zl, ptr noundef %p, ptr noundef %s, i32 noundef %slen) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [5 x i8], align 1
   %value.i = alloca i64, align 8
@@ -2474,7 +2474,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %slen to i64
-  %call.i = call i32 @string2ll(ptr noundef %s, i64 noundef %conv.i, ptr noundef nonnull %value.i) #17
+  %call.i = call i32 @string2ll(ptr noundef %s, i64 noundef %conv.i, ptr noundef nonnull %value.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i.thread, label %if.then3.i
 
@@ -2684,17 +2684,17 @@ if.else25.i:                                      ; preds = %if.else13
   br i1 %or.cond.i32, label %if.end18, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else25.i
-  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 574) #16
+  call void @abort() #17
   unreachable
 
 if.else15:                                        ; preds = %zipStoreEntryEncoding.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %zl to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i33 = call ptr @__ziplistDelete(ptr noundef %zl, ptr noundef %p, i32 noundef 1)
+  %call.i33 = call noundef ptr @__ziplistDelete(ptr noundef %zl, ptr noundef %p, i32 noundef 1)
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i33, i64 %sub.ptr.sub.i
-  %call.i34 = call ptr @__ziplistInsert(ptr noundef %call.i33, ptr noundef %add.ptr.i, ptr noundef %s, i32 noundef %slen)
+  %call.i34 = call noundef ptr @__ziplistInsert(ptr noundef %call.i33, ptr noundef %add.ptr.i, ptr noundef %s, i32 noundef %slen)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else25.i, %if.then24.i, %if.then18.i, %if.then12.i, %if.then6.i, %if.then.i31, %if.then11, %if.else15
@@ -2742,7 +2742,7 @@ if.else13:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.else13
   %conv.i = zext nneg i32 %slen to i64
-  %call.i = call i32 @string2ll(ptr noundef %sstr, i64 noundef %conv.i, ptr noundef nonnull %value.i) #17
+  %call.i = call i32 @string2ll(ptr noundef %sstr, i64 noundef %conv.i, ptr noundef nonnull %value.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %zipTryEncoding.exit, label %if.then3.i
 
@@ -2801,8 +2801,8 @@ if.then32.i:                                      ; preds = %if.else25.i
   br label %zipLoadInteger.exit
 
 if.else35.i:                                      ; preds = %if.else25.i
-  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  call void @abort() #17
   unreachable
 
 zipLoadInteger.exit:                              ; preds = %if.then.i, %if.then6.i, %if.then12.i, %if.then18.i, %if.then24.i, %if.then32.i
@@ -2817,7 +2817,7 @@ return:                                           ; preds = %zipTryEncoding.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistFind(ptr noundef %zl, ptr noundef %p, ptr noundef %vstr, i32 noundef %vlen, i32 noundef %skip) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistFind(ptr noundef %zl, ptr noundef %p, ptr noundef %vstr, i32 noundef %vlen, i32 noundef %skip) local_unnamed_addr #4 {
 entry:
   %value.i = alloca i64, align 8
   %e = alloca %struct.zlentry, align 8
@@ -2846,8 +2846,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1360) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1360) #16
+  call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %while.body
@@ -2886,7 +2886,7 @@ if.then24:                                        ; preds = %if.else
   br i1 %or.cond.i, label %if.end39.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then24
-  %call.i = call i32 @string2ll(ptr noundef %vstr, i64 noundef %conv16, ptr noundef nonnull %value.i) #17
+  %call.i = call i32 @string2ll(ptr noundef %vstr, i64 noundef %conv16, ptr noundef nonnull %value.i) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end39.thread, label %if.then3.i
 
@@ -2977,8 +2977,8 @@ if.then32.i:                                      ; preds = %if.else25.i
   br label %zipLoadInteger.exit
 
 if.else35.i:                                      ; preds = %if.else25.i
-  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  call void @abort() #17
   unreachable
 
 zipLoadInteger.exit:                              ; preds = %if.then.i, %if.then6.i, %if.then12.i, %if.then18.i, %if.then24.i, %if.then32.i
@@ -3041,8 +3041,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not.i, label %cond.false.i, label %zipRawEntryLengthSafe.exit
 
 cond.false.i:                                     ; preds = %while.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit:                       ; preds = %while.body
@@ -3105,8 +3105,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1448) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1448) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %while.body
@@ -3156,7 +3156,7 @@ if.then32:                                        ; preds = %if.then
   br i1 %cmp34, label %if.then36, label %if.end
 
 if.then36:                                        ; preds = %if.then32
-  tail call void @perror(ptr noundef nonnull @.str.23) #21
+  tail call void @perror(ptr noundef nonnull @.str.23) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then36, %if.then32
@@ -3175,7 +3175,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp43, label %if.then45, label %if.end52
 
 if.then45:                                        ; preds = %land.lhs.true
-  tail call void @perror(ptr noundef nonnull @.str.23) #21
+  tail call void @perror(ptr noundef nonnull @.str.23) #20
   br label %if.end52
 
 if.else48:                                        ; preds = %for.end
@@ -3223,8 +3223,8 @@ if.then32.i:                                      ; preds = %if.else25.i
   br label %zipLoadInteger.exit
 
 if.else35.i:                                      ; preds = %if.else25.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  tail call void @abort() #17
   unreachable
 
 zipLoadInteger.exit:                              ; preds = %if.then.i, %if.then6.i, %if.then12.i, %if.then18.i, %if.then24.i, %if.then32.i
@@ -3247,13 +3247,13 @@ while.end:                                        ; preds = %if.end52, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ziplistValidateIntegrity(ptr noundef %zl, i64 noundef %size, i32 noundef %deep, ptr noundef readonly %entry_cb, ptr noundef %cb_userdata) local_unnamed_addr #4 {
@@ -3338,7 +3338,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond24, label %if.end31, label %return
 
 if.end31:                                         ; preds = %while.body
-  %call33 = tail call i32 %entry_cb(ptr noundef nonnull %p.030, i32 noundef %conv19, ptr noundef %cb_userdata) #17
+  %call33 = tail call i32 %entry_cb(ptr noundef nonnull %p.030, i32 noundef %conv19, ptr noundef %cb_userdata) #16
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %if.end36
 
@@ -3395,12 +3395,12 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 1567) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 1567) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call = tail call i32 @rand() #17
+  %call = tail call i32 @rand() #16
   %conv3 = sext i32 %call to i64
   %rem = urem i64 %conv3, %total_count
   %rem.tr = trunc i64 %rem to i32
@@ -3413,8 +3413,8 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp.not, label %cond.false15, label %cond.end16
 
 cond.false15:                                     ; preds = %cond.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1573) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1573) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end16:                                       ; preds = %cond.end
@@ -3450,8 +3450,8 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipAssertValidEntry.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end8.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit.i:                       ; preds = %if.end8.i
@@ -3467,8 +3467,8 @@ ziplistNext.exit:                                 ; preds = %if.end, %if.end.i, 
   br i1 %cmp23.not, label %cond.false32, label %cond.end33
 
 cond.false32:                                     ; preds = %ziplistNext.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1579) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1579) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end33:                                       ; preds = %ziplistNext.exit, %cond.end16
@@ -3476,7 +3476,7 @@ cond.end33:                                       ; preds = %ziplistNext.exit, %
 }
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #11
+declare i32 @rand() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @uintCompare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
@@ -3507,7 +3507,7 @@ entry:
   store i64 0, ptr %vlval, align 8
   %conv = zext i32 %count to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %call = tail call noalias ptr @zmalloc(i64 noundef %mul) #19
+  %call = tail call noalias ptr @zmalloc(i64 noundef %mul) #18
   %add.ptr.i = getelementptr inbounds i8, ptr %zl, i64 8
   %0 = load i16, ptr %add.ptr.i, align 2
   %cmp.not.i = icmp eq i16 %0, -1
@@ -3539,8 +3539,8 @@ while.body.i:                                     ; preds = %zipRawEntryLengthSa
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipRawEntryLengthSafe.exit.i
 
 cond.false.i.i:                                   ; preds = %while.body.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit.i:                     ; preds = %while.body.i
@@ -3577,13 +3577,13 @@ for.cond.preheader:                               ; preds = %while.end.i, %zipli
   br i1 %cmp61.not, label %for.end, label %for.body
 
 cond.false:                                       ; preds = %ziplistLen.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1612) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1612) #16
+  tail call void @abort() #17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %call6 = tail call i32 @rand() #17
+  %call6 = tail call i32 @rand() #16
   %rem = urem i32 %call6, %div3088
   %mul7 = shl nuw i32 %rem, 1
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
@@ -3596,7 +3596,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #17
+  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #16
   %7 = load i32, ptr %call, align 4
   %call13 = tail call ptr @ziplistIndex(ptr noundef %zl, i32 noundef %7)
   %call1467 = call i32 @ziplistGet(ptr noundef %call13, ptr noundef nonnull %key, ptr noundef nonnull %klen, ptr noundef nonnull %klval), !range !5
@@ -3643,8 +3643,8 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i39, label %cond.false.i.i40, label %zipAssertValidEntry.exit.i
 
 cond.false.i.i40:                                 ; preds = %if.end8.i
-  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit.i:                       ; preds = %if.end8.i
@@ -3693,8 +3693,8 @@ while.body40.us:                                  ; preds = %land.rhs33.us
   br i1 %exitcond84.not, label %while.end, label %land.rhs33.us, !llvm.loop !18
 
 cond.false28:                                     ; preds = %ziplistNext.exit
-  call void @_serverAssert(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1629) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1629) #16
+  call void @abort() #17
   unreachable
 
 land.rhs33:                                       ; preds = %land.rhs33.lr.ph, %while.body40
@@ -3761,8 +3761,8 @@ if.end8.i54:                                      ; preds = %if.end.i47
   br i1 %tobool.not.i.i56, label %cond.false.i.i59, label %zipAssertValidEntry.exit.i57
 
 cond.false.i.i59:                                 ; preds = %if.end8.i54
-  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  call void @abort() #18
+  call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  call void @abort() #17
   unreachable
 
 zipAssertValidEntry.exit.i57:                     ; preds = %if.end8.i54
@@ -3778,12 +3778,12 @@ ziplistNext.exit60:                               ; preds = %while.end, %if.end.
   br i1 %32, label %while.body, label %while.end51, !llvm.loop !19
 
 while.end51:                                      ; preds = %ziplistNext.exit60, %for.end
-  call void @zfree(ptr noundef nonnull %call) #17
+  call void @zfree(ptr noundef nonnull %call) #16
   ret void
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %zl, i32 noundef %count, ptr nocapture noundef writeonly %keys, ptr noundef writeonly %vals) local_unnamed_addr #4 {
@@ -3828,8 +3828,8 @@ while.body.i:                                     ; preds = %zipRawEntryLengthSa
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %zipRawEntryLengthSafe.exit.i
 
 cond.false.i.i:                                   ; preds = %while.body.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 694) #16
+  tail call void @abort() #17
   unreachable
 
 zipRawEntryLengthSafe.exit.i:                     ; preds = %while.body.i
@@ -3861,7 +3861,7 @@ ziplistLen.exit:                                  ; preds = %if.then.i, %while.e
   %call1 = tail call ptr @ziplistIndex(ptr noundef %zl, i32 noundef 0)
   %cmp2149 = icmp ne i32 %spec.select, 0
   %tobool150 = icmp ne ptr %call1, null
-  %6 = select i1 %cmp2149, i1 %tobool150, i1 false
+  %6 = and i1 %cmp2149, %tobool150
   br i1 %6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %ziplistLen.exit
@@ -3887,7 +3887,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %index.0153 = phi i32 [ 0, %while.body.lr.ph ], [ %inc56, %ziplistNext.exit116 ]
   %klval.0152 = phi i64 [ 0, %while.body.lr.ph ], [ %klval.4, %ziplistNext.exit116 ]
   %klen.0151 = phi i32 [ 0, %while.body.lr.ph ], [ %klen.4, %ziplistNext.exit116 ]
-  %call3 = tail call i32 @rand() #17
+  %call3 = tail call i32 @rand() #16
   %conv = sitofp i32 %call3 to double
   %div4 = fdiv double %conv, 0x41DFFFFFFFC00000
   %conv5 = uitofp i32 %remaining.0155 to double
@@ -3964,14 +3964,14 @@ if.then32.i.i:                                    ; preds = %if.else25.i.i
   br label %cond.end
 
 if.else35.i.i:                                    ; preds = %if.else25.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  tail call void @abort() #17
   unreachable
 
 cond.false:                                       ; preds = %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
-  tail call void @_serverAssert(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1669) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1669) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %if.then11.i, %if.then32.i.i, %if.then24.i.i, %if.then18.i.i, %if.then12.i.i, %if.then6.i.i, %if.then.i.i
@@ -4012,13 +4012,13 @@ if.end8.i:                                        ; preds = %if.end.i30
   br i1 %tobool.not.i.i37, label %cond.false.i.i39, label %cond.end26
 
 cond.false.i.i39:                                 ; preds = %if.end8.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 cond.false25:                                     ; preds = %cond.end, %if.end.i30
-  tail call void @_serverAssert(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 1672) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 1672) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end26:                                       ; preds = %if.end8.i
@@ -4092,14 +4092,14 @@ if.then32.i.i75:                                  ; preds = %if.else25.i.i72
   br label %cond.end39
 
 if.else35.i.i74:                                  ; preds = %if.else25.i.i72
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 605) #16
+  tail call void @abort() #17
   unreachable
 
 cond.false38:                                     ; preds = %lor.lhs.false.i42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i40)
-  tail call void @_serverAssert(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1674) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1674) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end39:                                       ; preds = %if.then11.i47, %if.then32.i.i75, %if.then24.i.i57, %if.then18.i.i61, %if.then12.i.i64, %if.then6.i.i67, %if.then.i.i70
@@ -4149,8 +4149,8 @@ if.end8.i92:                                      ; preds = %if.end.i85
   br i1 %tobool.not.i.i94, label %cond.false.i.i97, label %ziplistNext.exit98
 
 cond.false.i.i97:                                 ; preds = %if.end8.i92
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 ziplistNext.exit98:                               ; preds = %if.end8.i92
@@ -4158,8 +4158,8 @@ ziplistNext.exit98:                               ; preds = %if.end8.i92
   br label %if.end54
 
 cond.false52:                                     ; preds = %if.else, %if.end.i85
-  tail call void @_serverAssert(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 1681) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 1681) #16
+  tail call void @abort() #17
   unreachable
 
 if.end54:                                         ; preds = %ziplistNext.exit98, %if.end42
@@ -4194,8 +4194,8 @@ if.end8.i110:                                     ; preds = %if.end.i103
   br i1 %tobool.not.i.i112, label %cond.false.i.i115, label %ziplistNext.exit116
 
 cond.false.i.i115:                                ; preds = %if.end8.i110
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #17
-  tail call void @abort() #18
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 708) #16
+  tail call void @abort() #17
   unreachable
 
 ziplistNext.exit116:                              ; preds = %if.end8.i110
@@ -4210,28 +4210,28 @@ while.end:                                        ; preds = %if.end.i103, %if.en
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4239,19 +4239,18 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { cold }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

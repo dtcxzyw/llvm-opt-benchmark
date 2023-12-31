@@ -1023,7 +1023,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.99 = private unnamed_addr constant [63 x i8] c"Exception ignored when trying to write to the signal wakeup fd\00", align 1
 @.str.100 = private unnamed_addr constant [173 x i8] c"the function must be called with the GIL held, after Python initialization and before Python finalization, but the GIL is released (the current Python thread state is NULL)\00", align 1
 
-; Function Attrs: nofree nounwind memory(readwrite, argmem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define hidden i32 @PySignal_SetWakeupFd(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %fd, i32 -1)
@@ -1173,7 +1173,7 @@ do.end20:                                         ; preds = %do.body13, %if.then
 declare ptr @PyOS_setsig(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyErr_CheckSignals() local_unnamed_addr #1 {
+define dso_local noundef i32 @PyErr_CheckSignals() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %if.end, %if.end6
 declare void @_Py_RunGC(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyErr_CheckSignalsTstate(ptr noundef %tstate) local_unnamed_addr #1 {
+define hidden noundef i32 @_PyErr_CheckSignalsTstate(ptr noundef %tstate) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 2) seq_cst, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1413,7 +1413,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @_PyObject_Call(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyErr_CheckSignals() local_unnamed_addr #1 {
+define hidden noundef i32 @_PyErr_CheckSignals() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1422,7 +1422,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyErr_SetInterruptEx(i32 noundef %signum) local_unnamed_addr #1 {
+define dso_local noundef i32 @PyErr_SetInterruptEx(i32 noundef %signum) local_unnamed_addr #1 {
 entry:
   %byte.i = alloca i8, align 1
   %0 = add i32 %signum, -65
@@ -1526,7 +1526,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PySignal_Init(i32 noundef %install_signal_handlers) local_unnamed_addr #1 {
+define hidden noundef i32 @_PySignal_Init(i32 noundef %install_signal_handlers) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef null) #15
   store ptr %call, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
@@ -1582,7 +1582,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyOS_InterruptOccurred(ptr noundef readonly %tstate) local_unnamed_addr #1 {
+define hidden noundef i32 @_PyOS_InterruptOccurred(ptr noundef readonly %tstate) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %tstate, null
   br i1 %cmp.i, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.exit
@@ -1617,7 +1617,7 @@ return:                                           ; preds = %if.end, %_Py_Ensure
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyOS_InterruptOccurred() local_unnamed_addr #1 {
+define dso_local noundef i32 @PyOS_InterruptOccurred() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1728,7 +1728,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_signal_module_clear(ptr nocapture noundef readonly %module) #1 {
+define internal noundef i32 @_signal_module_clear(ptr nocapture noundef readonly %module) #1 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1836,7 +1836,7 @@ _signal_module_clear.exit:                        ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @signal_default_int_handler(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noalias noundef ptr @signal_default_int_handler(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2328,7 +2328,7 @@ return:                                           ; preds = %if.end10, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_siginterrupt(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_siginterrupt(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %act.i8 = alloca %struct.sigaction, align 8
   %act.i = alloca %struct.sigaction, align 8
@@ -2434,7 +2434,7 @@ exit:                                             ; preds = %signal_siginterrupt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_pause(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal noundef ptr @signal_pause(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #15
   %call1.i = tail call i32 @pause() #15
@@ -2485,8 +2485,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end.i.i
   %call7.i.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1), !range !7
-  %call7.i.fr.i = freeze i32 %call7.i.i
-  %tobool.not.i = icmp eq i32 %call7.i.fr.i, 0
+  %tobool.not.i = icmp eq i32 %call7.i.i, 0
   br i1 %tobool.not.i, label %PyErr_CheckSignals.exit.thread.i, label %signal_pause_impl.exit
 
 PyErr_CheckSignals.exit.thread.i:                 ; preds = %PyErr_CheckSignals.exit.i, %if.end.i.i
@@ -2498,7 +2497,7 @@ signal_pause_impl.exit:                           ; preds = %PyErr_CheckSignals.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_pidfd_send_signal(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_pidfd_send_signal(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %0 = add i64 %nargs, -2
   %or.cond = icmp ult i64 %0, 3
@@ -2581,7 +2580,7 @@ exit:                                             ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_pthread_kill(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_pthread_kill(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3434,8 +3433,7 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
-  %call7.i.fr = freeze i32 %call7.i
-  %tobool4.not = icmp eq i32 %call7.i.fr, 0
+  %tobool4.not = icmp eq i32 %call7.i, 0
   br i1 %tobool4.not, label %PyErr_CheckSignals.exit.thread, label %return
 
 PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
@@ -3484,7 +3482,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i64 @PyLong_AsUnsignedLongMask(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @signal_pthread_kill_impl(i64 noundef %thread_id, i32 noundef %signalnum) unnamed_addr #1 {
+define internal fastcc noundef ptr @signal_pthread_kill_impl(i64 noundef %thread_id, i32 noundef %signalnum) unnamed_addr #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %thread_id, i32 noundef %signalnum) #15
   %cmp = icmp slt i32 %call, 0
@@ -3549,8 +3547,7 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
-  %call7.i.fr = freeze i32 %call7.i
-  %tobool.not = icmp eq i32 %call7.i.fr, 0
+  %tobool.not = icmp eq i32 %call7.i, 0
   br i1 %tobool.not, label %PyErr_CheckSignals.exit.thread, label %return
 
 PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
@@ -3761,7 +3758,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
 declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @signal_module_exec(ptr noundef %m) #1 {
+define internal noundef i32 @signal_module_exec(ptr noundef %m) #1 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -4174,7 +4171,7 @@ declare i64 @_Py_write_noraise(i32 noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @_PyEval_AddPendingCall(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @report_wakeup_write_error(ptr noundef %data) #1 {
+define internal noundef i32 @report_wakeup_write_error(ptr noundef %data) #1 {
 entry:
   %call = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call, align 4
@@ -4216,7 +4213,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
-attributes #0 = { nofree nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arc4_stir_pid = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_secure_rng_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
+define dso_local noundef i32 @evutil_secure_rng_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @arc4rand_lock, align 8
   %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #7
@@ -44,7 +44,7 @@ declare ptr @evthread_setup_global_lock_(ptr noundef, i32 noundef, i32 noundef) 
 declare void @event_warn(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_secure_rng_set_urandom_device_file(ptr noundef %fname) local_unnamed_addr #0 {
+define dso_local noundef i32 @evutil_secure_rng_set_urandom_device_file(ptr noundef %fname) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @arc4rand_lock, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -72,7 +72,7 @@ do.end6:                                          ; preds = %do.end.thread, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_secure_rng_init() local_unnamed_addr #0 {
+define dso_local noundef i32 @evutil_secure_rng_init() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @arc4rand_lock, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -101,7 +101,7 @@ do.end8:                                          ; preds = %do.end, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @arc4_stir() unnamed_addr #0 {
+define internal fastcc noundef i32 @arc4_stir() unnamed_addr #0 {
 entry:
   %buf.i8.i = alloca [128 x i8], align 16
   %entropy.i.i = alloca [64 x i8], align 16
@@ -190,7 +190,7 @@ arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i
 for.cond.i7.i:                                    ; preds = %for.body.i4.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %tobool1.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %tobool1.not.i.i, label %arc4_seed_urandom.exit.thread44.i, label %for.body.i4.i, !llvm.loop !10
+  br i1 %tobool1.not.i.i, label %arc4_seed_urandom.exit.thread43.i, label %for.body.i4.i, !llvm.loop !10
 
 for.body.i4.i:                                    ; preds = %5, %for.cond.i7.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %5 ]
@@ -202,20 +202,19 @@ for.body.i4.i:                                    ; preds = %5, %for.cond.i7.i
 
 arc4_seed_urandom.exit.i:                         ; preds = %5
   %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %7), !range !5
-  %call.i2.fr.i = freeze i32 %call.i2.i
-  %cmp2.i = icmp eq i32 %call.i2.fr.i, 0
-  br i1 %cmp2.i, label %arc4_seed_urandom.exit.thread.i, label %arc4_seed_urandom.exit.thread44.i
+  %cmp2.i = icmp eq i32 %call.i2.i, 0
+  br i1 %cmp2.i, label %arc4_seed_urandom.exit.thread.i, label %arc4_seed_urandom.exit.thread43.i
 
 arc4_seed_urandom.exit.thread.i:                  ; preds = %for.body.i4.i, %arc4_seed_urandom.exit.i
-  br label %arc4_seed_urandom.exit.thread44.i
+  br label %arc4_seed_urandom.exit.thread43.i
 
-arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
+arc4_seed_urandom.exit.thread43.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
   %9 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %6, %arc4_seed_urandom.exit.i ], [ %6, %for.cond.i7.i ]
   %10 = load ptr, ptr @arc4random_urandom_filename, align 8
   %cmp5.i = icmp eq ptr %10, null
   br i1 %cmp5.i, label %land.lhs.true.i, label %arc4_seed.exit
 
-land.lhs.true.i:                                  ; preds = %arc4_seed_urandom.exit.thread44.i
+land.lhs.true.i:                                  ; preds = %arc4_seed_urandom.exit.thread43.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i8.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %entropy.i.i)
   br label %for.body.i9.i
@@ -336,7 +335,7 @@ arc4_seed.exit.thread:                            ; preds = %arc4_addrandom.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %entropy.i.i)
   br label %for.cond.preheader
 
-arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.exit.thread44.i, %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i
+arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.exit.thread43.i, %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i
   %tobool.not.i.not = icmp eq i32 %9, 0
   br i1 %tobool.not.i.not, label %return, label %for.cond.preheader
 
@@ -641,7 +640,7 @@ declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr
 declare void @evutil_memclear_(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %fname) unnamed_addr #0 {
+define internal fastcc noundef i32 @arc4_seed_urandom_helper_(ptr noundef %fname) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call i32 @evutil_open_closeonexec_(ptr noundef %fname, i32 noundef 0, i32 noundef 0) #7
