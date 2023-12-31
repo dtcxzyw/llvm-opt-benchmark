@@ -7150,18 +7150,18 @@ if.end8:                                          ; preds = %if.end4
   %rem14 = urem i32 %rem, 60000
   %div15.lhs.trunc = trunc i32 %rem14 to i16
   %div1586 = udiv i16 %div15.lhs.trunc, 1000
-  %cmp32.not = icmp ult i32 %rem14, 1000
+  %cmp32.not.not = icmp eq i32 %rem14, 1000
   br i1 %cmp9, label %if.else31, label %if.then17
 
 if.then17:                                        ; preds = %if.end8
-  br i1 %cmp32.not, label %if.else, label %if.then19
+  br i1 %cmp32.not.not, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then17
   %arrayidx = getelementptr inbounds %"class.icu_75::TimeZoneFormat", ptr %this, i64 0, i32 13, i64 1
   br label %if.end48
 
 if.else:                                          ; preds = %if.then17
-  %cmp20 = icmp ult i32 %rem, 60000
+  %cmp20 = icmp ne i32 %rem, 60000
   %tobool22 = icmp ne i8 %isShort, 0
   %or.cond = and i1 %tobool22, %cmp20
   br i1 %or.cond, label %if.else26, label %if.then23
@@ -7175,14 +7175,14 @@ if.else26:                                        ; preds = %if.else
   br label %if.end48
 
 if.else31:                                        ; preds = %if.end8
-  br i1 %cmp32.not, label %if.else36, label %if.then33
+  br i1 %cmp32.not.not, label %if.then33, label %if.else36
 
 if.then33:                                        ; preds = %if.else31
   %arrayidx35 = getelementptr inbounds %"class.icu_75::TimeZoneFormat", ptr %this, i64 0, i32 13, i64 3
   br label %if.end48
 
 if.else36:                                        ; preds = %if.else31
-  %cmp37 = icmp ult i32 %rem, 60000
+  %cmp37 = icmp ne i32 %rem, 60000
   %tobool39 = icmp ne i8 %isShort, 0
   %or.cond1 = and i1 %tobool39, %cmp37
   br i1 %or.cond1, label %if.else43, label %if.then40
@@ -7217,11 +7217,9 @@ for.body.lr.ph:                                   ; preds = %if.end48
   %rem.i6790 = urem i8 %rem.i67.lhs.trunc, 10
   %idxprom8.i68 = zext nneg i8 %rem.i6790 to i64
   %arrayidx9.i69 = getelementptr inbounds %"class.icu_75::TimeZoneFormat", ptr %this, i64 0, i32 8, i64 %idxprom8.i68
-  %cmp.i40 = icmp ult i32 %rem, 600000
+  %cmp.i40 = icmp ne i32 %rem, 600000
   %sub.i42 = zext i1 %cmp.i40 to i32
-  %div.i50 = udiv i32 %rem, 600000
-  %idxprom.i51 = zext nneg i32 %div.i50 to i64
-  %arrayidx5.i52 = getelementptr inbounds %"class.icu_75::TimeZoneFormat", ptr %this, i64 0, i32 8, i64 %idxprom.i51
+  %arrayidx5.i52 = getelementptr inbounds %"class.icu_75::TimeZoneFormat", ptr %this, i64 0, i32 8, i64 1
   %rem.i45.lhs.trunc = trunc i32 %div13 to i8
   %rem.i4591 = urem i8 %rem.i45.lhs.trunc, 10
   %idxprom8.i46 = zext nneg i8 %rem.i4591 to i64
@@ -7402,7 +7400,7 @@ if.end:                                           ; preds = %if.then, %for.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7514TimeZoneFormat22parseAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionEDsNS0_12OffsetFieldsES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i16 noundef zeroext %sep, i32 noundef %minFields, i32 noundef %maxFields) local_unnamed_addr #14 align 2 {
 entry:
   %fieldVal = alloca [3 x i32], align 4
@@ -7576,7 +7574,7 @@ return:                                           ; preds = %if.end85, %if.then8
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7514TimeZoneFormat30parseAbuttingAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionENS0_12OffsetFieldsES6_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %minFields, i32 noundef %maxFields, i8 noundef signext %fixedHourWidth) local_unnamed_addr #14 align 2 {
 entry:
   %digits = alloca [6 x i32], align 16
@@ -9181,7 +9179,7 @@ attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind memory(read) }
-attributes #14 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -200,7 +200,7 @@ _ZL16lodepng_filesizePKc.exit:                    ; preds = %if.end4.i
 
 if.end:                                           ; preds = %_ZL16lodepng_filesizePKc.exit
   store i64 %call5.i, ptr %outsize, align 8
-  %call.i8 = tail call noalias noundef ptr @malloc(i64 noundef %call5.i) #32
+  %call.i8 = tail call noalias noundef ptr @malloc(i64 noundef %call5.i) #30
   store ptr %call.i8, ptr %out, align 8
   %tobool = icmp eq ptr %call.i8, null
   %cmp2 = icmp ne i64 %call5.i, 0
@@ -263,7 +263,7 @@ entry:
 
 if.end3:                                          ; preds = %entry
   %mul = mul i64 %numcodes, 24
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #30
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return, label %for.body
 
@@ -319,7 +319,7 @@ if.then22:                                        ; preds = %for.body.preheader.
 
 if.else32:                                        ; preds = %for.body.preheader.i
   %mul.i = mul i64 %numpresent.1, 24
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %mul.i) #32
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %mul.i) #30
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.else32, %for.end42.i
@@ -399,7 +399,7 @@ for.body.preheader.i.i:                           ; preds = %for.end46.i
   br label %_ZL12bpmnode_sortP7BPMNodem.exit
 
 _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %for.end46.i, %for.body.preheader.i.i
-  tail call void @free(ptr noundef %call.i.i) #33
+  tail call void @free(ptr noundef %call.i.i) #31
   %listsize = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 5
   store i32 %maxbitlen, ptr %listsize, align 8
   %mul33 = shl i32 %maxbitlen, 1
@@ -412,19 +412,19 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %for.end46.i, %for.b
   store i32 %mul34, ptr %numfree, align 8
   %conv37 = zext i32 %mul34 to i64
   %mul38 = mul nuw nsw i64 %conv37, 24
-  %call.i57 = tail call noalias noundef ptr @malloc(i64 noundef %mul38) #32
+  %call.i57 = tail call noalias noundef ptr @malloc(i64 noundef %mul38) #30
   %memory = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 1
   store ptr %call.i57, ptr %memory, align 8
   %mul42 = shl nuw nsw i64 %conv37, 3
-  %call.i58 = tail call noalias noundef ptr @malloc(i64 noundef %mul42) #32
+  %call.i58 = tail call noalias noundef ptr @malloc(i64 noundef %mul42) #30
   %freelist = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 4
   store ptr %call.i58, ptr %freelist, align 8
   %conv45 = zext i32 %maxbitlen to i64
   %mul46 = shl nuw nsw i64 %conv45, 3
-  %call.i59 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #32
+  %call.i59 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #30
   %chains0 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 6
   store ptr %call.i59, ptr %chains0, align 8
-  %call.i60 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #32
+  %call.i60 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #30
   %chains1 = getelementptr inbounds %struct.BPMLists, ptr %lists, i64 0, i32 7
   store ptr %call.i60, ptr %chains1, align 8
   %5 = insertelement <4 x ptr> poison, ptr %call.i58, i64 0
@@ -687,17 +687,17 @@ for.inc131:                                       ; preds = %for.body121, %for.c
 if.end133:                                        ; preds = %for.inc131, %for.end110, %_ZL12bpmnode_sortP7BPMNodem.exit
   %29 = phi ptr [ %24, %for.end110 ], [ %call.i60, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %24, %for.inc131 ]
   %30 = load ptr, ptr %memory, align 8
-  tail call void @free(ptr noundef %30) #33
+  tail call void @free(ptr noundef %30) #31
   %31 = load ptr, ptr %freelist, align 8
-  tail call void @free(ptr noundef %31) #33
+  tail call void @free(ptr noundef %31) #31
   %32 = load ptr, ptr %chains0, align 8
-  tail call void @free(ptr noundef %32) #33
-  tail call void @free(ptr noundef %29) #33
+  tail call void @free(ptr noundef %32) #31
+  tail call void @free(ptr noundef %29) #31
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then22, %if.end133, %if.then18
   %error.1 = phi i32 [ 0, %if.then18 ], [ 0, %if.then22 ], [ %spec.select, %if.end133 ]
-  tail call void @free(ptr noundef %call.i) #33
+  tail call void @free(ptr noundef %call.i) #31
   br label %return
 
 return:                                           ; preds = %if.end3, %entry, %if.end139
@@ -1126,7 +1126,7 @@ if.then.i.i.i:                                    ; preds = %if.end22.i
   %shr.i.i.i = lshr i64 %10, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add25.i
   %11 = load ptr, ptr %out, align 8
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %11, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %11, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -1173,7 +1173,7 @@ if.then.i.i:                                      ; preds = %if.else11
   %shr.i.i47 = lshr i64 %16, 1
   %add.i.i48 = add i64 %shr.i.i47, %add.i29
   %17 = load ptr, ptr %out, align 8
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %17, i64 noundef %add.i.i48) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %17, i64 noundef %add.i.i48) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %if.end14.thread106, label %if.then3.i.i
 
@@ -1201,7 +1201,7 @@ if.then1.i:                                       ; preds = %if.end.i31
   br i1 %tobool.not.i65.i, label %if.end.i.i, label %if.end4.thread.i
 
 if.end.i.i:                                       ; preds = %if.then1.i
-  %call.i.i.i.i45 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
+  %call.i.i.i.i45 = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   %tobool.not.i.i.i46 = icmp eq ptr %call.i.i.i.i45, null
   br i1 %tobool.not.i.i.i46, label %if.end4.thread.i, label %for.body.i.i.i
 
@@ -1214,7 +1214,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i, %for.bo
   br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !34
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %call.i.i.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
+  %call.i.i.i.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   store ptr %call.i.i.i.i.i, ptr %lengths.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.i.i.i, label %for.body.i.i.i.preheader.i
@@ -1228,7 +1228,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %for.end.i.i.i
 
 _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.i.i.i: ; preds = %for.body.i.i.i.preheader.i, %for.end.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %call8.i.i.i.i, %for.body.i.i.i.preheader.i ], [ 83, %for.end.i.i.i ]
-  tail call void @free(ptr noundef nonnull %call.i.i.i.i45) #33
+  tail call void @free(ptr noundef nonnull %call.i.i.i.i45) #31
   br label %if.end4.i
 
 if.else.i33:                                      ; preds = %if.end.i31
@@ -1290,7 +1290,7 @@ _ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i:   ; preds = %_ZL12ensureBits17P1
   %and.i.i109.i.i = and i32 %shr.i.i105.i.i, 15
   %add.i.i112.i.i = add i64 %reader.sroa.40.1137, 17
   %add4.i.i = add nuw nsw i32 %and.i.i109.i.i, 4
-  %call.i.i70.i = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
+  %call.i.i70.i = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #30
   %tobool.not.i71.i = icmp eq ptr %call.i.i70.i, null
   br i1 %tobool.not.i71.i, label %_ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i, label %if.end7.i.i
 
@@ -1371,7 +1371,7 @@ for.body21.i.i:                                   ; preds = %for.cond19.preheade
   br i1 %cmp20.not.i.i, label %for.end28.i.i, label %for.body21.i.i, !llvm.loop !36
 
 for.end28.i.i:                                    ; preds = %for.body21.i.i, %for.cond19.preheader.i.i
-  %call.i.i.i73.i = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
+  %call.i.i.i73.i = tail call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #30
   store ptr %call.i.i.i73.i, ptr %lengths.i.i.i, align 8
   %tobool.not.i.i74.i = icmp eq ptr %call.i.i.i73.i, null
   br i1 %tobool.not.i.i74.i, label %while.end169.i.i, label %for.body.i.preheader.i.i
@@ -1390,8 +1390,8 @@ for.body.i.preheader.while.end169_crit_edge.i.i:  ; preds = %for.body.i.preheade
   br label %while.end169.i.i
 
 if.end32.i.i:                                     ; preds = %for.body.i.preheader.i.i
-  %call.i133.i.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
-  %call.i134.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
+  %call.i133.i.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #30
+  %call.i134.i.i = tail call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   %tobool35.i.i = icmp ne ptr %call.i133.i.i, null
   %tobool36.i.i = icmp ne ptr %call.i134.i.i, null
   %or.cond.i.i = and i1 %tobool35.i.i, %tobool36.i.i
@@ -1689,15 +1689,15 @@ while.end169.i.i:                                 ; preds = %if.end151.i.i, %if.
   %error.3.i.i = phi i32 [ 83, %for.end28.i.i ], [ 64, %if.end159.i.i ], [ %call168.i.i, %if.end167.i.i ], [ %call164.i.i, %if.end163.i.i ], [ %error.0.i.i, %while.end.i.i ], [ 83, %if.end32.i.i ], [ %call8.i.i.i, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ 50, %if.end7.i.i ], [ 50, %if.end151.i.i ], [ 54, %if.then57.i.i ], [ 16, %if.else55.i.i ]
   %bitlen_ll.0.i.i = phi ptr [ null, %for.end28.i.i ], [ %call.i133.i.i, %if.end159.i.i ], [ %call.i133.i.i, %if.end167.i.i ], [ %call.i133.i.i, %if.end163.i.i ], [ %call.i133.i.i, %while.end.i.i ], [ %call.i133.i.i, %if.end32.i.i ], [ null, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ null, %if.end7.i.i ], [ %call.i133.i.i, %if.else55.i.i ], [ %call.i133.i.i, %if.then57.i.i ], [ %call.i133.i.i, %if.end151.i.i ]
   %bitlen_d.0.i.i = phi ptr [ null, %for.end28.i.i ], [ %call.i134.i.i, %if.end159.i.i ], [ %call.i134.i.i, %if.end167.i.i ], [ %call.i134.i.i, %if.end163.i.i ], [ %call.i134.i.i, %while.end.i.i ], [ %call.i134.i.i, %if.end32.i.i ], [ null, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ null, %if.end7.i.i ], [ %call.i134.i.i, %if.else55.i.i ], [ %call.i134.i.i, %if.then57.i.i ], [ %call.i134.i.i, %if.end151.i.i ]
-  tail call void @free(ptr noundef %call.i.i70.i) #33
-  tail call void @free(ptr noundef %bitlen_ll.0.i.i) #33
-  tail call void @free(ptr noundef %bitlen_d.0.i.i) #33
+  tail call void @free(ptr noundef %call.i.i70.i) #31
+  tail call void @free(ptr noundef %bitlen_ll.0.i.i) #31
+  tail call void @free(ptr noundef %bitlen_d.0.i.i) #31
   %60 = load ptr, ptr %tree_cl.i.i, align 8
-  tail call void @free(ptr noundef %60) #33
+  tail call void @free(ptr noundef %60) #31
   %61 = load ptr, ptr %lengths.i.i.i, align 8
-  tail call void @free(ptr noundef %61) #33
-  tail call void @free(ptr noundef %59) #33
-  tail call void @free(ptr noundef %58) #33
+  tail call void @free(ptr noundef %61) #31
+  tail call void @free(ptr noundef %59) #31
+  tail call void @free(ptr noundef %58) #31
   br label %_ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i
 
 _ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i: ; preds = %while.end169.i.i, %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i, %if.else.i33
@@ -2244,7 +2244,7 @@ if.then.i256.i:                                   ; preds = %if.then96.i
   %shr.i257.i = lshr i64 %127, 1
   %add.i258.i = add i64 %add98.i, %shr.i257.i
   %129 = load ptr, ptr %out, align 8
-  %call.i.i259.i = tail call noalias noundef ptr @realloc(ptr noundef %129, i64 noundef %add.i258.i) #34
+  %call.i.i259.i = tail call noalias noundef ptr @realloc(ptr noundef %129, i64 noundef %add.i258.i) #32
   %tobool.not.i260.i = icmp eq ptr %call.i.i259.i, null
   br i1 %tobool.not.i260.i, label %if.end14, label %if.then3.i261.i
 
@@ -2284,17 +2284,17 @@ if.end14:                                         ; preds = %if.end112.i, %if.en
   %133 = phi ptr [ %.pre305.i.pre148, %if.then38.i ], [ %.pre305.i.pre, %if.end4.thread.i ], [ %.pre305.i.pre148, %if.end4.i ], [ %.pre305.i.pre148, %if.end14.loopexit.split.loop.exit122 ], [ %.pre305.i.pre148, %if.end52.i ], [ %.pre305.i.pre148, %if.else86.i ], [ %.pre305.i.pre148, %if.then.i256.i ], [ %.pre305.i.pre148, %if.end103.i ], [ %.pre305.i.pre148, %if.end112.i ]
   %error.1.i = phi i32 [ %..i, %if.then38.i ], [ %error.0.ph.i, %if.end4.thread.i ], [ %error.0.i, %if.end4.i ], [ %spec.select, %if.end14.loopexit.split.loop.exit122 ], [ 0, %if.end112.i ], [ 51, %if.end103.i ], [ 83, %if.then.i256.i ], [ 16, %if.else86.i ], [ 52, %if.end52.i ]
   %134 = load ptr, ptr %tree_ll.i, align 8
-  tail call void @free(ptr noundef %134) #33
+  tail call void @free(ptr noundef %134) #31
   %135 = load ptr, ptr %lengths.i.i, align 8
-  tail call void @free(ptr noundef %135) #33
-  tail call void @free(ptr noundef %.pre304313.i) #33
-  tail call void @free(ptr noundef %133) #33
+  tail call void @free(ptr noundef %135) #31
+  tail call void @free(ptr noundef %.pre304313.i) #31
+  tail call void @free(ptr noundef %133) #31
   %136 = load ptr, ptr %tree_d.i, align 8
-  tail call void @free(ptr noundef %136) #33
+  tail call void @free(ptr noundef %136) #31
   %137 = load ptr, ptr %lengths.i.i.i.i, align 8
-  tail call void @free(ptr noundef %137) #33
-  tail call void @free(ptr noundef %132) #33
-  tail call void @free(ptr noundef %131) #33
+  tail call void @free(ptr noundef %137) #31
+  tail call void @free(ptr noundef %132) #31
+  tail call void @free(ptr noundef %131) #31
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_ll.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_d.i)
   %tobool15.not = icmp eq i32 %error.1.i, 0
@@ -2388,7 +2388,7 @@ for.body.i.i:                                     ; preds = %_ZL14lodepng_memcpy
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i
   %shr.i.i.i.i = lshr i64 %4, 1
   %add.i.i.i.i = add i64 %add11.i.i, %shr.i.i.i.i
-  %call.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #34
+  %call.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #32
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit, label %if.then3.i.i.i.i
 
@@ -2458,24 +2458,24 @@ if.end16.i:                                       ; preds = %if.else8.i, %if.els
   %spec.store.select1.i = select i1 %cmp19.i, i64 1, i64 %div18.i
   %windowsize.i = getelementptr inbounds %struct.LodePNGCompressSettings, ptr %settings, i64 0, i32 2
   %17 = load i32, ptr %windowsize.i, align 8
-  %call.i.i.i = call noalias noundef dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #32
+  %call.i.i.i = call noalias noundef dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #30
   store ptr %call.i.i.i, ptr %hash.i, align 8
   %conv.i.i = zext i32 %17 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %call.i39.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i.i) #32
+  %call.i39.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i.i) #30
   %val.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 2
   store ptr %call.i39.i.i, ptr %val.i.i, align 8
   %mul3.i.i = shl nuw nsw i64 %conv.i.i, 1
-  %call.i40.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #32
+  %call.i40.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #30
   %chain.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 1
   store ptr %call.i40.i.i, ptr %chain.i.i, align 8
-  %call.i41.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #32
+  %call.i41.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #30
   %zeros.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 5
   store ptr %call.i41.i.i, ptr %zeros.i.i, align 8
-  %call.i42.i.i = call noalias noundef dereferenceable_or_null(1036) ptr @malloc(i64 noundef 1036) #32
+  %call.i42.i.i = call noalias noundef dereferenceable_or_null(1036) ptr @malloc(i64 noundef 1036) #30
   %headz.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 3
   store ptr %call.i42.i.i, ptr %headz.i.i, align 8
-  %call.i43.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #32
+  %call.i43.i.i = call noalias noundef ptr @malloc(i64 noundef %mul3.i.i) #30
   %chainz.i.i = getelementptr inbounds %struct.Hash, ptr %hash.i, i64 0, i32 4
   store ptr %call.i43.i.i, ptr %chainz.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
@@ -2589,7 +2589,7 @@ if.then34.i:                                      ; preds = %for.body.i
   br i1 %tobool.not.i41.i, label %if.then.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 if.then.i.i:                                      ; preds = %if.then34.i
-  %call.i.i.i.i = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
+  %call.i.i.i.i = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %for.body.i.i.i
 
@@ -2602,7 +2602,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !34
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %call.i.i.i.i42.i = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #32
+  %call.i.i.i.i42.i = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   store ptr %call.i.i.i.i42.i, ptr %lengths.i.i.i.i, align 8
   %tobool.not.i.i.i43.i = icmp eq ptr %call.i.i.i.i42.i, null
   br i1 %tobool.not.i.i.i43.i, label %if.end.thread141.i.i, label %for.body.i.i.preheader.i.i
@@ -2612,12 +2612,12 @@ for.body.i.i.preheader.i.i:                       ; preds = %for.end.i.i.i
   store i32 32, ptr %numcodes6.i.i.i.i, align 4
   store i32 15, ptr %maxbitlen7.i.i.i.i, align 8
   %call8.i.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_d.i.i), !range !33
-  call void @free(ptr noundef nonnull %call.i.i.i.i) #33
+  call void @free(ptr noundef nonnull %call.i.i.i.i) #31
   %tobool2.not.i.i = icmp eq i32 %call8.i.i.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 if.end.thread141.i.i:                             ; preds = %for.end.i.i.i
-  call void @free(ptr noundef nonnull %call.i.i.i.i) #33
+  call void @free(ptr noundef nonnull %call.i.i.i.i) #31
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 if.then3.i.i:                                     ; preds = %for.body.i.i.preheader.i.i
@@ -2641,7 +2641,7 @@ if.then2.i.i.i:                                   ; preds = %if.then3.i.i
 if.then.i.i.i.i.i:                                ; preds = %if.then2.i.i.i
   %shr.i.i.i.i.i = lshr i64 %22, 1
   %add.i.i.i.i.i = add i64 %shr.i.i.i.i.i, %add.i.i.i
-  %call.i.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre153.i, i64 noundef %add.i.i.i.i.i) #34
+  %call.i.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre153.i, i64 noundef %add.i.i.i.i.i) #32
   %tobool.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i, label %if.then3.i.i.i.i.i
 
@@ -2695,7 +2695,7 @@ if.then2.i33.i.i:                                 ; preds = %_ZL9writeBitsP16Lod
 if.then.i.i.i43.i.i:                              ; preds = %if.then2.i33.i.i
   %shr.i.i.i44.i.i = lshr i64 %33, 1
   %add.i.i.i45.i.i = add i64 %shr.i.i.i44.i.i, %add.i35.i.i
-  %call.i.i.i.i46.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre156.i, i64 noundef %add.i.i.i45.i.i) #34
+  %call.i.i.i.i46.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre156.i, i64 noundef %add.i.i.i45.i.i) #32
   %tobool.not.i.i.i47.i.i = icmp eq ptr %call.i.i.i.i46.i.i, null
   br i1 %tobool.not.i.i.i47.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i, label %if.then3.i.i.i48.i.i
 
@@ -2747,7 +2747,7 @@ if.then2.i58.i.i:                                 ; preds = %_ZL9writeBitsP16Lod
 if.then.i.i.i68.i.i:                              ; preds = %if.then2.i58.i.i
   %shr.i.i.i69.i.i = lshr i64 %43, 1
   %add.i.i.i70.i.i = add i64 %shr.i.i.i69.i.i, %add.i60.i.i
-  %call.i.i.i.i71.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre158.i, i64 noundef %add.i.i.i70.i.i) #34
+  %call.i.i.i.i71.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre158.i, i64 noundef %add.i.i.i70.i.i) #32
   %tobool.not.i.i.i72.i.i = icmp eq ptr %call.i.i.i.i71.i.i, null
   br i1 %tobool.not.i.i.i72.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit74.i.i, label %if.then3.i.i.i73.i.i
 
@@ -2800,7 +2800,7 @@ if.then5.i.i:                                     ; preds = %_ZL9writeBitsP16Lod
 if.then8.i.i:                                     ; preds = %if.then5.i.i
   call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull %writer.i, ptr noundef nonnull %lz77_encoded.i.i, ptr noundef nonnull %tree_ll.i.i, ptr noundef nonnull %tree_d.i.i)
   %52 = load ptr, ptr %lz77_encoded.i.i, align 8
-  call void @free(ptr noundef %52) #33
+  call void @free(ptr noundef %52) #31
   %.pre150.i.i = load ptr, ptr %tree_ll.i.i, align 8
   %.pre163.i = load ptr, ptr %lengths.i.i, align 8
   br label %if.then16.i.i
@@ -2838,7 +2838,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i77.i.i
 if.then.i.i.i90.i.i:                              ; preds = %if.then.i.i.i
   %shr.i.i.i91.i.i = lshr i64 %60, 1
   %add.i.i.i92.i.i = add i64 %shr.i.i.i91.i.i, %add.i85.i.i
-  %call.i.i.i.i93.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre161.i, i64 noundef %add.i.i.i92.i.i) #34
+  %call.i.i.i.i93.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre161.i, i64 noundef %add.i.i.i92.i.i) #32
   %tobool.not.i.i.i94.i.i = icmp eq ptr %call.i.i.i.i93.i.i, null
   br i1 %tobool.not.i.i.i94.i.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i, label %if.then3.i.i.i95.i.i
 
@@ -2924,7 +2924,7 @@ if.then.i118.i.i:                                 ; preds = %for.body.i100.i.i
 if.then.i.i.i128.i.i:                             ; preds = %if.then.i118.i.i
   %shr.i.i.i129.i.i = lshr i64 %80, 1
   %add.i.i.i130.i.i = add i64 %shr.i.i.i129.i.i, %add.i120.i.i
-  %call.i.i.i.i131.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre165.i, i64 noundef %add.i.i.i130.i.i) #34
+  %call.i.i.i.i131.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre165.i, i64 noundef %add.i.i.i130.i.i) #32
   %tobool.not.i.i.i132.i.i = icmp eq ptr %call.i.i.i.i131.i.i, null
   br i1 %tobool.not.i.i.i132.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, label %if.then3.i.i.i133.i.i
 
@@ -2965,7 +2965,7 @@ if.end8.i103.i.i:                                 ; preds = %if.end.i123.i.i, %f
 
 if.end23.critedge.i.i:                            ; preds = %if.then5.i.i
   %91 = load ptr, ptr %lz77_encoded.i.i, align 8
-  call void @free(ptr noundef %91) #33
+  call void @free(ptr noundef %91) #31
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i: ; preds = %if.end8.i103.i.i, %if.then.i.i.i128.i.i
@@ -2976,21 +2976,21 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %if.end23.critedge.i.i, %if.then16.i.i, %if.end.thread141.i.i, %for.body.i.i.preheader.i.i, %if.then.i.i, %if.then34.i
   %error.2.i.i = phi i32 [ %call8.i.i.i.i, %for.body.i.i.preheader.i.i ], [ 83, %if.end.thread141.i.i ], [ 0, %if.then16.i.i ], [ 83, %if.then.i.i ], [ %call.i.i, %if.then34.i ], [ %call6.i.i, %if.end23.critedge.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
   %93 = load ptr, ptr %tree_ll.i.i, align 8
-  call void @free(ptr noundef %93) #33
+  call void @free(ptr noundef %93) #31
   %94 = load ptr, ptr %lengths.i.i, align 8
-  call void @free(ptr noundef %94) #33
+  call void @free(ptr noundef %94) #31
   %95 = load ptr, ptr %table_len.i.i.i, align 8
-  call void @free(ptr noundef %95) #33
+  call void @free(ptr noundef %95) #31
   %96 = load ptr, ptr %table_value.i.i.i, align 8
-  call void @free(ptr noundef %96) #33
+  call void @free(ptr noundef %96) #31
   %97 = load ptr, ptr %tree_d.i.i, align 8
-  call void @free(ptr noundef %97) #33
+  call void @free(ptr noundef %97) #31
   %98 = load ptr, ptr %lengths.i.i.i.i, align 8
-  call void @free(ptr noundef %98) #33
+  call void @free(ptr noundef %98) #31
   %99 = load ptr, ptr %table_len.i21.i.i, align 8
-  call void @free(ptr noundef %99) #33
+  call void @free(ptr noundef %99) #31
   %100 = load ptr, ptr %table_value.i138.i.i, align 8
-  call void @free(ptr noundef %100) #33
+  call void @free(ptr noundef %100) #31
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_ll.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_d.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lz77_encoded.i.i)
@@ -3009,9 +3009,9 @@ if.then39.i:                                      ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %table_len.i160.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tree_cl.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %table_len.i161.i.i, i8 0, i64 16, i1 false)
-  %call.i.i56.i = call noalias noundef dereferenceable_or_null(1144) ptr @malloc(i64 noundef 1144) #32
-  %call.i162.i.i = call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #32
-  %call.i163.i.i = call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #32
+  %call.i.i56.i = call noalias noundef dereferenceable_or_null(1144) ptr @malloc(i64 noundef 1144) #30
+  %call.i162.i.i = call noalias noundef dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #30
+  %call.i163.i.i = call noalias noundef dereferenceable_or_null(76) ptr @malloc(i64 noundef 76) #30
   %tobool.i.i = icmp ne ptr %call.i.i56.i, null
   %tobool3.i.i = icmp ne ptr %call.i162.i.i, null
   %or.cond.i57.i = and i1 %tobool.i.i, %tobool3.i.i
@@ -3129,7 +3129,7 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %mul.i166.i.i = shl i64 %numcodes.addr.0.i.i.i, 2
-  %call.i.i167.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i166.i.i) #32
+  %call.i.i167.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i166.i.i) #30
   store ptr %call.i.i167.i.i, ptr %lengths.i.i69.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %call.i.i167.i.i, null
   br i1 %tobool2.not.i.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %if.end.i.i70.i
@@ -3163,7 +3163,7 @@ while.cond.i170.i.i:                              ; preds = %while.cond.i170.i.i
 
 while.end.i176.i.i:                               ; preds = %while.cond.i170.i.i
   %mul.i177.i.i = shl i64 %numcodes.addr.0.i171.i.i, 2
-  %call.i.i178.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i177.i.i) #32
+  %call.i.i178.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i177.i.i) #30
   store ptr %call.i.i178.i.i, ptr %lengths.i179.i.i, align 8
   %tobool2.not.i180.i.i = icmp eq ptr %call.i.i178.i.i, null
   br i1 %tobool2.not.i180.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, label %if.end.i181.i.i
@@ -3190,8 +3190,8 @@ if.end48.i.i:                                     ; preds = %_ZL31HuffmanTree_ma
   %conv59.i71.i = zext nneg i32 %cond58.i.i to i64
   %add60.i.i = add nuw nsw i64 %conv59.i71.i, %conv51.i.i
   %mul.i72.i = shl nuw nsw i64 %add60.i.i, 2
-  %call.i191.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i72.i) #32
-  %call.i192.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i72.i) #32
+  %call.i191.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i72.i) #30
+  %call.i192.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i72.i) #30
   %tobool64.i.i = icmp ne ptr %call.i191.i.i, null
   %tobool66.i.i = icmp ne ptr %call.i192.i.i, null
   %or.cond2.i.i = and i1 %tobool64.i.i, %tobool66.i.i
@@ -3321,16 +3321,15 @@ for.body137.i.i:                                  ; preds = %if.then130.i.i, %fo
 for.end144.i.i:                                   ; preds = %for.body137.i.i, %if.then130.i.i
   %numcodes_lld_e.2.in.lcssa.i.i = phi i64 [ %numcodes_lld_e.0348.i.i, %if.then130.i.i ], [ %inc138.i.i, %for.body137.i.i ]
   %numcodes_lld_e.2.lcssa.i.i = phi i64 [ %numcodes_lld_e.2338.i.i, %if.then130.i.i ], [ %numcodes_lld_e.2.i.i, %for.body137.i.i ]
-  %cmp145.i.i = icmp ugt i32 %rem.i.i, 2
+  %cmp145.i.i = icmp eq i32 %rem.i.i, 3
   br i1 %cmp145.i.i, label %if.then146.i.i, label %if.else152.i.i
 
 if.then146.i.i:                                   ; preds = %for.end144.i.i
   %arrayidx148.i.i = getelementptr inbounds i32, ptr %call.i192.i.i, i64 %numcodes_lld_e.2.lcssa.i.i
   store i32 16, ptr %arrayidx148.i.i, align 4
-  %sub149.i.i = add nsw i32 %rem.i.i, -3
   %inc150.i.i = add i64 %numcodes_lld_e.2.in.lcssa.i.i, 3
   %gep346.i.i = getelementptr i32, ptr %invariant.gep345.i.i, i64 %numcodes_lld_e.2.in.lcssa.i.i
-  store i32 %sub149.i.i, ptr %gep346.i.i, align 4
+  store i32 0, ptr %gep346.i.i, align 4
   br label %if.end154.i.i
 
 if.else152.i.i:                                   ; preds = %for.end144.i.i
@@ -3451,7 +3450,7 @@ if.then27.i.i.i:                                  ; preds = %for.body.i.i74.i
 if.then.i.i26.i.i.i:                              ; preds = %if.then27.i.i.i
   %shr.i.i27.i.i.i = lshr i64 %141, 1
   %add.i.i28.i.i.i = add i64 %shr.i.i27.i.i.i, %add31.i.i.i
-  %call.i.i.i29.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i28.i.i.i) #34
+  %call.i.i.i29.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i28.i.i.i) #32
   %tobool.not.i.i30.i.i.i = icmp eq ptr %call.i.i.i29.i.i.i, null
   br i1 %tobool.not.i.i30.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i76.i, label %if.then3.i.i31.i.i.i
 
@@ -3527,7 +3526,7 @@ if.then.i198.i.i:                                 ; preds = %for.body.i195.i.i
 if.then.i.i.i.i101.i:                             ; preds = %if.then.i198.i.i
   %shr.i.i.i.i102.i = lshr i64 %157, 1
   %add.i.i.i.i103.i = add i64 %shr.i.i.i.i102.i, %add.i199.i.i
-  %call.i.i.i.i.i104.i = call noalias noundef ptr @realloc(ptr noundef %.pre145.i, i64 noundef %add.i.i.i.i103.i) #34
+  %call.i.i.i.i.i104.i = call noalias noundef ptr @realloc(ptr noundef %.pre145.i, i64 noundef %add.i.i.i.i103.i) #32
   %tobool.not.i.i.i.i105.i = icmp eq ptr %call.i.i.i.i.i104.i, null
   br i1 %tobool.not.i.i.i.i105.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i93.i, label %if.then3.i.i.i.i106.i
 
@@ -3599,7 +3598,7 @@ if.then27.i220.i.i:                               ; preds = %for.body.i204.i.i
 if.then.i.i26.i230.i.i:                           ; preds = %if.then27.i220.i.i
   %shr.i.i27.i231.i.i = lshr i64 %173, 1
   %add.i.i28.i232.i.i = add i64 %shr.i.i27.i231.i.i, %add31.i222.i.i
-  %call.i.i.i29.i233.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre151.i, i64 noundef %add.i.i28.i232.i.i) #34
+  %call.i.i.i29.i233.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre151.i, i64 noundef %add.i.i28.i232.i.i) #32
   %tobool.not.i.i30.i234.i.i = icmp eq ptr %call.i.i.i29.i233.i.i, null
   br i1 %tobool.not.i.i30.i234.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i235.i.i
 
@@ -3661,7 +3660,7 @@ if.then27.i256.i.i:                               ; preds = %for.body.i240.i.i
 if.then.i.i26.i266.i.i:                           ; preds = %if.then27.i256.i.i
   %shr.i.i27.i267.i.i = lshr i64 %186, 1
   %add.i.i28.i268.i.i = add i64 %shr.i.i27.i267.i.i, %add31.i258.i.i
-  %call.i.i.i29.i269.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre149.i, i64 noundef %add.i.i28.i268.i.i) #34
+  %call.i.i.i29.i269.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre149.i, i64 noundef %add.i.i28.i268.i.i) #32
   %tobool.not.i.i30.i270.i.i = icmp eq ptr %call.i.i.i29.i269.i.i, null
   br i1 %tobool.not.i.i30.i270.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i271.i.i
 
@@ -3723,7 +3722,7 @@ if.then27.i292.i.i:                               ; preds = %for.body.i276.i.i
 if.then.i.i26.i302.i.i:                           ; preds = %if.then27.i292.i.i
   %shr.i.i27.i303.i.i = lshr i64 %199, 1
   %add.i.i28.i304.i.i = add i64 %shr.i.i27.i303.i.i, %add31.i294.i.i
-  %call.i.i.i29.i305.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre147.i, i64 noundef %add.i.i28.i304.i.i) #34
+  %call.i.i.i29.i305.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre147.i, i64 noundef %add.i.i28.i304.i.i) #32
   %tobool.not.i.i30.i306.i.i = icmp eq ptr %call.i.i.i29.i305.i.i, null
   br i1 %tobool.not.i.i30.i306.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i307.i.i
 
@@ -3793,35 +3792,35 @@ _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.ex
   %bitlen_lld.0.i.i = phi ptr [ null, %if.then8.i61.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i ], [ %call.i191.i.i, %if.end251.i.i ], [ null, %if.then39.i ], [ %call.i191.i.i, %if.end48.i.i ], [ %call.i191.i.i, %for.end246.i.i ], [ null, %if.then.i.i109.i ], [ null, %while.end.i.i.i ], [ null, %if.end.i.i70.i ], [ null, %while.end.i176.i.i ], [ null, %if.end.i181.i.i ], [ %call.i191.i.i, %for.end180.i.i ]
   %error.1.i.i = phi i32 [ %call9.i.i, %if.then8.i61.i ], [ %call9.i.i.i, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ %call9.i189.i.i, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i ], [ 0, %if.end251.i.i ], [ 83, %if.then39.i ], [ 83, %if.end48.i.i ], [ 64, %for.end246.i.i ], [ 83, %if.then.i.i109.i ], [ 83, %while.end.i.i.i ], [ %call6.i.i.i, %if.end.i.i70.i ], [ 83, %while.end.i176.i.i ], [ %call6.i185.i.i, %if.end.i181.i.i ], [ %call181.i.i, %for.end180.i.i ]
   %214 = load ptr, ptr %lz77_encoded.i51.i, align 8
-  call void @free(ptr noundef %214) #33
+  call void @free(ptr noundef %214) #31
   %215 = load ptr, ptr %tree_ll.i52.i, align 8
-  call void @free(ptr noundef %215) #33
+  call void @free(ptr noundef %215) #31
   %216 = load ptr, ptr %lengths.i.i69.i, align 8
-  call void @free(ptr noundef %216) #33
+  call void @free(ptr noundef %216) #31
   %217 = load ptr, ptr %table_len.i.i55.i, align 8
-  call void @free(ptr noundef %217) #33
+  call void @free(ptr noundef %217) #31
   %218 = load ptr, ptr %table_value.i.i58.i, align 8
-  call void @free(ptr noundef %218) #33
+  call void @free(ptr noundef %218) #31
   %219 = load ptr, ptr %tree_d.i53.i, align 8
-  call void @free(ptr noundef %219) #33
+  call void @free(ptr noundef %219) #31
   %220 = load ptr, ptr %lengths.i179.i.i, align 8
-  call void @free(ptr noundef %220) #33
+  call void @free(ptr noundef %220) #31
   %221 = load ptr, ptr %table_len.i160.i.i, align 8
-  call void @free(ptr noundef %221) #33
+  call void @free(ptr noundef %221) #31
   %222 = load ptr, ptr %table_value.i314.i.i, align 8
-  call void @free(ptr noundef %222) #33
+  call void @free(ptr noundef %222) #31
   %223 = load ptr, ptr %tree_cl.i.i, align 8
-  call void @free(ptr noundef %223) #33
-  call void @free(ptr noundef %213) #33
+  call void @free(ptr noundef %223) #31
+  call void @free(ptr noundef %213) #31
   %224 = load ptr, ptr %table_len.i161.i.i, align 8
-  call void @free(ptr noundef %224) #33
+  call void @free(ptr noundef %224) #31
   %225 = load ptr, ptr %table_value.i317.i.i, align 8
-  call void @free(ptr noundef %225) #33
-  call void @free(ptr noundef %call.i.i56.i) #33
-  call void @free(ptr noundef %call.i162.i.i) #33
-  call void @free(ptr noundef %call.i163.i.i) #33
-  call void @free(ptr noundef %bitlen_lld.0.i.i) #33
-  call void @free(ptr noundef %bitlen_lld_e.0.i.i) #33
+  call void @free(ptr noundef %225) #31
+  call void @free(ptr noundef %call.i.i56.i) #31
+  call void @free(ptr noundef %call.i162.i.i) #31
+  call void @free(ptr noundef %call.i163.i.i) #31
+  call void @free(ptr noundef %bitlen_lld.0.i.i) #31
+  call void @free(ptr noundef %bitlen_lld_e.0.i.i) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lz77_encoded.i51.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_ll.i52.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tree_d.i53.i)
@@ -3838,12 +3837,12 @@ for.inc.i:                                        ; preds = %_ZL14deflateDynamic
 
 if.end43.i:                                       ; preds = %for.inc.i, %_ZL9hash_initP4Hashj.exit.i, %lor.lhs.false18.i.i, %if.end16.i
   %error.2.i = phi i32 [ 83, %lor.lhs.false18.i.i ], [ 83, %if.end16.i ], [ 0, %_ZL9hash_initP4Hashj.exit.i ], [ %error.1.i, %for.inc.i ]
-  call void @free(ptr noundef %call.i.i.i) #33
-  call void @free(ptr noundef %call.i39.i.i) #33
-  call void @free(ptr noundef %call.i40.i.i) #33
-  call void @free(ptr noundef %call.i41.i.i) #33
-  call void @free(ptr noundef %call.i42.i.i) #33
-  call void @free(ptr noundef %call.i43.i.i) #33
+  call void @free(ptr noundef %call.i.i.i) #31
+  call void @free(ptr noundef %call.i39.i.i) #31
+  call void @free(ptr noundef %call.i40.i.i) #31
+  call void @free(ptr noundef %call.i41.i.i) #31
+  call void @free(ptr noundef %call.i42.i.i) #31
+  call void @free(ptr noundef %call.i43.i.i) #31
   br label %_ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit
 
 _ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit: ; preds = %if.then.i.i.i.i, %_ZL14lodepng_memcpyPvPKvm.exit.i.i, %entry, %if.then3.i, %if.end43.i
@@ -4059,7 +4058,7 @@ if.then:                                          ; preds = %if.then.i, %_ZL7def
   %1 = load i64, ptr %deflatesize, align 8
   %add = add i64 %1, 6
   store i64 %add, ptr %outsize, align 8
-  %call.i20 = call noalias noundef ptr @malloc(i64 noundef %add) #32
+  %call.i20 = call noalias noundef ptr @malloc(i64 noundef %add) #30
   store ptr %call.i20, ptr %out, align 8
   %tobool2.not = icmp eq ptr %call.i20, null
   br i1 %tobool2.not, label %if.end21, label %if.then6
@@ -4157,11 +4156,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.end21:                                         ; preds = %if.then, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread23, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit, %for.end
   %error.029 = phi i32 [ 0, %for.end ], [ 111, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread23 ], [ %call3.i, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 83, %if.then ]
   %15 = load ptr, ptr %deflatedata, align 8
-  call void @free(ptr noundef %15) #33
+  call void @free(ptr noundef %15) #31
   ret i32 %error.029
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z30lodepng_compress_settings_initP23LodePNGCompressSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #6 {
 entry:
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %settings, align 8
@@ -4174,7 +4173,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z32lodepng_decompress_settings_initP25LodePNGDecompressSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %settings, i8 0, i64 40, i1 false)
@@ -5242,7 +5241,7 @@ entry:
 
 if.end5:                                          ; preds = %entry
   %5 = load ptr, ptr %out, align 8
-  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i9) #34
+  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i9) #32
   %tobool7.not = icmp eq ptr %call.i, null
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -5291,7 +5290,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i
   %shr.i.i.i.i = lshr i64 %1, 1
   %add.i.i.i.i = add i64 %add.i7.i.i, %shr.i.i.i.i
-  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %add.i.i.i.i) #34
+  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %add.i.i.i.i) #32
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %if.end.i
 
@@ -5339,7 +5338,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.end.i.i,
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr nocapture noundef writeonly %info) local_unnamed_addr #6 {
 entry:
   %key_defined = getelementptr inbounds %struct.LodePNGColorMode, ptr %info, i64 0, i32 4
@@ -5361,7 +5360,7 @@ entry:
   br i1 %tobool.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i
@@ -5378,7 +5377,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5395,7 +5394,7 @@ entry:
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
@@ -5407,7 +5406,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.th
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
-  %call.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i, ptr %palette.i.i, align 8
   %tobool3.not = icmp eq ptr %call.i, null
   %palettesize = getelementptr inbounds %struct.LodePNGColorMode, ptr %source, i64 0, i32 3
@@ -5434,7 +5433,7 @@ return:                                           ; preds = %land.lhs.true, %for
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr noalias nocapture writeonly sret(%struct.LodePNGColorMode) align 8 %agg.result, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #6 {
 entry:
   %key_defined.i = getelementptr inbounds %struct.LodePNGColorMode, ptr %agg.result, i64 0, i32 4
@@ -5456,7 +5455,7 @@ entry:
   br i1 %tobool.not, label %if.then.i, label %if.end4
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i, ptr %palette, align 8
   %1 = icmp eq ptr %call.i.i, null
   br i1 %1, label %return, label %for.body.i
@@ -5776,13 +5775,13 @@ entry:
   %1 = load i64, ptr %text_num, align 8
   %add = shl i64 %1, 3
   %mul = add i64 %add, 8
-  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #34
+  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #32
   %text_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
   %2 = load ptr, ptr %text_strings, align 8
   %3 = load i64, ptr %text_num, align 8
   %add2 = shl i64 %3, 3
   %mul3 = add i64 %add2, 8
-  %call.i19 = tail call noalias noundef ptr @realloc(ptr noundef %2, i64 noundef %mul3) #34
+  %call.i19 = tail call noalias noundef ptr @realloc(ptr noundef %2, i64 noundef %mul3) #32
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.end.thread
 
@@ -5818,7 +5817,7 @@ _ZL14lodepng_strlenPKc.exit.i:                    ; preds = %while.cond.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %key to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add i64 %sub.ptr.sub.i.i, 1
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #32
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #30
   %tobool.not.i2.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i2.i, label %_ZL12alloc_stringPKc.exit, label %if.then.i.i
 
@@ -5841,7 +5840,7 @@ _ZL12alloc_stringPKc.exit:                        ; preds = %_ZL14lodepng_strlen
   %arrayidx = getelementptr ptr, ptr %7, i64 -1
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   %add.i = add i64 %size, 1
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #32
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #30
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %_ZL18alloc_string_sizedPKcm.exit, label %if.then.i
 
@@ -5903,12 +5902,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %1 = load ptr, ptr %text_keys.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %i.09.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @free(ptr noundef %2) #33
+  tail call void @free(ptr noundef %2) #31
   store ptr null, ptr %arrayidx.i, align 8
   %3 = load ptr, ptr %text_strings.i, align 8
   %arrayidx1.i = getelementptr inbounds ptr, ptr %3, i64 %i.09.i
   %4 = load ptr, ptr %arrayidx1.i, align 8
-  tail call void @free(ptr noundef %4) #33
+  tail call void @free(ptr noundef %4) #31
   store ptr null, ptr %arrayidx1.i, align 8
   %inc.i = add i64 %i.09.i, 1
   %5 = load i64, ptr %text_num.i, align 8
@@ -5918,10 +5917,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %for.body.i, %entry
   %text_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
   %6 = load ptr, ptr %text_keys2.i, align 8
-  tail call void @free(ptr noundef %6) #33
+  tail call void @free(ptr noundef %6) #31
   %text_strings3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
   %7 = load ptr, ptr %text_strings3.i, align 8
-  tail call void @free(ptr noundef %7) #33
+  tail call void @free(ptr noundef %7) #31
   ret void
 }
 
@@ -5952,22 +5951,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %itext_keys, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.015
   %2 = load ptr, ptr %arrayidx, align 8
-  tail call void @free(ptr noundef %2) #33
+  tail call void @free(ptr noundef %2) #31
   store ptr null, ptr %arrayidx, align 8
   %3 = load ptr, ptr %itext_langtags, align 8
   %arrayidx1 = getelementptr inbounds ptr, ptr %3, i64 %i.015
   %4 = load ptr, ptr %arrayidx1, align 8
-  tail call void @free(ptr noundef %4) #33
+  tail call void @free(ptr noundef %4) #31
   store ptr null, ptr %arrayidx1, align 8
   %5 = load ptr, ptr %itext_transkeys, align 8
   %arrayidx2 = getelementptr inbounds ptr, ptr %5, i64 %i.015
   %6 = load ptr, ptr %arrayidx2, align 8
-  tail call void @free(ptr noundef %6) #33
+  tail call void @free(ptr noundef %6) #31
   store ptr null, ptr %arrayidx2, align 8
   %7 = load ptr, ptr %itext_strings, align 8
   %arrayidx3 = getelementptr inbounds ptr, ptr %7, i64 %i.015
   %8 = load ptr, ptr %arrayidx3, align 8
-  tail call void @free(ptr noundef %8) #33
+  tail call void @free(ptr noundef %8) #31
   store ptr null, ptr %arrayidx3, align 8
   %inc = add i64 %i.015, 1
   %9 = load i64, ptr %itext_num, align 8
@@ -5977,16 +5976,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry
   %itext_keys4 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 12
   %10 = load ptr, ptr %itext_keys4, align 8
-  tail call void @free(ptr noundef %10) #33
+  tail call void @free(ptr noundef %10) #31
   %itext_langtags5 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
   %11 = load ptr, ptr %itext_langtags5, align 8
-  tail call void @free(ptr noundef %11) #33
+  tail call void @free(ptr noundef %11) #31
   %itext_transkeys6 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
   %12 = load ptr, ptr %itext_transkeys6, align 8
-  tail call void @free(ptr noundef %12) #33
+  tail call void @free(ptr noundef %12) #31
   %itext_strings7 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
   %13 = load ptr, ptr %itext_strings7, align 8
-  tail call void @free(ptr noundef %13) #33
+  tail call void @free(ptr noundef %13) #31
   ret void
 }
 
@@ -6019,25 +6018,25 @@ entry:
   %1 = load i64, ptr %itext_num, align 8
   %add = shl i64 %1, 3
   %mul = add i64 %add, 8
-  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #34
+  %call.i = tail call noalias noundef ptr @realloc(ptr noundef %0, i64 noundef %mul) #32
   %itext_langtags = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 13
   %2 = load ptr, ptr %itext_langtags, align 8
   %3 = load i64, ptr %itext_num, align 8
   %add2 = shl i64 %3, 3
   %mul3 = add i64 %add2, 8
-  %call.i31 = tail call noalias noundef ptr @realloc(ptr noundef %2, i64 noundef %mul3) #34
+  %call.i31 = tail call noalias noundef ptr @realloc(ptr noundef %2, i64 noundef %mul3) #32
   %itext_transkeys = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 14
   %4 = load ptr, ptr %itext_transkeys, align 8
   %5 = load i64, ptr %itext_num, align 8
   %add6 = shl i64 %5, 3
   %mul7 = add i64 %add6, 8
-  %call.i32 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul7) #34
+  %call.i32 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul7) #32
   %itext_strings = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 15
   %6 = load ptr, ptr %itext_strings, align 8
   %7 = load i64, ptr %itext_num, align 8
   %add10 = shl i64 %7, 3
   %mul11 = add i64 %add10, 8
-  %call.i33 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %mul11) #34
+  %call.i33 = tail call noalias noundef ptr @realloc(ptr noundef %6, i64 noundef %mul11) #32
   %tobool = icmp ne ptr %call.i, null
   br i1 %tobool, label %if.then, label %if.end
 
@@ -6089,7 +6088,7 @@ _ZL14lodepng_strlenPKc.exit.i:                    ; preds = %while.cond.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %key to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add i64 %sub.ptr.sub.i.i, 1
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #32
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #30
   %tobool.not.i2.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i2.i, label %_ZL12alloc_stringPKc.exit, label %if.then.i.i
 
@@ -6125,7 +6124,7 @@ _ZL14lodepng_strlenPKc.exit.i38:                  ; preds = %while.cond.i.i34
   %sub.ptr.rhs.cast.i.i40 = ptrtoint ptr %langtag to i64
   %sub.ptr.sub.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i39, %sub.ptr.rhs.cast.i.i40
   %add.i.i42 = add i64 %sub.ptr.sub.i.i41, 1
-  %call.i.i.i43 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i42) #32
+  %call.i.i.i43 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i42) #30
   %tobool.not.i2.i44 = icmp eq ptr %call.i.i.i43, null
   br i1 %tobool.not.i2.i44, label %_ZL12alloc_stringPKc.exit50, label %if.then.i.i45
 
@@ -6162,7 +6161,7 @@ _ZL14lodepng_strlenPKc.exit.i55:                  ; preds = %while.cond.i.i51
   %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %transkey to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57
   %add.i.i59 = add i64 %sub.ptr.sub.i.i58, 1
-  %call.i.i.i60 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i59) #32
+  %call.i.i.i60 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i59) #30
   %tobool.not.i2.i61 = icmp eq ptr %call.i.i.i60, null
   br i1 %tobool.not.i2.i61, label %_ZL12alloc_stringPKc.exit67, label %if.then.i.i62
 
@@ -6186,7 +6185,7 @@ _ZL12alloc_stringPKc.exit67:                      ; preds = %_ZL14lodepng_strlen
   %arrayidx47 = getelementptr ptr, ptr %19, i64 -1
   store ptr %call.i.i.i60, ptr %arrayidx47, align 8
   %add.i = add i64 %size, 1
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #32
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #30
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %_ZL18alloc_string_sizedPKcm.exit, label %if.then.i
 
@@ -6225,11 +6224,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   store ptr null, ptr %iccp_name, align 8
   %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
   %1 = load ptr, ptr %iccp_profile.i, align 8
-  tail call void @free(ptr noundef %1) #33
+  tail call void @free(ptr noundef %1) #31
   store ptr null, ptr %iccp_profile.i, align 8
   %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
   store i32 0, ptr %iccp_profile_size.i, align 8
@@ -6253,7 +6252,7 @@ _ZL14lodepng_strlenPKc.exit.i.i:                  ; preds = %while.cond.i.i.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %name to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #32
+  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #30
   %tobool.not.i2.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i2.i.i, label %_ZL12alloc_stringPKc.exit.i, label %if.then.i.i.i
 
@@ -6273,7 +6272,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i.i.i:             ; preds = %for.body.preheader.
 _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpyPvPKvm.exit.i.i.i, %_ZL14lodepng_strlenPKc.exit.i.i
   store ptr %call.i.i.i.i, ptr %iccp_name, align 8
   %conv.i = zext i32 %profile_size to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #32
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #30
   %iccp_profile.i5 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
   store ptr %call.i.i, ptr %iccp_profile.i5, align 8
   %tobool4.not.i = icmp eq ptr %call.i.i, null
@@ -6296,11 +6295,11 @@ define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr nocapture noundef %info) lo
 entry:
   %iccp_name = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
   %0 = load ptr, ptr %iccp_name, align 8
-  tail call void @free(ptr noundef %0) #33
+  tail call void @free(ptr noundef %0) #31
   store ptr null, ptr %iccp_name, align 8
   %iccp_profile = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
   %1 = load ptr, ptr %iccp_profile, align 8
-  tail call void @free(ptr noundef %1) #33
+  tail call void @free(ptr noundef %1) #31
   store ptr null, ptr %iccp_profile, align 8
   %iccp_profile_size = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
   store i32 0, ptr %iccp_profile_size, align 8
@@ -6309,7 +6308,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z17lodepng_info_initP11LodePNGInfo(ptr nocapture noundef writeonly %info) local_unnamed_addr #6 {
 entry:
   %color = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 3
@@ -6353,7 +6352,7 @@ entry:
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
@@ -6373,12 +6372,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %2 = load ptr, ptr %text_keys.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.09.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @free(ptr noundef %3) #33
+  tail call void @free(ptr noundef %3) #31
   store ptr null, ptr %arrayidx.i, align 8
   %4 = load ptr, ptr %text_strings.i, align 8
   %arrayidx1.i = getelementptr inbounds ptr, ptr %4, i64 %i.09.i
   %5 = load ptr, ptr %arrayidx1.i, align 8
-  tail call void @free(ptr noundef %5) #33
+  tail call void @free(ptr noundef %5) #31
   store ptr null, ptr %arrayidx1.i, align 8
   %inc.i = add i64 %i.09.i, 1
   %6 = load i64, ptr %text_num.i, align 8
@@ -6388,18 +6387,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %for.body.i, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
   %text_keys2.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 9
   %7 = load ptr, ptr %text_keys2.i, align 8
-  tail call void @free(ptr noundef %7) #33
+  tail call void @free(ptr noundef %7) #31
   %text_strings3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 10
   %8 = load ptr, ptr %text_strings3.i, align 8
-  tail call void @free(ptr noundef %8) #33
+  tail call void @free(ptr noundef %8) #31
   tail call fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef nonnull %info)
   %iccp_name.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 36
   %9 = load ptr, ptr %iccp_name.i, align 8
-  tail call void @free(ptr noundef %9) #33
+  tail call void @free(ptr noundef %9) #31
   store ptr null, ptr %iccp_name.i, align 8
   %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
   %10 = load ptr, ptr %iccp_profile.i, align 8
-  tail call void @free(ptr noundef %10) #33
+  tail call void @free(ptr noundef %10) #31
   store ptr null, ptr %iccp_profile.i, align 8
   %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
   store i32 0, ptr %iccp_profile_size.i, align 8
@@ -6411,7 +6410,7 @@ for.body.i5:                                      ; preds = %for.body.i5, %_ZL19
   %indvars.iv.i = phi i64 [ 0, %_ZL19LodePNGText_cleanupP11LodePNGInfo.exit ], [ %indvars.iv.next.i, %for.body.i5 ]
   %arrayidx.i6 = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 44, i64 %indvars.iv.i
   %11 = load ptr, ptr %arrayidx.i6, align 8
-  tail call void @free(ptr noundef %11) #33
+  tail call void @free(ptr noundef %11) #31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i7 = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %cmp.not.i7, label %_ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit, label %for.body.i5, !llvm.loop !153
@@ -6441,7 +6440,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i, ptr %palette.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i, null
   %palettesize.i = getelementptr inbounds %struct.LodePNGInfo, ptr %source, i64 0, i32 3, i32 3
@@ -6586,7 +6585,7 @@ _ZL14lodepng_strlenPKc.exit.i.i:                  ; preds = %while.cond.i.i.i43
   %sub.ptr.rhs.cast.i.i.i48 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i.i47, %sub.ptr.rhs.cast.i.i.i48
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i49, 1
-  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #32
+  %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #30
   %tobool.not.i2.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i2.i.i, label %_ZL12alloc_stringPKc.exit.i, label %if.then.i.i.i50
 
@@ -6607,7 +6606,7 @@ _ZL12alloc_stringPKc.exit.i:                      ; preds = %_ZL14lodepng_memcpy
   %iccp_name.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 36
   store ptr %call.i.i.i.i, ptr %iccp_name.i, align 8
   %conv.i = zext i32 %25 to i64
-  %call.i.i51 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #32
+  %call.i.i51 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #30
   %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 37
   store ptr %call.i.i51, ptr %iccp_profile.i, align 8
   %tobool4.not.i52 = icmp eq ptr %call.i.i51, null
@@ -6629,7 +6628,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %indvars.iv.i.i = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 44, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void @free(ptr noundef %27) #33
+  tail call void @free(ptr noundef %27) #31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %cmp.not.i.i, label %for.body.i54, label %for.body.i.i, !llvm.loop !153
@@ -6640,7 +6639,7 @@ for.body.i54:                                     ; preds = %for.body.i.i, %for.
   %28 = load i64, ptr %arrayidx.i55, align 8
   %arrayidx3.i = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 45, i64 %indvars.iv
   store i64 %28, ptr %arrayidx3.i, align 8
-  %call.i.i56 = tail call noalias noundef ptr @malloc(i64 noundef %28) #32
+  %call.i.i56 = tail call noalias noundef ptr @malloc(i64 noundef %28) #30
   %arrayidx8.i57 = getelementptr inbounds %struct.LodePNGInfo, ptr %dest, i64 0, i32 44, i64 %indvars.iv
   store ptr %call.i.i56, ptr %arrayidx8.i57, align 8
   %tobool.not.i58 = icmp ne ptr %call.i.i56, null
@@ -6931,7 +6930,7 @@ for.body.i68:                                     ; preds = %if.end26.i, %for.bo
   br i1 %tobool.not.i71, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %for.body.i68
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
   store ptr %call.i.i, ptr %arrayidx.i70, align 8
   %tobool21.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool21.not.i, label %if.end87, label %if.end.i74
@@ -8221,8 +8220,8 @@ if.end176:                                        ; preds = %if.end176.sink.spli
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(ptr noalias nocapture noundef writeonly %buffer, i64 noundef %numpixels, ptr noalias nocapture noundef readonly %in, ptr nocapture noundef readonly %mode) unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(ptr noalias nocapture noundef writeonly %buffer, i64 noundef %numpixels, ptr noalias nocapture noundef readonly %in, ptr nocapture noundef readonly %mode) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %mode, align 8
   switch i32 %0, label %if.end177 [
@@ -8948,7 +8947,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   tail call fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef nonnull %0)
   %1 = load ptr, ptr %arrayidx, align 8
-  tail call void @free(ptr noundef %1) #33
+  tail call void @free(ptr noundef %1) #31
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -9119,7 +9118,7 @@ return:                                           ; preds = %for.inc, %for.cond.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z24lodepng_color_stats_initP17LodePNGColorStats(ptr nocapture noundef writeonly %stats) local_unnamed_addr #6 {
 entry:
   %alpha = getelementptr inbounds %struct.LodePNGColorStats, ptr %stats, i64 0, i32 5
@@ -9316,7 +9315,7 @@ for.body.i:                                       ; preds = %if.end26.i, %for.bo
   br i1 %tobool.not.i165, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
   store ptr %call.i.i, ptr %arrayidx.i, align 8
   %tobool21.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool21.not.i, label %cleanup, label %if.end.i
@@ -9796,7 +9795,7 @@ for.body.i179:                                    ; preds = %for.body.i179.prehe
   br i1 %tobool.not.i198, label %if.then.i205, label %if.end26.i199
 
 if.then.i205:                                     ; preds = %for.body.i179
-  %call.i.i206 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
+  %call.i.i206 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #30
   store ptr %call.i.i206, ptr %arrayidx.i197, align 8
   %tobool21.not.i207 = icmp eq ptr %call.i.i206, null
   br i1 %tobool21.not.i207, label %cleanup, label %if.end.i208
@@ -10695,7 +10694,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %for.body.i.preheader
 
 if.then.i:                                        ; preds = %if.end
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i, ptr %palette.i, align 8
   %2 = icmp eq ptr %call.i.i, null
   br i1 %2, label %land.lhs.true, label %for.body.i.preheader
@@ -11028,7 +11027,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 if.end:                                           ; preds = %while.end
   %add = add nuw nsw i32 %length.0.lcssa, 1
   %conv7 = zext nneg i32 %add to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv7) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv7) #30
   %tobool8.not = icmp eq ptr %call.i, null
   br i1 %tobool8.not, label %while.end29, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11039,7 +11038,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %if.end
   %cond = tail call i64 @llvm.usub.sat.i64(i64 %chunkLength, i64 %conv7)
   %add19 = add nuw i64 %cond, 1
   %conv20 = and i64 %add19, 4294967295
-  %call.i27 = tail call noalias noundef ptr @malloc(i64 noundef %conv20) #32
+  %call.i27 = tail call noalias noundef ptr @malloc(i64 noundef %conv20) #30
   %tobool22.not = icmp eq ptr %call.i27, null
   br i1 %tobool22.not, label %while.end29, label %if.end24
 
@@ -11076,8 +11075,8 @@ while.end29:                                      ; preds = %entry, %_ZL14lodepn
   %key.0 = phi ptr [ %call.i, %_Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit ], [ null, %while.end ], [ null, %if.end ], [ %call.i, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %entry ]
   %str.0 = phi ptr [ %call.i27, %_Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit ], [ null, %while.end ], [ null, %if.end ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %entry ]
   %error.0 = phi i32 [ %call1.i, %_Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit ], [ 89, %while.end ], [ 83, %if.end ], [ 83, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 89, %entry ]
-  tail call void @free(ptr noundef %key.0) #33
-  tail call void @free(ptr noundef %str.0) #33
+  tail call void @free(ptr noundef %key.0) #31
+  tail call void @free(ptr noundef %str.0) #31
   ret i32 %error.0
 }
 
@@ -11124,7 +11123,7 @@ if.end:                                           ; preds = %for.end
 if.end9:                                          ; preds = %if.end
   %add10 = add nuw nsw i32 %length.0.lcssa, 1
   %conv11 = zext nneg i32 %add10 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv11) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv11) #30
   %tobool12.not = icmp eq ptr %call.i, null
   br i1 %tobool12.not, label %while.end, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11197,9 +11196,9 @@ if.end42:                                         ; preds = %_ZL15zlib_decompres
 while.end:                                        ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, %if.then3.i, %_ZL14lodepng_memcpyPvPKvm.exit, %if.end9, %if.end, %for.end, %if.end42
   %error.1 = phi i32 [ %call43, %if.end42 ], [ 75, %for.end ], [ 89, %if.end ], [ 83, %if.end9 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %spec.select32, %if.then3.i ], [ %spec.select, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   %key.0 = phi ptr [ %call.i, %if.end42 ], [ null, %for.end ], [ null, %if.end ], [ null, %if.end9 ], [ %call.i, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %call.i, %if.then3.i ], [ %call.i, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
-  call void @free(ptr noundef %key.0) #33
+  call void @free(ptr noundef %key.0) #31
   %13 = load ptr, ptr %str, align 8
-  call void @free(ptr noundef %13) #33
+  call void @free(ptr noundef %13) #31
   ret i32 %error.1
 }
 
@@ -11243,7 +11242,7 @@ if.end8:                                          ; preds = %for.end
 if.end12:                                         ; preds = %if.end8
   %add13 = add nuw nsw i32 %length.0.lcssa, 1
   %conv14 = zext nneg i32 %add13 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv14) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv14) #30
   %tobool15.not = icmp eq ptr %call.i, null
   br i1 %tobool15.not, label %while.end, label %_ZL14lodepng_memcpyPvPKvm.exit
 
@@ -11279,7 +11278,7 @@ for.end46:                                        ; preds = %land.rhs36, %for.bo
   %length.1.lcssa.ph = phi i32 [ %length.187, %land.rhs36 ], [ %inc43, %for.body42 ]
   %add47 = add i32 %length.1.lcssa.ph, 1
   %conv48 = zext i32 %add47 to i64
-  %call.i73 = tail call noalias noundef ptr @malloc(i64 noundef %conv48) #32
+  %call.i73 = tail call noalias noundef ptr @malloc(i64 noundef %conv48) #30
   %tobool50.not = icmp eq ptr %call.i73, null
   br i1 %tobool50.not, label %while.end, label %if.end52
 
@@ -11321,7 +11320,7 @@ for.end71:                                        ; preds = %land.rhs61, %for.bo
   %length.2.lcssa = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit76 ], [ %inc68, %for.body67 ], [ %length.293, %land.rhs61 ]
   %add72 = add i32 %length.2.lcssa, 1
   %conv73 = zext i32 %add72 to i64
-  %call.i77 = tail call noalias noundef ptr @malloc(i64 noundef %conv73) #32
+  %call.i77 = tail call noalias noundef ptr @malloc(i64 noundef %conv73) #30
   %tobool75.not = icmp eq ptr %call.i77, null
   br i1 %tobool75.not, label %while.end, label %if.end77
 
@@ -11372,7 +11371,7 @@ if.then100:                                       ; preds = %if.then89
 if.end102:                                        ; preds = %if.then100, %if.then89
   %error.1 = phi i32 [ %spec.select, %if.then89 ], [ %call101, %if.then100 ]
   %11 = load ptr, ptr %str, align 8
-  call void @free(ptr noundef %11) #33
+  call void @free(ptr noundef %11) #31
   br label %while.end
 
 if.else:                                          ; preds = %_ZL14lodepng_memcpyPvPKvm.exit80
@@ -11387,9 +11386,9 @@ while.end:                                        ; preds = %for.end71, %for.end
   %key.0 = phi ptr [ %call.i, %if.end102 ], [ %call.i, %if.else ], [ null, %entry ], [ null, %for.end ], [ null, %if.end8 ], [ null, %if.end12 ], [ %call.i, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %call.i, %for.end46 ], [ %call.i, %for.end71 ]
   %langtag.0 = phi ptr [ %call.i73, %if.end102 ], [ %call.i73, %if.else ], [ null, %entry ], [ null, %for.end ], [ null, %if.end8 ], [ null, %if.end12 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %for.end46 ], [ %call.i73, %for.end71 ]
   %transkey.0 = phi ptr [ %call.i77, %if.end102 ], [ %call.i77, %if.else ], [ null, %entry ], [ null, %for.end ], [ null, %if.end8 ], [ null, %if.end12 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %for.end46 ], [ null, %for.end71 ]
-  call void @free(ptr noundef %key.0) #33
-  call void @free(ptr noundef %langtag.0) #33
-  call void @free(ptr noundef %transkey.0) #33
+  call void @free(ptr noundef %key.0) #31
+  call void @free(ptr noundef %langtag.0) #31
+  call void @free(ptr noundef %transkey.0) #31
   ret i32 %error.2
 }
 
@@ -11694,11 +11693,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   store ptr null, ptr %iccp_name, align 8
   %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 37
   %1 = load ptr, ptr %iccp_profile.i, align 8
-  tail call void @free(ptr noundef %1) #33
+  tail call void @free(ptr noundef %1) #31
   store ptr null, ptr %iccp_profile.i, align 8
   %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 38
   store i32 0, ptr %iccp_profile_size.i, align 8
@@ -11739,7 +11738,7 @@ if.end7:                                          ; preds = %for.end
 if.end11:                                         ; preds = %if.end7
   %add12 = add nuw nsw i32 %length.0.lcssa, 1
   %conv13 = zext nneg i32 %add12 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv13) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv13) #30
   store ptr %call.i, ptr %iccp_name, align 8
   %tobool16.not = icmp eq ptr %call.i, null
   br i1 %tobool16.not, label %return, label %for.body24.preheader
@@ -12221,7 +12220,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %cond.end
   br i1 %mul.ov.i50.i.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %if.end6.i
 
 if.end6.i:                                        ; preds = %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %insize) #32
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %insize) #30
   %tobool8.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool8.not.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %if.end11.i
 
@@ -13078,7 +13077,7 @@ if.end374.i:                                      ; preds = %if.end11.i.i, %if.t
 
 if.end381.thread.i:                               ; preds = %if.end374.i
   store i32 91, ptr %error.i, align 8
-  call void @free(ptr noundef %call.i.i) #33
+  call void @free(ptr noundef %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.then46.i, %if.then180.i, %if.then204.i, %if.then281.i, %if.else238.i, %if.then35.i, %if.then15.i, %if.end.i103, %if.then.i102, %if.then16.i, %if.then24.i, %land.lhs.true299.i, %if.then3.i.i
@@ -13087,11 +13086,11 @@ if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.the
   br label %if.end381.thread579.i
 
 if.end381.thread579.i:                            ; preds = %if.then248.i, %if.then229.i, %if.then216.i, %if.then192.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then124.i, %if.then107.i, %if.then79.i, %if.then66.i, %if.end381.thread579.i.sink.split
-  call void @free(ptr noundef %call.i.i) #33
+  call void @free(ptr noundef %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 if.end381.i:                                      ; preds = %if.end374.i
-  call void @free(ptr noundef %call.i.i) #33
+  call void @free(ptr noundef %call.i.i) #31
   %tobool383.not.i = icmp eq i32 %error.0.i.i, 0
   br i1 %tobool383.not.i, label %if.then384.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
@@ -13138,7 +13137,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit.i: ; preds = %sw.default.i.i
   %add.i.i425.i = add nuw nsw i64 %mul4.i.i.i, 7
   %div54.i.i.i = lshr i64 %add.i.i425.i, 3
   %add6.i.i.i = add i64 %div54.i.i.i, %mul3.i.i.i
-  %call.i430.i = call noalias noundef ptr @malloc(i64 noundef %add6.i.i.i) #32
+  %call.i430.i = call noalias noundef ptr @malloc(i64 noundef %add6.i.i.i) #30
   store ptr %call.i430.i, ptr %out, align 8
   %tobool389.not.i = icmp eq ptr %call.i430.i, null
   br i1 %tobool389.not.i, label %if.then390.i, label %if.end393.i
@@ -13782,7 +13781,7 @@ _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread: ; preds = %_ZL13decod
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %if.end381.thread.i, %if.end381.thread579.i, %if.end381.i, %if.then390.i, %if.end393.i, %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
   %161 = load ptr, ptr %scanlines.i, align 8
-  call void @free(ptr noundef %161) #33
+  call void @free(ptr noundef %161) #31
   %.pr = load i32, ptr %error.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %scanlines.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %scanlines_size.i)
@@ -13883,7 +13882,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %tobool.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then8
-  call void @free(ptr noundef nonnull %181) #33
+  call void @free(ptr noundef nonnull %181) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i.i, %if.then8
@@ -13894,7 +13893,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i
   br i1 %tobool.not.i37, label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, label %if.then.i
 
 if.then.i:                                        ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %call.i.i38 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i38 = call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i38, ptr %palette.i.i.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i38, null
   %183 = load i64, ptr %palettesize.i105, align 8
@@ -13975,7 +13974,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %if.end28, %if.en
   %add.i.i56 = add nuw nsw i64 %mul4.i.i, 7
   %div54.i.i = lshr i64 %add.i.i56, 3
   %add6.i.i57 = add i64 %div54.i.i, %mul3.i.i54
-  %call.i62 = call noalias noundef ptr @malloc(i64 noundef %add6.i.i57) #32
+  %call.i62 = call noalias noundef ptr @malloc(i64 noundef %add6.i.i57) #30
   store ptr %call.i62, ptr %out, align 8
   %tobool32.not = icmp eq ptr %call.i62, null
   br i1 %tobool32.not, label %if.end41, label %if.else35
@@ -13989,7 +13988,7 @@ if.else35:                                        ; preds = %_Z20lodepng_get_raw
 if.end41:                                         ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit, %if.else35
   %storemerge = phi i32 [ %call39, %if.else35 ], [ 83, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ]
   store i32 %storemerge, ptr %error.i, align 8
-  call void @free(ptr noundef %185) #33
+  call void @free(ptr noundef %185) #31
   %.pre = load i32, ptr %error.i, align 8
   br label %return
 
@@ -14077,7 +14076,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  call void @free(ptr noundef nonnull %0) #33
+  call void @free(ptr noundef nonnull %0) #31
   br label %_Z21lodepng_state_cleanupP12LodePNGState.exit
 
 _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i.i
@@ -14086,7 +14085,7 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z18lodepng_state_initP12LodePNGState(ptr nocapture noundef writeonly %state) local_unnamed_addr #6 {
 entry:
   %color_convert.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %state, i64 0, i32 4
@@ -14170,7 +14169,7 @@ entry:
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i.i
@@ -14215,7 +14214,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %error.0 = phi i32 [ %call, %entry ], [ %call1, %if.then ]
-  tail call void @free(ptr noundef %.pre) #33
+  tail call void @free(ptr noundef %.pre) #31
   ret i32 %error.0
 }
 
@@ -14242,7 +14241,7 @@ if.then.i:                                        ; preds = %entry
 
 _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %entry, %if.then.i
   %error.0.i = phi i32 [ %call.i, %entry ], [ %call1.i, %if.then.i ]
-  tail call void @free(ptr noundef %.pre.i) #33
+  tail call void @free(ptr noundef %.pre.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffersize.i)
   ret i32 %error.0.i
@@ -14271,13 +14270,13 @@ if.then.i:                                        ; preds = %entry
 
 _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %entry, %if.then.i
   %error.0.i = phi i32 [ %call.i, %entry ], [ %call1.i, %if.then.i ]
-  tail call void @free(ptr noundef %.pre.i) #33
+  tail call void @free(ptr noundef %.pre.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffersize.i)
   ret i32 %error.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z29lodepng_decoder_settings_initP22LodePNGDecoderSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #6 {
 entry:
   %color_convert = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %settings, i64 0, i32 4
@@ -14294,7 +14293,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z29lodepng_encoder_settings_initP22LodePNGEncoderSettings(ptr nocapture noundef writeonly %settings) local_unnamed_addr #6 {
 entry:
   store <4 x i32> <i32 2, i32 1, i32 2048, i32 3>, ptr %settings, align 8
@@ -14326,7 +14325,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i.i, %entry
@@ -14378,7 +14377,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i, ptr %palette.i.i.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i, null
   %palettesize.i = getelementptr inbounds %struct.LodePNGState, ptr %source, i64 0, i32 2, i32 3
@@ -14987,7 +14986,7 @@ if.then298:                                       ; preds = %if.end293
   %mul304 = mul i64 %mul, %conv303
   %add = add i64 %mul304, 7
   %div235 = lshr i64 %add, 3
-  %call.i = call noalias noundef ptr @malloc(i64 noundef %div235) #32
+  %call.i = call noalias noundef ptr @malloc(i64 noundef %div235) #30
   %tobool306 = icmp eq ptr %call.i, null
   %tobool308 = icmp ugt i64 %add, 7
   %or.cond14 = and i1 %tobool306, %tobool308
@@ -15009,17 +15008,17 @@ if.end319:                                        ; preds = %if.end311
   br i1 %tobool321.not, label %if.end326, label %if.end326.thread
 
 if.end326.thread:                                 ; preds = %if.end319
-  call void @free(ptr noundef %call.i) #33
+  call void @free(ptr noundef %call.i) #31
   br label %cleanup
 
 if.end326.thread379:                              ; preds = %if.end311.thread, %if.end311
-  call void @free(ptr noundef %call.i) #33
+  call void @free(ptr noundef %call.i) #31
   br label %cleanup
 
 if.end326:                                        ; preds = %if.end319
   %call324 = call fastcc noundef i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef nonnull %data, ptr noundef nonnull %datasize, ptr noundef %call.i, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info, ptr noundef nonnull %encoder9)
   store i32 %call324, ptr %error, align 8
-  call void @free(ptr noundef %call.i) #33
+  call void @free(ptr noundef %call.i) #31
   %tobool328.not = icmp eq i32 %call324, 0
   br i1 %tobool328.not, label %if.end338, label %cleanup
 
@@ -15467,13 +15466,13 @@ if.end650:                                        ; preds = %if.then639, %for.en
 cleanup:                                          ; preds = %if.else535, %if.then523, %if.end617, %if.end326.thread379, %if.end326.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit257.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread, %if.end650, %if.then639, %if.then593, %if.then499, %if.end489, %if.then478, %if.then467, %if.then458, %if.end448, %if.then440, %if.then420, %if.then409, %if.then399, %if.then390, %if.then381, %if.then370, %if.then357, %if.end344, %if.end338, %if.else, %if.end326, %if.end72, %if.then63, %if.end54, %if.then615, %if.then608, %if.then518, %if.then511, %if.then286, %if.then282, %if.then255, %if.then15, %if.then11, %if.then
   call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %info)
   %133 = load ptr, ptr %data, align 8
-  call void @free(ptr noundef %133) #33
+  call void @free(ptr noundef %133) #31
   %134 = load ptr, ptr %palette.i, align 8
   %tobool.not.i.i = icmp eq ptr %134, null
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %134) #33
+  call void @free(ptr noundef nonnull %134) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %cleanup, %if.then.i.i
@@ -15591,7 +15590,7 @@ if.then45:                                        ; preds = %entry
   br i1 %tobool.not.i, label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then45
-  tail call void @free(ptr noundef nonnull %13) #33
+  tail call void @free(ptr noundef nonnull %13) #31
   br label %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
 
 _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %if.then45, %if.then.i
@@ -15624,7 +15623,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not.i66, label %if.then.i.i, label %if.end4.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i.i, ptr %palette.i, align 8
   %21 = icmp eq ptr %call.i.i.i, null
   br i1 %21, label %for.end, label %for.body.i.i
@@ -15726,7 +15725,7 @@ if.then71:                                        ; preds = %land.lhs.true67
   br i1 %tobool.not.i.i, label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %if.then71
-  tail call void @free(ptr noundef nonnull %40) #33
+  tail call void @free(ptr noundef nonnull %40) #31
   br label %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
 
 _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i67, %if.then71
@@ -15738,7 +15737,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %if.then.i.i
   br i1 %tobool.not.i69, label %if.end98, label %if.then.i70
 
 if.then.i70:                                      ; preds = %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #30
   store ptr %call.i.i, ptr %palette.i, align 8
   %tobool3.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool3.not.i, label %if.end98, label %if.end.i
@@ -15849,7 +15848,7 @@ if.then:                                          ; preds = %_Z15lodepng_get_bpp
   %add2 = add i32 %mul1, %h
   %conv = zext i32 %add2 to i64
   store i64 %conv, ptr %outsize, align 8
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #30
   store ptr %call.i, ptr %out, align 8
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.then7
@@ -15870,7 +15869,7 @@ land.lhs.true9:                                   ; preds = %if.then7
 
 if.then16:                                        ; preds = %land.lhs.true9
   %conv21 = zext i32 %mul1 to i64
-  %call.i89 = tail call noalias noundef ptr @malloc(i64 noundef %conv21) #32
+  %call.i89 = tail call noalias noundef ptr @malloc(i64 noundef %conv21) #30
   %tobool23.not.not = icmp eq ptr %call.i89, null
   br i1 %tobool23.not.not, label %if.end37, label %if.then27
 
@@ -15885,7 +15884,7 @@ if.then27:                                        ; preds = %if.then16
 
 if.end37:                                         ; preds = %if.then27, %if.then16
   %error.2 = phi i32 [ 83, %if.then16 ], [ %call36, %if.then27 ]
-  tail call void @free(ptr noundef %call.i89) #33
+  tail call void @free(ptr noundef %call.i89) #31
   br label %if.end116
 
 if.else:                                          ; preds = %land.lhs.true9, %if.then7
@@ -15990,12 +15989,12 @@ _ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit:     ; preds = %cond.end.i
   %arrayidx = getelementptr inbounds [8 x i64], ptr %filter_passstart, i64 0, i64 7
   %15 = load i64, ptr %arrayidx, align 8
   store i64 %15, ptr %outsize, align 8
-  %call.i90 = tail call noalias noundef ptr @malloc(i64 noundef %15) #32
+  %call.i90 = tail call noalias noundef ptr @malloc(i64 noundef %15) #30
   store ptr %call.i90, ptr %out, align 8
   %tobool48.not = icmp eq ptr %call.i90, null
   %arrayidx51 = getelementptr inbounds [8 x i64], ptr %passstart, i64 0, i64 7
   %16 = load i64, ptr %arrayidx51, align 8
-  %call.i91 = tail call noalias noundef ptr @malloc(i64 noundef %16) #32
+  %call.i91 = tail call noalias noundef ptr @malloc(i64 noundef %16) #30
   %tobool53 = icmp eq ptr %call.i91, null
   %tobool56 = icmp ne i64 %16, 0
   %or.cond = and i1 %tobool56, %tobool53
@@ -16278,7 +16277,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %arrayidx66.us = getelementptr inbounds [8 x i64], ptr %padded_passstart, i64 0, i64 %indvars.iv.next108
   %67 = load i64, ptr %arrayidx66.us, align 8
   %sub.us = sub i64 %67, %66
-  %call.i95.us = tail call noalias noundef ptr @malloc(i64 noundef %sub.us) #32
+  %call.i95.us = tail call noalias noundef ptr @malloc(i64 noundef %sub.us) #30
   %tobool70.not.us = icmp eq ptr %call.i95.us, null
   br i1 %tobool70.not.us, label %if.end115, label %if.end72.us
 
@@ -16307,7 +16306,7 @@ if.end72.us:                                      ; preds = %for.body.us
   %color.val85.us = load i32, ptr %color, align 8
   %color.val86.us = load i32, ptr %bitdepth.i, align 4
   %call97.us = tail call fastcc noundef i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef %arrayidx91.us, ptr noundef nonnull %call.i95.us, i32 noundef %69, i32 noundef %70, i32 %color.val85.us, i32 %color.val86.us, ptr noundef %settings)
-  tail call void @free(ptr noundef nonnull %call.i95.us) #33
+  tail call void @free(ptr noundef nonnull %call.i95.us) #31
   %tobool112.not.us = icmp eq i32 %call97.us, 0
   br i1 %tobool112.not.us, label %for.cond.us, label %if.end115
 
@@ -16337,7 +16336,7 @@ for.body:                                         ; preds = %_ZL15Adam7_interlac
 
 if.end115:                                        ; preds = %for.body, %for.cond, %if.end72.us, %for.body.us, %for.cond.us, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
   %error.7 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ 83, %for.body.us ], [ 0, %for.cond.us ], [ %call97.us, %if.end72.us ], [ 0, %for.cond ], [ %call110, %for.body ]
-  tail call void @free(ptr noundef %call.i91) #33
+  tail call void @free(ptr noundef %call.i91) #31
   br label %if.end116
 
 if.end116:                                        ; preds = %if.end, %if.else, %if.end37, %if.end115
@@ -16361,7 +16360,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %shr.i.i = lshr i64 %1, 1
   %add.i.i = add i64 %shr.i.i, %add
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %add.i.i) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre, i64 noundef %add.i.i) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %return, label %if.then3.i.i
 
@@ -16405,7 +16404,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %1, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -16514,7 +16513,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end5.i:                                        ; preds = %while.body
   %5 = load ptr, ptr %out, align 8
-  %call.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i9.i) #34
+  %call.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i9.i) #32
   %tobool7.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool7.not.i, label %return, label %if.end9.i
 
@@ -16696,7 +16695,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %8, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end15, label %if.then3.i.i.i
 
@@ -16753,7 +16752,7 @@ _ZL14lodepng_memcpyPvPKvm.exit16:                 ; preds = %_ZL14lodepng_memcpy
 if.end15:                                         ; preds = %if.then.i, %if.then.i.i.i, %if.end.i, %if.then3, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit16
   %error.030 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit16 ], [ 83, %if.then.i.i.i ], [ 77, %if.end.i ], [ 77, %if.then3 ], [ %call3.i, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %if.then.i ]
   %14 = load ptr, ptr %compressed, align 8
-  call void @free(ptr noundef %14) #33
+  call void @free(ptr noundef %14) #31
   br label %return
 
 return:                                           ; preds = %_ZL14lodepng_strlenPKc.exit, %if.end15
@@ -16786,7 +16785,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i
   %shr.i.i.i.i = lshr i64 %1, 1
   %add.i.i.i.i = add i64 %shr.i.i.i.i, %add.i7.i.i
-  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #34
+  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #32
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %if.then3.i.i.i.i
 
@@ -16836,7 +16835,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %1, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -16900,7 +16899,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %1, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -17107,7 +17106,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %6, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -17177,7 +17176,7 @@ if.end4.i78:                                      ; preds = %if.end.i74
 if.then.i.i.i90:                                  ; preds = %if.end4.i78
   %shr.i.i.i91 = lshr i64 %13, 1
   %add.i.i.i92 = add i64 %shr.i.i.i91, %add.i7.i75
-  %call.i.i.i.i93 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i81, i64 noundef %add.i.i.i92) #34
+  %call.i.i.i.i93 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i81, i64 noundef %add.i.i.i92) #32
   %tobool.not.i.i.i94 = icmp eq ptr %call.i.i.i.i93, null
   br i1 %tobool.not.i.i.i94, label %return, label %if.then3.i.i.i95
 
@@ -17246,7 +17245,7 @@ if.end4.i104:                                     ; preds = %if.end.i100
 if.then.i.i.i116:                                 ; preds = %if.end4.i104
   %shr.i.i.i117 = lshr i64 %21, 1
   %add.i.i.i118 = add i64 %shr.i.i.i117, %add.i7.i101
-  %call.i.i.i.i119 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i107, i64 noundef %add.i.i.i118) #34
+  %call.i.i.i.i119 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i107, i64 noundef %add.i.i.i118) #32
   %tobool.not.i.i.i120 = icmp eq ptr %call.i.i.i.i119, null
   br i1 %tobool.not.i.i.i120, label %return, label %if.then3.i.i.i121
 
@@ -17325,7 +17324,7 @@ if.end4.i130:                                     ; preds = %if.end.i126
 if.then.i.i.i142:                                 ; preds = %if.end4.i130
   %shr.i.i.i143 = lshr i64 %30, 1
   %add.i.i.i144 = add i64 %shr.i.i.i143, %add.i7.i127
-  %call.i.i.i.i145 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i133, i64 noundef %add.i.i.i144) #34
+  %call.i.i.i.i145 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i133, i64 noundef %add.i.i.i144) #32
   %tobool.not.i.i.i146 = icmp eq ptr %call.i.i.i.i145, null
   br i1 %tobool.not.i.i.i146, label %return, label %if.then3.i.i.i147
 
@@ -17401,7 +17400,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %3, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -17530,7 +17529,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %5, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -17606,7 +17605,7 @@ if.end4.i39:                                      ; preds = %if.end.i35
 if.then.i.i.i51:                                  ; preds = %if.end4.i39
   %shr.i.i.i52 = lshr i64 %11, 1
   %add.i.i.i53 = add i64 %shr.i.i.i52, %add.i7.i36
-  %call.i.i.i.i54 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i42, i64 noundef %add.i.i.i53) #34
+  %call.i.i.i.i54 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i42, i64 noundef %add.i.i.i53) #32
   %tobool.not.i.i.i55 = icmp eq ptr %call.i.i.i.i54, null
   br i1 %tobool.not.i.i.i55, label %return, label %if.then3.i.i.i56
 
@@ -17661,7 +17660,7 @@ if.end4.i65:                                      ; preds = %if.end.i61
 if.then.i.i.i77:                                  ; preds = %if.end4.i65
   %shr.i.i.i78 = lshr i64 %17, 1
   %add.i.i.i79 = add i64 %shr.i.i.i78, %add.i7.i62
-  %call.i.i.i.i80 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i68, i64 noundef %add.i.i.i79) #34
+  %call.i.i.i.i80 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i68, i64 noundef %add.i.i.i79) #32
   %tobool.not.i.i.i81 = icmp eq ptr %call.i.i.i.i80, null
   br i1 %tobool.not.i.i.i81, label %return, label %if.then3.i.i.i82
 
@@ -17753,7 +17752,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %2, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -17802,7 +17801,7 @@ if.end4.i27:                                      ; preds = %if.end.i23
 if.then.i.i.i39:                                  ; preds = %if.end4.i27
   %shr.i.i.i40 = lshr i64 %7, 1
   %add.i.i.i41 = add i64 %shr.i.i.i40, %add.i7.i24
-  %call.i.i.i.i42 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i30, i64 noundef %add.i.i.i41) #34
+  %call.i.i.i.i42 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i30, i64 noundef %add.i.i.i41) #32
   %tobool.not.i.i.i43 = icmp eq ptr %call.i.i.i.i42, null
   br i1 %tobool.not.i.i.i43, label %return, label %if.then3.i.i.i44
 
@@ -17871,7 +17870,7 @@ if.end4.i53:                                      ; preds = %if.end.i49
 if.then.i.i.i65:                                  ; preds = %if.end4.i53
   %shr.i.i.i66 = lshr i64 %16, 1
   %add.i.i.i67 = add i64 %shr.i.i.i66, %add.i7.i50
-  %call.i.i.i.i68 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i56, i64 noundef %add.i.i.i67) #34
+  %call.i.i.i.i68 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i56, i64 noundef %add.i.i.i67) #32
   %tobool.not.i.i.i69 = icmp eq ptr %call.i.i.i.i68, null
   br i1 %tobool.not.i.i.i69, label %return, label %if.then3.i.i.i70
 
@@ -17927,7 +17926,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %1, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -18036,7 +18035,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i
   %shr.i.i.i.i = lshr i64 %4, 1
   %add.i.i.i.i = add i64 %shr.i.i.i.i, %add.i7.i.i
-  %call.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #34
+  %call.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #32
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %if.then3.i.i.i.i
 
@@ -18082,7 +18081,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %for.body.preheader.
 if.end:                                           ; preds = %if.then.i, %_ZL14lodepng_memcpyPvPKvm.exit.i, %if.then.i.i.i.i, %if.end.i.i, %if.then, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
   %error.0 = phi i32 [ %call3.i, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %if.then.i.i.i.i ], [ 77, %if.end.i.i ], [ 77, %if.then ], [ 111, %if.then.i ]
   %6 = load ptr, ptr %zlib, align 8
-  call void @free(ptr noundef %6) #33
+  call void @free(ptr noundef %6) #31
   ret i32 %error.0
 }
 
@@ -18110,7 +18109,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %1, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -18246,7 +18245,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %6, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end15, label %if.then3.i.i.i
 
@@ -18302,7 +18301,7 @@ _ZL14lodepng_memcpyPvPKvm.exit23:                 ; preds = %_ZL14lodepng_memcpy
 if.end15:                                         ; preds = %if.then.i, %if.then.i.i.i, %if.end.i, %if.then4, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit23
   %error.037 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit23 ], [ 83, %if.then.i.i.i ], [ 77, %if.end.i ], [ 77, %if.then4 ], [ %call3.i, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %if.then.i ]
   %11 = load ptr, ptr %compressed, align 8
-  call void @free(ptr noundef %11) #33
+  call void @free(ptr noundef %11) #31
   br label %return
 
 return:                                           ; preds = %_ZL14lodepng_strlenPKc.exit18, %if.end15
@@ -18368,7 +18367,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %4, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then3.i.i.i
 
@@ -18534,7 +18533,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end4.i
   %shr.i.i.i = lshr i64 %8, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i7.i
-  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre.i, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end40, label %if.then3.i.i.i
 
@@ -18631,7 +18630,7 @@ if.end39:                                         ; preds = %for.body.preheader.
 if.end40:                                         ; preds = %if.then.i, %if.then.i.i.i, %if.end.i, %if.then9, %if.end7, %if.end39
   %error.190 = phi i32 [ 0, %if.end39 ], [ 83, %if.then.i.i.i ], [ 77, %if.end.i ], [ 77, %if.then9 ], [ %call3.i, %if.end7 ], [ 111, %if.then.i ]
   %13 = load ptr, ptr %compressed, align 8
-  call void @free(ptr noundef %13) #33
+  call void @free(ptr noundef %13) #31
   br label %return
 
 return:                                           ; preds = %_ZL14lodepng_strlenPKc.exit56, %if.end40
@@ -18659,7 +18658,7 @@ if.end4.i.i:                                      ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i
   %shr.i.i.i.i = lshr i64 %1, 1
   %add.i.i.i.i = add i64 %shr.i.i.i.i, %add.i7.i.i
-  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #34
+  %call.i.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %add.i.i.i.i) #32
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit, label %if.then3.i.i.i.i
 
@@ -18763,7 +18762,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_Z21lodepng_state_cleanupP12LodePNGState.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  call void @free(ptr noundef nonnull %1) #33
+  call void @free(ptr noundef nonnull %1) #31
   br label %_Z21lodepng_state_cleanupP12LodePNGState.exit
 
 _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i.i
@@ -18809,7 +18808,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.end.i, %if.then, %entry
   %error.0 = phi i32 [ %call, %entry ], [ 0, %if.end.i ], [ 79, %if.then ]
-  tail call void @free(ptr noundef %.pre) #33
+  tail call void @free(ptr noundef %.pre) #31
   ret i32 %error.0
 }
 
@@ -18838,7 +18837,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %entry, %if.then.i, %if.end.i.i
   %error.0.i = phi i32 [ %call.i, %entry ], [ 0, %if.end.i.i ], [ 79, %if.then.i ]
-  tail call void @free(ptr noundef %.pre.i) #33
+  tail call void @free(ptr noundef %.pre.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffersize.i)
   ret i32 %error.0.i
@@ -18869,7 +18868,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %entry, %if.then.i, %if.end.i.i
   %error.0.i = phi i32 [ %call.i, %entry ], [ 0, %if.end.i.i ], [ 79, %if.then.i ]
-  tail call void @free(ptr noundef %.pre.i) #33
+  tail call void @free(ptr noundef %.pre.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffersize.i)
   ret i32 %error.0.i
@@ -18895,7 +18894,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #33
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
   %call.i = tail call noalias ptr @fopen(ptr noundef %call, ptr noundef nonnull @.str.115)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end.i
@@ -18954,7 +18953,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.else.i, %if.then
 
 cond.false:                                       ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit.thread, %_ZNSt6vectorIhSaIhEE6resizeEm.exit
   %2 = phi ptr [ %.pre, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.thread ], [ %1, %_ZNSt6vectorIhSaIhEE6resizeEm.exit ]
-  %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #33
+  %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
   %call.i6 = tail call noalias ptr @fopen(ptr noundef %call4, ptr noundef nonnull @.str.115)
   %tobool.not.i7 = icmp eq ptr %call.i6, null
   br i1 %tobool.not.i7, label %return, label %if.end.i8
@@ -18980,7 +18979,7 @@ entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #33
+  %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
   %call.i = tail call noalias ptr @fopen(ptr noundef %call3, ptr noundef nonnull @.str.1)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_Z17lodepng_save_filePKhmPKc.exit, label %if.end.i
@@ -19065,7 +19064,7 @@ if.then:                                          ; preds = %_ZL15zlib_decompres
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i.i
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i, ptr noundef nonnull %5, ptr noundef nonnull %arrayidx)
   %9 = load ptr, ptr %buffer, align 8
-  call void @free(ptr noundef %9) #33
+  call void @free(ptr noundef %9) #31
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
@@ -19117,7 +19116,7 @@ if.then9:                                         ; preds = %if.else
 if.then.i.i:                                      ; preds = %if.then9
   %shr.i.i = lshr i64 %4, 1
   %add.i.i = add i64 %shr.i.i, %add
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %3, i64 noundef %add.i.i) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %3, i64 noundef %add.i.i) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %_ZL15ucvector_resizeP8ucvectorm.exit, label %if.then3.i.i
 
@@ -19199,7 +19198,7 @@ if.then:                                          ; preds = %_ZL13zlib_compressP
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i, ptr noundef nonnull %1, ptr noundef nonnull %arrayidx)
   %5 = load ptr, ptr %buffer, align 8
-  call void @free(ptr noundef %5) #33
+  call void @free(ptr noundef %5) #31
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit
@@ -19256,7 +19255,7 @@ if.then.i:                                        ; preds = %_ZL13zlib_compressP
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i.i
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i.i, ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i)
   %7 = load ptr, ptr %buffer.i, align 8
-  call void @free(ptr noundef %7) #33
+  call void @free(ptr noundef %7) #31
   br label %_ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit
 
 _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; preds = %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i, %if.then.i
@@ -19265,7 +19264,7 @@ _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; p
   ret i32 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7lodepng5StateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(544) %this) unnamed_addr #6 align 2 {
 entry:
   %color_convert.i.i = getelementptr inbounds %struct.LodePNGDecoderSettings, ptr %this, i64 0, i32 4
@@ -19425,7 +19424,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %entry
@@ -19515,17 +19514,17 @@ invoke.cont:                                      ; preds = %sw.default.i.i.i.i,
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state) #33
+  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state) #31
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state) #33
+  call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state) #31
   resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %invoke.cont9, %entry
-  call void @free(ptr noundef %0) #33
+  call void @free(ptr noundef %0) #31
   ret i32 %call
 }
 
@@ -19614,7 +19613,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %if.then, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit, %entry
-  tail call void @free(ptr noundef %0) #33
+  tail call void @free(ptr noundef %0) #31
   ret i32 %call
 }
 
@@ -19655,7 +19654,7 @@ lpad:                                             ; preds = %if.end, %entry
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %1) #35
+  call void @_ZdlPv(ptr noundef nonnull %1) #33
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i
@@ -19681,7 +19680,7 @@ cleanup:                                          ; preds = %if.end, %invoke.con
   br i1 %tobool.not.i.i.i5, label %_ZNSt6vectorIhSaIhEED2Ev.exit7, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %4) #35
+  call void @_ZdlPv(ptr noundef nonnull %4) #33
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 _ZNSt6vectorIhSaIhEED2Ev.exit7:                   ; preds = %cleanup, %if.then.i.i.i6
@@ -19709,7 +19708,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx)
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -19789,7 +19788,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i.i
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i.i, ptr noundef nonnull %2, ptr noundef nonnull %arrayidx.i)
-  tail call void @free(ptr noundef nonnull %2) #33
+  tail call void @free(ptr noundef nonnull %2) #31
   br label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit
 
 _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit: ; preds = %if.end, %if.then.i
@@ -19823,7 +19822,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx)
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -19907,7 +19906,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i.i
   tail call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr %add.ptr.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull %arrayidx.i)
-  tail call void @free(ptr noundef nonnull %4) #33
+  tail call void @free(ptr noundef nonnull %4) #31
   br label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit
 
 _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit: ; preds = %if.end, %if.then.i
@@ -19944,7 +19943,7 @@ if.then.i:                                        ; preds = %call.i.noexc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
-  call void @free(ptr noundef nonnull %0) #33
+  call void @free(ptr noundef nonnull %0) #31
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %call.i.noexc
@@ -19957,7 +19956,7 @@ if.then:                                          ; preds = %invoke.cont
   %2 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #33
+  %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #31
   %call.i.i = call noalias ptr @fopen(ptr noundef %call3.i, ptr noundef nonnull @.str.1)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end, label %if.end.i.i
@@ -19980,7 +19979,7 @@ lpad:                                             ; preds = %if.then.i, %entry
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %5) #35
+  call void @_ZdlPv(ptr noundef nonnull %5) #33
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i
@@ -19993,7 +19992,7 @@ if.end:                                           ; preds = %if.end.i.i, %if.the
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIhSaIhEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %if.end
-  call void @_ZdlPv(ptr noundef nonnull %6) #35
+  call void @_ZdlPv(ptr noundef nonnull %6) #33
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit5
 
 _ZNSt6vectorIhSaIhEED2Ev.exit5:                   ; preds = %if.end, %if.then.i.i.i4
@@ -20079,7 +20078,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL23generateFixedLitLenTreeP11HuffmanTree(ptr nocapture noundef %tree) unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
+  %call.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #30
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return, label %for.body
 
@@ -20116,7 +20115,7 @@ for.body19:                                       ; preds = %for.body11, %for.bo
   br i1 %exitcond34.not, label %for.end24, label %for.body19, !llvm.loop !443
 
 for.end24:                                        ; preds = %for.body19
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #32
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #30
   %lengths.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
   store ptr %call.i.i, ptr %lengths.i, align 8
   %tobool.not.i = icmp eq ptr %call.i.i, null
@@ -20143,7 +20142,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit: ; preds = %for.end24, %for.end.i
   %retval.0.i = phi i32 [ %call8.i, %for.end.i ], [ 83, %for.end24 ]
-  tail call void @free(ptr noundef nonnull %call.i) #33
+  tail call void @free(ptr noundef nonnull %call.i) #31
   br label %return
 
 return:                                           ; preds = %entry, %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit
@@ -20155,7 +20154,7 @@ return:                                           ; preds = %entry, %_ZL27Huffma
 define internal fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr nocapture noundef %tree, ptr nocapture noundef readonly %bitlen, i64 noundef %numcodes, i32 noundef %maxbitlen) unnamed_addr #2 {
 entry:
   %mul = shl nuw nsw i64 %numcodes, 2
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #30
   %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
   store ptr %call.i, ptr %lengths, align 8
   %tobool.not = icmp eq ptr %call.i, null
@@ -20199,15 +20198,15 @@ entry:
   %0 = load i32, ptr %numcodes, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #30
   store ptr %call.i, ptr %tree, align 8
   %maxbitlen = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
   %1 = load i32, ptr %maxbitlen, align 8
   %add = add i32 %1, 1
   %conv1 = zext i32 %add to i64
   %mul2 = shl nuw nsw i64 %conv1, 2
-  %call.i45 = tail call noalias noundef ptr @malloc(i64 noundef %mul2) #32
-  %call.i46 = tail call noalias noundef ptr @malloc(i64 noundef %mul2) #32
+  %call.i45 = tail call noalias noundef ptr @malloc(i64 noundef %mul2) #30
+  %call.i46 = tail call noalias noundef ptr @malloc(i64 noundef %mul2) #30
   %tobool = icmp ne ptr %call.i, null
   %tobool10 = icmp ne ptr %call.i45, null
   %or.cond = and i1 %tobool, %tobool10
@@ -20317,8 +20316,8 @@ for.inc73:                                        ; preds = %for.body49, %if.the
 
 if.then78:                                        ; preds = %for.inc73, %for.cond46.preheader
   %.lcssa = phi i32 [ 0, %for.cond46.preheader ], [ %16, %for.inc73 ]
-  tail call void @free(ptr noundef %call.i45) #33
-  tail call void @free(ptr noundef %call.i46) #33
+  tail call void @free(ptr noundef %call.i45) #31
+  tail call void @free(ptr noundef %call.i46) #31
   %calloc.i = tail call dereferenceable_or_null(2048) ptr @calloc(i64 1, i64 2048)
   %tobool.not.i = icmp eq ptr %calloc.i, null
   br i1 %tobool.not.i, label %if.end80, label %if.end.i
@@ -20392,11 +20391,11 @@ for.body14.i:                                     ; preds = %for.body14.i.prehea
   br i1 %exitcond143.not.i, label %for.end23.i, label %for.body14.i, !llvm.loop !450
 
 for.end23.i:                                      ; preds = %for.body14.i
-  %call.i100.i = tail call noalias noundef ptr @malloc(i64 noundef %size.1.i) #32
+  %call.i100.i = tail call noalias noundef ptr @malloc(i64 noundef %size.1.i) #30
   %table_len.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 4
   store ptr %call.i100.i, ptr %table_len.i, align 8
   %mul25.i = shl i64 %size.1.i, 1
-  %call.i101.i = tail call noalias noundef ptr @malloc(i64 noundef %mul25.i) #32
+  %call.i101.i = tail call noalias noundef ptr @malloc(i64 noundef %mul25.i) #30
   %table_value.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 5
   store ptr %call.i101.i, ptr %table_value.i, align 8
   %tobool28.not.i = icmp eq ptr %call.i100.i, null
@@ -20409,7 +20408,7 @@ for.cond33.preheader.i:                           ; preds = %for.end23.i
   br i1 %cmp34123.not.i, label %for.body43.i.preheader, label %for.body35.i
 
 if.then31.i:                                      ; preds = %for.end23.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #33
+  tail call void @free(ptr noundef nonnull %calloc.i) #31
   br label %if.end80
 
 for.body35.i:                                     ; preds = %for.cond33.preheader.i, %for.body35.i
@@ -20454,7 +20453,7 @@ for.inc59.i:                                      ; preds = %if.end48.i, %for.bo
   br i1 %exitcond145.not.i, label %for.end61.i, label %for.body43.i, !llvm.loop !452
 
 for.end61.i:                                      ; preds = %for.inc59.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #33
+  tail call void @free(ptr noundef nonnull %calloc.i) #31
   %27 = load i32, ptr %numcodes, align 4
   %cmp65130.not.i = icmp eq i32 %27, 0
   br i1 %cmp65130.not.i, label %for.cond148.preheader.i, label %for.body66.lr.ph.i
@@ -20619,8 +20618,8 @@ for.body170.i:                                    ; preds = %for.cond168.i, %for
   br i1 %cmp174.i, label %if.end80, label %for.cond168.i
 
 if.end80.critedge:                                ; preds = %entry
-  tail call void @free(ptr noundef %call.i45) #33
-  tail call void @free(ptr noundef %call.i46) #33
+  tail call void @free(ptr noundef %call.i45) #31
+  tail call void @free(ptr noundef %call.i46) #31
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else.i, %for.body84.i, %for.body170.i, %for.cond168.i, %for.inc164.i, %for.cond148.preheader.i, %for.cond168.preheader.i, %if.then31.i, %if.then78, %if.end80.critedge
@@ -20663,7 +20662,7 @@ if.then.i.i:                                      ; preds = %if.then2
   %shr.i.i = lshr i64 %4, 1
   %add.i.i = add i64 %shr.i.i, %add
   %5 = load ptr, ptr %2, align 8
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i.i) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i.i) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %if.end62, label %if.then3.i.i
 
@@ -20725,7 +20724,7 @@ if.then.i.i26:                                    ; preds = %if.then27
   %shr.i.i27 = lshr i64 %21, 1
   %add.i.i28 = add i64 %shr.i.i27, %add31
   %22 = load ptr, ptr %19, align 8
-  %call.i.i.i29 = tail call noalias noundef ptr @realloc(ptr noundef %22, i64 noundef %add.i.i28) #34
+  %call.i.i.i29 = tail call noalias noundef ptr @realloc(ptr noundef %22, i64 noundef %add.i.i28) #32
   %tobool.not.i.i30 = icmp eq ptr %call.i.i.i29, null
   br i1 %tobool.not.i.i30, label %if.end62, label %if.then3.i.i31
 
@@ -21125,7 +21124,7 @@ if.then143:                                       ; preds = %if.end140
 if.then.i.i:                                      ; preds = %if.then143
   %shr.i.i = lshr i64 %33, 1
   %add.i.i = add i64 %shr.i.i, %mul.i.i
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i151, i64 noundef %add.i.i) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i151, i64 noundef %add.i.i) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %return, label %if.then4.i.i
 
@@ -21181,7 +21180,7 @@ if.then166:                                       ; preds = %if.end164
 if.then.i.i164:                                   ; preds = %if.then166
   %shr.i.i165 = lshr i64 %40, 1
   %add.i.i166 = add i64 %shr.i.i165, %mul.i.i157
-  %call.i.i.i167 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i160, i64 noundef %add.i.i166) #34
+  %call.i.i.i167 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i160, i64 noundef %add.i.i166) #32
   %tobool.not.i.i168 = icmp eq ptr %call.i.i.i167, null
   br i1 %tobool.not.i.i168, label %return, label %if.then4.i.i169
 
@@ -21220,7 +21219,7 @@ if.then179:                                       ; preds = %lor.lhs.false175, %
 if.then.i.i180:                                   ; preds = %if.then179
   %shr.i.i181 = lshr i64 %45, 1
   %add.i.i182 = add i64 %shr.i.i181, %mul.i.i173
-  %call.i.i.i183 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i176, i64 noundef %add.i.i182) #34
+  %call.i.i.i183 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i176, i64 noundef %add.i.i182) #32
   %tobool.not.i.i184 = icmp eq ptr %call.i.i.i183, null
   br i1 %tobool.not.i.i184, label %return, label %if.then4.i.i185
 
@@ -21316,7 +21315,7 @@ _ZL15searchCodeIndexPKjmm.exit36.i:               ; preds = %if.then8.i29.i, %lo
 if.then.i.i202:                                   ; preds = %_ZL15searchCodeIndexPKjmm.exit36.i
   %shr.i37.i = lshr i64 %55, 1
   %add.i38.i = add i64 %shr.i37.i, %mul.i.i193
-  %call.i.i.i203 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i196, i64 noundef %add.i38.i) #34
+  %call.i.i.i203 = tail call noalias noundef ptr @realloc(ptr noundef %.pre.i196, i64 noundef %add.i38.i) #32
   %tobool.not.i.i204 = icmp eq ptr %call.i.i.i203, null
   br i1 %tobool.not.i.i204, label %for.body191.preheader, label %if.then4.i.i205
 
@@ -21589,7 +21588,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %shr.i.i.i = lshr i64 %11, 1
   %add.i.i.i = add i64 %shr.i.i.i, %add.i
   %12 = load ptr, ptr %9, align 8
-  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %12, i64 noundef %add.i.i.i) #34
+  %call.i.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %12, i64 noundef %add.i.i.i) #32
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit, label %if.then3.i.i.i
 
@@ -21695,7 +21694,7 @@ if.then.i.i.i51:                                  ; preds = %if.then.i41
   %shr.i.i.i52 = lshr i64 %41, 1
   %add.i.i.i53 = add i64 %shr.i.i.i52, %add.i43
   %42 = load ptr, ptr %39, align 8
-  %call.i.i.i.i54 = tail call noalias noundef ptr @realloc(ptr noundef %42, i64 noundef %add.i.i.i53) #34
+  %call.i.i.i.i54 = tail call noalias noundef ptr @realloc(ptr noundef %42, i64 noundef %add.i.i.i53) #32
   %tobool.not.i.i.i55 = icmp eq ptr %call.i.i.i.i54, null
   br i1 %tobool.not.i.i.i55, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit57, label %if.then3.i.i.i56
 
@@ -21791,7 +21790,7 @@ if.then.i.i:                                      ; preds = %if.then
   %shr.i.i = lshr i64 %4, 1
   %add.i.i = add i64 %shr.i.i, %add
   %5 = load ptr, ptr %2, align 8
-  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i.i) #34
+  %call.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %5, i64 noundef %add.i.i) #32
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %for.end, label %if.then3.i.i
 
@@ -21860,7 +21859,7 @@ while.cond:                                       ; preds = %while.cond, %entry
 
 while.end:                                        ; preds = %while.cond
   %mul = shl i64 %numcodes.addr.0, 2
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #30
   %lengths = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 1
   store ptr %call.i, ptr %lengths, align 8
   %tobool2.not = icmp eq ptr %call.i, null
@@ -21888,8 +21887,8 @@ return:                                           ; preds = %if.end, %if.then8, 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL8unfilterPhPKhjjj(ptr noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, i32 noundef %bpp) unnamed_addr #21 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef i32 @_ZL8unfilterPhPKhjjj(ptr noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, i32 noundef %bpp) unnamed_addr #11 {
 entry:
   %add = add i32 %bpp, 7
   %div12 = lshr i32 %add, 3
@@ -23170,7 +23169,7 @@ for.body248.lr.ph:                                ; preds = %for.cond246.prehead
 for.body26:                                       ; preds = %if.else, %for.body26
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %for.body26 ], [ 0, %if.else ]
   %error.050 = phi i32 [ %spec.select, %for.body26 ], [ 0, %if.else ]
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #32
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #30
   %arrayidx28 = getelementptr inbounds [5 x ptr], ptr %attempt, i64 0, i64 %indvars.iv111
   store ptr %call.i, ptr %arrayidx28, align 8
   %tobool31.not = icmp eq ptr %call.i, null
@@ -23293,7 +23292,7 @@ for.body128:                                      ; preds = %for.body128.prehead
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %for.body128 ], [ 0, %for.body128.preheader ]
   %arrayidx130 = getelementptr inbounds [5 x ptr], ptr %attempt, i64 0, i64 %indvars.iv119
   %12 = load ptr, ptr %arrayidx130, align 8
-  tail call void @free(ptr noundef %12) #33
+  tail call void @free(ptr noundef %12) #31
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %cmp127.not = icmp eq i64 %indvars.iv.next120, 5
   br i1 %cmp127.not, label %return, label %for.body128, !llvm.loop !500
@@ -23301,7 +23300,7 @@ for.body128:                                      ; preds = %for.body128.prehead
 for.body142:                                      ; preds = %if.else, %for.body142
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.body142 ], [ 0, %if.else ]
   %error.230 = phi i32 [ %spec.select191, %for.body142 ], [ 0, %if.else ]
-  %call.i194 = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #32
+  %call.i194 = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #30
   %arrayidx145 = getelementptr inbounds [5 x ptr], ptr %attempt137, i64 0, i64 %indvars.iv96
   store ptr %call.i194, ptr %arrayidx145, align 8
   %tobool148.not = icmp eq ptr %call.i194, null
@@ -23458,7 +23457,7 @@ for.body237:                                      ; preds = %for.body237.prehead
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %for.body237 ], [ 0, %for.body237.preheader ]
   %arrayidx239 = getelementptr inbounds [5 x ptr], ptr %attempt137, i64 0, i64 %indvars.iv108
   %23 = load ptr, ptr %arrayidx239, align 8
-  tail call void @free(ptr noundef %23) #33
+  tail call void @free(ptr noundef %23) #31
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %cmp236.not = icmp eq i64 %indvars.iv.next109, 5
   br i1 %cmp236.not, label %return, label %for.body237, !llvm.loop !510
@@ -23490,7 +23489,7 @@ if.then269:                                       ; preds = %if.else
 for.body277:                                      ; preds = %if.then269, %for.body277
   %indvars.iv = phi i64 [ 0, %if.then269 ], [ %indvars.iv.next, %for.body277 ]
   %error.413 = phi i32 [ 0, %if.then269 ], [ %spec.select193, %for.body277 ]
-  %call.i197 = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #32
+  %call.i197 = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #30
   %arrayidx280 = getelementptr inbounds [5 x ptr], ptr %attempt270, i64 0, i64 %indvars.iv
   store ptr %call.i197, ptr %arrayidx280, align 8
   %tobool283.not = icmp eq ptr %call.i197, null
@@ -23546,7 +23545,7 @@ if.else.i:                                        ; preds = %for.body296
 
 _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %if.then.i, %if.else.i
   %30 = load ptr, ptr %dummy, align 8
-  call void @free(ptr noundef %30) #33
+  call void @free(ptr noundef %30) #31
   %cmp312 = icmp eq i64 %indvars.iv84, 0
   %.pre = load i64, ptr %arrayidx305, align 8
   %cmp316 = icmp ult i64 %.pre, %smallest271.115
@@ -23595,7 +23594,7 @@ for.body356:                                      ; preds = %for.body356.prehead
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %for.body356 ], [ 0, %for.body356.preheader ]
   %arrayidx358 = getelementptr inbounds [5 x ptr], ptr %attempt270, i64 0, i64 %indvars.iv90
   %34 = load ptr, ptr %arrayidx358, align 8
-  call void @free(ptr noundef %34) #33
+  call void @free(ptr noundef %34) #31
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %cmp355.not = icmp eq i64 %indvars.iv.next91, 5
   br i1 %cmp355.not, label %return, label %for.body356, !llvm.loop !520
@@ -23605,8 +23604,8 @@ return:                                           ; preds = %for.body356, %for.b
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %scanline, ptr noundef readonly %prevline, i64 noundef %length, i64 noundef %bytewidth, i8 noundef zeroext %filterType) unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %scanline, ptr noundef readonly %prevline, i64 noundef %length, i64 noundef %bytewidth, i8 noundef zeroext %filterType) unnamed_addr #9 {
 entry:
   switch i8 %filterType, label %sw.epilog [
     i8 0, label %for.cond.preheader
@@ -23916,7 +23915,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.118) #36
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.118) #34
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
@@ -23930,7 +23929,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   br i1 %cmp.not.i, label %if.then.i.i.i21, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
 
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #37
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #35
   br label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
@@ -23959,7 +23958,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.th
   br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34, label %if.then.i33
 
 if.then.i33:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #35
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #33
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i33
@@ -23975,16 +23974,16 @@ if.end43:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #24
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #25
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #26
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
@@ -24082,7 +24081,7 @@ if.else50:                                        ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else50
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.119) #36
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.119) #34
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else50
@@ -24096,7 +24095,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else50
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
 
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #37
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #35
   br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
@@ -24128,7 +24127,7 @@ invoke.cont65:                                    ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit, label %if.then.i79
 
 if.then.i79:                                      ; preds = %invoke.cont65
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #35
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #33
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %invoke.cont65, %if.then.i79
@@ -24143,58 +24142,58 @@ if.end86:                                         ; preds = %if.then.i.i.i.i.i52
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #27
+declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #28
+declare i64 @llvm.usub.sat.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #28
+declare i32 @llvm.usub.sat.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #28
+declare i32 @llvm.umax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #28
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #28
+declare i32 @llvm.umin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #28
+declare i32 @llvm.ctpop.i32(i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #29
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #30
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #28
+declare i32 @llvm.abs.i32(i32, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #28
+declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.umin.v4i32(<4 x i32>, <4 x i32>) #28
+declare <4 x i32> @llvm.umin.v4i32(<4 x i32>, <4 x i32>) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.abs.v2i32(<2 x i32>, i1 immarg) #28
+declare <2 x i32> @llvm.abs.v2i32(<2 x i32>, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.umin.v2i32(<2 x i32>, <2 x i32>) #28
+declare <2 x i32> @llvm.umin.v2i32(<2 x i32>, <2 x i32>) #26
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24202,7 +24201,7 @@ attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24217,23 +24216,21 @@ attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #30 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #31 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { nounwind }
-attributes #34 = { nounwind allocsize(1) }
-attributes #35 = { builtin nounwind }
-attributes #36 = { noreturn }
-attributes #37 = { builtin allocsize(0) }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { nounwind }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { builtin nounwind }
+attributes #34 = { noreturn }
+attributes #35 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

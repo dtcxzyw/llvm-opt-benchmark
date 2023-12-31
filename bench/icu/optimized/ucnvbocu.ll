@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL16bocu1ByteToTrail = internal unnamed_addr constant [33 x i8] c"\FF\00\01\02\03\04\05\FF\FF\FF\FF\FF\FF\FF\FF\FF\06\07\08\09\0A\0B\0C\0D\0E\0F\FF\FF\10\11\12\13\FF", align 16
 @_ZL16bocu1TrailToByte = internal unnamed_addr constant [20 x i8] c"\01\02\03\04\05\06\10\11\12\13\14\15\16\17\18\19\1C\1D\1E\1F", align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL15_Bocu1ToUnicodeP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -479,7 +479,7 @@ if.end169:                                        ; preds = %if.else165, %if.the
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL26_Bocu1ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -964,7 +964,7 @@ endloop:                                          ; preds = %for.cond, %while.co
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17_Bocu1FromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -1390,7 +1390,7 @@ while.end182:                                     ; preds = %while.end182.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL28_Bocu1FromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -1899,8 +1899,8 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then2
-  %narrow128 = add nuw nsw i16 %rem102, 13
-  %add = zext nneg i16 %narrow128 to i32
+  %narrow127 = add nuw nsw i16 %rem102, 13
+  %add = zext nneg i16 %narrow127 to i32
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then2
@@ -1926,12 +1926,8 @@ if.then7:                                         ; preds = %if.else
   %sub8 = add nsw i32 %diff, -10513
   %rem9 = urem i32 %sub8, 243
   %div10 = udiv i32 %sub8, 243
-  %cmp11 = icmp ugt i32 %rem9, 19
-  br i1 %cmp11, label %cond.true12, label %cond.false14
-
-cond.true12:                                      ; preds = %if.then7
-  %add13 = add nuw nsw i32 %rem9, 13
-  br label %cond.end18
+  %cmp11 = icmp eq i32 %rem9, 20
+  br i1 %cmp11, label %cond.end18, label %cond.false14
 
 cond.false14:                                     ; preds = %if.then7
   %idxprom15 = zext nneg i32 %rem9 to i64
@@ -1940,33 +1936,28 @@ cond.false14:                                     ; preds = %if.then7
   %conv17 = sext i8 %2 to i32
   br label %cond.end18
 
-cond.end18:                                       ; preds = %cond.false14, %cond.true12
-  %cond19 = phi i32 [ %add13, %cond.true12 ], [ %conv17, %cond.false14 ]
+cond.end18:                                       ; preds = %if.then7, %cond.false14
+  %cond19 = phi i32 [ %conv17, %cond.false14 ], [ 33, %if.then7 ]
   %rem21.lhs.trunc = trunc i32 %div10 to i16
   %rem21104 = urem i16 %rem21.lhs.trunc, 243
   %div22 = udiv i32 %sub8, 59049
-  %cmp23 = icmp ugt i16 %rem21104, 19
-  br i1 %cmp23, label %cond.true24, label %cond.false26
-
-cond.true24:                                      ; preds = %cond.end18
-  %narrow127 = add nuw nsw i16 %rem21104, 13
-  %add25 = zext nneg i16 %narrow127 to i32
-  br label %cond.end30
+  %cmp23 = icmp eq i16 %rem21104, 20
+  br i1 %cmp23, label %cond.end30, label %cond.false26
 
 cond.false26:                                     ; preds = %cond.end18
   %idxprom27 = zext nneg i16 %rem21104 to i64
   %arrayidx28 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom27
   %3 = load i8, ptr %arrayidx28, align 1
   %conv29 = sext i8 %3 to i32
+  %4 = shl nsw i32 %conv29, 8
   br label %cond.end30
 
-cond.end30:                                       ; preds = %cond.false26, %cond.true24
-  %cond31 = phi i32 [ %add25, %cond.true24 ], [ %conv29, %cond.false26 ]
-  %shl32 = shl nsw i32 %cond31, 8
+cond.end30:                                       ; preds = %cond.end18, %cond.false26
+  %cond31 = phi i32 [ %4, %cond.false26 ], [ 8448, %cond.end18 ]
   %add34 = shl nuw nsw i32 %div22, 16
   %shl35 = add nuw nsw i32 %add34, 16449536
   %or20 = or i32 %shl35, %cond19
-  %or33 = or i32 %or20, %shl32
+  %or33 = or i32 %or20, %cond31
   %or36 = or i32 %or33, 50331648
   br label %if.end200
 
@@ -1974,41 +1965,34 @@ if.else37:                                        ; preds = %if.else
   %sub38 = add nsw i32 %diff, -187660
   %rem39 = urem i32 %sub38, 243
   %div40 = udiv i32 %sub38, 243
-  %cmp41 = icmp ugt i32 %rem39, 19
-  br i1 %cmp41, label %cond.true42, label %cond.false44
-
-cond.true42:                                      ; preds = %if.else37
-  %add43 = add nuw nsw i32 %rem39, 13
-  br label %cond.end48
+  %cmp41 = icmp eq i32 %rem39, 20
+  br i1 %cmp41, label %cond.end48, label %cond.false44
 
 cond.false44:                                     ; preds = %if.else37
   %idxprom45 = zext nneg i32 %rem39 to i64
   %arrayidx46 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom45
-  %4 = load i8, ptr %arrayidx46, align 1
-  %conv47 = sext i8 %4 to i32
+  %5 = load i8, ptr %arrayidx46, align 1
+  %conv47 = sext i8 %5 to i32
+  %6 = or i32 %conv47, -33554432
   br label %cond.end48
 
-cond.end48:                                       ; preds = %cond.false44, %cond.true42
-  %cond49 = phi i32 [ %add43, %cond.true42 ], [ %conv47, %cond.false44 ]
+cond.end48:                                       ; preds = %if.else37, %cond.false44
+  %cond49 = phi i32 [ %6, %cond.false44 ], [ -33554399, %if.else37 ]
   %rem50 = urem i32 %div40, 243
   %div51 = udiv i32 %sub38, 59049
-  %cmp52 = icmp ugt i32 %rem50, 19
-  br i1 %cmp52, label %cond.true53, label %cond.false55
-
-cond.true53:                                      ; preds = %cond.end48
-  %add54 = add nuw nsw i32 %rem50, 13
-  br label %cond.end59
+  %cmp52 = icmp eq i32 %rem50, 20
+  br i1 %cmp52, label %cond.end59, label %cond.false55
 
 cond.false55:                                     ; preds = %cond.end48
   %idxprom56 = zext nneg i32 %rem50 to i64
   %arrayidx57 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom56
-  %5 = load i8, ptr %arrayidx57, align 1
-  %conv58 = sext i8 %5 to i32
+  %7 = load i8, ptr %arrayidx57, align 1
+  %conv58 = sext i8 %7 to i32
+  %8 = shl nsw i32 %conv58, 8
   br label %cond.end59
 
-cond.end59:                                       ; preds = %cond.false55, %cond.true53
-  %cond60 = phi i32 [ %add54, %cond.true53 ], [ %conv58, %cond.false55 ]
-  %shl61 = shl nsw i32 %cond60, 8
+cond.end59:                                       ; preds = %cond.end48, %cond.false55
+  %cond60 = phi i32 [ %8, %cond.false55 ], [ 8448, %cond.end48 ]
   %cmp63 = icmp ugt i32 %sub38, 1180979
   br i1 %cmp63, label %cond.true64, label %cond.false66
 
@@ -2019,16 +2003,15 @@ cond.true64:                                      ; preds = %cond.end59
 cond.false66:                                     ; preds = %cond.end59
   %idxprom67 = zext nneg i32 %div51 to i64
   %arrayidx68 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom67
-  %6 = load i8, ptr %arrayidx68, align 1
-  %conv69 = sext i8 %6 to i32
+  %9 = load i8, ptr %arrayidx68, align 1
+  %conv69 = sext i8 %9 to i32
   br label %cond.end70
 
 cond.end70:                                       ; preds = %cond.false66, %cond.true64
   %cond71 = phi i32 [ %add65, %cond.true64 ], [ %conv69, %cond.false66 ]
   %shl72 = shl i32 %cond71, 16
-  %or62 = or i32 %cond49, %shl61
-  %or73 = or i32 %or62, %shl72
-  %or74 = or i32 %or73, -33554432
+  %or73 = or i32 %cond49, %cond60
+  %or74 = or i32 %or73, %shl72
   br label %if.end200
 
 if.else76:                                        ; preds = %entry
@@ -2036,8 +2019,8 @@ if.else76:                                        ; preds = %entry
   br i1 %cmp77, label %if.then78, label %if.else99
 
 if.then78:                                        ; preds = %if.else76
-  %7 = trunc i32 %diff to i16
-  %rem80105.lhs.trunc = sub nuw nsw i16 -64, %7
+  %10 = trunc i32 %diff to i16
+  %rem80105.lhs.trunc = sub nuw nsw i16 -64, %10
   %rem80105106 = urem i16 %rem80105.lhs.trunc, 243
   %div81108109 = udiv i16 %rem80105.lhs.trunc, 243
   %div81108.zext = zext nneg i16 %div81108109 to i32
@@ -2058,8 +2041,8 @@ cond.true87:                                      ; preds = %if.then78
 cond.false89:                                     ; preds = %if.then78
   %idxprom90 = zext nneg i16 %narrow126 to i64
   %arrayidx91 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom90
-  %8 = load i8, ptr %arrayidx91, align 1
-  %conv92 = sext i8 %8 to i32
+  %11 = load i8, ptr %arrayidx91, align 1
+  %conv92 = sext i8 %11 to i32
   br label %cond.end93
 
 cond.end93:                                       ; preds = %cond.false89, %cond.true87
@@ -2093,8 +2076,8 @@ cond.true113:                                     ; preds = %if.then101
 cond.false115:                                    ; preds = %if.then101
   %idxprom116 = zext nneg i32 %m.1 to i64
   %arrayidx117 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom116
-  %9 = load i8, ptr %arrayidx117, align 1
-  %conv118 = sext i8 %9 to i32
+  %12 = load i8, ptr %arrayidx117, align 1
+  %conv118 = sext i8 %12 to i32
   br label %cond.end119
 
 cond.end119:                                      ; preds = %cond.false115, %cond.true113
@@ -2120,8 +2103,8 @@ cond.true132:                                     ; preds = %cond.end119
 cond.false134:                                    ; preds = %cond.end119
   %idxprom135 = zext nneg i16 %narrow124 to i64
   %arrayidx136 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom135
-  %10 = load i8, ptr %arrayidx136, align 1
-  %conv137 = sext i8 %10 to i32
+  %13 = load i8, ptr %arrayidx136, align 1
+  %conv137 = sext i8 %13 to i32
   br label %cond.end138
 
 cond.end138:                                      ; preds = %cond.false134, %cond.true132
@@ -2153,8 +2136,8 @@ cond.true157:                                     ; preds = %if.else145
 cond.false159:                                    ; preds = %if.else145
   %idxprom160 = zext nneg i32 %m.3 to i64
   %arrayidx161 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom160
-  %11 = load i8, ptr %arrayidx161, align 1
-  %conv162 = sext i8 %11 to i32
+  %14 = load i8, ptr %arrayidx161, align 1
+  %conv162 = sext i8 %14 to i32
   br label %cond.end163
 
 cond.end163:                                      ; preds = %cond.false159, %cond.true157
@@ -2177,8 +2160,8 @@ cond.true175:                                     ; preds = %cond.end163
 cond.false177:                                    ; preds = %cond.end163
   %idxprom178 = zext nneg i32 %m.4 to i64
   %arrayidx179 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom178
-  %12 = load i8, ptr %arrayidx179, align 1
-  %conv180 = sext i8 %12 to i32
+  %15 = load i8, ptr %arrayidx179, align 1
+  %conv180 = sext i8 %15 to i32
   br label %cond.end181
 
 cond.end181:                                      ; preds = %cond.false177, %cond.true175
@@ -2195,8 +2178,8 @@ cond.false189:                                    ; preds = %cond.end181
   %add185 = add nsw i32 %diff.addr.4, 243
   %idxprom190 = sext i32 %add185 to i64
   %arrayidx191 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom190
-  %13 = load i8, ptr %arrayidx191, align 1
-  %conv192 = sext i8 %13 to i32
+  %16 = load i8, ptr %arrayidx191, align 1
+  %conv192 = sext i8 %16 to i32
   br label %cond.end193
 
 cond.end193:                                      ; preds = %cond.false189, %cond.true187
@@ -2215,7 +2198,7 @@ if.end200:                                        ; preds = %cond.end93, %cond.e
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -1059,20 +1059,20 @@ if.then236:                                       ; preds = %if.else230
   %div.lhs.trunc = trunc i32 %26 to i16
   %div74 = udiv i16 %div.lhs.trunc, 188
   %rem75 = urem i16 %div.lhs.trunc, 188
-  %rem.zext = trunc i16 %rem75 to i8
   %27 = trunc i16 %div74 to i8
   %conv244 = or disjoint i8 %27, -16
   %28 = load ptr, ptr %outbuf, align 8
   store i8 %conv244, ptr %28, align 1
-  %cmp249 = icmp ult i16 %rem75, 63
-  %cond258.v = select i1 %cmp249, i8 64, i8 65
-  %cond258 = add nuw i8 %cond258.v, %rem.zext
+  %cmp249.not = icmp eq i16 %rem75, 63
+  %29 = trunc i16 %rem75 to i8
+  %30 = add nuw i8 %29, 64
+  %conv259 = select i1 %cmp249.not, i8 -128, i8 %30
   br label %do.body267
 
 do.body267:                                       ; preds = %if.end184, %if.then236, %do.body126
-  %conv227.sink = phi i8 [ %conv227, %if.end184 ], [ %cond258, %if.then236 ], [ %conv135, %do.body126 ]
-  %29 = load ptr, ptr %outbuf, align 8
-  %arrayidx228 = getelementptr i8, ptr %29, i64 1
+  %conv227.sink = phi i8 [ %conv227, %if.end184 ], [ %conv259, %if.then236 ], [ %conv135, %do.body126 ]
+  %31 = load ptr, ptr %outbuf, align 8
+  %arrayidx228 = getelementptr i8, ptr %31, i64 1
   store i8 %conv227.sink, ptr %arrayidx228, align 1
   br label %while.cond.backedge
 
