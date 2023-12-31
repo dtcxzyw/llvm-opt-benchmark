@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sz_pind2sz_tab = external local_unnamed_addr global [200 x i64], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_init(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %base, ptr noundef %emap, ptr noundef %edata_cache, ptr noundef %cur_time, i64 noundef %pac_oversize_threshold, i64 noundef %dirty_decay_ms, i64 noundef %muzzy_decay_ms, ptr noundef %pac_stats, ptr noundef %stats_mtx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_init(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %base, ptr noundef %emap, ptr noundef %edata_cache, ptr noundef %cur_time, i64 noundef %pac_oversize_threshold, i64 noundef %dirty_decay_ms, i64 noundef %muzzy_decay_ms, ptr noundef %pac_stats, ptr noundef %stats_mtx) local_unnamed_addr #0 {
 entry:
   %base.val = load i32, ptr %base, align 8
   %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 1
@@ -238,7 +238,7 @@ if.end12:                                         ; preds = %if.then, %if.end.i,
 declare i64 @pai_alloc_batch_default(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end14.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -455,7 +455,7 @@ return:                                           ; preds = %pac_ns_until_purge.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly %old_limit, ptr noundef readonly %new_limit) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly %old_limit, ptr noundef readonly %new_limit) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %new_limit, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -469,70 +469,66 @@ if.then:                                          ; preds = %entry
 sz_psz2ind.exit:                                  ; preds = %if.then
   %cmp.i.i = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %add, i1 true), !range !5
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !5
   %2 = trunc i64 %1 to i32
-  %conv1.i.i.i.i = xor i32 %2, 63
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %add), !range !5
-  %cmp.i13 = icmp ugt i64 %3, 1
-  %cond.i14 = zext i1 %cmp.i13 to i32
-  %add.i15 = add nuw nsw i32 %conv1.i.i.i.i, %cond.i14
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i15, i32 14)
-  %cmp4.i = icmp ult i32 %add.i15, 15
+  %add.i13 = sub nuw nsw i32 64, %2
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13, i32 14)
+  %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
   %sh_prom.i = zext nneg i32 %cond10.i to i64
   %shr.i = lshr i64 %0, %sh_prom.i
-  %4 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %4, 3
+  %3 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %3, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = add nsw i32 %shl.i, -1
-  %5 = add nsw i32 %add13.i, %conv12.i
-  %cmp1 = icmp ugt i32 %5, 198
+  %4 = add nsw i32 %add13.i, %conv12.i
+  %cmp1 = icmp ugt i32 %4, 198
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then, %sz_psz2ind.exit, %entry
-  %new_ind.0 = phi i32 [ %5, %sz_psz2ind.exit ], [ 0, %entry ], [ 198, %if.then ]
+  %new_ind.0 = phi i32 [ %4, %sz_psz2ind.exit ], [ 0, %entry ], [ 198, %if.then ]
   %lock.i.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 1
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i16, label %if.then.i
+  br i1 %cmp.i.not.i, label %if.end.i14, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end4
   %grow_mtx = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %grow_mtx) #8
   %locked.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 2
   store atomic i8 1, ptr %locked.i monotonic, align 1
-  br label %if.end.i16
+  br label %if.end.i14
 
-if.end.i16:                                       ; preds = %if.then.i, %if.end4
+if.end.i14:                                       ; preds = %if.then.i, %if.end4
   %n_lock_ops.i.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 0, i32 8
-  %6 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %6, 1
+  %5 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 0, i32 7
-  %7 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, %tsdn
+  %6 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %6, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i16
+if.then.i.i:                                      ; preds = %if.end.i14
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 0, i32 6
-  %8 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %8, 1
+  %7 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %7, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %if.end.i16, %if.then.i.i
+malloc_mutex_lock.exit:                           ; preds = %if.end.i14, %if.then.i.i
   %cmp5.not = icmp eq ptr %old_limit, null
   br i1 %cmp5.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %malloc_mutex_lock.exit
   %limit8 = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 7, i32 1
-  %9 = load i32, ptr %limit8, align 4
-  %idxprom.i.i = zext i32 %9 to i64
+  %8 = load i32, ptr %limit8, align 4
+  %idxprom.i.i = zext i32 %8 to i64
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i
-  %10 = load i64, ptr %arrayidx.i.i, align 8
-  store i64 %10, ptr %old_limit, align 8
+  %9 = load i64, ptr %arrayidx.i.i, align 8
+  store i64 %9, ptr %old_limit, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %malloc_mutex_lock.exit
@@ -544,8 +540,8 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %if.end10
-  %locked.i17 = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 2
-  store atomic i8 0, ptr %locked.i17 monotonic, align 1
+  %locked.i15 = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 8, i32 0, i32 0, i32 2
+  store atomic i8 0, ptr %locked.i15 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   br label %return
 
@@ -880,7 +876,7 @@ declare void @nstime_init_update(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @decay_maybe_advance_epoch(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_decay_ms_set(ptr noundef %tsdn, ptr noundef %pac, i32 noundef %state, i64 noundef %decay_ms, i32 noundef %eagerness) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_decay_ms_set(ptr noundef %tsdn, ptr noundef %pac, i32 noundef %state, i64 noundef %decay_ms, i32 noundef %eagerness) local_unnamed_addr #0 {
 entry:
   %cur_time = alloca %struct.nstime_t, align 8
   %switch.i = icmp eq i32 %state, 1
@@ -1031,9 +1027,6 @@ declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

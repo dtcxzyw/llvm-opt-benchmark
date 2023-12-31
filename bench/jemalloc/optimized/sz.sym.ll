@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sz_index2size_tab = hidden local_unnamed_addr global [232 x i64] zeroinitializer, align 64
 @sz_size2index_tab = hidden local_unnamed_addr global [513 x i8] zeroinitializer, align 64
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
 define hidden i64 @sz_psz_quantize_floor(i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @sz_large_pad, align 8
@@ -23,33 +23,29 @@ entry:
 sz_psz2ind.exit:                                  ; preds = %entry
   %cmp.i.i = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %add, i1 true), !range !4
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub, i1 false), !range !4
   %2 = trunc i64 %1 to i32
-  %conv1.i.i.i.i = xor i32 %2, 63
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %add), !range !4
-  %cmp.i8 = icmp ugt i64 %3, 1
-  %cond.i9 = zext i1 %cmp.i8 to i32
-  %add.i10 = add nuw nsw i32 %conv1.i.i.i.i, %cond.i9
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i10, i32 14)
-  %cmp4.i = icmp ult i32 %add.i10, 15
+  %add.i8 = sub nuw nsw i32 64, %2
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8, i32 14)
+  %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
   %sh_prom.i = zext nneg i32 %cond10.i to i64
   %shr.i = lshr i64 %sub, %sh_prom.i
-  %4 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %4, 3
+  %3 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %3, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
   %cmp = icmp eq i32 %add13.i, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %sz_psz2ind.exit
-  %retval.i.013 = phi i32 [ %add13.i, %sz_psz2ind.exit ], [ 199, %entry ]
-  %sub3 = add nsw i32 %retval.i.013, -1
+  %retval.i.011 = phi i32 [ %add13.i, %sz_psz2ind.exit ], [ 199, %entry ]
+  %sub3 = add nsw i32 %retval.i.011, -1
   %idxprom.i.i = zext nneg i32 %sub3 to i64
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i
-  %5 = load i64, ptr %arrayidx.i.i, align 8
-  %add5 = add i64 %5, %0
+  %4 = load i64, ptr %arrayidx.i.i, align 8
+  %add5 = add i64 %4, %0
   br label %return
 
 return:                                           ; preds = %sz_psz2ind.exit, %if.end
@@ -57,7 +53,7 @@ return:                                           ; preds = %sz_psz2ind.exit, %i
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
 define hidden i64 @sz_psz_quantize_ceil(i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @sz_large_pad, align 8
@@ -69,69 +65,61 @@ entry:
 sz_psz2ind.exit.i:                                ; preds = %entry
   %cmp.i.i.i = icmp ne i64 %add.i9, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %add.i9, i1 true), !range !4
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !4
   %2 = trunc i64 %1 to i32
-  %conv1.i.i.i.i.i = xor i32 %2, 63
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %add.i9), !range !4
-  %cmp.i8.i = icmp ugt i64 %3, 1
-  %cond.i9.i = zext i1 %cmp.i8.i to i32
-  %add.i10.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i9.i
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i10.i, i32 14)
-  %cmp4.i.i = icmp ult i32 %add.i10.i, 15
+  %add.i8.i = sub nuw nsw i32 64, %2
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i, i32 14)
+  %cmp4.i.i = icmp ugt i32 %2, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
   %shr.i.i = lshr i64 %sub.i, %sh_prom.i.i
-  %4 = trunc i64 %shr.i.i to i32
-  %conv12.i.i = and i32 %4, 3
+  %3 = trunc i64 %shr.i.i to i32
+  %conv12.i.i = and i32 %3, 3
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
   %add13.i.i = or disjoint i32 %conv12.i.i, %shl.i.i
   %cmp.i10 = icmp eq i32 %add13.i.i, 0
   br i1 %cmp.i10, label %if.end, label %sz_psz_quantize_floor.exit
 
 sz_psz_quantize_floor.exit:                       ; preds = %entry, %sz_psz2ind.exit.i
-  %retval.i.013.i = phi i32 [ %add13.i.i, %sz_psz2ind.exit.i ], [ 199, %entry ]
-  %sub3.i = add nsw i32 %retval.i.013.i, -1
+  %retval.i.011.i = phi i32 [ %add13.i.i, %sz_psz2ind.exit.i ], [ 199, %entry ]
+  %sub3.i = add nsw i32 %retval.i.011.i, -1
   %idxprom.i.i.i = zext nneg i32 %sub3.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i.i
-  %5 = load i64, ptr %arrayidx.i.i.i, align 8
-  %add5.i = add i64 %5, %0
+  %4 = load i64, ptr %arrayidx.i.i.i, align 8
+  %add5.i = add i64 %4, %0
   %cmp = icmp ult i64 %add5.i, %size
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sz_psz_quantize_floor.exit
-  %add = add i64 %5, 1
+  %add = add i64 %4, 1
   %cmp.i = icmp ugt i64 %add, 8070450532247928832
   br i1 %cmp.i, label %sz_psz2ind.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %cmp.i.i12 = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i12)
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %add, i1 true), !range !4
-  %7 = trunc i64 %6 to i32
-  %conv1.i.i.i.i = xor i32 %7, 63
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %add), !range !4
-  %cmp.i13 = icmp ugt i64 %8, 1
-  %cond.i14 = zext i1 %cmp.i13 to i32
-  %add.i15 = add nuw nsw i32 %conv1.i.i.i.i, %cond.i14
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i15, i32 14)
-  %cmp4.i = icmp ult i32 %add.i15, 15
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !4
+  %6 = trunc i64 %5 to i32
+  %add.i13 = sub nuw nsw i32 64, %6
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13, i32 14)
+  %cmp4.i = icmp ugt i32 %6, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
   %sh_prom.i = zext nneg i32 %cond10.i to i64
-  %shr.i = lshr i64 %5, %sh_prom.i
-  %9 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %9, 3
+  %shr.i = lshr i64 %4, %sh_prom.i
+  %7 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %7, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %10 = zext nneg i32 %add13.i to i64
+  %8 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.then, %if.end.i
-  %retval.i.0 = phi i64 [ %10, %if.end.i ], [ 199, %if.then ]
+  %retval.i.0 = phi i64 [ %8, %if.end.i ], [ 199, %if.then ]
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %retval.i.0
-  %11 = load i64, ptr %arrayidx.i.i, align 8
-  %add7 = add i64 %11, %0
+  %9 = load i64, ptr %arrayidx.i.i, align 8
+  %add7 = add i64 %9, %0
   br label %if.end
 
 if.end:                                           ; preds = %sz_psz2ind.exit.i, %sz_psz2ind.exit, %sz_psz_quantize_floor.exit
@@ -139,7 +127,7 @@ if.end:                                           ; preds = %sz_psz2ind.exit.i, 
   ret i64 %ret.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
 define hidden void @sz_boot(ptr nocapture noundef readonly %sc_data, i1 noundef zeroext %cache_oblivious) local_unnamed_addr #1 {
 entry:
   %cond = select i1 %cache_oblivious, i64 4096, i64 0
@@ -276,9 +264,6 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -287,8 +272,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
