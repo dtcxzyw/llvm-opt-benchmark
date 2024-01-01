@@ -3262,8 +3262,8 @@ entry:
 
 cond.false:                                       ; preds = %entry
   %2 = load i32, ptr %this, align 8
+  %cmp1.i = icmp sgt i32 %2, 3
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull @.str.66, i32 noundef 117, i32 noundef %spec.store.select1.i) #28
           to label %invoke.cont7 unwind label %terminate.lpad
@@ -30642,8 +30642,8 @@ entry:
 
 cond.false:                                       ; preds = %entry
   %2 = load i32, ptr %this, align 8
+  %cmp1.i = icmp sgt i32 %2, 3
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull @.str.66, i32 noundef 102, i32 noundef %spec.store.select1.i) #28
   %file_ = getelementptr inbounds %"class.absl::LogStreamer", ptr %this, i64 0, i32 2

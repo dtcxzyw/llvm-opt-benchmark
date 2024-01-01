@@ -18504,7 +18504,7 @@ if.end190.i:                                      ; preds = %for.inc187.i, %if.t
 
 if.then.i159.i:                                   ; preds = %if.end190.i
   %2562 = load ptr, ptr %mcp, align 16
-  %cmp.i.i.i412 = icmp ult i32 %spec.select146.i, 129
+  %cmp.i.i.i412 = icmp ult i32 %sub93.i, 129
   br i1 %cmp.i.i.i412, label %if.then.i.i.i453, label %if.else.i.i.i413
 
 if.then.i.i.i453:                                 ; preds = %if.then.i159.i
@@ -29329,7 +29329,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @asm_isk32(ptr nocapture noundef readonly %as, i32 noundef %ref, ptr nocapture noundef writeonly %k) unnamed_addr #11 {
+define internal fastcc noundef i32 @asm_isk32(ptr nocapture noundef readonly %as, i32 noundef %ref, ptr nocapture noundef writeonly %k) unnamed_addr #11 {
 entry:
   %cmp = icmp ult i32 %ref, 32768
   br i1 %cmp, label %if.then, label %return
@@ -29430,7 +29430,7 @@ return:                                           ; preds = %if.end, %ra_alloc1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef %ref, i32 noundef %conflict, i32 noundef %check) unnamed_addr #12 {
+define internal fastcc noundef i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef %ref, i32 noundef %conflict, i32 noundef %check) unnamed_addr #12 {
 entry:
   %add = add nuw nsw i32 %ref, 31
   %cmp = icmp ult i32 %add, %as.200.val

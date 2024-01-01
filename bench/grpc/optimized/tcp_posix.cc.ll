@@ -1830,7 +1830,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %if.end.i.i
   %sub.i = sub i64 %allocate_length.0.i, %.pre50.i
   %conv16.i = trunc i64 %sub.i to i32
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %conv16.i, i32 1)
-  %cmp19.not.i = icmp ult i32 %.sroa.speculated.i, %cond.i
+  %cmp19.not.i = icmp sgt i32 %cond.i, %conv16.i
   %10 = call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %uses_until_refresh.i.i.i24.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %10, i64 0, i32 1
   br i1 %cmp19.not.i, label %while.body30.i, label %while.body.i

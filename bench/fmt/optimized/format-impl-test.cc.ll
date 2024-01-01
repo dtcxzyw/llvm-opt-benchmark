@@ -44527,7 +44527,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %prod.0 = phi i64 [ %add9.i, %if.else.i ], [ %add.i161, %if.then.i158 ]
   %digits.0.in = phi i64 [ %shr10.i, %if.else.i ], [ %shr2.i, %if.then.i158 ]
   %number_of_digits_printed.0.i = phi i32 [ 2, %if.else.i ], [ 1, %if.then.i158 ]
-  %cmp1410.i = icmp ult i32 %number_of_digits_printed.0.i, %cond
+  %cmp1410.i = icmp ugt i32 %precision.addr.0, %number_of_digits_printed.0.i
   br i1 %cmp1410.i, label %while.body.lr.ph.i, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit
 
 while.body.lr.ph.i:                               ; preds = %if.end.i

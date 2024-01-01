@@ -13084,7 +13084,7 @@ if.end:                                           ; preds = %if.then.i.i.i303, %
 invoke.cont143:                                   ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %10, i32 0)
-  %cmp1.i.i = icmp ugt i32 %spec.store.select.i.i, 3
+  %cmp1.i.i = icmp sgt i32 %10, 3
   %spec.store.select1.i.i = select i1 %cmp1.i.i, i32 2, i32 %spec.store.select.i.i
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr noundef nonnull @.str.2, i32 noundef 289, i32 noundef %spec.store.select1.i.i) #33
           to label %.noexc308 unwind label %lpad6
@@ -14585,7 +14585,7 @@ invoke.cont358:                                   ; preds = %if.end357
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0. = load volatile i32, ptr %do_log.sroa.0, align 4
   %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0., i32 0)
-  %cmp1.i.i = icmp ugt i32 %spec.store.select.i.i, 3
+  %cmp1.i.i = icmp sgt i32 %do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0.do_log.sroa.0.0., 3
   %spec.store.select1.i.i = select i1 %cmp1.i.i, i32 2, i32 %spec.store.select.i.i
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr noundef nonnull @.str.2, i32 noundef 322, i32 noundef %spec.store.select1.i.i) #33
           to label %.noexc unwind label %lpad55

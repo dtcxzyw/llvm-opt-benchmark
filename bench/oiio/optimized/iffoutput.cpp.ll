@@ -1696,8 +1696,8 @@ land.lhs.true.i:                                  ; preds = %if.then.i168
   br i1 %cmp9.i, label %if.then10.i, label %if.else.i169
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %cmp14.i.i = icmp ugt i32 %.sroa.speculated.i, 1
-  br i1 %cmp14.i.i, label %for.body.lr.ph.i.i, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i
+  %cmp14.i.not.i = icmp eq i32 %conv.i166, 1
+  br i1 %cmp14.i.not.i, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then10.i
   %wide.trip.count.i.i = zext nneg i32 %.sroa.speculated.i to i64
@@ -1713,7 +1713,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp5.not.i.i, label %for.inc.i.i, label %for.end.split.loop.exit25.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !22
 
@@ -1745,8 +1745,8 @@ _ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i: ; preds =
   br label %if.end11.i
 
 if.else.i169:                                     ; preds = %land.lhs.true.i, %if.then.i168
-  %cmp19.i.i = icmp ugt i32 %.sroa.speculated.i, 1
-  br i1 %cmp19.i.i, label %for.body.lr.ph.i9.i, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i
+  %cmp19.i.not.i = icmp eq i32 %conv.i166, 1
+  br i1 %cmp19.i.not.i, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i, label %for.body.lr.ph.i9.i
 
 for.body.lr.ph.i9.i:                              ; preds = %if.else.i169
   %invariant.gep.i.i = getelementptr i8, ptr %in.addr.035.i, i64 -1
@@ -2252,100 +2252,100 @@ land.lhs.true.i350:                               ; preds = %if.then.i323
   br i1 %cmp9.i352, label %if.then10.i353, label %if.else.i325
 
 if.then10.i353:                                   ; preds = %land.lhs.true.i350
-  %cmp14.i.i354 = icmp ugt i32 %.sroa.speculated.i317, 1
-  br i1 %cmp14.i.i354, label %for.body.lr.ph.i.i361, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355
+  %cmp14.i.not.i354 = icmp eq i32 %conv.i316, 1
+  br i1 %cmp14.i.not.i354, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370, label %for.body.lr.ph.i.i355
 
-for.body.lr.ph.i.i361:                            ; preds = %if.then10.i353
-  %wide.trip.count.i.i362 = zext nneg i32 %.sroa.speculated.i317 to i64
-  br label %for.body.i.i363
+for.body.lr.ph.i.i355:                            ; preds = %if.then10.i353
+  %wide.trip.count.i.i356 = zext nneg i32 %.sroa.speculated.i317 to i64
+  br label %for.body.i.i357
 
-for.body.i.i363:                                  ; preds = %for.inc.i.i376, %for.body.lr.ph.i.i361
-  %indvars.iv.i.i364 = phi i64 [ 1, %for.body.lr.ph.i.i361 ], [ %indvars.iv.next.i.i377, %for.inc.i.i376 ]
-  %78 = getelementptr i8, ptr %in.addr.035.i312, i64 %indvars.iv.i.i364
-  %arrayidx.i.i365 = getelementptr i8, ptr %78, i64 -1
-  %79 = load i8, ptr %arrayidx.i.i365, align 1
+for.body.i.i357:                                  ; preds = %for.inc.i.i376, %for.body.lr.ph.i.i355
+  %indvars.iv.i.i358 = phi i64 [ 1, %for.body.lr.ph.i.i355 ], [ %indvars.iv.next.i.i377, %for.inc.i.i376 ]
+  %78 = getelementptr i8, ptr %in.addr.035.i312, i64 %indvars.iv.i.i358
+  %arrayidx.i.i359 = getelementptr i8, ptr %78, i64 -1
+  %79 = load i8, ptr %arrayidx.i.i359, align 1
   %80 = load i8, ptr %78, align 1
-  %cmp5.not.i.i366 = icmp eq i8 %79, %80
-  br i1 %cmp5.not.i.i366, label %for.inc.i.i376, label %for.end.split.loop.exit25.i.i367
+  %cmp5.not.i.i360 = icmp eq i8 %79, %80
+  br i1 %cmp5.not.i.i360, label %for.inc.i.i376, label %for.end.split.loop.exit25.i.i361
 
-for.inc.i.i376:                                   ; preds = %for.body.i.i363
-  %indvars.iv.next.i.i377 = add nuw nsw i64 %indvars.iv.i.i364, 1
-  %exitcond.not.i.i378 = icmp eq i64 %indvars.iv.next.i.i377, %wide.trip.count.i.i362
-  br i1 %exitcond.not.i.i378, label %for.end.i.i369, label %for.body.i.i363, !llvm.loop !22
+for.inc.i.i376:                                   ; preds = %for.body.i.i357
+  %indvars.iv.next.i.i377 = add i64 %indvars.iv.i.i358, 1
+  %exitcond.not.i.i378 = icmp eq i64 %indvars.iv.next.i.i377, %wide.trip.count.i.i356
+  br i1 %exitcond.not.i.i378, label %for.end.i.i363, label %for.body.i.i357, !llvm.loop !22
 
-for.end.split.loop.exit25.i.i367:                 ; preds = %for.body.i.i363
-  %81 = trunc i64 %indvars.iv.i.i364 to i32
-  %.pre.i368 = and i64 %indvars.iv.i.i364, 4294967295
-  br label %for.end.i.i369
+for.end.split.loop.exit25.i.i361:                 ; preds = %for.body.i.i357
+  %81 = trunc i64 %indvars.iv.i.i358 to i32
+  %.pre.i362 = and i64 %indvars.iv.i.i358, 4294967295
+  br label %for.end.i.i363
 
-for.end.i.i369:                                   ; preds = %for.inc.i.i376, %for.end.split.loop.exit25.i.i367
-  %.pre-phi.i370 = phi i64 [ %.pre.i368, %for.end.split.loop.exit25.i.i367 ], [ %wide.trip.count.i.i362, %for.inc.i.i376 ]
-  %count.0.lcssa.i.i371 = phi i32 [ %81, %for.end.split.loop.exit25.i.i367 ], [ %.sroa.speculated.i317, %for.inc.i.i376 ]
-  %cmp6.i.i372 = icmp ugt i32 %count.0.lcssa.i.i371, 1
-  %sub7.i.i373 = add nuw i32 %count.0.lcssa.i.i371, 127
-  %and.i.i374 = and i32 %sub7.i.i373, 127
-  %spec.select.i.i375 = select i1 %cmp6.i.i372, i32 128, i32 0
-  %82 = or disjoint i32 %and.i.i374, %spec.select.i.i375
+for.end.i.i363:                                   ; preds = %for.inc.i.i376, %for.end.split.loop.exit25.i.i361
+  %.pre-phi.i364 = phi i64 [ %.pre.i362, %for.end.split.loop.exit25.i.i361 ], [ %wide.trip.count.i.i356, %for.inc.i.i376 ]
+  %count.0.lcssa.i.i365 = phi i32 [ %81, %for.end.split.loop.exit25.i.i361 ], [ %.sroa.speculated.i317, %for.inc.i.i376 ]
+  %cmp6.i.i366 = icmp ugt i32 %count.0.lcssa.i.i365, 1
+  %sub7.i.i367 = add nuw i32 %count.0.lcssa.i.i365, 127
+  %and.i.i368 = and i32 %sub7.i.i367, 127
+  %spec.select.i.i369 = select i1 %cmp6.i.i366, i32 128, i32 0
+  %82 = or disjoint i32 %and.i.i368, %spec.select.i.i369
   %83 = trunc i32 %82 to i8
-  br label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355
+  br label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370
 
-_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355: ; preds = %for.end.i.i369, %if.then10.i353
-  %count.0.lcssa23.i.i356 = phi i64 [ 1, %if.then10.i353 ], [ %.pre-phi.i370, %for.end.i.i369 ]
-  %or.i.i357 = phi i8 [ 0, %if.then10.i353 ], [ %83, %for.end.i.i369 ]
-  %incdec.ptr.i.i358 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 1
-  store i8 %or.i.i357, ptr %out.addr.034.i313, align 1
+_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370: ; preds = %for.end.i.i363, %if.then10.i353
+  %count.0.lcssa23.i.i371 = phi i64 [ 1, %if.then10.i353 ], [ %.pre-phi.i364, %for.end.i.i363 ]
+  %or.i.i372 = phi i8 [ 0, %if.then10.i353 ], [ %83, %for.end.i.i363 ]
+  %incdec.ptr.i.i373 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 1
+  store i8 %or.i.i372, ptr %out.addr.034.i313, align 1
   %84 = load i8, ptr %in.addr.035.i312, align 1
-  store i8 %84, ptr %incdec.ptr.i.i358, align 1
-  %add.ptr.i.i359 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 2
-  %add.ptr12.i.i360 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %count.0.lcssa23.i.i356
+  store i8 %84, ptr %incdec.ptr.i.i373, align 1
+  %add.ptr.i.i374 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 2
+  %add.ptr12.i.i375 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %count.0.lcssa23.i.i371
   br label %if.end11.i319
 
 if.else.i325:                                     ; preds = %land.lhs.true.i350, %if.then.i323
-  %cmp19.i.i326 = icmp ugt i32 %.sroa.speculated.i317, 1
-  br i1 %cmp19.i.i326, label %for.body.lr.ph.i9.i334, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327
+  %cmp19.i.not.i326 = icmp eq i32 %conv.i316, 1
+  br i1 %cmp19.i.not.i326, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341, label %for.body.lr.ph.i9.i327
 
-for.body.lr.ph.i9.i334:                           ; preds = %if.else.i325
-  %invariant.gep.i.i335 = getelementptr i8, ptr %in.addr.035.i312, i64 -1
-  %wide.trip.count.i10.i336 = zext nneg i32 %.sroa.speculated.i317 to i64
-  br label %for.body.i11.i337
+for.body.lr.ph.i9.i327:                           ; preds = %if.else.i325
+  %invariant.gep.i.i328 = getelementptr i8, ptr %in.addr.035.i312, i64 -1
+  %wide.trip.count.i10.i329 = zext nneg i32 %.sroa.speculated.i317 to i64
+  br label %for.body.i11.i330
 
-for.body.i11.i337:                                ; preds = %if.end14.i.i345, %for.body.lr.ph.i9.i334
-  %indvars.iv.i12.i338 = phi i64 [ 1, %for.body.lr.ph.i9.i334 ], [ %indvars.iv.next.i13.i346, %if.end14.i.i345 ]
-  %byte.021.i.i339 = phi i8 [ 0, %for.body.lr.ph.i9.i334 ], [ %85, %if.end14.i.i345 ]
-  %gep.i.i340 = getelementptr i8, ptr %invariant.gep.i.i335, i64 %indvars.iv.i12.i338
-  %85 = load i8, ptr %gep.i.i340, align 1
-  %arrayidx3.i.i341 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %indvars.iv.i12.i338
-  %86 = load i8, ptr %arrayidx3.i.i341, align 1
-  %cmp5.i.i342 = icmp eq i8 %85, %86
-  %cmp11.i.i343 = icmp eq i8 %byte.021.i.i339, %85
-  %or.cond.i.i344 = and i1 %cmp11.i.i343, %cmp5.i.i342
-  br i1 %or.cond.i.i344, label %if.then12.i.i348, label %if.end14.i.i345
+for.body.i11.i330:                                ; preds = %if.end14.i.i338, %for.body.lr.ph.i9.i327
+  %indvars.iv.i12.i331 = phi i64 [ 1, %for.body.lr.ph.i9.i327 ], [ %indvars.iv.next.i13.i339, %if.end14.i.i338 ]
+  %byte.021.i.i332 = phi i8 [ 0, %for.body.lr.ph.i9.i327 ], [ %85, %if.end14.i.i338 ]
+  %gep.i.i333 = getelementptr i8, ptr %invariant.gep.i.i328, i64 %indvars.iv.i12.i331
+  %85 = load i8, ptr %gep.i.i333, align 1
+  %arrayidx3.i.i334 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %indvars.iv.i12.i331
+  %86 = load i8, ptr %arrayidx3.i.i334, align 1
+  %cmp5.i.i335 = icmp eq i8 %85, %86
+  %cmp11.i.i336 = icmp eq i8 %byte.021.i.i332, %85
+  %or.cond.i.i337 = and i1 %cmp11.i.i336, %cmp5.i.i335
+  br i1 %or.cond.i.i337, label %if.then12.i.i348, label %if.end14.i.i338
 
-if.then12.i.i348:                                 ; preds = %for.body.i11.i337
-  %87 = trunc i64 %indvars.iv.i12.i338 to i32
+if.then12.i.i348:                                 ; preds = %for.body.i11.i330
+  %87 = trunc i64 %indvars.iv.i12.i331 to i32
   %sub13.i.i349 = add nsw i32 %87, -2
-  br label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327
+  br label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341
 
-if.end14.i.i345:                                  ; preds = %for.body.i11.i337
-  %indvars.iv.next.i13.i346 = add nuw nsw i64 %indvars.iv.i12.i338, 1
-  %exitcond.not.i14.i347 = icmp eq i64 %indvars.iv.next.i13.i346, %wide.trip.count.i10.i336
-  br i1 %exitcond.not.i14.i347, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327, label %for.body.i11.i337, !llvm.loop !23
+if.end14.i.i338:                                  ; preds = %for.body.i11.i330
+  %indvars.iv.next.i13.i339 = add nuw nsw i64 %indvars.iv.i12.i331, 1
+  %exitcond.not.i14.i340 = icmp eq i64 %indvars.iv.next.i13.i339, %wide.trip.count.i10.i329
+  br i1 %exitcond.not.i14.i340, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341, label %for.body.i11.i330, !llvm.loop !23
 
-_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327: ; preds = %if.end14.i.i345, %if.then12.i.i348, %if.else.i325
-  %count.1.i.i328 = phi i32 [ %sub13.i.i349, %if.then12.i.i348 ], [ 1, %if.else.i325 ], [ %.sroa.speculated.i317, %if.end14.i.i345 ]
-  %88 = trunc i32 %count.1.i.i328 to i8
-  %conv19.i.i329 = add i8 %88, -1
-  %incdec.ptr.i7.i330 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 1
-  store i8 %conv19.i.i329, ptr %out.addr.034.i313, align 1
-  %conv20.i.i331 = sext i32 %count.1.i.i328 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i7.i330, ptr align 1 %in.addr.035.i312, i64 %conv20.i.i331, i1 false)
-  %add.ptr.i8.i332 = getelementptr inbounds i8, ptr %incdec.ptr.i7.i330, i64 %conv20.i.i331
-  %add.ptr22.i.i333 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %conv20.i.i331
+_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341: ; preds = %if.end14.i.i338, %if.then12.i.i348, %if.else.i325
+  %count.1.i.i342 = phi i32 [ %sub13.i.i349, %if.then12.i.i348 ], [ 1, %if.else.i325 ], [ %.sroa.speculated.i317, %if.end14.i.i338 ]
+  %88 = trunc i32 %count.1.i.i342 to i8
+  %conv19.i.i343 = add i8 %88, -1
+  %incdec.ptr.i7.i344 = getelementptr inbounds i8, ptr %out.addr.034.i313, i64 1
+  store i8 %conv19.i.i343, ptr %out.addr.034.i313, align 1
+  %conv20.i.i345 = sext i32 %count.1.i.i342 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i7.i344, ptr align 1 %in.addr.035.i312, i64 %conv20.i.i345, i1 false)
+  %add.ptr.i8.i346 = getelementptr inbounds i8, ptr %incdec.ptr.i7.i344, i64 %conv20.i.i345
+  %add.ptr22.i.i347 = getelementptr inbounds i8, ptr %in.addr.035.i312, i64 %conv20.i.i345
   br label %if.end11.i319
 
-if.end11.i319:                                    ; preds = %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355, %while.body.i311
-  %out.addr.1.i320 = phi ptr [ %add.ptr.i.i359, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355 ], [ %add.ptr.i8.i332, %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327 ], [ %out.addr.034.i313, %while.body.i311 ]
-  %in.addr.1.i321 = phi ptr [ %add.ptr12.i.i360, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i355 ], [ %add.ptr22.i.i333, %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i327 ], [ %in.addr.035.i312, %while.body.i311 ]
+if.end11.i319:                                    ; preds = %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370, %while.body.i311
+  %out.addr.1.i320 = phi ptr [ %add.ptr.i.i374, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370 ], [ %add.ptr.i8.i346, %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341 ], [ %out.addr.034.i313, %while.body.i311 ]
+  %in.addr.1.i321 = phi ptr [ %add.ptr12.i.i375, %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit.i370 ], [ %add.ptr22.i.i347, %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit.i341 ], [ %in.addr.035.i312, %while.body.i311 ]
   %cmp.i322 = icmp ult ptr %in.addr.1.i321, %add.ptr.i302
   br i1 %cmp.i322, label %while.body.i311, label %invoke.cont335, !llvm.loop !24
 
@@ -3256,8 +3256,8 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true
-  %cmp14.i = icmp ugt i32 %.sroa.speculated, 1
-  br i1 %cmp14.i, label %for.body.lr.ph.i, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit
+  %cmp14.i.not = icmp eq i32 %conv, 1
+  br i1 %cmp14.i.not, label %_ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then10
   %wide.trip.count.i = zext nneg i32 %.sroa.speculated to i64
@@ -3273,7 +3273,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp5.not.i, label %for.inc.i, label %for.end.split.loop.exit25.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
@@ -3305,8 +3305,8 @@ _ZN18OpenImageIO_v2_6_09IffOutput18compress_duplicateERPKhRPhi.exit: ; preds = %
   br label %if.end11
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %cmp19.i = icmp ugt i32 %.sroa.speculated, 1
-  br i1 %cmp19.i, label %for.body.lr.ph.i9, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit
+  %cmp19.i.not = icmp eq i32 %conv, 1
+  br i1 %cmp19.i.not, label %_ZN18OpenImageIO_v2_6_09IffOutput17compress_verbatimERPKhRPhi.exit, label %for.body.lr.ph.i9
 
 for.body.lr.ph.i9:                                ; preds = %if.else
   %invariant.gep.i = getelementptr i8, ptr %in.addr.035, i64 -1

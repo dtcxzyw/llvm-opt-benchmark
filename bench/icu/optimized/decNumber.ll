@@ -33,8 +33,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL6resmap = internal unnamed_addr constant [10 x i8] c"\00\03\03\03\03\05\07\07\07\07", align 1
 @switch.table.uprv_decNumberClassToString_75 = private unnamed_addr constant [10 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.5, ptr @.str.9, ptr @.str.7, ptr @.str.6, ptr @.str.8, ptr @.str.4, ptr @.str.10], align 8
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberFromInt32_75(ptr noundef returned %dn, i32 noundef %in) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef ptr @uprv_decNumberFromInt32_75(ptr noundef returned %dn, i32 noundef %in) local_unnamed_addr #0 {
 entry:
   %bits.i.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   store i8 0, ptr %bits.i.i, align 4
@@ -103,7 +103,7 @@ if.end7:                                          ; preds = %entry, %if.then6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberFromUInt32_75(ptr noundef returned %dn, i32 noundef %uin) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberFromUInt32_75(ptr noundef returned %dn, i32 noundef %uin) local_unnamed_addr #0 {
 entry:
   %bits.i = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   store i8 0, ptr %bits.i, align 4
@@ -163,7 +163,7 @@ return:                                           ; preds = %entry, %_ZL12decGet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define ptr @uprv_decNumberZero_75(ptr noundef returned writeonly %dn) local_unnamed_addr #2 {
+define noundef ptr @uprv_decNumberZero_75(ptr noundef returned writeonly %dn) local_unnamed_addr #1 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   store i8 0, ptr %bits, align 4
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_decNumberToInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #3 {
+define i32 @uprv_decNumberToInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -257,10 +257,10 @@ return:                                           ; preds = %if.else23, %if.then
   ret i32 %retval.0
 }
 
-declare ptr @uprv_decContextSetStatus_75(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @uprv_decContextSetStatus_75(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_decNumberToUInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #3 {
+define i32 @uprv_decNumberToUInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -343,14 +343,14 @@ return:                                           ; preds = %if.end36, %if.else3
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberToString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef ptr @uprv_decNumberToString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @_ZL11decToStringPK9decNumberPch(ptr noundef %dn, ptr noundef %string, i8 noundef zeroext 0)
   ret ptr %string
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr nocapture noundef readonly %dn, ptr nocapture noundef writeonly %string, i8 noundef zeroext %eng) unnamed_addr #0 {
 entry:
   %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
@@ -403,7 +403,7 @@ if.then9:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.then9
   store i32 6712905, ptr %c.0, align 1
   %add.ptr15 = getelementptr inbounds i8, ptr %c.0, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr15, ptr noundef nonnull align 1 dereferenceable(6) @.str.17, i64 6, i1 false) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr15, ptr noundef nonnull align 1 dereferenceable(6) @.str.17, i64 6, i1 false) #16
   br label %return
 
 if.end17:                                         ; preds = %if.then9
@@ -1010,15 +1010,15 @@ return:                                           ; preds = %lor.lhs.false, %if.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberToEngString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef ptr @uprv_decNumberToEngString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @_ZL11decToStringPK9decNumberPch(ptr noundef %dn, ptr noundef %string, i8 noundef zeroext 1)
   ret ptr %string
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberFromString_75(ptr noundef returned %dn, ptr noundef %chars, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberFromString_75(ptr noundef returned %dn, ptr noundef %chars, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %resbuff = alloca [45 x i8], align 16
   %residue = alloca i32, align 4
@@ -1400,7 +1400,7 @@ cond.end:                                         ; preds = %if.else220
 if.then229:                                       ; preds = %if.else220, %cond.end
   %cond164 = phi i32 [ %conv222, %cond.end ], [ %d.6, %if.else220 ]
   %conv225 = zext nneg i32 %cond164 to i64
-  %call231 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv225) #18
+  %call231 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv225) #17
   %cmp232 = icmp eq ptr %call231, null
   br i1 %cmp232, label %if.else.i, label %if.end237
 
@@ -1515,10 +1515,10 @@ if.end278:                                        ; preds = %for.cond83, %if.the
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr noundef readonly %lsu, i32 noundef %len, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr noundef readonly %lsu, i32 noundef %len, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %set, align 4
   %sub = sub nsw i32 %len, %0
@@ -1801,7 +1801,7 @@ return:                                           ; preds = %if.end169, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %nmin = alloca %struct.decNumber, align 4
   %emin = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 2
@@ -2075,10 +2075,10 @@ return:                                           ; preds = %if.end32, %if.end17
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberAbs_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberAbs_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
@@ -2134,7 +2134,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %negate, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %negate, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [92 x i8], align 16
@@ -2900,7 +2900,7 @@ cond.end326:                                      ; preds = %if.then316, %cond.t
 if.then333:                                       ; preds = %cond.end326
   %add328 = add nuw nsw i32 %cond327, 1
   %conv330 = zext nneg i32 %add328 to i64
-  %call336 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv330) #18
+  %call336 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv330) #17
   %cmp337 = icmp eq ptr %call336, null
   br i1 %cmp337, label %if.then338, label %if.end342
 
@@ -3100,7 +3100,7 @@ if.end473:                                        ; preds = %if.end200, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberAdd_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberAdd_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -3143,7 +3143,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberAnd_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberAnd_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
   %0 = load i32, ptr %exponent, align 4
@@ -3363,7 +3363,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberCompare_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberCompare_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -3442,7 +3442,7 @@ if.end:                                           ; preds = %if.then184.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %cmp = icmp eq i8 %op, 4
@@ -3769,7 +3769,7 @@ if.end247:                                        ; preds = %if.else145.thread12
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberCompareSignal_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberCompareSignal_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %bits.i = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
@@ -3848,7 +3848,7 @@ if.end:                                           ; preds = %if.then184.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberCompareTotal_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberCompareTotal_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -3891,7 +3891,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberCompareTotalMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberCompareTotalMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %rhs78 = ptrtoint ptr %rhs to i64
   %lhs77 = ptrtoint ptr %lhs to i64
@@ -3922,7 +3922,7 @@ if.then11:                                        ; preds = %if.then, %cond.end
   %cond62 = phi i32 [ %conv3, %cond.end ], [ %1, %if.then ]
   %narrow = add nuw i32 %cond62, 11
   %conv9 = zext i32 %narrow to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv9) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv9) #17
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %if.else.i, label %if.end15
 
@@ -4000,7 +4000,7 @@ if.then49:                                        ; preds = %if.then26, %cond.en
   %cond4165 = phi i32 [ %conv34, %cond.end40 ], [ %15, %if.then26 ]
   %narrow30 = add nuw i32 %cond4165, 11
   %conv47 = zext i32 %narrow30 to i64
-  %call51 = call noalias ptr @uprv_malloc_75(i64 noundef %conv47) #18
+  %call51 = call noalias ptr @uprv_malloc_75(i64 noundef %conv47) #17
   %cmp52 = icmp eq ptr %call51, null
   br i1 %cmp52, label %if.then53, label %if.end56
 
@@ -4119,7 +4119,7 @@ if.end72:                                         ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberCopy_75(ptr noundef returned writeonly %dest, ptr noundef readonly %src) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberCopy_75(ptr noundef returned writeonly %dest, ptr noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dest, %src
   br i1 %cmp, label %return, label %if.end
@@ -4177,7 +4177,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberDivide_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberDivide_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -4220,7 +4220,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %accbuff = alloca [47 x i8], align 16
   %varbuff = alloca [73 x i8], align 16
@@ -4522,7 +4522,7 @@ cond.end:                                         ; preds = %if.end170
 
 if.then180:                                       ; preds = %cond.end.thread, %cond.end
   %conv178417 = phi i64 [ %conv178414, %cond.end.thread ], [ %conv178, %cond.end ]
-  %call183 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv178417) #18
+  %call183 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv178417) #17
   %cmp184 = icmp eq ptr %call183, null
   br i1 %cmp184, label %if.then185, label %if.then180.if.end188_crit_edge
 
@@ -4569,7 +4569,7 @@ cond.end206:                                      ; preds = %if.end188, %cond.tr
 if.then218:                                       ; preds = %cond.end206
   %add214 = add nuw nsw i32 %spec.select358, 1
   %conv215 = zext nneg i32 %add214 to i64
-  %call222 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv215) #18
+  %call222 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv215) #17
   %cmp223 = icmp eq ptr %call222, null
   br i1 %cmp223, label %if.then224, label %if.then218.if.end227_crit_edge
 
@@ -5343,7 +5343,7 @@ if.end698:                                        ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberDivideInteger_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberDivideInteger_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -5386,7 +5386,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberExp_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberExp_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -5475,7 +5475,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -5799,7 +5799,7 @@ cond.end106:                                      ; preds = %if.then95, %cond.tr
 if.then114:                                       ; preds = %cond.end106
   %narrow = add nuw i32 %cond107, 11
   %conv112 = zext i32 %narrow to i64
-  %call116 = call noalias ptr @uprv_malloc_75(i64 noundef %conv112) #18
+  %call116 = call noalias ptr @uprv_malloc_75(i64 noundef %conv112) #17
   %cmp117 = icmp eq ptr %call116, null
   br i1 %cmp117, label %if.then118, label %if.end121
 
@@ -5845,7 +5845,7 @@ cond.end148:                                      ; preds = %if.end124, %cond.tr
 
 if.then157:                                       ; preds = %cond.end148
   %conv155 = zext i32 %add153 to i64
-  %call159 = call noalias ptr @uprv_malloc_75(i64 noundef %conv155) #18
+  %call159 = call noalias ptr @uprv_malloc_75(i64 noundef %conv155) #17
   %cmp160 = icmp eq ptr %call159, null
   br i1 %cmp160, label %if.then161, label %if.end164
 
@@ -5877,7 +5877,7 @@ cond.end177:                                      ; preds = %if.end164, %cond.tr
 if.then186:                                       ; preds = %cond.end177
   %add182 = add nuw i32 %cond178, 11
   %conv184 = zext i32 %add182 to i64
-  %call188 = call noalias ptr @uprv_malloc_75(i64 noundef %conv184) #18
+  %call188 = call noalias ptr @uprv_malloc_75(i64 noundef %conv184) #17
   %cmp189 = icmp eq ptr %call188, null
   br i1 %cmp189, label %if.then190, label %if.end193
 
@@ -6097,7 +6097,7 @@ if.end295:                                        ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberFMA_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %fhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberFMA_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %fhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %dcmul = alloca %struct.decContext, align 4
@@ -6266,7 +6266,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 if.then30:                                        ; preds = %cond.end
   %narrow = add nuw i32 %cond, 11
   %conv28 = zext i32 %narrow to i64
-  %call32 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv28) #18
+  %call32 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv28) #17
   %cmp33 = icmp eq ptr %call32, null
   br i1 %cmp33, label %if.else.i91, label %if.end36
 
@@ -6358,10 +6358,10 @@ if.end55:                                         ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [145 x i8], align 16
@@ -6469,7 +6469,7 @@ if.then67:                                        ; preds = %if.end59
 if.then77:                                        ; preds = %if.then67
   %mul = shl nuw nsw i32 %div, 2
   %conv78 = zext nneg i32 %mul to i64
-  %call79 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv78) #18
+  %call79 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv78) #17
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then77, %if.then67
@@ -6481,7 +6481,7 @@ if.end80:                                         ; preds = %if.then77, %if.then
 if.then85:                                        ; preds = %if.end80
   %14 = shl nuw nsw i32 %div72, 2
   %conv86 = zext nneg i32 %14 to i64
-  %call87 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv86) #18
+  %call87 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv86) #17
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then85, %if.end80
@@ -6497,7 +6497,7 @@ if.end88:                                         ; preds = %if.then85, %if.end8
 
 if.then97:                                        ; preds = %if.end88
   %conv98 = zext nneg i32 %add95 to i64
-  %call99 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv98) #18
+  %call99 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv98) #17
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then97, %if.end88
@@ -6788,7 +6788,7 @@ cond.end267:                                      ; preds = %if.else243, %cond.t
 
 if.then274:                                       ; preds = %cond.end267
   %conv270 = zext nneg i32 %add269 to i64
-  %call276 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv270) #18
+  %call276 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv270) #17
   %cmp277 = icmp eq ptr %call276, null
   br i1 %cmp277, label %if.end363.thread, label %if.then274.if.end281_crit_edge
 
@@ -6955,7 +6955,7 @@ return:                                           ; preds = %if.end363.thread, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberInvert_75(ptr noundef returned %res, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberInvert_75(ptr noundef returned %res, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %exponent = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 1
   %0 = load i32, ptr %exponent, align 4
@@ -7125,7 +7125,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberLn_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberLn_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -7214,7 +7214,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -7338,8 +7338,8 @@ if.end35:                                         ; preds = %if.end28
   %cmp36 = icmp eq i32 %11, 0
   %.pre = load i32, ptr %set, align 4
   %cmp39 = icmp slt i32 %.pre, 41
-  %or.cond249 = select i1 %cmp36, i1 %cmp39, i1 false
-  br i1 %or.cond249, label %if.then40, label %if.end68
+  %or.cond246 = select i1 %cmp36, i1 %cmp39, i1 false
+  br i1 %or.cond246, label %if.then40, label %if.end68
 
 if.then40:                                        ; preds = %if.end35
   br i1 %cmp18, label %land.lhs.true44, label %if.end55
@@ -7387,43 +7387,55 @@ if.then63:                                        ; preds = %land.lhs.true60
 if.end68:                                         ; preds = %land.lhs.true44, %land.lhs.true49, %if.end55, %land.lhs.true60, %if.end35
   %17 = load i32, ptr %rhs, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.pre, i32 %17)
-  %spec.select236 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 7)
-  %add = add nuw nsw i32 %spec.select236, 2
+  %spec.select233 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 7)
+  %add = add nuw nsw i32 %spec.select233, 2
   %cond90 = tail call i32 @llvm.smax.i32(i32 %add, i32 16)
-  %cmp91 = icmp ult i32 %cond90, 50
-  br i1 %cmp91, label %if.end122, label %if.then115
+  %cmp91 = icmp slt i32 %spec.select, 48
+  br i1 %cmp91, label %cond.true92, label %cond.end107
 
-if.then115:                                       ; preds = %if.end68
-  %narrow = add nuw i32 %cond90, 11
+cond.true92:                                      ; preds = %if.end68
+  %idxprom = zext nneg i32 %cond90 to i64
+  %arrayidx98 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %18 = load i8, ptr %arrayidx98, align 1
+  %conv99 = zext i8 %18 to i32
+  br label %cond.end107
+
+cond.end107:                                      ; preds = %if.end68, %cond.true92
+  %cond108 = phi i32 [ %conv99, %cond.true92 ], [ %cond90, %if.end68 ]
+  %cmp114 = icmp ugt i32 %cond108, 49
+  br i1 %cmp114, label %if.then115, label %if.end122
+
+if.then115:                                       ; preds = %cond.end107
+  %narrow = add nuw i32 %cond108, 11
   %conv113 = zext i32 %narrow to i64
-  %call117 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv113) #18
+  %call117 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv113) #17
   %cmp118 = icmp eq ptr %call117, null
   br i1 %cmp118, label %if.then119, label %if.then115.if.end122_crit_edge
 
 if.then115.if.end122_crit_edge:                   ; preds = %if.then115
-  %.pre237 = load i32, ptr %rhs, align 4
+  %.pre234 = load i32, ptr %rhs, align 4
   br label %if.end122
 
 if.then119:                                       ; preds = %if.then115
-  %18 = load i32, ptr %status, align 4
-  %or120 = or i32 %18, 16
+  %19 = load i32, ptr %status, align 4
+  %or120 = or i32 %19, 16
   store i32 %or120, ptr %status, align 4
   br label %if.end319
 
-if.end122:                                        ; preds = %if.then115.if.end122_crit_edge, %if.end68
-  %19 = phi i32 [ %.pre237, %if.then115.if.end122_crit_edge ], [ %17, %if.end68 ]
-  %allocbufa.0 = phi ptr [ %call117, %if.then115.if.end122_crit_edge ], [ null, %if.end68 ]
-  %a.0 = phi ptr [ %call117, %if.then115.if.end122_crit_edge ], [ %bufa, %if.end68 ]
-  %add124 = add nsw i32 %19, %add
+if.end122:                                        ; preds = %if.then115.if.end122_crit_edge, %cond.end107
+  %20 = phi i32 [ %17, %cond.end107 ], [ %.pre234, %if.then115.if.end122_crit_edge ]
+  %allocbufa.0 = phi ptr [ null, %cond.end107 ], [ %call117, %if.then115.if.end122_crit_edge ]
+  %a.0 = phi ptr [ %bufa, %cond.end107 ], [ %call117, %if.then115.if.end122_crit_edge ]
+  %add124 = add nsw i32 %20, %add
   %cond129 = tail call i32 @llvm.smax.i32(i32 %add124, i32 16)
-  %cmp130 = icmp ult i32 %cond129, 50
+  %cmp130 = icmp slt i32 %add124, 50
   br i1 %cmp130, label %cond.true131, label %cond.end149
 
 cond.true131:                                     ; preds = %if.end122
   %idxprom137 = zext nneg i32 %cond129 to i64
   %arrayidx138 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom137
-  %20 = load i8, ptr %arrayidx138, align 1
-  %conv139 = zext i8 %20 to i32
+  %21 = load i8, ptr %arrayidx138, align 1
+  %conv139 = zext i8 %21 to i32
   br label %cond.end149
 
 cond.end149:                                      ; preds = %if.end122, %cond.true131
@@ -7434,13 +7446,13 @@ cond.end149:                                      ; preds = %if.end122, %cond.tr
 if.then158:                                       ; preds = %cond.end149
   %narrow138 = add nuw i32 %cond150, 11
   %conv156 = zext i32 %narrow138 to i64
-  %call160 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv156) #18
+  %call160 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv156) #17
   %cmp161 = icmp eq ptr %call160, null
   br i1 %cmp161, label %if.then162, label %if.end165
 
 if.then162:                                       ; preds = %if.then158
-  %21 = load i32, ptr %status, align 4
-  %or163 = or i32 %21, 16
+  %22 = load i32, ptr %status, align 4
+  %or163 = or i32 %22, 16
   store i32 %or163, ptr %status, align 4
   br label %do.end
 
@@ -7448,9 +7460,9 @@ if.end165:                                        ; preds = %if.then158, %cond.e
   %allocbufb.0 = phi ptr [ null, %cond.end149 ], [ %call160, %if.then158 ]
   %b.0 = phi ptr [ %bufb, %cond.end149 ], [ %call160, %if.then158 ]
   %call166 = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %aset, i32 noundef 64)
-  %22 = load i32, ptr %exponent, align 4
-  %23 = load i32, ptr %rhs, align 4
-  %add169 = add nsw i32 %23, %22
+  %23 = load i32, ptr %exponent, align 4
+  %24 = load i32, ptr %rhs, align 4
+  %add169 = add nsw i32 %24, %23
   %bits.i.i.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 2
   store i8 0, ptr %bits.i.i.i, align 4
   %exponent.i.i.i = getelementptr inbounds %struct.decNumber, ptr %a.0, i64 0, i32 1
@@ -7482,17 +7494,17 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv6.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
-  %24 = ashr exact i64 %sext.i.i, 32
-  %25 = getelementptr i8, ptr %lsu.i.i.i, i64 %24
-  %up.07.i.i.i = getelementptr inbounds i8, ptr %25, i64 -1
+  %25 = ashr exact i64 %sext.i.i, 32
+  %26 = getelementptr i8, ptr %lsu.i.i.i, i64 %25
+  %up.07.i.i.i = getelementptr inbounds i8, ptr %26, i64 -1
   %cmp.not8.i.i.i = icmp ult ptr %up.07.i.i.i, %lsu.i.i.i
   br i1 %cmp.not8.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.end.i.i, %if.end.i.i.i
   %up.010.i.i.i = phi ptr [ %up.0.i.i.i, %if.end.i.i.i ], [ %up.07.i.i.i, %for.end.i.i ]
   %digits.09.i.i.i = phi i32 [ %sub5.i.i.i, %if.end.i.i.i ], [ %conv6.i.i, %for.end.i.i ]
-  %26 = load i8, ptr %up.010.i.i.i, align 1
-  %cmp2.i.i.i = icmp ne i8 %26, 0
+  %27 = load i8, ptr %up.010.i.i.i, align 1
+  %cmp2.i.i.i = icmp ne i8 %27, 0
   %cmp3.i.i.i = icmp eq i32 %digits.09.i.i.i, 1
   %or.cond.i.i.i = select i1 %cmp2.i.i.i, i1 true, i1 %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %if.end.i.i.i
@@ -7540,17 +7552,17 @@ for.end.i.i156:                                   ; preds = %for.body.i.i148
   %sub.ptr.sub.i.i159 = sub i64 %sub.ptr.lhs.cast.i.i157, %sub.ptr.rhs.cast.i.i158
   %conv6.i.i160 = trunc i64 %sub.ptr.sub.i.i159 to i32
   %sext.i.i161 = shl i64 %sub.ptr.sub.i.i159, 32
-  %27 = ashr exact i64 %sext.i.i161, 32
-  %28 = getelementptr i8, ptr %lsu.i.i.i146, i64 %27
-  %up.07.i.i.i162 = getelementptr inbounds i8, ptr %28, i64 -1
+  %28 = ashr exact i64 %sext.i.i161, 32
+  %29 = getelementptr i8, ptr %lsu.i.i.i146, i64 %28
+  %up.07.i.i.i162 = getelementptr inbounds i8, ptr %29, i64 -1
   %cmp.not8.i.i.i163 = icmp ult ptr %up.07.i.i.i162, %lsu.i.i.i146
   br i1 %cmp.not8.i.i.i163, label %uprv_decNumberFromInt32_75.exit176, label %for.body.i.i.i164
 
 for.body.i.i.i164:                                ; preds = %for.end.i.i156, %if.end.i.i.i170
   %up.010.i.i.i165 = phi ptr [ %up.0.i.i.i172, %if.end.i.i.i170 ], [ %up.07.i.i.i162, %for.end.i.i156 ]
   %digits.09.i.i.i166 = phi i32 [ %sub5.i.i.i171, %if.end.i.i.i170 ], [ %conv6.i.i160, %for.end.i.i156 ]
-  %29 = load i8, ptr %up.010.i.i.i165, align 1
-  %cmp2.i.i.i167 = icmp ne i8 %29, 0
+  %30 = load i8, ptr %up.010.i.i.i165, align 1
+  %cmp2.i.i.i167 = icmp ne i8 %30, 0
   %cmp3.i.i.i168 = icmp eq i32 %digits.09.i.i.i166, 1
   %or.cond.i.i.i169 = select i1 %cmp2.i.i.i167, i1 true, i1 %cmp3.i.i.i168
   br i1 %or.cond.i.i.i169, label %uprv_decNumberFromInt32_75.exit176, label %if.end.i.i.i170
@@ -7570,12 +7582,12 @@ uprv_decNumberFromInt32_75.exit176:               ; preds = %for.body.i.i.i164, 
   store i32 2, ptr %aset, align 4
   %round175 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 3
   store i32 5, ptr %round175, align 4
-  %30 = load i8, ptr %bits, align 4
-  store i8 %30, ptr %bits.i.i.i144, align 4
-  %31 = load i32, ptr %exponent, align 4
-  store i32 %31, ptr %exponent.i.i.i145, align 4
-  %32 = load i32, ptr %rhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %b.0, ptr noundef nonnull %aset, ptr noundef nonnull %lsu, i32 noundef %32, ptr noundef nonnull %residue, ptr noundef nonnull %ignore)
+  %31 = load i8, ptr %bits, align 4
+  store i8 %31, ptr %bits.i.i.i144, align 4
+  %32 = load i32, ptr %exponent, align 4
+  store i32 %32, ptr %exponent.i.i.i145, align 4
+  %33 = load i32, ptr %rhs, align 4
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %b.0, ptr noundef nonnull %aset, ptr noundef nonnull %lsu, i32 noundef %33, ptr noundef nonnull %residue, ptr noundef nonnull %ignore)
   store i32 0, ptr %exponent.i.i.i145, align 4
   %call177 = call fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr noundef nonnull %b.0)
   %cmp178 = icmp slt i32 %call177, 10
@@ -7584,8 +7596,8 @@ uprv_decNumberFromInt32_75.exit176:               ; preds = %for.body.i.i.i164, 
   %sub183 = add nsw i32 %spec.select140, -10
   %idxprom184 = sext i32 %sub183 to i64
   %arrayidx185 = getelementptr inbounds [90 x i16], ptr @_ZL4LNnn, i64 0, i64 %idxprom184
-  %33 = load i16, ptr %arrayidx185, align 2
-  %conv186 = zext i16 %33 to i32
+  %34 = load i16, ptr %arrayidx185, align 2
+  %conv186 = zext i16 %34 to i32
   %shr = lshr i32 %conv186, 2
   store i8 0, ptr %bits.i.i.i144, align 4
   store i32 0, ptr %exponent.i.i.i145, align 4
@@ -7609,17 +7621,17 @@ for.end.i.i196:                                   ; preds = %for.body.i.i188
   %sub.ptr.sub.i.i199 = sub i64 %sub.ptr.lhs.cast.i.i197, %sub.ptr.rhs.cast.i.i158
   %conv6.i.i200 = trunc i64 %sub.ptr.sub.i.i199 to i32
   %sext.i.i201 = shl i64 %sub.ptr.sub.i.i199, 32
-  %34 = ashr exact i64 %sext.i.i201, 32
-  %35 = getelementptr i8, ptr %lsu.i.i.i146, i64 %34
-  %up.07.i.i.i202 = getelementptr inbounds i8, ptr %35, i64 -1
+  %35 = ashr exact i64 %sext.i.i201, 32
+  %36 = getelementptr i8, ptr %lsu.i.i.i146, i64 %35
+  %up.07.i.i.i202 = getelementptr inbounds i8, ptr %36, i64 -1
   %cmp.not8.i.i.i203 = icmp ult ptr %up.07.i.i.i202, %lsu.i.i.i146
   br i1 %cmp.not8.i.i.i203, label %uprv_decNumberFromUInt32_75.exit.i214, label %for.body.i.i.i204
 
 for.body.i.i.i204:                                ; preds = %for.end.i.i196, %if.end.i.i.i210
   %up.010.i.i.i205 = phi ptr [ %up.0.i.i.i212, %if.end.i.i.i210 ], [ %up.07.i.i.i202, %for.end.i.i196 ]
   %digits.09.i.i.i206 = phi i32 [ %sub5.i.i.i211, %if.end.i.i.i210 ], [ %conv6.i.i200, %for.end.i.i196 ]
-  %36 = load i8, ptr %up.010.i.i.i205, align 1
-  %cmp2.i.i.i207 = icmp ne i8 %36, 0
+  %37 = load i8, ptr %up.010.i.i.i205, align 1
+  %cmp2.i.i.i207 = icmp ne i8 %37, 0
   %cmp3.i.i.i208 = icmp eq i32 %digits.09.i.i.i206, 1
   %or.cond.i.i.i209 = select i1 %cmp2.i.i.i207, i1 true, i1 %cmp3.i.i.i208
   br i1 %or.cond.i.i.i209, label %uprv_decNumberFromUInt32_75.exit.i214, label %if.end.i.i.i210
@@ -7649,8 +7661,8 @@ uprv_decNumberFromUInt32_75.exit.i214:            ; preds = %if.end.i.i.i210, %f
   store i8 1, ptr %lsu.i219, align 1
   %emax = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 1
   %emax199 = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 1
-  %37 = load <2 x i32>, ptr %emax, align 4
-  store <2 x i32> %37, ptr %emax199, align 4
+  %38 = load <2 x i32>, ptr %emax, align 4
+  store <2 x i32> %38, ptr %emax199, align 4
   %clamp = getelementptr inbounds %struct.decContext, ptr %aset, i64 0, i32 6
   store i8 0, ptr %clamp, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %bset, ptr noundef nonnull align 4 dereferenceable(28) %aset, i64 28, i1 false)
@@ -7663,72 +7675,72 @@ uprv_decNumberFromUInt32_75.exit.i214:            ; preds = %if.end.i.i.i210, %f
 for.cond.outer:                                   ; preds = %if.end289, %uprv_decNumberFromUInt32_75.exit.i214
   %pp.0.ph = phi i32 [ 9, %uprv_decNumberFromUInt32_75.exit.i214 ], [ %spec.select141, %if.end289 ]
   store i32 %pp.0.ph, ptr %aset, align 4
-  %38 = load i32, ptr %rhs, align 4
-  %add296 = add nsw i32 %38, %pp.0.ph
+  %39 = load i32, ptr %rhs, align 4
+  %add296 = add nsw i32 %39, %pp.0.ph
   store i32 %add296, ptr %bset, align 4
   %cmp287 = icmp eq i32 %pp.0.ph, %add
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end285
-  %39 = load i8, ptr %bits.i.i.i, align 4
-  %40 = xor i8 %39, -128
-  store i8 %40, ptr %bits.i.i.i, align 4
+  %40 = load i8, ptr %bits.i.i.i, align 4
+  %41 = xor i8 %40, -128
+  store i8 %41, ptr %bits.i.i.i, align 4
   %call210 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %bset, ptr noundef nonnull %ignore)
-  %41 = load i8, ptr %bits.i.i.i, align 4
-  %42 = xor i8 %41, -128
-  store i8 %42, ptr %bits.i.i.i, align 4
+  %42 = load i8, ptr %bits.i.i.i, align 4
+  %43 = xor i8 %42, -128
+  store i8 %43, ptr %bits.i.i.i, align 4
   %call215 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %rhs, ptr noundef nonnull %bset, ptr noundef nonnull %ignore)
   %call216 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %numone, ptr noundef nonnull %bset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
-  %43 = load i8, ptr %lsu.i.i.i146, align 1
-  %cmp220 = icmp eq i8 %43, 0
-  %.pre238 = load i32, ptr %b.0, align 4
-  %cmp223 = icmp eq i32 %.pre238, 1
-  %or.cond250 = select i1 %cmp220, i1 %cmp223, i1 false
-  br i1 %or.cond250, label %land.lhs.true224, label %lor.lhs.false
+  %44 = load i8, ptr %lsu.i.i.i146, align 1
+  %cmp220 = icmp eq i8 %44, 0
+  %.pre235 = load i32, ptr %b.0, align 4
+  %cmp223 = icmp eq i32 %.pre235, 1
+  %or.cond247 = select i1 %cmp220, i1 %cmp223, i1 false
+  br i1 %or.cond247, label %land.lhs.true224, label %lor.lhs.false
 
 land.lhs.true224:                                 ; preds = %for.cond
-  %44 = load i8, ptr %bits.i.i.i144, align 4
-  %45 = and i8 %44, 112
-  %cmp228 = icmp eq i8 %45, 0
+  %45 = load i8, ptr %bits.i.i.i144, align 4
+  %46 = and i8 %45, 112
+  %cmp228 = icmp eq i8 %46, 0
   br i1 %cmp228, label %land.lhs.true224.if.then239_crit_edge, label %lor.lhs.false
 
 land.lhs.true224.if.then239_crit_edge:            ; preds = %land.lhs.true224
-  %.pre239 = load i32, ptr %a.0, align 4
+  %.pre236 = load i32, ptr %a.0, align 4
   br label %if.then239
 
 lor.lhs.false:                                    ; preds = %land.lhs.true224, %for.cond
-  %46 = load i32, ptr %a.0, align 4
-  %47 = load i32, ptr %exponent.i.i.i, align 4
-  %add231 = add nsw i32 %47, %46
-  %48 = load i32, ptr %exponent.i.i.i145, align 4
-  %add234 = add nsw i32 %48, %.pre238
-  %49 = load i32, ptr %set, align 4
-  %add236 = add nsw i32 %add234, %49
+  %47 = load i32, ptr %a.0, align 4
+  %48 = load i32, ptr %exponent.i.i.i, align 4
+  %add231 = add nsw i32 %48, %47
+  %49 = load i32, ptr %exponent.i.i.i145, align 4
+  %add234 = add nsw i32 %49, %.pre235
+  %50 = load i32, ptr %set, align 4
+  %add236 = add nsw i32 %add234, %50
   %cmp238.not.not = icmp sgt i32 %add231, %add236
   br i1 %cmp238.not.not, label %if.then239, label %if.end285
 
 if.then239:                                       ; preds = %land.lhs.true224.if.then239_crit_edge, %lor.lhs.false
-  %50 = phi i32 [ %.pre239, %land.lhs.true224.if.then239_crit_edge ], [ %46, %lor.lhs.false ]
-  %cmp241 = icmp eq i32 %50, %add
+  %51 = phi i32 [ %.pre236, %land.lhs.true224.if.then239_crit_edge ], [ %47, %lor.lhs.false ]
+  %cmp241 = icmp eq i32 %51, %add
   br i1 %cmp241, label %for.end, label %if.end243
 
 if.end243:                                        ; preds = %if.then239
-  %51 = load i8, ptr %lsu.i.i.i, align 1
-  %cmp247 = icmp eq i8 %51, 0
-  %cmp250 = icmp eq i32 %50, 1
+  %52 = load i8, ptr %lsu.i.i.i, align 1
+  %cmp247 = icmp eq i8 %52, 0
+  %cmp250 = icmp eq i32 %51, 1
   %or.cond = and i1 %cmp250, %cmp247
   br i1 %or.cond, label %land.lhs.true251, label %if.end267
 
 land.lhs.true251:                                 ; preds = %if.end243
-  %52 = load i8, ptr %bits.i.i.i, align 4
-  %53 = and i8 %52, 112
-  %cmp255 = icmp eq i8 %53, 0
+  %53 = load i8, ptr %bits.i.i.i, align 4
+  %54 = and i8 %53, 112
+  %cmp255 = icmp eq i8 %54, 0
   br i1 %cmp255, label %if.then256, label %if.end267
 
 if.then256:                                       ; preds = %land.lhs.true251
-  %54 = load i8, ptr %bits, align 4
+  %55 = load i8, ptr %bits, align 4
   %.pre150.i = load i8, ptr %bits.i217, align 4
-  %or.i = or i8 %.pre150.i, %54
+  %or.i = or i8 %.pre150.i, %55
   %and24.i = and i8 %or.i, 48
   %tobool.not.i = icmp eq i8 %and24.i, 0
   br i1 %tobool.not.i, label %if.end131.i, label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
@@ -7736,11 +7748,11 @@ if.then256:                                       ; preds = %land.lhs.true251
 if.end131.i:                                      ; preds = %if.then256
   %call138.i = call fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef nonnull %rhs, ptr noundef nonnull %numone, i8 noundef zeroext 0)
   %cmp142.i = icmp eq i32 %call138.i, -2147483648
-  br i1 %cmp142.i, label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread247, label %if.else145.i
+  br i1 %cmp142.i, label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread244, label %if.else145.i
 
-_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread247: ; preds = %if.end131.i
-  %55 = load i32, ptr %ignore, align 4
-  %or144.i = or i32 %55, 16
+_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread244: ; preds = %if.end131.i
+  %56 = load i32, ptr %ignore, align 4
+  %or144.i = or i32 %56, 16
   store i32 %or144.i, ptr %ignore, align 4
   br label %if.then262
 
@@ -7767,34 +7779,34 @@ if.then184.i:                                     ; preds = %if.then180.i
 _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %if.then256
   %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %cmp, ptr noundef nonnull %rhs, ptr noundef nonnull %numone, ptr noundef nonnull %aset, ptr noundef nonnull %ignore)
   %lsu258.phi.trans.insert = getelementptr inbounds %struct.decNumber, ptr %cmp, i64 0, i32 3
-  %.pre240 = load i8, ptr %lsu258.phi.trans.insert, align 1
-  %56 = icmp eq i8 %.pre240, 0
-  br i1 %56, label %if.then262, label %if.else264
+  %.pre237 = load i8, ptr %lsu258.phi.trans.insert, align 1
+  %57 = icmp eq i8 %.pre237, 0
+  br i1 %57, label %if.then262, label %if.else264
 
-if.then262:                                       ; preds = %if.else145.i, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread247, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
+if.then262:                                       ; preds = %if.else145.i, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit.thread244, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
   store i32 0, ptr %exponent.i.i.i, align 4
   br label %for.end
 
 if.else264:                                       ; preds = %if.then184.i, %if.then180.i, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
-  %57 = load i32, ptr %status, align 4
-  %or265 = or i32 %57, 2080
+  %58 = load i32, ptr %status, align 4
+  %or265 = or i32 %58, 2080
   store i32 %or265, ptr %status, align 4
   br label %for.end
 
 if.end267:                                        ; preds = %land.lhs.true251, %if.end243
-  %cmp274 = icmp eq i32 %.pre238, 1
-  %or.cond251 = select i1 %cmp220, i1 %cmp274, i1 false
-  br i1 %or.cond251, label %land.lhs.true275, label %if.end285
+  %cmp274 = icmp eq i32 %.pre235, 1
+  %or.cond248 = select i1 %cmp220, i1 %cmp274, i1 false
+  br i1 %or.cond248, label %land.lhs.true275, label %if.end285
 
 land.lhs.true275:                                 ; preds = %if.end267
-  %58 = load i8, ptr %bits.i.i.i144, align 4
-  %59 = and i8 %58, 112
-  %cmp279 = icmp eq i8 %59, 0
+  %59 = load i8, ptr %bits.i.i.i144, align 4
+  %60 = and i8 %59, 112
+  %cmp279 = icmp eq i8 %60, 0
   br i1 %cmp279, label %if.then280, label %if.end285
 
 if.then280:                                       ; preds = %land.lhs.true275
-  %60 = load i32, ptr %exponent.i.i.i, align 4
-  %sub282 = sub nsw i32 %60, %add
+  %61 = load i32, ptr %exponent.i.i.i, align 4
+  %sub282 = sub nsw i32 %61, %add
   store i32 %sub282, ptr %exponent.i.i.i145, align 4
   br label %if.end285
 
@@ -7809,24 +7821,24 @@ if.end289:                                        ; preds = %if.end285
 
 for.end:                                          ; preds = %if.then239, %if.then262, %if.else264
   store i32 1, ptr %residue, align 4
-  %61 = load i8, ptr %lsu.i.i.i, align 1
-  %cmp301 = icmp eq i8 %61, 0
+  %62 = load i8, ptr %lsu.i.i.i, align 1
+  %cmp301 = icmp eq i8 %62, 0
   br i1 %cmp301, label %land.lhs.true302, label %for.end.if.end311_crit_edge
 
 for.end.if.end311_crit_edge:                      ; preds = %for.end
-  %.pre241 = load i8, ptr %bits.i.i.i, align 4
-  %.pre243 = load i32, ptr %a.0, align 4
+  %.pre238 = load i8, ptr %bits.i.i.i, align 4
+  %.pre240 = load i32, ptr %a.0, align 4
   br label %if.end311
 
 land.lhs.true302:                                 ; preds = %for.end
-  %62 = load i32, ptr %a.0, align 4
-  %cmp304 = icmp eq i32 %62, 1
-  %.pre242 = load i8, ptr %bits.i.i.i, align 4
+  %63 = load i32, ptr %a.0, align 4
+  %cmp304 = icmp eq i32 %63, 1
+  %.pre239 = load i8, ptr %bits.i.i.i, align 4
   br i1 %cmp304, label %land.lhs.true305, label %if.end311
 
 land.lhs.true305:                                 ; preds = %land.lhs.true302
-  %63 = and i8 %.pre242, 112
-  %cmp309 = icmp eq i8 %63, 0
+  %64 = and i8 %.pre239, 112
+  %cmp309 = icmp eq i8 %64, 0
   br i1 %cmp309, label %if.then310, label %if.end311
 
 if.then310:                                       ; preds = %land.lhs.true305
@@ -7834,16 +7846,16 @@ if.then310:                                       ; preds = %land.lhs.true305
   br label %if.end311
 
 if.end311:                                        ; preds = %for.end.if.end311_crit_edge, %if.then310, %land.lhs.true305, %land.lhs.true302
-  %64 = phi i32 [ %.pre243, %for.end.if.end311_crit_edge ], [ 1, %if.then310 ], [ 1, %land.lhs.true305 ], [ %62, %land.lhs.true302 ]
-  %65 = phi i8 [ %.pre241, %for.end.if.end311_crit_edge ], [ %.pre242, %if.then310 ], [ %.pre242, %land.lhs.true305 ], [ %.pre242, %land.lhs.true302 ]
-  %66 = load i32, ptr %set, align 4
-  store i32 %66, ptr %aset, align 4
+  %65 = phi i32 [ %.pre240, %for.end.if.end311_crit_edge ], [ 1, %if.then310 ], [ 1, %land.lhs.true305 ], [ %63, %land.lhs.true302 ]
+  %66 = phi i8 [ %.pre238, %for.end.if.end311_crit_edge ], [ %.pre239, %if.then310 ], [ %.pre239, %land.lhs.true305 ], [ %.pre239, %land.lhs.true302 ]
+  %67 = load i32, ptr %set, align 4
+  store i32 %67, ptr %aset, align 4
   %bits1.i222 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 2
-  store i8 %65, ptr %bits1.i222, align 4
-  %67 = load i32, ptr %exponent.i.i.i, align 4
+  store i8 %66, ptr %bits1.i222, align 4
+  %68 = load i32, ptr %exponent.i.i.i, align 4
   %exponent2.i224 = getelementptr inbounds %struct.decNumber, ptr %res, i64 0, i32 1
-  store i32 %67, ptr %exponent2.i224, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %aset, ptr noundef nonnull %lsu.i.i.i, i32 noundef %64, ptr noundef nonnull %residue, ptr noundef %status)
+  store i32 %68, ptr %exponent2.i224, align 4
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %aset, ptr noundef nonnull %lsu.i.i.i, i32 noundef %65, ptr noundef nonnull %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
   br label %do.end
 
@@ -7869,7 +7881,7 @@ if.end319:                                        ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberLogB_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberLogB_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8068,7 +8080,7 @@ if.end26:                                         ; preds = %uprv_decNumberCopyA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -8309,7 +8321,7 @@ if.end60:                                         ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberCopyAbs_75(ptr noundef returned %res, ptr noundef readonly %rhs) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberCopyAbs_75(ptr noundef returned %res, ptr noundef readonly %rhs) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %res, %rhs
   br i1 %cmp.i, label %uprv_decNumberCopy_75.exit, label %if.end.i
@@ -8371,7 +8383,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberLog10_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberLog10_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %ignore = alloca i32, align 4
@@ -8556,7 +8568,7 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
 if.then46:                                        ; preds = %if.end24
   %add42 = add nuw i32 %add., 14
   %conv44 = zext i32 %add42 to i64
-  %call48 = call noalias ptr @uprv_malloc_75(i64 noundef %conv44) #18
+  %call48 = call noalias ptr @uprv_malloc_75(i64 noundef %conv44) #17
   %cmp49 = icmp eq ptr %call48, null
   br i1 %cmp49, label %if.else.i74, label %if.end52
 
@@ -8648,7 +8660,7 @@ if.end80:                                         ; preds = %land.lhs.true70, %l
 if.then101:                                       ; preds = %if.end80
   %add97 = add nuw i32 %37, 14
   %conv99 = zext i32 %add97 to i64
-  %call103 = call noalias ptr @uprv_malloc_75(i64 noundef %conv99) #18
+  %call103 = call noalias ptr @uprv_malloc_75(i64 noundef %conv99) #17
   %cmp104 = icmp eq ptr %call103, null
   br i1 %cmp104, label %if.then105, label %if.end108
 
@@ -8733,10 +8745,10 @@ if.end129:                                        ; preds = %_ZL9decStatusP9decN
   ret ptr %res
 }
 
-declare ptr @uprv_decContextDefault_75(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @uprv_decContextDefault_75(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMax_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMax_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8779,7 +8791,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMaxMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMaxMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8822,7 +8834,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMin_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMin_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8865,7 +8877,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMinMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMinMag_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8908,7 +8920,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMinus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMinus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
@@ -8961,7 +8973,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberNextMinus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberNextMinus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dtiny = alloca %struct.decNumber, align 4
   %workset = alloca %struct.decContext, align 4
@@ -9056,7 +9068,7 @@ return:                                           ; preds = %if.end, %_ZL9decSta
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberNextPlus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberNextPlus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dtiny = alloca %struct.decNumber, align 4
   %workset = alloca %struct.decContext, align 4
@@ -9151,7 +9163,7 @@ return:                                           ; preds = %if.end, %_ZL9decSta
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberNextToward_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberNextToward_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dtiny = alloca %struct.decNumber, align 4
   %workset = alloca %struct.decContext, align 4
@@ -9407,7 +9419,7 @@ return:                                           ; preds = %uprv_decNumberIsNor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef %lhs, ptr noundef %rhs, i8 noundef zeroext %abs_c) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef %lhs, ptr noundef %rhs, i8 noundef zeroext %abs_c) unnamed_addr #2 {
 entry:
   %lsu = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 3
   %0 = load i8, ptr %lsu, align 1
@@ -9589,7 +9601,7 @@ return:                                           ; preds = %if.then73, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberCopySign_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberCopySign_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #0 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %rhs, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -9655,7 +9667,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
+define i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #6 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -9688,7 +9700,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberOr_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberOr_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
   %0 = load i32, ptr %exponent, align 4
@@ -9907,7 +9919,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberPlus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberPlus_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %dzero = alloca %struct.decNumber, align 4
   %status = alloca i32, align 4
@@ -9960,7 +9972,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberMultiply_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberMultiply_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -10003,7 +10015,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberPower_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberPower_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %status = alloca i32, align 4
@@ -10406,7 +10418,7 @@ if.end212:                                        ; preds = %if.end196, %if.end1
 cond.end223.thread:                               ; preds = %if.end212
   %narrow204 = add nuw i32 %40, 11
   %conv229205 = zext i32 %narrow204 to i64
-  %call233 = call noalias ptr @uprv_malloc_75(i64 noundef %conv229205) #18
+  %call233 = call noalias ptr @uprv_malloc_75(i64 noundef %conv229205) #17
   %cmp234 = icmp eq ptr %call233, null
   br i1 %cmp234, label %if.else.i196, label %if.end238
 
@@ -10487,7 +10499,7 @@ if.then282:                                       ; preds = %if.else274
   br i1 %cmp214, label %if.then288, label %if.end295
 
 if.then288:                                       ; preds = %if.then282
-  %call290 = call noalias ptr @uprv_malloc_75(i64 noundef %conv229208) #18
+  %call290 = call noalias ptr @uprv_malloc_75(i64 noundef %conv229208) #17
   %cmp291 = icmp eq ptr %call290, null
   br i1 %cmp291, label %if.then292, label %if.end295
 
@@ -10660,7 +10672,7 @@ if.end352:                                        ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef %uar, i32 noundef %digits, i32 noundef %shift) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL14decShiftToMostPhii(ptr noundef %uar, i32 noundef %digits, i32 noundef %shift) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %shift, 0
   br i1 %cmp, label %return, label %if.end
@@ -10815,8 +10827,8 @@ return:                                           ; preds = %for.body90, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr nocapture noundef readonly %dn) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal fastcc noundef i32 @_ZL9decGetIntPK9decNumber(ptr nocapture noundef readonly %dn) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %exponent = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 1
@@ -10969,7 +10981,7 @@ return:                                           ; preds = %for.body, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberQuantize_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberQuantize_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -11012,7 +11024,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %quant, ptr nocapture noundef %status) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %quant, ptr nocapture noundef %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %workset = alloca %struct.decContext, align 4
@@ -11266,14 +11278,14 @@ do.end:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberNormalize_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberNormalize_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @uprv_decNumberReduce_75(ptr noundef %res, ptr noundef %rhs, ptr noundef %set)
   ret ptr %res
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberReduce_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberReduce_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -11342,7 +11354,7 @@ if.end4:                                          ; preds = %_ZL9decStatusP9decN
   ret ptr %res
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext %all, i8 noundef zeroext %noclamp, ptr nocapture noundef writeonly %dropped) unnamed_addr #0 {
 entry:
   store i32 0, ptr %dropped, align 4
@@ -11592,7 +11604,7 @@ return:                                           ; preds = %if.end14, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberRescale_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberRescale_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -11635,7 +11647,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberRemainder_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberRemainder_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -11678,7 +11690,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberRemainderNear_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberRemainderNear_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -11721,7 +11733,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberRotate_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberRotate_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %res120 = ptrtoint ptr %res to i64
   %status = alloca i32, align 4
@@ -12013,10 +12025,10 @@ if.end199:                                        ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef %uar, i32 noundef %units, i32 noundef %shift) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef %uar, i32 noundef %units, i32 noundef %shift) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %shift, 0
   br i1 %cmp, label %return, label %if.end
@@ -12147,7 +12159,7 @@ return:                                           ; preds = %entry, %for.end82, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #10 {
+define noundef ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #9 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -12200,7 +12212,7 @@ if.end27:                                         ; preds = %if.else22, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberScaleB_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberScaleB_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -12309,7 +12321,7 @@ if.end36:                                         ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberShift_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberShift_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -12480,7 +12492,7 @@ if.end89:                                         ; preds = %lor.lhs.false47, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returned %dn, i32 noundef %drop) unnamed_addr #11 {
+define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returned %dn, i32 noundef %drop) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %cmp.not = icmp sgt i32 %0, %drop
@@ -12563,7 +12575,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberSquareRoot_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberSquareRoot_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %rhs399 = ptrtoint ptr %rhs to i64
   %workset = alloca %struct.decContext, align 4
@@ -12749,14 +12761,14 @@ cond.end59:                                       ; preds = %if.end37, %cond.tru
 
 if.then66:                                        ; preds = %cond.end59
   %conv67 = zext nneg i32 %narrow to i64
-  %call68 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv67) #18
+  %call68 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv67) #17
   %cmp69 = icmp eq ptr %call68, null
   br i1 %cmp69, label %if.else.i, label %if.end73
 
 if.end73:                                         ; preds = %if.then66, %cond.end59
   %f.0 = phi ptr [ %buff, %cond.end59 ], [ %call68, %if.then66 ]
   %allocbuff.0 = phi ptr [ null, %cond.end59 ], [ %call68, %if.then66 ]
-  %cmp74 = icmp ult i32 %cond48, 48
+  %cmp74 = icmp slt i32 %.add, 48
   br i1 %cmp74, label %cond.true75, label %cond.end83
 
 cond.true75:                                      ; preds = %if.end73
@@ -12774,8 +12786,8 @@ cond.end83:                                       ; preds = %if.end73, %cond.tru
 
 if.then91:                                        ; preds = %cond.end83
   %conv92 = zext nneg i32 %add88 to i64
-  %call93 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv92) #18
-  %call95 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv92) #18
+  %call93 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv92) #17
+  %call95 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv92) #17
   %cmp96 = icmp eq ptr %call93, null
   %cmp97 = icmp eq ptr %call95, null
   %or.cond = select i1 %cmp96, i1 true, i1 %cmp97
@@ -13400,7 +13412,7 @@ if.end353:                                        ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberSubtract_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberSubtract_75(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -13443,7 +13455,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberToIntegralExact_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberToIntegralExact_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %status.i = alloca i32, align 4
   %dn = alloca %struct.decNumber, align 4
@@ -13666,7 +13678,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberToIntegralValue_75(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberToIntegralValue_75(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef %set) local_unnamed_addr #2 {
 entry:
   %workset = alloca %struct.decContext, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
@@ -13684,7 +13696,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberXor_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberXor_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %exponent = getelementptr inbounds %struct.decNumber, ptr %lhs, i64 0, i32 1
   %0 = load i32, ptr %exponent, align 4
@@ -13904,7 +13916,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
+define noundef i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #6 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -13982,7 +13994,7 @@ return:                                           ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uprv_decNumberClassToString_75(i32 noundef %eclass) local_unnamed_addr #12 {
+define noundef nonnull ptr @uprv_decNumberClassToString_75(i32 noundef %eclass) local_unnamed_addr #11 {
 entry:
   %0 = icmp ult i32 %eclass, 10
   br i1 %0, label %switch.lookup, label %return
@@ -13999,7 +14011,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberCopyNegate_75(ptr noundef returned %res, ptr noundef readonly %rhs) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberCopyNegate_75(ptr noundef returned %res, ptr noundef readonly %rhs) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %res, %rhs
   br i1 %cmp.i, label %uprv_decNumberCopy_75.exit, label %if.end.i
@@ -14061,7 +14073,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberGetBCD_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %bcd) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberGetBCD_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %bcd) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %idx.ext = sext i32 %0 to i64
@@ -14089,7 +14101,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_decNumberSetBCD_75(ptr noundef returned %dn, ptr noundef readonly %bcd, i32 noundef %n) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberSetBCD_75(ptr noundef returned %dn, ptr noundef readonly %bcd, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %lsu = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 3
   %0 = load i32, ptr %dn, align 4
@@ -14131,7 +14143,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #7 {
+define i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #6 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -14164,7 +14176,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uprv_decNumberTrim_75(ptr noundef returned %dn) local_unnamed_addr #3 {
+define noundef ptr @uprv_decNumberTrim_75(ptr noundef returned %dn) local_unnamed_addr #2 {
 entry:
   %dropped = alloca i32, align 4
   %set = alloca %struct.decContext, align 4
@@ -14174,13 +14186,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uprv_decNumberVersion_75() local_unnamed_addr #12 {
+define noundef nonnull ptr @uprv_decNumberVersion_75() local_unnamed_addr #11 {
 entry:
   ret ptr @.str.15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %alength to i64
   %add.ptr = getelementptr inbounds i8, ptr %c, i64 %idx.ext
@@ -14427,7 +14439,7 @@ return:                                           ; preds = %for.end125, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %exp) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %exp) unnamed_addr #2 {
 entry:
   %accbuff = alloca [73 x i8], align 16
   %cmp = icmp eq i32 %exp, 0
@@ -14501,7 +14513,7 @@ cond.end53:                                       ; preds = %cond.end38.thread, 
 
 if.then62:                                        ; preds = %cond.end53
   %conv60 = sext i32 %add59 to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv60) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv60) #17
   %cmp65 = icmp eq ptr %call, null
   br i1 %cmp65, label %return, label %if.end68
 
@@ -14551,7 +14563,7 @@ return:                                           ; preds = %for.cond, %if.end14
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, i32 noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %residue, 0
@@ -14843,8 +14855,8 @@ return:                                           ; preds = %if.else, %sw.bb14, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #12 {
 entry:
   %bits = getelementptr inbounds %struct.decNumber, ptr %dn, i64 0, i32 2
   %0 = load i8, ptr %bits, align 4
@@ -14963,7 +14975,7 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %dn37 = ptrtoint ptr %dn to i64
@@ -15141,51 +15153,50 @@ if.end57:                                         ; preds = %if.end57.sink.split
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { allocsize(0) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

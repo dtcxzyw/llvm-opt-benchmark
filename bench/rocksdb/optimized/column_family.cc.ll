@@ -4493,7 +4493,7 @@ if.end:                                           ; preds = %if.then, %_ZN7rocks
   %5 = load i8, ptr %atomic_flush, align 1
   %6 = and i8 %5, 1
   %tobool = icmp ne i8 %6, 0
-  %cmp19 = icmp ugt i32 %spec.select, 1
+  %cmp19 = icmp sgt i32 %.sroa.speculated, 1
   %or.cond = and i1 %cmp19, %tobool
   br i1 %or.cond, label %if.then20, label %if.end25
 

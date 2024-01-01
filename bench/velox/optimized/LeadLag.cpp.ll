@@ -10580,6 +10580,7 @@ for.body.preheader.i.i:                           ; preds = %if.then24.i.i
   %30 = load ptr, ptr %nulls_.i.i, align 8
   %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %30, i64 0, i32 2
   %31 = load ptr, ptr %data_.i.i.i, align 8
+  %wide.trip.count.i.i = zext nneg i32 %27 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE19rowNumberIgnoreNullEPKmiiii.exit.i.i, %for.body.preheader.i.i
@@ -10638,7 +10639,7 @@ _ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE19rowNum
   %41 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i25.i.i = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.i.i
   store i32 %retval.0.i.i.i, ptr %add.ptr.i25.i.i, align 4
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv8.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end11, label %for.body.i.i, !llvm.loop !104
 
 if.else.i.i:                                      ; preds = %if.then24.i.i

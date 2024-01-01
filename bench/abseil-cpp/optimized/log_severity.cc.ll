@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %s) local_unnamed_addr #0 {
 entry:
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %s, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %s, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   %cmp = icmp eq i32 %spec.store.select1.i, %s
   br i1 %cmp, label %if.then, label %if.end

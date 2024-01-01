@@ -856,7 +856,6 @@ cond.end27:
   %agg.tmp870 = alloca %"class.cvc5::internal::TypeNode", align 8
   %call28 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %cmp = icmp sgt i32 %dir, -1
-  %cond = tail call i32 @llvm.smax.i32(i32 %dir, i32 0)
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %children, i64 0, i32 1
   %_M_finish.i.i243 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %mchildren, i64 0, i32 1
   %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %s287, i64 0, i32 1
@@ -878,7 +877,7 @@ cond.end27:
 for.body:                                         ; preds = %cond.end27, %for.inc986
   %cmp595.not = phi i1 [ true, %cond.end27 ], [ false, %for.inc986 ]
   %storemerge3001 = phi i32 [ 0, %cond.end27 ], [ 1, %for.inc986 ]
-  %cmp38.not = icmp ugt i32 %cond, %storemerge3001
+  %cmp38.not = icmp slt i32 %storemerge3001, %dir
   %cmp39.not3040 = icmp ugt i32 %storemerge3001, %dir
   %cmp39.not = and i1 %cmp, %cmp39.not3040
   %or.cond = or i1 %cmp38.not, %cmp39.not
@@ -15984,9 +15983,6 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

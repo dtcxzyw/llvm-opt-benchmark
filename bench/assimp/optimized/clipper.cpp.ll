@@ -22928,7 +22928,6 @@ entry:
   %retval.0.in.i = fadd double %mul, %retval.0.in.v.i
   %retval.0.i = fptosi double %retval.0.in.i to i64
   %conv16 = trunc i64 %retval.0.i to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %conv16, i32 1)
   %9 = load ptr, ptr %m_normals, align 8
   %add.ptr.i20 = getelementptr inbounds %"struct.ClipperLib::DoublePoint", ptr %9, i64 %conv
   %10 = load <2 x double>, ptr %add.ptr.i20, align 8
@@ -22938,6 +22937,7 @@ entry:
   %_M_finish.i.i = getelementptr inbounds %"class.ClipperLib::ClipperOffset", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.ClipperLib::ClipperOffset", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %m_sin = getelementptr inbounds %"class.ClipperLib::ClipperOffset", ptr %this, i64 0, i32 8
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv16, i32 1)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.body
 
@@ -23052,7 +23052,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit: ; preds = %if.
   %33 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
   %34 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %27, <2 x double> %32)
   %inc = add nuw nsw i32 %i.092, 1
-  %exitcond.not = icmp eq i32 %inc, %.sroa.speculated
+  %exitcond.not = icmp eq i32 %inc, %smax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !264
 
 for.end:                                          ; preds = %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit

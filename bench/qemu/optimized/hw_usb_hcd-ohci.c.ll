@@ -1558,7 +1558,7 @@ trace_usb_ohci_async_complete.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @ohci_resume(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ohci_resume(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ctl = getelementptr inbounds %struct.OHCIState, ptr %s, i64 0, i32 8
@@ -4197,7 +4197,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @usb_find_device(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef %addr, ptr nocapture noundef readonly %td) unnamed_addr #0 {
+define internal fastcc noundef i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef %addr, ptr nocapture noundef readonly %td) unnamed_addr #0 {
 entry:
   %tmp.i4 = alloca i16, align 2
   %tmp.i = alloca i32, align 4
@@ -5520,9 +5520,8 @@ if.end:                                           ; preds = %entry
   %sof_time = getelementptr inbounds %struct.OHCIState, ptr %ohci, i64 0, i32 7
   %2 = load i64, ptr %sof_time, align 16
   %sub = sub i64 %call, %2
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %.b9 = load i1, ptr @usb_frame_time, align 8
-  %cmp5.not10 = icmp ult i64 %spec.store.select, 1000000
+  %cmp5.not10 = icmp slt i64 %sub, 1000000
   %cmp5.not = select i1 %.b9, i1 %cmp5.not10, i1 false
   br i1 %cmp5.not, label %if.end11, label %if.then7
 
@@ -5534,6 +5533,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %div.lhs.trunc = trunc i64 %spec.store.select to i32
   %div11 = udiv i32 %div.lhs.trunc, 83
   %fi = getelementptr inbounds %struct.OHCIState, ptr %ohci, i64 0, i32 22

@@ -23,7 +23,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_756BMPSetC1ERKS0_PKii = unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN6icu_756BMPSetC2ERKS0_PKii
 @_ZN6icu_756BMPSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756BMPSetD2Ev
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_756BMPSetC2EPKii(ptr nocapture noundef nonnull align 8 dereferenceable(868) %this, ptr noundef %parentList, i32 noundef %parentListLength) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -344,7 +344,7 @@ _ZNK6icu_756BMPSet13findCodePointEiii.exit:       ; preds = %if.else.i, %entry, 
   ret i8 %conv
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_756BMPSet8initBitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(868) %this) local_unnamed_addr #0 align 2 {
 entry:
   %list = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this, i64 0, i32 8
@@ -431,7 +431,7 @@ if.then32:                                        ; preds = %if.then32.split.loo
   %arrayidx21.le = getelementptr inbounds i32, ptr %12, i64 %idxprom20.le
   %17 = load i32, ptr %arrayidx21.le, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %17, i32 128)
-  %cmp37119 = icmp ult i32 %spec.store.select, 2048
+  %cmp37119 = icmp slt i32 %17, 2048
   br i1 %cmp37119, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then32
@@ -841,7 +841,7 @@ if.end:                                           ; preds = %for.body13, %for.bo
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_756BMPSetC2ERKS0_PKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(868) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %otherBMPSet, ptr noundef %newParentList, i32 noundef %newParentListLength) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -2553,12 +2553,12 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

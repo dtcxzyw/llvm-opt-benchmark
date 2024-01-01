@@ -420,7 +420,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add2.i = zext i1 %or.cond.not.i to i64
   %retsize.0.i = add nsw i64 %div.i, %add2.i
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %retsize.0.i, i64 1)
-  %or.cond = icmp ugt i64 %spec.store.select.i, 2147483647
+  %or.cond = icmp sgt i64 %retsize.0.i, 2147483647
   br i1 %or.cond, label %if.then116, label %if.end122
 
 if.then116:                                       ; preds = %for.body
@@ -459,7 +459,7 @@ for.body137:                                      ; preds = %for.body137.prehead
   %add2.i157 = zext i1 %or.cond.not.i156 to i64
   %retsize.0.i158 = add nsw i64 %div.i152, %add2.i157
   %spec.store.select.i159 = tail call i64 @llvm.smax.i64(i64 %retsize.0.i158, i64 1)
-  %or.cond1 = icmp ugt i64 %spec.store.select.i159, 2147483647
+  %or.cond1 = icmp sgt i64 %retsize.0.i158, 2147483647
   br i1 %or.cond1, label %if.then154, label %if.end161
 
 if.then154:                                       ; preds = %for.body137
@@ -2876,19 +2876,19 @@ return:                                           ; preds = %priv_destroy_scratc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @silent_standard_error(ptr nocapture readnone %pctxt, i32 noundef returned %code) #3 {
+define internal noundef i32 @silent_standard_error(ptr nocapture readnone %pctxt, i32 noundef returned %code) #3 {
 entry:
   ret i32 %code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @silent_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg) #3 {
+define internal noundef i32 @silent_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg) #3 {
 entry:
   ret i32 %code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @silent_print_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg, ...) #3 {
+define internal noundef i32 @silent_print_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg, ...) #3 {
 entry:
   ret i32 %code
 }

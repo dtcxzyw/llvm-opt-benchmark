@@ -1532,7 +1532,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %v, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %v, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   %cmp = icmp eq i32 %spec.store.select1.i, %v
   br i1 %cmp, label %if.then, label %if.end

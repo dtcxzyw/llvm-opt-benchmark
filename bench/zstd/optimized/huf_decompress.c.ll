@@ -615,32 +615,42 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp16.not50.i, label %for.inc33.i, label %for.body17.lr.ph.i
 
 for.body17.lr.ph.i:                               ; preds = %if.then.i
-  %add12.i = add i32 %sub.i, %sub6.i
+  %add12.i = add i32 %sub6.i, %sub.i
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %add12.i, i32 1)
   %idxprom18.i = zext i32 %sub6.i to i64
   %arrayidx19.i = getelementptr inbounds [13 x i32], ptr %workSpace, i64 %idxprom18.i
-  %cmp.i.i = icmp ugt i32 %spec.store.select.i, 1
+  %cmp.i.i = icmp sgt i32 %add12.i, 1
   %shl1.i.i.i.i = shl i32 %sub6.i, 16
   %add2.i.i.i.i = add i32 %shl1.i.i.i.i, 16777216
   %idxprom.i.i = zext nneg i32 %spec.store.select.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %arrayidx19.i, i64 %idxprom.i.i
   %cmp1735.i.not.i = icmp sgt i32 %spec.store.select.i, %maxW.0
   %sub25.i.i = add i32 %sub6.i, %1
-  %18 = sext i32 %14 to i64
-  br i1 %cmp1735.i.not.i, label %for.body17.us.us.i, label %for.body17.i
+  br i1 %cmp1735.i.not.i, label %for.body17.lr.ph.split.us.i, label %for.body17.preheader.i
 
-for.body17.us.us.i:                               ; preds = %for.body17.lr.ph.i, %if.end.i.us.us.i
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %if.end.i.us.us.i ], [ %18, %for.body17.lr.ph.i ]
-  %start.051.us.us.i = phi i32 [ %add23.us.us.i, %if.end.i.us.us.i ], [ %17, %for.body17.lr.ph.i ]
+for.body17.preheader.i:                           ; preds = %for.body17.lr.ph.i
+  %18 = sext i32 %14 to i64
+  br label %for.body17.i
+
+for.body17.lr.ph.split.us.i:                      ; preds = %for.body17.lr.ph.i
+  br i1 %cmp.i.i, label %for.body17.us.us.preheader.i, label %for.inc33.i
+
+for.body17.us.us.preheader.i:                     ; preds = %for.body17.lr.ph.split.us.i
+  %19 = sext i32 %14 to i64
+  br label %for.body17.us.us.i
+
+for.body17.us.us.i:                               ; preds = %if.end.i.us.us.i, %for.body17.us.us.preheader.i
+  %indvars.iv62.i = phi i64 [ %19, %for.body17.us.us.preheader.i ], [ %indvars.iv.next63.i, %if.end.i.us.us.i ]
+  %start.051.us.us.i = phi i32 [ %17, %for.body17.us.us.preheader.i ], [ %add23.us.us.i, %if.end.i.us.us.i ]
   %idx.ext.us.us.i = sext i32 %start.051.us.us.i to i64
   %add.ptr.us.us.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %add.ptr, i64 %idx.ext.us.us.i
   %arrayidx22.us.us.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol115, i64 %indvars.iv62.i
-  %19 = load i8, ptr %arrayidx22.us.us.i, align 1
-  %conv.i.us.us.i = zext i8 %19 to i32
+  %20 = load i8, ptr %arrayidx22.us.us.i, align 1
+  %conv.i.us.us.i = zext i8 %20 to i32
   %add4.i.i.i.us.us.i = or disjoint i32 %add2.i.i.i.i, %conv.i.us.us.i
   %conv1.i.i.us.us.i = zext i32 %add4.i.i.i.us.us.i to i64
   %add.i.i.us.us.i = mul nuw i64 %conv1.i.i.us.us.i, 4294967297
-  %20 = load i32, ptr %arrayidx.i.i, align 4
+  %21 = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %shl.i, label %for.cond.preheader.i.us.us.i [
     i32 2, label %if.end.sink.split.i.us.us.i
     i32 4, label %sw.bb1.i.us.us.i
@@ -657,11 +667,11 @@ if.end.sink.split.i.us.us.i:                      ; preds = %sw.bb1.i.us.us.i, %
   br label %if.end.i.us.us.i
 
 for.cond.preheader.i.us.us.i:                     ; preds = %for.body17.us.us.i
-  %cmp333.i.us.us.i = icmp sgt i32 %20, 0
+  %cmp333.i.us.us.i = icmp sgt i32 %21, 0
   br i1 %cmp333.i.us.us.i, label %for.body.preheader.i.us.us.i, label %if.end.i.us.us.i
 
 for.body.preheader.i.us.us.i:                     ; preds = %for.cond.preheader.i.us.us.i
-  %21 = zext nneg i32 %20 to i64
+  %22 = zext nneg i32 %21 to i64
   br label %for.body.i.us.us.i
 
 for.body.i.us.us.i:                               ; preds = %for.body.i.us.us.i, %for.body.preheader.i.us.us.i
@@ -675,42 +685,42 @@ for.body.i.us.us.i:                               ; preds = %for.body.i.us.us.i,
   %add.ptr15.i.us.us.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %add.ptr5.i.us.us.i, i64 6
   store i64 %add.i.i.us.us.i, ptr %add.ptr15.i.us.us.i, align 2
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 8
-  %cmp3.i.us.us.i = icmp ult i64 %indvars.iv.next.i.us.us.i, %21
+  %cmp3.i.us.us.i = icmp ult i64 %indvars.iv.next.i.us.us.i, %22
   br i1 %cmp3.i.us.us.i, label %for.body.i.us.us.i, label %if.end.i.us.us.i, !llvm.loop !24
 
 if.end.i.us.us.i:                                 ; preds = %for.body.i.us.us.i, %for.cond.preheader.i.us.us.i, %if.end.sink.split.i.us.us.i
   %add23.us.us.i = add i32 %start.051.us.us.i, %shl.i
   %indvars.iv.next63.i = add nsw i64 %indvars.iv62.i, 1
-  %22 = trunc i64 %indvars.iv.next63.i to i32
-  %cmp16.not.us.us.i = icmp eq i32 %15, %22
+  %23 = trunc i64 %indvars.iv.next63.i to i32
+  %cmp16.not.us.us.i = icmp eq i32 %15, %23
   br i1 %cmp16.not.us.us.i, label %for.inc33.i, label %for.body17.us.us.i, !llvm.loop !25
 
-for.body17.i:                                     ; preds = %for.body17.lr.ph.i, %HUF_fillDTableX2Level2.exit.loopexit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %HUF_fillDTableX2Level2.exit.loopexit.i ], [ %18, %for.body17.lr.ph.i ]
-  %start.051.i = phi i32 [ %add23.i, %HUF_fillDTableX2Level2.exit.loopexit.i ], [ %17, %for.body17.lr.ph.i ]
+for.body17.i:                                     ; preds = %HUF_fillDTableX2Level2.exit.loopexit.i, %for.body17.preheader.i
+  %indvars.iv.i = phi i64 [ %18, %for.body17.preheader.i ], [ %indvars.iv.next.i, %HUF_fillDTableX2Level2.exit.loopexit.i ]
+  %start.051.i = phi i32 [ %17, %for.body17.preheader.i ], [ %add23.i, %HUF_fillDTableX2Level2.exit.loopexit.i ]
   %idx.ext.i = sext i32 %start.051.i to i64
   %add.ptr.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %add.ptr, i64 %idx.ext.i
   %arrayidx22.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol115, i64 %indvars.iv.i
-  %23 = load i8, ptr %arrayidx22.i, align 1
-  %conv.i.i = zext i8 %23 to i32
+  %24 = load i8, ptr %arrayidx22.i, align 1
+  %conv.i.i = zext i8 %24 to i32
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body19.i.i.preheader
 
 if.then.i.i:                                      ; preds = %for.body17.i
   %add4.i.i.i.i = or disjoint i32 %add2.i.i.i.i, %conv.i.i
   %conv1.i.i.i = zext i32 %add4.i.i.i.i to i64
   %add.i.i.i = mul nuw i64 %conv1.i.i.i, 4294967297
-  %24 = load i32, ptr %arrayidx.i.i, align 4
+  %25 = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %shl.i, label %for.cond.preheader.i.i [
     i32 2, label %if.end.sink.split.i.i
     i32 4, label %sw.bb1.i.i
   ]
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i.i
-  %cmp333.i.i = icmp sgt i32 %24, 0
+  %cmp333.i.i = icmp sgt i32 %25, 0
   br i1 %cmp333.i.i, label %for.body.preheader.i.i, label %for.body19.i.i.preheader
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %25 = zext nneg i32 %24 to i64
+  %26 = zext nneg i32 %25 to i64
   br label %for.body.i.i
 
 sw.bb1.i.i:                                       ; preds = %if.then.i.i
@@ -729,7 +739,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.ptr15.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %add.ptr5.i.i, i64 6
   store i64 %add.i.i.i, ptr %add.ptr15.i.i, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
-  %cmp3.i.i = icmp ult i64 %indvars.iv.next.i.i, %25
+  %cmp3.i.i = icmp ult i64 %indvars.iv.next.i.i, %26
   br i1 %cmp3.i.i, label %for.body.i.i, label %for.body19.i.i.preheader, !llvm.loop !24
 
 if.end.sink.split.i.i:                            ; preds = %sw.bb1.i.i, %if.then.i.i
@@ -743,24 +753,24 @@ for.body19.i.i.preheader:                         ; preds = %for.body.i.i, %if.e
 for.body19.i.i:                                   ; preds = %for.body19.i.i.preheader, %HUF_fillDTableX2ForWeight.exit.i
   %indvars.iv38.i.i = phi i64 [ %indvars.iv.next39.i.i, %HUF_fillDTableX2ForWeight.exit.i ], [ %idxprom.i.i, %for.body19.i.i.preheader ]
   %arrayidx21.i.i = getelementptr inbounds i32, ptr %rankStart0, i64 %indvars.iv38.i.i
-  %26 = load i32, ptr %arrayidx21.i.i, align 4
+  %27 = load i32, ptr %arrayidx21.i.i, align 4
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %arrayidx24.i.i = getelementptr inbounds i32, ptr %rankStart0, i64 %indvars.iv.next39.i.i
-  %27 = load i32, ptr %arrayidx24.i.i, align 4
-  %28 = trunc i64 %indvars.iv38.i.i to i32
-  %add26.i.i = sub i32 %sub25.i.i, %28
+  %28 = load i32, ptr %arrayidx24.i.i, align 4
+  %29 = trunc i64 %indvars.iv38.i.i to i32
+  %add26.i.i = sub i32 %sub25.i.i, %29
   %arrayidx28.i.i = getelementptr inbounds i32, ptr %arrayidx19.i, i64 %indvars.iv38.i.i
-  %29 = load i32, ptr %arrayidx28.i.i, align 4
-  %idx.ext29.i.i = zext i32 %29 to i64
+  %30 = load i32, ptr %arrayidx28.i.i, align 4
+  %idx.ext29.i.i = zext i32 %30 to i64
   %add.ptr30.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %add.ptr.i, i64 %idx.ext29.i.i
-  %idx.ext31.i.i = sext i32 %26 to i64
+  %idx.ext31.i.i = sext i32 %27 to i64
   %add.ptr32.i.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol115, i64 %idx.ext31.i.i
-  %idx.ext33.i.i = sext i32 %27 to i64
+  %idx.ext33.i.i = sext i32 %28 to i64
   %add.ptr34.i.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol115, i64 %idx.ext33.i.i
   %sub.i35.i = sub i32 %spec.store.select, %add26.i.i
   %and.i36.i = and i32 %sub.i35.i, 31
   %shl.i37.i = shl nuw i32 1, %and.i36.i
-  %cmp49.not119.i.i = icmp eq i32 %26, %27
+  %cmp49.not119.i.i = icmp eq i32 %27, %28
   switch i32 %shl.i37.i, label %for.cond48.preheader.i.i [
     i32 1, label %for.cond.preheader.i40.i
     i32 2, label %for.cond4.preheader.i.i
@@ -812,11 +822,11 @@ for.body51.lr.ph.i.i:                             ; preds = %for.cond48.preheade
 for.body.i43.i:                                   ; preds = %for.body.i43.i, %for.body.lr.ph.i.i
   %DTableRank.addr.0116.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i43.i ], [ %add.ptr30.i.i, %for.body.lr.ph.i.i ]
   %ptr.0115.i.i = phi ptr [ %incdec.ptr2.i.i, %for.body.i43.i ], [ %add.ptr32.i.i, %for.body.lr.ph.i.i ]
-  %30 = load i8, ptr %ptr.0115.i.i, align 1
-  %conv.i44.i = zext i8 %30 to i32
+  %31 = load i8, ptr %ptr.0115.i.i, align 1
+  %conv.i44.i = zext i8 %31 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i44.i, 8
-  %31 = or disjoint i32 %shl.i.i.i.i, %add2.i.i.i42.i
-  %add4.i.i.i45.i = or disjoint i32 %31, %conv.i.i
+  %32 = or disjoint i32 %shl.i.i.i.i, %add2.i.i.i42.i
+  %add4.i.i.i45.i = or disjoint i32 %32, %conv.i.i
   %incdec.ptr.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.0116.i.i, i64 1
   store i32 %add4.i.i.i45.i, ptr %DTableRank.addr.0116.i.i, align 2
   %incdec.ptr2.i.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %ptr.0115.i.i, i64 1
@@ -826,11 +836,11 @@ for.body.i43.i:                                   ; preds = %for.body.i43.i, %fo
 for.body7.i.i:                                    ; preds = %for.body7.i.i, %for.body7.lr.ph.i.i
   %DTableRank.addr.1113.i.i = phi ptr [ %add.ptr.i.i, %for.body7.i.i ], [ %add.ptr30.i.i, %for.body7.lr.ph.i.i ]
   %ptr.1112.i.i = phi ptr [ %incdec.ptr15.i.i, %for.body7.i.i ], [ %add.ptr32.i.i, %for.body7.lr.ph.i.i ]
-  %32 = load i8, ptr %ptr.1112.i.i, align 1
-  %conv10.i.i = zext i8 %32 to i32
+  %33 = load i8, ptr %ptr.1112.i.i, align 1
+  %conv10.i.i = zext i8 %33 to i32
   %shl.i.i64.i.i = shl nuw nsw i32 %conv10.i.i, 8
-  %33 = or disjoint i32 %shl.i.i64.i.i, %add2.i.i69.i.i
-  %add4.i.i70.i.i = or disjoint i32 %33, %conv.i.i
+  %34 = or disjoint i32 %shl.i.i64.i.i, %add2.i.i69.i.i
+  %add4.i.i70.i.i = or disjoint i32 %34, %conv.i.i
   store i32 %add4.i.i70.i.i, ptr %DTableRank.addr.1113.i.i, align 2
   %arrayidx13.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.1113.i.i, i64 1
   store i32 %add4.i.i70.i.i, ptr %arrayidx13.i.i, align 2
@@ -842,11 +852,11 @@ for.body7.i.i:                                    ; preds = %for.body7.i.i, %for
 for.body21.i.i:                                   ; preds = %for.body21.i.i, %for.body21.lr.ph.i.i
   %DTableRank.addr.2110.i.i = phi ptr [ %add.ptr27.i.i, %for.body21.i.i ], [ %add.ptr30.i.i, %for.body21.lr.ph.i.i ]
   %ptr.2109.i.i = phi ptr [ %incdec.ptr29.i.i, %for.body21.i.i ], [ %add.ptr32.i.i, %for.body21.lr.ph.i.i ]
-  %34 = load i8, ptr %ptr.2109.i.i, align 1
-  %conv23.i.i = zext i8 %34 to i32
+  %35 = load i8, ptr %ptr.2109.i.i, align 1
+  %conv23.i.i = zext i8 %35 to i32
   %shl.i.i72.i.i = shl nuw nsw i32 %conv23.i.i, 8
-  %35 = or disjoint i32 %shl.i.i72.i.i, %add2.i.i77.i.i
-  %add4.i.i78.i.i = or disjoint i32 %35, %conv.i.i
+  %36 = or disjoint i32 %shl.i.i72.i.i, %add2.i.i77.i.i
+  %add4.i.i78.i.i = or disjoint i32 %36, %conv.i.i
   %conv1.i.i38.i = zext i32 %add4.i.i78.i.i to i64
   %add.i.i39.i = mul nuw i64 %conv1.i.i38.i, 4294967297
   store i64 %add.i.i39.i, ptr %DTableRank.addr.2110.i.i, align 2
@@ -860,11 +870,11 @@ for.body21.i.i:                                   ; preds = %for.body21.i.i, %fo
 for.body35.i.i:                                   ; preds = %for.body35.i.i, %for.body35.lr.ph.i.i
   %DTableRank.addr.3107.i.i = phi ptr [ %add.ptr44.i.i, %for.body35.i.i ], [ %add.ptr30.i.i, %for.body35.lr.ph.i.i ]
   %ptr.3106.i.i = phi ptr [ %incdec.ptr46.i.i, %for.body35.i.i ], [ %add.ptr32.i.i, %for.body35.lr.ph.i.i ]
-  %36 = load i8, ptr %ptr.3106.i.i, align 1
-  %conv38.i.i = zext i8 %36 to i32
+  %37 = load i8, ptr %ptr.3106.i.i, align 1
+  %conv38.i.i = zext i8 %37 to i32
   %shl.i.i81.i.i = shl nuw nsw i32 %conv38.i.i, 8
-  %37 = or disjoint i32 %shl.i.i81.i.i, %add2.i.i86.i.i
-  %add4.i.i87.i.i = or disjoint i32 %37, %conv.i.i
+  %38 = or disjoint i32 %shl.i.i81.i.i, %add2.i.i86.i.i
+  %add4.i.i87.i.i = or disjoint i32 %38, %conv.i.i
   %conv1.i88.i.i = zext i32 %add4.i.i87.i.i to i64
   %add.i89.i.i = mul nuw i64 %conv1.i88.i.i, 4294967297
   store i64 %add.i89.i.i, ptr %DTableRank.addr.3107.i.i, align 2
@@ -882,11 +892,11 @@ for.body35.i.i:                                   ; preds = %for.body35.i.i, %fo
 for.body60.preheader.i.i:                         ; preds = %for.inc68.i.i, %for.body51.lr.ph.i.i
   %DTableRank.addr.4121.i.i = phi ptr [ %add.ptr30.i.i, %for.body51.lr.ph.i.i ], [ %add.ptr56.i.i, %for.inc68.i.i ]
   %ptr.4120.i.i = phi ptr [ %add.ptr32.i.i, %for.body51.lr.ph.i.i ], [ %incdec.ptr69.i.i, %for.inc68.i.i ]
-  %38 = load i8, ptr %ptr.4120.i.i, align 1
-  %conv54.i.i = zext i8 %38 to i32
+  %39 = load i8, ptr %ptr.4120.i.i, align 1
+  %conv54.i.i = zext i8 %39 to i32
   %shl.i.i92.i.i = shl nuw nsw i32 %conv54.i.i, 8
-  %39 = or disjoint i32 %shl.i.i92.i.i, %add2.i.i97.i.i
-  %add4.i.i98.i.i = or disjoint i32 %39, %conv.i.i
+  %40 = or disjoint i32 %shl.i.i92.i.i, %add2.i.i97.i.i
+  %add4.i.i98.i.i = or disjoint i32 %40, %conv.i.i
   %conv1.i99.i.i = zext i32 %add4.i.i98.i.i to i64
   %add.i100.i.i = mul nuw i64 %conv1.i99.i.i, 4294967297
   %add.ptr56.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.4121.i.i, i64 %idx.ext.i.i
@@ -917,8 +927,8 @@ HUF_fillDTableX2ForWeight.exit.i:                 ; preds = %for.body35.i.i, %fo
 HUF_fillDTableX2Level2.exit.loopexit.i:           ; preds = %HUF_fillDTableX2ForWeight.exit.i
   %add23.i = add i32 %start.051.i, %shl.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %40 = trunc i64 %indvars.iv.next.i to i32
-  %cmp16.not.i = icmp eq i32 %15, %40
+  %41 = trunc i64 %indvars.iv.next.i to i32
+  %cmp16.not.i = icmp eq i32 %15, %41
   br i1 %cmp16.not.i, label %for.inc33.i, label %for.body17.i, !llvm.loop !25
 
 if.else.i:                                        ; preds = %for.body.i
@@ -949,8 +959,8 @@ for.body35.lr.ph.i:                               ; preds = %for.cond32.preheade
 for.body35.us.i:                                  ; preds = %for.body35.us.i, %for.body35.lr.ph.i
   %DTableRank.addr.3107.us.i = phi ptr [ %add.ptr44.us.i, %for.body35.us.i ], [ %add.ptr27.i, %for.body35.lr.ph.i ]
   %ptr.3106.us.i = phi ptr [ %incdec.ptr46.us.i, %for.body35.us.i ], [ %add.ptr29.i, %for.body35.lr.ph.i ]
-  %41 = load i8, ptr %ptr.3106.us.i, align 1
-  %conv38.us.i = zext i8 %41 to i32
+  %42 = load i8, ptr %ptr.3106.us.i, align 1
+  %conv38.us.i = zext i8 %42 to i32
   %add4.i.i87.us.i = or disjoint i32 %add2.i.i86.i, %conv38.us.i
   %conv1.i88.us.i = zext i32 %add4.i.i87.us.i to i64
   %add.i89.us.i = mul nuw i64 %conv1.i88.us.i, 4294967297
@@ -977,8 +987,8 @@ for.body21.lr.ph.i:                               ; preds = %for.cond18.preheade
 for.body21.us.i:                                  ; preds = %for.body21.us.i, %for.body21.lr.ph.i
   %DTableRank.addr.2110.us.i = phi ptr [ %add.ptr27.us.i, %for.body21.us.i ], [ %add.ptr27.i, %for.body21.lr.ph.i ]
   %ptr.2109.us.i = phi ptr [ %incdec.ptr29.us.i, %for.body21.us.i ], [ %add.ptr29.i, %for.body21.lr.ph.i ]
-  %42 = load i8, ptr %ptr.2109.us.i, align 1
-  %conv23.us.i = zext i8 %42 to i32
+  %43 = load i8, ptr %ptr.2109.us.i, align 1
+  %conv23.us.i = zext i8 %43 to i32
   %add4.i.i78.us.i = or disjoint i32 %add2.i.i77.i, %conv23.us.i
   %conv1.i.us.i = zext i32 %add4.i.i78.us.i to i64
   %add.i.us.i = mul nuw i64 %conv1.i.us.i, 4294967297
@@ -1001,8 +1011,8 @@ for.body7.lr.ph.i:                                ; preds = %for.cond4.preheader
 for.body7.us.i:                                   ; preds = %for.body7.us.i, %for.body7.lr.ph.i
   %DTableRank.addr.1113.us.i = phi ptr [ %add.ptr.us.i, %for.body7.us.i ], [ %add.ptr27.i, %for.body7.lr.ph.i ]
   %ptr.1112.us.i = phi ptr [ %incdec.ptr15.us.i, %for.body7.us.i ], [ %add.ptr29.i, %for.body7.lr.ph.i ]
-  %43 = load i8, ptr %ptr.1112.us.i, align 1
-  %conv10.us.i = zext i8 %43 to i32
+  %44 = load i8, ptr %ptr.1112.us.i, align 1
+  %conv10.us.i = zext i8 %44 to i32
   %add4.i.i70.us.i = or disjoint i32 %add2.i.i69.i, %conv10.us.i
   store i32 %add4.i.i70.us.i, ptr %DTableRank.addr.1113.us.i, align 2
   %arrayidx13.us.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.1113.us.i, i64 1
@@ -1023,8 +1033,8 @@ for.body.lr.ph.i62:                               ; preds = %for.cond.preheader.
 for.body.us.i:                                    ; preds = %for.body.us.i, %for.body.lr.ph.i62
   %DTableRank.addr.0116.us.i = phi ptr [ %incdec.ptr.us.i, %for.body.us.i ], [ %add.ptr27.i, %for.body.lr.ph.i62 ]
   %ptr.0115.us.i = phi ptr [ %incdec.ptr2.us.i, %for.body.us.i ], [ %add.ptr29.i, %for.body.lr.ph.i62 ]
-  %44 = load i8, ptr %ptr.0115.us.i, align 1
-  %conv.us.i = zext i8 %44 to i32
+  %45 = load i8, ptr %ptr.0115.us.i, align 1
+  %conv.us.i = zext i8 %45 to i32
   %add4.i.i.us.i = or disjoint i32 %add2.i.i.i, %conv.us.i
   %incdec.ptr.us.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.0116.us.i, i64 1
   store i32 %add4.i.i.us.i, ptr %DTableRank.addr.0116.us.i, align 2
@@ -1044,8 +1054,8 @@ for.body51.lr.ph.i:                               ; preds = %for.cond48.preheade
 for.body60.preheader.i:                           ; preds = %for.inc68.i, %for.body51.lr.ph.i
   %DTableRank.addr.4121.i = phi ptr [ %add.ptr27.i, %for.body51.lr.ph.i ], [ %add.ptr56.i, %for.inc68.i ]
   %ptr.4120.i = phi ptr [ %add.ptr29.i, %for.body51.lr.ph.i ], [ %incdec.ptr69.i, %for.inc68.i ]
-  %45 = load i8, ptr %ptr.4120.i, align 1
-  %conv54.i = zext i8 %45 to i32
+  %46 = load i8, ptr %ptr.4120.i, align 1
+  %conv54.i = zext i8 %46 to i32
   %add4.i.i98.i = or disjoint i32 %add2.i.i97.i, %conv54.i
   %conv1.i99.i = zext i32 %add4.i.i98.i to i64
   %add.i100.i = mul nuw i64 %conv1.i99.i, 4294967297
@@ -1070,7 +1080,7 @@ for.inc68.i:                                      ; preds = %for.body60.i
   %cmp49.not.i = icmp eq ptr %incdec.ptr69.i, %add.ptr31.i
   br i1 %cmp49.not.i, label %for.inc33.i, label %for.body60.preheader.i, !llvm.loop !31
 
-for.inc33.i:                                      ; preds = %HUF_fillDTableX2Level2.exit.loopexit.i, %if.end.i.us.us.i, %for.body35.us.i, %for.body21.us.i, %for.body7.us.i, %for.body.us.i, %for.inc68.i, %for.cond48.preheader.i, %for.cond.preheader.i, %for.cond4.preheader.i, %for.cond18.preheader.i, %for.cond32.preheader.i, %if.then.i
+for.inc33.i:                                      ; preds = %HUF_fillDTableX2Level2.exit.loopexit.i, %if.end.i.us.us.i, %for.body35.us.i, %for.body21.us.i, %for.body7.us.i, %for.body.us.i, %for.inc68.i, %for.cond48.preheader.i, %for.cond.preheader.i, %for.cond4.preheader.i, %for.cond18.preheader.i, %for.cond32.preheader.i, %for.body17.lr.ph.split.us.i, %if.then.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next66.i, %idxprom46
   br i1 %exitcond.not.i, label %HUF_fillDTableX2.exit, label %for.body.i, !llvm.loop !33
 
@@ -1115,7 +1125,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %and = and i32 %flags, 1
@@ -1233,7 +1243,7 @@ if.end.i.i:                                       ; preds = %BIT_initDStream.exi
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %DTable, align 4
   %dtd.i.sroa.1.0.extract.shift.i = lshr i32 %retval.sroa.0.0.copyload.i.i, 16
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cond.i.i to i64
-  %cmp.i.i = icmp ugt i64 %cond.idx.i.i, 7
+  %cmp.i.i = icmp sgt i64 %dstSize, 7
   br i1 %cmp.i.i, label %if.then.i1.i, label %if.end.i136.i
 
 if.end.i.thread.i:                                ; preds = %sw.epilog.i.i
@@ -1249,7 +1259,7 @@ if.end.i.thread.i:                                ; preds = %sw.epilog.i.i
   %retval.sroa.0.0.copyload.i598.i = load i32, ptr %DTable, align 4
   %dtd.i.sroa.1.0.extract.shift599.i = lshr i32 %retval.sroa.0.0.copyload.i598.i, 16
   %sub.ptr.lhs.cast.i600.i = ptrtoint ptr %cond.i596.i to i64
-  %cmp.i601.i = icmp ugt i64 %cond.idx.i595.i, 7
+  %cmp.i601.i = icmp sgt i64 %dstSize, 7
   br i1 %cmp.i601.i, label %if.then.i1.i, label %if.end75.i.i
 
 if.then.i1.i:                                     ; preds = %if.end.i.thread.i, %if.end.i.i
@@ -1872,7 +1882,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @HUF_decompress1X_usingDTable(ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %retval.sroa.0.0.copyload.i = load i32, ptr %DTable, align 4
@@ -1893,7 +1903,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i64 %cond
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable, i32 noundef %flags) unnamed_addr #6 {
 entry:
   %and = and i32 %flags, 1
@@ -2009,7 +2019,7 @@ BIT_initDStream.exit.i:                           ; preds = %if.then3.i.i
   br i1 %cmp.i121.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %BIT_initDStream.exit.i
-  %cmp.i.i = icmp ugt i64 %cond.idx.i.i, 3
+  %cmp.i.i = icmp sgt i64 %dstSize, 3
   br i1 %cmp.i.i, label %if.end.i129.i.lr.ph.i, label %if.end.i75.i.i
 
 if.end.i.thread.i:                                ; preds = %sw.epilog.i.i
@@ -2019,7 +2029,7 @@ if.end.i.thread.i:                                ; preds = %sw.epilog.i.i
   %18 = shl nuw nsw i32 %17, 3
   %reass.sub.i = sub nsw i32 %16, %18
   %add74.i.i = add nsw i32 %reass.sub.i, 41
-  %cmp.i294.i = icmp ugt i64 %cond.idx.i.i, 3
+  %cmp.i294.i = icmp sgt i64 %dstSize, 3
   br i1 %cmp.i294.i, label %if.end.i129.i.lr.ph.i, label %if.end35.i.i
 
 if.end.i129.i.lr.ph.i:                            ; preds = %if.end.i.thread.i, %if.end.i.i
@@ -6605,7 +6615,7 @@ return:                                           ; preds = %if.end3.i19, %if.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #7 {
 entry:
   %cmp.i228 = icmp eq i64 %cSrcSize, 0
@@ -6715,7 +6725,7 @@ if.end.i:                                         ; preds = %BIT_initDStream.exi
   %retval.sroa.0.0.copyload.i = load i32, ptr %DTable, align 4
   %dtd.i.sroa.1.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i, 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i to i64
-  %cmp.i = icmp ugt i64 %cond.idx.i, 7
+  %cmp.i = icmp sgt i64 %dstSize, 7
   br i1 %cmp.i, label %if.then.i1, label %if.end.i136
 
 if.end.i.thread:                                  ; preds = %sw.epilog.i
@@ -6731,7 +6741,7 @@ if.end.i.thread:                                  ; preds = %sw.epilog.i
   %retval.sroa.0.0.copyload.i598 = load i32, ptr %DTable, align 4
   %dtd.i.sroa.1.0.extract.shift599 = lshr i32 %retval.sroa.0.0.copyload.i598, 16
   %sub.ptr.lhs.cast.i600 = ptrtoint ptr %cond.i596 to i64
-  %cmp.i601 = icmp ugt i64 %cond.idx.i595, 7
+  %cmp.i601 = icmp sgt i64 %dstSize, 7
   br i1 %cmp.i601, label %if.then.i1, label %if.end75.i
 
 if.then.i1:                                       ; preds = %if.end.i.thread, %if.end.i
@@ -7230,8 +7240,8 @@ HUF_decompress1X2_usingDTable_internal_body.exit: ; preds = %HUF_decodeStreamX2.
   ret i64 %retval.i.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -7380,7 +7390,7 @@ return:                                           ; preds = %if.end70, %cond.end
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly %dst, i64 noundef %dstSize, ptr noundef readonly %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #10 {
 entry:
   %cond.idx.i = tail call i64 @llvm.smax.i64(i64 %dstSize, i64 0)
@@ -7488,7 +7498,7 @@ BIT_initDStream.exit:                             ; preds = %if.then3.i
 
 if.end.i:                                         ; preds = %BIT_initDStream.exit
   %bitD.i.sroa.48197.0248.ptr.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %add.ptr4.i.add
-  %cmp.i = icmp ugt i64 %cond.idx.i, 3
+  %cmp.i = icmp sgt i64 %dstSize, 3
   br i1 %cmp.i, label %if.end.i129.i.lr.ph, label %if.end.i75.i
 
 if.end.i.thread:                                  ; preds = %sw.epilog.i
@@ -7498,7 +7508,7 @@ if.end.i.thread:                                  ; preds = %sw.epilog.i
   %18 = shl nuw nsw i32 %17, 3
   %reass.sub = sub nsw i32 %16, %18
   %add74.i = add nsw i32 %reass.sub, 41
-  %cmp.i294 = icmp ugt i64 %cond.idx.i, 3
+  %cmp.i294 = icmp sgt i64 %dstSize, 3
   br i1 %cmp.i294, label %if.end.i129.i.lr.ph, label %if.end35.i
 
 if.end.i129.i.lr.ph:                              ; preds = %if.end.i.thread, %if.end.i
@@ -7691,7 +7701,7 @@ HUF_decompress1X1_usingDTable_internal_body.exit: ; preds = %HUF_decodeStreamX1.
   ret i64 %retval.i.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #7 {
 entry:
   %ip = alloca [4 x ptr], align 16
@@ -8120,7 +8130,7 @@ _out:                                             ; preds = %for.end, %for.body2
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #7 {
 entry:
   %bitD4.i = alloca %struct.BIT_DStream_t, align 8
@@ -10850,7 +10860,7 @@ HUF_decompress4X2_usingDTable_internal_body.exit: ; preds = %sw.epilog.i1194, %i
 declare hidden void @HUF_decompress4X2_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
+define internal fastcc noundef i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
 entry:
   %args = alloca %struct.HUF_DecompressFastArgs, align 8
   %add.ptr = getelementptr inbounds i32, ptr %DTable, i64 1
@@ -11223,8 +11233,8 @@ return:                                           ; preds = %if.end.i, %for.body
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_DecompressFastArgs_init(ptr nocapture noundef writeonly %args, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, ptr noundef %DTable) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef i64 @HUF_DecompressFastArgs_init(ptr nocapture noundef writeonly %args, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, ptr noundef %DTable) unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i32, ptr %DTable, i64 1
   %retval.sroa.0.0.copyload.i = load i32, ptr %DTable, align 4
@@ -11379,7 +11389,7 @@ return:                                           ; preds = %if.end58, %if.end54
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #7 {
 entry:
   %ip = alloca [4 x ptr], align 16
@@ -11740,7 +11750,7 @@ _out:                                             ; preds = %for.cond.loopexit, 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #7 {
 entry:
   %bitD4.i = alloca %struct.BIT_DStream_t, align 8
@@ -13272,7 +13282,7 @@ HUF_decompress4X1_usingDTable_internal_body.exit: ; preds = %sw.epilog.i686, %if
 declare hidden void @HUF_decompress4X1_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
+define internal fastcc noundef i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
 entry:
   %args = alloca %struct.HUF_DecompressFastArgs, align 8
   %add.ptr = getelementptr inbounds i32, ptr %DTable, i64 1
@@ -13539,13 +13549,13 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

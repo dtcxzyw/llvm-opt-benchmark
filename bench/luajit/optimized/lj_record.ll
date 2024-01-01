@@ -2829,7 +2829,7 @@ declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden i32 @lj_opt_fwd_wasnonnil(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
+define hidden noundef i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ix, align 8
   %and = and i64 %0, 140737488355327
@@ -6083,7 +6083,7 @@ if.then36:                                        ; preds = %if.end31
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end58
   %i.0279 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end58 ]
-  %cmp40 = icmp ult i64 %i.0279, %spec.store.select
+  %cmp40 = icmp sgt i64 %sub4, %i.0279
   %.pre283 = load ptr, ptr %base42, align 8
   br i1 %cmp40, label %cond.true, label %cond.end58
 
@@ -7136,7 +7136,7 @@ if.end54:                                         ; preds = %if.else40, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %iterins, 8
   %and = and i32 %shr, 255
@@ -7227,7 +7227,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %pc = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 3

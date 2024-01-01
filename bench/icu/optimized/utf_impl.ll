@@ -241,7 +241,7 @@ return:                                           ; preds = %_ZL10errorValueia.e
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @utf8_appendCharSafeBody_75(ptr nocapture noundef writeonly %s, i32 noundef %i, i32 noundef %length, i32 noundef %c, ptr noundef writeonly %pIsError) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i32 %c, 2048
@@ -365,7 +365,7 @@ if.then83:                                        ; preds = %if.then75
   br label %do.end
 
 if.else88:                                        ; preds = %if.then75
-  %cmp89 = icmp ult i32 %spec.store.select, 3
+  %cmp89 = icmp ult i32 %sub, 3
   br i1 %cmp89, label %if.then90, label %if.end120
 
 if.then90:                                        ; preds = %if.else88
@@ -768,7 +768,7 @@ return:                                           ; preds = %land.lhs.true84, %i
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

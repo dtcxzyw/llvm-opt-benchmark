@@ -41283,7 +41283,7 @@ invoke.cont482:                                   ; preds = %for.end458, %invoke
   %dec.i.i.i419 = add i64 %222, -1
   store i64 %dec.i.i.i419, ptr %221, align 8
   %inc = add nuw nsw i32 %i.0601, 1
-  %exitcond.not = icmp eq i32 %sub, %inc
+  %exitcond.not = icmp eq i32 %inc, %sub
   br i1 %exitcond.not, label %cleanup488, label %invoke.cont482, !llvm.loop !586
 
 cleanup488:                                       ; preds = %invoke.cont482, %for.end458

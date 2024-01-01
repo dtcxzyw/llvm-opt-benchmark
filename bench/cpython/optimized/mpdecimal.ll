@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_coeff_as_uint128.uint128_max = internal constant %struct.mpd_t { i8 -112, i64 0, i64 39, i64 3, i64 3, ptr @_coeff_as_uint128.uint128_max_data }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @mpd_version() local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @mpd_version() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
@@ -325,7 +325,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mpd_lsd(i64 noundef %word) local_unnamed_addr #1 {
+define hidden noundef i64 @mpd_lsd(i64 noundef %word) local_unnamed_addr #1 {
 entry:
   %rem = urem i64 %word, 10
   ret i64 %rem
@@ -456,7 +456,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mpd_iscanonical(ptr nocapture noundef readnone %dec) local_unnamed_addr #1 {
+define hidden noundef i32 @mpd_iscanonical(ptr nocapture noundef readnone %dec) local_unnamed_addr #1 {
 entry:
   ret i32 1
 }
@@ -659,7 +659,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mpd_isoddword(i64 noundef %word) local_unnamed_addr #1 {
+define hidden noundef i32 @mpd_isoddword(i64 noundef %word) local_unnamed_addr #1 {
 entry:
   %0 = trunc i64 %word to i32
   %conv = and i32 %0, 1
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mpd_radix() local_unnamed_addr #1 {
+define hidden noundef i64 @mpd_radix() local_unnamed_addr #1 {
 entry:
   ret i64 10
 }
@@ -924,7 +924,7 @@ if.end6:                                          ; preds = %if.then, %if.then4,
 declare hidden ptr @mpd_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -971,7 +971,7 @@ return:                                           ; preds = %if.then2.i, %entry,
 declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv.i = zext i8 %0 to i32
@@ -3105,7 +3105,7 @@ return:                                           ; preds = %entry, %mpd_qcopy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3316,7 +3316,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext i8 %0 to i32
@@ -3858,7 +3858,7 @@ if.end98:                                         ; preds = %if.end98.sink.split
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3974,7 +3974,7 @@ return:                                           ; preds = %entry, %if.end
 declare hidden ptr @mpd_qnew_size(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4054,7 +4054,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4134,7 +4134,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %b, align 8
   %cmp.i = icmp eq ptr %result, %a
@@ -5014,7 +5014,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
   %0 = load ptr, ptr %data.i.i, align 8
@@ -13906,7 +13906,7 @@ if.end:                                           ; preds = %entry
   %17 = load i64, ptr %exp16, align 8
   %add = add i64 %17, %16
   %cond = call i64 @llvm.smax.i64(i64 %add, i64 0)
-  %cmp17 = icmp ugt i64 %cond, 19
+  %cmp17 = icmp sgt i64 %add, 19
   br i1 %cmp17, label %if.then18, label %if.end25
 
 if.then18:                                        ; preds = %if.end
@@ -14115,7 +14115,7 @@ if.end29:                                         ; preds = %if.end25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %aa.i)
   call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %62 = load i64, ptr %ctx, align 8
-  %add30 = add nuw nsw i64 %cond, 2
+  %add30 = add nuw i64 %cond, 2
   %add31 = add i64 %add30, %62
   %cond39 = call i64 @llvm.smax.i64(i64 %add31, i64 10)
   store i64 %cond39, ptr %workctx, align 8
@@ -23298,7 +23298,7 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc noundef i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = getelementptr i8, ptr %ctx, i64 36
@@ -24204,7 +24204,7 @@ return:                                           ; preds = %if.then28, %mpd_set
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
+define internal fastcc noundef i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
 entry:
   %0 = getelementptr i64, ptr %dec.40.val, i64 %dec.24.val
   %arrayidx.i = getelementptr i64, ptr %0, i64 -1
@@ -27984,7 +27984,7 @@ return:                                           ; preds = %mpd_qresize.exit63.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i62 = alloca i8, align 1
   %err.i.i51 = alloca i8, align 1
@@ -28227,7 +28227,7 @@ return:                                           ; preds = %if.end59, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #8 {
+define internal fastcc noundef i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %data = alloca [5 x i64], align 16
   %status = alloca i32, align 4
@@ -31191,7 +31191,7 @@ declare hidden i32 @fnt_convolute(ptr noundef, ptr noundef, i64 noundef, i32 nou
 declare hidden void @crt3(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
+define internal fastcc noundef i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
 entry:
   %dummy = alloca i64, align 8
   %cmp = icmp ult i64 %la, 6442450945

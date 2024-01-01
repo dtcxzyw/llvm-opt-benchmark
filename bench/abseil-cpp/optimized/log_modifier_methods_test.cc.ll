@@ -11324,7 +11324,7 @@ entry:
   %severity_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 4
   %0 = load i32, ptr %severity_.i, align 8
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %0, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull @.str.3, i32 noundef 144, i32 noundef %spec.store.select1.i) #30
   %call9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage16WithMetadataFromERKNS_8LogEntryE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(136) %entry1)
