@@ -1769,10 +1769,11 @@ entry:
   %arrayidx5 = getelementptr i8, ptr %buf, i64 6
   %7 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %7 to i32
-  switch i32 %shr1, label %error_cmd [
+  switch i32 %shr1, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb10
     i32 2, label %sw.bb14
+    i32 3, label %error_cmd
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1897,6 +1898,9 @@ if.else.i52:                                      ; preds = %if.end20
   store i32 0, ptr %io_buffer_index.i54, align 8
   tail call void @ide_atapi_cmd_reply_end(ptr noundef nonnull %s)
   br label %sw.epilog
+
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
 
 error_cmd:                                        ; preds = %entry, %sw.bb14, %sw.bb
   tail call void @ide_atapi_cmd_error(ptr noundef nonnull %s, i32 noundef 5, i32 noundef 36)
@@ -2034,7 +2038,7 @@ define internal void @cmd_get_event_status_notification(ptr noundef %s, ptr noca
 entry:
   %len = getelementptr inbounds %struct.anon.2, ptr %buf, i64 0, i32 5
   %0 = load i16, ptr %len, align 1
-  %1 = tail call i16 @llvm.bswap.i16(i16 %0)
+  %1 = tail call noundef i16 @llvm.bswap.i16(i16 %0)
   %conv = zext i16 %1 to i32
   %polled = getelementptr inbounds %struct.anon.2, ptr %buf, i64 0, i32 1
   %2 = load i8, ptr %polled, align 1
@@ -2107,7 +2111,7 @@ if.end11:                                         ; preds = %if.else, %event_sta
   %used_len.0 = phi i32 [ 8, %event_status_media.exit ], [ 4, %if.else ]
   %conv12 = trunc i32 %used_len.0 to i16
   %sub = add nsw i16 %conv12, -4
-  %13 = tail call i16 @llvm.bswap.i16(i16 %sub)
+  %13 = tail call noundef i16 @llvm.bswap.i16(i16 %sub)
   store i16 %13, ptr %buf, align 1
   %spec.select.i12 = tail call i32 @llvm.smin.i32(i32 %used_len.0, i32 %conv)
   %lba.i = getelementptr inbounds %struct.IDEState, ptr %s, i64 0, i32 44
@@ -2221,10 +2225,11 @@ entry:
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %1 to i32
   %shr = lshr i32 %conv, 6
-  switch i32 %shr, label %sw.bb66 [
+  switch i32 %shr, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %error_cmd
     i32 2, label %error_cmd
+    i32 3, label %sw.bb66
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2395,6 +2400,9 @@ if.else.i95:                                      ; preds = %sw.bb33
   store i32 0, ptr %io_buffer_index.i97, align 8
   tail call void @ide_atapi_cmd_reply_end(ptr noundef nonnull %s)
   br label %return
+
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
 
 sw.bb66:                                          ; preds = %entry
   tail call void @ide_atapi_cmd_error(ptr noundef %s, i32 noundef 5, i32 noundef 57)

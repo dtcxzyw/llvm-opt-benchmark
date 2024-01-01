@@ -1099,10 +1099,11 @@ while.body:                                       ; preds = %cond.end, %if.end13
   %shr.i61 = lshr i32 %conv.i60, 8
   %and.i62 = and i32 %shr.i61, 1048575
   %and.i64 = and i32 %conv.i60, 3
-  switch i32 %and.i64, label %if.else107 [
+  switch i32 %and.i64, label %while.body.unreachabledefault [
     i32 3, label %if.then18
     i32 2, label %if.then23
     i32 1, label %if.then63
+    i32 0, label %if.else107
   ]
 
 if.then18:                                        ; preds = %while.body
@@ -1329,6 +1330,9 @@ if.else104:                                       ; preds = %if.then63
   %shr.i115 = lshr i64 %6, 48
   %conv.i116 = trunc i64 %shr.i115 to i32
   br label %if.end122
+
+while.body.unreachabledefault:                    ; preds = %while.body
+  unreachable
 
 if.else107:                                       ; preds = %while.body
   %tobool108.not = icmp eq i8 %pIsTailored.0157, 0
@@ -6336,7 +6340,7 @@ entry:
 declare void @_ZN6icu_7520CollationDataBuilder8copyFromERKS0_RKNS0_10CEModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef nonnull align 8 dereferenceable(640), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_openRules_75(ptr noundef %rules, i32 noundef %rulesLength, i32 noundef %normalizationMode, i32 noundef %strength, ptr noundef %parseError, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucol_openRules_75(ptr noundef %rules, i32 noundef %rulesLength, i32 noundef %normalizationMode, i32 noundef %strength, ptr noundef %parseError, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

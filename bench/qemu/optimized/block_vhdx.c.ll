@@ -497,7 +497,7 @@ declare void @qemu_vfree(ptr noundef) local_unnamed_addr #3
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @vhdx_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @vhdx_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #5 {
 entry:
   ret i32 0
 }
@@ -1673,7 +1673,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
+define internal noundef i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1701,11 +1701,11 @@ entry:
   %1 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %1) #17
   call void @qemu_co_mutex_lock(ptr noundef %0) #17
-  %data_bits = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 9, i32 1
   %cmp18 = icmp sgt i32 %nb_sectors, 0
   br i1 %cmp18, label %while.body.lr.ph, label %exit
 
 while.body.lr.ph:                                 ; preds = %entry
+  %data_bits = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 9, i32 1
   %sectors_per_block_bits.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 14
   %chunk_ratio_bits.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 20
   %sectors_per_block.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 13
@@ -1750,13 +1750,15 @@ if.else:                                          ; preds = %while.body
   %arrayidx = getelementptr i64, ptr %10, i64 %idxprom.i
   %11 = load i64, ptr %arrayidx, align 8
   %and1 = and i64 %11, 7
-  switch i64 %and1, label %exit [
+  switch i64 %and1, label %if.else.unreachabledefault [
     i64 0, label %sw.bb
     i64 1, label %sw.bb
     i64 3, label %sw.bb
     i64 5, label %sw.bb
     i64 2, label %sw.bb
     i64 6, label %sw.bb4
+    i64 7, label %exit
+    i64 4, label %exit
   ]
 
 sw.bb:                                            ; preds = %if.else, %if.else, %if.else, %if.else, %if.else
@@ -1780,6 +1782,9 @@ sw.bb4:                                           ; preds = %if.else
   %cmp9 = icmp slt i32 %call7, 0
   br i1 %cmp9, label %exit, label %sw.epilog
 
+if.else.unreachabledefault:                       ; preds = %if.else
+  unreachable
+
 sw.epilog:                                        ; preds = %sw.bb4, %sw.bb
   %conv15.pre-phi = phi i64 [ %conv6, %sw.bb4 ], [ %.pre, %sw.bb ]
   %sub = sub nsw i32 %nb_sectors.addr.019, %spec.select
@@ -1788,8 +1793,8 @@ sw.epilog:                                        ; preds = %sw.bb4, %sw.bb
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %while.body, label %exit, !llvm.loop !14
 
-exit:                                             ; preds = %sw.bb4, %while.body, %if.else, %sw.epilog, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %sw.epilog ], [ -5, %if.else ], [ -95, %while.body ], [ %call7, %sw.bb4 ]
+exit:                                             ; preds = %sw.bb4, %while.body, %if.else, %if.else, %sw.epilog, %entry
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %sw.epilog ], [ -5, %if.else ], [ -5, %if.else ], [ -95, %while.body ], [ %call7, %sw.bb4 ]
   call void @qemu_co_mutex_unlock(ptr noundef %0) #17
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #17
   ret i32 %ret.0
@@ -2091,7 +2096,7 @@ exit:                                             ; preds = %if.end.i41, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @vhdx_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #7 {
+define internal noundef i32 @vhdx_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #7 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -2102,7 +2107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_co_check(ptr nocapture noundef readonly %bs, ptr noundef %result, i32 %fix) #0 {
+define internal noundef i32 @vhdx_co_check(ptr nocapture noundef readonly %bs, ptr noundef %result, i32 %fix) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -2704,7 +2709,7 @@ declare void @bdrv_co_unref(ptr noundef) #3
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #17
   ret ptr %x

@@ -4208,10 +4208,11 @@ usb_mtp_queue_result.exit31.i:                    ; preds = %if.then7.i
 if.end8.i374:                                     ; preds = %for.body.i.i, %if.end5.i
   %o.058.i = phi ptr [ %444, %if.end5.i ], [ %o.06.i.i, %for.body.i.i ]
   %call9.i = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef nonnull %o.058.i)
-  switch i32 %call9.i, label %do.body.i [
+  switch i32 %call9.i, label %if.end8.unreachabledefault.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb10.i
     i32 3, label %sw.bb11.i
+    i32 0, label %do.body.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end8.i374
@@ -4273,6 +4274,9 @@ if.else.i51.i:                                    ; preds = %sw.bb11.i
 usb_mtp_queue_result.exit52.i:                    ; preds = %sw.bb11.i
   store ptr %call.i46.i, ptr %result.i49.i, align 8
   br label %return
+
+if.end8.unreachabledefault.i:                     ; preds = %if.end8.i374
+  unreachable
 
 do.body.i:                                        ; preds = %if.end8.i374
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 1235, ptr noundef nonnull @__func__.usb_mtp_object_delete, ptr noundef null) #18
@@ -6831,7 +6835,7 @@ _nocheck__trace_usb_mtp_op_open_session.exit:     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @usb_mtp_object_alloc(ptr nocapture noundef %s, i32 noundef %handle, ptr noundef %parent, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_object_alloc(ptr nocapture noundef %s, i32 noundef %handle, ptr noundef %parent, ptr noundef %name) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(240) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 240) #17
@@ -7120,7 +7124,7 @@ _nocheck__trace_usb_mtp_op_get_num_objects.exit:  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias ptr @usb_mtp_get_object_handles(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @usb_mtp_get_object_handles(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
@@ -7214,7 +7218,7 @@ if.end:                                           ; preds = %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @usb_mtp_get_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_get_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
@@ -7299,7 +7303,7 @@ return:                                           ; preds = %if.end, %usb_mtp_da
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @usb_mtp_get_partial_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_get_partial_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %argc = getelementptr inbounds %struct.MTPControl, ptr %c, i64 0, i32 2
@@ -8219,7 +8223,7 @@ if.end59:                                         ; preds = %for.inc.i, %for.inc
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @usb_mtp_add_child(ptr nocapture noundef %s, ptr noundef %o, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_add_child(ptr nocapture noundef %s, ptr noundef %o, ptr noundef %name) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %next_handle = getelementptr inbounds %struct.MTPState, ptr %s, i64 0, i32 8

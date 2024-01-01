@@ -157,7 +157,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr nocapture noundef writeonly %value, i32 %size, i32 %attrs.coerce) #0 {
+define internal noundef i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr nocapture noundef writeonly %value, i32 %size, i32 %attrs.coerce) #0 {
 entry:
   %refclk = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 12
   %0 = load ptr, ptr %refclk, align 8
@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @uart_write(ptr noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 %size, i32 %attrs.coerce) #0 {
+define internal noundef i32 @uart_write(ptr noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 %size, i32 %attrs.coerce) #0 {
 entry:
   %break_enabled.i.i = alloca i32, align 4
   %value.addr = alloca i64, align 8
@@ -793,7 +793,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cadence_uart_xmit(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @cadence_uart_xmit(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %chr = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 9
   %call = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr) #7
@@ -1123,34 +1123,38 @@ entry:
   %arrayidx = getelementptr %struct.CadenceUARTState, ptr %opaque, i64 0, i32 2, i64 1
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 768
-  switch i32 %and, label %if.end6 [
-    i32 256, label %if.then
+  %1 = lshr exact i32 %and, 8
+  switch i32 %1, label %entry.unreachabledefault [
+    i32 1, label %if.then
     i32 0, label %if.then
-    i32 768, label %if.then5
+    i32 3, label %if.then5
+    i32 2, label %if.end6
   ]
 
 if.then:                                          ; preds = %entry, %entry
   tail call fastcc void @uart_write_rx_fifo(ptr noundef nonnull %opaque, ptr noundef %buf, i32 noundef %size)
-  %cond = icmp eq i32 %and, 256
-  br i1 %cond, label %if.then5, label %if.end6
+  switch i32 %and, label %if.end6 [
+    i32 768, label %if.then5
+    i32 256, label %if.then5
+  ]
 
-if.then5:                                         ; preds = %if.then, %entry
+if.then5:                                         ; preds = %entry, %if.then, %if.then
   %r.i = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 2
-  %1 = load i32, ptr %r.i, align 16
-  %2 = and i32 %1, 48
-  %or.cond.not.i = icmp eq i32 %2, 16
+  %2 = load i32, ptr %r.i, align 16
+  %3 = and i32 %2, 48
+  %or.cond.not.i = icmp eq i32 %3, 16
   br i1 %or.cond.not.i, label %if.end.i, label %if.end6
 
 if.end.i:                                         ; preds = %if.then5
   %tx_count.i = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 7
-  %3 = load i32, ptr %tx_count.i, align 16
-  %sub.i = sub i32 16, %3
+  %4 = load i32, ptr %tx_count.i, align 16
+  %sub.i = sub i32 16, %4
   %cmp.i = icmp ult i32 %sub.i, %size
   br i1 %cmp.i, label %if.then5.i, label %if.end14.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i = and i32 %4, 2048
+  %5 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i = and i32 %5, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i, label %if.then10.i
 
@@ -1160,28 +1164,31 @@ if.then10.i:                                      ; preds = %if.then5.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then10.i, %if.then5.i
-  %.pre.i = phi i32 [ %3, %if.then5.i ], [ %.pre.pre.i, %if.then10.i ]
+  %.pre.i = phi i32 [ %4, %if.then5.i ], [ %.pre.pre.i, %if.then10.i ]
   %arrayidx13.i = getelementptr %struct.CadenceUARTState, ptr %opaque, i64 0, i32 2, i64 5
-  %5 = load i32, ptr %arrayidx13.i, align 4
-  %or.i = or i32 %5, 32
+  %6 = load i32, ptr %arrayidx13.i, align 4
+  %or.i = or i32 %6, 32
   store i32 %or.i, ptr %arrayidx13.i, align 4
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %do.end.i, %if.end.i
-  %6 = phi i32 [ %.pre.i, %do.end.i ], [ %3, %if.end.i ]
+  %7 = phi i32 [ %.pre.i, %do.end.i ], [ %4, %if.end.i ]
   %size.addr.0.i = phi i32 [ %sub.i, %do.end.i ], [ %size, %if.end.i ]
   %tx_fifo.i = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 4
-  %idx.ext.i = zext i32 %6 to i64
+  %idx.ext.i = zext i32 %7 to i64
   %add.ptr.i = getelementptr i8, ptr %tx_fifo.i, i64 %idx.ext.i
   %conv16.i = sext i32 %size.addr.0.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf, i64 %conv16.i, i1 false)
-  %7 = load i32, ptr %tx_count.i, align 16
-  %add.i = add i32 %7, %size.addr.0.i
+  %8 = load i32, ptr %tx_count.i, align 16
+  %add.i = add i32 %8, %size.addr.0.i
   store i32 %add.i, ptr %tx_count.i, align 16
   %call18.i = tail call i32 @cadence_uart_xmit(ptr poison, i32 poison, ptr noundef nonnull %opaque)
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then, %if.end14.i, %if.then5, %entry
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
+if.end6:                                          ; preds = %if.end14.i, %if.then5, %entry, %if.then
   ret void
 }
 
@@ -1274,7 +1281,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cadence_uart_pre_load(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @cadence_uart_pre_load(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %refclk = getelementptr inbounds %struct.CadenceUARTState, ptr %opaque, i64 0, i32 12
   %0 = load ptr, ptr %refclk, align 8
@@ -1283,7 +1290,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cadence_uart_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @cadence_uart_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %arrayidx = getelementptr %struct.CadenceUARTState, ptr %opaque, i64 0, i32 2, i64 6
   %0 = load i32, ptr %arrayidx, align 8

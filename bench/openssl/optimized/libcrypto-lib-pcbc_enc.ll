@@ -216,7 +216,7 @@ for.body159:                                      ; preds = %for.body159.lr.ph, 
 
 if.else228:                                       ; preds = %for.body159
   %add.ptr229 = getelementptr inbounds i8, ptr %out.1150, i64 %length.addr.1146
-  switch i64 %length.addr.1146, label %if.end275 [
+  switch i64 %length.addr.1146, label %if.else228.unreachabledefault [
     i64 1, label %sw.bb264
     i64 7, label %sw.bb235
     i64 6, label %sw.bb240
@@ -224,6 +224,7 @@ if.else228:                                       ; preds = %for.body159
     i64 4, label %sw.bb249
     i64 3, label %sw.bb254
     i64 2, label %sw.bb259
+    i64 0, label %if.end275
   ]
 
 sw.bb235:                                         ; preds = %if.else228
@@ -317,7 +318,10 @@ if.end269:                                        ; preds = %for.body159
   %cmp157.not = icmp eq i64 %length.addr.1146, 8
   br i1 %cmp157.not, label %if.end275, label %for.body159, !llvm.loop !6
 
-if.end275:                                        ; preds = %if.end, %if.end269, %sw.bb264, %if.else228, %if.then, %if.else127
+if.else228.unreachabledefault:                    ; preds = %if.else228
+  unreachable
+
+if.end275:                                        ; preds = %if.end, %if.end269, %if.else228, %sw.bb264, %if.then, %if.else127
   ret void
 }
 

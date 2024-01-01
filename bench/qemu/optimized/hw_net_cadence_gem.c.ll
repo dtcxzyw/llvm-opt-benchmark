@@ -1678,7 +1678,7 @@ for.end:                                          ; preds = %for.inc, %while.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @gem_can_receive(ptr noundef %nc) #0 {
+define internal noundef zeroext i1 @gem_can_receive(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
   %regs = getelementptr inbounds %struct.CadenceGEMState, ptr %call, i64 0, i32 12
@@ -2256,8 +2256,8 @@ do.end:                                           ; preds = %if.else, %if.then36
   %size.addr.0 = phi i64 [ %spec.store.select2, %if.then36 ], [ %add57, %if.else ]
   %num_type1_screeners.i = getelementptr inbounds %struct.CadenceGEMState, ptr %call, i64 0, i32 8
   %27 = load i8, ptr %num_type1_screeners.i, align 1
-  %cmp81.not.i = icmp eq i8 %27, 0
-  br i1 %cmp81.not.i, label %for.cond31.preheader.i, label %for.body.lr.ph.i
+  %cmp84.not.i = icmp eq i8 %27, 0
+  br i1 %cmp84.not.i, label %for.cond31.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end
   %arrayidx2.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 36
@@ -2274,8 +2274,8 @@ for.cond.i:                                       ; preds = %if.end24.i
 for.cond31.preheader.i:                           ; preds = %for.cond.i, %do.end
   %num_type2_screeners.i = getelementptr inbounds %struct.CadenceGEMState, ptr %call, i64 0, i32 9
   %28 = load i8, ptr %num_type2_screeners.i, align 2
-  %cmp3387.not.i = icmp eq i8 %28, 0
-  br i1 %cmp3387.not.i, label %get_queue_from_screen.exit, label %for.body35.lr.ph.i
+  %cmp3390.not.i = icmp eq i8 %28, 0
+  br i1 %cmp3390.not.i, label %get_queue_from_screen.exit, label %for.body35.lr.ph.i
 
 for.body35.lr.ph.i:                               ; preds = %for.cond31.preheader.i
   %arrayidx43.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 12
@@ -2335,16 +2335,16 @@ if.then28.i:                                      ; preds = %if.end24.i
   br label %get_queue_from_screen.exit
 
 for.cond31.i:                                     ; preds = %for.end152.i
-  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
+  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %37 = load i8, ptr %num_type2_screeners.i, align 2
   %38 = zext i8 %37 to i64
-  %cmp33.i = icmp ult i64 %indvars.iv.next97.i, %38
+  %cmp33.i = icmp ult i64 %indvars.iv.next100.i, %38
   br i1 %cmp33.i, label %for.body35.i, label %get_queue_from_screen.exit, !llvm.loop !22
 
 for.body35.i:                                     ; preds = %for.cond31.i, %for.body35.lr.ph.i
-  %indvars.iv96.i = phi i64 [ 0, %for.body35.lr.ph.i ], [ %indvars.iv.next97.i, %for.cond31.i ]
-  %conv3289.in.i = phi i8 [ %28, %for.body35.lr.ph.i ], [ %37, %for.cond31.i ]
-  %39 = add nuw nsw i64 %indvars.iv96.i, 336
+  %indvars.iv99.i = phi i64 [ 0, %for.body35.lr.ph.i ], [ %indvars.iv.next100.i, %for.cond31.i ]
+  %conv3292.in.i = phi i8 [ %28, %for.body35.lr.ph.i ], [ %37, %for.cond31.i ]
+  %39 = add nuw nsw i64 %indvars.iv99.i, 336
   %arrayidx39.i = getelementptr %struct.CadenceGEMState, ptr %call, i64 0, i32 12, i64 %39
   %40 = load i32, ptr %arrayidx39.i, align 4
   %41 = and i32 %40, 4096
@@ -2352,7 +2352,7 @@ for.body35.i:                                     ; preds = %for.cond31.i, %for.
   br i1 %tobool41.not.i, label %for.body77.i.preheader, label %if.then42.i
 
 if.then42.i:                                      ; preds = %for.body35.i
-  %conv3289.i = zext i8 %conv3289.in.i to i32
+  %conv3292.i = zext i8 %conv3292.in.i to i32
   %42 = load i8, ptr %arrayidx43.i, align 1
   %conv44.i = zext i8 %42 to i32
   %shl45.i = shl nuw nsw i32 %conv44.i, 8
@@ -2361,7 +2361,7 @@ if.then42.i:                                      ; preds = %for.body35.i
   %or48.i = or disjoint i32 %shl45.i, %conv47.i
   %shr.i59.i = lshr i32 %40, 9
   %and.i60.i = and i32 %shr.i59.i, 7
-  %cmp53.i = icmp ugt i32 %and.i60.i, %conv3289.i
+  %cmp53.i = icmp ugt i32 %and.i60.i, %conv3292.i
   br i1 %cmp53.i, label %do.body.i, label %if.end62.i
 
 do.body.i:                                        ; preds = %if.then42.i
@@ -2386,15 +2386,15 @@ if.end62.i:                                       ; preds = %if.then60.i, %do.bo
   br label %for.body77.i.preheader
 
 for.body77.i.preheader:                           ; preds = %if.end62.i, %for.body35.i
-  %matched.385.i.ph = phi i8 [ %.48.i, %if.end62.i ], [ 0, %for.body35.i ]
-  %mismatched.384.i.ph = phi i8 [ %.47.i, %if.end62.i ], [ 0, %for.body35.i ]
+  %matched.388.i.ph = phi i8 [ %.48.i, %if.end62.i ], [ 0, %for.body35.i ]
+  %mismatched.387.i.ph = phi i8 [ %.47.i, %if.end62.i ], [ 0, %for.body35.i ]
   br label %for.body77.i
 
 for.body77.i:                                     ; preds = %for.body77.i.preheader, %for.inc150.i
-  %matched.385.i = phi i8 [ %matched.4.i, %for.inc150.i ], [ %matched.385.i.ph, %for.body77.i.preheader ]
-  %mismatched.384.i = phi i8 [ %mismatched.4.i, %for.inc150.i ], [ %mismatched.384.i.ph, %for.body77.i.preheader ]
-  %j.083.i = phi i32 [ %inc151.i, %for.inc150.i ], [ 0, %for.body77.i.preheader ]
-  %mul.i = mul nuw nsw i32 %j.083.i, 6
+  %matched.388.i = phi i8 [ %matched.4.i, %for.inc150.i ], [ %matched.388.i.ph, %for.body77.i.preheader ]
+  %mismatched.387.i = phi i8 [ %mismatched.4.i, %for.inc150.i ], [ %mismatched.387.i.ph, %for.body77.i.preheader ]
+  %j.086.i = phi i32 [ %inc151.i, %for.inc150.i ], [ 0, %for.body77.i.preheader ]
+  %mul.i = mul nuw nsw i32 %j.086.i, 6
   %add78.i = add nuw nsw i32 %mul.i, 13
   %shr.i62.i = lshr i32 %40, %add78.i
   %and.i63.i = and i32 %shr.i62.i, 31
@@ -2433,10 +2433,11 @@ if.end102.i:                                      ; preds = %if.then99.i, %do.bo
   %52 = trunc i32 %51 to i16
   %53 = lshr i16 %52, 7
   %trunc.i = and i16 %53, 3
-  switch i16 %trunc.i, label %sw.epilog.i [
+  switch i16 %trunc.i, label %if.end102.unreachabledefault.i [
     i16 3, label %do.body115.i
     i16 2, label %sw.bb127.i
     i16 1, label %sw.bb129.i
+    i16 0, label %sw.epilog.i
   ]
 
 do.body115.i:                                     ; preds = %if.end102.i
@@ -2463,6 +2464,9 @@ sw.bb129.i:                                       ; preds = %sw.bb127.i, %if.end
   %add130.i = add nuw nsw i32 %offset.1.i, 14
   br label %sw.epilog.i
 
+if.end102.unreachabledefault.i:                   ; preds = %if.end102.i
+  unreachable
+
 sw.epilog.i:                                      ; preds = %sw.bb129.i, %if.end102.i
   %offset.2.i = phi i32 [ %and.i72.i, %if.end102.i ], [ %add130.i, %sw.bb129.i ]
   %idxprom132.i = zext nneg i32 %offset.2.i to i64
@@ -2475,16 +2479,16 @@ sw.epilog.i:                                      ; preds = %sw.bb129.i, %if.end
   %56 = xor i32 %or139.i, %shr.i78.i
   %57 = and i32 %56, %50
   %cmp145.i = icmp eq i32 %57, 0
-  %mismatched.3..i = select i1 %cmp145.i, i8 %mismatched.384.i, i8 1
-  %.matched.3.i = select i1 %cmp145.i, i8 1, i8 %matched.385.i
+  %mismatched.3..i = select i1 %cmp145.i, i8 %mismatched.387.i, i8 1
+  %.matched.3.i = select i1 %cmp145.i, i8 1, i8 %matched.388.i
   br label %for.inc150.i
 
 for.inc150.i:                                     ; preds = %sw.epilog.i, %for.body77.i
-  %mismatched.4.i = phi i8 [ %mismatched.384.i, %for.body77.i ], [ %mismatched.3..i, %sw.epilog.i ]
-  %matched.4.i = phi i8 [ %matched.385.i, %for.body77.i ], [ %.matched.3.i, %sw.epilog.i ]
-  %inc151.i = add nuw nsw i32 %j.083.i, 1
-  %exitcond95.not.i = icmp eq i32 %inc151.i, 3
-  br i1 %exitcond95.not.i, label %for.end152.i, label %for.body77.i, !llvm.loop !23
+  %mismatched.4.i = phi i8 [ %mismatched.387.i, %for.body77.i ], [ %mismatched.3..i, %sw.epilog.i ]
+  %matched.4.i = phi i8 [ %matched.388.i, %for.body77.i ], [ %.matched.3.i, %sw.epilog.i ]
+  %inc151.i = add nuw nsw i32 %j.086.i, 1
+  %exitcond98.not.i = icmp eq i32 %inc151.i, 3
+  br i1 %exitcond98.not.i, label %for.end152.i, label %for.body77.i, !llvm.loop !23
 
 for.end152.i:                                     ; preds = %for.inc150.i
   %58 = and i8 %matched.4.i, 1

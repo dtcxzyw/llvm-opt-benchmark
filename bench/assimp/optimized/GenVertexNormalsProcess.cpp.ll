@@ -297,7 +297,7 @@ if.end8:                                          ; preds = %if.end5
 new.ctorloop:                                     ; preds = %if.end8
   %6 = add nsw i64 %5, -12
   %7 = urem i64 %6, 12
-  %8 = sub nsw i64 %6, %7
+  %8 = sub nuw nsw i64 %6, %7
   %9 = add nsw i64 %8, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call10, i8 0, i64 %9, i1 false)
   br label %arrayctor.cont
@@ -536,7 +536,7 @@ invoke.cont95:                                    ; preds = %if.end91
 new.ctorloop98:                                   ; preds = %invoke.cont95
   %77 = add nsw i64 %76, -12
   %78 = urem i64 %77, 12
-  %79 = sub nsw i64 %77, %78
+  %79 = sub nuw nsw i64 %77, %78
   %80 = add nsw i64 %79, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call96, i8 0, i64 %80, i1 false)
   %configMaxAngle = getelementptr inbounds %"class.Assimp::GenVertexNormalsProcess", ptr %this, i64 0, i32 1
@@ -1034,10 +1034,11 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end3
   %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   %data.addr.0.lcssa = phi ptr [ %data, %if.end3 ], [ %add.ptr19, %for.body ]
-  switch i32 %and, label %sw.epilog [
+  switch i32 %and, label %for.end.unreachabledefault [
     i32 3, label %sw.bb
     i32 2, label %sw.bb37
     i32 1, label %sw.bb49
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -1076,7 +1077,10 @@ sw.bb49:                                          ; preds = %for.end
   %add55 = add i32 %shr54, %xor53
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb49, %sw.bb37, %sw.bb, %for.end
+for.end.unreachabledefault:                       ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb49, %sw.bb37, %sw.bb
   %hash.addr.1 = phi i32 [ %hash.addr.0.lcssa, %for.end ], [ %add55, %sw.bb49 ], [ %add48, %sw.bb37 ], [ %add36, %sw.bb ]
   %shl56 = shl i32 %hash.addr.1, 3
   %xor57 = xor i32 %shl56, %hash.addr.1

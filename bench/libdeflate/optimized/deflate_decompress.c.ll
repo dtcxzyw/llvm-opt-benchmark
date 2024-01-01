@@ -125,8 +125,8 @@ arch_select_decompress_func.exit:                 ; preds = %entry, %if.then.i.i
   ret i32 %call1
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -224,10 +224,11 @@ do.end53:                                         ; preds = %if.end51, %while.co
   %1 = trunc i64 %bitbuf.3 to i32
   %2 = lshr i32 %1, 1
   %conv58 = and i32 %2, 3
-  switch i32 %conv58, label %return [
+  switch i32 %conv58, label %do.end53.unreachabledefault [
     i32 2, label %if.then61
     i32 0, label %if.then429
     i32 1, label %if.end537
+    i32 3, label %return
   ]
 
 if.then61:                                        ; preds = %do.end53
@@ -349,7 +350,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp162, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %call.i = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %precode_decode_table.i, ptr noundef nonnull %d, i32 noundef 19, ptr noundef nonnull @precode_decode_results, i32 noundef 7, i32 noundef 7, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %precode_decode_table.i, ptr noundef nonnull %d, i32 noundef 19, ptr noundef nonnull @precode_decode_results, i32 noundef 7, i32 noundef 7, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i, label %do.body181.preheader, label %return
 
 do.body181.preheader:                             ; preds = %for.end
@@ -629,11 +630,11 @@ if.end601:                                        ; preds = %for.body592.prehead
   %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
-  %call.i542 = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i542, label %if.end612, label %return
 
 if.end612:                                        ; preds = %if.end601
-  %call.i544 = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
+  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537
@@ -1314,13 +1315,16 @@ if.else1332:                                      ; preds = %if.end1326
 if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+do.end53.unreachabledefault:                      ; preds = %do.end53
+  unreachable
+
+return:                                           ; preds = %do.end53, %if.end612, %if.end601, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
   %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -1418,10 +1422,11 @@ do.end53:                                         ; preds = %if.end51, %while.co
   %1 = trunc i64 %bitbuf.3 to i32
   %2 = lshr i32 %1, 1
   %conv58 = and i32 %2, 3
-  switch i32 %conv58, label %return [
+  switch i32 %conv58, label %do.end53.unreachabledefault [
     i32 2, label %if.then61
     i32 0, label %if.then429
     i32 1, label %if.end537
+    i32 3, label %return
   ]
 
 if.then61:                                        ; preds = %do.end53
@@ -1543,7 +1548,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp162, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %call.i = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %precode_decode_table.i, ptr noundef nonnull %d, i32 noundef 19, ptr noundef nonnull @precode_decode_results, i32 noundef 7, i32 noundef 7, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %precode_decode_table.i, ptr noundef nonnull %d, i32 noundef 19, ptr noundef nonnull @precode_decode_results, i32 noundef 7, i32 noundef 7, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i, label %do.body181.preheader, label %return
 
 do.body181.preheader:                             ; preds = %for.end
@@ -1823,11 +1828,11 @@ if.end601:                                        ; preds = %for.body592.prehead
   %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
-  %call.i542 = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i542, label %if.end612, label %return
 
 if.end612:                                        ; preds = %if.end601
-  %call.i544 = tail call fastcc zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
+  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537
@@ -2508,7 +2513,10 @@ if.else1332:                                      ; preds = %if.end1326
 if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+do.end53.unreachabledefault:                      ; preds = %do.end53
+  unreachable
+
+return:                                           ; preds = %do.end53, %if.end612, %if.end601, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
   %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }
@@ -2518,8 +2526,8 @@ declare void @libdeflate_init_x86_cpu_features() local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @build_decode_table(ptr nocapture noundef %decode_table, ptr nocapture noundef readonly %lens, i32 noundef %num_syms, ptr nocapture noundef readonly %decode_results, i32 noundef %table_bits, i32 noundef %max_codeword_len, ptr nocapture noundef %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noundef %decode_table, ptr nocapture noundef readonly %lens, i32 noundef %num_syms, ptr nocapture noundef readonly %decode_results, i32 noundef %table_bits, i32 noundef %max_codeword_len, ptr nocapture noundef %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
 entry:
   %len_counts = alloca [16 x i32], align 16
   %offsets = alloca [16 x i32], align 16
@@ -2912,11 +2920,11 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

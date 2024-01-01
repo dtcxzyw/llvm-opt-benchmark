@@ -2629,8 +2629,8 @@ entry:
   %read_error_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
   %1 = load i8, ptr %read_error_, align 8
   %2 = and i8 %1, 1
-  %tobool.not216 = icmp eq i8 %2, 0
-  br i1 %tobool.not216, label %while.body.lr.ph, label %while.end105
+  %tobool.not225 = icmp eq i8 %2, 0
+  br i1 %tobool.not225, label %while.body.lr.ph, label %while.end105
 
 while.body.lr.ph:                                 ; preds = %entry
   %line_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
@@ -3007,10 +3007,11 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit27: ; preds = %if.then.critedge,
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit
   %call5 = call noundef i32 @_ZN6google8protobuf2io9Tokenizer22TryConsumeCommentStartEv(ptr noundef nonnull align 8 dereferenceable(192) %this), !range !15
-  switch i32 %call5, label %sw.epilog [
+  switch i32 %call5, label %if.end.unreachabledefault [
     i32 0, label %while.cond.i
     i32 1, label %sw.bb6
     i32 2, label %return
+    i32 3, label %sw.epilog
   ]
 
 while.cond.i:                                     ; preds = %if.end, %while.body.i
@@ -3028,7 +3029,7 @@ if.then.i.i28:                                    ; preds = %while.cond.i
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.cond.i, %lor.rhs20, %if.then.i.i28, %sw.bb6
+while.cond.backedge:                              ; preds = %lor.rhs20, %while.cond.i, %if.then.i.i28, %sw.bb6
   %64 = load i8, ptr %read_error_, align 8
   %65 = and i8 %64, 1
   %tobool.not = icmp eq i8 %65, 0
@@ -3037,6 +3038,9 @@ while.cond.backedge:                              ; preds = %while.cond.i, %lor.
 sw.bb6:                                           ; preds = %if.end
   call void @_ZN6google8protobuf2io9Tokenizer19ConsumeBlockCommentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef null)
   br label %while.cond.backedge
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 sw.epilog:                                        ; preds = %if.end
   %66 = load i8, ptr %read_error_, align 8

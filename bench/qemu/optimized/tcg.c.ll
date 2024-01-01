@@ -3367,10 +3367,11 @@ if.end496.i.i:                                    ; preds = %for.body487.i.i
   %86 = trunc i64 %bf.load491.i.i to i32
   %87 = lshr i32 %86, 28
   %bf.cast503.i.i = and i32 %87, 3
-  switch i32 %bf.cast503.i.i, label %do.body728.i.i [
+  switch i32 %bf.cast503.i.i, label %if.end496.unreachabledefault.i.i [
     i32 0, label %for.inc732.i.i
     i32 1, label %sw.bb505.i.i
     i32 2, label %sw.bb605.i.i
+    i32 3, label %do.body728.i.i
   ]
 
 sw.bb505.i.i:                                     ; preds = %if.end496.i.i
@@ -3483,6 +3484,9 @@ if.else695.i.i:                                   ; preds = %sw.bb605.i.i
   %116 = shl i64 %indvars.iv16.i.i, 24
   %bf.shl722.i.i = and i64 %116, 251658240
   br label %for.inc732.sink.split.i.i
+
+if.end496.unreachabledefault.i.i:                 ; preds = %if.end496.i.i
+  unreachable
 
 do.body728.i.i:                                   ; preds = %if.end496.i.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 3114, ptr noundef nonnull @__func__.process_op_defs, ptr noundef null) #27
@@ -16697,7 +16701,7 @@ entry:
   %bf.load = load i64, ptr %typemask1, align 8
   %bf.cast = trunc i64 %bf.load to i32
   %and = and i32 %bf.cast, 7
-  switch i32 %and, label %do.body [
+  switch i32 %and, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 2, label %sw.bb4
     i32 3, label %sw.bb4
@@ -16705,6 +16709,7 @@ entry:
     i32 4, label %sw.bb12
     i32 5, label %sw.bb12
     i32 7, label %sw.bb29
+    i32 1, label %do.body
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -16725,6 +16730,9 @@ sw.bb29:                                          ; preds = %entry
   %bf.clear32 = and i64 %bf.load, 281474976710655
   %bf.set33 = or disjoint i64 %bf.clear32, 562949953421312
   br label %sw.epilog
+
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
 
 do.body:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1172, ptr noundef nonnull @__func__.init_call_layout, ptr noundef null) #27
@@ -16836,8 +16844,8 @@ define internal fastcc void @sort_constraints(ptr nocapture noundef readonly %de
 entry:
   %args_ct = getelementptr inbounds %struct.TCGOpDef, ptr %def, i64 0, i32 6
   %0 = load ptr, ptr %args_ct, align 8
-  %cmp55 = icmp sgt i32 %n, 0
-  br i1 %cmp55, label %for.body.preheader, label %for.end63
+  %cmp56 = icmp sgt i32 %n, 0
+  br i1 %cmp56, label %for.body.preheader, label %for.end63
 
 for.body.preheader:                               ; preds = %entry
   %1 = sext i32 %start to i64
@@ -16865,27 +16873,27 @@ for.end:                                          ; preds = %for.body
 for.body5.preheader:                              ; preds = %for.end
   %sub = add nsw i32 %n, -1
   %4 = sext i32 %start to i64
-  %wide.trip.count75 = zext nneg i32 %sub to i64
-  %invariant.gep78 = getelementptr %struct.TCGArgConstraint, ptr %0, i64 %4
-  %wide.trip.count69 = zext nneg i32 %n to i64
+  %wide.trip.count76 = zext nneg i32 %sub to i64
+  %invariant.gep79 = getelementptr %struct.TCGArgConstraint, ptr %0, i64 %4
+  %wide.trip.count70 = zext nneg i32 %n to i64
   %invariant.gep = getelementptr %struct.TCGArgConstraint, ptr %0, i64 %4
   br label %for.body9.lr.ph
 
 for.cond3.loopexit:                               ; preds = %for.inc58
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count75
-  br i1 %exitcond76.not, label %for.end63, label %for.body9.lr.ph, !llvm.loop !97
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count76
+  br i1 %exitcond77.not, label %for.end63, label %for.body9.lr.ph, !llvm.loop !97
 
 for.body9.lr.ph:                                  ; preds = %for.cond3.loopexit, %for.body5.preheader
-  %indvars.iv71 = phi i64 [ 0, %for.body5.preheader ], [ %indvars.iv.next72, %for.cond3.loopexit ]
-  %indvars.iv63 = phi i64 [ 1, %for.body5.preheader ], [ %indvars.iv.next64, %for.cond3.loopexit ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %gep79 = getelementptr %struct.TCGArgConstraint, ptr %invariant.gep78, i64 %indvars.iv71
+  %indvars.iv72 = phi i64 [ 0, %for.body5.preheader ], [ %indvars.iv.next73, %for.cond3.loopexit ]
+  %indvars.iv64 = phi i64 [ 1, %for.body5.preheader ], [ %indvars.iv.next65, %for.cond3.loopexit ]
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %gep80 = getelementptr %struct.TCGArgConstraint, ptr %invariant.gep79, i64 %indvars.iv72
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc58
-  %indvars.iv65 = phi i64 [ %indvars.iv63, %for.body9.lr.ph ], [ %indvars.iv.next66, %for.inc58 ]
-  %bf.load13 = load i64, ptr %gep79, align 4
+  %indvars.iv66 = phi i64 [ %indvars.iv64, %for.body9.lr.ph ], [ %indvars.iv.next67, %for.inc58 ]
+  %bf.load13 = load i64, ptr %gep80, align 4
   %5 = trunc i64 %bf.load13 to i32
   %6 = lshr i32 %5, 20
   %bf.cast = and i32 %6, 15
@@ -16908,10 +16916,11 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %10 = trunc i64 %bf.load.i to i32
   %11 = lshr i32 %10, 28
   %bf.cast6.i = and i32 %11, 3
-  switch i32 %bf.cast6.i, label %sw.epilog.i [
+  switch i32 %bf.cast6.i, label %if.end.unreachabledefault.i [
     i32 1, label %sw.bb.i
     i32 3, label %sw.bb.i
     i32 2, label %sw.bb7.i
+    i32 0, label %sw.epilog.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
@@ -16924,6 +16933,9 @@ sw.bb7.i:                                         ; preds = %if.end.i
   %add12.i = and i32 %12, 30
   %sub.i = or disjoint i32 %add12.i, 1
   br label %get_constraint_priority.exit
+
+if.end.unreachabledefault.i:                      ; preds = %if.end.i
+  unreachable
 
 sw.epilog.i:                                      ; preds = %if.end.i
   %cmp14.not.i = icmp eq i32 %7, 0
@@ -16939,7 +16951,7 @@ if.end17.i:                                       ; preds = %sw.epilog.i
 
 get_constraint_priority.exit:                     ; preds = %for.body9, %lor.lhs.false.i, %sw.bb.i, %sw.bb7.i, %if.end17.i
   %retval.0.i = phi i32 [ %sub18.i, %if.end17.i ], [ %sub.i, %sw.bb7.i ], [ %mul.i, %sw.bb.i ], [ 2147483647, %lor.lhs.false.i ], [ 2147483647, %for.body9 ]
-  %gep = getelementptr %struct.TCGArgConstraint, ptr %invariant.gep, i64 %indvars.iv65
+  %gep = getelementptr %struct.TCGArgConstraint, ptr %invariant.gep, i64 %indvars.iv66
   %bf.load18 = load i64, ptr %gep, align 4
   %13 = trunc i64 %bf.load18 to i32
   %14 = lshr i32 %13, 20
@@ -16949,69 +16961,73 @@ get_constraint_priority.exit:                     ; preds = %for.body9, %lor.lhs
   %15 = load i32, ptr %regs.i34, align 4
   %16 = tail call i32 @llvm.ctpop.i32(i32 %15), !range !25
   %cmp.i35 = icmp eq i32 %16, 1
-  br i1 %cmp.i35, label %get_constraint_priority.exit54, label %lor.lhs.false.i36
+  br i1 %cmp.i35, label %get_constraint_priority.exit55, label %lor.lhs.false.i36
 
 lor.lhs.false.i36:                                ; preds = %get_constraint_priority.exit
   %arrayidx.i37 = getelementptr %struct.TCGArgConstraint, ptr %def.val, i64 %idxprom.i33
   %bf.load.i38 = load i64, ptr %arrayidx.i37, align 4
   %17 = and i64 %bf.load.i38, 1073741824
   %bf.cast.not.i39 = icmp eq i64 %17, 0
-  br i1 %bf.cast.not.i39, label %if.end.i41, label %get_constraint_priority.exit54
+  br i1 %bf.cast.not.i39, label %if.end.i41, label %get_constraint_priority.exit55
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i36
   %18 = trunc i64 %bf.load.i38 to i32
   %19 = lshr i32 %18, 28
   %bf.cast6.i42 = and i32 %19, 3
-  switch i32 %bf.cast6.i42, label %sw.epilog.i49 [
-    i32 1, label %sw.bb.i46
-    i32 3, label %sw.bb.i46
-    i32 2, label %sw.bb7.i43
+  switch i32 %bf.cast6.i42, label %if.end.unreachabledefault.i54 [
+    i32 1, label %sw.bb.i51
+    i32 3, label %sw.bb.i51
+    i32 2, label %sw.bb7.i48
+    i32 0, label %sw.epilog.i43
   ]
 
-sw.bb.i46:                                        ; preds = %if.end.i41, %if.end.i41
-  %add.i47 = shl nuw nsw i32 %bf.cast21, 1
-  %mul.i48 = add nuw nsw i32 %add.i47, 2
-  br label %get_constraint_priority.exit54
+sw.bb.i51:                                        ; preds = %if.end.i41, %if.end.i41
+  %add.i52 = shl nuw nsw i32 %bf.cast21, 1
+  %mul.i53 = add nuw nsw i32 %add.i52, 2
+  br label %get_constraint_priority.exit55
 
-sw.bb7.i43:                                       ; preds = %if.end.i41
+sw.bb7.i48:                                       ; preds = %if.end.i41
   %20 = lshr i32 %18, 23
-  %add12.i44 = and i32 %20, 30
-  %sub.i45 = or disjoint i32 %add12.i44, 1
-  br label %get_constraint_priority.exit54
+  %add12.i49 = and i32 %20, 30
+  %sub.i50 = or disjoint i32 %add12.i49, 1
+  br label %get_constraint_priority.exit55
 
-sw.epilog.i49:                                    ; preds = %if.end.i41
-  %cmp14.not.i50 = icmp eq i32 %15, 0
-  br i1 %cmp14.not.i50, label %if.else.i53, label %if.end17.i51
+if.end.unreachabledefault.i54:                    ; preds = %if.end.i41
+  unreachable
 
-if.else.i53:                                      ; preds = %sw.epilog.i49
+sw.epilog.i43:                                    ; preds = %if.end.i41
+  %cmp14.not.i44 = icmp eq i32 %15, 0
+  br i1 %cmp14.not.i44, label %if.else.i47, label %if.end17.i45
+
+if.else.i47:                                      ; preds = %sw.epilog.i43
   tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 2891, ptr noundef nonnull @__PRETTY_FUNCTION__.get_constraint_priority) #27
   unreachable
 
-if.end17.i51:                                     ; preds = %sw.epilog.i49
-  %sub18.i52 = sub nsw i32 0, %16
-  br label %get_constraint_priority.exit54
+if.end17.i45:                                     ; preds = %sw.epilog.i43
+  %sub18.i46 = sub nsw i32 0, %16
+  br label %get_constraint_priority.exit55
 
-get_constraint_priority.exit54:                   ; preds = %get_constraint_priority.exit, %lor.lhs.false.i36, %sw.bb.i46, %sw.bb7.i43, %if.end17.i51
-  %retval.0.i40 = phi i32 [ %sub18.i52, %if.end17.i51 ], [ %sub.i45, %sw.bb7.i43 ], [ %mul.i48, %sw.bb.i46 ], [ 2147483647, %lor.lhs.false.i36 ], [ 2147483647, %get_constraint_priority.exit ]
+get_constraint_priority.exit55:                   ; preds = %get_constraint_priority.exit, %lor.lhs.false.i36, %sw.bb.i51, %sw.bb7.i48, %if.end17.i45
+  %retval.0.i40 = phi i32 [ %sub18.i46, %if.end17.i45 ], [ %sub.i50, %sw.bb7.i48 ], [ %mul.i53, %sw.bb.i51 ], [ 2147483647, %lor.lhs.false.i36 ], [ 2147483647, %get_constraint_priority.exit ]
   %cmp23 = icmp slt i32 %retval.0.i, %retval.0.i40
   br i1 %cmp23, label %if.then24, label %for.inc58
 
-if.then24:                                        ; preds = %get_constraint_priority.exit54
+if.then24:                                        ; preds = %get_constraint_priority.exit55
   %bf.cast31 = and i64 %bf.load13, 15728640
   %bf.cast38 = and i64 %bf.load18, 15728640
   %bf.clear45 = and i64 %bf.load13, -15728641
   %bf.set46 = or disjoint i64 %bf.cast38, %bf.clear45
-  store i64 %bf.set46, ptr %gep79, align 4
+  store i64 %bf.set46, ptr %gep80, align 4
   %bf.load51 = load i64, ptr %gep, align 4
   %bf.clear54 = and i64 %bf.load51, -15728641
   %bf.set55 = or disjoint i64 %bf.clear54, %bf.cast31
   store i64 %bf.set55, ptr %gep, align 4
   br label %for.inc58
 
-for.inc58:                                        ; preds = %get_constraint_priority.exit54, %if.then24
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count69
-  br i1 %exitcond70.not, label %for.cond3.loopexit, label %for.body9, !llvm.loop !98
+for.inc58:                                        ; preds = %get_constraint_priority.exit55, %if.then24
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
+  br i1 %exitcond71.not, label %for.cond3.loopexit, label %for.body9, !llvm.loop !98
 
 for.end63:                                        ; preds = %for.cond3.loopexit, %entry, %for.end
   ret void

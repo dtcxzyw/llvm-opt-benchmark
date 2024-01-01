@@ -21982,29 +21982,29 @@ _ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit: ; preds = %_ZN
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !19
   %_body.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %__begin2.sroa.0.054.i = load ptr, ptr %Next.i.i.i.i.i, align 8, !noalias !19
-  %cmp.i.not55.i = icmp eq ptr %__begin2.sroa.0.054.i, %_body.i
-  br i1 %cmp.i.not55.i, label %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit, label %for.body.lr.ph.i
+  %__begin2.sroa.0.055.i = load ptr, ptr %Next.i.i.i.i.i, align 8, !noalias !19
+  %cmp.i.not56.i = icmp eq ptr %__begin2.sroa.0.055.i, %_body.i
+  br i1 %cmp.i.not56.i, label %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit
   %isStatic3.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ClassMemberKey", ptr %memberKey.i, i64 0, i32 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__begin2.sroa.0.060.i = phi ptr [ %__begin2.sroa.0.054.i, %for.body.lr.ph.i ], [ %__begin2.sroa.0.0.i, %for.inc.i ]
-  %classMemberIndexByIdentifier.sroa.0.059.i = phi ptr [ null, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.0.4.i, %for.inc.i ]
-  %classMemberIndexByIdentifier.sroa.11.058.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.11.7.i, %for.inc.i ]
-  %classMemberIndexByIdentifier.sroa.18.057.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.18.6.i, %for.inc.i ]
-  %classMemberIndexByIdentifier.sroa.23.056.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.23.4.i, %for.inc.i ]
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %__begin2.sroa.0.061.i = phi ptr [ %__begin2.sroa.0.055.i, %for.body.lr.ph.i ], [ %__begin2.sroa.0.0.i, %for.inc.i ]
+  %classMemberIndexByIdentifier.sroa.0.060.i = phi ptr [ null, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.0.4.i, %for.inc.i ]
+  %classMemberIndexByIdentifier.sroa.11.059.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.11.7.i, %for.inc.i ]
+  %classMemberIndexByIdentifier.sroa.18.058.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.18.6.i, %for.inc.i ]
+  %classMemberIndexByIdentifier.sroa.23.057.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.23.4.i, %for.inc.i ]
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.061.i, i64 0, i32 1
   %42 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %42, 79
-  %tobool.not51.i = icmp eq ptr %__begin2.sroa.0.060.i, null
+  %tobool.not51.i = icmp eq ptr %__begin2.sroa.0.061.i, null
   %tobool.not.i = or i1 %tobool.not51.i, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i47
 
 if.then.i47:                                      ; preds = %for.body.i
-  %43 = getelementptr i8, ptr %__begin2.sroa.0.060.i, i64 64
+  %43 = getelementptr i8, ptr %__begin2.sroa.0.061.i, i64 64
   %call7.val.i = load ptr, ptr %43, align 8
   %call7.val.val.i = load ptr, ptr %call7.val.i, align 8
   %44 = getelementptr i8, ptr %call7.val.i, i64 8
@@ -22041,23 +22041,23 @@ if.end19.i.i:                                     ; preds = %if.end.i.i.i48, %if
 
 if.end.i:                                         ; preds = %if.end.i.i.i48, %if.end.i108.i.i, %if.end.i117.i.i
   %retval.0.i.ph.i = phi i32 [ 3, %if.end.i.i.i48 ], [ 2, %if.end.i108.i.i ], [ 1, %if.end.i117.i.i ]
-  %_key.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %_key.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.061.i, i64 0, i32 1
   %49 = load ptr, ptr %_key.i, align 8
   %_name.i49 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %49, i64 0, i32 1
   %50 = load ptr, ptr %_name.i49, align 8
-  %_static.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.060.i, i64 0, i32 5
+  %_static.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.061.i, i64 0, i32 5
   %51 = load i8, ptr %_static.i, align 1
   %52 = and i8 %51, 1
   store ptr %50, ptr %memberKey.i, align 8, !noalias !19
   store i8 %52, ptr %isStatic3.i.i, align 8, !noalias !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i), !noalias !19
-  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.059.i, i32 %classMemberIndexByIdentifier.sroa.23.056.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
+  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
   %53 = load ptr, ptr %TheBucket.i.i, align 8, !noalias !19
-  %idx.ext.i.i.i.i = zext i32 %classMemberIndexByIdentifier.sroa.23.056.i to i64
-  %add.ptr.i.i.i.i50 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %classMemberIndexByIdentifier.sroa.0.059.i, i64 %idx.ext.i.i.i.i
+  %idx.ext.i.i.i.i = zext i32 %classMemberIndexByIdentifier.sroa.23.057.i to i64
+  %add.ptr.i.i.i.i50 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %classMemberIndexByIdentifier.sroa.0.060.i, i64 %idx.ext.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i), !noalias !19
-  %cmp.i.i.not61.i = icmp ne ptr %53, %add.ptr.i.i.i.i50
-  %cmp.i.i.not.not.i = select i1 %call.i.i, i1 %cmp.i.i.not61.i, i1 false
+  %cmp.i.i.not62.i = icmp ne ptr %53, %add.ptr.i.i.i.i50
+  %cmp.i.i.not.not.i = select i1 %call.i.i, i1 %cmp.i.i.not62.i, i1 false
   br i1 %cmp.i.i.not.not.i, label %if.then18.i, label %if.else.i
 
 if.then18.i:                                      ; preds = %if.end.i
@@ -22071,33 +22071,33 @@ if.else.i:                                        ; preds = %if.end.i
   %56 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !19
   %conv.i.i = zext i32 %56 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i), !noalias !19
-  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.059.i, i32 %classMemberIndexByIdentifier.sroa.23.056.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
+  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
   %57 = load ptr, ptr %TheBucket.i.i.i, align 8, !noalias !19
   br i1 %call.i.i.i51, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i, label %if.end.i.i22.i
 
 if.end.i.i22.i:                                   ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.addr.i.i.i.i.i), !noalias !19
   store ptr %57, ptr %TheBucket.addr.i.i.i.i.i, align 8, !noalias !19
-  %add.i.i.i.i.i52 = shl i32 %classMemberIndexByIdentifier.sroa.11.058.i, 2
+  %add.i.i.i.i.i52 = shl i32 %classMemberIndexByIdentifier.sroa.11.059.i, 2
   %mul.i.i.i.i.i = add i32 %add.i.i.i.i.i52, 4
-  %mul3.i.i.i.i.i = mul i32 %classMemberIndexByIdentifier.sroa.23.056.i, 3
+  %mul3.i.i.i.i.i = mul i32 %classMemberIndexByIdentifier.sroa.23.057.i, 3
   %cmp.not.i.i.i.i.i = icmp ult i32 %mul.i.i.i.i.i, %mul3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i22.i
-  %mul4.i.i.i.i.i = shl i32 %classMemberIndexByIdentifier.sroa.23.056.i, 1
+  %mul4.i.i.i.i.i = shl i32 %classMemberIndexByIdentifier.sroa.23.057.i, 1
   br label %if.end12.sink.split.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i22.i
-  %add.neg.i.i.i.i.i = xor i32 %classMemberIndexByIdentifier.sroa.11.058.i, -1
-  %add8.neg.i.i.i.i.i = sub i32 %add.neg.i.i.i.i.i, %classMemberIndexByIdentifier.sroa.18.057.i
-  %sub.i.i.i.i.i = add i32 %add8.neg.i.i.i.i.i, %classMemberIndexByIdentifier.sroa.23.056.i
-  %div7.i.i.i.i.i = lshr i32 %classMemberIndexByIdentifier.sroa.23.056.i, 3
+  %add.neg.i.i.i.i.i = xor i32 %classMemberIndexByIdentifier.sroa.11.059.i, -1
+  %add8.neg.i.i.i.i.i = sub i32 %add.neg.i.i.i.i.i, %classMemberIndexByIdentifier.sroa.18.058.i
+  %sub.i.i.i.i.i = add i32 %add8.neg.i.i.i.i.i, %classMemberIndexByIdentifier.sroa.23.057.i
+  %div7.i.i.i.i.i = lshr i32 %classMemberIndexByIdentifier.sroa.23.057.i, 3
   %cmp9.not.i.i.i.i.i = icmp ugt i32 %sub.i.i.i.i.i, %div7.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i.i, label %if.end12.i.i.i.i.i, label %if.end12.sink.split.i.i.i.i.i
 
 if.end12.sink.split.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %this.val8.sink.i.i.i.i.i = phi i32 [ %mul4.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.23.056.i, %if.else.i.i.i.i.i ]
+  %this.val8.sink.i.i.i.i.i = phi i32 [ %mul4.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.else.i.i.i.i.i ]
   %sub.i.i6.i.i.i.i = add i32 %this.val8.sink.i.i.i.i.i, -1
   %conv.i.i.i.i.i.i53 = zext i32 %sub.i.i6.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i.i53, 1
@@ -22116,7 +22116,7 @@ if.end12.sink.split.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i, 
   %conv.i.i.i.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i.i to i64
   %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i, 24
   %call.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #16
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %classMemberIndexByIdentifier.sroa.0.059.i, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %classMemberIndexByIdentifier.sroa.0.060.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i63, label %if.end.i.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i63:                            ; preds = %if.end12.sink.split.i.i.i.i.i
@@ -22147,12 +22147,12 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %cmp.not15.i.i.i.i.i.i.i = icmp eq i32 %classMemberIndexByIdentifier.sroa.23.056.i, 0
+  %cmp.not15.i.i.i.i.i.i.i = icmp eq i32 %classMemberIndexByIdentifier.sroa.23.057.i, 0
   br i1 %cmp.not15.i.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i, label %for.body.i5.i.i.i.i.i.i
 
 for.body.i5.i.i.i.i.i.i:                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i, %if.end.i7.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.2.i, %if.end.i7.i.i.i.i.i.i ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i ]
-  %B.016.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i8.i.i.i.i.i.i, %if.end.i7.i.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.0.059.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i ]
+  %B.016.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i8.i.i.i.i.i.i, %if.end.i7.i.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.0.060.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %B.016.i.i.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.call3.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.016.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = load i8, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i.i.i.i.i.i, align 8
@@ -22184,7 +22184,7 @@ if.end.i7.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i: ; preds = %if.end.i7.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.3.i = phi i32 [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.11.2.i, %if.end.i7.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %DestBucket.i.i.i.i.i.i.i), !noalias !19
-  call void @_ZdlPv(ptr noundef nonnull %classMemberIndexByIdentifier.sroa.0.059.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %classMemberIndexByIdentifier.sroa.0.060.i) #15
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i
@@ -22194,11 +22194,11 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i, %if.else.i.i.i.i.i
-  %classMemberIndexByIdentifier.sroa.23.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.056.i, %if.else.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
-  %classMemberIndexByIdentifier.sroa.18.2.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.057.i, %if.else.i.i.i.i.i ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
-  %classMemberIndexByIdentifier.sroa.0.1.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %if.else.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.23.1.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.else.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.18.2.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.else.i.i.i.i.i ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.0.1.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.else.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
   %65 = phi ptr [ %57, %if.else.i.i.i.i.i ], [ %.pre.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
-  %this.val.i.i.i.i.i.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.058.i, %if.else.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.11.4.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
+  %this.val.i.i.i.i.i.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.else.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.11.4.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i ]
   %add.i.i.i.i.i.i56 = add i32 %this.val.i.i.i.i.i.i, 1
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %65, align 8
   %agg.tmp.sroa.2.0.call14.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 8
@@ -22216,10 +22216,10 @@ if.end12.i.i.i.i.i:                               ; preds = %_ZN4llvh12DenseMapB
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i: ; preds = %if.end12.i.i.i.i.i, %if.else.i
-  %classMemberIndexByIdentifier.sroa.23.2.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.056.i, %if.else.i ], [ %classMemberIndexByIdentifier.sroa.23.1.i, %if.end12.i.i.i.i.i ]
-  %classMemberIndexByIdentifier.sroa.18.4.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.057.i, %if.else.i ], [ %spec.select.i, %if.end12.i.i.i.i.i ]
-  %classMemberIndexByIdentifier.sroa.11.5.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.058.i, %if.else.i ], [ %add.i.i.i.i.i.i56, %if.end12.i.i.i.i.i ]
-  %classMemberIndexByIdentifier.sroa.0.2.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %if.else.i ], [ %classMemberIndexByIdentifier.sroa.0.1.i, %if.end12.i.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.23.2.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.else.i ], [ %classMemberIndexByIdentifier.sroa.23.1.i, %if.end12.i.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.18.4.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.else.i ], [ %spec.select.i, %if.end12.i.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.11.5.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.else.i ], [ %add.i.i.i.i.i.i56, %if.end12.i.i.i.i.i ]
+  %classMemberIndexByIdentifier.sroa.0.2.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.else.i ], [ %classMemberIndexByIdentifier.sroa.0.1.i, %if.end12.i.i.i.i.i ]
   %retval.0.i.i.i57 = phi ptr [ %57, %if.else.i ], [ %65, %if.end12.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i), !noalias !19
   %second.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %retval.0.i.i.i57, i64 0, i32 1
@@ -22311,12 +22311,12 @@ _ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJ
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i, %if.then18.i
-  %classMemberIndexByIdentifier.sroa.23.3.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.056.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
-  %classMemberIndexByIdentifier.sroa.18.5.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.057.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.18.4.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
-  %classMemberIndexByIdentifier.sroa.11.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.058.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.11.5.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
-  %classMemberIndexByIdentifier.sroa.0.3.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
+  %classMemberIndexByIdentifier.sroa.23.3.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.23.2.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
+  %classMemberIndexByIdentifier.sroa.18.5.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.18.4.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
+  %classMemberIndexByIdentifier.sroa.11.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.11.5.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
+  %classMemberIndexByIdentifier.sroa.0.3.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.then18.i ], [ %classMemberIndexByIdentifier.sroa.0.2.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
   %resolvedClassMember.0.i = phi ptr [ %arrayidx.i.i, %if.then18.i ], [ %arrayidx.i32.i, %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i ]
-  switch i32 %retval.0.i.ph.i, label %sw.default.i [
+  switch i32 %retval.0.i.ph.i, label %if.end30.unreachabledefault.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb31.i
     i32 3, label %sw.bb32.i
@@ -22334,25 +22334,24 @@ sw.bb32.i:                                        ; preds = %if.end30.i
   %setter.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %resolvedClassMember.0.i, i64 0, i32 4
   br label %for.inc.sink.split.i
 
-sw.default.i:                                     ; preds = %if.end30.i
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.11) #17
+if.end30.unreachabledefault.i:                    ; preds = %if.end30.i
   unreachable
 
 for.inc.sink.split.i:                             ; preds = %sw.bb32.i, %sw.bb31.i, %sw.bb.i, %if.end.i126.i.i
   %setter.sink.i = phi ptr [ %setter.i, %sw.bb32.i ], [ %getter.i, %sw.bb31.i ], [ %method.i, %sw.bb.i ], [ %classMembers, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.23.4.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.23.056.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.18.6.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.18.057.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.11.7.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.11.058.i, %if.end.i126.i.i ]
-  %classMemberIndexByIdentifier.sroa.0.4.ph.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.0.059.i, %if.end.i126.i.i ]
-  store ptr %__begin2.sroa.0.060.i, ptr %setter.sink.i, align 8
+  %classMemberIndexByIdentifier.sroa.23.4.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.23.3.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.23.057.i, %if.end.i126.i.i ]
+  %classMemberIndexByIdentifier.sroa.18.6.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.18.5.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.18.058.i, %if.end.i126.i.i ]
+  %classMemberIndexByIdentifier.sroa.11.7.ph.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.11.6.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.11.059.i, %if.end.i126.i.i ]
+  %classMemberIndexByIdentifier.sroa.0.4.ph.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb32.i ], [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb31.i ], [ %classMemberIndexByIdentifier.sroa.0.3.i, %sw.bb.i ], [ %classMemberIndexByIdentifier.sroa.0.060.i, %if.end.i126.i.i ]
+  store ptr %__begin2.sroa.0.061.i, ptr %setter.sink.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %for.body.i
-  %classMemberIndexByIdentifier.sroa.23.4.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.056.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.23.4.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.18.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.057.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.18.6.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.11.7.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.058.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.11.7.ph.i, %for.inc.sink.split.i ]
-  %classMemberIndexByIdentifier.sroa.0.4.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.0.4.ph.i, %for.inc.sink.split.i ]
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %classMemberIndexByIdentifier.sroa.23.4.i = phi i32 [ %classMemberIndexByIdentifier.sroa.23.057.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.23.4.ph.i, %for.inc.sink.split.i ]
+  %classMemberIndexByIdentifier.sroa.18.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.058.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.18.6.ph.i, %for.inc.sink.split.i ]
+  %classMemberIndexByIdentifier.sroa.11.7.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.059.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.11.7.ph.i, %for.inc.sink.split.i ]
+  %classMemberIndexByIdentifier.sroa.0.4.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.060.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.0.4.ph.i, %for.inc.sink.split.i ]
+  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.061.i, i64 0, i32 1
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i
   br i1 %cmp.i.not.i, label %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit, label %for.body.i

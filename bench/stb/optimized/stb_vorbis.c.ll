@@ -15827,10 +15827,11 @@ for.body4.us:                                     ; preds = %for.body.us, %for.i
   %arrayidx6.us = getelementptr inbounds [7 x [6 x i8]], ptr @channel_position, i64 0, i64 %idxprom, i64 %indvars.iv92
   %9 = load i8, ptr %arrayidx6.us, align 1
   %10 = and i8 %9, 6
-  switch i8 %10, label %for.inc81.us [
+  switch i8 %10, label %for.body4.us.unreachabledefault [
     i8 6, label %for.cond10.preheader.us
     i8 2, label %for.cond38.preheader.us
     i8 4, label %for.cond60.preheader.us
+    i8 0, label %for.inc81.us
   ]
 
 for.body63.us:                                    ; preds = %for.body63.lr.ph.us, %for.body63.us
@@ -15860,6 +15861,11 @@ for.body41.us:                                    ; preds = %for.body41.lr.ph.us
   %cmp39.us = icmp slt i64 %indvars.iv.next82, %5
   br i1 %cmp39.us, label %for.body41.us, label %for.inc81.us, !llvm.loop !171
 
+for.inc81.us:                                     ; preds = %for.body63.us, %for.body41.us, %for.body13.us, %for.cond60.preheader.us, %for.cond38.preheader.us, %for.cond10.preheader.us, %for.body4.us
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
+  br i1 %exitcond.not, label %for.cond2.for.cond84.preheader_crit_edge.us, label %for.body4.us, !llvm.loop !172
+
 for.body13.us:                                    ; preds = %for.body13.lr.ph.us, %for.body13.us
   %indvars.iv86 = phi i64 [ 0, %for.body13.lr.ph.us ], [ %indvars.iv.next87, %for.body13.us ]
   %arrayidx19.us = getelementptr float, ptr %29, i64 %indvars.iv86
@@ -15873,12 +15879,7 @@ for.body13.us:                                    ; preds = %for.body13.lr.ph.us
   store <2 x float> %23, ptr %arrayidx22.us, align 8
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %cmp11.us = icmp slt i64 %indvars.iv.next87, %5
-  br i1 %cmp11.us, label %for.body13.us, label %for.inc81.us, !llvm.loop !172
-
-for.inc81.us:                                     ; preds = %for.body63.us, %for.body41.us, %for.body13.us, %for.cond60.preheader.us, %for.cond38.preheader.us, %for.cond10.preheader.us, %for.body4.us
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond2.for.cond84.preheader_crit_edge.us, label %for.body4.us, !llvm.loop !173
+  br i1 %cmp11.us, label %for.body13.us, label %for.inc81.us, !llvm.loop !173
 
 for.cond10.preheader.us:                          ; preds = %for.body4.us
   br i1 %cmp6152.us, label %for.body13.lr.ph.us, label %for.inc81.us
@@ -15919,6 +15920,9 @@ for.body88.us.preheader:                          ; preds = %for.cond2.for.cond8
   %32 = zext nneg i32 %shl85.us to i64
   %invariant.gep110 = getelementptr i16, ptr %output, i64 %31
   br label %for.body88.us
+
+for.body4.us.unreachabledefault:                  ; preds = %for.body4.us
+  unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc107
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.inc107 ], [ 0, %for.body.lr.ph ]

@@ -11533,10 +11533,11 @@ if.then14:                                        ; preds = %if.end13
   store i8 1, ptr %visited, align 1
   %bf.clear19 = and i8 %bf.load, 3
   %bf.cast20 = zext nneg i8 %bf.clear19 to i32
-  switch i32 %bf.cast20, label %sw.default [
+  switch i32 %bf.cast20, label %if.then14.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.bb27
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.then14, %if.then14
@@ -11762,6 +11763,9 @@ _ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.i107: ; 
   store i8 0, ptr %visited, align 1
   br label %sw.epilog
 
+if.then14.unreachabledefault:                     ; preds = %if.then14
+  unreachable
+
 sw.default:                                       ; preds = %if.then14
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 930, ptr noundef nonnull @.str.5)
   call void @exit(i32 noundef 114) #21
@@ -11781,10 +11785,11 @@ if.end75:                                         ; preds = %sw.epilog.if.end75_
   %bf.load77 = phi i8 [ %bf.load77.pre, %sw.epilog.if.end75_crit_edge ], [ %bf.load, %if.end13 ]
   %bf.clear78 = and i8 %bf.load77, 3
   %bf.cast79 = zext nneg i8 %bf.clear78 to i32
-  switch i32 %bf.cast79, label %sw.default83 [
+  switch i32 %bf.cast79, label %if.end75.unreachabledefault [
     i32 1, label %while.cond.backedge.sink.split
     i32 0, label %sw.bb81
     i32 2, label %sw.bb82
+    i32 3, label %sw.default83
   ]
 
 sw.bb81:                                          ; preds = %if.end75
@@ -11794,6 +11799,9 @@ sw.bb81:                                          ; preds = %if.end75
 sw.bb82:                                          ; preds = %if.end75
   call void @_ZN11aig_manager3imp8aig2expr6mk_iteEP3aig(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %22)
   br label %while.cond.backedge.sink.split
+
+if.end75.unreachabledefault:                      ; preds = %if.end75
+  unreachable
 
 sw.default83:                                     ; preds = %if.end75
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 948, ptr noundef nonnull @.str.5)

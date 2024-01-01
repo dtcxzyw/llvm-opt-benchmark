@@ -1569,10 +1569,11 @@ if.else.i:                                        ; preds = %entry
 e100_read_reg4.exit:                              ; preds = %entry
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 1
   %conv = and i32 %arrayidx.val.i, 3
-  switch i32 %conv, label %sw.default [
+  switch i32 %conv, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb9
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %e100_read_reg4.exit
@@ -1691,6 +1692,9 @@ nic_selective_reset.exit:                         ; preds = %for.end.i
   %mdimem.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   br label %sw.epilog
+
+entry.unreachabledefault:                         ; preds = %e100_read_reg4.exit
+  unreachable
 
 sw.default:                                       ; preds = %e100_read_reg4.exit
   %9 = load ptr, ptr @stderr, align 8
@@ -1956,7 +1960,7 @@ if.end:                                           ; preds = %for.cond
   store i32 %3, ptr %cu_offset, align 8
   %4 = and i16 %2, 7
   %and30 = zext nneg i16 %4 to i32
-  switch i32 %and30, label %sw.default [
+  switch i32 %and30, label %if.end.unreachabledefault [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb31
     i32 2, label %sw.bb35
@@ -1964,6 +1968,7 @@ if.end:                                           ; preds = %for.cond
     i32 4, label %sw.bb49
     i32 5, label %sw.epilog
     i32 7, label %sw.bb55
+    i32 6, label %sw.default
   ]
 
 sw.bb31:                                          ; preds = %if.end
@@ -2183,6 +2188,9 @@ tx_command.exit:                                  ; preds = %for.body83.i, %for.
 sw.bb55:                                          ; preds = %if.end
   store i16 0, ptr %tx.i, align 8
   br label %sw.epilog
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   %35 = load ptr, ptr @stderr, align 8

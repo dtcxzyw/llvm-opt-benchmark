@@ -1386,18 +1386,18 @@ entry:
   %m_neg.i = getelementptr inbounds %class.doc, ptr %dst, i64 0, i32 1
   %m_pos.i.i = getelementptr inbounds %class.doc, ptr %dst, i64 0, i32 1, i32 0, i32 1
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %cmp4351 = icmp eq i32 %0, 0
-  br i1 %cmp4351, label %return, label %for.body.lr.ph.lr.ph
+  %cmp4856 = icmp eq i32 %0, 0
+  br i1 %cmp4856, label %return, label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %entry
   %m_num_bits.i.i.i.i = getelementptr inbounds %class.fixed_bit_vector_manager, ptr %this, i64 0, i32 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph.lr.ph
-  %i.045 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %i.045.be, %for.body.backedge ]
-  %index.144 = phi i32 [ undef, %for.body.lr.ph.lr.ph ], [ %index.144.be, %for.body.backedge ]
+  %i.050 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %i.050.be, %for.body.backedge ]
+  %index.149 = phi i32 [ undef, %for.body.lr.ph.lr.ph ], [ %index.149.be, %for.body.backedge ]
   %1 = load ptr, ptr %m_neg.i, align 8
-  %idxprom.i.i = zext i32 %i.045 to i64
+  %idxprom.i.i = zext i32 %i.050 to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %3 = load ptr, ptr %dst, align 8
@@ -1415,7 +1415,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp20.not.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %index.2 = phi i32 [ %index.3, %for.inc.i ], [ %index.144, %if.end ]
+  %index.2 = phi i32 [ %index.3, %for.inc.i ], [ %index.149, %if.end ]
   %count.022.i = phi i32 [ %count.1.i, %for.inc.i ], [ 0, %if.end ]
   %i.021.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end ]
   %mul.i.i.i = shl nuw i32 %i.021.i, 1
@@ -1463,12 +1463,12 @@ for.inc.i:                                        ; preds = %if.end.i, %if.else.
   br i1 %exitcond.not.i, label %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, label %for.body.i, !llvm.loop !14
 
 _ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit:   ; preds = %for.inc.i
-  %cond = icmp ne i32 %count.1.i, 0
-  br i1 %cond, label %if.else19, label %return
+  %switch = icmp eq i32 %count.1.i, 1
+  br i1 %switch, label %if.else19, label %return
 
 if.then16:                                        ; preds = %if.else.i
-  tail call void @_ZN10union_bvecI11tbv_manager3tbvE5eraseERS0_j(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %i.045)
-  %dec = add i32 %i.045, -1
+  tail call void @_ZN10union_bvecI11tbv_manager3tbvE5eraseERS0_j(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %i.050)
+  %dec = add i32 %i.050, -1
   br label %for.inc
 
 if.else19:                                        ; preds = %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit
@@ -1491,23 +1491,23 @@ if.else19:                                        ; preds = %_ZN11doc_manager11d
   %14 = load ptr, ptr %dst, align 8
   tail call void @_ZN10union_bvecI11tbv_manager3tbvE9intersectERS0_RKS1_(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %14)
   %15 = load i32, ptr %m_pos.i.i, align 8
-  %cmp43 = icmp eq i32 %15, 0
-  br i1 %cmp43, label %return, label %for.body.backedge
+  %cmp48 = icmp eq i32 %15, 0
+  br i1 %cmp48, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %if.then.i, %if.then16
-  %i.1 = phi i32 [ %dec, %if.then16 ], [ %i.045, %if.then.i ]
+  %i.1 = phi i32 [ %dec, %if.then16 ], [ %i.050, %if.then.i ]
   %inc = add i32 %i.1, 1
   %16 = load i32, ptr %m_pos.i.i, align 8
   %cmp.not = icmp ult i32 %inc, %16
   br i1 %cmp.not, label %for.body.backedge, label %return
 
 for.body.backedge:                                ; preds = %for.inc, %if.else19
-  %i.045.be = phi i32 [ %inc, %for.inc ], [ 0, %if.else19 ]
-  %index.144.be = phi i32 [ %index.2, %for.inc ], [ %index.3, %if.else19 ]
+  %i.050.be = phi i32 [ %inc, %for.inc ], [ 0, %if.else19 ]
+  %index.149.be = phi i32 [ %index.2, %for.inc ], [ %index.3, %if.else19 ]
   br label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %if.else19, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, %for.body, %for.inc, %if.end, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cond, %if.else19 ], [ %cond, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %if.end ], [ true, %for.inc ], [ false, %for.body ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %switch, %if.else19 ], [ %switch, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %if.end ], [ true, %for.inc ], [ false, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -1934,10 +1934,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %6 = lshr i32 %5, %rem.i.i6.i.i.i
   %conv3.i.i.i = and i32 %6, 1
   %or.i.i.i = or disjoint i32 %shl.i.i.i, %conv3.i.i.i
-  switch i32 %or.i.i.i, label %sw.default [
+  switch i32 %or.i.i.i, label %do.body.unreachabledefault [
     i32 1, label %sw.bb
     i32 2, label %sw.bb3
     i32 3, label %sw.bb7
+    i32 0, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %do.body
@@ -1960,6 +1961,9 @@ sw.bb7:                                           ; preds = %do.body
   %cmp.i58.not = icmp eq i32 %and.i, 0
   %spec.select = select i1 %cmp.i58.not, i32 %idx.addr.0, i32 %root1.0
   br label %sw.epilog
+
+do.body.unreachabledefault:                       ; preds = %do.body
+  unreachable
 
 sw.default:                                       ; preds = %do.body
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 245, ptr noundef nonnull @.str.2)
@@ -2561,10 +2565,11 @@ invoke.cont80:                                    ; preds = %invoke.cont80.lr.ph
   %44 = lshr i32 %43, %rem.i.i6.i.i130
   %conv3.i.i131 = and i32 %44, 1
   %or.i.i132 = or disjoint i32 %shl.i.i129, %conv3.i.i131
-  switch i32 %or.i.i132, label %sw.default [
+  switch i32 %or.i.i132, label %invoke.cont80.unreachabledefault [
     i32 3, label %sw.bb82
     i32 1, label %sw.bb85
     i32 2, label %sw.bb87
+    i32 0, label %sw.default
   ]
 
 lpad72.loopexit:                                  ; preds = %if.then.i136, %if.end.i.i.i.i155, %if.then.i.i171, %if.end.i.i.i.i.i190, %if.then.i.i206, %if.end.i.i.i.i.i225
@@ -2747,6 +2752,9 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227:   ; preds = %.noexc236, %for.end
   store ptr %call.i.i.i235, ptr %pos, align 8
   store i32 %shl.i.i.i207, ptr %m_capacity.i.i114, align 4
   br label %for.inc90
+
+invoke.cont80.unreachabledefault:                 ; preds = %invoke.cont80
+  unreachable
 
 sw.default:                                       ; preds = %invoke.cont80
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @.str.2)

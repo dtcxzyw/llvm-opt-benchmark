@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [12 x i8] c"closed file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
+define noundef i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef null, ptr noundef nonnull @lj_lib_init_io_method, ptr noundef nonnull @lj_lib_cf_io_method) #10
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
@@ -552,7 +552,7 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_method_lines(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_method_lines(ptr noundef %L) #0 {
 entry:
   %base.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i.i, align 8
@@ -609,7 +609,7 @@ io_file_lines.exit:                               ; preds = %io_tofile.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_method___gc(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_method___gc(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -647,10 +647,11 @@ land.lhs.true:                                    ; preds = %io_tofilep.exit
   %type = getelementptr inbounds %struct.GCudata, ptr %4, i64 1, i32 1
   %7 = load i32, ptr %type, align 8
   %and = and i32 %7, 3
-  switch i32 %and, label %if.else11.i [
+  switch i32 %and, label %land.lhs.true.unreachabledefault [
     i32 2, label %if.end
     i32 0, label %if.then.i5
     i32 1, label %if.then6.i
+    i32 3, label %if.else11.i
   ]
 
 if.then.i5:                                       ; preds = %land.lhs.true
@@ -662,6 +663,9 @@ if.then6.i:                                       ; preds = %land.lhs.true
   %call8.i = tail call i32 @pclose(ptr noundef nonnull %6)
   %cmp9.i = icmp ne i32 %call8.i, -1
   br label %if.end12.i
+
+land.lhs.true.unreachabledefault:                 ; preds = %land.lhs.true
+  unreachable
 
 if.else11.i:                                      ; preds = %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %1, i64 1
@@ -682,7 +686,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_method___tostring(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_method___tostring(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1525,7 +1529,7 @@ io_stdfile.exit:                                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_input(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_input(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1606,7 +1610,7 @@ io_std_getset.exit:                               ; preds = %if.end.i, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_output(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_output(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1687,7 +1691,7 @@ io_std_getset.exit:                               ; preds = %if.end.i, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_lines(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_lines(ptr noundef %L) #0 {
 entry:
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base, align 8
@@ -1754,7 +1758,7 @@ io_file_lines.exit:                               ; preds = %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_io_type(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_io_type(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #10
   %0 = load i64, ptr %call, align 8
@@ -1813,7 +1817,7 @@ declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture
 declare noalias noundef ptr @tmpfile64() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @io_file_open(ptr noundef %L, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
+define internal fastcc noundef ptr @io_file_open(ptr noundef %L, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #10
   %add.ptr = getelementptr inbounds %struct.GCstr, ptr %call, i64 1

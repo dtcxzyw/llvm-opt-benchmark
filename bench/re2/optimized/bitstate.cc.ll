@@ -105,7 +105,7 @@ $__clang_call_terminate = comdat any
 
 @_ZN3re28BitStateC1EPNS_4ProgE = unnamed_addr alias void (ptr, ptr), ptr @_ZN3re28BitStateC2EPNS_4ProgE
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3re28BitStateC2EPNS_4ProgE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %this, ptr noundef %prog) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %prog, ptr %this, align 8
@@ -414,8 +414,8 @@ if.end:                                           ; preds = %entry
   store i64 %or.i, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %id0, ptr noundef %p0)
   %.pre = load i32, ptr %njob_, align 8
-  %cmp209213 = icmp sgt i32 %.pre, 0
-  br i1 %cmp209213, label %while.body.lr.ph.lr.ph, label %while.end
+  %cmp216220 = icmp sgt i32 %.pre, 0
+  br i1 %cmp216220, label %while.body.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.re2::BitState", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -431,7 +431,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
   %8 = phi i32 [ %.pre, %while.body.lr.ph.lr.ph ], [ %90, %sw.epilog ]
-  %matched.0.ph214 = phi i8 [ 0, %while.body.lr.ph.lr.ph ], [ %matched.3, %sw.epilog ]
+  %matched.0.ph221 = phi i8 [ 0, %while.body.lr.ph.lr.ph ], [ %matched.3, %sw.epilog ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then19
@@ -486,22 +486,22 @@ Loop.outer.preheader:                             ; preds = %if.then25, %if.end2
 Loop.outer:                                       ; preds = %Loop.outer.backedge, %Loop.outer.preheader
   %p.1.ph = phi ptr [ %p.1.ph.ph, %Loop.outer.preheader ], [ %p.1.ph.be, %Loop.outer.backedge ]
   %id.0.ph = phi i32 [ %11, %Loop.outer.preheader ], [ %id.0.ph.be, %Loop.outer.backedge ]
-  %matched.1.ph = phi i8 [ %matched.0.ph214, %Loop.outer.preheader ], [ %matched.1, %Loop.outer.backedge ]
+  %matched.1.ph = phi i8 [ %matched.0.ph221, %Loop.outer.preheader ], [ %matched.1, %Loop.outer.backedge ]
   %cmp110.not = icmp eq ptr %p.1.ph, %add.ptr
   %cmp50 = icmp ult ptr %p.1.ph, %add.ptr
   %21 = sext i32 %id.0.ph to i64
   br label %Loop
 
 Loop:                                             ; preds = %Loop.outer, %if.then157
-  %indvars.iv293 = phi i64 [ %21, %Loop.outer ], [ %indvars.iv.next294, %if.then157 ]
+  %indvars.iv307 = phi i64 [ %21, %Loop.outer ], [ %indvars.iv.next308, %if.then157 ]
   %matched.1 = phi i8 [ %matched.1.ph, %Loop.outer ], [ %matched.2, %if.then157 ]
   %22 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i.i75 = getelementptr inbounds %"class.re2::Prog", ptr %22, i64 0, i32 16, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i75, align 8
-  %arrayidx.i.i.i76 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv293
+  %arrayidx.i.i.i76 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv307
   %24 = load i32, ptr %arrayidx.i.i.i76, align 4
   %and.i77 = and i32 %24, 7
-  switch i32 %and.i77, label %sw.default [
+  switch i32 %and.i77, label %Loop.unreachabledefault [
     i32 7, label %sw.epilog
     i32 1, label %sw.bb40
     i32 2, label %sw.bb49
@@ -509,7 +509,11 @@ Loop:                                             ; preds = %Loop.outer, %if.the
     i32 4, label %sw.bb84
     i32 6, label %sw.bb97
     i32 5, label %sw.bb107
+    i32 0, label %sw.default
   ]
+
+Loop.unreachabledefault:                          ; preds = %Loop
+  unreachable
 
 sw.default:                                       ; preds = %Loop
   store i8 0, ptr %ref.tmp, align 8
@@ -581,7 +585,7 @@ _ZN3re24Prog4Inst6greedyEPS0_.exit:               ; preds = %sw.bb40
   br i1 %cmp13.i, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %sw.bb40, %_ZN3re24Prog4Inst6greedyEPS0_.exit
-  %30 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv293, i32 1
+  %30 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv307, i32 1
   %31 = load i32, ptr %30, align 4
   br label %Loop.outer.backedge
 
@@ -610,7 +614,7 @@ if.end52:                                         ; preds = %if.then51, %sw.bb49
   %or.cond1.i = and i1 %38, %tobool.i
   %add.i = add nuw nsw i32 %c.0, 32
   %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %c.0
-  %39 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv293, i32 1
+  %39 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv307, i32 1
   %40 = load i8, ptr %39, align 4
   %conv.i80 = zext i8 %40 to i32
   %cmp4.not.i = icmp sge i32 %spec.select.i, %conv.i80
@@ -626,7 +630,7 @@ if.end55:                                         ; preds = %if.end52
   br i1 %cmp57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %43 = trunc i64 %indvars.iv293 to i32
+  %43 = trunc i64 %indvars.iv307 to i32
   %44 = lshr i16 %35, 1
   %shr.i81 = zext nneg i16 %44 to i32
   %add = add nsw i32 %43, %shr.i81
@@ -638,7 +642,7 @@ if.end60:                                         ; preds = %if.then58, %if.end5
   br label %CheckAndLoop
 
 sw.bb62:                                          ; preds = %Loop
-  %45 = trunc i64 %indvars.iv293 to i32
+  %45 = trunc i64 %indvars.iv307 to i32
   %46 = and i32 %24, 8
   %tobool64.not = icmp eq i32 %46, 0
   br i1 %tobool64.not, label %if.then65, label %if.end67
@@ -649,7 +653,7 @@ if.then65:                                        ; preds = %sw.bb62
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then65, %sw.bb62
-  %47 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv293, i32 1
+  %47 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv307, i32 1
   %48 = load i32, ptr %47, align 4
   %cmp69 = icmp sgt i32 %48, -1
   %49 = load i32, ptr %cap_71, align 8
@@ -672,7 +676,7 @@ if.then74:                                        ; preds = %if.end67
   br label %CheckAndLoop
 
 sw.bb84:                                          ; preds = %Loop
-  %54 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv293, i32 1
+  %54 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %indvars.iv307, i32 1
   %55 = load i32, ptr %54, align 4
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %context_, align 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.context_.sroa_idx, align 8
@@ -680,16 +684,16 @@ sw.bb84:                                          ; preds = %Loop
   %not = xor i32 %call86, -1
   %and87 = and i32 %55, %not
   %tobool88.not = icmp eq i32 %and87, 0
-  %.pre296 = load i32, ptr %arrayidx.i.i.i76, align 4
+  %.pre310 = load i32, ptr %arrayidx.i.i.i76, align 4
   br i1 %tobool88.not, label %if.end90, label %Next
 
 if.end90:                                         ; preds = %sw.bb84
-  %56 = and i32 %.pre296, 8
+  %56 = and i32 %.pre310, 8
   %tobool92.not = icmp eq i32 %56, 0
   br i1 %tobool92.not, label %if.then93, label %CheckAndLoop
 
 if.then93:                                        ; preds = %if.end90
-  %57 = trunc i64 %indvars.iv293 to i32
+  %57 = trunc i64 %indvars.iv307 to i32
   %add94 = add nsw i32 %57, 1
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %add94, ptr noundef %p.1.ph)
   br label %CheckAndLoop
@@ -700,7 +704,7 @@ sw.bb97:                                          ; preds = %Loop
   br i1 %tobool99.not, label %if.then100, label %CheckAndLoop
 
 if.then100:                                       ; preds = %sw.bb97
-  %59 = trunc i64 %indvars.iv293 to i32
+  %59 = trunc i64 %indvars.iv307 to i32
   %add101 = add nsw i32 %59, 1
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %add101, ptr noundef %p.1.ph)
   br label %CheckAndLoop
@@ -781,14 +785,14 @@ land.lhs.true122:                                 ; preds = %lor.lhs.false
   %add.ptr129 = getelementptr inbounds i8, ptr %73, i64 %76
   %cmp130 = icmp ugt ptr %p.1.ph, %add.ptr129
   %77 = load i32, ptr %nsubmatch_, align 8
-  %cmp133211 = icmp sgt i32 %77, 0
-  %or.cond216 = select i1 %cmp130, i1 %cmp133211, i1 false
-  br i1 %or.cond216, label %for.body.preheader, label %if.end147
+  %cmp133218 = icmp sgt i32 %77, 0
+  %or.cond223 = select i1 %cmp130, i1 %cmp133218, i1 false
+  br i1 %or.cond223, label %for.body.preheader, label %if.end147
 
 if.then131:                                       ; preds = %if.end115
   %.old = load i32, ptr %nsubmatch_, align 8
-  %cmp133211.old = icmp sgt i32 %.old, 0
-  br i1 %cmp133211.old, label %for.body.preheader, label %if.end147
+  %cmp133218.old = icmp sgt i32 %.old, 0
+  br i1 %cmp133218.old, label %for.body.preheader, label %if.end147
 
 for.body.preheader:                               ; preds = %if.then131, %land.lhs.true122
   br label %for.body
@@ -832,29 +836,29 @@ if.end147:                                        ; preds = %_ZN4absl7debian211s
   br i1 %or.cond60, label %return, label %if.end147.Next_crit_edge
 
 if.end147.Next_crit_edge:                         ; preds = %if.end147
-  %.pre295 = load i32, ptr %arrayidx.i.i.i76, align 4
+  %.pre309 = load i32, ptr %arrayidx.i.i.i76, align 4
   br label %Next
 
 Next:                                             ; preds = %if.end147.Next_crit_edge, %sw.bb107, %sw.bb84, %if.end52, %if.end45
-  %88 = phi i32 [ %.pre296, %sw.bb84 ], [ %24, %if.end52 ], [ %24, %if.end45 ], [ %24, %sw.bb107 ], [ %.pre295, %if.end147.Next_crit_edge ]
+  %88 = phi i32 [ %.pre310, %sw.bb84 ], [ %24, %if.end52 ], [ %24, %if.end45 ], [ %24, %sw.bb107 ], [ %.pre309, %if.end147.Next_crit_edge ]
   %matched.2 = phi i8 [ %matched.1, %sw.bb84 ], [ %matched.1, %if.end52 ], [ %matched.1, %if.end45 ], [ %matched.1, %sw.bb107 ], [ 1, %if.end147.Next_crit_edge ]
   %89 = and i32 %88, 8
   %tobool156.not = icmp eq i32 %89, 0
   br i1 %tobool156.not, label %if.then157, label %sw.epilog
 
 if.then157:                                       ; preds = %Next
-  %indvars.iv.next294 = add i64 %indvars.iv293, 1
+  %indvars.iv.next308 = add i64 %indvars.iv307, 1
   br label %Loop
 
-sw.epilog:                                        ; preds = %CheckAndLoop, %Next, %Loop
+sw.epilog:                                        ; preds = %CheckAndLoop, %Loop, %Next
   %matched.3 = phi i8 [ %matched.1, %Loop ], [ %matched.2, %Next ], [ %matched.1, %CheckAndLoop ]
   %90 = load i32, ptr %njob_, align 8
-  %cmp209 = icmp sgt i32 %90, 0
-  br i1 %cmp209, label %while.body.lr.ph, label %while.end, !llvm.loop !4
+  %cmp216 = icmp sgt i32 %90, 0
+  br i1 %cmp216, label %while.body.lr.ph, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %sw.epilog, %if.then19, %entry, %if.end
-  %matched.0.ph.lcssa207 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ %matched.0.ph214, %if.then19 ], [ %matched.3, %sw.epilog ]
-  %91 = and i8 %matched.0.ph.lcssa207, 1
+  %matched.0.ph.lcssa214 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ %matched.0.ph221, %if.then19 ], [ %matched.3, %sw.epilog ]
+  %91 = and i8 %matched.0.ph.lcssa214, 1
   %tobool160 = icmp ne i8 %91, 0
   br label %return
 
@@ -1294,7 +1298,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

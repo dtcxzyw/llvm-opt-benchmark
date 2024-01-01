@@ -40,7 +40,7 @@ entry:
 if.end:                                           ; preds = %entry
   %ddictLocal = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %0 = load ptr, ptr %ddictLocal, align 8
-  %call = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %0) #19
+  %call = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %0) #17
   %add = add i64 %call, 95992
   %inBuffSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 41
   %1 = load i64, ptr %inBuffSize, align 8
@@ -58,13 +58,13 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @ZSTD_sizeof_DDict(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_estimateDCtxSize() local_unnamed_addr #2 {
+define noundef i64 @ZSTD_estimateDCtxSize() local_unnamed_addr #2 {
 entry:
   ret i64 95992
 }
 
 ; Function Attrs: nounwind memory(argmem: write) uwtable
-define ptr @ZSTD_initStaticDCtx(ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #3 {
+define noundef ptr @ZSTD_initStaticDCtx(ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #3 {
 entry:
   %0 = ptrtoint ptr %workspace to i64
   %and = and i64 %0, 7
@@ -97,17 +97,17 @@ if.end2:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i, align 8
-  %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i.i.i, label %ZSTD_initDCtx_internal.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end2
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i = icmp ugt i32 %1, 6
   br i1 %cmp3.i.i.i, label %ZSTD_cpuid.exit.i.i, label %ZSTD_initDCtx_internal.exit
 
 ZSTD_cpuid.exit.i.i:                              ; preds = %if.end.i.i.i
-  %3 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %3 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i = extractvalue { i32, i32, i32 } %3, 1
   %4 = and i32 %asmresult6.i.i.i, 8
   %tobool.not.i.i = icmp eq i32 %4, 0
@@ -166,11 +166,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #19
+  %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #17
   br label %ZSTD_customMalloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   br label %ZSTD_customMalloc.exit.i
 
 ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.then.i.i
@@ -209,17 +209,17 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_initDCtx_internal.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i
-  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %0, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_initDCtx_internal.exit.i
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %2, 1
   %3 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %3, 0
@@ -258,9 +258,9 @@ ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_custom
 }
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define ptr @ZSTD_createDCtx() local_unnamed_addr #4 {
+define noundef ptr @ZSTD_createDCtx() local_unnamed_addr #4 {
 ZSTD_customMalloc.exit.i:
-  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
@@ -291,17 +291,17 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_initDCtx_internal.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i
-  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %0, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_initDCtx_internal.exit.i
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %2, 1
   %3 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %3, 0
@@ -339,7 +339,7 @@ ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_freeDCtx(ptr noundef %dctx) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_freeDCtx(ptr noundef %dctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dctx, null
   br i1 %cmp, label %return, label %do.body
@@ -357,7 +357,7 @@ do.end10:                                         ; preds = %do.body
   %cMem.sroa.4.0.copyload = load ptr, ptr %cMem.sroa.4.0.customMem.sroa_idx, align 8
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
@@ -371,11 +371,11 @@ if.then.i:                                        ; preds = %do.end10
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %2) #19
+  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %2) #17
   br label %ZSTD_customFree.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %2) #19
+  tail call void @free(ptr noundef nonnull %2) #17
   br label %ZSTD_customFree.exit
 
 ZSTD_customFree.exit:                             ; preds = %do.end10, %if.then1.i, %if.else.i
@@ -395,15 +395,15 @@ if.then13:                                        ; preds = %ZSTD_customFree.exi
   ]
 
 sw.bb1.i:                                         ; preds = %if.then13
-  %call.i19 = tail call i64 @ZBUFFv05_freeDCtx(ptr noundef nonnull %3) #19
+  %call.i19 = tail call i64 @ZBUFFv05_freeDCtx(ptr noundef nonnull %3) #17
   br label %if.end15
 
 sw.bb2.i:                                         ; preds = %if.then13
-  %call3.i = tail call i64 @ZBUFFv06_freeDCtx(ptr noundef nonnull %3) #19
+  %call3.i = tail call i64 @ZBUFFv06_freeDCtx(ptr noundef nonnull %3) #17
   br label %if.end15
 
 sw.bb4.i:                                         ; preds = %if.then13
-  %call5.i = tail call i64 @ZBUFFv07_freeDCtx(ptr noundef nonnull %3) #19
+  %call5.i = tail call i64 @ZBUFFv07_freeDCtx(ptr noundef nonnull %3) #17
   br label %if.end15
 
 if.end15:                                         ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %if.then13, %ZSTD_customFree.exit
@@ -422,22 +422,22 @@ if.then.i.i:                                      ; preds = %if.then17
   br i1 %tobool.not.i10.i, label %if.then.i9.thread.i, label %if.then.i9.thread2.i
 
 if.then.i9.thread2.i:                             ; preds = %if.then.i.i
-  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %6) #19
+  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %6) #17
   br label %if.then1.i11.i
 
 if.then.i9.thread.i:                              ; preds = %if.then.i.i
-  tail call void @free(ptr noundef nonnull %6) #19
+  tail call void @free(ptr noundef nonnull %6) #17
   br label %if.else.i12.i
 
 if.then.i9.i:                                     ; preds = %if.then17
   br i1 %tobool.not.i10.i, label %if.else.i12.i, label %if.then1.i11.i
 
 if.then1.i11.i:                                   ; preds = %if.then.i9.i, %if.then.i9.thread2.i
-  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %5) #19
+  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %5) #17
   br label %ZSTD_freeDDictHashSet.exit
 
 if.else.i12.i:                                    ; preds = %if.then.i9.i, %if.then.i9.thread.i
-  tail call void @free(ptr noundef nonnull %5) #19
+  tail call void @free(ptr noundef nonnull %5) #17
   br label %ZSTD_freeDDictHashSet.exit
 
 ZSTD_freeDDictHashSet.exit:                       ; preds = %if.then1.i11.i, %if.else.i12.i
@@ -449,11 +449,11 @@ if.then.i21:                                      ; preds = %if.end15, %ZSTD_fre
   br i1 %tobool.not.i22, label %if.else.i24, label %if.then1.i23
 
 if.then1.i23:                                     ; preds = %if.then.i21
-  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %dctx) #19
+  tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %dctx) #17
   br label %return
 
 if.else.i24:                                      ; preds = %if.then.i21
-  tail call void @free(ptr noundef nonnull %dctx) #19
+  tail call void @free(ptr noundef nonnull %dctx) #17
   br label %return
 
 return:                                           ; preds = %if.else.i24, %if.then1.i23, %do.body, %entry
@@ -464,7 +464,7 @@ return:                                           ; preds = %if.else.i24, %if.th
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_copyDCtx(ptr nocapture noundef writeonly %dstDCtx, ptr nocapture noundef readonly %srcDCtx) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(30240) %dstDCtx, ptr noundef nonnull align 8 dereferenceable(30240) %srcDCtx, i64 30240, i1 false)
@@ -550,7 +550,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %entry, %do.end8.i
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeonly %zfhPtr, ptr noundef readonly %src, i64 noundef %srcSize, i32 noundef %format) local_unnamed_addr #8 {
 entry:
   %hbuf.sroa.0 = alloca i32, align 4
@@ -699,10 +699,11 @@ do.end119:                                        ; preds = %if.then102
 if.end125:                                        ; preds = %do.end119, %do.end101
   %windowSize.0 = phi i64 [ 0, %do.end101 ], [ %add124, %do.end119 ]
   %pos.0 = phi i64 [ %cond.i, %do.end101 ], [ %inc, %do.end119 ]
-  switch i32 %and77, label %sw.epilog [
+  switch i32 %and77, label %if.end125.unreachabledefault [
     i32 3, label %sw.bb135
     i32 1, label %sw.bb126
     i32 2, label %sw.bb130
+    i32 0, label %sw.epilog
   ]
 
 sw.bb126:                                         ; preds = %if.end125
@@ -725,14 +726,21 @@ sw.bb135:                                         ; preds = %if.end125
   %add138 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
 
+if.end125.unreachabledefault:                     ; preds = %if.end125
+  unreachable
+
 sw.epilog:                                        ; preds = %if.end125, %sw.bb135, %sw.bb130, %sw.bb126
-  %dictID.0 = phi i32 [ 0, %if.end125 ], [ %conv133, %sw.bb130 ], [ %conv128, %sw.bb126 ], [ %add.ptr136.val, %sw.bb135 ]
+  %dictID.0 = phi i32 [ %and77, %if.end125 ], [ %conv133, %sw.bb130 ], [ %conv128, %sw.bb126 ], [ %add.ptr136.val, %sw.bb135 ]
   %pos.1 = phi i64 [ %pos.0, %if.end125 ], [ %add134, %sw.bb130 ], [ %inc129, %sw.bb126 ], [ %add138, %sw.bb135 ]
-  switch i32 %shr84, label %sw.bb140 [
+  switch i32 %shr84, label %sw.epilog.unreachabledefault [
     i32 3, label %sw.bb156
     i32 1, label %sw.bb146
     i32 2, label %sw.bb152
+    i32 0, label %sw.bb140
   ]
+
+sw.epilog.unreachabledefault:                     ; preds = %sw.epilog
+  unreachable
 
 sw.bb140:                                         ; preds = %sw.epilog
   br i1 %tobool.not, label %sw.epilog159, label %if.then142
@@ -787,7 +795,7 @@ return:                                           ; preds = %if.then102, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @ZSTD_getFrameHeader(ptr nocapture noundef writeonly %zfhPtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #8 {
 entry:
   %call = tail call i64 @ZSTD_getFrameHeader_advanced(ptr noundef %zfhPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
@@ -816,7 +824,7 @@ if.then2.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %fParams.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
-  %call3.i = call i64 @ZSTDv05_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull %src, i64 noundef %srcSize) #19
+  %call3.i = call i64 @ZSTDv05_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull %src, i64 noundef %srcSize) #17
   %cmp4.not.i = icmp eq i64 %call3.i, 0
   %0 = load i64, ptr %fParams.i, align 8
   %spec.select.i = select i1 %cmp4.not.i, i64 %0, i64 0
@@ -826,7 +834,7 @@ if.then10.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %fParams.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
-  %call13.i = call i64 @ZSTDv06_getFrameParams(ptr noundef nonnull %fParams11.i, ptr noundef nonnull %src, i64 noundef %srcSize) #19
+  %call13.i = call i64 @ZSTDv06_getFrameParams(ptr noundef nonnull %fParams11.i, ptr noundef nonnull %src, i64 noundef %srcSize) #17
   %cmp14.not.i = icmp eq i64 %call13.i, 0
   %1 = load i64, ptr %fParams11.i, align 8
   %spec.select10.i = select i1 %cmp14.not.i, i64 %1, i64 0
@@ -836,7 +844,7 @@ if.then19.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %fParams.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
-  %call22.i = call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams20.i, ptr noundef nonnull %src, i64 noundef %srcSize) #19
+  %call22.i = call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams20.i, ptr noundef nonnull %src, i64 noundef %srcSize) #17
   %cmp23.not.i = icmp eq i64 %call22.i, 0
   %2 = load i64, ptr %fParams20.i, align 8
   %spec.select11.i = select i1 %cmp23.not.i, i64 %2, i64 0
@@ -869,7 +877,7 @@ return:                                           ; preds = %if.end5, %if.end, %
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_readSkippableFrame(ptr noundef writeonly %dst, i64 noundef %dstCapacity, ptr noundef writeonly %magicVariant, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ult i64 %srcSize, 8
@@ -1046,19 +1054,19 @@ if.end.i:                                         ; preds = %entry
 sw.bb.i:                                          ; preds = %if.end.i
   %compressedSize.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 1
   %decompressedBound.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 2
-  tail call void @ZSTDv05_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize.i, ptr noundef nonnull %decompressedBound.i) #19
+  tail call void @ZSTDv05_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize.i, ptr noundef nonnull %decompressedBound.i) #17
   br label %sw.epilog.i
 
 sw.bb1.i37:                                       ; preds = %if.end.i
   %compressedSize2.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 1
   %decompressedBound3.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 2
-  tail call void @ZSTDv06_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize2.i, ptr noundef nonnull %decompressedBound3.i) #19
+  tail call void @ZSTDv06_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize2.i, ptr noundef nonnull %decompressedBound3.i) #17
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   %compressedSize5.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 1
   %decompressedBound6.i = getelementptr inbounds %struct.ZSTD_frameSizeInfo, ptr %agg.result, i64 0, i32 2
-  tail call void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize5.i, ptr noundef nonnull %decompressedBound6.i) #19
+  tail call void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef nonnull %src, i64 noundef %srcSize, ptr noundef nonnull %compressedSize5.i, ptr noundef nonnull %decompressedBound6.i) #17
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb4.i, %sw.bb1.i37, %sw.bb.i
@@ -1145,7 +1153,7 @@ while.body:                                       ; preds = %if.end22, %if.end12
   %ip.0 = phi ptr [ %add.ptr, %if.end12 ], [ %add.ptr24, %if.end22 ]
   %remainingSize.0 = phi i64 [ %sub, %if.end12 ], [ %sub26, %if.end22 ]
   %nbBlocks.0 = phi i64 [ 0, %if.end12 ], [ %inc, %if.end22 ]
-  %call14 = call i64 @ZSTD_getcBlockSize(ptr noundef %ip.0, i64 noundef %remainingSize.0, ptr noundef nonnull %blockProperties) #19
+  %call14 = call i64 @ZSTD_getcBlockSize(ptr noundef %ip.0, i64 noundef %remainingSize.0, ptr noundef nonnull %blockProperties) #17
   %cmp.i47 = icmp ult i64 %call14, -119
   br i1 %cmp.i47, label %if.end18, label %if.then17
 
@@ -1334,9 +1342,9 @@ return:                                           ; preds = %do.end11, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_insertBlock(ptr noundef %dctx, ptr noundef %blockStart, i64 noundef returned %blockSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_insertBlock(ptr noundef %dctx, ptr noundef %blockStart, i64 noundef returned %blockSize) local_unnamed_addr #0 {
 entry:
-  tail call void @ZSTD_checkContinuity(ptr noundef %dctx, ptr noundef %blockStart, i64 noundef %blockSize) #19
+  tail call void @ZSTD_checkContinuity(ptr noundef %dctx, ptr noundef %blockStart, i64 noundef %blockSize) #17
   %add.ptr = getelementptr inbounds i8, ptr %blockStart, i64 %blockSize
   %previousDstEnd = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 6
   store ptr %add.ptr, ptr %previousDstEnd, align 8
@@ -1362,8 +1370,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #19
-  %call1 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #19
+  %call = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #17
+  %call1 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1451,15 +1459,15 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i.i
-  call void @ZSTDv05_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #19
+  call void @ZSTDv05_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #17
   br label %ZSTD_findFrameCompressedSizeLegacy.exit
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i.i
-  call void @ZSTDv06_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #19
+  call void @ZSTDv06_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #17
   br label %ZSTD_findFrameCompressedSizeLegacy.exit
 
 sw.bb4.i.i:                                       ; preds = %if.end.i.i.i
-  call void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #19
+  call void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef nonnull %src.addr.0122, i64 noundef %srcSize.addr.0123, ptr noundef nonnull %compressedSize5.i.i, ptr noundef nonnull %decompressedBound6.i.i) #17
   br label %ZSTD_findFrameCompressedSizeLegacy.exit
 
 sw.default.i.i:                                   ; preds = %if.end.i.i.i
@@ -1495,39 +1503,39 @@ if.end.i.i:                                       ; preds = %do.end23
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i.i
-  %call7.i = call ptr @ZSTDv05_createDCtx() #19
+  %call7.i = call ptr @ZSTDv05_createDCtx() #17
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %ZSTD_decompressLegacy.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %sw.bb.i
   %cmp35.i = icmp eq ptr %dst.addr.0.ph98133, null
   %spec.store.select36.i = select i1 %cmp35.i, ptr %x.i, ptr %dst.addr.0.ph98133
-  %call11.i = call i64 @ZSTDv05_decompress_usingDict(ptr noundef nonnull %call7.i, ptr noundef nonnull %spec.store.select36.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #19
-  %call12.i = call i64 @ZSTDv05_freeDCtx(ptr noundef nonnull %call7.i) #19
+  %call11.i = call i64 @ZSTDv05_decompress_usingDict(ptr noundef nonnull %call7.i, ptr noundef nonnull %spec.store.select36.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #17
+  %call12.i = call i64 @ZSTDv05_freeDCtx(ptr noundef nonnull %call7.i) #17
   br label %ZSTD_decompressLegacy.exit
 
 sw.bb13.i:                                        ; preds = %if.end.i.i
-  %call16.i = call ptr @ZSTDv06_createDCtx() #19
+  %call16.i = call ptr @ZSTDv06_createDCtx() #17
   %cmp17.i = icmp eq ptr %call16.i, null
   br i1 %cmp17.i, label %ZSTD_decompressLegacy.exit.thread, label %if.end19.i
 
 if.end19.i:                                       ; preds = %sw.bb13.i
   %cmp46.i = icmp eq ptr %dst.addr.0.ph98133, null
   %spec.store.select47.i = select i1 %cmp46.i, ptr %x.i, ptr %dst.addr.0.ph98133
-  %call20.i = call i64 @ZSTDv06_decompress_usingDict(ptr noundef nonnull %call16.i, ptr noundef nonnull %spec.store.select47.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #19
-  %call21.i = call i64 @ZSTDv06_freeDCtx(ptr noundef nonnull %call16.i) #19
+  %call20.i = call i64 @ZSTDv06_decompress_usingDict(ptr noundef nonnull %call16.i, ptr noundef nonnull %spec.store.select47.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #17
+  %call21.i = call i64 @ZSTDv06_freeDCtx(ptr noundef nonnull %call16.i) #17
   br label %ZSTD_decompressLegacy.exit
 
 sw.bb22.i:                                        ; preds = %if.end.i.i
-  %call25.i = call ptr @ZSTDv07_createDCtx() #19
+  %call25.i = call ptr @ZSTDv07_createDCtx() #17
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %ZSTD_decompressLegacy.exit.thread, label %if.end28.i
 
 if.end28.i:                                       ; preds = %sw.bb22.i
   %cmp.i42 = icmp eq ptr %dst.addr.0.ph98133, null
   %spec.store.select.i = select i1 %cmp.i42, ptr %x.i, ptr %dst.addr.0.ph98133
-  %call29.i = call i64 @ZSTDv07_decompress_usingDict(ptr noundef nonnull %call25.i, ptr noundef nonnull %spec.store.select.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #19
-  %call30.i = call i64 @ZSTDv07_freeDCtx(ptr noundef nonnull %call25.i) #19
+  %call29.i = call i64 @ZSTDv07_decompress_usingDict(ptr noundef nonnull %call25.i, ptr noundef nonnull %spec.store.select.i, i64 noundef %dstCapacity.addr.0.ph97132, ptr noundef nonnull %src.addr.0122, i64 noundef %2, ptr noundef nonnull %spec.store.select1.i, i64 noundef %dictSize.addr.0) #17
+  %call30.i = call i64 @ZSTDv07_freeDCtx(ptr noundef nonnull %call25.i) #17
   br label %ZSTD_decompressLegacy.exit
 
 ZSTD_decompressLegacy.exit.thread:                ; preds = %sw.bb.i, %sw.bb13.i, %sw.bb22.i, %do.end23, %if.end.i.i
@@ -1585,8 +1593,8 @@ if.end57:                                         ; preds = %while.body, %if.the
   br i1 %tobool.not, label %do.body76, label %do.body5.i
 
 do.body5.i:                                       ; preds = %if.end57
-  %call.i = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #19
-  %call1.i = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #19
+  %call.i = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #17
+  %call1.i = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #17
   %add.ptr.i51 = getelementptr inbounds i8, ptr %call.i, i64 %call1.i
   %5 = load ptr, ptr %dictEnd2.i, align 8
   %cmp.i52 = icmp ne ptr %5, %add.ptr.i51
@@ -1595,7 +1603,7 @@ do.body5.i:                                       ; preds = %if.end57
   br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i.i, label %ZSTD_decompressBegin_usingDDict.exit
 
 cond.true.i.i:                                    ; preds = %do.body5.i
-  %call.i.i = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %dctx) #19
+  %call.i.i = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %dctx) #17
   br label %ZSTD_decompressBegin_usingDDict.exit
 
 ZSTD_decompressBegin_usingDDict.exit:             ; preds = %cond.true.i.i, %do.body5.i
@@ -1616,7 +1624,7 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %cond.true.i.i, %do.
   store ptr %MLTable.i.i, ptr %MLTptr.i.i, align 8
   store ptr %OFTable.i.i, ptr %OFTptr.i.i, align 8
   store ptr %hufTable.i.i, ptr %HUFptr.i.i, align 8
-  call void @ZSTD_copyDDictParameters(ptr noundef nonnull %dctx, ptr noundef nonnull %ddict) #19
+  call void @ZSTD_copyDDictParameters(ptr noundef nonnull %dctx, ptr noundef nonnull %ddict) #17
   br label %if.end92
 
 do.body76:                                        ; preds = %if.end57
@@ -1625,7 +1633,7 @@ do.body76:                                        ; preds = %if.end57
   br i1 %cmp.i55, label %if.end92, label %return
 
 if.end92:                                         ; preds = %ZSTD_decompressBegin_usingDDict.exit, %do.body76
-  call void @ZSTD_checkContinuity(ptr noundef %dctx, ptr noundef %dst.addr.0.ph98133, i64 noundef %dstCapacity.addr.0.ph97132) #19
+  call void @ZSTD_checkContinuity(ptr noundef %dctx, ptr noundef %dst.addr.0.ph98133, i64 noundef %dstCapacity.addr.0.ph97132) #17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %blockProperties.i)
   %add.ptr.i57 = getelementptr inbounds i8, ptr %dst.addr.0.ph98133, i64 %dstCapacity.addr.0.ph97132
   %7 = load i32, ptr %format, align 8
@@ -1713,7 +1721,7 @@ land.rhs.i.i:                                     ; preds = %do.end34.i.i
   br i1 %tobool37.not.i.i, label %if.then40.i.i, label %do.end53.i
 
 if.then40.i.i:                                    ; preds = %land.rhs.i.i
-  %call41.i.i = call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i.i, i64 noundef 0) #19
+  %call41.i.i = call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i.i, i64 noundef 0) #17
   br label %do.end53.i
 
 if.end42.critedge.i.i:                            ; preds = %do.end34.i.i
@@ -1744,7 +1752,7 @@ while.body.i:                                     ; preds = %if.end132.i, %if.en
   %remainingSrcSize.0.i = phi i64 [ %sub.i, %if.end70.i ], [ %sub139.i, %if.end132.i ]
   %op.0.i = phi ptr [ %dst.addr.0.ph98133, %if.end70.i ], [ %add.ptr136.i, %if.end132.i ]
   %ip.0.i = phi ptr [ %add.ptr54.i, %if.end70.i ], [ %add.ptr138.i, %if.end132.i ]
-  %call71.i = call i64 @ZSTD_getcBlockSize(ptr noundef %ip.0.i, i64 noundef %remainingSrcSize.0.i, ptr noundef nonnull %blockProperties.i) #19
+  %call71.i = call i64 @ZSTD_getcBlockSize(ptr noundef %ip.0.i, i64 noundef %remainingSrcSize.0.i, ptr noundef nonnull %blockProperties.i) #17
   %cmp.i95.i = icmp ult i64 %call71.i, -119
   br i1 %cmp.i95.i, label %if.end75.i, label %ZSTD_decompressFrame.exit
 
@@ -1811,7 +1819,7 @@ sw.epilog.thread114.i:                            ; preds = %do.end8.i100.i
 sw.epilog.i:                                      ; preds = %do.end91.i
   %sub.ptr.lhs.cast99.i = ptrtoint ptr %oBlockEnd.0.i to i64
   %sub.ptr.sub101.i = sub i64 %sub.ptr.lhs.cast99.i, %sub.ptr.rhs.cast.i
-  %call102.i = call i64 @ZSTD_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %op.0.i, i64 noundef %sub.ptr.sub101.i, ptr noundef nonnull %add.ptr76.i, i64 noundef %call71.i, i32 noundef 0) #19
+  %call102.i = call i64 @ZSTD_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %op.0.i, i64 noundef %sub.ptr.sub101.i, ptr noundef nonnull %add.ptr76.i, i64 noundef %call71.i, i32 noundef 0) #17
   %cmp.i104.i = icmp ult i64 %call102.i, -119
   br i1 %cmp.i104.i, label %if.end128.i, label %ZSTD_decompressFrame.exit
 
@@ -1822,7 +1830,7 @@ if.end128.i:                                      ; preds = %sw.epilog.i, %sw.ep
   br i1 %tobool129.not.i, label %if.end132.i, label %if.then130.i
 
 if.then130.i:                                     ; preds = %if.end128.i
-  %call131.i = call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i.i, ptr nocapture noundef %op.0.i, i64 noundef %decodedSize.0119.i) #19
+  %call131.i = call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i.i, ptr nocapture noundef %op.0.i, i64 noundef %decodedSize.0119.i) #17
   br label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.then130.i, %if.end128.i
@@ -1858,7 +1866,7 @@ do.end183.i:                                      ; preds = %do.body170.i
   br i1 %tobool184.not.i, label %if.then185.i, label %if.end204.i
 
 if.then185.i:                                     ; preds = %do.end183.i
-  %call187.i = call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState.i.i) #22
+  %call187.i = call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState.i.i) #20
   %conv188.i = trunc i64 %call187.i to i32
   %add.ptr138.val.i = load i32, ptr %add.ptr138.i, align 1
   %cmp191.not.i = icmp eq i32 %add.ptr138.val.i, %conv188.i
@@ -1883,7 +1891,7 @@ ZSTD_decompressFrame.exit:                        ; preds = %while.body.i, %if.e
   %srcSize.addr.1 = phi i64 [ %srcSize.addr.0123, %if.end92 ], [ %srcSize.addr.0123, %do.body24.i ], [ %remainingSrcSize.1.i, %if.end207.i ], [ %srcSize.addr.0123, %do.body170.i ], [ %srcSize.addr.0123, %if.then185.i ], [ %srcSize.addr.0123, %while.end.i ], [ %srcSize.addr.0123, %land.lhs.true19.i.i ], [ %srcSize.addr.0123, %do.body.i.i ], [ %srcSize.addr.0123, %do.body39.i ], [ %srcSize.addr.0123, %ZSTD_frameHeaderSize_internal.exit.i ], [ %srcSize.addr.0123, %sw.epilog.i ], [ %srcSize.addr.0123, %if.then10.i.i ], [ %srcSize.addr.0123, %sw.bb108.i ], [ %srcSize.addr.0123, %if.then12.i.i ], [ %srcSize.addr.0123, %sw.bb103.i ], [ %srcSize.addr.0123, %do.end91.i ], [ %srcSize.addr.0123, %if.end75.i ], [ %srcSize.addr.0123, %while.body.i ]
   %retval.0.i59 = phi i64 [ -72, %if.end92 ], [ -72, %do.body24.i ], [ %sub.ptr.sub150.i, %if.end207.i ], [ -22, %do.body170.i ], [ -22, %if.then185.i ], [ -20, %while.end.i ], [ -32, %land.lhs.true19.i.i ], [ -72, %do.body.i.i ], [ %call.i.i61, %do.body39.i ], [ %add24.i.i, %ZSTD_frameHeaderSize_internal.exit.i ], [ %call71.i, %while.body.i ], [ -72, %if.end75.i ], [ -20, %do.end91.i ], [ -70, %sw.bb103.i ], [ -74, %if.then12.i.i ], [ -70, %sw.bb108.i ], [ -74, %if.then10.i.i ], [ %call102.i, %sw.epilog.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %blockProperties.i)
-  %call95 = call i32 @ZSTD_getErrorCode(i64 noundef %retval.0.i59) #19
+  %call95 = call i32 @ZSTD_getErrorCode(i64 noundef %retval.0.i59) #17
   %cmp96 = icmp eq i32 %call95, 10
   %or.cond = and i1 %cmp96, %cmp97
   br i1 %or.cond, label %return, label %do.end108
@@ -1931,7 +1939,7 @@ entry:
 sw.bb.i:                                          ; preds = %entry
   %ddictLocal.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   store i32 0, ptr %dictUses.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   br label %ZSTD_getDDict.exit
@@ -1973,7 +1981,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   store i32 0, ptr %dictUses, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
   br label %return
@@ -1997,7 +2005,7 @@ return:                                           ; preds = %sw.bb2, %sw.bb1, %s
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_decompress(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 ZSTD_customMalloc.exit.i:
-  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
@@ -2026,17 +2034,17 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_decompressDCtx.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i
-  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %0, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_decompressDCtx.exit
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %2, 1
   %3 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %3, 0
@@ -2067,7 +2075,7 @@ ZSTD_decompressDCtx.exit:                         ; preds = %land.rhs.i.i.i, %ZS
   store i32 0, ptr %disableHufAsm.i.i.i, align 4
   %maxBlockSizeParam.i.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %call2.i.i, i64 0, i32 38
   store i32 0, ptr %maxBlockSizeParam.i.i.i, align 8
-  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef null) #19
+  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef null) #17
   store i32 0, ptr %dictUses.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   %call.i.i5 = tail call fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef nonnull %call2.i.i, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef null, i64 noundef 0, ptr noundef null)
@@ -2088,7 +2096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ZSTD_nextInputType(ptr nocapture noundef readonly %dctx) local_unnamed_addr #7 {
+define noundef i32 @ZSTD_nextInputType(ptr nocapture noundef readonly %dctx) local_unnamed_addr #7 {
 entry:
   %stage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 15
   %0 = load i32, ptr %stage, align 4
@@ -2142,7 +2150,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %if.then.i, %if.end.
   br i1 %cmp.not, label %do.end10, label %sw.epilog284
 
 do.end10:                                         ; preds = %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
-  tail call void @ZSTD_checkContinuity(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity) #19
+  tail call void @ZSTD_checkContinuity(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity) #17
   %processedCSize = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 12
   %4 = load i64, ptr %processedCSize, align 8
   %add = add i64 %4, %srcSize
@@ -2292,7 +2300,7 @@ land.rhs.i:                                       ; preds = %do.end34.i
 
 if.then40.i:                                      ; preds = %land.rhs.i
   %xxhState.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 18
-  %call41.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #19
+  %call41.i = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #17
   br label %do.end54
 
 if.end42.critedge.i:                              ; preds = %do.end34.i
@@ -2310,7 +2318,7 @@ do.end54:                                         ; preds = %if.end42.critedge.i
   br label %sw.epilog284
 
 sw.bb57:                                          ; preds = %do.end10
-  %call58 = call i64 @ZSTD_getcBlockSize(ptr noundef %src, i64 noundef 3, ptr noundef nonnull %bp) #19
+  %call58 = call i64 @ZSTD_getcBlockSize(ptr noundef %src, i64 noundef 3, ptr noundef nonnull %bp) #17
   %cmp.i129 = icmp ult i64 %call58, -119
   br i1 %cmp.i129, label %do.body63, label %sw.epilog284
 
@@ -2377,7 +2385,7 @@ do.end101:                                        ; preds = %do.end10, %do.end10
   ]
 
 do.end105:                                        ; preds = %do.end101
-  %call106 = tail call i64 @ZSTD_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1) #19
+  %call106 = tail call i64 @ZSTD_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1) #17
   br label %do.body142
 
 sw.bb108:                                         ; preds = %do.end101
@@ -2453,7 +2461,7 @@ do.end175:                                        ; preds = %do.body157
 
 if.then178:                                       ; preds = %do.end175
   %xxhState = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 18
-  %call179 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %dst, i64 noundef %rSize.0167) #19
+  %call179 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %dst, i64 noundef %rSize.0167) #17
   %expected182.phi.trans.insert = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 10
   %.pre = load i64, ptr %expected182.phi.trans.insert, align 8
   br label %if.end180
@@ -2514,7 +2522,7 @@ sw.bb229:                                         ; preds = %do.end10
 
 if.then232:                                       ; preds = %sw.bb229
   %xxhState233 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 18
-  %call234 = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState233) #22
+  %call234 = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState233) #20
   %conv235 = trunc i64 %call234 to i32
   %src.val = load i32, ptr %src, align 1
   %cmp240.not = icmp eq i32 %src.val, %conv235
@@ -2542,10 +2550,10 @@ if.then.i142:                                     ; preds = %if.end253
   br i1 %tobool2.not.i, label %if.end.i144, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i142
-  %call.i143 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %47) #19
+  %call.i143 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %47) #17
   store i32 %call.i143, ptr %46, align 8
   %48 = load ptr, ptr %ddict.i, align 8
-  %call6.i = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %48) #19
+  %call6.i = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %48) #17
   %dictionarySize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 4
   store i64 %call6.i, ptr %dictionarySize.i, align 8
   %ddictIsCold.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 33
@@ -2563,7 +2571,7 @@ if.end.i144:                                      ; preds = %if.then3.i, %if.the
   store i64 %add, ptr %compressedSize8.i, align 8
   %dctx9.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 9
   store ptr %dctx, ptr %dctx9.i, align 8
-  call void @ZSTD_trace_decompress_end(i64 noundef %50, ptr noundef nonnull %trace.i) #19
+  call void @ZSTD_trace_decompress_end(i64 noundef %50, ptr noundef nonnull %trace.i) #17
   br label %ZSTD_DCtx_trace_end.exit
 
 ZSTD_DCtx_trace_end.exit:                         ; preds = %if.end253, %if.end.i144
@@ -2625,11 +2633,11 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %call = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %2) #19
+  %call = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %2) #17
   %dictionaryID = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 2
   store i32 %call, ptr %dictionaryID, align 8
   %3 = load ptr, ptr %ddict, align 8
-  %call6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %3) #19
+  %call6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %3) #17
   %dictionarySize = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 4
   store i64 %call6, ptr %dictionarySize, align 8
   %ddictIsCold = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 33
@@ -2647,7 +2655,7 @@ if.end:                                           ; preds = %if.then3, %if.then
   store i64 %compressedSize, ptr %compressedSize8, align 8
   %dctx9 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 9
   store ptr %dctx, ptr %dctx9, align 8
-  call void @ZSTD_trace_decompress_end(i64 noundef %5, ptr noundef nonnull %trace) #19
+  call void @ZSTD_trace_decompress_end(i64 noundef %5, ptr noundef nonnull %trace) #17
   br label %if.end11
 
 if.end11:                                         ; preds = %entry, %if.end
@@ -2678,7 +2686,7 @@ do.end8:                                          ; preds = %entry
   %hufTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy, i64 0, i32 3
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %gepdiff = add nsw i64 %dictSize, -8
-  %call = tail call i64 @HUF_readDTableX2_wksp(ptr noundef nonnull %hufTable, ptr noundef nonnull %add.ptr9, i64 noundef %gepdiff, ptr noundef %entropy, i64 noundef 10264, i32 noundef 0) #19
+  %call = tail call i64 @HUF_readDTableX2_wksp(ptr noundef nonnull %hufTable, ptr noundef nonnull %add.ptr9, i64 noundef %gepdiff, ptr noundef %entropy, i64 noundef 10264, i32 noundef 0) #17
   %cmp.i = icmp ult i64 %call, -119
   br i1 %cmp.i, label %do.end22, label %return
 
@@ -2687,7 +2695,7 @@ do.end22:                                         ; preds = %do.end8
   store i32 31, ptr %offcodeMaxValue, align 4
   %sub.ptr.rhs.cast26 = ptrtoint ptr %add.ptr23 to i64
   %sub.ptr.sub27 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast26
-  %call28 = call i64 @FSE_readNCount(ptr noundef nonnull %offcodeNCount, ptr noundef nonnull %offcodeMaxValue, ptr noundef nonnull %offcodeLog, ptr noundef nonnull %add.ptr23, i64 noundef %sub.ptr.sub27) #19
+  %call28 = call i64 @FSE_readNCount(ptr noundef nonnull %offcodeNCount, ptr noundef nonnull %offcodeMaxValue, ptr noundef nonnull %offcodeLog, ptr noundef nonnull %add.ptr23, i64 noundef %sub.ptr.sub27) #17
   %cmp.i47 = icmp ult i64 %call28, -119
   br i1 %cmp.i47, label %do.body43, label %return
 
@@ -2704,12 +2712,12 @@ do.body56:                                        ; preds = %do.body43
 do.end68:                                         ; preds = %do.body56
   %OFTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy, i64 0, i32 1
   %workspace71 = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy, i64 0, i32 5
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %offcodeNCount, i32 noundef %0, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %1, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #19
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %offcodeNCount, i32 noundef %0, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %1, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #17
   %add.ptr73 = getelementptr inbounds i8, ptr %add.ptr23, i64 %call28
   store i32 52, ptr %matchlengthMaxValue, align 4
   %sub.ptr.rhs.cast76 = ptrtoint ptr %add.ptr73 to i64
   %sub.ptr.sub77 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast76
-  %call78 = call i64 @FSE_readNCount(ptr noundef nonnull %matchlengthNCount, ptr noundef nonnull %matchlengthMaxValue, ptr noundef nonnull %matchlengthLog, ptr noundef nonnull %add.ptr73, i64 noundef %sub.ptr.sub77) #19
+  %call78 = call i64 @FSE_readNCount(ptr noundef nonnull %matchlengthNCount, ptr noundef nonnull %matchlengthMaxValue, ptr noundef nonnull %matchlengthLog, ptr noundef nonnull %add.ptr73, i64 noundef %sub.ptr.sub77) #17
   %cmp.i49 = icmp ult i64 %call78, -119
   br i1 %cmp.i49, label %do.body93, label %return
 
@@ -2725,12 +2733,12 @@ do.body106:                                       ; preds = %do.body93
 
 do.end118:                                        ; preds = %do.body106
   %MLTable = getelementptr inbounds %struct.ZSTD_entropyDTables_t, ptr %entropy, i64 0, i32 2
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %matchlengthNCount, i32 noundef %2, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %3, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #19
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %matchlengthNCount, i32 noundef %2, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %3, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #17
   %add.ptr123 = getelementptr inbounds i8, ptr %add.ptr73, i64 %call78
   store i32 35, ptr %litlengthMaxValue, align 4
   %sub.ptr.rhs.cast126 = ptrtoint ptr %add.ptr123 to i64
   %sub.ptr.sub127 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast126
-  %call128 = call i64 @FSE_readNCount(ptr noundef nonnull %litlengthNCount, ptr noundef nonnull %litlengthMaxValue, ptr noundef nonnull %litlengthLog, ptr noundef nonnull %add.ptr123, i64 noundef %sub.ptr.sub127) #19
+  %call128 = call i64 @FSE_readNCount(ptr noundef nonnull %litlengthNCount, ptr noundef nonnull %litlengthMaxValue, ptr noundef nonnull %litlengthLog, ptr noundef nonnull %add.ptr123, i64 noundef %sub.ptr.sub127) #17
   %cmp.i51 = icmp ult i64 %call128, -119
   br i1 %cmp.i51, label %do.body143, label %return
 
@@ -2745,7 +2753,7 @@ do.body156:                                       ; preds = %do.body143
   br i1 %cmp157, label %return, label %do.end168
 
 do.end168:                                        ; preds = %do.body156
-  call void @ZSTD_buildFSETable(ptr noundef %entropy, ptr noundef nonnull %litlengthNCount, i32 noundef %4, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %5, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #19
+  call void @ZSTD_buildFSETable(ptr noundef %entropy, ptr noundef nonnull %litlengthNCount, i32 noundef %4, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %5, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #17
   %add.ptr174 = getelementptr inbounds i8, ptr %add.ptr123, i64 %call128
   %add.ptr176 = getelementptr inbounds i8, ptr %add.ptr174, i64 12
   %cmp177 = icmp ugt ptr %add.ptr176, %add.ptr
@@ -2792,12 +2800,12 @@ declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare void @ZSTD_buildFSETable(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBegin(ptr noundef %dctx) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_decompressBegin(ptr noundef %dctx) local_unnamed_addr #0 {
 entry:
   br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %call = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #19
+  %call = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -2840,12 +2848,12 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare extern_weak i64 @ZSTD_trace_decompress_begin(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
   br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i, label %do.end9
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #19
+  %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
   br label %do.end9
 
 do.end9:                                          ; preds = %cond.true.i, %entry
@@ -2949,14 +2957,14 @@ return:                                           ; preds = %if.end5.i, %do.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBegin_usingDDict(ptr noundef %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ddict, null
   br i1 %tobool.not, label %do.body5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #19
-  %call1 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #19
+  %call = tail call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %ddict) #17
+  %call1 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %ddict) #17
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %call1
   %dictEnd2 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 9
   %0 = load ptr, ptr %dictEnd2, align 8
@@ -2970,7 +2978,7 @@ do.body5:                                         ; preds = %entry, %if.then
   br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i, label %ZSTD_decompressBegin.exit
 
 cond.true.i:                                      ; preds = %do.body5
-  %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #19
+  %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
   br label %ZSTD_decompressBegin.exit
 
 ZSTD_decompressBegin.exit:                        ; preds = %do.body5, %cond.true.i
@@ -3010,7 +3018,7 @@ ZSTD_decompressBegin.exit:                        ; preds = %do.body5, %cond.tru
   br i1 %tobool.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %ZSTD_decompressBegin.exit
-  tail call void @ZSTD_copyDDictParameters(ptr noundef nonnull %dctx, ptr noundef nonnull %ddict) #19
+  tail call void @ZSTD_copyDDictParameters(ptr noundef nonnull %dctx, ptr noundef nonnull %ddict) #17
   br label %return
 
 return:                                           ; preds = %ZSTD_decompressBegin.exit, %if.then21
@@ -3044,7 +3052,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @ZSTD_getDictID_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #8 {
 entry:
   %zfp = alloca %struct.ZSTD_frameHeader, align 8
@@ -3058,9 +3066,9 @@ entry:
 }
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define ptr @ZSTD_createDStream() local_unnamed_addr #4 {
+define noundef ptr @ZSTD_createDStream() local_unnamed_addr #4 {
 ZSTD_customMalloc.exit.i:
-  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
@@ -3091,17 +3099,17 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_initDCtx_internal.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i
-  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %0, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_initDCtx_internal.exit.i
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %2, 1
   %3 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %3, 0
@@ -3139,7 +3147,7 @@ ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.e
 }
 
 ; Function Attrs: nounwind memory(argmem: write) uwtable
-define ptr @ZSTD_initStaticDStream(ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #3 {
+define noundef ptr @ZSTD_initStaticDStream(ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #3 {
 entry:
   %0 = ptrtoint ptr %workspace to i64
   %and.i = and i64 %0, 7
@@ -3172,17 +3180,17 @@ if.end2.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_initDCtx_internal.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end2.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %1, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_initDCtx_internal.exit.i
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %3 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %3 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %3, 1
   %4 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %4, 0
@@ -3241,11 +3249,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #19
+  %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #17
   br label %ZSTD_customMalloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #19
   br label %ZSTD_customMalloc.exit.i
 
 ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.then.i.i
@@ -3284,17 +3292,17 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !4
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i.i, label %ZSTD_initDCtx_internal.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end7.i
-  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #20, !srcloc !5
+  %1 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={cx},={dx},{ax},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 1) #18, !srcloc !5
   %cmp3.i.i.i.i = icmp ugt i32 %0, 6
   br i1 %cmp3.i.i.i.i, label %ZSTD_cpuid.exit.i.i.i, label %ZSTD_initDCtx_internal.exit.i
 
 ZSTD_cpuid.exit.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !6
+  %2 = tail call { i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},{ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #18, !srcloc !6
   %asmresult6.i.i.i.i = extractvalue { i32, i32, i32 } %2, 1
   %3 = and i32 %asmresult6.i.i.i.i, 8
   %tobool.not.i.i.i = icmp eq i32 %3, 0
@@ -3333,26 +3341,26 @@ ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_custom
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_freeDStream(ptr noundef %zds) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_freeDStream(ptr noundef %zds) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @ZSTD_freeDCtx(ptr noundef %zds), !range !34
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_DStreamInSize() local_unnamed_addr #2 {
+define noundef i64 @ZSTD_DStreamInSize() local_unnamed_addr #2 {
 entry:
   ret i64 131075
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_DStreamOutSize() local_unnamed_addr #2 {
+define noundef i64 @ZSTD_DStreamOutSize() local_unnamed_addr #2 {
 entry:
   ret i64 131072
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_loadDictionary_advanced(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_loadDictionary_advanced(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #0 {
 entry:
   %streamStage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage, align 4
@@ -3362,7 +3370,7 @@ entry:
 do.end8:                                          ; preds = %entry
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
@@ -3373,7 +3381,7 @@ do.end8:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %do.end8
   %customMem = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 24
-  %call = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem) #19
+  %call = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem) #17
   store ptr %call, ptr %ddictLocal.i, align 8
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %return, label %do.end24
@@ -3392,7 +3400,7 @@ return:                                           ; preds = %do.end8, %do.end24,
 declare ptr @ZSTD_createDDict_advanced(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_loadDictionary_byReference(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_loadDictionary_byReference(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3402,7 +3410,7 @@ entry:
 do.end8.i:                                        ; preds = %entry
   %ddictLocal.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
@@ -3413,7 +3421,7 @@ do.end8.i:                                        ; preds = %entry
 
 if.then10.i:                                      ; preds = %do.end8.i
   %customMem.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 24
-  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #19
+  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #17
   store ptr %call.i, ptr %ddictLocal.i.i, align 8
   %cmp13.i = icmp eq ptr %call.i, null
   br i1 %cmp13.i, label %ZSTD_DCtx_loadDictionary_advanced.exit, label %do.end24.i
@@ -3430,7 +3438,7 @@ ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_loadDictionary(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_loadDictionary(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3440,7 +3448,7 @@ entry:
 do.end8.i:                                        ; preds = %entry
   %ddictLocal.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
@@ -3451,7 +3459,7 @@ do.end8.i:                                        ; preds = %entry
 
 if.then10.i:                                      ; preds = %do.end8.i
   %customMem.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 24
-  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #19
+  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #17
   store ptr %call.i, ptr %ddictLocal.i.i, align 8
   %cmp13.i = icmp eq ptr %call.i, null
   br i1 %cmp13.i, label %ZSTD_DCtx_loadDictionary_advanced.exit, label %do.end24.i
@@ -3468,7 +3476,7 @@ ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #0 {
 entry:
   %streamStage.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage.i, align 4
@@ -3478,7 +3486,7 @@ entry:
 do.end8.i:                                        ; preds = %entry
   %ddictLocal.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
@@ -3489,7 +3497,7 @@ do.end8.i:                                        ; preds = %entry
 
 if.then10.i:                                      ; preds = %do.end8.i
   %customMem.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 24
-  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %prefix, i64 noundef %prefixSize, i32 noundef 1, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #19
+  %call.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %prefix, i64 noundef %prefixSize, i32 noundef 1, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i) #17
   store ptr %call.i, ptr %ddictLocal.i.i, align 8
   %cmp13.i = icmp eq ptr %call.i, null
   br i1 %cmp13.i, label %return, label %do.end24.i
@@ -3509,7 +3517,7 @@ return:                                           ; preds = %if.then10.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_refPrefix(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_refPrefix(ptr noundef %dctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #0 {
 entry:
   %streamStage.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage.i.i, align 4
@@ -3519,7 +3527,7 @@ entry:
 do.end8.i.i:                                      ; preds = %entry
   %ddictLocal.i.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i.i.i, align 8
-  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i.i, i8 0, i64 16, i1 false)
@@ -3530,7 +3538,7 @@ do.end8.i.i:                                      ; preds = %entry
 
 if.then10.i.i:                                    ; preds = %do.end8.i.i
   %customMem.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 24
-  %call.i.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %prefix, i64 noundef %prefixSize, i32 noundef 1, i32 noundef 1, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i.i) #19
+  %call.i.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %prefix, i64 noundef %prefixSize, i32 noundef 1, i32 noundef 1, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i.i) #17
   store ptr %call.i.i, ptr %ddictLocal.i.i.i, align 8
   %cmp13.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp13.i.i, label %ZSTD_DCtx_refPrefix_advanced.exit, label %do.end24.i.i
@@ -3560,7 +3568,7 @@ do.end8.i.i:
   store i32 1, ptr %isFrameDecompression.i, align 8
   %ddictLocal.i.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %zds, i64 0, i32 30
   %0 = load ptr, ptr %ddictLocal.i.i.i, align 8
-  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %0) #19
+  %call.i.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %0) #17
   %dictUses.i.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %zds, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i.i, i8 0, i64 16, i1 false)
@@ -3571,7 +3579,7 @@ do.end8.i.i:
 
 if.then10.i.i:                                    ; preds = %do.end8.i.i
   %customMem.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %zds, i64 0, i32 24
-  %call.i.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i.i) #19
+  %call.i.i = tail call ptr @ZSTD_createDDict_advanced(ptr noundef nonnull %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i.i) #17
   store ptr %call.i.i, ptr %ddictLocal.i.i.i, align 8
   %cmp13.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp13.i.i, label %return, label %do.end24.i.i
@@ -3595,7 +3603,7 @@ return:                                           ; preds = %if.then10.i.i, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_reset(ptr nocapture noundef %dctx, i32 noundef %reset) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_reset(ptr nocapture noundef %dctx, i32 noundef %reset) local_unnamed_addr #0 {
 entry:
   %0 = and i32 %reset, -3
   %or.cond = icmp eq i32 %0, 1
@@ -3624,7 +3632,7 @@ do.body:                                          ; preds = %if.end
 do.end17:                                         ; preds = %do.body
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %3 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %3) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %3) #17
   %dictUses.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
@@ -3660,7 +3668,7 @@ ZSTD_DCtx_refDDict.exit:
   store i32 1, ptr %isFrameDecompression.i, align 8
   %ddictLocal.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %zds, i64 0, i32 30
   %0 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %0) #19
+  %call.i.i = tail call i64 @ZSTD_freeDDict(ptr noundef %0) #17
   %dictUses.i.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %zds, i64 0, i32 34
   store i32 0, ptr %dictUses.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
@@ -3672,7 +3680,7 @@ ZSTD_DCtx_refDDict.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
+define noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
 entry:
   %dictID.addr.i.i.i = alloca i32, align 4
   %dictID.addr.i.i.i.i = alloca i32, align 4
@@ -3684,7 +3692,7 @@ entry:
 do.end8:                                          ; preds = %entry
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %1 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %1) #17
   %dictUses.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i32 0, ptr %dictUses.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
@@ -3717,23 +3725,23 @@ if.then14:                                        ; preds = %if.then12
   br i1 %tobool.not.i.i, label %ZSTD_customMalloc.exit.i, label %ZSTD_customMalloc.exit.thread.i
 
 ZSTD_customMalloc.exit.i:                         ; preds = %if.then14
-  %call2.i.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
+  %call2.i.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #19
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.exit.i
 
 ZSTD_customMalloc.exit.thread.i:                  ; preds = %if.then14
-  %call.i.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 24) #19
+  %call.i.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 24) #17
   %tobool.not21.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not21.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.exit.thread.i
 
 ZSTD_customCalloc.exit.thread.i:                  ; preds = %ZSTD_customMalloc.exit.thread.i
-  %call.i14.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 512) #19
+  %call.i14.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 512) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %call.i14.i, i8 0, i64 512, i1 false)
   store ptr %call.i14.i, ptr %call.i.i, align 8
   br label %ZSTD_createDDictHashSet.exit
 
 ZSTD_customCalloc.exit.i:                         ; preds = %ZSTD_customMalloc.exit.i
-  %call2.i17.i = tail call noalias dereferenceable_or_null(512) ptr @calloc(i64 noundef 1, i64 noundef 512) #23
+  %call2.i17.i = tail call noalias dereferenceable_or_null(512) ptr @calloc(i64 noundef 1, i64 noundef 512) #21
   store ptr %call2.i17.i, ptr %call2.i.i, align 8
   %tobool3.not.i = icmp eq ptr %call2.i17.i, null
   br i1 %tobool3.not.i, label %if.then.i18.i, label %ZSTD_createDDictHashSet.exit
@@ -3743,11 +3751,11 @@ if.then.i18.i:                                    ; preds = %ZSTD_customCalloc.e
   br i1 %tobool.not.i19.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i18.i
-  tail call void %customMem14.sroa.4.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, ptr noundef nonnull %call2.i.i) #19
+  tail call void %customMem14.sroa.4.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, ptr noundef nonnull %call2.i.i) #17
   br label %ZSTD_createDDictHashSet.exit.thread
 
 if.else.i.i:                                      ; preds = %if.then.i18.i
-  tail call void @free(ptr noundef nonnull %call2.i.i) #19
+  tail call void @free(ptr noundef nonnull %call2.i.i) #17
   br label %ZSTD_createDDictHashSet.exit.thread
 
 ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_customMalloc.exit.thread.i, %if.then1.i.i, %if.else.i.i
@@ -3785,13 +3793,13 @@ do.body2.i:                                       ; preds = %do.body31
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body2.i
-  %call.i.i.i = tail call ptr %customMem3315.sroa.0.0.copyload(ptr noundef %customMem3315.sroa.5.0.copyload, i64 noundef %mul1.i.i) #19
+  %call.i.i.i = tail call ptr %customMem3315.sroa.0.0.copyload(ptr noundef %customMem3315.sroa.5.0.copyload, i64 noundef %mul1.i.i) #17
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i.i.i, i8 0, i64 %mul1.i.i, i1 false)
   %.pre.i.i = load i64, ptr %ddictPtrTableSize.i17, align 8
   br label %ZSTD_customCalloc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %do.body2.i
-  %call2.i.i.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul1.i.i) #23
+  %call2.i.i.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul1.i.i) #21
   br label %ZSTD_customCalloc.exit.i.i
 
 ZSTD_customCalloc.exit.i.i:                       ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -3817,11 +3825,11 @@ for.body.i.i:                                     ; preds = %do.end12.i.i, %for.
   br i1 %cmp15.not.i.i, label %for.inc.i.i, label %do.body17.i.i
 
 do.body17.i.i:                                    ; preds = %for.body.i.i
-  %call.i18.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %9) #19
+  %call.i18.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %9) #17
   %hashSet.val.i.i.i = load i64, ptr %ddictPtrTableSize.i17, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dictID.addr.i.i.i.i)
   store i32 %call.i18.i.i, ptr %dictID.addr.i.i.i.i, align 4
-  %call.i.i.i.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i.i.i, i64 noundef 4, i64 noundef 0) #22
+  %call.i.i.i.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i.i.i, i64 noundef 4, i64 noundef 0) #20
   %sub.i.i.i.i = add i64 %hashSet.val.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dictID.addr.i.i.i.i)
   %10 = load i64, ptr %ddictPtrCount.i16, align 8
@@ -3839,7 +3847,7 @@ while.cond.preheader.i.i.i:                       ; preds = %do.body17.i.i
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %if.end23.i.i.i
   %13 = phi ptr [ %16, %if.end23.i.i.i ], [ %12, %while.cond.preheader.i.i.i ]
   %idx.021.i.i.i = phi i64 [ %inc.i.i.i, %if.end23.i.i.i ], [ %and.i.i.i.i, %while.cond.preheader.i.i.i ]
-  %call16.i.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %13) #19
+  %call16.i.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %13) #17
   %cmp17.i.i.i = icmp eq i32 %call16.i.i.i, %call.i18.i.i
   br i1 %cmp17.i.i.i, label %do.end20.i.i.i, label %if.end23.i.i.i
 
@@ -3882,19 +3890,19 @@ if.then.i21.i.i:                                  ; preds = %for.end.i.i
   br i1 %tobool.not.i22.i.i, label %if.else.i.i.i, label %if.then1.i.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.then.i21.i.i
-  tail call void %customMem3315.sroa.4.0.copyload(ptr noundef %customMem3315.sroa.5.0.copyload, ptr noundef nonnull %8) #19
+  tail call void %customMem3315.sroa.4.0.copyload(ptr noundef %customMem3315.sroa.5.0.copyload, ptr noundef nonnull %8) #17
   br label %do.body15.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i21.i.i
-  tail call void @free(ptr noundef nonnull %8) #19
+  tail call void @free(ptr noundef nonnull %8) #17
   br label %do.body15.i
 
 do.body15.i:                                      ; preds = %if.else.i.i.i, %if.then1.i.i.i, %for.end.i.i, %do.body31
-  %call.i.i19 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %ddict) #19
+  %call.i.i19 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %ddict) #17
   %hashSet.val.i.i = load i64, ptr %ddictPtrTableSize.i17, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dictID.addr.i.i.i)
   store i32 %call.i.i19, ptr %dictID.addr.i.i.i, align 4
-  %call.i.i7.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i.i, i64 noundef 4, i64 noundef 0) #22
+  %call.i.i7.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i.i, i64 noundef 4, i64 noundef 0) #20
   %sub.i.i.i = add i64 %hashSet.val.i.i, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dictID.addr.i.i.i)
   %18 = load i64, ptr %ddictPtrCount.i16, align 8
@@ -3912,7 +3920,7 @@ while.cond.preheader.i.i:                         ; preds = %do.body15.i
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end23.i.i
   %21 = phi ptr [ %24, %if.end23.i.i ], [ %20, %while.cond.preheader.i.i ]
   %idx.021.i.i = phi i64 [ %inc.i11.i, %if.end23.i.i ], [ %and.i.i10.i, %while.cond.preheader.i.i ]
-  %call16.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %21) #19
+  %call16.i.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %21) #17
   %cmp17.i.i = icmp eq i32 %call16.i.i, %call.i.i19
   br i1 %cmp17.i.i, label %do.end20.i.i, label %if.end23.i.i
 
@@ -3972,7 +3980,7 @@ return:                                           ; preds = %do.body12, %do.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_resetDStream(ptr nocapture noundef %dctx) local_unnamed_addr #11 {
+define i64 @ZSTD_resetDStream(ptr nocapture noundef %dctx) local_unnamed_addr #6 {
 return:
   %streamStage.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   store i32 0, ptr %streamStage.i, align 4
@@ -3988,7 +3996,7 @@ return:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_DCtx_setMaxWindowSize(ptr nocapture noundef %dctx, i64 noundef %maxWindowSize) local_unnamed_addr #11 {
+define noundef i64 @ZSTD_DCtx_setMaxWindowSize(ptr nocapture noundef %dctx, i64 noundef %maxWindowSize) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage, align 4
@@ -4053,7 +4061,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_DCtx_setFormat(ptr nocapture noundef %dctx, i32 noundef %format) local_unnamed_addr #11 {
+define noundef i64 @ZSTD_DCtx_setFormat(ptr nocapture noundef %dctx, i32 noundef %format) local_unnamed_addr #6 {
 entry:
   %streamStage.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage.i, align 4
@@ -4075,7 +4083,7 @@ ZSTD_DCtx_setParameter.exit:                      ; preds = %entry, %do.end8.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_DCtx_setParameter(ptr nocapture noundef %dctx, i32 noundef %dParam, i32 noundef %value) local_unnamed_addr #11 {
+define noundef i64 @ZSTD_DCtx_setParameter(ptr nocapture noundef %dctx, i32 noundef %dParam, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 39
   %0 = load i32, ptr %streamStage, align 4
@@ -4175,8 +4183,8 @@ do.end141:                                        ; preds = %sw.bb113, %do.end8,
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_DCtx_getParameter(ptr nocapture noundef readonly %dctx, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i64 @ZSTD_DCtx_getParameter(ptr nocapture noundef readonly %dctx, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #6 {
 entry:
   switch i32 %param, label %do.end14 [
     i32 100, label %sw.bb
@@ -4245,7 +4253,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %0 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %0) #19
+  %call.i = tail call i64 @ZSTD_sizeof_DDict(ptr noundef %0) #17
   %add.i = add i64 %call.i, 95992
   %inBuffSize.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 41
   %1 = load i64, ptr %inBuffSize.i, align 8
@@ -4260,8 +4268,8 @@ ZSTD_sizeof_DCtx.exit:                            ; preds = %entry, %if.end.i
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_decodingBufferSize_min(i64 noundef %windowSize, i64 noundef %frameContentSize) local_unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i64 @ZSTD_decodingBufferSize_min(i64 noundef %windowSize, i64 noundef %frameContentSize) local_unnamed_addr #2 {
 entry:
   %cond.i = tail call i64 @llvm.umin.i64(i64 %windowSize, i64 131072)
   %mul.i = shl nuw nsw i64 %cond.i, 1
@@ -4271,8 +4279,8 @@ entry:
   ret i64 %cond16.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_estimateDStreamSize(i64 noundef %windowSize) local_unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i64 @ZSTD_estimateDStreamSize(i64 noundef %windowSize) local_unnamed_addr #2 {
 entry:
   %cond = tail call i64 @llvm.umin.i64(i64 %windowSize, i64 131072)
   %mul.i.i = shl nuw nsw i64 %cond, 1
@@ -4282,7 +4290,7 @@ entry:
   ret i64 %add2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #8 {
 entry:
   %zfh = alloca %struct.ZSTD_frameHeader, align 8
@@ -4514,8 +4522,8 @@ switch.lookup:                                    ; preds = %if.end.i295
   br i1 %tobool114.not, label %cond.end124, label %cond.true121
 
 cond.true121:                                     ; preds = %switch.lookup
-  %call116 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %call113) #19
-  %call122 = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %call113) #19
+  %call116 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %call113) #17
+  %call122 = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %call113) #17
   br label %cond.end124
 
 cond.end124:                                      ; preds = %switch.lookup, %cond.true121
@@ -4661,7 +4669,7 @@ do.body315:                                       ; preds = %if.end280, %land.lh
 
 ZSTD_getDDict.exit.thread:                        ; preds = %do.body315
   %36 = load ptr, ptr %ddictLocal.i.i, align 8
-  %call.i.i = call i64 @ZSTD_freeDDict(ptr noundef %36) #19
+  %call.i.i = call i64 @ZSTD_freeDDict(ptr noundef %36) #17
   store i32 0, ptr %dictUses.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
   br label %do.body5.i
@@ -4676,8 +4684,8 @@ ZSTD_getDDict.exit:                               ; preds = %do.body315, %sw.bb2
   br i1 %tobool.not.i, label %do.body5.i, label %if.then.i
 
 if.then.i:                                        ; preds = %ZSTD_getDDict.exit
-  %call.i306 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %retval.0.i304) #19
-  %call1.i = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %retval.0.i304) #19
+  %call.i306 = call ptr @ZSTD_DDict_dictContent(ptr noundef nonnull %retval.0.i304) #17
+  %call1.i = call i64 @ZSTD_DDict_dictSize(ptr noundef nonnull %retval.0.i304) #17
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i306, i64 %call1.i
   %37 = load ptr, ptr %dictEnd2.i, align 8
   %cmp.i307 = icmp ne ptr %37, %add.ptr.i
@@ -4691,7 +4699,7 @@ do.body5.i:                                       ; preds = %ZSTD_getDDict.exit.
   br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i.i, label %ZSTD_decompressBegin.exit.i
 
 cond.true.i.i:                                    ; preds = %do.body5.i
-  %call.i.i309 = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %zds) #19
+  %call.i.i309 = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %zds) #17
   br label %ZSTD_decompressBegin.exit.i
 
 ZSTD_decompressBegin.exit.i:                      ; preds = %cond.true.i.i, %do.body5.i
@@ -4715,7 +4723,7 @@ ZSTD_decompressBegin.exit.i:                      ; preds = %cond.true.i.i, %do.
   br i1 %tobool.not.i427, label %do.end331, label %if.then21.i
 
 if.then21.i:                                      ; preds = %ZSTD_decompressBegin.exit.i
-  call void @ZSTD_copyDDictParameters(ptr noundef nonnull %zds, ptr noundef nonnull %retval.0.i304426) #19
+  call void @ZSTD_copyDDictParameters(ptr noundef nonnull %zds, ptr noundef nonnull %retval.0.i304426) #17
   br label %do.end331
 
 do.end331:                                        ; preds = %if.then21.i, %ZSTD_decompressBegin.exit.i
@@ -4777,7 +4785,7 @@ land.rhs.i:                                       ; preds = %do.end34.i
   br i1 %tobool37.not.i, label %if.then40.i, label %do.end362
 
 if.then40.i:                                      ; preds = %land.rhs.i
-  %call41.i = call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #19
+  %call41.i = call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState.i, i64 noundef 0) #17
   br label %do.end362
 
 if.end42.critedge.i:                              ; preds = %do.end34.i
@@ -4885,11 +4893,11 @@ if.then.i323:                                     ; preds = %if.else472
   br i1 %tobool.not.i324, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i323
-  call void %customMem.val289(ptr noundef %customMem.val290, ptr noundef nonnull %56) #19
+  call void %customMem.val289(ptr noundef %customMem.val290, ptr noundef nonnull %56) #17
   br label %ZSTD_customFree.exit
 
 if.else.i:                                        ; preds = %if.then.i323
-  call void @free(ptr noundef nonnull %56) #19
+  call void @free(ptr noundef nonnull %56) #17
   br label %ZSTD_customFree.exit
 
 ZSTD_customFree.exit:                             ; preds = %if.else472, %if.then1.i, %if.else.i
@@ -4901,11 +4909,11 @@ ZSTD_customFree.exit:                             ; preds = %if.else472, %if.the
 
 if.then.i327:                                     ; preds = %ZSTD_customFree.exit
   %customMem.val288 = load ptr, ptr %10, align 8
-  %call.i328 = call ptr %customMem.val(ptr noundef %customMem.val288, i64 noundef %add1.i.i) #19
+  %call.i328 = call ptr %customMem.val(ptr noundef %customMem.val288, i64 noundef %add1.i.i) #17
   br label %ZSTD_customMalloc.exit
 
 if.end.i330:                                      ; preds = %ZSTD_customFree.exit
-  %call2.i = call noalias ptr @malloc(i64 noundef %add1.i.i) #21
+  %call2.i = call noalias ptr @malloc(i64 noundef %add1.i.i) #19
   br label %ZSTD_customMalloc.exit
 
 ZSTD_customMalloc.exit:                           ; preds = %if.then.i327, %if.end.i330
@@ -5338,7 +5346,7 @@ sw.bb6:                                           ; preds = %do.end
   %7 = load i64, ptr %size14, align 8
   %sub16 = sub i64 %7, %6
   store i64 %sub16, ptr %decodedSize, align 8
-  %call = call i64 @ZBUFFv05_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr13, ptr noundef nonnull %decodedSize, ptr noundef nonnull %add.ptr, ptr noundef nonnull %readSize) #19
+  %call = call i64 @ZBUFFv05_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr13, ptr noundef nonnull %decodedSize, ptr noundef nonnull %add.ptr, ptr noundef nonnull %readSize) #17
   br label %return.sink.split
 
 sw.bb20:                                          ; preds = %do.end
@@ -5357,7 +5365,7 @@ sw.bb20:                                          ; preds = %do.end
   %12 = load i64, ptr %size35, align 8
   %sub37 = sub i64 %12, %11
   store i64 %sub37, ptr %decodedSize34, align 8
-  %call39 = call i64 @ZBUFFv06_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr33, ptr noundef nonnull %decodedSize34, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %readSize26) #19
+  %call39 = call i64 @ZBUFFv06_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr33, ptr noundef nonnull %decodedSize34, ptr noundef nonnull %add.ptr25, ptr noundef nonnull %readSize26) #17
   br label %return.sink.split
 
 sw.bb44:                                          ; preds = %do.end
@@ -5376,7 +5384,7 @@ sw.bb44:                                          ; preds = %do.end
   %17 = load i64, ptr %size59, align 8
   %sub61 = sub i64 %17, %16
   store i64 %sub61, ptr %decodedSize58, align 8
-  %call63 = call i64 @ZBUFFv07_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr57, ptr noundef nonnull %decodedSize58, ptr noundef nonnull %add.ptr49, ptr noundef nonnull %readSize50) #19
+  %call63 = call i64 @ZBUFFv07_decompressContinue(ptr noundef %legacyContext, ptr noundef %add.ptr57, ptr noundef nonnull %decodedSize58, ptr noundef nonnull %add.ptr49, ptr noundef nonnull %readSize50) #17
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %sw.bb6, %sw.bb20, %sw.bb44
@@ -5418,14 +5426,14 @@ if.then:                                          ; preds = %entry
   %hashSet.val.i = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dictID.addr.i.i)
   store i32 %2, ptr %dictID.addr.i.i, align 4
-  %call.i.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i, i64 noundef 4, i64 noundef 0) #22
+  %call.i.i = call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %dictID.addr.i.i, i64 noundef 4, i64 noundef 0) #20
   %sub.i.i = add i64 %hashSet.val.i, -1
   %and.i.i = and i64 %call.i.i, %sub.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dictID.addr.i.i)
   %4 = load ptr, ptr %1, align 8
   %arrayidx10.i = getelementptr inbounds ptr, ptr %4, i64 %and.i.i
   %5 = load ptr, ptr %arrayidx10.i, align 8
-  %call111.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef %5) #19
+  %call111.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef %5) #17
   %cmp12.i = icmp eq i32 %call111.i, %2
   %cmp413.i = icmp eq i32 %call111.i, 0
   %or.cond14.i = or i1 %cmp12.i, %cmp413.i
@@ -5438,7 +5446,7 @@ if.else.i:                                        ; preds = %if.then, %if.else.i
   %6 = load ptr, ptr %1, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %inc.i
   %7 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef %7) #19
+  %call1.i = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef %7) #17
   %cmp.i = icmp eq i32 %call1.i, %2
   %cmp4.i = icmp eq i32 %call1.i, 0
   %or.cond.i = or i1 %cmp.i, %cmp4.i
@@ -5455,7 +5463,7 @@ ZSTD_DDictHashSet_getDDict.exit:                  ; preds = %if.else.i, %if.then
 do.end4:                                          ; preds = %ZSTD_DDictHashSet_getDDict.exit
   %ddictLocal.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 30
   %10 = load ptr, ptr %ddictLocal.i, align 8
-  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #19
+  %call.i = tail call i64 @ZSTD_freeDDict(ptr noundef %10) #17
   %dictUses.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 34
   store i64 0, ptr %ddictLocal.i, align 8
   %11 = load i32, ptr %dictID, align 4
@@ -5470,7 +5478,7 @@ if.end9:                                          ; preds = %ZSTD_DDictHashSet_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_initLegacyStream(ptr nocapture noundef %legacyContext, i32 noundef %prevVersion, i32 noundef %newVersion, ptr noundef %dict, i64 noundef %dictSize) unnamed_addr #0 {
+define internal fastcc noundef i64 @ZSTD_initLegacyStream(ptr nocapture noundef %legacyContext, i32 noundef %prevVersion, i32 noundef %newVersion, ptr noundef %dict, i64 noundef %dictSize) unnamed_addr #0 {
 entry:
   %x = alloca i8, align 1
   %cmp = icmp eq ptr %dict, null
@@ -5487,15 +5495,15 @@ if.then2:                                         ; preds = %entry
   ]
 
 sw.bb1.i:                                         ; preds = %if.then2
-  %call.i = tail call i64 @ZBUFFv05_freeDCtx(ptr noundef %0) #19
+  %call.i = tail call i64 @ZBUFFv05_freeDCtx(ptr noundef %0) #17
   br label %if.end3
 
 sw.bb2.i:                                         ; preds = %if.then2
-  %call3.i = tail call i64 @ZBUFFv06_freeDCtx(ptr noundef %0) #19
+  %call3.i = tail call i64 @ZBUFFv06_freeDCtx(ptr noundef %0) #17
   br label %if.end3
 
 sw.bb4.i:                                         ; preds = %if.then2
-  %call5.i = tail call i64 @ZBUFFv07_freeDCtx(ptr noundef %0) #19
+  %call5.i = tail call i64 @ZBUFFv07_freeDCtx(ptr noundef %0) #17
   br label %if.end3
 
 if.end3:                                          ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %if.then2, %entry
@@ -5509,7 +5517,7 @@ sw.bb4:                                           ; preds = %if.end3
   br i1 %cmp1.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %sw.bb4
-  %call6 = tail call ptr @ZBUFFv05_createDCtx() #19
+  %call6 = tail call ptr @ZBUFFv05_createDCtx() #17
   br label %cond.end
 
 cond.false:                                       ; preds = %sw.bb4
@@ -5522,14 +5530,14 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %cond.end
-  %call10 = call i64 @ZBUFFv05_decompressInitDictionary(ptr noundef nonnull %cond, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #19
+  %call10 = call i64 @ZBUFFv05_decompressInitDictionary(ptr noundef nonnull %cond, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #17
   br label %return.sink.split
 
 sw.bb11:                                          ; preds = %if.end3
   br i1 %cmp1.not, label %cond.false16, label %cond.true14
 
 cond.true14:                                      ; preds = %sw.bb11
-  %call15 = tail call ptr @ZBUFFv06_createDCtx() #19
+  %call15 = tail call ptr @ZBUFFv06_createDCtx() #17
   br label %cond.end17
 
 cond.false16:                                     ; preds = %sw.bb11
@@ -5542,14 +5550,14 @@ cond.end17:                                       ; preds = %cond.false16, %cond
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %cond.end17
-  %call22 = call i64 @ZBUFFv06_decompressInitDictionary(ptr noundef nonnull %cond18, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #19
+  %call22 = call i64 @ZBUFFv06_decompressInitDictionary(ptr noundef nonnull %cond18, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #17
   br label %return.sink.split
 
 sw.bb23:                                          ; preds = %if.end3
   br i1 %cmp1.not, label %cond.false28, label %cond.true26
 
 cond.true26:                                      ; preds = %sw.bb23
-  %call27 = tail call ptr @ZBUFFv07_createDCtx() #19
+  %call27 = tail call ptr @ZBUFFv07_createDCtx() #17
   br label %cond.end29
 
 cond.false28:                                     ; preds = %sw.bb23
@@ -5562,7 +5570,7 @@ cond.end29:                                       ; preds = %cond.false28, %cond
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %cond.end29
-  %call34 = call i64 @ZBUFFv07_decompressInitDictionary(ptr noundef nonnull %cond30, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #19
+  %call34 = call i64 @ZBUFFv07_decompressInitDictionary(ptr noundef nonnull %cond30, ptr noundef nonnull %spec.select, i64 noundef %dictSize) #17
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end9, %if.end21, %if.end33
@@ -5603,7 +5611,7 @@ entry:
 declare i64 @ZSTD_freeDDict(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 declare i64 @ZBUFFv05_freeDCtx(ptr noundef) local_unnamed_addr #1
 
@@ -5653,13 +5661,13 @@ declare extern_weak void @ZSTD_trace_decompress_end(i64 noundef, ptr noundef) #1
 declare i32 @ZSTD_getDictID_fromDDict(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i64 @ZSTD_XXH64(ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 
 declare i64 @ZBUFFv05_decompressContinue(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5680,25 +5688,25 @@ declare ptr @ZBUFFv07_createDCtx() local_unnamed_addr #1
 declare i64 @ZBUFFv07_decompressInitDictionary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5706,24 +5714,22 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind memory(none) }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(0,1) }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind memory(none) }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

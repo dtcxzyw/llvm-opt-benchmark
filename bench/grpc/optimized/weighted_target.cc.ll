@@ -6606,10 +6606,11 @@ invoke.cont88:                                    ; preds = %if.then87
 if.end91:                                         ; preds = %invoke.cont88, %if.end84
   store ptr null, ptr %picker, align 8
   store i64 0, ptr %status, align 8
-  switch i32 %connectivity_state.0, label %sw.default109 [
+  switch i32 %connectivity_state.0, label %if.end91.unreachabledefault [
     i32 2, label %sw.bb95
     i32 1, label %invoke.cont105
     i32 0, label %invoke.cont105
+    i32 3, label %sw.default109
   ]
 
 sw.bb95:                                          ; preds = %if.end91
@@ -6675,6 +6676,9 @@ if.then.i.i104:                                   ; preds = %if.then.i101
   %50 = load ptr, ptr %vfn.i.i.i106, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(56) %this) #27
   br label %ehcleanup
+
+if.end91.unreachabledefault:                      ; preds = %if.end91
+  unreachable
 
 sw.default109:                                    ; preds = %if.end91
   invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(24) %tf_picker_list)

@@ -6167,10 +6167,11 @@ if.end55.i.i:                                     ; preds = %if.end45.i.i, %if.e
   br i1 %cmp58.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.end55.i.i
-  switch i32 %shr.i.i, label %sw.default.i.i [
+  switch i32 %shr.i.i, label %if.end61.unreachabledefault.i.i [
     i32 1, label %sw.bb.i.i
     i32 0, label %sw.bb63.i.i
     i32 2, label %sw.bb65.i.i
+    i32 3, label %sw.default.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end61.i.i
@@ -6213,6 +6214,9 @@ sw.bb65.i.i:                                      ; preds = %if.end61.i.i
   %tobool66.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool66.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %sw.epilog.i.i
 
+if.end61.unreachabledefault.i.i:                  ; preds = %if.end61.i.i
+  unreachable
+
 sw.default.i.i:                                   ; preds = %if.end61.i.i
   store i32 63, ptr %max.i.i, align 4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i10 to i64
@@ -6235,10 +6239,11 @@ if.end78.i.i:                                     ; preds = %if.end74.i.i
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i.i, %if.end78.i.i, %sw.bb65.i.i, %sw.bb.i.i
   %ip.2.i.i = phi ptr [ %add.ptr79.i.i, %if.end78.i.i ], [ %add.ptr56.i.i, %sw.bb65.i.i ], [ %incdec.ptr62.i.i, %sw.bb.i.i ], [ %add.ptr56.i.i, %for.body.i.i.i ]
-  switch i32 %and.i.i, label %sw.default100.i.i [
+  switch i32 %and.i.i, label %sw.epilog.unreachabledefault.i.i [
     i32 1, label %sw.bb82.i.i
     i32 0, label %sw.bb93.i.i
     i32 2, label %sw.bb95.i.i
+    i32 3, label %sw.default100.i.i
   ]
 
 sw.bb82.i.i:                                      ; preds = %sw.epilog.i.i
@@ -6287,6 +6292,9 @@ sw.bb95.i.i:                                      ; preds = %sw.epilog.i.i
   %tobool96.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool96.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %sw.epilog118.i.i
 
+sw.epilog.unreachabledefault.i.i:                 ; preds = %sw.epilog.i.i
+  unreachable
+
 sw.default100.i.i:                                ; preds = %sw.epilog.i.i
   store i32 31, ptr %max101.i.i, align 4
   %sub.ptr.lhs.cast103.i.i = ptrtoint ptr %add.ptr.i10 to i64
@@ -6309,10 +6317,11 @@ if.end114.i.i:                                    ; preds = %if.end110.i.i
 
 sw.epilog118.i.i:                                 ; preds = %for.body.i77.i.i, %if.end114.i.i, %sw.bb95.i.i, %if.end87.i.i
   %ip.3.i.i = phi ptr [ %add.ptr115.i.i, %if.end114.i.i ], [ %ip.2.i.i, %sw.bb95.i.i ], [ %incdec.ptr88.i.i, %if.end87.i.i ], [ %ip.2.i.i, %for.body.i77.i.i ]
-  switch i32 %and24.i.i, label %sw.default134.i.i [
+  switch i32 %and24.i.i, label %sw.epilog118.unreachabledefault.i.i [
     i32 1, label %sw.bb119.i.i
     i32 0, label %sw.bb127.i.i
     i32 2, label %sw.bb129.i.i
+    i32 3, label %sw.default134.i.i
   ]
 
 sw.bb119.i.i:                                     ; preds = %sw.epilog118.i.i
@@ -6358,6 +6367,9 @@ for.body.i96.i.i:                                 ; preds = %for.body.i96.i.i, %
 sw.bb129.i.i:                                     ; preds = %sw.epilog118.i.i
   %tobool130.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool130.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %ZSTDv05_decodeSeqHeaders.exit.i
+
+sw.epilog118.unreachabledefault.i.i:              ; preds = %sw.epilog118.i.i
+  unreachable
 
 sw.default134.i.i:                                ; preds = %sw.epilog118.i.i
   store i32 127, ptr %max135.i.i, align 4

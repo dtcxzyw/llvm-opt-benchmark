@@ -2581,8 +2581,8 @@ return:                                           ; preds = %for.inc.i.i, %for.b
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @_PyHamt_New() local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef nonnull ptr @_PyHamt_New() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2603,7 +2603,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyHamt_Find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyHamt_Find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @hamt_find(ptr noundef %o, ptr noundef %key, ptr noundef %val), !range !18
   %switch.offset = add nsw i32 %call, -1
@@ -2611,7 +2611,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hamt_find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) unnamed_addr #0 {
+define internal fastcc noundef i32 @hamt_find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) unnamed_addr #0 {
 entry:
   %h_count = getelementptr inbounds %struct.PyHamtObject, ptr %o, i64 0, i32 3
   %0 = load i64, ptr %h_count, align 8
@@ -2733,7 +2733,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyHamt_Eq(ptr noundef readonly %v, ptr noundef readonly %w) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyHamt_Eq(ptr noundef readonly %v, ptr noundef readonly %w) local_unnamed_addr #0 {
 entry:
   %iter = alloca %struct.PyHamtIteratorState, align 8
   %v_key = alloca ptr, align 8
@@ -2756,14 +2756,17 @@ if.end4:                                          ; preds = %if.end
   %3 = getelementptr inbounds i8, ptr %iter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %3, i8 0, i64 121, i1 false)
   store ptr %2, ptr %iter, align 8
-  %call8 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter, ptr noundef nonnull %v_key, ptr noundef nonnull %v_val), !range !19
-  %cond9 = icmp eq i32 %call8, 0
-  br i1 %cond9, label %if.then6, label %return
+  br label %do.body
 
-if.then6:                                         ; preds = %if.end4, %do.cond
+do.body:                                          ; preds = %if.end14, %if.end4
+  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter, ptr noundef nonnull %v_key, ptr noundef nonnull %v_val), !range !19
+  %cond = icmp eq i32 %call, 0
+  br i1 %cond, label %if.then6, label %return
+
+if.then6:                                         ; preds = %do.body
   %4 = load ptr, ptr %v_key, align 8
   %call7 = call fastcc i32 @hamt_find(ptr noundef %w, ptr noundef %4, ptr noundef nonnull %w_val), !range !18
-  switch i32 %call7, label %do.cond [
+  switch i32 %call7, label %if.then6.unreachabledefault [
     i32 0, label %return.loopexit
     i32 1, label %return
     i32 2, label %sw.bb9
@@ -2778,23 +2781,21 @@ sw.bb9:                                           ; preds = %if.then6
 
 if.end14:                                         ; preds = %sw.bb9
   %cmp15 = icmp eq i32 %call11, 0
-  br i1 %cmp15, label %return, label %do.cond
+  br i1 %cmp15, label %return, label %do.body, !llvm.loop !20
 
-do.cond:                                          ; preds = %if.end14, %if.then6
-  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter, ptr noundef nonnull %v_key, ptr noundef nonnull %v_val), !range !19
-  %cond = icmp eq i32 %call, 0
-  br i1 %cond, label %if.then6, label %return, !llvm.loop !20
+if.then6.unreachabledefault:                      ; preds = %if.then6
+  unreachable
 
 return.loopexit:                                  ; preds = %if.then6
   br label %return
 
-return:                                           ; preds = %sw.bb9, %if.end14, %do.cond, %if.then6, %return.loopexit, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %if.end4 ], [ 0, %if.then6 ], [ -1, %sw.bb9 ], [ 0, %if.end14 ], [ 1, %do.cond ], [ -1, %return.loopexit ]
+return:                                           ; preds = %do.body, %if.end14, %sw.bb9, %if.then6, %return.loopexit, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then6 ], [ 1, %do.body ], [ 0, %if.end14 ], [ -1, %sw.bb9 ], [ -1, %return.loopexit ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %val) unnamed_addr #2 {
+define internal fastcc noundef i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %val) unnamed_addr #2 {
 entry:
   %i_level = getelementptr inbounds %struct.PyHamtIteratorState, ptr %iter, i64 0, i32 2
   %0 = load i8, ptr %i_level, align 8
@@ -3002,7 +3003,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_baseiter_tp_clear(ptr nocapture noundef %it) #0 {
+define internal noundef i32 @hamt_baseiter_tp_clear(ptr nocapture noundef %it) #0 {
 entry:
   %hi_obj = getelementptr inbounds %struct.PyHamtIterator, ptr %it, i64 0, i32 1
   %0 = load ptr, ptr %hi_obj, align 8
@@ -3136,7 +3137,7 @@ hamt_baseiter_new.exit:                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @hamt_iter_yield_keys(ptr noundef returned %key, ptr nocapture readnone %val) #5 {
+define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned %key, ptr nocapture readnone %val) #5 {
 entry:
   %0 = load i32, ptr %key, align 8
   %add.i.i = add i32 %0, 1
@@ -3186,7 +3187,7 @@ hamt_baseiter_new.exit:                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @hamt_iter_yield_values(ptr nocapture readnone %key, ptr noundef returned %val) #5 {
+define internal noundef ptr @hamt_iter_yield_values(ptr nocapture readnone %key, ptr noundef returned %val) #5 {
 entry:
   %0 = load i32, ptr %val, align 8
   %add.i.i = add i32 %0, 1
@@ -3282,7 +3283,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_tp_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @hamt_tp_clear(ptr nocapture noundef %self) #0 {
 entry:
   %h_root = getelementptr inbounds %struct.PyHamtObject, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %h_root, align 8
@@ -3311,8 +3312,12 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_tp_richcompare(ptr noundef %v, ptr noundef %w, i32 noundef %op) #0 {
+define internal noundef ptr @hamt_tp_richcompare(ptr noundef readonly %v, ptr noundef readonly %w, i32 noundef %op) #0 {
 entry:
+  %iter.i = alloca %struct.PyHamtIteratorState, align 8
+  %v_key.i = alloca ptr, align 8
+  %v_val.i = alloca ptr, align 8
+  %w_val.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %v.val, @_PyHamt_Type
@@ -3328,21 +3333,79 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call5 = tail call i32 @_PyHamt_Eq(ptr noundef nonnull %v, ptr noundef nonnull %w), !range !22
-  %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %return, label %if.end8
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %iter.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v_key.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v_val.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w_val.i)
+  %cmp.i10 = icmp eq ptr %v, %w
+  br i1 %cmp.i10, label %if.end8, label %if.end.i
 
-if.end8:                                          ; preds = %if.end
+if.end.i:                                         ; preds = %if.end
+  %h_count.i = getelementptr inbounds %struct.PyHamtObject, ptr %v, i64 0, i32 3
+  %3 = load i64, ptr %h_count.i, align 8
+  %h_count1.i = getelementptr inbounds %struct.PyHamtObject, ptr %w, i64 0, i32 3
+  %4 = load i64, ptr %h_count1.i, align 8
+  %cmp2.not.i = icmp eq i64 %3, %4
+  br i1 %cmp2.not.i, label %if.end4.i, label %if.end8
+
+if.end4.i:                                        ; preds = %if.end.i
+  %h_root.i = getelementptr inbounds %struct.PyHamtObject, ptr %v, i64 0, i32 1
+  %5 = load ptr, ptr %h_root.i, align 8
+  %6 = getelementptr inbounds i8, ptr %iter.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %6, i8 0, i64 121, i1 false)
+  store ptr %5, ptr %iter.i, align 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %if.end14.i, %if.end4.i
+  %call.i = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %v_key.i, ptr noundef nonnull %v_val.i), !range !19
+  %cond.i = icmp eq i32 %call.i, 0
+  br i1 %cond.i, label %if.then6.i, label %if.end8
+
+if.then6.i:                                       ; preds = %do.body.i
+  %7 = load ptr, ptr %v_key.i, align 8
+  %call7.i = call fastcc i32 @hamt_find(ptr noundef %w, ptr noundef %7, ptr noundef nonnull %w_val.i), !range !18
+  switch i32 %call7.i, label %if.then6.unreachabledefault.i [
+    i32 0, label %_PyHamt_Eq.exit
+    i32 1, label %if.end8
+    i32 2, label %sw.bb9.i
+  ]
+
+sw.bb9.i:                                         ; preds = %if.then6.i
+  %8 = load ptr, ptr %v_val.i, align 8
+  %9 = load ptr, ptr %w_val.i, align 8
+  %call11.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %8, ptr noundef %9, i32 noundef 2) #11
+  %cmp12.i = icmp slt i32 %call11.i, 0
+  br i1 %cmp12.i, label %_PyHamt_Eq.exit, label %if.end14.i
+
+if.end14.i:                                       ; preds = %sw.bb9.i
+  %cmp15.i = icmp eq i32 %call11.i, 0
+  br i1 %cmp15.i, label %if.end8, label %do.body.i, !llvm.loop !20
+
+if.then6.unreachabledefault.i:                    ; preds = %if.then6.i
+  unreachable
+
+_PyHamt_Eq.exit:                                  ; preds = %if.then6.i, %sw.bb9.i
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v_key.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v_val.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %w_val.i)
+  br label %return
+
+if.end8:                                          ; preds = %if.then6.i, %do.body.i, %if.end14.i, %if.end, %if.end.i
+  %tobool11.not = phi i32 [ 1, %if.end.i ], [ 0, %if.end ], [ %call7.i, %if.then6.i ], [ 0, %do.body.i ], [ 1, %if.end14.i ]
+  %retval.0.i.ph = phi i32 [ 0, %if.end.i ], [ 1, %if.end ], [ 0, %if.then6.i ], [ 1, %do.body.i ], [ 0, %if.end14.i ]
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v_key.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v_val.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %w_val.i)
   %cmp9 = icmp eq i32 %op, 3
-  %tobool11.not = icmp eq i32 %call5, 0
-  %lnot.ext = zext i1 %tobool11.not to i32
-  %res.0 = select i1 %cmp9, i32 %lnot.ext, i32 %call5
+  %res.0 = select i1 %cmp9, i32 %tobool11.not, i32 %retval.0.i.ph
   %tobool13.not = icmp eq i32 %res.0, 0
   %spec.select = select i1 %tobool13.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %lor.lhs.false ], [ @_Py_NotImplementedStruct, %entry ], [ null, %if.end ], [ %spec.select, %if.end8 ]
+return:                                           ; preds = %_PyHamt_Eq.exit, %if.end8, %entry, %lor.lhs.false
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %lor.lhs.false ], [ @_Py_NotImplementedStruct, %entry ], [ null, %_PyHamt_Eq.exit ], [ %spec.select, %if.end8 ]
   ret ptr %retval.0
 }
 
@@ -3380,8 +3443,8 @@ _PyHamt_NewIterKeys.exit:                         ; preds = %entry, %_Py_NewRef.
   ret ptr %call.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @hamt_tp_new(ptr nocapture readnone %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef nonnull ptr @hamt_tp_new(ptr nocapture readnone %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3445,7 +3508,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_XDECREF.exit:                                  ; preds = %for.body, %if.then.i, %if.end.i.i, %if.then1.i.i
   %inc = add nuw nsw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %Py_XDECREF.exit
   %3 = getelementptr i8, ptr %self, i64 8
@@ -3484,7 +3547,7 @@ if.then:                                          ; preds = %do.body
 for.inc:                                          ; preds = %if.then, %do.body
   %inc = add nuw nsw i64 %i.06, 1
   %exitcond.not = icmp eq i64 %inc, 32
-  br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !24
+  br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !23
 
 return:                                           ; preds = %for.inc, %if.then
   %retval.0 = phi i32 [ %call, %if.then ], [ 0, %for.inc ]
@@ -3544,7 +3607,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_XDECREF.exit:                                  ; preds = %while.body, %if.then.i, %if.end.i.i, %if.then1.i.i
   %cmp12 = icmp ugt i64 %i.014, 1
-  br i1 %cmp12, label %while.body, label %if.end13, !llvm.loop !25
+  br i1 %cmp12, label %while.body, label %if.end13, !llvm.loop !24
 
 if.end13:                                         ; preds = %Py_XDECREF.exit, %if.end9
   %4 = getelementptr i8, ptr %self, i64 8
@@ -3587,7 +3650,7 @@ if.then:                                          ; preds = %do.body
 do.end:                                           ; preds = %do.body, %if.then
   %dec = add nsw i64 %dec8, -1
   %cmp = icmp sgt i64 %dec8, 0
-  br i1 %cmp, label %do.body, label %return, !llvm.loop !26
+  br i1 %cmp, label %do.body, label %return, !llvm.loop !25
 
 return:                                           ; preds = %if.then, %do.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %do.end ], [ %call3, %if.then ]
@@ -3641,7 +3704,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_XDECREF.exit:                                  ; preds = %while.body, %if.then.i, %if.end.i.i, %if.then1.i.i
   %cmp8 = icmp ugt i64 %len.012, 1
-  br i1 %cmp8, label %while.body, label %if.end9, !llvm.loop !27
+  br i1 %cmp8, label %while.body, label %if.end9, !llvm.loop !26
 
 if.end9:                                          ; preds = %Py_XDECREF.exit, %if.end6
   %4 = getelementptr i8, ptr %self, i64 8
@@ -3684,7 +3747,7 @@ if.then:                                          ; preds = %do.body
 do.end:                                           ; preds = %do.body, %if.then
   %dec = add nsw i64 %dec8, -1
   %cmp = icmp sgt i64 %dec8, 0
-  br i1 %cmp, label %do.body, label %return, !llvm.loop !28
+  br i1 %cmp, label %do.body, label %return, !llvm.loop !27
 
 return:                                           ; preds = %if.then, %do.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %do.end ], [ %call3, %if.then ]
@@ -4375,7 +4438,7 @@ for.inc:                                          ; preds = %for.body, %if.end14
   %j.1 = phi i64 [ %add141, %if.end140 ], [ %j.0354, %for.body ]
   %inc = add nuw nsw i64 %i.0352, 1
   %exitcond359.not = icmp eq i64 %inc, 32
-  br i1 %exitcond359.not, label %if.then.i, label %for.body, !llvm.loop !29
+  br i1 %exitcond359.not, label %if.then.i, label %for.body, !llvm.loop !28
 
 if.then.i:                                        ; preds = %if.else117, %hamt_hash.exit, %for.inc, %if.end87
   %res.0.ph = phi ptr [ null, %if.end87 ], [ null, %if.else117 ], [ null, %hamt_hash.exit ], [ %call.i220, %for.inc ]
@@ -4483,7 +4546,7 @@ _Py_XNewRef.exit:                                 ; preds = %for.body165, %if.th
   store ptr %117, ptr %arrayidx172, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end175, label %for.body165, !llvm.loop !30
+  br i1 %exitcond.not, label %for.end175, label %for.body165, !llvm.loop !29
 
 for.end175:                                       ; preds = %_Py_XNewRef.exit, %hamt_node_bitmap_new.exit
   %119 = load i32, ptr %key, align 8
@@ -4549,7 +4612,7 @@ _Py_XNewRef.exit277:                              ; preds = %for.body189, %if.th
   %self.val = load i64, ptr %121, align 8
   %126 = and i64 %self.val, 4294967295
   %cmp187 = icmp ult i64 %indvars.iv.next357, %126
-  br i1 %cmp187, label %for.body189, label %for.end200, !llvm.loop !31
+  br i1 %cmp187, label %for.body189, label %for.end200, !llvm.loop !30
 
 for.end200:                                       ; preds = %_Py_XNewRef.exit277, %_Py_NewRef.exit271
   %127 = load i32, ptr %b_bitmap, align 8
@@ -4828,7 +4891,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #3
 declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_tp_contains(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
+define internal noundef i32 @hamt_tp_contains(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
   %call.i = call fastcc i32 @hamt_find(ptr noundef %self, ptr noundef %key, ptr noundef nonnull %val), !range !18
@@ -4845,7 +4908,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_tp_subscript(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
+define internal noundef ptr @hamt_tp_subscript(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
   %call = call fastcc i32 @hamt_find(ptr noundef %self, ptr noundef %key, ptr noundef nonnull %val), !range !18
@@ -5091,7 +5154,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5127,7 +5190,7 @@ attributes #11 = { nounwind }
 !19 = !{i32 0, i32 2}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = !{i32 -1, i32 2}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -5136,4 +5199,3 @@ attributes #11 = { nounwind }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}

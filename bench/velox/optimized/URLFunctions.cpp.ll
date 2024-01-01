@@ -7306,17 +7306,18 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %and4 = and i32 %l_flags, 3
-  switch i32 %and4, label %sw.default [
+  switch i32 %and4, label %if.end.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb8
     i32 2, label %sw.bb10
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
   %m_parser_proc = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14parse_extendedEv to i64), ptr %m_parser_proc, align 8
-  %m_parser_proc.repack12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc.repack12, align 8
+  %m_parser_proc.repack13 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc.repack13, align 8
   %3 = load ptr, ptr %this, align 8
   %start.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %3, i64 0, i32 11, i32 1
   %4 = load ptr, ptr %start.i.i, align 8
@@ -7392,16 +7393,19 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 sw.bb8:                                           ; preds = %if.end
   %m_parser_proc9 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11parse_basicEv to i64), ptr %m_parser_proc9, align 8
-  %m_parser_proc9.repack11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc9.repack11, align 8
+  %m_parser_proc9.repack12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc9.repack12, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end
   %m_parser_proc11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13parse_literalEv to i64), ptr %m_parser_proc11, align 8
-  %m_parser_proc11.repack10 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc11.repack10, align 8
+  %m_parser_proc11.repack11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc11.repack11, align 8
   br label %sw.epilog
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #21
@@ -7563,9 +7567,9 @@ return:                                           ; preds = %if.end31, %if.end34
 
 eh.resume:                                        ; preds = %lpad27.body, %lpad.i30, %lpad25, %lpad13.body, %lpad.i, %lpad
   %ref.tmp24.sink = phi ptr [ %ref.tmp12, %lpad ], [ %ref.tmp12, %lpad.i ], [ %ref.tmp12, %lpad13.body ], [ %ref.tmp24, %lpad25 ], [ %ref.tmp24, %lpad.i30 ], [ %ref.tmp24, %lpad27.body ]
-  %.pn14.pn = phi { ptr, i32 } [ %21, %lpad ], [ %19, %lpad.i ], [ %eh.lpad-body21, %lpad13.body ], [ %30, %lpad25 ], [ %28, %lpad.i30 ], [ %eh.lpad-body39, %lpad27.body ]
+  %.pn.pn = phi { ptr, i32 } [ %21, %lpad ], [ %19, %lpad.i ], [ %eh.lpad-body21, %lpad13.body ], [ %30, %lpad25 ], [ %28, %lpad.i30 ], [ %eh.lpad-body39, %lpad27.body ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.sink) #21
-  resume { ptr, i32 } %.pn14.pn
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

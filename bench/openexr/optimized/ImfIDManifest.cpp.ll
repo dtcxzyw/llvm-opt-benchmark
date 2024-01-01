@@ -6813,10 +6813,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %entry
   %h1.0.lcssa.i = phi i32 [ 0, %entry ], [ %add.i, %for.body.i ]
   %and.i = and i32 %conv, 3
-  switch i32 %and.i, label %_ZN7Imf_3_212_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit [
+  switch i32 %and.i, label %for.end.unreachabledefault.i [
     i32 3, label %sw.bb.i
     i32 2, label %sw.bb11.i
     i32 1, label %sw.bb16.i
+    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -6847,6 +6848,9 @@ sw.bb16.i:                                        ; preds = %sw.bb11.i, %for.end
   %mul22.i = mul i32 %or.i39.i, 461845907
   %xor23.i = xor i32 %mul22.i, %h1.0.lcssa.i
   br label %_ZN7Imf_3_212_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit
+
+for.end.unreachabledefault.i:                     ; preds = %for.end.i
+  unreachable
 
 _ZN7Imf_3_212_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit: ; preds = %for.end.i, %sw.bb16.i
   %h1.1.i = phi i32 [ %h1.0.lcssa.i, %for.end.i ], [ %xor23.i, %sw.bb16.i ]
@@ -6917,7 +6921,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   %idx.ext.i = sext i32 %mul20.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %idx.ext.i
   %and.i = and i32 %conv, 15
-  switch i32 %and.i, label %_ZN7Imf_3_212_GLOBAL__N_119MurmurHash3_x64_128EPKvijPv.exit [
+  switch i32 %and.i, label %for.end.unreachabledefault.i [
     i32 15, label %sw.bb.i
     i32 14, label %sw.bb25.i
     i32 13, label %sw.bb30.i
@@ -6933,6 +6937,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
     i32 3, label %sw.bb84.i
     i32 2, label %sw.bb89.i
     i32 1, label %sw.bb94.i
+    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119MurmurHash3_x64_128EPKvijPv.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -7082,6 +7087,9 @@ sw.bb94.i:                                        ; preds = %sw.bb89.i, %for.end
   %mul101.i = mul i64 %or.i108.i, 5545529020109919103
   %xor102.i = xor i64 %mul101.i, %h1.0.lcssa.i
   br label %_ZN7Imf_3_212_GLOBAL__N_119MurmurHash3_x64_128EPKvijPv.exit
+
+for.end.unreachabledefault.i:                     ; preds = %for.end.i
+  unreachable
 
 _ZN7Imf_3_212_GLOBAL__N_119MurmurHash3_x64_128EPKvijPv.exit: ; preds = %for.end.i, %sw.bb94.i
   %h2.9.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.8.i, %sw.bb94.i ]

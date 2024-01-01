@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.65 = private unnamed_addr constant [25 x i8] c"../openssl/apps/rsautl.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rsautl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @rsautl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   %rsa_outlen = alloca i64, align 8
@@ -264,10 +264,11 @@ if.then59:                                        ; preds = %if.end56
   br label %end
 
 if.end61:                                         ; preds = %if.end56
-  switch i32 %conv, label %return [
+  switch i32 %conv, label %if.end61.unreachabledefault [
     i32 1, label %sw.bb63
     i32 2, label %sw.bb65
     i32 3, label %sw.bb67
+    i32 0, label %return
   ]
 
 sw.bb63:                                          ; preds = %if.end61
@@ -489,7 +490,10 @@ end:                                              ; preds = %sw.bb38, %sw.bb32, 
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.65, i32 noundef 290) #2
   br label %return
 
-return:                                           ; preds = %sw.bb67, %if.end61, %sw.epilog73, %end
+if.end61.unreachabledefault:                      ; preds = %if.end61
+  unreachable
+
+return:                                           ; preds = %if.end61, %sw.bb67, %sw.epilog73, %end
   %retval.0 = phi i32 [ %ret.0, %end ], [ 1, %sw.epilog73 ], [ 1, %if.end61 ], [ 1, %sw.bb67 ]
   ret i32 %retval.0
 }

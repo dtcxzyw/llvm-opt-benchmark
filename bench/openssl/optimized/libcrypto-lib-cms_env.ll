@@ -83,7 +83,7 @@ if.then:                                          ; preds = %entry, %entry
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
-  switch i32 %switch.select2.i.i.i, label %if.end4 [
+  switch i32 %switch.select2.i.i.i, label %entry.unreachabledefault.i [
     i32 0, label %cms_get_enveloped_type.exit.thread.i
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb2.i
@@ -115,6 +115,9 @@ cond.false6.i:                                    ; preds = %sw.bb2.i
   %authEncryptedContentInfo.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %1, i64 0, i32 3
   br label %ossl_cms_get0_env_enc_content.exit
 
+entry.unreachabledefault.i:                       ; preds = %if.then
+  unreachable
+
 ossl_cms_get0_env_enc_content.exit:               ; preds = %cond.false.i, %cond.false6.i
   %retval.0.i.in = phi ptr [ %encryptedContentInfo.i, %cond.false.i ], [ %authEncryptedContentInfo.i, %cond.false6.i ]
   %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
@@ -129,7 +132,7 @@ if.then3:                                         ; preds = %ossl_cms_get0_env_e
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 59) #6
   br label %if.end4
 
-if.end4:                                          ; preds = %entry, %if.then, %cms_get_enveloped_type.exit.thread.i, %sw.bb2.i, %sw.bb.i, %ossl_cms_get0_env_enc_content.exit, %if.then3
+if.end4:                                          ; preds = %entry, %cms_get_enveloped_type.exit.thread.i, %sw.bb2.i, %sw.bb.i, %ossl_cms_get0_env_enc_content.exit, %if.then3
   ret void
 }
 
@@ -142,7 +145,7 @@ entry:
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select2.i.i, label %return [
+  switch i32 %switch.select2.i.i, label %entry.unreachabledefault [
     i32 0, label %cms_get_enveloped_type.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb2
@@ -176,8 +179,11 @@ cond.false6:                                      ; preds = %sw.bb2
   %3 = load ptr, ptr %authEncryptedContentInfo, align 8
   br label %return
 
-return:                                           ; preds = %entry, %cms_get_enveloped_type.exit.thread, %cond.false6, %sw.bb2, %cond.false, %sw.bb
-  %retval.0 = phi ptr [ %1, %cond.false ], [ null, %sw.bb ], [ %3, %cond.false6 ], [ null, %sw.bb2 ], [ null, %cms_get_enveloped_type.exit.thread ], [ null, %entry ]
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
+return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %cond.false6, %sw.bb2, %cond.false, %sw.bb
+  %retval.0 = phi ptr [ %1, %cond.false ], [ null, %sw.bb ], [ %3, %cond.false6 ], [ null, %sw.bb2 ], [ null, %cms_get_enveloped_type.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -359,7 +365,7 @@ entry:
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select2.i.i, label %return [
+  switch i32 %switch.select2.i.i, label %entry.unreachabledefault [
     i32 0, label %cms_get_enveloped_type.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
@@ -385,8 +391,11 @@ sw.bb1:                                           ; preds = %entry
   %3 = load ptr, ptr %recipientInfos3, align 8
   br label %return
 
-return:                                           ; preds = %entry, %cms_get_enveloped_type.exit.thread, %sw.bb1, %sw.bb
-  %retval.0 = phi ptr [ %3, %sw.bb1 ], [ %1, %sw.bb ], [ null, %cms_get_enveloped_type.exit.thread ], [ null, %entry ]
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
+return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %sw.bb1, %sw.bb
+  %retval.0 = phi ptr [ %3, %sw.bb1 ], [ %1, %sw.bb ], [ null, %cms_get_enveloped_type.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -400,7 +409,7 @@ entry:
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
-  switch i32 %switch.select2.i.i.i, label %CMS_get0_RecipientInfos.exit [
+  switch i32 %switch.select2.i.i.i, label %entry.unreachabledefault.i [
     i32 0, label %cms_get_enveloped_type.exit.thread.i
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
@@ -426,8 +435,11 @@ sw.bb1.i:                                         ; preds = %entry
   %3 = load ptr, ptr %recipientInfos3.i, align 8
   br label %CMS_get0_RecipientInfos.exit
 
-CMS_get0_RecipientInfos.exit:                     ; preds = %entry, %cms_get_enveloped_type.exit.thread.i, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi ptr [ %3, %sw.bb1.i ], [ %1, %sw.bb.i ], [ null, %cms_get_enveloped_type.exit.thread.i ], [ null, %entry ]
+entry.unreachabledefault.i:                       ; preds = %entry
+  unreachable
+
+CMS_get0_RecipientInfos.exit:                     ; preds = %cms_get_enveloped_type.exit.thread.i, %sw.bb.i, %sw.bb1.i
+  %retval.0.i = phi ptr [ %3, %sw.bb1.i ], [ %1, %sw.bb.i ], [ null, %cms_get_enveloped_type.exit.thread.i ]
   %call316 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i) #6
   %cmp17 = icmp sgt i32 %call316, 0
   br i1 %cmp17, label %for.body, label %for.end
@@ -813,13 +825,13 @@ entry:
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
-  switch i32 %switch.select2.i.i.i, label %err [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i
+  switch i32 %switch.select2.i.i.i, label %entry.unreachabledefault.i [
+    i32 0, label %CMS_get0_RecipientInfos.exit.thread
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
   ]
 
-cms_get_enveloped_type.exit.thread.i:             ; preds = %entry
+CMS_get0_RecipientInfos.exit.thread:              ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   br label %err.sink.split
@@ -835,6 +847,9 @@ sw.bb1.i:                                         ; preds = %entry
   %1 = load ptr, ptr %d2.i, align 8
   %recipientInfos3.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %1, i64 0, i32 2
   br label %CMS_get0_RecipientInfos.exit
+
+entry.unreachabledefault.i:                       ; preds = %entry
+  unreachable
 
 CMS_get0_RecipientInfos.exit:                     ; preds = %sw.bb.i, %sw.bb1.i
   %retval.0.i.in = phi ptr [ %recipientInfos3.i, %sw.bb1.i ], [ %recipientInfos.i, %sw.bb.i ]
@@ -943,14 +958,14 @@ if.then24:                                        ; preds = %sw.epilog
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @__func__.CMS_add1_recipient) #6
   br label %err.sink.split
 
-err.sink.split:                                   ; preds = %if.then5, %if.then9, %sw.default, %if.then24, %cms_get_enveloped_type.exit.thread.i
-  %.sink = phi i32 [ 107, %cms_get_enveloped_type.exit.thread.i ], [ 524303, %if.then24 ], [ 125, %sw.default ], [ 113, %if.then9 ], [ 524301, %if.then5 ]
-  %ri.0.ph = phi ptr [ null, %cms_get_enveloped_type.exit.thread.i ], [ %call3, %if.then24 ], [ %call3, %sw.default ], [ %call3, %if.then9 ], [ null, %if.then5 ]
+err.sink.split:                                   ; preds = %if.then5, %if.then9, %sw.default, %if.then24, %CMS_get0_RecipientInfos.exit.thread
+  %.sink = phi i32 [ 107, %CMS_get0_RecipientInfos.exit.thread ], [ 524303, %if.then24 ], [ 125, %sw.default ], [ 113, %if.then9 ], [ 524301, %if.then5 ]
+  %ri.0.ph = phi ptr [ null, %CMS_get0_RecipientInfos.exit.thread ], [ %call3, %if.then24 ], [ %call3, %sw.default ], [ %call3, %if.then9 ], [ null, %if.then5 ]
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #6
   br label %err
 
-err:                                              ; preds = %err.sink.split, %if.else30.i, %if.end24.i, %if.then17.i, %if.end.i, %sw.bb, %entry, %sw.bb15, %CMS_get0_RecipientInfos.exit
-  %ri.0 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %call3, %sw.bb15 ], [ null, %entry ], [ %call3, %sw.bb ], [ %call3, %if.end.i ], [ %call3, %if.then17.i ], [ %call3, %if.end24.i ], [ %call3, %if.else30.i ], [ %ri.0.ph, %err.sink.split ]
+err:                                              ; preds = %err.sink.split, %if.else30.i, %if.end24.i, %if.then17.i, %if.end.i, %sw.bb, %sw.bb15, %CMS_get0_RecipientInfos.exit
+  %ri.0 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %call3, %sw.bb15 ], [ %call3, %sw.bb ], [ %call3, %if.end.i ], [ %call3, %if.then17.i ], [ %call3, %if.end24.i ], [ %call3, %if.else30.i ], [ %ri.0.ph, %err.sink.split ]
   %call26 = tail call ptr @CMS_RecipientInfo_it() #6
   tail call void @ASN1_item_free(ptr noundef %ri.0, ptr noundef %call26) #6
   br label %return
@@ -1032,7 +1047,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientInfo_ktri_get0_algs(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pk, ptr noundef writeonly %recip, ptr noundef writeonly %palg) local_unnamed_addr #0 {
+define noundef i32 @CMS_RecipientInfo_ktri_get0_algs(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pk, ptr noundef writeonly %recip, ptr noundef writeonly %palg) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -1138,7 +1153,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ossl_cms_SignerIdentifier_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientInfo_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pkey) local_unnamed_addr #0 {
+define noundef i32 @CMS_RecipientInfo_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -1215,13 +1230,13 @@ entry:
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
-  switch i32 %switch.select2.i.i.i, label %err [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i
+  switch i32 %switch.select2.i.i.i, label %entry.unreachabledefault.i [
+    i32 0, label %CMS_get0_RecipientInfos.exit.thread
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
   ]
 
-cms_get_enveloped_type.exit.thread.i:             ; preds = %entry
+CMS_get0_RecipientInfos.exit.thread:              ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   br label %err.sink.split
@@ -1237,6 +1252,9 @@ sw.bb1.i:                                         ; preds = %entry
   %1 = load ptr, ptr %d2.i, align 8
   %recipientInfos3.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %1, i64 0, i32 2
   br label %CMS_get0_RecipientInfos.exit
+
+entry.unreachabledefault.i:                       ; preds = %entry
+  unreachable
 
 CMS_get0_RecipientInfos.exit:                     ; preds = %sw.bb.i, %sw.bb1.i
   %retval.0.i.in = phi ptr [ %recipientInfos3.i, %sw.bb1.i ], [ %recipientInfos.i, %sw.bb.i ]
@@ -1385,14 +1403,14 @@ if.end53:                                         ; preds = %if.then48, %if.end3
   %call55 = tail call i32 @X509_ALGOR_set0(ptr noundef %12, ptr noundef %call54, i32 noundef -1, ptr noundef null) #6
   br label %return
 
-err.sink.split:                                   ; preds = %sw.default, %if.then6, %if.then9, %if.then15, %if.then21, %if.then31, %if.then38, %cms_get_enveloped_type.exit.thread.i
-  %.sink = phi i32 [ 107, %cms_get_enveloped_type.exit.thread.i ], [ 524303, %if.then38 ], [ 524301, %if.then31 ], [ 524301, %if.then21 ], [ 524301, %if.then15 ], [ 118, %if.then9 ], [ 153, %if.then6 ], [ 118, %sw.default ]
-  %ri.0.ph = phi ptr [ null, %cms_get_enveloped_type.exit.thread.i ], [ %call13, %if.then38 ], [ %call13, %if.then31 ], [ %call13, %if.then21 ], [ null, %if.then15 ], [ null, %if.then9 ], [ null, %if.then6 ], [ null, %sw.default ]
+err.sink.split:                                   ; preds = %sw.default, %if.then6, %if.then9, %if.then15, %if.then21, %if.then31, %if.then38, %CMS_get0_RecipientInfos.exit.thread
+  %.sink = phi i32 [ 107, %CMS_get0_RecipientInfos.exit.thread ], [ 524303, %if.then38 ], [ 524301, %if.then31 ], [ 524301, %if.then21 ], [ 524301, %if.then15 ], [ 118, %if.then9 ], [ 153, %if.then6 ], [ 118, %sw.default ]
+  %ri.0.ph = phi ptr [ null, %CMS_get0_RecipientInfos.exit.thread ], [ %call13, %if.then38 ], [ %call13, %if.then31 ], [ %call13, %if.then21 ], [ null, %if.then15 ], [ null, %if.then9 ], [ null, %if.then6 ], [ null, %sw.default ]
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #6
   br label %err
 
-err:                                              ; preds = %err.sink.split, %entry, %CMS_get0_RecipientInfos.exit
-  %ri.0 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ null, %entry ], [ %ri.0.ph, %err.sink.split ]
+err:                                              ; preds = %err.sink.split, %CMS_get0_RecipientInfos.exit
+  %ri.0 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %ri.0.ph, %err.sink.split ]
   %call56 = tail call ptr @CMS_RecipientInfo_it() #6
   tail call void @ASN1_item_free(ptr noundef %ri.0, ptr noundef %call56) #6
   br label %return
@@ -1411,7 +1429,7 @@ declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientInfo_kekri_get0_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pid, ptr noundef writeonly %pdate, ptr noundef writeonly %potherid, ptr noundef writeonly %pothertype) local_unnamed_addr #0 {
+define noundef i32 @CMS_RecipientInfo_kekri_get0_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pid, ptr noundef writeonly %pdate, ptr noundef writeonly %potherid, ptr noundef writeonly %pothertype) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -1501,7 +1519,7 @@ return:                                           ; preds = %if.end16, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientInfo_set0_key(ptr nocapture noundef readonly %ri, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define noundef i32 @CMS_RecipientInfo_set0_key(ptr nocapture noundef readonly %ri, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -1560,7 +1578,7 @@ sw.bb:                                            ; preds = %entry
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i.i = icmp eq i32 %call.i.i.i.i, 23
   %switch.select2.i.i.i.i = select i1 %switch.selectcmp1.i.i.i.i, i32 1, i32 %switch.select.i.i.i.i
-  switch i32 %switch.select2.i.i.i.i, label %ossl_cms_get0_env_enc_content.exit.i [
+  switch i32 %switch.select2.i.i.i.i, label %entry.unreachabledefault.i.i [
     i32 0, label %cms_get_enveloped_type.exit.thread.i.i
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb2.i.i
@@ -1594,8 +1612,11 @@ cond.false6.i.i:                                  ; preds = %sw.bb2.i.i
   %6 = load ptr, ptr %authEncryptedContentInfo.i.i, align 8
   br label %ossl_cms_get0_env_enc_content.exit.i
 
-ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i, %sw.bb
-  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ], [ null, %sw.bb ]
+entry.unreachabledefault.i.i:                     ; preds = %sw.bb
+  unreachable
+
+ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i
+  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
   %7 = load ptr, ptr %pkey1.i, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1736,7 +1757,7 @@ sw.bb1:                                           ; preds = %entry
   %switch.select.i.i.i.i10 = select i1 %switch.selectcmp.i.i.i.i9, i32 2, i32 0
   %switch.selectcmp1.i.i.i.i11 = icmp eq i32 %call.i.i.i.i8, 23
   %switch.select2.i.i.i.i12 = select i1 %switch.selectcmp1.i.i.i.i11, i32 1, i32 %switch.select.i.i.i.i10
-  switch i32 %switch.select2.i.i.i.i12, label %cms_RecipientInfo_kekri_decrypt.exit [
+  switch i32 %switch.select2.i.i.i.i12, label %entry.unreachabledefault.i.i41 [
     i32 0, label %cms_get_enveloped_type.exit.thread.i.i40
     i32 1, label %sw.bb.i.i35
     i32 2, label %sw.bb2.i.i13
@@ -1767,6 +1788,9 @@ sw.bb2.i.i13:                                     ; preds = %sw.bb1
 cond.false6.i.i16:                                ; preds = %sw.bb2.i.i13
   %authEncryptedContentInfo.i.i17 = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %28, i64 0, i32 3
   br label %ossl_cms_get0_env_enc_content.exit.i18
+
+entry.unreachabledefault.i.i41:                   ; preds = %sw.bb1
+  unreachable
 
 ossl_cms_get0_env_enc_content.exit.i18:           ; preds = %cond.false6.i.i16, %cond.false.i.i38
   %retval.0.i.in.i = phi ptr [ %encryptedContentInfo.i.i39, %cond.false.i.i38 ], [ %authEncryptedContentInfo.i.i17, %cond.false6.i.i16 ]
@@ -1930,8 +1954,8 @@ if.end49.i:                                       ; preds = %if.then48.i, %err.i
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.042.i) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
-cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %sw.bb1, %cms_get_enveloped_type.exit.thread.i.i40, %sw.bb.i.i35, %sw.bb2.i.i13, %ossl_cms_get0_env_enc_content.exit.i18, %if.then2.i, %if.then7.i, %if.end49.i
-  %retval.0.i26 = phi i32 [ 0, %if.then7.i ], [ %r.039.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i18 ], [ 0, %sw.bb.i.i35 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i40 ], [ 0, %sw.bb1 ]
+cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i40, %sw.bb.i.i35, %sw.bb2.i.i13, %ossl_cms_get0_env_enc_content.exit.i18, %if.then2.i, %if.then7.i, %if.end49.i
+  %retval.0.i26 = phi i32 [ 0, %if.then7.i ], [ %r.039.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i18 ], [ 0, %sw.bb.i.i35 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ukeylen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
   br label %return
@@ -1989,7 +2013,7 @@ if.end.i:                                         ; preds = %sw.bb
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i.i.i = icmp eq i32 %call.i.i.i.i, 23
   %switch.select2.i.i.i.i = select i1 %switch.selectcmp1.i.i.i.i, i32 1, i32 %switch.select.i.i.i.i
-  switch i32 %switch.select2.i.i.i.i, label %ossl_cms_get0_env_enc_content.exit.i [
+  switch i32 %switch.select2.i.i.i.i, label %entry.unreachabledefault.i.i [
     i32 0, label %cms_get_enveloped_type.exit.thread.i.i
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb2.i.i
@@ -2023,8 +2047,11 @@ cond.false6.i.i:                                  ; preds = %sw.bb2.i.i
   %6 = load ptr, ptr %authEncryptedContentInfo.i.i, align 8
   br label %ossl_cms_get0_env_enc_content.exit.i
 
-ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i, %if.end.i
-  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ], [ null, %if.end.i ]
+entry.unreachabledefault.i.i:                     ; preds = %if.end.i
+  unreachable
+
+ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i
+  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
   %pctx2.i = getelementptr inbounds %struct.CMS_KeyTransRecipientInfo_st, ptr %2, i64 0, i32 6
   %7 = load ptr, ptr %pctx2.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -2109,7 +2136,7 @@ sw.bb3:                                           ; preds = %entry
   %switch.select.i.i.i.i12 = select i1 %switch.selectcmp.i.i.i.i11, i32 2, i32 0
   %switch.selectcmp1.i.i.i.i13 = icmp eq i32 %call.i.i.i.i10, 23
   %switch.select2.i.i.i.i14 = select i1 %switch.selectcmp1.i.i.i.i13, i32 1, i32 %switch.select.i.i.i.i12
-  switch i32 %switch.select2.i.i.i.i14, label %cms_RecipientInfo_kekri_encrypt.exit [
+  switch i32 %switch.select2.i.i.i.i14, label %entry.unreachabledefault.i.i44 [
     i32 0, label %cms_get_enveloped_type.exit.thread.i.i43
     i32 1, label %sw.bb.i.i38
     i32 2, label %sw.bb2.i.i15
@@ -2140,6 +2167,9 @@ sw.bb2.i.i15:                                     ; preds = %sw.bb3
 cond.false6.i.i18:                                ; preds = %sw.bb2.i.i15
   %authEncryptedContentInfo.i.i19 = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %17, i64 0, i32 3
   br label %ossl_cms_get0_env_enc_content.exit.i20
+
+entry.unreachabledefault.i.i44:                   ; preds = %sw.bb3
+  unreachable
 
 ossl_cms_get0_env_enc_content.exit.i20:           ; preds = %cond.false6.i.i18, %cond.false.i.i41
   %retval.0.i.in.i = phi ptr [ %encryptedContentInfo.i.i42, %cond.false.i.i41 ], [ %authEncryptedContentInfo.i.i19, %cond.false6.i.i18 ]
@@ -2277,8 +2307,8 @@ if.end44.i:                                       ; preds = %if.then43.i, %err.i
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.037.i) #6
   br label %cms_RecipientInfo_kekri_encrypt.exit
 
-cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %sw.bb3, %cms_get_enveloped_type.exit.thread.i.i43, %sw.bb.i.i38, %sw.bb2.i.i15, %ossl_cms_get0_env_enc_content.exit.i20, %if.then3.i37, %if.end44.i
-  %retval.0.i34 = phi i32 [ 0, %if.then3.i37 ], [ %r.035.i, %if.end44.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i20 ], [ 0, %sw.bb.i.i38 ], [ 0, %sw.bb2.i.i15 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i43 ], [ 0, %sw.bb3 ]
+cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i43, %sw.bb.i.i38, %sw.bb2.i.i15, %ossl_cms_get0_env_enc_content.exit.i20, %if.then3.i37, %if.end44.i
+  %retval.0.i34 = phi i32 [ 0, %if.then3.i37 ], [ %r.035.i, %if.end44.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i20 ], [ 0, %sw.bb.i.i38 ], [ 0, %sw.bb2.i.i15 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wkeylen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
   br label %return
@@ -2498,7 +2528,7 @@ return:                                           ; preds = %if.end14, %if.end, 
 declare ptr @ossl_cms_EncryptedContent_init_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_EnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %chain) local_unnamed_addr #0 {
+define noundef i32 @ossl_cms_EnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   store ptr null, ptr %ctx, align 8

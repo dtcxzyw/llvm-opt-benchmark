@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umutablecptrie_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -173,7 +173,7 @@ delete.end:                                       ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umutablecptrie_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -372,7 +372,7 @@ delete.end:                                       ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umutablecptrie_fromUCPMap_75(ptr noundef %map, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_fromUCPMap_75(ptr noundef %map, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %0 = load i32, ptr %pErrorCode, align 4
@@ -547,7 +547,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umutablecptrie_fromUCPTrie_75(ptr noundef %trie, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_fromUCPTrie_75(ptr noundef %trie, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %0 = load i32, ptr %pErrorCode, align 4
@@ -3910,10 +3910,11 @@ if.else103.i:                                     ; preds = %if.else.i
   %303 = load i32, ptr %dataLength104.i, align 4
   %add105.i = add nsw i32 %303, %mul.i
   %and106.i = and i32 %add105.i, 3
-  switch i32 %and106.i, label %if.else103.i.while.body.lr.ph.i_crit_edge [
+  switch i32 %and106.i, label %if.else103.unreachabledefault.i [
     i32 0, label %land.lhs.true108.i
     i32 3, label %land.lhs.true127.i
     i32 2, label %while.end.i
+    i32 1, label %if.else103.i.while.body.lr.ph.i_crit_edge
   ]
 
 if.else103.i.while.body.lr.ph.i_crit_edge:        ; preds = %if.else103.i
@@ -3955,6 +3956,9 @@ if.then135.i:                                     ; preds = %land.lhs.true127.i
   store i32 %inc139.i, ptr %dataLength104.i, align 4
   store i32 %315, ptr %312, align 4
   br label %if.end165.i
+
+if.else103.unreachabledefault.i:                  ; preds = %if.else103.i
+  unreachable
 
 while.body.lr.ph.i:                               ; preds = %if.else103.i.while.body.lr.ph.i_crit_edge, %land.lhs.true127.i, %land.lhs.true116.i, %land.lhs.true108.i
   %.pre241.i = phi i32 [ %.pre241.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %314, %land.lhs.true127.i ], [ %.pre241.i.pre63, %land.lhs.true116.i ], [ %.pre241.i.pre63, %land.lhs.true108.i ]

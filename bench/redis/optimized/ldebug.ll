@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [10 x i8] c"%s:%d: %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @lua_sethook(ptr nocapture noundef writeonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #0 {
+define dso_local noundef i32 @lua_sethook(ptr nocapture noundef writeonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %mask, 0
@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lua_getstack(ptr nocapture noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #2 {
+define dso_local noundef i32 @lua_getstack(ptr nocapture noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #2 {
 entry:
   %ci1 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %ci1, align 8, !tbaa !16
@@ -844,7 +844,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare hidden void @luaD_growstack(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @luaG_checkopenop(i32 noundef %i) local_unnamed_addr #7 {
+define hidden noundef i32 @luaG_checkopenop(i32 noundef %i) local_unnamed_addr #7 {
 entry:
   %and = and i32 %i, 63
   switch i32 %and, label %return [
@@ -965,20 +965,22 @@ if.end9:                                          ; preds = %for.body
   %12 = load i8, ptr %arrayidx11, align 1, !tbaa !20
   %conv12 = zext i8 %12 to i32
   %and13 = and i32 %conv12, 3
-  switch i32 %and13, label %sw.epilog [
+  switch i32 %and13, label %if.end9.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb36
     i32 2, label %sw.bb52
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end9
   %shr14 = lshr i32 %11, 23
   %shr21 = lshr i32 %conv12, 4
   %and22 = and i32 %shr21, 3
-  switch i32 %and22, label %if.end26 [
+  switch i32 %and22, label %sw.bb.unreachabledefault [
     i32 0, label %sw.bb.i
     i32 3, label %sw.bb6.i
     i32 2, label %sw.bb1.i
+    i32 1, label %if.end26
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
@@ -1003,16 +1005,20 @@ cond.false.i:                                     ; preds = %sw.bb6.i
   %cmp12.i = icmp ult i32 %shr14, %conv.i
   br i1 %cmp12.i, label %if.end26, label %cleanup423
 
-if.end26:                                         ; preds = %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i, %sw.bb
+sw.bb.unreachabledefault:                         ; preds = %sw.bb
+  unreachable
+
+if.end26:                                         ; preds = %sw.bb, %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i
   %shr16 = lshr i32 %11, 14
   %and17 = and i32 %shr16, 511
   %14 = lshr i8 %12, 2
   %15 = and i8 %14, 3
   %and31 = zext nneg i8 %15 to i32
-  switch i32 %and31, label %sw.epilog [
+  switch i32 %and31, label %if.end26.unreachabledefault [
     i32 0, label %sw.bb.i600
     i32 3, label %sw.bb6.i589
     i32 2, label %sw.bb1.i583
+    i32 1, label %sw.epilog
   ]
 
 sw.bb.i600:                                       ; preds = %if.end26
@@ -1095,7 +1101,13 @@ for.end:                                          ; preds = %for.inc, %for.body7
   %cmp96 = icmp eq i32 %and95, 0
   br i1 %cmp96, label %sw.epilog, label %cleanup423
 
-sw.epilog:                                        ; preds = %for.end, %if.end71, %sw.bb52, %if.then46, %sw.bb36, %cond.false.i596, %cond.true.i592, %sw.bb1.i583, %sw.bb.i600, %if.end26, %if.end9
+if.end9.unreachabledefault:                       ; preds = %if.end9
+  unreachable
+
+if.end26.unreachabledefault:                      ; preds = %if.end26
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end26, %if.end9, %for.end, %if.end71, %sw.bb52, %if.then46, %sw.bb36, %cond.false.i596, %cond.true.i592, %sw.bb1.i583, %sw.bb.i600
   %c.0 = phi i32 [ 0, %if.end9 ], [ 0, %sw.bb52 ], [ 0, %if.then46 ], [ 0, %sw.bb36 ], [ 0, %for.end ], [ 0, %if.end71 ], [ %and17, %if.end26 ], [ 0, %sw.bb.i600 ], [ %and17, %sw.bb1.i583 ], [ %and17, %cond.true.i592 ], [ %and17, %cond.false.i596 ]
   %b.0 = phi i32 [ 0, %if.end9 ], [ %sub55, %sw.bb52 ], [ %shr37, %if.then46 ], [ %shr37, %sw.bb36 ], [ %sub55, %for.end ], [ %sub55, %if.end71 ], [ %shr14, %if.end26 ], [ %shr14, %sw.bb.i600 ], [ %shr14, %sw.bb1.i583 ], [ %shr14, %cond.true.i592 ], [ %shr14, %cond.false.i596 ]
   %24 = and i8 %12, 64
@@ -1434,7 +1446,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getobjname(ptr nocapture noundef readonly %L, ptr noundef %ci, i32 noundef %stackpos, ptr nocapture noundef writeonly %name) unnamed_addr #4 {
+define internal fastcc noundef ptr @getobjname(ptr nocapture noundef readonly %L, ptr noundef %ci, i32 noundef %stackpos, ptr nocapture noundef writeonly %name) unnamed_addr #4 {
 entry:
   %func = getelementptr inbounds %struct.CallInfo, ptr %ci, i64 0, i32 1
   %ci2.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -1790,7 +1802,7 @@ luaG_typeerror.exit:                              ; preds = %if.else.i, %if.then
 declare hidden ptr @luaV_tonumber(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaG_ordererror(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) local_unnamed_addr #4 {
+define hidden noundef i32 @luaG_ordererror(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) local_unnamed_addr #4 {
 entry:
   %tt = getelementptr inbounds %struct.lua_TValue, ptr %p1, i64 0, i32 1
   %0 = load i32, ptr %tt, align 8, !tbaa !26

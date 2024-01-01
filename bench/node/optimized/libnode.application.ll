@@ -1819,7 +1819,7 @@ land.lhs.true:                                    ; preds = %if.end119
   br i1 %call124, label %land.lhs.true.if.end128_crit_edge, label %if.then125
 
 land.lhs.true.if.end128_crit_edge:                ; preds = %land.lhs.true
-  %.pre63 = load i64, ptr %ndatalen, align 8
+  %.pre65 = load i64, ptr %ndatalen, align 8
   br label %if.end128
 
 if.then125:                                       ; preds = %land.lhs.true
@@ -1829,7 +1829,7 @@ if.then125:                                       ; preds = %land.lhs.true
   br label %cleanup
 
 if.end128:                                        ; preds = %land.lhs.true.if.end128_crit_edge, %if.end119
-  %45 = phi i64 [ %.pre63, %land.lhs.true.if.end128_crit_edge ], [ %42, %if.end119 ]
+  %45 = phi i64 [ %.pre65, %land.lhs.true.if.end128_crit_edge ], [ %42, %if.end119 ]
   %46 = load i64, ptr %id.i, align 8
   %cmp130 = icmp sgt i64 %46, -1
   %cmp132 = icmp slt i64 %45, 0
@@ -1877,10 +1877,11 @@ if.then.i.i42:                                    ; preds = %cleanup
   br label %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
 
 _ZN4node4quic7Session11Application10StreamDataD2Ev.exit: ; preds = %cleanup, %if.then.i.i42
-  switch i32 %cleanup.dest.slot.0, label %cleanup144 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup.unreachabledefault [
     i32 0, label %for.cond.backedge
     i32 3, label %for.cond.backedge
     i32 2, label %for.end
+    i32 1, label %cleanup144
   ]
 
 for.cond.backedge:                                ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
@@ -1896,6 +1897,9 @@ for.end:                                          ; preds = %_ZN4node4quic7Sessi
   %53 = load ptr, ptr %session_.i43, align 8
   call void @_ZN4node4quic7Session11UpdateTimerEv(ptr noundef nonnull align 8 dereferenceable(2616) %53) #18
   br label %cleanup144
+
+cleanup.unreachabledefault:                       ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
+  unreachable
 
 cleanup144:                                       ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, %for.end
   %cmp.not.i44 = icmp eq ptr %packet.sroa.0.2, null

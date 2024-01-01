@@ -964,12 +964,7 @@ $_ZZN4node5Realm14AddBindingDataINS_2fs11BindingDataEJRPNS3_17InternalFieldInfoE
 @.str.68 = private unnamed_addr constant [12 x i8] c"Invalid URL\00", align 1
 @.str.69 = private unnamed_addr constant [3 x i8] c"./\00", align 1
 @_ZN4node2fs12_GLOBAL__N_122legacy_main_extensionsE = internal unnamed_addr constant %"struct.std::array.387" { [10 x %"class.std::basic_string_view"] [%"class.std::basic_string_view" { i64 0, ptr @.str.155 }, %"class.std::basic_string_view" { i64 3, ptr @.str.187 }, %"class.std::basic_string_view" { i64 5, ptr @.str.188 }, %"class.std::basic_string_view" { i64 5, ptr @.str.189 }, %"class.std::basic_string_view" { i64 9, ptr @.str.190 }, %"class.std::basic_string_view" { i64 11, ptr @.str.191 }, %"class.std::basic_string_view" { i64 11, ptr @.str.192 }, %"class.std::basic_string_view" { i64 3, ptr @.str.187 }, %"class.std::basic_string_view" { i64 5, ptr @.str.188 }, %"class.std::basic_string_view" { i64 5, ptr @.str.189 }] }, align 8
-@_ZZN4node2fs11BindingData17LegacyMainResolveERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_1 = internal constant %"struct.node::AssertionInfo" { ptr @.str.70, ptr @.str.71, ptr @.str.65 }, align 8
-@.str.70 = private unnamed_addr constant [28 x i8] c"../../src/node_file.cc:2921\00", align 1
-@.str.71 = private unnamed_addr constant [27 x i8] c"\22Unreachable code reached\22\00", align 1
 @.str.72 = private unnamed_addr constant [8 x i8] c"./index\00", align 1
-@_ZZN4node2fs11BindingData17LegacyMainResolveERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_2 = internal constant %"struct.node::AssertionInfo" { ptr @.str.73, ptr @.str.71, ptr @.str.65 }, align 8
-@.str.73 = private unnamed_addr constant [28 x i8] c"../../src/node_file.cc:2957\00", align 1
 @.str.74 = private unnamed_addr constant [66 x i8] c"The \22base\22 argument must be of type string or an instance of URL.\00", align 1
 @.str.75 = private unnamed_addr constant [42 x i8] c"Cannot find package '%s' imported from %s\00", align 1
 @.str.76 = private unnamed_addr constant [18 x i8] c"stats_field_array\00", align 1
@@ -4285,7 +4280,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v85ValueEEEvPKcRKNS2_14PersistentBaseIT_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node2fs10FileHandle12ClosePromiseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node2fs10FileHandle12ClosePromiseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
 entry:
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.445"], align 16
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -10658,7 +10653,7 @@ for.body:                                         ; preds = %_ZNRSt8optionalINSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #30
   %call77 = call noundef i32 @_ZN4node2fs11BindingData14FilePathIsFileEPNS_11EnvironmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %file_path), !range !80
-  switch i32 %call77, label %do.body83 [
+  switch i32 %call77, label %for.body.unreachabledefault [
     i32 0, label %if.then.i361
     i32 1, label %for.inc
     i32 2, label %cleanup170.critedge
@@ -10671,9 +10666,7 @@ if.then.i361:                                     ; preds = %for.body
   store i64 %shl.i758, ptr %arrayidx.i325, align 8
   br label %cleanup170.critedge
 
-do.body83:                                        ; preds = %for.body
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fs11BindingData17LegacyMainResolveERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_1) #30
-  call void @abort() #32
+for.body.unreachabledefault:                      ; preds = %for.body
   unreachable
 
 for.inc:                                          ; preds = %for.body
@@ -10841,7 +10834,7 @@ for.body103:                                      ; preds = %_ZNRSt8optionalINSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp109) #30
   %call111 = call noundef i32 @_ZN4node2fs11BindingData14FilePathIsFileEPNS_11EnvironmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %file_path), !range !80
-  switch i32 %call111, label %do.body119 [
+  switch i32 %call111, label %for.body103.unreachabledefault [
     i32 0, label %if.then.i350
     i32 1, label %for.inc123
     i32 2, label %cleanup170
@@ -10854,9 +10847,7 @@ if.then.i350:                                     ; preds = %for.body103
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %cleanup170
 
-do.body119:                                       ; preds = %for.body103
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fs11BindingData17LegacyMainResolveERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_2) #30
-  call void @abort() #32
+for.body103.unreachabledefault:                   ; preds = %for.body103
   unreachable
 
 for.inc123:                                       ; preds = %for.body103

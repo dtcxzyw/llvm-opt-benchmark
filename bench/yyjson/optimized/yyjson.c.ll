@@ -1984,7 +1984,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  switch i32 %conv3.i93, label %return [
+  switch i32 %conv3.i93, label %if.end.unreachabledefault [
     i32 7, label %sw.bb
     i32 6, label %sw.bb28
     i32 4, label %sw.bb53
@@ -1992,6 +1992,7 @@ if.end:                                           ; preds = %entry
     i32 5, label %sw.bb55
     i32 2, label %sw.bb57
     i32 3, label %sw.bb57
+    i32 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -2221,6 +2222,9 @@ sw.bb57:                                          ; preds = %if.end, %if.end
   %cmp59 = icmp eq i64 %0, %1
   br label %return
 
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
+
 return:                                           ; preds = %while.body45, %if.end48, %if.end21, %if.end24, %while.body, %if.then.i119, %if.end16.i.us, %if.end16.i, %if.end, %if.end.i144, %sw.bb55, %if.then.i137, %land.rhs.i136, %if.then13.i, %land.rhs29.i, %if.then26.i, %if.end18.i, %if.end35, %sw.bb28, %if.end10, %sw.bb, %entry, %sw.bb57
   %retval.0 = phi i1 [ %cmp59, %sw.bb57 ], [ false, %entry ], [ false, %sw.bb ], [ true, %if.end10 ], [ false, %sw.bb28 ], [ true, %if.end35 ], [ %cmp5.i, %if.then.i137 ], [ false, %if.then13.i ], [ %cmp16.i, %land.rhs.i136 ], [ false, %if.then26.i ], [ %cmp30.i, %land.rhs29.i ], [ false, %if.end18.i ], [ %tobool.i146.not, %if.end.i144 ], [ false, %sw.bb55 ], [ false, %if.end ], [ false, %if.end16.i ], [ false, %if.end16.i.us ], [ false, %if.then.i119 ], [ false, %if.end21 ], [ true, %if.end24 ], [ false, %while.body ], [ %call46, %if.end48 ], [ %call46, %while.body45 ]
   ret i1 %retval.0
@@ -2240,7 +2244,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  switch i32 %conv3.i66, label %return [
+  switch i32 %conv3.i66, label %if.end.unreachabledefault [
     i32 7, label %sw.bb
     i32 6, label %sw.bb28
     i32 4, label %sw.bb53
@@ -2248,6 +2252,7 @@ if.end:                                           ; preds = %entry
     i32 5, label %sw.bb55
     i32 2, label %sw.bb57
     i32 3, label %sw.bb57
+    i32 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -2417,6 +2422,9 @@ if.end.i82:                                       ; preds = %sw.bb55
 sw.bb57:                                          ; preds = %if.end, %if.end
   %cmp59 = icmp eq i64 %0, %.fr
   br label %return
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 return:                                           ; preds = %while.body45, %yyjson_mut_obj_iter_getn.exit.us, %if.end21.us, %while.cond.us, %while.body.us, %if.end15.i.us, %if.then.i92, %if.end, %if.end.i82, %sw.bb55, %if.then.i, %land.rhs.i, %if.then13.i, %land.rhs29.i, %if.then26.i, %if.end18.i, %if.end35, %sw.bb28, %if.end10, %sw.bb, %entry, %sw.bb57
   %retval.0 = phi i1 [ %cmp59, %sw.bb57 ], [ false, %entry ], [ false, %sw.bb ], [ true, %if.end10 ], [ false, %sw.bb28 ], [ true, %if.end35 ], [ %cmp5.i, %if.then.i ], [ false, %if.then13.i ], [ %cmp16.i, %land.rhs.i ], [ false, %if.then26.i ], [ %cmp30.i, %land.rhs29.i ], [ false, %if.end18.i ], [ %tobool.i.not, %if.end.i82 ], [ false, %sw.bb55 ], [ false, %if.end ], [ false, %if.then.i92 ], [ false, %if.end15.i.us ], [ false, %yyjson_mut_obj_iter_getn.exit.us ], [ false, %if.end21.us ], [ true, %while.cond.us ], [ false, %while.body.us ], [ %call46, %while.body45 ]
@@ -37374,7 +37382,7 @@ if.then16:                                        ; preds = %if.end
   %cmp.i416.not = icmp eq i32 %and.i415, 0
   %conv.i.i = trunc i64 %0 to i32
   %and.i.i = and i32 %conv.i.i, 7
-  switch i32 %and.i.i, label %if.end149.i [
+  switch i32 %and.i.i, label %get_enc_table_with_flag.exit349.unreachabledefault [
     i32 1, label %sw.bb.i
     i32 5, label %sw.bb32.i
     i32 4, label %sw.bb74.i
@@ -37382,6 +37390,7 @@ if.then16:                                        ; preds = %if.end
     i32 2, label %sw.bb106.i
     i32 6, label %sw.bb116.i
     i32 7, label %sw.bb125.i
+    i32 0, label %if.end149.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then16
@@ -40363,6 +40372,9 @@ if.end132.i:                                      ; preds = %sw.bb125.i
   store i16 32123, ptr %call129.i, align 1
   %add.ptr134.i = getelementptr inbounds i8, ptr %call129.i, i64 2
   br label %sw.epilog.i
+
+get_enc_table_with_flag.exit349.unreachabledefault: ; preds = %if.then16
+  unreachable
 
 sw.epilog.i:                                      ; preds = %for.body.i.preheader, %write_u64_len_15_to_17_trim.exit4853, %for.end112.i, %if.else63.i7665, %if.then32.i7703, %if.then10.i7733, %if.then.i7753, %write_u64_len_5_8.exit9575, %write_u32_len_1_8.exit7902, %if.else.i5381, %if.then.i5395, %do.end.i, %write_u64_len_1_to_16.exit2716, %if.then40.i, %if.else29.i, %if.then24.i, %if.then13.i, %while.end263.i1309, %copy_end.i1607, %write_string_noesc.exit495, %if.end132.i, %if.end123.i, %if.end113.i, %if.end102.i, %if.end.i
   %hdr.i.0 = phi ptr [ %call129.i, %if.end132.i ], [ %call120.i, %if.end123.i ], [ %call110.i, %if.end113.i ], [ %call99.i, %if.end102.i ], [ %call42.i, %write_string_noesc.exit495 ], [ %call29.i, %if.end.i ], [ %call42.i, %copy_end.i1607 ], [ %call42.i, %while.end263.i1309 ], [ %call78.i, %if.then13.i ], [ %call78.i, %if.then24.i ], [ %call78.i, %if.else29.i ], [ %call78.i, %if.then40.i ], [ %call78.i, %write_u64_len_1_to_16.exit2716 ], [ %call78.i, %do.end.i ], [ %call78.i, %if.then.i5395 ], [ %call78.i, %if.else.i5381 ], [ %call78.i, %write_u32_len_1_8.exit7902 ], [ %call78.i, %write_u64_len_5_8.exit9575 ], [ %call78.i, %if.then.i7753 ], [ %call78.i, %if.then10.i7733 ], [ %call78.i, %if.then32.i7703 ], [ %call78.i, %if.else63.i7665 ], [ %call78.i, %for.end112.i ], [ %call78.i, %write_u64_len_15_to_17_trim.exit4853 ], [ %call78.i, %for.body.i.preheader ]
@@ -47973,7 +47985,7 @@ if.then16:                                        ; preds = %if.end
   %cmp.i28.i.not = icmp eq i32 %and.i27.i, 0
   %conv.i.i.i = trunc i64 %0 to i32
   %and.i.i.i = and i32 %conv.i.i.i, 7
-  switch i32 %and.i.i.i, label %if.end149.i.i [
+  switch i32 %and.i.i.i, label %get_enc_table_with_flag.exit.i.unreachabledefault [
     i32 1, label %sw.bb.i.i
     i32 5, label %sw.bb32.i.i
     i32 4, label %sw.bb74.i.i
@@ -47981,6 +47993,7 @@ if.then16:                                        ; preds = %if.end
     i32 2, label %sw.bb106.i.i
     i32 6, label %sw.bb116.i.i
     i32 7, label %sw.bb125.i.i
+    i32 0, label %if.end149.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then16
@@ -50962,6 +50975,9 @@ if.end132.i.i:                                    ; preds = %sw.bb125.i.i
   store i16 32123, ptr %call129.i.i, align 1
   %add.ptr134.i.i = getelementptr inbounds i8, ptr %call129.i.i, i64 2
   br label %sw.epilog.i.i
+
+get_enc_table_with_flag.exit.i.unreachabledefault: ; preds = %if.then16
+  unreachable
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i.preheader, %write_u64_len_15_to_17_trim.exit.i, %for.end112.i.i, %if.else63.i1432.i, %if.then32.i1470.i, %if.then10.i1500.i, %if.then.i1520.i, %write_u64_len_5_8.exit.i, %write_u32_len_1_8.exit1669.i, %if.else.i898.i, %if.then.i906.i, %do.end.i.i, %write_u64_len_1_to_16.exit.i, %if.then40.i.i, %if.else29.i.i, %if.then24.i.i, %if.then13.i.i, %while.end263.i.i, %copy_end.i.i, %write_string_noesc.exit.i, %if.end132.i.i, %if.end123.i.i, %if.end113.i.i, %if.end102.i.i, %if.end.i.i
   %hdr.i.i.0 = phi ptr [ %call129.i.i, %if.end132.i.i ], [ %call120.i.i, %if.end123.i.i ], [ %call110.i.i, %if.end113.i.i ], [ %call99.i.i, %if.end102.i.i ], [ %call42.i.i, %write_string_noesc.exit.i ], [ %call29.i.i, %if.end.i.i ], [ %call42.i.i, %copy_end.i.i ], [ %call42.i.i, %while.end263.i.i ], [ %call78.i.i, %if.then13.i.i ], [ %call78.i.i, %if.then24.i.i ], [ %call78.i.i, %if.else29.i.i ], [ %call78.i.i, %if.then40.i.i ], [ %call78.i.i, %write_u64_len_1_to_16.exit.i ], [ %call78.i.i, %do.end.i.i ], [ %call78.i.i, %if.then.i906.i ], [ %call78.i.i, %if.else.i898.i ], [ %call78.i.i, %write_u32_len_1_8.exit1669.i ], [ %call78.i.i, %write_u64_len_5_8.exit.i ], [ %call78.i.i, %if.then.i1520.i ], [ %call78.i.i, %if.then10.i1500.i ], [ %call78.i.i, %if.then32.i1470.i ], [ %call78.i.i, %if.else63.i1432.i ], [ %call78.i.i, %for.end112.i.i ], [ %call78.i.i, %write_u64_len_15_to_17_trim.exit.i ], [ %call78.i.i, %for.body.i.i.preheader ]

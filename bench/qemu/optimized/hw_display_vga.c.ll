@@ -282,7 +282,7 @@ sw.bb53:                                          ; preds = %if.else, %if.else
 sw.bb58:                                          ; preds = %if.else, %if.else
   %retrace = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 79
   %24 = load ptr, ptr %retrace, align 8
-  %call59 = tail call zeroext i8 %24(ptr noundef nonnull %opaque) #21
+  %call59 = tail call zeroext i8 %24(ptr noundef nonnull %opaque) #18
   %st01 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 23
   store i8 %call59, ptr %st01, align 16
   %ar_flip_flop61 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 17
@@ -313,16 +313,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %30 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %31 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %addr, i32 noundef %val.0) #18
   br label %trace_vga_std_read_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef %val.0) #18
   br label %trace_vga_std_read_io.exit
 
 trace_vga_std_read_io.exit:                       ; preds = %if.end62, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -365,16 +365,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %addr, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %addr, i32 noundef %val) #18
   br label %trace_vga_std_write_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %addr, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %addr, i32 noundef %val) #18
   br label %trace_vga_std_write_io.exit
 
 trace_vga_std_write_io.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -494,7 +494,7 @@ sw.bb39:                                          ; preds = %trace_vga_std_write
   store i8 %conv41, ptr %msr.i, align 1
   %update_retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %21 = load ptr, ptr %update_retrace_info, align 16
-  tail call void %21(ptr noundef nonnull %opaque) #21
+  tail call void %21(ptr noundef nonnull %opaque) #18
   br label %sw.epilog140
 
 sw.bb42:                                          ; preds = %trace_vga_std_write_io.exit
@@ -520,7 +520,7 @@ sw.bb45:                                          ; preds = %trace_vga_std_write
 if.then59:                                        ; preds = %sw.bb45
   %update_retrace_info60 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %26 = load ptr, ptr %update_retrace_info60, align 16
-  tail call void %26(ptr noundef nonnull %opaque) #21
+  tail call void %26(ptr noundef nonnull %opaque) #18
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %sw.bb45
@@ -819,7 +819,7 @@ vbe_update_vgaregs.exit125:                       ; preds = %if.end126, %if.end6
 sw.bb134:                                         ; preds = %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125
   %update_retrace_info135 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %88 = load ptr, ptr %update_retrace_info135, align 16
-  tail call void %88(ptr noundef nonnull %opaque) #21
+  tail call void %88(ptr noundef nonnull %opaque) #18
   br label %sw.epilog140
 
 sw.bb137:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
@@ -849,8 +849,8 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %chain4_alias = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 9
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %0, ptr noundef nonnull %chain4_alias) #21
-  tail call void @object_unparent(ptr noundef nonnull %chain4_alias) #21
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %0, ptr noundef nonnull %chain4_alias) #18
+  tail call void @object_unparent(ptr noundef nonnull %chain4_alias) #18
   store i8 0, ptr %has_chain4_alias, align 4
   %plane_updated = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 50
   store i32 15, ptr %plane_updated, align 4
@@ -918,16 +918,16 @@ sw.epilog:                                        ; preds = %if.then12, %sw.defa
   br i1 %cmp20.not, label %if.else, label %if.end23
 
 if.else:                                          ; preds = %sw.epilog
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_update_memory_access) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_update_memory_access) #19
   unreachable
 
 if.end23:                                         ; preds = %sw.epilog
   %chain4_alias24 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 9
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  %call25 = tail call ptr @memory_region_owner(ptr noundef nonnull %vram) #21
-  tail call void @memory_region_init_alias(ptr noundef nonnull %chain4_alias24, ptr noundef %call25, ptr noundef nonnull @.str.41, ptr noundef nonnull %vram, i64 noundef %offset.0, i64 noundef %size.0) #21
+  %call25 = tail call ptr @memory_region_owner(ptr noundef nonnull %vram) #18
+  tail call void @memory_region_init_alias(ptr noundef nonnull %chain4_alias24, ptr noundef %call25, ptr noundef nonnull @.str.41, ptr noundef nonnull %vram, i64 noundef %offset.0, i64 noundef %size.0) #18
   %12 = load ptr, ptr %s, align 16
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %12, i64 noundef %base.0, ptr noundef nonnull %chain4_alias24, i32 noundef 2) #21
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %12, i64 noundef %base.0, ptr noundef nonnull %chain4_alias24, i32 noundef 2) #18
   store i8 1, ptr %has_chain4_alias, align 4
   br label %if.end30
 
@@ -1108,16 +1108,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv, i32 noundef %val.0) #18
   br label %trace_vga_vbe_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv, i32 noundef %val.0) #18
   br label %trace_vga_vbe_read.exit
 
 trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1166,16 +1166,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %val) #18
   br label %trace_vga_vbe_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv, i32 noundef %val) #18
   br label %trace_vga_vbe_write.exit
 
 trace_vga_vbe_write.exit:                         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1373,8 +1373,8 @@ if.end73:                                         ; preds = %if.end69.i, %sw.bb2
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @vbe_fixup_regs(ptr nocapture noundef %s) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @vbe_fixup_regs(ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -1511,7 +1511,7 @@ return:                                           ; preds = %entry, %if.end111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vga_mem_readb(ptr nocapture noundef %s, i64 noundef %addr) local_unnamed_addr #1 {
@@ -1522,10 +1522,11 @@ entry:
   %2 = and i8 %1, 3
   %and = zext nneg i8 %2 to i32
   %and1 = and i64 %addr, 131071
-  switch i32 %and, label %sw.bb10 [
+  switch i32 %and, label %entry.unreachabledefault [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
     i32 2, label %sw.bb5
+    i32 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1543,6 +1544,9 @@ sw.bb5:                                           ; preds = %entry
   %sub = add nsw i64 %and1, -65536
   %cmp6 = icmp ugt i64 %sub, 32767
   br i1 %cmp6, label %return, label %sw.epilog
+
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
 
 sw.bb10:                                          ; preds = %entry
   %sub11 = add nsw i64 %and1, -98304
@@ -1571,7 +1575,7 @@ if.then18:                                        ; preds = %sw.epilog
   br i1 %cmp20, label %if.end23, label %if.else
 
 if.else:                                          ; preds = %if.then18
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 840, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_readb) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 840, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_readb) #19
   unreachable
 
 if.end23:                                         ; preds = %if.then18
@@ -1668,7 +1672,7 @@ return:                                           ; preds = %if.end23, %if.then6
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_mem_writeb(ptr noundef %s, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #1 {
@@ -1680,10 +1684,11 @@ entry:
   %2 = and i8 %1, 3
   %and = zext nneg i8 %2 to i32
   %and1 = and i64 %addr, 131071
-  switch i32 %and, label %sw.bb10 [
+  switch i32 %and, label %entry.unreachabledefault [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
     i32 2, label %sw.bb5
+    i32 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1701,6 +1706,9 @@ sw.bb5:                                           ; preds = %entry
   %sub = add nsw i64 %and1, -65536
   %cmp6 = icmp ugt i64 %sub, 32767
   br i1 %cmp6, label %if.end178, label %sw.epilog
+
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
 
 sw.bb10:                                          ; preds = %entry
   %sub11 = add nsw i64 %and1, -98304
@@ -1742,7 +1750,7 @@ if.then25:                                        ; preds = %if.then18
   br i1 %cmp27, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %if.then25
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_writeb) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_writeb) #19
   unreachable
 
 if.end30:                                         ; preds = %if.then25
@@ -1756,7 +1764,7 @@ if.end30:                                         ; preds = %if.then25
   %or = or i32 %10, %shl
   store i32 %or, ptr %plane_updated, align 4
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %addr.addr.0, i64 noundef 1) #21
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %addr.addr.0, i64 noundef 1) #18
   br label %if.end178
 
 if.else34:                                        ; preds = %sw.epilog
@@ -1806,16 +1814,20 @@ if.end64:                                         ; preds = %if.then54
   %or69 = or i32 %16, %shl49
   store i32 %or69, ptr %plane_updated68, align 4
   %vram70 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram70, i64 noundef %or58, i64 noundef 1) #21
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram70, i64 noundef %or58, i64 noundef 1) #18
   br label %if.end178
 
 if.else72:                                        ; preds = %if.else34
   %and76 = and i32 %conv37, 3
-  switch i32 %and76, label %sw.bb78 [
+  switch i32 %and76, label %if.else72.unreachabledefault [
     i32 3, label %sw.bb113
     i32 1, label %sw.bb105
     i32 2, label %sw.bb106
+    i32 0, label %sw.bb78
   ]
+
+if.else72.unreachabledefault:                     ; preds = %if.else72
+  unreachable
 
 sw.bb78:                                          ; preds = %if.else72
   %arrayidx80 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 3
@@ -1952,17 +1964,17 @@ if.end166:                                        ; preds = %do_write
   %or172 = or i32 %and170, %and171
   store i32 %or172, ptr %arrayidx168, align 4
   %vram175 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram175, i64 noundef %mul, i64 noundef 4) #21
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram175, i64 noundef %mul, i64 noundef 4) #18
   br label %if.end178
 
 if.end178:                                        ; preds = %if.end166, %if.end64, %if.then40, %do_write, %if.then54, %if.then18, %if.end30, %sw.bb10, %sw.bb5, %sw.bb2
   ret void
 }
 
-declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @vga_invalidate_scanlines(ptr nocapture noundef %s, i32 noundef %y1, i32 noundef %y2) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+define dso_local void @vga_invalidate_scanlines(ptr nocapture noundef %s, i32 noundef %y1, i32 noundef %y2) local_unnamed_addr #8 {
 entry:
   %cmp = icmp sgt i32 %y1, 2047
   br i1 %cmp, label %for.end, label %if.end
@@ -1994,17 +2006,17 @@ for.end:                                          ; preds = %for.body, %if.end, 
 define dso_local void @vga_dirty_log_start(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #21
+  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #18
   ret void
 }
 
-declare void @memory_region_set_log(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #8
+declare void @memory_region_set_log(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_dirty_log_stop(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext false, i32 noundef 0) #21
+  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext false, i32 noundef 0) #18
   ret void
 }
 
@@ -2089,7 +2101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vga_common_post_load(ptr noundef %opaque, i32 %version_id) #1 {
+define internal noundef i32 @vga_common_post_load(ptr noundef %opaque, i32 %version_id) #1 {
 entry:
   %graphic_mode = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 44
   store i32 -1, ptr %graphic_mode, align 16
@@ -2187,7 +2199,7 @@ vbe_update_vgaregs.exit:                          ; preds = %entry, %if.end69.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @vga_common_init(ptr noundef %s, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @vga_common_init(ptr noundef %s, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -2304,7 +2316,7 @@ if.end:                                           ; preds = %if.then, %for.end45
   br i1 %tobool59.not, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call61 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull @.str.31) #21
+  %call61 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull @.str.31) #18
   %tobool62.not = icmp eq ptr %call61, null
   br i1 %tobool62.not, label %land.lhs.true.if.end64_crit_edge, label %if.then63
 
@@ -2313,20 +2325,20 @@ land.lhs.true.if.end64_crit_edge:                 ; preds = %land.lhs.true
   br label %if.end64
 
 if.then63:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @__func__.vga_common_init, ptr noundef nonnull @.str.32) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @__func__.vga_common_init, ptr noundef nonnull @.str.32) #18
   br label %return
 
 if.end64:                                         ; preds = %land.lhs.true.if.end64_crit_edge, %if.end
   %9 = phi i32 [ %.pre, %land.lhs.true.if.end64_crit_edge ], [ %conv55, %if.end ]
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   %conv66 = zext i32 %9 to i64
-  call void @memory_region_init_ram_nomigrate(ptr noundef nonnull %vram, ptr noundef %obj, ptr noundef nonnull @.str.31, i64 noundef %conv66, ptr noundef nonnull %local_err) #21
+  call void @memory_region_init_ram_nomigrate(ptr noundef nonnull %vram, ptr noundef %obj, ptr noundef nonnull @.str.31, i64 noundef %conv66, ptr noundef nonnull %local_err) #18
   %10 = load ptr, ptr %local_err, align 8
   %tobool67.not = icmp eq ptr %10, null
   br i1 %tobool67.not, label %if.end69, label %if.then68
 
 if.then68:                                        ; preds = %if.end64
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %10) #21
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %10) #18
   br label %return
 
 if.end69:                                         ; preds = %if.end64
@@ -2336,14 +2348,14 @@ if.end69:                                         ; preds = %if.end64
   br i1 %tobool72.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end69
-  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
+  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end69, %cond.false
   %cond = phi ptr [ %call.i, %cond.false ], [ null, %if.end69 ]
-  call void @vmstate_register_ram(ptr noundef nonnull %vram, ptr noundef %cond) #21
-  call void @xen_register_framebuffer(ptr noundef nonnull %vram) #21
-  %call77 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #21
+  call void @vmstate_register_ram(ptr noundef nonnull %vram, ptr noundef %cond) #18
+  call void @xen_register_framebuffer(ptr noundef nonnull %vram) #18
+  %call77 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #18
   %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
   store ptr %call77, ptr %vram_ptr, align 8
   %get_bpp = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 32
@@ -2373,11 +2385,11 @@ sw.epilog.sink.split:                             ; preds = %cond.end, %sw.bb78
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %cond.end
-  %call81 = call zeroext i1 @target_words_bigendian() #21
+  %call81 = call zeroext i1 @target_words_bigendian() #18
   %default_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 70
   %frombool = zext i1 %call81 to i8
   store i8 %frombool, ptr %default_endian_fb, align 1
-  call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #21
+  call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #18
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then68, %if.then63
@@ -2385,19 +2397,19 @@ return:                                           ; preds = %sw.epilog, %if.then
   ret i1 %retval.0
 }
 
-declare ptr @qemu_ram_block_by_name(ptr noundef) local_unnamed_addr #8
+declare ptr @qemu_ram_block_by_name(ptr noundef) local_unnamed_addr #7
 
-declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
-declare void @memory_region_init_ram_nomigrate(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare void @memory_region_init_ram_nomigrate(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @vmstate_register_ram(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @vmstate_register_ram(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @xen_register_framebuffer(ptr noundef) local_unnamed_addr #8
+declare void @xen_register_framebuffer(ptr noundef) local_unnamed_addr #7
 
-declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #8
+declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @vga_get_bpp(ptr nocapture noundef readonly %s) #0 {
@@ -2532,7 +2544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vga_dumb_update_retrace_info(ptr nocapture readnone %s) #10 {
+define internal void @vga_dumb_update_retrace_info(ptr nocapture readnone %s) #9 {
 entry:
   ret void
 }
@@ -2550,7 +2562,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %2 = load i64, ptr %retrace_info, align 8
   %div = sdiv i64 %call, %2
   %3 = load i64, ptr %total_chars, align 8
@@ -2599,7 +2611,7 @@ return:                                           ; preds = %land.lhs.true15, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #11 {
+define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #10 {
 entry:
   %cr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 19
   %0 = load i8, ptr %cr, align 1
@@ -2705,69 +2717,69 @@ if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
-declare zeroext i1 @target_words_bigendian() local_unnamed_addr #8
+declare zeroext i1 @target_words_bigendian() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @vga_init_io(ptr noundef %s, ptr noundef %obj, ptr nocapture noundef writeonly %vga_ports, ptr nocapture noundef writeonly %vbe_ports) local_unnamed_addr #1 {
+define dso_local noundef ptr @vga_init_io(ptr noundef %s, ptr noundef %obj, ptr nocapture noundef writeonly %vga_ports, ptr nocapture noundef writeonly %vbe_ports) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @qdev_get_machine() #21
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #21
-  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.33) #21
+  %call = tail call ptr @qdev_get_machine() #18
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #18
+  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.33) #18
   %tobool.not = icmp eq ptr %call2, null
   %vbe_portio_list_no_x86.vbe_portio_list_x86 = select i1 %tobool.not, ptr @vbe_portio_list_no_x86, ptr @vbe_portio_list_x86
   store ptr %vbe_portio_list_no_x86.vbe_portio_list_x86, ptr %vbe_ports, align 8
   store ptr @vga_portio_list, ptr %vga_ports, align 8
-  %call3 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #23
-  tail call void @memory_region_init_io(ptr noundef %call3, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #21
-  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3) #21
+  %call3 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #20
+  tail call void @memory_region_init_io(ptr noundef %call3, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #18
+  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3) #18
   ret ptr %call3
 }
 
-declare ptr @qdev_get_machine() local_unnamed_addr #8
+declare ptr @qdev_get_machine() local_unnamed_addr #7
 
-declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
-declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @memory_region_set_flush_coalesced(ptr noundef) local_unnamed_addr #8
+declare void @memory_region_set_flush_coalesced(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_init(ptr noundef %s, ptr noundef %obj, ptr noundef %address_space, ptr noundef %address_space_io, i1 noundef zeroext %init_vga_ports) local_unnamed_addr #1 {
 entry:
-  tail call void @qemu_register_reset(ptr noundef nonnull @vga_reset, ptr noundef %s) #21
+  tail call void @qemu_register_reset(ptr noundef nonnull @vga_reset, ptr noundef %s) #18
   %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 31
   store i32 0, ptr %bank_offset, align 4
   store ptr %address_space, ptr %s, align 16
-  %call.i = tail call ptr @qdev_get_machine() #21
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #21
-  %call2.i = tail call ptr @object_dynamic_cast(ptr noundef %call.i.i, ptr noundef nonnull @.str.33) #21
-  %call3.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #23
-  tail call void @memory_region_init_io(ptr noundef %call3.i, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #21
-  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3.i) #21
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %address_space, i64 noundef 655360, ptr noundef %call3.i, i32 noundef 1) #21
-  tail call void @memory_region_set_coalescing(ptr noundef %call3.i) #21
+  %call.i = tail call ptr @qdev_get_machine() #18
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #18
+  %call2.i = tail call ptr @object_dynamic_cast(ptr noundef %call.i.i, ptr noundef nonnull @.str.33) #18
+  %call3.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #20
+  tail call void @memory_region_init_io(ptr noundef %call3.i, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #18
+  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3.i) #18
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %address_space, i64 noundef 655360, ptr noundef %call3.i, i32 noundef 1) #18
+  tail call void @memory_region_set_coalescing(ptr noundef %call3.i) #18
   br i1 %init_vga_ports, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
   %vga_port_list = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 35
-  tail call void @portio_list_init(ptr noundef nonnull %vga_port_list, ptr noundef %obj, ptr noundef nonnull @vga_portio_list, ptr noundef nonnull %s, ptr noundef nonnull @.str.2) #21
-  tail call void @portio_list_set_flush_coalesced(ptr noundef nonnull %vga_port_list) #21
-  tail call void @portio_list_add(ptr noundef nonnull %vga_port_list, ptr noundef %address_space_io, i32 noundef 944) #21
+  tail call void @portio_list_init(ptr noundef nonnull %vga_port_list, ptr noundef %obj, ptr noundef nonnull @vga_portio_list, ptr noundef nonnull %s, ptr noundef nonnull @.str.2) #18
+  tail call void @portio_list_set_flush_coalesced(ptr noundef nonnull %vga_port_list) #18
+  tail call void @portio_list_add(ptr noundef nonnull %vga_port_list, ptr noundef %address_space_io, i32 noundef 944) #18
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %entry
   %tobool.not.i = icmp eq ptr %call2.i, null
   %vbe_portio_list_no_x86.vbe_portio_list_x86.i = select i1 %tobool.not.i, ptr @vbe_portio_list_no_x86, ptr @vbe_portio_list_x86
   %vbe_port_list = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 36
-  tail call void @portio_list_init(ptr noundef nonnull %vbe_port_list, ptr noundef %obj, ptr noundef nonnull %vbe_portio_list_no_x86.vbe_portio_list_x86.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.35) #21
-  tail call void @portio_list_add(ptr noundef nonnull %vbe_port_list, ptr noundef %address_space_io, i32 noundef 462) #21
+  tail call void @portio_list_init(ptr noundef nonnull %vbe_port_list, ptr noundef %obj, ptr noundef nonnull %vbe_portio_list_no_x86.vbe_portio_list_x86.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.35) #18
+  tail call void @portio_list_add(ptr noundef nonnull %vbe_port_list, ptr noundef %address_space_io, i32 noundef 462) #18
   ret void
 }
 
-declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vga_reset(ptr noundef %opaque) #1 {
@@ -2833,30 +2845,30 @@ vga_common_reset.exit:                            ; preds = %entry, %sw.bb13.i
   ret void
 }
 
-declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @memory_region_set_coalescing(ptr noundef) local_unnamed_addr #8
+declare void @memory_region_set_coalescing(ptr noundef) local_unnamed_addr #7
 
-declare void @portio_list_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @portio_list_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @portio_list_set_flush_coalesced(ptr noundef) local_unnamed_addr #8
+declare void @portio_list_set_flush_coalesced(ptr noundef) local_unnamed_addr #7
 
-declare void @portio_list_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @portio_list_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #8
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #7
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #8
+declare i32 @qemu_get_thread_id() local_unnamed_addr #7
 
-declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @object_unparent(ptr noundef) local_unnamed_addr #8
+declare void @object_unparent(ptr noundef) local_unnamed_addr #7
 
-declare void @memory_region_init_alias(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare void @memory_region_init_alias(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #8
+declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @vga_endian_state_needed(ptr nocapture noundef readonly %opaque) #0 {
@@ -2872,9 +2884,9 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
-declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @vga_invalidate_display(ptr nocapture noundef writeonly %opaque) #4 {
@@ -2900,12 +2912,12 @@ entry:
   %font_base.i = alloca [2 x ptr], align 16
   %con = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
   %0 = load ptr, ptr %con, align 16
-  %call = tail call ptr @qemu_console_surface(ptr noundef %0) #21
-  tail call void @qemu_flush_coalesced_mmio_buffer() #21
+  %call = tail call ptr @qemu_console_surface(ptr noundef %0) #18
+  tail call void @qemu_flush_coalesced_mmio_buffer() #18
   %s.val.i = load ptr, ptr %call, align 8
-  %call.i.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i) #21
+  %call.i.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i) #18
   %s.val2.i = load ptr, ptr %call, align 8
-  %call.i3.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val2.i) #21
+  %call.i3.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val2.i) #18
   %cmp = icmp ult i32 %call.i.i, 16777216
   br i1 %cmp, label %if.end15, label %if.else
 
@@ -2932,7 +2944,7 @@ if.end:                                           ; preds = %if.else, %if.else3
 
 if.then9:                                         ; preds = %if.end
   store i32 %graphic_mode.0, ptr %graphic_mode6, align 16
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %div.i = sdiv i64 %call.i, 1000000
   %cursor_blink_time = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 64
   store i64 %div.i, ptr %cursor_blink_time, align 16
@@ -2948,8 +2960,8 @@ if.end12:                                         ; preds = %if.then9, %if.end
 sw.bb:                                            ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %font_base.i)
   %6 = load ptr, ptr %con, align 16
-  %call.i13 = tail call ptr @qemu_console_surface(ptr noundef %6) #21
-  %call.i.i14 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %call.i13 = tail call ptr @qemu_console_surface(ptr noundef %6) #18
+  %call.i.i14 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %div.i.i = sdiv i64 %call.i.i14, 1000000
   %7 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i.i = load i16, ptr %7, align 2
@@ -3029,7 +3041,7 @@ if.end34.i:                                       ; preds = %if.then32.i, %lor.l
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i)
   %get_offsets.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
   %15 = load ptr, ptr %get_offsets.i.i, align 8
-  call void %15(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i, ptr noundef nonnull %start_addr.i.i, ptr noundef nonnull %line_compare.i.i) #21
+  call void %15(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i, ptr noundef nonnull %start_addr.i.i, ptr noundef nonnull %line_compare.i.i) #18
   %16 = load i32, ptr %line_offset.i.i, align 4
   %line_offset1.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
   %17 = load i32, ptr %line_offset1.i.i, align 8
@@ -3161,11 +3173,11 @@ if.then63.i:                                      ; preds = %lor.lhs.false61.i, 
   %last_scr_height.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 57
   store i32 %mul65.i, ptr %last_scr_height.i, align 4
   %36 = load ptr, ptr %con, align 16
-  call void @qemu_console_resize(ptr noundef %36, i32 noundef %mul64.i, i32 noundef %mul65.i) #21
+  call void @qemu_console_resize(ptr noundef %36, i32 noundef %mul64.i, i32 noundef %mul65.i) #18
   %37 = load ptr, ptr %con, align 16
-  %call70.i = call ptr @qemu_console_surface(ptr noundef %37) #21
+  %call70.i = call ptr @qemu_console_surface(ptr noundef %37) #18
   %38 = load ptr, ptr %con, align 16
-  call void @dpy_text_resize(ptr noundef %38, i32 noundef %add12.i.i, i32 noundef %height.0.i.i) #21
+  call void @dpy_text_resize(ptr noundef %38, i32 noundef %add12.i.i, i32 noundef %height.0.i.i) #18
   %last_depth72.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
   store i32 0, ptr %last_depth72.i, align 16
   store i32 %add12.i.i, ptr %last_width.i, align 16
@@ -3185,10 +3197,10 @@ if.end79.i:                                       ; preds = %if.then63.i, %lor.l
   %or81.i = or i32 %call80.i, %full_update.addr.3.i
   %last_palette.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 77
   %s.val3.i.i = load ptr, ptr %surface.0.i, align 8
-  %call.i.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i) #21
+  %call.i.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i) #18
   %shr.i.i = lshr i32 %call.i.i.i, 24
   %s.val.i166.i = load ptr, ptr %surface.0.i, align 8
-  %call.i4.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val.i166.i) #21
+  %call.i4.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val.i166.i) #18
   %shr2.i.i = lshr i32 %call.i4.i.i, 22
   %and3.i.i = and i32 %shr2.i.i, 3
   %shl.i167.i = shl nuw nsw i32 %shr.i.i, %and3.i.i
@@ -3302,9 +3314,9 @@ if.then147.i:                                     ; preds = %if.end138.i
 
 if.end152.i:                                      ; preds = %if.then147.i, %if.end138.i
   %surface.0.val.i = load ptr, ptr %surface.0.i, align 8
-  %call.i168.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i) #21
+  %call.i168.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i) #18
   %surface.0.val164.i = load ptr, ptr %surface.0.i, align 8
-  %call.i169.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val164.i) #21
+  %call.i169.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val164.i) #18
   %cmp159435.not.i = icmp eq i32 %height.0.i.i, 0
   br i1 %cmp159435.not.i, label %vga_draw_text.exit, label %for.body.lr.ph.i
 
@@ -3854,7 +3866,7 @@ if.then284.i:                                     ; preds = %for.end.i
   %sub288.i = add nuw i32 %cx_max.0.lcssa.i, 1
   %add289.i = sub i32 %sub288.i, %cx_min.0.lcssa.i
   %mul290.i = mul i32 %add289.i, %cwidth.1.i.i
-  call void @dpy_gfx_update(ptr noundef %169, i32 noundef %mul286.i, i32 noundef %mul287.i, i32 noundef %mul290.i, i32 noundef %add.i.i) #21
+  call void @dpy_gfx_update(ptr noundef %169, i32 noundef %mul286.i, i32 noundef %mul287.i, i32 noundef %mul290.i, i32 noundef %add.i.i) #18
   br label %if.end291.i
 
 if.end291.i:                                      ; preds = %if.then284.i, %for.end.i
@@ -3878,7 +3890,7 @@ sw.bb13:                                          ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %height.i)
   %171 = load ptr, ptr %con, align 16
-  %call.i22 = tail call ptr @qemu_console_surface(ptr noundef %171) #21
+  %call.i22 = tail call ptr @qemu_console_surface(ptr noundef %171) #18
   %big_endian_fb.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 69
   %172 = load i8, ptr %big_endian_fb.i, align 2
   %173 = and i8 %172, 1
@@ -3888,7 +3900,7 @@ sw.bb13:                                          ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i20)
   %get_offsets.i.i24 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
   %174 = load ptr, ptr %get_offsets.i.i24, align 8
-  call void %174(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i19, ptr noundef nonnull %start_addr.i.i18, ptr noundef nonnull %line_compare.i.i20) #21
+  call void %174(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i19, ptr noundef nonnull %start_addr.i.i18, ptr noundef nonnull %line_compare.i.i20) #18
   %175 = load i32, ptr %line_offset.i.i19, align 4
   %line_offset1.i.i25 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
   %176 = load i32, ptr %line_offset1.i.i25, align 8
@@ -3930,11 +3942,11 @@ update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor
   %or.i35 = or i32 %full_update.0.i.i34, %full_update.0
   %get_resolution.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 34
   %180 = load ptr, ptr %get_resolution.i, align 16
-  call void %180(ptr noundef nonnull %opaque, ptr noundef nonnull %width.i, ptr noundef nonnull %height.i) #21
+  call void %180(ptr noundef nonnull %opaque, ptr noundef nonnull %width.i, ptr noundef nonnull %height.i) #18
   %181 = load i32, ptr %width.i, align 4
   %get_bpp.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 32
   %182 = load ptr, ptr %get_bpp.i, align 16
-  %call2.i = call i32 %182(ptr noundef nonnull %opaque) #21
+  %call2.i = call i32 %182(ptr noundef nonnull %opaque) #18
   %start_addr.i36 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
   %183 = load i32, ptr %start_addr.i36, align 16
   %mul.i = shl i32 %183, 2
@@ -4032,13 +4044,13 @@ if.end74.sink.split.i:                            ; preds = %if.end51.i
 
 if.end74.i:                                       ; preds = %if.end74.sink.split.i, %if.end51.i
   %disp_width.0.i = phi i32 [ %spec.select172.i, %if.end74.sink.split.i ], [ %181, %if.end51.i ]
-  %call76.i = call i32 @qemu_default_pixman_format(i32 noundef %call2.i, i1 noundef zeroext %tobool.not.i23) #21
+  %call76.i = call i32 @qemu_default_pixman_format(i32 noundef %call2.i, i1 noundef zeroext %tobool.not.i23) #18
   %tobool77.not.i = icmp eq i32 %call76.i, 0
   br i1 %tobool77.not.i, label %if.end88.i, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end74.i
   %203 = load ptr, ptr %con, align 16
-  %call80.i45 = call zeroext i1 @dpy_gfx_check_format(ptr noundef %203, i32 noundef %call76.i) #21
+  %call80.i45 = call zeroext i1 @dpy_gfx_check_format(ptr noundef %203, i32 noundef %call76.i) #18
   br i1 %call80.i45, label %land.lhs.true.i, label %if.end88.i
 
 land.lhs.true.i:                                  ; preds = %if.then78.i
@@ -4116,7 +4128,7 @@ if.then114.i:                                     ; preds = %lor.lhs.false108.i,
 if.end123.i48:                                    ; preds = %if.then114.i, %lor.lhs.false108.i
   %full_update.addr.1.i49 = phi i32 [ 1, %if.then114.i ], [ %full_update.addr.0.i44, %lor.lhs.false108.i ]
   %call.val.i = load ptr, ptr %call.i22, align 8
-  %call.i.i50 = call ptr @pixman_image_get_data(ptr noundef %call.val.i) #21
+  %call.i.i50 = call ptr @pixman_image_get_data(ptr noundef %call.val.i) #18
   %vram_ptr.i51 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
   %217 = load ptr, ptr %vram_ptr.i51, align 8
   %218 = load i32, ptr %start_addr.i36, align 16
@@ -4145,17 +4157,17 @@ if.then135.i:                                     ; preds = %if.end133.i, %land.
 if.then137.i:                                     ; preds = %if.then135.i
   %221 = load i32, ptr %height.i, align 4
   %222 = load i32, ptr %line_offset1.i.i25, align 8
-  %call144.i = call ptr @qemu_create_displaysurface_from(i32 noundef %disp_width.0.i, i32 noundef %221, i32 noundef %call76.i, i32 noundef %222, ptr noundef %add.ptr.i53) #21
+  %call144.i = call ptr @qemu_create_displaysurface_from(i32 noundef %disp_width.0.i, i32 noundef %221, i32 noundef %call76.i, i32 noundef %222, ptr noundef %add.ptr.i53) #18
   %223 = load ptr, ptr %con, align 16
-  call void @dpy_gfx_replace_surface(ptr noundef %223, ptr noundef %call144.i) #21
+  call void @dpy_gfx_replace_surface(ptr noundef %223, ptr noundef %call144.i) #18
   br label %if.end151.i
 
 if.else146.i:                                     ; preds = %if.then135.i
   %224 = load ptr, ptr %con, align 16
   %225 = load i32, ptr %height.i, align 4
-  call void @qemu_console_resize(ptr noundef %224, i32 noundef %disp_width.0.i, i32 noundef %225) #21
+  call void @qemu_console_resize(ptr noundef %224, i32 noundef %disp_width.0.i, i32 noundef %225) #18
   %226 = load ptr, ptr %con, align 16
-  %call149.i = call ptr @qemu_console_surface(ptr noundef %226) #21
+  %call149.i = call ptr @qemu_console_surface(ptr noundef %226) #18
   br label %if.end151.i
 
 if.end151.i:                                      ; preds = %land.lhs.true129.i, %if.else146.i, %if.then137.i, %if.end133.i
@@ -4200,7 +4212,7 @@ if.then167.i:                                     ; preds = %if.end151.i
 
 if.else177.i:                                     ; preds = %if.end151.i
   %233 = load ptr, ptr %get_bpp.i, align 16
-  %call179.i = call i32 %233(ptr noundef nonnull %opaque) #21
+  %call179.i = call i32 %233(ptr noundef nonnull %opaque) #18
   switch i32 %call179.i, label %sw.bb.i [
     i32 32, label %sw.bb199.i
     i32 8, label %sw.bb182.i
@@ -4456,7 +4468,7 @@ land.lhs.true209.i:                               ; preds = %if.end205.i
   br i1 %tobool210.not.i, label %if.end213.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %land.lhs.true209.i
-  call void %271(ptr noundef nonnull %opaque) #21
+  call void %271(ptr noundef nonnull %opaque) #18
   br label %if.end213.i
 
 if.end213.i:                                      ; preds = %if.then211.i, %land.lhs.true209.i, %if.end205.i
@@ -4467,9 +4479,9 @@ if.end213.i:                                      ; preds = %if.then211.i, %land
   %sub218.i = add i32 %mul216.i, 7
   %div219.i = sdiv i32 %sub218.i, 8
   %surface.0.val.i56 = load ptr, ptr %surface.0.i54, align 8
-  %call.i273.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i56) #21
+  %call.i273.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i56) #18
   %surface.0.val180.i = load ptr, ptr %surface.0.i54, align 8
-  %call.i274.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val180.i) #21
+  %call.i274.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val180.i) #18
   %tobool222.not.i = icmp eq i32 %full_update.addr.3.i55, 0
   br i1 %tobool222.not.i, label %if.then223.i, label %if.end230.i
 
@@ -4481,7 +4493,7 @@ if.then223.i:                                     ; preds = %if.end213.i
   %spec.select176.i = select i1 %cmp224.i, i64 0, i64 %region_start.0.i
   %vram.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
   %sub228.i = sub nsw i64 %region_end.0.i, %spec.select176.i
-  %call229.i = call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram.i, i64 noundef %spec.select176.i, i64 noundef %sub228.i, i32 noundef 0) #21
+  %call229.i = call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram.i, i64 noundef %spec.select176.i, i64 noundef %sub228.i, i32 noundef 0) #18
   br label %if.end230.i
 
 if.end230.i:                                      ; preds = %if.then223.i, %if.end213.i
@@ -4554,21 +4566,21 @@ switch.early.test177.i:                           ; preds = %if.then274.i
   ]
 
 if.else277.i:                                     ; preds = %switch.early.test177.i
-  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_draw_graphic) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_draw_graphic) #19
   unreachable
 
 if.end278.i66:                                    ; preds = %switch.early.test177.i, %switch.early.test177.i, %if.then274.i
   %280 = load i32, ptr %vbe_size.i, align 8
   %conv281.i = zext i32 %280 to i64
   %sub282.i = sub nsw i64 %conv281.i, %conv263.i
-  %call283.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub282.i) #21
-  %call286.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef 0, i64 noundef %conv268.i) #21
+  %call283.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub282.i) #18
+  %call286.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef 0, i64 noundef %conv268.i) #18
   %or288170.i = or i1 %call283.i, %call286.i
   br label %if.end295.i
 
 if.else289.i:                                     ; preds = %if.else271.i
   %sub291.i = sub nsw i64 %conv268.i, %conv263.i
-  %call292.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub291.i) #21
+  %call292.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub291.i) #18
   br label %if.end295.i
 
 if.end295.i:                                      ; preds = %if.else289.i, %if.end278.i66, %if.end250.i
@@ -4602,13 +4614,13 @@ if.then300.i:                                     ; preds = %vga_scanline_invali
 
 if.then307.i:                                     ; preds = %if.then300.i
   %283 = load i32, ptr %width.i, align 4
-  call void %268(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %addr.1.i, i32 noundef %283) #21
+  call void %268(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %addr.1.i, i32 noundef %283) #18
   %284 = load ptr, ptr %cursor_draw_line.i, align 16
   %tobool308.not.i = icmp eq ptr %284, null
   br i1 %tobool308.not.i, label %if.end320.i, label %if.then309.i
 
 if.then309.i:                                     ; preds = %if.then307.i
-  call void %284(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %y.0287.i) #21
+  call void %284(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %y.0287.i) #18
   br label %if.end320.i
 
 if.else313.i:                                     ; preds = %vga_scanline_invalidated.exit.i
@@ -4618,7 +4630,7 @@ if.else313.i:                                     ; preds = %vga_scanline_invali
 if.then316.i:                                     ; preds = %if.else313.i
   %285 = load ptr, ptr %con, align 16
   %sub318.i = sub nsw i32 %y.0287.i, %y_start.0286.i
-  call void @dpy_gfx_update(ptr noundef %285, i32 noundef 0, i32 noundef %y_start.0286.i, i32 noundef %disp_width.0.i, i32 noundef %sub318.i) #21
+  call void @dpy_gfx_update(ptr noundef %285, i32 noundef 0, i32 noundef %y_start.0286.i, i32 noundef %disp_width.0.i, i32 noundef %sub318.i) #18
   br label %if.end320.i
 
 if.end320.i:                                      ; preds = %if.then316.i, %if.else313.i, %if.then309.i, %if.then307.i, %if.then300.i
@@ -4669,11 +4681,11 @@ for.end.i64:                                      ; preds = %if.end335.i
 if.then346.i:                                     ; preds = %for.end.i64
   %292 = load ptr, ptr %con, align 16
   %sub348.i = sub nsw i32 %inc343.i, %y_start.2.i
-  call void @dpy_gfx_update(ptr noundef %292, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #21
+  call void @dpy_gfx_update(ptr noundef %292, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #18
   br label %vga_draw_graphic.exit
 
 vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.end.i64, %if.then346.i
-  call void @g_free(ptr noundef %snap.0.i) #21
+  call void @g_free(ptr noundef %snap.0.i) #18
   %invalidated_y_table.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table.i, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i)
@@ -4682,7 +4694,7 @@ vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.e
 
 sw.default:                                       ; preds = %if.end12
   %293 = load ptr, ptr %con, align 16
-  %call.i83 = tail call ptr @qemu_console_surface(ptr noundef %293) #21
+  %call.i83 = tail call ptr @qemu_console_surface(ptr noundef %293) #18
   br i1 %cmp7.not, label %if.end15, label %if.end.i85
 
 if.end.i85:                                       ; preds = %sw.default
@@ -4699,11 +4711,11 @@ lor.lhs.false.i88:                                ; preds = %if.end.i85
 
 if.end3.i:                                        ; preds = %lor.lhs.false.i88
   %s.val3.i.i90 = load ptr, ptr %call.i83, align 8
-  %call.i.i.i91 = tail call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i90) #21
+  %call.i.i.i91 = tail call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i90) #18
   %s.val.i.i92 = load ptr, ptr %call.i83, align 8
-  %call.i4.i.i93 = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i.i92) #21
+  %call.i4.i.i93 = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i.i92) #18
   %call.val.i94 = load ptr, ptr %call.i83, align 8
-  %call.i.i95 = tail call ptr @pixman_image_get_data(ptr noundef %call.val.i94) #21
+  %call.i.i95 = tail call ptr @pixman_image_get_data(ptr noundef %call.val.i94) #18
   %296 = load i32, ptr %last_scr_height.i89, align 4
   %cmp812.not.i = icmp eq i32 %296, 0
   br i1 %cmp812.not.i, label %for.end.i109, label %for.body.lr.ph.i96
@@ -4724,7 +4736,7 @@ for.body.i105:                                    ; preds = %for.body.i105, %for
   %i.013.i = phi i32 [ 0, %for.body.lr.ph.i96 ], [ %inc.i108, %for.body.i105 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %d.014.i, i8 0, i64 %conv.i104, i1 false)
   %call.val10.i = load ptr, ptr %call.i83, align 8
-  %call.i11.i = tail call i32 @pixman_image_get_stride(ptr noundef %call.val10.i) #21
+  %call.i11.i = tail call i32 @pixman_image_get_stride(ptr noundef %call.val10.i) #18
   %idx.ext.i106 = sext i32 %call.i11.i to i64
   %add.ptr.i107 = getelementptr i8, ptr %d.014.i, i64 %idx.ext.i106
   %inc.i108 = add nuw i32 %i.013.i, 1
@@ -4734,7 +4746,7 @@ for.body.i105:                                    ; preds = %for.body.i105, %for
 
 for.end.i109:                                     ; preds = %for.body.i105, %if.end3.i
   %298 = load ptr, ptr %con, align 16
-  tail call void @dpy_gfx_update_full(ptr noundef %298) #21
+  tail call void @dpy_gfx_update_full(ptr noundef %298) #18
   br label %if.end15
 
 if.end15:                                         ; preds = %for.end.i109, %lor.lhs.false.i88, %if.end.i85, %sw.default, %vga_draw_text.exit, %vga_draw_graphic.exit, %entry
@@ -4750,7 +4762,7 @@ entry:
   %width = alloca i32, align 4
   %height = alloca i32, align 4
   %msg_buffer = alloca [80 x i8], align 16
-  tail call void @qemu_flush_coalesced_mmio_buffer() #21
+  tail call void @qemu_flush_coalesced_mmio_buffer() #18
   %ar_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
   %0 = load i8, ptr %ar_index, align 2
   %1 = and i8 %0, 32
@@ -4799,7 +4811,7 @@ sw.bb:                                            ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i)
   %get_offsets.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
   %6 = load ptr, ptr %get_offsets.i, align 8
-  call void %6(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i, ptr noundef nonnull %start_addr.i, ptr noundef nonnull %line_compare.i) #21
+  call void %6(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i, ptr noundef nonnull %start_addr.i, ptr noundef nonnull %line_compare.i) #18
   %7 = load i32, ptr %line_offset.i, align 4
   %line_offset1.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
   %8 = load i32, ptr %line_offset1.i, align 8
@@ -4899,7 +4911,7 @@ if.then57:                                        ; preds = %if.end54
   br i1 %tobool58.not, label %return, label %if.end60
 
 if.end60:                                         ; preds = %if.then57
-  %call61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.52, i32 noundef %add31, i32 noundef %22) #21
+  %call61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.52, i32 noundef %add31, i32 noundef %22) #18
   br label %sw.epilog
 
 if.end62:                                         ; preds = %if.end54
@@ -4935,9 +4947,9 @@ if.end88.thread:                                  ; preds = %if.end62, %lor.lhs.
   store i32 %mul78, ptr %last_scr_height, align 4
   %con = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
   %27 = load ptr, ptr %con, align 16
-  call void @qemu_console_resize(ptr noundef %27, i32 noundef %mul77, i32 noundef %mul78) #21
+  call void @qemu_console_resize(ptr noundef %27, i32 noundef %mul77, i32 noundef %mul78) #18
   %28 = load ptr, ptr %con, align 16
-  call void @dpy_text_resize(ptr noundef %28, i32 noundef %add31, i32 noundef %22) #21
+  call void @dpy_text_resize(ptr noundef %28, i32 noundef %add31, i32 noundef %22) #18
   %last_depth = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
   store i32 0, ptr %last_depth, align 16
   store i32 %add31, ptr %last_width, align 16
@@ -5027,11 +5039,11 @@ if.then124:                                       ; preds = %if.end96, %lor.lhs.
 if.then136:                                       ; preds = %if.then124
   %rem = srem i32 %sub, %add31
   %div138 = sdiv i32 %sub, %add31
-  call void @dpy_text_cursor(ptr noundef %41, i32 noundef %rem, i32 noundef %div138) #21
+  call void @dpy_text_cursor(ptr noundef %41, i32 noundef %rem, i32 noundef %div138) #18
   br label %if.end149
 
 if.else139:                                       ; preds = %if.then124
-  call void @dpy_text_cursor(ptr noundef %41, i32 noundef -1, i32 noundef -1) #21
+  call void @dpy_text_cursor(ptr noundef %41, i32 noundef -1, i32 noundef -1) #18
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then136, %if.else139
@@ -5082,7 +5094,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %con165 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
   %46 = load ptr, ptr %con165, align 16
-  call void @dpy_text_update(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %add31, i32 noundef %22) #21
+  call void @dpy_text_update(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %add31, i32 noundef %22) #18
   br label %return
 
 for.body170:                                      ; preds = %for.cond167.preheader, %for.inc185
@@ -5162,7 +5174,7 @@ if.then215:                                       ; preds = %for.end212
   %div218 = sdiv i32 %c_max.1.lcssa, %51
   %reass.sub = sub i32 %div218, %div216
   %add220 = add i32 %reass.sub, 1
-  call void @dpy_text_update(ptr noundef %52, i32 noundef 0, i32 noundef %div216, i32 noundef %51, i32 noundef %add220) #21
+  call void @dpy_text_update(ptr noundef %52, i32 noundef 0, i32 noundef %div216, i32 noundef %51, i32 noundef %add220) #18
   br label %return
 
 sw.bb223:                                         ; preds = %if.end12
@@ -5172,10 +5184,10 @@ sw.bb223:                                         ; preds = %if.end12
 if.end226:                                        ; preds = %sw.bb223
   %get_resolution = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 34
   %53 = load ptr, ptr %get_resolution, align 16
-  call void %53(ptr noundef nonnull %opaque, ptr noundef nonnull %width, ptr noundef nonnull %height) #21
+  call void %53(ptr noundef nonnull %opaque, ptr noundef nonnull %width, ptr noundef nonnull %height) #18
   %54 = load i32, ptr %width, align 4
   %55 = load i32, ptr %height, align 4
-  %call228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.53, i32 noundef %54, i32 noundef %55) #21
+  %call228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.53, i32 noundef %54, i32 noundef %55) #18
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end12
@@ -5193,11 +5205,11 @@ sw.epilog:                                        ; preds = %if.end232, %if.end2
   store i32 3, ptr %last_height236, align 4
   %con237 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
   %56 = load ptr, ptr %con237, align 16
-  call void @dpy_text_cursor(ptr noundef %56, i32 noundef -1, i32 noundef -1) #21
+  call void @dpy_text_cursor(ptr noundef %56, i32 noundef -1, i32 noundef -1) #18
   %57 = load ptr, ptr %con237, align 16
   %58 = load i32, ptr %last_width, align 16
   %59 = load i32, ptr %height, align 4
-  call void @dpy_text_resize(ptr noundef %57, i32 noundef %58, i32 noundef %59) #21
+  call void @dpy_text_resize(ptr noundef %57, i32 noundef %58, i32 noundef %59) #18
   %60 = load i32, ptr %height, align 4
   %61 = load i32, ptr %last_width, align 16
   %mul242168 = mul i32 %60, %61
@@ -5217,7 +5229,7 @@ for.body245:                                      ; preds = %sw.epilog, %for.bod
 
 for.end249:                                       ; preds = %for.body245, %sw.epilog
   %.lcssa145 = phi i32 [ %61, %sw.epilog ], [ %62, %for.body245 ]
-  %call251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg_buffer) #24
+  %call251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg_buffer) #21
   %conv252 = trunc i64 %call251 to i32
   %sub254 = sub i32 %.lcssa145, %conv252
   %div255131 = lshr i32 %sub254, 1
@@ -5253,27 +5265,27 @@ for.end271.loopexit:                              ; preds = %for.body264
 for.end271:                                       ; preds = %for.end271.loopexit, %for.end249
   %64 = phi i32 [ %.pre186, %for.end271.loopexit ], [ %.lcssa145, %for.end249 ]
   %65 = load ptr, ptr %con237, align 16
-  call void @dpy_text_update(ptr noundef %65, i32 noundef 0, i32 noundef 0, i32 noundef %64, i32 noundef %60) #21
+  call void @dpy_text_update(ptr noundef %65, i32 noundef 0, i32 noundef 0, i32 noundef %64, i32 noundef %60) #18
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb223, %for.end, %if.then215, %for.end212, %if.then57, %for.end271
   ret void
 }
 
-declare ptr @qemu_console_surface(ptr noundef) local_unnamed_addr #8
+declare ptr @qemu_console_surface(ptr noundef) local_unnamed_addr #7
 
-declare void @qemu_flush_coalesced_mmio_buffer() local_unnamed_addr #8
+declare void @qemu_flush_coalesced_mmio_buffer() local_unnamed_addr #7
 
-declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #8
+declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #7
 
-declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #8
+declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #7
 
-declare void @qemu_console_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @qemu_console_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #15 {
+define internal fastcc i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #8 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 77
   %arrayidx2 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 16, i64 16
@@ -5413,28 +5425,28 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   ret i32 %.us-phi
 }
 
-declare void @dpy_gfx_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @dpy_gfx_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #8
+declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #7
 
-declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #8
+declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #7
 
-declare i32 @qemu_default_pixman_format(i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
+declare i32 @qemu_default_pixman_format(i32 noundef, i1 noundef zeroext) local_unnamed_addr #7
 
-declare zeroext i1 @dpy_gfx_check_format(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare zeroext i1 @dpy_gfx_check_format(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @qemu_create_displaysurface_from(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @qemu_create_displaysurface_from(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @dpy_gfx_replace_surface(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @dpy_gfx_replace_surface(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @memory_region_snapshot_and_clear_dirty(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @memory_region_snapshot_and_clear_dirty(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
-declare zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @g_free(ptr noundef) local_unnamed_addr #8
+declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
@@ -5552,7 +5564,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
@@ -5686,7 +5698,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
@@ -5804,7 +5816,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
@@ -5938,7 +5950,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %shr = ashr i32 %width, 3
@@ -6019,7 +6031,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
   %shr = ashr i32 %width, 3
@@ -6140,7 +6152,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6178,7 +6190,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6216,7 +6228,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6261,7 +6273,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6305,8 +6317,8 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #17 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6344,8 +6356,8 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #17 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6384,7 +6396,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6429,7 +6441,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #14 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6475,19 +6487,19 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #14
+declare i16 @llvm.bswap.i16(i16) #13
 
-declare void @dpy_gfx_update_full(ptr noundef) local_unnamed_addr #8
+declare void @dpy_gfx_update_full(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
-declare void @dpy_text_cursor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @dpy_text_cursor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
@@ -6499,51 +6511,48 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #19
+declare i16 @llvm.umin.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #19
+declare i16 @llvm.umax.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
