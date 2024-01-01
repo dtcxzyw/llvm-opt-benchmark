@@ -2587,7 +2587,7 @@ return:                                           ; preds = %_Py_DECREF_INT.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @long_normalize(ptr noundef returned %v) unnamed_addr #7 {
+define internal fastcc noundef ptr @long_normalize(ptr noundef returned %v) unnamed_addr #7 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %0, align 8
@@ -2630,7 +2630,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_AsByteArray(ptr nocapture noundef readonly %v, ptr nocapture noundef %bytes, i64 noundef %n, i32 noundef %little_endian, i32 noundef %is_signed) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_AsByteArray(ptr nocapture noundef readonly %v, ptr nocapture noundef %bytes, i64 noundef %n, i32 noundef %little_endian, i32 noundef %is_signed) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %0, align 8
@@ -3556,7 +3556,7 @@ return:                                           ; preds = %exit, %if.then35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_UnsignedShort_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_UnsignedShort_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3608,7 +3608,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_UnsignedInt_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_UnsignedInt_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3660,7 +3660,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_UnsignedLong_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_UnsignedLong_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3702,7 +3702,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_UnsignedLongLong_Converter(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_UnsignedLongLong_Converter(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %bytes.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -3779,7 +3779,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyLong_Size_t_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyLong_Size_t_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3844,7 +3844,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
+define internal fastcc noundef i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %aa, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4860,7 +4860,7 @@ return:                                           ; preds = %if.then2.i, %return
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @long_format_binary(ptr noundef readonly %aa, i32 noundef %base, i32 noundef %alternate, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
+define internal fastcc noundef i32 @long_format_binary(ptr noundef readonly %aa, i32 noundef %base, i32 noundef %alternate, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %aa, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -5515,7 +5515,7 @@ return:                                           ; preds = %if.then433, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyLong_FormatWriter(ptr noundef %writer, ptr noundef %obj, i32 noundef %base, i32 noundef %alternate) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyLong_FormatWriter(ptr noundef %writer, ptr noundef %obj, i32 noundef %base, i32 noundef %alternate) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %base, 10
   br i1 %cmp, label %if.then, label %if.else
@@ -7875,7 +7875,7 @@ if.else27:                                        ; preds = %if.end21
   br i1 %cmp29, label %Py_XDECREF.exit, label %if.end33
 
 if.end33:                                         ; preds = %if.else27, %_Py_NewRef.exit109
-  %add = add nuw nsw i64 %bsize.0, %asize.0
+  %add = add nuw nsw i64 %shr.i86, %shr.i
   %cmp.i110 = icmp ugt i64 %add, 2305843009213693945
   br i1 %cmp.i110, label %if.then.i, label %if.end.i111
 
@@ -7885,9 +7885,11 @@ if.then.i:                                        ; preds = %if.end33
   br label %Py_XDECREF.exit
 
 if.end.i111:                                      ; preds = %if.end33
+  %tobool.not.i112 = icmp eq i64 %add, 0
   %65 = shl nuw nsw i64 %add, 2
   %66 = add nuw nsw i64 %65, 24
-  %call.i114 = tail call ptr @PyObject_Malloc(i64 noundef %66) #16
+  %add.i113 = select i1 %tobool.not.i112, i64 28, i64 %66
+  %call.i114 = tail call ptr @PyObject_Malloc(i64 noundef %add.i113) #16
   %tobool1.not.i = icmp eq ptr %call.i114, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end4.i
 
@@ -7896,9 +7898,11 @@ if.then2.i:                                       ; preds = %if.end.i111
   br label %Py_XDECREF.exit
 
 if.end4.i:                                        ; preds = %if.end.i111
+  %conv.i.i = zext i1 %tobool.not.i112 to i64
   %shl.i.i = shl nuw i64 %add, 3
+  %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %long_value.i.i = getelementptr %struct._longobject, ptr %call.i114, i64 0, i32 1
-  store i64 %shl.i.i, ptr %long_value.i.i, align 8
+  store i64 %or.i.i, ptr %long_value.i.i, align 8
   %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i114, i64 0, i32 1
   store ptr @PyLong_Type, ptr %ob_type.i.i.i, align 8
   %67 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 19), align 8
@@ -10891,7 +10895,7 @@ return:                                           ; preds = %if.then1.i.i114, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @long_divrem(ptr noundef %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %pdiv, ptr nocapture noundef %prem) unnamed_addr #0 {
+define internal fastcc noundef i32 @long_divrem(ptr noundef %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %pdiv, ptr nocapture noundef %prem) unnamed_addr #0 {
 entry:
   %rem = alloca i32, align 4
   %0 = getelementptr i8, ptr %a, i64 16
@@ -11508,7 +11512,7 @@ entry:
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i64 @long_hash(ptr nocapture noundef readonly %v) #10 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
@@ -12579,7 +12583,7 @@ return:                                           ; preds = %if.end122, %if.then
 declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @kmul_split(ptr nocapture noundef readonly %n, i64 noundef %size, ptr nocapture noundef writeonly %high, ptr nocapture noundef writeonly %low) unnamed_addr #0 {
+define internal fastcc noundef i32 @kmul_split(ptr nocapture noundef readonly %n, i64 noundef %size, ptr nocapture noundef writeonly %high, ptr nocapture noundef writeonly %low) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %n, i64 16
   %n.val = load i64, ptr %0, align 8
@@ -13606,7 +13610,7 @@ return:                                           ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @divmod_shift(ptr noundef %shiftby, ptr nocapture noundef %wordshift, ptr nocapture noundef writeonly %remshift) unnamed_addr #0 {
+define internal fastcc noundef i32 @divmod_shift(ptr noundef %shiftby, ptr nocapture noundef %wordshift, ptr nocapture noundef writeonly %remshift) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %shiftby)
   %cmp = icmp sgt i64 %call, -1
@@ -16382,7 +16386,7 @@ return:                                           ; preds = %if.then13, %overflo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @l_divmod(ptr noundef %v, ptr noundef %w, ptr noundef writeonly %pdiv, ptr noundef writeonly %pmod) unnamed_addr #0 {
+define internal fastcc noundef i32 @l_divmod(ptr noundef %v, ptr noundef %w, ptr noundef writeonly %pdiv, ptr noundef writeonly %pmod) unnamed_addr #0 {
 entry:
   %div = alloca ptr, align 8
   %mod = alloca ptr, align 8
@@ -17465,7 +17469,6 @@ if.then29:                                        ; preds = %if.end26
 if.end30:                                         ; preds = %if.then29, %if.end26
   %a.addr.1 = phi ptr [ %b.addr.0, %if.then29 ], [ %a.addr.0, %if.end26 ]
   %b.addr.1 = phi ptr [ %a.addr.0, %if.then29 ], [ %b.addr.0, %if.end26 ]
-  %nega.0 = phi i32 [ %conv11, %if.then29 ], [ %conv, %if.end26 ]
   %negb.0 = phi i32 [ %conv, %if.then29 ], [ %conv11, %if.end26 ]
   %size_a.0 = phi i64 [ %shr.i119, %if.then29 ], [ %shr.i, %if.end26 ]
   %size_b.0 = phi i64 [ %shr.i, %if.then29 ], [ %shr.i119, %if.end26 ]
@@ -17477,17 +17480,17 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   ]
 
 sw.bb:                                            ; preds = %if.end30
-  %xor = xor i32 %negb.0, %nega.0
+  %xor = xor i32 %conv11, %conv
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end30
-  %and = and i32 %negb.0, %nega.0
+  %and = and i32 %conv11, %conv
   %tobool33.not = icmp eq i32 %negb.0, 0
   %cond = select i1 %tobool33.not, i64 %size_b.0, i64 %size_a.0
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %if.end30
-  %or = or i32 %negb.0, %nega.0
+  %or = or i32 %conv11, %conv
   %tobool35.not = icmp eq i32 %negb.0, 0
   %cond39 = select i1 %tobool35.not, i64 %size_a.0, i64 %size_b.0
   br label %sw.epilog
@@ -19332,7 +19335,7 @@ exit:                                             ; preds = %while.body15.i, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @int_is_integer(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #13 {
+define internal noundef nonnull ptr @int_is_integer(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #13 {
 entry:
   ret ptr @_Py_TrueStruct
 }
@@ -19614,7 +19617,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
