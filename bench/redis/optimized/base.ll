@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @base_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %extent_hooks, i1 noundef zeroext %metadata_use_hooks) local_unnamed_addr #1 {
+define hidden noundef ptr @base_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %extent_hooks, i1 noundef zeroext %metadata_use_hooks) local_unnamed_addr #1 {
 entry:
   %pind_last = alloca i32, align 4
   %extent_sn_next = alloca i64, align 8
@@ -222,14 +222,14 @@ sz_psz2u.exit:                                    ; preds = %entry, %if.end.i44
 if.then.i:                                        ; preds = %sz_psz2u.exit
   %call1.i = call ptr @extent_alloc_mmap(ptr noundef null, i64 noundef %cond24, i64 noundef 2097152, ptr noundef nonnull %zero.i, ptr noundef nonnull %commit.i) #9
   %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %base_map.exit.thread, label %base_map.exit.thread70
+  br i1 %tobool.not.i, label %base_map.exit.thread, label %base_map.exit.thread67
 
 base_map.exit.thread:                             ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %zero.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %commit.i)
   br label %return
 
-base_map.exit.thread70:                           ; preds = %if.then.i
+base_map.exit.thread67:                           ; preds = %if.then.i
   call void @pages_set_thp_state(ptr noundef nonnull %call1.i, i64 noundef %cond24) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %zero.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %commit.i)
@@ -313,8 +313,8 @@ base_map.exit:                                    ; preds = %if.then.i.i, %cond.
   %cmp26 = icmp eq ptr %addr.0.i, null
   br i1 %cmp26, label %return, label %if.end
 
-if.end:                                           ; preds = %base_map.exit.thread70, %base_map.exit
-  %addr.0.i73 = phi ptr [ %call1.i, %base_map.exit.thread70 ], [ %addr.0.i, %base_map.exit ]
+if.end:                                           ; preds = %base_map.exit.thread67, %base_map.exit
+  %addr.0.i70 = phi ptr [ %call1.i, %base_map.exit.thread67 ], [ %addr.0.i, %base_map.exit ]
   %17 = load i32, ptr @opt_metadata_thp, align 4
   %cmp.i.i47 = icmp ne i32 %17, 0
   %18 = load i32, ptr @init_system_thp_mode, align 4
@@ -327,7 +327,7 @@ if.then28:                                        ; preds = %if.end
   br i1 %cmp29, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %if.then28
-  %call31 = call zeroext i1 @pages_huge(ptr noundef nonnull %addr.0.i73, i64 noundef %cond24) #9
+  %call31 = call zeroext i1 @pages_huge(ptr noundef nonnull %addr.0.i70, i64 noundef %cond24) #9
   br label %if.end41
 
 if.else:                                          ; preds = %if.then28
@@ -445,7 +445,7 @@ base_auto_thp_switch.exit:                        ; preds = %base_auto_thp_switc
   br i1 %tobool.not, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %if.end10.i, %base_auto_thp_switch.exit
-  %call36 = call zeroext i1 @pages_huge(ptr noundef nonnull %addr.0.i73, i64 noundef %cond24) #9
+  %call36 = call zeroext i1 @pages_huge(ptr noundef nonnull %addr.0.i70, i64 noundef %cond24) #9
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %base_auto_thp_switch.exit
@@ -461,20 +461,16 @@ if.end41:                                         ; preds = %if.then30, %if.end3
 if.end.i:                                         ; preds = %if.end41
   %cmp.i.i.i.i62 = icmp ne i64 %cond24, 0
   call void @llvm.assume(i1 %cmp.i.i.i.i62)
-  %34 = call i64 @llvm.ctlz.i64(i64 %cond24, i1 true), !range !7
-  %35 = trunc i64 %34 to i32
-  %conv1.i.i.i.i63 = xor i32 %35, 63
-  %36 = call i64 @llvm.ctpop.i64(i64 %cond24), !range !7
-  %cmp.i64 = icmp ugt i64 %36, 1
-  %cond.i65 = zext i1 %cmp.i64 to i32
-  %add.i66 = add nuw nsw i32 %conv1.i.i.i.i63, %cond.i65
-  %cond.i = call i32 @llvm.usub.sat.i32(i32 %add.i66, i32 14)
-  %cmp4.i = icmp ult i32 %add.i66, 15
+  %34 = add nsw i64 %cond24, -1
+  %35 = call i64 @llvm.ctlz.i64(i64 %34, i1 true), !range !7
+  %36 = trunc i64 %35 to i32
+  %add.i63 = sub nuw nsw i32 64, %36
+  %cond.i = call i32 @llvm.usub.sat.i32(i32 %add.i63, i32 14)
+  %cmp4.i = icmp ugt i32 %36, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sub11.i = add nsw i64 %cond24, -1
   %sh_prom.i = zext nneg i32 %cond10.i to i64
-  %shr.i = lshr i64 %sub11.i, %sh_prom.i
+  %shr.i = lshr i64 %34, %sh_prom.i
   %37 = trunc i64 %shr.i to i32
   %conv12.i = and i32 %37, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
@@ -484,11 +480,11 @@ if.end.i:                                         ; preds = %if.end41
 sz_psz2ind.exit:                                  ; preds = %if.end41, %if.end.i
   %retval.i.0 = phi i32 [ %add13.i, %if.end.i ], [ 199, %if.end41 ]
   store i32 %retval.i.0, ptr %pind_last, align 4
-  store i64 %cond24, ptr %addr.0.i73, align 8
-  %next = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 1
+  store i64 %cond24, ptr %addr.0.i70, align 8
+  %next = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i70, i64 0, i32 1
   store ptr null, ptr %next, align 8
-  %edata = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2
-  %38 = ptrtoint ptr %addr.0.i73 to i64
+  %edata = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i70, i64 0, i32 2
+  %38 = ptrtoint ptr %addr.0.i70 to i64
   %add46 = add i64 %38, 144
   %39 = inttoptr i64 %add46 to ptr
   %sub47 = add i64 %cond24, -144
@@ -496,11 +492,11 @@ sz_psz2ind.exit:                                  ; preds = %if.end41, %if.end.i
   %inc.i = add i64 %40, 1
   store i64 %inc.i, ptr %extent_sn_next, align 8
   %41 = load i64, ptr %edata, align 8
-  %e_addr.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 1
+  %e_addr.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i70, i64 0, i32 2, i32 1
   store ptr %39, ptr %e_addr.i.i.i, align 8
-  %42 = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 2
+  %42 = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i70, i64 0, i32 2, i32 2
   store i64 %sub47, ptr %42, align 8
-  %e_sn.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 4
+  %e_sn.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i70, i64 0, i32 2, i32 4
   store i64 %40, ptr %e_sn.i.i.i, align 8
   %or.i12.i.i = and i64 %41, -268435456
   %or.i16.i.i = or disjoint i64 %or.i12.i.i, 246460415
@@ -508,7 +504,7 @@ sz_psz2ind.exit:                                  ; preds = %if.end41, %if.end.i
   br label %return
 
 return:                                           ; preds = %base_map.exit.thread, %base_map.exit, %sz_psz2ind.exit
-  %retval.0 = phi ptr [ %addr.0.i73, %sz_psz2ind.exit ], [ null, %base_map.exit ], [ null, %base_map.exit.thread ]
+  %retval.0 = phi ptr [ %addr.0.i70, %sz_psz2ind.exit ], [ null, %base_map.exit ], [ null, %base_map.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1004,7 +1000,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @base_ehooks_get(ptr noundef readnone returned %base) local_unnamed_addr #3 {
+define hidden noundef ptr @base_ehooks_get(ptr noundef readnone returned %base) local_unnamed_addr #3 {
 entry:
   ret ptr %base
 }
@@ -1021,14 +1017,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @base_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #1 {
+define hidden noundef ptr @base_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef writeonly %esn) unnamed_addr #1 {
+define internal fastcc noundef ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef writeonly %esn) unnamed_addr #1 {
 entry:
   %add = add i64 %alignment, 7
   %and = and i64 %add, -8
@@ -1246,7 +1242,7 @@ label_return:                                     ; preds = %malloc_mutex_lock.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @base_alloc_edata(ptr noundef %tsdn, ptr noundef %base) local_unnamed_addr #1 {
+define hidden noundef ptr @base_alloc_edata(ptr noundef %tsdn, ptr noundef %base) local_unnamed_addr #1 {
 entry:
   %esn = alloca i64, align 8
   %call = call fastcc ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef 128, i64 noundef 128, ptr noundef nonnull %esn)
@@ -1350,7 +1346,7 @@ entry:
 declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @base_boot(ptr noundef %tsdn) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @base_boot(ptr noundef %tsdn) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @base_new(ptr noundef %tsdn, i32 noundef 0, ptr noundef nonnull @ehooks_default_extent_hooks, i1 noundef zeroext true)
   store ptr %call, ptr @b0, align 8
@@ -1414,9 +1410,6 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

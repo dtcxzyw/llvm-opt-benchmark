@@ -30,7 +30,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %indvars.iv
-  tail call void @hpdata_age_heap_new(ptr noundef %arrayidx) #9
+  tail call void @hpdata_age_heap_new(ptr noundef %arrayidx) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -248,27 +248,23 @@ if.else5:                                         ; preds = %entry
   %11 = getelementptr i8, ptr %ps, i64 96
   %ps.val12 = load i64, ptr %11, align 8
   %shl.i = shl i64 %ps.val12, 12
-  %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #9
+  %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call3.i, 8070450532247928832
   br i1 %cmp.i.i, label %psset_hpdata_heap_index.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %call3.i, i1 true), !range !8
-  %13 = trunc i64 %12 to i32
-  %conv1.i.i.i.i.i = xor i32 %13, 63
-  %14 = tail call i64 @llvm.ctpop.i64(i64 %call3.i), !range !8
-  %cmp.i6.i = icmp ugt i64 %14, 1
-  %cond.i7.i = zext i1 %cmp.i6.i to i32
-  %add.i8.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i7.i
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i, i32 14)
-  %cmp4.i.i = icmp ult i32 %add.i8.i, 15
+  %12 = add nsw i64 %call3.i, -1
+  %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 false), !range !8
+  %14 = trunc i64 %13 to i32
+  %add.i6.i = sub nuw nsw i32 64, %14
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i6.i, i32 14)
+  %cmp4.i.i = icmp ugt i32 %14, 49
   %add.i.i36 = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i36
-  %sub11.i.i = add nsw i64 %call3.i, -1
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %sub11.i.i, %sh_prom.i.i
+  %shr.i.i = lshr i64 %12, %sh_prom.i.i
   %15 = trunc i64 %shr.i.i to i32
   %conv12.i.i = and i32 %15, 3
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
@@ -389,27 +385,23 @@ if.else3:                                         ; preds = %entry
   %19 = getelementptr i8, ptr %ps, i64 96
   %ps.val.i = load i64, ptr %19, align 8
   %shl.i.i = shl i64 %ps.val.i, 12
-  %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #9
+  %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #8
   %cmp.i.i.i = icmp ugt i64 %call3.i.i, 8070450532247928832
   br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %call3.i.i, i1 true), !range !8
-  %21 = trunc i64 %20 to i32
-  %conv1.i.i.i.i.i.i = xor i32 %21, 63
-  %22 = tail call i64 @llvm.ctpop.i64(i64 %call3.i.i), !range !8
-  %cmp.i6.i.i = icmp ugt i64 %22, 1
-  %cond.i7.i.i = zext i1 %cmp.i6.i.i to i32
-  %add.i8.i.i = add nuw nsw i32 %conv1.i.i.i.i.i.i, %cond.i7.i.i
-  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i.i, i32 14)
-  %cmp4.i.i.i = icmp ult i32 %add.i8.i.i, 15
+  %20 = add nsw i64 %call3.i.i, -1
+  %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 false), !range !8
+  %22 = trunc i64 %21 to i32
+  %add.i6.i.i = sub nuw nsw i32 64, %22
+  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i6.i.i, i32 14)
+  %cmp4.i.i.i = icmp ugt i32 %22, 49
   %add.i.i.i = add nuw nsw i32 %cond.i.i.i, 11
   %cond10.i.i.i = select i1 %cmp4.i.i.i, i32 12, i32 %add.i.i.i
-  %sub11.i.i.i = add nsw i64 %call3.i.i, -1
   %sh_prom.i.i.i = zext nneg i32 %cond10.i.i.i to i64
-  %shr.i.i.i = lshr i64 %sub11.i.i.i, %sh_prom.i.i.i
+  %shr.i.i.i = lshr i64 %20, %sh_prom.i.i.i
   %23 = trunc i64 %shr.i.i.i to i32
   %conv12.i.i.i = and i32 %23, 3
   %shl.i.i.i = shl nuw nsw i32 %cond.i.i.i, 2
@@ -420,8 +412,8 @@ if.end.i.i.i:                                     ; preds = %if.else3
 psset_hpdata_heap_index.exit.i:                   ; preds = %if.end.i.i.i, %if.else3
   %retval.i.0.i.i = phi i64 [ %24, %if.end.i.i.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0.i.i
-  tail call void @hpdata_age_heap_remove(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #9
-  %call4.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #9
+  tail call void @hpdata_age_heap_remove(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #8
+  %call4.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
   br i1 %call4.i, label %if.then.i10, label %if.end4
 
 if.then.i10:                                      ; preds = %psset_hpdata_heap_index.exit.i
@@ -468,27 +460,23 @@ if.end.i:                                         ; preds = %if.then
   %ps.val12.i = load i64, ptr %5, align 8
   %sub.i.i = sub i64 %ps.val12.i, %ps.val11.i
   %shl.i = shl i64 %sub.i.i, 12
-  %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #9
+  %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call4.i, 8070450532247928832
   br i1 %cmp.i.i, label %sz_psz2ind.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %call4.i, i1 true), !range !8
-  %7 = trunc i64 %6 to i32
-  %conv1.i.i.i.i.i = xor i32 %7, 63
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %call4.i), !range !8
-  %cmp.i13.i = icmp ugt i64 %8, 1
-  %cond.i14.i = zext i1 %cmp.i13.i to i32
-  %add.i15.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i14.i
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i15.i, i32 14)
-  %cmp4.i.i = icmp ult i32 %add.i15.i, 15
+  %6 = add nsw i64 %call4.i, -1
+  %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 false), !range !8
+  %8 = trunc i64 %7 to i32
+  %add.i13.i = sub nuw nsw i32 64, %8
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13.i, i32 14)
+  %cmp4.i.i = icmp ugt i32 %8, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
-  %sub11.i.i = add nsw i64 %call4.i, -1
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %sub11.i.i, %sh_prom.i.i
+  %shr.i.i = lshr i64 %6, %sh_prom.i.i
   %9 = trunc i64 %shr.i.i to i32
   %10 = shl nuw nsw i32 %cond.i.i, 3
   %conv12.i.i = shl i32 %9, 1
@@ -755,27 +743,23 @@ if.else5:                                         ; preds = %entry
   %11 = getelementptr i8, ptr %ps, i64 96
   %ps.val12 = load i64, ptr %11, align 8
   %shl.i = shl i64 %ps.val12, 12
-  %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #9
+  %call3.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call3.i, 8070450532247928832
   br i1 %cmp.i.i, label %psset_hpdata_heap_index.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %call3.i, i1 true), !range !8
-  %13 = trunc i64 %12 to i32
-  %conv1.i.i.i.i.i = xor i32 %13, 63
-  %14 = tail call i64 @llvm.ctpop.i64(i64 %call3.i), !range !8
-  %cmp.i6.i = icmp ugt i64 %14, 1
-  %cond.i7.i = zext i1 %cmp.i6.i to i32
-  %add.i8.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i7.i
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i, i32 14)
-  %cmp4.i.i = icmp ult i32 %add.i8.i, 15
+  %12 = add nsw i64 %call3.i, -1
+  %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 false), !range !8
+  %14 = trunc i64 %13 to i32
+  %add.i6.i = sub nuw nsw i32 64, %14
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i6.i, i32 14)
+  %cmp4.i.i = icmp ugt i32 %14, 49
   %add.i.i36 = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i36
-  %sub11.i.i = add nsw i64 %call3.i, -1
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %sub11.i.i, %sh_prom.i.i
+  %shr.i.i = lshr i64 %12, %sh_prom.i.i
   %15 = trunc i64 %shr.i.i to i32
   %conv12.i.i = and i32 %15, 3
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
@@ -884,27 +868,23 @@ if.else3:                                         ; preds = %entry
   %13 = getelementptr i8, ptr %ps, i64 96
   %ps.val.i = load i64, ptr %13, align 8
   %shl.i.i = shl i64 %ps.val.i, 12
-  %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #9
+  %call3.i.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i.i) #8
   %cmp.i.i.i = icmp ugt i64 %call3.i.i, 8070450532247928832
   br i1 %cmp.i.i.i, label %psset_hpdata_heap_index.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
-  %14 = tail call i64 @llvm.ctlz.i64(i64 %call3.i.i, i1 true), !range !8
-  %15 = trunc i64 %14 to i32
-  %conv1.i.i.i.i.i.i = xor i32 %15, 63
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %call3.i.i), !range !8
-  %cmp.i6.i.i = icmp ugt i64 %16, 1
-  %cond.i7.i.i = zext i1 %cmp.i6.i.i to i32
-  %add.i8.i.i = add nuw nsw i32 %conv1.i.i.i.i.i.i, %cond.i7.i.i
-  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i.i, i32 14)
-  %cmp4.i.i.i = icmp ult i32 %add.i8.i.i, 15
+  %14 = add nsw i64 %call3.i.i, -1
+  %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 false), !range !8
+  %16 = trunc i64 %15 to i32
+  %add.i6.i.i = sub nuw nsw i32 64, %16
+  %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i6.i.i, i32 14)
+  %cmp4.i.i.i = icmp ugt i32 %16, 49
   %add.i.i.i = add nuw nsw i32 %cond.i.i.i, 11
   %cond10.i.i.i = select i1 %cmp4.i.i.i, i32 12, i32 %add.i.i.i
-  %sub11.i.i.i = add nsw i64 %call3.i.i, -1
   %sh_prom.i.i.i = zext nneg i32 %cond10.i.i.i to i64
-  %shr.i.i.i = lshr i64 %sub11.i.i.i, %sh_prom.i.i.i
+  %shr.i.i.i = lshr i64 %14, %sh_prom.i.i.i
   %17 = trunc i64 %shr.i.i.i to i32
   %conv12.i.i.i = and i32 %17, 3
   %shl.i.i.i = shl nuw nsw i32 %cond.i.i.i, 2
@@ -915,7 +895,7 @@ if.end.i.i.i:                                     ; preds = %if.else3
 psset_hpdata_heap_index.exit.i:                   ; preds = %if.end.i.i.i, %if.else3
   %retval.i.0.i.i = phi i64 [ %18, %if.end.i.i.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0.i.i
-  %call1.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #9
+  %call1.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
   br i1 %call1.i, label %if.then.i, label %psset_hpdata_heap_insert.exit
 
 if.then.i:                                        ; preds = %psset_hpdata_heap_index.exit.i
@@ -930,7 +910,7 @@ if.then.i:                                        ; preds = %psset_hpdata_heap_i
   br label %psset_hpdata_heap_insert.exit
 
 psset_hpdata_heap_insert.exit:                    ; preds = %psset_hpdata_heap_index.exit.i, %if.then.i
-  tail call void @hpdata_age_heap_insert(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #9
+  tail call void @hpdata_age_heap_insert(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #8
   br label %if.end4
 
 if.end4:                                          ; preds = %entry, %psset_hpdata_heap_insert.exit, %hpdata_empty_list_prepend.exit
@@ -965,27 +945,23 @@ if.end.i:                                         ; preds = %if.then
   %ps.val12.i = load i64, ptr %5, align 8
   %sub.i.i = sub i64 %ps.val12.i, %ps.val11.i
   %shl.i = shl i64 %sub.i.i, 12
-  %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #9
+  %call4.i = tail call i64 @sz_psz_quantize_floor(i64 noundef %shl.i) #8
   %cmp.i.i = icmp ugt i64 %call4.i, 8070450532247928832
   br i1 %cmp.i.i, label %sz_psz2ind.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %6 = tail call i64 @llvm.ctlz.i64(i64 %call4.i, i1 true), !range !8
-  %7 = trunc i64 %6 to i32
-  %conv1.i.i.i.i.i = xor i32 %7, 63
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %call4.i), !range !8
-  %cmp.i13.i = icmp ugt i64 %8, 1
-  %cond.i14.i = zext i1 %cmp.i13.i to i32
-  %add.i15.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i14.i
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i15.i, i32 14)
-  %cmp4.i.i = icmp ult i32 %add.i15.i, 15
+  %6 = add nsw i64 %call4.i, -1
+  %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 false), !range !8
+  %8 = trunc i64 %7 to i32
+  %add.i13.i = sub nuw nsw i32 64, %8
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13.i, i32 14)
+  %cmp4.i.i = icmp ugt i32 %8, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
-  %sub11.i.i = add nsw i64 %call4.i, -1
   %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
-  %shr.i.i = lshr i64 %sub11.i.i, %sh_prom.i.i
+  %shr.i.i = lshr i64 %6, %sh_prom.i.i
   %9 = trunc i64 %shr.i.i to i32
   %10 = shl nuw nsw i32 %cond.i.i, 3
   %conv12.i.i = shl i32 %9, 1
@@ -1065,27 +1041,23 @@ if.end4:                                          ; preds = %hpdata_purge_list_a
 ; Function Attrs: nounwind uwtable
 define hidden ptr @psset_pick_alloc(ptr noundef %psset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @sz_psz_quantize_ceil(i64 noundef %size) #9
+  %call = tail call i64 @sz_psz_quantize_ceil(i64 noundef %size) #8
   %cmp.i = icmp ugt i64 %call, 8070450532247928832
   br i1 %cmp.i, label %sz_psz2ind.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp ne i64 %call, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %call, i1 true), !range !8
-  %1 = trunc i64 %0 to i32
-  %conv1.i.i.i.i = xor i32 %1, 63
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %call), !range !8
-  %cmp.i11 = icmp ugt i64 %2, 1
-  %cond.i12 = zext i1 %cmp.i11 to i32
-  %add.i13 = add nuw nsw i32 %conv1.i.i.i.i, %cond.i12
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13, i32 14)
-  %cmp4.i = icmp ult i32 %add.i13, 15
+  %0 = add nsw i64 %call, -1
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !8
+  %2 = trunc i64 %1 to i32
+  %add.i11 = sub nuw nsw i32 64, %2
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i11, i32 14)
+  %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sub11.i = add nsw i64 %call, -1
   %sh_prom.i = zext nneg i32 %cond10.i to i64
-  %shr.i = lshr i64 %sub11.i, %sh_prom.i
+  %shr.i = lshr i64 %0, %sh_prom.i
   %3 = trunc i64 %shr.i to i32
   %conv12.i = and i32 %3, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
@@ -1134,7 +1106,7 @@ if.then:                                          ; preds = %while.body.i.i, %fb
 
 if.end:                                           ; preds = %fb_ffs.exit
   %arrayidx = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %8
-  %call8 = tail call ptr @hpdata_age_heap_first(ptr noundef %arrayidx) #9
+  %call8 = tail call ptr @hpdata_age_heap_first(ptr noundef %arrayidx) #8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1146,7 +1118,7 @@ declare i64 @sz_psz_quantize_ceil(i64 noundef) local_unnamed_addr #1
 
 declare ptr @hpdata_age_heap_first(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @psset_pick_purge(ptr nocapture noundef readonly %psset) local_unnamed_addr #4 {
 entry:
   %arrayidx.i.i = getelementptr inbounds %struct.psset_s, ptr %psset, i64 0, i32 6, i64 1
@@ -1176,7 +1148,7 @@ return:                                           ; preds = %while.cond.i.prehea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @psset_pick_hugify(ptr nocapture noundef readonly %psset) local_unnamed_addr #5 {
+define hidden ptr @psset_pick_hugify(ptr nocapture noundef readonly %psset) local_unnamed_addr #4 {
 entry:
   %to_hugify = getelementptr inbounds %struct.psset_s, ptr %psset, i64 0, i32 7
   %to_hugify.val = load ptr, ptr %to_hugify, align 8
@@ -1335,30 +1307,26 @@ declare zeroext i1 @hpdata_age_heap_empty(ptr noundef) local_unnamed_addr #1
 declare void @hpdata_age_heap_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #8
+declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

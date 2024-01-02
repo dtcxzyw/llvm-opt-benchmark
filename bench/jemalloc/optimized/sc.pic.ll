@@ -18,7 +18,7 @@ entry:
   ret i64 %add
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @sc_data_init(ptr nocapture noundef writeonly %sc_data) local_unnamed_addr #1 {
 entry:
   %arrayidx.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 0
@@ -44,7 +44,7 @@ entry:
   br label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %size_class.exit140.i, %entry
-  %indvars.iv200.i = phi i64 [ 1, %entry ], [ %indvars.iv.next201.i, %size_class.exit140.i ]
+  %indvars.iv199.i = phi i64 [ 1, %entry ], [ %indvars.iv.next200.i, %size_class.exit140.i ]
   %indvars.iv.i = phi i64 [ 2, %entry ], [ %indvars.iv.next.i, %size_class.exit140.i ]
   %arrayidx39.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv.i
   %0 = trunc i64 %indvars.iv.i to i32
@@ -54,9 +54,9 @@ if.then9.i.i:                                     ; preds = %size_class.exit140.
   %lg_delta3.i125.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv.i, i32 2
   store i32 4, ptr %lg_delta3.i125.i, align 4
   %ndelta4.i126.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv.i, i32 3
-  %1 = trunc i64 %indvars.iv200.i to i32
+  %1 = trunc i64 %indvars.iv199.i to i32
   store i32 %1, ptr %ndelta4.i126.i, align 4
-  %shl2.i.i.i = shl nuw nsw i64 %indvars.iv200.i, 4
+  %shl2.i.i.i = shl nuw nsw i64 %indvars.iv199.i, 4
   %add.i.i.i = add nuw nsw i64 %shl2.i.i.i, 16
   %psz.i127.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv.i, i32 4
   store i8 0, ptr %psz.i127.i, align 4
@@ -83,59 +83,59 @@ size_class.exit140.i:                             ; preds = %while.body.i.i130.i
   %lg_delta_lookup19.i129.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv.i, i32 7
   store i32 4, ptr %lg_delta_lookup19.i129.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next201.i, 4
+  %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next200.i, 4
   br i1 %exitcond.not.i, label %while.body56.i, label %if.then9.i.i, !llvm.loop !6
 
 while.body56.i:                                   ; preds = %size_class.exit140.i, %while.end110.i
-  %indvars.iv215.i = phi i64 [ %indvars.iv.next216.i, %while.end110.i ], [ 6, %size_class.exit140.i ]
-  %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %while.end110.i ], [ 4, %size_class.exit140.i ]
-  %nlbins.2198.i = phi i32 [ %nlbins.4.i, %while.end110.i ], [ 1, %size_class.exit140.i ]
-  %nbins.5197.i = phi i32 [ %nbins.7.i, %while.end110.i ], [ 5, %size_class.exit140.i ]
-  %npsizes.6196.i = phi i32 [ %npsizes.8.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
-  %index.3195.i = phi i64 [ %indvars.iv.next206.i, %while.end110.i ], [ 5, %size_class.exit140.i ]
-  %lg_large_minclass.0194.i = phi i32 [ %lg_large_minclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
-  %small_maxclass.0193.i = phi i64 [ %small_maxclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
-  %lookup_maxclass.0192.i = phi i64 [ %lookup_maxclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
-  %cmp58.i = icmp eq i64 %indvars.iv215.i, 62
-  %shl.i.i.i = shl nuw nsw i64 1, %indvars.iv215.i
-  %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
-  %sext.i = shl i64 %index.3195.i, 32
+  %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %while.end110.i ], [ 6, %size_class.exit140.i ]
+  %indvars.iv212.i = phi i64 [ %indvars.iv.next213.i, %while.end110.i ], [ 4, %size_class.exit140.i ]
+  %nlbins.2197.i = phi i32 [ %nlbins.4.i, %while.end110.i ], [ 1, %size_class.exit140.i ]
+  %nbins.5196.i = phi i32 [ %nbins.7.i, %while.end110.i ], [ 5, %size_class.exit140.i ]
+  %npsizes.6195.i = phi i32 [ %npsizes.8.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
+  %index.3194.i = phi i64 [ %indvars.iv.next205.i, %while.end110.i ], [ 5, %size_class.exit140.i ]
+  %lg_large_minclass.0193.i = phi i32 [ %lg_large_minclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
+  %small_maxclass.0192.i = phi i64 [ %small_maxclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
+  %lookup_maxclass.0191.i = phi i64 [ %lookup_maxclass.2.i, %while.end110.i ], [ 0, %size_class.exit140.i ]
+  %cmp58.i = icmp eq i64 %indvars.iv214.i, 62
+  %shl.i.i.i = shl nuw nsw i64 1, %indvars.iv214.i
+  %indvars.iv.next215.i = add nuw nsw i64 %indvars.iv214.i, 1
+  %sext.i = shl i64 %index.3194.i, 32
   %4 = ashr exact i64 %sext.i, 32
   %wide.trip.count.i = select i1 %cmp58.i, i64 4, i64 5
-  %5 = trunc i64 %indvars.iv213.i to i32
-  %6 = trunc i64 %indvars.iv215.i to i32
-  %7 = trunc i64 %indvars.iv.next216.i to i32
+  %5 = trunc i64 %indvars.iv212.i to i32
+  %6 = trunc i64 %indvars.iv214.i to i32
+  %7 = trunc i64 %indvars.iv.next215.i to i32
   br label %while.body64.i
 
 while.body64.i:                                   ; preds = %size_class.exit172.i, %while.body56.i
-  %indvars.iv207.i = phi i64 [ 1, %while.body56.i ], [ %indvars.iv.next208.i, %size_class.exit172.i ]
-  %indvars.iv205.i = phi i64 [ %4, %while.body56.i ], [ %indvars.iv.next206.i, %size_class.exit172.i ]
-  %nlbins.3189.i = phi i32 [ %nlbins.2198.i, %while.body56.i ], [ %nlbins.4.i, %size_class.exit172.i ]
-  %nbins.6188.i = phi i32 [ %nbins.5197.i, %while.body56.i ], [ %nbins.7.i, %size_class.exit172.i ]
-  %npsizes.7187.i = phi i32 [ %npsizes.6196.i, %while.body56.i ], [ %npsizes.8.i, %size_class.exit172.i ]
-  %lg_large_minclass.1185.i = phi i32 [ %lg_large_minclass.0194.i, %while.body56.i ], [ %lg_large_minclass.2.i, %size_class.exit172.i ]
-  %small_maxclass.1184.i = phi i64 [ %small_maxclass.0193.i, %while.body56.i ], [ %small_maxclass.2.i, %size_class.exit172.i ]
-  %lookup_maxclass.1183.i = phi i64 [ %lookup_maxclass.0192.i, %while.body56.i ], [ %lookup_maxclass.2.i, %size_class.exit172.i ]
-  %arrayidx68.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i
-  %8 = trunc i64 %indvars.iv205.i to i32
+  %indvars.iv206.i = phi i64 [ 1, %while.body56.i ], [ %indvars.iv.next207.i, %size_class.exit172.i ]
+  %indvars.iv204.i = phi i64 [ %4, %while.body56.i ], [ %indvars.iv.next205.i, %size_class.exit172.i ]
+  %nlbins.3188.i = phi i32 [ %nlbins.2197.i, %while.body56.i ], [ %nlbins.4.i, %size_class.exit172.i ]
+  %nbins.6187.i = phi i32 [ %nbins.5196.i, %while.body56.i ], [ %nbins.7.i, %size_class.exit172.i ]
+  %npsizes.7186.i = phi i32 [ %npsizes.6195.i, %while.body56.i ], [ %npsizes.8.i, %size_class.exit172.i ]
+  %lg_large_minclass.1184.i = phi i32 [ %lg_large_minclass.0193.i, %while.body56.i ], [ %lg_large_minclass.2.i, %size_class.exit172.i ]
+  %small_maxclass.1183.i = phi i64 [ %small_maxclass.0192.i, %while.body56.i ], [ %small_maxclass.2.i, %size_class.exit172.i ]
+  %lookup_maxclass.1182.i = phi i64 [ %lookup_maxclass.0191.i, %while.body56.i ], [ %lookup_maxclass.2.i, %size_class.exit172.i ]
+  %arrayidx68.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i
+  %8 = trunc i64 %indvars.iv204.i to i32
   store i32 %8, ptr %arrayidx68.i, align 4
-  %lg_base2.i141.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 1
+  %lg_base2.i141.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 1
   store i32 %6, ptr %lg_base2.i141.i, align 4
-  %lg_delta3.i142.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 2
+  %lg_delta3.i142.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 2
   store i32 %5, ptr %lg_delta3.i142.i, align 4
-  %ndelta4.i143.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 3
-  %9 = trunc i64 %indvars.iv207.i to i32
+  %ndelta4.i143.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 3
+  %9 = trunc i64 %indvars.iv206.i to i32
   store i32 %9, ptr %ndelta4.i143.i, align 4
-  %shl2.i.i146.i = shl i64 %indvars.iv207.i, %indvars.iv213.i
+  %shl2.i.i146.i = shl i64 %indvars.iv206.i, %indvars.iv212.i
   %add.i.i147.i = add i64 %shl2.i.i146.i, %shl.i.i.i
   %rem.i148.i = and i64 %add.i.i147.i, 4095
   %cmp.i149.i = icmp eq i64 %rem.i148.i, 0
-  %psz.i150.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 4
+  %psz.i150.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 4
   %frombool.i151.i = zext i1 %cmp.i149.i to i8
   store i8 %frombool.i151.i, ptr %psz.i150.i, align 4
   %cmp8.i152.i = icmp ugt i64 %add.i.i147.i, 16383
-  %bin.i153.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 5
+  %bin.i153.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 5
   br i1 %cmp8.i152.i, label %if.end13.thread.i154.i, label %if.then9.i159.i
 
 if.then9.i159.i:                                  ; preds = %while.body64.i
@@ -155,59 +155,55 @@ while.body.i.i160.i:                              ; preds = %while.body.i.i160.i
 
 if.end13.thread.i154.i:                           ; preds = %while.body64.i
   store i8 0, ptr %bin.i153.i, align 1
-  %pgs12.i155.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 6
+  %pgs12.i155.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 6
   store i32 0, ptr %pgs12.i155.i, align 4
   br label %size_class.exit172.i
 
 if.end13.i167.i:                                  ; preds = %while.body.i.i160.i
   %div29.i.i168.i = lshr exact i64 %try_slab_size.011.i.i161.i, 12
   %conv.i24.i169.i = trunc i64 %div29.i.i168.i to i32
-  %pgs.i170.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 6
+  %pgs.i170.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 6
   store i32 %conv.i24.i169.i, ptr %pgs.i170.i, align 4
   %cmp16.i171.i = icmp ult i64 %add.i.i147.i, 4097
   %spec.select.i = select i1 %cmp16.i171.i, i32 %5, i32 0
   br label %size_class.exit172.i
 
 size_class.exit172.i:                             ; preds = %if.end13.i167.i, %if.end13.thread.i154.i
-  %lg_large_minclass.2.i = phi i32 [ %lg_large_minclass.1185.i, %if.end13.thread.i154.i ], [ %7, %if.end13.i167.i ]
-  %small_maxclass.2.i = phi i64 [ %small_maxclass.1184.i, %if.end13.thread.i154.i ], [ %add.i.i147.i, %if.end13.i167.i ]
+  %lg_large_minclass.2.i = phi i32 [ %lg_large_minclass.1184.i, %if.end13.thread.i154.i ], [ %7, %if.end13.i167.i ]
+  %small_maxclass.2.i = phi i64 [ %small_maxclass.1183.i, %if.end13.thread.i154.i ], [ %add.i.i147.i, %if.end13.i167.i ]
   %12 = phi i32 [ 0, %if.end13.thread.i154.i ], [ 1, %if.end13.i167.i ]
   %.sink.i157.i = phi i32 [ 0, %if.end13.thread.i154.i ], [ %spec.select.i, %if.end13.i167.i ]
-  %lg_delta_lookup19.i158.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv205.i, i32 7
+  %lg_delta_lookup19.i158.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 13, i64 %indvars.iv204.i, i32 7
   store i32 %.sink.i157.i, ptr %lg_delta_lookup19.i158.i, align 4
   %cmp70.not.i = icmp eq i32 %.sink.i157.i, 0
-  %indvars.iv.next206.i = add nsw i64 %indvars.iv205.i, 1
-  %lookup_maxclass.2.i = select i1 %cmp70.not.i, i64 %lookup_maxclass.1183.i, i64 %add.i.i147.i
-  %13 = trunc i64 %indvars.iv.next206.i to i32
-  %nlbins.4.i = select i1 %cmp70.not.i, i32 %nlbins.3189.i, i32 %13
+  %indvars.iv.next205.i = add nsw i64 %indvars.iv204.i, 1
+  %lookup_maxclass.2.i = select i1 %cmp70.not.i, i64 %lookup_maxclass.1182.i, i64 %add.i.i147.i
+  %13 = trunc i64 %indvars.iv.next205.i to i32
+  %nlbins.4.i = select i1 %cmp70.not.i, i32 %nlbins.3188.i, i32 %13
   %14 = zext i1 %cmp.i149.i to i32
-  %npsizes.8.i = add i32 %npsizes.7187.i, %14
-  %nbins.7.i = add i32 %12, %nbins.6188.i
-  %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
-  %exitcond212.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count.i
-  br i1 %exitcond212.not.i, label %while.end110.i, label %while.body64.i, !llvm.loop !7
+  %npsizes.8.i = add i32 %npsizes.7186.i, %14
+  %nbins.7.i = add i32 %12, %nbins.6187.i
+  %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
+  %exitcond211.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count.i
+  br i1 %exitcond211.not.i, label %while.end110.i, label %while.body64.i, !llvm.loop !7
 
 while.end110.i:                                   ; preds = %size_class.exit172.i
-  %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
-  %exitcond220.not.i = icmp eq i64 %indvars.iv.next216.i, 63
-  br i1 %exitcond220.not.i, label %size_classes.exit, label %while.body56.i, !llvm.loop !8
+  %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv212.i, 1
+  %exitcond219.not.i = icmp eq i64 %indvars.iv.next215.i, 63
+  br i1 %exitcond219.not.i, label %size_classes.exit, label %while.body56.i, !llvm.loop !8
 
 size_classes.exit:                                ; preds = %while.end110.i
   %15 = trunc i64 %wide.trip.count.i to i32
   %16 = add nsw i32 %15, -1
-  %17 = trunc i64 %index.3195.i to i32
+  %17 = trunc i64 %index.3194.i to i32
   %18 = add i32 %16, %17
-  %sext221.i = shl i64 %indvars.iv.next206.i, 32
-  %conv114.i = ashr exact i64 %sext221.i, 32
   %cmp.i.i.i.i.i = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
-  %19 = tail call i64 @llvm.ctlz.i64(i64 %conv114.i, i1 true), !range !9
-  %20 = trunc i64 %19 to i32
-  %conv1.i.i.i.i.i = xor i32 %20, 63
-  %21 = tail call i64 @llvm.ctpop.i64(i64 %conv114.i), !range !9
-  %cmp.i173.i = icmp ugt i64 %21, 1
-  %cond.i.i = zext i1 %cmp.i173.i to i32
-  %add.i.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i.i
+  %sext220.i = shl i64 %indvars.iv204.i, 32
+  %19 = ashr exact i64 %sext220.i, 32
+  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 false), !range !9
+  %21 = trunc i64 %20 to i32
+  %add.i.i = sub nuw nsw i32 64, %21
   store i32 1, ptr %sc_data, align 8
   %nlbins116.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 1
   store i32 %nlbins.4.i, ptr %nlbins116.i, align 4
@@ -317,7 +313,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @sc_boot(ptr nocapture noundef writeonly %data) local_unnamed_addr #1 {
 entry:
   tail call void @sc_data_init(ptr noundef %data)
@@ -330,15 +326,11 @@ declare void @llvm.assume(i1 noundef) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #5
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
