@@ -3652,9 +3652,7 @@ if.then59:                                        ; preds = %if.else56
   br label %if.end108
 
 if.else61:                                        ; preds = %if.else56
-  %sext = shl i64 %mul, 32
-  %conv62 = ashr exact i64 %sext, 32
-  %cmp63.not = icmp slt i64 %conv62, %bytes
+  %cmp63.not = icmp slt i64 %mul, %bytes
   tail call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 39) #14
   br i1 %cmp63.not, label %if.else67, label %if.then65
 
@@ -3679,7 +3677,7 @@ while.body.lr.ph:                                 ; preds = %if.else67
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end81.us
   %bytes_remaining.0.neg93.us = phi i64 [ %bytes_remaining.0.neg.us, %if.end81.us ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092.us = phi i64 [ %sub104.us, %if.end81.us ], [ %bytes, %while.body.lr.ph ]
-  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %conv62)
+  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %mul)
   %10 = and i64 %cond76.us, 4294967295
   %tobool78.not.us = icmp eq i64 %10, 0
   br i1 %tobool78.not.us, label %if.else80, label %if.end81.us
@@ -3700,7 +3698,7 @@ if.end81.us:                                      ; preds = %while.body.us
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
   %bytes_remaining.0.neg93 = phi i64 [ %bytes_remaining.0.neg, %if.end93 ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092 = phi i64 [ %sub104, %if.end93 ], [ %bytes, %while.body.lr.ph ]
-  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %conv62)
+  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %mul)
   %11 = and i64 %cond76, 4294967295
   %tobool78.not = icmp eq i64 %11, 0
   br i1 %tobool78.not, label %if.else80, label %if.end81

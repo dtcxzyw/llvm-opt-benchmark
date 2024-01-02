@@ -2516,12 +2516,12 @@ if.then11:                                        ; preds = %if.then
   %shr.i113 = ashr i32 %mul.i112, 19
   %add.i = add nsw i32 %shr.i113, %sub
   %2 = trunc i32 %shr.i111 to i16
-  %div.i114.lhs.trunc = sub nsw i16 292, %2
-  %div.i114273 = udiv i16 %div.i114.lhs.trunc, 27
-  %narrow = mul nuw nsw i16 %div.i114273, 27
-  %narrow276 = add nsw i16 %narrow, -292
-  %add.i116 = sext i16 %narrow276 to i32
-  %idxprom.i = zext nneg i16 %div.i114273 to i64
+  %div.i114273.lhs.trunc = sub nsw i16 292, %2
+  %div.i114273274 = udiv i16 %div.i114273.lhs.trunc, 27
+  %div.i114273.zext = zext nneg i16 %div.i114273274 to i32
+  %mul.i115 = mul nuw nsw i32 %div.i114273.zext, 27
+  %add.i116 = add nsw i32 %mul.i115, -292
+  %idxprom.i = zext nneg i16 %div.i114273274 to i64
   %arrayidx.i = getelementptr inbounds [23 x %"class.fmt::v9::detail::uint128_fallback"], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %idxprom.i
   %base_cache.sroa.3.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %base_cache.sroa.3.0.copyload.i = load i64, ptr %base_cache.sroa.3.0.arrayidx.sroa_idx.i, align 8
@@ -2588,8 +2588,8 @@ if.then8.i:                                       ; preds = %_ZN3fmt2v96detail9d
   %11 = and i128 %mul.i127, 1237940020838636201189572608
   %cmp2.i = icmp eq i128 %11, 0
   %cmp4.i = icmp ult i64 %conv3.i, -6067343680855748867
-  %or.cond274 = and i1 %cmp4.i, %cmp2.i
-  br i1 %or.cond274, label %if.then.i135, label %while.cond23.i
+  %or.cond275 = and i1 %cmp4.i, %cmp2.i
+  br i1 %or.cond275, label %if.then.i135, label %while.cond23.i
 
 if.then.i135:                                     ; preds = %if.then8.i
   %shr.i277 = lshr i128 %mul.i127, 90
@@ -2821,8 +2821,8 @@ if.end78:                                         ; preds = %if.else62, %if.then
   %28 = and i128 %mul.i220, 1237940020838636201189572608
   %cmp2.i166 = icmp eq i128 %28, 0
   %cmp4.i189 = icmp ult i64 %conv3.i223, -6067343680855748867
-  %or.cond275 = and i1 %cmp4.i189, %cmp2.i166
-  br i1 %or.cond275, label %if.then.i190, label %while.cond23.i168
+  %or.cond276 = and i1 %cmp4.i189, %cmp2.i166
+  br i1 %or.cond276, label %if.then.i190, label %while.cond23.i168
 
 if.then.i190:                                     ; preds = %if.end78
   %shr.i192280 = lshr i128 %mul.i220, 90
@@ -8335,7 +8335,7 @@ if.else.i140:                                     ; preds = %if.end30.i43
   br i1 %cmp14.i142, label %if.then15.i143, label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit153
 
 if.then15.i143:                                   ; preds = %if.else.i140
-  %add19.i144 = add i32 %30, %shr.i133
+  %add19.i144 = add nuw i32 %30, %shr.i133
   %conv20.i145 = zext i32 %add19.i144 to i64
   %sub23.i146 = sub nsw i32 %30, %add.i87
   %conv25.i147 = zext i32 %sub23.i146 to i64
@@ -8556,7 +8556,7 @@ if.else.i230:                                     ; preds = %if.end30.i87
   br i1 %cmp14.i232, label %if.then15.i233, label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit243
 
 if.then15.i233:                                   ; preds = %if.else.i230
-  %add19.i234 = add i32 %54, %shr.i223
+  %add19.i234 = add nuw i32 %54, %shr.i223
   %conv20.i235 = zext i32 %add19.i234 to i64
   %sub23.i236 = sub nsw i32 %54, %add.i161
   %conv25.i237 = zext i32 %sub23.i236 to i64
@@ -8782,7 +8782,7 @@ if.else.i327:                                     ; preds = %if.end30.i131
   br i1 %cmp14.i329, label %if.then15.i330, label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit340
 
 if.then15.i330:                                   ; preds = %if.else.i327
-  %add19.i331 = add i32 %.pre, %shr.i320
+  %add19.i331 = add nuw i32 %.pre, %shr.i320
   %conv20.i332 = zext i32 %add19.i331 to i64
   %sub23.i333 = sub nsw i32 %.pre, %add.i246
   %conv25.i334 = zext i32 %sub23.i333 to i64
@@ -28674,7 +28674,7 @@ if.else.i:                                        ; preds = %if.end30.i
   br i1 %cmp14.i, label %if.then15.i, label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 if.then15.i:                                      ; preds = %if.else.i
-  %add19.i = add i32 %7, %shr.i76
+  %add19.i = add nuw i32 %7, %shr.i76
   %conv20.i = zext i32 %add19.i to i64
   %sub23.i = sub nsw i32 %7, %sub.i.i
   %conv25.i = zext i32 %sub23.i to i64

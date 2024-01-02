@@ -2830,12 +2830,12 @@ if.then11:                                        ; preds = %if.then
   %shr.i123 = ashr i32 %mul.i122, 19
   %add.i = add nsw i32 %shr.i123, %sub
   %2 = trunc i32 %shr.i121 to i16
-  %div.i124.lhs.trunc = sub nsw i16 292, %2
-  %div.i124284 = udiv i16 %div.i124.lhs.trunc, 27
-  %narrow = mul nuw nsw i16 %div.i124284, 27
-  %narrow287 = add nsw i16 %narrow, -292
-  %add.i126 = sext i16 %narrow287 to i32
-  %idxprom.i = zext nneg i16 %div.i124284 to i64
+  %div.i124284.lhs.trunc = sub nsw i16 292, %2
+  %div.i124284285 = udiv i16 %div.i124284.lhs.trunc, 27
+  %div.i124284.zext = zext nneg i16 %div.i124284285 to i32
+  %mul.i125 = mul nuw nsw i32 %div.i124284.zext, 27
+  %add.i126 = add nsw i32 %mul.i125, -292
+  %idxprom.i = zext nneg i16 %div.i124284285 to i64
   %arrayidx.i = getelementptr inbounds [24 x %"class.fmt::v10::detail::uint128_fallback"], ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %idxprom.i
   %base_cache.sroa.3.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %base_cache.sroa.3.0.copyload.i = load i64, ptr %base_cache.sroa.3.0.arrayidx.sroa_idx.i, align 8
@@ -2902,8 +2902,8 @@ if.then8.i:                                       ; preds = %_ZN3fmt3v106detail9
   %11 = and i128 %mul.i139, 1237940020838636201189572608
   %cmp2.i = icmp eq i128 %11, 0
   %cmp4.i = icmp ult i64 %conv3.i, -6067343680855748867
-  %or.cond285 = and i1 %cmp4.i, %cmp2.i
-  br i1 %or.cond285, label %if.then.i141, label %while.cond.i
+  %or.cond286 = and i1 %cmp4.i, %cmp2.i
+  br i1 %or.cond286, label %if.then.i141, label %while.cond.i
 
 if.then.i141:                                     ; preds = %if.then8.i
   %shr.i288 = lshr i128 %mul.i139, 90
@@ -3135,8 +3135,8 @@ if.end78:                                         ; preds = %if.else62, %if.then
   %28 = and i128 %mul.i231, 1237940020838636201189572608
   %cmp2.i167 = icmp eq i128 %28, 0
   %cmp4.i191 = icmp ult i64 %conv3.i234, -6067343680855748867
-  %or.cond286 = and i1 %cmp4.i191, %cmp2.i167
-  br i1 %or.cond286, label %if.then.i192, label %while.cond.i169
+  %or.cond287 = and i1 %cmp4.i191, %cmp2.i167
+  br i1 %or.cond287, label %if.then.i192, label %while.cond.i169
 
 if.then.i192:                                     ; preds = %if.end78
   %shr.i194291 = lshr i128 %mul.i231, 90
