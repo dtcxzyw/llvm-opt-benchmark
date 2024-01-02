@@ -4867,8 +4867,10 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %15)
   %16 = getelementptr inbounds i8, ptr %indexer.i, i64 16
   %this.val.i.i = load i64, ptr %16, align 16
-  %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
+  %tobool.i.not.i.i.i = icmp ne i64 %this.val.i.i, 0
+  %tobool.i.not.i.not.i.i = xor i1 %tobool.i.not.i.i.i, true
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
+  %tobool.i.not.i.mux.i.i = select i1 %cmp.i.i, i1 %tobool.i.not.i.i.i, i1 false
   br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
 if.end.i25.i:                                     ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
@@ -4926,7 +4928,7 @@ if.end48.i.i:                                     ; preds = %if.end36.i.i
   ]
 
 if.then50.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end61.i.i, label %if.then52.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then52.i.i, label %if.end61.i.i
 
 if.then52.i.i:                                    ; preds = %if.then50.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
@@ -4952,7 +4954,7 @@ if.end72.i.i:                                     ; preds = %if.end61.i.i
   br label %if.end106.i.i
 
 if.then76.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end81.i.i, label %if.then78.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then78.i.i, label %if.end81.i.i
 
 if.then78.i.i:                                    ; preds = %if.then76.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
@@ -7174,8 +7176,10 @@ if.end45.i.i.i:                                   ; preds = %if.then33.i.i.i, %i
 _ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i: ; preds = %if.end45.i.i.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %24 = getelementptr inbounds i8, ptr %indexer.i, i64 16
   %this.val.i.i = load i64, ptr %24, align 16
-  %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
+  %tobool.i.not.i.i.i = icmp ne i64 %this.val.i.i, 0
+  %tobool.i.not.i.not.i.i = xor i1 %tobool.i.not.i.i.i, true
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
+  %tobool.i.not.i.mux.i.i = select i1 %cmp.i.i, i1 %tobool.i.not.i.i.i, i1 false
   br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
 if.end.i25.i:                                     ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
@@ -7233,7 +7237,7 @@ if.end48.i.i:                                     ; preds = %if.end36.i.i
   ]
 
 if.then50.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end61.i.i, label %if.then52.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then52.i.i, label %if.end61.i.i
 
 if.then52.i.i:                                    ; preds = %if.then50.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
@@ -7259,7 +7263,7 @@ if.end72.i.i:                                     ; preds = %if.end61.i.i
   br label %if.end106.i.i
 
 if.then76.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end81.i.i, label %if.then78.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then78.i.i, label %if.end81.i.i
 
 if.then78.i.i:                                    ; preds = %if.then76.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
@@ -9576,8 +9580,10 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %15)
   %16 = getelementptr inbounds i8, ptr %indexer.i, i64 16
   %this.val.i.i = load i64, ptr %16, align 16
-  %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
+  %tobool.i.not.i.i.i = icmp ne i64 %this.val.i.i, 0
+  %tobool.i.not.i.not.i.i = xor i1 %tobool.i.not.i.i.i, true
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
+  %tobool.i.not.i.mux.i.i = select i1 %cmp.i.i, i1 %tobool.i.not.i.i.i, i1 false
   br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
 if.end.i25.i:                                     ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
@@ -9635,7 +9641,7 @@ if.end48.i.i:                                     ; preds = %if.end36.i.i
   ]
 
 if.then50.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end61.i.i, label %if.then52.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then52.i.i, label %if.end61.i.i
 
 if.then52.i.i:                                    ; preds = %if.then50.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
@@ -9661,7 +9667,7 @@ if.end72.i.i:                                     ; preds = %if.end61.i.i
   br label %if.end106.i.i
 
 if.then76.i.i:                                    ; preds = %if.end48.i.i
-  br i1 %tobool.i.not.i.not.i.i, label %if.end81.i.i, label %if.then78.i.i
+  br i1 %tobool.i.not.i.mux.i.i, label %if.then78.i.i, label %if.end81.i.i
 
 if.then78.i.i:                                    ; preds = %if.then76.i.i
   store i32 %sub39.i.i, ptr %n_structural_indexes.i.i, align 8
