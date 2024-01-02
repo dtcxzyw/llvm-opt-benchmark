@@ -10466,7 +10466,7 @@ if.end.i.i.i:                                     ; preds = %call2.i8.i5.i.noexc
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %7 = load i8, ptr %cond.i.i, align 1, !tbaa !14
+  %7 = load i8, ptr %inlined.i.i, align 4, !tbaa !14
   store i8 %7, ptr %6, align 1, !tbaa !14
   br label %invoke.cont4
 
@@ -10569,7 +10569,7 @@ if.end.i.i.i56:                                   ; preds = %call2.i8.i5.i.noexc
   ]
 
 if.then.i.i.i.i.i59:                              ; preds = %if.end.i.i.i56
-  %23 = load i8, ptr %cond.i.i51, align 1, !tbaa !14
+  %23 = load i8, ptr %inlined.i.i, align 4, !tbaa !14
   store i8 %23, ptr %22, align 1, !tbaa !14
   br label %invoke.cont11
 

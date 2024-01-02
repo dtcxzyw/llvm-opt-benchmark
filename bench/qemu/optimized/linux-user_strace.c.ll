@@ -5039,8 +5039,7 @@ print_string.exit:                                ; preds = %if.then.i5, %if.the
   br i1 %cmp.i7, label %print_file_mode.exit.thread, label %for.body.i.preheader
 
 print_file_mode.exit.thread:                      ; preds = %print_string.exit
-  %cond.i14.i23 = select i1 %cmp.not, ptr @.str.18, ptr @.str.24
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.513, ptr noundef nonnull %cond.i14.i23) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.18) #9
   br label %if.end
 
 for.body.i.preheader:                             ; preds = %print_string.exit

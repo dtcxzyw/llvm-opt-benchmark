@@ -6967,7 +6967,6 @@ if.end9:                                          ; preds = %lor.lhs.false, %if.
   %tobool10.not = icmp eq i8 %isShort, 0
   %cond11 = zext i1 %tobool10.not to i32
   %tobool14.not = icmp eq i8 %isBasic, 0
-  %conv = select i1 %tobool14.not, i16 58, i16 0
   %cmp16 = icmp ugt i32 %cond, 86399999
   br i1 %cmp16, label %if.then17, label %if.end18
 
@@ -7081,7 +7080,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
 
 if.then46:                                        ; preds = %for.body42
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i42)
-  store i16 %conv, ptr %srcChar.addr.i42, align 2
+  store i16 58, ptr %srcChar.addr.i42, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i42, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i42)
   br label %if.end48
@@ -7402,7 +7401,7 @@ if.end:                                           ; preds = %if.then, %for.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7514TimeZoneFormat22parseAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionEDsNS0_12OffsetFieldsES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i16 noundef zeroext %sep, i32 noundef %minFields, i32 noundef %maxFields) local_unnamed_addr #14 align 2 {
 entry:
   %fieldVal = alloca [3 x i32], align 4
@@ -7576,7 +7575,7 @@ return:                                           ; preds = %if.end85, %if.then8
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7514TimeZoneFormat30parseAbuttingAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionENS0_12OffsetFieldsES6_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %minFields, i32 noundef %maxFields, i8 noundef signext %fixedHourWidth) local_unnamed_addr #14 align 2 {
 entry:
   %digits = alloca [6 x i32], align 16
@@ -9181,7 +9180,7 @@ attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind memory(read) }
-attributes #14 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -931,7 +931,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.end3
 
 if.end3:                                          ; preds = %for.body
-  %4 = shl nuw nsw i32 %spec.select, 7
+  %4 = shl nuw nsw i32 %i.011, 7
   %mul.i1.i = add nuw nsw i32 %4, 280
   %conv.i2.i = zext nneg i32 %mul.i1.i to i64
   %5 = load ptr, ptr %dev.i.i, align 8
@@ -940,7 +940,7 @@ if.end3:                                          ; preds = %for.body
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %5, i64 %6, i8 %7, i64 noundef %conv.i2.i) #16
   %and5 = and i32 %call.i.i.i, 1
   %cmp6.not = icmp eq i32 %and5, 0
-  br i1 %cmp6.not, label %for.inc, label %do.body
+  br i1 %cmp6.not, label %for.inc, label %do.end
 
 for.inc:                                          ; preds = %if.end3, %for.body
   %shr = lshr i32 %ports.010, 1
@@ -948,16 +948,12 @@ for.inc:                                          ; preds = %if.end3, %for.body
   %cmp = icmp ult i32 %spec.select, 31
   br i1 %cmp, label %for.body, label %if.else, !llvm.loop !9
 
-do.body:                                          ; preds = %if.end3
-  %cmp10 = icmp ult i32 %spec.select, 32
-  br i1 %cmp10, label %do.end, label %if.else
-
-if.else:                                          ; preds = %for.inc, %do.body
+if.else:                                          ; preds = %for.inc
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.ahci_port_select, ptr noundef nonnull @.str.25) #15
   unreachable
 
-do.end:                                           ; preds = %do.body
-  ret i32 %spec.select
+do.end:                                           ; preds = %if.end3
+  ret i32 %i.011
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1695,7 +1691,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @size_to_prdtl(i32 noundef %bytes, i32 noundef %bytes_per_prd) local_unnamed_addr #0 {
+define dso_local noundef i32 @size_to_prdtl(i32 noundef %bytes, i32 noundef %bytes_per_prd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %bytes_per_prd, 4194305
   br i1 %cmp, label %do.body4, label %if.else
@@ -2016,7 +2012,7 @@ if.end94:                                         ; preds = %ahci_free.exit, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @ahci_atapi_command_create(i8 noundef zeroext %scsi_cmd, i16 noundef zeroext %bcl, i1 noundef zeroext %dma) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @ahci_atapi_command_create(i8 noundef zeroext %scsi_cmd, i16 noundef zeroext %bcl, i1 noundef zeroext %dma) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -2074,7 +2070,7 @@ if.end:                                           ; preds = %if.else, %ahci_comm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @ahci_command_create(i8 noundef zeroext %command_name) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @ahci_command_create(i8 noundef zeroext %command_name) local_unnamed_addr #0 {
 entry:
   br label %for.body.i
 
@@ -2811,7 +2807,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @ahci_guest_io_halt(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @ahci_guest_io_halt(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext %ide_cmd)
   tail call void @ahci_command_set_sizes(ptr noundef %call, i64 noundef %bufsize, i32 noundef 0)
@@ -3421,7 +3417,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @copy_buffer(ptr nocapture noundef readonly %ahci, ptr nocapture readnone %cmd, ptr nocapture noundef readonly %opts) #0 {
+define internal noundef i32 @copy_buffer(ptr nocapture noundef readonly %ahci, ptr nocapture readnone %cmd, ptr nocapture noundef readonly %opts) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.AHCIOpts, ptr %opts, i64 0, i32 12
   %0 = load ptr, ptr %opaque, align 8

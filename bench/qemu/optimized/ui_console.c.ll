@@ -883,7 +883,7 @@ return:                                           ; preds = %if.then, %if.end4
 declare void @qemu_text_console_handle_keysym(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_text_console_put_qcode(ptr noundef %s, i32 noundef %qcode, i1 noundef zeroext %ctrl) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_text_console_put_qcode(ptr noundef %s, i32 noundef %qcode, i1 noundef zeroext %ctrl) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %qcode to i64
   %arrayidx = getelementptr [162 x i32], ptr @ctrl_qcode_to_keysym, i64 0, i64 %idxprom
@@ -972,7 +972,7 @@ for.end:                                          ; preds = %land.rhs, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_create_displaysurface(i32 noundef %width, i32 noundef %height) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_create_displaysurface(i32 noundef %width, i32 noundef %height) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1018,7 +1018,7 @@ trace_displaysurface_create.exit:                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_create_displaysurface_from(i32 noundef %width, i32 noundef %height, i32 noundef %format, i32 noundef %linesize, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_create_displaysurface_from(i32 noundef %width, i32 noundef %height, i32 noundef %format, i32 noundef %linesize, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #19
@@ -1076,7 +1076,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare ptr @pixman_image_create_bits(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_create_displaysurface_pixman(ptr noundef %image) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_create_displaysurface_pixman(ptr noundef %image) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #19
@@ -1123,7 +1123,7 @@ trace_displaysurface_create_pixman.exit:          ; preds = %entry, %land.lhs.tr
 declare ptr @pixman_image_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_create_placeholder_surface(i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %msg) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_create_placeholder_surface(i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %msg) local_unnamed_addr #0 {
 entry:
   %bg = alloca %struct.pixman_color, align 8
   %fg = alloca %struct.pixman_color, align 8
@@ -1739,7 +1739,7 @@ if.end:                                           ; preds = %dpy_ui_info_support
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @dpy_set_ui_info(ptr noundef %con, ptr nocapture noundef readonly %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
+define dso_local noundef i32 @dpy_set_ui_info(ptr noundef %con, ptr nocapture noundef readonly %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1785,154 +1785,138 @@ entry:
   %ds = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 2
   %0 = load ptr, ptr %ds, align 8
   %add = add i32 %w, %x
-  %cmp.i = icmp eq ptr %con, null
-  %1 = load ptr, ptr @active_console, align 8
-  %spec.select.i = select i1 %cmp.i, ptr %1, ptr %con
-  %cmp1.i = icmp eq ptr %spec.select.i, null
-  br i1 %cmp1.i, label %qemu_console_get_width.exit.thread73, label %if.end3.i
-
-qemu_console_get_width.exit.thread73:             ; preds = %entry
-  %add176 = add i32 %h, %y
-  br label %qemu_console_get_height.exit
-
-if.end3.i:                                        ; preds = %entry
-  %scanout.i = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i, i64 0, i32 4
-  %2 = load i32, ptr %scanout.i, align 8
-  switch i32 %2, label %if.end3.i47 [
+  %scanout.i = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4
+  %1 = load i32, ptr %scanout.i, align 8
+  switch i32 %1, label %qemu_console_get_width.exit [
     i32 3, label %sw.bb.i
     i32 2, label %sw.bb5.i
     i32 1, label %sw.bb8.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end3.i
-  %3 = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i, i64 0, i32 4, i32 1
-  %4 = load ptr, ptr %3, align 8
-  %width.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %4, i64 0, i32 1
-  %5 = load i32, ptr %width.i, align 4
-  br label %if.end3.i47
+sw.bb.i:                                          ; preds = %entry
+  %2 = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %width.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %3, i64 0, i32 1
+  %4 = load i32, ptr %width.i, align 4
+  br label %qemu_console_get_width.exit
 
-sw.bb5.i:                                         ; preds = %if.end3.i
-  %width7.i = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i, i64 0, i32 4, i32 1, i32 0, i32 6
-  %6 = load i32, ptr %width7.i, align 8
-  br label %if.end3.i47
+sw.bb5.i:                                         ; preds = %entry
+  %width7.i = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4, i32 1, i32 0, i32 6
+  %5 = load i32, ptr %width7.i, align 8
+  br label %qemu_console_get_width.exit
 
-sw.bb8.i:                                         ; preds = %if.end3.i
-  %surface.i = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i, i64 0, i32 3
-  %7 = load ptr, ptr %surface.i, align 8
-  %.val.i = load ptr, ptr %7, align 8
+sw.bb8.i:                                         ; preds = %entry
+  %surface.i = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 3
+  %6 = load ptr, ptr %surface.i, align 8
+  %.val.i = load ptr, ptr %6, align 8
   %call.i.i = tail call i32 @pixman_image_get_width(ptr noundef %.val.i) #17
-  %.pre = load ptr, ptr @active_console, align 8
-  br label %if.end3.i47
+  br label %qemu_console_get_width.exit
 
-if.end3.i47:                                      ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb.i, %if.end3.i
-  %spec.select.i45.pre-phi.ph = phi ptr [ %con, %sw.bb8.i ], [ %spec.select.i, %sw.bb5.i ], [ %spec.select.i, %sw.bb.i ], [ %spec.select.i, %if.end3.i ]
-  %.ph = phi ptr [ %.pre, %sw.bb8.i ], [ %1, %sw.bb5.i ], [ %1, %sw.bb.i ], [ %1, %if.end3.i ]
-  %retval.0.i.ph = phi i32 [ %call.i.i, %sw.bb8.i ], [ %6, %sw.bb5.i ], [ %5, %sw.bb.i ], [ %add, %if.end3.i ]
-  %add167 = add i32 %h, %y
-  %scanout.i48 = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i45.pre-phi.ph, i64 0, i32 4
-  %8 = load i32, ptr %scanout.i48, align 8
-  switch i32 %8, label %qemu_console_get_height.exit [
+qemu_console_get_width.exit:                      ; preds = %entry, %sw.bb.i, %sw.bb5.i, %sw.bb8.i
+  %retval.0.i = phi i32 [ %call.i.i, %sw.bb8.i ], [ %5, %sw.bb5.i ], [ %4, %sw.bb.i ], [ %add, %entry ]
+  %add1 = add i32 %h, %y
+  %scanout.i48 = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4
+  %7 = load i32, ptr %scanout.i48, align 8
+  switch i32 %7, label %qemu_console_get_height.exit [
     i32 3, label %sw.bb.i55
     i32 2, label %sw.bb5.i54
     i32 1, label %sw.bb8.i49
   ]
 
-sw.bb.i55:                                        ; preds = %if.end3.i47
-  %9 = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i45.pre-phi.ph, i64 0, i32 4, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %height.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %10, i64 0, i32 2
-  %11 = load i32, ptr %height.i, align 8
+sw.bb.i55:                                        ; preds = %qemu_console_get_width.exit
+  %8 = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %height.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %9, i64 0, i32 2
+  %10 = load i32, ptr %height.i, align 8
   br label %qemu_console_get_height.exit
 
-sw.bb5.i54:                                       ; preds = %if.end3.i47
-  %height7.i = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i45.pre-phi.ph, i64 0, i32 4, i32 1, i32 0, i32 7
-  %12 = load i32, ptr %height7.i, align 4
+sw.bb5.i54:                                       ; preds = %qemu_console_get_width.exit
+  %height7.i = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 4, i32 1, i32 0, i32 7
+  %11 = load i32, ptr %height7.i, align 4
   br label %qemu_console_get_height.exit
 
-sw.bb8.i49:                                       ; preds = %if.end3.i47
-  %surface.i50 = getelementptr inbounds %struct.QemuConsole, ptr %spec.select.i45.pre-phi.ph, i64 0, i32 3
-  %13 = load ptr, ptr %surface.i50, align 8
-  %.val.i51 = load ptr, ptr %13, align 8
+sw.bb8.i49:                                       ; preds = %qemu_console_get_width.exit
+  %surface.i50 = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 3
+  %12 = load ptr, ptr %surface.i50, align 8
+  %.val.i51 = load ptr, ptr %12, align 8
   %call.i.i52 = tail call i32 @pixman_image_get_height(ptr noundef %.val.i51) #17
-  %.pre61 = load ptr, ptr @active_console, align 8
   br label %qemu_console_get_height.exit
 
-qemu_console_get_height.exit:                     ; preds = %qemu_console_get_width.exit.thread73, %if.end3.i47, %sw.bb.i55, %sw.bb5.i54, %sw.bb8.i49
-  %retval.0.i71 = phi i32 [ %retval.0.i.ph, %sw.bb8.i49 ], [ %retval.0.i.ph, %sw.bb5.i54 ], [ %retval.0.i.ph, %sw.bb.i55 ], [ %retval.0.i.ph, %if.end3.i47 ], [ %add, %qemu_console_get_width.exit.thread73 ]
-  %14 = phi ptr [ %.pre61, %sw.bb8.i49 ], [ %.ph, %sw.bb5.i54 ], [ %.ph, %sw.bb.i55 ], [ %.ph, %if.end3.i47 ], [ %1, %qemu_console_get_width.exit.thread73 ]
-  %retval.0.i53 = phi i32 [ %call.i.i52, %sw.bb8.i49 ], [ %12, %sw.bb5.i54 ], [ %11, %sw.bb.i55 ], [ %add167, %if.end3.i47 ], [ %add176, %qemu_console_get_width.exit.thread73 ]
+qemu_console_get_height.exit:                     ; preds = %qemu_console_get_width.exit, %sw.bb.i55, %sw.bb5.i54, %sw.bb8.i49
+  %retval.0.i53 = phi i32 [ %call.i.i52, %sw.bb8.i49 ], [ %11, %sw.bb5.i54 ], [ %10, %sw.bb.i55 ], [ %add1, %qemu_console_get_width.exit ]
   %cond = tail call i32 @llvm.smax.i32(i32 %x, i32 0)
   %cond8 = tail call i32 @llvm.smax.i32(i32 %y, i32 0)
-  %cond14 = tail call i32 @llvm.smin.i32(i32 %cond, i32 %retval.0.i71)
+  %cond14 = tail call i32 @llvm.smin.i32(i32 %cond, i32 %retval.0.i)
   %cond20 = tail call i32 @llvm.smin.i32(i32 %cond8, i32 %retval.0.i53)
-  %sub = sub i32 %retval.0.i71, %cond14
+  %sub = sub i32 %retval.0.i, %cond14
   %cond26 = tail call i32 @llvm.smin.i32(i32 %sub, i32 %w)
   %sub27 = sub i32 %retval.0.i53, %cond20
   %cond33 = tail call i32 @llvm.smin.i32(i32 %sub27, i32 %h)
-  %cmp.i56 = icmp eq ptr %14, %con
+  %13 = load ptr, ptr @active_console, align 8
+  %cmp.i56 = icmp eq ptr %13, %con
   br i1 %cmp.i56, label %if.end, label %qemu_console_is_visible.exit
 
 qemu_console_is_visible.exit:                     ; preds = %qemu_console_get_height.exit
   %dcls.i = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 5
-  %15 = load i32, ptr %dcls.i, align 8
-  %cmp1.i57 = icmp sgt i32 %15, 0
+  %14 = load i32, ptr %dcls.i, align 8
+  %cmp1.i57 = icmp sgt i32 %14, 0
   br i1 %cmp1.i57, label %if.end, label %for.end
 
 if.end:                                           ; preds = %qemu_console_get_height.exit, %qemu_console_is_visible.exit
   %surface = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 3
-  %16 = load ptr, ptr %surface, align 8
-  %17 = getelementptr i8, ptr %con, i64 120
-  %con.val = load ptr, ptr %17, align 8
+  %15 = load ptr, ptr %surface, align 8
+  %16 = getelementptr i8, ptr %con, i64 120
+  %con.val = load ptr, ptr %16, align 8
   %tobool.not.i = icmp eq ptr %con.val, null
   br i1 %tobool.not.i, label %dpy_gfx_update_texture.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %18 = load ptr, ptr %con.val, align 8
-  %dpy_gl_ctx_update_texture.i = getelementptr inbounds %struct.DisplayGLCtxOps, ptr %18, i64 0, i32 6
-  %19 = load ptr, ptr %dpy_gl_ctx_update_texture.i, align 8
-  %tobool2.not.i = icmp eq ptr %19, null
+  %17 = load ptr, ptr %con.val, align 8
+  %dpy_gl_ctx_update_texture.i = getelementptr inbounds %struct.DisplayGLCtxOps, ptr %17, i64 0, i32 6
+  %18 = load ptr, ptr %dpy_gl_ctx_update_texture.i, align 8
+  %tobool2.not.i = icmp eq ptr %18, null
   br i1 %tobool2.not.i, label %dpy_gfx_update_texture.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void %19(ptr noundef nonnull %con.val, ptr noundef %16, i32 noundef %cond14, i32 noundef %cond20, i32 noundef %cond26, i32 noundef %cond33) #17
+  tail call void %18(ptr noundef nonnull %con.val, ptr noundef %15, i32 noundef %cond14, i32 noundef %cond20, i32 noundef %cond26, i32 noundef %cond33) #17
   br label %dpy_gfx_update_texture.exit
 
 dpy_gfx_update_texture.exit:                      ; preds = %if.end, %land.lhs.true.i, %if.then.i
   %listeners = getelementptr inbounds %struct.DisplayState, ptr %0, i64 0, i32 4
-  %dcl.058 = load ptr, ptr %listeners, align 8
-  %tobool.not59 = icmp eq ptr %dcl.058, null
-  br i1 %tobool.not59, label %for.end, label %for.body.preheader
+  %dcl.059 = load ptr, ptr %listeners, align 8
+  %tobool.not60 = icmp eq ptr %dcl.059, null
+  br i1 %tobool.not60, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %dpy_gfx_update_texture.exit
-  %.pre63 = load ptr, ptr @active_console, align 8
+  %.pre62 = load ptr, ptr @active_console, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %20 = phi ptr [ %24, %for.inc ], [ %.pre63, %for.body.preheader ]
-  %dcl.060 = phi ptr [ %dcl.0, %for.inc ], [ %dcl.058, %for.body.preheader ]
-  %con35 = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.060, i64 0, i32 3
-  %21 = load ptr, ptr %con35, align 8
-  %tobool36.not = icmp eq ptr %21, null
-  %cond41 = select i1 %tobool36.not, ptr %20, ptr %21
+  %19 = phi ptr [ %23, %for.inc ], [ %.pre62, %for.body.preheader ]
+  %dcl.061 = phi ptr [ %dcl.0, %for.inc ], [ %dcl.059, %for.body.preheader ]
+  %con35 = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.061, i64 0, i32 3
+  %20 = load ptr, ptr %con35, align 8
+  %tobool36.not = icmp eq ptr %20, null
+  %cond41 = select i1 %tobool36.not, ptr %19, ptr %20
   %cmp42.not = icmp eq ptr %cond41, %con
   br i1 %cmp42.not, label %if.end44, label %for.inc
 
 if.end44:                                         ; preds = %for.body
-  %ops = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.060, i64 0, i32 1
-  %22 = load ptr, ptr %ops, align 8
-  %dpy_gfx_update = getelementptr inbounds %struct.DisplayChangeListenerOps, ptr %22, i64 0, i32 2
-  %23 = load ptr, ptr %dpy_gfx_update, align 8
-  %tobool45.not = icmp eq ptr %23, null
+  %ops = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.061, i64 0, i32 1
+  %21 = load ptr, ptr %ops, align 8
+  %dpy_gfx_update = getelementptr inbounds %struct.DisplayChangeListenerOps, ptr %21, i64 0, i32 2
+  %22 = load ptr, ptr %dpy_gfx_update, align 8
+  %tobool45.not = icmp eq ptr %22, null
   br i1 %tobool45.not, label %for.inc, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  tail call void %23(ptr noundef nonnull %dcl.060, i32 noundef %cond14, i32 noundef %cond20, i32 noundef %cond26, i32 noundef %cond33) #17
-  %.pre62 = load ptr, ptr @active_console, align 8
+  tail call void %22(ptr noundef nonnull %dcl.061, i32 noundef %cond14, i32 noundef %cond20, i32 noundef %cond26, i32 noundef %cond33) #17
+  %.pre = load ptr, ptr @active_console, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end44, %if.then46, %for.body
-  %24 = phi ptr [ %20, %if.end44 ], [ %.pre62, %if.then46 ], [ %20, %for.body ]
-  %next = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.060, i64 0, i32 4
+  %23 = phi ptr [ %19, %if.end44 ], [ %.pre, %if.then46 ], [ %19, %for.body ]
+  %next = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl.061, i64 0, i32 4
   %dcl.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %dcl.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
@@ -2285,7 +2269,7 @@ dpy_gfx_destroy_texture.exit:                     ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @dpy_gfx_check_format(ptr noundef readonly %con, i32 noundef %format) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @dpy_gfx_check_format(ptr noundef readonly %con, i32 noundef %format) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 2
   %0 = load ptr, ptr %ds, align 8
@@ -2626,7 +2610,7 @@ declare void @cursor_unref(ptr noundef) local_unnamed_addr #1
 declare ptr @cursor_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @dpy_cursor_define_supported(ptr nocapture noundef readonly %con) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @dpy_cursor_define_supported(ptr nocapture noundef readonly %con) local_unnamed_addr #5 {
 entry:
   %ds = getelementptr inbounds %struct.QemuConsole, ptr %con, i64 0, i32 2
   %0 = load ptr, ptr %ds, align 8
@@ -3204,7 +3188,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @graphic_console_init(ptr noundef %dev, i32 noundef %head, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef ptr @graphic_console_init(ptr noundef %dev, i32 noundef %head, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %_now.i.i24 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3589,7 +3573,7 @@ if.end:                                           ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_console_lookup_by_device(ptr noundef readnone %dev, i32 noundef %head) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_console_lookup_by_device(ptr noundef readnone %dev, i32 noundef %head) local_unnamed_addr #0 {
 entry:
   %con.05 = load ptr, ptr @consoles, align 8
   %tobool.not6 = icmp eq ptr %con.05, null
@@ -3624,7 +3608,7 @@ declare ptr @object_property_get_link(ptr noundef, ptr noundef, ptr noundef) loc
 declare i64 @object_property_get_uint(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_console_lookup_by_device_name(ptr noundef %device_id, i32 noundef %head, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_console_lookup_by_device_name(ptr noundef %device_id, i32 noundef %head, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_get_default() #17
   %call1 = tail call ptr @qdev_find_recursive(ptr noundef %call, ptr noundef %device_id) #17
@@ -4125,7 +4109,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @qemu_display_find_default(ptr nocapture noundef readnone %opts) local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @qemu_display_find_default(ptr nocapture noundef readnone %opts) local_unnamed_addr #10 {
 entry:
   ret i1 false
 }

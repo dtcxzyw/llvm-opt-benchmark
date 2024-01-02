@@ -648,13 +648,13 @@ for.body.lr.ph:                                   ; preds = %entry
   %in_mask8 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 22
   %port13 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 7
   %out_xor18 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 20
-  %pue = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 8
   %output_en27 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 6
   %input_en32 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 5
   %rise_ip37 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 11
   %fall_ip42 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 13
   %low_ip47 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 17
   %high_ip52 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 15
+  %pue = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit135

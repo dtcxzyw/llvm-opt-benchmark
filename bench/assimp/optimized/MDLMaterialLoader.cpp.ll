@@ -1929,8 +1929,8 @@ entry:
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szCurrent.addr.0) #20
-  %0 = getelementptr i8, ptr %szCurrent.addr.0, i64 %call
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szCurrent) #20
+  %0 = getelementptr i8, ptr %szCurrent, i64 %call
   %add.ptr4 = getelementptr i8, ptr %0, i64 1
   br label %if.end24
 

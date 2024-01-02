@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end6
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @raxNew() local_unnamed_addr #1 {
+define dso_local noundef ptr @raxNew() local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #22
   %cmp = icmp eq ptr %call, null
@@ -543,7 +543,7 @@ return:                                           ; preds = %raxNewNode.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxGenericInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef writeonly %old, i32 noundef %overwrite) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxGenericInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef writeonly %old, i32 noundef %overwrite) local_unnamed_addr #1 {
 entry:
   %child = alloca ptr, align 8
   %new_parentlink = alloca ptr, align 8
@@ -653,13 +653,12 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %j.5.i = phi i32 [ 0, %entry ], [ %10, %while.end.loopexit.i ]
   %11 = and i32 %bf.load80.i, 4
   %tobool83.not.i = icmp eq i32 %11, 0
-  %spec.select447 = select i1 %tobool83.not.i, i32 0, i32 %j.5.i
   %cmp = icmp eq i64 %i.3.i, %len
   br i1 %cmp, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %while.end.i
-  %cmp1 = icmp eq i32 %spec.select447, 0
-  %or.cond = select i1 %tobool83.not.i, i1 true, i1 %cmp1
+  %cmp1498 = icmp eq i32 %j.5.i, 0
+  %or.cond = select i1 %tobool83.not.i, i1 true, i1 %cmp1498
   br i1 %or.cond, label %if.then, label %if.then413
 
 if.then:                                          ; preds = %land.lhs.true
@@ -1166,7 +1165,7 @@ if.end349:                                        ; preds = %if.end262, %if.then
 
 if.then413:                                       ; preds = %land.lhs.true
   %bf.lshr416 = lshr i32 %bf.load80.i, 3
-  %sub417 = sub nsw i32 %bf.lshr416, %spec.select447
+  %sub417 = sub nsw i32 %bf.lshr416, %j.5.i
   %conv418 = sext i32 %sub417 to i64
   %sub423 = sub nsw i64 4, %conv418
   %and424 = and i64 %sub423, 7
@@ -1175,9 +1174,9 @@ if.then413:                                       ; preds = %land.lhs.true
   %add425 = add nsw i64 %add420, %conv418
   %spec.select172 = add nsw i64 %add425, %and424
   %call433 = tail call noalias ptr @zmalloc(i64 noundef %spec.select172) #22
-  %conv434 = sext i32 %spec.select447 to i64
+  %conv434 = sext i32 %j.5.i to i64
   %add435 = add nsw i64 %conv434, 4
-  %102 = xor i32 %spec.select447, 3
+  %102 = xor i32 %j.5.i, 3
   %.neg = add i32 %102, 1
   %103 = and i32 %.neg, 7
   %and440 = zext nneg i32 %103 to i64
@@ -1290,8 +1289,8 @@ raxSetData.exit307:                               ; preds = %if.then.i293, %if.e
   %132 = load i64, ptr %numnodes602, align 8
   %inc603 = add i64 %132, 1
   store i64 %inc603, ptr %numnodes602, align 8
-  %bf.value605 = shl i32 %spec.select447, 3
-  %cmp609 = icmp sgt i32 %spec.select447, 1
+  %bf.value605 = shl i32 %j.5.i, 3
+  %cmp609 = icmp sgt i32 %j.5.i, 1
   %bf.shl613.masked = select i1 %cmp609, i32 4, i32 0
   %bf.clear617 = or disjoint i32 %bf.shl613.masked, %bf.value605
   store i32 %bf.clear617, ptr %call455, align 4
@@ -1826,7 +1825,7 @@ if.end86:                                         ; preds = %if.then84, %land.lh
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxRemove(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %old) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxRemove(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %old) local_unnamed_addr #1 {
 entry:
   %h = alloca ptr, align 8
   %ts = alloca %struct.raxStack, align 8
@@ -2303,21 +2302,21 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxGenericInsert(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef %data, ptr noundef %old, i32 noundef 1), !range !11
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxTryInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxTryInsert(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxGenericInsert(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef %data, ptr noundef %old, i32 noundef 0), !range !11
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @raxFind(ptr nocapture noundef readonly %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %value) local_unnamed_addr #10 {
+define dso_local noundef i32 @raxFind(ptr nocapture noundef readonly %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %value) local_unnamed_addr #10 {
 entry:
   %h.054.i = load ptr, ptr %rax, align 8
   %bf.load55.i = load i32, ptr %h.054.i, align 4
@@ -2475,7 +2474,7 @@ return:                                           ; preds = %if.end, %raxGetData
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @raxFindParentLink(ptr noundef readonly %parent, ptr noundef readnone %child) local_unnamed_addr #11 {
+define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly %parent, ptr noundef readnone %child) local_unnamed_addr #11 {
 entry:
   %data = getelementptr inbounds %struct.raxNode, ptr %parent, i64 0, i32 1
   %bf.load = load i32, ptr %parent, align 4
@@ -2803,7 +2802,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxIteratorAddChars(ptr noundef %it, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxIteratorAddChars(ptr noundef %it, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -2877,7 +2876,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxIteratorNextStep(ptr noundef %it, i32 noundef %noup) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxIteratorNextStep(ptr noundef %it, i32 noundef %noup) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %it, align 8
   %and = and i32 %0, 2
@@ -3404,7 +3403,7 @@ return:                                           ; preds = %if.then24.i138, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxSeekGreatest(ptr noundef %it) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxSeekGreatest(ptr noundef %it) local_unnamed_addr #1 {
 entry:
   %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
   %0 = load ptr, ptr %node, align 8
@@ -3632,7 +3631,7 @@ return:                                           ; preds = %if.end77, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxIteratorPrevStep(ptr noundef %it, i32 noundef %noup) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxIteratorPrevStep(ptr noundef %it, i32 noundef %noup) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %it, align 8
   %and = and i32 %0, 2
@@ -3944,7 +3943,7 @@ return:                                           ; preds = %if.end129, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxSeek(ptr noundef %it, ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %ele, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxSeek(ptr noundef %it, ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %ele, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %splitpos = alloca i32, align 4
   %items = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
@@ -4369,7 +4368,7 @@ return:                                           ; preds = %raxGetData.exit105,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxNext(ptr noundef %it) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxNext(ptr noundef %it) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxIteratorNextStep(ptr noundef %it, i32 noundef 0), !range !11
   %tobool.not = icmp eq i32 %call, 0
@@ -4393,7 +4392,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxPrev(ptr noundef %it) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxPrev(ptr noundef %it) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxIteratorPrevStep(ptr noundef %it, i32 noundef 0), !range !11
   %tobool.not = icmp eq i32 %call, 0
@@ -4417,7 +4416,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @raxRandomWalk(ptr noundef %it, i64 noundef %steps) local_unnamed_addr #1 {
+define dso_local noundef i32 @raxRandomWalk(ptr noundef %it, i64 noundef %steps) local_unnamed_addr #1 {
 entry:
   %rt = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
   %0 = load ptr, ptr %rt, align 8

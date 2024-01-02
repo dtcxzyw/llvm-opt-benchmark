@@ -566,9 +566,9 @@ do.end87.i.i.i:                                   ; preds = %if.end71.i.i.i
 sw.bb.i.i.i:                                      ; preds = %do.end87.i.i.i
   %conv90.i.i.i = trunc i64 %21 to i32
   %shl91.i.i.i = shl i32 %conv90.i.i.i, 4
+  %add92.i.i.i = add i32 %spec.select, %shl91.i.i.i
   %conv93.i.i.i = trunc i64 %add53.i.i.i to i32
   %shl94.i.i.i = shl i32 %conv93.i.i.i, 14
-  %add92.i.i.i = add i32 %spec.select, %shl91.i.i.i
   %add95.i.i.i = add i32 %add92.i.i.i, %shl94.i.i.i
   %conv.i73.i.i.i = trunc i32 %add95.i.i.i to i16
   store i16 %conv.i73.i.i.i, ptr %add.ptr1.i.i, align 1

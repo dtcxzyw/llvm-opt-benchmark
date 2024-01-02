@@ -5612,7 +5612,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit163:      ; preds = %for.cond89
   ]
 
 if.then108:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit163
-  %dec = add nsw i32 %depth.2, -1
+  %dec = add nsw i32 %spec.select, -1
   %cmp109 = icmp eq i32 %dec, 0
   br i1 %cmp109, label %for.inc138, label %for.cond89.outer248.backedge
 

@@ -93,7 +93,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [40 x i8] c"ossl_quic_txpim_get_in_use(info->txpim)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_fifd, i32 noundef 3, i32 noundef 1) #10
   ret i32 1
@@ -537,7 +537,7 @@ sw.bb:                                            ; preds = %if.end146
   %ackm = getelementptr inbounds %struct.info_st, ptr %info, i64 0, i32 1
   %19 = load ptr, ptr %ackm, align 8
   %20 = load i64, ptr @cur_time.0, align 8
-  %call147 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %19, ptr noundef nonnull %ack, i32 noundef %cond, i64 %20) #10
+  %call147 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %19, ptr noundef nonnull %ack, i32 noundef 2, i64 %20) #10
   %cmp148 = icmp ne i32 %call147, 0
   %conv149 = zext i1 %cmp148 to i32
   %call150 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @.str.31, i32 noundef %conv149) #10
@@ -619,7 +619,7 @@ lor.lhs.false232:                                 ; preds = %if.end193
   %ackm233 = getelementptr inbounds %struct.info_st, ptr %info, i64 0, i32 1
   %26 = load ptr, ptr %ackm233, align 8
   %27 = load i64, ptr @cur_time.0, align 8
-  %call234 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %26, ptr noundef nonnull %ack, i32 noundef %cond, i64 %27) #10
+  %call234 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %26, ptr noundef nonnull %ack, i32 noundef 2, i64 %27) #10
   %cmp235 = icmp ne i32 %call234, 0
   %conv236 = zext i1 %cmp235 to i32
   %call237 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @.str.31, i32 noundef %conv236) #10
@@ -780,7 +780,7 @@ lor.lhs.false336:                                 ; preds = %lor.lhs.false326
 sw.bb342:                                         ; preds = %if.end146
   %ackm343 = getelementptr inbounds %struct.info_st, ptr %info, i64 0, i32 1
   %50 = load ptr, ptr %ackm343, align 8
-  %call344 = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %50, i32 noundef %cond) #10
+  %call344 = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %50, i32 noundef 1) #10
   %cmp345 = icmp ne i32 %call344, 0
   %conv346 = zext i1 %cmp345 to i32
   %call347 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @.str.62, i32 noundef %conv346) #10

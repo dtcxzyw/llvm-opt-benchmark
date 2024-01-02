@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #4 {
+define dso_local noundef i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #4 {
 entry:
   br label %do.body
 
@@ -1877,13 +1877,12 @@ entry:
   %2 = and i8 %1, 1
   %tobool.i39 = icmp ne i8 %2, 0
   %3 = extractvalue { i8, i64 } %call10, 1
-  %spec.select = select i1 %tobool.i39, i64 %3, i64 0
-  %cmp = icmp ne i64 %spec.select, 0
-  %4 = select i1 %tobool.i39, i1 %cmp, i1 false
+  %cmp16 = icmp ne i64 %3, 0
+  %4 = select i1 %tobool.i39, i1 %cmp16, i1 false
   br i1 %4, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %entry
-  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %spec.select, ptr noundef nonnull @.str.103, i32 noundef 205) #25
+  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %3, ptr noundef nonnull @.str.103, i32 noundef 205) #25
   %cmp.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i.i, label %do.body5.i.i, label %do.body.i
 
@@ -1894,8 +1893,8 @@ do.body5.i.i:                                     ; preds = %if.then
 
 do.body.i:                                        ; preds = %if.then
   %5 = load ptr, ptr %isolate_.i, align 8
-  %call22 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %5, ptr noundef nonnull %call1.i.i, i64 noundef %spec.select, ptr %key.coerce, i32 noundef %enc) #25
-  %cmp.not.i = icmp ult i64 %spec.select, %call22
+  %call22 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %5, ptr noundef nonnull %call1.i.i, i64 noundef %3, ptr %key.coerce, i32 noundef %enc) #25
+  %cmp.not.i = icmp ult i64 %3, %call22
   br i1 %cmp.not.i, label %do.body6.i, label %do.end7.i
 
 do.body6.i:                                       ; preds = %do.body.i
@@ -1908,7 +1907,7 @@ do.end7.i:                                        ; preds = %do.body.i
   br i1 %cmp9.i, label %if.then10.i, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 if.then10.i:                                      ; preds = %do.end7.i
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call1.i.i, i64 noundef %spec.select, ptr noundef nonnull @.str.103, i32 noundef 242) #25, !noalias !20
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call1.i.i, i64 noundef %3, ptr noundef nonnull @.str.103, i32 noundef 242) #25, !noalias !20
   br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.end7.i, %if.then10.i
@@ -2398,7 +2397,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto5error8DecorateEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEm(ptr nocapture noundef readonly %env, ptr %obj.coerce, i64 noundef %err) local_unnamed_addr #4 {
+define dso_local noundef i16 @_ZN4node6crypto5error8DecorateEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEm(ptr nocapture noundef readonly %env, ptr %obj.coerce, i64 noundef %err) local_unnamed_addr #4 {
 entry:
   %reason = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp123 = alloca %"class.std::allocator", align 1

@@ -10750,7 +10750,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
   ]
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
-  %7 = load i8, ptr %cond.i.i.i, align 1, !tbaa !61
+  %7 = load i8, ptr %inlined.i.i.i, align 4, !tbaa !61
   store i8 %7, ptr %6, align 1, !tbaa !61
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i
 
@@ -10808,7 +10808,7 @@ if.end.i.i.i19.i:                                 ; preds = %call2.i8.i5.i25.noe
   ]
 
 if.then.i.i.i.i.i22.i:                            ; preds = %if.end.i.i.i19.i
-  %13 = load i8, ptr %cond.i.i14.i, align 1, !tbaa !61
+  %13 = load i8, ptr %inlined.i.i12.i, align 4, !tbaa !61
   store i8 %13, ptr %12, align 1, !tbaa !61
   br label %invoke.cont.i
 
@@ -11949,7 +11949,7 @@ if.end.i.i.i.i109:                                ; preds = %call2.i8.i5.i.noexc
   ]
 
 if.then.i.i.i.i.i.i110:                           ; preds = %if.end.i.i.i.i109
-  %22 = load i8, ptr %cond.i.i.i, align 1, !tbaa !61
+  %22 = load i8, ptr %inlined.i.i.i, align 4, !tbaa !61
   store i8 %22, ptr %21, align 1, !tbaa !61
   br label %invoke.cont.i
 
@@ -12072,7 +12072,7 @@ if.end.i.i.i.i123:                                ; preds = %call2.i8.i5.i.noexc
   ]
 
 if.then.i.i.i.i.i.i139:                           ; preds = %if.end.i.i.i.i123
-  %34 = load i8, ptr %cond.i.i.i118, align 1, !tbaa !61
+  %34 = load i8, ptr %inlined.i.i.i116, align 4, !tbaa !61
   store i8 %34, ptr %33, align 1, !tbaa !61
   br label %invoke.cont.i124
 
@@ -12449,7 +12449,7 @@ if.end.i.i.i:                                     ; preds = %call2.i8.i5.i.noexc
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %5 = load i8, ptr %cond.i.i, align 1, !tbaa !61
+  %5 = load i8, ptr %inlined.i.i, align 4, !tbaa !61
   store i8 %5, ptr %4, align 1, !tbaa !61
   br label %invoke.cont
 

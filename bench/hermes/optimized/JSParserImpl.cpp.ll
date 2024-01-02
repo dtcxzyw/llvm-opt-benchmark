@@ -12941,10 +12941,8 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %con
 if.then20:                                        ; preds = %land.lhs.true
   %token_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11
   %21 = load i32, ptr %token_.i.i, align 8
-  %cmp.i11 = icmp eq i32 %21, 1
   %ident_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
   %22 = load ptr, ptr %ident_.i.i, align 8
-  %cond.i = select i1 %cmp.i11, ptr %22, ptr null
   %curCharPtr_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 14
   %23 = load ptr, ptr %curCharPtr_.i.i, align 8
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 2
@@ -13013,7 +13011,7 @@ if.else:                                          ; preds = %land.lhs.true30, %c
 
 if.then.i23:                                      ; preds = %if.else
   store i32 1, ptr %token_.i.i, align 8
-  store ptr %cond.i, ptr %ident_.i.i, align 8
+  store ptr %22, ptr %ident_.i.i, align 8
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.else
@@ -18777,9 +18775,7 @@ land.lhs.true5:                                   ; preds = %lor.lhs.false, %lan
 
 if.then:                                          ; preds = %land.lhs.true5
   %7 = load i32, ptr %token_.i.i, align 8
-  %cmp.i5 = icmp eq i32 %7, 1
   %8 = load ptr, ptr %ident_.i.i, align 8
-  %cond.i = select i1 %cmp.i5, ptr %8, ptr null
   %9 = load ptr, ptr %curCharPtr_.i.i, align 8
   %10 = load <2 x ptr>, ptr %range_.i.i, align 8
   %retval.sroa.0.0.copyload.i5.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
@@ -18840,7 +18836,7 @@ if.else:                                          ; preds = %land.lhs.true14, %c
 
 if.then.i:                                        ; preds = %if.else
   store i32 1, ptr %token_.i.i, align 8
-  store ptr %cond.i, ptr %ident_.i.i, align 8
+  store ptr %8, ptr %ident_.i.i, align 8
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.else
@@ -21257,10 +21253,8 @@ if.then27:                                        ; preds = %if.end22
   %lexer_ = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
   %token_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11
   %20 = load i32, ptr %token_.i.i, align 8
-  %cmp.i16 = icmp eq i32 %20, 1
   %ident_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
   %21 = load ptr, ptr %ident_.i.i, align 8
-  %cond.i = select i1 %cmp.i16, ptr %21, ptr null
   %curCharPtr_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 14
   %22 = load ptr, ptr %curCharPtr_.i.i, align 8
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 2
@@ -21371,7 +21365,7 @@ if.else:                                          ; preds = %land.lhs.true62, %i
 
 if.then.i:                                        ; preds = %if.else
   store i32 1, ptr %token_.i.i, align 8
-  store ptr %cond.i, ptr %ident_.i.i, align 8
+  store ptr %21, ptr %ident_.i.i, align 8
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.else
@@ -25991,7 +25985,7 @@ if.then6:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then6
   store i32 1, ptr %token_.i6.i, align 8
   %ident_.i.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
-  store ptr %cond.i, ptr %ident_.i.i.i, align 8
+  store ptr %1, ptr %ident_.i.i.i, align 8
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.then6
@@ -26085,7 +26079,7 @@ if.then10:                                        ; preds = %if.end8
 if.then.i64:                                      ; preds = %if.then10
   store i32 1, ptr %token_.i6.i81, align 8
   %ident_.i.i.i73 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
-  store ptr %cond.i, ptr %ident_.i.i.i73, align 8
+  store ptr %1, ptr %ident_.i.i.i73, align 8
   br label %if.end21.i29
 
 if.then5.i19:                                     ; preds = %if.then10
@@ -26177,7 +26171,7 @@ if.then18:                                        ; preds = %if.end11
 if.then.i133:                                     ; preds = %if.then18
   store i32 1, ptr %token_.i6.i150, align 8
   %ident_.i.i.i142 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
-  store ptr %cond.i, ptr %ident_.i.i.i142, align 8
+  store ptr %1, ptr %ident_.i.i.i142, align 8
   br label %if.end21.i98
 
 if.then5.i88:                                     ; preds = %if.then18
@@ -26291,7 +26285,7 @@ if.then32:                                        ; preds = %if.then27
 if.then.i216:                                     ; preds = %if.then32
   store i32 1, ptr %token_.i6.i233, align 8
   %ident_.i.i.i225 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
-  store ptr %cond.i, ptr %ident_.i.i.i225, align 8
+  store ptr %1, ptr %ident_.i.i.i225, align 8
   br label %if.end21.i181
 
 if.then5.i171:                                    ; preds = %if.then32
@@ -26414,7 +26408,7 @@ if.then48:                                        ; preds = %_ZNK6hermes6parser6
 if.then.i293:                                     ; preds = %if.then48
   store i32 1, ptr %token_.i6.i310, align 8
   %ident_.i.i.i302 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
-  store ptr %cond.i, ptr %ident_.i.i.i302, align 8
+  store ptr %1, ptr %ident_.i.i.i302, align 8
   br label %if.end21.i258
 
 if.then5.i248:                                    ; preds = %if.then48

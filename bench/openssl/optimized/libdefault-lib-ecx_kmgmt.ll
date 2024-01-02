@@ -57,14 +57,14 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_ecx_key_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 253, i32 noundef 128, i32 noundef 32), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @x25519_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @x25519_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ecx_gettable_params
 }
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @x25519_settable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @x25519_settable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ecx_settable_params
 }
@@ -164,13 +164,11 @@ if.then11:                                        ; preds = %if.then8
   %bf.clear = and i8 %bf.load, 1
   %tobool12 = icmp ne i8 %bf.clear, 0
   %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %keydata1, i64 0, i32 3
-  %cond = select i1 %tobool12, ptr %pubkey, ptr null
   %haspubkey13 = getelementptr inbounds %struct.ecx_key_st, ptr %keydata2, i64 0, i32 2
   %bf.load14 = load i8, ptr %haspubkey13, align 8
   %bf.clear15 = and i8 %bf.load14, 1
   %tobool17 = icmp ne i8 %bf.clear15, 0
   %pubkey19 = getelementptr inbounds %struct.ecx_key_st, ptr %keydata2, i64 0, i32 3
-  %cond23 = select i1 %tobool17, ptr %pubkey19, ptr null
   %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %keydata1, i64 0, i32 5
   %2 = load i64, ptr %keylen, align 8
   %keylen24 = getelementptr inbounds %struct.ecx_key_st, ptr %keydata2, i64 0, i32 5
@@ -193,7 +191,7 @@ land.lhs.true29:                                  ; preds = %if.then27
   br i1 %or.cond33, label %land.rhs35, label %if.end71
 
 land.rhs35:                                       ; preds = %land.lhs.true29
-  %call36 = tail call i32 @CRYPTO_memcmp(ptr noundef %cond, ptr noundef %cond23, i64 noundef %2) #4
+  %call36 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %pubkey, ptr noundef nonnull %pubkey19, i64 noundef %2) #4
   %cmp37 = icmp eq i32 %call36, 0
   %6 = zext i1 %cmp37 to i32
   br label %if.end71
@@ -282,7 +280,7 @@ return:                                           ; preds = %entry, %land.rhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @ecx_imexport_types(i32 noundef %selection) #2 {
+define internal noundef ptr @ecx_imexport_types(i32 noundef %selection) #2 {
 entry:
   %and = and i32 %selection, 3
   %cmp.not = icmp eq i32 %and, 0
@@ -385,7 +383,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal noundef i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -484,7 +482,7 @@ return:                                           ; preds = %if.then33, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ecx_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ecx_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ecx_gen_settable_params.settable
 }
@@ -573,14 +571,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 448, i32 noundef 224, i32 noundef 56), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @x448_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @x448_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ecx_gettable_params
 }
@@ -593,7 +591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @x448_settable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @x448_settable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ecx_settable_params
 }
@@ -671,7 +669,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 256, i32 noundef 128, i32 noundef 64), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -696,19 +694,19 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ed25519_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ed25519_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ed_gettable_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ed25519_set_params(ptr nocapture readnone %key, ptr nocapture readnone %params) #2 {
+define internal noundef i32 @ed25519_set_params(ptr nocapture readnone %key, ptr nocapture readnone %params) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ed25519_settable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ed25519_settable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ed_settable_params
 }
@@ -786,7 +784,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 456, i32 noundef 224, i32 noundef 114), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -811,19 +809,19 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ed448_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ed448_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ed_gettable_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ed448_set_params(ptr nocapture readnone %key, ptr nocapture readnone %params) #2 {
+define internal noundef i32 @ed448_set_params(ptr nocapture readnone %key, ptr nocapture readnone %params) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ed448_settable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ed448_settable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @ed_settable_params
 }
@@ -890,7 +888,7 @@ declare ptr @ossl_ecx_key_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc noundef i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null

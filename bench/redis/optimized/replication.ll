@@ -314,7 +314,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.getFailoverStateString = private unnamed_addr constant [3 x ptr] [ptr @.str.233, ptr @.str.235, ptr @.str.234], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @replicationGetSlaveName(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define dso_local noundef ptr @replicationGetSlaveName(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
 entry:
   %ip = alloca [46 x i8], align 16
   store i8 0, ptr %ip, align 16
@@ -359,7 +359,7 @@ if.then6:                                         ; preds = %if.then
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ip., i32 noundef 58) #22
   %tobool.not.i = icmp eq ptr %call.i, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.257, ptr @.str.256
-  %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull %cond.i, ptr noundef nonnull %ip., i32 noundef %5) #21
+  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull %cond.i, ptr noundef nonnull %ip., i32 noundef %5) #21
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
@@ -379,7 +379,7 @@ if.end12:                                         ; preds = %if.then6, %if.else,
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bg_unlink(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef i32 @bg_unlink(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 2048) #21
   %cmp = icmp eq i32 %call, -1
@@ -2121,7 +2121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @replicationSetupSlaveForFullResync(ptr noundef %slave, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local noundef i32 @replicationSetupSlaveForFullResync(ptr noundef %slave, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %psync_initial_offset = getelementptr inbounds %struct.client, ptr %slave, i64 0, i32 48
@@ -2159,7 +2159,7 @@ return:                                           ; preds = %entry, %if.then, %i
 declare void @freeClientAsync(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @masterTryPartialResynchronization(ptr noundef %c, i64 noundef %psync_offset) local_unnamed_addr #0 {
+define dso_local noundef i32 @masterTryPartialResynchronization(ptr noundef %c, i64 noundef %psync_offset) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %buf = alloca [128 x i8], align 16
@@ -3706,7 +3706,7 @@ declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @replicaPutOnline(ptr nocapture noundef %slave) local_unnamed_addr #0 {
+define dso_local noundef i32 @replicaPutOnline(ptr nocapture noundef %slave) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %flags = getelementptr inbounds %struct.client, ptr %slave, i64 0, i32 1
@@ -6290,7 +6290,7 @@ return:                                           ; preds = %for.body.i, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @useDisklessLoad() unnamed_addr #0 {
+define internal fastcc noundef i32 @useDisklessLoad() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 276), align 8
   switch i32 %0, label %if.end19 [
@@ -6348,7 +6348,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cancelReplicationHandshake(i32 noundef %reconnect) local_unnamed_addr #0 {
+define dso_local noundef i32 @cancelReplicationHandshake(i32 noundef %reconnect) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 289), align 4
   switch i32 %0, label %lor.lhs.false [
@@ -6800,7 +6800,7 @@ sendCommandRaw.exit:                              ; preds = %sdslen.exit.i, %if.
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slaveTryPartialResynchronization(ptr noundef %conn, i32 noundef %read_reply) local_unnamed_addr #0 {
+define dso_local noundef i32 @slaveTryPartialResynchronization(ptr noundef %conn, i32 noundef %read_reply) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [256 x i8], align 16
   %psync_offset = alloca [32 x i8], align 16
@@ -7020,7 +7020,7 @@ do.end68:                                         ; preds = %do.body64, %if.end6
 if.else69:                                        ; preds = %if.end58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 308), ptr noundef nonnull align 1 dereferenceable(40) %incdec.ptr, i64 40, i1 false)
   store i8 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 308, i64 40), align 8
-  %call74 = call i64 @strtoll(ptr nocapture noundef nonnull %spec.select, ptr noundef null, i32 noundef 10) #21
+  %call74 = call i64 @strtoll(ptr nocapture noundef nonnull %incdec.ptr56, ptr noundef null, i32 noundef 10) #21
   store i64 %call74, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 309), align 8
   %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp76 = icmp sgt i32 %26, 2
@@ -8063,7 +8063,7 @@ declare i32 @getpid() local_unnamed_addr #12
 declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connectWithMaster() local_unnamed_addr #0 {
+define dso_local noundef i32 @connectWithMaster() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 403), align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -10127,7 +10127,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @shouldStartChildReplication(ptr noundef writeonly %mincapa_out, ptr noundef writeonly %req_out) local_unnamed_addr #0 {
+define dso_local noundef i32 @shouldStartChildReplication(ptr noundef writeonly %mincapa_out, ptr noundef writeonly %req_out) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %call = tail call i32 @hasActiveChildProcess() #21
@@ -10247,7 +10247,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @getFailoverStateString() local_unnamed_addr #9 {
+define dso_local noundef nonnull ptr @getFailoverStateString() local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 415), align 4
   %1 = icmp ult i32 %0, 3

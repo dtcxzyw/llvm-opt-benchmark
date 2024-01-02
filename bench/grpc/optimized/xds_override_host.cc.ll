@@ -10045,12 +10045,10 @@ if.end14:                                         ; preds = %if.end6
   %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 3
   %103 = load ptr, ptr %vfn19, align 8
   call void %103(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %args)
-  %tobool.not.i.i = icmp ne ptr %agg.result, null
   %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.361", ptr %agg.result, i64 0, i32 1
   %104 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.i21 = icmp eq i8 %104, 0
-  %or.cond = select i1 %tobool.not.i.i, i1 %cmp.i.i21, i1 false
-  br i1 %or.cond, label %if.then22, label %return
+  br i1 %cmp.i.i21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end14
   %105 = load ptr, ptr %agg.result, align 8

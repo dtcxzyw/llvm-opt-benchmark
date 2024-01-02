@@ -1837,7 +1837,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
 declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandCreate(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandCreate(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %buf.i = alloca [4 x i8], align 1
   %li.i211 = alloca %struct.listIter, align 8
@@ -3070,7 +3070,7 @@ return:                                           ; preds = %if.end, %invalid_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandInfo(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandInfo(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %cmp.i = icmp eq i32 %argc, 1
   %0 = load ptr, ptr %argv, align 8
@@ -3162,7 +3162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandReshard(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandReshard(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li.i116 = alloca %struct.listIter, align 8
   %li.i = alloca %struct.listIter, align 8
@@ -3746,7 +3746,7 @@ return:                                           ; preds = %clusterNodeForResha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandRebalance(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandRebalance(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li.i104 = alloca %struct.listIter, align 8
   %li.i97 = alloca %struct.listIter, align 8
@@ -4216,10 +4216,8 @@ if.then157:                                       ; preds = %while.body146
   %len166 = getelementptr inbounds %struct.list, ptr %call165, i64 0, i32 5
   %50 = load i64, ptr %len166, align 8
   %conv167 = trunc i64 %50 to i32
-  %tobool168.not = icmp ne ptr %call165, null
   %cmp170.not = icmp eq i32 %cond, %conv167
-  %or.cond92 = select i1 %tobool168.not, i1 %cmp170.not, i1 false
-  br i1 %or.cond92, label %if.end173, label %cleanup.critedge.thread
+  br i1 %cmp170.not, label %if.end173, label %cleanup.critedge.thread
 
 cleanup.critedge.thread:                          ; preds = %if.then157
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.387)
@@ -4307,9 +4305,10 @@ cleanup.critedge:                                 ; preds = %while.body189
   %60 = load ptr, ptr %err, align 8
   call void @zfree(ptr noundef %60) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i104)
-  br label %if.then.i106
+  %cmp.not.i105 = icmp eq ptr %call165, null
+  br i1 %cmp.not.i105, label %clusterManagerReleaseReshardTable.exit116, label %if.then.i106
 
-if.then.i106:                                     ; preds = %cleanup.critedge, %cleanup.critedge.thread
+if.then.i106:                                     ; preds = %cleanup.critedge.thread, %cleanup.critedge
   call void @listRewind(ptr noundef nonnull %call165, ptr noundef nonnull %li.i104) #33
   %call3.i107 = call ptr @listNext(ptr noundef nonnull %li.i104) #33
   %cmp1.not4.i108 = icmp eq ptr %call3.i107, null
@@ -4326,11 +4325,14 @@ while.body.i109:                                  ; preds = %if.then.i106, %whil
 
 while.end.i114:                                   ; preds = %while.body.i109, %if.then.i106
   call void @listRelease(ptr noundef nonnull %call165) #33
+  br label %clusterManagerReleaseReshardTable.exit116
+
+clusterManagerReleaseReshardTable.exit116:        ; preds = %cleanup.critedge, %while.end.i114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i104)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end203, %if.end140, %while.end.i114, %while.end, %if.then96, %if.then49
-  %result.5 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %while.end.i114 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
+cleanup:                                          ; preds = %if.end203, %if.end140, %clusterManagerReleaseReshardTable.exit116, %while.end, %if.then96, %if.then49
+  %result.5 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %clusterManagerReleaseReshardTable.exit116 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
   %cmp221.not = icmp eq ptr %call19, null
   br i1 %cmp221.not, label %if.end224, label %if.then223
 
@@ -4356,7 +4358,7 @@ return:                                           ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandAddNode(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandAddNode(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %err = alloca ptr, align 8
@@ -4870,7 +4872,7 @@ return:                                           ; preds = %if.then144, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandDeleteNode(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandDeleteNode(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -5120,7 +5122,7 @@ return:                                           ; preds = %if.end37, %clusterM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandCall(i32 noundef %argc, ptr noundef %argv) #2 {
+define internal noundef i32 @clusterManagerCommandCall(i32 noundef %argc, ptr noundef %argv) #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %reply = alloca ptr, align 8
@@ -5304,7 +5306,7 @@ return:                                           ; preds = %if.end, %invalid_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandSetTimeout(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandSetTimeout(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -5478,7 +5480,7 @@ return:                                           ; preds = %if.end4, %invalid_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandImport(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandImport(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %slots_map = alloca [16384 x ptr], align 16
   %li = alloca %struct.listIter, align 8
@@ -6003,7 +6005,7 @@ return:                                           ; preds = %if.end190, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clusterManagerCommandBackup(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal noundef i32 @clusterManagerCommandBackup(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
   %li.i.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -6635,7 +6637,7 @@ return:                                           ; preds = %if.end46, %if.else4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @clusterManagerCommandHelp(i32 %argc, ptr nocapture readnone %argv) #11 {
+define internal noundef i32 @clusterManagerCommandHelp(i32 %argc, ptr nocapture readnone %argv) #11 {
 entry:
   %buf = alloca [255 x i8], align 16
   %0 = load ptr, ptr @stdout, align 8
@@ -6889,7 +6891,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sendReplconf(ptr noundef %arg1, ptr noundef %arg2) local_unnamed_addr #2 {
+define dso_local noundef i32 @sendReplconf(ptr noundef %arg1, ptr noundef %arg2) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef %arg1, ptr noundef %arg2) #37
@@ -8195,7 +8197,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #2 {
 entry:
   %buf.i286 = alloca [1024 x i8], align 16
   %tv.i17.i = alloca %struct.timeval, align 8
@@ -11974,7 +11976,7 @@ for.end.i305:                                     ; preds = %for.inc.i321, %if.e
   %383 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 47), align 8
   %sub58.i = sub nsw i32 %add.i287, %got_comma.0.lcssa.i
   %384 = load i64, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 4), align 8
-  %call.i.i307 = call fastcc i32 @issueCommandRepeat(i32 noundef %sub58.i, ptr noundef nonnull %call24.i, i64 noundef %384), !range !79
+  %call.i.i307 = call fastcc noundef i32 @issueCommandRepeat(i32 noundef %sub58.i, ptr noundef nonnull %call24.i, i64 noundef %384), !range !79
   %tobool60.not.i = icmp eq i32 %383, 0
   br i1 %tobool60.not.i, label %evalMode.exit, label %if.then61.i308
 
@@ -12071,7 +12073,7 @@ if.end28.i:                                       ; preds = %if.end16.i, %if.els
   %argc.addr.0.i = phi i32 [ %add.i331, %if.then4.i330 ], [ %sub, %if.end16.i ], [ %sub, %if.else.i344 ]
   %sds_args.0.i = phi ptr [ %call5.i334, %if.then4.i330 ], [ %call.i327, %if.end16.i ], [ %call.i327, %if.else.i344 ]
   %393 = load i64, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 4), align 8
-  %call.i.i338 = tail call fastcc i32 @issueCommandRepeat(i32 noundef %argc.addr.0.i, ptr noundef nonnull %sds_args.0.i, i64 noundef %393), !range !79
+  %call.i.i338 = tail call fastcc noundef i32 @issueCommandRepeat(i32 noundef %argc.addr.0.i, ptr noundef nonnull %sds_args.0.i, i64 noundef %393), !range !79
   tail call void @hi_sdsfreesplitres(ptr noundef nonnull %sds_args.0.i, i32 noundef %argc.addr.0.i) #33
   %394 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 10), align 8
   %tobool30.not22.i = icmp eq i32 %394, 0
@@ -12122,7 +12124,7 @@ declare void @init_genrand64(i64 noundef) local_unnamed_addr #3
 declare i32 @getpid() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cliConnect(i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc noundef i32 @cliConnect(i32 noundef %flags) unnamed_addr #2 {
 entry:
   %err14 = alloca ptr, align 8
   %0 = load ptr, ptr @context, align 8
@@ -12416,7 +12418,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @slaveMode.lastbytes, i8 0, i64 40, i1 false)
   store i1 true, ptr @slaveMode.usemark, align 4
   %3 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.620, ptr noundef nonnull %cond) #37
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.618) #37
   br label %while.body.preheader
 
 if.else:                                          ; preds = %entry
@@ -12426,7 +12428,7 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %4 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.621, ptr noundef nonnull %cond, i64 noundef %call) #37
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.621, ptr noundef nonnull @.str.618, i64 noundef %call) #37
   br label %while.body.preheader
 
 if.else8:                                         ; preds = %if.else
@@ -12435,7 +12437,7 @@ if.else8:                                         ; preds = %if.else
 
 if.end15.thread33:                                ; preds = %if.else8
   %5 = load ptr, ptr @stderr, align 8
-  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.622, ptr noundef nonnull %cond) #37
+  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.622, ptr noundef nonnull @.str.619) #37
   br label %if.end15.while.end_crit_edge
 
 if.end15:                                         ; preds = %if.else8
@@ -16258,7 +16260,7 @@ while.end:                                        ; preds = %if.end, %for.end, %
 declare ptr @listCreate() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerNodeConnect(ptr nocapture noundef %node) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerNodeConnect(ptr nocapture noundef %node) unnamed_addr #2 {
 entry:
   %err7 = alloca ptr, align 8
   %0 = load ptr, ptr %node, align 8
@@ -16554,7 +16556,7 @@ if.end44:                                         ; preds = %freeClusterManagerN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef %opts, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef %opts, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %node, align 8
@@ -17297,7 +17299,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #3
 declare i64 @lround(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerFlushNodeConfig(ptr nocapture noundef %node, ptr noundef %err) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerFlushNodeConfig(ptr nocapture noundef %node, ptr noundef %err) unnamed_addr #2 {
 entry:
   %_reply.i = alloca ptr, align 8
   %dirty = getelementptr inbounds %struct.clusterManagerNode, ptr %node, i64 0, i32 11
@@ -17899,7 +17901,7 @@ while.end52:                                      ; preds = %if.end51, %entry
 declare void @listEmpty(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %node) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerLoadInfoFromNode(ptr noundef %node) unnamed_addr #2 {
 entry:
   %e = alloca ptr, align 8
   %li = alloca %struct.listIter, align 8
@@ -20513,7 +20515,7 @@ declare i32 @cliSecureConnection(ptr noundef, ptr noundef byval(%struct.cliSSLco
 declare i32 @anetKeepAlive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerCheckRedisReply(ptr nocapture noundef readonly %n, ptr noundef readonly %r, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerCheckRedisReply(ptr nocapture noundef readonly %n, ptr noundef readonly %r, ptr noundef writeonly %err) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -21845,7 +21847,7 @@ while.end:                                        ; preds = %if.end22, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerSetSlotOwner(ptr nocapture noundef readonly %owner, i32 noundef %slot, i32 noundef %do_clear) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerSetSlotOwner(ptr nocapture noundef readonly %owner, i32 noundef %slot, i32 noundef %do_clear) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %owner, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.283) #33
@@ -22056,7 +22058,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerDelSlot(ptr nocapture noundef readonly %node, i32 noundef %slot) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerDelSlot(ptr nocapture noundef readonly %node, i32 noundef %slot) unnamed_addr #2 {
 entry:
   %get_owner_err = alloca ptr, align 8
   %0 = load ptr, ptr %node, align 8
@@ -22128,7 +22130,7 @@ if.end22:                                         ; preds = %entry, %if.then21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerSetSlot(ptr nocapture noundef readonly %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerSetSlot(ptr nocapture noundef readonly %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %node1, align 8
   %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.289, i32 noundef %slot, ptr noundef %status, ptr noundef %node2.8.val) #33
@@ -22193,7 +22195,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @clusterManagerMoveSlot(ptr noundef %source, ptr noundef %target, i32 noundef %slot, i32 noundef %opts, ptr noundef %err) unnamed_addr #2 {
+define internal fastcc noundef i32 @clusterManagerMoveSlot(ptr noundef %source, ptr noundef %target, i32 noundef %slot, i32 noundef %opts, ptr noundef %err) unnamed_addr #2 {
 entry:
   %_reply1.i.i = alloca ptr, align 8
   %_reply2.i.i = alloca ptr, align 8
@@ -23864,7 +23866,7 @@ if.else:                                          ; preds = %if.end
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 58) #32
   %tobool.not.i = icmp eq ptr %call.i, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.432, ptr @.str.431
-  %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %addr, i64 noundef 256, ptr noundef nonnull %cond.i, ptr noundef %2, i32 noundef %3) #33
+  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %addr, i64 noundef 256, ptr noundef nonnull %cond.i, ptr noundef %2, i32 noundef %3) #33
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %addr) #32
   %call7 = call ptr @hi_sdscatlen(ptr noundef %call, ptr noundef nonnull %addr, i64 noundef %call6) #33
   br label %if.end8
@@ -24108,7 +24110,7 @@ declare void @parseRedisUri(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @unquoteCString(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @createClusterManagerCommand(ptr noundef %cmdname, i32 noundef %argc, ptr noundef %argv) unnamed_addr #2 {
+define internal fastcc noundef i32 @createClusterManagerCommand(ptr noundef %cmdname, i32 noundef %argc, ptr noundef %argv) unnamed_addr #2 {
 entry:
   store ptr %cmdname, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 55), align 8
   store i32 %argc, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 55, i32 1), align 8
@@ -24320,7 +24322,7 @@ if.end13:                                         ; preds = %if.then12, %if.end1
 declare ptr @redisConnectUnix(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cliSelect() unnamed_addr #2 {
+define internal fastcc noundef i32 @cliSelect() unnamed_addr #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 0, i32 2), align 4
   %1 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 6), align 8
@@ -25425,7 +25427,7 @@ if.end15:                                         ; preds = %entry, %if.then3, %
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cliReadReply(i32 noundef %output_raw_strings) unnamed_addr #2 {
+define internal fastcc noundef i32 @cliReadReply(i32 noundef %output_raw_strings) unnamed_addr #2 {
 entry:
   %_reply = alloca ptr, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 52), align 8
@@ -26035,7 +26037,7 @@ declare void @linenoiseFree(ptr noundef) local_unnamed_addr #3
 declare void @linenoiseClearScreen() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @issueCommandRepeat(i32 noundef %argc, ptr noundef %argv, i64 noundef %repeat) unnamed_addr #2 {
+define internal fastcc noundef i32 @issueCommandRepeat(i32 noundef %argc, ptr noundef %argv, i64 noundef %repeat) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.config, ptr @config, i64 0, i32 47), align 8
   %tobool.not = icmp eq i32 %0, 0

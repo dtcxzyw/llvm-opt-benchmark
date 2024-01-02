@@ -9394,7 +9394,6 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit57.i: ; pr
   %Next.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %87 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i94, ptr %87, ptr %86
-  %cond.i = select i1 %cmp.i93, ptr null, ptr %cond.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %generatedModuleIDs.i, i8 0, i64 20, i1 false)
   %88 = getelementptr inbounds i8, ptr %agg.tmp67, i64 24
   %fileBufs.val.i = load ptr, ptr %88, align 8
@@ -9840,7 +9839,7 @@ if.end88.i:                                       ; preds = %_ZNSt10unique_ptrIN
   %call94.i = call { ptr, i64 } @_ZN4llvh3sys4path23remove_leading_dotslashENS_9StringRefENS1_5StyleE(ptr %141, i64 %conv.i.i.i158.i, i32 noundef 2) #25
   %143 = extractvalue { ptr, i64 } %call94.i, 0
   %144 = extractvalue { ptr, i64 } %call94.i, 1
-  call void @_ZN6hermes22generateIRForCJSModuleEPNS_6ESTree22FunctionExpressionNodeEjjN4llvh9StringRefEPNS_6ModuleEPNS_8FunctionERKSt6vectorIPNS0_11ProgramNodeESaISB_EE(ptr noundef nonnull %call82.i, i32 noundef %92, i32 noundef %140, ptr %143, i64 %144, ptr noundef nonnull %M, ptr noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(24) %declFileList) #25
+  call void @_ZN6hermes22generateIRForCJSModuleEPNS_6ESTree22FunctionExpressionNodeEjjN4llvh9StringRefEPNS_6ModuleEPNS_8FunctionERKSt6vectorIPNS0_11ProgramNodeESaISB_EE(ptr noundef nonnull %call82.i, i32 noundef %92, i32 noundef %140, ptr %143, i64 %144, ptr noundef nonnull %M, ptr noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(24) %declFileList) #25
   br label %cleanup95.i
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit163.i: ; preds = %if.then64.i

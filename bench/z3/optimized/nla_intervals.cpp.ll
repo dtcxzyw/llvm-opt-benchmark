@@ -13855,7 +13855,7 @@ cond.end:                                         ; preds = %if.then23.cond.end_
   store i8 %bf.set.i.i264, ptr %m_lower_open.i.i258, align 8
   %m_c.i = getelementptr inbounds %class.interval_manager, ptr %this, i64 0, i32 1
   %29 = load ptr, ptr %m_c.i, align 8
-  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %29, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i, i32 noundef %cond.i218, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i223, i32 noundef %cond.i227, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(4) %new_l_kind)
+  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %29, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i223, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(4) %new_l_kind)
   %30 = load ptr, ptr %m_c.i, align 8
   call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %30, ptr noundef nonnull align 8 dereferenceable(32) %i1, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(32) %i2, i32 noundef %cond.i222, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind)
   br label %if.end205
@@ -13926,7 +13926,7 @@ cond.end55.thread:                                ; preds = %if.else45, %cond.en
   %52 = load ptr, ptr %m_c.i301, align 8
   call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %52, ptr noundef nonnull align 8 dereferenceable(32) %i1, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i223, i32 noundef %cond.i227, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(4) %new_l_kind)
   %53 = load ptr, ptr %m_c.i301, align 8
-  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %53, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i, i32 noundef %cond.i218, ptr noundef nonnull align 8 dereferenceable(32) %i2, i32 noundef %cond.i222, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind)
+  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %53, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %i2, i32 noundef %cond.i222, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind)
   br label %if.end205
 
 if.else65:                                        ; preds = %if.end4
@@ -14136,7 +14136,7 @@ cond.end163.thread:                               ; preds = %if.then153, %cond.e
   %119 = load ptr, ptr %m_c.i405, align 8
   call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %119, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i, i32 noundef %cond.i218, ptr noundef nonnull align 8 dereferenceable(32) %i2, i32 noundef %cond.i222, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(4) %new_l_kind)
   %120 = load ptr, ptr %m_c.i405, align 8
-  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %120, ptr noundef nonnull align 8 dereferenceable(32) %i1, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i223, i32 noundef %cond.i227, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind)
+  call void @_Z3mulI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %120, ptr noundef nonnull align 8 dereferenceable(32) %i1, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i223, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind)
   br label %if.end205
 
 if.else171:                                       ; preds = %if.else151

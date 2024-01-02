@@ -160,7 +160,6 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp1.i.i.i = icmp sgt i32 %spec.select6.i.i.i, 971
   %cmp4.i.i.i = icmp eq i64 %spec.select.i10.i.i, 0
   %spec.select7.i.i.i = select i1 %cmp4.i.i.i, i32 -99999, i32 %spec.select6.i.i.i
-  %retval.sroa.0.0.i.i.i = select i1 %cmp1.i.i.i, i64 0, i64 %spec.select.i10.i.i
   %cmp.i272.i = icmp eq i32 %spec.select7.i.i.i, 99999
   %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i272.i
   br i1 %cmp.i.i, label %if.then.i47.i, label %if.else.i45.i
@@ -171,10 +170,8 @@ if.then.i47.i:                                    ; preds = %_ZN4absl12_GLOBAL__
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %cmp2.i.i = icmp eq i64 %retval.sroa.0.0.i.i.i, 0
   %cmp4.i.i = icmp eq i32 %spec.select7.i.i.i, -99999
-  %or.cond.i.i = or i1 %cmp4.i.i, %cmp2.i.i
-  br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end9.i.i
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i45.i
   %cond8.i.i = select i1 %negative.0.i, double -0.000000e+00, double 0.000000e+00
@@ -183,11 +180,11 @@ if.then5.i.i:                                     ; preds = %if.else.i45.i
 
 if.end9.i.i:                                      ; preds = %if.else.i45.i
   %shl.i.i.i = select i1 %negative.0.i, i64 -9223372036854775808, i64 0
-  %cmp.i.i46.i = icmp ugt i64 %retval.sroa.0.0.i.i.i, 4503599627370495
+  %cmp.i.i46.i = icmp ugt i64 %spec.select.i10.i.i, 4503599627370495
   %sub.i.i.i = add nsw i32 %spec.select7.i.i.i, 1075
   %conv2.i.i.i = zext i32 %sub.i.i.i to i64
   %shl3.i.i.i = shl i64 %conv2.i.i.i, 52
-  %and.i.i.i = and i64 %retval.sroa.0.0.i.i.i, 4503599627370495
+  %and.i.i.i = and i64 %spec.select.i10.i.i, 4503599627370495
   %add4.i.i.i = select i1 %cmp.i.i46.i, i64 %shl3.i.i.i, i64 0
   %dbl.0.i.i.i = add i64 %add4.i.i.i, %shl.i.i.i
   %add5.i.i.i = or disjoint i64 %dbl.0.i.i.i, %and.i.i.i
@@ -330,7 +327,6 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp1.i.i107.i = icmp sgt i32 %spec.select6.i.i106.i, 971
   %cmp4.i.i108.i = icmp eq i64 %spec.select.i10.i104.i, 0
   %spec.select7.i.i109.i = select i1 %cmp4.i.i108.i, i32 -99999, i32 %spec.select6.i.i106.i
-  %retval.sroa.0.0.i.i111.i = select i1 %cmp1.i.i107.i, i64 0, i64 %spec.select.i10.i104.i
   %cmp.i126271.i = icmp eq i32 %spec.select7.i.i109.i, 99999
   %cmp.i126.i = or i1 %cmp1.i.i107.i, %cmp.i126271.i
   br i1 %cmp.i126.i, label %if.then.i144.i, label %if.else.i127.i
@@ -341,10 +337,8 @@ if.then.i144.i:                                   ; preds = %_ZN4absl12_GLOBAL__
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.else.i127.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
-  %cmp2.i128.i = icmp eq i64 %retval.sroa.0.0.i.i111.i, 0
   %cmp4.i129.i = icmp eq i32 %spec.select7.i.i109.i, -99999
-  %or.cond.i130.i = or i1 %cmp4.i129.i, %cmp2.i128.i
-  br i1 %or.cond.i130.i, label %if.then5.i141.i, label %if.end9.i131.i
+  br i1 %cmp4.i129.i, label %if.then5.i141.i, label %if.end9.i131.i
 
 if.then5.i141.i:                                  ; preds = %if.else.i127.i
   %cond8.i143.i = select i1 %negative.0.i, double -0.000000e+00, double 0.000000e+00
@@ -353,11 +347,11 @@ if.then5.i141.i:                                  ; preds = %if.else.i127.i
 
 if.end9.i131.i:                                   ; preds = %if.else.i127.i
   %shl.i.i132.i = select i1 %negative.0.i, i64 -9223372036854775808, i64 0
-  %cmp.i.i133.i = icmp ugt i64 %retval.sroa.0.0.i.i111.i, 4503599627370495
+  %cmp.i.i133.i = icmp ugt i64 %spec.select.i10.i104.i, 4503599627370495
   %sub.i.i134.i = add nsw i32 %spec.select7.i.i109.i, 1075
   %conv2.i.i135.i = zext i32 %sub.i.i134.i to i64
   %shl3.i.i136.i = shl i64 %conv2.i.i135.i, 52
-  %and.i.i137.i = and i64 %retval.sroa.0.0.i.i111.i, 4503599627370495
+  %and.i.i137.i = and i64 %spec.select.i10.i104.i, 4503599627370495
   %add4.i.i138.i = select i1 %cmp.i.i133.i, i64 %shl3.i.i136.i, i64 0
   %dbl.0.i.i139.i = add i64 %add4.i.i138.i, %shl.i.i132.i
   %add5.i.i140.i = or disjoint i64 %dbl.0.i.i139.i, %and.i.i137.i
@@ -892,7 +886,6 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp1.i.i.i = icmp sgt i32 %spec.select6.i.i.i, 104
   %cmp4.i.i.i = icmp eq i64 %spec.select.i10.i.i, 0
   %spec.select7.i.i.i = select i1 %cmp4.i.i.i, i32 -99999, i32 %spec.select6.i.i.i
-  %retval.sroa.0.0.i.i.i = select i1 %cmp1.i.i.i, i64 0, i64 %spec.select.i10.i.i
   %cmp.i275.i = icmp eq i32 %spec.select7.i.i.i, 99999
   %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i275.i
   br i1 %cmp.i.i, label %if.then.i48.i, label %if.else.i45.i
@@ -903,10 +896,8 @@ if.then.i48.i:                                    ; preds = %_ZN4absl12_GLOBAL__
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.else.i45.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %cmp2.i.i = icmp eq i64 %retval.sroa.0.0.i.i.i, 0
   %cmp4.i.i = icmp eq i32 %spec.select7.i.i.i, -99999
-  %or.cond.i.i = or i1 %cmp4.i.i, %cmp2.i.i
-  br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end9.i.i
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i45.i
   %conv.i47.i = select i1 %negative.0.i, float -0.000000e+00, float 0.000000e+00
@@ -914,7 +905,7 @@ if.then5.i.i:                                     ; preds = %if.else.i45.i
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.end9.i.i:                                      ; preds = %if.else.i45.i
-  %conv11.i.i = trunc i64 %retval.sroa.0.0.i.i.i to i32
+  %conv11.i.i = trunc i64 %spec.select.i10.i.i to i32
   %shl.i.i.i = select i1 %negative.0.i, i32 -2147483648, i32 0
   %cmp.i.i46.i = icmp ugt i32 %conv11.i.i, 8388607
   %sub.i.i.i = shl i32 %spec.select7.i.i.i, 23
@@ -1062,7 +1053,6 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp1.i.i108.i = icmp sgt i32 %spec.select6.i.i107.i, 104
   %cmp4.i.i109.i = icmp eq i64 %spec.select.i10.i105.i, 0
   %spec.select7.i.i110.i = select i1 %cmp4.i.i109.i, i32 -99999, i32 %spec.select6.i.i107.i
-  %retval.sroa.0.0.i.i112.i = select i1 %cmp1.i.i108.i, i64 0, i64 %spec.select.i10.i105.i
   %cmp.i127274.i = icmp eq i32 %spec.select7.i.i110.i, 99999
   %cmp.i127.i = or i1 %cmp1.i.i108.i, %cmp.i127274.i
   br i1 %cmp.i127.i, label %if.then.i145.i, label %if.else.i128.i
@@ -1073,10 +1063,8 @@ if.then.i145.i:                                   ; preds = %_ZN4absl12_GLOBAL__
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.else.i128.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
-  %cmp2.i129.i = icmp eq i64 %retval.sroa.0.0.i.i112.i, 0
   %cmp4.i130.i = icmp eq i32 %spec.select7.i.i110.i, -99999
-  %or.cond.i131.i = or i1 %cmp4.i130.i, %cmp2.i129.i
-  br i1 %or.cond.i131.i, label %if.then5.i142.i, label %if.end9.i132.i
+  br i1 %cmp4.i130.i, label %if.then5.i142.i, label %if.end9.i132.i
 
 if.then5.i142.i:                                  ; preds = %if.else.i128.i
   %conv.i144.i = select i1 %negative.0.i, float -0.000000e+00, float 0.000000e+00
@@ -1084,7 +1072,7 @@ if.then5.i142.i:                                  ; preds = %if.else.i128.i
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.end9.i132.i:                                   ; preds = %if.else.i128.i
-  %conv11.i133.i = trunc i64 %retval.sroa.0.0.i.i112.i to i32
+  %conv11.i133.i = trunc i64 %spec.select.i10.i105.i to i32
   %shl.i.i134.i = select i1 %negative.0.i, i32 -2147483648, i32 0
   %cmp.i.i135.i = icmp ugt i32 %conv11.i133.i, 8388607
   %sub.i.i136.i = shl i32 %spec.select7.i.i110.i, 23
