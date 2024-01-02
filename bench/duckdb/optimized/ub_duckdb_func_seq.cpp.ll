@@ -2010,7 +2010,7 @@ if.end.i.i.i.i.i101.i.i.i:                        ; preds = %if.then.i.i.i.i.i10
   ]
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i101.i.i.i
-  %47 = load i8, ptr %cond.i.i.i.i.i.i.i, align 1, !tbaa !18, !noalias !110
+  %47 = load i8, ptr %inlined.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !110
   store i8 %47, ptr %46, align 1, !tbaa !18, !noalias !110
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i.i.i.i.i
 
@@ -2264,7 +2264,7 @@ if.end.i.i.i.i.i115.i.i.i:                        ; preds = %if.then.i.i.i.i.i13
   ]
 
 if.then.i.i.i.i.i.i.i134.i.i.i:                   ; preds = %if.end.i.i.i.i.i115.i.i.i
-  %71 = load i8, ptr %cond.i.i.i.i110.i.i.i, align 1, !tbaa !18, !noalias !110
+  %71 = load i8, ptr %inlined.i.i.i.i109.i.i.i, align 4, !tbaa !18, !noalias !110
   store i8 %71, ptr %70, align 1, !tbaa !18, !noalias !110
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i.i116.i.i.i
 
@@ -3709,7 +3709,7 @@ if.end.i.i.i.i.i101.i.i.i:                        ; preds = %if.then.i.i.i.i.i10
   ]
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i101.i.i.i
-  %47 = load i8, ptr %cond.i.i.i.i.i.i.i, align 1, !tbaa !18, !noalias !170
+  %47 = load i8, ptr %inlined.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !170
   store i8 %47, ptr %46, align 1, !tbaa !18, !noalias !170
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i.i.i.i.i
 
@@ -4040,7 +4040,7 @@ if.end.i.i.i.i.i115.i.i.i:                        ; preds = %if.then.i.i.i.i.i13
   ]
 
 if.then.i.i.i.i.i.i.i134.i.i.i:                   ; preds = %if.end.i.i.i.i.i115.i.i.i
-  %78 = load i8, ptr %cond.i.i.i.i110.i.i.i, align 1, !tbaa !18, !noalias !170
+  %78 = load i8, ptr %inlined.i.i.i.i109.i.i.i, align 4, !tbaa !18, !noalias !170
   store i8 %78, ptr %77, align 1, !tbaa !18, !noalias !170
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i.i116.i.i.i
 
@@ -8557,7 +8557,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
   ]
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
-  %6 = load i8, ptr %cond.i.i.i, align 1, !tbaa !18
+  %6 = load i8, ptr %inlined.i.i.i, align 4, !tbaa !18
   store i8 %6, ptr %5, align 1, !tbaa !18
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i
 
@@ -9114,7 +9114,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
   ]
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
-  %6 = load i8, ptr %cond.i.i.i, align 1, !tbaa !18
+  %6 = load i8, ptr %inlined.i.i.i, align 4, !tbaa !18
   store i8 %6, ptr %5, align 1, !tbaa !18
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit.i
 

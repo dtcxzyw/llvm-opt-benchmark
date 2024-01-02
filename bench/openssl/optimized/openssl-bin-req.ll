@@ -1568,12 +1568,12 @@ if.end655:                                        ; preds = %if.else649, %if.the
   br i1 %cmp544, label %if.then664, label %if.end674
 
 if.then664:                                       ; preds = %if.end655
-  %call665 = call i32 @X509V3_set_issuer_pkey(ptr noundef nonnull %ext_ctx, ptr noundef %cond574) #10
+  %call665 = call i32 @X509V3_set_issuer_pkey(ptr noundef nonnull %ext_ctx, ptr noundef %pkey.1332) #10
   %tobool666.not = icmp eq i32 %call665, 0
   br i1 %tobool666.not, label %if.then918, label %if.end668
 
 if.end668:                                        ; preds = %if.then664
-  %call669 = call i32 @cert_matches_key(ptr noundef nonnull %call600, ptr noundef %cond574) #10
+  %call669 = call i32 @cert_matches_key(ptr noundef nonnull %call600, ptr noundef %pkey.1332) #10
   %tobool670.not = icmp eq i32 %call669, 0
   br i1 %tobool670.not, label %if.then671, label %if.end674
 
@@ -3247,7 +3247,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
+define internal fastcc noundef i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
 entry:
   %.b24.pr = load i1, ptr @batch, align 4
   %cmp = icmp ne ptr %value, null

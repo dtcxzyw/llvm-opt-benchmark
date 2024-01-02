@@ -161,10 +161,8 @@ if.then:                                          ; preds = %entry
   %lexer_ = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
   %token_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11
   %3 = load i32, ptr %token_.i.i, align 8
-  %cmp.i1 = icmp eq i32 %3, 1
   %ident_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 4
   %4 = load ptr, ptr %ident_.i.i, align 8
-  %cond.i = select i1 %cmp.i1, ptr %4, ptr null
   %curCharPtr_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 14
   %5 = load ptr, ptr %curCharPtr_.i.i, align 8
   %range_.i.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2, i32 11, i32 2
@@ -328,7 +326,7 @@ if.else:                                          ; preds = %_ZN6hermes6ESTree4N
 
 if.then.i:                                        ; preds = %if.else
   store i32 1, ptr %token_.i.i, align 8
-  store ptr %cond.i, ptr %ident_.i.i, align 8
+  store ptr %4, ptr %ident_.i.i, align 8
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.else

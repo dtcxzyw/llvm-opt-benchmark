@@ -725,7 +725,7 @@ return:                                           ; preds = %out.thread, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @is_contiguous(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @is_contiguous(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %order = alloca ptr, align 8
@@ -1219,7 +1219,7 @@ return:                                           ; preds = %if.then, %lor.rhs, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @arraycmp(ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2, ptr noundef readonly %shape, i64 noundef %ndim) unnamed_addr #3 {
+define internal fastcc noundef i32 @arraycmp(ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2, ptr noundef readonly %shape, i64 noundef %ndim) unnamed_addr #3 {
 entry:
   %cmp6 = icmp sgt i64 %ndim, 0
   br i1 %cmp6, label %for.body.lr.ph, label %return
@@ -1409,7 +1409,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ndarray_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef i32 @ndarray_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %v = alloca ptr, align 8
   %shape = alloca ptr, align 8
@@ -2928,7 +2928,7 @@ Py_XDECREF.exit116:                               ; preds = %entry, %if.then.i10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @copy_buffer(ptr nocapture noundef readonly %dest, ptr nocapture noundef readonly %src) unnamed_addr #0 {
+define internal fastcc noundef i32 @copy_buffer(ptr nocapture noundef readonly %dest, ptr nocapture noundef readonly %src) unnamed_addr #0 {
 entry:
   %format.i = getelementptr inbounds %struct.Py_buffer, ptr %dest, i64 0, i32 6
   %0 = load ptr, ptr %format.i, align 8
@@ -3154,7 +3154,7 @@ cond.true66.us:                                   ; preds = %for.body49.us
 
 cond.end70.us:                                    ; preds = %cond.true66.us, %for.body49.us
   %cond71.us = phi ptr [ %add.ptr68.us, %cond.true66.us ], [ %sptr.addr.165.us, %for.body49.us ]
-  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %dptr.addr.166.us, ptr noundef %add.ptr73, ptr noundef %cond79, ptr noundef %cond71.us, ptr noundef %add.ptr80, ptr noundef %cond86, ptr noundef %mem)
+  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %dptr.addr.166.us, ptr noundef %add.ptr73, ptr noundef %cond79, ptr noundef %cond71.us, ptr noundef %add.ptr80, ptr noundef %add.ptr83, ptr noundef %mem)
   %6 = load i64, ptr %dstrides, align 8
   %add.ptr89.us = getelementptr i8, ptr %dptr.addr.166.us, i64 %6
   %7 = load i64, ptr %sstrides, align 8
@@ -3182,7 +3182,7 @@ cond.true55.us:                                   ; preds = %for.body49.us67
 
 cond.end59.us71:                                  ; preds = %cond.true55.us, %for.body49.us67
   %cond60.us72 = phi ptr [ %add.ptr57.us, %cond.true55.us ], [ %dptr.addr.166.us68, %for.body49.us67 ]
-  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %cond60.us72, ptr noundef %add.ptr73, ptr noundef %cond79, ptr noundef %sptr.addr.165.us69, ptr noundef %add.ptr80, ptr noundef %cond86, ptr noundef %mem)
+  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %cond60.us72, ptr noundef %add.ptr73, ptr noundef %add.ptr76, ptr noundef %sptr.addr.165.us69, ptr noundef %add.ptr80, ptr noundef %cond86, ptr noundef %mem)
   %11 = load i64, ptr %dstrides, align 8
   %add.ptr89.us75 = getelementptr i8, ptr %dptr.addr.166.us68, i64 %11
   %12 = load i64, ptr %sstrides, align 8
@@ -3343,7 +3343,7 @@ cond.true66:                                      ; preds = %cond.end59
 
 cond.end70:                                       ; preds = %cond.end59, %cond.true66
   %cond71 = phi ptr [ %add.ptr68, %cond.true66 ], [ %sptr.addr.165, %cond.end59 ]
-  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %cond60, ptr noundef %add.ptr73, ptr noundef %cond79, ptr noundef %cond71, ptr noundef %add.ptr80, ptr noundef %cond86, ptr noundef %mem)
+  tail call fastcc void @copy_rec(ptr noundef %add.ptr72, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %cond60, ptr noundef %add.ptr73, ptr noundef %add.ptr76, ptr noundef %cond71, ptr noundef %add.ptr80, ptr noundef %add.ptr83, ptr noundef %mem)
   %37 = load i64, ptr %dstrides, align 8
   %add.ptr89 = getelementptr i8, ptr %dptr.addr.166, i64 %37
   %38 = load i64, ptr %sstrides, align 8
@@ -4008,7 +4008,7 @@ ndarray_as_list.exit:                             ; preds = %if.then.i, %strides
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ndarray_push(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @ndarray_push(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %items = alloca ptr, align 8
   %shape = alloca ptr, align 8
@@ -4087,7 +4087,7 @@ return:                                           ; preds = %if.end18, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ndarray_pop(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
+define internal noundef ptr @ndarray_pop(ptr noundef %self, ptr nocapture readnone %dummy) #0 {
 entry:
   %head = getelementptr inbounds %struct.NDArrayObject, ptr %self, i64 0, i32 3
   %0 = load ptr, ptr %head, align 8
@@ -4141,7 +4141,7 @@ return:                                           ; preds = %ndbuf_pop.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ndarray_add_suboffsets(ptr nocapture noundef readonly %self, ptr nocapture readnone %dummy) #0 {
+define internal noundef ptr @ndarray_add_suboffsets(ptr nocapture noundef readonly %self, ptr nocapture readnone %dummy) #0 {
 entry:
   %head = getelementptr inbounds %struct.NDArrayObject, ptr %self, i64 0, i32 3
   %0 = load ptr, ptr %head, align 8
@@ -4445,7 +4445,7 @@ cond.true:                                        ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %ptr.addr.036, %for.body ]
-  %call26 = tail call fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr noundef %cond, ptr noundef %mview, ptr noundef %item, ptr noundef %add.ptr18, ptr noundef %add.ptr19, ptr noundef %cond25, i64 noundef %sub, i64 noundef %itemsize)
+  %call26 = tail call fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr noundef %cond, ptr noundef %mview, ptr noundef %item, ptr noundef %add.ptr18, ptr noundef %add.ptr19, ptr noundef %add.ptr22, i64 noundef %sub, i64 noundef %itemsize)
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %if.then28, label %if.end29
 
@@ -4488,7 +4488,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ndarray_push_base(ptr nocapture noundef %nd, ptr noundef %items, ptr nocapture noundef readonly %shape, ptr noundef readonly %strides, i64 noundef %offset, ptr noundef %format, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc noundef i32 @ndarray_push_base(ptr nocapture noundef %nd, ptr noundef %items, ptr nocapture noundef readonly %shape, ptr noundef readonly %strides, i64 noundef %offset, ptr noundef %format, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %shape, i64 8
   %shape.val55.i = load ptr, ptr %0, align 8
@@ -6166,7 +6166,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @staticarray_init(ptr nocapture noundef writeonly %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef i32 @staticarray_init(ptr nocapture noundef writeonly %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %legacy_mode = alloca ptr, align 8
   store ptr @_Py_FalseStruct, ptr %legacy_mode, align 8
@@ -6194,8 +6194,8 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @staticarray_getbuf(ptr noundef %self, ptr nocapture noundef writeonly %view, i32 %flags) #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @staticarray_getbuf(ptr noundef %self, ptr nocapture noundef writeonly %view, i32 %flags) #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, ptr noundef nonnull align 8 dereferenceable(80) @static_buffer, i64 80, i1 false)
   %legacy_mode = getelementptr inbounds %struct.StaticArrayObject, ptr %self, i64 0, i32 1
@@ -6244,7 +6244,7 @@ attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

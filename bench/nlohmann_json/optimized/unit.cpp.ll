@@ -1693,7 +1693,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %idx.ext = zext i32 %retval.0.i to i64
+  %idx.ext = zext i32 %sub.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %idx.ext
   %6 = load ptr, ptr %other, align 8
   %retval.0.i.i = select i1 %cmp.i1.i30, ptr %6, ptr %other
@@ -1709,7 +1709,7 @@ if.else:                                          ; preds = %if.then
   %add7 = add i32 %add, 1
   %conv8 = zext i32 %add7 to i64
   %call9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv8) #44
-  %conv11 = zext i32 %retval.0.i to i64
+  %conv11 = zext i32 %sub.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call9, ptr nonnull align 8 %this, i64 %conv11, i1 false)
   store i8 -128, ptr %arrayidx.i.i, align 1
   store i32 %add, ptr %size.i, align 8
@@ -1735,7 +1735,7 @@ if.else20:                                        ; preds = %entry
 if.then23:                                        ; preds = %if.else20
   store i32 %add, ptr %size.i, align 8
   %11 = load ptr, ptr %this, align 8
-  %idx.ext26 = zext i32 %retval.0.i to i64
+  %idx.ext26 = zext i32 %2 to i64
   %add.ptr27 = getelementptr inbounds i8, ptr %11, i64 %idx.ext26
   %12 = load i8, ptr %arrayidx.i.i26, align 1
   %13 = load ptr, ptr %other, align 8
@@ -1755,7 +1755,7 @@ if.else31:                                        ; preds = %if.else20
   %conv41 = zext i32 %spec.select to i64
   %call42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv41) #44
   %14 = load ptr, ptr %this, align 8
-  %conv44 = zext i32 %retval.0.i to i64
+  %conv44 = zext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call42, ptr align 1 %14, i64 %conv44, i1 false)
   %isnull = icmp eq ptr %14, null
   br i1 %isnull, label %delete.end, label %delete.notnull

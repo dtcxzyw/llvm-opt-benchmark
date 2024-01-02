@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__STREAM_METADATA_LENGTH_LEN = external local_unnamed_addr constant i32, align 4
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @FLAC__bitwriter_new() local_unnamed_addr #0 {
+define hidden noalias noundef ptr @FLAC__bitwriter_new() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   ret ptr %call
@@ -59,7 +59,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly %bw) local_unnamed_addr #4 {
+define hidden noundef i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly %bw) local_unnamed_addr #4 {
 entry:
   %bits = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 4
   store i32 0, ptr %bits, align 8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 4
   %0 = load i32, ptr %bits.i, align 8
@@ -133,7 +133,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %4 = load ptr, ptr %bw, align 8
   %conv17.i.i = zext i32 %new_capacity.0.i.i to i64
   %mul.i.i.i = shl nuw nsw i64 %conv17.i.i, 3
-  %call4.i.i.i = tail call noalias ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i.i) #17
+  %call4.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i.i) #17
   %cmp18.i.i = icmp eq ptr %call4.i.i.i, null
   br i1 %cmp18.i.i, label %return, label %if.end21.i.i
 
@@ -178,7 +178,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 4
   %0 = load i32, ptr %bits, align 8
@@ -223,7 +223,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %bw, align 8
   %conv17.i = zext i32 %new_capacity.0.i to i64
   %mul.i.i = shl nuw nsw i64 %conv17.i, 3
-  %call4.i.i = tail call noalias ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
+  %call4.i.i = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
   %cmp18.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp18.i, label %return, label %if.end21.i
 
@@ -276,7 +276,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 4
   %0 = load i32, ptr %bits.i, align 8
@@ -321,7 +321,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %4 = load ptr, ptr %bw, align 8
   %conv17.i.i = zext i32 %new_capacity.0.i.i to i64
   %mul.i.i.i = shl nuw nsw i64 %conv17.i.i, 3
-  %call4.i.i.i = tail call noalias ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i.i) #17
+  %call4.i.i.i = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i.i) #17
   %cmp18.i.i = icmp eq ptr %call4.i.i.i, null
   br i1 %cmp18.i.i, label %return, label %if.end21.i.i
 
@@ -394,7 +394,7 @@ entry:
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_write_zeroes(ptr nocapture noundef %bw, i32 noundef %bits) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_write_zeroes(ptr nocapture noundef %bw, i32 noundef %bits) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -437,7 +437,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %bw, align 8
   %conv17.i = zext i32 %new_capacity.0.i to i64
   %mul.i.i = shl nuw nsw i64 %conv17.i, 3
-  %call4.i.i = tail call noalias ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
+  %call4.i.i = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
   %cmp18.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp18.i, label %return, label %if.end21.i
 
@@ -513,7 +513,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %bits, 31
   %shr = lshr i32 %val, %bits
@@ -531,7 +531,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define internal fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) unnamed_addr #2 {
+define internal fastcc noundef i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %bw, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -584,7 +584,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %new_capacity.0.i = select i1 %tobool.not.i, i32 %add2.i, i32 %add15.i
   %conv17.i = zext i32 %new_capacity.0.i to i64
   %mul.i.i = shl nuw nsw i64 %conv17.i, 3
-  %call4.i.i = tail call noalias ptr @realloc(ptr noundef nonnull %0, i64 noundef %mul.i.i) #17
+  %call4.i.i = tail call noalias noundef ptr @realloc(ptr noundef nonnull %0, i64 noundef %mul.i.i) #17
   %cmp18.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp18.i, label %return, label %if.end21.i
 
@@ -655,7 +655,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %bits, 32
   %shl = shl nsw i32 -1, %bits
@@ -667,7 +667,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %bits, 32
   br i1 %cmp, label %if.then, label %if.else
@@ -710,14 +710,14 @@ return:                                           ; preds = %if.then, %if.end.i1
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %bits, 64
   %sh_prom = zext nneg i32 %bits to i64
   %shl = shl nsw i64 -1, %sh_prom
   %not = xor i64 %shl, -1
-  %and = select i1 %cmp, i64 %not, i64 -1
-  %uval.0 = and i64 %and, %val
+  %and = and i64 %not, %val
+  %uval.0 = select i1 %cmp, i64 %and, i64 %val
   %cmp.i = icmp ugt i32 %bits, 32
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -742,7 +742,7 @@ land.rhs.i:                                       ; preds = %FLAC__bitwriter_wri
   br label %FLAC__bitwriter_write_raw_uint64.exit
 
 if.else.i:                                        ; preds = %entry
-  %conv4.i = trunc i64 %uval.0 to i32
+  %conv4.i = trunc i64 %and to i32
   %cmp.i7.i = icmp eq i32 %bits, 32
   %shr.i8.i = lshr i32 %conv4.i, %bits
   %cmp1.not.i9.i = icmp eq i32 %shr.i8.i, 0
@@ -759,7 +759,7 @@ FLAC__bitwriter_write_raw_uint64.exit:            ; preds = %if.then.i, %FLAC__b
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
+define hidden noundef i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
 entry:
   %and = and i32 %val, 255
   %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and, i32 noundef 8), !range !6
@@ -791,7 +791,7 @@ return:                                           ; preds = %if.end11, %if.end5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
 entry:
   %capacity = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 2
   %0 = load i32, ptr %capacity, align 8
@@ -833,7 +833,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %bw, align 8
   %conv17.i = zext i32 %new_capacity.0.i to i64
   %mul.i.i = shl nuw nsw i64 %conv17.i, 3
-  %call4.i.i = tail call noalias ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
+  %call4.i.i = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #17
   %cmp18.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp18.i, label %return, label %if.end21.i
 
@@ -870,7 +870,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ult i32 %val, 32
   br i1 %cmp, label %if.then, label %if.else
@@ -895,7 +895,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_write_rice_signed_block(ptr nocapture noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_write_rice_signed_block(ptr nocapture noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
 entry:
   %shl = shl nsw i32 -1, %parameter
   %sub = sub i32 31, %parameter
@@ -981,7 +981,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %8 = load ptr, ptr %bw, align 8
   %conv17.i = zext i32 %new_capacity.0.i to i64
   %mul.i.i = shl nuw nsw i64 %conv17.i, 3
-  %call4.i.i = tail call noalias ptr @realloc(ptr noundef %8, i64 noundef %mul.i.i) #17
+  %call4.i.i = tail call noalias noundef ptr @realloc(ptr noundef %8, i64 noundef %mul.i.i) #17
   %cmp18.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp18.i, label %return, label %if.end21.i
 
@@ -1092,7 +1092,7 @@ if.end7.i189:                                     ; preds = %if.end.i183
   %19 = load ptr, ptr %bw, align 8
   %conv17.i196 = zext i32 %new_capacity.0.i195 to i64
   %mul.i.i197 = shl nuw nsw i64 %conv17.i196, 3
-  %call4.i.i198 = tail call noalias ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i197) #17
+  %call4.i.i198 = tail call noalias noundef ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i197) #17
   %cmp18.i199 = icmp eq ptr %call4.i.i198, null
   br i1 %cmp18.i199, label %return, label %if.end21.i200
 
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds %struct.FLAC__BitWriter, ptr %bw, i64 0, i32 4
   %0 = load i32, ptr %bits, align 8

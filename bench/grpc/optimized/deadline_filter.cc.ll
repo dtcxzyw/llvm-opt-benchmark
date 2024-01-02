@@ -1028,10 +1028,8 @@ entry:
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call_args, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !19
   %2 = load i16, ptr %1, align 2, !noalias !19
-  %cmp.i.i.i.i.i.i = icmp slt i16 %2, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %1, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %3 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
-  %retval.sroa.0.0.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %3, i64 undef
   %tobool.i.i.not.i = icmp sgt i16 %2, -1
   %4 = ptrtoint ptr %1 to i64
   br i1 %tobool.i.i.not.i, label %if.end.i, label %if.then.i
@@ -1047,7 +1045,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   unreachable
 
 _ZN9grpc_core10GetContextINS_11CallContextEEEPT_v.exit.i: ; preds = %if.then.i
-  tail call void @_ZN9grpc_core11CallContext14UpdateDeadlineENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(97) %6, i64 %retval.sroa.0.0.i.i), !noalias !19
+  tail call void @_ZN9grpc_core11CallContext14UpdateDeadlineENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(97) %6, i64 %3), !noalias !19
   %.pre.i = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !19
   br label %if.end.i
 
@@ -2482,13 +2480,11 @@ entry:
   %recv_initial_metadata = getelementptr inbounds %struct.server_call_data, ptr %0, i64 0, i32 2
   %1 = load ptr, ptr %recv_initial_metadata, align 8
   %2 = load i16, ptr %1, align 2
-  %cmp.i.i.i.i.i = icmp slt i16 %2, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %1, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %3 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i64 %3, i64 undef
   %tobool.i.not.i = icmp sgt i16 %2, -1
-  %cmp.i.i9 = icmp eq i64 %retval.sroa.0.0.i, 9223372036854775807
-  %cmp.i.i = select i1 %tobool.i.not.i, i1 true, i1 %cmp.i.i9
+  %cmp.i.i913 = icmp eq i64 %3, 9223372036854775807
+  %cmp.i.i = select i1 %tobool.i.not.i, i1 true, i1 %cmp.i.i913
   br i1 %cmp.i.i, label %_ZL21start_timer_if_neededP19grpc_deadline_stateN9grpc_core9TimestampE.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
@@ -2534,7 +2530,7 @@ _ZN9grpc_core5Arena3NewINS_10TimerStateEJRP19grpc_deadline_stateRNS_9TimestampEE
   %error_data.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::TimerState", ptr %retval.0.i.i.i, i64 0, i32 2, i32 3
   store i64 0, ptr %error_data.i.i.i.i.i, align 8
   %timer_3.i.i.i.i = getelementptr inbounds %"class.grpc_core::TimerState", ptr %retval.0.i.i.i, i64 0, i32 1
-  tail call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %timer_3.i.i.i.i, i64 %retval.sroa.0.0.i, ptr noundef nonnull %closure_2.i.i.i.i)
+  tail call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %timer_3.i.i.i.i, i64 %3, ptr noundef nonnull %closure_2.i.i.i.i)
   store ptr %retval.0.i.i.i, ptr %timer_state.i, align 8
   br label %_ZL21start_timer_if_neededP19grpc_deadline_stateN9grpc_core9TimestampE.exit
 
@@ -2637,7 +2633,7 @@ declare void @_ZN9grpc_core11CallContext14UpdateDeadlineENS_9TimestampE(ptr noun
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNK3$_2clEP20grpc_channel_elementPNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISD_EEvT_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv"(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -2690,10 +2686,8 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !44
   %.cast.i.i = inttoptr i64 %2 to ptr
   %3 = load i16, ptr %.cast.i.i, align 2, !noalias !47
-  %cmp.i.i.i.i.i.i.i.i = icmp slt i16 %3, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %.cast.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %4 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !47
-  %retval.sroa.0.0.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 %4, i64 undef
   %tobool.i.i.not.i.i.i = icmp sgt i16 %3, -1
   br i1 %tobool.i.i.not.i.i.i, label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit, label %if.then.i.i.i
 
@@ -2711,7 +2705,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   unreachable
 
 _ZN9grpc_core10GetContextINS_11CallContextEEEPT_v.exit.i.i.i: ; preds = %if.then.i.i.i
-  invoke void @_ZN9grpc_core11CallContext14UpdateDeadlineENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(97) %6, i64 %retval.sroa.0.0.i.i.i.i)
+  invoke void @_ZN9grpc_core11CallContext14UpdateDeadlineENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(97) %6, i64 %4)
           to label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit unwind label %lpad.i.i, !noalias !44
 
 lpad.i.i:                                         ; preds = %_ZN9grpc_core10GetContextINS_11CallContextEEEPT_v.exit.i.i.i, %if.then.i.i.i.i
@@ -2783,7 +2777,7 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

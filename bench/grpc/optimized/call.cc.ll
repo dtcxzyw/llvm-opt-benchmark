@@ -8536,10 +8536,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN9grpc_core4Call30ProcessIncomingInitialMetadataER19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(568) %recv_initial_metadata_)
   tail call void @_ZN9grpc_core15FilterStackCall18PublishAppMetadataEP19grpc_metadata_batchb(ptr noundef nonnull align 8 dereferenceable(3736) %0, ptr noundef nonnull %recv_initial_metadata_, i1 noundef zeroext false)
   %2 = load i16, ptr %recv_initial_metadata_, align 2
-  %cmp.i.i.i.i.i = icmp slt i16 %2, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::FilterStackCall", ptr %0, i64 0, i32 18, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %3 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i64 %3, i64 undef
   %tobool.i.i.not = icmp sgt i16 %2, -1
   br i1 %tobool.i.i.not, label %if.end21, label %land.lhs.true
 
@@ -8553,7 +8551,7 @@ land.lhs.true:                                    ; preds = %if.then
 if.then8:                                         ; preds = %land.lhs.true
   %6 = load ptr, ptr %this, align 8
   %send_deadline_.i = getelementptr inbounds %"class.grpc_core::Call", ptr %6, i64 0, i32 5
-  store i64 %retval.sroa.0.0.i, ptr %send_deadline_.i, align 8
+  store i64 %3, ptr %send_deadline_.i, align 8
   br label %if.end21
 
 if.else:                                          ; preds = %entry
@@ -17801,7 +17799,7 @@ lpad:                                             ; preds = %_ZN9grpc_core7ExecC
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_call_get_peer(ptr noundef nonnull %call) local_unnamed_addr #3 {
+define noundef ptr @grpc_call_get_peer(ptr noundef nonnull %call) local_unnamed_addr #3 {
 entry:
   %call2 = tail call noundef ptr @_ZN9grpc_core4Call7GetPeerEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
   ret ptr %call2
@@ -17816,7 +17814,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define i32 @grpc_call_cancel(ptr noundef %call, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef i32 @grpc_call_cancel(ptr noundef %call, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %callback_exec_ctx = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -18128,7 +18126,7 @@ return:                                           ; preds = %if.then.i.i26, %if.
 }
 
 ; Function Attrs: uwtable
-define i32 @grpc_call_cancel_with_status(ptr noundef %c, i32 noundef %status, ptr noundef %description, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef i32 @grpc_call_cancel_with_status(ptr noundef %c, i32 noundef %status, ptr noundef %description, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %callback_exec_ctx = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -18502,7 +18500,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define i32 @grpc_call_start_batch(ptr noundef %call, ptr noundef %ops, i64 noundef %nops, ptr noundef %tag, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef i32 @grpc_call_start_batch(ptr noundef %call, ptr noundef %ops, i64 noundef %nops, ptr noundef %tag, ptr noundef %reserved) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %callback_exec_ctx = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -18847,7 +18845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_call_failed_before_recv_message(ptr noundef %c) local_unnamed_addr #3 {
+define noundef i32 @grpc_call_failed_before_recv_message(ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %vtable = load ptr, ptr %c, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
@@ -18868,7 +18866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @grpc_call_error_to_string(i32 noundef %error) local_unnamed_addr #3 {
+define noundef nonnull ptr @grpc_call_error_to_string(i32 noundef %error) local_unnamed_addr #3 {
 entry:
   %0 = icmp ult i32 %error, 16
   br i1 %0, label %switch.lookup, label %do.body

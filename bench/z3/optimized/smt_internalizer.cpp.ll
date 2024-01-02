@@ -13506,7 +13506,7 @@ land.lhs.true220:                                 ; preds = %invoke.cont218
   %161 = load i32, ptr %m_scope_lvl, align 8
   %162 = load i32, ptr %m_base_lvl, align 4
   %cmp222 = icmp ugt i32 %161, %162
-  %spec.select = or i1 %103, %cmp222
+  %spec.select = select i1 %cmp222, i1 true, i1 %cmp175
   %spec.select35 = select i1 %cmp222, i32 %161, i32 %cond
   br i1 %spec.select, label %if.then253, label %if.end291
 
@@ -13544,7 +13544,7 @@ land.lhs.true243:                                 ; preds = %invoke.cont241
   %164 = load i32, ptr %m_scope_lvl244, align 8
   %165 = load i32, ptr %m_base_lvl, align 4
   %cmp246 = icmp ugt i32 %164, %165
-  %spec.select36 = or i1 %103, %cmp246
+  %spec.select36 = select i1 %cmp246, i1 true, i1 %cmp175
   %spec.select37 = select i1 %cmp246, i32 %164, i32 %cond
   br i1 %spec.select36, label %if.then253, label %if.end291
 
@@ -13553,7 +13553,7 @@ if.end251:                                        ; preds = %invoke.cont231, %in
 
 if.then253:                                       ; preds = %land.lhs.true243, %land.lhs.true220, %if.end251
   %iscope_lvl.0511 = phi i32 [ %spec.select35, %land.lhs.true220 ], [ %cond, %if.end251 ], [ %spec.select37, %land.lhs.true243 ]
-  invoke void @_ZN3smt7context15mark_for_reinitEPNS_6clauseEjb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull %call184, i32 noundef %iscope_lvl.0511, i1 noundef zeroext %103)
+  invoke void @_ZN3smt7context15mark_for_reinitEPNS_6clauseEjb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull %call184, i32 noundef %iscope_lvl.0511, i1 noundef zeroext %cmp175)
           to label %if.end291 unwind label %lpad
 
 if.else257:                                       ; preds = %invoke.cont186

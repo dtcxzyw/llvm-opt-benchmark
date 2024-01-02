@@ -16135,12 +16135,10 @@ if.end13:                                         ; preds = %monotonic.i.i, %ent
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %args)
-  %tobool.not.i.i = icmp ne ptr %agg.result, null
   %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.542", ptr %agg.result, i64 0, i32 1
   %14 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.i = icmp eq i8 %14, 0
-  %or.cond = select i1 %tobool.not.i.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %if.then18, label %return
+  br i1 %cmp.i.i, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end13
   %15 = load ptr, ptr %agg.result, align 8

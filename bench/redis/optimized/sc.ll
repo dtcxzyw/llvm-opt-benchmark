@@ -18,7 +18,7 @@ entry:
   ret i64 %add
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @sc_data_init(ptr nocapture noundef writeonly %sc_data) local_unnamed_addr #1 {
 entry:
   br label %while.body35.i
@@ -170,19 +170,17 @@ while.end110.i:                                   ; preds = %size_class.exit134.
   br i1 %exitcond177.not.i, label %size_classes.exit, label %while.body56.i, !llvm.loop !9
 
 size_classes.exit:                                ; preds = %while.end110.i
-  %16 = trunc i64 %wide.trip.count.i to i32
-  %17 = add nsw i32 %16, -1
-  %18 = trunc i64 %index.3154.i to i32
-  %19 = add i32 %17, %18
+  %16 = trunc i64 %index.3154.i to i32
+  %17 = add i32 %16, 3
   %sext178.i = shl i64 %indvars.iv.next163.i, 32
   %conv114.i = ashr exact i64 %sext178.i, 32
-  %cmp.i.i.i.i.i = icmp ne i32 %19, 0
+  %cmp.i.i.i.i.i = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %conv114.i, i1 true), !range !10
-  %21 = trunc i64 %20 to i32
-  %conv1.i.i.i.i.i = xor i32 %21, 63
-  %22 = tail call i64 @llvm.ctpop.i64(i64 %conv114.i), !range !10
-  %cmp.i135.i = icmp ugt i64 %22, 1
+  %18 = tail call i64 @llvm.ctlz.i64(i64 %conv114.i, i1 true), !range !10
+  %19 = trunc i64 %18 to i32
+  %conv1.i.i.i.i.i = xor i32 %19, 63
+  %20 = tail call i64 @llvm.ctpop.i64(i64 %conv114.i), !range !10
+  %cmp.i135.i = icmp ugt i64 %20, 1
   %cond.i.i = zext i1 %cmp.i135.i to i32
   %add.i.i = add nuw nsw i32 %conv1.i.i.i.i.i, %cond.i.i
   store i32 0, ptr %sc_data, align 8
@@ -191,7 +189,7 @@ size_classes.exit:                                ; preds = %while.end110.i
   %nbins117.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 2
   store i32 %nbins.7.i, ptr %nbins117.i, align 8
   %nsizes118.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 3
-  store i32 %19, ptr %nsizes118.i, align 4
+  store i32 %17, ptr %nsizes118.i, align 4
   %lg_ceil_nsizes119.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 4
   store i32 %add.i.i, ptr %lg_ceil_nsizes119.i, align 8
   %npsizes120.i = getelementptr inbounds %struct.sc_data_s, ptr %sc_data, i64 0, i32 5
@@ -294,7 +292,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @sc_boot(ptr nocapture noundef writeonly %data) local_unnamed_addr #1 {
 entry:
   tail call void @sc_data_init(ptr noundef %data)
@@ -311,7 +309,7 @@ declare void @llvm.assume(i1 noundef) #4
 declare i64 @llvm.ctpop.i64(i64) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

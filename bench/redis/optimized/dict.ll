@@ -49,7 +49,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @dictGetHashFunctionSeed() local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @dictGetHashFunctionSeed() local_unnamed_addr #2 {
 entry:
   ret ptr @dict_hash_function_seed
 }
@@ -73,7 +73,7 @@ entry:
 declare i64 @siphash_nocase(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictCreate(ptr noundef %type) local_unnamed_addr #3 {
+define dso_local noundef ptr @dictCreate(ptr noundef %type) local_unnamed_addr #3 {
 entry:
   %dictMetadataBytes = getelementptr inbounds %struct.dictType, ptr %type, i64 0, i32 9
   %0 = load ptr, ptr %dictMetadataBytes, align 8
@@ -186,7 +186,7 @@ for.end:                                          ; preds = %dictCreate.exit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictResize(ptr noundef %d) local_unnamed_addr #3 {
+define dso_local noundef i32 @dictResize(ptr noundef %d) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr @dict_can_resize, align 4
   %cmp.not = icmp eq i32 %0, 0
@@ -202,7 +202,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %ht_used = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 2
   %2 = load i64, ptr %ht_used, align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 4)
-  %call.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null), !range !7
+  %call.i = tail call noundef i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null), !range !7
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -211,14 +211,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
+define dso_local noundef i32 @dictExpand(ptr noundef %d, i64 noundef %size) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef null), !range !7
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef writeonly %malloc_failed) local_unnamed_addr #3 {
+define dso_local noundef i32 @_dictExpand(ptr noundef %d, i64 noundef %size, ptr noundef writeonly %malloc_failed) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %malloc_failed, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictRehash(ptr noundef %d, i32 noundef %n) local_unnamed_addr #3 {
+define dso_local noundef i32 @dictRehash(ptr noundef %d, i32 noundef %n) local_unnamed_addr #3 {
 entry:
   %mul = mul nsw i32 %n, 10
   %ht_size_exp = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5
@@ -761,7 +761,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictAdd(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
+define dso_local noundef i32 @dictAdd(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
 entry:
   %call.i = tail call ptr @dictFindPositionForInsert(ptr noundef %d, ptr noundef %key, ptr noundef null)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -825,7 +825,7 @@ return:                                           ; preds = %entry, %if.end, %di
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictAddRaw(ptr noundef %d, ptr noundef %key, ptr noundef %existing) local_unnamed_addr #3 {
+define dso_local noundef ptr @dictAddRaw(ptr noundef %d, ptr noundef %key, ptr noundef %existing) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @dictFindPositionForInsert(ptr noundef %d, ptr noundef %key, ptr noundef %existing)
   %tobool.not = icmp eq ptr %call, null
@@ -1055,7 +1055,7 @@ dictTypeExpandAllowed.exit.if.end54_crit_edge.i:  ; preds = %dictTypeExpandAllow
 if.end54.i:                                       ; preds = %dictTypeExpandAllowed.exit.if.end54_crit_edge.i, %if.then51.i
   %21 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %16, %if.then51.i ]
   %add.i = add i64 %21, 1
-  %call.i13.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null), !range !7
+  %call.i13.i = tail call noundef i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null), !range !7
   %22 = icmp eq i32 %call.i13.i, 0
   br i1 %22, label %for.body.preheader, label %return
 
@@ -1167,7 +1167,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictInsertAtPosition(ptr nocapture noundef %d, ptr noundef %key, ptr noundef %position) local_unnamed_addr #3 {
+define dso_local noundef ptr @dictInsertAtPosition(ptr nocapture noundef %d, ptr noundef %key, ptr noundef %position) local_unnamed_addr #3 {
 entry:
   %rehashidx = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 3
   %0 = load i64, ptr %rehashidx, align 8
@@ -1263,7 +1263,7 @@ if.end67:                                         ; preds = %if.else, %if.then41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictReplace(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
+define dso_local noundef i32 @dictReplace(ptr noundef %d, ptr noundef %key, ptr noundef %val) local_unnamed_addr #3 {
 entry:
   %existing = alloca ptr, align 8
   %call.i = call ptr @dictFindPositionForInsert(ptr noundef %d, ptr noundef %key, ptr noundef nonnull %existing)
@@ -1743,7 +1743,7 @@ if.end16:                                         ; preds = %entry, %decodeMaske
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_dictClear(ptr noundef %d, i32 noundef %htidx, ptr noundef readonly %callback) local_unnamed_addr #3 {
+define dso_local noundef i32 @_dictClear(ptr noundef %d, i32 noundef %htidx, ptr noundef readonly %callback) local_unnamed_addr #3 {
 entry:
   %idxprom = sext i32 %htidx to i64
   %arrayidx = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5, i64 %idxprom
@@ -2545,7 +2545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @dictEntryMemUsage() local_unnamed_addr #2 {
+define dso_local noundef i64 @dictEntryMemUsage() local_unnamed_addr #2 {
 entry:
   ret i64 24
 }
@@ -2737,7 +2737,7 @@ if.end7:                                          ; preds = %if.then2, %dictFing
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @dictGetIterator(ptr noundef %d) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @dictGetIterator(ptr noundef %d) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #23
   store ptr %d, ptr %call, align 8
@@ -2751,7 +2751,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @dictGetSafeIterator(ptr noundef %d) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @dictGetSafeIterator(ptr noundef %d) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #23
   store ptr %d, ptr %call.i, align 8
@@ -4097,7 +4097,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @dictGetStatsHt(ptr nocapture noundef readonly %d, i32 noundef %htidx, i32 noundef %full) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @dictGetStatsHt(ptr nocapture noundef readonly %d, i32 noundef %htidx, i32 noundef %full) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(400) ptr @zcalloc(i64 noundef 400) #23
   %call1 = tail call noalias dereferenceable_or_null(56) ptr @zcalloc(i64 noundef 56) #23
@@ -4128,7 +4128,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %buckets = getelementptr inbounds %struct.dictStats, ptr %call1, i64 0, i32 1
   %maxChainLen = getelementptr inbounds %struct.dictStats, ptr %call1, i64 0, i32 2
   %totalChainLen = getelementptr inbounds %struct.dictStats, ptr %call1, i64 0, i32 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %cond, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4186,7 +4185,7 @@ for.inc:                                          ; preds = %while.end, %if.then
   %add = add i64 %10, %inc43.lcssa.sink
   store i64 %add, ptr %totalChainLen.sink40, align 8
   %inc58 = add nuw i64 %i.037, 1
-  %exitcond.not = icmp eq i64 %inc58, %umax
+  %exitcond.not = icmp eq i64 %inc58, %shl
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !41
 
 return:                                           ; preds = %for.inc, %entry

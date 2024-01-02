@@ -105,7 +105,7 @@ cond.end:                                         ; preds = %land.lhs.true16
   br i1 %or.cond22, label %if.then27, label %if.end38
 
 if.then27:                                        ; preds = %cond.end
-  %11 = load i8, ptr %spec.select.i62, align 1
+  %11 = load i8, ptr %incdec.ptr.i61, align 1
   %cmp.i64 = icmp eq i8 %11, 0
   br i1 %cmp.i64, label %return, label %lor.lhs.false2.i65
 
@@ -119,10 +119,10 @@ lor.lhs.false2.i65:                               ; preds = %if.then27
   br i1 %tobool5.not.i69, label %return, label %next_num.exit76
 
 next_num.exit76:                                  ; preds = %lor.lhs.false2.i65
-  %call6.i71 = call i64 @strtoul(ptr noundef nonnull %spec.select.i62, ptr noundef nonnull %end, i32 noundef 10) #8
+  %call6.i71 = call i64 @strtoul(ptr noundef nonnull %incdec.ptr.i61, ptr noundef nonnull %end, i32 noundef 10) #8
   %conv7.i72 = trunc i64 %call6.i71 to i32
   %15 = load ptr, ptr %end, align 8
-  %cmp8.i73 = icmp eq ptr %15, %spec.select.i62
+  %cmp8.i73 = icmp eq ptr %15, %incdec.ptr.i61
   %cmp33 = icmp eq i32 %conv7.i72, 0
   %or.cond = select i1 %cmp8.i73, i1 true, i1 %cmp33
   br i1 %or.cond, label %return, label %if.end38

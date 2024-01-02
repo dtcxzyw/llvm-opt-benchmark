@@ -219,7 +219,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.206 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @smime_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @smime_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %indata = alloca ptr, align 8
   %p7 = alloca ptr, align 8
@@ -1112,8 +1112,8 @@ if.end460:                                        ; preds = %if.end449
 
 if.then462:                                       ; preds = %if.end460
   %tobool463.not = icmp eq i32 %indef.0.lcssa, 0
-  %or465 = or i32 %spec.select209, 4096
-  %spec.select213 = select i1 %tobool463.not, i32 %spec.select209, i32 %or465
+  %or465 = or i32 %and323, 4096
+  %spec.select213 = select i1 %tobool463.not, i32 %and323, i32 %or465
   %31 = load ptr, ptr %cipher, align 8
   %call467 = call ptr @app_get0_propq() #3
   %call468 = call ptr @PKCS7_encrypt_ex(ptr noundef %encerts.0, ptr noundef nonnull %call403, ptr noundef %31, i32 noundef %spec.select213, ptr noundef %call, ptr noundef %call467) #3
@@ -1468,7 +1468,7 @@ declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare ptr @opt_arg() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc nonnull ptr @operation_name(i32 noundef %operation) unnamed_addr #2 {
+define internal fastcc noundef nonnull ptr @operation_name(i32 noundef %operation) unnamed_addr #2 {
 entry:
   switch i32 %operation, label %sw.default [
     i32 17, label %return
@@ -1563,7 +1563,7 @@ declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, pt
 declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smime_cb(i32 noundef returned %ok, ptr noundef %ctx) #0 {
+define internal noundef i32 @smime_cb(i32 noundef returned %ok, ptr noundef %ctx) #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #3
   %cmp.not = icmp eq i32 %call, 43
@@ -1610,7 +1610,7 @@ declare i32 @PKCS7_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @PKCS7_get0_signers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
+define internal fastcc noundef i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %signerfile, null
   br i1 %cmp, label %return, label %if.end
