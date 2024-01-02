@@ -5417,10 +5417,8 @@ sw.bb23:                                          ; preds = %sw.bb21, %if.end17
 
 if.then25:                                        ; preds = %sw.bb23
   %add26 = add nuw nsw i32 %loc.2, 1
-  %cmp.i80 = icmp sgt i32 %loc.2, -2
   %cmp5.i82 = icmp sgt i32 %7, %add26
-  %or.cond.i83 = select i1 %cmp.i80, i1 %cmp5.i82, i1 false
-  br i1 %or.cond.i83, label %cond.true.i85, label %for.inc138
+  br i1 %cmp5.i82, label %cond.true.i85, label %for.inc138
 
 cond.true.i85:                                    ; preds = %if.then25
   %11 = load ptr, ptr %elements.i66, align 8
@@ -6312,10 +6310,8 @@ sw.bb237:                                         ; preds = %sw.bb235, %if.end19
 
 if.then240:                                       ; preds = %sw.bb237
   %add241 = add nuw nsw i32 %loc.2, 1
-  %cmp.i197 = icmp sgt i32 %loc.2, -2
   %cmp5.i199 = icmp sgt i32 %10, %add241
-  %or.cond.i200 = select i1 %cmp.i197, i1 %cmp5.i199, i1 false
-  br i1 %or.cond.i200, label %cond.true.i202, label %for.inc396
+  br i1 %cmp5.i199, label %cond.true.i202, label %for.inc396
 
 cond.true.i202:                                   ; preds = %if.then240
   %57 = load ptr, ptr %elements.i151, align 8

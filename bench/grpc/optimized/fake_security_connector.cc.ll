@@ -1941,10 +1941,10 @@ for.body.lr.ph:                                   ; preds = %do.end
   %1 = load ptr, ptr %set, align 8
   br label %for.body
 
-for.cond9.preheader:                              ; preds = %for.inc
+for.body11.preheader:                             ; preds = %for.inc
   %2 = and i8 %found.1, 1
   %3 = icmp ne i8 %2, 0
-  br i1 %cmp21.not, label %for.end15, label %for.body11
+  br label %for.body11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.03 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
@@ -1964,10 +1964,10 @@ for.inc:                                          ; preds = %land.lhs.true, %for
   %found.1 = phi i8 [ %found.02, %for.body ], [ %spec.select, %land.lhs.true ]
   %inc = add nuw i64 %i.03, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond9.preheader, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.body11.preheader, label %for.body, !llvm.loop !23
 
-for.body11:                                       ; preds = %for.cond9.preheader, %for.body11
-  %i8.05 = phi i64 [ %inc14, %for.body11 ], [ 0, %for.cond9.preheader ]
+for.body11:                                       ; preds = %for.body11.preheader, %for.body11
+  %i8.05 = phi i64 [ %inc14, %for.body11 ], [ 0, %for.body11.preheader ]
   %5 = load ptr, ptr %set, align 8
   %arrayidx12 = getelementptr inbounds ptr, ptr %5, i64 %i8.05
   %6 = load ptr, ptr %arrayidx12, align 8
@@ -1977,8 +1977,8 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %cmp10 = icmp ult i64 %inc14, %7
   br i1 %cmp10, label %for.body11, label %for.end15, !llvm.loop !24
 
-for.end15:                                        ; preds = %for.body11, %do.end, %for.cond9.preheader
-  %found.0.lcssa7 = phi i1 [ %3, %for.cond9.preheader ], [ false, %do.end ], [ %3, %for.body11 ]
+for.end15:                                        ; preds = %for.body11, %do.end
+  %found.0.lcssa7 = phi i1 [ false, %do.end ], [ %3, %for.body11 ]
   %8 = load ptr, ptr %set, align 8
   call void @gpr_free(ptr noundef %8)
   ret i1 %found.0.lcssa7

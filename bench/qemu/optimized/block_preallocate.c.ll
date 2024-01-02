@@ -577,7 +577,7 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @preallocate_absorb_opts(ptr nocapture noundef %dest, ptr noundef %options, ptr nocapture noundef readonly %child_bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @preallocate_absorb_opts(ptr nocapture noundef %dest, ptr noundef %options, ptr nocapture noundef readonly %child_bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #6
   %call1 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call, ptr noundef %options, ptr noundef %errp) #6
@@ -840,7 +840,7 @@ if.then42:                                        ; preds = %if.end38
 
 if.end52:                                         ; preds = %if.then42, %if.end38
   %14 = phi i64 [ %call45, %if.then42 ], [ %11, %if.end38 ]
-  %cmp54.not = icmp sgt i64 %add, %14
+  %cmp54.not = icmp ugt i64 %add, %14
   br i1 %cmp54.not, label %if.end62, label %if.then56
 
 if.then56:                                        ; preds = %if.end52
@@ -893,7 +893,7 @@ return:                                           ; preds = %if.then56, %land.rh
 declare i32 @bdrv_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @has_prealloc_perms(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @has_prealloc_perms(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
 entry:
   %perm = getelementptr inbounds %struct.BdrvChild, ptr %bs.16840.val, i64 0, i32 5
   %0 = load i64, ptr %perm, align 8

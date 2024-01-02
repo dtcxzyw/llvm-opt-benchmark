@@ -749,14 +749,10 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %8 = trunc i64 %M to i32
   %conv21 = add i32 %8, 1
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %mModelValues, i32 noundef %conv21)
-          to label %for.body26.preheader unwind label %lpad
+          to label %for.body26 unwind label %lpad
 
-for.body26.preheader:                             ; preds = %invoke.cont19
-  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
-  br label %for.body26
-
-for.body26:                                       ; preds = %for.body26.preheader, %for.inc32
-  %i23.039 = phi i64 [ %inc33, %for.inc32 ], [ 0, %for.body26.preheader ]
+for.body26:                                       ; preds = %invoke.cont19, %for.inc32
+  %i23.039 = phi i64 [ %inc33, %for.inc32 ], [ 0, %invoke.cont19 ]
   %9 = load ptr, ptr %data, align 8
   %arrayidx.i29 = getelementptr inbounds i64, ptr %9, i64 %i23.039
   %10 = load i64, ptr %arrayidx.i29, align 8
@@ -767,7 +763,7 @@ for.body26:                                       ; preds = %for.body26.preheade
 
 for.inc32:                                        ; preds = %for.body26
   %inc33 = add nuw i64 %i23.039, 1
-  %exitcond42.not = icmp eq i64 %inc33, %umax
+  %exitcond42.not = icmp eq i64 %inc33, %1
   br i1 %exitcond42.not, label %for.end34, label %for.body26, !llvm.loop !13
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont, %if.end17
@@ -1553,14 +1549,10 @@ invoke.cont23:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %bModel1)
-          to label %for.body30.preheader unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %for.body30 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-for.body30.preheader:                             ; preds = %invoke.cont25
-  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
-  br label %for.body30
-
-for.body30:                                       ; preds = %for.body30.preheader, %for.inc43
-  %i27.051 = phi i64 [ %inc44, %for.inc43 ], [ 0, %for.body30.preheader ]
+for.body30:                                       ; preds = %invoke.cont25, %for.inc43
+  %i27.051 = phi i64 [ %inc44, %for.inc43 ], [ 0, %invoke.cont25 ]
   %9 = load ptr, ptr %data, align 8
   %arrayidx.i34 = getelementptr inbounds i64, ptr %9, i64 %i27.051
   %10 = load i64, ptr %arrayidx.i34, align 8
@@ -1656,7 +1648,7 @@ while.body4.i:                                    ; preds = %.noexc35, %.noexc36
 
 for.inc43:                                        ; preds = %.noexc36, %.noexc35, %if.then34
   %inc44 = add nuw i64 %i27.051, 1
-  %exitcond54.not = icmp eq i64 %inc44, %umax
+  %exitcond54.not = icmp eq i64 %inc44, %1
   br i1 %exitcond54.not, label %for.end45, label %for.body30, !llvm.loop !20
 
 for.end45:                                        ; preds = %for.inc43

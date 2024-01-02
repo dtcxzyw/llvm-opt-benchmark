@@ -740,7 +740,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_check_cert_time(ptr noundef %ctx, ptr noundef %x, i32 noundef %depth) local_unnamed_addr #0 {
+define noundef i32 @ossl_x509_check_cert_time(ptr noundef %ctx, ptr noundef %x, i32 noundef %depth) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 4
   %0 = load ptr, ptr %param, align 8
@@ -1159,7 +1159,7 @@ declare i32 @ASN1_TIME_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_cmp_timeframe(ptr noundef %vpm, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
+define noundef i32 @X509_cmp_timeframe(ptr noundef %vpm, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
 entry:
   %ref_time = alloca i64, align 8
   %cmp = icmp eq ptr %vpm, null
@@ -1907,14 +1907,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_set_purpose(ptr nocapture noundef readonly %ctx, i32 noundef %purpose) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_set_purpose(ptr nocapture noundef readonly %ctx, i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_purpose_inherit(ptr noundef %ctx, i32 noundef 0, i32 noundef %purpose, i32 noundef 0), !range !6
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_purpose_inherit(ptr nocapture noundef readonly %ctx, i32 noundef %def_purpose, i32 noundef %purpose, i32 noundef %trust) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_purpose_inherit(ptr nocapture noundef readonly %ctx, i32 noundef %def_purpose, i32 noundef %purpose, i32 noundef %trust) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %purpose, 0
   %cmp1 = icmp eq i32 %def_purpose, 0
@@ -2018,7 +2018,7 @@ return:                                           ; preds = %if.end37, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_set_trust(ptr nocapture noundef readonly %ctx, i32 noundef %trust) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_set_trust(ptr nocapture noundef readonly %ctx, i32 noundef %trust) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_purpose_inherit(ptr noundef %ctx, i32 noundef 0, i32 noundef 0, i32 noundef %trust), !range !6
   ret i32 %call
@@ -2189,7 +2189,7 @@ if.end10:                                         ; preds = %if.end8, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_init_rpk(ptr noundef %ctx, ptr noundef %store, ptr noundef %rpk) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_init_rpk(ptr noundef %ctx, ptr noundef %store, ptr noundef %rpk) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_init(ptr noundef %ctx, ptr noundef %store, ptr noundef null, ptr noundef null), !range !6
   %tobool.not = icmp eq i32 %call, 0
@@ -2206,7 +2206,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_init(ptr noundef %ctx, ptr noundef %store, ptr noundef %x509, ptr noundef %chain) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_init(ptr noundef %ctx, ptr noundef %store, ptr noundef %x509, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2518,7 +2518,7 @@ entry:
 declare i32 @X509_STORE_CTX_get1_issuer(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_callback(i32 noundef returned %ok, ptr nocapture readnone %e) #6 {
+define internal noundef i32 @null_callback(i32 noundef returned %ok, ptr nocapture readnone %e) #6 {
 entry:
   ret i32 %ok
 }
@@ -2742,7 +2742,7 @@ return:                                           ; preds = %if.end99, %verify_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_revocation(ptr noundef %ctx) #0 {
+define internal noundef i32 @check_revocation(ptr noundef %ctx) #0 {
 entry:
   %issuer.i.i = alloca ptr, align 8
   %crl_score.i.i = alloca i32, align 4
@@ -2966,7 +2966,7 @@ return:                                           ; preds = %check_cert.exit, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_crl(ptr noundef %ctx, ptr noundef %crl) #0 {
+define internal noundef i32 @check_crl(ptr noundef %ctx, ptr noundef %crl) #0 {
 entry:
   %crl_ctx.i = alloca %struct.x509_store_ctx_st, align 8
   %error_depth = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
@@ -3274,7 +3274,7 @@ return:                                           ; preds = %land.lhs.true85, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cert_crl(ptr noundef %ctx, ptr noundef %crl, ptr noundef %x) #0 {
+define internal noundef i32 @cert_crl(ptr noundef %ctx, ptr noundef %crl, ptr noundef %x) #0 {
 entry:
   %rev = alloca ptr, align 8
   %param = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 4
@@ -5794,7 +5794,7 @@ return:                                           ; preds = %verify_cb_cert.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dane_match_cert(i32 %ctx.148.val, ptr nocapture %ctx.240.val, ptr noundef %cert, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc noundef i32 @dane_match_cert(i32 %ctx.148.val, ptr nocapture %ctx.240.val, ptr noundef %cert, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %buf.i = alloca ptr, align 8
   %mdbuf = alloca [64 x i8], align 16
@@ -6036,7 +6036,7 @@ return:                                           ; preds = %dane_i2d.exit.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_id(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_id(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 4
   %0 = load ptr, ptr %param, align 8
@@ -6070,7 +6070,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.011.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call1.i
-  br i1 %exitcond.not.i, label %check_hosts.exit, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !27
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.011.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -6081,11 +6081,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %cmp10.i = icmp sgt i32 %call9.i, 0
   br i1 %cmp10.i, label %if.end4, label %for.cond.i
 
-check_hosts.exit:                                 ; preds = %for.cond.i, %if.end.i
+check_hosts.exit:                                 ; preds = %if.end.i
   %cmp13.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp13.i.not, label %if.end4, label %if.then
 
-if.then:                                          ; preds = %check_hosts.exit
+if.then:                                          ; preds = %for.cond.i, %check_hosts.exit
   %6 = load ptr, ptr %cert, align 8
   %error_depth.i.i = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
   store i32 0, ptr %error_depth.i.i, align 4
@@ -6879,7 +6879,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_crl_time(ptr noundef %ctx, ptr noundef %crl, i32 noundef %notify) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_crl_time(ptr noundef %ctx, ptr noundef %crl, i32 noundef %notify) unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 4
   %0 = load ptr, ptr %param, align 8
@@ -7360,7 +7360,7 @@ return:                                           ; preds = %if.then14.i, %if.th
 declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_dane_pkeys(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_dane_pkeys(ptr nocapture noundef %ctx) unnamed_addr #0 {
 entry:
   %dane1 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 32
   %0 = load ptr, ptr %dane1, align 8

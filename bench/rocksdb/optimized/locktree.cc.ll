@@ -1191,13 +1191,10 @@ _ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmP
   %conflicts_exist.0.lcssa.i = phi i8 [ %spec.select.i, %for.body.us.i ], [ %conflicts_exist.1.i, %for.inc19.i ]
   %11 = and i8 %conflicts_exist.0.lcssa.i, 1
   %tobool21.i.not = icmp eq i8 %11, 0
-  br i1 %tobool21.i.not, label %if.then19, label %return
+  br i1 %tobool21.i.not, label %for.body.lr.ph, label %return
 
-if.then19:                                        ; preds = %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit
+for.body.lr.ph:                                   ; preds = %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit
   %lnot = xor i1 %is_write_request, true
-  br i1 %cmp17.not.i, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.then19
   %m_cmp24 = getelementptr inbounds %"class.toku::locktree", ptr %this, i64 0, i32 4
   %is_shared28 = getelementptr inbounds %"struct.toku::row_lock", ptr %overlapping_lock, i64 0, i32 2
   br label %for.body
@@ -1230,8 +1227,8 @@ _ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS
   %exitcond.not = icmp eq i64 %inc, %6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit, %if.then19.thread, %if.then19
-  %all_shared.0.in.lcssa = phi i1 [ %lnot, %if.then19 ], [ %lnot41, %if.then19.thread ], [ %16, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
+for.end:                                          ; preds = %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit, %if.then19.thread
+  %all_shared.0.in.lcssa = phi i1 [ %lnot41, %if.then19.thread ], [ %16, %_ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS_8row_lockEmPNS_16locktree_managerE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %new_lock31, ptr noundef nonnull align 8 dereferenceable(81) %requested_range, i64 81, i1 false)
   %txnid33 = getelementptr inbounds %"struct.toku::row_lock", ptr %new_lock31, i64 0, i32 1
   store i64 %txnid, ptr %txnid33, align 8

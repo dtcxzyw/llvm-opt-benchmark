@@ -573,24 +573,24 @@ for.body4:                                        ; preds = %for.end, %for.body4
   tail call void @_Z1PPv(ptr noundef null)
   %inc6 = add nuw i32 %i1.014, 1
   %exitcond18.not = icmp eq i32 %inc6, %a2
-  br i1 %exitcond18.not, label %for.end7, label %for.body4, !llvm.loop !10
+  br i1 %exitcond18.not, label %for.body11.preheader, label %for.body4, !llvm.loop !10
 
 for.end7.thread:                                  ; preds = %for.end.thread, %for.end
   tail call void @_Z2Apj(i32 noundef %a2)
   br label %for.end14
 
-for.end7:                                         ; preds = %for.body4
+for.body11.preheader:                             ; preds = %for.body4
   tail call void @_Z2Apj(i32 noundef %a2)
-  br i1 %cmp11.not, label %for.end14, label %for.body11
+  br label %for.body11
 
-for.body11:                                       ; preds = %for.end7, %for.body11
-  %i8.016 = phi i32 [ %inc13, %for.body11 ], [ 0, %for.end7 ]
+for.body11:                                       ; preds = %for.body11.preheader, %for.body11
+  %i8.016 = phi i32 [ %inc13, %for.body11 ], [ 0, %for.body11.preheader ]
   tail call void @_Z1PPv(ptr noundef null)
   %inc13 = add nuw i32 %i8.016, 1
   %exitcond19.not = icmp eq i32 %inc13, %a2
   br i1 %exitcond19.not, label %for.end14, label %for.body11, !llvm.loop !11
 
-for.end14:                                        ; preds = %for.body11, %for.end7.thread, %for.end7
+for.end14:                                        ; preds = %for.body11, %for.end7.thread
   tail call void @_Z2Apj(i32 noundef %a2)
   tail call void @_Z1Cj(i32 noundef 43)
   ret void
@@ -800,18 +800,18 @@ for.body4:                                        ; preds = %for.end, %for.body4
   tail call void @_Z1PPv(ptr noundef null)
   %inc6 = add nuw i32 %i1.015, 1
   %exitcond19.not = icmp eq i32 %inc6, %a1
-  br i1 %exitcond19.not, label %for.end7, label %for.body4, !llvm.loop !18
+  br i1 %exitcond19.not, label %for.body11.preheader, label %for.body4, !llvm.loop !18
 
 for.end7.thread:                                  ; preds = %for.end.thread, %for.end
   tail call void @_Z2Apj(i32 noundef %a1)
   br label %for.end16
 
-for.end7:                                         ; preds = %for.body4
+for.body11.preheader:                             ; preds = %for.body4
   tail call void @_Z2Apj(i32 noundef %a1)
-  br i1 %cmp12.not, label %for.end16, label %for.body11
+  br label %for.body11
 
-for.body11:                                       ; preds = %for.end7, %for.body11
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body11 ], [ 0, %for.end7 ]
+for.body11:                                       ; preds = %for.body11.preheader, %for.body11
+  %indvars.iv20 = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next21, %for.body11 ]
   %arrayidx13 = getelementptr inbounds ptr, ptr %a4, i64 %indvars.iv20
   %1 = load ptr, ptr %arrayidx13, align 8
   tail call void @_Z1PPv(ptr noundef %1)
@@ -819,7 +819,7 @@ for.body11:                                       ; preds = %for.end7, %for.body
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %conv
   br i1 %exitcond24.not, label %for.end16, label %for.body11, !llvm.loop !19
 
-for.end16:                                        ; preds = %for.body11, %for.end7.thread, %for.end7
+for.end16:                                        ; preds = %for.body11, %for.end7.thread
   tail call void @_Z2Apj(i32 noundef %a1)
   tail call void @_Z1Cj(i32 noundef 52)
   ret void

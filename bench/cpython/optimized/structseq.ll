@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef %type, ptr nocapture noundef readonly %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef %type, ptr nocapture noundef readonly %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
 entry:
   %fields.i = getelementptr inbounds %struct.PyStructSequence_Desc, ptr %desc, i64 0, i32 2
   %0 = load ptr, ptr %fields.i, align 8
@@ -1162,7 +1162,7 @@ declare i32 @_PyStaticType_InitBuiltin(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initialize_structseq_dict(ptr nocapture noundef readonly %desc, ptr noundef %dict, i64 noundef %n_members, i64 noundef %n_unnamed_members) unnamed_addr #0 {
+define internal fastcc noundef i32 @initialize_structseq_dict(ptr nocapture noundef readonly %desc, ptr noundef %dict, i64 noundef %n_members, i64 noundef %n_unnamed_members) unnamed_addr #0 {
 entry:
   %keys = alloca ptr, align 8
   %n_in_sequence = getelementptr inbounds %struct.PyStructSequence_Desc, ptr %desc, i64 0, i32 3
@@ -1387,7 +1387,7 @@ declare ptr @_PyType_GetDict(ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyStructSequence_InitType2(ptr noundef %type, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyStructSequence_InitType2(ptr noundef %type, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
 entry:
   %type.val = load i64, ptr %type, align 8
   %cmp.not = icmp eq i64 %type.val, 0
@@ -2238,7 +2238,7 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
   br label %structseq_new_impl.exit
 
 if.end30.i:                                       ; preds = %if.then25.i
-  %cmp31.i = icmp sgt i64 %cond.i, %call4.i93.i
+  %cmp31.i = icmp ugt i64 %cond.i, %call4.i93.i
   br i1 %cmp31.i, label %if.then32.i, label %if.end41.i
 
 if.then32.i:                                      ; preds = %if.end30.i
@@ -2291,8 +2291,8 @@ if.end41.i:                                       ; preds = %if.else.i, %if.end3
   br i1 %cmp43.i, label %if.then44.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end41.i
-  %cmp46138.i = icmp sgt i64 %cond.i, 0
-  br i1 %cmp46138.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp46138.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp46138.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %call9.i, i64 0, i32 1

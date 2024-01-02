@@ -961,7 +961,7 @@ if.else.i.for.end.i_crit_edge:                    ; preds = %if.else.i
   br label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.else.i
-  %smin.i = sext i32 %.sroa.speculated.i to i64
+  %smin.i = zext nneg i32 %.sroa.speculated.i to i64
   %8 = zext nneg i32 %div18.i to i64
   br label %for.body.i
 
@@ -3204,7 +3204,7 @@ if.else.i.for.end.i_crit_edge:                    ; preds = %if.else.i
   br label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.else.i
-  %smin.i = sext i32 %.sroa.speculated.i to i64
+  %smin.i = zext nneg i32 %.sroa.speculated.i to i64
   %8 = zext nneg i32 %div18.i to i64
   br label %for.body.i
 

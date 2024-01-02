@@ -1260,7 +1260,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %start, i64 noundef %length, i32 noundef %client) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %start, i64 noundef %length, i32 noundef %client) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %return, label %if.end
@@ -1672,7 +1672,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @cpu_physical_memory_snapshot_and_clear_dirty(ptr noundef %mr, i64 noundef %offset, i64 noundef %length, i32 noundef %client) local_unnamed_addr #0 {
+define dso_local noundef ptr @cpu_physical_memory_snapshot_and_clear_dirty(ptr noundef %mr, i64 noundef %offset, i64 noundef %length, i32 noundef %client) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @memory_region_get_ram_addr(ptr noundef %mr) #25
   %add = add i64 %call, %offset
@@ -2497,7 +2497,7 @@ declare ptr @object_resolve_path(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @find_min_backend_pagesize(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @find_min_backend_pagesize(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.92) #25
   %tobool.not = icmp eq ptr %call, null
@@ -2534,7 +2534,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @find_max_backend_pagesize(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @find_max_backend_pagesize(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.92) #25
   %tobool.not = icmp eq ptr %call, null
@@ -2871,7 +2871,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_ram_resize(ptr noundef %block, i64 noundef %newsize, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_ram_resize(ptr noundef %block, i64 noundef %newsize, ptr noundef %errp) local_unnamed_addr #0 {
 if.end:
   %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 5
   %0 = load i64, ptr %used_length, align 8
@@ -3334,7 +3334,7 @@ declare i32 @qemu_msync(ptr noundef, i64 noundef, i32 noundef) local_unnamed_add
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_ram_alloc_from_fd(i64 noundef %size, ptr noundef %mr, i32 noundef %ram_flags, i32 noundef %fd, i64 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_ram_alloc_from_fd(i64 noundef %size, ptr noundef %mr, i32 noundef %ram_flags, i32 noundef %fd, i64 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %size_str.i = alloca ptr, align 8
@@ -3868,17 +3868,10 @@ for.cond.preheader.i:                             ; preds = %if.then23
   %tobool.not.i75 = icmp eq i64 %last.0.lcssa.i, 0
   %mul9.i = shl nuw nsw i64 %div15.i, 3
   %conv.i = trunc i64 %div15.i to i32
-  %sext.i = shl nuw i64 %div15.i, 32
-  %conv1217.i = ashr exact i64 %sext.i, 32
-  %cmp1318.i = icmp ugt i64 %div316.i, %conv1217.i
-  %cmp1318.fr.i = freeze i1 %cmp1318.i
-  br i1 %cmp1318.fr.i, label %for.cond.preheader.split.us.i, label %for.cond.preheader.split.i
-
-for.cond.preheader.split.us.i:                    ; preds = %for.cond.preheader.i
   br i1 %tobool.not.i75, label %while.end.us.us.i, label %while.end.us.i
 
-while.end.us.us.i:                                ; preds = %for.cond.preheader.split.us.i, %for.inc33.us.us.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.inc33.us.us.i ], [ 0, %for.cond.preheader.split.us.i ]
+while.end.us.us.i:                                ; preds = %for.cond.preheader.i, %for.inc33.us.us.i
+  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.inc33.us.us.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.us.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv47.i
   %46 = load atomic i64, ptr %arrayidx.us.us.i monotonic, align 8
   %47 = inttoptr i64 %46 to ptr
@@ -3896,9 +3889,9 @@ for.inc33.us.us.i:                                ; preds = %for.cond11.while.en
   br i1 %exitcond50.not.i, label %while.end, label %while.end.us.us.i, !llvm.loop !62
 
 for.body15.us.us.i:                               ; preds = %bitmap_new.exit.us.us.i, %while.end.us.us.i
-  %conv1220.us.us.i = phi i64 [ %conv1217.i, %while.end.us.us.i ], [ %conv12.us.us.i, %bitmap_new.exit.us.us.i ]
+  %conv1220.us.us.i = phi i64 [ %div15.i, %while.end.us.us.i ], [ %conv12.us.us.i, %bitmap_new.exit.us.us.i ]
   %j.019.us.us.i = phi i32 [ %conv.i, %while.end.us.us.i ], [ %inc.us.us.i, %bitmap_new.exit.us.us.i ]
-  %call.i.i.us.us.i = tail call noalias dereferenceable_or_null(262144) ptr @g_try_malloc0(i64 noundef 262144) #28
+  %call.i.i.us.us.i = tail call noalias noundef dereferenceable_or_null(262144) ptr @g_try_malloc0(i64 noundef 262144) #28
   %cmp.i.us.us.i = icmp eq ptr %call.i.i.us.us.i, null
   br i1 %cmp.i.us.us.i, label %if.then.i.i, label %bitmap_new.exit.us.us.i
 
@@ -3916,8 +3909,8 @@ for.cond11.while.end25_crit_edge.us.us.i:         ; preds = %bitmap_new.exit.us.
   %tobool29.not.us.us.i = icmp eq i64 %46, 0
   br i1 %tobool29.not.us.us.i, label %for.inc33.us.us.i, label %if.then30.us.us.i
 
-while.end.us.i:                                   ; preds = %for.cond.preheader.split.us.i, %for.inc33.us.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.inc33.us.i ], [ 0, %for.cond.preheader.split.us.i ]
+while.end.us.i:                                   ; preds = %for.cond.preheader.i, %for.inc33.us.i
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.inc33.us.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv43.i
   %49 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   %50 = inttoptr i64 %49 to ptr
@@ -3938,9 +3931,9 @@ for.inc33.us.i:                                   ; preds = %for.cond11.while.en
   br i1 %exitcond46.not.i, label %while.end, label %while.end.us.i, !llvm.loop !62
 
 for.body15.us.i:                                  ; preds = %bitmap_new.exit.us.i, %while.end.us.i
-  %conv1220.us.i = phi i64 [ %conv1217.i, %while.end.us.i ], [ %conv12.us.i, %bitmap_new.exit.us.i ]
+  %conv1220.us.i = phi i64 [ %div15.i, %while.end.us.i ], [ %conv12.us.i, %bitmap_new.exit.us.i ]
   %j.019.us.i = phi i32 [ %conv.i, %while.end.us.i ], [ %inc.us.i, %bitmap_new.exit.us.i ]
-  %call.i.i.us.i = tail call noalias dereferenceable_or_null(262144) ptr @g_try_malloc0(i64 noundef 262144) #28
+  %call.i.i.us.i = tail call noalias noundef dereferenceable_or_null(262144) ptr @g_try_malloc0(i64 noundef 262144) #28
   %cmp.i.us.i = icmp eq ptr %call.i.i.us.i, null
   br i1 %cmp.i.us.i, label %if.then.i.i, label %bitmap_new.exit.us.i
 
@@ -3958,108 +3951,60 @@ for.cond11.while.end25_crit_edge.us.i:            ; preds = %bitmap_new.exit.us.
   %tobool29.not.us.i = icmp eq i64 %49, 0
   br i1 %tobool29.not.us.i, label %for.inc33.us.i, label %if.then30.us.i
 
-for.cond.preheader.split.i:                       ; preds = %for.cond.preheader.i
-  br i1 %tobool.not.i75, label %while.end.us22.i, label %while.end.i76
-
-while.end.us22.i:                                 ; preds = %for.cond.preheader.split.i, %for.inc33.us30.i
-  %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %for.inc33.us30.i ], [ 0, %for.cond.preheader.split.i ]
-  %arrayidx.us25.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv39.i
-  %52 = load atomic i64, ptr %arrayidx.us25.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !61
-  %call.us26.i = tail call noalias ptr @g_malloc(i64 noundef %add5.i) #28
-  %53 = ptrtoint ptr %call.us26.i to i64
-  store atomic i64 %53, ptr %arrayidx.us25.i release, align 8
-  %tobool29.not.us28.i = icmp eq i64 %52, 0
-  br i1 %tobool29.not.us28.i, label %for.inc33.us30.i, label %if.then30.us29.i
-
-if.then30.us29.i:                                 ; preds = %while.end.us22.i
-  %54 = inttoptr i64 %52 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %54, ptr noundef nonnull @g_free) #25
-  br label %for.inc33.us30.i
-
-for.inc33.us30.i:                                 ; preds = %if.then30.us29.i, %while.end.us22.i
-  %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, 3
-  br i1 %exitcond42.not.i, label %while.end, label %while.end.us22.i, !llvm.loop !62
-
-while.end.i76:                                    ; preds = %for.cond.preheader.split.i, %for.inc33.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc33.i ], [ 0, %for.cond.preheader.split.i ]
-  %arrayidx.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv.i
-  %55 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %56 = inttoptr i64 %55 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !61
-  %call.i77 = tail call noalias ptr @g_malloc(i64 noundef %add5.i) #28
-  %blocks.i = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %call.i77, i64 0, i32 1
-  %blocks7.i = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %56, i64 0, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %blocks.i, ptr nonnull align 8 %blocks7.i, i64 %mul9.i, i1 false)
-  %57 = ptrtoint ptr %call.i77 to i64
-  store atomic i64 %57, ptr %arrayidx.i release, align 8
-  %tobool29.not.i = icmp eq i64 %55, 0
-  br i1 %tobool29.not.i, label %for.inc33.i, label %if.then30.i
-
 if.then.i.i:                                      ; preds = %for.body15.us.i, %for.body15.us.us.i
   tail call void @abort() #24
   unreachable
 
-if.then30.i:                                      ; preds = %while.end.i76
-  tail call void @call_rcu1(ptr noundef nonnull %56, ptr noundef nonnull @g_free) #25
-  br label %for.inc33.i
-
-for.inc33.i:                                      ; preds = %if.then30.i, %while.end.i76
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %while.end, label %while.end.i76, !llvm.loop !62
-
-while.end:                                        ; preds = %for.inc33.i, %for.inc33.us30.i, %for.inc33.us.i, %for.inc33.us.us.i, %if.then23, %if.end19
-  %58 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
+while.end:                                        ; preds = %for.inc33.us.i, %for.inc33.us.us.i, %if.then23, %if.end19
+  %52 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !64
-  %tobool26.not91 = icmp eq i64 %58, 0
-  br i1 %tobool26.not91, label %do.body94, label %for.body
+  %tobool26.not89 = icmp eq i64 %52, 0
+  br i1 %tobool26.not89, label %do.body94, label %for.body
 
 for.body:                                         ; preds = %while.end, %while.end36
-  %block.092.in = phi i64 [ %61, %while.end36 ], [ %58, %while.end ]
-  %block.092 = inttoptr i64 %block.092.in to ptr
-  %max_length27 = getelementptr inbounds %struct.RAMBlock, ptr %block.092, i64 0, i32 6
-  %59 = load i64, ptr %max_length27, align 8
-  %60 = load i64, ptr %max_length, align 8
-  %cmp29 = icmp ult i64 %59, %60
+  %block.090.in = phi i64 [ %55, %while.end36 ], [ %52, %while.end ]
+  %block.090 = inttoptr i64 %block.090.in to ptr
+  %max_length27 = getelementptr inbounds %struct.RAMBlock, ptr %block.090, i64 0, i32 6
+  %53 = load i64, ptr %max_length27, align 8
+  %54 = load i64, ptr %max_length, align 8
+  %cmp29 = icmp ult i64 %53, %54
   br i1 %cmp29, label %do.body40, label %while.end36
 
 while.end36:                                      ; preds = %for.body
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.092, i64 0, i32 10
-  %61 = load atomic i64, ptr %next monotonic, align 8
+  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.090, i64 0, i32 10
+  %55 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !65
-  %tobool26.not = icmp eq i64 %61, 0
+  %tobool26.not = icmp eq i64 %55, 0
   br i1 %tobool26.not, label %do.body62, label %for.body, !llvm.loop !66
 
 do.body40:                                        ; preds = %for.body
-  %le_prev = getelementptr inbounds %struct.RAMBlock, ptr %block.092, i64 0, i32 10, i32 1
-  %62 = load ptr, ptr %le_prev, align 8
+  %le_prev = getelementptr inbounds %struct.RAMBlock, ptr %block.090, i64 0, i32 10, i32 1
+  %56 = load ptr, ptr %le_prev, align 8
   %next42 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10
   %le_prev43 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10, i32 1
-  store ptr %62, ptr %le_prev43, align 8
-  store ptr %block.092, ptr %next42, align 8
-  %63 = load ptr, ptr %le_prev, align 8
-  %64 = ptrtoint ptr %new_block to i64
-  store atomic i64 %64, ptr %63 release, align 8
+  store ptr %56, ptr %le_prev43, align 8
+  store ptr %block.090, ptr %next42, align 8
+  %57 = load ptr, ptr %le_prev, align 8
+  %58 = ptrtoint ptr %new_block to i64
+  store atomic i64 %58, ptr %57 release, align 8
   store ptr %next42, ptr %le_prev, align 8
   br label %if.end120
 
 do.body62:                                        ; preds = %while.end36
-  %next63 = getelementptr inbounds %struct.RAMBlock, ptr %block.092, i64 0, i32 10
-  %65 = load ptr, ptr %next63, align 8
+  %next63 = getelementptr inbounds %struct.RAMBlock, ptr %block.090, i64 0, i32 10
+  %59 = load ptr, ptr %next63, align 8
   %next65 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10
-  store ptr %65, ptr %next65, align 8
+  store ptr %59, ptr %next65, align 8
   %le_prev70 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10, i32 1
   store ptr %next63, ptr %le_prev70, align 8
-  %66 = ptrtoint ptr %new_block to i64
-  store atomic i64 %66, ptr %next63 release, align 8
-  %67 = load ptr, ptr %next65, align 8
-  %cmp83.not = icmp eq ptr %67, null
+  %60 = ptrtoint ptr %new_block to i64
+  store atomic i64 %60, ptr %next63 release, align 8
+  %61 = load ptr, ptr %next65, align 8
+  %cmp83.not = icmp eq ptr %61, null
   br i1 %cmp83.not, label %if.end120, label %if.then84
 
 if.then84:                                        ; preds = %do.body62
-  %le_prev90 = getelementptr inbounds %struct.RAMBlock, ptr %67, i64 0, i32 10, i32 1
+  %le_prev90 = getelementptr inbounds %struct.RAMBlock, ptr %61, i64 0, i32 10, i32 1
   store ptr %next65, ptr %le_prev90, align 8
   br label %if.end120
 
@@ -4067,15 +4012,15 @@ do.body94:                                        ; preds = %while.end
   %next95 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10
   %le_prev96 = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 10, i32 1
   store ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2), ptr %le_prev96, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2), align 8
-  store ptr %68, ptr %next95, align 8
-  %69 = ptrtoint ptr %new_block to i64
-  store atomic i64 %69, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) release, align 8
-  %cmp109.not = icmp eq ptr %68, null
+  %62 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2), align 8
+  store ptr %62, ptr %next95, align 8
+  %63 = ptrtoint ptr %new_block to i64
+  store atomic i64 %63, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) release, align 8
+  %cmp109.not = icmp eq ptr %62, null
   br i1 %cmp109.not, label %if.end120, label %if.then110
 
 if.then110:                                       ; preds = %do.body94
-  %le_prev116 = getelementptr inbounds %struct.RAMBlock, ptr %68, i64 0, i32 10, i32 1
+  %le_prev116 = getelementptr inbounds %struct.RAMBlock, ptr %62, i64 0, i32 10, i32 1
   store ptr %next95, ptr %le_prev116, align 8
   br label %if.end120
 
@@ -4083,55 +4028,55 @@ if.end120:                                        ; preds = %do.body62, %if.then
   store ptr null, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 1), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !67
   fence release
-  %70 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
-  %inc = add i32 %70, 1
+  %64 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
+  %inc = add i32 %64, 1
   store i32 %inc, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @ram_list, ptr noundef nonnull @.str.1, i32 noundef 1118) #25
-  %71 = load i64, ptr %offset, align 8
+  %65 = load i64, ptr %offset, align 8
   %used_length = getelementptr inbounds %struct.RAMBlock, ptr %new_block, i64 0, i32 5
-  %72 = load i64, ptr %used_length, align 8
-  tail call fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %71, i64 noundef %72, i8 noundef zeroext 7)
-  %73 = load ptr, ptr %host, align 8
-  %tobool123.not = icmp eq ptr %73, null
+  %66 = load i64, ptr %used_length, align 8
+  tail call fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %65, i64 noundef %66, i8 noundef zeroext 7)
+  %67 = load ptr, ptr %host, align 8
+  %tobool123.not = icmp eq ptr %67, null
   br i1 %tobool123.not, label %if.end139, label %if.then124
 
 if.then124:                                       ; preds = %if.end120
-  %74 = load i64, ptr %max_length, align 8
-  %75 = load ptr, ptr @current_machine, align 8
-  %call.i78 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %75) #25
+  %68 = load i64, ptr %max_length, align 8
+  %69 = load ptr, ptr @current_machine, align 8
+  %call.i78 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %69) #25
   br i1 %call.i78, label %qemu_ram_setup_dump.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then124
-  %call1.i79 = tail call i32 @qemu_madvise(ptr noundef nonnull %73, i64 noundef %74, i32 noundef 16) #25
+  %call1.i79 = tail call i32 @qemu_madvise(ptr noundef nonnull %67, i64 noundef %68, i32 noundef 16) #25
   %tobool.not.i80 = icmp eq i32 %call1.i79, 0
   br i1 %tobool.not.i80, label %qemu_ram_setup_dump.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
   tail call void @perror(ptr noundef nonnull @.str.116) #27
-  %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 73, i64 1, ptr %76) #27
+  %70 = load ptr, ptr @stderr, align 8
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 73, i64 1, ptr %70) #27
   br label %qemu_ram_setup_dump.exit
 
 qemu_ram_setup_dump.exit:                         ; preds = %if.then124, %if.then.i, %if.then2.i
-  %78 = load ptr, ptr %host, align 8
-  %79 = load i64, ptr %max_length, align 8
-  %call129 = tail call i32 @qemu_madvise(ptr noundef %78, i64 noundef %79, i32 noundef 14) #25
-  %80 = load i8, ptr @qtest_allowed, align 1
-  %81 = and i8 %80, 1
-  %tobool.i81.not = icmp eq i8 %81, 0
+  %72 = load ptr, ptr %host, align 8
+  %73 = load i64, ptr %max_length, align 8
+  %call129 = tail call i32 @qemu_madvise(ptr noundef %72, i64 noundef %73, i32 noundef 14) #25
+  %74 = load i8, ptr @qtest_allowed, align 1
+  %75 = and i8 %74, 1
+  %tobool.i81.not = icmp eq i8 %75, 0
   br i1 %tobool.i81.not, label %if.then131, label %if.end135
 
 if.then131:                                       ; preds = %qemu_ram_setup_dump.exit
-  %82 = load ptr, ptr %host, align 8
-  %83 = load i64, ptr %max_length, align 8
-  %call134 = tail call i32 @qemu_madvise(ptr noundef %82, i64 noundef %83, i32 noundef 10) #25
+  %76 = load ptr, ptr %host, align 8
+  %77 = load i64, ptr %max_length, align 8
+  %call134 = tail call i32 @qemu_madvise(ptr noundef %76, i64 noundef %77, i32 noundef 10) #25
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then131, %qemu_ram_setup_dump.exit
-  %84 = load ptr, ptr %host, align 8
-  %85 = load i64, ptr %used_length, align 8
-  %86 = load i64, ptr %max_length, align 8
-  tail call void @ram_block_notify_add(ptr noundef %84, i64 noundef %85, i64 noundef %86) #25
+  %78 = load ptr, ptr %host, align 8
+  %79 = load i64, ptr %used_length, align 8
+  %80 = load i64, ptr %max_length, align 8
+  tail call void @ram_block_notify_add(ptr noundef %78, i64 noundef %79, i64 noundef %80) #25
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end135, %if.end120, %if.then12
@@ -4141,7 +4086,7 @@ if.end139:                                        ; preds = %if.end135, %if.end1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_ram_alloc_from_file(i64 noundef %size, ptr noundef %mr, i32 noundef %ram_flags, ptr noundef %mem_path, i64 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_ram_alloc_from_file(i64 noundef %size, ptr noundef %mr, i32 noundef %ram_flags, ptr noundef %mem_path, i64 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %created = alloca i8, align 1
   %call = tail call ptr @memory_region_name(ptr noundef %mr) #25
@@ -4397,14 +4342,14 @@ declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_ram_alloc_from_ptr(i64 noundef %size, ptr noundef %host, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_ram_alloc_from_ptr(i64 noundef %size, ptr noundef %host, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @qemu_ram_alloc_internal(i64 noundef %size, i64 noundef %size, ptr noundef null, ptr noundef %host, i32 noundef 1, ptr noundef %mr, ptr noundef %errp)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_ram_alloc_internal(i64 noundef %size, i64 noundef %max_size, ptr noundef %resized, ptr noundef %host, i32 noundef %ram_flags, ptr noundef %mr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @qemu_ram_alloc_internal(i64 noundef %size, i64 noundef %max_size, ptr noundef %resized, ptr noundef %host, i32 noundef %ram_flags, ptr noundef %mr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -4480,7 +4425,7 @@ return:                                           ; preds = %if.end17, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_ram_alloc(i64 noundef %size, i32 noundef %ram_flags, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_ram_alloc(i64 noundef %size, i32 noundef %ram_flags, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %and = and i32 %ram_flags, -131
   %cmp = icmp eq i32 %and, 0
@@ -4496,7 +4441,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_ram_alloc_resizeable(i64 noundef %size, i64 noundef %maxsz, ptr noundef %resized, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_ram_alloc_resizeable(i64 noundef %size, i64 noundef %maxsz, ptr noundef %resized, ptr noundef %mr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @qemu_ram_alloc_internal(i64 noundef %size, i64 noundef %maxsz, ptr noundef %resized, ptr noundef null, i32 noundef 4, ptr noundef %mr, ptr noundef %errp)
   ret ptr %call
@@ -5079,7 +5024,7 @@ if.end11:                                         ; preds = %if.end6
 declare i32 @cpu_asidx_from_attrs(ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @address_space_dispatch_new(ptr noundef %fv) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @address_space_dispatch_new(ptr noundef %fv) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #26
   %tobool.not.i = icmp eq ptr %fv, null
@@ -5346,7 +5291,7 @@ if.end9:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @prepare_mmio_access(ptr nocapture noundef readonly %mr) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @prepare_mmio_access(ptr nocapture noundef readonly %mr) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #25
   br i1 %call, label %if.end2, label %if.then
@@ -5924,7 +5869,7 @@ address_space_rw.exit:                            ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_write_rom(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @address_space_write_rom(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_write_rom_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %buf, i64 noundef %len, i32 noundef 0)
   ret i32 0
@@ -6240,7 +6185,7 @@ for.end:                                          ; preds = %for.inc, %entry, %c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @address_space_access_valid(ptr nocapture noundef readonly %as, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @address_space_access_valid(ptr nocapture noundef readonly %as, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #25
   %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
@@ -6300,7 +6245,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @flatview_access_valid(ptr nocapture noundef readonly %fv, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @flatview_access_valid(ptr nocapture noundef readonly %fv, i64 noundef %addr, i64 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %xlat = alloca i64, align 8
@@ -9608,7 +9553,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_memory_rw_debug(ptr noundef %cpu, i64 noundef %addr, ptr nocapture noundef %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
+define dso_local noundef i32 @cpu_memory_rw_debug(ptr noundef %cpu, i64 noundef %addr, ptr nocapture noundef %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
 entry:
   %attrs = alloca %struct.MemTxAttrs, align 4
   tail call void @cpu_synchronize_state(ptr noundef %cpu) #25
@@ -9669,31 +9614,31 @@ declare void @cpu_synchronize_state(ptr noundef) local_unnamed_addr #3
 declare i64 @cpu_get_phys_page_attrs_debug(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @qemu_target_page_size() local_unnamed_addr #9 {
+define dso_local noundef i64 @qemu_target_page_size() local_unnamed_addr #9 {
 entry:
   ret i64 4096
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_target_page_mask() local_unnamed_addr #9 {
+define dso_local noundef i32 @qemu_target_page_mask() local_unnamed_addr #9 {
 entry:
   ret i32 -4096
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_target_page_bits() local_unnamed_addr #9 {
+define dso_local noundef i32 @qemu_target_page_bits() local_unnamed_addr #9 {
 entry:
   ret i32 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_target_page_bits_min() local_unnamed_addr #9 {
+define dso_local noundef i32 @qemu_target_page_bits_min() local_unnamed_addr #9 {
 entry:
   ret i32 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @qemu_target_pages_to_MiB(i64 noundef %pages) local_unnamed_addr #9 {
+define dso_local noundef i64 @qemu_target_pages_to_MiB(i64 noundef %pages) local_unnamed_addr #9 {
 entry:
   %shr = lshr i64 %pages, 8
   ret i64 %shr
@@ -9863,7 +9808,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ram_block_discard_range(ptr noundef %rb, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_discard_range(ptr noundef %rb, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %host = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 2
@@ -10279,7 +10224,7 @@ for.end106:                                       ; preds = %for.inc104, %for.en
 declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ram_block_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @ram_block_discard_disable_mutex_lock.initialized seq_cst, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -10323,7 +10268,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ram_block_uncoordinated_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_uncoordinated_discard_disable(i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @ram_block_discard_disable_mutex_lock.initialized seq_cst, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -10364,7 +10309,7 @@ if.end4:                                          ; preds = %if.end4.sink.split,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ram_block_discard_require(i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_discard_require(i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @ram_block_discard_disable_mutex_lock.initialized seq_cst, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -10408,7 +10353,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ram_block_coordinated_discard_require(i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local noundef i32 @ram_block_coordinated_discard_require(i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @ram_block_discard_disable_mutex_lock.initialized seq_cst, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -10690,7 +10635,7 @@ flatview_write.exit:                              ; preds = %do.body.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @subpage_accepts(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) #0 {
+define internal noundef zeroext i1 @subpage_accepts(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len, i1 noundef zeroext %is_write, i32 %attrs.coerce) #0 {
 entry:
   %fv = getelementptr inbounds %struct.subpage_t, ptr %opaque, i64 0, i32 1
   %0 = load ptr, ptr %fv, align 16
@@ -10933,7 +10878,7 @@ entry:
 declare void @tb_invalidate_phys_range(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @cpu_physical_memory_all_dirty(i64 noundef %start, i64 noundef %length, i32 noundef %client) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cpu_physical_memory_all_dirty(i64 noundef %start, i64 noundef %length, i32 noundef %client) unnamed_addr #0 {
 entry:
   %add = add i64 %start, 4095
   %sub = add i64 %add, %length

@@ -2548,7 +2548,7 @@ return:                                           ; preds = %if.end8, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal i32 @vvfat_co_block_status(ptr nocapture readnone %bs, i1 zeroext %want_zero, i64 %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %n, ptr nocapture readnone %map, ptr nocapture readnone %file) #3 {
+define internal noundef i32 @vvfat_co_block_status(ptr nocapture readnone %bs, i1 zeroext %want_zero, i64 %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %n, ptr nocapture readnone %map, ptr nocapture readnone %file) #3 {
 entry:
   store i64 %bytes, ptr %n, align 8
   ret i32 1
@@ -3100,7 +3100,7 @@ if.else:                                          ; preds = %if.then31
   %11 = load i32, ptr %sectors_per_fat, align 8
   %add41 = add i32 %11, %10
   %conv42 = zext i32 %add41 to i64
-  %cmp43 = icmp slt i64 %sector_num.addr.064, %conv42
+  %cmp43 = icmp ult i64 %sector_num.addr.064, %conv42
   %mul46 = shl i32 %i.062, 9
   %idx.ext47 = sext i32 %mul46 to i64
   %add.ptr48 = getelementptr i8, ptr %buf, i64 %idx.ext47
@@ -3117,7 +3117,7 @@ if.then45:                                        ; preds = %if.else
 if.then59:                                        ; preds = %if.else
   %conv69 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %conv32, %conv69
-  %sub70 = sub i64 %sector_num.addr.064, %13
+  %sub70 = sub nsw i64 %sector_num.addr.064, %13
   %mul71 = shl nsw i64 %sub70, 9
   %arrayidx72 = getelementptr i8, ptr %12, i64 %mul71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %add.ptr48, ptr noundef nonnull align 1 dereferenceable(512) %arrayidx72, i64 512, i1 false)
@@ -3616,7 +3616,7 @@ if.end27:                                         ; preds = %if.end22
   %12 = getelementptr i8, ptr %0, i64 32956
   %.val71 = load i32, ptr %12, align 4
   %conv.i = zext i32 %.val71 to i64
-  %sub.i = sub i64 %sector_num, %conv.i
+  %sub.i = sub nsw i64 %sector_num, %conv.i
   %conv1.i = zext i32 %.val70 to i64
   %div.i = sdiv i64 %sub.i, %conv1.i
   %conv2.i = trunc i64 %div.i to i32
@@ -3902,7 +3902,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @try_commit(ptr nocapture noundef %s) #0 {
+define internal noundef i32 @try_commit(ptr nocapture noundef %s) #0 {
 entry:
   %current_mapping.i = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 20
   %0 = load ptr, ptr %current_mapping.i, align 8
@@ -4279,7 +4279,7 @@ return:                                           ; preds = %if.end60, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @do_commit(ptr nocapture noundef %s) #0 {
+define internal noundef i32 @do_commit(ptr nocapture noundef %s) #0 {
 entry:
   %next = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 28, i32 2
   %0 = load i32, ptr %next, align 4
@@ -6388,7 +6388,7 @@ declare noalias ptr @g_utf16_to_utf8(ptr noundef, i64 noundef, ptr noundef, ptr 
 declare i32 @tolower(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @cluster_was_modified(ptr nocapture noundef readonly %s, i32 noundef %cluster_num) #0 {
+define internal noundef zeroext i1 @cluster_was_modified(ptr nocapture noundef readonly %s, i32 noundef %cluster_num) #0 {
 entry:
   %qcow = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 25
   %0 = load ptr, ptr %qcow, align 8
@@ -6948,7 +6948,7 @@ return:                                           ; preds = %array_get.exit115, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_commits(ptr nocapture noundef %s) #0 {
+define internal noundef i32 @handle_commits(ptr nocapture noundef %s) #0 {
 entry:
   %current_mapping.i = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 20
   %0 = load ptr, ptr %current_mapping.i, align 8
@@ -7406,7 +7406,7 @@ return:                                           ; preds = %if.else10, %array_g
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @insert_mapping(ptr nocapture noundef %s, i32 noundef %begin, i32 noundef %end) unnamed_addr #0 {
+define internal fastcc noundef ptr @insert_mapping(ptr nocapture noundef %s, i32 noundef %begin, i32 noundef %end) unnamed_addr #0 {
 entry:
   %mapping = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 6
   %next = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 6, i32 2

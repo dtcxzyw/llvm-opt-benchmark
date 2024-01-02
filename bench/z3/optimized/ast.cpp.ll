@@ -15794,7 +15794,7 @@ while.cond.i.i.i.preheader:                       ; preds = %_ZNK6vectorIP11decl
   %.ph = phi ptr [ null, %invoke.cont25 ], [ %30, %_ZNK6vectorIP11decl_pluginLb0EjE4sizeEv.exit.i.i ]
   %retval.0.i16.i.i.i.ph = phi i32 [ 0, %invoke.cont25 ], [ %31, %_ZNK6vectorIP11decl_pluginLb0EjE4sizeEv.exit.i.i ]
   %add8.i.i.ph.in = trunc i64 %indvars.iv137 to i32
-  %add8.i.i.ph = add i32 %add8.i.i.ph.in, 1
+  %add8.i.i.ph = add nuw nsw i32 %add8.i.i.ph.in, 1
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %.noexc88
@@ -15809,8 +15809,8 @@ if.end.i11.i.i.i:                                 ; preds = %while.cond.i.i.i
 
 _ZNK6vectorIP11decl_pluginLb0EjE8capacityEv.exit.i.i.i: ; preds = %if.end.i11.i.i.i, %while.cond.i.i.i
   %retval.0.i13.i.i.i = phi i32 [ %34, %if.end.i11.i.i.i ], [ 0, %while.cond.i.i.i ]
-  %cmp3.i.i.i = icmp ult i32 %retval.0.i13.i.i.i, %add8.i.i.ph
-  br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
+  %cmp3.i.i.i.not = icmp ugt i32 %retval.0.i13.i.i.i, %add8.i.i.ph.in
+  br i1 %cmp3.i.i.i.not, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIP11decl_pluginLb0EjE8capacityEv.exit.i.i.i
   invoke void @_ZN6vectorIP11decl_pluginLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_plugins.i.i65)

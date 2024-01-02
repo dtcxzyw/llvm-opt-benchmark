@@ -4705,7 +4705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucnv_MBCSGetType_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #2 {
+define noundef i32 @ucnv_MBCSGetType_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #2 {
 entry:
   %sharedData = getelementptr inbounds %struct.UConverter, ptr %converter, i64 0, i32 6
   %0 = load ptr, ptr %sharedData, align 8
@@ -7327,7 +7327,7 @@ moreBytes:                                        ; preds = %if.then109, %38, %i
 
 while.body210.lr.ph:                              ; preds = %moreBytes
   %40 = load ptr, ptr %sourceLimit3, align 8
-  %cmp.i = icmp slt i8 %toULimit.1.fr, 3
+  %cmp.i = icmp ult i8 %toULimit.1.fr, 3
   br i1 %cmp.i, label %while.body210.us, label %while.body210.lr.ph.split
 
 while.body210.us:                                 ; preds = %while.body210.lr.ph, %if.then217.us
@@ -7968,7 +7968,7 @@ moreBytes:                                        ; preds = %cond.true, %if.then
 
 while.body206.lr.ph:                              ; preds = %moreBytes
   %36 = load ptr, ptr %sourceLimit3, align 8
-  %cmp.i = icmp slt i8 %toULimit.1.fr, 3
+  %cmp.i = icmp ult i8 %toULimit.1.fr, 3
   br i1 %cmp.i, label %while.body206.us, label %while.body206.lr.ph.split
 
 while.body206.us:                                 ; preds = %while.body206.lr.ph, %if.then213.us

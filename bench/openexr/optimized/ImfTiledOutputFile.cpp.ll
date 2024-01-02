@@ -238,9 +238,9 @@ entry:
   %tileOffsets = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numXTiles, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_3_211TileOffsetsC1ENS_9LevelModeEiiPKiS3_(ptr noundef nonnull align 8 dereferenceable(40) %tileOffsets, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-          to label %cond.true.i.i.i unwind label %lpad2
+          to label %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i unwind label %lpad2
 
-cond.true.i.i.i:                                  ; preds = %entry
+_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %entry
   %slices = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slices, i8 0, i64 24, i1 false)
   %tileBuffers = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 22
@@ -264,36 +264,35 @@ cond.true.i.i.i:                                  ; preds = %entry
   %conv = zext nneg i32 %.sroa.speculated to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv, 3
   %call5.i.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
-          to label %if.then.i.i.i24.i.i unwind label %lpad4
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad4
 
-if.then.i.i.i24.i.i:                              ; preds = %cond.true.i.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   store ptr null, ptr %call5.i.i.i.i.i5, align 8
   %cmp.i.i.i.i.i26.i.i = icmp eq i32 %.sroa.speculated, 1
   br i1 %cmp.i.i.i.i.i26.i.i, label %invoke.cont10, label %if.end.i.i.i.i.i27.i.i
 
-if.end.i.i.i.i.i27.i.i:                           ; preds = %if.then.i.i.i24.i.i
+if.end.i.i.i.i.i27.i.i:                           ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i25.i.i = getelementptr ptr, ptr %call5.i.i.i.i.i5, i64 1
-  %2 = shl nuw nsw i64 %conv, 3
-  %3 = add nsw i64 %2, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i25.i.i, i8 0, i64 %3, i1 false)
+  %2 = add nsw i64 %mul.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i25.i.i, i8 0, i64 %2, i1 false)
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %if.then.i.i.i24.i.i, %if.end.i.i.i.i.i27.i.i
+invoke.cont10:                                    ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i.i.i.i27.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 2
-  %4 = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 1
+  %3 = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 1
   store ptr %call5.i.i.i.i.i5, ptr %tileBuffers, align 8
   %add.ptr37.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i5, i64 %conv
-  store ptr %add.ptr37.i.i, ptr %4, align 8
+  store ptr %add.ptr37.i.i, ptr %3, align 8
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8
   ret void
 
 lpad2:                                            ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad4:                                            ; preds = %cond.true.i.i.i
-  %6 = landingpad { ptr, i32 }
+lpad4:                                            ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %5 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt8_Rb_treeIN7Imf_3_212_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef null)
   %tileBuffers.val = load ptr, ptr %tileBuffers, align 8
@@ -318,7 +317,7 @@ _ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EED2Ev.exit: ; preds =
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EED2Ev.exit, %lpad2
-  %.pn = phi { ptr, i32 } [ %6, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EED2Ev.exit ], [ %5, %lpad2 ]
+  %.pn = phi { ptr, i32 } [ %5, %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EED2Ev.exit ], [ %4, %lpad2 ]
   %frameBuffer = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %this, i64 0, i32 5
   call void @_ZN7Imf_3_211FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer) #22
   call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #22

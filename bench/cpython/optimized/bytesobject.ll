@@ -2058,15 +2058,16 @@ land.rhs270:                                      ; preds = %vaarg.end260, %whil
 while.body275:                                    ; preds = %land.rhs270
   %inc276 = add nuw nsw i64 %i.0354, 1
   %exitcond.not = icmp eq i64 %inc276, %prec.1
-  br i1 %exitcond.not, label %if.end278, label %land.rhs270, !llvm.loop !9
+  br i1 %exitcond.not, label %if.end.i.i182, label %land.rhs270, !llvm.loop !9
 
-if.end278:                                        ; preds = %land.rhs270, %while.body275, %if.then264
-  %i.1 = phi i64 [ %call265, %if.then264 ], [ %prec.1, %while.body275 ], [ %i.0354, %land.rhs270 ]
+if.end278:                                        ; preds = %land.rhs270, %if.then264
+  %i.1 = phi i64 [ %call265, %if.then264 ], [ %i.0354, %land.rhs270 ]
   %cmp.i.i181 = icmp eq i64 %i.1, 0
   br i1 %cmp.i.i181, label %_PyBytesWriter_Prepare.exit.i192, label %if.end.i.i182
 
-if.end.i.i182:                                    ; preds = %if.end278
-  %sub.i.i184 = sub i64 9223372036854775807, %i.1
+if.end.i.i182:                                    ; preds = %while.body275, %if.end278
+  %i.1400 = phi i64 [ %i.1, %if.end278 ], [ %prec.1, %while.body275 ]
+  %sub.i.i184 = sub i64 9223372036854775807, %i.1400
   %cmp1.i.i185 = icmp sgt i64 %sub78, %sub.i.i184
   br i1 %cmp1.i.i185, label %if.then2.i.i200, label %if.end3.i.i186
 
@@ -2094,7 +2095,7 @@ if.then1.i.i.i.i208:                              ; preds = %if.end.i.i.i.i205
   br label %error
 
 if.end3.i.i186:                                   ; preds = %if.end.i.i182
-  %add.i.i187 = add i64 %i.1, %sub78
+  %add.i.i187 = add i64 %i.1400, %sub78
   %82 = load i64, ptr %allocated.i, align 8
   %cmp5.i.i189 = icmp sgt i64 %add.i.i187, %82
   br i1 %cmp5.i.i189, label %if.then6.i.i198, label %if.end8.i.i190
@@ -2109,13 +2110,14 @@ if.end8.i.i190:                                   ; preds = %if.then6.i.i198, %i
   br label %_PyBytesWriter_Prepare.exit.i192
 
 _PyBytesWriter_Prepare.exit.i192:                 ; preds = %if.end8.i.i190, %if.end278
+  %i.1401 = phi i64 [ %i.1400, %if.end8.i.i190 ], [ 0, %if.end278 ]
   %retval.0.i.i193 = phi ptr [ %str.addr.0.i.i191, %if.end8.i.i190 ], [ %s.0, %if.end278 ]
   %cmp.i194 = icmp eq ptr %retval.0.i.i193, null
   br i1 %cmp.i194, label %error, label %_PyBytesWriter_WriteBytes.exit209
 
 _PyBytesWriter_WriteBytes.exit209:                ; preds = %_PyBytesWriter_Prepare.exit.i192
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i193, ptr align 1 %77, i64 %i.1, i1 false)
-  %add.ptr.i196 = getelementptr i8, ptr %retval.0.i.i193, i64 %i.1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i193, ptr align 1 %77, i64 %i.1401, i1 false)
+  %add.ptr.i196 = getelementptr i8, ptr %retval.0.i.i193, i64 %i.1401
   %cmp280 = icmp eq ptr %add.ptr.i196, null
   br i1 %cmp280, label %error, label %for.inc349
 
@@ -2341,7 +2343,7 @@ return:                                           ; preds = %if.then2.i.i, %if.t
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_PyBytesWriter_Init(ptr nocapture noundef writeonly %writer) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %writer, i8 0, i64 36, i1 false)
@@ -4873,7 +4875,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyBytes_AsStringAndSize(ptr noundef %obj, ptr noundef writeonly %s, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyBytes_AsStringAndSize(ptr noundef %obj, ptr noundef writeonly %s, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -7910,7 +7912,7 @@ declare i32 @PyByteArray_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyByteArray_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_PyBytes_Repeat(ptr noundef %dest, i64 noundef %len_dest, ptr noundef readonly %src, i64 noundef %len_src) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len_dest, 0
@@ -8842,7 +8844,7 @@ for.end66:                                        ; preds = %for.body55, %if.end
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @stringlib__two_way(ptr noundef %haystack, i64 noundef %len_haystack, ptr nocapture noundef readonly %p) unnamed_addr #12 {
 entry:
   %len_needle1 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 1
@@ -12628,8 +12630,8 @@ for.end.i.i.i:                                    ; preds = %if.then1.i90.i.i.i,
   br i1 %cmp3.i.i.i, label %land.rhs.i.i.i, label %if.then39.i.i.i, !llvm.loop !67
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %for.inc.i.i.i
-  %count.069.i.i85.i = phi i64 [ %count.069.i.i.i, %for.inc.i.i.i ], [ %spec.store.select.i, %land.rhs.i.i.i ]
-  %cmp30.i.i.i = icmp eq i64 %count.069.i.i85.i, 0
+  %count.069.i.i104.i = phi i64 [ %count.069.i.i.i, %for.inc.i.i.i ], [ %spec.store.select.i, %land.rhs.i.i.i ]
+  %cmp30.i.i.i = icmp eq i64 %count.069.i.i104.i, 0
   br i1 %cmp30.i.i.i, label %land.lhs.true.i.i.i, label %if.else36.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i, %if.end.i62.i.i
@@ -12656,7 +12658,7 @@ Py_INCREF.exit.i.i.i:                             ; preds = %if.end.i104.i.i.i, 
   br label %if.end60.i.i.i
 
 if.else36.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %while.end.i.i.i
-  %count.0.lcssa84.i.i.i = phi i64 [ 0, %land.lhs.true.i.i.i ], [ %count.069.i.i85.i, %while.end.i.i.i ]
+  %count.0.lcssa84.i.i.i = phi i64 [ 0, %land.lhs.true.i.i.i ], [ %count.069.i.i104.i, %while.end.i.i.i ]
   %j.0.lcssa82.i.i.i = phi i64 [ %j.0.lcssa83.i.i.i, %land.lhs.true.i.i.i ], [ %j.068.i.i.i, %while.end.i.i.i ]
   %cmp37.i.i.i = icmp sgt i64 %j.0.lcssa82.i.i.i, -2
   br i1 %cmp37.i.i.i, label %if.then39.i.i.i, label %if.end60.i.i.i
@@ -12817,16 +12819,14 @@ if.then1.i80.i.i:                                 ; preds = %if.end.i77.i.i
 if.end28.i.i:                                     ; preds = %if.then1.i80.i.i, %if.end.i77.i.i, %if.else26.i.i, %if.then22.i.i
   %inc.i25.i = add nuw nsw i64 %count.090.i.i, 1
   %exitcond.not.i26.i = icmp eq i64 %inc.i25.i, %spec.store.select.i
-  br i1 %exitcond.not.i26.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !68
+  br i1 %exitcond.not.i26.i, label %if.else34.i.i, label %while.body.i.i, !llvm.loop !68
 
-while.end.i.i:                                    ; preds = %if.end28.i.i, %while.body.i.i
-  %j.0.lcssa.i.i = phi i64 [ %call10.i.i, %if.end28.i.i ], [ %j.089.i.i, %while.body.i.i ]
-  %count.0.lcssa.i27.i = phi i64 [ %spec.store.select.i, %if.end28.i.i ], [ %count.090.i.i, %while.body.i.i ]
-  %cmp29.i.i = icmp eq i64 %count.0.lcssa.i27.i, 0
+while.end.i.i:                                    ; preds = %while.body.i.i
+  %cmp29.i.i = icmp eq i64 %count.090.i.i, 0
   br i1 %cmp29.i.i, label %land.lhs.true.i.i, label %if.else34.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.end.i.i, %while.cond.preheader.i.i
-  %j.0.lcssa116.i.i = phi i64 [ %j.0.lcssa.i.i, %while.end.i.i ], [ %self.val.i, %while.cond.preheader.i.i ]
+  %j.0.lcssa116.i.i = phi i64 [ %j.089.i.i, %while.end.i.i ], [ %self.val.i, %while.cond.preheader.i.i ]
   %46 = getelementptr i8, ptr %self, i64 8
   %str_obj.val.i13.i = load ptr, ptr %46, align 8
   %cmp.i65.not.i.i = icmp eq ptr %str_obj.val.i13.i, @PyBytes_Type
@@ -12848,8 +12848,10 @@ Py_INCREF.exit.i21.i:                             ; preds = %if.end.i94.i.i, %if
   store ptr %self, ptr %call5.val59.i.i, align 8
   br label %if.end51.i.i
 
-if.else34.i.i:                                    ; preds = %while.end.i.i
-  %call37.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i.i, i64 noundef %j.0.lcssa.i.i)
+if.else34.i.i:                                    ; preds = %if.end28.i.i, %while.end.i.i
+  %count.0.lcssa125.i.i = phi i64 [ %count.090.i.i, %while.end.i.i ], [ %spec.store.select.i, %if.end28.i.i ]
+  %j.0.lcssa124.i.i = phi i64 [ %j.089.i.i, %while.end.i.i ], [ %call10.i.i, %if.end28.i.i ]
+  %call37.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i.i, i64 noundef %j.0.lcssa124.i.i)
   %cmp38.i.i = icmp eq ptr %call37.i.i, null
   br i1 %cmp38.i.i, label %onError.i15.i, label %if.end40.i.i
 
@@ -12859,11 +12861,11 @@ if.else34.thread.i.i:                             ; preds = %land.lhs.true.i.i
   br i1 %cmp3868.i.i, label %onError.i15.i, label %if.then42.i.i
 
 if.end40.i.i:                                     ; preds = %if.else34.i.i
-  %cmp41.i.i = icmp ult i64 %count.0.lcssa.i27.i, 12
+  %cmp41.i.i = icmp ult i64 %count.0.lcssa125.i.i, 12
   br i1 %cmp41.i.i, label %if.then42.i.i, label %if.else43.i.i
 
 if.then42.i.i:                                    ; preds = %if.end40.i.i, %if.else34.thread.i.i
-  %count.0.lcssa117.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.end40.i.i ], [ 0, %if.else34.thread.i.i ]
+  %count.0.lcssa117.i.i = phi i64 [ %count.0.lcssa125.i.i, %if.end40.i.i ], [ 0, %if.else34.thread.i.i ]
   %call376972.i.i = phi ptr [ %call37.i.i, %if.end40.i.i ], [ %call3767.i.i, %if.else34.thread.i.i ]
   %49 = getelementptr i8, ptr %call5.i.i, i64 24
   %call5.val60.i.i = load ptr, ptr %49, align 8
@@ -12902,7 +12904,7 @@ if.then1.i62.i.i:                                 ; preds = %if.end.i59.i.i
   br label %if.end49.i.i
 
 if.end49.i.i:                                     ; preds = %if.then1.i62.i.i, %if.end.i59.i.i, %if.else47.i.i, %if.then42.i.i
-  %count.0.lcssa119.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.else47.i.i ], [ %count.0.lcssa.i27.i, %if.then1.i62.i.i ], [ %count.0.lcssa.i27.i, %if.end.i59.i.i ], [ %count.0.lcssa117.i.i, %if.then42.i.i ]
+  %count.0.lcssa119.i.i = phi i64 [ %count.0.lcssa125.i.i, %if.else47.i.i ], [ %count.0.lcssa125.i.i, %if.then1.i62.i.i ], [ %count.0.lcssa125.i.i, %if.end.i59.i.i ], [ %count.0.lcssa117.i.i, %if.then42.i.i ]
   %inc50.i.i = add i64 %count.0.lcssa119.i.i, 1
   br label %if.end51.i.i
 
@@ -13072,10 +13074,10 @@ skip_optional_pos:                                ; preds = %if.end27, %land.lhs
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %skip_optional_pos.thread, %skip_optional_pos
-  %spec.store.select.i49 = phi i64 [ 9223372036854775807, %skip_optional_pos.thread ], [ %spec.store.select.i, %skip_optional_pos ]
-  %self.val.i45 = phi i64 [ %self.val.i38, %skip_optional_pos.thread ], [ %self.val.i, %skip_optional_pos ]
+  %spec.store.select.i47 = phi i64 [ 9223372036854775807, %skip_optional_pos.thread ], [ %spec.store.select.i, %skip_optional_pos ]
+  %self.val.i44 = phi i64 [ %self.val.i38, %skip_optional_pos.thread ], [ %self.val.i, %skip_optional_pos ]
   %maxsplit.042 = phi i64 [ -1, %skip_optional_pos.thread ], [ %maxsplit.0, %skip_optional_pos ]
-  %add.i.i = add nuw i64 %spec.store.select.i49, 1
+  %add.i.i = add nuw i64 %spec.store.select.i47, 1
   %cmp.inv.i.i = icmp ult i64 %maxsplit.042, 12
   %cond.i.i = select i1 %cmp.inv.i.i, i64 %add.i.i, i64 12
   %call.i.i = call ptr @PyList_New(i64 noundef %cond.i.i) #17
@@ -13095,7 +13097,7 @@ while.cond3.preheader.lr.ph.i.i:                  ; preds = %while.cond.preheade
 while.cond3.preheader.i.i:                        ; preds = %if.end54.i.i, %while.cond3.preheader.lr.ph.i.i
   %count.087.i.i = phi i64 [ 0, %while.cond3.preheader.lr.ph.i.i ], [ %inc55.i.i, %if.end54.i.i ]
   %i.086.i.i = phi i64 [ 0, %while.cond3.preheader.lr.ph.i.i ], [ %i.2.lcssa.i.i, %if.end54.i.i ]
-  %cmp481.i.i = icmp slt i64 %i.086.i.i, %self.val.i45
+  %cmp481.i.i = icmp slt i64 %i.086.i.i, %self.val.i44
   br i1 %cmp481.i.i, label %land.rhs.i.i, label %while.end.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond3.preheader.i.i, %while.body8.i.i
@@ -13111,17 +13113,17 @@ land.rhs.i.i:                                     ; preds = %while.cond3.prehead
 
 while.body8.i.i:                                  ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %i.182.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %self.val.i45
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %self.val.i44
   br i1 %exitcond.not.i.i, label %if.end98.i.i, label %land.rhs.i.i, !llvm.loop !69
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %while.cond3.preheader.i.i
   %i.1.lcssa.i.i = phi i64 [ %i.086.i.i, %while.cond3.preheader.i.i ], [ %i.182.i.i, %land.rhs.i.i ]
-  %cmp9.i.i = icmp eq i64 %i.1.lcssa.i.i, %self.val.i45
+  %cmp9.i.i = icmp eq i64 %i.1.lcssa.i.i, %self.val.i44
   br i1 %cmp9.i.i, label %if.end98.i.i, label %while.cond14.preheader.i.i
 
 while.cond14.preheader.i.i:                       ; preds = %while.end.i.i
   %14 = add i64 %i.1.lcssa.i.i, 1
-  %smax.i.i = call i64 @llvm.smax.i64(i64 %self.val.i45, i64 %14)
+  %smax.i.i = call i64 @llvm.smax.i64(i64 %self.val.i44, i64 %14)
   %15 = add i64 %smax.i.i, -1
   br label %while.cond14.i.i
 
@@ -13144,7 +13146,7 @@ land.rhs17.i.i:                                   ; preds = %while.cond14.i.i
 while.end29.i.i:                                  ; preds = %land.rhs17.i.i, %while.cond14.i.i
   %i.2.lcssa.i.i = phi i64 [ %smax.i.i, %while.cond14.i.i ], [ %i.2.i.i, %land.rhs17.i.i ]
   %cmp30.i.i = icmp eq i64 %i.1.lcssa.i.i, 0
-  %cmp32.i.i = icmp eq i64 %i.2.lcssa.i.i, %self.val.i45
+  %cmp32.i.i = icmp eq i64 %i.2.lcssa.i.i, %self.val.i44
   %or.cond.i.i = and i1 %cmp30.i.i, %cmp32.i.i
   br i1 %or.cond.i.i, label %land.lhs.true34.i.i, label %if.end39.i.i
 
@@ -13218,12 +13220,12 @@ if.then1.i123.i.i:                                ; preds = %if.end.i120.i.i
 
 if.end54.i.i:                                     ; preds = %if.then1.i123.i.i, %if.end.i120.i.i, %if.else52.i.i, %if.then48.i.i
   %inc55.i.i = add nuw nsw i64 %count.087.i.i, 1
-  %exitcond101.not.i.i = icmp eq i64 %inc55.i.i, %spec.store.select.i49
+  %exitcond101.not.i.i = icmp eq i64 %inc55.i.i, %spec.store.select.i47
   br i1 %exitcond101.not.i.i, label %while.end56.i.i, label %while.cond3.preheader.i.i, !llvm.loop !71
 
 while.end56.i.i:                                  ; preds = %if.end54.i.i, %while.cond.preheader.i.i
   %i.3.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %i.2.lcssa.i.i, %if.end54.i.i ]
-  %cmp57.i.i = icmp slt i64 %i.3.i.i, %self.val.i45
+  %cmp57.i.i = icmp slt i64 %i.3.i.i, %self.val.i44
   br i1 %cmp57.i.i, label %land.rhs63.i.i.preheader, label %if.end98.i.i
 
 land.rhs63.i.i.preheader:                         ; preds = %while.end56.i.i
@@ -13243,16 +13245,16 @@ land.rhs63.i.i:                                   ; preds = %land.rhs63.i.i.preh
 
 while.body73.i.i:                                 ; preds = %land.rhs63.i.i
   %inc74.i.i = add i64 %i.493.i.i, 1
-  %exitcond102.not.i.i = icmp eq i64 %inc74.i.i, %self.val.i45
+  %exitcond102.not.i.i = icmp eq i64 %inc74.i.i, %self.val.i44
   br i1 %exitcond102.not.i.i, label %if.end98.i.i, label %land.rhs63.i.i, !llvm.loop !72
 
 while.end75.i.i:                                  ; preds = %land.rhs63.i.i
-  %cmp76.not.i.i = icmp eq i64 %i.493.i.i, %self.val.i45
+  %cmp76.not.i.i = icmp eq i64 %i.493.i.i, %self.val.i44
   br i1 %cmp76.not.i.i, label %if.end98.i.i, label %if.then78.i.i
 
 if.then78.i.i:                                    ; preds = %while.end75.i.i
   %arrayidx64.i.i.le = getelementptr i8, ptr %21, i64 %i.493.i.i
-  %sub80.i.i = sub i64 %self.val.i45, %i.493.i.i
+  %sub80.i.i = sub i64 %self.val.i44, %i.493.i.i
   %call81.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %arrayidx64.i.i.le, i64 noundef %sub80.i.i)
   %cmp82.i.i = icmp eq ptr %call81.i.i, null
   br i1 %cmp82.i.i, label %onError.i.i, label %if.end85.i.i
@@ -13263,7 +13265,7 @@ if.end85.i.i:                                     ; preds = %if.then78.i.i
 if.then88.i.i:                                    ; preds = %if.end85.i.i
   %24 = getelementptr i8, ptr %call.i.i, i64 24
   %call.val.i.i = load ptr, ptr %24, align 8
-  %arrayidx.i74.i.i = getelementptr ptr, ptr %call.val.i.i, i64 %spec.store.select.i49
+  %arrayidx.i74.i.i = getelementptr ptr, ptr %call.val.i.i, i64 %spec.store.select.i47
   store ptr %call81.i.i, ptr %arrayidx.i74.i.i, align 8
   br label %if.end98.i.i
 
@@ -13298,7 +13300,7 @@ if.then1.i105.i.i:                                ; preds = %if.end.i102.i.i
   br label %if.end98.i.i
 
 if.end98.i.i:                                     ; preds = %while.end.i.i, %while.body8.i.i, %while.body73.i.i, %if.then1.i105.i.i, %if.end.i102.i.i, %if.else93.i.i, %if.then88.i.i, %while.end75.i.i, %while.end56.i.i, %Py_INCREF.exit.i.i
-  %count.2.i.i = phi i64 [ %spec.store.select.i49, %while.end75.i.i ], [ %spec.store.select.i49, %while.end56.i.i ], [ %inc38.i.i, %Py_INCREF.exit.i.i ], [ %add.i.i, %if.then1.i105.i.i ], [ %add.i.i, %if.end.i102.i.i ], [ %add.i.i, %if.else93.i.i ], [ %add.i.i, %if.then88.i.i ], [ %spec.store.select.i49, %while.body73.i.i ], [ %count.087.i.i, %while.body8.i.i ], [ %count.087.i.i, %while.end.i.i ]
+  %count.2.i.i = phi i64 [ %spec.store.select.i47, %while.end75.i.i ], [ %spec.store.select.i47, %while.end56.i.i ], [ %inc38.i.i, %Py_INCREF.exit.i.i ], [ %add.i.i, %if.then1.i105.i.i ], [ %add.i.i, %if.end.i102.i.i ], [ %add.i.i, %if.else93.i.i ], [ %add.i.i, %if.then88.i.i ], [ %spec.store.select.i47, %while.body73.i.i ], [ %count.087.i.i, %while.body8.i.i ], [ %count.087.i.i, %while.end.i.i ]
   %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i, i64 0, i32 1
   store i64 %count.2.i.i, ptr %ob_size.i.i.i, align 8
   br label %bytes_split_impl.exit
@@ -13633,16 +13635,14 @@ if.end29.i.i:                                     ; preds = %if.then1.i78.i.i, %
   %add15.i.i = add i64 %i.084.i.i, %30
   %add30.i.i = add i64 %add15.i.i, %call11.i.i
   %exitcond.not.i29.i = icmp eq i64 %inc.i28.i, %spec.store.select.i
-  br i1 %exitcond.not.i29.i, label %while.end.i30.i, label %while.body.i.i, !llvm.loop !75
+  br i1 %exitcond.not.i29.i, label %if.else36.i.i, label %while.body.i.i, !llvm.loop !75
 
-while.end.i30.i:                                  ; preds = %if.end29.i.i, %while.body.i.i
-  %i.0.lcssa.i.i = phi i64 [ %add30.i.i, %if.end29.i.i ], [ %i.084.i.i, %while.body.i.i ]
-  %count.0.lcssa.i.i = phi i64 [ %spec.store.select.i, %if.end29.i.i ], [ %count.085.i.i, %while.body.i.i ]
-  %cmp31.i.i = icmp eq i64 %count.0.lcssa.i.i, 0
+while.end.i30.i:                                  ; preds = %while.body.i.i
+  %cmp31.i.i = icmp eq i64 %count.085.i.i, 0
   br i1 %cmp31.i.i, label %land.lhs.true.i.i, label %if.else36.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.end.i30.i, %while.cond.preheader.i13.i
-  %i.0.lcssa104.i.i = phi i64 [ %i.0.lcssa.i.i, %while.end.i30.i ], [ 0, %while.cond.preheader.i13.i ]
+  %i.0.lcssa104.i.i = phi i64 [ %i.084.i.i, %while.end.i30.i ], [ 0, %while.cond.preheader.i13.i ]
   %48 = getelementptr i8, ptr %self, i64 8
   %str_obj.val.i14.i = load ptr, ptr %48, align 8
   %cmp.i66.not.i.i = icmp eq ptr %str_obj.val.i14.i, @PyBytes_Type
@@ -13664,9 +13664,9 @@ Py_INCREF.exit.i25.i:                             ; preds = %if.end.i92.i.i, %if
   store ptr %self, ptr %call5.val61.i.i, align 8
   br label %if.end53.i.i
 
-if.else36.i.i:                                    ; preds = %land.lhs.true.i.i, %while.end.i30.i
-  %count.0.lcssa105.i.i = phi i64 [ 0, %land.lhs.true.i.i ], [ %count.0.lcssa.i.i, %while.end.i30.i ]
-  %i.0.lcssa103.i.i = phi i64 [ %i.0.lcssa104.i.i, %land.lhs.true.i.i ], [ %i.0.lcssa.i.i, %while.end.i30.i ]
+if.else36.i.i:                                    ; preds = %if.end29.i.i, %land.lhs.true.i.i, %while.end.i30.i
+  %count.0.lcssa105.i.i = phi i64 [ 0, %land.lhs.true.i.i ], [ %count.085.i.i, %while.end.i30.i ], [ %spec.store.select.i, %if.end29.i.i ]
+  %i.0.lcssa103.i.i = phi i64 [ %i.0.lcssa104.i.i, %land.lhs.true.i.i ], [ %i.084.i.i, %while.end.i30.i ], [ %add30.i.i, %if.end29.i.i ]
   %add.ptr37.i.i = getelementptr i8, ptr %ob_sval.i.i, i64 %i.0.lcssa103.i.i
   %sub38.i.i = sub i64 %self.val.i, %i.0.lcssa103.i.i
   %call39.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr37.i.i, i64 noundef %sub38.i.i)
@@ -13674,7 +13674,7 @@ if.else36.i.i:                                    ; preds = %land.lhs.true.i.i, 
   br i1 %cmp40.i.i, label %onError.i16.i, label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %if.else36.i.i
-  %cmp43.i.i = icmp slt i64 %count.0.lcssa105.i.i, 12
+  %cmp43.i.i = icmp ult i64 %count.0.lcssa105.i.i, 12
   br i1 %cmp43.i.i, label %if.then44.i.i, label %if.else45.i.i
 
 if.then44.i.i:                                    ; preds = %if.end42.i.i
@@ -13715,7 +13715,7 @@ if.then1.i60.i.i:                                 ; preds = %if.end.i57.i.i
   br label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.then1.i60.i.i, %if.end.i57.i.i, %if.else49.i.i, %if.then44.i.i
-  %inc52.i.i = add i64 %count.0.lcssa105.i.i, 1
+  %inc52.i.i = add nuw i64 %count.0.lcssa105.i.i, 1
   br label %if.end53.i.i
 
 if.end53.i.i:                                     ; preds = %if.end51.i.i, %Py_INCREF.exit.i25.i
@@ -13825,7 +13825,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %wh
   %i.146.i.i = phi i64 [ %i.048.i.i, %while.cond.preheader.i.i ], [ %inc.i.i, %while.body.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %ob_sval.i.i, i64 %i.146.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
-  %inc.i.i = add i64 %i.146.i.i, 1
+  %inc.i.i = add nsw i64 %i.146.i.i, 1
   switch i8 %7, label %while.body.i.i [
     i8 13, label %land.lhs.true.i.i
     i8 10, label %if.end27.i.i
@@ -14826,7 +14826,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @striter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
+define internal noundef ptr @striter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %state) #17
   %cmp = icmp eq i64 %call, -1
@@ -14904,15 +14904,15 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nounwind willreturn memory(argmem: read) }

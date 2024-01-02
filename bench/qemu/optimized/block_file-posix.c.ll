@@ -273,7 +273,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_reopen_prepare(ptr noundef %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal noundef i32 @raw_reopen_prepare(ptr noundef %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %cmp.not = icmp eq ptr %state, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1607,7 +1607,7 @@ return:                                           ; preds = %if.end5, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_block_status(ptr noundef %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal noundef i32 @raw_co_block_status(ptr noundef %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %or = or i64 %bytes, %offset
   %bl = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17
@@ -1651,7 +1651,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   br i1 %cmp10.i, label %find_allocation.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end7.i
-  %cmp18.i = icmp sgt i64 %call9.i, %offset
+  %cmp18.i = icmp ugt i64 %call9.i, %offset
   br i1 %cmp18.i, label %if.then19, label %return.sink.split.sink.split
 
 find_allocation.exit:                             ; preds = %if.end7.i, %if.end7
@@ -1817,7 +1817,7 @@ if.end17:                                         ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_delete_file(ptr noundef %bs, ptr noundef %errp) #0 {
+define internal noundef i32 @raw_co_delete_file(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 11
@@ -2055,13 +2055,13 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @raw_co_get_info(ptr nocapture readnone %bs, ptr nocapture readnone %bdi) #3 {
+define internal noundef i32 @raw_co_get_info(ptr nocapture readnone %bs, ptr nocapture readnone %bdi) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @raw_get_specific_info(ptr nocapture noundef readonly %bs, ptr nocapture readnone %errp) #0 {
+define internal noalias noundef ptr @raw_get_specific_info(ptr nocapture noundef readonly %bs, ptr nocapture readnone %errp) #0 {
 entry:
   %attr = alloca %struct.fsxattr, align 4
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #19
@@ -2092,7 +2092,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @raw_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
+define internal noalias noundef ptr @raw_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #19
   store i32 10, ptr %call, align 8
@@ -4873,7 +4873,7 @@ raw_account_discard.exit:                         ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_aiocb_discard(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @handle_aiocb_discard(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %range = alloca [2 x i64], align 16
   %0 = load ptr, ptr %opaque, align 8
@@ -4975,7 +4975,7 @@ declare i32 @bdrv_co_copy_range_to(ptr noundef, i64 noundef, ptr noundef, i64 no
 declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_aiocb_copy_range(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @handle_aiocb_copy_range(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %in_off = alloca i64, align 8
@@ -5482,7 +5482,7 @@ return:                                           ; preds = %if.then.i, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @hdev_probe_geometry(ptr nocapture readonly %bs, ptr nocapture readnone %geo) #3 {
+define internal noundef i32 @hdev_probe_geometry(ptr nocapture readonly %bs, ptr nocapture readnone %geo) #3 {
 entry:
   ret i32 -95
 }
@@ -5566,7 +5566,7 @@ return:                                           ; preds = %raw_do_pdiscard.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @hdev_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
+define internal noalias noundef ptr @hdev_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #19
   store i32 16, ptr %call, align 8

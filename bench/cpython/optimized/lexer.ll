@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [52 x i8] c"unterminated f-string literal (detected at line %d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
 entry:
   %cur1 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
   %0 = load ptr, ptr %cur1, align 8
@@ -2428,7 +2428,7 @@ PyUnicode_DATA.exit28.i.i:                        ; preds = %if.end.i26.i.i, %if
 PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit28.i.i, %PyUnicode_DATA.exit17.i.i, %PyUnicode_DATA.exit.i.i
   %retval.0.i.i = phi i32 [ %conv.i.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit17.i.i ], [ %136, %PyUnicode_DATA.exit28.i.i ]
   %add.i = add nuw nsw i64 %call12.i, 1
-  %cmp22.i = icmp slt i64 %add.i, %call.val.i
+  %cmp22.i = icmp ult i64 %add.i, %call.val.i
   br i1 %cmp22.i, label %do.body.i, label %if.end41.i
 
 do.body.i:                                        ; preds = %PyUnicode_READ_CHAR.exit.i
@@ -5070,7 +5070,7 @@ declare i32 @_PyLexer_type_comment_token_setup(ptr noundef, ptr noundef, i32 nou
 declare i32 @_PyTokenizer_syntaxerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_end_of_number(ptr noundef %tok, i32 noundef %c, ptr noundef %kind) unnamed_addr #0 {
+define internal fastcc noundef i32 @verify_end_of_number(ptr noundef %tok, i32 noundef %c, ptr noundef %kind) unnamed_addr #0 {
 entry:
   %tok_extra_tokens = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 45
   %0 = load i32, ptr %tok_extra_tokens, align 4
@@ -5584,7 +5584,7 @@ return:                                           ; preds = %do.end, %tok_backup
 declare i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
 entry:
   %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
   %0 = load i32, ptr %tok_mode_stack_index, align 8

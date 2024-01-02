@@ -949,7 +949,7 @@ if.then28:                                        ; preds = %cleanup.done
 for.inc:                                          ; preds = %if.else14, %cleanup.done
   %inc = add nuw i64 %i.078, 1
   %exitcond.not = icmp eq i64 %inc, %num_md
-  br i1 %exitcond.not, label %if.else37, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.body41.lr.ph, label %for.body, !llvm.loop !8
 
 if.then31:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit24, %if.then28
   call void @_ZN4absl12lts_2023080216UnavailableErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp32, i64 16, ptr nonnull @.str.8)
@@ -987,11 +987,8 @@ terminate.lpad.i56:                               ; preds = %if.then.i.i55
   call void @__clang_call_terminate(ptr %32) #22
   unreachable
 
-if.else37:                                        ; preds = %for.inc
+for.body41.lr.ph:                                 ; preds = %for.inc
   store i64 0, ptr %error, align 8
-  br i1 %cmp777.not, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, label %for.body41.lr.ph
-
-for.body41.lr.ph:                                 ; preds = %if.else37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_plugin_credentials::PendingRequest", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 1
   br label %for.body41
 
@@ -1064,7 +1061,7 @@ for.end65:                                        ; preds = %_ZN9grpc_core5Slice
   %cmp.i63 = icmp eq i64 %.pre83, 0
   br i1 %cmp.i63, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, label %cleanup
 
-_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %for.cond.preheader, %if.else37, %for.end65
+_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %for.cond.preheader, %for.end65
   %md_72 = getelementptr inbounds %"class.grpc_plugin_credentials::PendingRequest", ptr %this, i64 0, i32 6
   %45 = load i8, ptr %md_72, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.grpc_plugin_credentials::PendingRequest", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -2508,7 +2505,7 @@ _ZN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN23grpc_plugin_credentialsC2E32grpc_metadata_credentials_plugin19grpc_security_level(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly byval(%struct.grpc_metadata_credentials_plugin) align 8 %plugin, i32 noundef %min_security_level) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
@@ -2522,7 +2519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_metadata_credentials_create_from_plugin(ptr nocapture noundef readonly byval(%struct.grpc_metadata_credentials_plugin) align 8 %plugin, i32 noundef %min_security_level, ptr noundef %reserved) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_metadata_credentials_create_from_plugin(ptr nocapture noundef readonly byval(%struct.grpc_metadata_credentials_plugin) align 8 %plugin, i32 noundef %min_security_level, ptr noundef %reserved) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2) monotonic, align 8
   %1 = and i8 %0, 1
@@ -6950,7 +6947,7 @@ attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #7 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

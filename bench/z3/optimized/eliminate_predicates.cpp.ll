@@ -5400,20 +5400,17 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i59: ; preds = %_ZN6bufferIP4ex
   store i32 %inc.i.i62, ptr %m_pos.i.i, align 8
   %inc.i63 = add nuw i32 %i.013.i35, 1
   %exitcond.not.i64 = icmp eq i32 %inc.i63, %0
-  br i1 %exitcond.not.i64, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70, label %for.body.i34, !llvm.loop !27
+  br i1 %exitcond.not.i64, label %for.body.lr.ph, label %for.body.i34, !llvm.loop !27
 
 if.else.i28:                                      ; preds = %invoke.cont
   %cmp3.i29 = icmp ugt i32 %.pre, %0
-  br i1 %cmp3.i29, label %for.cond6.preheader.i30, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70
+  br i1 %cmp3.i29, label %for.cond6.preheader.i30, label %for.body.lr.ph
 
 for.cond6.preheader.i30:                          ; preds = %if.else.i28
   store i32 %0, ptr %m_pos.i.i, align 8
-  br label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70
+  br label %for.body.lr.ph
 
-_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70: ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i59, %if.else.i28, %for.cond6.preheader.i30
-  br i1 %cmp.i.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70
+for.body.lr.ph:                                   ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i59, %if.else.i28, %for.cond6.preheader.i30
   %m = getelementptr inbounds %class.dependent_expr_simplifier, ptr %this, i64 0, i32 1
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
@@ -5477,7 +5474,7 @@ if.end:                                           ; preds = %invoke.cont10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
-for.end:                                          ; preds = %if.end, %entry, %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit70
+for.end:                                          ; preds = %if.end, %entry
   %m20 = getelementptr inbounds %class.dependent_expr_simplifier, ptr %this, i64 0, i32 1
   %21 = load ptr, ptr %m20, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12beta_reducer, i64 0, inrange i32 0, i64 2), ptr %sub, align 8

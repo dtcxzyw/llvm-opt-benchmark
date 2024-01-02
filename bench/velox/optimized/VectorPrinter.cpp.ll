@@ -969,6 +969,7 @@ if.end.i24:                                       ; preds = %if.end.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i24
+  %div.i = lshr i32 %.sroa.speculated, 6
   %sub.i = and i32 %.sroa.speculated, 63
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
@@ -981,6 +982,7 @@ if.then3.i:                                       ; preds = %if.end.i24
   %sh_prom.i24.i = zext nneg i32 %sub.i23.i to i64
   %shl.i.i = shl i64 %sub.i.i.i, %sh_prom.i24.i
   %and7.i = and i64 %shl.i.i, %sub.i22.i
+  %idxprom.i.i = zext nneg i32 %div.i to i64
   br label %.noexc.sink.split
 
 if.end8.i:                                        ; preds = %if.end.i24
@@ -1024,17 +1026,18 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp18.not.i, label %.noexc, label %if.then19.i
 
 if.then19.i:                                      ; preds = %for.end.i
+  %div20.i = ashr i32 %.sroa.speculated, 6
   %sub21.i = and i32 %.sroa.speculated, 63
   %sh_prom.i44.i = zext nneg i32 %sub21.i to i64
   %notmask.i45.i = shl nsw i64 -1, %sh_prom.i44.i
   %sub.i46.i = xor i64 %notmask.i45.i, -1
+  %idxprom.i49.i = sext i32 %div20.i to i64
   br label %.noexc.sink.split
 
 .noexc.sink.split:                                ; preds = %if.then3.i, %if.then19.i
-  %sub.i46.i.sink = phi i64 [ %sub.i46.i, %if.then19.i ], [ %and7.i, %if.then3.i ]
-  %div.i.sink = ashr i32 %.sroa.speculated, 6
-  %idxprom.i.i = sext i32 %div.i.sink to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i
+  %idxprom.i.i.sink = phi i64 [ %idxprom.i.i, %if.then3.i ], [ %idxprom.i49.i, %if.then19.i ]
+  %sub.i46.i.sink = phi i64 [ %and7.i, %if.then3.i ], [ %sub.i46.i, %if.then19.i ]
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i.sink
   %7 = load i64, ptr %arrayidx.i.i, align 8
   %or.i51.i = or i64 %7, %sub.i46.i.sink
   store i64 %or.i51.i, ptr %arrayidx.i.i, align 8
@@ -2414,7 +2417,7 @@ if.then.i:                                        ; preds = %if.else42
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %if.else42
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %7 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %7

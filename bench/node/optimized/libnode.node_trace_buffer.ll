@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
 
-$_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm = comdat any
+$_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm = comdat any
 
 $_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args = comdat any
 
@@ -92,14 +92,132 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   store i32 1, ptr %current_chunk_seq_, align 8
   %id_ = getelementptr inbounds %"class.node::tracing::InternalTraceBuffer", ptr %this, i64 0, i32 7
   store i32 %id, ptr %id_, align 4
-  %cmp.i.not = icmp eq i64 %max_chunks, 0
-  br i1 %cmp.i.not, label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit, label %if.then.i
+  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_, i64 noundef %max_chunks)
+  ret void
+}
 
-if.then.i:                                        ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
-  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_, i64 noundef %max_chunks)
-  br label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>, std::allocator<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp, label %if.then, label %if.else
 
-_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, %if.then.i
+if.then:                                          ; preds = %entry
+  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>, std::allocator<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
+  %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit.i: ; preds = %if.then
+  %3 = shl nuw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
+  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
+  store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #14
+  unreachable
+
+_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
+  %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %4, 3
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #15
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %5 = shl nuw nsw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %5, i1 false)
+  %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
+  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %for.body.i.i.i.i
+
+for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !8, !noalias !5
+  store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !5, !noalias !8
+  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !8, !noalias !5
+  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__first.addr.06.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__cur.07.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %for.body.i.i.i.i, !llvm.loop !10
+
+_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+  %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i, label %if.then.i24.i
+
+if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i
+
+_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr34.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %add.ptr.i, i64 %sub
+  store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
+  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %call5.i.i.i.i, i64 %4
+  store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
+  br label %if.end6
+
+if.else:                                          ; preds = %entry
+  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp4, label %if.then5, label %if.end6
+
+if.then5:                                         ; preds = %if.else
+  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.2", ptr %1, i64 %__new_size
+  %tobool.not.i = icmp eq ptr %0, %add.ptr
+  br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i18
+
+for.body.i.i.i.i18:                               ; preds = %if.then5, %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i19, %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %add.ptr, %if.then5 ]
+  %7 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i
+
+arraydestroy.body.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i18, %arraydestroy.body.i.i.i.i.i.i.i.i
+  %arraydestroy.elementPast.idx.i.i.i.i.i.i.i.i = phi i64 [ %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i.i.i.i ], [ 10760, %for.body.i.i.i.i18 ]
+  %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i.i.i.i.i.i.i, -168
+  %arraydestroy.element.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i
+  tail call void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %arraydestroy.element.ptr.i.i.i.i.i.i.i.i) #13
+  %arraydestroy.done.i.i.i.i.i.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i.i.i.i.i, 8
+  br i1 %arraydestroy.done.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i
+
+_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef %7) #16
+  br label %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
+
+_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, %for.body.i.i.i.i18
+  store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i19 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__first.addr.04.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %0
+  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !12
+
+_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
+  store ptr %add.ptr, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %if.then5, %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit.i, %if.else
   ret void
 }
 
@@ -140,8 +258,8 @@ if.then9:                                         ; preds = %if.then
   br label %if.end16
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noalias noundef nonnull dereferenceable(10768) ptr @_Znwm(i64 noundef 10768) #15, !noalias !5
-  tail call void @_ZN2v88platform7tracing16TraceBufferChunkC1Ej(ptr noundef nonnull align 8 dereferenceable(10764) %call.i, i32 noundef %5) #13, !noalias !5
+  %call.i = tail call noalias noundef nonnull dereferenceable(10768) ptr @_Znwm(i64 noundef 10768) #15, !noalias !13
+  tail call void @_ZN2v88platform7tracing16TraceBufferChunkC1Ej(ptr noundef nonnull align 8 dereferenceable(10764) %call.i, i32 noundef %5) #13, !noalias !13
   %6 = load ptr, ptr %add.ptr.i4, align 8
   store ptr %call.i, ptr %add.ptr.i4, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -329,7 +447,7 @@ for.inc:                                          ; preds = %for.body8, %if.then
   %10 = phi ptr [ %6, %for.body8 ], [ %.pre, %if.then12 ]
   %inc = add nuw i64 %j.08, 1
   %cmp7 = icmp ult i64 %inc, %9
-  br i1 %cmp7, label %for.body8, label %for.inc13.loopexit, !llvm.loop !8
+  br i1 %cmp7, label %for.body8, label %for.inc13.loopexit, !llvm.loop !16
 
 for.inc13.loopexit:                               ; preds = %for.inc
   %.pre12 = load i64, ptr %total_chunks_, align 8
@@ -339,7 +457,7 @@ for.inc13:                                        ; preds = %for.inc13.loopexit,
   %11 = phi i64 [ %.pre12, %for.inc13.loopexit ], [ %1, %for.body ]
   %inc14 = add nuw i64 %i.010, 1
   %cmp3 = icmp ult i64 %inc14, %11
-  br i1 %cmp3, label %for.body, label %for.end15, !llvm.loop !10
+  br i1 %cmp3, label %for.body, label %for.end15, !llvm.loop !17
 
 for.end15:                                        ; preds = %for.inc13
   store i64 0, ptr %total_chunks_, align 8
@@ -391,14 +509,14 @@ _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN
   %buffer1_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 8
   %call.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %buffer1_) #13
   %cmp.not.i.i = icmp eq i32 %call.i.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i, label %do.body5.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit, label %do.body5.i.i
 
 do.body5.i.i:                                     ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #13
   tail call void @abort() #14
   unreachable
 
-_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
+_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %flushing_.i = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 8, i32 1
   store i8 0, ptr %flushing_.i, align 8
   %max_chunks_.i = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 8, i32 2
@@ -411,44 +529,31 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i: ; preds = %_ZN4node21Cond
   store i32 1, ptr %current_chunk_seq_.i, align 8
   %id_.i = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 8, i32 7
   store i32 0, ptr %id_.i, align 4
-  %cmp.i.not.i = icmp eq i64 %max_chunks, 0
-  br i1 %cmp.i.not.i, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i
-  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i, i64 noundef %max_chunks)
-  br label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit
-
-_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i, %if.then.i.i
+  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i, i64 noundef %max_chunks)
   %buffer2_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9
   %call.i.i.i7 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %buffer2_) #13
   %cmp.not.i.i8 = icmp eq i32 %call.i.i.i7, 0
-  br i1 %cmp.not.i.i8, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i10, label %do.body5.i.i9
+  br i1 %cmp.not.i.i8, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit16, label %do.body5.i.i9
 
 do.body5.i.i9:                                    ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #13
   tail call void @abort() #14
   unreachable
 
-_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i10: ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit
-  %flushing_.i11 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 1
-  store i8 0, ptr %flushing_.i11, align 8
-  %max_chunks_.i12 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 2
-  store i64 %max_chunks, ptr %max_chunks_.i12, align 8
-  %agent_.i13 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 3
-  store ptr %agent, ptr %agent_.i13, align 8
-  %chunks_.i14 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 4
-  %current_chunk_seq_.i15 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %chunks_.i14, i8 0, i64 32, i1 false)
-  store i32 1, ptr %current_chunk_seq_.i15, align 8
-  %id_.i16 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 7
-  store i32 1, ptr %id_.i16, align 4
-  br i1 %cmp.i.not.i, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19, label %if.then.i.i18
-
-if.then.i.i18:                                    ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i10
-  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i14, i64 noundef %max_chunks)
-  br label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19
-
-_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i10, %if.then.i.i18
+_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit16: ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit
+  %flushing_.i10 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 1
+  store i8 0, ptr %flushing_.i10, align 8
+  %max_chunks_.i11 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 2
+  store i64 %max_chunks, ptr %max_chunks_.i11, align 8
+  %agent_.i12 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 3
+  store ptr %agent, ptr %agent_.i12, align 8
+  %chunks_.i13 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 4
+  %current_chunk_seq_.i14 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %chunks_.i13, i8 0, i64 32, i1 false)
+  store i32 1, ptr %current_chunk_seq_.i14, align 8
+  %id_.i15 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 9, i32 7
+  store i32 1, ptr %id_.i15, align 4
+  tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i13, i64 noundef %max_chunks)
   %current_buf_2 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 7
   %0 = ptrtoint ptr %buffer1_ to i64
   store atomic i64 %0, ptr %current_buf_2 seq_cst, align 8
@@ -459,12 +564,12 @@ _ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19: ; preds = %_ZN4no
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end10, label %do.body9
 
-do.body9:                                         ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19
+do.body9:                                         ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit16
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node7tracing15NodeTraceBufferC1EmPNS0_5AgentEP9uv_loop_sE4args) #13
   tail call void @abort() #14
   unreachable
 
-do.end10:                                         ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit19
+do.end10:                                         ; preds = %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit16
   %exit_signal_11 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this, i64 0, i32 3
   store ptr %this, ptr %exit_signal_11, align 8
   %2 = load ptr, ptr %tracing_loop_, align 8
@@ -555,7 +660,7 @@ for.inc.i:                                        ; preds = %if.then12.i, %for.b
   %19 = phi ptr [ %15, %for.body8.i ], [ %.pre.i, %if.then12.i ]
   %inc.i = add nuw i64 %j.08.i, 1
   %cmp7.i = icmp ult i64 %inc.i, %18
-  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !8
+  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !16
 
 for.inc13.loopexit.i:                             ; preds = %for.inc.i
   %.pre12.i = load i64, ptr %total_chunks_.i, align 8
@@ -565,7 +670,7 @@ for.inc13.i:                                      ; preds = %for.inc13.loopexit.
   %20 = phi i64 [ %.pre12.i, %for.inc13.loopexit.i ], [ %10, %for.body.i ]
   %inc14.i = add nuw i64 %i.010.i, 1
   %cmp3.i = icmp ult i64 %inc14.i, %20
-  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !10
+  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !17
 
 for.end15.i:                                      ; preds = %for.inc13.i
   store i64 0, ptr %total_chunks_.i, align 8
@@ -648,7 +753,7 @@ for.inc.i38:                                      ; preds = %if.then12.i34, %for
   %40 = phi ptr [ %36, %for.body8.i30 ], [ %.pre.i36, %if.then12.i34 ]
   %inc.i39 = add nuw i64 %j.08.i31, 1
   %cmp7.i40 = icmp ult i64 %inc.i39, %39
-  br i1 %cmp7.i40, label %for.body8.i30, label %for.inc13.loopexit.i41, !llvm.loop !8
+  br i1 %cmp7.i40, label %for.body8.i30, label %for.inc13.loopexit.i41, !llvm.loop !16
 
 for.inc13.loopexit.i41:                           ; preds = %for.inc.i38
   %.pre12.i42 = load i64, ptr %total_chunks_.i10, align 8
@@ -658,7 +763,7 @@ for.inc13.i43:                                    ; preds = %for.inc13.loopexit.
   %41 = phi i64 [ %.pre12.i42, %for.inc13.loopexit.i41 ], [ %31, %for.body.i26 ]
   %inc14.i44 = add nuw i64 %i.010.i27, 1
   %cmp3.i45 = icmp ult i64 %inc14.i44, %41
-  br i1 %cmp3.i45, label %for.body.i26, label %for.end15.i46, !llvm.loop !10
+  br i1 %cmp3.i45, label %for.body.i26, label %for.end15.i46, !llvm.loop !17
 
 for.end15.i46:                                    ; preds = %for.inc13.i43
   store i64 0, ptr %total_chunks_.i10, align 8
@@ -715,7 +820,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = load i8, ptr %exited_, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %exit_mutex_) #13
@@ -1054,7 +1159,7 @@ for.inc.i:                                        ; preds = %if.then12.i, %for.b
   %10 = phi ptr [ %6, %for.body8.i ], [ %.pre.i, %if.then12.i ]
   %inc.i = add nuw i64 %j.08.i, 1
   %cmp7.i = icmp ult i64 %inc.i, %9
-  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !8
+  br i1 %cmp7.i, label %for.body8.i, label %for.inc13.loopexit.i, !llvm.loop !16
 
 for.inc13.loopexit.i:                             ; preds = %for.inc.i
   %.pre12.i = load i64, ptr %total_chunks_.i, align 8
@@ -1064,7 +1169,7 @@ for.inc13.i:                                      ; preds = %for.inc13.loopexit.
   %11 = phi i64 [ %.pre12.i, %for.inc13.loopexit.i ], [ %1, %for.body.i ]
   %inc14.i = add nuw i64 %i.010.i, 1
   %cmp3.i = icmp ult i64 %inc14.i, %11
-  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !10
+  br i1 %cmp3.i, label %for.body.i, label %for.end15.i, !llvm.loop !17
 
 for.end15.i:                                      ; preds = %for.inc13.i
   store i64 0, ptr %total_chunks_.i, align 8
@@ -1122,7 +1227,7 @@ for.inc.i19:                                      ; preds = %if.then12.i15, %for
   %23 = phi ptr [ %19, %for.body8.i11 ], [ %.pre.i17, %if.then12.i15 ]
   %inc.i20 = add nuw i64 %j.08.i12, 1
   %cmp7.i21 = icmp ult i64 %inc.i20, %22
-  br i1 %cmp7.i21, label %for.body8.i11, label %for.inc13.loopexit.i22, !llvm.loop !8
+  br i1 %cmp7.i21, label %for.body8.i11, label %for.inc13.loopexit.i22, !llvm.loop !16
 
 for.inc13.loopexit.i22:                           ; preds = %for.inc.i19
   %.pre12.i23 = load i64, ptr %total_chunks_.i1, align 8
@@ -1132,7 +1237,7 @@ for.inc13.i24:                                    ; preds = %for.inc13.loopexit.
   %24 = phi i64 [ %.pre12.i23, %for.inc13.loopexit.i22 ], [ %14, %for.body.i7 ]
   %inc14.i25 = add nuw i64 %i.010.i8, 1
   %cmp3.i26 = icmp ult i64 %inc14.i25, %24
-  br i1 %cmp3.i26, label %for.body.i7, label %for.end15.i27, !llvm.loop !10
+  br i1 %cmp3.i26, label %for.body.i7, label %for.end15.i27, !llvm.loop !17
 
 for.end15.i27:                                    ; preds = %for.inc13.i24
   store i64 0, ptr %total_chunks_.i1, align 8
@@ -1184,103 +1289,6 @@ declare void @uv_cond_signal(ptr noundef) local_unnamed_addr #1
 declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #1
 
 declare void @uv_mutex_destroy(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end41, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>, std::allocator<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>, std::allocator<std::unique_ptr<v8::platform::tracing::TraceBufferChunk>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp4 = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
-  br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
-  %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end41
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #14
-  unreachable
-
-_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %4 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %4
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
-  br label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22
-
-_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22: ; preds = %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit, %cond.true.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.2", ptr %cond.i17, i64 %sub.ptr.div.i
-  %5 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %5, i1 false)
-  %cmp.not5.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22 ]
-  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %6 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !16, !noalias !13
-  store i64 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !13, !noalias !16
-  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !16, !noalias !13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__cur.07.i.i.i, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i, !llvm.loop !18
-
-_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit22
-  %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit, label %if.then.i24
-
-if.then.i24:                                      ; preds = %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit
-
-_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %if.then.i24
-  store ptr %cond.i17, ptr %this, align 8
-  %add.ptr34 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr34, ptr %_M_finish.i, align 8
-  %add.ptr37 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %cond.i17, i64 %cond.i
-  store ptr %add.ptr37, ptr %_M_end_of_storage, align 8
-  br label %if.end41
-
-if.end41:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit, %entry
-  ret void
-}
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
@@ -1341,16 +1349,16 @@ attributes #16 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!7 = distinct !{!7, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!6 = distinct !{!6, !7, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: %__dest"}
+!7 = distinct !{!7, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
+!8 = !{!9}
+!9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: %__dest"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
-!16 = !{!17}
-!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
-!18 = distinct !{!18, !9}
+!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!15 = distinct !{!15, !"_ZSt11make_uniqueIN2v88platform7tracing16TraceBufferChunkEJjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}

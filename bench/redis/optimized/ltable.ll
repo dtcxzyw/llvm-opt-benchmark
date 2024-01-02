@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [15 x i8] c"table overflow\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaH_next(ptr noundef %L, ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
+define hidden noundef i32 @luaH_next(ptr noundef %L, ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %key, i64 0, i32 1
   %0 = load i32, ptr %tt.i, align 8, !tbaa !4
@@ -620,7 +620,7 @@ if.end56:                                         ; preds = %if.then51, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaH_new(ptr noundef %L, i32 noundef %narray, i32 noundef %nhash) local_unnamed_addr #0 {
+define hidden noundef ptr @luaH_new(ptr noundef %L, i32 noundef %narray, i32 noundef %nhash) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaM_realloc_(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 72) #8
   tail call void @luaC_link(ptr noundef %L, ptr noundef %call, i8 noundef zeroext 5) #8
@@ -1592,7 +1592,7 @@ for.inc.i:                                        ; preds = %for.body.i150
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %mul.i = shl nsw i32 %twotoi.026.i, 1
   %div22.i = and i32 %twotoi.026.i, 2147483647
-  %cmp.i153 = icmp slt i32 %div22.i, %add5.i
+  %cmp.i153 = icmp ult i32 %div22.i, %add5.i
   br i1 %cmp.i153, label %for.body.i150, label %computesizes.exit, !llvm.loop !44
 
 computesizes.exit:                                ; preds = %for.inc.i, %for.body.i150, %countint.exit

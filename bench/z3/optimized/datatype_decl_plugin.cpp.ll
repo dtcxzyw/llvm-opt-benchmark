@@ -10997,7 +10997,6 @@ call6.i.noexc95:                                  ; preds = %if.else5.i84
 
 _ZlsRSo6symbol.exit99:                            ; preds = %if.then.i87, %call6.i.noexc95
   %sub = sub i32 %inc, %22
-  %umax = call i32 @llvm.umax.i32(i32 %22, i32 1)
   br label %for.body55
 
 for.body55:                                       ; preds = %_ZlsRSo6symbol.exit99, %for.inc66
@@ -11039,7 +11038,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 
 for.inc66:                                        ; preds = %invoke.cont62
   %inc67 = add nuw i32 %i52.0459, 1
-  %exitcond469.not = icmp eq i32 %inc67, %umax
+  %exitcond469.not = icmp eq i32 %inc67, %22
   br i1 %exitcond469.not, label %for.end68, label %for.body55, !llvm.loop !38
 
 for.end68:                                        ; preds = %for.inc66

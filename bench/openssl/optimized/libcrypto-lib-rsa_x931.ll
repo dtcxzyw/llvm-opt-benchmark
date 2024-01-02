@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_padding_check_X931 = private unnamed_addr constant [23 x i8] c"RSA_padding_check_X931\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_X931(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_add_X931(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 %tlen, %flen
   %cmp = icmp slt i32 %sub, 2
@@ -126,13 +126,11 @@ if.then21:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.018, 1
   %exitcond.not = icmp eq i32 %inc, %sub
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %if.end29, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %for.inc, %for.body
-  %i.0.lcssa = phi i32 [ %i.018, %for.body ], [ %sub, %for.inc ]
-  %p.1 = phi ptr [ %incdec.ptr12, %for.body ], [ %scevgep, %for.inc ]
-  %sub23 = sub nsw i32 %sub, %i.0.lcssa
-  %cmp24 = icmp eq i32 %i.0.lcssa, 0
+for.end:                                          ; preds = %for.body
+  %sub23 = sub nsw i32 %sub, %i.018
+  %cmp24 = icmp eq i32 %i.018, 0
   br i1 %cmp24, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.then9, %for.end
@@ -145,9 +143,9 @@ if.else:                                          ; preds = %if.end
   %sub28 = add nsw i32 %num, -2
   br label %if.end29
 
-if.end29:                                         ; preds = %for.end, %if.else
-  %j.0 = phi i32 [ %sub23, %for.end ], [ %sub28, %if.else ]
-  %p.2 = phi ptr [ %p.1, %for.end ], [ %incdec.ptr, %if.else ]
+if.end29:                                         ; preds = %for.inc, %for.end, %if.else
+  %j.0 = phi i32 [ %sub23, %for.end ], [ %sub28, %if.else ], [ 0, %for.inc ]
+  %p.2 = phi ptr [ %incdec.ptr12, %for.end ], [ %incdec.ptr, %if.else ], [ %scevgep, %for.inc ]
   %idxprom = sext i32 %j.0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %p.2, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
@@ -171,7 +169,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @RSA_X931_hash_id(i32 noundef %nid) local_unnamed_addr #4 {
+define noundef i32 @RSA_X931_hash_id(i32 noundef %nid) local_unnamed_addr #4 {
 entry:
   switch i32 %nid, label %sw.epilog [
     i32 64, label %return

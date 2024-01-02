@@ -179,7 +179,7 @@ while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i,
   br i1 %or.cond.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
-  %add10.i.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %sub12.i.i.i.i
   %15 = load ptr, ptr %add.ptr13.i.i.i.i, align 8
@@ -397,7 +397,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i53.i
   br i1 %cmp8.i.i.i73.i, label %if.then9.i.i.i74.i, label %if.end16.i.i.i56.i
 
 if.then9.i.i.i74.i:                               ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i75.i = shl i64 %__secondChild.0.lcssa.i.i.i54.i, 1
+  %add10.i.i.i75.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i54.i, 1
   %sub12.i.i.i76.i = or disjoint i64 %add10.i.i.i75.i, 1
   %add.ptr13.i.i.i77.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %sub12.i.i.i76.i
   %39 = load ptr, ptr %add.ptr13.i.i.i77.i, align 8
@@ -504,7 +504,7 @@ land.lhs.true.i.i.i131.i:                         ; preds = %while.end.i.i.i109.
   br i1 %cmp8.i.i.i134.i, label %if.then9.i.i.i135.i, label %if.end16.i.i.i112.i
 
 if.then9.i.i.i135.i:                              ; preds = %land.lhs.true.i.i.i131.i
-  %add10.i.i.i136.i = shl i64 %__secondChild.0.lcssa.i.i.i110.i, 1
+  %add10.i.i.i136.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i110.i, 1
   %sub12.i.i.i137.i = or disjoint i64 %add10.i.i.i136.i, 1
   %add.ptr13.i.i.i138.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %sub12.i.i.i137.i
   %52 = load ptr, ptr %add.ptr13.i.i.i138.i, align 8
@@ -1797,7 +1797,7 @@ if.end60:                                         ; preds = %invoke.cont49
   br i1 %cmp.not72.i, label %invoke.cont65, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end60
-  %44 = sext i32 %1 to i64
+  %44 = zext nneg i32 %1 to i64
   %45 = add i32 %2, 1
   br label %for.body.i72
 
@@ -1962,7 +1962,7 @@ if.end66.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp57.not.i, label %for.inc80.i, label %for.body58.i, !llvm.loop !26
 
 for.inc80.i:                                      ; preds = %if.end66.i, %if.else45.i, %if.end38.i
-  %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, 1
+  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next54.i to i32
   %exitcond.not.i85 = icmp eq i32 %45, %lftr.wideiv.i
   br i1 %exitcond.not.i85, label %invoke.cont65, label %for.body.i72, !llvm.loop !27

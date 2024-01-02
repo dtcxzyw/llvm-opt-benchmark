@@ -38,10 +38,7 @@ invoke.cont:                                      ; preds = %entry
   %cmp346.not = icmp eq i64 %index_count, 0
   br i1 %cmp346.not, label %while.end228, label %for.body
 
-while.cond.preheader:                             ; preds = %for.body
-  br i1 %cmp346.not, label %while.end228, label %while.cond5.preheader.lr.ph
-
-while.cond5.preheader.lr.ph:                      ; preds = %while.cond.preheader
+while.cond5.preheader.lr.ph:                      ; preds = %for.body
   %tobool183.not = icmp eq i32 %restart_index, 0
   br label %while.cond5.preheader
 
@@ -56,7 +53,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   store i32 %inc, ptr %arrayidx1, align 4
   %inc2 = add nuw i64 %i.0347, 1
   %exitcond.not = icmp eq i64 %inc2, %index_count
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %while.cond5.preheader.lr.ph, label %for.body, !llvm.loop !5
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -588,8 +585,8 @@ if.end227:                                        ; preds = %if.end189, %if.end2
   %46 = select i1 %cmp3, i1 true, i1 %cmp4
   br i1 %46, label %while.cond5.preheader, label %while.end228, !llvm.loop !10
 
-while.end228:                                     ; preds = %if.end227, %invoke.cont, %while.cond.preheader
-  %strip_size.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ 0, %invoke.cont ], [ %strip_size.3, %if.end227 ]
+while.end228:                                     ; preds = %if.end227, %invoke.cont
+  %strip_size.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %strip_size.3, %if.end227 ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i296, %while.end228
@@ -656,7 +653,7 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @meshopt_stripifyBound(i64 noundef %index_count) local_unnamed_addr #4 {
+define dso_local noundef i64 @meshopt_stripifyBound(i64 noundef %index_count) local_unnamed_addr #4 {
 entry:
   %div = udiv i64 %index_count, 3
   %mul = mul i64 %div, 5
@@ -770,7 +767,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @meshopt_unstripifyBound(i64 noundef %index_count) local_unnamed_addr #4 {
+define dso_local noundef i64 @meshopt_unstripifyBound(i64 noundef %index_count) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i64 %index_count, 0
   %0 = mul i64 %index_count, 3

@@ -3214,11 +3214,11 @@ if.else.i19:                                      ; preds = %_ZNK4absl12lts_2023
           to label %if.else.i19.invoke.cont29_crit_edge unwind label %lpad28
 
 if.else.i19.invoke.cont29_crit_edge:              ; preds = %if.else.i19
-  %.pre113 = load i8, ptr %agg.tmp27, align 8
+  %.pre112 = load i8, ptr %agg.tmp27, align 8
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %if.else.i19.invoke.cont29_crit_edge, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i
-  %33 = phi i8 [ %.pre113, %if.else.i19.invoke.cont29_crit_edge ], [ %31, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i ]
+  %33 = phi i8 [ %.pre112, %if.else.i19.invoke.cont29_crit_edge ], [ %31, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i ]
   %34 = and i8 %33, 1
   %cmp.i.not.i21 = icmp eq i8 %34, 0
   br i1 %cmp.i.not.i21, label %if.then.i23, label %cleanup70
@@ -3303,13 +3303,10 @@ invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4a
   store i8 %48, ptr %is_serialization_deterministic_.i49, align 2
   %skip_check_consistency.i50 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 7
   store i8 0, ptr %skip_check_consistency.i50, align 1
-  %cmp.i.i51 = icmp sgt i32 %conv46, 16
-  %idx.ext.i.i = and i64 %sub.i.pn.i98101108, 4294967295
-  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.pn.i96102106, i64 %idx.ext.i.i
+  %cmp.i.i51 = icmp ugt i32 %conv46, 16
+  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.pn.i96102106, i64 %sub.i.pn.i98101108
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i52, i64 -16
-  %sext112 = shl i64 %sub.i.pn.i98101108, 32
-  %idx.ext3.i.i = ashr exact i64 %sext112, 32
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %buffer_.i, i64 %idx.ext3.i.i
+  %add.ptr4.i.i = getelementptr inbounds i8, ptr %buffer_.i, i64 %sub.i.pn.i98101108
   %add.ptr4.sink.i.i = select i1 %cmp.i.i51, ptr %add.ptr2.i.i, ptr %add.ptr4.i.i
   %data.sink.i.i = select i1 %cmp.i.i51, ptr null, ptr %add.ptr.i.pn.i96102106
   %retval.0.i.i = select i1 %cmp.i.i51, ptr %add.ptr.i.pn.i96102106, ptr %buffer_.i
@@ -3823,7 +3820,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %8

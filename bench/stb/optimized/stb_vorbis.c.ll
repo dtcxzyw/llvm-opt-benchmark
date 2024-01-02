@@ -3269,7 +3269,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end26
 
 if.then3:                                         ; preds = %if.end
-  %cmp4 = icmp sgt i32 %n, 24
+  %cmp4 = icmp ugt i32 %n, 24
   br i1 %cmp4, label %if.end.i, label %if.end7
 
 if.end.i:                                         ; preds = %if.then3
@@ -10976,7 +10976,7 @@ if.end1552:                                       ; preds = %for.body1525
   %angle1556 = getelementptr inbounds %struct.MappingChannel, ptr %229, i64 %indvars.iv1358, i32 1
   %232 = load i8, ptr %angle1556, align 1
   %conv1557 = zext i8 %232 to i32
-  %cmp1559.not = icmp sgt i32 %231, %conv1557
+  %cmp1559.not = icmp ugt i32 %231, %conv1557
   br i1 %cmp1559.not, label %if.end1563, label %if.then1561
 
 if.then1561:                                      ; preds = %if.end1552

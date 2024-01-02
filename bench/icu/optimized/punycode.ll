@@ -732,7 +732,7 @@ while.end.thread:                                 ; preds = %while.end, %if.end1
 
 for.cond47.preheader.lr.ph:                       ; preds = %while.end.thread
   %cmp161.not = icmp eq ptr %caseFlags, null
-  %12 = sext i32 %srcLength.addr.0 to i64
+  %12 = zext nneg i32 %srcLength.addr.0 to i64
   br label %for.cond47.preheader
 
 for.cond47.preheader:                             ; preds = %for.cond47.preheader.lr.ph, %if.end215

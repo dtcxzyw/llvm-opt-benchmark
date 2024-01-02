@@ -48,6 +48,8 @@ $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC5ENS_8BitDepthERKSt10shared
 
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescES4_ = comdat any
 
+$_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
+
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescE = comdat any
 
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED5Ev = comdat any
@@ -235,8 +237,6 @@ $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED5Ev = comdat any
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE16prepRGBAScanlineEPPfRl = comdat any
 
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE18finishRGBAScanlineEv = comdat any
-
-$_ZNSt6vectorIhSaIhEE17_M_default_appendEm = comdat any
 
 $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 
@@ -600,102 +600,54 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp.i, label %if.then.i8, label %if.else.i
-
-if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
 
-if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp4.i, label %if.then5.i, label %if.end20
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %mul
-  %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
-  br i1 %tobool.not.i.i, label %if.end20, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
+if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
+  %10 = and i8 %9, 1
+  %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+  %11 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %11, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
-  %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i13 = icmp ult i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp.i13, label %if.then.i20, label %if.else.i14
+  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
+  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
-if.then.i20:                                      ; preds = %if.then22
-  %sub.i21 = sub i64 %mul26, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i21)
+if.then.i8:                                       ; preds = %if.then22
+  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-if.else.i14:                                      ; preds = %if.then22
-  %cmp4.i15 = icmp ugt i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp4.i15, label %if.then5.i16, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+if.else.i:                                        ; preds = %if.then22
+  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-if.then5.i16:                                     ; preds = %if.else.i14
-  %add.ptr.i17 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i18 = icmp eq ptr %14, %add.ptr.i17
-  br i1 %tobool.not.i.i18, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i19
+if.then5.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
 
-invoke.cont.i.i19:                                ; preds = %if.then5.i16
-  store ptr %add.ptr.i17, ptr %_M_finish.i.i9, align 8
+invoke.cont.i.i:                                  ; preds = %if.then5.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i20, %if.else.i14, %if.then5.i16, %invoke.cont.i.i19
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
-  %_M_finish.i.i22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i22, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
-  %cmp.i26 = icmp ult i64 %sub.ptr.sub.i.i25, %mul26
-  br i1 %cmp.i26, label %if.then.i33, label %if.else.i27
-
-if.then.i33:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i34 = sub i64 %mul26, %sub.ptr.sub.i.i25
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i34)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.else.i27:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i28 = icmp ugt i64 %sub.ptr.sub.i.i25, %mul26
-  br i1 %cmp4.i28, label %if.then5.i29, label %if.end27
-
-if.then5.i29:                                     ; preds = %if.else.i27
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %17, i64 %mul26
-  %tobool.not.i.i31 = icmp eq ptr %16, %add.ptr.i30
-  br i1 %tobool.not.i.i31, label %if.end27, label %invoke.cont.i.i32
-
-invoke.cont.i.i32:                                ; preds = %if.then5.i29
-  store ptr %add.ptr.i30, ptr %_M_finish.i.i22, align 8
-  br label %if.end27
-
-if.end27:                                         ; preds = %invoke.cont.i.i32, %if.then5.i29, %if.else.i27, %if.then.i33, %if.end20
+if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -731,6 +683,114 @@ if.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
+  %cmp4.i = icmp sgt i64 %sub.ptr.sub.i, -1
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.sub.i, 9223372036854775807
+  %cmp6.i = icmp ule i64 %sub.ptr.sub.i9, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.sub.i9, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %if.then.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.then
+  store i8 0, ptr %0, align 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %sub.i.i.i.i = add i64 %sub, -1
+  %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
+  br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
+  %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
+  store ptr %__first.addr.0.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
+  unreachable
+
+_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %sub)
+  %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #15
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  store i8 0, ptr %add.ptr.i, align 1
+  %sub.i.i.i23.i = add nsw i64 %sub, -1
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.i.i.i23.i, 0
+  br i1 %cmp.i.i.i.i.i24.i, label %try.cont.i, label %if.then.i.i.i.i.i.i.i25.i
+
+if.then.i.i.i.i.i.i.i25.i:                        ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
+  %incdec.ptr.i.i.i22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i, i8 0, i64 %sub.i.i.i23.i, i1 false)
+  br label %try.cont.i
+
+try.cont.i:                                       ; preds = %if.then.i.i.i.i.i.i.i25.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
+  %cmp.i.i.i.i.not.i = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i.i.not.i, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i, label %if.then.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %try.cont.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
+  br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
+
+_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i.i.i, %try.cont.i
+  %tobool.not.i30.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i30.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i, label %if.then.i31.i
+
+if.then.i31.i:                                    ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
+  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i
+
+_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
+  store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
+  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %3
+  store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
+  br label %if.end6
+
+if.else:                                          ; preds = %entry
+  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  br i1 %cmp4, label %if.then5, label %if.end6
+
+if.then5:                                         ; preds = %if.else
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %__new_size
+  %tobool.not.i = icmp eq ptr %0, %add.ptr
+  br i1 %tobool.not.i, label %if.end6, label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %if.then5
+  store ptr %add.ptr, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, %if.else
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
@@ -763,12 +823,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode33, align 8
-  %m_outOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode34, align 4
-  %m_useDstBuffer36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer36, align 4
+  %m_inOptimizedMode6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode6, align 8
+  %m_outOptimizedMode7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode7, align 4
+  %m_useDstBuffer9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer9, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
@@ -802,63 +862,12 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %5 = load ptr, ptr %_M_finish.i.i5, align 8
-  %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  %cmp.i9 = icmp ult i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp.i9, label %if.then.i16, label %if.else.i10
-
-if.then.i16:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i17 = sub i64 %mul, %sub.ptr.sub.i.i8
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i17)
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.else.i10:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i11 = icmp ugt i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp4.i11, label %if.then5.i12, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.then5.i12:                                     ; preds = %if.else.i10
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %6, i64 %mul
-  %tobool.not.i.i14 = icmp eq ptr %5, %add.ptr.i13
-  br i1 %tobool.not.i.i14, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %invoke.cont.i.i15
-
-invoke.cont.i.i15:                                ; preds = %if.then5.i12
-  store ptr %add.ptr.i13, ptr %_M_finish.i.i5, align 8
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.then.i16, %if.else.i10, %if.then5.i12, %invoke.cont.i.i15
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
-  %_M_finish.i.i18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i18, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
-  %cmp.i22 = icmp ult i64 %sub.ptr.sub.i.i21, %mul
-  br i1 %cmp.i22, label %if.then.i29, label %if.else.i23
-
-if.then.i29:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %sub.i30 = sub i64 %mul, %sub.ptr.sub.i.i21
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i30)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
-if.else.i23:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %cmp4.i24 = icmp ugt i64 %sub.ptr.sub.i.i21, %mul
-  br i1 %cmp4.i24, label %if.then5.i25, label %if.end
-
-if.then5.i25:                                     ; preds = %if.else.i23
-  %add.ptr.i26 = getelementptr inbounds i8, ptr %8, i64 %mul
-  %tobool.not.i.i27 = icmp eq ptr %7, %add.ptr.i26
-  br i1 %tobool.not.i.i27, label %if.end, label %invoke.cont.i.i28
-
-invoke.cont.i.i28:                                ; preds = %if.then5.i25
-  store ptr %add.ptr.i26, ptr %_M_finish.i.i18, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont.i.i28, %if.then5.i25, %if.else.i23, %if.then.i29, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   ret void
 }
 
@@ -872,7 +881,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -882,7 +891,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit3, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit3
 
 _ZNSt6vectorIhSaIhEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
@@ -892,7 +901,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3, %if.then.i.i.i5
@@ -1199,7 +1208,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -1502,103 +1511,79 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp.i, label %if.then.i8, label %if.else.i
-
-if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
 
-if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp4.i, label %if.then5.i, label %if.end20
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %mul
-  %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
-  br i1 %tobool.not.i.i, label %if.end20, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
+if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
+  %10 = and i8 %9, 1
+  %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+  %11 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %11, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
+  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp.i, label %if.then.i8, label %if.else.i
+
+if.then.i8:                                       ; preds = %if.then22
+  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.else.i:                                        ; preds = %if.then22
+  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.then5.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
+
+invoke.cont.i.i:                                  ; preds = %if.then5.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
+  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i13 = icmp ult i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp.i13, label %if.then.i20, label %if.else.i14
+  %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
+  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
-if.then.i20:                                      ; preds = %if.then22
-  %sub.i21 = sub i64 %mul26, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i21)
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.else.i14:                                      ; preds = %if.then22
-  %cmp4.i15 = icmp ugt i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp4.i15, label %if.then5.i16, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.then5.i16:                                     ; preds = %if.else.i14
-  %add.ptr.i17 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i18 = icmp eq ptr %14, %add.ptr.i17
-  br i1 %tobool.not.i.i18, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i19
-
-invoke.cont.i.i19:                                ; preds = %if.then5.i16
-  store ptr %add.ptr.i17, ptr %_M_finish.i.i9, align 8
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i20, %if.else.i14, %if.then5.i16, %invoke.cont.i.i19
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
-  %_M_finish.i.i22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i22, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
-  %sub.ptr.div.i.i26 = ashr exact i64 %sub.ptr.sub.i.i25, 1
-  %cmp.i27 = icmp ult i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
-
-if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i35 = sub i64 %mul26, %sub.ptr.div.i.i26
-  tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i35)
+if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
-if.else.i28:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i29 = icmp ugt i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp4.i29, label %if.then5.i30, label %if.end27
+if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
-if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr.i31 = getelementptr inbounds i16, ptr %17, i64 %mul26
-  %tobool.not.i.i32 = icmp eq ptr %16, %add.ptr.i31
-  br i1 %tobool.not.i.i32, label %if.end27, label %invoke.cont.i.i33
+if.then5.i17:                                     ; preds = %if.else.i15
+  %add.ptr.i18 = getelementptr inbounds i16, ptr %15, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
-invoke.cont.i.i33:                                ; preds = %if.then5.i30
-  store ptr %add.ptr.i31, ptr %_M_finish.i.i22, align 8
+invoke.cont.i.i20:                                ; preds = %if.then5.i17
+  store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i33, %if.then5.i30, %if.else.i28, %if.then.i34, %if.end20
+if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -1635,12 +1620,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode33, align 8
-  %m_outOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode34, align 4
-  %m_useDstBuffer36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer36, align 4
+  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
+  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
+  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
@@ -1674,64 +1659,37 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
+  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
-  %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  %cmp.i9 = icmp ult i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp.i9, label %if.then.i16, label %if.else.i10
+  %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
+  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
-if.then.i16:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i17 = sub i64 %mul, %sub.ptr.sub.i.i8
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i17)
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.else.i10:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i11 = icmp ugt i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp4.i11, label %if.then5.i12, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.then5.i12:                                     ; preds = %if.else.i10
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %6, i64 %mul
-  %tobool.not.i.i14 = icmp eq ptr %5, %add.ptr.i13
-  br i1 %tobool.not.i.i14, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %invoke.cont.i.i15
-
-invoke.cont.i.i15:                                ; preds = %if.then5.i12
-  store ptr %add.ptr.i13, ptr %_M_finish.i.i5, align 8
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.then.i16, %if.else.i10, %if.then5.i12, %invoke.cont.i.i15
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
-  %_M_finish.i.i18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i18, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
-  %sub.ptr.div.i.i22 = ashr exact i64 %sub.ptr.sub.i.i21, 1
-  %cmp.i23 = icmp ult i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp.i23, label %if.then.i30, label %if.else.i24
-
-if.then.i30:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %sub.i31 = sub i64 %mul, %sub.ptr.div.i.i22
-  tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i31)
+if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
-if.else.i24:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %cmp4.i25 = icmp ugt i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp4.i25, label %if.then5.i26, label %if.end
+if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
-if.then5.i26:                                     ; preds = %if.else.i24
-  %add.ptr.i27 = getelementptr inbounds i16, ptr %8, i64 %mul
-  %tobool.not.i.i28 = icmp eq ptr %7, %add.ptr.i27
-  br i1 %tobool.not.i.i28, label %if.end, label %invoke.cont.i.i29
+if.then5.i13:                                     ; preds = %if.else.i11
+  %add.ptr.i14 = getelementptr inbounds i16, ptr %6, i64 %mul
+  %tobool.not.i.i15 = icmp eq ptr %5, %add.ptr.i14
+  br i1 %tobool.not.i.i15, label %if.end, label %invoke.cont.i.i16
 
-invoke.cont.i.i29:                                ; preds = %if.then5.i26
-  store ptr %add.ptr.i27, ptr %_M_finish.i.i18, align 8
+invoke.cont.i.i16:                                ; preds = %if.then5.i13
+  store ptr %add.ptr.i14, ptr %_M_finish.i.i5, align 8
   br label %if.end
 
-if.end:                                           ; preds = %invoke.cont.i.i29, %if.then5.i26, %if.else.i24, %if.then.i30, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %invoke.cont.i.i16, %if.then5.i13, %if.else.i11, %if.then.i17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
   ret void
 }
 
@@ -1745,7 +1703,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -1755,7 +1713,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
@@ -1765,7 +1723,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
@@ -2072,7 +2030,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -2370,103 +2328,79 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp.i, label %if.then.i8, label %if.else.i
-
-if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
 
-if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp4.i, label %if.then5.i, label %if.end20
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %mul
-  %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
-  br i1 %tobool.not.i.i, label %if.end20, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
+if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
+  %10 = and i8 %9, 1
+  %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+  %11 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %11, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
+  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp.i, label %if.then.i8, label %if.else.i
+
+if.then.i8:                                       ; preds = %if.then22
+  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.else.i:                                        ; preds = %if.then22
+  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.then5.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
+
+invoke.cont.i.i:                                  ; preds = %if.then5.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
+  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i13 = icmp ult i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp.i13, label %if.then.i20, label %if.else.i14
+  %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
+  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
-if.then.i20:                                      ; preds = %if.then22
-  %sub.i21 = sub i64 %mul26, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i21)
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.else.i14:                                      ; preds = %if.then22
-  %cmp4.i15 = icmp ugt i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp4.i15, label %if.then5.i16, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.then5.i16:                                     ; preds = %if.else.i14
-  %add.ptr.i17 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i18 = icmp eq ptr %14, %add.ptr.i17
-  br i1 %tobool.not.i.i18, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i19
-
-invoke.cont.i.i19:                                ; preds = %if.then5.i16
-  store ptr %add.ptr.i17, ptr %_M_finish.i.i9, align 8
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i20, %if.else.i14, %if.then5.i16, %invoke.cont.i.i19
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
-  %_M_finish.i.i22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i22, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
-  %sub.ptr.div.i.i26 = ashr exact i64 %sub.ptr.sub.i.i25, 1
-  %cmp.i27 = icmp ult i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
-
-if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i35 = sub i64 %mul26, %sub.ptr.div.i.i26
-  tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i35)
+if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
-if.else.i28:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i29 = icmp ugt i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp4.i29, label %if.then5.i30, label %if.end27
+if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
-if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr.i31 = getelementptr inbounds %"class.Imath_3_1::half", ptr %17, i64 %mul26
-  %tobool.not.i.i32 = icmp eq ptr %16, %add.ptr.i31
-  br i1 %tobool.not.i.i32, label %if.end27, label %invoke.cont.i.i33
+if.then5.i17:                                     ; preds = %if.else.i15
+  %add.ptr.i18 = getelementptr inbounds %"class.Imath_3_1::half", ptr %15, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
-invoke.cont.i.i33:                                ; preds = %if.then5.i30
-  store ptr %add.ptr.i31, ptr %_M_finish.i.i22, align 8
+invoke.cont.i.i20:                                ; preds = %if.then5.i17
+  store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i33, %if.then5.i30, %if.else.i28, %if.then.i34, %if.end20
+if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -2503,12 +2437,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode33, align 8
-  %m_outOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode34, align 4
-  %m_useDstBuffer36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer36, align 4
+  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
+  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
+  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
@@ -2542,64 +2476,37 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
+  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
-  %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  %cmp.i9 = icmp ult i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp.i9, label %if.then.i16, label %if.else.i10
+  %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
+  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
-if.then.i16:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i17 = sub i64 %mul, %sub.ptr.sub.i.i8
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i17)
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.else.i10:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i11 = icmp ugt i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp4.i11, label %if.then5.i12, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.then5.i12:                                     ; preds = %if.else.i10
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %6, i64 %mul
-  %tobool.not.i.i14 = icmp eq ptr %5, %add.ptr.i13
-  br i1 %tobool.not.i.i14, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %invoke.cont.i.i15
-
-invoke.cont.i.i15:                                ; preds = %if.then5.i12
-  store ptr %add.ptr.i13, ptr %_M_finish.i.i5, align 8
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.then.i16, %if.else.i10, %if.then5.i12, %invoke.cont.i.i15
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
-  %_M_finish.i.i18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i18, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
-  %sub.ptr.div.i.i22 = ashr exact i64 %sub.ptr.sub.i.i21, 1
-  %cmp.i23 = icmp ult i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp.i23, label %if.then.i30, label %if.else.i24
-
-if.then.i30:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %sub.i31 = sub i64 %mul, %sub.ptr.div.i.i22
-  tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i31)
+if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
-if.else.i24:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %cmp4.i25 = icmp ugt i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp4.i25, label %if.then5.i26, label %if.end
+if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
-if.then5.i26:                                     ; preds = %if.else.i24
-  %add.ptr.i27 = getelementptr inbounds %"class.Imath_3_1::half", ptr %8, i64 %mul
-  %tobool.not.i.i28 = icmp eq ptr %7, %add.ptr.i27
-  br i1 %tobool.not.i.i28, label %if.end, label %invoke.cont.i.i29
+if.then5.i13:                                     ; preds = %if.else.i11
+  %add.ptr.i14 = getelementptr inbounds %"class.Imath_3_1::half", ptr %6, i64 %mul
+  %tobool.not.i.i15 = icmp eq ptr %5, %add.ptr.i14
+  br i1 %tobool.not.i.i15, label %if.end, label %invoke.cont.i.i16
 
-invoke.cont.i.i29:                                ; preds = %if.then5.i26
-  store ptr %add.ptr.i27, ptr %_M_finish.i.i18, align 8
+invoke.cont.i.i16:                                ; preds = %if.then5.i13
+  store ptr %add.ptr.i14, ptr %_M_finish.i.i5, align 8
   br label %if.end
 
-if.end:                                           ; preds = %invoke.cont.i.i29, %if.then5.i26, %if.else.i24, %if.then.i30, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %invoke.cont.i.i16, %if.then5.i13, %if.else.i11, %if.then.i17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
   ret void
 }
 
@@ -2613,7 +2520,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
@@ -2623,7 +2530,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
@@ -2633,7 +2540,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imat
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
@@ -2940,7 +2847,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -3238,103 +3145,79 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp.i, label %if.then.i8, label %if.else.i
-
-if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
 
-if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %mul
-  br i1 %cmp4.i, label %if.then5.i, label %if.end20
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %mul
-  %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
-  br i1 %tobool.not.i.i, label %if.end20, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i8, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
-  %11 = phi i8 [ %frombool, %invoke.cont.i.i ], [ %frombool, %if.then5.i ], [ %frombool, %if.else.i ], [ %.pre, %if.then.i8 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
+if.end20:                                         ; preds = %if.then17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
+  %9 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7 ]
+  %10 = and i8 %9, 1
+  %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load i64, ptr %m_dstImg, align 8
-  %mul26 = shl nsw i64 %13, 2
+  %11 = load i64, ptr %m_dstImg, align 8
+  %mul26 = shl nsw i64 %11, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
+  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp.i, label %if.then.i8, label %if.else.i
+
+if.then.i8:                                       ; preds = %if.then22
+  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.else.i:                                        ; preds = %if.then22
+  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+if.then5.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds float, ptr %13, i64 %mul26
+  %tobool.not.i.i = icmp eq ptr %12, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i
+
+invoke.cont.i.i:                                  ; preds = %if.then5.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
+  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
-  %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
+  %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i13 = icmp ult i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp.i13, label %if.then.i20, label %if.else.i14
+  %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
+  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
-if.then.i20:                                      ; preds = %if.then22
-  %sub.i21 = sub i64 %mul26, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i21)
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.else.i14:                                      ; preds = %if.then22
-  %cmp4.i15 = icmp ugt i64 %sub.ptr.div.i.i, %mul26
-  br i1 %cmp4.i15, label %if.then5.i16, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-if.then5.i16:                                     ; preds = %if.else.i14
-  %add.ptr.i17 = getelementptr inbounds float, ptr %15, i64 %mul26
-  %tobool.not.i.i18 = icmp eq ptr %14, %add.ptr.i17
-  br i1 %tobool.not.i.i18, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %invoke.cont.i.i19
-
-invoke.cont.i.i19:                                ; preds = %if.then5.i16
-  store ptr %add.ptr.i17, ptr %_M_finish.i.i9, align 8
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i20, %if.else.i14, %if.then5.i16, %invoke.cont.i.i19
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
-  %_M_finish.i.i22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i22, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
-  %sub.ptr.div.i.i26 = ashr exact i64 %sub.ptr.sub.i.i25, 2
-  %cmp.i27 = icmp ult i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
-
-if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i35 = sub i64 %mul26, %sub.ptr.div.i.i26
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i35)
+if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
-if.else.i28:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i29 = icmp ugt i64 %sub.ptr.div.i.i26, %mul26
-  br i1 %cmp4.i29, label %if.then5.i30, label %if.end27
+if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
-if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr.i31 = getelementptr inbounds float, ptr %17, i64 %mul26
-  %tobool.not.i.i32 = icmp eq ptr %16, %add.ptr.i31
-  br i1 %tobool.not.i.i32, label %if.end27, label %invoke.cont.i.i33
+if.then5.i17:                                     ; preds = %if.else.i15
+  %add.ptr.i18 = getelementptr inbounds float, ptr %15, i64 %mul26
+  %tobool.not.i.i19 = icmp eq ptr %14, %add.ptr.i18
+  br i1 %tobool.not.i.i19, label %if.end27, label %invoke.cont.i.i20
 
-invoke.cont.i.i33:                                ; preds = %if.then5.i30
-  store ptr %add.ptr.i31, ptr %_M_finish.i.i22, align 8
+invoke.cont.i.i20:                                ; preds = %if.then5.i17
+  store ptr %add.ptr.i18, ptr %_M_finish.i.i9, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %invoke.cont.i.i33, %if.then5.i30, %if.else.i28, %if.then.i34, %if.end20
+if.end27:                                         ; preds = %invoke.cont.i.i20, %if.then5.i17, %if.else.i15, %if.then.i21, %if.end20
   ret void
 }
 
@@ -3371,12 +3254,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode34, align 8
-  %m_outOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode35, align 4
-  %m_useDstBuffer37 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer37, align 4
+  %m_inOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode21, align 8
+  %m_outOptimizedMode22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode22, align 4
+  %m_useDstBuffer24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer24, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
@@ -3410,64 +3293,37 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
+  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
+  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
-  %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
+  %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  %cmp.i9 = icmp ult i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp.i9, label %if.then.i16, label %if.else.i10
+  %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
+  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
-if.then.i16:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i17 = sub i64 %mul, %sub.ptr.sub.i.i8
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i17)
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.else.i10:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i11 = icmp ugt i64 %sub.ptr.sub.i.i8, %mul
-  br i1 %cmp4.i11, label %if.then5.i12, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-if.then5.i12:                                     ; preds = %if.else.i10
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %6, i64 %mul
-  %tobool.not.i.i14 = icmp eq ptr %5, %add.ptr.i13
-  br i1 %tobool.not.i.i14, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %invoke.cont.i.i15
-
-invoke.cont.i.i15:                                ; preds = %if.then5.i12
-  store ptr %add.ptr.i13, ptr %_M_finish.i.i5, align 8
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.then.i16, %if.else.i10, %if.then5.i12, %invoke.cont.i.i15
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
-  %_M_finish.i.i18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i18, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
-  %sub.ptr.div.i.i22 = ashr exact i64 %sub.ptr.sub.i.i21, 2
-  %cmp.i23 = icmp ult i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp.i23, label %if.then.i30, label %if.else.i24
-
-if.then.i30:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %sub.i31 = sub i64 %mul, %sub.ptr.div.i.i22
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i31)
+if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
-if.else.i24:                                      ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %cmp4.i25 = icmp ugt i64 %sub.ptr.div.i.i22, %mul
-  br i1 %cmp4.i25, label %if.then5.i26, label %if.end
+if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
-if.then5.i26:                                     ; preds = %if.else.i24
-  %add.ptr.i27 = getelementptr inbounds float, ptr %8, i64 %mul
-  %tobool.not.i.i28 = icmp eq ptr %7, %add.ptr.i27
-  br i1 %tobool.not.i.i28, label %if.end, label %invoke.cont.i.i29
+if.then5.i13:                                     ; preds = %if.else.i11
+  %add.ptr.i14 = getelementptr inbounds float, ptr %6, i64 %mul
+  %tobool.not.i.i15 = icmp eq ptr %5, %add.ptr.i14
+  br i1 %tobool.not.i.i15, label %if.end, label %invoke.cont.i.i16
 
-invoke.cont.i.i29:                                ; preds = %if.then5.i26
-  store ptr %add.ptr.i27, ptr %_M_finish.i.i18, align 8
+invoke.cont.i.i16:                                ; preds = %if.then5.i13
+  store ptr %add.ptr.i14, ptr %_M_finish.i.i5, align 8
   br label %if.end
 
-if.end:                                           ; preds = %invoke.cont.i.i29, %if.then5.i26, %if.else.i24, %if.then.i30, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %invoke.cont.i.i16, %if.then5.i13, %if.else.i11, %if.then.i17, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
   ret void
 }
 
@@ -3481,7 +3337,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -3491,7 +3347,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
@@ -3501,7 +3357,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
@@ -3808,7 +3664,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -4175,34 +4031,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
-  %cmp.i27 = icmp ult i64 %sub.ptr.sub.i.i26, %mul26
-  br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
-
-if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i35 = sub i64 %mul26, %sub.ptr.sub.i.i26
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i35)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.else.i28:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i29 = icmp ugt i64 %sub.ptr.sub.i.i26, %mul26
-  br i1 %cmp4.i29, label %if.then5.i30, label %if.end27
-
-if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %17, i64 %mul26
-  %tobool.not.i.i32 = icmp eq ptr %16, %add.ptr.i31
-  br i1 %tobool.not.i.i32, label %if.end27, label %invoke.cont.i.i33
-
-invoke.cont.i.i33:                                ; preds = %if.then5.i30
-  store ptr %add.ptr.i31, ptr %_M_finish.i.i23, align 8
-  br label %if.end27
-
-if.end27:                                         ; preds = %invoke.cont.i.i33, %if.then5.i30, %if.else.i28, %if.then.i34, %if.end20
+if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -4239,12 +4071,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode33, align 8
-  %m_outOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode34, align 4
-  %m_useDstBuffer36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer36, align 4
+  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
+  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
+  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
@@ -4308,34 +4140,10 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i19, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
-  %cmp.i23 = icmp ult i64 %sub.ptr.sub.i.i22, %mul
-  br i1 %cmp.i23, label %if.then.i30, label %if.else.i24
-
-if.then.i30:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %sub.i31 = sub i64 %mul, %sub.ptr.sub.i.i22
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i31)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
-if.else.i24:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %cmp4.i25 = icmp ugt i64 %sub.ptr.sub.i.i22, %mul
-  br i1 %cmp4.i25, label %if.then5.i26, label %if.end
-
-if.then5.i26:                                     ; preds = %if.else.i24
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %8, i64 %mul
-  %tobool.not.i.i28 = icmp eq ptr %7, %add.ptr.i27
-  br i1 %tobool.not.i.i28, label %if.end, label %invoke.cont.i.i29
-
-invoke.cont.i.i29:                                ; preds = %if.then5.i26
-  store ptr %add.ptr.i27, ptr %_M_finish.i.i19, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont.i.i29, %if.then5.i26, %if.else.i24, %if.then.i30, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %_ZNSt6vectorItSaItEE6resizeEm.exit
   ret void
 }
 
@@ -4349,7 +4157,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -4359,7 +4167,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
@@ -4369,7 +4177,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
@@ -4676,7 +4484,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -5219,7 +5027,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -5229,7 +5037,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit3, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit3
 
 _ZNSt6vectorItSaItEED2Ev.exit3:                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
@@ -5239,7 +5047,7 @@ _ZNSt6vectorItSaItEED2Ev.exit3:                   ; preds = %_ZNSt6vectorItSaItE
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit3
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit3, %if.then.i.i.i5
@@ -5546,7 +5354,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -6087,7 +5895,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
@@ -6097,7 +5905,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
@@ -6107,7 +5915,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imat
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
@@ -6414,7 +6222,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -6955,7 +6763,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -6965,7 +6773,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
@@ -6975,7 +6783,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
@@ -7282,7 +7090,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -7647,34 +7455,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i23, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
-  %cmp.i27 = icmp ult i64 %sub.ptr.sub.i.i26, %mul26
-  br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
-
-if.then.i34:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i35 = sub i64 %mul26, %sub.ptr.sub.i.i26
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i35)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.else.i28:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i29 = icmp ugt i64 %sub.ptr.sub.i.i26, %mul26
-  br i1 %cmp4.i29, label %if.then5.i30, label %if.end27
-
-if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %17, i64 %mul26
-  %tobool.not.i.i32 = icmp eq ptr %16, %add.ptr.i31
-  br i1 %tobool.not.i.i32, label %if.end27, label %invoke.cont.i.i33
-
-invoke.cont.i.i33:                                ; preds = %if.then5.i30
-  store ptr %add.ptr.i31, ptr %_M_finish.i.i23, align 8
-  br label %if.end27
-
-if.end27:                                         ; preds = %invoke.cont.i.i33, %if.then5.i30, %if.else.i28, %if.then.i34, %if.end20
+if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %if.end20
   ret void
 }
 
@@ -7711,12 +7495,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode33, align 8
-  %m_outOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode34, align 4
-  %m_useDstBuffer36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer36, align 4
+  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
+  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
+  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
@@ -7780,34 +7564,10 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i19, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
-  %cmp.i23 = icmp ult i64 %sub.ptr.sub.i.i22, %mul
-  br i1 %cmp.i23, label %if.then.i30, label %if.else.i24
-
-if.then.i30:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %sub.i31 = sub i64 %mul, %sub.ptr.sub.i.i22
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i31)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
-if.else.i24:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %cmp4.i25 = icmp ugt i64 %sub.ptr.sub.i.i22, %mul
-  br i1 %cmp4.i25, label %if.then5.i26, label %if.end
-
-if.then5.i26:                                     ; preds = %if.else.i24
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %8, i64 %mul
-  %tobool.not.i.i28 = icmp eq ptr %7, %add.ptr.i27
-  br i1 %tobool.not.i.i28, label %if.end, label %invoke.cont.i.i29
-
-invoke.cont.i.i29:                                ; preds = %if.then5.i26
-  store ptr %add.ptr.i27, ptr %_M_finish.i.i19, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont.i.i29, %if.then5.i26, %if.else.i24, %if.then.i30, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
   ret void
 }
 
@@ -7821,7 +7581,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -7831,7 +7591,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
@@ -7841,7 +7601,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
@@ -8148,7 +7908,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -8691,7 +8451,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -8701,7 +8461,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
@@ -8711,7 +8471,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorItSaItE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
@@ -9018,7 +8778,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -9559,7 +9319,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
@@ -9569,7 +9329,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
@@ -9579,7 +9339,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN9Imat
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3, %if.then.i.i.i5
@@ -9886,7 +9646,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -10427,7 +10187,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -10437,7 +10197,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
@@ -10447,7 +10207,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
@@ -10754,7 +10514,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -11119,34 +10879,10 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
-  %_M_finish.i.i24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i24, align 8
-  %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
-  %cmp.i28 = icmp ult i64 %sub.ptr.sub.i.i27, %mul26
-  br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
-
-if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %sub.i36 = sub i64 %mul26, %sub.ptr.sub.i.i27
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
-if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.sub.i.i27, %mul26
-  br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
-
-if.then5.i31:                                     ; preds = %if.else.i29
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %17, i64 %mul26
-  %tobool.not.i.i33 = icmp eq ptr %16, %add.ptr.i32
-  br i1 %tobool.not.i.i33, label %if.end27, label %invoke.cont.i.i34
-
-invoke.cont.i.i34:                                ; preds = %if.then5.i31
-  store ptr %add.ptr.i32, ptr %_M_finish.i.i24, align 8
-  br label %if.end27
-
-if.end27:                                         ; preds = %invoke.cont.i.i34, %if.then5.i31, %if.else.i29, %if.then.i35, %if.end20
+if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23, %if.end20
   ret void
 }
 
@@ -11183,12 +10919,12 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
-  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode34, align 8
-  %m_outOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
-  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode35, align 4
-  %m_useDstBuffer37 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
-  store i8 0, ptr %m_useDstBuffer37, align 4
+  %m_inOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  store i32 %optim.0.i.ph, ptr %m_inOptimizedMode21, align 8
+  %m_outOptimizedMode22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
+  store i32 %optim.0.i.ph, ptr %m_outOptimizedMode22, align 4
+  %m_useDstBuffer24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  store i8 0, ptr %m_useDstBuffer24, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
   %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
@@ -11252,34 +10988,10 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
-  %_M_finish.i.i20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i20, align 8
-  %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
-  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  %cmp.i24 = icmp ult i64 %sub.ptr.sub.i.i23, %mul
-  br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
-
-if.then.i31:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %sub.i32 = sub i64 %mul, %sub.ptr.sub.i.i23
-  tail call void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
-if.else.i25:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.sub.i.i23, %mul
-  br i1 %cmp4.i26, label %if.then5.i27, label %if.end
-
-if.then5.i27:                                     ; preds = %if.else.i25
-  %add.ptr.i28 = getelementptr inbounds i8, ptr %8, i64 %mul
-  %tobool.not.i.i29 = icmp eq ptr %7, %add.ptr.i28
-  br i1 %tobool.not.i.i29, label %if.end, label %invoke.cont.i.i30
-
-invoke.cont.i.i30:                                ; preds = %if.then5.i27
-  store ptr %add.ptr.i28, ptr %_M_finish.i.i20, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont.i.i30, %if.then5.i27, %if.else.i25, %if.then.i31, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
   ret void
 }
 
@@ -11293,7 +11005,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -11303,7 +11015,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
@@ -11313,7 +11025,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
@@ -11620,7 +11332,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -12163,7 +11875,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -12173,7 +11885,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
@@ -12183,7 +11895,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItE
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
@@ -12490,7 +12202,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -13031,7 +12743,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
@@ -13041,7 +12753,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
@@ -13051,7 +12763,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imat
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
@@ -13358,7 +13070,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -13899,7 +13611,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
@@ -13909,7 +13621,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit3, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit3
 
 _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
@@ -13919,7 +13631,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit6, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit3
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit6
 
 _ZNSt6vectorIfSaIfEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit3, %if.then.i.i.i5
@@ -14226,7 +13938,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit73: ; preds = %_ZNSt10
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED5Ev) align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -14374,110 +14086,6 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAP
 
 declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc7isFloatEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end43, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %cmp4 = icmp sgt i64 %sub.ptr.sub.i, -1
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.sub.i, 9223372036854775807
-  %cmp6 = icmp ule i64 %sub.ptr.sub, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.sub, %__n
-  br i1 %cmp8.not, label %if.else, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then
-  store i8 0, ptr %0, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
-  %sub.i.i.i = add i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %__n
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i, i8 0, i64 %sub.i.i.i, i1 false)
-  br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end43
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
-  unreachable
-
-_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i
-  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
-  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %3
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #16
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds i8, ptr %cond.i19, i64 %sub.ptr.sub.i
-  store i8 0, ptr %add.ptr, align 1
-  %sub.i.i.i23 = add i64 %__n, -1
-  %cmp.i.i.i.i.i24 = icmp eq i64 %sub.i.i.i23, 0
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.then.i.i.i.i.i.i.i25
-
-if.then.i.i.i.i.i.i.i25:                          ; preds = %if.then.i.i.i21
-  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22, i8 0, i64 %sub.i.i.i23, i1 false)
-  br label %try.cont
-
-try.cont:                                         ; preds = %if.then.i.i.i.i.i.i.i25, %if.then.i.i.i21
-  %cmp.i.i.i.i.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i.not, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i19, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
-  br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
-
-_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i30 = icmp eq ptr %1, null
-  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32, label %if.then.i31
-
-if.then.i31:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
-  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32
-
-_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i31
-  store ptr %cond.i19, ptr %this, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
-  store ptr %add.ptr36, ptr %_M_finish.i, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %cond.i19, i64 %cond.i
-  store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
-  br label %if.end43
-
-if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32, %entry
-  ret void
-}
-
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
@@ -14542,38 +14150,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
-  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds float, ptr %cond.i19, i64 %sub.ptr.div.i
+  %mul.i.i.i = shl nuw nsw i64 %5, 2
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store float 0.000000e+00, ptr %add.ptr, align 4
   %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr float, ptr %add.ptr, i64 1
-  %6 = shl i64 %__n, 2
-  %7 = add i64 %6, -4
+  %6 = shl nuw nsw i64 %__n, 2
+  %7 = add nsw i64 %6, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
@@ -14581,14 +14179,14 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.th
   br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i30
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds float, ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds float, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -14651,38 +14249,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 4611686018427387903)
-  %cond.i = select i1 %cmp7.i, i64 4611686018427387903, i64 %5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 1
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds i16, ptr %cond.i19, i64 %sub.ptr.div.i
+  %mul.i.i.i = shl nuw nsw i64 %5, 1
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2
   %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr i16, ptr %add.ptr, i64 1
-  %6 = shl i64 %__n, 1
-  %7 = add i64 %6, -2
+  %6 = shl nuw nsw i64 %__n, 1
+  %7 = add nsw i64 %6, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %cond.i19, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
@@ -14690,14 +14278,14 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %try.cont, %if.th
   br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %if.then.i30
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i16, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds i16, ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds i16, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -14760,38 +14348,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 4611686018427387903)
-  %cond.i = select i1 %cmp7.i, i64 4611686018427387903, i64 %5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 1
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.Imath_3_1::half", ptr %cond.i19, i64 %sub.ptr.div.i
+  %mul.i.i.i = shl nuw nsw i64 %5, 1
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2
   %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr %"class.Imath_3_1::half", ptr %add.ptr, i64 1
-  %6 = shl i64 %__n, 1
-  %7 = add i64 %6, -2
+  %6 = shl nuw nsw i64 %__n, 1
+  %7 = add nsw i64 %6, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %cond.i19, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %try.cont, %if.then.i.i.i.i
@@ -14799,14 +14377,14 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
   br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
   br label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31
 
 _ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i30
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.Imath_3_1::half", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.Imath_3_1::half", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"class.Imath_3_1::half", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -14846,8 +14424,8 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
-attributes #16 = { builtin allocsize(0) }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

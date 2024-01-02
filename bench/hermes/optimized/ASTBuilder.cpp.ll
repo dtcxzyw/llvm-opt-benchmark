@@ -2574,7 +2574,7 @@ land.lhs.true53:                                  ; preds = %if.then48
   %cmp57 = icmp sge i32 %conv, %conv56
   %cmp59.not = icmp slt i32 %conv51, %conv
   %or.cond2463 = select i1 %cmp57, i1 true, i1 %cmp59.not
-  %cmp64.not = icmp sgt i32 %conv51, %conv56
+  %cmp64.not = icmp ugt i32 %conv51, %conv56
   %or.cond7168 = select i1 %or.cond2463, i1 true, i1 %cmp64.not
   br i1 %or.cond7168, label %if.end80, label %if.then65
 

@@ -50,6 +50,8 @@ $_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EEaSERKS3_ = com
 
 $_ZNSt6vectorIfSaIfEEaSERKS1_ = comdat any
 
+$_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm = comdat any
+
 $_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplD2Ev = comdat any
 
 $_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplD0Ev = comdat any
@@ -69,8 +71,6 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_ = comdat any
 
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_ = comdat any
-
-$_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_M_default_appendEm = comdat any
 
 $_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf = comdat any
 
@@ -1249,66 +1249,138 @@ define hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl19setNumCon
 entry:
   %ref.tmp = alloca float, align 4
   %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  tail call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints, i64 noundef %size)
+  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %m_controlPoints, align 8
+  %1 = load ptr, ptr %m_slopesArray, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %size
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %sub.i = sub i64 %size, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints, i64 noundef %sub.i)
-  br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit
+  call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray, ptr %0, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %size
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %1, i64 %size
-  %tobool.not.i.i = icmp eq ptr %0, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit
-
-_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  %_M_finish.i.i2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %2 = load ptr, ptr %_M_finish.i.i2, align 8
-  %3 = load ptr, ptr %m_slopesArray, align 8
-  %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
-  %sub.ptr.div.i.i6 = ashr exact i64 %sub.ptr.sub.i.i5, 2
-  %cmp.i7 = icmp ult i64 %sub.ptr.div.i.i6, %size
-  br i1 %cmp.i7, label %if.then.i12, label %if.else.i8
-
-if.then.i12:                                      ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit
-  %sub.i13 = sub i64 %size, %sub.ptr.div.i.i6
-  call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray, ptr %2, i64 noundef %sub.i13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-
-if.else.i8:                                       ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm.exit
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i6, %size
+  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i, %size
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
-if.then7.i:                                       ; preds = %if.else.i8
-  %add.ptr.i9 = getelementptr inbounds float, ptr %3, i64 %size
-  %tobool.not.i.i10 = icmp eq ptr %2, %add.ptr.i9
-  br i1 %tobool.not.i.i10, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit, label %invoke.cont.i.i11
+if.then7.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds float, ptr %1, i64 %size
+  %tobool.not.i.i = icmp eq ptr %0, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit, label %invoke.cont.i.i
 
-invoke.cont.i.i11:                                ; preds = %if.then7.i
-  store ptr %add.ptr.i9, ptr %_M_finish.i.i2, align 8
+invoke.cont.i.i:                                  ; preds = %if.then7.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
-_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %if.then.i12, %if.else.i8, %if.then7.i, %invoke.cont.i.i11
+_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %if.then.i, %if.else.i, %if.then7.i, %invoke.cont.i.i
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
+  %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %if.then
+  %3 = shl nuw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
+  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
+  store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #21
+  unreachable
+
+_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
+  %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %4, 3
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #22
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %5 = shl nuw nsw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.i, i8 0, i64 %5, i1 false)
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %1, %0
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i
+
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !19, !noalias !16
+  store i64 %6, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !16, !noalias !19
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !21
+
+_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %tobool.not.i26.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i26.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28.i, label %if.then.i27.i
+
+if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28.i
+
+_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28.i: ; preds = %if.then.i27.i, %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr37.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %add.ptr.i, i64 %sub
+  store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
+  %add.ptr40.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i, i64 %4
+  store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
+  br label %if.end6
+
+if.else:                                          ; preds = %entry
+  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp4, label %if.then5, label %if.end6
+
+if.then5:                                         ; preds = %if.else
+  %add.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %1, i64 %__new_size
+  %tobool.not.i = icmp eq ptr %0, %add.ptr
+  br i1 %tobool.not.i, label %if.end6, label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %if.then5
+  store ptr %add.ptr, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28.i, %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit.i, %if.else
   ret void
 }
 
@@ -1496,13 +1568,13 @@ for.cond:                                         ; preds = %for.body.preheader,
   %i.048 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add nuw i64 %i.048, 1
   %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !16
+  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !22
 
 for.body:                                         ; preds = %for.cond
   %add.ptr.i = getelementptr inbounds float, ptr %1, i64 %inc
   %3 = load float, ptr %add.ptr.i, align 4
   %cmp4 = fcmp une float %3, 0.000000e+00
-  br i1 %cmp4, label %return.loopexit, label %for.cond, !llvm.loop !16
+  br i1 %cmp4, label %return.loopexit, label %for.cond, !llvm.loop !22
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
   %cmp.le = icmp uge i64 %inc, %sub.ptr.div.i
@@ -1661,7 +1733,7 @@ ehcleanup38:                                      ; preds = %ehcleanup, %cleanup
 if.end39:                                         ; preds = %for.body
   %inc = add nuw i64 %i.026, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %if.end39
   ret void
@@ -1960,7 +2032,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 2305843009213693951, i64 %19
@@ -2028,7 +2100,7 @@ if.then.i.i.i.i81.i:                              ; preds = %if.else.i.i55.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i60.i: ; preds = %if.else.i.i55.i
   %sub.ptr.div.i.i.i.i.i61.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i58.i, 2
   %.sroa.speculated.i.i.i.i62.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i61.i, i64 1)
-  %add.i.i.i.i63.i = add i64 %.sroa.speculated.i.i.i.i62.i, %sub.ptr.div.i.i.i.i.i61.i
+  %add.i.i.i.i63.i = add nsw i64 %.sroa.speculated.i.i.i.i62.i, %sub.ptr.div.i.i.i.i.i61.i
   %cmp7.i.i.i.i64.i = icmp ult i64 %add.i.i.i.i63.i, %sub.ptr.div.i.i.i.i.i61.i
   %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i63.i, i64 2305843009213693951)
   %cond.i.i.i.i65.i = select i1 %cmp7.i.i.i.i64.i, i64 2305843009213693951, i64 %21
@@ -2163,7 +2235,7 @@ if.then.i.i.i92.cont.i:                           ; preds = %if.then.i.i.i92.inv
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %26 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %26
@@ -2228,7 +2300,7 @@ if.else.i100.i:                                   ; preds = %invoke.cont17.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i105.i: ; preds = %if.else.i100.i
   %sub.ptr.div.i.i.i.i106.i = ashr exact i64 %sub.ptr.sub.i.i.i.i103.i, 2
   %.sroa.speculated.i.i.i107.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i106.i, i64 1)
-  %add.i.i.i108.i = add i64 %.sroa.speculated.i.i.i107.i, %sub.ptr.div.i.i.i.i106.i
+  %add.i.i.i108.i = add nsw i64 %.sroa.speculated.i.i.i107.i, %sub.ptr.div.i.i.i.i106.i
   %cmp7.i.i.i109.i = icmp ult i64 %add.i.i.i108.i, %sub.ptr.div.i.i.i.i106.i
   %32 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i108.i, i64 2305843009213693951)
   %cond.i.i.i110.i = select i1 %cmp7.i.i.i109.i, i64 2305843009213693951, i64 %32
@@ -2298,7 +2370,7 @@ while.body32.i:                                   ; preds = %land.rhs.i
   %38 = load float, ptr %add.ptr.i134.i, align 4
   %add35.i = fadd float %DL.0333.i, %38
   %exitcond351.not.i = icmp eq i64 %add25.i, %sub23.i
-  br i1 %exitcond351.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !18
+  br i1 %exitcond351.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !24
 
 while.end.i:                                      ; preds = %while.body32.i, %land.rhs.i, %while.cond.i
   %j.0.lcssa.i = phi i64 [ %i20.0.i, %while.cond.i ], [ %j.0332.i, %land.rhs.i ], [ %sub23.i, %while.body32.i ]
@@ -2312,12 +2384,12 @@ for.body39.i:                                     ; preds = %while.end.i, %for.b
   store float %DL.0.lcssa.i, ptr %add.ptr.i135.i, align 4
   %inc42.i = add i64 %k.0341.i, 1
   %cmp38.not.i = icmp ugt i64 %inc42.i, %j.0.lcssa.i
-  br i1 %cmp38.not.i, label %for.end43.i, label %for.body39.i, !llvm.loop !19
+  br i1 %cmp38.not.i, label %for.end43.i, label %for.body39.i, !llvm.loop !25
 
 for.end43.i:                                      ; preds = %for.body39.i, %while.end.i
   %cmp45.not.i = icmp ult i64 %j.0.lcssa.i, %sub44.i
   %add48.i = add nuw i64 %j.0.lcssa.i, 1
-  br i1 %cmp45.not.i, label %while.cond.i, label %while.end49.i, !llvm.loop !20
+  br i1 %cmp45.not.i, label %while.cond.i, label %while.end49.i, !llvm.loop !26
 
 while.end49.i:                                    ; preds = %for.end43.i
   %_M_finish.i.i136.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 1
@@ -2344,7 +2416,7 @@ if.else.i.i141.i:                                 ; preds = %while.end49.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i146.i: ; preds = %if.else.i.i141.i
   %sub.ptr.div.i.i.i.i.i147.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i144.i, 2
   %.sroa.speculated.i.i.i.i148.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i147.i, i64 1)
-  %add.i.i.i.i149.i = add i64 %.sroa.speculated.i.i.i.i148.i, %sub.ptr.div.i.i.i.i.i147.i
+  %add.i.i.i.i149.i = add nsw i64 %.sroa.speculated.i.i.i.i148.i, %sub.ptr.div.i.i.i.i.i147.i
   %cmp7.i.i.i.i150.i = icmp ult i64 %add.i.i.i.i149.i, %sub.ptr.div.i.i.i.i.i147.i
   %42 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i149.i, i64 2305843009213693951)
   %cond.i.i.i.i151.i = select i1 %cmp7.i.i.i.i150.i, i64 2305843009213693951, i64 %42
@@ -2435,7 +2507,7 @@ if.then.i.i.i209.i:                               ; preds = %if.else.i183.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i188.i: ; preds = %if.else.i183.i
   %sub.ptr.div.i.i.i.i189.i = ashr exact i64 %sub.ptr.sub.i.i.i.i186.i, 2
   %.sroa.speculated.i.i.i190.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i189.i, i64 1)
-  %add.i.i.i191.i = add i64 %.sroa.speculated.i.i.i190.i, %sub.ptr.div.i.i.i.i189.i
+  %add.i.i.i191.i = add nsw i64 %.sroa.speculated.i.i.i190.i, %sub.ptr.div.i.i.i.i189.i
   %cmp7.i.i.i192.i = icmp ult i64 %add.i.i.i191.i, %sub.ptr.div.i.i.i.i189.i
   %54 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i191.i, i64 2305843009213693951)
   %cond.i.i.i193.i = select i1 %cmp7.i.i.i192.i, i64 2305843009213693951, i64 %54
@@ -2479,7 +2551,7 @@ for.inc70.i:                                      ; preds = %_ZNSt6vectorIfSaIfE
   %55 = phi ptr [ %incdec.ptr.i.i203.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i206.i ], [ %incdec.ptr.i182.i, %if.then.i181.i ]
   %inc71.i = add nuw i64 %k52.0343.i, 1
   %exitcond352.not.i = icmp eq i64 %inc71.i, %sub.i
-  br i1 %exitcond352.not.i, label %for.end72.i.loopexit, label %for.body56.i, !llvm.loop !21
+  br i1 %exitcond352.not.i, label %for.end72.i.loopexit, label %for.body56.i, !llvm.loop !27
 
 for.end72.i.loopexit:                             ; preds = %for.inc70.i
   %.pre205 = load ptr, ptr %_M_end_of_storage.i.i137.i, align 8
@@ -2519,7 +2591,7 @@ if.else.i221.i:                                   ; preds = %for.end72.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i226.i: ; preds = %if.else.i221.i
   %sub.ptr.div.i.i.i.i227.i = ashr exact i64 %sub.ptr.sub.i.i.i.i224.i, 2
   %.sroa.speculated.i.i.i228.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i227.i, i64 1)
-  %add.i.i.i229.i = add i64 %.sroa.speculated.i.i.i228.i, %sub.ptr.div.i.i.i.i227.i
+  %add.i.i.i229.i = add nsw i64 %.sroa.speculated.i.i.i228.i, %sub.ptr.div.i.i.i.i227.i
   %cmp7.i.i.i230.i = icmp ult i64 %add.i.i.i229.i, %sub.ptr.div.i.i.i.i227.i
   %63 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i229.i, i64 2305843009213693951)
   %cond.i.i.i231.i = select i1 %cmp7.i.i.i230.i, i64 2305843009213693951, i64 %63
@@ -2658,7 +2730,7 @@ if.end52.i:                                       ; preds = %if.then22.i, %if.th
   %adjustment_done.2.i = phi i8 [ %adjustment_done.070.i, %while.body.i ], [ 1, %if.then22.i ], [ %adjustment_done.070.i, %if.then.i69 ]
   %inc53.i = add nuw i64 %j.068.i, 1
   %exitcond.not.i67 = icmp eq i64 %inc53.i, %umax.i
-  br i1 %exitcond.not.i67, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit, label %while.body.i, !llvm.loop !22
+  br i1 %exitcond.not.i67, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit, label %while.body.i, !llvm.loop !28
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit: ; preds = %if.end52.i
   %88 = and i8 %adjustment_done.2.i, 1
@@ -2942,7 +3014,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %7
@@ -3049,7 +3121,7 @@ if.then.i.i.i111:                                 ; preds = %if.else.i84
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i89: ; preds = %if.else.i84
   %sub.ptr.div.i.i.i.i90 = ashr exact i64 %sub.ptr.sub.i.i.i.i87, 2
   %.sroa.speculated.i.i.i91 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i90, i64 1)
-  %add.i.i.i92 = add i64 %.sroa.speculated.i.i.i91, %sub.ptr.div.i.i.i.i90
+  %add.i.i.i92 = add nsw i64 %.sroa.speculated.i.i.i91, %sub.ptr.div.i.i.i.i90
   %cmp7.i.i.i93 = icmp ult i64 %add.i.i.i92, %sub.ptr.div.i.i.i.i90
   %26 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i92, i64 2305843009213693951)
   %cond.i.i.i94 = select i1 %cmp7.i.i.i93, i64 2305843009213693951, i64 %26
@@ -3121,7 +3193,7 @@ if.then.i.i.i146:                                 ; preds = %if.else.i119
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i124: ; preds = %if.else.i119
   %sub.ptr.div.i.i.i.i125 = ashr exact i64 %sub.ptr.sub.i.i.i.i122, 2
   %.sroa.speculated.i.i.i126 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i125, i64 1)
-  %add.i.i.i127 = add i64 %.sroa.speculated.i.i.i126, %sub.ptr.div.i.i.i.i125
+  %add.i.i.i127 = add nsw i64 %.sroa.speculated.i.i.i126, %sub.ptr.div.i.i.i.i125
   %cmp7.i.i.i128 = icmp ult i64 %add.i.i.i127, %sub.ptr.div.i.i.i.i125
   %34 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i127, i64 2305843009213693951)
   %cond.i.i.i129 = select i1 %cmp7.i.i.i128, i64 2305843009213693951, i64 %34
@@ -3198,7 +3270,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %43 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %43
@@ -3318,7 +3390,7 @@ if.then.i.i.i193:                                 ; preds = %if.else.i166
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i171: ; preds = %if.else.i166
   %sub.ptr.div.i.i.i.i172 = ashr exact i64 %sub.ptr.sub.i.i.i.i169, 2
   %.sroa.speculated.i.i.i173 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i172, i64 1)
-  %add.i.i.i174 = add i64 %.sroa.speculated.i.i.i173, %sub.ptr.div.i.i.i.i172
+  %add.i.i.i174 = add nsw i64 %.sroa.speculated.i.i.i173, %sub.ptr.div.i.i.i.i172
   %cmp7.i.i.i175 = icmp ult i64 %add.i.i.i174, %sub.ptr.div.i.i.i.i172
   %63 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i174, i64 2305843009213693951)
   %cond.i.i.i176 = select i1 %cmp7.i.i.i175, i64 2305843009213693951, i64 %63
@@ -3390,7 +3462,7 @@ if.then.i.i.i228:                                 ; preds = %if.else.i201
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i206: ; preds = %if.else.i201
   %sub.ptr.div.i.i.i.i207 = ashr exact i64 %sub.ptr.sub.i.i.i.i204, 2
   %.sroa.speculated.i.i.i208 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i207, i64 1)
-  %add.i.i.i209 = add i64 %.sroa.speculated.i.i.i208, %sub.ptr.div.i.i.i.i207
+  %add.i.i.i209 = add nsw i64 %.sroa.speculated.i.i.i208, %sub.ptr.div.i.i.i.i207
   %cmp7.i.i.i210 = icmp ult i64 %add.i.i.i209, %sub.ptr.div.i.i.i.i207
   %71 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i209, i64 2305843009213693951)
   %cond.i.i.i211 = select i1 %cmp7.i.i.i210, i64 2305843009213693951, i64 %71
@@ -3460,7 +3532,7 @@ if.then.i.i.i.i262:                               ; preds = %if.else.i.i235
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i240: ; preds = %if.else.i.i235
   %sub.ptr.div.i.i.i.i.i241 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i238, 2
   %.sroa.speculated.i.i.i.i242 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i241, i64 1)
-  %add.i.i.i.i243 = add i64 %.sroa.speculated.i.i.i.i242, %sub.ptr.div.i.i.i.i.i241
+  %add.i.i.i.i243 = add nsw i64 %.sroa.speculated.i.i.i.i242, %sub.ptr.div.i.i.i.i.i241
   %cmp7.i.i.i.i244 = icmp ult i64 %add.i.i.i.i243, %sub.ptr.div.i.i.i.i.i241
   %77 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i243, i64 2305843009213693951)
   %cond.i.i.i.i245 = select i1 %cmp7.i.i.i.i244, i64 2305843009213693951, i64 %77
@@ -3535,7 +3607,7 @@ if.then.i.i.i.i297:                               ; preds = %if.else.i.i270
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i275: ; preds = %if.else.i.i270
   %sub.ptr.div.i.i.i.i.i276 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i273, 2
   %.sroa.speculated.i.i.i.i277 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i276, i64 1)
-  %add.i.i.i.i278 = add i64 %.sroa.speculated.i.i.i.i277, %sub.ptr.div.i.i.i.i.i276
+  %add.i.i.i.i278 = add nsw i64 %.sroa.speculated.i.i.i.i277, %sub.ptr.div.i.i.i.i.i276
   %cmp7.i.i.i.i279 = icmp ult i64 %add.i.i.i.i278, %sub.ptr.div.i.i.i.i.i276
   %87 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i278, i64 2305843009213693951)
   %cond.i.i.i.i280 = select i1 %cmp7.i.i.i.i279, i64 2305843009213693951, i64 %87
@@ -3603,7 +3675,7 @@ if.then.i.i.i331:                                 ; preds = %if.else.i304
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i309: ; preds = %if.else.i304
   %sub.ptr.div.i.i.i.i310 = ashr exact i64 %sub.ptr.sub.i.i.i.i307, 2
   %.sroa.speculated.i.i.i311 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i310, i64 1)
-  %add.i.i.i312 = add i64 %.sroa.speculated.i.i.i311, %sub.ptr.div.i.i.i.i310
+  %add.i.i.i312 = add nsw i64 %.sroa.speculated.i.i.i311, %sub.ptr.div.i.i.i.i310
   %cmp7.i.i.i313 = icmp ult i64 %add.i.i.i312, %sub.ptr.div.i.i.i.i310
   %92 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i312, i64 2305843009213693951)
   %cond.i.i.i314 = select i1 %cmp7.i.i.i313, i64 2305843009213693951, i64 %92
@@ -3679,7 +3751,7 @@ if.then.i.i.i.i366:                               ; preds = %if.else.i.i339
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i344: ; preds = %if.else.i.i339
   %sub.ptr.div.i.i.i.i.i345 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i342, 2
   %.sroa.speculated.i.i.i.i346 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i345, i64 1)
-  %add.i.i.i.i347 = add i64 %.sroa.speculated.i.i.i.i346, %sub.ptr.div.i.i.i.i.i345
+  %add.i.i.i.i347 = add nsw i64 %.sroa.speculated.i.i.i.i346, %sub.ptr.div.i.i.i.i.i345
   %cmp7.i.i.i.i348 = icmp ult i64 %add.i.i.i.i347, %sub.ptr.div.i.i.i.i.i345
   %100 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i347, i64 2305843009213693951)
   %cond.i.i.i.i349 = select i1 %cmp7.i.i.i.i348, i64 2305843009213693951, i64 %100
@@ -3747,7 +3819,7 @@ if.then.i.i.i400:                                 ; preds = %if.else.i373
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i378: ; preds = %if.else.i373
   %sub.ptr.div.i.i.i.i379 = ashr exact i64 %sub.ptr.sub.i.i.i.i376, 2
   %.sroa.speculated.i.i.i380 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i379, i64 1)
-  %add.i.i.i381 = add i64 %.sroa.speculated.i.i.i380, %sub.ptr.div.i.i.i.i379
+  %add.i.i.i381 = add nsw i64 %.sroa.speculated.i.i.i380, %sub.ptr.div.i.i.i.i379
   %cmp7.i.i.i382 = icmp ult i64 %add.i.i.i381, %sub.ptr.div.i.i.i.i379
   %105 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i381, i64 2305843009213693951)
   %cond.i.i.i383 = select i1 %cmp7.i.i.i382, i64 2305843009213693951, i64 %105
@@ -3816,7 +3888,7 @@ if.then.i.i.i434:                                 ; preds = %if.else.i407
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i412: ; preds = %if.else.i407
   %sub.ptr.div.i.i.i.i413 = ashr exact i64 %sub.ptr.sub.i.i.i.i410, 2
   %.sroa.speculated.i.i.i414 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i413, i64 1)
-  %add.i.i.i415 = add i64 %.sroa.speculated.i.i.i414, %sub.ptr.div.i.i.i.i413
+  %add.i.i.i415 = add nsw i64 %.sroa.speculated.i.i.i414, %sub.ptr.div.i.i.i.i413
   %cmp7.i.i.i416 = icmp ult i64 %add.i.i.i415, %sub.ptr.div.i.i.i.i413
   %111 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i415, i64 2305843009213693951)
   %cond.i.i.i417 = select i1 %cmp7.i.i.i416, i64 2305843009213693951, i64 %111
@@ -3859,7 +3931,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit435:       ; preds = %if.then.i405, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i431
   %exitcond.not = icmp eq i64 %add, %sub
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit435, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
   ret void
@@ -5451,7 +5523,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
   %31 = trunc i64 %indvars.iv to i32
@@ -5604,7 +5676,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
   %28 = trunc i64 %indvars.iv to i32
@@ -5714,7 +5786,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp ne i64 %inc, %call
   %or.cond.not = select i1 %.not.i.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !26
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !32
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %entry
   %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ %.not.i.not, %for.body ]
@@ -5761,7 +5833,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call.i
   %or.cond = select i1 %.not.i.not.i.not, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit, label %for.body.i, !llvm.loop !26
+  br i1 %or.cond, label %_ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit, label %for.body.i, !llvm.loop !32
 
 _ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit: ; preds = %for.body.i, %entry, %for.cond.preheader.i
   %retval.0.i = phi i1 [ true, %entry ], [ false, %for.cond.preheader.i ], [ %.not.i.not.i.not, %for.body.i ]
@@ -6179,102 +6251,6 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23Gr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end44, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp4 = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
-  br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
-  %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end44
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #21
-  unreachable
-
-_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %4 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %4
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %try.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  br label %try.cont
-
-try.cont:                                         ; preds = %cond.true.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %cond.i19, i64 %sub.ptr.div.i
-  %5 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr, i8 0, i64 %5, i1 false)
-  %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %try.cont, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i19, %try.cont ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %try.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 4, !alias.scope !30, !noalias !27
-  store i64 %6, ptr %__cur.07.i.i.i.i, align 4, !alias.scope !27, !noalias !30
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i.i, !llvm.loop !32
-
-_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i.i, %try.cont
-  %tobool.not.i26 = icmp eq ptr %1, null
-  br i1 %tobool.not.i26, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28, label %if.then.i27
-
-if.then.i27:                                      ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
-  br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28
-
-_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i27
-  store ptr %cond.i19, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %cond.i19, i64 %cond.i
-  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
-  br label %if.end44
-
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev19GradingControlPointEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit28, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, i64 noundef %__n, ptr noundef nonnull align 4 dereferenceable(4) %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq i64 %__n, 0
@@ -6387,7 +6363,7 @@ if.then.i:                                        ; preds = %if.else42
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else42
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %7 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
   %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %7
@@ -6677,21 +6653,21 @@ attributes #23 = { builtin nounwind }
 !13 = distinct !{!13, !14, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: %agg.result"}
 !14 = distinct !{!14, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
 !15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!18 = distinct !{!18, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_"}
+!19 = !{!20}
+!20 = distinct !{!20, !18, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
 !23 = distinct !{!23, !11}
 !24 = distinct !{!24, !11}
 !25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_"}
-!30 = !{!31}
-!31 = distinct !{!31, !29, !"_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev19GradingControlPointES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
 !32 = distinct !{!32, !11}
 !33 = distinct !{!33, !11}

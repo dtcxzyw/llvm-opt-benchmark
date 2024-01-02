@@ -24,7 +24,7 @@ $_ZN5o3dgc12BinaryStream15WriteFloat32BinEf = comdat any
 @_ZN5o3dgc20DynamicVectorEncoderC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5o3dgc20DynamicVectorEncoderC2Ev
 @_ZN5o3dgc20DynamicVectorEncoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5o3dgc20DynamicVectorEncoderD2Ev
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc20DynamicVectorEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %this, i8 0, i64 60, i1 false)
@@ -707,12 +707,9 @@ for.body13.us.i:                                  ; preds = %for.body13.us.i, %f
 for.cond11.for.inc24_crit_edge.us.i:              ; preds = %for.body13.us.i
   %inc25.us.i = add nuw i64 %d.019.us.i, 1
   %exitcond21.not.i = icmp eq i64 %inc25.us.i, %1
-  br i1 %exitcond21.not.i, label %_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m.exit, label %for.body.us.i, !llvm.loop !9
+  br i1 %exitcond21.not.i, label %for.body17.lr.ph, label %for.body.us.i, !llvm.loop !9
 
-_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m.exit: ; preds = %for.cond11.for.inc24_crit_edge.us.i
-  br i1 %cmp518.not.i, label %for.end21, label %for.body17.lr.ph
-
-for.body17.lr.ph:                                 ; preds = %for.body.lr.ph.i, %_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m.exit
+for.body17.lr.ph:                                 ; preds = %for.cond11.for.inc24_crit_edge.us.i, %for.body.lr.ph.i
   %m_quantVectors = getelementptr inbounds %"class.o3dgc::DynamicVectorEncoder", ptr %this, i64 0, i32 6
   br label %for.body17
 
@@ -726,7 +723,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %exitcond.not = icmp eq i64 %inc20, %1
   br i1 %exitcond.not, label %for.end21, label %for.body17, !llvm.loop !10
 
-for.end21:                                        ; preds = %for.body17, %if.end.i, %_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m.exit
+for.end21:                                        ; preds = %for.body17, %if.end.i
   %49 = load i32, ptr %m_streamType, align 8
   %cmp23 = icmp eq i32 %49, 1
   br i1 %cmp23, label %for.cond24.preheader, label %if.else
@@ -737,7 +734,7 @@ for.cond24.preheader:                             ; preds = %for.end21
 
 if.end52.thread:                                  ; preds = %for.cond24.preheader
   %50 = load i64, ptr %m_size.i.i, align 8
-  %sub138 = sub i64 %50, %0
+  %sub137 = sub i64 %50, %0
   br label %for.body.i.i89.preheader
 
 for.cond28.preheader.lr.ph:                       ; preds = %for.cond24.preheader
@@ -913,26 +910,26 @@ for.cond28.for.inc36_crit_edge.us:                ; preds = %_ZN5o3dgc12BinarySt
 
 if.else:                                          ; preds = %for.end21
   store i64 0, ptr %encodedBytes, align 8
-  %call40143 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %2, i64 noundef %1, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %encodedBytes)
+  %call40142 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %2, i64 noundef %1, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %encodedBytes)
   %70 = load i64, ptr %encodedBytes, align 8
-  %cmp41144 = icmp ugt i64 %70, 4294967295
-  br i1 %cmp41144, label %while.end, label %while.cond
+  %cmp41143 = icmp ugt i64 %70, 4294967295
+  br i1 %cmp41143, label %while.end, label %while.cond
 
 while.cond:                                       ; preds = %if.else, %while.body
   %71 = phi i64 [ %72, %while.body ], [ %70, %if.else ]
-  %M.0124145 = phi i64 [ %mul43, %while.body ], [ 1, %if.else ]
-  %cmp39 = icmp ult i64 %M.0124145, 512
+  %M.0124144 = phi i64 [ %mul43, %while.body ], [ 1, %if.else ]
+  %cmp39 = icmp ult i64 %M.0124144, 512
   br i1 %cmp39, label %while.body, label %while.end, !llvm.loop !14
 
 while.body:                                       ; preds = %while.cond
-  %mul43 = shl nuw nsw i64 %M.0124145, 1
+  %mul43 = shl nuw nsw i64 %M.0124144, 1
   %call40 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %2, i64 noundef %1, i64 noundef %mul43, ptr noundef nonnull align 8 dereferenceable(8) %encodedBytes)
   %72 = load i64, ptr %encodedBytes, align 8
   %cmp41 = icmp ugt i64 %72, %71
   br i1 %cmp41, label %while.end, label %while.cond, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond, %while.body, %if.else
-  %bestM.0.lcssa = phi i64 [ 1, %if.else ], [ %M.0124145, %while.body ], [ %M.0124145, %while.cond ]
+  %bestM.0.lcssa = phi i64 [ 1, %if.else ], [ %M.0124144, %while.body ], [ %M.0124144, %while.cond ]
   %call44 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %2, i64 noundef %1, i64 noundef %bestM.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %encodedBytes)
   %73 = load i64, ptr %encodedBytes, align 8
   %cmp46126.not = icmp eq i64 %73, 0
@@ -1000,7 +997,7 @@ if.end52:                                         ; preds = %_ZN5o3dgc12BinarySt
   br i1 %cmp.i85, label %for.body.i.i89.preheader, label %if.else.i86
 
 for.body.i.i89.preheader:                         ; preds = %if.end52.thread, %if.end52
-  %value0.04.i.i.ph = phi i64 [ %sub, %if.end52 ], [ %sub138, %if.end52.thread ]
+  %value0.04.i.i.ph = phi i64 [ %sub, %if.end52 ], [ %sub137, %if.end52.thread ]
   br label %for.body.i.i89
 
 for.body.i.i89:                                   ; preds = %for.body.i.i89.preheader, %for.body.i.i89
@@ -2340,7 +2337,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

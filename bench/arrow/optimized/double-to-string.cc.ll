@@ -130,7 +130,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %decimal_digits, i32 noundef %length, i32 noundef %exponent, ptr nocapture noundef %result_builder) local_unnamed_addr #3 align 2 {
 entry:
   %buffer = alloca [6 x i8], align 1
@@ -323,7 +323,7 @@ while.end38:                                      ; preds = %while.end38.loopexi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %decimal_digits, i32 noundef %length, i32 noundef %decimal_point, i32 noundef %digits_after_point, ptr nocapture noundef %result_builder) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i32 %decimal_point, 1
@@ -451,7 +451,7 @@ for.body.i79:                                     ; preds = %for.body.i79, %for.
   store i8 48, ptr %arrayidx.i.i.i83, align 1
   %inc.i84 = add nuw nsw i32 %i.03.i80, 1
   %exitcond.not.i85 = icmp eq i32 %inc.i84, %digits_after_point
-  br i1 %exitcond.not.i85, label %if.end19, label %for.body.i79, !llvm.loop !8
+  br i1 %exitcond.not.i85, label %if.end30, label %for.body.i79, !llvm.loop !8
 
 if.else13:                                        ; preds = %if.else
   %conv.i90 = zext nneg i32 %decimal_point to i64
@@ -492,7 +492,7 @@ for.body.i104:                                    ; preds = %if.else13, %for.bod
   %exitcond.not.i110 = icmp eq i32 %inc.i109, %sub17
   br i1 %exitcond.not.i110, label %if.end19, label %for.body.i104, !llvm.loop !8
 
-if.end19:                                         ; preds = %for.body.i79, %for.body.i104, %for.body.i48, %if.else13, %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit, %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit71, %if.then
+if.end19:                                         ; preds = %for.body.i104, %for.body.i48, %if.else13, %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit, %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit71, %if.then
   %cmp20 = icmp eq i32 %digits_after_point, 0
   br i1 %cmp20, label %if.then21, label %if.end30
 
@@ -531,7 +531,7 @@ if.then28:                                        ; preds = %if.end24
   store i8 48, ptr %arrayidx.i.i119, align 1
   br label %if.end30
 
-if.end30:                                         ; preds = %if.end24, %if.then28, %if.end19
+if.end30:                                         ; preds = %for.body.i79, %if.end24, %if.then28, %if.end19
   ret void
 }
 
@@ -1281,7 +1281,7 @@ cond.end:                                         ; preds = %lor.end.thread, %if
   br i1 %cmp2943, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %cond.end
-  %24 = sext i32 %decimal_rep_length.promoted to i64
+  %24 = zext nneg i32 %decimal_rep_length.promoted to i64
   %25 = zext nneg i32 %cond28 to i64
   %indvars.iv.next61 = add nsw i64 %24, -1
   %arrayidx62 = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next61
@@ -1387,7 +1387,7 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

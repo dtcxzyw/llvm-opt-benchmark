@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @virtio_net_handle_ctrl_iov(ptr noundef %vdev, ptr noundef %in_sg, i32 noundef %in_num, ptr noundef %out_sg, i32 noundef %out_num) local_unnamed_addr #0 {
+define dso_local noundef i64 @virtio_net_handle_ctrl_iov(ptr noundef %vdev, ptr noundef %in_sg, i32 noundef %in_num, ptr noundef %out_sg, i32 noundef %out_num) local_unnamed_addr #0 {
 entry:
   %offloads.i = alloca i64, align 8
   %mq.i = alloca %struct.virtio_net_ctrl_mq, align 2
@@ -3861,7 +3861,7 @@ if.end50:                                         ; preds = %failover_add_primar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i64 @virtio_net_bad_features(ptr nocapture readnone %vdev) #9 {
+define internal noundef i64 @virtio_net_bad_features(ptr nocapture readnone %vdev) #9 {
 entry:
   ret i64 14369
 }
@@ -3957,8 +3957,8 @@ entry:
 if.end:                                           ; preds = %entry
   %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
   %1 = load ptr, ptr %nic, align 8
-  %div.i = sdiv i32 %queue_index, 2
-  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
+  %div.i1011 = lshr i32 %queue_index, 1
+  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i1011) #19
   %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -4021,8 +4021,8 @@ entry:
 if.end:                                           ; preds = %entry
   %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
   %1 = load ptr, ptr %nic, align 8
-  %div.i = sdiv i32 %queue_index, 2
-  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
+  %div.i1011 = lshr i32 %queue_index, 1
+  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i1011) #19
   %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -4208,7 +4208,7 @@ return:                                           ; preds = %if.then8, %do.body,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_post_load_virtio(ptr noundef %vdev) #0 {
+define internal noundef i32 @virtio_net_post_load_virtio(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
   %saved_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 38
@@ -4305,7 +4305,7 @@ declare void @vhost_toggle_device_iotlb(ptr noundef) #1
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_pre_save(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @virtio_net_pre_save(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %vhost_started = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 24
   %0 = load i8, ptr %vhost_started, align 2
@@ -4885,7 +4885,7 @@ declare i32 @qbus_walk_children(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @sysbus_get_default() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @failover_set_primary(ptr noundef %dev, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @failover_set_primary(ptr noundef %dev, ptr nocapture noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %dev, ptr noundef nonnull @.str.105) #19
   %tobool.not = icmp eq ptr %call, null
@@ -6010,7 +6010,7 @@ if.end12:                                         ; preds = %if.then11, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @virtio_net_query_rxfilter(ptr noundef %nc) #0 {
+define internal noalias noundef ptr @virtio_net_query_rxfilter(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
@@ -6883,7 +6883,7 @@ sw.epilog:                                        ; preds = %sw.bb18, %sw.bb
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @virtio_net_rsc_coalesce_data(ptr nocapture noundef %chain, ptr nocapture noundef %seg, ptr nocapture noundef readonly %n_unit) unnamed_addr #14 {
+define internal fastcc noundef i32 @virtio_net_rsc_coalesce_data(ptr nocapture noundef %chain, ptr nocapture noundef %seg, ptr nocapture noundef readonly %n_unit) unnamed_addr #14 {
 entry:
   %ip_plen = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 6, i32 1
   %0 = load ptr, ptr %ip_plen, align 8
@@ -7991,7 +7991,7 @@ declare zeroext i1 @vhost_net_config_pending(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @vhost_net_virtqueue_pending(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_post_load_device(ptr noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @virtio_net_post_load_device(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i71 = alloca %struct.timeval, align 8
   %_now.i.i57 = alloca %struct.timeval, align 8
@@ -8385,7 +8385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_vnet_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
+define internal noundef i32 @virtio_net_vnet_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
 entry:
   %has_vnet_hdr = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 4
   %0 = load i32, ptr %has_vnet_hdr, align 4
@@ -8409,7 +8409,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @virtio_net_vnet_pre_save(ptr nocapture noundef %opaque) #15 {
+define internal noundef i32 @virtio_net_vnet_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %has_vnet_hdr = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 9
@@ -8420,7 +8420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_ufo_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
+define internal noundef i32 @virtio_net_ufo_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
 entry:
   %has_ufo = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 3
   %0 = load i8, ptr %has_ufo, align 2
@@ -8456,7 +8456,7 @@ return:                                           ; preds = %entry, %peer_has_uf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @virtio_net_ufo_pre_save(ptr nocapture noundef %opaque) #15 {
+define internal noundef i32 @virtio_net_ufo_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %has_ufo = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 16
@@ -8467,7 +8467,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_net_tx_waiting_pre_load(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @virtio_net_tx_waiting_pre_load(ptr nocapture noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %vqs.i = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 3
@@ -8502,7 +8502,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @virtio_net_tx_waiting_pre_save(ptr nocapture noundef %opaque) #15 {
+define internal noundef i32 @virtio_net_tx_waiting_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %vqs = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 3

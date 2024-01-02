@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dtable = internal unnamed_addr constant [256 x i8] c"\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80>\80\80\80?456789:;<=\80\80\80\00\80\80\80\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\80\80\80\80\80\80\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80\80", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @base64_encode(ptr noundef %src, i64 noundef %len, ptr noundef %out, i64 noundef %out_len) local_unnamed_addr #0 {
+define dso_local noundef i64 @base64_encode(ptr noundef %src, i64 noundef %len, ptr noundef %out, i64 noundef %out_len) local_unnamed_addr #0 {
 entry:
   %mul = shl i64 %len, 2
   %div = udiv i64 %mul, 3
@@ -25,7 +25,7 @@ entry:
 if.end8:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %len
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %cmp944 = icmp sgt i64 %len, 2
+  %cmp944 = icmp ugt i64 %len, 2
   br i1 %cmp944, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end8, %while.body
@@ -177,12 +177,9 @@ if.end8:                                          ; preds = %for.end
   %cmp9 = icmp ugt i64 %mul, %out_len
   %cmp13 = icmp eq ptr %out, null
   %or.cond29 = or i1 %cmp13, %cmp9
-  br i1 %or.cond29, label %return, label %for.cond17.preheader
+  br i1 %or.cond29, label %return, label %for.body20.lr.ph
 
-for.cond17.preheader:                             ; preds = %if.end8
-  br i1 %cmp32.not, label %for.end79, label %for.body20.lr.ph
-
-for.body20.lr.ph:                                 ; preds = %for.cond17.preheader
+for.body20.lr.ph:                                 ; preds = %if.end8
   %arrayidx43 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 1
   %arrayidx49 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 2
   %arrayidx58 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 3
@@ -254,8 +251,8 @@ for.end79.loopexit.split.loop.exit:               ; preds = %if.then40
   %incdec.ptr.le = getelementptr inbounds i8, ptr %pos.039, i64 1
   br label %for.end79
 
-for.end79:                                        ; preds = %for.inc77, %for.end79.loopexit.split.loop.exit, %for.end79.loopexit.split.loop.exit35, %for.cond17.preheader
-  %pos.2 = phi ptr [ %incdec.ptr54.le, %for.end79.loopexit.split.loop.exit35 ], [ %out, %for.cond17.preheader ], [ %incdec.ptr.le, %for.end79.loopexit.split.loop.exit ], [ %pos.1, %for.inc77 ]
+for.end79:                                        ; preds = %for.inc77, %for.end79.loopexit.split.loop.exit, %for.end79.loopexit.split.loop.exit35
+  %pos.2 = phi ptr [ %incdec.ptr54.le, %for.end79.loopexit.split.loop.exit35 ], [ %incdec.ptr.le, %for.end79.loopexit.split.loop.exit ], [ %pos.1, %for.inc77 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %pos.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %out to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

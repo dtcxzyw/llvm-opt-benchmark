@@ -1258,7 +1258,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyByteArray_Resize(ptr nocapture noundef %self, i64 noundef %requested_size) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyByteArray_Resize(ptr nocapture noundef %self, i64 noundef %requested_size) local_unnamed_addr #0 {
 entry:
   %ob_alloc = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 1
   %0 = load i64, ptr %ob_alloc, align 8
@@ -1294,13 +1294,13 @@ if.end3:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end3
   %div41 = lshr i64 %0, 1
   %cmp7 = icmp ugt i64 %div41, %requested_size
-  br i1 %cmp7, label %if.end25, label %if.else
+  br i1 %cmp7, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %if.then6
   store i64 %requested_size, ptr %3, align 8
   %tobool.not.i = icmp eq i64 %requested_size, 0
-  %spec.select56 = select i1 %tobool.not.i, ptr @_PyByteArray_empty_string, ptr %1
-  %arrayidx = getelementptr i8, ptr %spec.select56, i64 %requested_size
+  %spec.select59 = select i1 %tobool.not.i, ptr @_PyByteArray_empty_string, ptr %1
+  %arrayidx = getelementptr i8, ptr %spec.select59, i64 %requested_size
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
@@ -1319,8 +1319,8 @@ if.then16:                                        ; preds = %if.else12
   %add21 = add i64 %add17, %conv20
   br label %if.end25
 
-if.end25:                                         ; preds = %if.else12, %if.then6, %if.then16
-  %alloc.0 = phi i64 [ %add21, %if.then16 ], [ %sub.ptr.sub, %if.then6 ], [ %sub.ptr.sub, %if.else12 ]
+if.end25:                                         ; preds = %if.else12, %if.then16
+  %alloc.0 = phi i64 [ %add21, %if.then16 ], [ %sub.ptr.sub, %if.else12 ]
   %cmp26 = icmp slt i64 %alloc.0, 0
   br i1 %cmp26, label %if.then28, label %if.end30
 
@@ -1328,12 +1328,13 @@ if.then28:                                        ; preds = %if.end25
   %call29 = tail call ptr @PyErr_NoMemory() #15
   br label %return
 
-if.end30:                                         ; preds = %if.end25
+if.end30:                                         ; preds = %if.then6, %if.end25
+  %alloc.058 = phi i64 [ %alloc.0, %if.end25 ], [ %sub.ptr.sub, %if.then6 ]
   %cmp31.not = icmp eq ptr %1, %2
   br i1 %cmp31.not, label %if.else47, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %call34 = tail call ptr @PyObject_Malloc(i64 noundef %alloc.0) #15
+  %call34 = tail call ptr @PyObject_Malloc(i64 noundef %alloc.058) #15
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %if.then37, label %if.end39
 
@@ -1359,7 +1360,7 @@ PyByteArray_AS_STRING.exit52:                     ; preds = %if.end39, %if.then.
   br label %if.end55
 
 if.else47:                                        ; preds = %if.end30
-  %call49 = tail call ptr @PyObject_Realloc(ptr noundef %1, i64 noundef %alloc.0) #15
+  %call49 = tail call ptr @PyObject_Realloc(ptr noundef %1, i64 noundef %alloc.058) #15
   %cmp50 = icmp eq ptr %call49, null
   br i1 %cmp50, label %if.then52, label %if.end55
 
@@ -1372,7 +1373,7 @@ if.end55:                                         ; preds = %if.else47, %PyByteA
   store ptr %sval.0, ptr %ob_start, align 8
   store ptr %sval.0, ptr %ob_bytes, align 8
   store i64 %requested_size, ptr %3, align 8
-  store i64 %alloc.0, ptr %ob_alloc, align 8
+  store i64 %alloc.058, ptr %ob_alloc, align 8
   %arrayidx60 = getelementptr i8, ptr %sval.0, i64 %requested_size
   store i8 0, ptr %arrayidx60, align 1
   br label %return
@@ -2001,7 +2002,7 @@ return:                                           ; preds = %if.end, %_Py_NewRef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bytearray___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @bytearray___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %overflow.i119.i = alloca i32, align 4
   %overflow.i.i = alloca i32, align 4
@@ -2939,25 +2940,17 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false
-  br i1 %tobool.not, label %if.then11, label %if.end14
+  br i1 %tobool.not, label %if.then11, label %PyByteArray_AS_STRING.exit
 
 if.then11:                                        ; preds = %if.end9
   %add12 = add nuw nsw i64 %i.addr.020, 1
   %call13 = call fastcc i32 @bytearray_setslice(ptr noundef nonnull %self, i64 noundef %i.addr.020, i64 noundef %add12, ptr noundef null), !range !10
   br label %return
 
-if.end14:                                         ; preds = %if.end9
-  %tobool.not.i13 = icmp eq i64 %self.val12, 0
-  br i1 %tobool.not.i13, label %PyByteArray_AS_STRING.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end14
+PyByteArray_AS_STRING.exit:                       ; preds = %if.end9
   %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
   %4 = load ptr, ptr %ob_start.i, align 8
-  br label %PyByteArray_AS_STRING.exit
-
-PyByteArray_AS_STRING.exit:                       ; preds = %if.end14, %if.then.i
-  %retval.0.i14 = phi ptr [ %4, %if.then.i ], [ @_PyByteArray_empty_string, %if.end14 ]
-  %arrayidx = getelementptr i8, ptr %retval.0.i14, i64 %i.addr.020
+  %arrayidx = getelementptr i8, ptr %4, i64 %i.addr.020
   store i8 %ival.0, ptr %arrayidx, align 1
   br label %return
 
@@ -3232,7 +3225,7 @@ declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bytearray_setslice_linear(ptr nocapture noundef %self, i64 noundef %lo, i64 noundef %hi, ptr nocapture noundef readonly %bytes, i64 noundef %bytes_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @bytearray_setslice_linear(ptr nocapture noundef %self, i64 noundef %lo, i64 noundef %hi, ptr nocapture noundef readonly %bytes, i64 noundef %bytes_len) unnamed_addr #0 {
 entry:
   %sub.neg = sub i64 %lo, %hi
   %0 = getelementptr i8, ptr %self, i64 16
@@ -3931,7 +3924,7 @@ declare ptr @_Py_GetConfig() local_unnamed_addr #1
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bytearray_getbuffer(ptr noundef %obj, ptr noundef %view, i32 noundef %flags) #0 {
+define internal noundef i32 @bytearray_getbuffer(ptr noundef %obj, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
   %cmp = icmp eq ptr %view, null
   br i1 %cmp, label %if.then, label %if.end
@@ -4080,7 +4073,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_append(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal noundef ptr @bytearray_append(ptr nocapture noundef %self, ptr noundef %arg) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
@@ -4415,7 +4408,7 @@ exit:                                             ; preds = %PyByteArray_AS_STRI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_clear(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @bytearray_clear(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @PyByteArray_Resize(ptr noundef %self, i64 noundef 0), !range !10
   %cmp.i = icmp slt i32 %call.i, 0
@@ -5100,7 +5093,7 @@ Py_DECREF.exit130:                                ; preds = %Py_DECREF.exit139, 
 if.end38:                                         ; preds = %if.then33
   %shr = lshr i64 %inc, 1
   %sub39 = sub nsw i64 9223372036854775805, %len.0100
-  %cmp40 = icmp ugt i64 %shr, %sub39
+  %cmp40 = icmp sgt i64 %shr, %sub39
   %add = add nuw nsw i64 %len.0100, 2
   %add43 = add nuw i64 %add, %shr
   %buf_size.1 = select i1 %cmp40, i64 9223372036854775807, i64 %add43
@@ -5414,7 +5407,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_insert(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @bytearray_insert(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -6672,9 +6665,9 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.end9.i
   %arrayidx.i = getelementptr i8, ptr %10, i64 %index.addr.024.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %add.ptr15.i = getelementptr i8, ptr %arrayidx.i, i64 1
-  %sub.i = sub i64 %self.val18.i1822, %index.addr.024.i
+  %sub.i = sub nsw i64 %self.val18.i1822, %index.addr.024.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %add.ptr15.i, i64 %sub.i, i1 false)
-  %sub16.i = add i64 %self.val18.i1822, -1
+  %sub16.i = add nsw i64 %self.val18.i1822, -1
   %call17.i = tail call i32 @PyByteArray_Resize(ptr noundef nonnull %self, i64 noundef %sub16.i), !range !10
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %exit, label %if.end21.i
@@ -6691,7 +6684,7 @@ exit:                                             ; preds = %if.end21.i, %PyByte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_remove(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal noundef ptr @bytearray_remove(ptr nocapture noundef %self, ptr noundef %arg) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
@@ -7745,7 +7738,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @bytearray_reverse(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
+define internal noundef nonnull ptr @bytearray_reverse(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load i64, ptr %0, align 8
@@ -9689,7 +9682,7 @@ land.rhs.us.i.i:                                  ; preds = %while.body.us.i.i, 
   %i.16.us.i.i = phi i64 [ %i.08.us.i.i, %while.cond.preheader.us.i.i ], [ %inc.us.i.i, %while.body.us.i.i ]
   %arrayidx.us.i.i = getelementptr i8, ptr %5, i64 %i.16.us.i.i
   %7 = load i8, ptr %arrayidx.us.i.i, align 1
-  %inc.us.i.i = add i64 %i.16.us.i.i, 1
+  %inc.us.i.i = add nsw i64 %i.16.us.i.i, 1
   switch i8 %7, label %while.body.us.i.i [
     i8 13, label %land.lhs.true.us.i.i
     i8 10, label %if.end30.us.i.i
@@ -9755,7 +9748,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %wh
   %i.16.i.i = phi i64 [ %i.08.i.i, %while.cond.preheader.i.i ], [ %inc.i.i, %while.body.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %5, i64 %i.16.i.i
   %12 = load i8, ptr %arrayidx.i.i, align 1
-  %inc.i.i = add i64 %i.16.i.i, 1
+  %inc.i.i = add nsw i64 %i.16.i.i, 1
   switch i8 %12, label %while.body.i.i [
     i8 13, label %land.lhs.true.i.i
     i8 10, label %if.end30.i.i
@@ -11463,7 +11456,7 @@ for.end66:                                        ; preds = %for.body55, %if.end
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @stringlib__two_way(ptr noundef %haystack, i64 noundef %len_haystack, ptr nocapture noundef readonly %p) unnamed_addr #10 {
 entry:
   %len_needle1 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 1
@@ -12084,7 +12077,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearrayiter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
+define internal noundef ptr @bytearrayiter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %state) #15
   %cmp = icmp eq i64 %call, -1
@@ -12165,7 +12158,7 @@ attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nofree nounwind willreturn memory(argmem: read) }

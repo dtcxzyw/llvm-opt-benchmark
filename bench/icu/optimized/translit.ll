@@ -1070,8 +1070,8 @@ if.then5.i:                                       ; preds = %lor.lhs.false6.i.i,
   br label %_ZNK6icu_7514Transliterator14_transliterateERNS_11ReplaceableER14UTransPositionPKNS_13UnicodeStringER10UErrorCode.exit
 
 if.end6.i:                                        ; preds = %lor.lhs.false6.i.i
-  %cmp15.i = icmp sgt i32 %4, 0
-  br i1 %cmp15.i, label %land.lhs.true.i, label %if.end20.i
+  %cmp15.i.not = icmp eq i32 %4, 0
+  br i1 %cmp15.i.not, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6.i
   %sub.i = add nsw i32 %4, -1
@@ -5164,7 +5164,7 @@ declare void @_ZN6icu_7517AnyTransliterator11registerIDsEv() local_unnamed_addr 
 declare void @ucln_i18n_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @utrans_transliterator_cleanup_75() #1 {
+define noundef signext i8 @utrans_transliterator_cleanup_75() #1 {
 entry:
   tail call void @_ZN6icu_7522TransliteratorIDParser7cleanupEv()
   %0 = load ptr, ptr @_ZL8registry, align 8

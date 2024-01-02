@@ -3,7 +3,7 @@ source_filename = "bench/meshoptimizer/original/vertexfilter.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_decodeFilterOct(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i16], align 16
@@ -326,7 +326,7 @@ if.end:                                           ; preds = %_ZN7meshoptL12dispa
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_decodeFilterQuat(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i16], align 16
@@ -537,7 +537,7 @@ _ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL20deco
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_decodeFilterExp(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i32], align 16
@@ -602,7 +602,7 @@ _ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19deco
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_encodeFilterOct(ptr nocapture noundef writeonly %destination, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data) local_unnamed_addr #1 {
 entry:
   %cmp69.not = icmp eq i64 %count, 0
@@ -723,7 +723,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_encodeFilterQuat(ptr nocapture noundef writeonly %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data) local_unnamed_addr #1 {
 entry:
   %cmp60.not = icmp eq i64 %count, 0
@@ -837,7 +837,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @meshopt_encodeFilterExp(ptr nocapture noundef writeonly %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data, i32 noundef %mode) local_unnamed_addr #1 {
 entry:
   %component_exp = alloca [64 x i32], align 16
@@ -886,7 +886,7 @@ for.body9.us:                                     ; preds = %for.body4.us, %for.
 for.cond7.for.inc18_crit_edge.us:                 ; preds = %for.body9.us
   %inc19.us = add nuw i64 %i.063.us, 1
   %exitcond77.not = icmp eq i64 %inc19.us, %count
-  br i1 %exitcond77.not, label %if.end, label %for.body4.us, !llvm.loop !13
+  br i1 %exitcond77.not, label %for.body24.lr.ph, label %for.body4.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %j.059 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
@@ -896,11 +896,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %exitcond.not = icmp eq i64 %inc, %div45
   br i1 %exitcond.not, label %for.cond2.preheader, label %for.body, !llvm.loop !14
 
-if.end:                                           ; preds = %for.cond7.for.inc18_crit_edge.us, %entry
+if.end:                                           ; preds = %entry
   %cmp2371.not = icmp eq i64 %count, 0
   br i1 %cmp2371.not, label %for.end91, label %for.body24.lr.ph
 
-for.body24.lr.ph:                                 ; preds = %for.cond2.preheader.thread, %for.body4.lr.ph, %if.end
+for.body24.lr.ph:                                 ; preds = %for.cond7.for.inc18_crit_edge.us, %for.cond2.preheader.thread, %for.body4.lr.ph, %if.end
   %cmp30 = icmp eq i32 %mode, 1
   %cmp47 = icmp ne i32 %mode, 0
   %cmp5164.not73 = icmp ult i64 %stride, 4
@@ -1040,8 +1040,8 @@ declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

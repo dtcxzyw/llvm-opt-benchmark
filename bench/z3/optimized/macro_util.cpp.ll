@@ -1341,12 +1341,9 @@ _ZN6bufferIiLb0ELj16EE9push_backERKi.exit.i:      ; preds = %_ZN6bufferIiLb0ELj1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
   %inc.i = add nuw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %num_decls
-  br i1 %exitcond.not.i, label %_ZN6bufferIiLb0ELj16EE6resizeEjRKi.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !7
 
-_ZN6bufferIiLb0ELj16EE6resizeEjRKi.exit:          ; preds = %_ZN6bufferIiLb0ELj16EE9push_backERKi.exit.i
-  br i1 %cmp.i17.not, label %cleanup, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZN6bufferIiLb0ELj16EE6resizeEjRKi.exit
+for.body.preheader:                               ; preds = %_ZN6bufferIiLb0ELj16EE9push_backERKi.exit.i
   %14 = zext i32 %num_decls to i64
   %arrayidx.i41 = getelementptr inbounds %class.app, ptr %n, i64 0, i32 3, i64 0
   %15 = load ptr, ptr %arrayidx.i41, align 8
@@ -1396,8 +1393,8 @@ if.end29:                                         ; preds = %lor.lhs.false
   %exitcond = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond, label %cleanup, label %for.body, !llvm.loop !8
 
-cleanup:                                          ; preds = %if.end29, %if.end, %lor.lhs.false, %for.body, %for.body.preheader, %if.then, %_ZN6bufferIiLb0ELj16EE6resizeEjRKi.exit
-  %cmp12.lcssa = phi i1 [ true, %_ZN6bufferIiLb0ELj16EE6resizeEjRKi.exit ], [ true, %if.then ], [ false, %for.body.preheader ], [ %cmp12, %for.body ], [ %cmp123747, %lor.lhs.false ], [ %cmp123747, %if.end ], [ %cmp12, %if.end29 ]
+cleanup:                                          ; preds = %if.end29, %if.end, %lor.lhs.false, %for.body, %for.body.preheader, %if.then
+  %cmp12.lcssa = phi i1 [ true, %if.then ], [ false, %for.body.preheader ], [ %cmp12, %for.body ], [ %cmp123747, %lor.lhs.false ], [ %cmp123747, %if.end ], [ %cmp12, %if.end29 ]
   %23 = load ptr, ptr %var2pos, align 8
   %cmp.not.i.i.i.i29 = icmp eq ptr %23, %6
   %cmp.i.i.i.i.i30 = icmp eq ptr %23, null
@@ -6642,7 +6639,7 @@ _ZN10ptr_bufferI3varLj16EED2Ev.exit:              ; preds = %cleanup, %if.end.i.
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10macro_util16macro_candidatesC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr null, ptr %this, align 8
@@ -11010,7 +11007,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

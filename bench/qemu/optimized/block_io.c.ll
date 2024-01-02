@@ -1558,7 +1558,7 @@ entry:
   %3 = load i64, ptr %offset.i, align 8
   %bytes.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req, i64 0, i32 2
   %4 = load i64, ptr %bytes.i, align 8
-  %call.i.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %serialising.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req, i64 0, i32 4
   %5 = load i8, ptr %serialising.i, align 4
   %6 = and i8 %5, 1
@@ -1658,7 +1658,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef readonly %qiov, i64 noundef %qiov_offset, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef readonly %qiov, i64 noundef %qiov_offset, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %offset, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1729,7 +1729,7 @@ return:                                           ; preds = %if.end18, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_check_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @bdrv_check_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !20
   ret i32 %call
@@ -1808,7 +1808,7 @@ entry:
   %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
   store i64 %bytes, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #14
-  %call.i.i = call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
+  %call.i.i = call noundef i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %return, label %if.end
@@ -1827,7 +1827,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @assert_bdrv_graph_readable() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_co_pwrite(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
+define internal noundef i32 @bdrv_co_pwrite(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
   %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
@@ -1840,7 +1840,7 @@ entry:
   %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #14
-  %call.i = call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
+  %call.i = call noundef i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call.i
 }
 
@@ -2163,7 +2163,7 @@ if.end13:                                         ; preds = %if.then12, %if.end9
 if.end18:                                         ; preds = %if.end13
   %12 = load i64, ptr %offset.addr, align 8
   %13 = load i64, ptr %bytes.addr, align 8
-  %call.i.i = call i32 @bdrv_check_qiov_request(i64 noundef %12, i64 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = call noundef i32 @bdrv_check_qiov_request(i64 noundef %12, i64 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call5.i = call ptr @qemu_coroutine_self() #14
   store ptr %0, ptr %req, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %req, i64 8
@@ -2302,7 +2302,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare zeroext i1 @bdrv_co_is_inserted(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr noundef %flags) unnamed_addr #0 {
+define internal fastcc noundef i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr noundef %flags) unnamed_addr #0 {
 entry:
   %sliced_niov = alloca i32, align 4
   %sliced_head = alloca i64, align 8
@@ -2547,7 +2547,7 @@ return:                                           ; preds = %if.end19, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tracked_request_begin(ptr noundef %req, ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %type) #0 {
 entry:
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call5 = tail call ptr @qemu_coroutine_self() #14
   store ptr %bs, ptr %req, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %req, i64 8
@@ -2895,14 +2895,14 @@ if.end10:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define dso_local noundef i32 @bdrv_co_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %call = tail call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwritev_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define dso_local noundef i32 @bdrv_co_pwritev_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset.addr = alloca i64, align 8
@@ -3008,7 +3008,7 @@ if.end35:                                         ; preds = %if.then29, %if.end2
   %10 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   %11 = load i64, ptr %offset.addr, align 8
   %12 = load i64, ptr %bytes.addr, align 8
-  %call.i.i = call i32 @bdrv_check_qiov_request(i64 noundef %11, i64 noundef %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = call noundef i32 @bdrv_check_qiov_request(i64 noundef %11, i64 noundef %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call5.i = call ptr @qemu_coroutine_self() #14
   store ptr %0, ptr %req, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %req, i64 8
@@ -3180,7 +3180,7 @@ return:                                           ; preds = %if.then29, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_co_do_zero_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags, ptr noundef %req) #0 {
+define internal noundef i32 @bdrv_co_do_zero_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags, ptr noundef %req) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %pad = alloca %struct.BdrvRequestPadding, align 8
@@ -3547,7 +3547,7 @@ return:                                           ; preds = %zero_mem, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_aligned_pwritev(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal noundef i32 @bdrv_aligned_pwritev(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %0 = load ptr, ptr %child, align 8
   %drv2 = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 6
@@ -3652,7 +3652,9 @@ if.then59:                                        ; preds = %if.else56
   br label %if.end108
 
 if.else61:                                        ; preds = %if.else56
-  %cmp63.not = icmp slt i64 %mul, %bytes
+  %sext = shl i64 %mul, 32
+  %conv62 = ashr exact i64 %sext, 32
+  %cmp63.not = icmp slt i64 %conv62, %bytes
   tail call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 39) #14
   br i1 %cmp63.not, label %if.else67, label %if.then65
 
@@ -3677,7 +3679,7 @@ while.body.lr.ph:                                 ; preds = %if.else67
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end81.us
   %bytes_remaining.0.neg93.us = phi i64 [ %bytes_remaining.0.neg.us, %if.end81.us ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092.us = phi i64 [ %sub104.us, %if.end81.us ], [ %bytes, %while.body.lr.ph ]
-  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %mul)
+  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %conv62)
   %10 = and i64 %cond76.us, 4294967295
   %tobool78.not.us = icmp eq i64 %10, 0
   br i1 %tobool78.not.us, label %if.else80, label %if.end81.us
@@ -3698,7 +3700,7 @@ if.end81.us:                                      ; preds = %while.body.us
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
   %bytes_remaining.0.neg93 = phi i64 [ %bytes_remaining.0.neg, %if.end93 ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092 = phi i64 [ %sub104, %if.end93 ], [ %bytes, %while.body.lr.ph ]
-  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %mul)
+  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %conv62)
   %11 = and i64 %cond76, 4294967295
   %tobool78.not = icmp eq i64 %11, 0
   br i1 %tobool78.not, label %if.else80, label %if.end81
@@ -3745,7 +3747,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwrite_zeroes(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define dso_local noundef i32 @bdrv_co_pwrite_zeroes(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %child, align 8
@@ -3792,7 +3794,7 @@ trace_bdrv_co_pwrite_zeroes.exit:                 ; preds = %entry, %land.lhs.tr
   %and2 = and i32 %flags, -7
   %spec.select = select i1 %tobool.not, i32 %and2, i32 %flags
   %or = or i32 %spec.select, 2
-  %call.i = tail call i32 @bdrv_co_pwritev_part(ptr noundef nonnull %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
+  %call.i = tail call noundef i32 @bdrv_co_pwritev_part(ptr noundef nonnull %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
   ret i32 %call.i
 }
 
@@ -4932,7 +4934,7 @@ declare void @qemu_coroutine_yield() #1
 declare zeroext i1 @qemu_co_queue_next(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pdiscard(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes) #0 {
+define dso_local noundef i32 @bdrv_co_pdiscard(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %req = alloca %struct.BdrvTrackedRequest, align 8
   %co = alloca %struct.CoroutineIOCompletion, align 8
@@ -4956,7 +4958,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef null), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef null), !range !20
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end9
 
@@ -5004,7 +5006,7 @@ if.end25:                                         ; preds = %if.end18
   %conv30 = trunc i64 %rem29 to i32
   %in_flight.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 43
   %9 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
-  %call.i.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call5.i = tail call ptr @qemu_coroutine_self() #14
   store ptr %0, ptr %req, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %req, i64 8
@@ -5242,13 +5244,13 @@ declare zeroext i1 @bdrv_has_readonly_bitmaps(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_bsc_invalidate_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_co_write_req_prepare(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %req, i32 noundef %flags) #0 {
+define internal noundef i32 @bdrv_co_write_req_prepare(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %req, i32 noundef %flags) #0 {
 entry:
   %.compoundliteral.i.i = alloca %struct.QemuLockable, align 8
   %.compoundliteral.i = alloca %struct.QemuLockable, align 8
   %bdi.i = alloca %struct.BlockDriverInfo, align 8
   %0 = load ptr, ptr %child, align 8
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call2 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %0) #14
   br i1 %call2, label %return, label %if.end
 
@@ -5319,7 +5321,7 @@ bdrv_get_cluster_size.exit:                       ; preds = %if.then24, %if.then
   %6 = load i64, ptr %offset.i, align 8
   %bytes.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req, i64 0, i32 2
   %7 = load i64, ptr %bytes.i, align 8
-  %call.i.i = call i32 @bdrv_check_qiov_request(i64 noundef %6, i64 noundef %7, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = call noundef i32 @bdrv_check_qiov_request(i64 noundef %6, i64 noundef %7, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %serialising.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req, i64 0, i32 4
   %8 = load i8, ptr %serialising.i, align 4
   %9 = and i8 %8, 1
@@ -5540,7 +5542,7 @@ entry:
   %sub = add i64 %add, 511
   %div18 = lshr i64 %sub, 9
   %0 = load ptr, ptr %child, align 8
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %write_gen = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 47
   %1 = atomicrmw add ptr %write_gen, i32 1 seq_cst, align 4
   %cmp = icmp eq i32 %ret, 0
@@ -5890,7 +5892,7 @@ if.end:                                           ; preds = %if.then, %qemu_try_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @bdrv_register_buf(ptr noundef %bs, ptr noundef %host, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bdrv_register_buf(ptr noundef %bs, ptr noundef %host, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %call, label %do.end, label %if.else
@@ -6371,7 +6373,7 @@ if.end15:                                         ; preds = %if.end12
   %in_flight.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 43
   %3 = atomicrmw add ptr %in_flight.i, i32 1 seq_cst, align 4
   %sub21 = sub nsw i64 %offset, %new_bytes.0
-  %call.i.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %sub21, i64 noundef %new_bytes.0, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %sub21, i64 noundef %new_bytes.0, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %call5.i = tail call ptr @qemu_coroutine_self() #14
   store ptr %0, ptr %req, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %req, i64 8
@@ -6917,7 +6919,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
   %5 = load i64, ptr %overlap_offset, align 8
   %6 = load i64, ptr %overlap_bytes, align 8
-  %call.i.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %5, i64 noundef %6, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %5, i64 noundef %6, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %overlap_offset.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req.015, i64 0, i32 5
   %7 = load i64, ptr %overlap_offset.i, align 8
   %overlap_bytes.i = getelementptr inbounds %struct.BdrvTrackedRequest, ptr %req.015, i64 0, i32 6
@@ -6965,13 +6967,13 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @bdrv_init_padding(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %write, ptr nocapture noundef %pad) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @bdrv_init_padding(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %write, ptr nocapture noundef %pad) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %write to i8
   %bl = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17
   %0 = load i32, ptr %bl, align 8
   %conv = zext i32 %0 to i64
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.end6, label %if.else
 
@@ -7609,7 +7611,7 @@ cond.end6:                                        ; preds = %entry, %entry, %con
   %. = tail call i32 @llvm.umin.i32(i32 %4, i32 16777216)
   %cond30 = select i1 %cmp19, i32 16777216, i32 %.
   tail call void @assert_bdrv_graph_readable() #14
-  %call.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
+  %call.i = tail call noundef i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort), !range !20
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 

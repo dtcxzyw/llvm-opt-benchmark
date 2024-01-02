@@ -2331,7 +2331,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ga_iter_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @ga_iter_clear(ptr nocapture noundef %self) #0 {
 entry:
   %obj = getelementptr inbounds %struct.gaiterobject, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %obj, align 8
@@ -2618,9 +2618,9 @@ if.else:                                          ; preds = %if.end19
 for.inc:                                          ; preds = %ga_repr_items_list.exit, %if.else
   %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %.val
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %if.end39, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %for.inc, %for.cond.preheader
+for.end:                                          ; preds = %for.cond.preheader
   %cmp33 = icmp eq i64 %.val, 0
   br i1 %cmp33, label %if.then34, label %if.end39
 
@@ -2629,7 +2629,7 @@ if.then34:                                        ; preds = %for.end
   %cmp36 = icmp slt i32 %call35, 0
   br i1 %cmp36, label %error, label %if.end39
 
-if.end39:                                         ; preds = %if.then34, %for.end
+if.end39:                                         ; preds = %for.inc, %if.then34, %for.end
   %call40 = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.15, i64 noundef 1) #5
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %error, label %if.end43
@@ -3449,7 +3449,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ga_instancecheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noalias noundef ptr @ga_instancecheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.33) #5
@@ -3457,7 +3457,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ga_subclasscheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noalias noundef ptr @ga_subclasscheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.34) #5
@@ -3626,7 +3626,7 @@ declare ptr @PyObject_Dir(ptr noundef) local_unnamed_addr #1
 declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_parameters(ptr nocapture noundef %self, ptr nocapture readnone %unused) #0 {
+define internal noundef ptr @ga_parameters(ptr nocapture noundef %self, ptr nocapture readnone %unused) #0 {
 entry:
   %parameters = getelementptr inbounds %struct.gaobject, ptr %self, i64 0, i32 3
   %0 = load ptr, ptr %parameters, align 8
@@ -3658,7 +3658,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @ga_unpacked_tuple_args(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #2 {
+define internal noundef ptr @ga_unpacked_tuple_args(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #2 {
 entry:
   %starred = getelementptr inbounds %struct.gaobject, ptr %self, i64 0, i32 5
   %0 = load i8, ptr %starred, align 8

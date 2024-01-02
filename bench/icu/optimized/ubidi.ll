@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL11impTabProps = internal unnamed_addr constant [24 x [16 x i8]] [[16 x i8] c"\01\02\04\05\07\0F\11\07\09\07\00\07\03\12\15\04", [16 x i8] c"\01\22$%'/1')'\01\01#25\00", [16 x i8] c"!\02$%'/1')'\02\02#25\01", [16 x i8] c"!\22&&(01(((\03\03\0325\01", [16 x i8] c"!\22\04%'/1J\0BJ\04\04#\12\15\02", [16 x i8] c"!\22$\05'/1')L\05\05#25\03", [16 x i8] c"!\22\06\06(01((M\06\06#\12\15\03", [16 x i8] c"!\22$%\07/1\07N\07\07\07#25\04", [16 x i8] c"!\22&&\0801\08\08\08\08\08#25\04", [16 x i8] c"!\22\04%\07/1\07\09\07\09\09#\12\15\04", [16 x i8] c"ab\04e\87oq\87\8E\87\0A\87c\12\15\02", [16 x i8] c"!\22\04%'/1'\0B'\0B\0B#\12\15\02", [16 x i8] c"abd\05\87oq\87\8E\87\0C\87cru\03", [16 x i8] c"ab\06\06\88pq\88\88\88\0D\88c\12\15\03", [16 x i8] c"!\22\84%\07/1\07\0E\07\0E\0E#\92\95\04", [16 x i8] c"!\22$%'\0F1')'\0F'#25\05", [16 x i8] c"!\22&&(\101(((\10(#25\05", [16 x i8] c"!\22$%'/\11')'\11'#25\06", [16 x i8] c"!\22\12%'/1S\14S\12\12#\12\15\00", [16 x i8] c"ab\12e\87oq\87\8E\87\13\87c\12\15\00", [16 x i8] c"!\22\12%'/1'\14'\14\14#\12\15\00", [16 x i8] c"!\22\15%'/1V\17V\15\15#\12\15\03", [16 x i8] c"ab\15e\87oq\87\8E\87\16\87c\12\15\03", [16 x i8] c"!\22\15%'/1'\17'\17\17#\12\15\03"], align 16
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @ubidi_open_75() local_unnamed_addr #0 {
+define noalias noundef ptr @ubidi_open_75() local_unnamed_addr #0 {
 if.else.i:
   %call6.i = tail call noalias dereferenceable_or_null(464) ptr @uprv_malloc_75(i64 noundef 464) #16
   %cmp7.i = icmp eq ptr %call6.i, null
@@ -64,7 +64,7 @@ ubidi_openSized_75.exit:                          ; preds = %if.end9.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ubidi_openSized_75(i32 noundef %maxLength, i32 noundef %maxRunCount, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @ubidi_openSized_75(i32 noundef %maxLength, i32 noundef %maxRunCount, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -185,7 +185,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ubidi_getMemory_75(ptr nocapture noundef %bidiMem, ptr nocapture noundef %pSize, i8 noundef signext %mayAllocate, i32 noundef %sizeNeeded) local_unnamed_addr #0 {
+define noundef signext i8 @ubidi_getMemory_75(ptr nocapture noundef %bidiMem, ptr nocapture noundef %pSize, i8 noundef signext %mayAllocate, i32 noundef %sizeNeeded) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bidiMem, align 8
   %cmp = icmp eq ptr %0, null
@@ -428,7 +428,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getBaseDirection_75(ptr noundef %text, i32 noundef %length) local_unnamed_addr #0 {
+define noundef i32 @ubidi_getBaseDirection_75(ptr noundef %text, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %text, null
   %cmp1 = icmp slt i32 %length, -1
@@ -5801,7 +5801,7 @@ if.else56.i:                                      ; preds = %if.end29.i
   store i32 %sub57.i, ptr %match12, align 4
   %30 = load i16, ptr %start, align 4
   %conv6152.i = zext i16 %30 to i32
-  %cmp62.not.not53.i = icmp sgt i32 %14, %conv6152.i
+  %cmp62.not.not53.i = icmp ugt i32 %14, %conv6152.i
   br i1 %cmp62.not.not53.i, label %land.rhs63.i, label %while.end77.i
 
 land.rhs63.i:                                     ; preds = %if.else56.i, %while.body71.i
@@ -5820,7 +5820,7 @@ while.body71.i:                                   ; preds = %land.rhs63.i
   store i32 0, ptr %match76.i, align 4
   %34 = load i16, ptr %start, align 4
   %conv61.i = zext i16 %34 to i32
-  %cmp62.not.not.i = icmp sgt i32 %k.054.i, %conv61.i
+  %cmp62.not.not.i = icmp ugt i32 %k.054.i, %conv61.i
   br i1 %cmp62.not.not.i, label %land.rhs63.i, label %while.end77.i, !llvm.loop !39
 
 while.end77.i:                                    ; preds = %while.body71.i, %land.rhs63.i, %if.else56.i

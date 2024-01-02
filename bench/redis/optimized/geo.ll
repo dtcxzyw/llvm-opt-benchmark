@@ -83,7 +83,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.53 = private unnamed_addr constant [33 x i8] c"0123456789bcdefghjkmnpqrstuvwxyz\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @geoArrayCreate() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @geoArrayCreate() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -94,7 +94,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @geoArrayAppend(ptr nocapture noundef %ga, ptr nocapture noundef readonly %xy, double noundef %dist, double noundef %score, ptr noundef %member) local_unnamed_addr #0 {
+define dso_local noundef ptr @geoArrayAppend(ptr nocapture noundef %ga, ptr nocapture noundef readonly %xy, double noundef %dist, double noundef %score, ptr noundef %member) local_unnamed_addr #0 {
 entry:
   %used = getelementptr inbounds %struct.geoArray, ptr %ga, i64 0, i32 2
   %0 = load i64, ptr %used, align 8
@@ -181,7 +181,7 @@ entry:
 declare i32 @geohashDecodeToLongLatWGS84(i64, i8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extractLongLatOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef %xy) local_unnamed_addr #0 {
+define dso_local noundef i32 @extractLongLatOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef %xy) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -253,7 +253,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @extractUnitOrReply(ptr noundef %c, ptr nocapture noundef readonly %unit) local_unnamed_addr #0 {
+define dso_local noundef double @extractUnitOrReply(ptr noundef %c, ptr nocapture noundef readonly %unit) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds %struct.redisObject, ptr %unit, i64 0, i32 2
   %0 = load ptr, ptr %ptr, align 8
@@ -291,7 +291,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extractDistanceOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %radius) local_unnamed_addr #0 {
+define dso_local noundef i32 @extractDistanceOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %radius) local_unnamed_addr #0 {
 entry:
   %distance = alloca double, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -359,7 +359,7 @@ return:                                           ; preds = %extractUnitOrReply.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extractBoxOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %width, ptr noundef writeonly %height) local_unnamed_addr #0 {
+define dso_local noundef i32 @extractBoxOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %width, ptr noundef writeonly %height) local_unnamed_addr #0 {
 entry:
   %h = alloca double, align 8
   %w = alloca double, align 8
@@ -460,7 +460,7 @@ declare i32 @fixedpoint_d2string(ptr noundef, i64 noundef, double noundef, i32 n
 declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geoWithinShape(ptr nocapture noundef readonly %shape, double noundef %score, ptr noundef %xy, ptr noundef %distance) local_unnamed_addr #0 {
+define dso_local noundef i32 @geoWithinShape(ptr nocapture noundef readonly %shape, double noundef %score, ptr noundef %xy, ptr noundef %distance) local_unnamed_addr #0 {
 entry:
   %conv.i = fptoui double %score to i64
   %call.i = tail call i32 @geohashDecodeToLongLatWGS84(i64 %conv.i, i8 26, ptr noundef %xy) #14
@@ -1652,7 +1652,7 @@ if.else326:                                       ; preds = %if.then315
 if.end328:                                        ; preds = %if.end313
   %tobool333 = icmp ne i32 %any.2, 0
   call void @geohashCalculateAreasByShapeWGS84(ptr nonnull sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef nonnull %shape) #14
-  %call.i240 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
+  %call.i240 = call noalias noundef dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i240, i8 0, i64 24, i1 false)
   %45 = load i64, ptr %count, align 8
   %cond338 = select i1 %tobool333, i64 %45, i64 0
@@ -1884,15 +1884,12 @@ cond.end461:                                      ; preds = %sdslen.exit
   store ptr null, ptr %member442, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %cond352
-  br i1 %exitcond.not, label %for.end465, label %for.body426, !llvm.loop !18
+  br i1 %exitcond.not, label %if.then467, label %for.body426, !llvm.loop !18
 
-for.end465:                                       ; preds = %cond.end461
-  br i1 %tobool417.not, label %if.else475, label %if.then467
-
-if.then467:                                       ; preds = %if.end421, %for.end465
-  %totelelen.0.lcssa355 = phi i64 [ %add448, %for.end465 ], [ 0, %if.end421 ]
-  %maxelelen.0.lcssa354 = phi i64 [ %spec.select236, %for.end465 ], [ 0, %if.end421 ]
-  call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa354, i64 noundef %totelelen.0.lcssa355) #14
+if.then467:                                       ; preds = %cond.end461, %if.end421
+  %maxelelen.0.lcssa.ph = phi i64 [ 0, %if.end421 ], [ %spec.select236, %cond.end461 ]
+  %totelelen.0.lcssa.ph = phi i64 [ 0, %if.end421 ], [ %add448, %cond.end461 ]
+  call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa.ph, i64 noundef %totelelen.0.lcssa.ph) #14
   %73 = load ptr, ptr %db, align 8
   call void @setKey(ptr noundef %c, ptr noundef %73, ptr noundef nonnull %storekey.3, ptr noundef %call419, i32 noundef 0) #14
   call void @decrRefCount(ptr noundef %call419) #14
@@ -1903,7 +1900,7 @@ if.then467:                                       ; preds = %if.end421, %for.end
   call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.3, i32 noundef %75) #14
   br label %if.end485.sink.split
 
-if.else475:                                       ; preds = %if.else414, %for.end465
+if.else475:                                       ; preds = %if.else414
   %76 = load ptr, ptr %db, align 8
   %call477 = call i32 @dbDelete(ptr noundef %76, ptr noundef nonnull %storekey.3) #14
   %tobool478.not = icmp eq i32 %call477, 0
@@ -1919,9 +1916,9 @@ if.then479:                                       ; preds = %if.else475
   br label %if.end485.sink.split
 
 if.end485.sink.split:                             ; preds = %if.then467, %if.then479
-  %.sink357 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
+  %.sink353 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
   %80 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc483 = add nsw i64 %80, %.sink357
+  %inc483 = add nsw i64 %80, %.sink353
   store i64 %inc483, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   br label %if.end485
 

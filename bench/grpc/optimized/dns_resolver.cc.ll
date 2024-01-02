@@ -363,8 +363,8 @@ _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
   %lhsc = load i8, ptr %1, align 1
   %cmp7.i.i = icmp eq i8 %lhsc, 47
   %2 = icmp eq i64 %0, 1
-  %spec.select = and i1 %cmp7.i.i, %2
-  br i1 %spec.select, label %if.then8, label %return
+  %or.cond = and i1 %2, %cmp7.i.i
+  br i1 %or.cond, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 158, i32 noundef 2, ptr noundef nonnull @.str.6)
@@ -2063,7 +2063,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

@@ -4077,8 +4077,7 @@ invoke.cont60:                                    ; preds = %lor.lhs.false.i.i97
   store i32 %inc.i.i104, ptr %arrayidx10.i.i103, align 4
   %56 = load ptr, ptr %m_data.i.i110, align 8
   %div1.i.i = lshr i64 %indvars.iv, 5
-  %idxprom.i.i = and i64 %div1.i.i, 134217727
-  %arrayidx.i.i111 = getelementptr inbounds i32, ptr %56, i64 %idxprom.i.i
+  %arrayidx.i.i111 = getelementptr inbounds i32, ptr %56, i64 %div1.i.i
   %57 = load i32, ptr %arrayidx.i.i111, align 4
   %rem.i.i = and i32 %46, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i
@@ -4231,8 +4230,7 @@ invoke.cont94:                                    ; preds = %if.else, %for.inc10
   %83 = load ptr, ptr %m_data.i.i155, align 8
   %84 = trunc i64 %indvars.iv304 to i32
   %div1.i.i156 = lshr i64 %indvars.iv304, 5
-  %idxprom.i.i157 = and i64 %div1.i.i156, 134217727
-  %arrayidx.i.i158 = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i157
+  %arrayidx.i.i158 = getelementptr inbounds i32, ptr %83, i64 %div1.i.i156
   %85 = load i32, ptr %arrayidx.i.i158, align 4
   %rem.i.i159 = and i32 %84, 31
   %shl.i.i160 = shl nuw i32 1, %rem.i.i159
@@ -16795,7 +16793,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i
@@ -20639,7 +20637,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i

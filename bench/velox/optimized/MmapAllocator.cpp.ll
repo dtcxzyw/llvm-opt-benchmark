@@ -380,7 +380,7 @@ if.then.i.i37:                                    ; preds = %if.else.i.i
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
   %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %17
@@ -2295,8 +2295,11 @@ if.end23:                                         ; preds = %if.then.i40
   br i1 %cmp3077.not, label %for.inc67, label %for.body31.preheader
 
 for.body31.preheader:                             ; preds = %if.end23
-  %div = udiv i64 %shr.i, %15
-  %add = add i64 %div27, %div
+  %div.lhs.trunc = trunc i64 %shr.i to i16
+  %div.rhs.trunc = trunc i64 %15 to i16
+  %div103 = udiv i16 %div.lhs.trunc, %div.rhs.trunc
+  %div.zext = zext i16 %div103 to i64
+  %add = add i64 %div27, %div.zext
   %sext = shl i64 %div27, 32
   %17 = ashr exact i64 %sext, 32
   %sext102 = shl i64 %add, 32
@@ -5300,23 +5303,23 @@ for.cond:                                         ; preds = %for.end57, %entry
   %call = tail call noundef i32 @_ZN8facebook5velox6memory13MmapAllocator9SizeClass19findMappedFreeGroupEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %mul = shl i32 %call, 3
   %add = add i32 %mul, 8
-  %cmp46.not = icmp eq i32 %mul, -8
-  br i1 %cmp46.not, label %for.end57, label %for.body.preheader
+  %cmp47.not = icmp eq i32 %mul, -8
+  br i1 %cmp47.not, label %for.end57, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond
   %0 = sext i32 %mul to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc55
-  %indvars.iv60 = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next61, %for.inc55 ]
-  %anyFound.049 = phi i8 [ 0, %for.body.preheader ], [ %anyFound.1, %for.inc55 ]
-  %needed.147 = phi i32 [ %needed.0, %for.body.preheader ], [ %needed.6, %for.inc55 ]
+  %indvars.iv61 = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next62, %for.inc55 ]
+  %anyFound.050 = phi i8 [ 0, %for.body.preheader ], [ %anyFound.1, %for.inc55 ]
+  %needed.148 = phi i32 [ %needed.0, %for.body.preheader ], [ %needed.6, %for.inc55 ]
   %1 = load ptr, ptr %pageAllocated_.i, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv60
+  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv61
   %2 = load <4 x i64>, ptr %add.ptr.i, align 1
   %xor.i.i.i.i.i = xor <4 x i64> %2, <i64 -1, i64 -1, i64 -1, i64 -1>
   %3 = load ptr, ptr %pageMapped_.i, align 8
-  %add.ptr21.i = getelementptr inbounds i64, ptr %3, i64 %indvars.iv60
+  %add.ptr21.i = getelementptr inbounds i64, ptr %3, i64 %indvars.iv61
   %4 = load <4 x i64>, ptr %add.ptr21.i, align 1
   %and.i.i.i.i.i = and <4 x i64> %4, %xor.i.i.i.i.i
   store <4 x i64> %and.i.i.i.i.i, ptr %bits, align 32
@@ -5326,13 +5329,13 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp26, label %for.body.for.inc55_crit_edge, label %if.end
 
 for.body.for.inc55_crit_edge:                     ; preds = %for.body
-  %.pre = trunc i64 %indvars.iv60 to i32
+  %.pre = trunc i64 %indvars.iv61 to i32
   br label %for.inc55
 
 if.end:                                           ; preds = %for.body
   %6 = xor i4 %5, -1
   %7 = tail call i4 @llvm.cttz.i4(i4 %6, i1 true), !range !60
-  %8 = trunc i64 %indvars.iv60 to i32
+  %8 = trunc i64 %indvars.iv61 to i32
   %mul.i.i80.i.i = shl i32 %8, 6
   %9 = zext nneg i4 %7 to i64
   %10 = shl nuw nsw i64 %9, 6
@@ -5340,7 +5343,7 @@ if.end:                                           ; preds = %for.body
 
 for.body.i.i:                                     ; preds = %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %10, %if.end ]
-  %needed.2 = phi i32 [ %needed.4, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %needed.147, %if.end ]
+  %needed.2 = phi i32 [ %needed.4, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %needed.148, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %11 = lshr exact i64 %indvars.iv, 6
   %arrayidx3.i67.i.i = getelementptr inbounds i64, ptr %bits, i64 %11
@@ -5357,8 +5360,8 @@ while.body.i74.i.i:                               ; preds = %for.body.i.i, %if.e
 if.end7.i77.i.i:                                  ; preds = %while.body.i74.i.i
   %13 = tail call i64 @llvm.cttz.i64(i64 %word.07.i75.i.i, i1 true), !range !25
   %cast.i78.i.i = trunc i64 %13 to i8
-  %add.i79.i.i63 = or disjoint i64 %indvars.iv, %13
-  %add.i79.i.i = trunc i64 %add.i79.i.i63 to i32
+  %add.i79.i.i64 = or disjoint i64 %indvars.iv, %13
+  %add.i79.i.i = trunc i64 %add.i79.i.i64 to i32
   %add.i.i81.i.i = add i32 %mul.i.i80.i.i, %add.i79.i.i
   %14 = load ptr, ptr %pageAllocated_.i, align 8
   %rem.i.i.i83.i.i = and i8 %cast.i78.i.i, 7
@@ -5432,11 +5435,11 @@ for.end:                                          ; preds = %for.cond36
 
 for.inc55:                                        ; preds = %for.body.for.inc55_crit_edge, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit"
   %.pre-phi = phi i32 [ %.pre, %for.body.for.inc55_crit_edge ], [ %8, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
-  %needed.6 = phi i32 [ %needed.147, %for.body.for.inc55_crit_edge ], [ %needed.4, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
-  %anyFound.1 = phi i8 [ %anyFound.049, %for.body.for.inc55_crit_edge ], [ 1, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
+  %needed.6 = phi i32 [ %needed.148, %for.body.for.inc55_crit_edge ], [ %needed.4, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
+  %anyFound.1 = phi i8 [ %anyFound.050, %for.body.for.inc55_crit_edge ], [ 1, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
   %add56 = add nuw i32 %.pre-phi, 4
   %cmp = icmp ult i32 %add56, %add
-  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 4
+  %indvars.iv.next62 = add nsw i64 %indvars.iv61, 4
   br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !64
 
 for.end57:                                        ; preds = %for.inc55, %for.cond

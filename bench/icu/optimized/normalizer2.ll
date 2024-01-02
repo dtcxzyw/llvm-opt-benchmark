@@ -1019,7 +1019,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_normalize_75(ptr noundef %norm2, ptr noundef %src, i32 noundef %length, ptr noundef %dest, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unorm2_normalize_75(ptr noundef %norm2, ptr noundef %src, i32 noundef %length, ptr noundef %dest, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %destString = alloca %"class.icu_75::UnicodeString", align 8
   %buffer = alloca %"class.icu_75::ReorderingBuffer", align 8
@@ -1219,7 +1219,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_normalizeSecondAndAppend_75(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, ptr noundef %pErrorCode) local_unnamed_addr #4 {
+define noundef i32 @unorm2_normalizeSecondAndAppend_75(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, ptr noundef %pErrorCode) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL24normalizeSecondAndAppendPK12UNormalizer2PDsiiPKDsiaP10UErrorCode(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, i8 noundef signext 1, ptr noundef %pErrorCode)
   ret i32 %call
@@ -1451,14 +1451,14 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_append_75(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, ptr noundef %pErrorCode) local_unnamed_addr #4 {
+define noundef i32 @unorm2_append_75(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, ptr noundef %pErrorCode) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL24normalizeSecondAndAppendPK12UNormalizer2PDsiiPKDsiaP10UErrorCode(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, i8 noundef signext 0, ptr noundef %pErrorCode)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_getDecomposition_75(ptr noundef %norm2, i32 noundef %c, ptr noundef %decomposition, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unorm2_getDecomposition_75(ptr noundef %norm2, i32 noundef %c, ptr noundef %decomposition, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %destString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_getRawDecomposition_75(ptr noundef %norm2, i32 noundef %c, ptr noundef %decomposition, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unorm2_getRawDecomposition_75(ptr noundef %norm2, i32 noundef %c, ptr noundef %decomposition, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %destString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
@@ -1606,7 +1606,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_composePair_75(ptr noundef %norm2, i32 noundef %a, i32 noundef %b) local_unnamed_addr #4 {
+define noundef i32 @unorm2_composePair_75(ptr noundef %norm2, i32 noundef %a, i32 noundef %b) local_unnamed_addr #4 {
 entry:
   %vtable = load ptr, ptr %norm2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
@@ -1616,7 +1616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i8 @unorm2_getCombiningClass_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
+define noundef zeroext i8 @unorm2_getCombiningClass_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %vtable = load ptr, ptr %norm2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
@@ -1626,7 +1626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @unorm2_isNormalized_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @unorm2_isNormalized_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %sString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1689,7 +1689,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_quickCheck_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unorm2_quickCheck_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %sString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1752,7 +1752,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unorm2_spanQuickCheckYes_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unorm2_spanQuickCheckYes_75(ptr noundef %norm2, ptr noundef %s, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %sString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1815,7 +1815,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @unorm2_hasBoundaryBefore_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
+define noundef signext i8 @unorm2_hasBoundaryBefore_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %vtable = load ptr, ptr %norm2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
@@ -1825,7 +1825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @unorm2_hasBoundaryAfter_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
+define noundef signext i8 @unorm2_hasBoundaryAfter_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %vtable = load ptr, ptr %norm2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
@@ -1835,7 +1835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @unorm2_isInert_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
+define noundef signext i8 @unorm2_isInert_75(ptr noundef %norm2, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %vtable = load ptr, ptr %norm2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
@@ -1845,7 +1845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i8 @u_getCombiningClass_75(i32 noundef %c) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @u_getCombiningClass_75(i32 noundef %c) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 if.end.i.i.i:
   %0 = load atomic i32, ptr @_ZN6icu_75L11nfcInitOnceE acquire, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 2
@@ -1943,7 +1943,7 @@ return:                                           ; preds = %if.else.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i16 @unorm_getFCD16_75(i32 noundef %c) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i16 @unorm_getFCD16_75(i32 noundef %c) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 if.end.i.i.i:
   %0 = load atomic i32, ptr @_ZN6icu_75L11nfcInitOnceE acquire, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 2
@@ -2038,14 +2038,14 @@ if.then:                                          ; preds = %_ZN6icu_7518Normali
   br i1 %cmp.i2, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp2.i = icmp slt i32 %c, 65536
+  %cmp2.i = icmp ult i32 %c, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %smallFCD.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %cond.i, i64 0, i32 16
   %6 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i = ashr i32 %c, 8
-  %idxprom.i.i = sext i32 %shr.i.i to i64
+  %shr.i.i = lshr i32 %c, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %7, 0
@@ -3515,14 +3515,14 @@ entry:
   br i1 %cmp.i.i, label %_ZNK6icu_7515Normalizer2Impl10isFCDInertEi.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp2.i.i = icmp slt i32 %c, 65536
+  %cmp2.i.i = icmp ult i32 %c, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %smallFCD.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %0, i64 0, i32 16
   %2 = load ptr, ptr %smallFCD.i.i.i, align 8
-  %shr.i.i.i = ashr i32 %c, 8
-  %idxprom.i.i.i = sext i32 %shr.i.i.i to i64
+  %shr.i.i.i = lshr i32 %c, 8
+  %idxprom.i.i.i = zext nneg i32 %shr.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %3, 0

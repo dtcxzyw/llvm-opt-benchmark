@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sz_pind2sz_tab = external local_unnamed_addr global [200 x i64], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_init(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %base, ptr noundef %emap, ptr noundef %edata_cache, ptr noundef %cur_time, i64 noundef %pac_oversize_threshold, i64 noundef %dirty_decay_ms, i64 noundef %muzzy_decay_ms, ptr noundef %pac_stats, ptr noundef %stats_mtx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_init(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %base, ptr noundef %emap, ptr noundef %edata_cache, ptr noundef %cur_time, i64 noundef %pac_oversize_threshold, i64 noundef %dirty_decay_ms, i64 noundef %muzzy_decay_ms, ptr noundef %pac_stats, ptr noundef %stats_mtx) local_unnamed_addr #0 {
 entry:
   %base.val = load i32, ptr %base, align 8
   %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 1
@@ -238,7 +238,7 @@ if.end12:                                         ; preds = %if.then, %if.end.i,
 declare i64 @pai_alloc_batch_default(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end14.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -445,7 +445,7 @@ return:                                           ; preds = %entry, %pac_ns_unti
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly %old_limit, ptr noundef readonly %new_limit) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly %old_limit, ptr noundef readonly %new_limit) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %new_limit, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -618,15 +618,14 @@ edata_list_inactive_append.exit.i:                ; preds = %do.body2.i.i, %if.e
   %shr.i = lshr i64 %call2.val.i, 12
   %add.i = add i64 %shr.i, %nstashed.010.i
   %cmp.i = icmp ult i64 %add.i, %npages_decay_max
-  br i1 %cmp.i, label %while.body.i, label %pac_stash_decayed.exit, !llvm.loop !5
+  br i1 %cmp.i, label %while.body.i, label %if.then4, !llvm.loop !5
 
-pac_stash_decayed.exit:                           ; preds = %while.body.i, %edata_list_inactive_append.exit.i
-  %decay_extents.sroa.0.1 = phi ptr [ %decay_extents.sroa.0.0, %while.body.i ], [ %12, %edata_list_inactive_append.exit.i ]
-  %nstashed.0.lcssa.i = phi i64 [ %nstashed.010.i, %while.body.i ], [ %add.i, %edata_list_inactive_append.exit.i ]
-  %cmp3.not = icmp eq i64 %nstashed.0.lcssa.i, 0
+pac_stash_decayed.exit:                           ; preds = %while.body.i
+  %cmp3.not = icmp eq i64 %nstashed.010.i, 0
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
-if.then4:                                         ; preds = %pac_stash_decayed.exit
+if.then4:                                         ; preds = %edata_list_inactive_append.exit.i, %pac_stash_decayed.exit
+  %decay_extents.sroa.0.131 = phi ptr [ %decay_extents.sroa.0.0, %pac_stash_decayed.exit ], [ %12, %edata_list_inactive_append.exit.i ]
   %pac.val.i15 = load ptr, ptr %2, align 8
   %call.i.i16 = tail call ptr @base_ehooks_get(ptr noundef %pac.val.i15) #8
   br i1 %fully_decay, label %land.end.thread.i, label %land.end.i
@@ -634,11 +633,11 @@ if.then4:                                         ; preds = %pac_stash_decayed.e
 land.end.i:                                       ; preds = %if.then4
   %time_ms.i.i.i = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 12, i32 2
   %14 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
-  %cmp4.not2.i = icmp eq ptr %decay_extents.sroa.0.1, null
+  %cmp4.not2.i = icmp eq ptr %decay_extents.sroa.0.131, null
   br i1 %cmp4.not2.i, label %pac_decay_stashed.exit, label %for.body.lr.ph.i
 
 land.end.thread.i:                                ; preds = %if.then4
-  %cmp4.not214.i = icmp eq ptr %decay_extents.sroa.0.1, null
+  %cmp4.not214.i = icmp eq ptr %decay_extents.sroa.0.131, null
   br i1 %cmp4.not214.i, label %pac_decay_stashed.exit, label %if.end.i.us.i.preheader
 
 for.body.lr.ph.i:                                 ; preds = %land.end.i
@@ -652,7 +651,7 @@ if.end.i.us.i.preheader:                          ; preds = %for.body.lr.ph.i, %
   br label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %if.end.i.us.i.preheader, %edata_list_inactive_remove.exit.us.i
-  %15 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.1, %if.end.i.us.i.preheader ]
+  %15 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
   %nmadvise.05.us.i = phi i64 [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %nunmapped.04.us.i = phi i64 [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %npurged.03.us.i = phi i64 [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
@@ -698,7 +697,7 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
   br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !7
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
-  %31 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.1, %for.body.lr.ph.i ]
+  %31 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
   %nmadvise.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %nunmapped.04.i = phi i64 [ %nunmapped.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %npurged.03.i = phi i64 [ %add.i21, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -870,7 +869,7 @@ declare void @nstime_init_update(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @decay_maybe_advance_epoch(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_decay_ms_set(ptr noundef %tsdn, ptr noundef %pac, i32 noundef %state, i64 noundef %decay_ms, i32 noundef %eagerness) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_decay_ms_set(ptr noundef %tsdn, ptr noundef %pac, i32 noundef %state, i64 noundef %decay_ms, i32 noundef %eagerness) local_unnamed_addr #0 {
 entry:
   %cur_time = alloca %struct.nstime_t, align 8
   %switch.i = icmp eq i32 %state, 1

@@ -1140,8 +1140,9 @@ lor.lhs.false19:                                  ; preds = %if.end17
   br i1 %cmp22, label %if.then28, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false19
-  %rem = urem i64 %conv8, %5
-  %tobool27.not = icmp eq i64 %rem, 0
+  %rem.rhs.trunc = trunc i64 %5 to i32
+  %rem9 = urem i32 %3, %rem.rhs.trunc
+  %tobool27.not = icmp eq i32 %rem9, 0
   br i1 %tobool27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %lor.lhs.false23, %lor.lhs.false19, %if.end17
@@ -6650,7 +6651,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS6_ESaISt4pairIKS6_dEEESaISD_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
   %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2

@@ -1847,12 +1847,11 @@ _ZN18mpz_matrix_manager2mkEjjR10mpz_matrix.exit:  ; preds = %arrayctor.loop.i, %
 
 for.body:                                         ; preds = %_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix.exit ]
-  %idxprom.i.i = and i64 %indvars.iv, 4294967295
-  %arrayidx.i.i = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %indvars.iv
   %arrayidx = getelementptr inbounds i32, ptr %c, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   store i32 %3, ptr %arrayidx.i.i, align 8
-  %m_kind.i = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %idxprom.i.i, i32 1
+  %m_kind.i = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %indvars.iv, i32 1
   %bf.load.i = load i8, ptr %m_kind.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %m_kind.i, align 4
@@ -1890,8 +1889,7 @@ invoke.cont10:                                    ; preds = %for.end
 for.body16:                                       ; preds = %invoke.cont10, %invoke.cont17
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %invoke.cont17 ], [ 0, %invoke.cont10 ]
   %7 = load ptr, ptr %this, align 8
-  %idxprom.i.i19 = and i64 %indvars.iv75, 4294967295
-  %arrayidx.i.i20 = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %idxprom.i.i19
+  %arrayidx.i.i20 = getelementptr inbounds %class.mpz, ptr %call.i13, i64 %indvars.iv75
   %call.i.i21 = invoke noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i20)
           to label %invoke.cont17 unwind label %lpad.loopexit
 
@@ -3237,7 +3235,7 @@ if.then2.i31.i:                                   ; preds = %for.body.i16.i
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 2
   %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
   %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i32, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i37.i, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 
 if.else.i20.i:                                    ; preds = %for.body.i16.i
@@ -3338,7 +3336,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i.i.i
   %6 = load i32, ptr %add.ptr13.i.i.i.i, align 4
@@ -3525,7 +3523,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i
   %5 = load i32, ptr %add.ptr13.i, align 4

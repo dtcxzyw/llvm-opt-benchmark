@@ -816,14 +816,14 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %n.0156 = phi i32 [ 1, %entry ], [ %add, %for.inc ]
-  switch i32 %n.0156, label %if.end [
+  %n.0170 = phi i32 [ 1, %entry ], [ %add, %for.inc ]
+  switch i32 %n.0170, label %if.end [
     i32 19, label %for.inc
     i32 9, label %for.inc
   ]
 
 if.end:                                           ; preds = %for.body
-  %call = tail call ptr @signal(i32 noundef %n.0156, ptr noundef null) #12
+  %call = tail call ptr @signal(i32 noundef %n.0170, ptr noundef null) #12
   %cmp3.not = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   br i1 %cmp3.not, label %if.end5, label %for.inc
 
@@ -850,7 +850,7 @@ do.end.i.i:                                       ; preds = %land.rhs.i.i, %do.b
   unreachable
 
 for.inc:                                          ; preds = %for.body, %for.body, %if.end
-  %add = add nuw nsw i32 %n.0156, 1
+  %add = add nuw nsw i32 %n.0170, 1
   %exitcond.not = icmp eq i32 %add, 32
   br i1 %exitcond.not, label %for.end, label %for.body
 
@@ -866,15 +866,15 @@ if.then6:                                         ; preds = %for.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %for.end
-  %cmp10157 = icmp sgt i32 %stdio_count, 0
-  br i1 %cmp10157, label %for.body11.preheader, label %for.end74
+  %cmp10171 = icmp sgt i32 %stdio_count, 0
+  br i1 %cmp10171, label %for.body11.preheader, label %for.end74
 
 for.body11.preheader:                             ; preds = %if.end8
   %wide.trip.count = zext nneg i32 %stdio_count to i64
   br label %for.body11
 
 for.cond30.preheader:                             ; preds = %for.inc28
-  br i1 %cmp10157, label %for.body32, label %for.end74
+  br i1 %cmp10171, label %for.body32, label %for.end74
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.inc28
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.inc28 ]
@@ -914,24 +914,24 @@ do.end.i.i69:                                     ; preds = %land.rhs.i.i70, %do
 
 for.inc28:                                        ; preds = %if.end17, %for.body11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond162.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond162.not, label %for.cond30.preheader, label %for.body11
+  %exitcond176.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond176.not, label %for.cond30.preheader, label %for.body11
 
 for.body32:                                       ; preds = %for.cond30.preheader, %for.inc72
-  %fd.1160 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.cond30.preheader ]
-  %idxprom33 = sext i32 %fd.1160 to i64
+  %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.cond30.preheader ]
+  %idxprom33 = sext i32 %fd.1174 to i64
   %arrayidx35 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %idxprom33, i64 1
   %7 = load i32, ptr %arrayidx35, align 4
   %cmp36 = icmp slt i32 %7, 0
   br i1 %cmp36, label %if.then37, label %if.end47.thread
 
 if.then37:                                        ; preds = %for.body32
-  %cmp38 = icmp sgt i32 %fd.1160, 2
+  %cmp38 = icmp sgt i32 %fd.1174, 2
   br i1 %cmp38, label %for.inc72, label %if.else
 
 if.else:                                          ; preds = %if.then37
-  %call40 = tail call i32 @uv__close_nocheckstdio(i32 noundef %fd.1160) #12
-  %cmp41 = icmp eq i32 %fd.1160, 0
+  %call40 = tail call i32 @uv__close_nocheckstdio(i32 noundef %fd.1174) #12
+  %cmp41 = icmp eq i32 %fd.1174, 0
   %cond = select i1 %cmp41, i32 0, i32 2
   %call42 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str, i32 noundef %cond) #12
   %cmp43 = icmp slt i32 %call42, 0
@@ -960,17 +960,17 @@ do.end.i.i79:                                     ; preds = %land.rhs.i.i80, %do
   unreachable
 
 if.end47:                                         ; preds = %if.else
-  %cmp48 = icmp eq i32 %fd.1160, %call42
-  br i1 %cmp48, label %if.end59, label %if.else57
+  %cmp48 = icmp eq i32 %fd.1174, %call42
+  br i1 %cmp48, label %if.end67, label %if.else57
 
 if.end47.thread:                                  ; preds = %for.body32
-  %cmp48136 = icmp eq i32 %fd.1160, %7
+  %cmp48136 = icmp eq i32 %fd.1174, %7
   br i1 %cmp48136, label %if.then51, label %if.else57
 
 if.then51:                                        ; preds = %if.end47.thread
-  %call52 = tail call i32 @uv__cloexec(i32 noundef %fd.1160, i32 noundef 0) #12
+  %call52 = tail call i32 @uv__cloexec(i32 noundef %fd.1174, i32 noundef 0) #12
   %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %if.end59, label %if.then54
+  br i1 %tobool53.not, label %if.end62, label %if.then54
 
 if.then54:                                        ; preds = %if.then51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
@@ -995,16 +995,11 @@ do.end.i:                                         ; preds = %land.rhs.i, %do.bod
 if.else57:                                        ; preds = %if.end47.thread, %if.end47
   %close_fd.0142 = phi i32 [ -1, %if.end47.thread ], [ %call42, %if.end47 ]
   %use_fd.0138 = phi i32 [ %7, %if.end47.thread ], [ %call42, %if.end47 ]
-  %call58 = tail call i32 @dup2(i32 noundef %use_fd.0138, i32 noundef %fd.1160) #12
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.end47, %if.then51, %if.else57
-  %close_fd.0141 = phi i32 [ -1, %if.then51 ], [ %close_fd.0142, %if.else57 ], [ %fd.1160, %if.end47 ]
-  %fd.2 = phi i32 [ %fd.1160, %if.then51 ], [ %call58, %if.else57 ], [ %fd.1160, %if.end47 ]
-  %cmp60 = icmp eq i32 %fd.2, -1
+  %call58 = tail call i32 @dup2(i32 noundef %use_fd.0138, i32 noundef %fd.1174) #12
+  %cmp60 = icmp eq i32 %call58, -1
   br i1 %cmp60, label %if.then61, label %if.end62
 
-if.then61:                                        ; preds = %if.end59
+if.then61:                                        ; preds = %if.else57
   %call.i85 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %call.i85, align 4
   %sub.i86 = sub nsw i32 0, %11
@@ -1026,26 +1021,30 @@ do.end.i.i90:                                     ; preds = %land.rhs.i.i91, %do
   tail call void @_exit(i32 noundef 127) #14
   unreachable
 
-if.end62:                                         ; preds = %if.end59
-  %cmp63 = icmp slt i32 %fd.2, 3
-  %cmp64 = icmp eq i32 %close_fd.0141, -1
-  %or.cond1 = and i1 %cmp64, %cmp63
+if.end62:                                         ; preds = %if.then51, %if.else57
+  %fd.2151 = phi i32 [ %call58, %if.else57 ], [ %fd.1174, %if.then51 ]
+  %close_fd.0140 = phi i32 [ %close_fd.0142, %if.else57 ], [ -1, %if.then51 ]
+  %cmp63 = icmp slt i32 %fd.2151, 3
+  %cmp64 = icmp eq i32 %close_fd.0140, -1
+  %or.cond1 = and i1 %cmp63, %cmp64
   br i1 %or.cond1, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %if.end62
-  %call66 = tail call i32 @uv__nonblock_fcntl(i32 noundef %fd.2, i32 noundef 0) #12
+  %call66 = tail call i32 @uv__nonblock_fcntl(i32 noundef %fd.2151, i32 noundef 0) #12
   br label %if.end67
 
-if.end67:                                         ; preds = %if.then65, %if.end62
-  %cmp68.not = icmp slt i32 %close_fd.0141, %stdio_count
+if.end67:                                         ; preds = %if.end47, %if.then65, %if.end62
+  %close_fd.0140158 = phi i32 [ -1, %if.then65 ], [ %close_fd.0140, %if.end62 ], [ %fd.1174, %if.end47 ]
+  %fd.2151157 = phi i32 [ %fd.2151, %if.then65 ], [ %fd.2151, %if.end62 ], [ %fd.1174, %if.end47 ]
+  %cmp68.not = icmp slt i32 %close_fd.0140158, %stdio_count
   br i1 %cmp68.not, label %for.inc72, label %if.then69
 
 if.then69:                                        ; preds = %if.end67
-  %call70 = tail call i32 @uv__close(i32 noundef %close_fd.0141) #12
+  %call70 = tail call i32 @uv__close(i32 noundef %close_fd.0140158) #12
   br label %for.inc72
 
 for.inc72:                                        ; preds = %if.end67, %if.then69, %if.then37
-  %fd.3 = phi i32 [ %fd.1160, %if.then37 ], [ %fd.2, %if.then69 ], [ %fd.2, %if.end67 ]
+  %fd.3 = phi i32 [ %fd.1174, %if.then37 ], [ %fd.2151157, %if.then69 ], [ %fd.2151157, %if.end67 ]
   %inc73 = add nsw i32 %fd.3, 1
   %cmp31 = icmp slt i32 %inc73, %stdio_count
   br i1 %cmp31, label %for.body32, label %for.end74
@@ -1111,7 +1110,7 @@ land.lhs.true95:                                  ; preds = %if.end91
   br i1 %tobool97.not, label %land.lhs.true95.if.end99_crit_edge, label %if.then98
 
 land.lhs.true95.if.end99_crit_edge:               ; preds = %land.lhs.true95
-  %.pre163 = load i32, ptr %flags, align 8
+  %.pre177 = load i32, ptr %flags, align 8
   br label %if.end99
 
 if.then98:                                        ; preds = %land.lhs.true95
@@ -1137,7 +1136,7 @@ do.end.i.i110:                                    ; preds = %land.rhs.i.i111, %d
   unreachable
 
 if.end99:                                         ; preds = %land.lhs.true95.if.end99_crit_edge, %if.end91
-  %22 = phi i32 [ %.pre163, %land.lhs.true95.if.end99_crit_edge ], [ %18, %if.end91 ]
+  %22 = phi i32 [ %.pre177, %land.lhs.true95.if.end99_crit_edge ], [ %18, %if.end91 ]
   %and101 = and i32 %22, 1
   %tobool102.not = icmp eq i32 %and101, 0
   br i1 %tobool102.not, label %if.end107, label %land.lhs.true103

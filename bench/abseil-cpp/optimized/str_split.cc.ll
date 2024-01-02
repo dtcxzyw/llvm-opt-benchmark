@@ -119,7 +119,7 @@ if.then.i11:                                      ; preds = %land.lhs.true.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i
   %cmp2.not.i.i.i.not.i = icmp eq i64 %pos, 0
-  br i1 %cmp2.not.i.i.i.not.i, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %return
+  br i1 %cmp2.not.i.i.i.not.i, label %if.then10.i, label %return
 
 if.end.i.i.i.i:                                   ; preds = %if.end10
   %add.ptr6.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %text.coerce0
@@ -154,13 +154,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %call.i.i.i.i.i, ptr nonnull %3, i64 %2)
   %cmp16.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %cmp16.i.i.i.i, label %if.then17.i.i.i.i, label %if.end19.i.i.i.i
-
-if.then17.i.i.i.i:                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %text.coerce1 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  br label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i
+  br i1 %cmp16.i.i.i.i, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %if.end19.i.i.i.i
 
 if.end19.i.i.i.i:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 1
@@ -169,18 +163,21 @@ if.end19.i.i.i.i:                                 ; preds = %_ZNSt11char_traitsI
   %cmp11.not.i.i.i.i = icmp ult i64 %sub.ptr.sub22.i.i.i.i, %2
   br i1 %cmp11.not.i.i.i.i, label %return, label %while.body.i.i.i.i, !llvm.loop !5
 
-_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %if.then17.i.i.i.i, %if.then.i.i.i.i
-  %add.ptr615.i = phi ptr [ %text.coerce1, %if.then.i.i.i.i ], [ %add.ptr6.i, %if.then17.i.i.i.i ]
-  %retval.0.i.i.i.i = phi i64 [ 0, %if.then.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.then17.i.i.i.i ]
-  %cmp9.not.i = icmp eq i64 %retval.0.i.i.i.i, -1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %retval.0.i.i.i.i
-  %spec.select.i = select i1 %cmp9.not.i, i64 0, i64 %2
-  %spec.select20.i = select i1 %cmp9.not.i, ptr %add.ptr615.i, ptr %add.ptr12.i
+_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %text.coerce1 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp9.not.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, -1
+  br i1 %cmp9.not.i, label %return, label %if.then10.i
+
+if.then10.i:                                      ; preds = %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %if.then.i.i.i.i
+  %retval.0.i.i.i24.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %retval.0.i.i.i24.i
   br label %return
 
-return:                                           ; preds = %if.end19.i.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %while.body.i.i.i.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %if.end6.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i, %if.then.i11, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.then6
-  %retval.sroa.0.0 = phi i64 [ 0, %if.then6 ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %if.then.i11 ], [ 0, %if.end.i.i.i.i ], [ 0, %if.end6.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %spec.select.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %while.body.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %if.end19.i.i.i.i ]
-  %retval.sroa.4.0 = phi ptr [ %add.ptr, %if.then6 ], [ %add.ptr.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr3.i, %if.then.i11 ], [ %add.ptr6.i, %if.end.i.i.i.i ], [ %add.ptr6.i, %if.end6.i.i.i.i ], [ %text.coerce1, %if.then.i.i.i.i ], [ %spec.select20.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %add.ptr6.i, %while.body.i.i.i.i ], [ %add.ptr6.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %add.ptr6.i, %if.end19.i.i.i.i ]
+return:                                           ; preds = %if.end19.i.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %while.body.i.i.i.i, %if.then10.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %if.end6.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i, %if.then.i11, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.then6
+  %retval.sroa.0.0 = phi i64 [ 0, %if.then6 ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %2, %if.then10.i ], [ 0, %if.then.i11 ], [ 0, %if.end.i.i.i.i ], [ 0, %if.end6.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %if.end19.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ %add.ptr, %if.then6 ], [ %add.ptr.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr6.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %add.ptr12.i, %if.then10.i ], [ %add.ptr3.i, %if.then.i11 ], [ %add.ptr6.i, %if.end.i.i.i.i ], [ %add.ptr6.i, %if.end6.i.i.i.i ], [ %text.coerce1, %if.then.i.i.i.i ], [ %add.ptr6.i, %while.body.i.i.i.i ], [ %add.ptr6.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %add.ptr6.i, %if.end19.i.i.i.i ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -337,7 +334,7 @@ do.end5:                                          ; preds = %entry
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, ptr } @_ZNK4absl8ByLength4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %text.coerce0, ptr %text.coerce1, i64 noundef %pos) local_unnamed_addr #4 align 2 {
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %text.coerce0, i64 %pos)
@@ -382,7 +379,7 @@ attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

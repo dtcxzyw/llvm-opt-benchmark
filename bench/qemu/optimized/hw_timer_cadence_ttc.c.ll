@@ -627,7 +627,7 @@ for.body:                                         ; preds = %cond.end, %is_betwe
 
 if.then.i:                                        ; preds = %for.body
   %cmp1.i = icmp ugt i64 %shl17, %conv18
-  %cmp2.i = icmp sle i64 %shl17, %next_value.021
+  %cmp2.i = icmp ule i64 %shl17, %next_value.021
   %6 = and i1 %cmp1.i, %cmp2.i
   br label %is_between.exit
 
@@ -713,7 +713,7 @@ for.end:                                          ; preds = %for.body
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cadence_timer_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @cadence_timer_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
 entry:
   %cpu_time_valid = getelementptr inbounds %struct.CadenceTimerState, ptr %opaque, i64 0, i32 12
   store i32 0, ptr %cpu_time_valid, align 8
@@ -733,7 +733,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cadence_timer_pre_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @cadence_timer_pre_save(ptr nocapture noundef %opaque) #0 {
 entry:
   tail call fastcc void @cadence_timer_sync(ptr noundef %opaque)
   ret i32 0

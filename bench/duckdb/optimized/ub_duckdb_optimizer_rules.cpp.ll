@@ -15084,22 +15084,21 @@ for.body.i155:                                    ; preds = %for.body.i155.prehe
 for.inc.i163:                                     ; preds = %for.body.i155
   %inc.i164 = add nuw i64 %i.02.i156, 1
   %exitcond.not.i = icmp eq i64 %inc.i164, %call19.val124
-  br i1 %exitcond.not.i, label %for.end.i159, label %for.body.i155, !llvm.loop !544
+  br i1 %exitcond.not.i, label %if.then54, label %for.body.i155, !llvm.loop !544
 
-for.end.i159:                                     ; preds = %for.inc.i163, %for.body.i155
-  %i.0.lcssa.i = phi i64 [ %call19.val124, %for.inc.i163 ], [ %i.02.i156, %for.body.i155 ]
-  %cmp3.i160 = icmp eq i64 %i.0.lcssa.i, 0
+for.end.i159:                                     ; preds = %for.body.i155
+  %cmp3.i160 = icmp eq i64 %i.02.i156, 0
   br i1 %cmp3.i160, label %for.body.i199.preheader, label %for.cond6.preheader.i
 
 for.body.i199.preheader:                          ; preds = %for.body9.i162, %for.body9.i162, %for.end.i159
   br label %for.body.i199
 
 for.cond6.preheader.i:                            ; preds = %for.end.i159
-  %cmp84.i = icmp ult i64 %i.0.lcssa.i, %call19.val124
+  %cmp84.i = icmp ult i64 %i.02.i156, %call19.val124
   br i1 %cmp84.i, label %for.body9.i162, label %if.then54
 
 for.body9.i162:                                   ; preds = %for.cond6.preheader.i, %for.inc18.i
-  %i.15.i = phi i64 [ %inc19.i, %for.inc18.i ], [ %i.0.lcssa.i, %for.cond6.preheader.i ]
+  %i.15.i = phi i64 [ %inc19.i, %for.inc18.i ], [ %i.02.i156, %for.cond6.preheader.i ]
   %arrayidx.i33.i = getelementptr inbounds i8, ptr %call19.val, i64 %i.15.i
   %43 = load i8, ptr %arrayidx.i33.i, align 1, !tbaa !75
   switch i8 %43, label %for.inc18.i [
@@ -15112,7 +15111,7 @@ for.inc18.i:                                      ; preds = %for.body9.i162
   %exitcond10.not.i = icmp eq i64 %inc19.i, %call19.val124
   br i1 %exitcond10.not.i, label %if.then54, label %for.body9.i162, !llvm.loop !545
 
-if.then54:                                        ; preds = %for.inc18.i, %for.cond6.preheader.i
+if.then54:                                        ; preds = %for.inc.i163, %for.inc18.i, %for.cond6.preheader.i
   invoke void @_ZN6duckdb9SuffixFun11GetFunctionEv(ptr nonnull sret(%"class.duckdb::ScalarFunction") align 8 %agg.tmp55)
           to label %invoke.cont56 unwind label %lpad20
 

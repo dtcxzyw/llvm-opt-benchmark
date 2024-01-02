@@ -592,6 +592,13 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %histogram.i)
   br i1 %cmp19118.not.i, label %for.end10.thread.i, label %for.body.i146
 
+for.end10.thread.i:                               ; preds = %invoke.cont21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %histogram.i, i8 0, i64 8192, i1 false)
+  br label %for.body24.i.preheader
+
+for.body24.i.preheader:                           ; preds = %for.body14.i, %for.end10.thread.i
+  br label %for.body24.i
+
 for.body.i146:                                    ; preds = %invoke.cont21, %for.body.i146
   %sort_data_max.026.i = phi float [ %cond.i149, %for.body.i146 ], [ 0x3F50624DE0000000, %invoke.cont21 ]
   %i.025.i = phi i64 [ %inc.i150, %for.body.i146 ], [ 0, %invoke.cont21 ]
@@ -622,21 +629,14 @@ for.body5.i:                                      ; preds = %for.body.i146, %for
   store i16 %conv.i155, ptr %arrayidx7.i, align 2
   %inc9.i = add nuw i64 %i2.028.i, 1
   %exitcond35.not.i = icmp eq i64 %inc9.i, %result.0.lcssa.i75169
-  br i1 %exitcond35.not.i, label %for.end10.i, label %for.body5.i, !llvm.loop !14
+  br i1 %exitcond35.not.i, label %for.body14.preheader.i, label %for.body5.i, !llvm.loop !14
 
-for.end10.thread.i:                               ; preds = %invoke.cont21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %histogram.i, i8 0, i64 8192, i1 false)
-  br label %for.body24.i.preheader
-
-for.body24.i.preheader:                           ; preds = %for.body14.i, %for.end10.thread.i
-  br label %for.body24.i
-
-for.end10.i:                                      ; preds = %for.body5.i
+for.body14.preheader.i:                           ; preds = %for.body5.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %histogram.i, i8 0, i64 8192, i1 false)
   br label %for.body14.i
 
-for.body14.i:                                     ; preds = %for.end10.i, %for.body14.i
-  %i11.030.i = phi i64 [ %inc19.i, %for.body14.i ], [ 0, %for.end10.i ]
+for.body14.i:                                     ; preds = %for.body14.i, %for.body14.preheader.i
+  %i11.030.i = phi i64 [ %inc19.i, %for.body14.i ], [ 0, %for.body14.preheader.i ]
   %arrayidx15.i156 = getelementptr inbounds i16, ptr %call.i137, i64 %i11.030.i
   %111 = load i16, ptr %arrayidx15.i156, align 2
   %idxprom.i = zext i16 %111 to i64
@@ -681,15 +681,15 @@ for.body35.i:                                     ; preds = %for.cond33.preheade
   store i32 %conv36.i158, ptr %arrayidx42.i, align 4
   %inc44.i = add nuw i64 %i32.034.i, 1
   %exitcond38.not.i = icmp eq i64 %inc44.i, %result.0.lcssa.i75169
-  br i1 %exitcond38.not.i, label %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit, label %for.body35.i, !llvm.loop !17
+  br i1 %exitcond38.not.i, label %for.body.preheader, label %for.body35.i, !llvm.loop !17
 
-_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit: ; preds = %for.body35.i
+for.body.preheader:                               ; preds = %for.body35.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %histogram.i)
-  br i1 %cmp19118.not.i, label %for.cond.i.preheader, label %for.body
+  br label %for.body
 
-for.body:                                         ; preds = %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit, %cond.end
-  %offset.0174 = phi i64 [ %add38, %cond.end ], [ 0, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit ]
-  %it.0173 = phi i64 [ %inc, %cond.end ], [ 0, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit ]
+for.body:                                         ; preds = %for.body.preheader, %cond.end
+  %offset.0174 = phi i64 [ %add38, %cond.end ], [ 0, %for.body.preheader ]
+  %it.0173 = phi i64 [ %inc, %cond.end ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds i32, ptr %call.i144, i64 %it.0173
   %116 = load i32, ptr %arrayidx, align 4
   %idxprom = zext i32 %116 to i64
@@ -721,8 +721,8 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   %exitcond.not = icmp eq i64 %inc, %result.0.lcssa.i75169
   br i1 %exitcond.not, label %for.cond.i.preheader, label %for.body, !llvm.loop !18
 
-for.cond.i.preheader:                             ; preds = %cond.end, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit, %entry
-  %i.0.i.ph = phi i64 [ %inc.i142, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread ], [ 0, %entry ], [ %inc.i142, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit ], [ %inc.i142, %cond.end ]
+for.cond.i.preheader:                             ; preds = %cond.end, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread, %entry
+  %i.0.i.ph = phi i64 [ %inc.i142, %_ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread ], [ 0, %entry ], [ %inc.i142, %cond.end ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i161

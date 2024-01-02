@@ -2916,7 +2916,7 @@ return:                                           ; preds = %if.then52, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @scanner_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @scanner_clear(ptr nocapture noundef %self) #0 {
 entry:
   %object_hook = getelementptr inbounds %struct._PyScannerObject, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %object_hook, align 8
@@ -4191,7 +4191,7 @@ PyUnicode_READ.exit.i:                            ; preds = %if.end6.i.i, %if.th
 
 if.then.i427:                                     ; preds = %PyUnicode_READ.exit.i
   %inc.i = add nuw nsw i64 %idx, 1
-  %cmp3.i.not = icmp sgt i64 %sub.i, %idx
+  %cmp3.i.not = icmp ugt i64 %sub.i, %idx
   br i1 %cmp3.i.not, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i427
@@ -4275,13 +4275,13 @@ PyUnicode_READ.exit137.i:                         ; preds = %if.end6.i135.i, %if
   br i1 %cmp9.i, label %while.cond.i.preheader, label %if.else.i
 
 while.cond.i.preheader:                           ; preds = %PyUnicode_READ.exit137.i
-  %112 = add nuw i64 %idx.0.i, 1
+  %112 = add nuw nsw i64 %idx.0.i, 1
   %smax = tail call i64 @llvm.smax.i64(i64 %pystr.val, i64 %112)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %PyUnicode_READ.exit157.i
   %idx.1.in.i = phi i64 [ %idx.1.i, %PyUnicode_READ.exit157.i ], [ %idx.0.i, %while.cond.i.preheader ]
-  %idx.1.i = add i64 %idx.1.in.i, 1
+  %idx.1.i = add nsw i64 %idx.1.in.i, 1
   %cmp12.not.i.not = icmp slt i64 %idx.1.i, %pystr.val
   br i1 %cmp12.not.i.not, label %land.lhs.true13.i, label %if.end25.i
 
@@ -4370,7 +4370,7 @@ PyUnicode_READ.exit167.i:                         ; preds = %if.end6.i165.i, %if
   br i1 %cmp20.i, label %if.then21.i, label %if.else23.i
 
 if.then21.i:                                      ; preds = %PyUnicode_READ.exit167.i
-  %inc22.i = add nuw i64 %idx.0.i, 1
+  %inc22.i = add nuw nsw i64 %idx.0.i, 1
   br label %if.end25.i
 
 if.else23.i:                                      ; preds = %PyUnicode_READ.exit167.i
@@ -6970,7 +6970,7 @@ return:                                           ; preds = %if.then63, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encoder_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @encoder_clear(ptr nocapture noundef %self) #0 {
 entry:
   %markers = getelementptr inbounds %struct._PyEncoderObject, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %markers, align 8

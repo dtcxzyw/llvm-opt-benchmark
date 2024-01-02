@@ -1027,7 +1027,7 @@ return:                                           ; preds = %_ZN4node6Buffer3New
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPN2v87IsolateENS1_5LocalINS1_6StringEEENS_8encodingE(ptr noundef %isolate, ptr %string.coerce, i32 noundef %enc) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPN2v87IsolateENS1_5LocalINS1_6StringEEENS_8encodingE(ptr noundef %isolate, ptr %string.coerce, i32 noundef %enc) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %store = alloca %"class.std::unique_ptr.265", align 8
@@ -1229,7 +1229,7 @@ declare void @_ZN2v812BackingStore10ReallocateEPNS_7IsolateESt10unique_ptrIS0_St
 declare ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateESt10shared_ptrINS_12BackingStoreEE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPN2v87IsolateEm(ptr noundef %isolate, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPN2v87IsolateEm(ptr noundef %isolate, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1302,7 +1302,7 @@ cleanup:                                          ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr nocapture noundef readonly %env, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEm(ptr nocapture noundef readonly %env, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %message.i = alloca [128 x i8], align 16
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1487,7 +1487,7 @@ declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef n
 declare noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer4CopyEPN2v87IsolateEPKcm(ptr noundef %isolate, ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer4CopyEPN2v87IsolateEPKcm(ptr noundef %isolate, ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1560,7 +1560,7 @@ cleanup:                                          ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer4CopyEPNS_11EnvironmentEPKcm(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer4CopyEPNS_11EnvironmentEPKcm(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %message.i = alloca [128 x i8], align 16
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1743,7 +1743,7 @@ cleanup:                                          ; preds = %_ZN4node6Buffer3New
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcmPFvS4_PvES5_(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr noundef %callback, ptr noundef %hint) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcmPFvS4_PvES5_(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr noundef %callback, ptr noundef %hint) local_unnamed_addr #3 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1813,7 +1813,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEPcmPFvS3_PvES4_(ptr noundef %env, ptr noundef %data, i64 noundef %length, ptr noundef %callback, ptr noundef %hint) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEPcmPFvS3_PvES4_(ptr noundef %env, ptr noundef %data, i64 noundef %length, ptr noundef %callback, ptr noundef %hint) local_unnamed_addr #3 {
 entry:
   %cb.addr.i.i.i.i = alloca ptr, align 8
   %arg.addr.i.i.i.i = alloca ptr, align 8
@@ -2105,7 +2105,7 @@ cleanup:                                          ; preds = %_ZN4node6Buffer3New
 declare i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcm(ptr noundef %isolate, ptr noundef %data, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcm(ptr noundef %isolate, ptr noundef %data, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -2182,7 +2182,7 @@ cleanup:                                          ; preds = %if.end, %if.then6, 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEPcm(ptr nocapture noundef readonly %env, ptr noundef %data, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEPcm(ptr nocapture noundef readonly %env, ptr noundef %data, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %message.i = alloca [128 x i8], align 16
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -2420,7 +2420,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %4
@@ -2489,7 +2489,7 @@ if.then.i.i.i.i.i.i67:                            ; preds = %if.else.i.i.i.i40
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i45: ; preds = %if.else.i.i.i.i40
   %sub.ptr.div.i.i.i.i.i.i.i46 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i43, 3
   %.sroa.speculated.i.i.i.i.i.i47 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i46, i64 1)
-  %add.i.i.i.i.i.i48 = add i64 %.sroa.speculated.i.i.i.i.i.i47, %sub.ptr.div.i.i.i.i.i.i.i46
+  %add.i.i.i.i.i.i48 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i47, %sub.ptr.div.i.i.i.i.i.i.i46
   %cmp7.i.i.i.i.i.i49 = icmp ult i64 %add.i.i.i.i.i.i48, %sub.ptr.div.i.i.i.i.i.i.i46
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i48, i64 1152921504606846975)
   %cond.i.i.i.i.i.i50 = select i1 %cmp7.i.i.i.i.i.i49, i64 1152921504606846975, i64 %9
@@ -2558,7 +2558,7 @@ if.then.i.i.i.i.i.i102:                           ; preds = %if.else.i.i.i.i75
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i80: ; preds = %if.else.i.i.i.i75
   %sub.ptr.div.i.i.i.i.i.i.i81 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i78, 3
   %.sroa.speculated.i.i.i.i.i.i82 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i81, i64 1)
-  %add.i.i.i.i.i.i83 = add i64 %.sroa.speculated.i.i.i.i.i.i82, %sub.ptr.div.i.i.i.i.i.i.i81
+  %add.i.i.i.i.i.i83 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i82, %sub.ptr.div.i.i.i.i.i.i.i81
   %cmp7.i.i.i.i.i.i84 = icmp ult i64 %add.i.i.i.i.i.i83, %sub.ptr.div.i.i.i.i.i.i.i81
   %14 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i83, i64 1152921504606846975)
   %cond.i.i.i.i.i.i85 = select i1 %cmp7.i.i.i.i.i.i84, i64 1152921504606846975, i64 %14
@@ -2629,7 +2629,7 @@ if.then.i.i.i.i.i.i137:                           ; preds = %if.else.i.i.i.i110
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i115: ; preds = %if.else.i.i.i.i110
   %sub.ptr.div.i.i.i.i.i.i.i116 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i113, 3
   %.sroa.speculated.i.i.i.i.i.i117 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i116, i64 1)
-  %add.i.i.i.i.i.i118 = add i64 %.sroa.speculated.i.i.i.i.i.i117, %sub.ptr.div.i.i.i.i.i.i.i116
+  %add.i.i.i.i.i.i118 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i117, %sub.ptr.div.i.i.i.i.i.i.i116
   %cmp7.i.i.i.i.i.i119 = icmp ult i64 %add.i.i.i.i.i.i118, %sub.ptr.div.i.i.i.i.i.i.i116
   %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i118, i64 1152921504606846975)
   %cond.i.i.i.i.i.i120 = select i1 %cmp7.i.i.i.i.i.i119, i64 1152921504606846975, i64 %21
@@ -2698,7 +2698,7 @@ if.then.i.i.i.i.i.i171:                           ; preds = %if.else.i.i.i.i144
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i149: ; preds = %if.else.i.i.i.i144
   %sub.ptr.div.i.i.i.i.i.i.i150 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i147, 3
   %.sroa.speculated.i.i.i.i.i.i151 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i150, i64 1)
-  %add.i.i.i.i.i.i152 = add i64 %.sroa.speculated.i.i.i.i.i.i151, %sub.ptr.div.i.i.i.i.i.i.i150
+  %add.i.i.i.i.i.i152 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i151, %sub.ptr.div.i.i.i.i.i.i.i150
   %cmp7.i.i.i.i.i.i153 = icmp ult i64 %add.i.i.i.i.i.i152, %sub.ptr.div.i.i.i.i.i.i.i150
   %26 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i152, i64 1152921504606846975)
   %cond.i.i.i.i.i.i154 = select i1 %cmp7.i.i.i.i.i.i153, i64 1152921504606846975, i64 %26
@@ -2767,7 +2767,7 @@ if.then.i.i.i.i.i.i205:                           ; preds = %if.else.i.i.i.i178
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i183: ; preds = %if.else.i.i.i.i178
   %sub.ptr.div.i.i.i.i.i.i.i184 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i181, 3
   %.sroa.speculated.i.i.i.i.i.i185 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i184, i64 1)
-  %add.i.i.i.i.i.i186 = add i64 %.sroa.speculated.i.i.i.i.i.i185, %sub.ptr.div.i.i.i.i.i.i.i184
+  %add.i.i.i.i.i.i186 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i185, %sub.ptr.div.i.i.i.i.i.i.i184
   %cmp7.i.i.i.i.i.i187 = icmp ult i64 %add.i.i.i.i.i.i186, %sub.ptr.div.i.i.i.i.i.i.i184
   %31 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i186, i64 1152921504606846975)
   %cond.i.i.i.i.i.i188 = select i1 %cmp7.i.i.i.i.i.i187, i64 1152921504606846975, i64 %31
@@ -2836,7 +2836,7 @@ if.then.i.i.i.i.i.i240:                           ; preds = %if.else.i.i.i.i213
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i218: ; preds = %if.else.i.i.i.i213
   %sub.ptr.div.i.i.i.i.i.i.i219 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i216, 3
   %.sroa.speculated.i.i.i.i.i.i220 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i219, i64 1)
-  %add.i.i.i.i.i.i221 = add i64 %.sroa.speculated.i.i.i.i.i.i220, %sub.ptr.div.i.i.i.i.i.i.i219
+  %add.i.i.i.i.i.i221 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i220, %sub.ptr.div.i.i.i.i.i.i.i219
   %cmp7.i.i.i.i.i.i222 = icmp ult i64 %add.i.i.i.i.i.i221, %sub.ptr.div.i.i.i.i.i.i.i219
   %36 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i221, i64 1152921504606846975)
   %cond.i.i.i.i.i.i223 = select i1 %cmp7.i.i.i.i.i.i222, i64 1152921504606846975, i64 %36
@@ -2905,7 +2905,7 @@ if.then.i.i.i.i.i.i275:                           ; preds = %if.else.i.i.i.i248
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i253: ; preds = %if.else.i.i.i.i248
   %sub.ptr.div.i.i.i.i.i.i.i254 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i251, 3
   %.sroa.speculated.i.i.i.i.i.i255 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i254, i64 1)
-  %add.i.i.i.i.i.i256 = add i64 %.sroa.speculated.i.i.i.i.i.i255, %sub.ptr.div.i.i.i.i.i.i.i254
+  %add.i.i.i.i.i.i256 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i255, %sub.ptr.div.i.i.i.i.i.i.i254
   %cmp7.i.i.i.i.i.i257 = icmp ult i64 %add.i.i.i.i.i.i256, %sub.ptr.div.i.i.i.i.i.i.i254
   %41 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i256, i64 1152921504606846975)
   %cond.i.i.i.i.i.i258 = select i1 %cmp7.i.i.i.i.i.i257, i64 1152921504606846975, i64 %41
@@ -2974,7 +2974,7 @@ if.then.i.i.i.i.i.i310:                           ; preds = %if.else.i.i.i.i283
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i288: ; preds = %if.else.i.i.i.i283
   %sub.ptr.div.i.i.i.i.i.i.i289 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i286, 3
   %.sroa.speculated.i.i.i.i.i.i290 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i289, i64 1)
-  %add.i.i.i.i.i.i291 = add i64 %.sroa.speculated.i.i.i.i.i.i290, %sub.ptr.div.i.i.i.i.i.i.i289
+  %add.i.i.i.i.i.i291 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i290, %sub.ptr.div.i.i.i.i.i.i.i289
   %cmp7.i.i.i.i.i.i292 = icmp ult i64 %add.i.i.i.i.i.i291, %sub.ptr.div.i.i.i.i.i.i.i289
   %46 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i291, i64 1152921504606846975)
   %cond.i.i.i.i.i.i293 = select i1 %cmp7.i.i.i.i.i.i292, i64 1152921504606846975, i64 %46
@@ -3043,7 +3043,7 @@ if.then.i.i.i.i.i.i345:                           ; preds = %if.else.i.i.i.i318
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i323: ; preds = %if.else.i.i.i.i318
   %sub.ptr.div.i.i.i.i.i.i.i324 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i321, 3
   %.sroa.speculated.i.i.i.i.i.i325 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i324, i64 1)
-  %add.i.i.i.i.i.i326 = add i64 %.sroa.speculated.i.i.i.i.i.i325, %sub.ptr.div.i.i.i.i.i.i.i324
+  %add.i.i.i.i.i.i326 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i325, %sub.ptr.div.i.i.i.i.i.i.i324
   %cmp7.i.i.i.i.i.i327 = icmp ult i64 %add.i.i.i.i.i.i326, %sub.ptr.div.i.i.i.i.i.i.i324
   %51 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i326, i64 1152921504606846975)
   %cond.i.i.i.i.i.i328 = select i1 %cmp7.i.i.i.i.i.i327, i64 1152921504606846975, i64 %51
@@ -3112,7 +3112,7 @@ if.then.i.i.i.i.i.i380:                           ; preds = %if.else.i.i.i.i353
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i358: ; preds = %if.else.i.i.i.i353
   %sub.ptr.div.i.i.i.i.i.i.i359 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i356, 3
   %.sroa.speculated.i.i.i.i.i.i360 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i359, i64 1)
-  %add.i.i.i.i.i.i361 = add i64 %.sroa.speculated.i.i.i.i.i.i360, %sub.ptr.div.i.i.i.i.i.i.i359
+  %add.i.i.i.i.i.i361 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i360, %sub.ptr.div.i.i.i.i.i.i.i359
   %cmp7.i.i.i.i.i.i362 = icmp ult i64 %add.i.i.i.i.i.i361, %sub.ptr.div.i.i.i.i.i.i.i359
   %56 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i361, i64 1152921504606846975)
   %cond.i.i.i.i.i.i363 = select i1 %cmp7.i.i.i.i.i.i362, i64 1152921504606846975, i64 %56
@@ -3181,7 +3181,7 @@ if.then.i.i.i.i.i.i415:                           ; preds = %if.else.i.i.i.i388
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i393: ; preds = %if.else.i.i.i.i388
   %sub.ptr.div.i.i.i.i.i.i.i394 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i391, 3
   %.sroa.speculated.i.i.i.i.i.i395 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i394, i64 1)
-  %add.i.i.i.i.i.i396 = add i64 %.sroa.speculated.i.i.i.i.i.i395, %sub.ptr.div.i.i.i.i.i.i.i394
+  %add.i.i.i.i.i.i396 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i395, %sub.ptr.div.i.i.i.i.i.i.i394
   %cmp7.i.i.i.i.i.i397 = icmp ult i64 %add.i.i.i.i.i.i396, %sub.ptr.div.i.i.i.i.i.i.i394
   %61 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i396, i64 1152921504606846975)
   %cond.i.i.i.i.i.i398 = select i1 %cmp7.i.i.i.i.i.i397, i64 1152921504606846975, i64 %61
@@ -3250,7 +3250,7 @@ if.then.i.i.i.i.i.i450:                           ; preds = %if.else.i.i.i.i423
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i428: ; preds = %if.else.i.i.i.i423
   %sub.ptr.div.i.i.i.i.i.i.i429 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i426, 3
   %.sroa.speculated.i.i.i.i.i.i430 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i429, i64 1)
-  %add.i.i.i.i.i.i431 = add i64 %.sroa.speculated.i.i.i.i.i.i430, %sub.ptr.div.i.i.i.i.i.i.i429
+  %add.i.i.i.i.i.i431 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i430, %sub.ptr.div.i.i.i.i.i.i.i429
   %cmp7.i.i.i.i.i.i432 = icmp ult i64 %add.i.i.i.i.i.i431, %sub.ptr.div.i.i.i.i.i.i.i429
   %66 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i431, i64 1152921504606846975)
   %cond.i.i.i.i.i.i433 = select i1 %cmp7.i.i.i.i.i.i432, i64 1152921504606846975, i64 %66
@@ -3319,7 +3319,7 @@ if.then.i.i.i.i.i.i485:                           ; preds = %if.else.i.i.i.i458
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i463: ; preds = %if.else.i.i.i.i458
   %sub.ptr.div.i.i.i.i.i.i.i464 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i461, 3
   %.sroa.speculated.i.i.i.i.i.i465 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i464, i64 1)
-  %add.i.i.i.i.i.i466 = add i64 %.sroa.speculated.i.i.i.i.i.i465, %sub.ptr.div.i.i.i.i.i.i.i464
+  %add.i.i.i.i.i.i466 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i465, %sub.ptr.div.i.i.i.i.i.i.i464
   %cmp7.i.i.i.i.i.i467 = icmp ult i64 %add.i.i.i.i.i.i466, %sub.ptr.div.i.i.i.i.i.i.i464
   %71 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i466, i64 1152921504606846975)
   %cond.i.i.i.i.i.i468 = select i1 %cmp7.i.i.i.i.i.i467, i64 1152921504606846975, i64 %71
@@ -3388,7 +3388,7 @@ if.then.i.i.i.i.i.i520:                           ; preds = %if.else.i.i.i.i493
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i498: ; preds = %if.else.i.i.i.i493
   %sub.ptr.div.i.i.i.i.i.i.i499 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i496, 3
   %.sroa.speculated.i.i.i.i.i.i500 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i499, i64 1)
-  %add.i.i.i.i.i.i501 = add i64 %.sroa.speculated.i.i.i.i.i.i500, %sub.ptr.div.i.i.i.i.i.i.i499
+  %add.i.i.i.i.i.i501 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i500, %sub.ptr.div.i.i.i.i.i.i.i499
   %cmp7.i.i.i.i.i.i502 = icmp ult i64 %add.i.i.i.i.i.i501, %sub.ptr.div.i.i.i.i.i.i.i499
   %76 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i501, i64 1152921504606846975)
   %cond.i.i.i.i.i.i503 = select i1 %cmp7.i.i.i.i.i.i502, i64 1152921504606846975, i64 %76
@@ -3457,7 +3457,7 @@ if.then.i.i.i.i.i.i555:                           ; preds = %if.else.i.i.i.i528
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i533: ; preds = %if.else.i.i.i.i528
   %sub.ptr.div.i.i.i.i.i.i.i534 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i531, 3
   %.sroa.speculated.i.i.i.i.i.i535 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i534, i64 1)
-  %add.i.i.i.i.i.i536 = add i64 %.sroa.speculated.i.i.i.i.i.i535, %sub.ptr.div.i.i.i.i.i.i.i534
+  %add.i.i.i.i.i.i536 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i535, %sub.ptr.div.i.i.i.i.i.i.i534
   %cmp7.i.i.i.i.i.i537 = icmp ult i64 %add.i.i.i.i.i.i536, %sub.ptr.div.i.i.i.i.i.i.i534
   %81 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i536, i64 1152921504606846975)
   %cond.i.i.i.i.i.i538 = select i1 %cmp7.i.i.i.i.i.i537, i64 1152921504606846975, i64 %81
@@ -3526,7 +3526,7 @@ if.then.i.i.i.i.i.i590:                           ; preds = %if.else.i.i.i.i563
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i568: ; preds = %if.else.i.i.i.i563
   %sub.ptr.div.i.i.i.i.i.i.i569 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i566, 3
   %.sroa.speculated.i.i.i.i.i.i570 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i569, i64 1)
-  %add.i.i.i.i.i.i571 = add i64 %.sroa.speculated.i.i.i.i.i.i570, %sub.ptr.div.i.i.i.i.i.i.i569
+  %add.i.i.i.i.i.i571 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i570, %sub.ptr.div.i.i.i.i.i.i.i569
   %cmp7.i.i.i.i.i.i572 = icmp ult i64 %add.i.i.i.i.i.i571, %sub.ptr.div.i.i.i.i.i.i.i569
   %86 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i571, i64 1152921504606846975)
   %cond.i.i.i.i.i.i573 = select i1 %cmp7.i.i.i.i.i.i572, i64 1152921504606846975, i64 %86
@@ -3595,7 +3595,7 @@ if.then.i.i.i.i.i.i625:                           ; preds = %if.else.i.i.i.i598
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i603: ; preds = %if.else.i.i.i.i598
   %sub.ptr.div.i.i.i.i.i.i.i604 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i601, 3
   %.sroa.speculated.i.i.i.i.i.i605 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i604, i64 1)
-  %add.i.i.i.i.i.i606 = add i64 %.sroa.speculated.i.i.i.i.i.i605, %sub.ptr.div.i.i.i.i.i.i.i604
+  %add.i.i.i.i.i.i606 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i605, %sub.ptr.div.i.i.i.i.i.i.i604
   %cmp7.i.i.i.i.i.i607 = icmp ult i64 %add.i.i.i.i.i.i606, %sub.ptr.div.i.i.i.i.i.i.i604
   %91 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i606, i64 1152921504606846975)
   %cond.i.i.i.i.i.i608 = select i1 %cmp7.i.i.i.i.i.i607, i64 1152921504606846975, i64 %91
@@ -3664,7 +3664,7 @@ if.then.i.i.i.i.i.i660:                           ; preds = %if.else.i.i.i.i633
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i638: ; preds = %if.else.i.i.i.i633
   %sub.ptr.div.i.i.i.i.i.i.i639 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i636, 3
   %.sroa.speculated.i.i.i.i.i.i640 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i639, i64 1)
-  %add.i.i.i.i.i.i641 = add i64 %.sroa.speculated.i.i.i.i.i.i640, %sub.ptr.div.i.i.i.i.i.i.i639
+  %add.i.i.i.i.i.i641 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i640, %sub.ptr.div.i.i.i.i.i.i.i639
   %cmp7.i.i.i.i.i.i642 = icmp ult i64 %add.i.i.i.i.i.i641, %sub.ptr.div.i.i.i.i.i.i.i639
   %96 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i641, i64 1152921504606846975)
   %cond.i.i.i.i.i.i643 = select i1 %cmp7.i.i.i.i.i.i642, i64 1152921504606846975, i64 %96
@@ -3733,7 +3733,7 @@ if.then.i.i.i.i.i.i695:                           ; preds = %if.else.i.i.i.i668
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i673: ; preds = %if.else.i.i.i.i668
   %sub.ptr.div.i.i.i.i.i.i.i674 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i671, 3
   %.sroa.speculated.i.i.i.i.i.i675 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i674, i64 1)
-  %add.i.i.i.i.i.i676 = add i64 %.sroa.speculated.i.i.i.i.i.i675, %sub.ptr.div.i.i.i.i.i.i.i674
+  %add.i.i.i.i.i.i676 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i675, %sub.ptr.div.i.i.i.i.i.i.i674
   %cmp7.i.i.i.i.i.i677 = icmp ult i64 %add.i.i.i.i.i.i676, %sub.ptr.div.i.i.i.i.i.i.i674
   %101 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i676, i64 1152921504606846975)
   %cond.i.i.i.i.i.i678 = select i1 %cmp7.i.i.i.i.i.i677, i64 1152921504606846975, i64 %101
@@ -3802,7 +3802,7 @@ if.then.i.i.i.i.i.i730:                           ; preds = %if.else.i.i.i.i703
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i708: ; preds = %if.else.i.i.i.i703
   %sub.ptr.div.i.i.i.i.i.i.i709 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i706, 3
   %.sroa.speculated.i.i.i.i.i.i710 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i709, i64 1)
-  %add.i.i.i.i.i.i711 = add i64 %.sroa.speculated.i.i.i.i.i.i710, %sub.ptr.div.i.i.i.i.i.i.i709
+  %add.i.i.i.i.i.i711 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i710, %sub.ptr.div.i.i.i.i.i.i.i709
   %cmp7.i.i.i.i.i.i712 = icmp ult i64 %add.i.i.i.i.i.i711, %sub.ptr.div.i.i.i.i.i.i.i709
   %106 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i711, i64 1152921504606846975)
   %cond.i.i.i.i.i.i713 = select i1 %cmp7.i.i.i.i.i.i712, i64 1152921504606846975, i64 %106
@@ -3871,7 +3871,7 @@ if.then.i.i.i.i.i.i765:                           ; preds = %if.else.i.i.i.i738
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i743: ; preds = %if.else.i.i.i.i738
   %sub.ptr.div.i.i.i.i.i.i.i744 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i741, 3
   %.sroa.speculated.i.i.i.i.i.i745 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i744, i64 1)
-  %add.i.i.i.i.i.i746 = add i64 %.sroa.speculated.i.i.i.i.i.i745, %sub.ptr.div.i.i.i.i.i.i.i744
+  %add.i.i.i.i.i.i746 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i745, %sub.ptr.div.i.i.i.i.i.i.i744
   %cmp7.i.i.i.i.i.i747 = icmp ult i64 %add.i.i.i.i.i.i746, %sub.ptr.div.i.i.i.i.i.i.i744
   %111 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i746, i64 1152921504606846975)
   %cond.i.i.i.i.i.i748 = select i1 %cmp7.i.i.i.i.i.i747, i64 1152921504606846975, i64 %111
@@ -3940,7 +3940,7 @@ if.then.i.i.i.i.i.i800:                           ; preds = %if.else.i.i.i.i773
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i778: ; preds = %if.else.i.i.i.i773
   %sub.ptr.div.i.i.i.i.i.i.i779 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i776, 3
   %.sroa.speculated.i.i.i.i.i.i780 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i779, i64 1)
-  %add.i.i.i.i.i.i781 = add i64 %.sroa.speculated.i.i.i.i.i.i780, %sub.ptr.div.i.i.i.i.i.i.i779
+  %add.i.i.i.i.i.i781 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i780, %sub.ptr.div.i.i.i.i.i.i.i779
   %cmp7.i.i.i.i.i.i782 = icmp ult i64 %add.i.i.i.i.i.i781, %sub.ptr.div.i.i.i.i.i.i.i779
   %116 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i781, i64 1152921504606846975)
   %cond.i.i.i.i.i.i783 = select i1 %cmp7.i.i.i.i.i.i782, i64 1152921504606846975, i64 %116
@@ -4009,7 +4009,7 @@ if.then.i.i.i.i.i.i835:                           ; preds = %if.else.i.i.i.i808
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i813: ; preds = %if.else.i.i.i.i808
   %sub.ptr.div.i.i.i.i.i.i.i814 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i811, 3
   %.sroa.speculated.i.i.i.i.i.i815 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i814, i64 1)
-  %add.i.i.i.i.i.i816 = add i64 %.sroa.speculated.i.i.i.i.i.i815, %sub.ptr.div.i.i.i.i.i.i.i814
+  %add.i.i.i.i.i.i816 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i815, %sub.ptr.div.i.i.i.i.i.i.i814
   %cmp7.i.i.i.i.i.i817 = icmp ult i64 %add.i.i.i.i.i.i816, %sub.ptr.div.i.i.i.i.i.i.i814
   %121 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i816, i64 1152921504606846975)
   %cond.i.i.i.i.i.i818 = select i1 %cmp7.i.i.i.i.i.i817, i64 1152921504606846975, i64 %121
@@ -4078,7 +4078,7 @@ if.then.i.i.i.i.i.i870:                           ; preds = %if.else.i.i.i.i843
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i848: ; preds = %if.else.i.i.i.i843
   %sub.ptr.div.i.i.i.i.i.i.i849 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i846, 3
   %.sroa.speculated.i.i.i.i.i.i850 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i849, i64 1)
-  %add.i.i.i.i.i.i851 = add i64 %.sroa.speculated.i.i.i.i.i.i850, %sub.ptr.div.i.i.i.i.i.i.i849
+  %add.i.i.i.i.i.i851 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i850, %sub.ptr.div.i.i.i.i.i.i.i849
   %cmp7.i.i.i.i.i.i852 = icmp ult i64 %add.i.i.i.i.i.i851, %sub.ptr.div.i.i.i.i.i.i.i849
   %126 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i851, i64 1152921504606846975)
   %cond.i.i.i.i.i.i853 = select i1 %cmp7.i.i.i.i.i.i852, i64 1152921504606846975, i64 %126
@@ -4147,7 +4147,7 @@ if.then.i.i.i.i.i.i905:                           ; preds = %if.else.i.i.i.i878
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i883: ; preds = %if.else.i.i.i.i878
   %sub.ptr.div.i.i.i.i.i.i.i884 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i881, 3
   %.sroa.speculated.i.i.i.i.i.i885 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i884, i64 1)
-  %add.i.i.i.i.i.i886 = add i64 %.sroa.speculated.i.i.i.i.i.i885, %sub.ptr.div.i.i.i.i.i.i.i884
+  %add.i.i.i.i.i.i886 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i885, %sub.ptr.div.i.i.i.i.i.i.i884
   %cmp7.i.i.i.i.i.i887 = icmp ult i64 %add.i.i.i.i.i.i886, %sub.ptr.div.i.i.i.i.i.i.i884
   %131 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i886, i64 1152921504606846975)
   %cond.i.i.i.i.i.i888 = select i1 %cmp7.i.i.i.i.i.i887, i64 1152921504606846975, i64 %131
@@ -4216,7 +4216,7 @@ if.then.i.i.i.i.i.i940:                           ; preds = %if.else.i.i.i.i913
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i918: ; preds = %if.else.i.i.i.i913
   %sub.ptr.div.i.i.i.i.i.i.i919 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i916, 3
   %.sroa.speculated.i.i.i.i.i.i920 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i919, i64 1)
-  %add.i.i.i.i.i.i921 = add i64 %.sroa.speculated.i.i.i.i.i.i920, %sub.ptr.div.i.i.i.i.i.i.i919
+  %add.i.i.i.i.i.i921 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i920, %sub.ptr.div.i.i.i.i.i.i.i919
   %cmp7.i.i.i.i.i.i922 = icmp ult i64 %add.i.i.i.i.i.i921, %sub.ptr.div.i.i.i.i.i.i.i919
   %136 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i921, i64 1152921504606846975)
   %cond.i.i.i.i.i.i923 = select i1 %cmp7.i.i.i.i.i.i922, i64 1152921504606846975, i64 %136
@@ -4285,7 +4285,7 @@ if.then.i.i.i.i.i.i975:                           ; preds = %if.else.i.i.i.i948
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i953: ; preds = %if.else.i.i.i.i948
   %sub.ptr.div.i.i.i.i.i.i.i954 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i951, 3
   %.sroa.speculated.i.i.i.i.i.i955 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i954, i64 1)
-  %add.i.i.i.i.i.i956 = add i64 %.sroa.speculated.i.i.i.i.i.i955, %sub.ptr.div.i.i.i.i.i.i.i954
+  %add.i.i.i.i.i.i956 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i955, %sub.ptr.div.i.i.i.i.i.i.i954
   %cmp7.i.i.i.i.i.i957 = icmp ult i64 %add.i.i.i.i.i.i956, %sub.ptr.div.i.i.i.i.i.i.i954
   %141 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i956, i64 1152921504606846975)
   %cond.i.i.i.i.i.i958 = select i1 %cmp7.i.i.i.i.i.i957, i64 1152921504606846975, i64 %141
@@ -4354,7 +4354,7 @@ if.then.i.i.i.i.i.i1010:                          ; preds = %if.else.i.i.i.i983
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i988: ; preds = %if.else.i.i.i.i983
   %sub.ptr.div.i.i.i.i.i.i.i989 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i986, 3
   %.sroa.speculated.i.i.i.i.i.i990 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i989, i64 1)
-  %add.i.i.i.i.i.i991 = add i64 %.sroa.speculated.i.i.i.i.i.i990, %sub.ptr.div.i.i.i.i.i.i.i989
+  %add.i.i.i.i.i.i991 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i990, %sub.ptr.div.i.i.i.i.i.i.i989
   %cmp7.i.i.i.i.i.i992 = icmp ult i64 %add.i.i.i.i.i.i991, %sub.ptr.div.i.i.i.i.i.i.i989
   %146 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i991, i64 1152921504606846975)
   %cond.i.i.i.i.i.i993 = select i1 %cmp7.i.i.i.i.i.i992, i64 1152921504606846975, i64 %146
@@ -4423,7 +4423,7 @@ if.then.i.i.i.i.i.i1045:                          ; preds = %if.else.i.i.i.i1018
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i1023: ; preds = %if.else.i.i.i.i1018
   %sub.ptr.div.i.i.i.i.i.i.i1024 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i1021, 3
   %.sroa.speculated.i.i.i.i.i.i1025 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i1024, i64 1)
-  %add.i.i.i.i.i.i1026 = add i64 %.sroa.speculated.i.i.i.i.i.i1025, %sub.ptr.div.i.i.i.i.i.i.i1024
+  %add.i.i.i.i.i.i1026 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i1025, %sub.ptr.div.i.i.i.i.i.i.i1024
   %cmp7.i.i.i.i.i.i1027 = icmp ult i64 %add.i.i.i.i.i.i1026, %sub.ptr.div.i.i.i.i.i.i.i1024
   %151 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i1026, i64 1152921504606846975)
   %cond.i.i.i.i.i.i1028 = select i1 %cmp7.i.i.i.i.i.i1027, i64 1152921504606846975, i64 %151
@@ -4492,7 +4492,7 @@ if.then.i.i.i.i.i.i1080:                          ; preds = %if.else.i.i.i.i1053
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i1058: ; preds = %if.else.i.i.i.i1053
   %sub.ptr.div.i.i.i.i.i.i.i1059 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i1056, 3
   %.sroa.speculated.i.i.i.i.i.i1060 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i1059, i64 1)
-  %add.i.i.i.i.i.i1061 = add i64 %.sroa.speculated.i.i.i.i.i.i1060, %sub.ptr.div.i.i.i.i.i.i.i1059
+  %add.i.i.i.i.i.i1061 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i1060, %sub.ptr.div.i.i.i.i.i.i.i1059
   %cmp7.i.i.i.i.i.i1062 = icmp ult i64 %add.i.i.i.i.i.i1061, %sub.ptr.div.i.i.i.i.i.i.i1059
   %156 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i1061, i64 1152921504606846975)
   %cond.i.i.i.i.i.i1063 = select i1 %cmp7.i.i.i.i.i.i1062, i64 1152921504606846975, i64 %156
@@ -4561,7 +4561,7 @@ if.then.i.i.i.i.i.i1115:                          ; preds = %if.else.i.i.i.i1088
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i1093: ; preds = %if.else.i.i.i.i1088
   %sub.ptr.div.i.i.i.i.i.i.i1094 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i1091, 3
   %.sroa.speculated.i.i.i.i.i.i1095 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i1094, i64 1)
-  %add.i.i.i.i.i.i1096 = add i64 %.sroa.speculated.i.i.i.i.i.i1095, %sub.ptr.div.i.i.i.i.i.i.i1094
+  %add.i.i.i.i.i.i1096 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i1095, %sub.ptr.div.i.i.i.i.i.i.i1094
   %cmp7.i.i.i.i.i.i1097 = icmp ult i64 %add.i.i.i.i.i.i1096, %sub.ptr.div.i.i.i.i.i.i.i1094
   %161 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i1096, i64 1152921504606846975)
   %cond.i.i.i.i.i.i1098 = select i1 %cmp7.i.i.i.i.i.i1097, i64 1152921504606846975, i64 %161
@@ -4630,7 +4630,7 @@ if.then.i.i.i.i.i.i1150:                          ; preds = %if.else.i.i.i.i1123
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i1128: ; preds = %if.else.i.i.i.i1123
   %sub.ptr.div.i.i.i.i.i.i.i1129 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i1126, 3
   %.sroa.speculated.i.i.i.i.i.i1130 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i1129, i64 1)
-  %add.i.i.i.i.i.i1131 = add i64 %.sroa.speculated.i.i.i.i.i.i1130, %sub.ptr.div.i.i.i.i.i.i.i1129
+  %add.i.i.i.i.i.i1131 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i1130, %sub.ptr.div.i.i.i.i.i.i.i1129
   %cmp7.i.i.i.i.i.i1132 = icmp ult i64 %add.i.i.i.i.i.i1131, %sub.ptr.div.i.i.i.i.i.i.i1129
   %166 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i1131, i64 1152921504606846975)
   %cond.i.i.i.i.i.i1133 = select i1 %cmp7.i.i.i.i.i.i1132, i64 1152921504606846975, i64 %166
@@ -4698,7 +4698,7 @@ if.then.i.i.i.i.i.i1185:                          ; preds = %if.else.i.i.i.i1158
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i1163: ; preds = %if.else.i.i.i.i1158
   %sub.ptr.div.i.i.i.i.i.i.i1164 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i1161, 3
   %.sroa.speculated.i.i.i.i.i.i1165 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i1164, i64 1)
-  %add.i.i.i.i.i.i1166 = add i64 %.sroa.speculated.i.i.i.i.i.i1165, %sub.ptr.div.i.i.i.i.i.i.i1164
+  %add.i.i.i.i.i.i1166 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i1165, %sub.ptr.div.i.i.i.i.i.i.i1164
   %cmp7.i.i.i.i.i.i1167 = icmp ult i64 %add.i.i.i.i.i.i1166, %sub.ptr.div.i.i.i.i.i.i.i1164
   %171 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i1166, i64 1152921504606846975)
   %cond.i.i.i.i.i.i1168 = select i1 %cmp7.i.i.i.i.i.i1167, i64 1152921504606846975, i64 %171
@@ -7563,7 +7563,7 @@ if.else.i:                                        ; preds = %if.then.i59
 
 if.else7.i:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %cmp9.not.i.not = icmp slt i64 %call85, %61
-  br i1 %cmp9.not.i.not, label %lor.lhs.false, label %if.else11.i
+  br i1 %cmp9.not.i.not, label %if.end101, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.else7.i
   %sub.i = add nsw i64 %61, -1
@@ -7574,8 +7574,8 @@ _ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit: ; preds = %if.else11.i, 
   %cmp = icmp slt i64 %retval.0.i, 0
   br i1 %cmp, label %if.then.i687, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.else7.i, %if.then.i59, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit
-  %retval.0.i68 = phi i64 [ %retval.0.i, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit ], [ %call85, %if.else7.i ], [ %add.i, %if.then.i59 ]
+lor.lhs.false:                                    ; preds = %if.then.i59, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit
+  %retval.0.i68 = phi i64 [ %retval.0.i, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit ], [ %add.i, %if.then.i59 ]
   %cmp96 = icmp eq i64 %61, 0
   br i1 %cmp96, label %if.then.i687, label %if.end101
 
@@ -7585,8 +7585,9 @@ if.then.i687:                                     ; preds = %if.else11.i, %_ZN4n
   store i64 -4294967296, ptr %arrayidx.i659, align 8
   br label %return
 
-if.end101:                                        ; preds = %lor.lhs.false
-  %cmp104.not = icmp ult i64 %retval.0.i68, %61
+if.end101:                                        ; preds = %if.else7.i, %lor.lhs.false
+  %retval.0.i6874 = phi i64 [ %retval.0.i68, %lor.lhs.false ], [ %call85, %if.else7.i ]
+  %cmp104.not = icmp ult i64 %retval.0.i6874, %61
   br i1 %cmp104.not, label %do.end112, label %do.body109
 
 do.body109:                                       ; preds = %if.end101
@@ -7599,13 +7600,13 @@ do.end112:                                        ; preds = %if.end101
   br i1 %call92, label %if.then114, label %if.else
 
 if.then114:                                       ; preds = %do.end112
-  %add.ptr = getelementptr inbounds i8, ptr %63, i64 %retval.0.i68
-  %sub = sub i64 %61, %retval.0.i68
+  %add.ptr = getelementptr inbounds i8, ptr %63, i64 %retval.0.i6874
+  %sub = sub i64 %61, %retval.0.i6874
   %call117 = call noundef ptr @memchr(ptr noundef %add.ptr, i32 noundef %call73, i64 noundef %sub) #26
   br label %if.end120
 
 if.else:                                          ; preds = %do.end112
-  %add = add nuw nsw i64 %retval.0.i68, 1
+  %add = add nuw nsw i64 %retval.0.i6874, 1
   %conv.i = and i32 %call73, 255
   %call.i = call noundef ptr @memrchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef %conv.i, i64 noundef %add) #26
   br label %if.end120
@@ -15269,7 +15270,7 @@ declare noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnul
 declare ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr nocapture noundef readonly %env, ptr %arg.coerce, i64 noundef %def, ptr nocapture noundef writeonly %ret) unnamed_addr #3 {
+define internal fastcc noundef i16 @_ZN4node6Buffer12_GLOBAL__N_115ParseArrayIndexEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEmPm(ptr nocapture noundef readonly %env, ptr %arg.coerce, i64 noundef %def, ptr nocapture noundef writeonly %ret) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %arg.coerce, align 8
   %and.i.i = and i64 %0, 3

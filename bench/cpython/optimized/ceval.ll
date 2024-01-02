@@ -22380,7 +22380,7 @@ if.end.i.i8852:                                   ; preds = %for.body14019
 _Py_NewRef.exit8853:                              ; preds = %for.body14019, %if.end.i.i8852
   %incdec.ptr14023 = getelementptr ptr, ptr %values13994.010342, i64 1
   store ptr %2845, ptr %values13994.010342, align 8
-  %cmp14017 = icmp sgt i64 %indvars.iv11786, 1
+  %cmp14017 = icmp ugt i64 %indvars.iv11786, 1
   br i1 %cmp14017, label %for.body14019, label %do.body14025, !llvm.loop !44
 
 do.body14025:                                     ; preds = %_Py_NewRef.exit8853, %if.end14010
@@ -22449,7 +22449,7 @@ if.end.i.i8856:                                   ; preds = %for.body14069
 _Py_NewRef.exit8857:                              ; preds = %for.body14069, %if.end.i.i8856
   %incdec.ptr14073 = getelementptr ptr, ptr %values14045.010339, i64 1
   store ptr %2855, ptr %values14045.010339, align 8
-  %cmp14067 = icmp sgt i64 %indvars.iv11783, 1
+  %cmp14067 = icmp ugt i64 %indvars.iv11783, 1
   br i1 %cmp14067, label %for.body14069, label %do.body14075, !llvm.loop !45
 
 do.body14075:                                     ; preds = %_Py_NewRef.exit8857, %if.end14061
@@ -23844,7 +23844,7 @@ if.then15225:                                     ; preds = %if.end15221
   br label %do.end15230
 
 do.end15230:                                      ; preds = %if.end15221, %if.then15225, %do.body15214
-  %cmp15211 = icmp sgt i64 %indvars.iv11764, 1
+  %cmp15211 = icmp ugt i64 %indvars.iv11764, 1
   br i1 %cmp15211, label %do.body15214, label %do.body15232, !llvm.loop !50
 
 do.body15232:                                     ; preds = %do.end15230, %if.end15203

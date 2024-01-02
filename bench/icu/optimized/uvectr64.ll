@@ -599,7 +599,7 @@ if.then:                                          ; preds = %if.end35.i.i, %land
 
 for.body.lr.ph:                                   ; preds = %if.then
   %elements = getelementptr inbounds %"class.icu_75::UVector64", ptr %this, i64 0, i32 4
-  %7 = sext i32 %6 to i64
+  %7 = zext nneg i32 %6 to i64
   %8 = zext nneg i32 %index to i64
   br label %for.body
 

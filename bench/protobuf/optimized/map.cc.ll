@@ -1707,8 +1707,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %pos.1 = phi i64 [ %conv14, %while.end ], [ %pos.1.be, %do.body.backedge ]
   %parent.1 = phi ptr [ %8, %while.end ], [ %parent.1.be, %do.body.backedge ]
   %add.ptr.i.i.i50 = getelementptr inbounds i8, ptr %parent.1, i64 256
-  %idxprom.i = and i64 %pos.1, 255
-  %arrayidx.i51 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i50, i64 %idxprom.i
+  %arrayidx.i51 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i50, i64 %pos.1
   %9 = load ptr, ptr %arrayidx.i51, align 8
   %arrayidx.i.i52 = getelementptr i8, ptr %9, i64 11
   %10 = load i8, ptr %arrayidx.i.i52, align 1
@@ -3337,7 +3336,7 @@ if.then95:                                        ; preds = %if.then68
 
 if.then100:                                       ; preds = %if.then95
   %19 = xor i32 %conv98, -1
-  %sub104 = add i32 %16, %19
+  %sub104 = add nsw i32 %16, %19
   br label %if.end152.sink.split
 
 if.end108:                                        ; preds = %if.then68, %if.then59, %if.end53
@@ -3471,7 +3470,7 @@ if.end143:                                        ; preds = %_ZN4absl12lts_20230
 
 if.then147:                                       ; preds = %if.end143
   %37 = xor i32 %conv145, -1
-  %sub151 = add i32 %34, %37
+  %sub151 = add nsw i32 %34, %37
   br label %if.end152.sink.split
 
 if.end152.sink.split:                             ; preds = %if.then147, %if.then46, %if.then100

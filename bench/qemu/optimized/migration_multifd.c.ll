@@ -188,7 +188,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @multifd_queue_page(ptr nocapture noundef readnone %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local noundef i32 @multifd_queue_page(ptr nocapture noundef readnone %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @multifd_send_pages() unnamed_addr #0 {
+define internal fastcc noundef i32 @multifd_send_pages() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @multifd_send_state, align 8
   %pages1 = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 1
@@ -635,7 +635,7 @@ declare ptr @migrate_get_current() local_unnamed_addr #2
 declare void @error_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @multifd_send_sync_main(ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
+define dso_local noundef i32 @multifd_send_sync_main(ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %err.i = alloca ptr, align 8
@@ -1004,9 +1004,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %add30 = add nuw nsw i64 %div, 1
   br label %for.body
 
-for.cond42.preheader:                             ; preds = %for.body
-  br i1 %cmp40, label %for.body46, label %return
-
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %conv1142 = phi i32 [ 0, %for.body.lr.ph ], [ %conv11, %for.body ]
   %i.041 = phi i8 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
@@ -1064,17 +1061,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @socket_send_channel_create(ptr noundef nonnull @multifd_new_send_channel_async, ptr noundef nonnull %arrayidx15) #15
   %inc = add i8 %i.041, 1
   %conv11 = zext i8 %inc to i32
-  %cmp = icmp sgt i32 %call2, %conv11
-  br i1 %cmp, label %for.body, label %for.cond42.preheader, !llvm.loop !11
+  %cmp = icmp ugt i32 %call2, %conv11
+  br i1 %cmp, label %for.body, label %for.body46, !llvm.loop !11
 
 for.cond42:                                       ; preds = %for.body46
   %inc56 = add i8 %i.144, 1
   %conv43 = zext i8 %inc56 to i32
-  %cmp44 = icmp sgt i32 %call2, %conv43
+  %cmp44 = icmp ugt i32 %call2, %conv43
   br i1 %cmp44, label %for.body46, label %return, !llvm.loop !12
 
-for.body46:                                       ; preds = %for.cond42.preheader, %for.cond42
-  %i.144 = phi i8 [ %inc56, %for.cond42 ], [ 0, %for.cond42.preheader ]
+for.body46:                                       ; preds = %for.body, %for.cond42
+  %i.144 = phi i8 [ %inc56, %for.cond42 ], [ 0, %for.body ]
   %10 = load ptr, ptr @multifd_send_state, align 8
   %11 = load ptr, ptr %10, align 8
   %idxprom49 = zext i8 %i.144 to i64
@@ -1092,8 +1089,8 @@ if.then53:                                        ; preds = %for.body46
   call void @error_propagate(ptr noundef %errp, ptr noundef %14) #15
   br label %return
 
-return:                                           ; preds = %for.cond42, %if.end, %for.cond42.preheader, %entry, %if.then53
-  %retval.0 = phi i32 [ %call52, %if.then53 ], [ 0, %entry ], [ 0, %for.cond42.preheader ], [ 0, %if.end ], [ 0, %for.cond42 ]
+return:                                           ; preds = %for.cond42, %if.end, %entry, %if.then53
+  %retval.0 = phi i32 [ %call52, %if.then53 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %for.cond42 ]
   ret i32 %retval.0
 }
 
@@ -1564,9 +1561,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %conv18 = zext nneg i32 %conv16 to i64
   br label %for.body
 
-for.cond29.preheader:                             ; preds = %for.body
-  br i1 %cmp25, label %for.body33, label %return
-
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %conv927 = phi i32 [ 0, %for.body.lr.ph ], [ %conv9, %for.body ]
   %i.026 = phi i8 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
@@ -1603,17 +1597,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %conv28, ptr %page_size, align 4
   %inc = add i8 %i.026, 1
   %conv9 = zext i8 %inc to i32
-  %cmp = icmp sgt i32 %call2, %conv9
-  br i1 %cmp, label %for.body, label %for.cond29.preheader, !llvm.loop !18
+  %cmp = icmp ugt i32 %call2, %conv9
+  br i1 %cmp, label %for.body, label %for.body33, !llvm.loop !18
 
 for.cond29:                                       ; preds = %for.body33
   %inc44 = add i8 %i.129, 1
   %conv30 = zext i8 %inc44 to i32
-  %cmp31 = icmp sgt i32 %call2, %conv30
+  %cmp31 = icmp ugt i32 %call2, %conv30
   br i1 %cmp31, label %for.body33, label %return, !llvm.loop !19
 
-for.body33:                                       ; preds = %for.cond29.preheader, %for.cond29
-  %i.129 = phi i8 [ %inc44, %for.cond29 ], [ 0, %for.cond29.preheader ]
+for.body33:                                       ; preds = %for.body, %for.cond29
+  %i.129 = phi i8 [ %inc44, %for.cond29 ], [ 0, %for.body ]
   %8 = load ptr, ptr @multifd_recv_state, align 8
   %9 = load ptr, ptr %8, align 8
   %idxprom36 = zext i8 %i.129 to i64
@@ -1632,8 +1626,8 @@ if.then41:                                        ; preds = %for.body33
   call void @error_propagate(ptr noundef %errp, ptr noundef %12) #15
   br label %return
 
-return:                                           ; preds = %for.cond29, %if.end, %for.cond29.preheader, %entry, %lor.lhs.false, %if.then41
-  %retval.0 = phi i32 [ %call39, %if.then41 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %for.cond29.preheader ], [ 0, %if.end ], [ 0, %for.cond29 ]
+return:                                           ; preds = %for.cond29, %if.end, %entry, %lor.lhs.false, %if.then41
+  %retval.0 = phi i32 [ %call39, %if.then41 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %for.cond29 ]
   ret i32 %retval.0
 }
 
@@ -1674,11 +1668,11 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %msg.i, align 4
-  %1 = call i32 @llvm.bswap.i32(i32 %0)
+  %1 = call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %msg.i, align 4
   %version.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 1
   %2 = load i32, ptr %version.i, align 4
-  %3 = call i32 @llvm.bswap.i32(i32 %2)
+  %3 = call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %version.i, align 4
   %cmp6.not.i = icmp eq i32 %0, 1144201745
   br i1 %cmp6.not.i, label %if.end9.i, label %if.then7.i
@@ -1821,7 +1815,7 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #2
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @multifd_recv_thread(ptr noundef %opaque) #0 {
+define internal noundef ptr @multifd_recv_thread(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i47 = alloca %struct.timeval, align 8
   %_now.i.i31 = alloca %struct.timeval, align 8
@@ -1909,7 +1903,7 @@ while.end:                                        ; preds = %if.end
   call void %15(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 1114) #15
   %16 = load ptr, ptr %packet, align 8
   %17 = load i32, ptr %16, align 1
-  %18 = call i32 @llvm.bswap.i32(i32 %17)
+  %18 = call noundef i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %16, align 1
   %cmp.not.i = icmp eq i32 %17, 1144201745
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1921,7 +1915,7 @@ if.then.i:                                        ; preds = %while.end
 if.end.i:                                         ; preds = %while.end
   %version.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 1
   %19 = load i32, ptr %version.i, align 1
-  %20 = call i32 @llvm.bswap.i32(i32 %19)
+  %20 = call noundef i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %version.i, align 1
   %cmp8.not.i = icmp eq i32 %19, 16777216
   br i1 %cmp8.not.i, label %if.end11.i, label %if.then9.i
@@ -1933,11 +1927,11 @@ if.then9.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.end.i
   %flags.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 2
   %21 = load i32, ptr %flags.i, align 1
-  %22 = call i32 @llvm.bswap.i32(i32 %21)
+  %22 = call noundef i32 @llvm.bswap.i32(i32 %21)
   store i32 %22, ptr %flags13.i, align 4
   %pages_alloc.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 3
   %23 = load i32, ptr %pages_alloc.i, align 1
-  %24 = call i32 @llvm.bswap.i32(i32 %23)
+  %24 = call noundef i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %pages_alloc.i, align 1
   %25 = load i32, ptr %page_count.i, align 8
   %cmp17.i = icmp ugt i32 %24, %25
@@ -1950,7 +1944,7 @@ if.then18.i:                                      ; preds = %if.end11.i
 if.end21.i:                                       ; preds = %if.end11.i
   %normal_pages.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 4
   %26 = load i32, ptr %normal_pages.i, align 1
-  %27 = call i32 @llvm.bswap.i32(i32 %26)
+  %27 = call noundef i32 @llvm.bswap.i32(i32 %26)
   store i32 %27, ptr %normal_num.i, align 8
   %28 = load i32, ptr %pages_alloc.i, align 1
   %cmp25.i = icmp ugt i32 %27, %28
@@ -1963,11 +1957,11 @@ if.then26.i:                                      ; preds = %if.end21.i
 if.end29.i:                                       ; preds = %if.end21.i
   %next_packet_size.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 5
   %29 = load i32, ptr %next_packet_size.i, align 1
-  %30 = call i32 @llvm.bswap.i32(i32 %29)
+  %30 = call noundef i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %next_packet_size31.i, align 8
   %packet_num.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 6
   %31 = load i64, ptr %packet_num.i, align 1
-  %32 = call i64 @llvm.bswap.i64(i64 %31)
+  %32 = call noundef i64 @llvm.bswap.i64(i64 %31)
   store i64 %32, ptr %packet_num33.i, align 8
   %cmp35.i = icmp eq i32 %26, 0
   br i1 %cmp35.i, label %if.end12, label %if.end37.i
@@ -1998,7 +1992,7 @@ for.body.i:                                       ; preds = %if.end44.i, %if.end
   %idxprom.i = sext i32 %i.053.i to i64
   %arrayidx50.i = getelementptr %struct.MultiFDPacket_t, ptr %16, i64 0, i32 9, i64 %idxprom.i
   %35 = load i64, ptr %arrayidx50.i, align 1
-  %36 = call i64 @llvm.bswap.i64(i64 %35)
+  %36 = call noundef i64 @llvm.bswap.i64(i64 %35)
   %37 = load ptr, ptr %block.i, align 8
   %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %37, i64 0, i32 5
   %38 = load i64, ptr %used_length.i, align 8
@@ -2176,7 +2170,7 @@ trace_multifd_recv_thread_end.exit:               ; preds = %while.end41, %land.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @nocomp_send_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @nocomp_send_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
 entry:
   ret i32 0
 }
@@ -2188,7 +2182,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @nocomp_send_prepare(ptr nocapture noundef %p, ptr nocapture readnone %errp) #6 {
+define internal noundef i32 @nocomp_send_prepare(ptr nocapture noundef %p, ptr nocapture readnone %errp) #6 {
 entry:
   %normal_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 25
   %0 = load i32, ptr %normal_num, align 8
@@ -2247,7 +2241,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @nocomp_recv_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @nocomp_recv_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
 entry:
   ret i32 0
 }
@@ -2471,7 +2465,7 @@ declare zeroext i1 @qio_task_propagate_error(ptr noundef, ptr noundef) local_unn
 declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @multifd_channel_connect(ptr noundef %p, ptr noundef %ioc, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @multifd_channel_connect(ptr noundef %p, ptr noundef %ioc, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2597,7 +2591,7 @@ declare zeroext i1 @migrate_channel_requires_tls_upgrade(ptr noundef) local_unna
 declare void @migration_ioc_register_yank(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @multifd_send_thread(ptr noundef %opaque) #0 {
+define internal noundef ptr @multifd_send_thread(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i99 = alloca %struct.timeval, align 8
   %_now.i.i83 = alloca %struct.timeval, align 8
@@ -2767,25 +2761,25 @@ if.then34:                                        ; preds = %if.then31
 if.end37:                                         ; preds = %if.then16, %if.then31, %for.end
   %32 = load ptr, ptr %packet1.i, align 8
   %33 = load i32, ptr %flags.i, align 4
-  %34 = call i32 @llvm.bswap.i32(i32 %33)
+  %34 = call noundef i32 @llvm.bswap.i32(i32 %33)
   %flags2.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 2
   store i32 %34, ptr %flags2.i, align 1
   %35 = load ptr, ptr %pages, align 8
   %allocated.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %35, i64 0, i32 1
   %36 = load i32, ptr %allocated.i, align 4
-  %37 = call i32 @llvm.bswap.i32(i32 %36)
+  %37 = call noundef i32 @llvm.bswap.i32(i32 %36)
   %pages_alloc.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 3
   store i32 %37, ptr %pages_alloc.i, align 1
   %38 = load i32, ptr %normal_num, align 8
-  %39 = call i32 @llvm.bswap.i32(i32 %38)
+  %39 = call noundef i32 @llvm.bswap.i32(i32 %38)
   %normal_pages.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 4
   store i32 %39, ptr %normal_pages.i, align 1
   %40 = load i32, ptr %next_packet_size.i, align 8
-  %41 = call i32 @llvm.bswap.i32(i32 %40)
+  %41 = call noundef i32 @llvm.bswap.i32(i32 %40)
   %next_packet_size6.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 5
   store i32 %41, ptr %next_packet_size6.i, align 1
   %42 = load i64, ptr %packet_num17, align 8
-  %43 = call i64 @llvm.bswap.i64(i64 %42)
+  %43 = call noundef i64 @llvm.bswap.i64(i64 %42)
   %packet_num8.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 6
   store i64 %43, ptr %packet_num8.i, align 1
   %44 = load ptr, ptr %pages, align 8
@@ -2811,7 +2805,7 @@ for.body.i:                                       ; preds = %if.end.i66, %for.bo
   %idxprom.i = sext i32 %i.020.i to i64
   %arrayidx.i = getelementptr i64, ptr %47, i64 %idxprom.i
   %48 = load i64, ptr %arrayidx.i, align 8
-  %49 = call i64 @llvm.bswap.i64(i64 %48)
+  %49 = call noundef i64 @llvm.bswap.i64(i64 %48)
   %arrayidx17.i = getelementptr %struct.MultiFDPacket_t, ptr %32, i64 0, i32 9, i64 %idxprom.i
   store i64 %49, ptr %arrayidx17.i, align 1
   %inc.i = add nuw i32 %i.020.i, 1
@@ -3061,7 +3055,7 @@ declare ptr @migration_tls_client_create(ptr noundef, ptr noundef, ptr noundef) 
 declare void @qio_channel_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @multifd_tls_handshake_thread(ptr noundef %opaque) #0 {
+define internal noalias noundef ptr @multifd_tls_handshake_thread(ptr noundef %opaque) #0 {
 entry:
   %c = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 3
   %0 = load ptr, ptr %c, align 8

@@ -3810,12 +3810,12 @@ for.inc197:                                       ; preds = %invoke.cont162, %if
   store i64 %.sink, ptr %ref.tmp193.sroa.2.0.result195.sroa_idx, align 8
   %inc198 = add nuw i64 %i144.0333, 1
   %exitcond338.not = icmp eq i64 %inc198, %num_reqs
-  br i1 %exitcond338.not, label %if.end200, label %for.body147, !llvm.loop !16
+  br i1 %exitcond338.not, label %for.body204.lr.ph, label %for.body147, !llvm.loop !16
 
-if.end200:                                        ; preds = %for.inc197, %invoke.cont141
+if.end200:                                        ; preds = %invoke.cont141
   br i1 %cmp315.not, label %for.end247, label %for.body204.lr.ph
 
-for.body204.lr.ph:                                ; preds = %if.end200
+for.body204.lr.ph:                                ; preds = %for.inc197, %if.end200
   %file_name_.i = getelementptr inbounds %"class.rocksdb::RandomAccessFileReader", ptr %this, i64 0, i32 1
   %file_temperature_ = getelementptr inbounds %"class.rocksdb::RandomAccessFileReader", ptr %this, i64 0, i32 9
   %is_last_level_ = getelementptr inbounds %"class.rocksdb::RandomAccessFileReader", ptr %this, i64 0, i32 10
@@ -6474,7 +6474,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -7118,7 +7118,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
   %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2

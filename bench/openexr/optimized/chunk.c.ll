@@ -389,9 +389,9 @@ if.end197:                                        ; preds = %if.end185
 
 land.lhs.true205:                                 ; preds = %if.end197
   %cmp209 = icmp ugt i64 %add200, %14
-  %add214 = add i64 %add200, %31
+  %add214 = add nuw i64 %add200, %31
   %cmp215 = icmp ugt i64 %add214, %14
-  %or.cond180 = or i1 %cmp209, %cmp215
+  %or.cond180 = select i1 %cmp209, i1 true, i1 %cmp215
   br i1 %or.cond180, label %if.then217, label %if.end268
 
 if.then217:                                       ; preds = %land.lhs.true205
@@ -1167,9 +1167,9 @@ if.end252:                                        ; preds = %lor.lhs.false240
 
 land.lhs.true260:                                 ; preds = %if.end252
   %cmp264 = icmp ugt i64 %add257, %31
-  %add269 = add i64 %add257, %57
+  %add269 = add nuw i64 %add257, %57
   %cmp270 = icmp ugt i64 %add269, %31
-  %or.cond242 = or i1 %cmp264, %cmp270
+  %or.cond242 = select i1 %cmp264, i1 true, i1 %cmp270
   br i1 %or.cond242, label %if.then272, label %if.end321
 
 if.then272:                                       ; preds = %land.lhs.true260

@@ -147,7 +147,7 @@ while.end:                                        ; preds = %for.end, %entry
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %this) unnamed_addr #1 align 2 {
 entry:
   %m_params = getelementptr inbounds %"class.o3dgc::DynamicVectorDecoder", ptr %this, i64 0, i32 6
@@ -930,7 +930,7 @@ invoke.cont67.us:                                 ; preds = %_ZN5o3dgc16Arithmet
 for.cond62.for.inc76_crit_edge.us:                ; preds = %invoke.cont67.us
   %inc77.us = add nuw i64 %v57.0182.us, 1
   %exitcond194.not = icmp eq i64 %inc77.us, %3
-  br i1 %exitcond194.not, label %if.end79, label %for.cond62.preheader.us, !llvm.loop !14
+  br i1 %exitcond194.not, label %for.body83.lr.ph, label %for.cond62.preheader.us, !llvm.loop !14
 
 lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %for.body64.us
   %lpad.loopexit160.us = landingpad { ptr, i32 }
@@ -1009,12 +1009,12 @@ invoke.cont46.us:                                 ; preds = %do.body.i.i.us, %fo
 for.cond42.for.inc54_crit_edge.us:                ; preds = %invoke.cont46.us
   %inc55.us = add nuw i64 %v.0188.us, 1
   %exitcond196.not = icmp eq i64 %inc55.us, %3
-  br i1 %exitcond196.not, label %if.end79, label %for.cond42.preheader.us, !llvm.loop !17
+  br i1 %exitcond196.not, label %for.body83.lr.ph, label %for.cond42.preheader.us, !llvm.loop !17
 
-if.end79:                                         ; preds = %for.cond62.for.inc76_crit_edge.us, %for.cond42.for.inc54_crit_edge.us, %for.cond58.preheader, %for.cond39.preheader
+if.end79:                                         ; preds = %for.cond58.preheader, %for.cond39.preheader
   br i1 %cmp177.not, label %for.end90, label %for.body83.lr.ph
 
-for.body83.lr.ph:                                 ; preds = %if.end79
+for.body83.lr.ph:                                 ; preds = %for.cond62.for.inc76_crit_edge.us, %for.cond42.for.inc54_crit_edge.us, %if.end79
   %m_quantVectors84 = getelementptr inbounds %"class.o3dgc::DynamicVectorDecoder", ptr %this, i64 0, i32 5
   br label %for.body83
 
@@ -1397,7 +1397,7 @@ declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_Mode
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

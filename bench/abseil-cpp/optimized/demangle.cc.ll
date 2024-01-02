@@ -350,7 +350,7 @@ land.end:                                         ; preds = %if.end12.i, %if.end
 define dso_local void @_ZN4absl18debugging_internal14DemangleStringB5cxx11EPKc(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %mangled) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   store i32 0, ptr %status, align 4
   %call = invoke ptr @__cxa_demangle(ptr noundef %mangled, ptr noundef null, ptr noundef null, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
@@ -367,13 +367,13 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then
-  call void @free(ptr noundef nonnull %call) #14
+  call void @free(ptr noundef nonnull %call) #12
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %if.else, %if.then, %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   resume { ptr, i32 } %1
 
 if.else:                                          ; preds = %invoke.cont
@@ -1910,8 +1910,8 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr nocapture noundef %state, i1 noundef zeroext %accept_std) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr nocapture noundef %state, i1 noundef zeroext %accept_std) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -2694,7 +2694,7 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %char_class) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %char_class) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
   %0 = load i32, ptr %recursion_depth.i, align 4
@@ -2747,8 +2747,8 @@ cleanup:                                          ; preds = %for.cond, %for.cond
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -3377,7 +3377,7 @@ cleanup:                                          ; preds = %if.then46, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr nocapture noundef %state, ptr noundef writeonly %number_out) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr nocapture noundef %state, ptr noundef writeonly %number_out) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
   %0 = load i32, ptr %recursion_depth.i, align 4
@@ -3468,7 +3468,7 @@ cleanup:                                          ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef %val) unnamed_addr #10 {
+define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef %val) unnamed_addr #9 {
 entry:
   %buf = alloca [20 x i8], align 16
   %append = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 5, i32 3
@@ -4745,8 +4745,8 @@ cleanup:                                          ; preds = %invoke.cont54, %inv
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -5134,11 +5134,11 @@ _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %land.lhs.t
 
 if.then3:                                         ; preds = %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit
   %add.i = add nuw nsw i32 %1, 1
-  %cmp1.i = icmp slt i32 %add.i, %2
+  %cmp1.i = icmp ult i32 %add.i, %2
   br i1 %cmp1.i, label %for.end.i, label %for.end.i.thread
 
 for.end.i.thread:                                 ; preds = %if.then3
-  %add6.i = add nsw i32 %2, 1
+  %add6.i = add nuw nsw i32 %2, 1
   store i32 %add6.i, ptr %out_cur_idx.i, align 4
   br label %if.end
 
@@ -6980,8 +6980,8 @@ cleanup:                                          ; preds = %for.inc, %if.end, %
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseExprCastValueEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseExprCastValueEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -7397,8 +7397,8 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -8191,8 +8191,8 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 3
@@ -8486,13 +8486,13 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8502,13 +8502,11 @@ attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1964,8 +1964,8 @@ if.end41:                                         ; preds = %if.then15, %if.else
   %i.0 = phi i32 [ %14, %if.then7 ], [ %14, %if.then15 ], [ %15, %if.else30 ]
   %contv.0 = phi i32 [ 1, %if.then7 ], [ 1, %if.then15 ], [ 0, %if.else30 ]
   %contp.0 = phi i32 [ 0, %if.then7 ], [ 1, %if.then15 ], [ 1, %if.else30 ]
-  %cmp42134 = icmp sgt i32 %i.0, 0
-  br i1 %cmp42134, label %for.body.lr.ph, label %for.end
+  %cmp42134.not = icmp eq i32 %i.0, 0
+  br i1 %cmp42134.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end41
   %z.i131 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 2

@@ -1282,7 +1282,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond57, label %land.lhs.true8, label %if.end12
 
 land.lhs.true8:                                   ; preds = %if.end4
-  %idxprom.i = sext i32 %sub to i64
+  %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds [31 x i32], ptr %buffer, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = and i32 %2, 254

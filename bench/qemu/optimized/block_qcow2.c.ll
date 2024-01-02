@@ -565,7 +565,7 @@ if.end:                                           ; preds = %entry
 
 if.end2:                                          ; preds = %if.end
   %or = or disjoint i64 %2, 1
-  %3 = tail call i64 @llvm.bswap.i64(i64 %or)
+  %3 = tail call noundef i64 @llvm.bswap.i64(i64 %or)
   store i64 %3, ptr %val, align 8
   %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
   %4 = load ptr, ptr %file, align 8
@@ -659,41 +659,41 @@ if.end4:                                          ; preds = %if.else.i, %if.then
   %mul = shl i64 %3, 9
   %qcow_version = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 42
   %8 = load i32, ptr %qcow_version, align 4
-  %9 = tail call i32 @llvm.bswap.i32(i32 %8)
-  %10 = tail call i32 @llvm.bswap.i32(i32 %5)
-  %11 = tail call i64 @llvm.bswap.i64(i64 %mul)
+  %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
+  %10 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %mul)
   %crypt_method_header = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 33
   %12 = load i32, ptr %crypt_method_header, align 4
-  %13 = tail call i32 @llvm.bswap.i32(i32 %12)
+  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
   %l1_size12 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 8
   %14 = load i32, ptr %l1_size12, align 8
-  %15 = tail call i32 @llvm.bswap.i32(i32 %14)
+  %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %l1_table_offset14 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 15
   %16 = load i64, ptr %l1_table_offset14, align 8
-  %17 = tail call i64 @llvm.bswap.i64(i64 %16)
+  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
   %refcount_table_offset16 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 23
   %18 = load i64, ptr %refcount_table_offset16, align 8
-  %19 = tail call i64 @llvm.bswap.i64(i64 %18)
-  %20 = tail call i32 @llvm.bswap.i32(i32 %shr)
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  %20 = tail call noundef i32 @llvm.bswap.i32(i32 %shr)
   %nb_snapshots20 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 36
   %21 = load i32, ptr %nb_snapshots20, align 4
-  %22 = tail call i32 @llvm.bswap.i32(i32 %21)
+  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
   %snapshots_offset22 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 34
   %23 = load i64, ptr %snapshots_offset22, align 8
-  %24 = tail call i64 @llvm.bswap.i64(i64 %23)
-  %25 = tail call i64 @llvm.bswap.i64(i64 %7)
+  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   %compatible_features26 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 54
   %26 = load i64, ptr %compatible_features26, align 8
-  %27 = tail call i64 @llvm.bswap.i64(i64 %26)
+  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
   %autoclear_features28 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 55
   %28 = load i64, ptr %autoclear_features28, align 8
-  %29 = tail call i64 @llvm.bswap.i64(i64 %28)
+  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
   %refcount_order30 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 44
   %30 = load i32, ptr %refcount_order30, align 4
-  %31 = tail call i32 @llvm.bswap.i32(i32 %30)
+  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %30)
   %32 = trunc i64 %2 to i32
   %conv33 = add i32 %32, 112
-  %33 = tail call i32 @llvm.bswap.i32(i32 %conv33)
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %conv33)
   %conv36 = trunc i32 %6 to i8
   store i32 -79083951, ptr %call, align 1
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 4
@@ -783,7 +783,7 @@ if.then56:                                        ; preds = %if.end54
 
 if.end.i:                                         ; preds = %if.then56
   %conv.i = trunc i64 %call59 to i32
-  %39 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 -903185950, ptr %buf.0, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %buf.0, i64 4
   store i32 %39, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
@@ -833,7 +833,7 @@ if.then74:                                        ; preds = %land.lhs.true
 
 if.end.i147:                                      ; preds = %if.then74
   %conv.i148 = trunc i64 %call77 to i32
-  %43 = tail call i32 @llvm.bswap.i32(i32 %conv.i148)
+  %43 = tail call noundef i32 @llvm.bswap.i32(i32 %conv.i148)
   store i32 1096040772, ptr %buf.1, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i149 = getelementptr inbounds i8, ptr %buf.1, i64 4
   store i32 %43, ptr %.compoundliteral.sroa.2.0..sroa_idx.i149, align 1
@@ -865,11 +865,11 @@ if.end88:                                         ; preds = %if.end83, %land.lhs
   br i1 %cmp89.not, label %if.end122, label %if.then91
 
 if.then91:                                        ; preds = %if.end88
-  %45 = tail call i64 @llvm.bswap.i64(i64 %44)
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
   store i64 %45, ptr %crypto_header, align 8
   %length = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 29, i32 1
   %46 = load i64, ptr %length, align 8
-  %47 = tail call i64 @llvm.bswap.i64(i64 %46)
+  %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
   store i64 %47, ptr %length, align 8
   %cmp.i155 = icmp ult i64 %buflen.2, 24
   br i1 %cmp.i155, label %header_ext_add.exit161, label %if.end.i156
@@ -889,9 +889,9 @@ header_ext_add.exit161:                           ; preds = %if.then91, %if.end.
   %49 = phi i64 [ %45, %if.then91 ], [ %.pre, %if.end.i156 ]
   %retval.0.i160 = phi i64 [ -28, %if.then91 ], [ 24, %if.end.i156 ]
   %conv103 = trunc i64 %retval.0.i160 to i32
-  %50 = tail call i64 @llvm.bswap.i64(i64 %49)
+  %50 = tail call noundef i64 @llvm.bswap.i64(i64 %49)
   store i64 %50, ptr %crypto_header, align 8
-  %51 = tail call i64 @llvm.bswap.i64(i64 %48)
+  %51 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
   store i64 %51, ptr %length, align 8
   %cmp114 = icmp slt i32 %conv103, 0
   br i1 %cmp114, label %fail, label %if.end117
@@ -943,11 +943,11 @@ if.then144:                                       ; preds = %if.end141
 if.end157:                                        ; preds = %if.then144
   %bitmap_directory_offset150 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 40
   %55 = load i64, ptr %bitmap_directory_offset150, align 8
-  %56 = tail call i64 @llvm.bswap.i64(i64 %55)
+  %56 = tail call noundef i64 @llvm.bswap.i64(i64 %55)
   %bitmap_directory_size148 = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 39
   %57 = load i64, ptr %bitmap_directory_size148, align 8
-  %58 = tail call i64 @llvm.bswap.i64(i64 %57)
-  %59 = tail call i32 @llvm.bswap.i32(i32 %54)
+  %58 = tail call noundef i64 @llvm.bswap.i64(i64 %57)
+  %59 = tail call noundef i32 @llvm.bswap.i32(i32 %54)
   store i32 1965589795, ptr %buf.4, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i171 = getelementptr inbounds i8, ptr %buf.4, i64 4
   store i32 402653184, ptr %.compoundliteral.sroa.2.0..sroa_idx.i171, align 1
@@ -987,8 +987,8 @@ for.body:                                         ; preds = %if.end162, %if.end1
 
 if.end.i180:                                      ; preds = %for.body
   %61 = load i32, ptr %uext.0218, align 8
-  %62 = tail call i32 @llvm.bswap.i32(i32 %61)
-  %63 = tail call i32 @llvm.bswap.i32(i32 %60)
+  %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
+  %63 = tail call noundef i32 @llvm.bswap.i32(i32 %60)
   store i32 %62, ptr %buf.6217, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i181 = getelementptr inbounds i8, ptr %buf.6217, i64 4
   store i32 %63, ptr %.compoundliteral.sroa.2.0..sroa_idx.i181, align 1
@@ -1041,10 +1041,10 @@ if.end193:                                        ; preds = %if.then187
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr183 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %65 = tail call i64 @llvm.bswap.i64(i64 %sub.ptr.sub)
+  %65 = tail call noundef i64 @llvm.bswap.i64(i64 %sub.ptr.sub)
   store i64 %65, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 1
   %conv198 = trunc i64 %call189 to i32
-  %66 = tail call i32 @llvm.bswap.i32(i32 %conv198)
+  %66 = tail call noundef i32 @llvm.bswap.i32(i32 %conv198)
   store i32 %66, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 1
   br label %if.end201
 
@@ -1063,7 +1063,7 @@ fail:                                             ; preds = %for.body, %header_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_validate_table(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcow2_validate_table(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1104,7 +1104,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @validate_compression_type(ptr nocapture noundef readonly %s, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @validate_compression_type(ptr nocapture noundef readonly %s, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %compression_type = getelementptr inbounds %struct.BDRVQcow2State, ptr %s, i64 0, i32 69
   %0 = load i32, ptr %compression_type, align 4
@@ -2032,7 +2032,7 @@ if.end139:                                        ; preds = %if.end135
   tail call void @blk_set_allow_write_beyond_eof(ptr noundef nonnull %call136, i1 noundef zeroext true) #22
   %call140 = tail call noalias ptr @g_malloc0(i64 noundef %cluster_size.0) #26
   %36 = shl nuw nsw i32 %13, 24
-  %37 = tail call i64 @llvm.bswap.i64(i64 %cluster_size.0)
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %cluster_size.0)
   %38 = shl nuw nsw i32 %29, 24
   store i32 -79083951, ptr %call140, align 1
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call140, i64 4
@@ -2123,9 +2123,9 @@ if.then196:                                       ; preds = %if.end192
   br label %out
 
 if.end197:                                        ; preds = %if.end192
-  %mul = shl i64 %cluster_size.0, 1
+  %mul = shl nuw nsw i64 %cluster_size.0, 1
   %call198 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #26
-  %47 = tail call i64 @llvm.bswap.i64(i64 %mul)
+  %47 = tail call noundef i64 @llvm.bswap.i64(i64 %mul)
   store i64 %47, ptr %call198, align 8
   %call202 = tail call i32 @blk_co_pwrite(ptr noundef nonnull %call136, i64 noundef %cluster_size.0, i64 noundef %mul, ptr noundef nonnull %call198, i32 noundef 0) #22
   tail call void @g_free(ptr noundef nonnull %call198) #22
@@ -2158,7 +2158,7 @@ if.end213:                                        ; preds = %if.then210, %if.end
 if.end218:                                        ; preds = %if.end213
   tail call void @bdrv_graph_co_rdlock() #22
   %call219 = tail call ptr @blk_bs(ptr noundef nonnull %call214) #22
-  %mul220 = mul i64 %cluster_size.0, 3
+  %mul220 = mul nuw nsw i64 %cluster_size.0, 3
   %call221 = tail call i64 @qcow2_alloc_clusters(ptr noundef %call219, i64 noundef %mul220) #22
   %conv222 = trunc i64 %call221 to i32
   %cmp223 = icmp slt i32 %conv222, 0
@@ -3645,8 +3645,8 @@ cache_clean_timer_init.exit:                      ; preds = %entry, %if.then.i
 
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define internal noundef i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #10 {
 entry:
   %cmp = icmp ugt i32 %buf_size, 111
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -3659,7 +3659,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %version = getelementptr inbounds %struct.QCowHeader, ptr %buf, i64 0, i32 1
   %1 = load i32, ptr %version, align 1
-  %2 = tail call i32 @llvm.bswap.i32(i32 %1)
+  %2 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   %cmp6 = icmp ugt i32 %2, 1
   br i1 %cmp6, label %return, label %if.else
 
@@ -5480,7 +5480,7 @@ if.then320:                                       ; preds = %if.then316
 if.end323:                                        ; preds = %if.then316, %if.end313
   %div324211 = lshr exact i64 %offset, 9
   store i64 %div324211, ptr %total_sectors, align 8
-  %41 = call i64 @llvm.bswap.i64(i64 %offset)
+  %41 = call noundef i64 @llvm.bswap.i64(i64 %offset)
   store i64 %41, ptr %offset.addr, align 8
   %file327 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
   %42 = load ptr, ptr %file327, align 8
@@ -5518,7 +5518,7 @@ return:                                           ; preds = %fail, %if.then7, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcow2_measure(ptr noundef %opts, ptr noundef %in_bs, ptr noundef %errp) #0 {
+define internal noalias noundef ptr @qcow2_measure(ptr noundef %opts, ptr noundef %in_bs, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %headerlen = alloca i64, align 8
@@ -5645,9 +5645,9 @@ if.end32:                                         ; preds = %if.then25
 
 glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83: ; preds = %if.end32
   %9 = load i64, ptr %headerlen, align 8
-  %add = add i64 %2, -1
+  %add = add nsw i64 %2, -1
   %sub = add i64 %add, %9
-  %sub36 = sub i64 0, %2
+  %sub36 = sub nsw i64 0, %2
   %and = and i64 %sub, %sub36
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %call27) #22
   br label %if.end37
@@ -5663,9 +5663,9 @@ if.end37.critedge:                                ; preds = %if.end15
 if.end37:                                         ; preds = %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83, %if.end37.critedge, %land.rhs
   %luks_payload_size.1 = phi i64 [ 0, %land.rhs ], [ 0, %if.end37.critedge ], [ %and, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83 ]
   %call38 = call i64 @qemu_opt_get_size_del(ptr noundef %opts, ptr noundef nonnull @.str.40, i64 noundef 0) #22
-  %add39 = add i64 %2, -1
+  %add39 = add nsw i64 %2, -1
   %sub40 = add i64 %add39, %call38
-  %sub41 = sub i64 0, %2
+  %sub41 = sub nsw i64 0, %2
   %and42 = and i64 %sub40, %sub41
   %div = udiv i64 %and42, %2
   %10 = select i1 %call, i64 4, i64 3
@@ -5912,7 +5912,7 @@ return:                                           ; preds = %while.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @qcow2_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #11 {
+define internal noundef i32 @qcow2_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #11 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -5944,7 +5944,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @qcow2_get_specific_info(ptr noundef %bs, ptr noundef %errp) #0 {
+define internal noundef ptr @qcow2_get_specific_info(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
   %bitmaps = alloca ptr, align 8
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -7061,7 +7061,7 @@ glib_autoptr_cleanup_GraphLockable.exit:
 declare zeroext i1 @aio_poll(ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #22
   ret ptr %x
@@ -7114,55 +7114,55 @@ if.then4:                                         ; preds = %entry
 
 if.end5:                                          ; preds = %entry
   %3 = load i32, ptr %header, align 4
-  %4 = call i32 @llvm.bswap.i32(i32 %3)
+  %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
   store i32 %4, ptr %header, align 4
   %version = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 1
   %5 = load i32, ptr %version, align 4
-  %6 = call i32 @llvm.bswap.i32(i32 %5)
+  %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %version, align 4
   %backing_file_offset = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 2
   %7 = load i64, ptr %backing_file_offset, align 4
-  %8 = call i64 @llvm.bswap.i64(i64 %7)
+  %8 = call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %8, ptr %backing_file_offset, align 4
   %backing_file_size = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 3
   %9 = load i32, ptr %backing_file_size, align 4
-  %10 = call i32 @llvm.bswap.i32(i32 %9)
+  %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
   store i32 %10, ptr %backing_file_size, align 4
   %size = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 5
   %11 = load i64, ptr %size, align 4
-  %12 = call i64 @llvm.bswap.i64(i64 %11)
+  %12 = call noundef i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %size, align 4
   %cluster_bits = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 4
   %13 = load i32, ptr %cluster_bits, align 4
-  %14 = call i32 @llvm.bswap.i32(i32 %13)
+  %14 = call noundef i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %cluster_bits, align 4
   %crypt_method = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 6
   %15 = load i32, ptr %crypt_method, align 4
-  %16 = call i32 @llvm.bswap.i32(i32 %15)
+  %16 = call noundef i32 @llvm.bswap.i32(i32 %15)
   store i32 %16, ptr %crypt_method, align 4
   %l1_table_offset = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 8
   %17 = load i64, ptr %l1_table_offset, align 4
-  %18 = call i64 @llvm.bswap.i64(i64 %17)
+  %18 = call noundef i64 @llvm.bswap.i64(i64 %17)
   store i64 %18, ptr %l1_table_offset, align 4
   %l1_size = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 7
   %19 = load i32, ptr %l1_size, align 4
-  %20 = call i32 @llvm.bswap.i32(i32 %19)
+  %20 = call noundef i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %l1_size, align 4
   %refcount_table_offset = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 9
   %21 = load i64, ptr %refcount_table_offset, align 4
-  %22 = call i64 @llvm.bswap.i64(i64 %21)
+  %22 = call noundef i64 @llvm.bswap.i64(i64 %21)
   store i64 %22, ptr %refcount_table_offset, align 4
   %refcount_table_clusters = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 10
   %23 = load i32, ptr %refcount_table_clusters, align 4
-  %24 = call i32 @llvm.bswap.i32(i32 %23)
+  %24 = call noundef i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %refcount_table_clusters, align 4
   %snapshots_offset = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 12
   %25 = load i64, ptr %snapshots_offset, align 4
-  %26 = call i64 @llvm.bswap.i64(i64 %25)
+  %26 = call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %snapshots_offset, align 4
   %nb_snapshots = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 11
   %27 = load i32, ptr %nb_snapshots, align 4
-  %28 = call i32 @llvm.bswap.i32(i32 %27)
+  %28 = call noundef i32 @llvm.bswap.i32(i32 %27)
   store i32 %28, ptr %nb_snapshots, align 4
   %cmp33.not = icmp eq i32 %3, -79083951
   br i1 %cmp33.not, label %if.end35, label %if.then34
@@ -7202,23 +7202,23 @@ if.end52:                                         ; preds = %if.end43
 
 if.else:                                          ; preds = %if.end52
   %31 = load i64, ptr %incompatible_features, align 4
-  %32 = call i64 @llvm.bswap.i64(i64 %31)
+  %32 = call noundef i64 @llvm.bswap.i64(i64 %31)
   store i64 %32, ptr %incompatible_features, align 4
   %compatible_features62 = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 14
   %33 = load i64, ptr %compatible_features62, align 4
-  %34 = call i64 @llvm.bswap.i64(i64 %33)
+  %34 = call noundef i64 @llvm.bswap.i64(i64 %33)
   store i64 %34, ptr %compatible_features62, align 4
   %autoclear_features65 = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 15
   %35 = load i64, ptr %autoclear_features65, align 4
-  %36 = call i64 @llvm.bswap.i64(i64 %35)
+  %36 = call noundef i64 @llvm.bswap.i64(i64 %35)
   store i64 %36, ptr %autoclear_features65, align 4
   %refcount_order68 = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 16
   %37 = load i32, ptr %refcount_order68, align 4
-  %38 = call i32 @llvm.bswap.i32(i32 %37)
+  %38 = call noundef i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %refcount_order68, align 4
   %header_length71 = getelementptr inbounds %struct.QCowHeader, ptr %header, i64 0, i32 17
   %39 = load i32, ptr %header_length71, align 4
-  %40 = call i32 @llvm.bswap.i32(i32 %39)
+  %40 = call noundef i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %header_length71, align 4
   %cmp75 = icmp ult i32 %40, 104
   br i1 %cmp75, label %if.then76, label %if.end78
@@ -7250,7 +7250,7 @@ if.end83:                                         ; preds = %if.end78
   br i1 %cmp85, label %if.then87, label %if.end102
 
 if.then87:                                        ; preds = %if.end83
-  %conv = zext i32 %40 to i64
+  %conv = zext nneg i32 %40 to i64
   %sub90 = add nsw i64 %conv, -112
   %unknown_header_fields_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 56
   store i64 %sub90, ptr %unknown_header_fields_size, align 8
@@ -7536,8 +7536,8 @@ if.then292:                                       ; preds = %if.end285
   br label %fail
 
 if.end293:                                        ; preds = %if.end285
-  %cmp295 = icmp sgt i32 %75, 0
-  br i1 %cmp295, label %if.then297, label %if.end328
+  %cmp295.not = icmp eq i32 %75, 0
+  br i1 %cmp295.not, label %if.end328, label %if.then297
 
 if.then297:                                       ; preds = %if.end293
   %78 = load ptr, ptr %file, align 8
@@ -7579,7 +7579,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %84 = load ptr, ptr %l1_table, align 8
   %arrayidx = getelementptr i64, ptr %84, i64 %indvars.iv
   %85 = load i64, ptr %arrayidx, align 8
-  %86 = call i64 @llvm.bswap.i64(i64 %85)
+  %86 = call noundef i64 @llvm.bswap.i64(i64 %85)
   store i64 %86, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr %l1_size277, align 8
@@ -8179,10 +8179,10 @@ if.then3:                                         ; preds = %while.body
 
 if.end4:                                          ; preds = %while.body
   %10 = load i32, ptr %ext, align 4
-  %11 = call i32 @llvm.bswap.i32(i32 %10)
+  %11 = call noundef i32 @llvm.bswap.i32(i32 %10)
   store i32 %11, ptr %ext, align 4
   %12 = load i32, ptr %len, align 4
-  %13 = call i32 @llvm.bswap.i32(i32 %12)
+  %13 = call noundef i32 @llvm.bswap.i32(i32 %12)
   store i32 %13, ptr %len, align 4
   %add = add i64 %offset.0202, 8
   %cmp9 = icmp ugt i64 %add, %end_offset
@@ -8313,10 +8313,10 @@ if.then75:                                        ; preds = %if.end68
 
 if.end77:                                         ; preds = %if.end68
   %20 = load i64, ptr %crypto_header, align 8
-  %21 = call i64 @llvm.bswap.i64(i64 %20)
+  %21 = call noundef i64 @llvm.bswap.i64(i64 %20)
   store i64 %21, ptr %crypto_header, align 8
   %22 = load i64, ptr %length, align 8
-  %23 = call i64 @llvm.bswap.i64(i64 %22)
+  %23 = call noundef i64 @llvm.bswap.i64(i64 %22)
   store i64 %23, ptr %length, align 8
   %24 = load i32, ptr %4, align 4
   %conv89 = sext i32 %24 to i64
@@ -8393,13 +8393,13 @@ if.then136:                                       ; preds = %if.end133
 
 if.end138:                                        ; preds = %if.end133
   %30 = load i32, ptr %bitmaps_ext, align 4
-  %31 = call i32 @llvm.bswap.i32(i32 %30)
+  %31 = call noundef i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %bitmaps_ext, align 4
   %32 = load i64, ptr %bitmap_directory_size, align 4
-  %33 = call i64 @llvm.bswap.i64(i64 %32)
+  %33 = call noundef i64 @llvm.bswap.i64(i64 %32)
   store i64 %33, ptr %bitmap_directory_size, align 4
   %34 = load i64, ptr %bitmap_directory_offset, align 4
-  %35 = call i64 @llvm.bswap.i64(i64 %34)
+  %35 = call noundef i64 @llvm.bswap.i64(i64 %34)
   store i64 %35, ptr %bitmap_directory_offset, align 4
   %cmp146 = icmp ugt i32 %31, 65535
   br i1 %cmp146, label %if.then148, label %if.end150
@@ -8804,7 +8804,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_crypto_hdr_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal noundef i32 @qcow2_crypto_hdr_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %opaque, i64 0, i32 7
   %0 = load ptr, ptr %opaque1, align 8
@@ -9115,7 +9115,7 @@ declare void @bdrv_co_unref(ptr noundef) #2
 declare ptr @qcrypto_block_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_crypto_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal noundef i32 @qcow2_crypto_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %opaque, i64 0, i32 7
   %0 = load ptr, ptr %opaque1, align 8
@@ -9170,7 +9170,7 @@ return:                                           ; preds = %if.end9, %if.then14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_crypto_hdr_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal noundef i32 @qcow2_crypto_hdr_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %opaque, i64 0, i32 7
   %0 = load ptr, ptr %opaque1, align 8
@@ -9455,7 +9455,7 @@ if.end.i:                                         ; preds = %if.end4
 
 if.end2.i:                                        ; preds = %if.end.i
   %or.i = or disjoint i64 %5, 1
-  %6 = tail call i64 @llvm.bswap.i64(i64 %or.i)
+  %6 = tail call noundef i64 @llvm.bswap.i64(i64 %or.i)
   store i64 %6, ptr %val.i, align 8
   %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
   %7 = load ptr, ptr %file.i, align 8
@@ -9556,10 +9556,10 @@ do.end65:                                         ; preds = %do.body50, %do.body
   %24 = load i32, ptr %cluster_size, align 4
   %mul67 = mul i32 %24, 3
   %conv68 = sext i32 %mul67 to i64
-  %25 = call i64 @llvm.bswap.i64(i64 %conv68)
+  %25 = call noundef i64 @llvm.bswap.i64(i64 %conv68)
   store i64 %25, ptr %l1_ofs_rt_ofs_cls, align 8
   %conv71 = sext i32 %24 to i64
-  %26 = call i64 @llvm.bswap.i64(i64 %conv71)
+  %26 = call noundef i64 @llvm.bswap.i64(i64 %conv71)
   %reftable_offset = getelementptr inbounds %struct.anon.27, ptr %l1_ofs_rt_ofs_cls, i64 0, i32 1
   store i64 %26, ptr %reftable_offset, align 8
   %reftable_clusters = getelementptr inbounds %struct.anon.27, ptr %l1_ofs_rt_ofs_cls, i64 0, i32 2
@@ -9608,7 +9608,7 @@ do.end105:                                        ; preds = %if.end90, %if.then1
   %33 = load i32, ptr %cluster_size, align 4
   %mul107 = shl i32 %33, 1
   %conv108 = sext i32 %mul107 to i64
-  %34 = call i64 @llvm.bswap.i64(i64 %conv108)
+  %34 = call noundef i64 @llvm.bswap.i64(i64 %conv108)
   store i64 %34, ptr %rt_entry, align 8
   %conv112 = sext i32 %33 to i64
   %call113 = call i32 @bdrv_pwrite_sync(ptr noundef %32, i64 noundef %conv112, i64 noundef 8, ptr noundef nonnull %rt_entry, i32 noundef 0) #22
@@ -11355,7 +11355,7 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

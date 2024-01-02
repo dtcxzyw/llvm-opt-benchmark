@@ -1921,26 +1921,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %3
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
+  %mul.i.i.i = shl nuw nsw i64 %3, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  br label %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
-  %cond.i26 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %cond.i26, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.body.i.i.i28
 
-for.body.i.i.i28:                                 ; preds = %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit, %for.body.i.i.i28
-  %__cur.06.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i34, %for.body.i.i.i28 ], [ %add.ptr, %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit ]
-  %__n.addr.05.i.i.i30 = phi i64 [ %dec.i.i.i33, %for.body.i.i.i28 ], [ %__n, %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE11_M_allocateEm.exit ]
+for.body.i.i.i28:                                 ; preds = %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i28
+  %__cur.06.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i34, %for.body.i.i.i28 ], [ %add.ptr, %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.05.i.i.i30 = phi i64 [ %dec.i.i.i33, %for.body.i.i.i28 ], [ %__n, %_ZNKSt6vectorIN6Assimp3LWO4FaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   store i32 0, ptr %__cur.06.i.i.i29, align 8
   %mIndices.i.i.i.i.i.i31 = getelementptr inbounds %struct.aiFace, ptr %__cur.06.i.i.i29, i64 0, i32 1
   %type.i.i.i.i.i32 = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %__cur.06.i.i.i29, i64 0, i32 3
@@ -1952,7 +1942,7 @@ for.body.i.i.i28:                                 ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i35, label %invoke.cont, label %for.body.i.i.i28, !llvm.loop !15
 
 invoke.cont:                                      ; preds = %for.body.i.i.i28
-  %call.i.i.i.i38 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN6Assimp3LWO4FaceEPS2_ET0_T_S7_S6_(ptr noundef %1, ptr noundef %0, ptr noundef %cond.i26)
+  %call.i.i.i.i38 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN6Assimp3LWO4FaceEPS2_ET0_T_S7_S6_(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %call5.i.i.i)
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont
@@ -1960,15 +1950,11 @@ lpad:                                             ; preds = %invoke.cont
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #15
-  %cond = icmp eq ptr %cond.i26, null
-  br i1 %cond, label %invoke.cont33, label %if.then27
-
-if.then27:                                        ; preds = %lpad
   %add.ptr28 = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i39
 
-for.body.i.i.i39:                                 ; preds = %if.then27, %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i41, %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i ], [ %add.ptr, %if.then27 ]
+for.body.i.i.i39:                                 ; preds = %lpad, %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i41, %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i ], [ %add.ptr, %lpad ]
   %mIndices.i.i.i.i.i.i40 = getelementptr inbounds %struct.aiFace, ptr %__first.addr.04.i.i.i, i64 0, i32 1
   %7 = load ptr, ptr %mIndices.i.i.i.i.i.i40, align 8
   %isnull.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -1983,17 +1969,14 @@ _ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i: ; preds = %delete.notnull.i.i.
   %cmp.not.i.i.i42 = icmp eq ptr %incdec.ptr.i.i.i41, %add.ptr28
   br i1 %cmp.not.i.i.i42, label %if.then.i43, label %for.body.i.i.i39, !llvm.loop !7
 
-lpad30:                                           ; preds = %invoke.cont33
+lpad30:                                           ; preds = %if.then.i43
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 if.then.i43:                                      ; preds = %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i26) #17
-  br label %invoke.cont33
-
-invoke.cont33:                                    ; preds = %lpad, %if.then.i43
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #17
   invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad30
 
@@ -2026,10 +2009,10 @@ if.then.i55:                                      ; preds = %_ZSt8_DestroyIPN6As
   br label %_ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE13_M_deallocateEPS2_m.exit56
 
 _ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE13_M_deallocateEPS2_m.exit56: ; preds = %_ZSt8_DestroyIPN6Assimp3LWO4FaceES2_EvT_S4_RSaIT0_E.exit53, %if.then.i55
-  store ptr %cond.i26, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr45 = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8
-  %add.ptr48 = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %cond.i26, i64 %cond.i
+  %add.ptr48 = getelementptr inbounds %"struct.Assimp::LWO::Face", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8
   br label %if.end52
 
@@ -2046,7 +2029,7 @@ terminate.lpad:                                   ; preds = %lpad30
   tail call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont33
+unreachable:                                      ; preds = %if.then.i43
   unreachable
 }
 
@@ -2428,7 +2411,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN6Assimp3LWO7SurfaceESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 328
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 28120036697727975)
   %cond.i = select i1 %cmp7.i, i64 28120036697727975, i64 %2

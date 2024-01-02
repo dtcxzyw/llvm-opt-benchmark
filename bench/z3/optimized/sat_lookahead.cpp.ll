@@ -3935,8 +3935,7 @@ _ZNK6vectorI7svectorIN3sat9lookahead6binaryEjELb1EjE4sizeEv.exit: ; preds = %for
 
 for.body67:                                       ; preds = %_ZNK6vectorI7svectorIN3sat9lookahead6binaryEjELb1EjE4sizeEv.exit
   %shr.i.i.i.i64 = lshr i64 %indvars.iv, 1
-  %idxprom.i.i.i.i65 = and i64 %shr.i.i.i.i64, 2147483647
-  %arrayidx.i.i.i.i66 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i.i.i.i65
+  %arrayidx.i.i.i.i66 = getelementptr inbounds i32, ptr %25, i64 %shr.i.i.i.i64
   %40 = load i32, ptr %arrayidx.i.i.i.i66, align 4
   %cmp.i.not.i.i67 = icmp ult i32 %40, %26
   br i1 %cmp.i.not.i.i67, label %if.then73, label %_ZNK3sat9lookahead7is_trueENS_7literalE.exit71
@@ -4661,8 +4660,7 @@ _ZNK6vectorI7svectorIN3sat9lookahead6binaryEjELb1EjE4sizeEv.exit: ; preds = %for
 
 for.body49:                                       ; preds = %_ZNK6vectorI7svectorIN3sat9lookahead6binaryEjELb1EjE4sizeEv.exit
   %shr.i.i.i.i53 = lshr i64 %indvars.iv127, 1
-  %idxprom.i.i.i.i54 = and i64 %shr.i.i.i.i53, 2147483647
-  %arrayidx.i.i.i.i55 = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i.i54
+  %arrayidx.i.i.i.i55 = getelementptr inbounds i32, ptr %2, i64 %shr.i.i.i.i53
   %31 = load i32, ptr %arrayidx.i.i.i.i55, align 4
   %cmp.i.not.i.i56 = icmp ult i32 %31, %1
   br i1 %cmp.i.not.i.i56, label %for.inc83, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit60
@@ -21512,8 +21510,7 @@ invoke.cont94:                                    ; preds = %invoke.cont84
   %shr.i = lshr i64 %indvars.iv490, 1
   %m_eliminated.i = getelementptr inbounds %"class.sat::solver", ptr %26, i64 0, i32 42
   %28 = load ptr, ptr %m_eliminated.i, align 8
-  %idxprom.i.i64 = and i64 %shr.i, 2147483647
-  %arrayidx.i.i65 = getelementptr inbounds i8, ptr %28, i64 %idxprom.i.i64
+  %arrayidx.i.i65 = getelementptr inbounds i8, ptr %28, i64 %shr.i
   %29 = load i8, ptr %arrayidx.i.i65, align 1
   %30 = and i8 %29, 1
   %tobool.i.not = icmp eq i8 %30, 0

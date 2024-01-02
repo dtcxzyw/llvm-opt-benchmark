@@ -18,14 +18,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_rsa_pss_params_30_is_unrestricted.pss_params_cmp = internal global %struct.rsa_pss_params_30_st zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_verify_PKCS1_PSS(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %EM, i32 noundef %sLen) local_unnamed_addr #0 {
+define noundef i32 @RSA_verify_PKCS1_PSS(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %EM, i32 noundef %sLen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef null, ptr noundef %EM, i32 noundef %sLen), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %mgf1Hash, ptr noundef %EM, i32 noundef %sLen) local_unnamed_addr #0 {
+define noundef i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %mgf1Hash, ptr noundef %EM, i32 noundef %sLen) local_unnamed_addr #0 {
 entry:
   %H_ = alloca [64 x i8], align 16
   %call = tail call ptr @EVP_MD_CTX_new() #9
@@ -92,8 +92,8 @@ if.then25:                                        ; preds = %if.end18
 
 if.end26:                                         ; preds = %if.end18
   %cmp27 = icmp eq i32 %sLen.addr.0, -3
-  %reass.sub69 = sub i32 %emLen.0, %call4
-  %sub31 = add i32 %reass.sub69, -2
+  %reass.sub69 = sub nsw i32 %emLen.0, %call4
+  %sub31 = add nsw i32 %reass.sub69, -2
   br i1 %cmp27, label %if.end39, label %if.else32
 
 if.else32:                                        ; preds = %if.end26
@@ -108,7 +108,7 @@ if.then37:                                        ; preds = %if.else32
 
 if.end39:                                         ; preds = %if.end26, %if.else32
   %sLen.addr.1 = phi i32 [ %sLen.addr.0, %if.else32 ], [ %sub31, %if.end26 ]
-  %2 = sext i32 %emLen.0 to i64
+  %2 = zext nneg i32 %emLen.0 to i64
   %3 = getelementptr i8, ptr %EM.addr.0, i64 %2
   %arrayidx41 = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx41, align 1
@@ -123,7 +123,7 @@ if.then45:                                        ; preds = %if.end39
 
 if.end46:                                         ; preds = %if.end39
   %5 = xor i32 %call4, -1
-  %sub48 = add i32 %emLen.0, %5
+  %sub48 = add nsw i32 %emLen.0, %5
   %idx.ext = sext i32 %sub48 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
   %call50 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %idx.ext, ptr noundef nonnull @.str, i32 noundef 100) #9
@@ -292,14 +292,14 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_PKCS1_PSS(ptr noundef %rsa, ptr noundef %EM, ptr noundef %mHash, ptr noundef %Hash, i32 noundef %sLen) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_add_PKCS1_PSS(ptr noundef %rsa, ptr noundef %EM, ptr noundef %mHash, ptr noundef %Hash, i32 noundef %sLen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %EM, ptr noundef %mHash, ptr noundef %Hash, ptr noundef null, i32 noundef %sLen), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %EM, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %mgf1Hash, i32 noundef %sLen) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %EM, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %mgf1Hash, i32 noundef %sLen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mgf1Hash, null
   %spec.select = select i1 %cmp, ptr %Hash, ptr %mgf1Hash
@@ -363,8 +363,8 @@ if.then25:                                        ; preds = %if.end23
 
 if.end26:                                         ; preds = %if.end23
   %cmp27 = icmp eq i32 %sLen.addr.0, -3
-  %sub29 = sub i32 %emLen.0, %call
-  %sub30 = add i32 %sub29, -2
+  %sub29 = sub nsw i32 %emLen.0, %call
+  %sub30 = add nsw i32 %sub29, -2
   br i1 %cmp27, label %if.then28, label %if.else35
 
 if.then28:                                        ; preds = %if.end26
@@ -404,7 +404,7 @@ if.end48:                                         ; preds = %if.then43
 if.end55:                                         ; preds = %if.end48, %if.end41
   %salt.0 = phi ptr [ %call44, %if.end48 ], [ null, %if.end41 ]
   %3 = xor i32 %call, -1
-  %sub57 = add i32 %emLen.0, %3
+  %sub57 = add nsw i32 %emLen.0, %3
   %idx.ext = sext i32 %sub57 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
   %call58 = tail call ptr @EVP_MD_CTX_new() #9
@@ -448,7 +448,7 @@ if.end83:                                         ; preds = %if.end79
   br i1 %tobool87.not, label %if.end89, label %err
 
 if.end89:                                         ; preds = %if.end83
-  %4 = add i32 %emLen.0, -2
+  %4 = add nsw i32 %emLen.0, -2
   %5 = add i32 %call, %sLen.addr.1
   %sub92 = sub i32 %4, %5
   %idx.ext93 = sext i32 %sub92 to i64
@@ -510,7 +510,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly %rsa_pss_params) local_unnamed_addr #2 {
+define noundef i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly %rsa_pss_params) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
   br i1 %cmp, label %return, label %if.end
@@ -545,14 +545,14 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_rsa_pss_params_30_copy(ptr nocapture noundef writeonly %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
+define noundef i32 @ossl_rsa_pss_params_30_copy(ptr nocapture noundef writeonly %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %to, ptr noundef nonnull align 4 dereferenceable(20) %from, i64 20, i1 false)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef writeonly %rsa_pss_params, i32 noundef %hashalg_nid) local_unnamed_addr #5 {
+define noundef i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef writeonly %rsa_pss_params, i32 noundef %hashalg_nid) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
   br i1 %cmp, label %return, label %if.end
@@ -567,7 +567,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef writeonly %rsa_pss_params, i32 noundef %maskgenhashalg_nid) local_unnamed_addr #5 {
+define noundef i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr noundef writeonly %rsa_pss_params, i32 noundef %maskgenhashalg_nid) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
   br i1 %cmp, label %return, label %if.end
@@ -583,7 +583,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef writeonly %rsa_pss_params, i32 noundef %saltlen) local_unnamed_addr #5 {
+define noundef i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef writeonly %rsa_pss_params, i32 noundef %saltlen) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
   br i1 %cmp, label %return, label %if.end
@@ -599,7 +599,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef writeonly %rsa_pss_params, i32 noundef %trailerfield) local_unnamed_addr #5 {
+define noundef i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef writeonly %rsa_pss_params, i32 noundef %trailerfield) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
   br i1 %cmp, label %return, label %if.end

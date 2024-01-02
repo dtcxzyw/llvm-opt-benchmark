@@ -47,7 +47,7 @@ for.end8:                                         ; preds = %for.cond1.for.inc6_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @transpose_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #1 {
+define hidden noundef i32 @transpose_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #1 {
 entry:
   %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %cols, i64 %rows)
   %0 = extractvalue { i64, i1 } %umul.i, 1
@@ -143,7 +143,7 @@ return:                                           ; preds = %if.then9, %if.then3
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @squaretrans_pow2(ptr nocapture noundef %matrix, i64 noundef %size) unnamed_addr #2 {
 entry:
   %buf1 = alloca [16384 x i64], align 16
@@ -175,7 +175,7 @@ for.cond2.preheader:                              ; preds = %for.cond2.preheader
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc67
   %c.0123 = phi i64 [ %r.0125, %for.cond2.preheader ], [ %add, %for.inc67 ]
   %add.ptr5 = getelementptr i64, ptr %add.ptr, i64 %c.0123
-  br i1 %cmp7103.not, label %squaretrans.exit, label %for.body8
+  br i1 %cmp7103.not, label %for.inc67, label %for.body8
 
 for.body8:                                        ; preds = %for.body4, %for.body8
   %i.0106 = phi i64 [ %inc, %for.body8 ], [ 0, %for.body4 ]
@@ -186,17 +186,14 @@ for.body8:                                        ; preds = %for.body4, %for.bod
   %add.ptr11 = getelementptr i64, ptr %to.0104, i64 %b.0
   %inc = add nuw nsw i64 %i.0106, 1
   %exitcond.not = icmp eq i64 %inc, %b.0
-  br i1 %exitcond.not, label %for.end, label %for.body8, !llvm.loop !9
-
-for.end:                                          ; preds = %for.body8
-  br i1 %cmp7103.not, label %squaretrans.exit, label %for.body.i
+  br i1 %exitcond.not, label %for.body.i, label %for.body8, !llvm.loop !9
 
 for.cond.loopexit.i:                              ; preds = %for.body7.i, %for.body.i
   %exitcond.not.i = icmp eq i64 %add.i, %b.0
   br i1 %exitcond.not.i, label %squaretrans.exit, label %for.body.i, !llvm.loop !10
 
-for.body.i:                                       ; preds = %for.end, %for.cond.loopexit.i
-  %r.025.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.end ]
+for.body.i:                                       ; preds = %for.body8, %for.cond.loopexit.i
+  %r.025.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.body8 ]
   %add.i = add nuw nsw i64 %r.025.i, 1
   %cmp620.i = icmp ult i64 %add.i, %b.0
   br i1 %cmp620.i, label %for.body7.preheader.i, label %for.cond.loopexit.i
@@ -224,7 +221,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %cmp6.i = icmp ult i64 %inc.i, %b.0
   br i1 %cmp6.i, label %for.body7.i, label %for.cond.loopexit.i, !llvm.loop !11
 
-squaretrans.exit:                                 ; preds = %for.cond.loopexit.i, %for.body4, %for.end
+squaretrans.exit:                                 ; preds = %for.cond.loopexit.i
   %cmp13 = icmp eq i64 %r.0125, %c.0123
   br i1 %cmp13, label %for.cond18.preheader, label %if.else
 
@@ -256,17 +253,14 @@ for.body33:                                       ; preds = %if.else, %for.body3
   %add.ptr36 = getelementptr i64, ptr %to.2108, i64 %b.0
   %inc38 = add nuw nsw i64 %i.2110, 1
   %exitcond127.not = icmp eq i64 %inc38, %b.0
-  br i1 %exitcond127.not, label %for.end39, label %for.body33, !llvm.loop !13
-
-for.end39:                                        ; preds = %for.body33
-  br i1 %cmp7103.not, label %for.inc67, label %for.body.i80
+  br i1 %exitcond127.not, label %for.body.i80, label %for.body33, !llvm.loop !13
 
 for.cond.loopexit.i84:                            ; preds = %for.body7.i91, %for.body.i80
   %exitcond.not.i85 = icmp eq i64 %add.i82, %b.0
   br i1 %exitcond.not.i85, label %squaretrans.exit101, label %for.body.i80, !llvm.loop !10
 
-for.body.i80:                                     ; preds = %for.end39, %for.cond.loopexit.i84
-  %r.025.i81 = phi i64 [ %add.i82, %for.cond.loopexit.i84 ], [ 0, %for.end39 ]
+for.body.i80:                                     ; preds = %for.body33, %for.cond.loopexit.i84
+  %r.025.i81 = phi i64 [ %add.i82, %for.cond.loopexit.i84 ], [ 0, %for.body33 ]
   %add.i82 = add nuw nsw i64 %r.025.i81, 1
   %cmp620.i83 = icmp ult i64 %add.i82, %b.0
   br i1 %cmp620.i83, label %for.body7.preheader.i86, label %for.cond.loopexit.i84
@@ -297,9 +291,6 @@ for.body7.i91:                                    ; preds = %for.body7.i91, %for
 squaretrans.exit101:                              ; preds = %for.cond.loopexit.i84
   br i1 %cmp7103.not, label %for.inc67, label %for.body47
 
-for.cond58.preheader:                             ; preds = %for.body47
-  br i1 %cmp7103.not, label %for.inc67, label %for.body60
-
 for.body47:                                       ; preds = %squaretrans.exit101, %for.body47
   %i.3114 = phi i64 [ %inc52, %for.body47 ], [ 0, %squaretrans.exit101 ]
   %from.3113 = phi ptr [ %add.ptr49, %for.body47 ], [ %buf1, %squaretrans.exit101 ]
@@ -309,12 +300,12 @@ for.body47:                                       ; preds = %squaretrans.exit101
   %add.ptr50 = getelementptr i64, ptr %to.3112, i64 %size
   %inc52 = add nuw nsw i64 %i.3114, 1
   %exitcond128.not = icmp eq i64 %inc52, %b.0
-  br i1 %exitcond128.not, label %for.cond58.preheader, label %for.body47, !llvm.loop !14
+  br i1 %exitcond128.not, label %for.body60, label %for.body47, !llvm.loop !14
 
-for.body60:                                       ; preds = %for.cond58.preheader, %for.body60
-  %i.4118 = phi i64 [ %inc65, %for.body60 ], [ 0, %for.cond58.preheader ]
-  %from.4117 = phi ptr [ %add.ptr62, %for.body60 ], [ %buf2, %for.cond58.preheader ]
-  %to.4116 = phi ptr [ %add.ptr63, %for.body60 ], [ %add.ptr5, %for.cond58.preheader ]
+for.body60:                                       ; preds = %for.body47, %for.body60
+  %i.4118 = phi i64 [ %inc65, %for.body60 ], [ 0, %for.body47 ]
+  %from.4117 = phi ptr [ %add.ptr62, %for.body60 ], [ %buf2, %for.body47 ]
+  %to.4116 = phi ptr [ %add.ptr63, %for.body60 ], [ %add.ptr5, %for.body47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %to.4116, ptr align 8 %from.4117, i64 %mul9, i1 false)
   %add.ptr62 = getelementptr i64, ptr %from.4117, i64 %b.0
   %add.ptr63 = getelementptr i64, ptr %to.4116, i64 %size
@@ -322,7 +313,7 @@ for.body60:                                       ; preds = %for.cond58.preheade
   %exitcond129.not = icmp eq i64 %inc65, %b.0
   br i1 %exitcond129.not, label %for.inc67, label %for.body60, !llvm.loop !15
 
-for.inc67:                                        ; preds = %for.body60, %for.body20, %if.else, %for.end39, %squaretrans.exit101, %for.cond58.preheader, %for.cond18.preheader
+for.inc67:                                        ; preds = %for.body60, %for.body20, %for.body4, %if.else, %squaretrans.exit101, %for.cond18.preheader
   %add = add i64 %c.0123, %b.0
   %cmp3 = icmp ult i64 %add, %size
   br i1 %cmp3, label %for.body4, label %for.inc69, !llvm.loop !16
@@ -337,7 +328,7 @@ for.end71:                                        ; preds = %for.inc69, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @swap_halfrows_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef %dir) unnamed_addr #1 {
+define internal fastcc noundef i32 @swap_halfrows_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef %dir) unnamed_addr #1 {
 entry:
   %buf1 = alloca [4096 x i64], align 16
   %buf2 = alloca [4096 x i64], align 16
@@ -499,7 +490,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

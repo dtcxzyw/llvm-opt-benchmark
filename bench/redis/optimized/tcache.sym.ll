@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @tcache_gc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
+define hidden noundef i64 @tcache_gc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
 entry:
   ret i64 1
 }
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @tcache_gc_dalloc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
+define hidden noundef i64 @tcache_gc_dalloc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
 entry:
   ret i64 1
 }
@@ -1817,7 +1817,7 @@ do.end116:                                        ; preds = %do.body66, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @opt_tcache, align 1
   %1 = and i8 %0, 1
@@ -1839,7 +1839,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @tsd_slow_update(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @tsd_tcache_data_init(ptr noundef %tsd) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tsd_tcache_data_init(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -2117,7 +2117,7 @@ for.end35:                                        ; preds = %for.end35.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tcache_create_explicit(ptr noundef %tsd) local_unnamed_addr #0 {
+define hidden noundef ptr @tcache_create_explicit(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -2609,7 +2609,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare ptr @arena_bin_choose(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @tcaches_create(ptr noundef %tsd, ptr noundef %base, ptr nocapture noundef writeonly %r_ind) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tcaches_create(ptr noundef %tsd, ptr noundef %base, ptr nocapture noundef writeonly %r_ind) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %tsd, null
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @tcaches_mtx, i64 0, i32 0, i32 0, i32 1)) #13
@@ -2845,7 +2845,7 @@ if.end:                                           ; preds = %if.then, %malloc_mu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @tcache_boot(ptr noundef %tsdn, ptr noundef %base) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tcache_boot(ptr noundef %tsdn, ptr noundef %base) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @opt_tcache_max, align 8
   %cmp.i = icmp ult i64 %0, 4097
@@ -3192,9 +3192,6 @@ for.body.i.lr.ph:                                 ; preds = %entry
   %leaf31.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 28, i32 1, i64 0, i32 1
   br label %for.body.i
 
-for.cond6.i.preheader:                            ; preds = %rtree_leaf_elm_lookup.exit.i
-  br i1 %cmp1.i87.not, label %emap_edata_lookup_batch.exit, label %for.body8.i
-
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %rtree_leaf_elm_lookup.exit.i
   %i.i.088 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %rtree_leaf_elm_lookup.exit.i ]
   %arr.val = load ptr, ptr %0, align 8
@@ -3279,10 +3276,10 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %for.end.i.i, %if.th
   store ptr %retval.i.i.0, ptr %arrayidx.i, align 8
   %inc.i = add nuw i64 %i.i.088, 1
   %exitcond95.not = icmp eq i64 %inc.i, %nflush
-  br i1 %exitcond95.not, label %for.cond6.i.preheader, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond95.not, label %for.body8.i, label %for.body.i, !llvm.loop !21
 
-for.body8.i:                                      ; preds = %for.cond6.i.preheader, %for.body8.i
-  %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %for.cond6.i.preheader ]
+for.body8.i:                                      ; preds = %rtree_leaf_elm_lookup.exit.i, %for.body8.i
+  %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %arrayidx9.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i5.i.090
   %13 = load ptr, ptr %arrayidx9.i, align 8
   %14 = load atomic i64, ptr %13 monotonic, align 8, !noalias !22
@@ -3299,7 +3296,7 @@ for.body8.i:                                      ; preds = %for.cond6.i.prehead
   %exitcond96.not = icmp eq i64 %inc19.i, %nflush
   br i1 %exitcond96.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !25
 
-emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry, %for.cond6.i.preheader
+emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry
   ret void
 }
 

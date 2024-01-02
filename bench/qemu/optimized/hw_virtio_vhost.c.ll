@@ -3291,13 +3291,10 @@ if.else:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i32 %i.019, 1
   %exitcond.not = icmp eq i32 %inc, %nvqs
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.body11.lr.ph, label %for.body, !llvm.loop !24
 
-for.end:                                          ; preds = %for.inc
+for.body11.lr.ph:                                 ; preds = %for.inc
   tail call void @memory_region_transaction_commit() #18
-  br i1 %cmp18.not, label %for.end17, label %for.body11.lr.ph
-
-for.body11.lr.ph:                                 ; preds = %for.end
   %vq_index13 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
   br label %for.body11
 
@@ -3311,7 +3308,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %exitcond24.not = icmp eq i32 %inc16, %nvqs
   br i1 %exitcond24.not, label %for.end17, label %for.body11, !llvm.loop !25
 
-for.end17:                                        ; preds = %for.body11, %for.end.thread, %for.end
+for.end17:                                        ; preds = %for.body11, %for.end.thread
   tail call void @virtio_device_release_ioeventfd(ptr noundef %vdev) #18
   ret void
 }
@@ -3659,7 +3656,7 @@ declare void @qemu_put_be16(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_dev_load_inflight(ptr nocapture noundef %inflight, ptr noundef %f) local_unnamed_addr #0 {
+define dso_local noundef i32 @vhost_dev_load_inflight(ptr nocapture noundef %inflight, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %fd.i = alloca i32, align 4

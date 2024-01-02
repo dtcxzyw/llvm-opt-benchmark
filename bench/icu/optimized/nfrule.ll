@@ -979,7 +979,7 @@ invoke.cont90:                                    ; preds = %if.end83
 
 invoke.cont95:                                    ; preds = %invoke.cont90
   %21 = xor i32 %call2.i89, -1
-  %sub97 = add i32 %cond.i, %21
+  %sub97 = add nsw i32 %cond.i, %21
   %call.i118 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %sbuf, ptr noundef nonnull align 8 dereferenceable(64) %description, i32 noundef %add, i32 noundef %sub97)
           to label %if.end100 unwind label %lpad22
 
@@ -1012,7 +1012,7 @@ invoke.cont111:                                   ; preds = %invoke.cont103
 
 invoke.cont116:                                   ; preds = %invoke.cont111
   %26 = xor i32 %call2.i89, -1
-  %sub119 = add i32 %cond.i126, %26
+  %sub119 = add nsw i32 %cond.i126, %26
   %call.i132 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %sbuf, ptr noundef nonnull align 8 dereferenceable(64) %description, i32 noundef %add110, i32 noundef %sub119)
           to label %if.end122 unwind label %lpad22
 
@@ -1674,7 +1674,7 @@ land.lhs.true12:                                  ; preds = %_ZNK6icu_7513Unicod
 land.lhs.true16:                                  ; preds = %land.lhs.true12
   %add18 = add nuw nsw i32 %call2.i39, 1
   %cmp.i.i46 = icmp ugt i32 %cond.i, %add18
-  br i1 %cmp.i.i46, label %_ZNK6icu_7513UnicodeString6charAtEi.exit55, label %if.end28
+  br i1 %cmp.i.i46, label %_ZNK6icu_7513UnicodeString6charAtEi.exit55, label %if.end25
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit55:       ; preds = %land.lhs.true16
   %17 = and i16 %14, 2
@@ -1689,15 +1689,15 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit55:       ; preds = %land.lhs.true16
   %.fr = freeze i16 %19
   %cmp22 = icmp eq i16 %.fr, 60
   %spec.select = select i1 %cmp22, i32 %add18, i32 %call2.i39
-  br label %if.end28
+  br label %if.end25
 
-if.end25:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then4
-  %subEnd.0 = phi i32 [ %add, %if.then4 ], [ %call2.i39, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
+if.end25:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit55, %land.lhs.true16, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then4
+  %subEnd.0 = phi i32 [ %add, %if.then4 ], [ %call2.i39, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %call2.i39, %land.lhs.true16 ], [ %spec.select, %_ZNK6icu_7513UnicodeString6charAtEi.exit55 ]
   %cmp26 = icmp eq i32 %subEnd.0, -1
   br i1 %cmp26, label %return, label %if.end28
 
-if.end28:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit55, %land.lhs.true16, %land.lhs.true12, %if.end25
-  %subEnd.067 = phi i32 [ %subEnd.0, %if.end25 ], [ %call2.i39, %land.lhs.true12 ], [ %call2.i39, %land.lhs.true16 ], [ %spec.select, %_ZNK6icu_7513UnicodeString6charAtEi.exit55 ]
+if.end28:                                         ; preds = %land.lhs.true12, %if.end25
+  %subEnd.067 = phi i32 [ %subEnd.0, %if.end25 ], [ %call2.i39, %land.lhs.true12 ]
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %subToken, align 8
   %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %subToken, i64 0, i32 1
   store i16 2, ptr %fUnion2.i, align 8

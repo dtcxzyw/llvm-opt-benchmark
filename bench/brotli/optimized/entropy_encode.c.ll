@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BrotliReverseBits.kLut = internal unnamed_addr constant [16 x i64] [i64 0, i64 8, i64 4, i64 12, i64 2, i64 10, i64 6, i64 14, i64 1, i64 9, i64 5, i64 13, i64 3, i64 11, i64 7, i64 15], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @BrotliSetDepth(i32 noundef %p0, ptr nocapture noundef readonly %pool, ptr nocapture noundef writeonly %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
+define hidden noundef i32 @BrotliSetDepth(i32 noundef %p0, ptr nocapture noundef readonly %pool, ptr nocapture noundef writeonly %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
 entry:
   %stack = alloca [16 x i32], align 16
   store i32 -1, ptr %stack, align 16
@@ -77,8 +77,8 @@ return:                                           ; preds = %if.then, %if.else, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliCreateHuffmanTree(ptr nocapture noundef readonly %data, i64 noundef %length, i32 noundef %tree_limit, ptr nocapture noundef %tree, ptr nocapture noundef writeonly %depth) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @BrotliCreateHuffmanTree(ptr nocapture noundef readonly %data, i64 noundef %length, i32 noundef %tree_limit, ptr nocapture noundef %tree, ptr nocapture noundef writeonly %depth) local_unnamed_addr #0 {
 entry:
   %stack.i = alloca [16 x i32], align 16
   %cmp.not130 = icmp eq i64 %length, 0
@@ -375,8 +375,8 @@ for.end64:                                        ; preds = %BrotliSetDepth.exit
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %length, ptr nocapture noundef %counts, ptr nocapture noundef %good_for_rle) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %length, ptr nocapture noundef %counts, ptr nocapture noundef %good_for_rle) local_unnamed_addr #0 {
 entry:
   %cmp133.not = icmp eq i64 %length, 0
   br i1 %cmp133.not, label %for.end208, label %for.body
@@ -395,14 +395,14 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %cmp2 = icmp ult i64 %spec.select, 16
-  br i1 %cmp2, label %for.end208, label %while.cond.preheader
+  br i1 %cmp2, label %for.end208, label %land.rhs.preheader
 
-while.cond.preheader:                             ; preds = %for.end
+land.rhs.preheader:                               ; preds = %for.end
   %invariant.gep = getelementptr i32, ptr %counts, i64 -1
-  br i1 %cmp133.not, label %for.end208, label %land.rhs
+  br label %land.rhs
 
-land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %length.addr.0137 = phi i64 [ %dec, %while.body ], [ %length, %while.cond.preheader ]
+land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
+  %length.addr.0137 = phi i64 [ %dec, %while.body ], [ %length, %land.rhs.preheader ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %length.addr.0137
   %1 = load i32, ptr %gep, align 4
   %cmp7 = icmp eq i32 %1, 0
@@ -678,12 +678,12 @@ for.inc206:                                       ; preds = %if.end199, %if.then
   %cmp100.not.not = icmp ult i64 %i.4155, %length.addr.0137
   br i1 %cmp100.not.not, label %for.body102, label %for.end208, !llvm.loop !19
 
-for.end208:                                       ; preds = %while.body, %for.inc206, %entry, %while.cond.preheader, %if.end54, %for.end26, %for.end
+for.end208:                                       ; preds = %while.body, %for.inc206, %entry, %if.end54, %for.end26, %for.end
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BrotliWriteHuffmanTree(ptr nocapture noundef readonly %depth, i64 noundef %length, ptr nocapture noundef %tree_size, ptr nocapture noundef %tree, ptr nocapture noundef %extra_bits_data) local_unnamed_addr #0 {
@@ -1125,8 +1125,8 @@ for.end43:                                        ; preds = %if.end41, %entry, %
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliConvertBitDepthsToSymbols(ptr nocapture noundef readonly %depth, i64 noundef %len, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @BrotliConvertBitDepthsToSymbols(ptr nocapture noundef readonly %depth, i64 noundef %len, ptr nocapture noundef writeonly %bits) local_unnamed_addr #0 {
 entry:
   %bl_count = alloca [16 x i16], align 16
   %next_code = alloca [16 x i16], align 16
@@ -1223,22 +1223,21 @@ for.end28:                                        ; preds = %for.inc26, %for.con
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

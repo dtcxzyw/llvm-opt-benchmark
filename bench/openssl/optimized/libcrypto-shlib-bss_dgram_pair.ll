@@ -33,19 +33,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.dgram_mem_init = private unnamed_addr constant [15 x i8] c"dgram_mem_init\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BIO_s_dgram_pair() local_unnamed_addr #0 {
+define noundef nonnull ptr @BIO_s_dgram_pair() local_unnamed_addr #0 {
 entry:
   ret ptr @dgram_pair_method
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BIO_s_dgram_mem() local_unnamed_addr #0 {
+define noundef nonnull ptr @BIO_s_dgram_mem() local_unnamed_addr #0 {
 entry:
   ret ptr @dgram_mem_method
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define noundef i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @dgram_pair_method) #8
   %cmp = icmp eq ptr %call1, null
@@ -106,7 +106,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_write(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_pair_write(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %cmp = icmp slt i32 %sz_, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -164,7 +164,7 @@ return:                                           ; preds = %if.end10, %if.then2
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_pair_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
   %0 = load ptr, ptr %ptr, align 8
@@ -486,7 +486,7 @@ sw.epilog:                                        ; preds = %if.end.i13, %sw.bb3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal noundef i32 @dgram_pair_init(ptr nocapture noundef writeonly %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp = icmp eq ptr %call, null
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_free(ptr noundef %bio) #1 {
+define internal noundef i32 @dgram_pair_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -571,7 +571,7 @@ return:                                           ; preds = %if.end, %entry, %dg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal noundef i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %cmp = icmp eq i64 %num_msg, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -647,7 +647,7 @@ return:                                           ; preds = %out, %if.then2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal noundef i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
   %0 = load ptr, ptr %ptr, align 8
@@ -756,7 +756,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly %buf, i64 noundef %sz, ptr noundef readonly %local, ptr noundef readonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly %buf, i64 noundef %sz, ptr noundef readonly %local, ptr noundef readonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
@@ -886,8 +886,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @dgram_pair_write_inner(ptr nocapture noundef %b, ptr nocapture noundef readonly %buf, i64 noundef %sz) unnamed_addr #1 {
 entry:
-  %cmp.not41 = icmp eq i64 %sz, 0
-  br i1 %cmp.not41, label %while.end, label %while.body.lr.ph
+  %cmp.not45 = icmp eq i64 %sz, 0
+  br i1 %cmp.not45, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %rbuf = getelementptr inbounds %struct.bio_dgram_pair_st, ptr %b, i64 0, i32 1
@@ -898,15 +898,15 @@ while.body.lr.ph:                                 ; preds = %entry
   %req_buf_len = getelementptr inbounds %struct.bio_dgram_pair_st, ptr %b, i64 0, i32 2
   %arrayidx18.i = getelementptr inbounds %struct.bio_dgram_pair_st, ptr %b, i64 0, i32 1, i32 3, i64 1
   %.pre = load i64, ptr %len1.i, align 8
-  %.pre53 = load i64, ptr %arrayidx.i, align 8
+  %.pre57 = load i64, ptr %arrayidx.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ring_buf_push_pop.exit
-  %0 = phi i64 [ %.pre53, %while.body.lr.ph ], [ %18, %ring_buf_push_pop.exit ]
+  %0 = phi i64 [ %.pre57, %while.body.lr.ph ], [ %18, %ring_buf_push_pop.exit ]
   %1 = phi i64 [ %.pre, %while.body.lr.ph ], [ %15, %ring_buf_push_pop.exit ]
-  %buf.addr.045 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
-  %total_written.043 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
-  %sz.addr.042 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
+  %buf.addr.049 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
+  %total_written.047 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
+  %sz.addr.046 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
   %sub.i = sub i64 %1, %0
   %2 = load i64, ptr %count.i, align 8
   %sub4.i = sub i64 %1, %2
@@ -924,7 +924,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then
   %5 = load i64, ptr %req_buf_len, align 8
-  %add = add i64 %5, %sz.addr.042
+  %add = add i64 %5, %sz.addr.046
   %cmp6.i = icmp ult i64 %5, %add
   br i1 %cmp6.i, label %while.body.i, label %compute_rbuf_growth.exit
 
@@ -957,40 +957,40 @@ if.end3.i:                                        ; preds = %if.then.i33.i.i, %i
   %retval.0.i.i = phi i64 [ %div.i.i, %if.then3.i.i ], [ %9, %if.then.i33.i.i ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i, i64 9223372036854775807)
   %cmp.i = icmp ult i64 %spec.store.select.i, %add
-  br i1 %cmp.i, label %while.body.i, label %compute_rbuf_growth.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %lor.lhs.false, !llvm.loop !7
 
-compute_rbuf_growth.exit:                         ; preds = %if.end3.i, %if.end
-  %retval.0.i = phi i64 [ %5, %if.end ], [ %spec.store.select.i, %if.end3.i ]
-  %cmp4 = icmp eq i64 %retval.0.i, 0
+compute_rbuf_growth.exit:                         ; preds = %if.end
+  %cmp4 = icmp eq i64 %5, 0
   br i1 %cmp4, label %while.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %compute_rbuf_growth.exit
+lor.lhs.false:                                    ; preds = %if.end3.i, %compute_rbuf_growth.exit
+  %retval.0.i39 = phi i64 [ %5, %compute_rbuf_growth.exit ], [ %spec.store.select.i, %if.end3.i ]
   %cmp.i15 = icmp eq ptr %3, null
   br i1 %cmp.i15, label %if.then.i, label %if.end.i16
 
 if.then.i:                                        ; preds = %lor.lhs.false
-  %call.i.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %retval.0.i, ptr noundef nonnull @.str.1, i32 noundef 37) #8
+  %call.i.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %retval.0.i39, ptr noundef nonnull @.str.1, i32 noundef 37) #8
   store ptr %call.i.i, ptr %rbuf, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %while.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  store i64 %retval.0.i, ptr %len1.i, align 8
+  store i64 %retval.0.i39, ptr %len1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   br label %if.end9
 
 if.end.i16:                                       ; preds = %lor.lhs.false
-  %cmp1.i17 = icmp eq i64 %1, %retval.0.i
+  %cmp1.i17 = icmp eq i64 %1, %retval.0.i39
   br i1 %cmp1.i17, label %if.end9, label %if.end3.i18
 
 if.end3.i18:                                      ; preds = %if.end.i16
   %cmp4.not.i = icmp ne i64 %2, 0
-  %cmp6.i20 = icmp ugt i64 %1, %retval.0.i
+  %cmp6.i20 = icmp ugt i64 %1, %retval.0.i39
   %or.cond.i = and i1 %cmp4.not.i, %cmp6.i20
   br i1 %or.cond.i, label %while.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i18
-  %call10.i = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %3, i64 noundef %retval.0.i, ptr noundef nonnull @.str.1, i32 noundef 134) #8
+  %call10.i = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %3, i64 noundef %retval.0.i39, ptr noundef nonnull @.str.1, i32 noundef 134) #8
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %while.end, label %if.end13.i
 
@@ -1007,7 +1007,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 
 if.then20.i:                                      ; preds = %if.then16.i
   %13 = load i64, ptr %len1.i, align 8
-  %sub.i21 = sub i64 %retval.0.i, %13
+  %sub.i21 = sub i64 %retval.0.i39, %13
   %add.ptr.i22 = getelementptr inbounds i8, ptr %call10.i, i64 %12
   %add.ptr24.i = getelementptr inbounds i8, ptr %add.ptr.i22, i64 %sub.i21
   %sub31.i = sub i64 %13, %12
@@ -1023,16 +1023,16 @@ if.else.i:                                        ; preds = %if.end13.i
 
 if.end39.i:                                       ; preds = %if.else.i, %if.then20.i, %if.then16.i
   store ptr %call10.i, ptr %rbuf, align 8
-  store i64 %retval.0.i, ptr %len1.i, align 8
+  store i64 %retval.0.i39, ptr %len1.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end39.i, %if.end.i16, %if.end.i.i
-  store i64 %retval.0.i, ptr %req_buf_len, align 8
+  store i64 %retval.0.i39, ptr %req_buf_len, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %while.body
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.042)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.045, i64 %spec.select, i1 false)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.046)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.049, i64 %spec.select, i1 false)
   %15 = load i64, ptr %len1.i, align 8
   %16 = load i64, ptr %arrayidx.i, align 8
   %sub.i26 = sub i64 %15, %16
@@ -1055,15 +1055,15 @@ if.else.i29:                                      ; preds = %if.end.i27
 
 ring_buf_push_pop.exit:                           ; preds = %if.end11, %if.end.i27, %if.else.i29
   %18 = phi i64 [ %16, %if.end11 ], [ %16, %if.end.i27 ], [ %spec.store.select22.i, %if.else.i29 ]
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.045, i64 %spec.select
-  %sub = sub i64 %sz.addr.042, %spec.select
-  %add16 = add i64 %spec.select, %total_written.043
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.049, i64 %spec.select
+  %sub = sub i64 %sz.addr.046, %spec.select
+  %add16 = add i64 %spec.select, %total_written.047
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %ring_buf_push_pop.exit, %if.then, %compute_rbuf_growth.exit, %if.end3.i18, %if.end8.i, %if.then.i, %while.body.i, %entry
-  %total_written.040 = phi i64 [ 0, %entry ], [ %total_written.043, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.043, %if.then ], [ %total_written.043, %compute_rbuf_growth.exit ], [ %total_written.043, %if.end3.i18 ], [ %total_written.043, %if.end8.i ], [ %total_written.043, %if.then.i ]
-  ret i64 %total_written.040
+  %total_written.044 = phi i64 [ 0, %entry ], [ %total_written.047, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.047, %if.then ], [ %total_written.047, %compute_rbuf_growth.exit ], [ %total_written.047, %if.end3.i18 ], [ %total_written.047, %if.end8.i ], [ %total_written.047, %if.then.i ]
+  ret i64 %total_written.044
 }
 
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1076,7 +1076,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef %buf, i64 noundef %sz, ptr noundef writeonly %local, ptr noundef writeonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef %buf, i64 noundef %sz, ptr noundef writeonly %local, ptr noundef writeonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
@@ -1280,7 +1280,7 @@ return:                                           ; preds = %if.end17, %if.end12
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @dgram_pair_read_inner(ptr nocapture noundef %b, ptr noundef writeonly %buf, i64 noundef %sz) unnamed_addr #5 {
 entry:
   %rbuf = getelementptr inbounds %struct.bio_dgram_pair_st, ptr %b, i64 0, i32 1
@@ -1786,7 +1786,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_mem_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_mem_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %cmp = icmp slt i32 %sz_, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %if.end14, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dgram_mem_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal noundef i32 @dgram_mem_init(ptr nocapture noundef writeonly %bio) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -1917,7 +1917,7 @@ attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

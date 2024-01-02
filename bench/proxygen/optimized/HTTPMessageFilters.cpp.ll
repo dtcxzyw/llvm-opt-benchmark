@@ -467,34 +467,28 @@ entry:
 
 if.then:                                          ; preds = %entry
   %switch.i.not.i.i = icmp eq i32 %.lobit.i, %0
-  br i1 %switch.i.not.i.i, label %if.then.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i
+  br i1 %switch.i.not.i.i, label %invoke.cont.i.i, label %_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit
 
-_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %if.then
-  %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
-  store ptr null, ptr %storage_.i.i.i.i, align 8
-  br label %if.end
-
-if.then.i.i:                                      ; preds = %if.then
-  %cmp.i.i.i = icmp eq i32 %0, 1
-  %storage_.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
-  store ptr null, ptr %storage_.i.i3.i.i, align 8
-  br i1 %cmp.i.i.i, label %if.end, label %sw.bb3.i46.i.i.i
-
-sw.bb3.i46.i.i.i:                                 ; preds = %if.then.i.i
+invoke.cont.i.i:                                  ; preds = %if.then
   store i32 1, ptr %prev_, align 8
+  br label %_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit
+
+_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit: ; preds = %if.then, %invoke.cont.i.i
+  %1 = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  store ptr null, ptr %1, align 8
   br label %if.end
 
-if.end:                                           ; preds = %sw.bb3.i46.i.i.i, %if.then.i.i, %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i, %entry
+if.end:                                           ; preds = %_ZN5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEEaSIS5_EENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS9_4not_INS_8is_constISC_EEEENS_6detail7variant29is_variant_constructible_fromISD_NS9_6l_itemIN4mpl_5long_ILl2EEES3_NSM_INSO_ILl1EEES5_NS9_5l_endEEEEEEENSN_5bool_ILb1EEESW_EERS6_E4typeESD_.exit, %entry
   %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %nextTransactionHandler_, align 8
-  %tobool.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr %nextTransactionHandler_, align 8
+  %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
+  %3 = load ptr, ptr %vfn, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
@@ -906,26 +900,16 @@ invoke.cont9:                                     ; preds = %if.end
   %6 = load i32, ptr %prev_, align 8
   %.lobit.i.i.i.i = ashr i32 %6, 31
   %switch.i.not.i.i = icmp eq i32 %.lobit.i.i.i.i, %6
-  br i1 %switch.i.not.i.i, label %if.then.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS5_EEEENT_11result_typeERSC_.exit.thread.i.i
-
-_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS5_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %invoke.cont9
-  %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
   %7 = load ptr, ptr %call10, align 8
-  store ptr %7, ptr %storage_.i.i.i.i, align 8
-  br label %invoke.cont12
+  br i1 %switch.i.not.i.i, label %invoke.cont.i.i, label %invoke.cont12
 
-if.then.i.i:                                      ; preds = %invoke.cont9
-  %8 = load ptr, ptr %call10, align 8
-  %cmp.i.i.i = icmp eq i32 %6, 1
-  %storage_.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
-  store ptr %8, ptr %storage_.i.i3.i.i, align 8
-  br i1 %cmp.i.i.i, label %invoke.cont12, label %sw.bb3.i46.i.i.i
-
-sw.bb3.i46.i.i.i:                                 ; preds = %if.then.i.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont9
   store i32 1, ptr %prev_, align 8
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %sw.bb3.i46.i.i.i, %if.then.i.i, %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS5_EEEENT_11result_typeERSC_.exit.thread.i.i
+invoke.cont12:                                    ; preds = %invoke.cont.i.i, %invoke.cont9
+  %8 = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  store ptr %7, ptr %8, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %if.end, %if.then

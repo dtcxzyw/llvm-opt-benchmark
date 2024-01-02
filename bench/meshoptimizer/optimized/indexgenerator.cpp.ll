@@ -500,18 +500,18 @@ _ZN7meshoptL11hashUpdate4EjPKhm.exit.i:           ; preds = %while.body.i.i, %fo
   %h.addr.0.lcssa.i.i = phi i32 [ %h.08.i, %for.body.i ], [ %xor3.i.i, %while.body.i.i ]
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %hash.8.val
-  br i1 %exitcond.not.i, label %_ZNK7meshopt18VertexStreamHasher4hashEj.exit, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !12
 
-_ZNK7meshopt18VertexStreamHasher4hashEj.exit:     ; preds = %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i
+for.body.preheader:                               ; preds = %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i
   %4 = zext i32 %h.addr.0.lcssa.i.i to i64
   %bucket.018 = and i64 %sub, %4
   %stride.i162 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 0, i32 2
   %size.i197 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 0, i32 1
-  br i1 %cmp6.not.i, label %return.split.loop.exit, label %for.body
+  br label %for.body
 
-for.body:                                         ; preds = %_ZNK7meshopt18VertexStreamHasher4hashEj.exit, %if.end4
-  %bucket.020 = phi i64 [ %bucket.0, %if.end4 ], [ %bucket.018, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit ]
-  %probe.019 = phi i64 [ %add, %if.end4 ], [ 0, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit ]
+for.body:                                         ; preds = %for.body.preheader, %if.end4
+  %bucket.020 = phi i64 [ %bucket.0, %if.end4 ], [ %bucket.018, %for.body.preheader ]
+  %probe.019 = phi i64 [ %add, %if.end4 ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds i32, ptr %table, i64 %bucket.020
   %5 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp eq i32 %5, %empty.0.val
@@ -562,8 +562,8 @@ if.end4:                                          ; preds = %for.body.lr.ph.i12,
   %cmp.not = icmp ugt i64 %add, %sub
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !14
 
-return.split.loop.exit:                           ; preds = %for.body, %entry, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit
-  %.us-phi = phi i64 [ %bucket.018, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit ], [ 0, %entry ], [ %bucket.020, %for.body ]
+return.split.loop.exit:                           ; preds = %for.body, %entry
+  %.us-phi = phi i64 [ 0, %entry ], [ %bucket.020, %for.body ]
   %arrayidx.le16 = getelementptr inbounds i32, ptr %table, i64 %.us-phi
   br label %return
 

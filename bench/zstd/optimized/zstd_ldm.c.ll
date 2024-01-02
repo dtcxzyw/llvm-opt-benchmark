@@ -397,8 +397,8 @@ entry:
   %cmp = icmp ne i64 %rem, 0
   %conv1 = zext i1 %cmp to i64
   %add = add nuw nsw i64 %div35, %conv1
-  %cmp274.not = icmp eq i64 %add, 0
-  br i1 %cmp274.not, label %return, label %land.rhs.lr.ph
+  %cmp280.not = icmp eq i64 %add, 0
+  br i1 %cmp280.not, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %size = getelementptr inbounds %struct.rawSeqStore_t, ptr %sequences, i64 0, i32 3
@@ -422,15 +422,15 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %chunk.076 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
-  %leftoverSize.075 = phi i64 [ 0, %land.rhs.lr.ph ], [ %leftoverSize.1, %for.inc ]
+  %chunk.082 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
+  %leftoverSize.081 = phi i64 [ 0, %land.rhs.lr.ph ], [ %leftoverSize.1, %for.inc ]
   %5 = load i64, ptr %size, align 8
   %6 = load i64, ptr %capacity, align 8
   %cmp4 = icmp ult i64 %5, %6
   br i1 %cmp4, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
-  %mul = shl nuw i64 %chunk.076, 20
+  %mul = shl nuw i64 %chunk.082, 20
   %add.ptr6 = getelementptr inbounds i8, ptr %src, i64 %mul
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -447,7 +447,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.i, label %for.body.if.end_crit_edge, label %if.then
 
 for.body.if.end_crit_edge:                        ; preds = %for.body
-  %.pre86 = load i32, ptr %loadedDictEnd, align 4
+  %.pre92 = load i32, ptr %loadedDictEnd, align 4
   br label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -493,15 +493,15 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 ZSTD_ldm_reduceTable.exit:                        ; preds = %for.body.i
   store i32 0, ptr %loadedDictEnd, align 8
   %.pre = load ptr, ptr %1, align 8
-  %.pre90 = ptrtoint ptr %.pre to i64
-  %.pre91 = sub i64 %sub.ptr.lhs.cast10, %.pre90
-  %.pre92 = trunc i64 %.pre91 to i32
+  %.pre96 = ptrtoint ptr %.pre to i64
+  %.pre97 = sub i64 %sub.ptr.lhs.cast10, %.pre96
+  %.pre98 = trunc i64 %.pre97 to i32
   br label %if.end
 
 if.end:                                           ; preds = %for.body.if.end_crit_edge, %ZSTD_ldm_reduceTable.exit
-  %conv.i45.pre-phi = phi i32 [ %conv.i, %for.body.if.end_crit_edge ], [ %.pre92, %ZSTD_ldm_reduceTable.exit ]
-  %sub.ptr.rhs.cast.i43.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i, %for.body.if.end_crit_edge ], [ %.pre90, %ZSTD_ldm_reduceTable.exit ]
-  %14 = phi i32 [ %.pre86, %for.body.if.end_crit_edge ], [ 0, %ZSTD_ldm_reduceTable.exit ]
+  %conv.i45.pre-phi = phi i32 [ %conv.i, %for.body.if.end_crit_edge ], [ %.pre98, %ZSTD_ldm_reduceTable.exit ]
+  %sub.ptr.rhs.cast.i43.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i, %for.body.if.end_crit_edge ], [ %.pre96, %ZSTD_ldm_reduceTable.exit ]
+  %14 = phi i32 [ %.pre92, %for.body.if.end_crit_edge ], [ 0, %ZSTD_ldm_reduceTable.exit ]
   %15 = phi ptr [ %ldmState.val, %for.body.if.end_crit_edge ], [ %.pre, %ZSTD_ldm_reduceTable.exit ]
   %add.i = add i32 %14, %shl
   %cmp2.i = icmp ult i32 %add.i, %conv.i45.pre-phi
@@ -532,13 +532,13 @@ do.end13.i:                                       ; preds = %if.end.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %do.end13.i, %if.end.i
-  %ldmState.val161.i88 = phi i32 [ %17, %do.end13.i ], [ %18, %if.end.i ]
+  %ldmState.val161.i94 = phi i32 [ %17, %do.end13.i ], [ %18, %if.end.i ]
   store i32 0, ptr %loadedDictEnd, align 4
   br label %ZSTD_window_enforceMaxDist.exit
 
 ZSTD_window_enforceMaxDist.exit:                  ; preds = %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge, %if.end16.i
   %ldmState.val162.i = phi i32 [ %16, %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge ], [ %17, %if.end16.i ]
-  %ldmState.val161.i = phi i32 [ %ldmState.val161.i.pre, %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge ], [ %ldmState.val161.i88, %if.end16.i ]
+  %ldmState.val161.i = phi i32 [ %ldmState.val161.i.pre, %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge ], [ %ldmState.val161.i94, %if.end16.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashState.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %numSplits.i)
   %cmp.i.not.i = icmp ult i32 %ldmState.val162.i, %ldmState.val161.i
@@ -568,7 +568,12 @@ cond.end13.i:                                     ; preds = %cond.true9.i, %ZSTD
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr29.i, i64 -8
   %conv.i51 = zext i32 %params.12.val.fr.i.i to i64
   %cmp.i52 = icmp ult i64 %sub.ptr.sub12, %conv.i51
-  br i1 %cmp.i52, label %ZSTD_ldm_generateSequences_internal.exit, label %if.end.i53
+  br i1 %cmp.i52, label %ZSTD_ldm_generateSequences_internal.exit.thread, label %if.end.i53
+
+ZSTD_ldm_generateSequences_internal.exit.thread:  ; preds = %cond.end13.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashState.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %numSplits.i)
+  br label %if.end24
 
 if.end.i53:                                       ; preds = %cond.end13.i
   %params.val154.i = load i32, ptr %2, align 4
@@ -1154,9 +1159,9 @@ if.end171.i:                                      ; preds = %for.end165.i
   %53 = load i64, ptr %size, align 8
   %54 = load i64, ptr %capacity, align 8
   %cmp182.i = icmp eq i64 %53, %54
-  br i1 %cmp182.i, label %ZSTD_ldm_generateSequences_internal.exit.thread, label %if.end185.i
+  br i1 %cmp182.i, label %ZSTD_ldm_generateSequences_internal.exit.thread68, label %if.end185.i
 
-ZSTD_ldm_generateSequences_internal.exit.thread:  ; preds = %if.end171.i
+ZSTD_ldm_generateSequences_internal.exit.thread68: ; preds = %if.end171.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashState.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %numSplits.i)
   br label %return
@@ -1251,27 +1256,28 @@ for.end212.i:                                     ; preds = %for.inc210.i, %ZSTD
   %anchor.3.i = phi ptr [ %add.ptr198.i, %ZSTD_ldm_gear_reset.exit224.i ], [ %anchor.0257.i, %while.body.i ], [ %anchor.2.i, %for.inc210.i ]
   %add.ptr213.i = getelementptr inbounds i8, ptr %ip.1.i, i64 %call41.i
   %cmp36.i = icmp ult ptr %add.ptr213.i, %add.ptr30.i
-  br i1 %cmp36.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !16
+  br i1 %cmp36.i, label %while.body.i, label %ZSTD_ldm_generateSequences_internal.exit.loopexit, !llvm.loop !16
 
-while.end.i.loopexit:                             ; preds = %for.end212.i
-  %.pre93 = ptrtoint ptr %anchor.3.i to i64
-  %.pre94 = sub i64 %sub.ptr.lhs.cast10, %.pre93
+ZSTD_ldm_generateSequences_internal.exit.loopexit: ; preds = %for.end212.i
+  %.pre99 = ptrtoint ptr %anchor.3.i to i64
+  %.pre100 = sub i64 %sub.ptr.lhs.cast10, %.pre99
   br label %ZSTD_ldm_generateSequences_internal.exit
 
-ZSTD_ldm_generateSequences_internal.exit:         ; preds = %if.end.i53, %while.end.i.loopexit, %cond.end13.i
-  %retval.0.i = phi i64 [ %sub.ptr.sub12, %cond.end13.i ], [ %.pre94, %while.end.i.loopexit ], [ %sub.ptr.sub12, %if.end.i53 ]
+ZSTD_ldm_generateSequences_internal.exit:         ; preds = %ZSTD_ldm_generateSequences_internal.exit.loopexit, %if.end.i53
+  %sub.ptr.sub216.i.pre-phi = phi i64 [ %.pre100, %ZSTD_ldm_generateSequences_internal.exit.loopexit ], [ %sub.ptr.sub12, %if.end.i53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashState.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %numSplits.i)
-  %cmp.i61 = icmp ult i64 %retval.0.i, -119
+  %cmp.i61 = icmp ult i64 %sub.ptr.sub216.i.pre-phi, -119
   br i1 %cmp.i61, label %if.end24, label %return
 
-if.end24:                                         ; preds = %ZSTD_ldm_generateSequences_internal.exit
+if.end24:                                         ; preds = %ZSTD_ldm_generateSequences_internal.exit.thread, %ZSTD_ldm_generateSequences_internal.exit
+  %retval.0.i67 = phi i64 [ %sub.ptr.sub12, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %sub.ptr.sub216.i.pre-phi, %ZSTD_ldm_generateSequences_internal.exit ]
   %60 = load i64, ptr %size, align 8
   %cmp26 = icmp ult i64 %5, %60
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end24
-  %conv29 = trunc i64 %leftoverSize.075 to i32
+  %conv29 = trunc i64 %leftoverSize.081 to i32
   %61 = load ptr, ptr %sequences, align 8
   %litLength = getelementptr inbounds %struct.rawSeq, ptr %61, i64 %5, i32 1
   %62 = load i32, ptr %litLength, align 4
@@ -1280,17 +1286,17 @@ if.then28:                                        ; preds = %if.end24
   br label %for.inc
 
 if.else:                                          ; preds = %if.end24
-  %add31 = add i64 %sub.ptr.sub12, %leftoverSize.075
+  %add31 = add i64 %sub.ptr.sub12, %leftoverSize.081
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then28, %if.else
-  %leftoverSize.1 = phi i64 [ %retval.0.i, %if.then28 ], [ %add31, %if.else ]
-  %inc = add nuw nsw i64 %chunk.076, 1
+  %leftoverSize.1 = phi i64 [ %retval.0.i67, %if.then28 ], [ %add31, %if.else ]
+  %inc = add nuw nsw i64 %chunk.082, 1
   %exitcond.not = icmp eq i64 %inc, %add
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !17
 
-return:                                           ; preds = %ZSTD_ldm_generateSequences_internal.exit, %for.inc, %land.rhs, %entry, %ZSTD_ldm_generateSequences_internal.exit.thread
-  %retval.0 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ 0, %entry ], [ %retval.0.i, %ZSTD_ldm_generateSequences_internal.exit ], [ 0, %for.inc ], [ 0, %land.rhs ]
+return:                                           ; preds = %ZSTD_ldm_generateSequences_internal.exit, %for.inc, %land.rhs, %entry, %ZSTD_ldm_generateSequences_internal.exit.thread68
+  %retval.0 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread68 ], [ 0, %entry ], [ %sub.ptr.sub216.i.pre-phi, %ZSTD_ldm_generateSequences_internal.exit ], [ 0, %for.inc ], [ 0, %land.rhs ]
   ret i64 %retval.0
 }
 

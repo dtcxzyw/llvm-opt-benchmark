@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcrypto_afsplit_hash = private unnamed_addr constant [76 x i8] c"int qcrypto_afsplit_hash(QCryptoHashAlgorithm, size_t, uint8_t *, Error **)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_afsplit_encode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr noundef %out, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_afsplit_encode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr noundef %out, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %blocklen, i64 noundef 1) #6
   %sub = add i32 %stripes, -1
@@ -66,22 +66,25 @@ qcrypto_afsplit_xor.exit.loopexit:                ; preds = %for.body.i
 for.inc:                                          ; preds = %qcrypto_afsplit_xor.exit.loopexit
   %inc = add nuw nsw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.body.i16.preheader, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %mul12 = mul i64 %conv, %blocklen
-  %add.ptr13 = getelementptr i8, ptr %out, i64 %mul12
+for.end:                                          ; preds = %for.inc.us, %entry
   %cmp6.not.i15 = icmp eq i64 %blocklen, 0
-  br i1 %cmp6.not.i15, label %cleanup, label %for.body.i16
+  br i1 %cmp6.not.i15, label %cleanup, label %for.body.i16.preheader
 
-for.body.i16:                                     ; preds = %for.end, %for.body.i16
-  %i.07.i17 = phi i64 [ %inc.i22, %for.body.i16 ], [ 0, %for.end ]
+for.body.i16.preheader:                           ; preds = %for.inc, %for.end
+  %mul1236.pn = mul i64 %conv, %blocklen
+  %add.ptr1339 = getelementptr i8, ptr %out, i64 %mul1236.pn
+  br label %for.body.i16
+
+for.body.i16:                                     ; preds = %for.body.i16.preheader, %for.body.i16
+  %i.07.i17 = phi i64 [ %inc.i22, %for.body.i16 ], [ 0, %for.body.i16.preheader ]
   %arrayidx.i18 = getelementptr i8, ptr %in, i64 %i.07.i17
   %2 = load i8, ptr %arrayidx.i18, align 1
   %arrayidx1.i19 = getelementptr i8, ptr %call, i64 %i.07.i17
   %3 = load i8, ptr %arrayidx1.i19, align 1
   %xor5.i20 = xor i8 %3, %2
-  %arrayidx4.i21 = getelementptr i8, ptr %add.ptr13, i64 %i.07.i17
+  %arrayidx4.i21 = getelementptr i8, ptr %add.ptr1339, i64 %i.07.i17
   store i8 %xor5.i20, ptr %arrayidx4.i21, align 1
   %inc.i22 = add nuw i64 %i.07.i17, 1
   %exitcond.not.i23 = icmp eq i64 %inc.i22, %blocklen
@@ -99,7 +102,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @qcrypto_random_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcrypto_afsplit_hash(i32 noundef %hash, i64 noundef %blocklen, ptr noundef %block, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @qcrypto_afsplit_hash(i32 noundef %hash, i64 noundef %blocklen, ptr noundef %block, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %out = alloca ptr, align 8
   %outlen = alloca i64, align 8
@@ -127,7 +130,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %i.025.us = phi i32 [ %inc30.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
-  %0 = call i32 @llvm.bswap.i32(i32 %i.025.us)
+  %0 = call noundef i32 @llvm.bswap.i32(i32 %i.025.us)
   store i32 %0, ptr %iv, align 4
   store ptr %iv, ptr %in, align 16
   store i64 4, ptr %iov_len, align 8
@@ -158,7 +161,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.025 = phi i32 [ %inc30, %for.inc ], [ 0, %for.body.lr.ph ]
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
-  %3 = call i32 @llvm.bswap.i32(i32 %i.025)
+  %3 = call noundef i32 @llvm.bswap.i32(i32 %i.025)
   store i32 %3, ptr %iv, align 4
   store ptr %iv, ptr %in, align 16
   store i64 4, ptr %iov_len, align 8
@@ -201,7 +204,7 @@ return:                                           ; preds = %for.inc.us, %for.in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_afsplit_decode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_afsplit_decode(i32 noundef %hash, i64 noundef %blocklen, i32 noundef %stripes, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %blocklen, i64 noundef 1) #6
   %sub = add i32 %stripes, -1
@@ -250,17 +253,20 @@ qcrypto_afsplit_xor.exit.loopexit:                ; preds = %for.body.i
 for.inc:                                          ; preds = %qcrypto_afsplit_xor.exit.loopexit
   %inc = add nuw nsw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.body.i11.preheader, label %for.body, !llvm.loop !9
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %mul5 = mul i64 %conv, %blocklen
-  %add.ptr6 = getelementptr i8, ptr %in, i64 %mul5
+for.end:                                          ; preds = %for.inc.us, %entry
   %cmp6.not.i10 = icmp eq i64 %blocklen, 0
-  br i1 %cmp6.not.i10, label %cleanup, label %for.body.i11
+  br i1 %cmp6.not.i10, label %cleanup, label %for.body.i11.preheader
 
-for.body.i11:                                     ; preds = %for.end, %for.body.i11
-  %i.07.i12 = phi i64 [ %inc.i17, %for.body.i11 ], [ 0, %for.end ]
-  %arrayidx.i13 = getelementptr i8, ptr %add.ptr6, i64 %i.07.i12
+for.body.i11.preheader:                           ; preds = %for.inc, %for.end
+  %mul531.pn = mul i64 %conv, %blocklen
+  %add.ptr634 = getelementptr i8, ptr %in, i64 %mul531.pn
+  br label %for.body.i11
+
+for.body.i11:                                     ; preds = %for.body.i11.preheader, %for.body.i11
+  %i.07.i12 = phi i64 [ %inc.i17, %for.body.i11 ], [ 0, %for.body.i11.preheader ]
+  %arrayidx.i13 = getelementptr i8, ptr %add.ptr634, i64 %i.07.i12
   %2 = load i8, ptr %arrayidx.i13, align 1
   %arrayidx1.i14 = getelementptr i8, ptr %call, i64 %i.07.i12
   %3 = load i8, ptr %arrayidx1.i14, align 1

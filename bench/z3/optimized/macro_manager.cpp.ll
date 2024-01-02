@@ -11352,12 +11352,9 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
   %inc.i = add nuw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %11
-  br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %for.body.lr.ph, label %for.body.i, !llvm.loop !63
 
-_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit:   ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
-  br i1 %cmp.i27.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
+for.body.lr.ph:                                   ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
   %19 = load ptr, ptr %head, align 8
   %20 = zext i32 %11 to i64
   %arrayidx.i371 = getelementptr inbounds %class.app, ptr %19, i64 0, i32 3, i64 0
@@ -11405,7 +11402,7 @@ if.end16:                                         ; preds = %for.body.lr.ph, %fo
   %exitcond = icmp eq i64 %indvars.iv.next, %20
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !64
 
-for.end:                                          ; preds = %if.end16, %invoke.cont, %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
+for.end:                                          ; preds = %if.end16, %invoke.cont
   %30 = load ptr, ptr %this, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12beta_reducer, i64 0, inrange i32 0, i64 2), ptr %s, align 8
   %m_cfg.i.i = getelementptr inbounds %class.beta_reducer, ptr %s, i64 0, i32 1

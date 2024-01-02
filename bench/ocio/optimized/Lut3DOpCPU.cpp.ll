@@ -2908,14 +2908,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit
-  %i.0234.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %inc.i, %for.body.i ]
-  %maxGsz.0233.i = phi float [ 0.000000e+00, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %.sroa.speculated.i, %for.body.i ]
-  %arrayidx10.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 2, i64 %i.0234.i
+  %i.0235.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %inc.i, %for.body.i ]
+  %maxGsz.0234.i = phi float [ 0.000000e+00, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit ], [ %.sroa.speculated.i, %for.body.i ]
+  %arrayidx10.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 2, i64 %i.0235.i
   %41 = load i64, ptr %arrayidx10.i, align 8
   %conv.i = uitofp i64 %41 to float
-  %cmp.i.i = fcmp olt float %maxGsz.0233.i, %conv.i
-  %.sroa.speculated.i = select i1 %cmp.i.i, float %conv.i, float %maxGsz.0233.i
-  %inc.i = add nuw nsw i64 %i.0234.i, 1
+  %cmp.i.i = fcmp olt float %maxGsz.0234.i, %conv.i
+  %.sroa.speculated.i = select i1 %cmp.i.i, float %conv.i, float %maxGsz.0234.i
+  %inc.i = add nuw nsw i64 %i.0235.i, 1
   %exitcond.not.i2 = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i2, label %for.end.i, label %for.body.i, !llvm.loop !71
 
@@ -2969,29 +2969,19 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
 
 _ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i.i
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 %sub.i.i)
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i
+  %add.i.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i
   %47 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 82351536043346212)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 82351536043346212, i64 %47
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %try.cont.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 112
+  %mul.i.i.i.i.i.i = mul nuw nsw i64 %47, 112
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
-  br label %try.cont.i.i.i
-
-try.cont.i.i.i:                                   ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i22.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %cond.i22.i.i.i, i64 %sub.ptr.div.i.i.i
-  %48 = mul nuw i64 %sub.i.i, 112
-  call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i, i8 0, i64 %48, i1 false)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i
+  %48 = mul nuw nsw i64 %sub.i.i, 112
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, i8 0, i64 %48, i1 false)
   %cmp.not1.i.i.i.i.i.i.i = icmp eq ptr %this.val.i.i, %this.val4.i.i
   br i1 %cmp.not1.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %try.cont.i.i.i, %for.body.i.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i22.i.i.i, %try.cont.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %this.val.i.i, %try.cont.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %for.body.i.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %__first.addr.02.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !77
@@ -3036,7 +3026,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %try.cont.i.i.i, %fo
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %this.val4.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !78
 
-_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %try.cont.i.i.i
+_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %tobool.not.i29.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i29.i.i.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit31.i.i.i, label %if.then.i30.i.i.i
 
@@ -3045,10 +3035,10 @@ if.then.i30.i.i.i:                                ; preds = %_ZNSt6vectorIN19Ope
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit31.i.i.i
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit31.i.i.i: ; preds = %if.then.i30.i.i.i, %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i
-  store ptr %cond.i22.i.i.i, ptr %m_levels.i, align 8
-  %add.ptr37.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %cond.i22.i.i.i, i64 %conv12.i
+  store ptr %call5.i.i.i.i.i.i, ptr %m_levels.i, align 8
+  %add.ptr37.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %add.ptr.i.i.i, i64 %sub.i.i
   store ptr %add.ptr37.i.i.i, ptr %44, align 8
-  %add.ptr40.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %cond.i22.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr40.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %call5.i.i.i.i.i.i, i64 %47
   store ptr %add.ptr40.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
 
@@ -3113,18 +3103,18 @@ invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyIN19Op
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i: ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit31.i.i.i, %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelEmS3_ET_S5_T0_RSaIT1_E.exit.i.i.i
   %61 = load i64, ptr %m_depth.i, align 8
-  %cmp17238.not.i = icmp eq i64 %61, 0
-  br i1 %cmp17238.not.i, label %for.end41.thread.i, label %for.cond19.preheader.preheader.i
+  %cmp17239.not.i = icmp eq i64 %61, 0
+  br i1 %cmp17239.not.i, label %for.end41.thread.i, label %for.cond19.preheader.preheader.i
 
 for.end41.thread.i:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
-  %m_levelScales276.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 6
-  %_M_finish.i.i277.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 6, i32 0, i32 0, i32 0, i32 1
-  %62 = load ptr, ptr %_M_finish.i.i277.i, align 8
-  %63 = load ptr, ptr %m_levelScales276.i, align 8
-  %sub.ptr.lhs.cast.i.i42278.i = ptrtoint ptr %62 to i64
-  %sub.ptr.rhs.cast.i.i43279.i = ptrtoint ptr %63 to i64
-  %sub.ptr.sub.i.i44280.i = sub i64 %sub.ptr.lhs.cast.i.i42278.i, %sub.ptr.rhs.cast.i.i43279.i
-  %sub.ptr.div.i.i45281.i = ashr exact i64 %sub.ptr.sub.i.i44280.i, 3
+  %m_levelScales277.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 6
+  %_M_finish.i.i278.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 6, i32 0, i32 0, i32 0, i32 1
+  %62 = load ptr, ptr %_M_finish.i.i278.i, align 8
+  %63 = load ptr, ptr %m_levelScales277.i, align 8
+  %sub.ptr.lhs.cast.i.i42279.i = ptrtoint ptr %62 to i64
+  %sub.ptr.rhs.cast.i.i43280.i = ptrtoint ptr %63 to i64
+  %sub.ptr.sub.i.i44281.i = sub i64 %sub.ptr.lhs.cast.i.i42279.i, %sub.ptr.rhs.cast.i.i43280.i
+  %sub.ptr.div.i.i45282.i = ashr exact i64 %sub.ptr.sub.i.i44281.i, 3
   br label %if.else.i47.i
 
 for.cond19.preheader.preheader.i:                 ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
@@ -3134,40 +3124,40 @@ for.cond19.preheader.preheader.i:                 ; preds = %_ZNSt6vectorIN19Ope
 for.cond19.preheader.i:                           ; preds = %for.end33.i, %for.cond19.preheader.preheader.i
   %64 = phi i64 [ %67, %for.end33.i ], [ %.pre.i, %for.cond19.preheader.preheader.i ]
   %65 = phi i64 [ %68, %for.end33.i ], [ %61, %for.cond19.preheader.preheader.i ]
-  %i14.0239.i = phi i64 [ %inc40.i, %for.end33.i ], [ 0, %for.cond19.preheader.preheader.i ]
-  %cmp21235.not.i = icmp eq i64 %64, 0
-  br i1 %cmp21235.not.i, label %for.end33.i, label %for.body22.lr.ph.i
+  %i14.0240.i = phi i64 [ %inc40.i, %for.end33.i ], [ 0, %for.cond19.preheader.preheader.i ]
+  %cmp21236.not.i = icmp eq i64 %64, 0
+  br i1 %cmp21236.not.i, label %for.end33.i, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %for.cond19.preheader.i
   %sub28.i = shl i64 %65, 32
   %sext.i = add i64 %sub28.i, -4294967296
   %conv29.i = ashr exact i64 %sext.i, 32
-  %sub30.i = sub i64 %conv29.i, %i14.0239.i
+  %sub30.i = sub i64 %conv29.i, %i14.0240.i
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %for.body22.i, %for.body22.lr.ph.i
-  %levelSize.0237.i = phi i64 [ 1, %for.body22.lr.ph.i ], [ %mul.i, %for.body22.i ]
-  %j.0236.i = phi i64 [ 0, %for.body22.lr.ph.i ], [ %inc32.i, %for.body22.i ]
-  %arrayidx24.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 2, i64 %j.0236.i
+  %levelSize.0238.i = phi i64 [ 1, %for.body22.lr.ph.i ], [ %mul.i, %for.body22.i ]
+  %j.0237.i = phi i64 [ 0, %for.body22.lr.ph.i ], [ %inc32.i, %for.body22.i ]
+  %arrayidx24.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer", ptr %this, i64 0, i32 3, i32 2, i64 %j.0237.i
   %66 = load i64, ptr %arrayidx24.i, align 8
   %sub25.i = add i64 %66, -2
   %shr.i = lshr i64 %sub25.i, %sub30.i
   %add.i4 = add i64 %shr.i, 1
-  %mul.i = mul i64 %add.i4, %levelSize.0237.i
-  %inc32.i = add nuw i64 %j.0236.i, 1
-  %exitcond267.not.i = icmp eq i64 %inc32.i, %64
-  br i1 %exitcond267.not.i, label %for.end33.i, label %for.body22.i, !llvm.loop !79
+  %mul.i = mul i64 %add.i4, %levelSize.0238.i
+  %inc32.i = add nuw i64 %j.0237.i, 1
+  %exitcond268.not.i = icmp eq i64 %inc32.i, %64
+  br i1 %exitcond268.not.i, label %for.end33.i, label %for.body22.i, !llvm.loop !79
 
 for.end33.i:                                      ; preds = %for.body22.i, %for.cond19.preheader.i
   %levelSize.0.lcssa.i = phi i64 [ 1, %for.cond19.preheader.i ], [ %mul.i, %for.body22.i ]
   %m_levels.val.i = load ptr, ptr %m_levels.i, align 8
-  %add.ptr.i40.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val.i, i64 %i14.0239.i
+  %add.ptr.i40.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val.i, i64 %i14.0240.i
   store i64 %levelSize.0.lcssa.i, ptr %add.ptr.i40.i, align 8
   %67 = load i64, ptr %m_chans.i, align 8
   %m_levels.val32.i = load ptr, ptr %m_levels.i, align 8
-  %chans.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val32.i, i64 %i14.0239.i, i32 1
+  %chans.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val32.i, i64 %i14.0240.i, i32 1
   store i64 %67, ptr %chans.i, align 8
-  %inc40.i = add nuw i64 %i14.0239.i, 1
+  %inc40.i = add nuw i64 %i14.0240.i, 1
   %68 = load i64, ptr %m_depth.i, align 8
   %cmp17.i = icmp ult i64 %inc40.i, %68
   br i1 %cmp17.i, label %for.cond19.preheader.i, label %for.end41.i, !llvm.loop !80
@@ -3187,17 +3177,17 @@ for.end41.i:                                      ; preds = %for.end33.i
 if.then.i53.i:                                    ; preds = %for.end41.i
   %sub.i54.i = sub i64 %68, %sub.ptr.div.i.i45.i
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_levelScales.i, i64 noundef %sub.i54.i)
-  %.pre273.i = load i64, ptr %m_depth.i, align 8
+  %.pre274.i = load i64, ptr %m_depth.i, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
 if.else.i47.i:                                    ; preds = %for.end41.i, %for.end41.thread.i
-  %sub.ptr.div.i.i45286.i = phi i64 [ %sub.ptr.div.i.i45281.i, %for.end41.thread.i ], [ %sub.ptr.div.i.i45.i, %for.end41.i ]
+  %sub.ptr.div.i.i45287.i = phi i64 [ %sub.ptr.div.i.i45282.i, %for.end41.thread.i ], [ %sub.ptr.div.i.i45.i, %for.end41.i ]
   %71 = phi ptr [ %63, %for.end41.thread.i ], [ %70, %for.end41.i ]
   %72 = phi ptr [ %62, %for.end41.thread.i ], [ %69, %for.end41.i ]
-  %_M_finish.i.i285.i = phi ptr [ %_M_finish.i.i277.i, %for.end41.thread.i ], [ %_M_finish.i.i.i, %for.end41.i ]
-  %m_levelScales284.i = phi ptr [ %m_levelScales276.i, %for.end41.thread.i ], [ %m_levelScales.i, %for.end41.i ]
+  %_M_finish.i.i286.i = phi ptr [ %_M_finish.i.i278.i, %for.end41.thread.i ], [ %_M_finish.i.i.i, %for.end41.i ]
+  %m_levelScales285.i = phi ptr [ %m_levelScales277.i, %for.end41.thread.i ], [ %m_levelScales.i, %for.end41.i ]
   %73 = phi i64 [ 0, %for.end41.thread.i ], [ %68, %for.end41.i ]
-  %cmp4.i48.i = icmp ugt i64 %sub.ptr.div.i.i45286.i, %73
+  %cmp4.i48.i = icmp ugt i64 %sub.ptr.div.i.i45287.i, %73
   br i1 %cmp4.i48.i, label %if.then5.i49.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
 if.then5.i49.i:                                   ; preds = %if.else.i47.i
@@ -3206,30 +3196,30 @@ if.then5.i49.i:                                   ; preds = %if.else.i47.i
   br i1 %tobool.not.i.i51.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i, label %invoke.cont.i.i52.i
 
 invoke.cont.i.i52.i:                              ; preds = %if.then5.i49.i
-  store ptr %add.ptr.i50.i, ptr %_M_finish.i.i285.i, align 8
+  store ptr %add.ptr.i50.i, ptr %_M_finish.i.i286.i, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i52.i, %if.then5.i49.i, %if.else.i47.i, %if.then.i53.i
-  %m_levelScales283.i = phi ptr [ %m_levelScales.i, %if.then.i53.i ], [ %m_levelScales284.i, %if.else.i47.i ], [ %m_levelScales284.i, %if.then5.i49.i ], [ %m_levelScales284.i, %invoke.cont.i.i52.i ]
-  %74 = phi i64 [ %.pre273.i, %if.then.i53.i ], [ %73, %if.else.i47.i ], [ %73, %if.then5.i49.i ], [ %73, %invoke.cont.i.i52.i ]
-  %cmp45241.not.i = icmp eq i64 %74, 0
-  br i1 %cmp45241.not.i, label %for.end58.i, label %for.body46.i
+  %m_levelScales284.i = phi ptr [ %m_levelScales.i, %if.then.i53.i ], [ %m_levelScales285.i, %if.else.i47.i ], [ %m_levelScales285.i, %if.then5.i49.i ], [ %m_levelScales285.i, %invoke.cont.i.i52.i ]
+  %74 = phi i64 [ %.pre274.i, %if.then.i53.i ], [ %73, %if.else.i47.i ], [ %73, %if.then5.i49.i ], [ %73, %invoke.cont.i.i52.i ]
+  %cmp45242.not.i = icmp eq i64 %74, 0
+  br i1 %cmp45242.not.i, label %for.end58.i, label %for.body46.i
 
 for.body46.i:                                     ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i, %for.body46.i
   %75 = phi i64 [ %79, %for.body46.i ], [ %74, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
-  %level.0242.i = phi i64 [ %inc57.i, %for.body46.i ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
+  %level.0243.i = phi i64 [ %inc57.i, %for.body46.i ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
   %76 = load i64, ptr %m_chans.i, align 8
   %add50.i = add i64 %76, 1
-  %77 = xor i64 %level.0242.i, -1
+  %77 = xor i64 %level.0243.i, -1
   %sub51.i = add i64 %75, %77
   %mul52.i = mul i64 %add50.i, %sub51.i
   %sh_prom.i = trunc i64 %mul52.i to i32
   %shl.i = shl nuw i32 1, %sh_prom.i
   %conv53.i = sext i32 %shl.i to i64
-  %78 = load ptr, ptr %m_levelScales283.i, align 8
-  %add.ptr.i55.i = getelementptr inbounds i64, ptr %78, i64 %level.0242.i
+  %78 = load ptr, ptr %m_levelScales284.i, align 8
+  %add.ptr.i55.i = getelementptr inbounds i64, ptr %78, i64 %level.0243.i
   store i64 %conv53.i, ptr %add.ptr.i55.i, align 8
-  %inc57.i = add nuw i64 %level.0242.i, 1
+  %inc57.i = add nuw i64 %level.0243.i, 1
   %79 = load i64, ptr %m_depth.i, align 8
   %cmp45.i = icmp ult i64 %inc57.i, %79
   br i1 %cmp45.i, label %for.body46.i, label %for.end58.i, !llvm.loop !81
@@ -3342,15 +3332,15 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.ex
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %m_baseInds.val.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
-  %cmp62243.not.i = icmp eq ptr %m_baseInds.val35.i, %m_baseInds.val.i
-  br i1 %cmp62243.not.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i, label %for.body63.preheader.i
+  %cmp62244.not.i = icmp eq ptr %m_baseInds.val35.i, %m_baseInds.val.i
+  br i1 %cmp62244.not.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i, label %for.body63.preheader.i
 
 for.body63.preheader.i:                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body63.i
 
 for.body63.i:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.i, %for.body63.preheader.i
-  %i60.0244.i = phi i64 [ %inc65.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.i ], [ 0, %for.body63.preheader.i ]
+  %i60.0245.i = phi i64 [ %inc65.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.i ], [ 0, %for.body63.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %keyBits.i.i)
   %87 = load i64, ptr %m_depth.i, align 8
   %cmp17.not.i.i = icmp eq i64 %87, 0
@@ -3360,10 +3350,10 @@ for.body63.i:                                     ; preds = %_ZN19OpenColorIO_v2
 for.body.lr.ph.i.i:                               ; preds = %for.body63.i
   %88 = load i64, ptr %m_chans.i, align 8
   %cmp415.not.i.i = icmp eq i64 %88, 0
-  %add.ptr.i.i60.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds25.val.i.pre.i, i64 %i60.0244.i
-  br i1 %cmp415.not.i.i, label %for.cond14.preheader.thread25.i.i, label %for.body.us.i.i
+  %add.ptr.i.i60.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds25.val.i.pre.i, i64 %i60.0245.i
+  br i1 %cmp415.not.i.i, label %for.body.preheader.i.i, label %for.body.us.i.i
 
-for.cond14.preheader.thread25.i.i:                ; preds = %for.body.lr.ph.i.i
+for.body.preheader.i.i:                           ; preds = %for.body.lr.ph.i.i
   %89 = shl nuw i64 %87, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %keyBits.i.i, i8 0, i64 %89, i1 false)
   br label %for.body17.lr.ph.i.i
@@ -3397,8 +3387,8 @@ for.cond3.for.inc10_crit_edge.us.i.i:             ; preds = %for.body5.us.i.i
   %exitcond23.not.i.i = icmp eq i64 %inc11.us.i.i, %87
   br i1 %exitcond23.not.i.i, label %for.body17.lr.ph.i.i, label %for.body.us.i.i, !llvm.loop !88
 
-for.body17.lr.ph.i.i:                             ; preds = %for.cond3.for.inc10_crit_edge.us.i.i, %for.cond14.preheader.thread25.i.i
-  %96 = load ptr, ptr %m_levelScales283.i, align 8
+for.body17.lr.ph.i.i:                             ; preds = %for.cond3.for.inc10_crit_edge.us.i.i, %for.body.preheader.i.i
+  %96 = load ptr, ptr %m_levelScales284.i, align 8
   br label %for.body17.i.i
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %for.body17.lr.ph.i.i
@@ -3416,12 +3406,12 @@ for.body17.i.i:                                   ; preds = %for.body17.i.i, %fo
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.i: ; preds = %for.body17.i.i, %for.body63.i
   %hash.0.lcssa.i.i = phi i64 [ 0, %for.body63.i ], [ %add21.i.i, %for.body17.i.i ]
-  %hash27.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds25.val.i.pre.i, i64 %i60.0244.i, i32 1
+  %hash27.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds25.val.i.pre.i, i64 %i60.0245.i, i32 1
   store i64 %hash.0.lcssa.i.i, ptr %hash27.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %keyBits.i.i)
-  %inc65.i = add nuw i64 %i60.0244.i, 1
-  %exitcond268.not.i = icmp eq i64 %inc65.i, %umax.i
-  br i1 %exitcond268.not.i, label %for.end66.i, label %for.body63.i, !llvm.loop !90
+  %inc65.i = add nuw i64 %i60.0245.i, 1
+  %exitcond269.not.i = icmp eq i64 %inc65.i, %umax.i
+  br i1 %exitcond269.not.i, label %for.end66.i, label %for.body63.i, !llvm.loop !90
 
 for.end66.i:                                      ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.i
   %m_baseInds.val37.pre.i = load ptr, ptr %m_baseInds.i, align 8
@@ -3599,8 +3589,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116
   br i1 %cmp.i.i.i, label %if.then.i.i65.i, label %if.then.i.i.i.i.i.i
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i: ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i
-  %cmp.i.i290.i = icmp ugt i64 %sub.ptr.div.i.i, 1152921504606846975
-  br i1 %cmp.i.i290.i, label %if.then.i.i65.i, label %for.end85.i
+  %cmp.i.i291.i = icmp ugt i64 %sub.ptr.div.i.i, 1152921504606846975
+  br i1 %cmp.i.i291.i, label %if.then.i.i65.i, label %for.end85.i
 
 if.then.i.i65.i:                                  ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #29
@@ -3626,19 +3616,19 @@ for.body79.lr.ph.i:                               ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body79.i
 
 for.body79.i:                                     ; preds = %for.body79.i, %for.body79.lr.ph.i
-  %i76.0246.i = phi i64 [ 0, %for.body79.lr.ph.i ], [ %inc84.i, %for.body79.i ]
-  %hash.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds.val36.i, i64 %i76.0246.i, i32 1
+  %i76.0247.i = phi i64 [ 0, %for.body79.lr.ph.i ], [ %inc84.i, %for.body79.i ]
+  %hash.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %m_baseInds.val36.i, i64 %i76.0247.i, i32 1
   %111 = load i64, ptr %hash.i, align 8
-  %add.ptr.i68.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i66.i, i64 %i76.0246.i
+  %add.ptr.i68.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i66.i, i64 %i76.0247.i
   store i64 %111, ptr %add.ptr.i68.i, align 8
-  %inc84.i = add nuw i64 %i76.0246.i, 1
-  %exitcond270.not.i = icmp eq i64 %inc84.i, %umax.i
-  br i1 %exitcond270.not.i, label %for.end85.i, label %for.body79.i, !llvm.loop !95
+  %inc84.i = add nuw i64 %i76.0247.i, 1
+  %exitcond271.not.i = icmp eq i64 %inc84.i, %umax.i
+  br i1 %exitcond271.not.i, label %for.end85.i, label %for.body79.i, !llvm.loop !95
 
 for.end85.i:                                      ; preds = %for.body79.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i
-  %__first.addr.0.i.i.i.i.i296.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %__first.addr.0.i.i.i.i.i.i, %for.body79.i ]
-  %hashes.sroa.22.0295.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %add.ptr.i.i.i.i, %for.body79.i ]
-  %hashes.sroa.0.0294.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %call5.i.i.i.i2.i.i66.i, %for.body79.i ]
+  %__first.addr.0.i.i.i.i.i297.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %__first.addr.0.i.i.i.i.i.i, %for.body79.i ]
+  %hashes.sroa.22.0296.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %add.ptr.i.i.i.i, %for.body79.i ]
+  %hashes.sroa.0.0295.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.thread.i ], [ %call5.i.i.i.i2.i.i66.i, %for.body79.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %cornerOffsets.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %minVal.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %maxVal.i.i)
@@ -3875,8 +3865,8 @@ invoke.cont87.i:                                  ; preds = %for.inc148.i.i, %if
   %148 = load i64, ptr %m_depth.i, align 8
   %149 = trunc i64 %148 to i32
   %conv91.i = add i32 %149, -2
-  %cmp93249.i = icmp sgt i32 %conv91.i, -1
-  br i1 %cmp93249.i, label %for.body94.preheader.i, label %for.end119.i
+  %cmp93250.i = icmp sgt i32 %conv91.i, -1
+  br i1 %cmp93250.i, label %for.body94.preheader.i, label %for.end119.i
 
 for.body94.preheader.i:                           ; preds = %invoke.cont87.i
   %150 = zext nneg i32 %conv91.i to i64
@@ -3884,9 +3874,9 @@ for.body94.preheader.i:                           ; preds = %invoke.cont87.i
 
 for.body94.i:                                     ; preds = %for.inc118.i, %for.body94.preheader.i
   %indvars.iv.i = phi i64 [ %150, %for.body94.preheader.i ], [ %indvars.iv.next.i, %for.inc118.i ]
-  %hashes.sroa.22.1252.i = phi ptr [ %hashes.sroa.22.0295.i, %for.body94.preheader.i ], [ %hashes.sroa.22.3.i, %for.inc118.i ]
-  %hashes.sroa.14.0251.i = phi ptr [ %__first.addr.0.i.i.i.i.i296.i, %for.body94.preheader.i ], [ %hashes.sroa.14.2.i, %for.inc118.i ]
-  %hashes.sroa.0.1250.i = phi ptr [ %hashes.sroa.0.0294.i, %for.body94.preheader.i ], [ %hashes.sroa.0.5.i, %for.inc118.i ]
+  %hashes.sroa.22.1253.i = phi ptr [ %hashes.sroa.22.0296.i, %for.body94.preheader.i ], [ %hashes.sroa.22.3.i, %for.inc118.i ]
+  %hashes.sroa.14.0252.i = phi ptr [ %__first.addr.0.i.i.i.i.i297.i, %for.body94.preheader.i ], [ %hashes.sroa.14.2.i, %for.inc118.i ]
+  %hashes.sroa.0.1251.i = phi ptr [ %hashes.sroa.0.0295.i, %for.body94.preheader.i ], [ %hashes.sroa.0.5.i, %for.inc118.i ]
   %m_levels.val35.i.i = load ptr, ptr %m_levels.i, align 8
   %add.ptr.i.i92.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val35.i.i, i64 %indvars.iv.i
   %151 = load i64, ptr %add.ptr.i.i92.i, align 8
@@ -3955,7 +3945,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit53.i.i:         ; preds = %invoke.cont.i.i50.i
   %sh_prom.i.i = trunc i64 %156 to i32
   %shl.i.i = shl nuw i32 1, %sh_prom.i.i
   %conv.i.i = sext i32 %shl.i.i to i64
-  %157 = load ptr, ptr %m_levelScales283.i, align 8
+  %157 = load ptr, ptr %m_levelScales284.i, align 8
   %158 = getelementptr i64, ptr %157, i64 %indvars.iv.i
   %add.ptr.i54.i.i = getelementptr i64, ptr %158, i64 1
   %159 = load i64, ptr %add.ptr.i54.i.i, align 8
@@ -3964,8 +3954,8 @@ _ZNSt6vectorImSaImEE6resizeEm.exit53.i.i:         ; preds = %invoke.cont.i.i50.i
   %child0offsets9.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val32.i.i, i64 %indvars.iv.i, i32 4
   %160 = load ptr, ptr %child0offsets9.i.i, align 8
   store i64 0, ptr %160, align 8
-  %sub.ptr.lhs.cast.i.i105.i = ptrtoint ptr %hashes.sroa.14.0251.i to i64
-  %sub.ptr.rhs.cast.i.i106.i = ptrtoint ptr %hashes.sroa.0.1250.i to i64
+  %sub.ptr.lhs.cast.i.i105.i = ptrtoint ptr %hashes.sroa.14.0252.i to i64
+  %sub.ptr.rhs.cast.i.i106.i = ptrtoint ptr %hashes.sroa.0.1251.i to i64
   %sub.ptr.sub.i.i107.i = sub i64 %sub.ptr.lhs.cast.i.i105.i, %sub.ptr.rhs.cast.i.i106.i
   %sub.ptr.div.i.i108.i = ashr exact i64 %sub.ptr.sub.i.i107.i, 3
   %cmp75.i.i = icmp ugt i64 %sub.ptr.div.i.i108.i, 1
@@ -3979,7 +3969,7 @@ for.cond22.preheader.i.i:                         ; preds = %for.inc.i.i, %_ZNSt
 for.body.i110.i:                                  ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit53.i.i, %for.inc.i.i
   %cnt.077.i.i = phi i64 [ %cnt.1.i.i, %for.inc.i.i ], [ 1, %_ZNSt6vectorImSaImEE6resizeEm.exit53.i.i ]
   %i.076.i.i = phi i64 [ %inc20.i.i, %for.inc.i.i ], [ 1, %_ZNSt6vectorImSaImEE6resizeEm.exit53.i.i ]
-  %add.ptr.i56.i.i = getelementptr i64, ptr %hashes.sroa.0.1250.i, i64 %i.076.i.i
+  %add.ptr.i56.i.i = getelementptr i64, ptr %hashes.sroa.0.1251.i, i64 %i.076.i.i
   %161 = load i64, ptr %add.ptr.i56.i.i, align 8
   %add.ptr.i57.i.i = getelementptr i64, ptr %add.ptr.i56.i.i, i64 -1
   %162 = load i64, ptr %add.ptr.i57.i.i, align 8
@@ -4034,38 +4024,38 @@ invoke.cont96.i:                                  ; preds = %for.body25.i.i, %fo
   %m_levels.val33.i = load ptr, ptr %m_levels.i, align 8
   %add.ptr.i120.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val33.i, i64 %indvars.iv.i
   %171 = load i64, ptr %add.ptr.i120.i, align 8
-  %cmp104247.not.i = icmp eq i64 %171, 0
-  br i1 %cmp104247.not.i, label %for.end114.i, label %for.body105.i
+  %cmp104248.not.i = icmp eq i64 %171, 0
+  br i1 %cmp104248.not.i, label %for.end114.i, label %for.body105.i
 
 for.body105.i:                                    ; preds = %invoke.cont96.i, %for.body105.i
-  %i102.0248.i = phi i64 [ %inc113.i, %for.body105.i ], [ 0, %invoke.cont96.i ]
+  %i102.0249.i = phi i64 [ %inc113.i, %for.body105.i ], [ 0, %invoke.cont96.i ]
   %m_levels.val34.i = load ptr, ptr %m_levels.i, align 8
   %child0offsets.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val34.i, i64 %indvars.iv.i, i32 4
   %172 = load ptr, ptr %child0offsets.i, align 8
-  %add.ptr.i122.i = getelementptr inbounds i64, ptr %172, i64 %i102.0248.i
+  %add.ptr.i122.i = getelementptr inbounds i64, ptr %172, i64 %i102.0249.i
   %173 = load i64, ptr %add.ptr.i122.i, align 8
-  %add.ptr.i123.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1250.i, i64 %173
+  %add.ptr.i123.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1251.i, i64 %173
   %174 = load i64, ptr %add.ptr.i123.i, align 8
-  %add.ptr.i124.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1250.i, i64 %i102.0248.i
+  %add.ptr.i124.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1251.i, i64 %i102.0249.i
   store i64 %174, ptr %add.ptr.i124.i, align 8
-  %inc113.i = add nuw i64 %i102.0248.i, 1
-  %exitcond271.not.i = icmp eq i64 %inc113.i, %171
-  br i1 %exitcond271.not.i, label %for.end114.i, label %for.body105.i, !llvm.loop !102
+  %inc113.i = add nuw i64 %i102.0249.i, 1
+  %exitcond272.not.i = icmp eq i64 %inc113.i, %171
+  br i1 %exitcond272.not.i, label %for.end114.i, label %for.body105.i, !llvm.loop !102
 
-lpad86.loopexit.i:                                ; preds = %if.then.i76.i.i, %if.then.i.i177.i, %cond.true.i.i.i, %if.then.i51.i.i, %if.then.i.i116.i
-  %hashes.sroa.0.2.ph.i = phi ptr [ %hashes.sroa.0.1250.i, %if.then.i.i116.i ], [ %hashes.sroa.0.1250.i, %if.then.i51.i.i ], [ %hashes.sroa.0.1250.i, %cond.true.i.i.i ], [ %hashes.sroa.0.5.i, %if.then.i.i177.i ], [ %hashes.sroa.0.5.i, %if.then.i76.i.i ]
+lpad86.loopexit.i:                                ; preds = %if.then.i76.i.i, %if.then.i.i178.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %if.then.i51.i.i, %if.then.i.i116.i
+  %hashes.sroa.0.2.ph.i = phi ptr [ %hashes.sroa.0.1251.i, %if.then.i.i116.i ], [ %hashes.sroa.0.1251.i, %if.then.i51.i.i ], [ %hashes.sroa.0.1251.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %hashes.sroa.0.5.i, %if.then.i.i178.i ], [ %hashes.sroa.0.5.i, %if.then.i76.i.i ]
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad86.body.i
 
-lpad86.loopexit.split-lp.i:                       ; preds = %if.then.i.i201.i, %invoke.cont.i.i, %if.then.i58.i.i, %if.then.i.i86.i
-  %hashes.sroa.0.2.ph221.i = phi ptr [ %hashes.sroa.0.0294.i, %if.then.i.i86.i ], [ %hashes.sroa.0.0294.i, %if.then.i58.i.i ], [ %hashes.sroa.0.1250.i, %if.then.i.i201.i ], [ %hashes.sroa.0.0294.i, %invoke.cont.i.i ]
+lpad86.loopexit.split-lp.i:                       ; preds = %if.then.i.i202.i, %invoke.cont.i.i, %if.then.i58.i.i, %if.then.i.i86.i
+  %hashes.sroa.0.2.ph222.i = phi ptr [ %hashes.sroa.0.0295.i, %if.then.i.i86.i ], [ %hashes.sroa.0.0295.i, %if.then.i58.i.i ], [ %hashes.sroa.0.1251.i, %if.then.i.i202.i ], [ %hashes.sroa.0.0295.i, %invoke.cont.i.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad86.body.i
 
 lpad86.body.i:                                    ; preds = %lpad86.loopexit.split-lp.i, %lpad86.loopexit.i, %lpad.i.i
-  %hashes.sroa.0.3.i = phi ptr [ %hashes.sroa.0.0294.i, %lpad.i.i ], [ %hashes.sroa.0.2.ph.i, %lpad86.loopexit.i ], [ %hashes.sroa.0.2.ph221.i, %lpad86.loopexit.split-lp.i ]
+  %hashes.sroa.0.3.i = phi ptr [ %hashes.sroa.0.0295.i, %lpad.i.i ], [ %hashes.sroa.0.2.ph.i, %lpad86.loopexit.i ], [ %hashes.sroa.0.2.ph222.i, %lpad86.loopexit.split-lp.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %124, %lpad.i.i ], [ %lpad.loopexit.i, %lpad86.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad86.loopexit.split-lp.i ]
   %tobool.not.i.i.i126.i = icmp eq ptr %hashes.sroa.0.3.i, null
   br i1 %tobool.not.i.i.i126.i, label %common.resume, label %if.then.i.i.i127.i
@@ -4080,100 +4070,93 @@ for.end114.i:                                     ; preds = %for.body105.i, %inv
 
 if.then.i140.i:                                   ; preds = %for.end114.i
   %sub.i141.i = sub i64 %171, %sub.ptr.div.i.i108.i
-  %sub.ptr.lhs.cast.i191.i = ptrtoint ptr %hashes.sroa.22.1252.i to i64
-  %sub.ptr.sub.i192.i = sub i64 %sub.ptr.lhs.cast.i191.i, %sub.ptr.lhs.cast.i.i105.i
-  %sub.ptr.div.i193.i = ashr exact i64 %sub.ptr.sub.i192.i, 3
-  %cmp4.i194.i = icmp ult i64 %sub.ptr.div.i.i108.i, 1152921504606846976
-  call void @llvm.assume(i1 %cmp4.i194.i)
-  %sub.i195.i = xor i64 %sub.ptr.div.i.i108.i, 1152921504606846975
-  %cmp6.i.i = icmp ule i64 %sub.ptr.div.i193.i, %sub.i195.i
+  %sub.ptr.lhs.cast.i192.i = ptrtoint ptr %hashes.sroa.22.1253.i to i64
+  %sub.ptr.sub.i193.i = sub i64 %sub.ptr.lhs.cast.i192.i, %sub.ptr.lhs.cast.i.i105.i
+  %sub.ptr.div.i194.i = ashr exact i64 %sub.ptr.sub.i193.i, 3
+  %cmp4.i195.i = icmp ult i64 %sub.ptr.div.i.i108.i, 1152921504606846976
+  call void @llvm.assume(i1 %cmp4.i195.i)
+  %sub.i196.i = xor i64 %sub.ptr.div.i.i108.i, 1152921504606846975
+  %cmp6.i.i = icmp ule i64 %sub.ptr.div.i194.i, %sub.i196.i
   call void @llvm.assume(i1 %cmp6.i.i)
-  %cmp8.not.i.i = icmp ult i64 %sub.ptr.div.i193.i, %sub.i141.i
-  br i1 %cmp8.not.i.i, label %if.else.i197.i, label %if.then.i.i.i.i.i
+  %cmp8.not.i.i = icmp ult i64 %sub.ptr.div.i194.i, %sub.i141.i
+  br i1 %cmp8.not.i.i, label %if.else.i198.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i140.i
-  store i64 0, ptr %hashes.sroa.14.0251.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr i64, ptr %hashes.sroa.14.0251.i, i64 1
-  %cmp.i.i.i.i.i.i196.i = icmp eq i64 %sub.i141.i, 1
-  br i1 %cmp.i.i.i.i.i.i196.i, label %invoke.cont115.i, label %if.end.i.i.i.i.i.i.i
+  store i64 0, ptr %hashes.sroa.14.0252.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr i64, ptr %hashes.sroa.14.0252.i, i64 1
+  %cmp.i.i.i.i.i.i197.i = icmp eq i64 %sub.i141.i, 1
+  br i1 %cmp.i.i.i.i.i.i197.i, label %invoke.cont115.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %175 = shl i64 %sub.i141.i, 3
   %176 = add i64 %175, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %176, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %hashes.sroa.14.0251.i, i64 %sub.i141.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %hashes.sroa.14.0252.i, i64 %sub.i141.i
   br label %invoke.cont115.i
 
-if.else.i197.i:                                   ; preds = %if.then.i140.i
-  %cmp.i.i198.i = icmp ult i64 %sub.i195.i, %sub.i141.i
-  br i1 %cmp.i.i198.i, label %if.then.i.i201.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
+if.else.i198.i:                                   ; preds = %if.then.i140.i
+  %cmp.i.i199.i = icmp ult i64 %sub.i196.i, %sub.i141.i
+  br i1 %cmp.i.i199.i, label %if.then.i.i202.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i201.i:                                 ; preds = %if.else.i197.i
+if.then.i.i202.i:                                 ; preds = %if.else.i198.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #29
-          to label %.noexc202.i unwind label %lpad86.loopexit.split-lp.i
+          to label %.noexc203.i unwind label %lpad86.loopexit.split-lp.i
 
-.noexc202.i:                                      ; preds = %if.then.i.i201.i
+.noexc203.i:                                      ; preds = %if.then.i.i202.i
   unreachable
 
-_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i197.i
+_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i198.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i108.i, i64 %sub.i141.i)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i108.i
-  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i108.i
+  %add.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i108.i
   %177 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %177
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %if.then.i.i.i21.i.i, label %cond.true.i.i.i
+  %mul.i.i.i.i.i = shl nuw nsw i64 %177, 3
+  %call5.i.i.i.i204.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
+          to label %call5.i.i.i.i.noexc.i unwind label %lpad86.loopexit.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-  %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i203.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
-          to label %if.then.i.i.i21.i.i unwind label %lpad86.loopexit.i
-
-if.then.i.i.i21.i.i:                              ; preds = %cond.true.i.i.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-  %cond.i19.i.i = phi ptr [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i203.i, %cond.true.i.i.i ]
-  %add.ptr.i199.i = getelementptr inbounds i64, ptr %cond.i19.i.i, i64 %sub.ptr.div.i.i108.i
-  store i64 0, ptr %add.ptr.i199.i, align 8
+call5.i.i.i.i.noexc.i:                            ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
+  %add.ptr.i200.i = getelementptr inbounds i8, ptr %call5.i.i.i.i204.i, i64 %sub.ptr.sub.i.i107.i
+  store i64 0, ptr %add.ptr.i200.i, align 8
   %cmp.i.i.i.i.i23.i.i = icmp eq i64 %sub.i141.i, 1
   br i1 %cmp.i.i.i.i.i23.i.i, label %try.cont.i.i, label %if.end.i.i.i.i.i24.i.i
 
-if.end.i.i.i.i.i24.i.i:                           ; preds = %if.then.i.i.i21.i.i
-  %incdec.ptr.i.i.i22.i.i = getelementptr i64, ptr %add.ptr.i199.i, i64 1
-  %178 = shl i64 %sub.i141.i, 3
-  %179 = add i64 %178, -8
+if.end.i.i.i.i.i24.i.i:                           ; preds = %call5.i.i.i.i.noexc.i
+  %incdec.ptr.i.i.i22.i.i = getelementptr i64, ptr %add.ptr.i200.i, i64 1
+  %178 = shl nuw nsw i64 %sub.i141.i, 3
+  %179 = add nsw i64 %178, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %179, i1 false)
   br label %try.cont.i.i
 
-try.cont.i.i:                                     ; preds = %if.end.i.i.i.i.i24.i.i, %if.then.i.i.i21.i.i
+try.cont.i.i:                                     ; preds = %if.end.i.i.i.i.i24.i.i, %call5.i.i.i.i.noexc.i
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i107.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i200.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i201.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
 
-if.then.i.i.i.i.i200.i:                           ; preds = %try.cont.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19.i.i, ptr align 8 %hashes.sroa.0.1250.i, i64 %sub.ptr.sub.i.i107.i, i1 false)
+if.then.i.i.i.i.i201.i:                           ; preds = %try.cont.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i204.i, ptr align 8 %hashes.sroa.0.1251.i, i64 %sub.ptr.sub.i.i107.i, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
 
-_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.i.i.i200.i, %try.cont.i.i
-  %tobool.not.i29.i.i = icmp eq ptr %hashes.sroa.0.1250.i, null
+_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i: ; preds = %if.then.i.i.i.i.i201.i, %try.cont.i.i
+  %tobool.not.i29.i.i = icmp eq ptr %hashes.sroa.0.1251.i, null
   br i1 %tobool.not.i29.i.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i, label %if.then.i30.i.i
 
 if.then.i30.i.i:                                  ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %hashes.sroa.0.1250.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %hashes.sroa.0.1251.i) #28
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i: ; preds = %if.then.i30.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i.i
-  %add.ptr37.i.i = getelementptr inbounds i64, ptr %cond.i19.i.i, i64 %171
-  %add.ptr40.i.i = getelementptr inbounds i64, ptr %cond.i19.i.i, i64 %cond.i.i.i
+  %add.ptr37.i.i = getelementptr inbounds i64, ptr %add.ptr.i200.i, i64 %sub.i141.i
+  %add.ptr40.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i204.i, i64 %177
   br label %invoke.cont115.i
 
 if.else.i134.i:                                   ; preds = %for.end114.i
   %cmp4.i135.i = icmp ugt i64 %sub.ptr.div.i.i108.i, %171
-  %add.ptr.i137.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1250.i, i64 %171
-  %spec.select.i = select i1 %cmp4.i135.i, ptr %add.ptr.i137.i, ptr %hashes.sroa.14.0251.i
+  %add.ptr.i137.i = getelementptr inbounds i64, ptr %hashes.sroa.0.1251.i, i64 %171
+  %spec.select.i = select i1 %cmp4.i135.i, ptr %add.ptr.i137.i, ptr %hashes.sroa.14.0252.i
   br label %invoke.cont115.i
 
 invoke.cont115.i:                                 ; preds = %if.else.i134.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %hashes.sroa.0.5.i = phi ptr [ %cond.i19.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i ], [ %hashes.sroa.0.1250.i, %if.end.i.i.i.i.i.i.i ], [ %hashes.sroa.0.1250.i, %if.then.i.i.i.i.i ], [ %hashes.sroa.0.1250.i, %if.else.i134.i ]
+  %hashes.sroa.0.5.i = phi ptr [ %call5.i.i.i.i204.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i ], [ %hashes.sroa.0.1251.i, %if.end.i.i.i.i.i.i.i ], [ %hashes.sroa.0.1251.i, %if.then.i.i.i.i.i ], [ %hashes.sroa.0.1251.i, %if.else.i134.i ]
   %hashes.sroa.14.2.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i134.i ]
-  %hashes.sroa.22.3.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i ], [ %hashes.sroa.22.1252.i, %if.end.i.i.i.i.i.i.i ], [ %hashes.sroa.22.1252.i, %if.then.i.i.i.i.i ], [ %hashes.sroa.22.1252.i, %if.else.i134.i ]
+  %hashes.sroa.22.3.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31.i.i ], [ %hashes.sroa.22.1253.i, %if.end.i.i.i.i.i.i.i ], [ %hashes.sroa.22.1253.i, %if.then.i.i.i.i.i ], [ %hashes.sroa.22.1253.i, %if.else.i134.i ]
   %180 = load i64, ptr %m_chans.i, align 8
   %sh_prom.i145.i = trunc i64 %180 to i32
   %shl.i146.i = shl nuw i32 1, %sh_prom.i145.i
@@ -4191,27 +4174,27 @@ invoke.cont115.i:                                 ; preds = %if.else.i134.i, %_Z
   %sub.ptr.sub.i.i.i155.i = sub i64 %sub.ptr.lhs.cast.i.i.i153.i, %sub.ptr.rhs.cast.i.i.i154.i
   %sub.ptr.div.i.i.i156.i = ashr exact i64 %sub.ptr.sub.i.i.i155.i, 2
   %cmp.i.i157.i = icmp ult i64 %sub.ptr.div.i.i.i156.i, %mul.i151.i
-  br i1 %cmp.i.i157.i, label %if.then.i.i177.i, label %if.else.i.i158.i
+  br i1 %cmp.i.i157.i, label %if.then.i.i178.i, label %if.else.i.i158.i
 
-if.then.i.i177.i:                                 ; preds = %invoke.cont115.i
-  %sub.i.i178.i = sub i64 %mul.i151.i, %sub.ptr.div.i.i.i156.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %minVals.i150.i, i64 noundef %sub.i.i178.i)
+if.then.i.i178.i:                                 ; preds = %invoke.cont115.i
+  %sub.i.i179.i = sub i64 %mul.i151.i, %sub.ptr.div.i.i.i156.i
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %minVals.i150.i, i64 noundef %sub.i.i179.i)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i unwind label %lpad86.loopexit.i
 
 if.else.i.i158.i:                                 ; preds = %invoke.cont115.i
   %cmp4.i.i159.i = icmp ugt i64 %sub.ptr.div.i.i.i156.i, %mul.i151.i
-  br i1 %cmp4.i.i159.i, label %if.then5.i.i174.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i
+  br i1 %cmp4.i.i159.i, label %if.then5.i.i175.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i
 
-if.then5.i.i174.i:                                ; preds = %if.else.i.i158.i
+if.then5.i.i175.i:                                ; preds = %if.else.i.i158.i
   %add.ptr.i62.i.i = getelementptr inbounds float, ptr %183, i64 %mul.i151.i
-  %tobool.not.i.i.i175.i = icmp eq ptr %182, %add.ptr.i62.i.i
-  br i1 %tobool.not.i.i.i175.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i, label %invoke.cont.i.i.i176.i
+  %tobool.not.i.i.i176.i = icmp eq ptr %182, %add.ptr.i62.i.i
+  br i1 %tobool.not.i.i.i176.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i, label %invoke.cont.i.i.i177.i
 
-invoke.cont.i.i.i176.i:                           ; preds = %if.then5.i.i174.i
+invoke.cont.i.i.i177.i:                           ; preds = %if.then5.i.i175.i
   store ptr %add.ptr.i62.i.i, ptr %_M_finish.i.i.i152.i, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i:        ; preds = %invoke.cont.i.i.i176.i, %if.then5.i.i174.i, %if.else.i.i158.i, %if.then.i.i177.i
+_ZNSt6vectorIfSaIfEE6resizeEm.exit.i160.i:        ; preds = %invoke.cont.i.i.i177.i, %if.then5.i.i175.i, %if.else.i.i158.i, %if.then.i.i178.i
   %m_levels.val58.i.i = load ptr, ptr %m_levels.i, align 8
   %maxVals.i161.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val58.i.i, i64 %indvars.iv.i, i32 3
   %184 = load i64, ptr %m_chans.i, align 8
@@ -4251,20 +4234,20 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit78.i.i:         ; preds = %invoke.cont.i.i75.i
 for.body.lr.ph.i163.i:                            ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit78.i.i
   %add.i164.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp46.not107.i.i = icmp eq i32 %sh_prom.i145.i, 0
-  br i1 %cmp46.not107.i.i, label %for.body.lr.ph.split.us.i.i, label %for.body.preheader.i.i
+  br i1 %cmp46.not107.i.i, label %for.body.lr.ph.split.us.i.i, label %for.body.preheader.i165.i
 
-for.body.preheader.i.i:                           ; preds = %for.body.lr.ph.i163.i
+for.body.preheader.i165.i:                        ; preds = %for.body.lr.ph.i163.i
   %187 = add nsw i64 %conv.i147.i, 1
   %umax.i.i = call i64 @llvm.umax.i64(i64 %187, i64 3)
   %.pre.i.i = load i64, ptr %m_chans.i, align 8
-  br label %for.body.i165.i
+  br label %for.body.i166.i
 
 for.body.lr.ph.split.us.i.i:                      ; preds = %for.body.lr.ph.i163.i
   %188 = load i64, ptr %m_chans.i, align 8
   %.not.i.i = icmp eq i64 %188, 0
-  br i1 %.not.i.i, label %for.inc118.i, label %for.body.us.i172.i
+  br i1 %.not.i.i, label %for.inc118.i, label %for.body.us.i173.i
 
-for.body.us.i172.i:                               ; preds = %for.body.lr.ph.split.us.i.i, %for.cond45.preheader.us.i.i
+for.body.us.i173.i:                               ; preds = %for.body.lr.ph.split.us.i.i, %for.cond45.preheader.us.i.i
   %189 = phi i64 [ %205, %for.cond45.preheader.us.i.i ], [ %188, %for.body.lr.ph.split.us.i.i ]
   %i.0110.us.i.i = phi i64 [ %inc115.us.i.i, %for.cond45.preheader.us.i.i ], [ 0, %for.body.lr.ph.split.us.i.i ]
   %m_levels.val57.us.i.i = load ptr, ptr %m_levels.i, align 8
@@ -4275,9 +4258,9 @@ for.body.us.i172.i:                               ; preds = %for.body.lr.ph.spli
   %cmp14103.us.not.i.i = icmp eq i64 %189, 0
   br i1 %cmp14103.us.not.i.i, label %for.cond45.preheader.us.i.i, label %for.body15.us.i.i
 
-for.body15.us.i.i:                                ; preds = %for.body.us.i172.i, %for.body15.us.i.i
-  %192 = phi i64 [ %204, %for.body15.us.i.i ], [ %189, %for.body.us.i172.i ]
-  %k.0104.us.i.i = phi i64 [ %inc.us.i173.i, %for.body15.us.i.i ], [ 0, %for.body.us.i172.i ]
+for.body15.us.i.i:                                ; preds = %for.body.us.i173.i, %for.body15.us.i.i
+  %192 = phi i64 [ %204, %for.body15.us.i.i ], [ %189, %for.body.us.i173.i ]
+  %k.0104.us.i.i = phi i64 [ %inc.us.i174.i, %for.body15.us.i.i ], [ 0, %for.body.us.i173.i ]
   %m_levels.val56.us.i.i = load ptr, ptr %m_levels.i, align 8
   %minVals18.us.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val56.us.i.i, i64 %add.i164.i, i32 2
   %mul20.us.i.i = mul i64 %192, %191
@@ -4305,47 +4288,47 @@ for.body15.us.i.i:                                ; preds = %for.body.us.i172.i,
   %203 = getelementptr float, ptr %202, i64 %mul42.us.i.i
   %add.ptr.i88.us.i.i = getelementptr float, ptr %203, i64 %k.0104.us.i.i
   store float %201, ptr %add.ptr.i88.us.i.i, align 4
-  %inc.us.i173.i = add nuw i64 %k.0104.us.i.i, 1
+  %inc.us.i174.i = add nuw i64 %k.0104.us.i.i, 1
   %204 = load i64, ptr %m_chans.i, align 8
-  %cmp14.us.i.i = icmp ult i64 %inc.us.i173.i, %204
+  %cmp14.us.i.i = icmp ult i64 %inc.us.i174.i, %204
   br i1 %cmp14.us.i.i, label %for.body15.us.i.i, label %for.cond45.preheader.us.i.i, !llvm.loop !103
 
-for.cond45.preheader.us.i.i:                      ; preds = %for.body15.us.i.i, %for.body.us.i172.i
-  %205 = phi i64 [ 0, %for.body.us.i172.i ], [ %204, %for.body15.us.i.i ]
+for.cond45.preheader.us.i.i:                      ; preds = %for.body15.us.i.i, %for.body.us.i173.i
+  %205 = phi i64 [ 0, %for.body.us.i173.i ], [ %204, %for.body15.us.i.i ]
   %inc115.us.i.i = add nuw i64 %i.0110.us.i.i, 1
   %exitcond114.not.i.i = icmp eq i64 %inc115.us.i.i, %181
-  br i1 %exitcond114.not.i.i, label %for.inc118.i, label %for.body.us.i172.i, !llvm.loop !104
+  br i1 %exitcond114.not.i.i, label %for.inc118.i, label %for.body.us.i173.i, !llvm.loop !104
 
-for.body.i165.i:                                  ; preds = %for.cond45.for.inc114_crit_edge.i.i, %for.body.preheader.i.i
-  %206 = phi i64 [ %253, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
-  %207 = phi i64 [ %254, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
-  %208 = phi i64 [ %255, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
-  %209 = phi i64 [ %256, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i.i ]
-  %i.0110.i.i = phi i64 [ %inc115.i.i, %for.cond45.for.inc114_crit_edge.i.i ], [ 0, %for.body.preheader.i.i ]
+for.body.i166.i:                                  ; preds = %for.cond45.for.inc114_crit_edge.i.i, %for.body.preheader.i165.i
+  %206 = phi i64 [ %253, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i165.i ]
+  %207 = phi i64 [ %254, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i165.i ]
+  %208 = phi i64 [ %255, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i165.i ]
+  %209 = phi i64 [ %256, %for.cond45.for.inc114_crit_edge.i.i ], [ %.pre.i.i, %for.body.preheader.i165.i ]
+  %i.0110.i.i = phi i64 [ %inc115.i.i, %for.cond45.for.inc114_crit_edge.i.i ], [ 0, %for.body.preheader.i165.i ]
   %m_levels.val57.i.i = load ptr, ptr %m_levels.i, align 8
-  %child0offsets.i166.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val57.i.i, i64 %indvars.iv.i, i32 4
-  %210 = load ptr, ptr %child0offsets.i166.i, align 8
+  %child0offsets.i167.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val57.i.i, i64 %indvars.iv.i, i32 4
+  %210 = load ptr, ptr %child0offsets.i167.i, align 8
   %add.ptr.i80.i.i = getelementptr inbounds i64, ptr %210, i64 %i.0110.i.i
   %211 = load i64, ptr %add.ptr.i80.i.i, align 8
   %cmp14103.not.i.i = icmp eq i64 %209, 0
   br i1 %cmp14103.not.i.i, label %for.cond45.preheader.i.i, label %for.body15.i.i
 
-for.cond45.preheader.i.i:                         ; preds = %for.body15.i.i, %for.body.i165.i
-  %212 = phi i64 [ %206, %for.body.i165.i ], [ %228, %for.body15.i.i ]
-  %213 = phi i64 [ %207, %for.body.i165.i ], [ %228, %for.body15.i.i ]
-  %214 = phi i64 [ %208, %for.body.i165.i ], [ %228, %for.body15.i.i ]
-  %215 = phi i64 [ 0, %for.body.i165.i ], [ %228, %for.body15.i.i ]
+for.cond45.preheader.i.i:                         ; preds = %for.body15.i.i, %for.body.i166.i
+  %212 = phi i64 [ %206, %for.body.i166.i ], [ %228, %for.body15.i.i ]
+  %213 = phi i64 [ %207, %for.body.i166.i ], [ %228, %for.body15.i.i ]
+  %214 = phi i64 [ %208, %for.body.i166.i ], [ %228, %for.body15.i.i ]
+  %215 = phi i64 [ 0, %for.body.i166.i ], [ %228, %for.body15.i.i ]
   %add52.i.i = add i64 %211, -1
   br label %for.body47.i.i
 
-for.body15.i.i:                                   ; preds = %for.body.i165.i, %for.body15.i.i
-  %216 = phi i64 [ %228, %for.body15.i.i ], [ %209, %for.body.i165.i ]
-  %k.0104.i.i = phi i64 [ %inc.i168.i, %for.body15.i.i ], [ 0, %for.body.i165.i ]
+for.body15.i.i:                                   ; preds = %for.body.i166.i, %for.body15.i.i
+  %216 = phi i64 [ %228, %for.body15.i.i ], [ %209, %for.body.i166.i ]
+  %k.0104.i.i = phi i64 [ %inc.i169.i, %for.body15.i.i ], [ 0, %for.body.i166.i ]
   %m_levels.val56.i.i = load ptr, ptr %m_levels.i, align 8
   %minVals18.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val56.i.i, i64 %add.i164.i, i32 2
-  %mul20.i167.i = mul i64 %216, %211
+  %mul20.i168.i = mul i64 %216, %211
   %217 = load ptr, ptr %minVals18.i.i, align 8
-  %218 = getelementptr float, ptr %217, i64 %mul20.i167.i
+  %218 = getelementptr float, ptr %217, i64 %mul20.i168.i
   %add.ptr.i82.i.i = getelementptr float, ptr %218, i64 %k.0104.i.i
   %219 = load float, ptr %add.ptr.i82.i.i, align 4
   %minVals25.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val56.i.i, i64 %indvars.iv.i, i32 2
@@ -4368,9 +4351,9 @@ for.body15.i.i:                                   ; preds = %for.body.i165.i, %f
   %227 = getelementptr float, ptr %226, i64 %mul42.i.i
   %add.ptr.i88.i.i = getelementptr float, ptr %227, i64 %k.0104.i.i
   store float %225, ptr %add.ptr.i88.i.i, align 4
-  %inc.i168.i = add nuw i64 %k.0104.i.i, 1
+  %inc.i169.i = add nuw i64 %k.0104.i.i, 1
   %228 = load i64, ptr %m_chans.i, align 8
-  %cmp14.i.i = icmp ult i64 %inc.i168.i, %228
+  %cmp14.i.i = icmp ult i64 %inc.i169.i, %228
   br i1 %cmp14.i.i, label %for.body15.i.i, label %for.cond45.preheader.i.i, !llvm.loop !103
 
 for.body47.i.i:                                   ; preds = %for.inc111.i.i, %for.cond45.preheader.i.i
@@ -4380,23 +4363,23 @@ for.body47.i.i:                                   ; preds = %for.inc111.i.i, %fo
   %232 = phi i64 [ %215, %for.cond45.preheader.i.i ], [ %256, %for.inc111.i.i ]
   %j.0108.i.i = phi i64 [ 2, %for.cond45.preheader.i.i ], [ %inc112.i.i, %for.inc111.i.i ]
   %m_levels.val52.i.i = load ptr, ptr %m_levels.i, align 8
-  %numChildren.i169.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val52.i.i, i64 %indvars.iv.i, i32 5
-  %233 = load ptr, ptr %numChildren.i169.i, align 8
+  %numChildren.i170.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val52.i.i, i64 %indvars.iv.i, i32 5
+  %233 = load ptr, ptr %numChildren.i170.i, align 8
   %add.ptr.i90.i.i = getelementptr inbounds i64, ptr %233, i64 %i.0110.i.i
   %234 = load i64, ptr %add.ptr.i90.i.i, align 8
   %cmp51.not.i.i = icmp ult i64 %234, %j.0108.i.i
-  br i1 %cmp51.not.i.i, label %for.inc111.i.i, label %if.then.i170.i
+  br i1 %cmp51.not.i.i, label %for.inc111.i.i, label %if.then.i171.i
 
-if.then.i170.i:                                   ; preds = %for.body47.i.i
-  %sub.i171.i = add i64 %add52.i.i, %j.0108.i.i
+if.then.i171.i:                                   ; preds = %for.body47.i.i
+  %sub.i172.i = add i64 %add52.i.i, %j.0108.i.i
   %cmp56105.not.i.i = icmp eq i64 %231, 0
   br i1 %cmp56105.not.i.i, label %for.inc111.i.i, label %for.body57.i.i
 
-for.body57.i.i:                                   ; preds = %if.then.i170.i, %for.inc107.i.i
-  %235 = phi i64 [ %252, %for.inc107.i.i ], [ %229, %if.then.i170.i ]
-  %236 = phi i64 [ %252, %for.inc107.i.i ], [ %230, %if.then.i170.i ]
-  %237 = phi i64 [ %252, %for.inc107.i.i ], [ %231, %if.then.i170.i ]
-  %k53.0106.i.i = phi i64 [ %inc108.i.i, %for.inc107.i.i ], [ 0, %if.then.i170.i ]
+for.body57.i.i:                                   ; preds = %if.then.i171.i, %for.inc107.i.i
+  %235 = phi i64 [ %252, %for.inc107.i.i ], [ %229, %if.then.i171.i ]
+  %236 = phi i64 [ %252, %for.inc107.i.i ], [ %230, %if.then.i171.i ]
+  %237 = phi i64 [ %252, %for.inc107.i.i ], [ %231, %if.then.i171.i ]
+  %k53.0106.i.i = phi i64 [ %inc108.i.i, %for.inc107.i.i ], [ 0, %if.then.i171.i ]
   %m_levels.val51.i.i = load ptr, ptr %m_levels.i, align 8
   %minVals60.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val51.i.i, i64 %indvars.iv.i, i32 2
   %mul62.i.i = mul i64 %237, %i.0110.i.i
@@ -4405,7 +4388,7 @@ for.body57.i.i:                                   ; preds = %if.then.i170.i, %fo
   %add.ptr.i92.i.i = getelementptr float, ptr %239, i64 %k53.0106.i.i
   %240 = load float, ptr %add.ptr.i92.i.i, align 4
   %minVals68.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val51.i.i, i64 %add.i164.i, i32 2
-  %mul70.i.i = mul i64 %237, %sub.i171.i
+  %mul70.i.i = mul i64 %237, %sub.i172.i
   %241 = load ptr, ptr %minVals68.i.i, align 8
   %242 = getelementptr float, ptr %241, i64 %mul70.i.i
   %add.ptr.i94.i.i = getelementptr float, ptr %242, i64 %k53.0106.i.i
@@ -4430,7 +4413,7 @@ if.end.i.i:                                       ; preds = %if.then74.i.i, %for
   %add.ptr.i98.i.i = getelementptr float, ptr %247, i64 %k53.0106.i.i
   %248 = load float, ptr %add.ptr.i98.i.i, align 4
   %maxVals92.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %m_levels.val48.i.i, i64 %add.i164.i, i32 3
-  %mul94.i.i = mul i64 %245, %sub.i171.i
+  %mul94.i.i = mul i64 %245, %sub.i172.i
   %249 = load ptr, ptr %maxVals92.i.i, align 8
   %250 = getelementptr float, ptr %249, i64 %mul94.i.i
   %add.ptr.i100.i.i = getelementptr float, ptr %250, i64 %k53.0106.i.i
@@ -4449,11 +4432,11 @@ for.inc107.i.i:                                   ; preds = %if.then98.i.i, %if.
   %cmp56.i.i = icmp ult i64 %inc108.i.i, %252
   br i1 %cmp56.i.i, label %for.body57.i.i, label %for.inc111.i.i, !llvm.loop !106
 
-for.inc111.i.i:                                   ; preds = %for.inc107.i.i, %if.then.i170.i, %for.body47.i.i
-  %253 = phi i64 [ %229, %if.then.i170.i ], [ %229, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
-  %254 = phi i64 [ %230, %if.then.i170.i ], [ %230, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
-  %255 = phi i64 [ 0, %if.then.i170.i ], [ %231, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
-  %256 = phi i64 [ 0, %if.then.i170.i ], [ %232, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
+for.inc111.i.i:                                   ; preds = %for.inc107.i.i, %if.then.i171.i, %for.body47.i.i
+  %253 = phi i64 [ %229, %if.then.i171.i ], [ %229, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
+  %254 = phi i64 [ %230, %if.then.i171.i ], [ %230, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
+  %255 = phi i64 [ 0, %if.then.i171.i ], [ %231, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
+  %256 = phi i64 [ 0, %if.then.i171.i ], [ %232, %for.body47.i.i ], [ %252, %for.inc107.i.i ]
   %inc112.i.i = add nuw i64 %j.0108.i.i, 1
   %exitcond.i.i = icmp eq i64 %inc112.i.i, %umax.i.i
   br i1 %exitcond.i.i, label %for.cond45.for.inc114_crit_edge.i.i, label %for.body47.i.i, !llvm.loop !107
@@ -4461,7 +4444,7 @@ for.inc111.i.i:                                   ; preds = %for.inc107.i.i, %if
 for.cond45.for.inc114_crit_edge.i.i:              ; preds = %for.inc111.i.i
   %inc115.i.i = add nuw i64 %i.0110.i.i, 1
   %exitcond113.not.i.i = icmp eq i64 %inc115.i.i, %181
-  br i1 %exitcond113.not.i.i, label %for.inc118.i, label %for.body.i165.i, !llvm.loop !108
+  br i1 %exitcond113.not.i.i, label %for.inc118.i, label %for.body.i166.i, !llvm.loop !108
 
 for.inc118.i:                                     ; preds = %for.cond45.for.inc114_crit_edge.i.i, %for.cond45.preheader.us.i.i, %for.body.lr.ph.split.us.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit78.i.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -4469,15 +4452,15 @@ for.inc118.i:                                     ; preds = %for.cond45.for.inc1
   br i1 %cmp93.i, label %for.body94.i, label %for.end119.i, !llvm.loop !109
 
 for.end119.i:                                     ; preds = %for.inc118.i, %invoke.cont87.i
-  %hashes.sroa.0.1.lcssa.i = phi ptr [ %hashes.sroa.0.0294.i, %invoke.cont87.i ], [ %hashes.sroa.0.5.i, %for.inc118.i ]
-  %tobool.not.i.i.i182.i = icmp eq ptr %hashes.sroa.0.1.lcssa.i, null
-  br i1 %tobool.not.i.i.i182.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit, label %if.then.i.i.i183.i
+  %hashes.sroa.0.1.lcssa.i = phi ptr [ %hashes.sroa.0.0295.i, %invoke.cont87.i ], [ %hashes.sroa.0.5.i, %for.inc118.i ]
+  %tobool.not.i.i.i183.i = icmp eq ptr %hashes.sroa.0.1.lcssa.i, null
+  br i1 %tobool.not.i.i.i183.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit, label %if.then.i.i.i184.i
 
-if.then.i.i.i183.i:                               ; preds = %for.end119.i
+if.then.i.i.i184.i:                               ; preds = %for.end119.i
   call void @_ZdlPv(ptr noundef nonnull %hashes.sroa.0.1.lcssa.i) #28
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit: ; preds = %for.end119.i, %if.then.i.i.i183.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit: ; preds = %for.end119.i, %if.then.i.i.i184.i
   %257 = load i64, ptr %m_dim, align 8
   %sub = add nsw i64 %257, -3
   %conv = sitofp i64 %sub to float
@@ -4689,38 +4672,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
+  %mul.i.i.i = shl nuw nsw i64 %5, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds i64, ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i64 0, ptr %add.ptr, align 8
   %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr i64, ptr %add.ptr, i64 1
-  %6 = shl i64 %__n, 3
-  %7 = add i64 %6, -8
+  %6 = shl nuw nsw i64 %__n, 3
+  %7 = add nsw i64 %6, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
@@ -4732,10 +4705,10 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit31: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i30
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds i64, ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -4788,36 +4761,26 @@ if.then.i.i:                                      ; preds = %if.else.i
 
 _ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i
+  %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
-  %cond.i.i = select i1 %cmp7.i.i, i64 288230376151711743, i64 %3
-  %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %try.cont.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 5
+  %mul.i.i.i.i = shl nuw nsw i64 %3, 5
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
-  br label %try.cont.i
-
-try.cont.i:                                       ; preds = %cond.true.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %cond.i22.i = phi ptr [ %call5.i.i.i.i, %cond.true.i.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %cond.i22.i, i64 %sub.ptr.div.i
-  %4 = shl nuw i64 %sub, 5
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 0, i64 %4, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %4 = shl nuw nsw i64 %sub, 5
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %4, i1 false)
   %cmp.not1.i.i.i.i.i = icmp eq ptr %this.val7, %this.val8
   br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %try.cont.i, %for.body.i.i.i.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i22.i, %try.cont.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val7, %try.cont.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val7, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i, i64 32, i1 false), !alias.scope !110
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.addr.02.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__cur.03.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %this.val8
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !114
 
-_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i.i, %try.cont.i
+_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i
   %tobool.not.i29.i = icmp eq ptr %this.val7, null
   br i1 %tobool.not.i29.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE13_M_deallocateEPS3_m.exit31.i, label %if.then.i30.i
 
@@ -4826,10 +4789,10 @@ if.then.i30.i:                                    ; preds = %_ZNSt6vectorIN19Ope
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE13_M_deallocateEPS3_m.exit31.i
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE13_M_deallocateEPS3_m.exit31.i: ; preds = %if.then.i30.i, %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
-  store ptr %cond.i22.i, ptr %this, align 8
-  %add.ptr37.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %cond.i22.i, i64 %__new_size
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr37.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %0, align 8
-  %add.ptr40.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %cond.i22.i, i64 %cond.i.i
+  %add.ptr40.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -5015,7 +4978,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i10.i
   br i1 %cmp19.i.i.i31.i, label %if.then20.i.i.i32.i, label %if.end33.i.i.i13.i
 
 if.then20.i.i.i32.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
   %sub24.i.i.i33.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i25.i.i.i34.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %sub24.i.i.i33.i
   %add.ptr.i26.i.i.i35.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
@@ -5241,38 +5204,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
-  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
+  %mul.i.i.i = shl nuw nsw i64 %5, 2
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds float, ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store float 0.000000e+00, ptr %add.ptr, align 4
   %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr float, ptr %add.ptr, i64 1
-  %6 = shl i64 %__n, 2
-  %7 = add i64 %6, -4
+  %6 = shl nuw nsw i64 %__n, 2
+  %7 = add nsw i64 %6, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
@@ -5284,10 +5237,10 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i30
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds float, ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds float, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

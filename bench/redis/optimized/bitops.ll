@@ -451,7 +451,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
+define dso_local noundef i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i64 %bits, 64
   %notmask = shl nsw i64 -1, %bits
@@ -511,7 +511,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
+define dso_local noundef i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ne i64 %bits, 64
   %sub = add i64 %bits, -1
@@ -637,7 +637,7 @@ for.end7:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getBitOffsetFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
+define dso_local noundef i32 @getBitOffsetFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
 entry:
   %loffset = alloca i64, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
@@ -752,7 +752,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @mustObeyClient(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef %sign, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+define dso_local noundef i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef %sign, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
 entry:
   %llbits = alloca i64, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
@@ -2179,7 +2179,7 @@ if.then76:                                        ; preds = %29
   %sub86 = xor i8 %notmask49, -1
   %shr = lshr i64 %24, 3
   store i64 %shr, ptr %start, align 8
-  %shr88 = ashr i64 %26, 3
+  %shr88 = lshr i64 %26, 3
   store i64 %shr88, ptr %end, align 8
   %34 = and i16 %notmask, 254
   %35 = zext nneg i16 %34 to i32
@@ -2305,8 +2305,8 @@ if.then115:                                       ; preds = %if.end112
   br label %if.end154
 
 if.else116:                                       ; preds = %if.end112
-  %reass.sub = sub i64 %49, %50
-  %add118 = add i64 %reass.sub, 1
+  %reass.sub = sub nsw i64 %49, %50
+  %add118 = add nsw i64 %reass.sub, 1
   %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %50
   %call119 = call i64 @redisPopcount(ptr noundef %add.ptr, i64 noundef %add118)
   %cmp121 = icmp ne i32 %first_byte_neg_mask.0, 0
@@ -2549,7 +2549,7 @@ if.then96:                                        ; preds = %27
   %sub106 = xor i8 %notmask80, -1
   %shr = lshr i64 %22, 3
   store i64 %shr, ptr %start, align 8
-  %shr108 = ashr i64 %24, 3
+  %shr108 = lshr i64 %24, 3
   store i64 %shr108, ptr %end, align 8
   %32 = zext nneg i8 %sub106 to i32
   br label %if.end128
@@ -2671,7 +2671,7 @@ if.end189:                                        ; preds = %if.end188, %if.else
   %bytes.0 = phi i64 [ %sub139, %if.end188 ], [ %add140, %if.else138 ]
   %tobool191.not = icmp ne i32 %last_byte_neg_mask.0, 0
   %conv193.neg = sext i1 %tobool191.not to i64
-  %sub194 = add i64 %bytes.0, %conv193.neg
+  %sub194 = add nsw i64 %bytes.0, %conv193.neg
   %cmp195 = icmp sgt i64 %sub194, 0
   br i1 %cmp195, label %if.then197, label %if.end213
 

@@ -1954,8 +1954,8 @@ if.end5:                                          ; preds = %land.lhs.true
   br i1 %tobool6.not, label %if.end23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %sub.i = add i32 %3, -1
-  %conv.i = sext i32 %sub.i to i64
+  %sub.i = add nsw i32 %3, -1
+  %conv.i = zext nneg i32 %sub.i to i64
   %and.i = and i64 %4, %conv.i
   %tobool8.not = icmp eq i64 %and.i, 0
   br i1 %tobool8.not, label %if.else10, label %if.then14

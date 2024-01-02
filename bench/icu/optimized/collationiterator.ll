@@ -3898,14 +3898,14 @@ if.end50:                                         ; preds = %invoke.cont47, %if.
   br i1 %cmp.i.i147, label %for.end, label %if.else.i.i148
 
 if.else.i.i148:                                   ; preds = %if.end50
-  %cmp2.i.i = icmp slt i32 %c.addr.1, 65536
+  %cmp2.i.i = icmp ult i32 %c.addr.1, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i150, label %if.end6.i.i
 
 if.then3.i.i150:                                  ; preds = %if.else.i.i148
   %smallFCD.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %56, i64 0, i32 16
   %58 = load ptr, ptr %smallFCD.i.i.i, align 8
-  %shr.i.i.i = ashr i32 %c.addr.1, 8
-  %idxprom.i.i.i = sext i32 %shr.i.i.i to i64
+  %shr.i.i.i = lshr i32 %c.addr.1, 8
+  %idxprom.i.i.i = zext nneg i32 %shr.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %58, i64 %idxprom.i.i.i
   %59 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i151 = icmp eq i8 %59, 0
@@ -4616,14 +4616,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %_ZNK6icu_7513CollationData8getFCD16Ei.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp2.i.i = icmp slt i32 %c, 65536
+  %cmp2.i.i = icmp ult i32 %c, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %smallFCD.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %1, i64 0, i32 16
   %3 = load ptr, ptr %smallFCD.i.i.i, align 8
-  %shr.i.i.i = ashr i32 %c, 8
-  %idxprom.i.i.i = sext i32 %shr.i.i.i to i64
+  %shr.i.i.i = lshr i32 %c, 8
+  %idxprom.i.i.i = zext nneg i32 %shr.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %4, 0

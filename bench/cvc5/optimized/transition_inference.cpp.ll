@@ -12500,7 +12500,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -12782,7 +12782,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -15224,18 +15224,18 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #19
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %call.i.i, i64 0, i32 1
-  %.pre114 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
-  %.pre115 = load i8, ptr %__k, align 1
+  %.pre113 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
+  %.pre114 = load i8, ptr %__k, align 1
+  %.pre115 = and i8 %.pre113, 1
   %.pre116 = and i8 %.pre114, 1
-  %.pre117 = and i8 %.pre115, 1
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %.pre-phi118 = phi i8 [ %.pre117, %if.else.i ], [ %7, %while.end.i ]
-  %.pre-phi = phi i8 [ %.pre116, %if.else.i ], [ %9, %while.end.i ]
+  %.pre-phi117 = phi i8 [ %.pre116, %if.else.i ], [ %7, %while.end.i ]
+  %.pre-phi = phi i8 [ %.pre115, %if.else.i ], [ %9, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp ult i8 %.pre-phi, %.pre-phi118
+  %cmp.i5.i = icmp ult i8 %.pre-phi, %.pre-phi117
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
   %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
   br label %return
@@ -15256,33 +15256,17 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #19
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %call.i, i64 0, i32 1
-  %16 = load i8, ptr %_M_storage.i.i.i16, align 1
-  %17 = and i8 %16, 1
-  %cmp.i17 = icmp ult i8 %17, %12
-  br i1 %cmp.i17, label %if.then32, label %if.else42
-
-if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i18, align 8
-  %cmp35 = icmp eq ptr %18, null
-  %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
-  br label %return
-
-if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
   br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
 
-while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+while.body.i26:                                   ; preds = %if.else25, %while.body.i26
+  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else25 ]
   %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %__x.021.i27, i64 0, i32 1
-  %19 = load i8, ptr %_M_storage.i.i.i28, align 1
-  %20 = and i8 %19, 1
-  %cmp.i.i29 = icmp ult i8 %12, %20
+  %16 = load i8, ptr %_M_storage.i.i.i28, align 1
+  %17 = and i8 %16, 1
+  %cmp.i.i29 = icmp ult i8 %12, %17
   %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
   %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
   %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
@@ -15293,23 +15277,23 @@ while.body.i26:                                   ; preds = %if.else42, %while.b
 while.end.i35:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
+if.then.i47:                                      ; preds = %while.end.i35, %if.else25
+  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else25 ]
   %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %15
   br i1 %cmp.i4.i50, label %return, label %if.else.i51
 
 if.else.i51:                                      ; preds = %if.then.i47
   %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #19
   %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %call.i.i52, i64 0, i32 1
-  %.pre113 = load i8, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 1
-  %.pre119 = and i8 %.pre113, 1
+  %.pre112 = load i8, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 1
+  %.pre118 = and i8 %.pre112, 1
   br label %if.end12.i36
 
 if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %.pre-phi120 = phi i8 [ %.pre119, %if.else.i51 ], [ %20, %while.end.i35 ]
+  %.pre-phi119 = phi i8 [ %.pre118, %if.else.i51 ], [ %17, %while.end.i35 ]
   %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
   %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i8 %.pre-phi120, %12
+  %cmp.i5.i40 = icmp ult i8 %.pre-phi119, %12
   %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
   %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
   br label %return
@@ -15320,8 +15304,8 @@ if.else44:                                        ; preds = %if.else12
 
 if.then50:                                        ; preds = %if.else44
   %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %21 = load ptr, ptr %_M_right.i56, align 8
-  %cmp53 = icmp eq ptr %21, %__position.coerce
+  %18 = load ptr, ptr %_M_right.i56, align 8
+  %cmp53 = icmp eq ptr %18, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
@@ -15333,9 +15317,9 @@ if.else57:                                        ; preds = %if.then50
 while.body.i70:                                   ; preds = %if.else57, %while.body.i70
   %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else57 ]
   %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %__x.021.i71, i64 0, i32 1
-  %22 = load i8, ptr %_M_storage.i.i.i72, align 1
-  %23 = and i8 %22, 1
-  %cmp.i.i73 = icmp ult i8 %12, %23
+  %19 = load i8, ptr %_M_storage.i.i.i72, align 1
+  %20 = and i8 %19, 1
+  %cmp.i.i73 = icmp ult i8 %12, %20
   %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
   %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
   %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
@@ -15349,29 +15333,29 @@ while.end.i79:                                    ; preds = %while.body.i70
 if.then.i91:                                      ; preds = %while.end.i79, %if.else57
   %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else57 ]
   %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %24 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %24
+  %21 = load ptr, ptr %_M_left.i3.i93, align 8
+  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %21
   br i1 %cmp.i4.i94, label %return, label %if.else.i95
 
 if.else.i95:                                      ; preds = %if.then.i91
   %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #19
   %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.141", ptr %call.i.i96, i64 0, i32 1
   %.pre = load i8, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 1
-  %.pre121 = and i8 %.pre, 1
+  %.pre120 = and i8 %.pre, 1
   br label %if.end12.i80
 
 if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %.pre-phi122 = phi i8 [ %.pre121, %if.else.i95 ], [ %23, %while.end.i79 ]
+  %.pre-phi121 = phi i8 [ %.pre120, %if.else.i95 ], [ %20, %while.end.i79 ]
   %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
   %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i8 %.pre-phi122, %12
+  %cmp.i5.i84 = icmp ult i8 %.pre-phi121, %12
   %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
   %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %15, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %15, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -16523,18 +16507,18 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #19
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i, i64 0, i32 1
-  %.pre114 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
-  %.pre115 = load i8, ptr %__k, align 1
+  %.pre113 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
+  %.pre114 = load i8, ptr %__k, align 1
+  %.pre115 = and i8 %.pre113, 1
   %.pre116 = and i8 %.pre114, 1
-  %.pre117 = and i8 %.pre115, 1
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %.pre-phi118 = phi i8 [ %.pre117, %if.else.i ], [ %7, %while.end.i ]
-  %.pre-phi = phi i8 [ %.pre116, %if.else.i ], [ %9, %while.end.i ]
+  %.pre-phi117 = phi i8 [ %.pre116, %if.else.i ], [ %7, %while.end.i ]
+  %.pre-phi = phi i8 [ %.pre115, %if.else.i ], [ %9, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp ult i8 %.pre-phi, %.pre-phi118
+  %cmp.i5.i = icmp ult i8 %.pre-phi, %.pre-phi117
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
   %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
   br label %return
@@ -16555,33 +16539,17 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #19
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i, i64 0, i32 1
-  %16 = load i8, ptr %_M_storage.i.i.i16, align 1
-  %17 = and i8 %16, 1
-  %cmp.i17 = icmp ult i8 %17, %12
-  br i1 %cmp.i17, label %if.then32, label %if.else42
-
-if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i18, align 8
-  %cmp35 = icmp eq ptr %18, null
-  %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
-  br label %return
-
-if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
   br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
 
-while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+while.body.i26:                                   ; preds = %if.else25, %while.body.i26
+  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else25 ]
   %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.021.i27, i64 0, i32 1
-  %19 = load i8, ptr %_M_storage.i.i.i28, align 1
-  %20 = and i8 %19, 1
-  %cmp.i.i29 = icmp ult i8 %12, %20
+  %16 = load i8, ptr %_M_storage.i.i.i28, align 1
+  %17 = and i8 %16, 1
+  %cmp.i.i29 = icmp ult i8 %12, %17
   %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
   %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
   %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
@@ -16592,23 +16560,23 @@ while.body.i26:                                   ; preds = %if.else42, %while.b
 while.end.i35:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
+if.then.i47:                                      ; preds = %while.end.i35, %if.else25
+  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else25 ]
   %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %15
   br i1 %cmp.i4.i50, label %return, label %if.else.i51
 
 if.else.i51:                                      ; preds = %if.then.i47
   %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #19
   %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i52, i64 0, i32 1
-  %.pre113 = load i8, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 1
-  %.pre119 = and i8 %.pre113, 1
+  %.pre112 = load i8, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 1
+  %.pre118 = and i8 %.pre112, 1
   br label %if.end12.i36
 
 if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %.pre-phi120 = phi i8 [ %.pre119, %if.else.i51 ], [ %20, %while.end.i35 ]
+  %.pre-phi119 = phi i8 [ %.pre118, %if.else.i51 ], [ %17, %while.end.i35 ]
   %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
   %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i8 %.pre-phi120, %12
+  %cmp.i5.i40 = icmp ult i8 %.pre-phi119, %12
   %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
   %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
   br label %return
@@ -16619,8 +16587,8 @@ if.else44:                                        ; preds = %if.else12
 
 if.then50:                                        ; preds = %if.else44
   %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %21 = load ptr, ptr %_M_right.i56, align 8
-  %cmp53 = icmp eq ptr %21, %__position.coerce
+  %18 = load ptr, ptr %_M_right.i56, align 8
+  %cmp53 = icmp eq ptr %18, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
@@ -16632,9 +16600,9 @@ if.else57:                                        ; preds = %if.then50
 while.body.i70:                                   ; preds = %if.else57, %while.body.i70
   %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else57 ]
   %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.021.i71, i64 0, i32 1
-  %22 = load i8, ptr %_M_storage.i.i.i72, align 1
-  %23 = and i8 %22, 1
-  %cmp.i.i73 = icmp ult i8 %12, %23
+  %19 = load i8, ptr %_M_storage.i.i.i72, align 1
+  %20 = and i8 %19, 1
+  %cmp.i.i73 = icmp ult i8 %12, %20
   %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
   %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
   %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
@@ -16648,29 +16616,29 @@ while.end.i79:                                    ; preds = %while.body.i70
 if.then.i91:                                      ; preds = %while.end.i79, %if.else57
   %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else57 ]
   %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %24 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %24
+  %21 = load ptr, ptr %_M_left.i3.i93, align 8
+  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %21
   br i1 %cmp.i4.i94, label %return, label %if.else.i95
 
 if.else.i95:                                      ; preds = %if.then.i91
   %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #19
   %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i96, i64 0, i32 1
   %.pre = load i8, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 1
-  %.pre121 = and i8 %.pre, 1
+  %.pre120 = and i8 %.pre, 1
   br label %if.end12.i80
 
 if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %.pre-phi122 = phi i8 [ %.pre121, %if.else.i95 ], [ %23, %while.end.i79 ]
+  %.pre-phi121 = phi i8 [ %.pre120, %if.else.i95 ], [ %20, %while.end.i79 ]
   %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
   %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i8 %.pre-phi122, %12
+  %cmp.i5.i84 = icmp ult i8 %.pre-phi121, %12
   %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
   %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %15, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %15, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -2189,8 +2189,8 @@ for.end103:                                       ; preds = %_ZNK6icu_759UVector
 if.else106:                                       ; preds = %for.end103
   %conv.i164 = zext i32 %call85 to i64
   %shl.i = shl i64 %conv.i164, 48
-  %conv.i165 = sext i32 %strength to i64
-  %or = or i64 %shl.i, %conv.i165
+  %conv.i165 = zext nneg i32 %strength to i64
+  %or = or disjoint i64 %shl.i, %conv.i165
   %call109 = call noundef i32 @_ZN6icu_7516CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %and.i145, i32 noundef %index.2, i64 noundef %or, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end115
 
@@ -2254,9 +2254,9 @@ if.end125:                                        ; preds = %if.end121
   %shl6.i = and i32 %and5.i, 1056964608
   %conv7.i = zext nneg i32 %shl6.i to i64
   %add8.i = add nuw nsw i64 %add4.i, %conv7.i
-  %shl9.i = shl i32 %strength.addr.0, 8
-  %conv10.i = sext i32 %shl9.i to i64
-  %add11.i = add nsw i64 %add8.i, %conv10.i
+  %shl9.i = shl nuw nsw i32 %strength.addr.0, 8
+  %conv10.i = zext nneg i32 %shl9.i to i64
+  %add11.i = add nuw nsw i64 %add8.i, %conv10.i
   %cesLength128 = getelementptr inbounds %"class.icu_75::CollationBuilder", ptr %this, i64 0, i32 15
   %48 = load i32, ptr %cesLength128, align 8
   %sub129 = add nsw i32 %48, -1
@@ -2655,7 +2655,7 @@ if.then47:                                        ; preds = %if.then44
 if.then50:                                        ; preds = %if.then47
   %shr.i108 = lshr i32 %conv.i103, 8
   %and.i109 = and i32 %shr.i108, 1048575
-  %cmp2.i111 = icmp sgt i32 %38, %and.i109
+  %cmp2.i111 = icmp ugt i32 %38, %and.i109
   br i1 %cmp2.i111, label %cond.true.i113, label %if.end55
 
 cond.true.i113:                                   ; preds = %if.then50
@@ -3797,7 +3797,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit58:       ; preds = %while.body, %cond.t
   br i1 %cmp37.not, label %if.end53, label %if.then38
 
 if.then38:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit58
-  %cmp39 = icmp slt i32 %and.i60, %level
+  %cmp39 = icmp ult i32 %and.i60, %level
   br i1 %cmp39, label %while.end, label %if.end41
 
 if.end41:                                         ; preds = %if.then38
@@ -4611,7 +4611,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit87:       ; preds = %while.body, %cond.t
 
 while.body.split:                                 ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit87
   %28 = or i32 %strength, 8
-  %or16 = sext i32 %28 to i64
+  %or16 = zext nneg i32 %28 to i64
   %call1917 = tail call noundef i32 @_ZN6icu_7516CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %index.addr.1, i32 noundef %and.i, i64 noundef %or16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
@@ -6336,7 +6336,7 @@ entry:
 declare void @_ZN6icu_7520CollationDataBuilder8copyFromERKS0_RKNS0_10CEModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef nonnull align 8 dereferenceable(640), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_openRules_75(ptr noundef %rules, i32 noundef %rulesLength, i32 noundef %normalizationMode, i32 noundef %strength, ptr noundef %parseError, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucol_openRules_75(ptr noundef %rules, i32 noundef %rulesLength, i32 noundef %normalizationMode, i32 noundef %strength, ptr noundef %parseError, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"sha256\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_add_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
   %cmp = icmp slt i32 %sub, %flen
@@ -97,7 +97,7 @@ if.end7:                                          ; preds = %if.end6, %if.end
 lor.lhs.false:                                    ; preds = %if.end7
   %1 = load i8, ptr %p.0, align 1
   %cmp12.not = icmp eq i8 %1, 1
-  br i1 %cmp12.not, label %if.end15, label %if.then14
+  br i1 %cmp12.not, label %for.body.preheader, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false, %if.end7
   tail call void @ERR_new() #4
@@ -105,14 +105,13 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 106, ptr noundef null) #4
   br label %return
 
-if.end15:                                         ; preds = %lor.lhs.false
-  %sub = add i32 %flen.addr.0, -1
-  %cmp1630 = icmp sgt i32 %flen.addr.0, 1
-  br i1 %cmp1630, label %for.body, label %for.end.thread42
+for.body.preheader:                               ; preds = %lor.lhs.false
+  %sub = add nsw i32 %flen.addr.0, -1
+  br label %for.body
 
-for.body:                                         ; preds = %if.end15, %if.end27
-  %p.0.pn32 = phi ptr [ %p.133, %if.end27 ], [ %p.0, %if.end15 ]
-  %i.031 = phi i32 [ %inc, %if.end27 ], [ 0, %if.end15 ]
+for.body:                                         ; preds = %for.body.preheader, %if.end27
+  %p.0.pn32 = phi ptr [ %p.133, %if.end27 ], [ %p.0, %for.body.preheader ]
+  %i.031 = phi i32 [ %inc, %if.end27 ], [ 0, %for.body.preheader ]
   %p.133 = getelementptr inbounds i8, ptr %p.0.pn32, i64 1
   %2 = load i8, ptr %p.133, align 1
   switch i8 %2, label %if.else [
@@ -136,11 +135,7 @@ for.end:                                          ; preds = %for.body
   %cmp29 = icmp eq i32 %i.031, %sub
   br i1 %cmp29, label %if.then31, label %if.end32
 
-for.end.thread42:                                 ; preds = %if.end15
-  %cmp2945 = icmp eq i32 %sub, 0
-  br i1 %cmp2945, label %if.then31, label %if.then35
-
-if.then31:                                        ; preds = %if.end27, %for.end.thread42, %for.end
+if.then31:                                        ; preds = %if.end27, %for.end
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_type_1) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 113, ptr noundef null) #4
@@ -150,7 +145,7 @@ if.end32:                                         ; preds = %for.end
   %cmp33 = icmp ult i32 %i.031, 8
   br i1 %cmp33, label %if.then35, label %if.end36
 
-if.then35:                                        ; preds = %for.end.thread42, %if.end32
+if.then35:                                        ; preds = %if.end32
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 111, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_type_1) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 103, ptr noundef null) #4
@@ -179,7 +174,7 @@ return:                                           ; preds = %entry, %if.end42, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define noundef i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
   %cmp = icmp slt i32 %sub, %flen
@@ -256,7 +251,7 @@ return:                                           ; preds = %do.body, %if.end3, 
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef null, ptr noundef %to, i32 noundef %tlen, ptr noundef %from, i32 noundef %flen), !range !8
   ret i32 %call
@@ -680,7 +675,7 @@ return:                                           ; preds = %if.end107, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef %to, i32 noundef %tlen, ptr noundef %label, i32 noundef %llen, ptr noundef %kdk, i16 noundef zeroext %bitlen) unnamed_addr #0 {
+define internal fastcc noundef i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef %to, i32 noundef %tlen, ptr noundef %label, i32 noundef %llen, ptr noundef %kdk, i16 noundef zeroext %bitlen) unnamed_addr #0 {
 entry:
   %be_iter = alloca [2 x i8], align 1
   %be_bitlen = alloca [2 x i8], align 1
@@ -852,7 +847,7 @@ return:                                           ; preds = %err, %if.then
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef %libctx, ptr nocapture noundef writeonly %to, i64 noundef %tlen, ptr nocapture noundef readonly %from, i64 noundef %flen, i32 noundef %client_version, i32 noundef %alt_version) local_unnamed_addr #0 {
+define noundef i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef %libctx, ptr nocapture noundef writeonly %to, i64 noundef %tlen, ptr nocapture noundef readonly %from, i64 noundef %flen, i32 noundef %client_version, i32 noundef %alt_version) local_unnamed_addr #0 {
 entry:
   %rand_premaster_secret = alloca [48 x i8], align 16
   %cmp = icmp ult i64 %flen, 59

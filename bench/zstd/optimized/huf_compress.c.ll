@@ -108,7 +108,7 @@ if.end.i:                                         ; preds = %if.end25
 
 if.end3.i:                                        ; preds = %if.end.i
   %count.i = getelementptr inbounds %struct.HUF_CompressWeightsWksp, ptr %add.ptr.i.i, i64 0, i32 2
-  %call4.i = call i32 @HIST_count_simple(ptr noundef nonnull %count.i, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29) #15
+  %call4.i = call i32 @HIST_count_simple(ptr noundef nonnull %count.i, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29) #14
   %cmp5.i = icmp eq i32 %call4.i, %maxSymbolValue
   %cmp9.i = icmp eq i32 %call4.i, 1
   %or.cond = or i1 %cmp5.i, %cmp9.i
@@ -116,10 +116,10 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end12.i:                                       ; preds = %if.end3.i
   %5 = load i32, ptr %maxSymbolValue.i, align 4
-  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %conv29, i32 noundef %5) #15
+  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %conv29, i32 noundef %5) #14
   %norm.i = getelementptr inbounds %struct.HUF_CompressWeightsWksp, ptr %add.ptr.i.i, i64 0, i32 3
   %6 = load i32, ptr %maxSymbolValue.i, align 4
-  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef %conv29, i32 noundef %6, i32 noundef 0) #15
+  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef %conv29, i32 noundef %6, i32 noundef 0) #14
   %cmp.i.i = icmp ult i64 %call17.i, -119
   br i1 %cmp.i.i, label %do.end22.i, label %HUF_compressWeights.exit.thread
 
@@ -127,7 +127,7 @@ do.end22.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i46 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr26 to i64
   %7 = load i32, ptr %maxSymbolValue.i, align 4
-  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef %sub27, ptr noundef nonnull %norm.i, i32 noundef %7, i32 noundef %call13.i) #15
+  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef %sub27, ptr noundef nonnull %norm.i, i32 noundef %7, i32 noundef %call13.i) #14
   %cmp.i34.i = icmp ult i64 %call25.i, -119
   br i1 %cmp.i34.i, label %do.end31.i, label %HUF_compressWeights.exit.thread
 
@@ -135,14 +135,14 @@ do.end31.i:                                       ; preds = %do.end22.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr26, i64 %call25.i
   %8 = load i32, ptr %maxSymbolValue.i, align 4
   %scratchBuffer.i = getelementptr inbounds %struct.HUF_CompressWeightsWksp, ptr %add.ptr.i.i, i64 0, i32 1
-  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %8, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #15
+  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %8, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #14
   %cmp.i36.i = icmp ult i64 %call39.i, -119
   br i1 %cmp.i36.i, label %do.end46.i, label %HUF_compressWeights.exit.thread
 
 do.end46.i:                                       ; preds = %do.end31.i
   %sub.ptr.rhs.cast48.i = ptrtoint ptr %add.ptr32.i to i64
   %sub.ptr.sub49.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast48.i
-  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %sub.ptr.sub49.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29, ptr noundef %add.ptr.i.i) #15
+  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %sub.ptr.sub49.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29, ptr noundef %add.ptr.i.i) #14
   %cmp.i38.i = icmp ult i64 %call52.i, -119
   br i1 %cmp.i38.i, label %do.end58.i, label %HUF_compressWeights.exit.thread
 
@@ -178,7 +178,7 @@ do.end:                                           ; preds = %HUF_compressWeights
 if.then41:                                        ; preds = %do.end
   %conv42 = trunc i64 %sub.ptr.sub66.i to i8
   store i8 %conv42, ptr %dst, align 1
-  %add44 = add nuw i64 %sub.ptr.sub66.i, 1
+  %add44 = add nuw nsw i64 %sub.ptr.sub66.i, 1
   br label %return
 
 if.end45:                                         ; preds = %do.end.thread, %do.end
@@ -234,7 +234,7 @@ entry:
   store i32 0, ptr %tableLog, align 4
   store i32 0, ptr %nbSymbols, align 4
   %add.ptr = getelementptr inbounds i64, ptr %CTable, i64 1
-  %call = call i64 @HUF_readStats(ptr noundef nonnull %huffWeight, i64 noundef 256, ptr noundef nonnull %rankVal, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize) #15
+  %call = call i64 @HUF_readStats(ptr noundef nonnull %huffWeight, i64 noundef 256, ptr noundef nonnull %rankVal, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize) #14
   %cmp.i = icmp ult i64 %call, -119
   br i1 %cmp.i, label %do.end, label %return
 
@@ -1129,15 +1129,11 @@ entry:
   %add.ptr = getelementptr inbounds i64, ptr %CTable, i64 1
   %conv = and i32 %1, 255
   %cmp = icmp ult i32 %conv, %maxSymbolValue
-  br i1 %cmp, label %return, label %for.cond.preheader
+  br i1 %cmp, label %return, label %for.body.preheader
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp3.not8 = icmp slt i32 %maxSymbolValue, 0
-  br i1 %cmp3.not8, label %return, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %2 = add nuw i32 %maxSymbolValue, 1
-  %wide.trip.count = zext i32 %2 to i64
+for.body.preheader:                               ; preds = %entry
+  %2 = add nuw nsw i32 %maxSymbolValue, 1
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1155,20 +1151,20 @@ for.body:                                         ; preds = %for.body.preheader,
   %or = or i32 %bad.09, %and
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
-for.end.loopexit:                                 ; preds = %for.body
+for.end:                                          ; preds = %for.body
   %5 = icmp eq i32 %or, 0
   %6 = zext i1 %5 to i32
   br label %return
 
-return:                                           ; preds = %for.cond.preheader, %for.end.loopexit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.cond.preheader ], [ %6, %for.end.loopexit ]
+return:                                           ; preds = %entry, %for.end
+  %retval.0 = phi i32 [ %6, %for.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @HUF_compressBound(i64 noundef %size) local_unnamed_addr #7 {
+define noundef i64 @HUF_compressBound(i64 noundef %size) local_unnamed_addr #7 {
 entry:
   %shr = lshr i64 %size, 8
   %add = add i64 %size, 137
@@ -2768,8 +2764,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret i32 %cardinality.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @HUF_minTableLog(i32 noundef %symbolCardinality) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @HUF_minTableLog(i32 noundef %symbolCardinality) local_unnamed_addr #7 {
 entry:
   %0 = tail call i32 @llvm.ctlz.i32(i32 %symbolCardinality, i1 true), !range !13
   %add = sub nuw nsw i32 32, %0
@@ -2784,7 +2780,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @FSE_optimalTableLog_internal(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef 1) #15
+  %call = tail call i32 @FSE_optimalTableLog_internal(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef 1) #14
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3007,13 +3003,13 @@ if.end27:                                         ; preds = %land.lhs.true23, %i
 
 do.end53:                                         ; preds = %if.end27
   store i32 %1, ptr %maxSymbolValueBegin, align 4
-  %call35 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueBegin, ptr noundef %src, i64 noundef 4096) #15
+  %call35 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueBegin, ptr noundef %src, i64 noundef 4096) #14
   %conv = zext i32 %call35 to i64
   %3 = load i32, ptr %maxSymbolValue.addr, align 4
   store i32 %3, ptr %maxSymbolValueEnd, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr45 = getelementptr inbounds i8, ptr %add.ptr44, i64 -4096
-  %call46 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueEnd, ptr noundef nonnull %add.ptr45, i64 noundef 4096) #15
+  %call46 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueEnd, ptr noundef nonnull %add.ptr45, i64 noundef 4096) #14
   %conv47 = zext i32 %call46 to i64
   %add54 = add nuw nsw i64 %conv47, %conv
   %cmp55 = icmp ult i64 %add54, 69
@@ -3021,7 +3017,7 @@ do.end53:                                         ; preds = %if.end27
 
 if.end59:                                         ; preds = %do.end53, %if.end27
   %wksps = getelementptr inbounds %struct.HUF_compress_tables_t, ptr %retval.0.i, i64 0, i32 2
-  %call63 = call i64 @HIST_count_wksp(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValue.addr, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %wksps, i64 noundef 4096) #15
+  %call63 = call i64 @HIST_count_wksp(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValue.addr, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %wksps, i64 noundef 4096) #14
   %cmp.i = icmp ult i64 %call63, -119
   br i1 %cmp.i, label %do.end69, label %return
 
@@ -3206,7 +3202,7 @@ declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare i64 @FSE_compress_usingCTable(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @HUF_simpleQuickSort(ptr noundef %arr, i32 noundef %low, i32 noundef %high) unnamed_addr #10 {
+define internal fastcc void @HUF_simpleQuickSort(ptr noundef %arr, i32 noundef %low, i32 noundef %high) unnamed_addr #9 {
 entry:
   %sub = sub nsw i32 %high, %low
   %cmp = icmp slt i32 %sub, 8
@@ -3329,7 +3325,7 @@ while.end:                                        ; preds = %if.end9, %while.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compress1X_usingCTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %CTable) unnamed_addr #11 {
+define internal fastcc i64 @HUF_compress1X_usingCTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %CTable) unnamed_addr #10 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %CTable, align 8
   %add.ptr.i = getelementptr inbounds i64, ptr %CTable, i64 1
@@ -4780,7 +4776,7 @@ HUF_compress1X_usingCTable_internal_body.exit:    ; preds = %if.end.i1669, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_compressCTable_internal(ptr noundef %ostart, ptr noundef %op, ptr noundef %oend, ptr noundef %src, i64 noundef %srcSize, i32 noundef %nbStreams, ptr noundef %CTable, i32 noundef %flags) unnamed_addr #8 {
@@ -4826,22 +4822,22 @@ return:                                           ; preds = %if.end8, %if.end, %
 declare i64 @HIST_count_wksp(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #13
+declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -4852,13 +4848,12 @@ attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
+attributes #9 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

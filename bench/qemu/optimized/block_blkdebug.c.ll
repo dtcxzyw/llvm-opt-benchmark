@@ -204,7 +204,7 @@ return:                                           ; preds = %if.end9, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @blkdebug_reopen_prepare(ptr nocapture readnone %reopen_state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @blkdebug_reopen_prepare(ptr nocapture readnone %reopen_state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
 entry:
   ret i32 0
 }
@@ -632,7 +632,7 @@ if.end32:                                         ; preds = %land.lhs.true13, %e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkdebug_debug_breakpoint(ptr nocapture noundef readonly %bs, ptr noundef %event, ptr noundef %tag) #0 {
+define internal noundef i32 @blkdebug_debug_breakpoint(ptr nocapture noundef readonly %bs, ptr noundef %event, ptr noundef %tag) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -758,7 +758,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.inc11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkdebug_debug_resume(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
+define internal noundef i32 @blkdebug_debug_resume(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -772,7 +772,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @blkdebug_debug_is_suspended(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
+define internal noundef zeroext i1 @blkdebug_debug_is_suspended(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1148,7 +1148,7 @@ if.end41:                                         ; preds = %if.end32
 
 land.lhs.true:                                    ; preds = %if.end41
   %conv42 = zext i32 %0 to i64
-  %cmp43.not = icmp sgt i64 %conv42, %bytes
+  %cmp43.not = icmp ugt i64 %conv42, %bytes
   br i1 %cmp43.not, label %if.end60, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true
@@ -1509,7 +1509,7 @@ declare zeroext i1 @qemu_config_parse_qdict(ptr noundef, ptr noundef, ptr nounde
 declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @add_rule(ptr nocapture noundef readonly %opaque, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal noundef i32 @add_rule(ptr nocapture noundef readonly %opaque, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -1658,7 +1658,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @blkdebug_parse_perm_list(ptr nocapture noundef %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @blkdebug_parse_perm_list(ptr nocapture noundef %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %subqdict = alloca ptr, align 8
   %perm_list = alloca ptr, align 8
@@ -1799,7 +1799,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @resume_req_by_tag(ptr noundef %s, ptr nocapture noundef readonly %tag, i1 noundef zeroext %all) unnamed_addr #0 {
+define internal fastcc noundef i32 @resume_req_by_tag(ptr noundef %s, ptr nocapture noundef readonly %tag, i1 noundef zeroext %all) unnamed_addr #0 {
 entry:
   %suspended_reqs = getelementptr inbounds %struct.BDRVBlkdebugState, ptr %s, i64 0, i32 12
   %lock = getelementptr inbounds %struct.BDRVBlkdebugState, ptr %s, i64 0, i32 13

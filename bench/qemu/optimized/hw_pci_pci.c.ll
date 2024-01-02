@@ -2762,7 +2762,7 @@ pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
   %arrayidx5.i = getelementptr i8, ptr %.val, i64 26
   %6 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %6 to i32
-  %cmp7.i.not = icmp slt i32 %conv6.i, %bus_num
+  %cmp7.i.not = icmp ult i32 %conv6.i, %bus_num
   br i1 %cmp7.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
@@ -2821,7 +2821,7 @@ pci_secondary_bus_in_range.exit.i:                ; preds = %land.lhs.true.i.i
   %arrayidx5.i.i = getelementptr i8, ptr %.val.i, i64 26
   %13 = load i8, ptr %arrayidx5.i.i, align 1
   %conv6.i.i = zext i8 %13 to i32
-  %cmp7.i.not.i = icmp slt i32 %conv6.i.i, %bus_num
+  %cmp7.i.not.i = icmp ult i32 %conv6.i.i, %bus_num
   br i1 %cmp7.i.not.i, label %for.inc.i, label %pci_root_bus_in_range.exit
 
 for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
@@ -2856,7 +2856,7 @@ pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
   %arrayidx5.i36 = getelementptr i8, ptr %.val18, i64 26
   %18 = load i8, ptr %arrayidx5.i36, align 1
   %conv6.i37 = zext i8 %18 to i32
-  %cmp7.i38.not = icmp slt i32 %conv6.i37, %bus_num
+  %cmp7.i38.not = icmp ult i32 %conv6.i37, %bus_num
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
 for.inc:                                          ; preds = %if.else, %land.lhs.true.i31, %pci_root_bus_in_range.exit, %pci_secondary_bus_in_range.exit39
@@ -2957,7 +2957,7 @@ while.end:                                        ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pci_nic_init_nofail(ptr noundef %nd, ptr noundef %rootbus, ptr noundef %default_model, ptr noundef %default_devaddr) local_unnamed_addr #0 {
+define dso_local noundef ptr @pci_nic_init_nofail(ptr noundef %nd, ptr noundef %rootbus, ptr noundef %default_model, ptr noundef %default_devaddr) local_unnamed_addr #0 {
 entry:
   %e.i = alloca ptr, align 8
   %devaddr1 = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 3
@@ -3157,7 +3157,7 @@ entry:
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pci_vga_init(ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local noundef ptr @pci_vga_init(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr @vga_interface_created, align 1
   %0 = load i32, ptr @vga_interface_type, align 4
@@ -3189,7 +3189,7 @@ return:                                           ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pci_create_simple(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @pci_create_simple(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #23
   tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
@@ -3271,7 +3271,7 @@ entry:
 declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pci_create_simple_multifunction(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @pci_create_simple_multifunction(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #23
   tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
@@ -4088,7 +4088,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %pv, i64 -168
   %0 = getelementptr i8, ptr %pv, i64 1092
@@ -4097,20 +4097,16 @@ entry:
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   %cond.i = select i1 %tobool.not.i, i64 256, i64 4096
   %cmp = icmp eq i64 %cond.i, %size
-  br i1 %cmp, label %if.end, label %if.else
+  br i1 %cmp, label %for.body.lr.ph, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__PRETTY_FUNCTION__.get_pci_config_device) #22
   unreachable
 
-if.end:                                           ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
   %call2 = tail call noalias ptr @g_malloc(i64 noundef %size) #24
   %call3 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call2, i64 noundef %size) #23
-  %cmp537.not = icmp eq i64 %size, 0
   %.pre = load ptr, ptr %pv, align 8
-  br i1 %cmp537.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end
   %cmask = getelementptr i8, ptr %pv, i64 8
   %1 = load ptr, ptr %cmask, align 16
   %wmask = getelementptr i8, ptr %pv, i64 16
@@ -4147,7 +4143,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then24:                                        ; preds = %for.body
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.get_pci_config_device, i32 noundef %i.038, i32 noundef %conv7, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv21) #23
-  tail call void @g_free(ptr noundef nonnull %call2) #23
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -4156,8 +4151,8 @@ for.inc:                                          ; preds = %for.body
   %cmp5 = icmp ult i64 %conv4, %size
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !30
 
-for.end:                                          ; preds = %for.inc, %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %call2, i64 %size, i1 false)
+for.end:                                          ; preds = %for.inc
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre, ptr nonnull align 1 %call2, i64 %size, i1 false)
   tail call fastcc void @pci_update_mappings(ptr noundef %add.ptr)
   %call46 = tail call ptr @object_dynamic_cast(ptr noundef %add.ptr, ptr noundef nonnull @.str.7) #23
   %tobool47.not = icmp eq ptr %call46, null
@@ -4176,16 +4171,16 @@ if.end50:                                         ; preds = %if.then48, %for.end
   %13 = and i16 %add.ptr52.val, 4
   %tobool56 = icmp ne i16 %13, 0
   tail call void @memory_region_set_enabled(ptr noundef %bus_master_enable_region, i1 noundef zeroext %tobool56) #23
-  tail call void @g_free(ptr noundef %call2) #23
   br label %return
 
 return:                                           ; preds = %if.end50, %if.then24
   %retval.0 = phi i32 [ -22, %if.then24 ], [ 0, %if.end50 ]
+  tail call void @g_free(ptr noundef nonnull %call2) #23
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_pci_config_device(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_pci_config_device(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %0 = getelementptr i8, ptr %pv, i64 1092
   %add.ptr.val = load i32, ptr %0, align 4
@@ -4215,7 +4210,7 @@ declare void @pci_bridge_update_mappings(ptr noundef) local_unnamed_addr #2
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_pci_irq_state(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_pci_irq_state(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %irq_state = alloca [4 x i32], align 16
   br label %for.body
@@ -4269,7 +4264,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_pci_irq_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_pci_irq_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   br label %for.body
 
@@ -4786,7 +4781,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i16 @pcibus_numa_node(ptr nocapture readnone %bus) #16 {
+define internal noundef zeroext i16 @pcibus_numa_node(ptr nocapture readnone %bus) #16 {
 entry:
   ret i16 128
 }
@@ -6019,7 +6014,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @g_sequence_lookup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #16 {
+define internal noundef i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #16 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %a to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %b to i64
