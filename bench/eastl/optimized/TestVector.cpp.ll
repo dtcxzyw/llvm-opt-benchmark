@@ -4488,9 +4488,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl6vectorIiNS_9allocatorEEaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx4 = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
   %mCapacityAllocator.i.i = getelementptr inbounds %"struct.eastl::VectorBase.2", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -4502,8 +4502,8 @@ entry:
   br i1 %cmp.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i, label %if.else.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i: ; preds = %entry
-  %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.ptr.i.idx, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
+  %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.ptr.i.idx4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
   %mpEnd.i = getelementptr inbounds %"struct.eastl::VectorBase.2", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -4515,7 +4515,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %this, align 8
-  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 %add.ptr.i.idx
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 %add.ptr.i.idx4
   store ptr %add.ptr.i1, ptr %mpEnd.i, align 8
   store ptr %add.ptr.i1, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE20DoAssignFromIteratorIPKiLb0EEEvT_S6_NS_26random_access_iterator_tagE.exit
@@ -4534,8 +4534,8 @@ if.then24.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i.i.i15.i, label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i, label %if.end.i.i.i.i16.i
 
 if.end.i.i.i.i16.i:                               ; preds = %if.then24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx4
   br label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i
 
 _ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i:         ; preds = %if.end.i.i.i.i16.i, %if.then24.i
@@ -4555,7 +4555,7 @@ if.end.i.i.i.i18.i:                               ; preds = %if.else29.i
 
 _ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit22.i:       ; preds = %if.end.i.i.i.i18.i, %if.else29.i
   %4 = phi ptr [ %1, %if.else29.i ], [ %.pre.i, %if.end.i.i.i.i18.i ]
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr36.i, %add.ptr.i
+  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub21.i, %add.ptr.i.idx4
   br i1 %cmp.i.i.i.i, label %_ZN5eastl22uninitialized_copy_ptrIPKiS2_PiEET1_T_T0_S4_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit22.i
@@ -4735,9 +4735,9 @@ if.end34:                                         ; preds = %_ZN5eastl4moveIPiS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6vectorIiNS_9allocatorEE6assignESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx4 = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
   %mCapacityAllocator.i.i = getelementptr inbounds %"struct.eastl::VectorBase.2", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -4749,8 +4749,8 @@ entry:
   br i1 %cmp.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i, label %if.else.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i: ; preds = %entry
-  %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.ptr.i.idx, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
+  %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.ptr.i.idx4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
   %mpEnd.i = getelementptr inbounds %"struct.eastl::VectorBase.2", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -4762,7 +4762,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %this, align 8
-  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 %add.ptr.i.idx
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 %add.ptr.i.idx4
   store ptr %add.ptr.i1, ptr %mpEnd.i, align 8
   store ptr %add.ptr.i1, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE20DoAssignFromIteratorIPKiLb0EEEvT_S6_NS_26random_access_iterator_tagE.exit
@@ -4781,8 +4781,8 @@ if.then24.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i.i.i15.i, label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i, label %if.end.i.i.i.i16.i
 
 if.end.i.i.i.i16.i:                               ; preds = %if.then24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx4
   br label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i
 
 _ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit.i:         ; preds = %if.end.i.i.i.i16.i, %if.then24.i
@@ -4802,7 +4802,7 @@ if.end.i.i.i.i18.i:                               ; preds = %if.else29.i
 
 _ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit22.i:       ; preds = %if.end.i.i.i.i18.i, %if.else29.i
   %4 = phi ptr [ %1, %if.else29.i ], [ %.pre.i, %if.end.i.i.i.i18.i ]
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr36.i, %add.ptr.i
+  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub21.i, %add.ptr.i.idx4
   br i1 %cmp.i.i.i.i, label %_ZN5eastl22uninitialized_copy_ptrIPKiS2_PiEET1_T_T0_S4_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit22.i
@@ -7149,9 +7149,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl6vectorI7Align64NS_9allocatorEEaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx4 = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
   %mCapacityAllocator.i.i = getelementptr inbounds %"struct.eastl::VectorBase.10", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -7163,8 +7163,8 @@ entry:
   br i1 %cmp.i, label %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i, label %if.else.i
 
 _ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i: ; preds = %entry
-  %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %add.ptr.i.idx, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %call.i6.i.i.i.i, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
+  %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %add.ptr.i.idx4, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %call.i6.i.i.i.i, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
   %mpEnd.i = getelementptr inbounds %"struct.eastl::VectorBase.10", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -7176,7 +7176,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl10VectorBaseI7Align64NS_9allocatorEE6DoFreeEPS1_m.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   store ptr %call.i6.i.i.i.i, ptr %this, align 8
-  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 %add.ptr.i.idx
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 %add.ptr.i.idx4
   store ptr %add.ptr.i1, ptr %mpEnd.i, align 8
   store ptr %add.ptr.i1, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorI7Align64NS_9allocatorEE20DoAssignFromIteratorIPKS1_Lb0EEEvT_S7_NS_26random_access_iterator_tagE.exit
@@ -7195,8 +7195,8 @@ if.then24.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i.i.i15.i, label %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i, label %if.end.i.i.i.i16.i
 
 if.end.i.i.i.i16.i:                               ; preds = %if.then24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %1, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %1, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx4
   br label %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i
 
 _ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i: ; preds = %if.end.i.i.i.i16.i, %if.then24.i
@@ -7216,7 +7216,7 @@ if.end.i.i.i.i18.i:                               ; preds = %if.else29.i
 
 _ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit22.i: ; preds = %if.end.i.i.i.i18.i, %if.else29.i
   %4 = phi ptr [ %1, %if.else29.i ], [ %.pre.i, %if.end.i.i.i.i18.i ]
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr36.i, %add.ptr.i
+  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub21.i, %add.ptr.i.idx4
   br i1 %cmp.i.i.i.i, label %_ZN5eastl22uninitialized_copy_ptrIPK7Align64S3_PS1_EET1_T_T0_S5_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit22.i
@@ -7431,9 +7431,9 @@ if.end34:                                         ; preds = %_ZN5eastl4moveIP7Al
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6vectorI7Align64NS_9allocatorEE6assignESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx4 = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
   %mCapacityAllocator.i.i = getelementptr inbounds %"struct.eastl::VectorBase.10", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -7445,8 +7445,8 @@ entry:
   br i1 %cmp.i, label %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i, label %if.else.i
 
 _ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i: ; preds = %entry
-  %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %add.ptr.i.idx, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %call.i6.i.i.i.i, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
+  %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %add.ptr.i.idx4, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %call.i6.i.i.i.i, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
   %mpEnd.i = getelementptr inbounds %"struct.eastl::VectorBase.10", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -7458,7 +7458,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl10VectorBaseI7Align64NS_9allocatorEE6DoFreeEPS1_m.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   store ptr %call.i6.i.i.i.i, ptr %this, align 8
-  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 %add.ptr.i.idx
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 %add.ptr.i.idx4
   store ptr %add.ptr.i1, ptr %mpEnd.i, align 8
   store ptr %add.ptr.i1, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorI7Align64NS_9allocatorEE20DoAssignFromIteratorIPKS1_Lb0EEEvT_S7_NS_26random_access_iterator_tagE.exit
@@ -7477,8 +7477,8 @@ if.then24.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i.i.i15.i, label %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i, label %if.end.i.i.i.i16.i
 
 if.end.i.i.i.i16.i:                               ; preds = %if.then24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %1, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %1, ptr align 64 %ilist.coerce0, i64 %add.ptr.i.idx4, i1 false)
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx4
   br label %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i
 
 _ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit.i: ; preds = %if.end.i.i.i.i16.i, %if.then24.i
@@ -7498,7 +7498,7 @@ if.end.i.i.i.i18.i:                               ; preds = %if.else29.i
 
 _ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit22.i: ; preds = %if.end.i.i.i.i18.i, %if.else29.i
   %4 = phi ptr [ %1, %if.else29.i ], [ %.pre.i, %if.end.i.i.i.i18.i ]
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr36.i, %add.ptr.i
+  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub21.i, %add.ptr.i.idx4
   br i1 %cmp.i.i.i.i, label %_ZN5eastl22uninitialized_copy_ptrIPK7Align64S3_PS1_EET1_T_T0_S5_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5eastl4copyIPK7Align64PS1_EET0_T_S6_S5_.exit22.i
@@ -20516,7 +20516,7 @@ if.then24.i.i2099:                                ; preds = %if.else.i.i2093
   br label %invoke.cont546
 
 if.else29.i.i2102:                                ; preds = %if.else.i.i2093
-  %add.ptr36.i.i2103.ptr = getelementptr inbounds i8, ptr %ref.tmp538, i64 %sub.ptr.sub21.i.i2096
+  %add.ptr36.i.i2103 = getelementptr inbounds i8, ptr %ref.tmp538, i64 %sub.ptr.sub21.i.i2096
   %cmp.i.i.i.i17.i.i2104 = icmp eq ptr %420, %418
   br i1 %cmp.i.i.i.i17.i.i2104, label %if.end.i.i.i.i.i2109, label %if.end.i.i.i.i18.i.i2105
 
@@ -20528,7 +20528,7 @@ if.end.i.i.i.i18.i.i2105:                         ; preds = %if.else29.i.i2102
 if.end.i.i.i.i.i2109:                             ; preds = %if.else29.i.i2102, %if.end.i.i.i.i18.i.i2105
   %421 = phi ptr [ %418, %if.else29.i.i2102 ], [ %.pre.i.i2106, %if.end.i.i.i.i18.i.i2105 ]
   %gepdiff9953 = sub nuw nsw i64 16, %sub.ptr.sub21.i.i2096
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %421, ptr nonnull align 4 %add.ptr36.i.i2103.ptr, i64 %gepdiff9953, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %421, ptr nonnull align 4 %add.ptr36.i.i2103, i64 %gepdiff9953, i1 false)
   %add.ptr.i.i.i.i.i2112 = getelementptr inbounds i8, ptr %421, i64 %gepdiff9953
   store ptr %add.ptr.i.i.i.i.i2112, ptr %mpEnd.i2036, align 8
   br label %invoke.cont546
@@ -22291,8 +22291,8 @@ for.body1058:                                     ; preds = %for.body.preheader.
 
 land.rhs.i.i:                                     ; preds = %for.body1058, %while.body.i.i
   %first.addr.05.i.i.idx = phi i64 [ %first.addr.05.i.i.add, %while.body.i.i ], [ 0, %for.body1058 ]
-  %first.addr.05.i.i.ptr.ptr.ptr = getelementptr i8, ptr %call.i.i.i.i.i2612, i64 %first.addr.05.i.i.idx
-  %620 = load i32, ptr %first.addr.05.i.i.ptr.ptr.ptr, align 4
+  %first.addr.05.i.i.ptr.ptr = getelementptr i8, ptr %call.i.i.i.i.i2612, i64 %first.addr.05.i.i.idx
+  %620 = load i32, ptr %first.addr.05.i.i.ptr.ptr, align 4
   %cmp1.not.i.i = icmp eq i32 %620, 1
   br i1 %cmp1.not.i.i, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i, label %while.body.i.i
 
@@ -22302,7 +22302,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i3094, label %invoke.cont1065, label %land.rhs.i.i, !llvm.loop !26
 
 _ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i:         ; preds = %land.rhs.i.i
-  %first.addr.05.i.i.ptr.ptr.ptr.le = getelementptr i8, ptr %call.i.i.i.i.i2612, i64 %first.addr.05.i.i.idx
+  %first.addr.05.i.i.ptr.ptr.le = getelementptr i8, ptr %call.i.i.i.i.i2612, i64 %first.addr.05.i.i.idx
   %cmp.not.i3095 = icmp eq i64 %first.addr.05.i.i.idx, 80
   br i1 %cmp.not.i3095, label %invoke.cont1065, label %if.then.i3096
 
@@ -22311,11 +22311,11 @@ if.then.i3096:                                    ; preds = %_ZN5eastl4findIPiiE
   br i1 %cmp.i.i3098, label %_ZN5eastl4moveIPiS1_EET0_T_S3_S2_.exit.i.i, label %invoke.cont1065
 
 _ZN5eastl4moveIPiS1_EET0_T_S3_S2_.exit.i.i:       ; preds = %if.then.i3096
-  %add.ptr.i.i3097.ptr = getelementptr i8, ptr %first.addr.05.i.i.ptr.ptr.ptr.le, i64 4
+  %add.ptr.i.i3097.ptr = getelementptr i8, ptr %first.addr.05.i.i.ptr.ptr.le, i64 4
   %621 = ptrtoint ptr %add.ptr.i.i2613 to i64
   %622 = ptrtoint ptr %add.ptr.i.i3097.ptr to i64
   %sub.i.i.i.i.i.i3099 = sub i64 %621, %622
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %first.addr.05.i.i.ptr.ptr.ptr.le, ptr nonnull align 4 %add.ptr.i.i3097.ptr, i64 %sub.i.i.i.i.i.i3099, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %first.addr.05.i.i.ptr.ptr.le, ptr nonnull align 4 %add.ptr.i.i3097.ptr, i64 %sub.i.i.i.i.i.i3099, i1 false)
   br label %invoke.cont1065
 
 invoke.cont1065:                                  ; preds = %while.body.i.i, %if.then.i3096, %_ZN5eastl4moveIPiS1_EET0_T_S3_S2_.exit.i.i, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i

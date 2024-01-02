@@ -5980,9 +5980,10 @@ for.body153:                                      ; preds = %for.end148, %for.bo
 for.end163:                                       ; preds = %for.body153
   %conv164 = sext i32 %start to i64
   %82 = load ptr, ptr %treeletRoots, align 8
-  %add.ptr.i328 = getelementptr inbounds ptr, ptr %82, i64 %conv164
+  %add.ptr.i328.idx = shl nsw i64 %conv164, 3
+  %add.ptr.i328 = getelementptr i8, ptr %82, i64 %add.ptr.i328.idx
   %83 = sext i32 %end to i64
-  %84 = getelementptr ptr, ptr %82, i64 %83
+  %.idx = shl nsw i64 %83, 3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
   store i32 %retval.0.i, ptr %agg.tmp1.i, align 8
   %agg.tmp169330.sroa.4.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 4
@@ -5992,16 +5993,20 @@ for.end163:                                       ; preds = %for.body153
   %agg.tmp169330.sroa.6.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   store <2 x float> %33, ptr %agg.tmp169330.sroa.6.0.agg.tmp1.i.sroa_idx, align 8
   %agg.tmp169330.sroa.7.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 24
-  %85 = extractelement <2 x float> %32, i64 1
-  store float %85, ptr %agg.tmp169330.sroa.7.0.agg.tmp1.i.sroa_idx, align 8
+  %84 = extractelement <2 x float> %32, i64 1
+  store float %84, ptr %agg.tmp169330.sroa.7.0.agg.tmp1.i.sroa_idx, align 8
   %agg.tmp169330.sroa.8.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 28
   store i32 %minCostSplitBucket.1, ptr %agg.tmp169330.sroa.8.0.agg.tmp1.i.sroa_idx, align 4
-  %cmp1720.i.i = icmp eq ptr %add.ptr.i328, %84
-  br i1 %cmp1720.i.i, label %"_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit", label %if.else.lr.ph.i.i
+  %cmp1720.i.i = icmp eq i64 %add.ptr.i328.idx, %.idx
+  br i1 %cmp1720.i.i, label %"_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit", label %if.else.lr.ph.i.i.preheader
 
-if.else.lr.ph.i.i:                                ; preds = %for.end163, %while.end18.i.i
-  %__last.addr.022.i.i = phi ptr [ %__last.addr.1.i.i, %while.end18.i.i ], [ %84, %for.end163 ]
-  %__first.addr.021.i.i = phi ptr [ %incdec.ptr19.i.i, %while.end18.i.i ], [ %add.ptr.i328, %for.end163 ]
+if.else.lr.ph.i.i.preheader:                      ; preds = %for.end163
+  %85 = getelementptr i8, ptr %82, i64 %.idx
+  br label %if.else.lr.ph.i.i
+
+if.else.lr.ph.i.i:                                ; preds = %if.else.lr.ph.i.i.preheader, %while.end18.i.i
+  %__last.addr.022.i.i = phi ptr [ %__last.addr.1.i.i, %while.end18.i.i ], [ %85, %if.else.lr.ph.i.i.preheader ]
+  %__first.addr.021.i.i = phi ptr [ %incdec.ptr19.i.i, %while.end18.i.i ], [ %add.ptr.i328, %if.else.lr.ph.i.i.preheader ]
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then3.i.i, %if.else.lr.ph.i.i

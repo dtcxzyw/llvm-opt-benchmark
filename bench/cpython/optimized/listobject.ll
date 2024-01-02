@@ -2522,12 +2522,12 @@ for.end.i:                                        ; preds = %if.then30.i, %if.th
 
 if.end.i67.i:                                     ; preds = %for.end.i
   %shr3.i68.i = ashr i64 %self.val36.i, 3
-  %add.i69.i = add i64 %self.val36.i, 6
+  %add.i69.i = add nsw i64 %self.val36.i, 6
   %add4.i70.i = add i64 %add.i69.i, %shr3.i68.i
   %and.i71.i = and i64 %add4.i70.i, -4
   %sub5.i74.i = sub i64 %and.i71.i, %self.val36.i
   %cmp6.i75.i = icmp slt i64 %sub5.i74.i, 0
-  %add8.i76.i = add i64 %self.val36.i, 3
+  %add8.i76.i = add nsw i64 %self.val36.i, 3
   %and9.i77.i = and i64 %add8.i76.i, -4
   %new_allocated.0.i78.i = select i1 %cmp6.i75.i, i64 %and9.i77.i, i64 %and.i71.i
   %cmp11.i79.i = icmp eq i64 %self.val36.i, 0
@@ -3166,12 +3166,13 @@ do.body:                                          ; preds = %if.end198, %merge_c
   %lo.sroa.0.1 = phi ptr [ %lo.sroa.0.0328, %merge_compute_minrun.exit ], [ %add.ptr.i171, %if.end198 ]
   %nremaining.0 = phi i64 [ %self.val114, %merge_compute_minrun.exit ], [ %sub207, %if.end198 ]
   %lo.coerce1.fr.i = freeze ptr %lo.sroa.18.1
-  %add.ptr = getelementptr ptr, ptr %lo.sroa.0.1, i64 %nremaining.0
-  %incdec.ptr.i = getelementptr ptr, ptr %lo.sroa.0.1, i64 1
-  %cmp.i141 = icmp eq ptr %incdec.ptr.i, %add.ptr
+  %add.ptr.idx = shl i64 %nremaining.0, 3
+  %add.ptr = getelementptr i8, ptr %lo.sroa.0.1, i64 %add.ptr.idx
+  %cmp.i141 = icmp eq i64 %add.ptr.idx, 8
   br i1 %cmp.i141, label %if.end174, label %if.end.i142
 
 if.end.i142:                                      ; preds = %do.body
+  %incdec.ptr.i = getelementptr ptr, ptr %lo.sroa.0.1, i64 1
   %30 = load ptr, ptr %key_compare.i, align 8
   %31 = load ptr, ptr %incdec.ptr.i, align 8
   %32 = load ptr, ptr %lo.sroa.0.1, align 8
@@ -5469,7 +5470,7 @@ if.then4.i.i:                                     ; preds = %merge_freemem.exit.
 
 if.end5.i.i:                                      ; preds = %merge_freemem.exit.i.i
   %16 = zext i1 %cmp1.not.i.i to i64
-  %mul.i.i = shl i64 %sub27, %16
+  %mul.i.i = shl nuw nsw i64 %sub27, %16
   %mul7.i.i = shl nuw i64 %mul.i.i, 3
   %call8.i.i = tail call ptr @PyMem_Malloc(i64 noundef %mul7.i.i) #10
   store ptr %call8.i.i, ptr %a.i.i50, align 8
@@ -5603,7 +5604,7 @@ sortslice_copy_incr.exit77.i:                     ; preds = %if.then.i72.i, %if.
   br i1 %cmp20.i, label %Fail.i, label %if.end23.i
 
 if.end23.i:                                       ; preds = %sortslice_copy_incr.exit77.i
-  %inc.i45 = add i64 %bcount.0.i, 1
+  %inc.i45 = add nuw nsw i64 %bcount.0.i, 1
   %cmp24.not.i = icmp slt i64 %inc.i45, %min_gallop.0.i
   br i1 %cmp24.not.i, label %for.cond10.i, label %for.end.i
 
@@ -5630,7 +5631,7 @@ sortslice_copy_incr.exit87.i:                     ; preds = %if.then.i82.i, %if.
   br i1 %cmp30.i, label %CopyB.i, label %if.end33.i
 
 if.end33.i:                                       ; preds = %sortslice_copy_incr.exit87.i
-  %inc28.i = add i64 %acount.0.i, 1
+  %inc28.i = add nsw i64 %acount.0.i, 1
   %cmp34.not.i = icmp slt i64 %inc28.i, %min_gallop.0.i
   br i1 %cmp34.not.i, label %for.cond10.i.outer, label %for.end.i
 
@@ -6010,7 +6011,7 @@ if.then4.i.i157:                                  ; preds = %merge_freemem.exit.
 
 if.end5.i.i146:                                   ; preds = %merge_freemem.exit.i.i143
   %54 = zext i1 %cmp1.not.i.i139 to i64
-  %mul.i.i147 = shl nuw i64 %call37, %54
+  %mul.i.i147 = shl nuw nsw i64 %call37, %54
   %mul7.i.i148 = shl nuw i64 %mul.i.i147, 3
   %call8.i.i149 = tail call ptr @PyMem_Malloc(i64 noundef %mul7.i.i148) #10
   store ptr %call8.i.i149, ptr %a.i.i50, align 8
@@ -6154,7 +6155,7 @@ sortslice_copy_decr.exit104.i:                    ; preds = %if.then.i99.i, %if.
   br i1 %cmp33.i, label %Fail.i124, label %if.end36.i
 
 if.end36.i:                                       ; preds = %sortslice_copy_decr.exit104.i
-  %inc.i85 = add i64 %acount.0.i82, 1
+  %inc.i85 = add nuw nsw i64 %acount.0.i82, 1
   %cmp37.not.i = icmp slt i64 %inc.i85, %min_gallop.0.i75
   br i1 %cmp37.not.i, label %for.cond22.i, label %for.end.i86
 
@@ -6181,7 +6182,7 @@ sortslice_copy_decr.exit114.i:                    ; preds = %if.then.i109.i, %if
   br i1 %cmp43.i, label %CopyA.i, label %if.end46.i
 
 if.end46.i:                                       ; preds = %sortslice_copy_decr.exit114.i
-  %inc41.i = add i64 %bcount.0.i83, 1
+  %inc41.i = add nsw i64 %bcount.0.i83, 1
   %cmp47.not.i = icmp slt i64 %inc41.i, %min_gallop.0.i75
   br i1 %cmp47.not.i, label %for.cond22.i.outer, label %for.end.i86
 

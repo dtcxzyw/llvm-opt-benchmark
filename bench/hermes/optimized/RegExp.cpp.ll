@@ -9788,7 +9788,8 @@ _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %if.end, %if.then.i2
   %11 = phi i32 [ %1, %if.end ], [ %.pre82, %if.then.i27 ]
   %12 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i27 ]
   %add.ptr10 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub
-  %add.ptr.i72 = getelementptr inbounds i16, ptr %12, i64 %conv.i30.pre-phi
+  %add.ptr.i72.idx = shl nuw nsw i64 %conv.i30.pre-phi, 1
+  %add.ptr.i72 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i72.idx
   %sub.ptr.lhs.cast12 = ptrtoint ptr %add.ptr.i72 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %add.ptr10 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
@@ -9881,7 +9882,7 @@ if.end31:                                         ; preds = %_ZN4llvh15SmallVect
   %20 = trunc i64 %retval.0.i.i.i.i to i32
   %conv.i59 = add i32 %11, %20
   store i32 %conv.i59, ptr %Size.i, align 8
-  %cmp.not.i.i = icmp eq ptr %add.ptr10, %add.ptr.i72
+  %cmp.not.i.i = icmp eq i64 %sub.ptr.sub, %add.ptr.i72.idx
   br i1 %cmp.not.i.i, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end31
