@@ -1361,7 +1361,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @find_and_check_chardev(ptr nocapture noundef %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @find_and_check_chardev(ptr nocapture noundef %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_chr_find(ptr noundef %chr_name) #16
   store ptr %call, ptr %chr, align 8
@@ -1684,7 +1684,7 @@ declare ptr @qemu_chr_find(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qemu_chr_has_feature(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @packet_enqueue(ptr noundef %s, i32 noundef %mode, ptr nocapture noundef writeonly %con) unnamed_addr #0 {
+define internal fastcc noundef i32 @packet_enqueue(ptr noundef %s, i32 noundef %mode, ptr nocapture noundef writeonly %con) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %key = alloca %struct.ConnectionKey, align 1
@@ -1824,9 +1824,9 @@ entry:
 sw.bb:                                            ; preds = %entry
   %sack.i = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 6
   %1 = load i32, ptr %sack.i, align 4
-  %call149.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
-  %tobool.not150.i = icmp eq i32 %call149.i, 0
-  br i1 %tobool.not150.i, label %if.end.lr.ph.i, label %sw.epilog
+  %call154.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
+  %tobool.not155.i = icmp eq i32 %call154.i, 0
+  br i1 %tobool.not155.i, label %if.end.lr.ph.i, label %sw.epilog
 
 if.end.lr.ph.i:                                   ; preds = %sw.bb
   %secondary_list.i = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 1
@@ -1839,9 +1839,9 @@ if.end.lr.ph.i:                                   ; preds = %sw.bb
 
 if.end.i:                                         ; preds = %pri.backedge.i, %if.end.lr.ph.i
   %call4.i = tail call ptr @g_queue_pop_tail(ptr noundef %opaque) #16
-  %call5145.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list.i) #16
-  %tobool6.not146.i = icmp eq i32 %call5145.i, 0
-  br i1 %tobool6.not146.i, label %if.end9.i, label %if.then7.i
+  %call5150.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list.i) #16
+  %tobool6.not151.i = icmp eq i32 %call5150.i, 0
+  br i1 %tobool6.not151.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i, %sec.backedge.i
   %ppkt.0.lcssa.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
@@ -1849,11 +1849,11 @@ if.then7.i:                                       ; preds = %if.end.i, %sec.back
   br label %sw.epilog
 
 if.end9.i:                                        ; preds = %if.end.i, %sec.backedge.i
-  %ppkt.0147.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
+  %ppkt.0152.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
   %call11.i = tail call ptr @g_queue_pop_tail(ptr noundef nonnull %secondary_list.i) #16
-  %tcp_seq.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0147.i, i64 0, i32 6
+  %tcp_seq.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0152.i, i64 0, i32 6
   %2 = load i32, ptr %tcp_seq.i, align 4
-  %seq_end.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0147.i, i64 0, i32 8
+  %seq_end.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0152.i, i64 0, i32 8
   %3 = load i32, ptr %seq_end.i, align 4
   %cmp12.i = icmp eq i32 %2, %3
   br i1 %cmp12.i, label %if.end22.sink.split.i, label %land.lhs.true.i
@@ -1863,8 +1863,8 @@ land.lhs.true.i:                                  ; preds = %if.end9.i
   %tobool16.not.i = icmp eq i32 %4, 0
   %sub.i.i = sub i32 %3, %4
   %cmp.i.i = icmp sgt i32 %sub.i.i, 0
-  %or.cond187.i = or i1 %tobool16.not.i, %cmp.i.i
-  br i1 %or.cond187.i, label %if.end22.i, label %if.then21.i
+  %or.cond194.i = or i1 %tobool16.not.i, %cmp.i.i
+  br i1 %or.cond194.i, label %if.end22.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -1904,11 +1904,11 @@ trace_colo_compare_main.exit.i:                   ; preds = %if.else.i.i.i, %if.
   br label %if.end22.sink.split.i
 
 if.end22.sink.split.i:                            ; preds = %trace_colo_compare_main.exit.i, %if.end9.i
-  tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.0147.i)
+  tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.0152.i)
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end22.sink.split.i, %land.lhs.true.i
-  %ppkt.2.i = phi ptr [ %ppkt.0147.i, %land.lhs.true.i ], [ null, %if.end22.sink.split.i ]
+  %ppkt.2.i = phi ptr [ %ppkt.0152.i, %land.lhs.true.i ], [ null, %if.end22.sink.split.i ]
   %tcp_seq23.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 6
   %12 = load i32, ptr %tcp_seq23.i, align 4
   %seq_end24.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 8
@@ -2056,14 +2056,14 @@ if.else42.i.i:                                    ; preds = %if.end7.i.i
 if.then47.sink.split.i:                           ; preds = %if.else42.i.i, %if.then29.i.i
   %payload_size55.i.sink.i = phi ptr [ %payload_size22.i.i, %if.then29.i.i ], [ %payload_size55.i.i, %if.else42.i.i ]
   %offset51.i.sink.i = phi ptr [ %offset45.i.i, %if.then29.i.i ], [ %offset51.i.i, %if.else42.i.i ]
-  %offset45.i.sink188.i = phi ptr [ %offset51.i.i, %if.then29.i.i ], [ %offset45.i.i, %if.else42.i.i ]
+  %offset45.i.sink195.i = phi ptr [ %offset51.i.i, %if.then29.i.i ], [ %offset45.i.i, %if.else42.i.i ]
   %mark.0.ph.ph.i = phi i8 [ 1, %if.then29.i.i ], [ 2, %if.else42.i.i ]
   %36 = load i16, ptr %payload_size55.i.sink.i, align 2
   %37 = load i16, ptr %offset51.i.sink.i, align 4
   %sub68.i.i = sub i16 %36, %37
-  %38 = load i16, ptr %offset45.i.sink188.i, align 4
+  %38 = load i16, ptr %offset45.i.sink195.i, align 4
   %add71.i.i = add i16 %sub68.i.i, %38
-  store i16 %add71.i.i, ptr %offset45.i.sink188.i, align 4
+  store i16 %add71.i.i, ptr %offset45.i.sink195.i, align 4
   br label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.then47.sink.split.i, %if.then.i.i
@@ -2166,7 +2166,7 @@ if.else.i.i110.i:                                 ; preds = %if.then.i.i104.i
 
 trace_colo_compare_tcp_info.exit111.i:            ; preds = %if.else.i.i110.i, %if.then8.i.i106.i, %land.lhs.true5.i.i101.i, %trace_colo_compare_tcp_info.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i97.i)
-  switch i8 %mark.0.ph.i, label %sw.epilog [
+  switch i8 %mark.0.ph.i, label %trace_colo_compare_tcp_info.exit111.unreachabledefault.i [
     i8 1, label %if.then65.i
     i8 2, label %if.then73.i
     i8 3, label %if.then80.i
@@ -2205,6 +2205,9 @@ if.else86.i:                                      ; preds = %if.else42.i.i, %if.
   tail call fastcc void @colo_compare_inconsistency_notify(ptr noundef %user_data)
   br label %sw.epilog
 
+trace_colo_compare_tcp_info.exit111.unreachabledefault.i: ; preds = %trace_colo_compare_tcp_info.exit111.i
+  unreachable
+
 sw.bb1:                                           ; preds = %entry
   tail call fastcc void @colo_compare_packet(ptr noundef %user_data, ptr noundef nonnull %opaque, ptr noundef nonnull @colo_packet_compare_udp)
   br label %sw.epilog
@@ -2217,7 +2220,7 @@ sw.default:                                       ; preds = %entry
   tail call fastcc void @colo_compare_packet(ptr noundef %user_data, ptr noundef nonnull %opaque, ptr noundef nonnull @colo_packet_compare_other)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %pri.backedge.i, %trace_colo_compare_tcp_info.exit111.i, %if.else86.i, %if.then7.i, %sw.bb, %sw.default, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %pri.backedge.i, %if.else86.i, %if.then7.i, %sw.bb, %sw.default, %sw.bb2, %sw.bb1
   ret void
 }
 
@@ -2230,7 +2233,7 @@ declare void @fill_connection_key(ptr noundef, ptr noundef, i1 noundef zeroext) 
 declare ptr @connection_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @colo_insert_packet(ptr noundef %queue, ptr noundef %pkt, ptr nocapture noundef writeonly %max_ack) unnamed_addr #0 {
+define internal fastcc noundef i32 @colo_insert_packet(ptr noundef %queue, ptr noundef %pkt, ptr nocapture noundef writeonly %max_ack) unnamed_addr #0 {
 entry:
   %call = tail call i32 @g_queue_get_length(ptr noundef %queue) #16
   %0 = load i32, ptr @max_queue_size, align 4
@@ -2402,7 +2405,7 @@ while.end:                                        ; preds = %land.rhs, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @colo_packet_compare_udp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
+define internal noundef i32 @colo_packet_compare_udp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
@@ -2587,7 +2590,7 @@ return:                                           ; preds = %if.end, %trace_colo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @colo_packet_compare_icmp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
+define internal noundef i32 @colo_packet_compare_icmp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
@@ -3130,7 +3133,7 @@ declare ptr @iothread_get_g_main_context(ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @compare_chr_can_read(ptr nocapture readnone %opaque) #11 {
+define internal noundef i32 @compare_chr_can_read(ptr nocapture readnone %opaque) #11 {
 entry:
   ret i32 69632
 }
@@ -3254,7 +3257,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @colo_old_packet_check_one_conn(ptr noundef %conn, ptr noundef %s) #0 {
+define internal noundef i32 @colo_old_packet_check_one_conn(ptr noundef %conn, ptr noundef %s) #0 {
 entry:
   %call = tail call i32 @g_queue_is_empty(ptr noundef %conn) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -3288,7 +3291,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @colo_old_packet_check_one(ptr nocapture noundef readonly %pkt, ptr nocapture noundef readonly %check_time) #0 {
+define internal noundef i32 @colo_old_packet_check_one(ptr nocapture noundef readonly %pkt, ptr nocapture noundef readonly %check_time) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #16

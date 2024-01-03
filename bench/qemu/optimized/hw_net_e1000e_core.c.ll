@@ -495,7 +495,7 @@ declare void @qemu_flush_queued_packets(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_get_subqueue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @e1000e_can_receive(ptr noundef %core) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000e_can_receive(ptr noundef %core) local_unnamed_addr #0 {
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4062,7 +4062,7 @@ if.end:                                           ; preds = %trace_e1000e_link_a
 declare zeroext i1 @net_tx_pkt_has_fragments(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @e1000e_core_post_load(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
+define dso_local noundef i32 @e1000e_core_post_load(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
 entry:
   %owner_nic = getelementptr inbounds %struct.E1000Core, ptr %core, i64 0, i32 25
   %0 = load ptr, ptr %owner_nic, align 8
@@ -5436,7 +5436,7 @@ if.then24.i:                                      ; preds = %if.end21.i
 
 if.else:                                          ; preds = %if.end43
   %itr.i = getelementptr inbounds %struct.E1000Core, ptr %core, i64 0, i32 18
-  %call.i = tail call fastcc zeroext i1 @e1000e_postpone_interrupt(ptr noundef nonnull %itr.i)
+  %call.i = tail call fastcc noundef zeroext i1 @e1000e_postpone_interrupt(ptr noundef nonnull %itr.i)
   br i1 %call.i, label %if.end58, label %if.then50
 
 if.then50:                                        ; preds = %if.else
@@ -5650,7 +5650,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %idxprom.i = zext nneg i32 %and1 to i64
   %arrayidx.i = getelementptr %struct.E1000Core, ptr %core, i64 0, i32 19, i64 %idxprom.i
-  %call.i = tail call fastcc zeroext i1 @e1000e_postpone_interrupt(ptr noundef %arrayidx.i)
+  %call.i = tail call fastcc noundef zeroext i1 @e1000e_postpone_interrupt(ptr noundef %arrayidx.i)
   br i1 %call.i, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.then2
@@ -5887,7 +5887,7 @@ if.end36:                                         ; preds = %if.then31, %trace_e
 declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @e1000e_postpone_interrupt(ptr nocapture noundef %timer) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @e1000e_postpone_interrupt(ptr nocapture noundef %timer) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %running = getelementptr inbounds %struct.E1000IntrDelayTimer_st, ptr %timer, i64 0, i32 1
@@ -9551,17 +9551,23 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool22.not, label %if.else32, label %if.then23
 
 if.then23:                                        ; preds = %lor.lhs.false, %entry
-  %and26 = and i32 %1, 768
-  switch i32 %and26, label %sw.default [
+  %and26 = lshr i32 %1, 8
+  %5 = and i32 %and26, 3
+  switch i32 %5, label %if.then23.unreachabledefault [
     i32 0, label %if.end34
-    i32 256, label %sw.bb28
+    i32 1, label %sw.bb28
+    i32 2, label %sw.default
+    i32 3, label %sw.default
   ]
 
 sw.bb28:                                          ; preds = %if.then23
   %or29 = or i32 %res.1, 64
   br label %if.end34
 
-sw.default:                                       ; preds = %if.then23
+if.then23.unreachabledefault:                     ; preds = %if.then23
+  unreachable
+
+sw.default:                                       ; preds = %if.then23, %if.then23
   %or31 = or i32 %res.1, 128
   br label %if.end34
 
@@ -9578,33 +9584,33 @@ if.end34:                                         ; preds = %if.then23, %sw.bb28
   %and43 = lshr i32 %res.2, 8
   %shr44 = and i32 %and43, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %5 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %5, 0
-  %6 = load i16, ptr @_TRACE_E1000E_LINK_STATUS_DSTATE, align 2
-  %tobool5.i.i = icmp ne i16 %6, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_E1000E_LINK_STATUS_DSTATE, align 2
+  %tobool5.i.i = icmp ne i16 %7, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool5.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true6.i.i, label %trace_e1000e_link_status.exit
 
 land.lhs.true6.i.i:                               ; preds = %if.end34
-  %7 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %7, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_e1000e_link_status.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true6.i.i
-  %8 = load i8, ptr @message_with_timestamp, align 1
-  %9 = and i8 %8, 1
-  %tobool8.not.i.i = icmp eq i8 %9, 0
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %10 = and i8 %9, 1
+  %tobool8.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool8.not.i.i, label %if.else.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call11.i.i = tail call i32 @qemu_get_thread_id() #13
-  %10 = load i64, ptr %_now.i.i, align 8
+  %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %11 = load i64, ptr %tv_usec.i.i, align 8
+  %12 = load i64, ptr %tv_usec.i.i, align 8
   %and35.lobit = lshr exact i32 %and35, 1
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call11.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %and35.lobit, i32 noundef %and38, i32 noundef %shr, i32 noundef %shr44) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call11.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %and35.lobit, i32 noundef %and38, i32 noundef %shr, i32 noundef %shr44) #13
   br label %trace_e1000e_link_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

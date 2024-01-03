@@ -1948,7 +1948,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly7futures6detail16DeferredExecutorC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 16, !tbaa !151
@@ -2191,10 +2191,11 @@ entry:
   %0 = load atomic i64, ptr %interrupt_ acquire, align 8
   %and = and i64 %0, -4
   %and2 = and i64 %0, 3
-  switch i64 %and2, label %sw.epilog [
+  switch i64 %and2, label %entry.unreachabledefault [
     i64 1, label %sw.bb
     i64 2, label %sw.bb3
     i64 3, label %sw.bb4
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2247,7 +2248,10 @@ delete.notnull.i14:                               ; preds = %if.then
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %delete.notnull.i14, %if.then, %sw.bb4, %_ZN5folly17exception_wrapperD2Ev.exit, %sw.bb3, %delete.notnull.i, %sw.bb, %entry
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i14, %if.then, %sw.bb4, %_ZN5folly17exception_wrapperD2Ev.exit, %sw.bb3, %delete.notnull.i, %sw.bb
   %_M_refcount.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 7, i32 0, i32 1
   %9 = load ptr, ptr %_M_refcount.i, align 16, !tbaa !178
   %cmp.not.i.i = icmp eq ptr %9, null
@@ -4855,7 +4859,7 @@ attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #14 = { cold mustprogress noreturn nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #20 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

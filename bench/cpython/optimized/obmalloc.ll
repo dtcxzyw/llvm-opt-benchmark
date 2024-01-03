@@ -1354,10 +1354,11 @@ do.body.i.i:                                      ; preds = %lor.rhs.i.i, %do.bo
   %32 = load atomic i64, ptr %xthread_free.i.i acquire, align 8
   %33 = trunc i64 %32 to i32
   %conv.i.i.i = and i32 %33, 3
-  switch i32 %conv.i.i.i, label %lor.rhs.i.i [
+  switch i32 %conv.i.i.i, label %do.body.i.i.unreachabledefault [
     i32 1, label %if.then.i.i58
     i32 3, label %if.end.i59
     i32 0, label %if.end.i59
+    i32 2, label %lor.rhs.i.i
   ]
 
 if.then.i.i58:                                    ; preds = %do.body.i.i
@@ -1368,6 +1369,9 @@ do.cond.i.i:                                      ; preds = %if.then.i.i58
   %inc.i.i = add nuw nsw i64 %yield_count.0.ph.i.i, 1
   tail call void @llvm.x86.sse2.pause()
   br label %do.body.outer.i.i
+
+do.body.i.i.unreachabledefault:                   ; preds = %do.body.i.i
+  unreachable
 
 lor.rhs.i.i:                                      ; preds = %do.body.i.i
   %and.i.i.i.i = and i64 %32, -4
@@ -13068,11 +13072,11 @@ for.body.i:                                       ; preds = %_mi_page_queue_appe
   br i1 %cmp.i13.i, label %_mi_page_queue_append.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i, %_mi_page_use_delayed_free.exit.i.i
-  %page.020.i.i = phi ptr [ %22, %_mi_page_use_delayed_free.exit.i.i ], [ %17, %for.body.i ]
-  %count.019.i.i = phi i64 [ %inc.i.i, %_mi_page_use_delayed_free.exit.i.i ], [ 0, %for.body.i ]
-  %xheap.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.020.i.i, i64 0, i32 12
+  %page.021.i.i = phi ptr [ %22, %_mi_page_use_delayed_free.exit.i.i ], [ %17, %for.body.i ]
+  %count.020.i.i = phi i64 [ %inc.i.i, %_mi_page_use_delayed_free.exit.i.i ], [ 0, %for.body.i ]
+  %xheap.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.021.i.i, i64 0, i32 12
   store atomic i64 %16, ptr %xheap.i.i release, align 8
-  %xthread_free.i.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.020.i.i, i64 0, i32 11
+  %xthread_free.i.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.021.i.i, i64 0, i32 11
   br label %do.body.outer.i.i.i.i
 
 do.body.outer.i.i.i.i:                            ; preds = %do.body.outer.i.i.i.i.backedge, %for.body.i.i
@@ -13083,10 +13087,11 @@ do.body.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i.i, %d
   %18 = load atomic i64, ptr %xthread_free.i.i.i.i acquire, align 8
   %19 = trunc i64 %18 to i32
   %conv.i.i.i.i.i = and i32 %19, 3
-  switch i32 %conv.i.i.i.i.i, label %lor.rhs.i.i.i.i [
+  switch i32 %conv.i.i.i.i.i, label %do.body.i.i.unreachabledefault.i.i [
     i32 1, label %if.then.i.i.i.i
     i32 3, label %_mi_page_use_delayed_free.exit.i.i
     i32 0, label %_mi_page_use_delayed_free.exit.i.i
+    i32 2, label %lor.rhs.i.i.i.i
   ]
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -13102,6 +13107,9 @@ do.body.outer.i.i.i.i.backedge:                   ; preds = %do.cond.i.i.i.i, %w
   %yield_count.0.ph.i.i.i.i.be = phi i64 [ %inc.i.i.i.i, %do.cond.i.i.i.i ], [ 0, %while.body.i.i.i ]
   br label %do.body.outer.i.i.i.i, !llvm.loop !67
 
+do.body.i.i.unreachabledefault.i.i:               ; preds = %do.body.i.i.i.i
+  unreachable
+
 lor.rhs.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %and.i.i.i.i.i.i = and i64 %18, -4
   %20 = cmpxchg weak ptr %xthread_free.i.i.i.i, i64 %18, i64 %and.i.i.i.i.i.i release monotonic, align 8
@@ -13113,8 +13121,8 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %do.body.outer.i.i.i.i.backedge
 
 _mi_page_use_delayed_free.exit.i.i:               ; preds = %lor.rhs.i.i.i.i, %do.body.i.i.i.i, %do.body.i.i.i.i
-  %inc.i.i = add i64 %count.019.i.i, 1
-  %next.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.020.i.i, i64 0, i32 13
+  %inc.i.i = add i64 %count.020.i.i, 1
+  %next.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.021.i.i, i64 0, i32 13
   %22 = load ptr, ptr %next.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %22, null
   br i1 %cmp2.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !72
@@ -18118,11 +18126,11 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_mi_page_use_delayed_free.exit
-  %page.020 = phi ptr [ %0, %for.cond.preheader ], [ %6, %_mi_page_use_delayed_free.exit ]
-  %count.019 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %_mi_page_use_delayed_free.exit ]
-  %xheap = getelementptr inbounds %struct.mi_page_s, ptr %page.020, i64 0, i32 12
+  %page.021 = phi ptr [ %0, %for.cond.preheader ], [ %6, %_mi_page_use_delayed_free.exit ]
+  %count.020 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %_mi_page_use_delayed_free.exit ]
+  %xheap = getelementptr inbounds %struct.mi_page_s, ptr %page.021, i64 0, i32 12
   store atomic i64 %1, ptr %xheap release, align 8
-  %xthread_free.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.020, i64 0, i32 11
+  %xthread_free.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.021, i64 0, i32 11
   br label %do.body.outer.i.i
 
 do.body.outer.i.i:                                ; preds = %do.body.outer.i.i.backedge, %for.body
@@ -18133,10 +18141,11 @@ do.body.i.i:                                      ; preds = %lor.rhs.i.i, %do.bo
   %2 = load atomic i64, ptr %xthread_free.i.i acquire, align 8
   %3 = trunc i64 %2 to i32
   %conv.i.i.i = and i32 %3, 3
-  switch i32 %conv.i.i.i, label %lor.rhs.i.i [
+  switch i32 %conv.i.i.i, label %do.body.i.i.unreachabledefault [
     i32 1, label %if.then.i.i
     i32 3, label %_mi_page_use_delayed_free.exit
     i32 0, label %_mi_page_use_delayed_free.exit
+    i32 2, label %lor.rhs.i.i
   ]
 
 if.then.i.i:                                      ; preds = %do.body.i.i
@@ -18152,6 +18161,9 @@ do.body.outer.i.i.backedge:                       ; preds = %do.cond.i.i, %while
   %yield_count.0.ph.i.i.be = phi i64 [ %inc.i.i, %do.cond.i.i ], [ 0, %while.body.i ]
   br label %do.body.outer.i.i, !llvm.loop !67
 
+do.body.i.i.unreachabledefault:                   ; preds = %do.body.i.i
+  unreachable
+
 lor.rhs.i.i:                                      ; preds = %do.body.i.i
   %and.i.i.i.i = and i64 %2, -4
   %4 = cmpxchg weak ptr %xthread_free.i.i, i64 %2, i64 %and.i.i.i.i release monotonic, align 8
@@ -18163,8 +18175,8 @@ while.body.i:                                     ; preds = %if.then.i.i
   br label %do.body.outer.i.i.backedge
 
 _mi_page_use_delayed_free.exit:                   ; preds = %do.body.i.i, %do.body.i.i, %lor.rhs.i.i
-  %inc = add i64 %count.019, 1
-  %next = getelementptr inbounds %struct.mi_page_s, ptr %page.020, i64 0, i32 13
+  %inc = add i64 %count.020, 1
+  %next = getelementptr inbounds %struct.mi_page_s, ptr %page.021, i64 0, i32 13
   %6 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %6, null
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !72
@@ -18513,10 +18525,11 @@ do.body.i.i:                                      ; preds = %lor.rhs.i.i, %do.bo
   %12 = load atomic i64, ptr %xthread_free.i.i acquire, align 8
   %13 = trunc i64 %12 to i32
   %conv.i.i.i = and i32 %13, 3
-  switch i32 %conv.i.i.i, label %lor.rhs.i.i [
+  switch i32 %conv.i.i.i, label %do.body.i.i.unreachabledefault [
     i32 1, label %if.then.i.i
     i32 3, label %if.end.i1
     i32 0, label %if.end.i1
+    i32 2, label %lor.rhs.i.i
   ]
 
 if.then.i.i:                                      ; preds = %do.body.i.i
@@ -18527,6 +18540,9 @@ do.cond.i.i:                                      ; preds = %if.then.i.i
   %inc.i.i = add nuw nsw i64 %yield_count.0.ph.i.i, 1
   tail call void @llvm.x86.sse2.pause()
   br label %do.body.outer.i.i
+
+do.body.i.i.unreachabledefault:                   ; preds = %do.body.i.i
+  unreachable
 
 lor.rhs.i.i:                                      ; preds = %do.body.i.i
   %and.i.i.i.i = and i64 %12, -4

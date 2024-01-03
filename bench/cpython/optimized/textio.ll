@@ -1994,7 +1994,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_decoded(ptr noundef %decoded) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_decoded(ptr noundef %decoded) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %decoded, null
   br i1 %cmp, label %return, label %if.end
@@ -3034,7 +3034,7 @@ return:                                           ; preds = %if.then118, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @textiowrapper_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @textiowrapper_clear(ptr nocapture noundef %self) #0 {
 entry:
   %ok = getelementptr inbounds %struct.textio, ptr %self, i64 0, i32 1
   store i32 0, ptr %ok, align 8
@@ -3431,7 +3431,7 @@ return:                                           ; preds = %if.else, %if.end18,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_io_TextIOWrapper___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @_io_TextIOWrapper___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %raw.i = alloca ptr, align 8
@@ -4273,7 +4273,7 @@ exit:                                             ; preds = %if.end100, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__TextIOBase_detach(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noalias noundef ptr @_io__TextIOBase_detach(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -4295,7 +4295,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__TextIOBase_read(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__TextIOBase_read(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -4341,7 +4341,7 @@ exit:                                             ; preds = %land.lhs.true11, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__TextIOBase_readline(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__TextIOBase_readline(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -4387,7 +4387,7 @@ exit:                                             ; preds = %land.lhs.true11, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__TextIOBase_write(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__TextIOBase_write(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %s_length = alloca i64, align 8
@@ -4462,19 +4462,19 @@ declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @textiobase_encoding_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
+define internal noundef nonnull ptr @textiobase_encoding_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
 entry:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @textiobase_newlines_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
+define internal noundef nonnull ptr @textiobase_newlines_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
 entry:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @textiobase_errors_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
+define internal noundef nonnull ptr @textiobase_errors_get(ptr nocapture readnone %self, ptr nocapture readnone %context) #5 {
 entry:
   ret ptr @_Py_NoneStruct
 }
@@ -4617,7 +4617,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @incrementalnewlinedecoder_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @incrementalnewlinedecoder_clear(ptr nocapture noundef %self) #0 {
 entry:
   %decoder = getelementptr inbounds %struct.nldecoder_object, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %decoder, align 8
@@ -4669,7 +4669,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_io_IncrementalNewlineDecoder___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @_io_IncrementalNewlineDecoder___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -5117,7 +5117,7 @@ if.end:                                           ; preds = %entry
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 7
   %bf.cast = zext nneg i8 %bf.clear to i32
-  switch i32 %bf.cast, label %return [
+  switch i32 %bf.cast, label %if.end.unreachabledefault [
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
     i32 4, label %sw.bb3
@@ -5125,6 +5125,7 @@ if.end:                                           ; preds = %entry
     i32 5, label %sw.bb7
     i32 6, label %sw.bb9
     i32 7, label %sw.bb11
+    i32 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5154,6 +5155,9 @@ sw.bb9:                                           ; preds = %if.end
 sw.bb11:                                          ; preds = %if.end
   %call12 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #10
   br label %return
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 return:                                           ; preds = %if.end, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb1 ], [ %call, %sw.bb ], [ @_Py_NoneStruct, %if.end ]
@@ -5817,7 +5821,7 @@ declare i32 @_PyFileIO_closed(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyIOBase_check_closed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_writeflush(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_writeflush(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %src = alloca ptr, align 8
@@ -6591,7 +6595,7 @@ _io_TextIOWrapper_detach_impl.exit:               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_TextIOWrapper_reconfigure(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -10147,7 +10151,7 @@ declare i32 @_PyFile_Flush(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_newline(ptr nocapture noundef %self, ptr noundef %newline) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_newline(ptr nocapture noundef %self, ptr noundef %newline) unnamed_addr #0 {
 entry:
   %readnl = getelementptr inbounds %struct.textio, ptr %self, i64 0, i32 8
   %0 = load ptr, ptr %readnl, align 8
@@ -10261,7 +10265,7 @@ declare ptr @_Py_GetLocaleEncodingObject() local_unnamed_addr #1
 declare ptr @_PyCodec_LookupTextEncoding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %buffer = getelementptr inbounds %struct.textio, ptr %self, i64 0, i32 4
@@ -10375,7 +10379,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %res = alloca ptr, align 8
@@ -10512,7 +10516,7 @@ return:                                           ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_fix_encoder_state(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_fix_encoder_state(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10784,7 +10788,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef %start_of_stream) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef %start_of_stream) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10839,7 +10843,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @textiowrapper_parse_cookie(ptr nocapture noundef writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
+define internal fastcc noundef i32 @textiowrapper_parse_cookie(ptr nocapture noundef writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
 entry:
   %buffer = alloca [21 x i8], align 16
   %call = tail call ptr @PyNumber_Long(ptr noundef %cookieObj) #10
@@ -10903,7 +10907,7 @@ return:                                           ; preds = %if.end.i17, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_decoder_setstate(ptr nocapture noundef readonly %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_decoder_setstate(ptr nocapture noundef readonly %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %cmp = icmp eq i64 %cookie.0.val, 0
@@ -10953,7 +10957,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare i64 @PyUnicode_GetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %self.addr.i.i = alloca ptr, align 8
@@ -11164,7 +11168,7 @@ _io_TextIOWrapper_newlines_get_impl.exit:         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_TextIOWrapper_errors_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_context) #0 {
+define internal noundef ptr @_io_TextIOWrapper_errors_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds %struct.textio, ptr %self, i64 0, i32 1
   %0 = load i32, ptr %ok.i, align 8
@@ -11229,7 +11233,7 @@ _io_TextIOWrapper__CHUNK_SIZE_get_impl.exit:      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_context) #0 {
+define internal noundef i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds %struct.textio, ptr %self, i64 0, i32 1
   %0 = load i32, ptr %ok.i, align 8

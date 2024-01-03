@@ -5567,10 +5567,11 @@ _ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit: ; preds = %i
 
 sw.bb:                                            ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit
   %35 = load i8, ptr %operandBuf, align 1
-  switch i32 %retval.0.i139, label %if.else57 [
+  switch i32 %retval.0.i139, label %sw.bb.unreachabledefault [
     i32 1, label %if.then36
     i32 2, label %if.then41
     i32 3, label %if.then46
+    i32 0, label %if.else57
   ]
 
 if.then36:                                        ; preds = %sw.bb
@@ -5590,6 +5591,9 @@ if.then46:                                        ; preds = %sw.bb
   %38 = load ptr, ptr %os_2, align 8
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv47, ptr noundef nonnull align 8 dereferenceable(36) %38)
   br label %sw.epilog
+
+sw.bb.unreachabledefault:                         ; preds = %sw.bb
+  unreachable
 
 if.else57:                                        ; preds = %sw.bb
   %39 = load ptr, ptr %os_2, align 8
@@ -5613,10 +5617,11 @@ for.body.i:                                       ; preds = %_ZN6hermes3hbcL26ge
 _ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit:    ; preds = %for.body.i
   %conv2.i = trunc i64 %or.i to i32
   %42 = load ptr, ptr %os_2, align 8
-  switch i32 %retval.0.i139, label %if.else102 [
+  switch i32 %retval.0.i139, label %sw.bb66.unreachabledefault [
     i32 1, label %if.then82
     i32 2, label %if.then86
     i32 3, label %if.then90
+    i32 0, label %if.else102
   ]
 
 if.then82:                                        ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit
@@ -5631,6 +5636,9 @@ if.then90:                                        ; preds = %_ZN6hermes3hbc13dec
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i, ptr noundef nonnull align 8 dereferenceable(36) %42)
   br label %sw.epilog
 
+sw.bb66.unreachabledefault:                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit
+  unreachable
+
 if.else102:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit
   %conv.i141 = and i64 %or.i, 4294967295
   %call.i142 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %42, i64 noundef %conv.i141) #17
@@ -5638,10 +5646,11 @@ if.else102:                                       ; preds = %_ZN6hermes3hbc13dec
 
 sw.bb110:                                         ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit
   %43 = load i8, ptr %operandBuf, align 1
-  switch i32 %retval.0.i139, label %if.else150 [
+  switch i32 %retval.0.i139, label %sw.bb110.unreachabledefault [
     i32 1, label %if.then127
     i32 2, label %if.then132
     i32 3, label %if.then137
+    i32 0, label %if.else150
   ]
 
 if.then127:                                       ; preds = %sw.bb110
@@ -5662,6 +5671,9 @@ if.then137:                                       ; preds = %sw.bb110
   tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv138, ptr noundef nonnull align 8 dereferenceable(36) %46)
   br label %sw.epilog
 
+sw.bb110.unreachabledefault:                      ; preds = %sw.bb110
+  unreachable
+
 if.else150:                                       ; preds = %sw.bb110
   %47 = load ptr, ptr %os_2, align 8
   %conv.i143 = zext i8 %43 to i64
@@ -5681,47 +5693,51 @@ for.body.i145:                                    ; preds = %_ZN6hermes3hbcL26ge
   br i1 %cmp.i, label %for.body.i145, label %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit, !llvm.loop !84
 
 _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i145
-  switch i32 %retval.0.i139, label %if.else199 [
+  switch i32 %retval.0.i139, label %sw.bb159.unreachabledefault [
     i32 1, label %if.then176
     i32 2, label %if.then181
     i32 3, label %if.then186
+    i32 0, label %if.else199
   ]
 
 if.then176:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %50 = trunc i64 %or.i151 to i32
-  %conv177 = and i32 %50, 65535
-  %51 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv177, ptr noundef nonnull align 8 dereferenceable(36) %51)
+  %conv2.i152 = trunc i64 %or.i151 to i32
+  %conv177 = and i32 %conv2.i152, 65535
+  %50 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv177, ptr noundef nonnull align 8 dereferenceable(36) %50)
   br label %sw.epilog
 
 if.then181:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %52 = trunc i64 %or.i151 to i32
-  %conv182 = and i32 %52, 65535
-  %53 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv182, ptr noundef nonnull align 8 dereferenceable(36) %53)
+  %51 = trunc i64 %or.i151 to i32
+  %conv182 = and i32 %51, 65535
+  %52 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv182, ptr noundef nonnull align 8 dereferenceable(36) %52)
   br label %sw.epilog
 
 if.then186:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %54 = trunc i64 %or.i151 to i32
-  %conv187 = and i32 %54, 65535
-  %55 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv187, ptr noundef nonnull align 8 dereferenceable(36) %55)
+  %53 = trunc i64 %or.i151 to i32
+  %conv187 = and i32 %53, 65535
+  %54 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv187, ptr noundef nonnull align 8 dereferenceable(36) %54)
   br label %sw.epilog
 
+sw.bb159.unreachabledefault:                      ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
+  unreachable
+
 if.else199:                                       ; preds = %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit
-  %56 = load ptr, ptr %os_2, align 8
+  %55 = load ptr, ptr %os_2, align 8
   %conv201 = and i64 %or.i151, 65535
-  %call.i154 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %56, i64 noundef %conv201) #17
+  %call.i154 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %55, i64 noundef %conv201) #17
   br label %sw.epilog
 
 for.body.i155:                                    ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit, %for.body.i155
   %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i162, %for.body.i155 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %ret.05.i157 = phi i64 [ %or.i161, %for.body.i155 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %arrayidx.i158 = getelementptr inbounds i8, ptr %operandBuf, i64 %indvars.iv.i156
-  %57 = load i8, ptr %arrayidx.i158, align 1
-  %conv1.i159 = zext i8 %57 to i64
-  %58 = shl nuw nsw i64 %indvars.iv.i156, 3
-  %shl.i160 = shl nuw nsw i64 %conv1.i159, %58
+  %56 = load i8, ptr %arrayidx.i158, align 1
+  %conv1.i159 = zext i8 %56 to i64
+  %57 = shl nuw nsw i64 %indvars.iv.i156, 3
+  %shl.i160 = shl nuw nsw i64 %conv1.i159, %57
   %or.i161 = or i64 %shl.i160, %ret.05.i157
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 4
@@ -5729,61 +5745,65 @@ for.body.i155:                                    ; preds = %_ZN6hermes3hbcL26ge
 
 _ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165: ; preds = %for.body.i155
   %conv2.i164 = trunc i64 %or.i161 to i32
-  %59 = load ptr, ptr %os_2, align 8
-  switch i32 %retval.0.i139, label %if.else244 [
+  %58 = load ptr, ptr %os_2, align 8
+  switch i32 %retval.0.i139, label %sw.bb208.unreachabledefault [
     i32 1, label %if.then224
     i32 2, label %if.then228
     i32 3, label %if.then232
+    i32 0, label %if.else244
   ]
 
 if.then224:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %59)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %58)
   br label %sw.epilog
 
 if.then228:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %59)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %58)
   br label %sw.epilog
 
 if.then232:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %59)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i164, ptr noundef nonnull align 8 dereferenceable(36) %58)
   br label %sw.epilog
+
+sw.bb208.unreachabledefault:                      ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165
+  unreachable
 
 if.else244:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit165
   %conv.i166 = and i64 %or.i161, 4294967295
-  %call.i167 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %59, i64 noundef %conv.i166) #17
+  %call.i167 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %58, i64 noundef %conv.i166) #17
   br label %sw.epilog
 
 sw.bb252:                                         ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit
-  %60 = load i8, ptr %operandBuf, align 1
-  %61 = load ptr, ptr %os_2, align 8
-  %OutBufEnd.i5.i170 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %61, i64 0, i32 2
-  %62 = load ptr, ptr %OutBufEnd.i5.i170, align 8
-  %OutBufCur.i6.i171 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %61, i64 0, i32 3
-  %63 = load ptr, ptr %OutBufCur.i6.i171, align 8
-  %cmp.i.i175 = icmp eq ptr %62, %63
+  %59 = load i8, ptr %operandBuf, align 1
+  %60 = load ptr, ptr %os_2, align 8
+  %OutBufEnd.i5.i170 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %60, i64 0, i32 2
+  %61 = load ptr, ptr %OutBufEnd.i5.i170, align 8
+  %OutBufCur.i6.i171 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %60, i64 0, i32 3
+  %62 = load ptr, ptr %OutBufCur.i6.i171, align 8
+  %cmp.i.i175 = icmp eq ptr %61, %62
   br i1 %cmp.i.i175, label %if.then.i.i181, label %if.then4.i.i178
 
 if.then.i.i181:                                   ; preds = %sw.bb252
-  %call3.i.i182 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %61, ptr noundef nonnull @.str.53, i64 noundef 1) #17
+  %call3.i.i182 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %60, ptr noundef nonnull @.str.53, i64 noundef 1) #17
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit183
 
 if.then4.i.i178:                                  ; preds = %sw.bb252
-  store i8 76, ptr %63, align 1
-  %64 = load ptr, ptr %OutBufCur.i6.i171, align 8
-  %add.ptr.i.i179 = getelementptr inbounds i8, ptr %64, i64 1
+  store i8 76, ptr %62, align 1
+  %63 = load ptr, ptr %OutBufCur.i6.i171, align 8
+  %add.ptr.i.i179 = getelementptr inbounds i8, ptr %63, i64 1
   store ptr %add.ptr.i.i179, ptr %OutBufCur.i6.i171, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit183
 
 _ZN4llvh11raw_ostreamlsEPKc.exit183:              ; preds = %if.then.i.i181, %if.then4.i.i178
-  %phi.call.i180 = phi ptr [ %call3.i.i182, %if.then.i.i181 ], [ %61, %if.then4.i.i178 ]
+  %phi.call.i180 = phi ptr [ %call3.i.i182, %if.then.i.i181 ], [ %60, %if.then4.i.i178 ]
   %jumpTargets_260 = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this, i64 0, i32 3
-  %65 = load ptr, ptr %jumpTargets_260, align 8
-  %idx.ext263 = sext i8 %60 to i64
+  %64 = load ptr, ptr %jumpTargets_260, align 8
+  %idx.ext263 = sext i8 %59 to i64
   %add.ptr264 = getelementptr inbounds i8, ptr %ip, i64 %idx.ext263
   store ptr %add.ptr264, ptr %ref.tmp261, align 8
-  %call.i184 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKvSt4pairIKS2_jESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp261)
-  %66 = load i32, ptr %call.i184, align 4
-  %conv.i185 = zext i32 %66 to i64
+  %call.i184 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKvSt4pairIKS2_jESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp261)
+  %65 = load i32, ptr %call.i184, align 4
+  %conv.i185 = zext i32 %65 to i64
   %call.i186 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i180, i64 noundef %conv.i185) #17
   br label %sw.epilog
 
@@ -5791,46 +5811,46 @@ for.body.i187:                                    ; preds = %_ZN6hermes3hbcL26ge
   %indvars.iv.i188 = phi i64 [ %indvars.iv.next.i194, %for.body.i187 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %ret.05.i189 = phi i64 [ %or.i193, %for.body.i187 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %arrayidx.i190 = getelementptr inbounds i8, ptr %operandBuf, i64 %indvars.iv.i188
-  %67 = load i8, ptr %arrayidx.i190, align 1
-  %conv1.i191 = zext i8 %67 to i64
-  %68 = shl nuw nsw i64 %indvars.iv.i188, 3
-  %shl.i192 = shl nuw nsw i64 %conv1.i191, %68
+  %66 = load i8, ptr %arrayidx.i190, align 1
+  %conv1.i191 = zext i8 %66 to i64
+  %67 = shl nuw nsw i64 %indvars.iv.i188, 3
+  %shl.i192 = shl nuw nsw i64 %conv1.i191, %67
   %or.i193 = or i64 %shl.i192, %ret.05.i189
   %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i188, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i194, 4
   br i1 %exitcond.not.i195, label %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit, label %for.body.i187, !llvm.loop !58
 
 _ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit:    ; preds = %for.body.i187
-  %69 = load ptr, ptr %os_2, align 8
-  %OutBufEnd.i5.i199 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %69, i64 0, i32 2
-  %70 = load ptr, ptr %OutBufEnd.i5.i199, align 8
-  %OutBufCur.i6.i200 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %69, i64 0, i32 3
-  %71 = load ptr, ptr %OutBufCur.i6.i200, align 8
-  %cmp.i.i204 = icmp eq ptr %70, %71
+  %68 = load ptr, ptr %os_2, align 8
+  %OutBufEnd.i5.i199 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %68, i64 0, i32 2
+  %69 = load ptr, ptr %OutBufEnd.i5.i199, align 8
+  %OutBufCur.i6.i200 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %68, i64 0, i32 3
+  %70 = load ptr, ptr %OutBufCur.i6.i200, align 8
+  %cmp.i.i204 = icmp eq ptr %69, %70
   br i1 %cmp.i.i204, label %if.then.i.i210, label %if.then4.i.i207
 
 if.then.i.i210:                                   ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit
-  %call3.i.i211 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %69, ptr noundef nonnull @.str.53, i64 noundef 1) #17
+  %call3.i.i211 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %68, ptr noundef nonnull @.str.53, i64 noundef 1) #17
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit212
 
 if.then4.i.i207:                                  ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit
-  store i8 76, ptr %71, align 1
-  %72 = load ptr, ptr %OutBufCur.i6.i200, align 8
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %72, i64 1
+  store i8 76, ptr %70, align 1
+  %71 = load ptr, ptr %OutBufCur.i6.i200, align 8
+  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %71, i64 1
   store ptr %add.ptr.i.i208, ptr %OutBufCur.i6.i200, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit212
 
 _ZN4llvh11raw_ostreamlsEPKc.exit212:              ; preds = %if.then.i.i210, %if.then4.i.i207
-  %phi.call.i209 = phi ptr [ %call3.i.i211, %if.then.i.i210 ], [ %69, %if.then4.i.i207 ]
+  %phi.call.i209 = phi ptr [ %call3.i.i211, %if.then.i.i210 ], [ %68, %if.then4.i.i207 ]
   %jumpTargets_309 = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this, i64 0, i32 3
-  %73 = load ptr, ptr %jumpTargets_309, align 8
+  %72 = load ptr, ptr %jumpTargets_309, align 8
   %sext259 = shl i64 %or.i193, 32
   %idx.ext311 = ashr exact i64 %sext259, 32
   %add.ptr312 = getelementptr inbounds i8, ptr %ip, i64 %idx.ext311
   store ptr %add.ptr312, ptr %ref.tmp310, align 8
-  %call.i213 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKvSt4pairIKS2_jESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp310)
-  %74 = load i32, ptr %call.i213, align 4
-  %conv.i214 = zext i32 %74 to i64
+  %call.i213 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKvSt4pairIKS2_jESaIS5_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp310)
+  %73 = load i32, ptr %call.i213, align 4
+  %conv.i214 = zext i32 %73 to i64
   %call.i215 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i209, i64 noundef %conv.i214) #17
   br label %sw.epilog
 
@@ -5838,10 +5858,10 @@ for.body.i216:                                    ; preds = %_ZN6hermes3hbcL26ge
   %indvars.iv.i217 = phi i64 [ %indvars.iv.next.i223, %for.body.i216 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %ret.05.i218 = phi i64 [ %or.i222, %for.body.i216 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %arrayidx.i219 = getelementptr inbounds i8, ptr %operandBuf, i64 %indvars.iv.i217
-  %75 = load i8, ptr %arrayidx.i219, align 1
-  %conv1.i220 = zext i8 %75 to i64
-  %76 = shl nuw nsw i64 %indvars.iv.i217, 3
-  %shl.i221 = shl nuw nsw i64 %conv1.i220, %76
+  %74 = load i8, ptr %arrayidx.i219, align 1
+  %conv1.i220 = zext i8 %74 to i64
+  %75 = shl nuw nsw i64 %indvars.iv.i217, 3
+  %shl.i221 = shl nuw nsw i64 %conv1.i220, %75
   %or.i222 = or i64 %shl.i221, %ret.05.i218
   %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i217, 1
   %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, 4
@@ -5849,74 +5869,82 @@ for.body.i216:                                    ; preds = %_ZN6hermes3hbcL26ge
 
 _ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226: ; preds = %for.body.i216
   %conv2.i225 = trunc i64 %or.i222 to i32
-  %77 = load ptr, ptr %os_2, align 8
-  switch i32 %retval.0.i139, label %if.else381 [
+  %76 = load ptr, ptr %os_2, align 8
+  switch i32 %retval.0.i139, label %sw.bb345.unreachabledefault [
     i32 1, label %if.then361
     i32 2, label %if.then365
     i32 3, label %if.then369
+    i32 0, label %if.else381
   ]
 
 if.then361:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %77)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %76)
   br label %sw.epilog
 
 if.then365:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %77)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %76)
   br label %sw.epilog
 
 if.then369:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %77)
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv2.i225, ptr noundef nonnull align 8 dereferenceable(36) %76)
   br label %sw.epilog
+
+sw.bb345.unreachabledefault:                      ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226
+  unreachable
 
 if.else381:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIiEEvPKhPT_.exit226
   %sext = shl i64 %or.i222, 32
   %conv.i227 = ashr exact i64 %sext, 32
-  %call.i228 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %77, i64 noundef %conv.i227) #17
+  %call.i228 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %76, i64 noundef %conv.i227) #17
   br label %sw.epilog
 
 for.body.i229:                                    ; preds = %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit, %for.body.i229
   %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i236, %for.body.i229 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %ret.05.i231 = phi i64 [ %or.i235, %for.body.i229 ], [ 0, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit ]
   %arrayidx.i232 = getelementptr inbounds i8, ptr %operandBuf, i64 %indvars.iv.i230
-  %78 = load i8, ptr %arrayidx.i232, align 1
-  %conv1.i233 = zext i8 %78 to i64
-  %79 = shl nuw nsw i64 %indvars.iv.i230, 3
-  %shl.i234 = shl nuw i64 %conv1.i233, %79
+  %77 = load i8, ptr %arrayidx.i232, align 1
+  %conv1.i233 = zext i8 %77 to i64
+  %78 = shl nuw nsw i64 %indvars.iv.i230, 3
+  %shl.i234 = shl nuw i64 %conv1.i233, %78
   %or.i235 = or i64 %shl.i234, %ret.05.i231
   %indvars.iv.next.i236 = add nuw nsw i64 %indvars.iv.i230, 1
   %exitcond.not.i237 = icmp eq i64 %indvars.iv.next.i236, 8
   br i1 %exitcond.not.i237, label %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit, label %for.body.i229, !llvm.loop !85
 
 _ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit:    ; preds = %for.body.i229
-  %80 = bitcast i64 %or.i235 to double
-  switch i32 %retval.0.i139, label %if.then421 [
+  %79 = bitcast i64 %or.i235 to double
+  switch i32 %retval.0.i139, label %sw.bb389.unreachabledefault [
     i32 1, label %if.then406
     i32 2, label %if.then411
     i32 3, label %if.then416
+    i32 0, label %if.then421
   ]
 
 if.then406:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit
-  %conv407 = fptoui double %80 to i32
-  %81 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv407, ptr noundef nonnull align 8 dereferenceable(36) %81)
+  %conv407 = fptoui double %79 to i32
+  %80 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv407, ptr noundef nonnull align 8 dereferenceable(36) %80)
   br label %sw.epilog
 
 if.then411:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit
-  %conv412 = fptoui double %80 to i32
-  %82 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv412, ptr noundef nonnull align 8 dereferenceable(36) %82)
+  %conv412 = fptoui double %79 to i32
+  %81 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv412, ptr noundef nonnull align 8 dereferenceable(36) %81)
   br label %sw.epilog
 
 if.then416:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit
-  %conv417 = fptoui double %80 to i32
-  %83 = load ptr, ptr %os_2, align 8
-  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv417, ptr noundef nonnull align 8 dereferenceable(36) %83)
+  %conv417 = fptoui double %79 to i32
+  %82 = load ptr, ptr %os_2, align 8
+  tail call void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %conv417, ptr noundef nonnull align 8 dereferenceable(36) %82)
   br label %sw.epilog
 
+sw.bb389.unreachabledefault:                      ; preds = %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit
+  unreachable
+
 if.then421:                                       ; preds = %_ZN6hermes3hbc13decodeOperandIdEEvPKhPT_.exit
-  %call424 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %80, ptr noundef nonnull %buf422, i64 noundef 32) #17
-  %84 = load ptr, ptr %os_2, align 8
-  %call427 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %84, ptr noundef nonnull %buf422)
+  %call424 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %79, ptr noundef nonnull %buf422, i64 noundef 32) #17
+  %83 = load ptr, ptr %os_2, align 8
+  %call427 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %83, ptr noundef nonnull %buf422)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i120, %if.then.i117, %if.then411, %if.then421, %if.then416, %if.then406, %if.then365, %if.else381, %if.then369, %if.then361, %_ZN4llvh11raw_ostreamlsEPKc.exit212, %_ZN4llvh11raw_ostreamlsEPKc.exit183, %if.then228, %if.else244, %if.then232, %if.then224, %if.then181, %if.else199, %if.then186, %if.then176, %if.then132, %if.else150, %if.then137, %if.then127, %if.then86, %if.else102, %if.then90, %if.then82, %if.then41, %if.else57, %if.then46, %if.then36, %_ZN6hermes3hbcL26getBytecodeTableForOperandENS_4inst6OpCodeEj.exit

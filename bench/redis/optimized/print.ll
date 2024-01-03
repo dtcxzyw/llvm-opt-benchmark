@@ -187,10 +187,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %19 = load i8, ptr %arrayidx22.i, align 1, !tbaa !11
   %conv.i = zext i8 %19 to i32
   %and23.i = and i32 %conv.i, 3
-  switch i32 %and23.i, label %sw.epilog.i [
+  switch i32 %and23.i, label %if.end.i.unreachabledefault [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb61.i
     i32 2, label %sw.bb75.i
+    i32 3, label %sw.epilog.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -247,7 +248,10 @@ if.else80.i:                                      ; preds = %sw.bb75.i
   %call81.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %and3.i, i32 noundef %sub.i)
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %if.else80.i, %if.else72.i, %if.then69.i, %if.then50.i, %if.end42.i, %if.end.i
+if.end.i.unreachabledefault:                      ; preds = %if.end.i
+  unreachable
+
+sw.epilog.i:                                      ; preds = %if.end.i, %if.else80.i, %if.else72.i, %if.then69.i, %if.then50.i, %if.end42.i
   switch i32 %and.i, label %sw.epilog148.i [
     i32 1, label %sw.bb83.i
     i32 4, label %sw.bb85.i

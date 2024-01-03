@@ -5450,10 +5450,11 @@ if.end46:                                         ; preds = %if.then36
 if.end52:                                         ; preds = %if.end46, %if.end34
   %windowSize27.0 = phi i32 [ 0, %if.end34 ], [ %add51, %if.end46 ]
   %pos.0 = phi i64 [ 5, %if.end34 ], [ 6, %if.end46 ]
-  switch i32 %and.i, label %sw.epilog [
+  switch i32 %and.i, label %if.end52.unreachabledefault [
     i32 3, label %sw.bb62
     i32 1, label %sw.bb53
     i32 2, label %sw.bb57
+    i32 0, label %sw.epilog
   ]
 
 sw.bb53:                                          ; preds = %if.end52
@@ -5476,14 +5477,21 @@ sw.bb62:                                          ; preds = %if.end52
   %add65 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
 
+if.end52.unreachabledefault:                      ; preds = %if.end52
+  unreachable
+
 sw.epilog:                                        ; preds = %if.end52, %sw.bb62, %sw.bb57, %sw.bb53
-  %dictID.0 = phi i32 [ 0, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
+  %dictID.0 = phi i32 [ %and.i, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
   %pos.1 = phi i64 [ %pos.0, %if.end52 ], [ %add61, %sw.bb57 ], [ %inc56, %sw.bb53 ], [ %add65, %sw.bb62 ]
-  switch i32 %shr4.i, label %sw.bb67 [
+  switch i32 %shr4.i, label %sw.epilog.unreachabledefault [
     i32 3, label %sw.bb83
     i32 1, label %sw.bb73
     i32 2, label %sw.bb79
+    i32 0, label %sw.bb67
   ]
+
+sw.epilog.unreachabledefault:                     ; preds = %sw.epilog
+  unreachable
 
 sw.bb67:                                          ; preds = %sw.epilog
   br i1 %tobool35.not, label %sw.epilog86, label %if.then69
@@ -7407,10 +7415,10 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %if.end.i, %if.then7
 if.end11:                                         ; preds = %ZSTDv07_decodeFrameHeader.exit
   %add.ptr12 = getelementptr inbounds i8, ptr %src, i64 %add18.i
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast117 = ptrtoint ptr %add.ptr12 to i64
-  %sub.ptr.sub118 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast117
-  %cmp.i49119 = icmp ult i64 %sub.ptr.sub118, 3
-  br i1 %cmp.i49119, label %return, label %if.end.i50.lr.ph
+  %sub.ptr.rhs.cast119 = ptrtoint ptr %add.ptr12 to i64
+  %sub.ptr.sub120 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast119
+  %cmp.i49121 = icmp ult i64 %sub.ptr.sub120, 3
+  br i1 %cmp.i49121, label %return, label %if.end.i50.lr.ph
 
 if.end.i50.lr.ph:                                 ; preds = %if.end11
   %sub = sub i64 %srcSize, %add18.i
@@ -7419,16 +7427,16 @@ if.end.i50.lr.ph:                                 ; preds = %if.end11
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.end.i50.lr.ph, %if.end53
-  %ip.0122 = phi ptr [ %add.ptr12, %if.end.i50.lr.ph ], [ %add.ptr55, %if.end53 ]
-  %remainingSize.0121 = phi i64 [ %sub, %if.end.i50.lr.ph ], [ %sub56, %if.end53 ]
-  %op.0120 = phi ptr [ %dst, %if.end.i50.lr.ph ], [ %add.ptr54, %if.end53 ]
-  %7 = load i8, ptr %ip.0122, align 1
+  %ip.0124 = phi ptr [ %add.ptr12, %if.end.i50.lr.ph ], [ %add.ptr55, %if.end53 ]
+  %remainingSize.0123 = phi i64 [ %sub, %if.end.i50.lr.ph ], [ %sub56, %if.end53 ]
+  %op.0122 = phi ptr [ %dst, %if.end.i50.lr.ph ], [ %add.ptr54, %if.end53 ]
+  %7 = load i8, ptr %ip.0124, align 1
   %8 = lshr i8 %7, 6
   %shr.i = zext nneg i8 %8 to i32
-  %arrayidx.i = getelementptr inbounds i8, ptr %ip.0122, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %ip.0124, i64 2
   %9 = load i8, ptr %arrayidx.i, align 1
   %conv1.i = zext i8 %9 to i32
-  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.0122, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.0124, i64 1
   %10 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %10 to i32
   %shl.i = shl nuw nsw i32 %conv3.i, 8
@@ -7444,7 +7452,7 @@ if.end.i50:                                       ; preds = %if.end.i50.lr.ph, %
   ]
 
 if.end22.thread:                                  ; preds = %if.end.i50
-  %tobool38.not = icmp eq i64 %remainingSize.0121, 3
+  %tobool38.not = icmp eq i64 %remainingSize.0123, 3
   br i1 %tobool38.not, label %while.end, label %return
 
 if.end20.i:                                       ; preds = %if.end.i50
@@ -7452,22 +7460,22 @@ if.end20.i:                                       ; preds = %if.end.i50
 
 if.end17:                                         ; preds = %if.end.i50, %if.end20.i
   %retval.0.i54.ph = phi i64 [ %12, %if.end20.i ], [ 1, %if.end.i50 ]
-  %add.ptr18 = getelementptr inbounds i8, ptr %ip.0122, i64 3
-  %sub19 = add i64 %remainingSize.0121, -3
+  %add.ptr18 = getelementptr inbounds i8, ptr %ip.0124, i64 3
+  %sub19 = add i64 %remainingSize.0123, -3
   %cmp20 = icmp ugt i64 %retval.0.i54.ph, %sub19
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end17
-  switch i32 %shr.i, label %return [
+  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.0122 to i64
+  %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast24
+  switch i32 %shr.i, label %if.end22.unreachabledefault [
     i32 0, label %if.end45
     i32 1, label %sw.bb27
     i32 2, label %sw.bb32
   ]
 
 sw.bb27:                                          ; preds = %if.end22
-  %sub.ptr.rhs.cast29 = ptrtoint ptr %op.0120 to i64
-  %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast29
-  %cmp.i57 = icmp ugt i64 %retval.0.i54.ph, %sub.ptr.sub30
+  %cmp.i57 = icmp ugt i64 %retval.0.i54.ph, %sub.ptr.sub25
   br i1 %cmp.i57, label %return, label %if.end.i58
 
 if.end.i58:                                       ; preds = %sw.bb27
@@ -7475,14 +7483,12 @@ if.end.i58:                                       ; preds = %sw.bb27
   br i1 %cmp1.not.i, label %if.end49, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0120, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i54.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0122, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i54.ph, i1 false)
   br label %if.end49
 
 sw.bb32:                                          ; preds = %if.end22
-  %sub.ptr.rhs.cast34 = ptrtoint ptr %op.0120 to i64
-  %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   %13 = load i8, ptr %add.ptr18, align 1
-  %cmp.i60 = icmp ult i64 %sub.ptr.sub35, %12
+  %cmp.i60 = icmp ult i64 %sub.ptr.sub25, %12
   br i1 %cmp.i60, label %return, label %if.end.i61
 
 if.end.i61:                                       ; preds = %sw.bb32
@@ -7490,13 +7496,11 @@ if.end.i61:                                       ; preds = %sw.bb32
   br i1 %cmp1.not.i62, label %if.end49, label %if.then2.i63
 
 if.then2.i63:                                     ; preds = %if.end.i61
-  tail call void @llvm.memset.p0.i64(ptr align 1 %op.0120, i8 %13, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %op.0122, i8 %13, i64 %12, i1 false)
   br label %if.end49
 
 if.end45:                                         ; preds = %if.end22
-  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.0120 to i64
-  %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast24
-  %call26 = tail call fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %op.0120, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i54.ph)
+  %call26 = tail call fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef nonnull %dctx, ptr noundef %op.0122, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i54.ph)
   %cmp.i65 = icmp ult i64 %call26, -119
   br i1 %cmp.i65, label %if.end49, label %return
 
@@ -7507,11 +7511,11 @@ if.end49:                                         ; preds = %if.then2.i, %if.end
   br i1 %tobool50.not, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %op.0120, i64 noundef %decodedSize.0.ph108) #25
+  %call52 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %op.0122, i64 noundef %decodedSize.0.ph108) #25
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end49
-  %add.ptr54 = getelementptr inbounds i8, ptr %op.0120, i64 %decodedSize.0.ph108
+  %add.ptr54 = getelementptr inbounds i8, ptr %op.0122, i64 %decodedSize.0.ph108
   %add.ptr55 = getelementptr inbounds i8, ptr %add.ptr18, i64 %retval.0.i54.ph
   %sub56 = sub i64 %sub19, %retval.0.i54.ph
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr55 to i64
@@ -7520,13 +7524,16 @@ if.end53:                                         ; preds = %if.then51, %if.end4
   br i1 %cmp.i49, label %return, label %if.end.i50
 
 while.end:                                        ; preds = %if.end22.thread
-  %sub.ptr.lhs.cast57 = ptrtoint ptr %op.0120 to i64
+  %sub.ptr.lhs.cast57 = ptrtoint ptr %op.0122 to i64
   %sub.ptr.rhs.cast58 = ptrtoint ptr %dst to i64
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
   br label %return
 
-return:                                           ; preds = %if.end17, %if.end22, %if.end45, %sw.bb32, %sw.bb27, %if.end53, %if.end11, %land.lhs.true.i, %if.end22.thread, %ZSTDv07_decodeFrameHeader.exit, %if.end4, %if.end, %entry, %while.end
-  %retval.0 = phi i64 [ %sub.ptr.sub59, %while.end ], [ -72, %entry ], [ %add18.i, %if.end ], [ -72, %if.end4 ], [ -20, %ZSTDv07_decodeFrameHeader.exit ], [ -72, %if.end22.thread ], [ -20, %land.lhs.true.i ], [ -72, %if.end11 ], [ -72, %if.end17 ], [ -1, %if.end22 ], [ %call26, %if.end45 ], [ -70, %sw.bb32 ], [ -70, %sw.bb27 ], [ -72, %if.end53 ]
+if.end22.unreachabledefault:                      ; preds = %if.end22
+  unreachable
+
+return:                                           ; preds = %if.end17, %if.end45, %sw.bb32, %sw.bb27, %if.end53, %if.end11, %land.lhs.true.i, %if.end22.thread, %ZSTDv07_decodeFrameHeader.exit, %if.end4, %if.end, %entry, %while.end
+  %retval.0 = phi i64 [ %sub.ptr.sub59, %while.end ], [ -72, %entry ], [ %add18.i, %if.end ], [ -72, %if.end4 ], [ -20, %ZSTDv07_decodeFrameHeader.exit ], [ -72, %if.end22.thread ], [ -20, %land.lhs.true.i ], [ -72, %if.end11 ], [ -72, %if.end17 ], [ %call26, %if.end45 ], [ -70, %sw.bb32 ], [ -70, %sw.bb27 ], [ -72, %if.end53 ]
   ret i64 %retval.0
 }
 

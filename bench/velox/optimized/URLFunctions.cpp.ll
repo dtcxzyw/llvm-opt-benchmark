@@ -7306,17 +7306,18 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %and4 = and i32 %l_flags, 3
-  switch i32 %and4, label %sw.default [
+  switch i32 %and4, label %if.end.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb8
     i32 2, label %sw.bb10
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
   %m_parser_proc = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14parse_extendedEv to i64), ptr %m_parser_proc, align 8
-  %m_parser_proc.repack12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc.repack12, align 8
+  %m_parser_proc.repack13 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc.repack13, align 8
   %3 = load ptr, ptr %this, align 8
   %start.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %3, i64 0, i32 11, i32 1
   %4 = load ptr, ptr %start.i.i, align 8
@@ -7392,16 +7393,19 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 sw.bb8:                                           ; preds = %if.end
   %m_parser_proc9 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11parse_basicEv to i64), ptr %m_parser_proc9, align 8
-  %m_parser_proc9.repack11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc9.repack11, align 8
+  %m_parser_proc9.repack12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc9.repack12, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end
   %m_parser_proc11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13parse_literalEv to i64), ptr %m_parser_proc11, align 8
-  %m_parser_proc11.repack10 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
-  store i64 0, ptr %m_parser_proc11.repack10, align 8
+  %m_parser_proc11.repack11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
+  store i64 0, ptr %m_parser_proc11.repack11, align 8
   br label %sw.epilog
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #21
@@ -7563,9 +7567,9 @@ return:                                           ; preds = %if.end31, %if.end34
 
 eh.resume:                                        ; preds = %lpad27.body, %lpad.i30, %lpad25, %lpad13.body, %lpad.i, %lpad
   %ref.tmp24.sink = phi ptr [ %ref.tmp12, %lpad ], [ %ref.tmp12, %lpad.i ], [ %ref.tmp12, %lpad13.body ], [ %ref.tmp24, %lpad25 ], [ %ref.tmp24, %lpad.i30 ], [ %ref.tmp24, %lpad27.body ]
-  %.pn14.pn = phi { ptr, i32 } [ %21, %lpad ], [ %19, %lpad.i ], [ %eh.lpad-body21, %lpad13.body ], [ %30, %lpad25 ], [ %28, %lpad.i30 ], [ %eh.lpad-body39, %lpad27.body ]
+  %.pn.pn = phi { ptr, i32 } [ %21, %lpad ], [ %19, %lpad.i ], [ %eh.lpad-body21, %lpad13.body ], [ %30, %lpad25 ], [ %28, %lpad.i30 ], [ %eh.lpad-body39, %lpad27.body ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.sink) #21
-  resume { ptr, i32 } %.pn14.pn
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10254,7 +10258,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %17
@@ -14872,7 +14876,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %68 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %68
@@ -19027,7 +19031,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %4
@@ -19442,7 +19446,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN5boost16re_detail_10740020named_subexpressions4nameESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %8
@@ -27214,7 +27218,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorISt4pairIbPN5boost16re_detail_10740014re_syntax_baseEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %8
@@ -31634,7 +31638,7 @@ if.then.i:                                        ; preds = %if.else42
 
 _ZNKSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE12_M_check_lenEmS3_.exit: ; preds = %if.else42
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %16 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %16
@@ -39871,7 +39875,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN5boost16re_detail_10740014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE12_M_check_lenEmS5_.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 112
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 82351536043346212)
   %cond.i = select i1 %cmp7.i, i64 82351536043346212, i64 %2

@@ -169,7 +169,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.113 = private unnamed_addr constant [18 x i8] c"max value > 65535\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__sse2_available() local_unnamed_addr #0 {
+define noundef i32 @stbi__sse2_available() local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
@@ -215,7 +215,7 @@ entry:
   %img_buffer = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start, ptr %img_buffer, align 8
   %0 = load ptr, ptr %io, align 8
-  %call.i = tail call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start, i32 noundef 128) #44
+  %call.i = tail call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer, align 8
   %2 = load ptr, ptr %img_buffer_original, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -262,7 +262,7 @@ entry:
   %buffer_start = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %2 = load i32, ptr %buflen, align 4
-  %call = tail call i32 %0(ptr noundef %1, ptr noundef nonnull %buffer_start, i32 noundef %2) #44
+  %call = tail call i32 %0(ptr noundef %1, ptr noundef nonnull %buffer_start, i32 noundef %2) #40
   %img_buffer = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %3 = load ptr, ptr %img_buffer, align 8
   %img_buffer_original = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
@@ -299,7 +299,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @stbi__stdio_read(ptr nocapture noundef %user, ptr nocapture noundef %data, i32 noundef %size) #4 {
+define noundef i32 @stbi__stdio_read(ptr nocapture noundef %user, ptr nocapture noundef %data, i32 noundef %size) #4 {
 entry:
   %conv = sext i32 %size to i64
   %call = tail call i64 @fread(ptr noundef %data, i64 noundef 1, i64 noundef %conv, ptr noundef %user)
@@ -337,14 +337,14 @@ declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #5
 declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @stbi__stdio_eof(ptr nocapture noundef %user) #4 {
+define noundef i32 @stbi__stdio_eof(ptr nocapture noundef %user) #4 {
 entry:
-  %call = tail call i32 @feof(ptr noundef %user) #44
+  %call = tail call i32 @feof(ptr noundef %user) #40
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %call1 = tail call i32 @ferror(ptr noundef %user) #44
+  %call1 = tail call i32 @ferror(ptr noundef %user) #40
   %tobool2 = icmp ne i32 %call1, 0
   %0 = zext i1 %tobool2 to i32
   br label %lor.end
@@ -379,7 +379,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = tail call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = tail call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -423,7 +423,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @stbi_failure_reason() local_unnamed_addr #8 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
@@ -434,8 +434,8 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define i32 @stbi__err(ptr noundef %str) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+define noundef i32 @stbi__err(ptr noundef %str) local_unnamed_addr #10 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr %str, ptr %0, align 8
@@ -443,9 +443,9 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__malloc(i64 noundef %size) local_unnamed_addr #11 {
+define noalias noundef ptr @stbi__malloc(i64 noundef %size) local_unnamed_addr #11 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #45
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #41
   ret ptr %call
 }
 
@@ -453,7 +453,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__addsizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define noundef i32 @stbi__addsizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %b, -1
   %sub = xor i32 %b, 2147483647
@@ -464,7 +464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__mul2sizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define noundef i32 @stbi__mul2sizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %0 = or i32 %b, %a
   %or.cond.not = icmp sgt i32 %0, -1
@@ -621,7 +621,7 @@ land.end:                                         ; preds = %land.lhs.true3, %la
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__malloc_mad2(i32 noundef %a, i32 noundef %b, i32 noundef %add) local_unnamed_addr #11 {
+define noalias noundef ptr @stbi__malloc_mad2(i32 noundef %a, i32 noundef %b, i32 noundef %add) local_unnamed_addr #11 {
 entry:
   %0 = or i32 %b, %a
   %or.cond.not.i.i = icmp sgt i32 %0, -1
@@ -647,7 +647,7 @@ stbi__mad2sizes_valid.exit:                       ; preds = %if.end.i.i, %stbi__
 if.end:                                           ; preds = %stbi__mad2sizes_valid.exit
   %add1 = add nsw i32 %mul.i, %add
   %conv = sext i32 %add1 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   br label %return
 
 return:                                           ; preds = %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mad2sizes_valid.exit, %if.end
@@ -656,7 +656,7 @@ return:                                           ; preds = %entry, %stbi__mul2s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__malloc_mad3(i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %add) local_unnamed_addr #11 {
+define noalias noundef ptr @stbi__malloc_mad3(i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %add) local_unnamed_addr #11 {
 entry:
   %0 = or i32 %b, %a
   %or.cond.not.i.i = icmp sgt i32 %0, -1
@@ -697,7 +697,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %if.end.i8.i, %stbi_
 if.end:                                           ; preds = %stbi__mad3sizes_valid.exit
   %add2 = add nsw i32 %mul4.i, %add
   %conv = sext i32 %add2 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit14.i, %stbi__mad3sizes_valid.exit, %if.end
@@ -706,7 +706,7 @@ return:                                           ; preds = %land.lhs.true.i, %e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__malloc_mad4(i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %add) local_unnamed_addr #11 {
+define noalias noundef ptr @stbi__malloc_mad4(i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %d, i32 noundef %add) local_unnamed_addr #11 {
 entry:
   %0 = or i32 %b, %a
   %or.cond.not.i.i = icmp sgt i32 %0, -1
@@ -762,7 +762,7 @@ stbi__mad4sizes_valid.exit:                       ; preds = %if.end.i21.i, %stbi
 if.end:                                           ; preds = %stbi__mad4sizes_valid.exit
   %add3 = add nsw i32 %mul10.i, %add
   %conv = sext i32 %add3 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   br label %return
 
 return:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit18.i, %stbi__mul2sizes_valid.exit27.i, %stbi__mad4sizes_valid.exit, %if.end
@@ -840,7 +840,7 @@ return:                                           ; preds = %entry, %if.end17, %
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbi_image_free(ptr nocapture noundef %retval_from_stbi_load) local_unnamed_addr #13 {
 entry:
-  tail call void @free(ptr noundef %retval_from_stbi_load) #44
+  tail call void @free(ptr noundef %retval_from_stbi_load) #40
   ret void
 }
 
@@ -854,7 +854,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define void @stbi_set_flip_vertically_on_load_thread(i32 noundef %flag_true_if_should_flip) local_unnamed_addr #10 {
 entry:
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__vertically_flip_on_load_local)
@@ -915,7 +915,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %4 = load ptr, ptr %io.i.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i.i, align 4
-  %call.i.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i.i, i32 noundef %6) #44
+  %call.i.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -1016,17 +1016,17 @@ if.else.i:                                        ; preds = %if.then9
   br i1 %tobool9.not.i, label %stbi__gif_load.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
-  call void @free(ptr noundef nonnull %22) #44
+  call void @free(ptr noundef nonnull %22) #40
   br label %stbi__gif_load.exit
 
 stbi__gif_load.exit:                              ; preds = %if.then1.i, %if.then4.i, %if.else.i, %if.then10.i
   %u.0.i = phi ptr [ %call7.i, %if.then4.i ], [ %call.i74, %if.then1.i ], [ null, %if.then10.i ], [ null, %if.else.i ]
   %history.i = getelementptr inbounds %struct.stbi__gif, ptr %g.i, i64 0, i32 4
   %23 = load ptr, ptr %history.i, align 8
-  call void @free(ptr noundef %23) #44
+  call void @free(ptr noundef %23) #40
   %background.i = getelementptr inbounds %struct.stbi__gif, ptr %g.i, i64 0, i32 3
   %24 = load ptr, ptr %background.i, align 8
-  call void @free(ptr noundef %24) #44
+  call void @free(ptr noundef %24) #40
   call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %g.i)
   br label %return
 
@@ -1116,7 +1116,7 @@ return:                                           ; preds = %if.end43, %if.then4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__png_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__png_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %img_buffer_end.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 11
@@ -1159,7 +1159,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #44
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -1221,7 +1221,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__bmp_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__bmp_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__bmp_test_raw(ptr noundef %s), !range !6
   %img_buffer_original.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__bmp_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__bmp_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
 entry:
   %shift_table.i690 = alloca [9 x i32], align 16
   %shift_table.i677 = alloca [9 x i32], align 16
@@ -1443,7 +1443,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i, %31
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %tobool103.not = icmp eq ptr %call.i.i, null
   br i1 %tobool103.not, label %if.then104, label %if.end108
 
@@ -1482,7 +1482,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then118:                                       ; preds = %if.then112
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.77, ptr %36, align 8
   br label %return
@@ -1511,7 +1511,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %43 = load ptr, ptr %io.i.i, align 8
   %44 = load ptr, ptr %io_user_data.i.i, align 8
   %45 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i239 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i, i32 noundef %45) #44
+  %call.i.i239 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i, i32 noundef %45) #40
   %46 = load ptr, ptr %img_buffer.i, align 8
   %47 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %46 to i64
@@ -1569,7 +1569,7 @@ if.then2.i247:                                    ; preds = %if.end.i244
   %56 = load ptr, ptr %io.i.i, align 8
   %57 = load ptr, ptr %io_user_data.i.i, align 8
   %58 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i252 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %buffer_start.i.i, i32 noundef %58) #44
+  %call.i.i252 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %buffer_start.i.i, i32 noundef %58) #40
   %59 = load ptr, ptr %img_buffer.i, align 8
   %60 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i254 = ptrtoint ptr %59 to i64
@@ -1626,7 +1626,7 @@ if.then2.i280:                                    ; preds = %if.end.i277
   %69 = load ptr, ptr %io.i.i, align 8
   %70 = load ptr, ptr %io_user_data.i.i, align 8
   %71 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i285 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i, i32 noundef %71) #44
+  %call.i.i285 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i, i32 noundef %71) #40
   %72 = load ptr, ptr %img_buffer.i, align 8
   %73 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i287 = ptrtoint ptr %72 to i64
@@ -1683,7 +1683,7 @@ if.then2.i313:                                    ; preds = %if.end.i310
   %81 = load ptr, ptr %io.i.i, align 8
   %82 = load ptr, ptr %io_user_data.i.i, align 8
   %83 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i318 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %buffer_start.i.i, i32 noundef %83) #44
+  %call.i.i318 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %buffer_start.i.i, i32 noundef %83) #40
   %84 = load ptr, ptr %img_buffer.i, align 8
   %85 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i320 = ptrtoint ptr %84 to i64
@@ -1754,7 +1754,7 @@ if.then173:                                       ; preds = %for.end
   br label %for.cond245.preheader
 
 if.else175:                                       ; preds = %for.end
-  tail call void @free(ptr noundef %call.i.i) #44
+  tail call void @free(ptr noundef %call.i.i) #40
   %96 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.78, ptr %96, align 8
   br label %return
@@ -1836,7 +1836,7 @@ if.then2.i346:                                    ; preds = %if.end.i343
   %104 = load ptr, ptr %io.i.i347, align 8
   %105 = load ptr, ptr %io_user_data.i.i348, align 8
   %106 = load i32, ptr %buflen.i.i350, align 4
-  %call.i.i351 = tail call i32 %104(ptr noundef %105, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %106) #44
+  %call.i.i351 = tail call i32 %104(ptr noundef %105, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %106) #40
   %107 = load ptr, ptr %img_buffer.i340, align 8
   %108 = load ptr, ptr %img_buffer_original.i.i352, align 8
   %sub.ptr.lhs.cast.i.i353 = ptrtoint ptr %107 to i64
@@ -1944,7 +1944,7 @@ if.then2.i379:                                    ; preds = %if.end.i376
   %122 = load ptr, ptr %io.i.i347, align 8
   %123 = load ptr, ptr %io_user_data.i.i348, align 8
   %124 = load i32, ptr %buflen.i.i350, align 4
-  %call.i.i384 = tail call i32 %122(ptr noundef %123, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %124) #44
+  %call.i.i384 = tail call i32 %122(ptr noundef %123, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %124) #40
   %125 = load ptr, ptr %img_buffer.i340, align 8
   %126 = load ptr, ptr %img_buffer_original.i.i352, align 8
   %sub.ptr.lhs.cast.i.i386 = ptrtoint ptr %125 to i64
@@ -2018,7 +2018,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %136 = load ptr, ptr %skip.i, align 8
   %137 = load ptr, ptr %io_user_data.i.i348, align 8
   %sub.i = sub nsw i32 %and, %conv.i409
-  tail call void %136(ptr noundef %137, i32 noundef %sub.i) #44
+  tail call void %136(ptr noundef %137, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.end.i407, %if.then4.i
@@ -2069,7 +2069,7 @@ if.then2.i417:                                    ; preds = %if.end.i414
   %146 = load ptr, ptr %io.i.i418, align 8
   %147 = load ptr, ptr %io_user_data.i.i419, align 8
   %148 = load i32, ptr %buflen.i.i421, align 4
-  %call.i.i422 = tail call i32 %146(ptr noundef %147, ptr noundef nonnull %buffer_start.i.i420, i32 noundef %148) #44
+  %call.i.i422 = tail call i32 %146(ptr noundef %147, ptr noundef nonnull %buffer_start.i.i420, i32 noundef %148) #40
   %149 = load ptr, ptr %img_buffer.i411, align 8
   %150 = load ptr, ptr %img_buffer_original.i.i423, align 8
   %sub.ptr.lhs.cast.i.i424 = ptrtoint ptr %149 to i64
@@ -2164,7 +2164,7 @@ if.then2.i450:                                    ; preds = %if.end.i447
   %163 = load ptr, ptr %io.i.i418, align 8
   %164 = load ptr, ptr %io_user_data.i.i419, align 8
   %165 = load i32, ptr %buflen.i.i421, align 4
-  %call.i.i455 = tail call i32 %163(ptr noundef %164, ptr noundef nonnull %buffer_start.i.i420, i32 noundef %165) #44
+  %call.i.i455 = tail call i32 %163(ptr noundef %164, ptr noundef nonnull %buffer_start.i.i420, i32 noundef %165) #40
   %166 = load ptr, ptr %img_buffer.i411, align 8
   %167 = load ptr, ptr %img_buffer_original.i.i423, align 8
   %sub.ptr.lhs.cast.i.i457 = ptrtoint ptr %166 to i64
@@ -2267,7 +2267,7 @@ if.then9.i493:                                    ; preds = %if.then4.i481
   %183 = load ptr, ptr %skip.i494, align 8
   %184 = load ptr, ptr %io_user_data.i.i419, align 8
   %sub.i496 = sub nsw i32 %and854, %conv.i487
-  tail call void %183(ptr noundef %184, i32 noundef %sub.i496) #44
+  tail call void %183(ptr noundef %184, i32 noundef %sub.i496) #40
   br label %stbi__skip.exit500
 
 if.end14.i489:                                    ; preds = %if.then4.i481, %if.end3.if.end14_crit_edge.i497
@@ -2331,7 +2331,7 @@ if.then9.i517:                                    ; preds = %if.then4.i505
   %io_user_data.i519 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %194 = load ptr, ptr %io_user_data.i519, align 8
   %sub.i520 = sub nsw i32 %sub340, %conv.i511
-  tail call void %193(ptr noundef %194, i32 noundef %sub.i520) #44
+  tail call void %193(ptr noundef %194, i32 noundef %sub.i520) #40
   br label %stbi__skip.exit527
 
 if.end14.i513:                                    ; preds = %if.then4.i505, %if.end3.if.end14_crit_edge.i521
@@ -2379,7 +2379,7 @@ if.then384:                                       ; preds = %stbi__skip.exit527,
   br i1 %or.cond7, label %if.end394, label %if.then390
 
 if.then390:                                       ; preds = %if.then384
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %198 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %198, align 8
   br label %return
@@ -2407,7 +2407,7 @@ if.end394:                                        ; preds = %if.then384
   br i1 %or.cond10, label %if.then418, label %if.end423
 
 if.then418:                                       ; preds = %if.end394
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %199 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %199, align 8
   br label %return
@@ -2529,7 +2529,7 @@ if.then2.i534:                                    ; preds = %if.end.i531
   %224 = load ptr, ptr %io.i.i535, align 8
   %225 = load ptr, ptr %io_user_data.i.i536, align 8
   %226 = load i32, ptr %buflen.i.i538, align 4
-  %call.i.i539 = tail call i32 %224(ptr noundef %225, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %226) #44
+  %call.i.i539 = tail call i32 %224(ptr noundef %225, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %226) #40
   %227 = load ptr, ptr %img_buffer.i528, align 8
   %228 = load ptr, ptr %img_buffer_original.i.i540, align 8
   %sub.ptr.lhs.cast.i.i541 = ptrtoint ptr %227 to i64
@@ -2588,7 +2588,7 @@ if.then2.i567:                                    ; preds = %if.end.i564
   %239 = load ptr, ptr %io.i.i535, align 8
   %240 = load ptr, ptr %io_user_data.i.i536, align 8
   %241 = load i32, ptr %buflen.i.i538, align 4
-  %call.i.i572 = tail call i32 %239(ptr noundef %240, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %241) #44
+  %call.i.i572 = tail call i32 %239(ptr noundef %240, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %241) #40
   %242 = load ptr, ptr %img_buffer.i528, align 8
   %243 = load ptr, ptr %img_buffer_original.i.i540, align 8
   %sub.ptr.lhs.cast.i.i574 = ptrtoint ptr %242 to i64
@@ -2645,7 +2645,7 @@ if.then2.i600:                                    ; preds = %if.end.i597
   %252 = load ptr, ptr %io.i.i535, align 8
   %253 = load ptr, ptr %io_user_data.i.i536, align 8
   %254 = load i32, ptr %buflen.i.i538, align 4
-  %call.i.i605 = tail call i32 %252(ptr noundef %253, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %254) #44
+  %call.i.i605 = tail call i32 %252(ptr noundef %253, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %254) #40
   %255 = load ptr, ptr %img_buffer.i528, align 8
   %256 = load ptr, ptr %img_buffer_original.i.i540, align 8
   %sub.ptr.lhs.cast.i.i607 = ptrtoint ptr %255 to i64
@@ -2705,7 +2705,7 @@ if.then2.i633:                                    ; preds = %if.end.i630
   %265 = load ptr, ptr %io.i.i535, align 8
   %266 = load ptr, ptr %io_user_data.i.i536, align 8
   %267 = load i32, ptr %buflen.i.i538, align 4
-  %call.i.i638 = tail call i32 %265(ptr noundef %266, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %267) #44
+  %call.i.i638 = tail call i32 %265(ptr noundef %266, ptr noundef nonnull %buffer_start.i.i537, i32 noundef %267) #40
   %268 = load ptr, ptr %img_buffer.i528, align 8
   %269 = load ptr, ptr %img_buffer_original.i.i540, align 8
   %sub.ptr.lhs.cast.i.i640 = ptrtoint ptr %268 to i64
@@ -2907,7 +2907,7 @@ if.then9.i720:                                    ; preds = %if.then4.i708
   %289 = load ptr, ptr %skip.i721, align 8
   %290 = load ptr, ptr %io_user_data.i.i536, align 8
   %sub.i723 = sub nsw i32 %and358740748, %conv.i714
-  tail call void %289(ptr noundef %290, i32 noundef %sub.i723) #44
+  tail call void %289(ptr noundef %290, i32 noundef %sub.i723) #40
   br label %stbi__skip.exit727
 
 if.end14.i716:                                    ; preds = %if.then4.i708, %if.end3.if.end14_crit_edge.i724
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %if.end606, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__gif_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__gif_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__gif_test_raw(ptr noundef %s), !range !6
   %img_buffer_original.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
@@ -3082,17 +3082,17 @@ if.else:                                          ; preds = %entry
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  call void @free(ptr noundef nonnull %3) #44
+  call void @free(ptr noundef nonnull %3) #40
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then10, %if.then1, %if.then4
   %u.0 = phi ptr [ %call7, %if.then4 ], [ %call, %if.then1 ], [ null, %if.then10 ], [ null, %if.else ]
   %history = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %4 = load ptr, ptr %history, align 8
-  call void @free(ptr noundef %4) #44
+  call void @free(ptr noundef %4) #40
   %background = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %5 = load ptr, ptr %background, align 8
-  call void @free(ptr noundef %5) #44
+  call void @free(ptr noundef %5) #40
   ret ptr %u.0
 }
 
@@ -3113,7 +3113,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__psd_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef %ri, i32 noundef %bpc) local_unnamed_addr #2 {
+define noundef ptr @stbi__psd_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef %ri, i32 noundef %bpc) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @stbi__get16be(ptr noundef %s), !range !7
   %shl.i = shl nuw i32 %call.i, 16
@@ -3167,7 +3167,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %6 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #44
+  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -3279,7 +3279,7 @@ if.else:                                          ; preds = %if.end62
   %mul = shl i32 %add.i149, 2
   %mul70 = mul i32 %mul, %add.i153
   %conv = sext i32 %mul70 to i64
-  %call.i154 = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i154 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else, %if.then68
@@ -3362,7 +3362,7 @@ if.else98:                                        ; preds = %for.body
   br i1 %tobool100.not, label %if.then101, label %for.inc107
 
 if.then101:                                       ; preds = %if.else98, %if.else98.us
-  tail call void @free(ptr noundef %out.0) #44
+  tail call void @free(ptr noundef %out.0) #40
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %18, align 8
   br label %return
@@ -3488,7 +3488,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %24 = load ptr, ptr %io.i, align 8
   %25 = load ptr, ptr %io_user_data.i.i, align 8
   %26 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #44
+  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #40
   %27 = load ptr, ptr %img_buffer.i, align 8
   %28 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
@@ -3681,7 +3681,7 @@ return:                                           ; preds = %if.end325, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pic_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__pic_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__pic_test_core(ptr noundef %s), !range !6
   %img_buffer_original.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
@@ -3692,7 +3692,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__pic_load(ptr noundef %s, ptr nocapture noundef writeonly %px, ptr nocapture noundef writeonly %py, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__pic_load(ptr noundef %s, ptr nocapture noundef writeonly %px, ptr nocapture noundef writeonly %py, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
 entry:
   %internal_comp = alloca i32, align 4
   %tobool.not = icmp eq ptr %comp, null
@@ -3730,7 +3730,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %io.i.i, align 8
   %4 = load ptr, ptr %io_user_data.i.i, align 8
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #44
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #40
   %6 = load ptr, ptr %img_buffer.i, align 8
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -3783,7 +3783,7 @@ if.then.i30:                                      ; preds = %for.end
   %eof.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4, i32 2
   %12 = load ptr, ptr %eof.i, align 8
   %13 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i = tail call i32 %12(ptr noundef %13) #44
+  %call.i = tail call i32 %12(ptr noundef %13) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end20, label %if.end.i31
 
@@ -3847,7 +3847,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i.i.c
 stbi__malloc_mad3.exit:                           ; preds = %land.lhs.true.i.i
   %mul4.i.i = shl nuw nsw i32 %mul.i.i, 2
   %conv.i40 = zext nneg i32 %mul4.i.i to i64
-  %call.i.i41 = tail call noalias ptr @malloc(i64 noundef %conv.i40) #45
+  %call.i.i41 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i40) #41
   %tobool32.not = icmp eq ptr %call.i.i41, null
   br i1 %tobool32.not, label %if.then33, label %if.end37
 
@@ -3863,7 +3863,7 @@ if.end37:                                         ; preds = %stbi__malloc_mad3.e
   br i1 %tobool40.not, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end37
-  tail call void @free(ptr noundef nonnull %call.i.i41) #44
+  tail call void @free(ptr noundef nonnull %call.i.i41) #40
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end37
@@ -3888,7 +3888,7 @@ return:                                           ; preds = %if.end46, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %calloc = tail call dereferenceable_or_null(18568) ptr @calloc(i64 1, i64 18568)
   %tobool.not = icmp eq ptr %calloc, null
@@ -3926,7 +3926,7 @@ stbi__decode_jpeg_header.exit:                    ; preds = %if.end, %if.then.i
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %2 = load <2 x ptr>, ptr %img_buffer_original.i, align 8
   store <2 x ptr> %2, ptr %img_buffer.i, align 8
-  tail call void @free(ptr noundef nonnull %calloc) #44
+  tail call void @free(ptr noundef nonnull %calloc) #40
   br label %return
 
 return:                                           ; preds = %stbi__decode_jpeg_header.exit, %if.then
@@ -3935,7 +3935,7 @@ return:                                           ; preds = %stbi__decode_jpeg_h
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__jpeg_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__jpeg_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
 entry:
   %calloc = tail call dereferenceable_or_null(18568) ptr @calloc(i64 1, i64 18568)
   %tobool.not = icmp eq ptr %calloc, null
@@ -3955,7 +3955,7 @@ if.end:                                           ; preds = %entry
   store ptr @stbi__YCbCr_to_RGB_simd, ptr %YCbCr_to_RGB_kernel.i, align 8
   store ptr @stbi__resample_row_hv_2_simd, ptr %resample_row_hv_2_kernel.i, align 8
   %call4 = tail call ptr @load_jpeg_image(ptr noundef nonnull %calloc, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
-  tail call void @free(ptr noundef nonnull %calloc) #44
+  tail call void @free(ptr noundef nonnull %calloc) #40
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3964,7 +3964,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pnm_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__pnm_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -3993,7 +3993,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -4055,7 +4055,7 @@ if.then2.i11:                                     ; preds = %if.end.i8
   %buffer_start.i.i14 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i15 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i15, align 4
-  %call.i.i16 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i14, i32 noundef %17) #44
+  %call.i.i16 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i14, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i17 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i17, align 8
@@ -4110,7 +4110,7 @@ return:                                           ; preds = %stbi__get8.exit37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__pnm_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__pnm_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef %ri) local_unnamed_addr #2 {
 entry:
   %img_y = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 1
   %img_n = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 2
@@ -4233,7 +4233,7 @@ stbi__mul2sizes_valid.exit27.i.i:                 ; preds = %if.end.i21.i.i
 stbi__malloc_mad4.exit:                           ; preds = %if.end.i21.i.i, %stbi__mul2sizes_valid.exit27.i.i
   %mul10.i.i = mul i32 %div, %mul5.i
   %conv.i = sext i32 %mul10.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %tobool37.not = icmp eq ptr %call.i.i, null
   br i1 %tobool37.not, label %if.then38, label %if.end42
 
@@ -4288,14 +4288,14 @@ stbi__getn.exit:                                  ; preds = %if.then.i
   %18 = load ptr, ptr %io_user_data.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %conv4.i
   %sub.i = sub nsw i32 %mul10.i.i, %conv.i43
-  %call.i = tail call i32 %13(ptr noundef %18, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #44
+  %call.i = tail call i32 %13(ptr noundef %18, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #40
   %cmp8.i.not = icmp eq i32 %call.i, %sub.i
   %19 = load ptr, ptr %img_buffer_end.i, align 8
   store ptr %19, ptr %img_buffer.i, align 8
   br i1 %cmp8.i.not, label %if.end56, label %if.then52
 
 if.then52:                                        ; preds = %if.end12.i, %stbi__getn.exit
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.110, ptr %20, align 8
   br label %return
@@ -4330,7 +4330,7 @@ return:                                           ; preds = %if.then63, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__hdr_test(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__hdr_test(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %img_buffer_end.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 11
@@ -4375,7 +4375,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #44
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -4459,7 +4459,7 @@ if.then2.i.i23:                                   ; preds = %if.end.i.i21
   %22 = load ptr, ptr %io.i.i.i, align 8
   %23 = load ptr, ptr %io_user_data.i.i.i, align 8
   %24 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %24) #44
+  %call.i.i.i24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %24) #40
   %25 = load ptr, ptr %img_buffer.i.i, align 8
   %26 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i25 = ptrtoint ptr %25 to i64
@@ -4512,7 +4512,7 @@ if.end:                                           ; preds = %stbi__get8.exit.i37
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__hdr_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__hdr_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %token = alloca ptr, align 8
@@ -4524,8 +4524,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bcmp192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %buffer, ptr noundef nonnull dereferenceable(7) @.str.102, i64 7)
-  %cmp3.not = icmp eq i32 %bcmp192, 0
+  %bcmp191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %buffer, ptr noundef nonnull dereferenceable(7) @.str.102, i64 7)
+  %cmp3.not = icmp eq i32 %bcmp191, 0
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -4534,16 +4534,16 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call6215 = call ptr @stbi__hdr_gettoken(ptr noundef %s, ptr noundef nonnull %buffer)
+  %call6214 = call ptr @stbi__hdr_gettoken(ptr noundef %s, ptr noundef nonnull %buffer)
   %1 = load i8, ptr %buffer, align 16
-  %cmp7216 = icmp eq i8 %1, 0
-  br i1 %cmp7216, label %if.then17, label %if.end10
+  %cmp7215 = icmp eq i8 %1, 0
+  br i1 %cmp7215, label %if.then17, label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.end10
-  %valid.0217 = phi i32 [ %spec.select, %if.end10 ], [ 0, %if.end ]
-  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %buffer, ptr noundef nonnull dereferenceable(23) @.str.104, i64 23)
-  %cmp12 = icmp eq i32 %bcmp193, 0
-  %spec.select = select i1 %cmp12, i32 1, i32 %valid.0217
+  %valid.0216 = phi i32 [ %spec.select, %if.end10 ], [ 0, %if.end ]
+  %bcmp192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %buffer, ptr noundef nonnull dereferenceable(23) @.str.104, i64 23)
+  %cmp12 = icmp eq i32 %bcmp192, 0
+  %spec.select = select i1 %cmp12, i32 1, i32 %valid.0216
   %call6 = call ptr @stbi__hdr_gettoken(ptr noundef %s, ptr noundef nonnull %buffer)
   %2 = load i8, ptr %buffer, align 16
   %cmp7 = icmp eq i8 %2, 0
@@ -4560,8 +4560,8 @@ if.then17:                                        ; preds = %if.end, %for.end
 
 if.end21:                                         ; preds = %for.end
   %call23 = call ptr @stbi__hdr_gettoken(ptr noundef %s, ptr noundef nonnull %buffer)
-  %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer, ptr noundef nonnull dereferenceable(3) @.str.106, i64 3)
-  %tobool25.not = icmp eq i32 %bcmp194, 0
+  %bcmp193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer, ptr noundef nonnull dereferenceable(3) @.str.106, i64 3)
+  %tobool25.not = icmp eq i32 %bcmp193, 0
   br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %if.end21
@@ -4572,20 +4572,20 @@ if.then26:                                        ; preds = %if.end21
 if.end30:                                         ; preds = %if.end21
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 3
   store ptr %add.ptr, ptr %token, align 8
-  %call31 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #44
+  %call31 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #40
   %token.promoted = load ptr, ptr %token, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.end30
-  %incdec.ptr218 = phi ptr [ %incdec.ptr, %while.cond ], [ %token.promoted, %if.end30 ]
-  %5 = load i8, ptr %incdec.ptr218, align 1
+  %incdec.ptr217 = phi ptr [ %incdec.ptr, %while.cond ], [ %token.promoted, %if.end30 ]
+  %5 = load i8, ptr %incdec.ptr217, align 1
   %cmp34 = icmp eq i8 %5, 32
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr218, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr217, i64 1
   br i1 %cmp34, label %while.cond, label %while.end, !llvm.loop !33
 
 while.end:                                        ; preds = %while.cond
   %conv32 = trunc i64 %call31 to i32
-  %call36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr218, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #46
+  %call36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr217, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #42
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end42, label %if.then38
 
@@ -4595,9 +4595,9 @@ if.then38:                                        ; preds = %while.end
   br label %return
 
 if.end42:                                         ; preds = %while.end
-  %add.ptr43 = getelementptr inbounds i8, ptr %incdec.ptr218, i64 3
+  %add.ptr43 = getelementptr inbounds i8, ptr %incdec.ptr217, i64 3
   store ptr %add.ptr43, ptr %token, align 8
-  %call44 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr43, ptr noundef null, i32 noundef 10) #44
+  %call44 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr43, ptr noundef null, i32 noundef 10) #40
   %call44.fr = freeze i64 %call44
   %conv45 = trunc i64 %call44.fr to i32
   %cmp46 = icmp sgt i32 %conv32, 16777216
@@ -4655,8 +4655,8 @@ if.end80:                                         ; preds = %if.end73
   br i1 %or.cond, label %for.cond86, label %for.cond105.preheader
 
 for.cond105.preheader:                            ; preds = %if.end80
-  %cmp106232 = icmp sgt i32 %conv32, 0
-  br i1 %cmp106232, label %for.body108.us.preheader, label %return
+  %cmp106231 = icmp sgt i32 %conv32, 0
+  br i1 %cmp106231, label %for.body108.us.preheader, label %return
 
 for.body108.us.preheader:                         ; preds = %for.cond105.preheader
   %mul.i.i = shl i64 %call44.fr, 2
@@ -4673,21 +4673,21 @@ for.body108.us.preheader:                         ; preds = %for.cond105.prehead
   %add.ptr.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8, i64 1
   %12 = sext i32 %spec.store.select to i64
   %13 = and i64 %call44.fr, 4294967295
-  %wide.trip.count313 = and i64 %call31, 4294967295
-  %wide.trip.count307 = and i64 %call44.fr, 4294967295
+  %wide.trip.count312 = and i64 %call31, 4294967295
+  %wide.trip.count306 = and i64 %call44.fr, 4294967295
   br label %for.body108.us
 
 for.body108.us:                                   ; preds = %for.body108.us.preheader, %for.inc241.us
-  %indvars.iv309 = phi i64 [ 0, %for.body108.us.preheader ], [ %indvars.iv.next310, %for.inc241.us ]
-  %scanline.0234.us = phi ptr [ null, %for.body108.us.preheader ], [ %scanline.1.us, %for.inc241.us ]
+  %indvars.iv308 = phi i64 [ 0, %for.body108.us.preheader ], [ %indvars.iv.next309, %for.inc241.us ]
+  %scanline.0233.us = phi ptr [ null, %for.body108.us.preheader ], [ %scanline.1.us, %for.inc241.us ]
   %call109.us = call zeroext i8 @stbi__get8(ptr noundef %s)
   %call111.us = call zeroext i8 @stbi__get8(ptr noundef %s)
   %call113.us = call zeroext i8 @stbi__get8(ptr noundef %s)
   %cmp115.us = icmp eq i8 %call109.us, 2
   %cmp118.us = icmp eq i8 %call111.us, 2
-  %or.cond1.not195.us = select i1 %cmp115.us, i1 %cmp118.us, i1 false
+  %or.cond1.not194.us = select i1 %cmp115.us, i1 %cmp118.us, i1 false
   %tobool121.not.us = icmp sgt i8 %call113.us, -1
-  %or.cond92.us = select i1 %or.cond1.not195.us, i1 %tobool121.not.us, i1 false
+  %or.cond92.us = select i1 %or.cond1.not194.us, i1 %tobool121.not.us, i1 false
   br i1 %or.cond92.us, label %if.end133.us, label %if.then122
 
 if.end133.us:                                     ; preds = %for.body108.us
@@ -4700,42 +4700,42 @@ if.end133.us:                                     ; preds = %for.body108.us
   br i1 %cmp136.not.us, label %if.end142.us, label %if.then138
 
 if.end142.us:                                     ; preds = %if.end133.us
-  %cmp143.us = icmp eq ptr %scanline.0234.us, null
-  br i1 %cmp143.us, label %stbi__malloc_mad2.exit.us, label %if.end153.us
+  %cmp143.us = icmp eq ptr %scanline.0233.us, null
+  br i1 %cmp143.us, label %if.then145.us, label %if.end153.us
 
-stbi__malloc_mad2.exit.us:                        ; preds = %if.end142.us
-  %call.i.i.us = call noalias ptr @malloc(i64 noundef %conv.i102) #45
+if.then145.us:                                    ; preds = %if.end142.us
+  %call.i.i.us = call noalias noundef ptr @malloc(i64 noundef %conv.i102) #41
   %tobool147.not.us = icmp eq ptr %call.i.i.us, null
   br i1 %tobool147.not.us, label %if.then148, label %if.end153.us
 
-if.end153.us:                                     ; preds = %stbi__malloc_mad2.exit.us, %if.end142.us
-  %scanline.1.us = phi ptr [ %call.i.i.us, %stbi__malloc_mad2.exit.us ], [ %scanline.0234.us, %if.end142.us ]
+if.end153.us:                                     ; preds = %if.then145.us, %if.end142.us
+  %scanline.1.us = phi ptr [ %call.i.i.us, %if.then145.us ], [ %scanline.0233.us, %if.end142.us ]
   br label %while.cond158.preheader.us.us
 
 for.inc241.us:                                    ; preds = %for.body229.us
-  %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
-  %exitcond314.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count313
-  br i1 %exitcond314.not, label %if.then245, label %for.body108.us, !llvm.loop !34
+  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
+  %exitcond313.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count312
+  br i1 %exitcond313.not, label %if.then245, label %for.body108.us, !llvm.loop !34
 
 for.body229.us:                                   ; preds = %for.body229.lr.ph.us, %for.body229.us
-  %indvars.iv301 = phi i64 [ 0, %for.body229.lr.ph.us ], [ %indvars.iv.next302, %for.body229.us ]
-  %14 = add nuw nsw i64 %indvars.iv301, %56
+  %indvars.iv300 = phi i64 [ 0, %for.body229.lr.ph.us ], [ %indvars.iv.next301, %for.body229.us ]
+  %14 = add nuw nsw i64 %indvars.iv300, %56
   %15 = mul nsw i64 %14, %12
   %add.ptr234.us = getelementptr inbounds float, ptr %call74, i64 %15
-  %16 = shl nsw i64 %indvars.iv301, 2
+  %16 = shl nsw i64 %indvars.iv300, 2
   %add.ptr237.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %16
   call void @stbi__hdr_convert(ptr noundef nonnull %add.ptr234.us, ptr noundef nonnull %add.ptr237.us, i32 noundef %spec.store.select)
-  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %exitcond308.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count307
-  br i1 %exitcond308.not, label %for.inc241.us, label %for.body229.us, !llvm.loop !35
+  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
+  %exitcond307.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count306
+  br i1 %exitcond307.not, label %for.inc241.us, label %for.body229.us, !llvm.loop !35
 
 while.cond158.preheader.us.us:                    ; preds = %while.cond158.for.inc223_crit_edge.us.us, %if.end153.us
-  %k.0228.us.us = phi i32 [ 0, %if.end153.us ], [ %inc224.us.us, %while.cond158.for.inc223_crit_edge.us.us ]
+  %k.0227.us.us = phi i32 [ 0, %if.end153.us ], [ %inc224.us.us, %while.cond158.for.inc223_crit_edge.us.us ]
   br label %while.body161.us.us
 
 while.body161.us.us:                              ; preds = %if.end221.us.us, %while.cond158.preheader.us.us
-  %sub227.us.us = phi i32 [ %conv45, %while.cond158.preheader.us.us ], [ %sub.us.us, %if.end221.us.us ]
-  %i.2226.us.us = phi i32 [ 0, %while.cond158.preheader.us.us ], [ %i.5.us.us, %if.end221.us.us ]
+  %sub226.us.us = phi i32 [ %conv45, %while.cond158.preheader.us.us ], [ %sub.us.us, %if.end221.us.us ]
+  %i.2225.us.us = phi i32 [ 0, %while.cond158.preheader.us.us ], [ %i.5.us.us, %if.end221.us.us ]
   %17 = load ptr, ptr %img_buffer.i103, align 8
   %18 = load ptr, ptr %img_buffer_end.i104, align 8
   %cmp.i105.us.us = icmp ult ptr %17, %18
@@ -4750,7 +4750,7 @@ if.then2.i108.us.us:                              ; preds = %if.end.i106.us.us
   %20 = load ptr, ptr %io.i.i, align 8
   %21 = load ptr, ptr %io_user_data.i.i, align 8
   %22 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i109.us.us = call i32 %20(ptr noundef %21, ptr noundef nonnull %buffer_start.i.i, i32 noundef %22) #44
+  %call.i.i109.us.us = call i32 %20(ptr noundef %21, ptr noundef nonnull %buffer_start.i.i, i32 noundef %22) #40
   %23 = load ptr, ptr %img_buffer.i103, align 8
   %24 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.us.us = ptrtoint ptr %23 to i64
@@ -4797,17 +4797,17 @@ stbi__get8.exit.us.us:                            ; preds = %if.then.i112.us.us,
 
 if.else194.us.us:                                 ; preds = %stbi__get8.exit.us.us
   %cmp196.us.us = icmp eq i8 %retval.0.i111.us.us, 0
-  %cmp200.us.us = icmp ult i32 %sub227.us.us, %conv163.us.us
+  %cmp200.us.us = icmp ult i32 %sub226.us.us, %conv163.us.us
   %or.cond93.us.us = or i1 %cmp196.us.us, %cmp200.us.us
   br i1 %or.cond93.us.us, label %if.then202, label %for.body211.us.us.preheader
 
 for.body211.us.us.preheader:                      ; preds = %if.else194.us.us
-  %30 = zext i32 %i.2226.us.us to i64
+  %30 = zext i32 %i.2225.us.us to i64
   br label %for.body211.us.us
 
 for.body211.us.us:                                ; preds = %for.body211.us.us.preheader, %stbi__get8.exit178.us.us
-  %indvars.iv292 = phi i64 [ %30, %for.body211.us.us.preheader ], [ %indvars.iv.next293, %stbi__get8.exit178.us.us ]
-  %z.1220.us.us = phi i32 [ 0, %for.body211.us.us.preheader ], [ %inc219.us.us, %stbi__get8.exit178.us.us ]
+  %indvars.iv291 = phi i64 [ %30, %for.body211.us.us.preheader ], [ %indvars.iv.next292, %stbi__get8.exit178.us.us ]
+  %z.1219.us.us = phi i32 [ 0, %for.body211.us.us.preheader ], [ %inc219.us.us, %stbi__get8.exit178.us.us ]
   %31 = load ptr, ptr %img_buffer.i103, align 8
   %32 = load ptr, ptr %img_buffer_end.i104, align 8
   %cmp.i148.us.us = icmp ult ptr %31, %32
@@ -4822,7 +4822,7 @@ if.then2.i152.us.us:                              ; preds = %if.end.i149.us.us
   %34 = load ptr, ptr %io.i.i, align 8
   %35 = load ptr, ptr %io_user_data.i.i, align 8
   %36 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i157.us.us = call i32 %34(ptr noundef %35, ptr noundef nonnull %buffer_start.i.i, i32 noundef %36) #44
+  %call.i.i157.us.us = call i32 %34(ptr noundef %35, ptr noundef nonnull %buffer_start.i.i, i32 noundef %36) #40
   %37 = load ptr, ptr %img_buffer.i103, align 8
   %38 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i159.us.us = ptrtoint ptr %37 to i64
@@ -4861,16 +4861,16 @@ if.then.i176.us.us:                               ; preds = %for.body211.us.us
 
 stbi__get8.exit178.us.us:                         ; preds = %if.then.i176.us.us, %stbi__refill_buffer.exit.i170.us.us, %if.end.i149.us.us
   %retval.0.i173.us.us = phi i8 [ %41, %if.then.i176.us.us ], [ %40, %stbi__refill_buffer.exit.i170.us.us ], [ 0, %if.end.i149.us.us ]
-  %indvars.iv.next293 = add i64 %indvars.iv292, 1
-  %42 = trunc i64 %indvars.iv292 to i32
+  %indvars.iv.next292 = add i64 %indvars.iv291, 1
+  %42 = trunc i64 %indvars.iv291 to i32
   %mul214.us.us = shl nsw i32 %42, 2
-  %add215.us.us = add nuw nsw i32 %mul214.us.us, %k.0228.us.us
+  %add215.us.us = add nuw nsw i32 %mul214.us.us, %k.0227.us.us
   %idxprom216.us.us = sext i32 %add215.us.us to i64
   %arrayidx217.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %idxprom216.us.us
   store i8 %retval.0.i173.us.us, ptr %arrayidx217.us.us, align 1
-  %inc219.us.us = add nuw nsw i32 %z.1220.us.us, 1
-  %exitcond295.not = icmp eq i32 %inc219.us.us, %conv163.us.us
-  br i1 %exitcond295.not, label %if.end221.us.us.loopexit243, label %for.body211.us.us, !llvm.loop !36
+  %inc219.us.us = add nuw nsw i32 %z.1219.us.us, 1
+  %exitcond294.not = icmp eq i32 %inc219.us.us, %conv163.us.us
+  br i1 %exitcond294.not, label %if.end221.us.us.loopexit242, label %for.body211.us.us, !llvm.loop !36
 
 if.then166.us.us:                                 ; preds = %stbi__get8.exit.us.us
   %cmp.i115.us.us = icmp ult ptr %29, %28
@@ -4885,7 +4885,7 @@ if.then2.i119.us.us:                              ; preds = %if.end.i116.us.us
   %44 = load ptr, ptr %io.i.i, align 8
   %45 = load ptr, ptr %io_user_data.i.i, align 8
   %46 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i124.us.us = call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i, i32 noundef %46) #44
+  %call.i.i124.us.us = call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i, i32 noundef %46) #40
   %47 = load ptr, ptr %img_buffer.i103, align 8
   %48 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i126.us.us = ptrtoint ptr %47 to i64
@@ -4926,52 +4926,52 @@ stbi__get8.exit145.us.us:                         ; preds = %if.then.i143.us.us,
   %retval.0.i140.us.us = phi i8 [ %51, %if.then.i143.us.us ], [ %50, %stbi__refill_buffer.exit.i137.us.us ], [ 0, %if.end.i116.us.us ]
   %sub169.us.us = and i8 %retval.0.i111.us.us, 127
   %conv171.us.us = zext nneg i8 %sub169.us.us to i32
-  %cmp176.us.us = icmp ult i32 %sub227.us.us, %conv171.us.us
+  %cmp176.us.us = icmp ult i32 %sub226.us.us, %conv171.us.us
   br i1 %cmp176.us.us, label %if.then178, label %for.cond183.preheader.us.us
 
 if.end221.us.us.loopexit:                         ; preds = %for.body187.us.us
-  %52 = trunc i64 %indvars.iv.next297 to i32
+  %52 = trunc i64 %indvars.iv.next296 to i32
   br label %if.end221.us.us
 
-if.end221.us.us.loopexit243:                      ; preds = %stbi__get8.exit178.us.us
-  %53 = trunc i64 %indvars.iv.next293 to i32
+if.end221.us.us.loopexit242:                      ; preds = %stbi__get8.exit178.us.us
+  %53 = trunc i64 %indvars.iv.next292 to i32
   br label %if.end221.us.us
 
-if.end221.us.us:                                  ; preds = %if.end221.us.us.loopexit243, %if.end221.us.us.loopexit, %for.cond183.preheader.us.us
-  %i.5.us.us = phi i32 [ %i.2226.us.us, %for.cond183.preheader.us.us ], [ %52, %if.end221.us.us.loopexit ], [ %53, %if.end221.us.us.loopexit243 ]
+if.end221.us.us:                                  ; preds = %if.end221.us.us.loopexit242, %if.end221.us.us.loopexit, %for.cond183.preheader.us.us
+  %i.5.us.us = phi i32 [ %i.2225.us.us, %for.cond183.preheader.us.us ], [ %52, %if.end221.us.us.loopexit ], [ %53, %if.end221.us.us.loopexit242 ]
   %sub.us.us = sub nsw i32 %conv45, %i.5.us.us
   %cmp159.us.us = icmp sgt i32 %sub.us.us, 0
   br i1 %cmp159.us.us, label %while.body161.us.us, label %while.cond158.for.inc223_crit_edge.us.us, !llvm.loop !37
 
 for.body187.us.us:                                ; preds = %for.body187.us.us.preheader, %for.body187.us.us
-  %indvars.iv296 = phi i64 [ %55, %for.body187.us.us.preheader ], [ %indvars.iv.next297, %for.body187.us.us ]
-  %z.0223.us.us = phi i32 [ 0, %for.body187.us.us.preheader ], [ %inc192.us.us, %for.body187.us.us ]
-  %indvars.iv.next297 = add i64 %indvars.iv296, 1
-  %54 = trunc i64 %indvars.iv296 to i32
+  %indvars.iv295 = phi i64 [ %55, %for.body187.us.us.preheader ], [ %indvars.iv.next296, %for.body187.us.us ]
+  %z.0222.us.us = phi i32 [ 0, %for.body187.us.us.preheader ], [ %inc192.us.us, %for.body187.us.us ]
+  %indvars.iv.next296 = add i64 %indvars.iv295, 1
+  %54 = trunc i64 %indvars.iv295 to i32
   %mul189.us.us = shl nsw i32 %54, 2
-  %add.us.us = add nuw nsw i32 %mul189.us.us, %k.0228.us.us
+  %add.us.us = add nuw nsw i32 %mul189.us.us, %k.0227.us.us
   %idxprom.us.us = sext i32 %add.us.us to i64
   %arrayidx190.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %idxprom.us.us
   store i8 %retval.0.i140.us.us, ptr %arrayidx190.us.us, align 1
-  %inc192.us.us = add nuw nsw i32 %z.0223.us.us, 1
-  %exitcond299.not = icmp eq i32 %inc192.us.us, %conv171.us.us
-  br i1 %exitcond299.not, label %if.end221.us.us.loopexit, label %for.body187.us.us, !llvm.loop !38
+  %inc192.us.us = add nuw nsw i32 %z.0222.us.us, 1
+  %exitcond298.not = icmp eq i32 %inc192.us.us, %conv171.us.us
+  br i1 %exitcond298.not, label %if.end221.us.us.loopexit, label %for.body187.us.us, !llvm.loop !38
 
 for.cond183.preheader.us.us:                      ; preds = %stbi__get8.exit145.us.us
-  %cmp185221.us.us.not = icmp eq i8 %sub169.us.us, 0
-  br i1 %cmp185221.us.us.not, label %if.end221.us.us, label %for.body187.us.us.preheader
+  %cmp185220.us.us.not = icmp eq i8 %sub169.us.us, 0
+  br i1 %cmp185220.us.us.not, label %if.end221.us.us, label %for.body187.us.us.preheader
 
 for.body187.us.us.preheader:                      ; preds = %for.cond183.preheader.us.us
-  %55 = zext i32 %i.2226.us.us to i64
+  %55 = zext i32 %i.2225.us.us to i64
   br label %for.body187.us.us
 
 while.cond158.for.inc223_crit_edge.us.us:         ; preds = %if.end221.us.us
-  %inc224.us.us = add nuw nsw i32 %k.0228.us.us, 1
-  %exitcond300.not = icmp eq i32 %inc224.us.us, 4
-  br i1 %exitcond300.not, label %for.body229.lr.ph.us, label %while.cond158.preheader.us.us, !llvm.loop !39
+  %inc224.us.us = add nuw nsw i32 %k.0227.us.us, 1
+  %exitcond299.not = icmp eq i32 %inc224.us.us, 4
+  br i1 %exitcond299.not, label %for.body229.lr.ph.us, label %while.cond158.preheader.us.us, !llvm.loop !39
 
 for.body229.lr.ph.us:                             ; preds = %while.cond158.for.inc223_crit_edge.us.us
-  %56 = mul nsw i64 %indvars.iv309, %13
+  %56 = mul nsw i64 %indvars.iv308, %13
   br label %for.body229.us
 
 for.cond86:                                       ; preds = %if.end80, %for.inc102
@@ -5020,7 +5020,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %60 = load ptr, ptr %io_user_data.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %rgbe, i64 %conv4.i
   %sub.i = sub nsw i32 4, %conv.i
-  %call.i = call i32 %57(ptr noundef %60, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #44
+  %call.i = call i32 %57(ptr noundef %60, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #40
   %61 = load ptr, ptr %img_buffer_end.i, align 8
   store ptr %61, ptr %img_buffer.i, align 8
   br label %stbi__getn.exit
@@ -5055,7 +5055,7 @@ stbi__getn.exit:                                  ; preds = %if.then2.i, %if.end
 if.then.i94:                                      ; preds = %stbi__getn.exit
   %conv.i95 = zext i8 %65 to i32
   %sub.i96 = add nsw i32 %conv.i95, -136
-  %call.i97 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub.i96) #44
+  %call.i97 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub.i96) #40
   %conv4.i98 = fptrunc double %call.i97 to float
   %cmp5.i = icmp slt i32 %spec.store.select, 3
   %66 = load i8, ptr %rgbe, align 4
@@ -5153,38 +5153,38 @@ if.then122:                                       ; preds = %for.body108.us
   %arrayidx131 = getelementptr inbounds [4 x i8], ptr %rgbe123, i64 0, i64 3
   store i8 %call130, ptr %arrayidx131, align 1
   call void @stbi__hdr_convert(ptr noundef nonnull %call74, ptr noundef nonnull %rgbe123, i32 noundef %spec.store.select)
-  call void @free(ptr noundef %scanline.0234.us) #44
+  call void @free(ptr noundef %scanline.0233.us) #40
   br label %main_decode_loop
 
 if.then138:                                       ; preds = %if.end133.us
-  call void @free(ptr noundef %call74) #44
-  call void @free(ptr noundef %scanline.0234.us) #44
+  call void @free(ptr noundef %call74) #40
+  call void @free(ptr noundef %scanline.0233.us) #40
   %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.109, ptr %74, align 8
   br label %return
 
-if.then148:                                       ; preds = %stbi__malloc_mad2.exit.us
-  call void @free(ptr noundef %call74) #44
+if.then148:                                       ; preds = %if.then145.us
+  call void @free(ptr noundef %call74) #40
   %75 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %75, align 8
   br label %return
 
 if.then178:                                       ; preds = %stbi__get8.exit145.us.us
-  call void @free(ptr noundef %call74) #44
-  call void @free(ptr noundef nonnull %scanline.1.us) #44
+  call void @free(ptr noundef %call74) #40
+  call void @free(ptr noundef nonnull %scanline.1.us) #40
   %76 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %76, align 8
   br label %return
 
 if.then202:                                       ; preds = %if.else194.us.us, %if.end.i106.us.us
-  call void @free(ptr noundef %call74) #44
-  call void @free(ptr noundef nonnull %scanline.1.us) #44
+  call void @free(ptr noundef %call74) #40
+  call void @free(ptr noundef nonnull %scanline.1.us) #40
   %77 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %77, align 8
   br label %return
 
 if.then245:                                       ; preds = %for.inc241.us
-  call void @free(ptr noundef nonnull %scanline.1.us) #44
+  call void @free(ptr noundef nonnull %scanline.1.us) #40
   br label %return
 
 return:                                           ; preds = %for.cond105.preheader, %for.cond86, %if.then245, %if.then202, %if.then178, %if.then148, %if.then138, %if.then76, %if.then69, %if.then55, %if.then48, %if.then38, %if.then26, %if.then17, %if.then
@@ -5193,7 +5193,7 @@ return:                                           ; preds = %for.cond105.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stbi__hdr_to_ldr(ptr noundef %data, i32 noundef %x, i32 noundef %y, i32 noundef %comp) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi__hdr_to_ldr(ptr noundef %data, i32 noundef %x, i32 noundef %y, i32 noundef %comp) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5230,12 +5230,12 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %comp
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit14.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef nonnull %data) #44
+  tail call void @free(ptr noundef nonnull %data) #40
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -5294,7 +5294,7 @@ for.body11.us:                                    ; preds = %for.cond9.preheader
   %conv.us = fpext float %mul13.us to double
   %12 = load float, ptr @stbi__h2l_gamma_i, align 4
   %conv14.us = fpext float %12 to double
-  %call15.us = tail call double @pow(double noundef %conv.us, double noundef %conv14.us) #44
+  %call15.us = tail call double @pow(double noundef %conv.us, double noundef %conv14.us) #40
   %conv16.us = fptrunc double %call15.us to float
   %13 = tail call float @llvm.fmuladd.f32(float %conv16.us, float 2.550000e+02, float 5.000000e-01)
   %cmp18.us = fcmp olt float %13, 0.000000e+00
@@ -5340,7 +5340,7 @@ for.cond9.preheader.us40:                         ; preds = %for.cond9.preheader
   br i1 %exitcond.not, label %for.end58, label %for.cond9.preheader.us40, !llvm.loop !42
 
 for.end58:                                        ; preds = %for.cond9.preheader.us40, %for.inc56.us, %for.cond9.preheader.lr.ph.split, %if.end4
-  tail call void @free(ptr noundef nonnull %data) #44
+  tail call void @free(ptr noundef nonnull %data) #40
   br label %return
 
 return:                                           ; preds = %entry, %for.end58, %if.then1
@@ -5376,7 +5376,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #44
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #40
   %6 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -5440,7 +5440,7 @@ if.then2.i49:                                     ; preds = %if.end.i46
   %buffer_start.i.i52 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i53 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %15 = load i32, ptr %buflen.i.i53, align 4
-  %call.i.i54 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i52, i32 noundef %15) #44
+  %call.i.i54 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i52, i32 noundef %15) #40
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i55 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %17 = load ptr, ptr %img_buffer_original.i.i55, align 8
@@ -5509,7 +5509,7 @@ if.then2.i82:                                     ; preds = %if.end.i79
   %buffer_start.i.i85 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i86 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %28 = load i32, ptr %buflen.i.i86, align 4
-  %call.i.i87 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i85, i32 noundef %28) #44
+  %call.i.i87 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i85, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i88 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %30 = load ptr, ptr %img_buffer_original.i.i88, align 8
@@ -5576,7 +5576,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %37 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 4, %conv.i
-  tail call void %36(ptr noundef %37, i32 noundef %sub.i) #44
+  tail call void %36(ptr noundef %37, i32 noundef %sub.i) #40
   %.pre = load ptr, ptr %img_buffer.i, align 8
   %.pre228 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__skip.exit
@@ -5611,7 +5611,7 @@ if.then2.i118:                                    ; preds = %if.end.i115
   %buffer_start.i.i121 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i122 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %44 = load i32, ptr %buflen.i.i122, align 4
-  %call.i.i123 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i121, i32 noundef %44) #44
+  %call.i.i123 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i121, i32 noundef %44) #40
   %45 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i124 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %46 = load ptr, ptr %img_buffer_original.i.i124, align 8
@@ -5677,7 +5677,7 @@ if.then9.i159:                                    ; preds = %if.then4.i148
   %io_user_data.i161 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %52 = load ptr, ptr %io_user_data.i161, align 8
   %sub.i162 = sub nsw i32 4, %conv.i154
-  tail call void %51(ptr noundef %52, i32 noundef %sub.i162) #44
+  tail call void %51(ptr noundef %52, i32 noundef %sub.i162) #40
   br label %if.end45
 
 if.end14.i156:                                    ; preds = %if.end31, %if.then4.i148
@@ -5711,7 +5711,7 @@ if.then9.i181:                                    ; preds = %if.then4.i170
   %io_user_data.i183 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %56 = load ptr, ptr %io_user_data.i183, align 8
   %sub.i184 = sub nsw i32 9, %conv.i176
-  tail call void %55(ptr noundef %56, i32 noundef %sub.i184) #44
+  tail call void %55(ptr noundef %56, i32 noundef %sub.i184) #40
   br label %if.end45
 
 if.end14.i178:                                    ; preds = %if.end44, %if.then4.i170
@@ -5755,7 +5755,7 @@ if.then2.i195:                                    ; preds = %if.end.i192
   %buffer_start.i.i198 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i199 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %63 = load i32, ptr %buflen.i.i199, align 4
-  %call.i.i200 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %63) #44
+  %call.i.i200 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %63) #40
   %64 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i201 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %65 = load ptr, ptr %img_buffer_original.i.i201, align 8
@@ -5822,7 +5822,7 @@ errorEnd:                                         ; preds = %if.end.i115, %switc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__tga_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__tga_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
 entry:
   %raw_data = alloca [4 x i8], align 4
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
@@ -5852,7 +5852,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -5915,7 +5915,7 @@ if.then2.i146:                                    ; preds = %if.end.i143
   %buffer_start.i.i149 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i150 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i150, align 4
-  %call.i.i151 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i149, i32 noundef %17) #44
+  %call.i.i151 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i149, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i152 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i152, align 8
@@ -5977,7 +5977,7 @@ if.then2.i179:                                    ; preds = %if.end.i176
   %buffer_start.i.i182 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i183 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %28 = load i32, ptr %buflen.i.i183, align 4
-  %call.i.i184 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i182, i32 noundef %28) #44
+  %call.i.i184 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i182, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i185 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %30 = load ptr, ptr %img_buffer_original.i.i185, align 8
@@ -6042,7 +6042,7 @@ if.then2.i212:                                    ; preds = %if.end.i209
   %buffer_start.i.i215 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i216 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %39 = load i32, ptr %buflen.i.i216, align 4
-  %call.i.i217 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i215, i32 noundef %39) #44
+  %call.i.i217 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i215, i32 noundef %39) #40
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i218 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %41 = load ptr, ptr %img_buffer_original.i.i218, align 8
@@ -6108,7 +6108,7 @@ if.then2.i245:                                    ; preds = %if.end.i242
   %buffer_start.i.i248 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i249 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %50 = load i32, ptr %buflen.i.i249, align 4
-  %call.i.i250 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i248, i32 noundef %50) #44
+  %call.i.i250 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i248, i32 noundef %50) #40
   %51 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i251 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %52 = load ptr, ptr %img_buffer_original.i.i251, align 8
@@ -6170,7 +6170,7 @@ if.then2.i278:                                    ; preds = %if.end.i275
   %buffer_start.i.i281 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i282 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %61 = load i32, ptr %buflen.i.i282, align 4
-  %call.i.i283 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i281, i32 noundef %61) #44
+  %call.i.i283 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i281, i32 noundef %61) #40
   %62 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i284 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %63 = load ptr, ptr %img_buffer_original.i.i284, align 8
@@ -6308,7 +6308,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %mul.i590594 = phi i32 [ %mul.i587, %stbi__mul2sizes_valid.exit.i.i ], [ %mul.i, %stbi__mul2sizes_valid.exit14.i ]
   %mul4.i.i = mul nsw i32 %mul.i590594, %tga_comp.0.ph
   %conv.i = zext nneg i32 %mul4.i.i to i64
-  %call.i.i320 = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i320 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %tobool55.not = icmp eq ptr %call.i.i320, null
   br i1 %tobool55.not, label %if.then56, label %if.end60
 
@@ -6348,7 +6348,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %78 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 %conv, %conv.i324
-  tail call void %77(ptr noundef %78, i32 noundef %sub.i) #44
+  tail call void %77(ptr noundef %78, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -6462,7 +6462,7 @@ if.then2.i337:                                    ; preds = %if.then.i328
   %90 = load ptr, ptr %io_user_data.i338, align 8
   %add.ptr.i339 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv4.i
   %sub.i340 = sub nsw i32 %mul, %conv.i334
-  %call.i = tail call i32 %87(ptr noundef %90, ptr noundef nonnull %add.ptr.i339, i32 noundef %sub.i340) #44
+  %call.i = tail call i32 %87(ptr noundef %90, ptr noundef nonnull %add.ptr.i339, i32 noundef %sub.i340) #40
   %91 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__getn.exit.sink.split
 
@@ -6495,7 +6495,7 @@ if.then77:                                        ; preds = %if.else75
   br i1 %cmp78, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %if.then77
-  tail call void @free(ptr noundef nonnull %call.i.i320) #44
+  tail call void @free(ptr noundef nonnull %call.i.i320) #40
   %94 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %94, align 8
   br label %return
@@ -6531,7 +6531,7 @@ if.then9.i358:                                    ; preds = %if.then4.i346
   %io_user_data.i360 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %99 = load ptr, ptr %io_user_data.i360, align 8
   %sub.i361 = sub nsw i32 %call5, %conv.i352
-  tail call void %98(ptr noundef %99, i32 noundef %sub.i361) #44
+  tail call void %98(ptr noundef %99, i32 noundef %sub.i361) #40
   br label %stbi__skip.exit365
 
 if.end14.i354:                                    ; preds = %if.then4.i346, %if.end3.if.end14_crit_edge.i362
@@ -6544,12 +6544,12 @@ if.end14.i354:                                    ; preds = %if.then4.i346, %if.
 stbi__skip.exit365:                               ; preds = %if.end84, %if.then9.i358, %if.end14.i354
   %mul.i.i373 = mul nuw nsw i32 %call6, %tga_comp.0.ph
   %conv.i375 = zext nneg i32 %mul.i.i373 to i64
-  %call.i.i376 = tail call noalias ptr @malloc(i64 noundef %conv.i375) #45
+  %call.i.i376 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i375) #41
   %tobool86.not = icmp eq ptr %call.i.i376, null
   br i1 %tobool86.not, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %stbi__skip.exit365
-  tail call void @free(ptr noundef nonnull %call.i.i320) #44
+  tail call void @free(ptr noundef nonnull %call.i.i320) #40
   %101 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %101, align 8
   br label %return
@@ -6596,8 +6596,8 @@ if.else103:                                       ; preds = %if.end91
   br i1 %tobool106.not, label %if.then107, label %if.end113
 
 if.then107:                                       ; preds = %if.else103
-  tail call void @free(ptr noundef nonnull %call.i.i320) #44
-  tail call void @free(ptr noundef nonnull %call.i.i376) #44
+  tail call void @free(ptr noundef nonnull %call.i.i320) #40
+  tail call void @free(ptr noundef nonnull %call.i.i376) #40
   %108 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %108, align 8
   br label %return
@@ -6662,7 +6662,7 @@ if.then2.i384:                                    ; preds = %if.end.i381
   %117 = load ptr, ptr %io.i.i385, align 8
   %118 = load ptr, ptr %io_user_data.i.i386, align 8
   %119 = load i32, ptr %buflen.i.i388, align 4
-  %call.i.i389 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %119) #44
+  %call.i.i389 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %119) #40
   %120 = load ptr, ptr %img_buffer.i, align 8
   %121 = load ptr, ptr %img_buffer_original.i.i390, align 8
   %sub.ptr.lhs.cast.i.i391 = ptrtoint ptr %120 to i64
@@ -6737,7 +6737,7 @@ if.then2.i417:                                    ; preds = %if.end.i414
   %128 = load ptr, ptr %io.i.i385, align 8
   %129 = load ptr, ptr %io_user_data.i.i386, align 8
   %130 = load i32, ptr %buflen.i.i388, align 4
-  %call.i.i422 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %130) #44
+  %call.i.i422 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %130) #40
   %131 = load ptr, ptr %img_buffer.i, align 8
   %132 = load ptr, ptr %img_buffer_original.i.i390, align 8
   %sub.ptr.lhs.cast.i.i424 = ptrtoint ptr %131 to i64
@@ -6839,7 +6839,7 @@ if.then2.i462:                                    ; preds = %if.end.i459
   %147 = load ptr, ptr %io.i.i385, align 8
   %148 = load ptr, ptr %io_user_data.i.i386, align 8
   %149 = load i32, ptr %buflen.i.i388, align 4
-  %call.i.i467 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %149) #44
+  %call.i.i467 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %buffer_start.i.i387, i32 noundef %149) #40
   %150 = load ptr, ptr %img_buffer.i, align 8
   %151 = load ptr, ptr %img_buffer_original.i.i390, align 8
   %sub.ptr.lhs.cast.i.i469 = ptrtoint ptr %150 to i64
@@ -6943,7 +6943,7 @@ if.end230:                                        ; preds = %for.cond210.for.inc
   br i1 %cmp231.not, label %if.end235, label %if.then233
 
 if.then233:                                       ; preds = %if.end230
-  tail call void @free(ptr noundef nonnull %tga_palette.0) #44
+  tail call void @free(ptr noundef nonnull %tga_palette.0) #40
   br label %if.end235
 
 if.end235:                                        ; preds = %stbi__getn.exit, %stbi__getn.exit.us, %stbi__getn.exit.us.us, %for.cond.preheader, %if.end230, %if.then233
@@ -6986,12 +6986,12 @@ return:                                           ; preds = %if.end256, %if.then
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__convert_16_to_8(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #17 {
+define noalias noundef ptr @stbi__convert_16_to_8(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #17 {
 entry:
   %mul = mul nsw i32 %h, %w
   %mul1 = mul nsw i32 %mul, %channels
   %conv = sext i32 %mul1 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -7021,7 +7021,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @free(ptr noundef %orig) #44
+  tail call void @free(ptr noundef %orig) #40
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -7029,13 +7029,13 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias ptr @stbi__convert_8_to_16(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #17 {
+define noalias noundef ptr @stbi__convert_8_to_16(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #17 {
 entry:
   %mul = mul nsw i32 %h, %w
   %mul1 = mul nsw i32 %mul, %channels
   %mul2 = shl nsw i32 %mul1, 1
   %conv = sext i32 %mul2 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -7065,14 +7065,14 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @free(ptr noundef %orig) #44
+  tail call void @free(ptr noundef %orig) #40
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
   ret ptr %call.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbi__vertical_flip(ptr nocapture noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %bytes_per_pixel) local_unnamed_addr #18 {
 entry:
   %temp = alloca [2048 x i8], align 16
@@ -7124,7 +7124,7 @@ for.end:                                          ; preds = %while.cond.for.inc_
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbi__vertical_flip_slices(ptr nocapture noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %z, i32 noundef %bytes_per_pixel) local_unnamed_addr #18 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
@@ -7222,7 +7222,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul.i = mul nsw i32 %2, %1
   %mul1.i = mul nsw i32 %mul.i, %cond
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -7252,7 +7252,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !53
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef nonnull %call) #44
+  tail call void @free(ptr noundef nonnull %call) #40
   br label %stbi__convert_16_to_8.exit
 
 stbi__convert_16_to_8.exit:                       ; preds = %if.then.i, %for.end.i
@@ -7373,7 +7373,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul1.i = mul nsw i32 %mul.i, %cond
   %mul2.i = shl nsw i32 %mul1.i, 1
   %conv.i = sext i32 %mul2.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -7403,7 +7403,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !54
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef nonnull %call) #44
+  tail call void @free(ptr noundef nonnull %call) #40
   br label %stbi__convert_8_to_16.exit
 
 stbi__convert_8_to_16.exit:                       ; preds = %if.then.i, %for.end.i
@@ -7495,7 +7495,7 @@ return:                                           ; preds = %cond.true7, %cond.f
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbi__float_postprocess(ptr noundef %result, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %comp, i32 noundef %req_comp) local_unnamed_addr #18 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
@@ -7586,7 +7586,7 @@ if.end:                                           ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @stbi__fopen(ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %mode) local_unnamed_addr #4 {
+define noalias noundef ptr @stbi__fopen(ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %mode) local_unnamed_addr #4 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef %mode)
   ret ptr %call
@@ -7599,7 +7599,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 define ptr @stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -7626,7 +7626,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 10
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #44
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #40
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -7702,7 +7702,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -7775,7 +7775,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -7829,7 +7829,7 @@ if.end:                                           ; preds = %if.then, %stbi__sta
 define ptr @stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -7856,7 +7856,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 10
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #44
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #40
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -7956,7 +7956,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8035,7 +8035,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8071,7 +8071,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr nocapture noundef %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr nocapture noundef %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i.i = alloca [2048 x i8], align 16
   %s = alloca %struct.stbi__context, align 8
@@ -8179,7 +8179,7 @@ if.end:                                           ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__load_gif_main(ptr noundef %s, ptr noundef %delays, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi__load_gif_main(ptr noundef %s, ptr noundef %delays, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %g = alloca %struct.stbi__gif, align 8
   %call.i = tail call i32 @stbi__gif_test_raw(ptr noundef %s), !range !6
@@ -8230,21 +8230,21 @@ if.then7:                                         ; preds = %if.then7.lr.ph, %do
   br i1 %tobool11.not, label %if.else33, label %if.then12
 
 if.then12:                                        ; preds = %if.then7
-  %call14 = call ptr @realloc(ptr noundef nonnull %out.0106, i64 noundef %conv35) #47
+  %call14 = call ptr @realloc(ptr noundef nonnull %out.0106, i64 noundef %conv35) #43
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %if.then12
   %out1.i = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %4 = load ptr, ptr %out1.i, align 8
-  call void @free(ptr noundef %4) #44
+  call void @free(ptr noundef %4) #40
   %history.i = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %5 = load ptr, ptr %history.i, align 8
-  call void @free(ptr noundef %5) #44
+  call void @free(ptr noundef %5) #40
   %background.i = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %6 = load ptr, ptr %background.i, align 8
-  call void @free(ptr noundef %6) #44
-  call void @free(ptr noundef nonnull %out.0106) #44
+  call void @free(ptr noundef %6) #40
+  call void @free(ptr noundef nonnull %out.0106) #40
   br i1 %tobool1.not, label %stbi__load_gif_main_outofmem.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -8253,7 +8253,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %stbi__load_gif_main_outofmem.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  call void @free(ptr noundef nonnull %7) #44
+  call void @free(ptr noundef nonnull %7) #40
   br label %stbi__load_gif_main_outofmem.exit
 
 stbi__load_gif_main_outofmem.exit:                ; preds = %if.end.i, %land.lhs.true.i, %if.then4.i
@@ -8267,27 +8267,27 @@ if.else:                                          ; preds = %if.then12
 if.then21:                                        ; preds = %if.else
   %9 = load ptr, ptr %delays, align 8
   %mul23 = shl nuw nsw i64 %indvars.iv.next, 2
-  %call24 = call ptr @realloc(ptr noundef %9, i64 noundef %mul23) #47
+  %call24 = call ptr @realloc(ptr noundef %9, i64 noundef %mul23) #43
   %tobool25.not = icmp eq ptr %call24, null
   br i1 %tobool25.not, label %land.lhs.true.i61, label %if.end28
 
 land.lhs.true.i61:                                ; preds = %if.then21
   %out1.i54 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %10 = load ptr, ptr %out1.i54, align 8
-  call void @free(ptr noundef %10) #44
+  call void @free(ptr noundef %10) #40
   %history.i55 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %11 = load ptr, ptr %history.i55, align 8
-  call void @free(ptr noundef %11) #44
+  call void @free(ptr noundef %11) #40
   %background.i56 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %12 = load ptr, ptr %background.i56, align 8
-  call void @free(ptr noundef %12) #44
-  call void @free(ptr noundef nonnull %call14) #44
+  call void @free(ptr noundef %12) #40
+  call void @free(ptr noundef nonnull %call14) #40
   %13 = load ptr, ptr %delays, align 8
   %tobool3.not.i62 = icmp eq ptr %13, null
   br i1 %tobool3.not.i62, label %stbi__load_gif_main_outofmem.exit64, label %if.then4.i63
 
 if.then4.i63:                                     ; preds = %land.lhs.true.i61
-  call void @free(ptr noundef nonnull %13) #44
+  call void @free(ptr noundef nonnull %13) #40
   br label %stbi__load_gif_main_outofmem.exit64
 
 stbi__load_gif_main_outofmem.exit64:              ; preds = %land.lhs.true.i61, %if.then4.i63
@@ -8300,20 +8300,20 @@ if.end28:                                         ; preds = %if.then21
   br label %if.end55
 
 if.else33:                                        ; preds = %if.then7
-  %call.i65 = call noalias ptr @malloc(i64 noundef %conv35) #45
+  %call.i65 = call noalias noundef ptr @malloc(i64 noundef %conv35) #41
   %tobool37.not = icmp eq ptr %call.i65, null
   br i1 %tobool37.not, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.else33
   %out1.i66 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %15 = load ptr, ptr %out1.i66, align 8
-  call void @free(ptr noundef %15) #44
+  call void @free(ptr noundef %15) #40
   %history.i67 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %16 = load ptr, ptr %history.i67, align 8
-  call void @free(ptr noundef %16) #44
+  call void @free(ptr noundef %16) #40
   %background.i68 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %17 = load ptr, ptr %background.i68, align 8
-  call void @free(ptr noundef %17) #44
+  call void @free(ptr noundef %17) #40
   br i1 %tobool1.not, label %stbi__load_gif_main_outofmem.exit74, label %land.lhs.true.i71
 
 land.lhs.true.i71:                                ; preds = %if.then38
@@ -8322,7 +8322,7 @@ land.lhs.true.i71:                                ; preds = %if.then38
   br i1 %tobool3.not.i72, label %stbi__load_gif_main_outofmem.exit74, label %if.then4.i73
 
 if.then4.i73:                                     ; preds = %land.lhs.true.i71
-  call void @free(ptr noundef nonnull %18) #44
+  call void @free(ptr noundef nonnull %18) #40
   br label %stbi__load_gif_main_outofmem.exit74
 
 stbi__load_gif_main_outofmem.exit74:              ; preds = %if.then38, %land.lhs.true.i71, %if.then4.i73
@@ -8335,7 +8335,7 @@ if.end40:                                         ; preds = %if.else33
 
 if.then43:                                        ; preds = %if.end40
   %mul45 = shl nuw nsw i64 %indvars.iv.next, 2
-  %call.i75 = call noalias ptr @malloc(i64 noundef %mul45) #45
+  %call.i75 = call noalias noundef ptr @malloc(i64 noundef %mul45) #41
   store ptr %call.i75, ptr %delays, align 8
   %tobool47.not = icmp eq ptr %call.i75, null
   br i1 %tobool47.not, label %land.lhs.true.i83, label %if.end55
@@ -8343,20 +8343,20 @@ if.then43:                                        ; preds = %if.end40
 land.lhs.true.i83:                                ; preds = %if.then43
   %out1.i76 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %20 = load ptr, ptr %out1.i76, align 8
-  call void @free(ptr noundef %20) #44
+  call void @free(ptr noundef %20) #40
   %history.i77 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %21 = load ptr, ptr %history.i77, align 8
-  call void @free(ptr noundef %21) #44
+  call void @free(ptr noundef %21) #40
   %background.i78 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %22 = load ptr, ptr %background.i78, align 8
-  call void @free(ptr noundef %22) #44
-  call void @free(ptr noundef nonnull %call.i65) #44
+  call void @free(ptr noundef %22) #40
+  call void @free(ptr noundef nonnull %call.i65) #40
   %23 = load ptr, ptr %delays, align 8
   %tobool3.not.i84 = icmp eq ptr %23, null
   br i1 %tobool3.not.i84, label %stbi__load_gif_main_outofmem.exit86, label %if.then4.i85
 
 if.then4.i85:                                     ; preds = %land.lhs.true.i83
-  call void @free(ptr noundef nonnull %23) #44
+  call void @free(ptr noundef nonnull %23) #40
   br label %stbi__load_gif_main_outofmem.exit86
 
 stbi__load_gif_main_outofmem.exit86:              ; preds = %land.lhs.true.i83, %if.then4.i85
@@ -8403,13 +8403,13 @@ do.end:                                           ; preds = %do.end.loopexit, %i
   %layers.0.lcssa = phi i32 [ 0, %if.end ], [ %28, %do.end.loopexit ]
   %out72 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %29 = load ptr, ptr %out72, align 8
-  call void @free(ptr noundef %29) #44
+  call void @free(ptr noundef %29) #40
   %history = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %30 = load ptr, ptr %history, align 8
-  call void @free(ptr noundef %30) #44
+  call void @free(ptr noundef %30) #40
   %background = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %31 = load ptr, ptr %background, align 8
-  call void @free(ptr noundef %31) #44
+  call void @free(ptr noundef %31) #40
   %32 = and i32 %req_comp, -5
   %or.cond.not = icmp eq i32 %32, 0
   br i1 %or.cond.not, label %if.end81, label %if.then76
@@ -8438,7 +8438,7 @@ return:                                           ; preds = %if.else82, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__loadf_main(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi__loadf_main(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i.i = alloca [2048 x i8], align 16
   %call = tail call i32 @stbi__hdr_test(ptr noundef %s), !range !6
@@ -8560,7 +8560,7 @@ return:                                           ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stbi__ldr_to_hdr(ptr noundef %data, i32 noundef %x, i32 noundef %y, i32 noundef %comp) local_unnamed_addr #2 {
+define noalias noundef ptr @stbi__ldr_to_hdr(ptr noundef %data, i32 noundef %x, i32 noundef %y, i32 noundef %comp) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8602,12 +8602,12 @@ land.lhs.true3.i.i:                               ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad4.exit:                           ; preds = %land.lhs.true3.i.i
   %mul10.i.i = shl nuw nsw i32 %mul5.i.i, 2
   %conv.i = zext nneg i32 %mul10.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit18.i.i, %stbi__malloc_mad4.exit
-  tail call void @free(ptr noundef nonnull %data) #44
+  tail call void @free(ptr noundef nonnull %data) #40
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -8645,7 +8645,7 @@ for.body11.us:                                    ; preds = %for.cond9.preheader
   %conv14.us = fpext float %div.us to double
   %7 = load float, ptr @stbi__l2h_gamma, align 4
   %conv15.us = fpext float %7 to double
-  %call16.us = tail call double @pow(double noundef %conv14.us, double noundef %conv15.us) #44
+  %call16.us = tail call double @pow(double noundef %conv14.us, double noundef %conv15.us) #40
   %8 = load float, ptr @stbi__l2h_scale, align 4
   %conv17.us = fpext float %8 to double
   %mul18.us = fmul double %call16.us, %conv17.us
@@ -8686,7 +8686,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   br i1 %exitcond57.not, label %if.end49, label %for.body34, !llvm.loop !60
 
 if.end49:                                         ; preds = %for.body34, %if.end4, %for.end26
-  tail call void @free(ptr noundef nonnull %data) #44
+  tail call void @free(ptr noundef nonnull %data) #40
   br label %return
 
 return:                                           ; preds = %entry, %if.end49, %if.then1
@@ -8695,7 +8695,7 @@ return:                                           ; preds = %entry, %if.end49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -8719,7 +8719,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -8738,7 +8738,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8774,10 +8774,10 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -8804,7 +8804,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 10
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #44
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #40
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -8835,7 +8835,7 @@ stbi_loadf_from_file.exit:                        ; preds = %if.then.i.i.i.i, %i
   store ptr %add.ptr13.sink.i.i.i.i, ptr %5, align 8
   %img_buffer_original_end.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 13
   store ptr %add.ptr13.sink.i.i.i.i, ptr %img_buffer_original_end.i.i.i, align 8
-  %call.i3 = call ptr @stbi__loadf_main(ptr noundef nonnull %s.i, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
+  %call.i3 = call noundef ptr @stbi__loadf_main(ptr noundef nonnull %s.i, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %s.i)
   %call4 = call i32 @fclose(ptr noundef nonnull %call.i)
   br label %return
@@ -8846,7 +8846,7 @@ return:                                           ; preds = %stbi_loadf_from_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -8865,7 +8865,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -8901,7 +8901,7 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_is_hdr_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #2 {
+define noundef i32 @stbi_is_hdr_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -8925,10 +8925,10 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -8951,7 +8951,7 @@ if.then:                                          ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 10
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %0 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %0(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #44
+  %call.i.i.i.i = call i32 %0(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -8994,7 +8994,7 @@ if.end:                                           ; preds = %stbi_is_hdr_from_fi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_is_hdr_from_file(ptr noundef %f) local_unnamed_addr #2 {
+define noundef i32 @stbi_is_hdr_from_file(ptr noundef %f) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
@@ -9014,7 +9014,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -9054,7 +9054,7 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user) local_unnamed_addr #2 {
+define noundef i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -9073,7 +9073,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -9168,7 +9168,7 @@ if.then2:                                         ; preds = %if.end
   %buffer_start.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i, align 4
-  %call.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i, i32 noundef %6) #44
+  %call.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer, align 8
   %img_buffer_original.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i, align 8
@@ -9221,7 +9221,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %eof, align 8
   %io_user_data = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %2 = load ptr, ptr %io_user_data, align 8
-  %call = tail call i32 %1(ptr noundef %2) #44
+  %call = tail call i32 %1(ptr noundef %2) #40
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -9292,7 +9292,7 @@ if.then9:                                         ; preds = %if.then4
   %io_user_data = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %5 = load ptr, ptr %io_user_data, align 8
   %sub = sub nsw i32 %n, %conv
-  tail call void %4(ptr noundef %5, i32 noundef %sub) #44
+  tail call void %4(ptr noundef %5, i32 noundef %sub) #40
   br label %return
 
 if.end14:                                         ; preds = %if.end3.if.end14_crit_edge, %if.then4
@@ -9343,7 +9343,7 @@ if.then2:                                         ; preds = %if.then
   %4 = load ptr, ptr %io_user_data, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %conv4
   %sub = sub nsw i32 %n, %conv
-  %call = tail call i32 %3(ptr noundef %4, ptr noundef %add.ptr, i32 noundef %sub) #44
+  %call = tail call i32 %3(ptr noundef %4, ptr noundef %add.ptr, i32 noundef %sub) #40
   %cmp8 = icmp eq i32 %call, %sub
   %conv9 = zext i1 %cmp8 to i32
   %5 = load ptr, ptr %img_buffer_end, align 8
@@ -9401,7 +9401,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -9463,7 +9463,7 @@ if.then2.i8:                                      ; preds = %if.end.i5
   %buffer_start.i.i11 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i12 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i12, align 4
-  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #44
+  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i14 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i14, align 8
@@ -9547,7 +9547,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -9609,7 +9609,7 @@ if.then2.i8:                                      ; preds = %if.end.i5
   %buffer_start.i.i11 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i12 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i12, align 4
-  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #44
+  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i14 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i14, align 8
@@ -9677,7 +9677,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__convert_format(ptr noundef %data, i32 noundef %img_n, i32 noundef %req_comp, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
+define noundef ptr @stbi__convert_format(ptr noundef %data, i32 noundef %img_n, i32 noundef %req_comp, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %req_comp, %img_n
   br i1 %cmp, label %return, label %if.end
@@ -9714,7 +9714,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %y
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
@@ -9747,7 +9747,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph, %fo
   br label %for.body
 
 if.then2:                                         ; preds = %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit14.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef %data) #44
+  tail call void @free(ptr noundef %data) #40
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -10061,8 +10061,8 @@ for.body189:                                      ; preds = %for.cond186.prehead
   br i1 %cmp187.not, label %for.inc204, label %for.body189, !llvm.loop !72
 
 sw.default:                                       ; preds = %for.body.lr.ph
-  tail call void @free(ptr noundef %data) #44
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef %data) #40
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %30, align 8
   br label %return
@@ -10073,7 +10073,7 @@ for.inc204:                                       ; preds = %for.body168, %for.b
   br i1 %exitcond.not, label %for.end205, label %for.body, !llvm.loop !73
 
 for.end205:                                       ; preds = %for.inc204, %for.cond.preheader
-  tail call void @free(ptr noundef %data) #44
+  tail call void @free(ptr noundef %data) #40
   br label %return
 
 return:                                           ; preds = %entry, %for.end205, %sw.default, %if.then2
@@ -10095,7 +10095,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__convert_format16(ptr noundef %data, i32 noundef %img_n, i32 noundef %req_comp, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
+define noundef ptr @stbi__convert_format16(ptr noundef %data, i32 noundef %img_n, i32 noundef %req_comp, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %req_comp, %img_n
   br i1 %cmp, label %return, label %if.end
@@ -10105,7 +10105,7 @@ if.end:                                           ; preds = %entry
   %mul1 = mul i32 %mul, %x
   %mul2 = mul i32 %mul1, %y
   %conv = zext i32 %mul2 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %if.then5, label %for.cond.preheader
 
@@ -10138,7 +10138,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph, %fo
   br label %for.body
 
 if.then5:                                         ; preds = %if.end
-  tail call void @free(ptr noundef %data) #44
+  tail call void @free(ptr noundef %data) #40
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %0, align 8
   br label %return
@@ -10433,8 +10433,8 @@ for.body203:                                      ; preds = %for.cond200.prehead
   br i1 %cmp201.not, label %for.inc218, label %for.body203, !llvm.loop !85
 
 sw.default:                                       ; preds = %for.body.lr.ph
-  tail call void @free(ptr noundef %data) #44
-  tail call void @free(ptr noundef nonnull %call.i) #44
+  tail call void @free(ptr noundef %data) #40
+  tail call void @free(ptr noundef nonnull %call.i) #40
   %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %28, align 8
   br label %return
@@ -10445,7 +10445,7 @@ for.inc218:                                       ; preds = %for.body182, %for.b
   br i1 %exitcond.not, label %for.end219, label %for.body, !llvm.loop !86
 
 for.end219:                                       ; preds = %for.inc218, %for.cond.preheader
-  tail call void @free(ptr noundef %data) #44
+  tail call void @free(ptr noundef %data) #40
   br label %return
 
 return:                                           ; preds = %entry, %for.end219, %sw.default, %if.then5
@@ -10459,8 +10459,8 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__build_huffman(ptr nocapture noundef %h, ptr nocapture noundef readonly %count) local_unnamed_addr #20 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @stbi__build_huffman(ptr nocapture noundef %h, ptr nocapture noundef readonly %count) local_unnamed_addr #20 {
 entry:
   br label %for.cond1.preheader
 
@@ -10738,7 +10738,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %8, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %8, i64 0, i32 7
   %15 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #44
+  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #40
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %8, i64 0, i32 12
   %17 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -10807,7 +10807,7 @@ if.then2.i19:                                     ; preds = %if.end.i16
   %buffer_start.i.i22 = getelementptr inbounds %struct.stbi__context, ptr %20, i64 0, i32 8
   %buflen.i.i23 = getelementptr inbounds %struct.stbi__context, ptr %20, i64 0, i32 7
   %27 = load i32, ptr %buflen.i.i23, align 4
-  %call.i.i24 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %27) #44
+  %call.i.i24 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %27) #40
   %28 = load ptr, ptr %img_buffer.i13, align 8
   %img_buffer_original.i.i25 = getelementptr inbounds %struct.stbi__context, ptr %20, i64 0, i32 12
   %29 = load ptr, ptr %img_buffer_original.i.i25, align 8
@@ -10886,7 +10886,7 @@ if.then2.i52:                                     ; preds = %if.end.i49
   %buffer_start.i.i55 = getelementptr inbounds %struct.stbi__context, ptr %32, i64 0, i32 8
   %buflen.i.i56 = getelementptr inbounds %struct.stbi__context, ptr %32, i64 0, i32 7
   %39 = load i32, ptr %buflen.i.i56, align 4
-  %call.i.i57 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i55, i32 noundef %39) #44
+  %call.i.i57 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i55, i32 noundef %39) #40
   %40 = load ptr, ptr %img_buffer.i46, align 8
   %img_buffer_original.i.i58 = getelementptr inbounds %struct.stbi__context, ptr %32, i64 0, i32 12
   %41 = load ptr, ptr %img_buffer_original.i.i58, align 8
@@ -11161,7 +11161,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_decode_block(ptr nocapture noundef %j, ptr nocapture noundef writeonly %data, ptr nocapture noundef readonly %hdc, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac, i32 noundef %b, ptr nocapture noundef readonly %dequant) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_decode_block(ptr nocapture noundef %j, ptr nocapture noundef writeonly %data, ptr nocapture noundef readonly %hdc, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac, i32 noundef %b, ptr nocapture noundef readonly %dequant) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 13
   %0 = load i32, ptr %code_bits, align 4
@@ -11566,7 +11566,7 @@ return:                                           ; preds = %do.cond, %if.then73
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_decode_block_prog_dc(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hdc, i32 noundef %b) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_decode_block_prog_dc(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hdc, i32 noundef %b) local_unnamed_addr #2 {
 entry:
   %spec_end = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 18
   %0 = load i32, ptr %spec_end, align 8
@@ -11834,7 +11834,7 @@ return:                                           ; preds = %if.end.i51, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_decode_block_prog_ac(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_decode_block_prog_ac(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac) local_unnamed_addr #2 {
 entry:
   %spec_start = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 17
   %0 = load i32, ptr %spec_start, align 4
@@ -12473,7 +12473,7 @@ return:                                           ; preds = %for.inc, %do.cond21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i8 @stbi__clamp(i32 noundef %x) local_unnamed_addr #0 {
+define noundef zeroext i8 @stbi__clamp(i32 noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %x, 255
   %conv = trunc i32 %x to i8
@@ -12484,7 +12484,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__idct_block(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) local_unnamed_addr #22 {
+define void @stbi__idct_block(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) local_unnamed_addr #18 {
 entry:
   %val = alloca [64 x i32], align 16
   br label %for.body
@@ -12802,8 +12802,8 @@ for.end224:                                       ; preds = %for.body126
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__idct_simd(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @stbi__idct_simd(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #22 {
 entry:
   %0 = load <8 x i16>, ptr %data, align 16
   %add.ptr11 = getelementptr inbounds i16, ptr %data, i64 8
@@ -13144,7 +13144,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 7
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #44
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #40
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 12
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -13213,7 +13213,7 @@ if.then2.i14:                                     ; preds = %if.end.i11
   %buffer_start.i.i17 = getelementptr inbounds %struct.stbi__context, ptr %13, i64 0, i32 8
   %buflen.i.i18 = getelementptr inbounds %struct.stbi__context, ptr %13, i64 0, i32 7
   %20 = load i32, ptr %buflen.i.i18, align 4
-  %call.i.i19 = tail call i32 %18(ptr noundef %19, ptr noundef nonnull %buffer_start.i.i17, i32 noundef %20) #44
+  %call.i.i19 = tail call i32 %18(ptr noundef %19, ptr noundef nonnull %buffer_start.i.i17, i32 noundef %20) #40
   %21 = load ptr, ptr %img_buffer.i8, align 8
   %img_buffer_original.i.i20 = getelementptr inbounds %struct.stbi__context, ptr %13, i64 0, i32 12
   %22 = load ptr, ptr %img_buffer_original.i.i20, align 8
@@ -13289,7 +13289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__parse_entropy_coded_data(ptr noundef %z) local_unnamed_addr #2 {
+define noundef i32 @stbi__parse_entropy_coded_data(ptr noundef %z) local_unnamed_addr #2 {
 entry:
   %data = alloca [64 x i16], align 16
   %data73 = alloca [64 x i16], align 16
@@ -13404,7 +13404,7 @@ if.end.us:                                        ; preds = %for.body11.us
   %add.ptr43.us = getelementptr inbounds i8, ptr %13, i64 %idx.ext42.us
   %15 = shl nsw i64 %indvars.iv267, 3
   %add.ptr46.us = getelementptr inbounds i8, ptr %add.ptr43.us, i64 %15
-  call void %12(ptr noundef %add.ptr46.us, i32 noundef %14, ptr noundef nonnull %data) #44
+  call void %12(ptr noundef %add.ptr46.us, i32 noundef %14, ptr noundef nonnull %data) #40
   %16 = load i32, ptr %todo.i, align 4
   %dec.us = add nsw i32 %16, -1
   store i32 %dec.us, ptr %todo.i, align 4
@@ -13529,7 +13529,7 @@ if.end153:                                        ; preds = %for.body105
   %add.ptr165 = getelementptr inbounds i8, ptr %39, i64 %idx.ext164
   %idx.ext166 = sext i32 %mul112 to i64
   %add.ptr167 = getelementptr inbounds i8, ptr %add.ptr165, i64 %idx.ext166
-  call void %38(ptr noundef %add.ptr167, i32 noundef %40, ptr noundef nonnull %data73) #44
+  call void %38(ptr noundef %add.ptr167, i32 noundef %40, ptr noundef nonnull %data73) #40
   %inc174 = add nuw nsw i32 %x71.0233, 1
   %41 = load i32, ptr %h102, align 4
   %cmp103 = icmp slt i32 %inc174, %41
@@ -14005,7 +14005,7 @@ stbi__jpeg_dequantize.exit.us:                    ; preds = %for.body.i.us
   %add.ptr35.us = getelementptr inbounds i8, ptr %13, i64 %idx.ext34.us
   %15 = shl nsw i64 %indvars.iv, 3
   %add.ptr38.us = getelementptr inbounds i8, ptr %add.ptr35.us, i64 %15
-  tail call void %12(ptr noundef %add.ptr38.us, i32 noundef %14, ptr noundef nonnull %add.ptr.us) #44
+  tail call void %12(ptr noundef %add.ptr38.us, i32 noundef %14, ptr noundef nonnull %add.ptr.us) #40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond9.for.inc43_crit_edge.us, label %for.body11.us, !llvm.loop !119
@@ -14103,7 +14103,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %5, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %5, i64 0, i32 7
   %12 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %buffer_start.i.i, i32 noundef %12) #44
+  %call.i.i = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %buffer_start.i.i, i32 noundef %12) #40
   %13 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %5, i64 0, i32 12
   %14 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -14214,7 +14214,7 @@ if.then2.i89:                                     ; preds = %if.end.i86
   %buffer_start.i.i92 = getelementptr inbounds %struct.stbi__context, ptr %21, i64 0, i32 8
   %buflen.i.i93 = getelementptr inbounds %struct.stbi__context, ptr %21, i64 0, i32 7
   %28 = load i32, ptr %buflen.i.i93, align 4
-  %call.i.i94 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i92, i32 noundef %28) #44
+  %call.i.i94 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i92, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i83, align 8
   %img_buffer_original.i.i95 = getelementptr inbounds %struct.stbi__context, ptr %21, i64 0, i32 12
   %30 = load ptr, ptr %img_buffer_original.i.i95, align 8
@@ -14314,7 +14314,7 @@ if.then2.i122:                                    ; preds = %if.end.i119
   %buffer_start.i.i125 = getelementptr inbounds %struct.stbi__context, ptr %35, i64 0, i32 8
   %buflen.i.i126 = getelementptr inbounds %struct.stbi__context, ptr %35, i64 0, i32 7
   %42 = load i32, ptr %buflen.i.i126, align 4
-  %call.i.i127 = tail call i32 %40(ptr noundef %41, ptr noundef nonnull %buffer_start.i.i125, i32 noundef %42) #44
+  %call.i.i127 = tail call i32 %40(ptr noundef %41, ptr noundef nonnull %buffer_start.i.i125, i32 noundef %42) #40
   %43 = load ptr, ptr %img_buffer.i116, align 8
   %img_buffer_original.i.i128 = getelementptr inbounds %struct.stbi__context, ptr %35, i64 0, i32 12
   %44 = load ptr, ptr %img_buffer_original.i.i128, align 8
@@ -14393,7 +14393,7 @@ if.then2.i155:                                    ; preds = %if.end.i152
   %buffer_start.i.i158 = getelementptr inbounds %struct.stbi__context, ptr %49, i64 0, i32 8
   %buflen.i.i159 = getelementptr inbounds %struct.stbi__context, ptr %49, i64 0, i32 7
   %56 = load i32, ptr %buflen.i.i159, align 4
-  %call.i.i160 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i158, i32 noundef %56) #44
+  %call.i.i160 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i158, i32 noundef %56) #40
   %57 = load ptr, ptr %img_buffer.i149, align 8
   %img_buffer_original.i.i161 = getelementptr inbounds %struct.stbi__context, ptr %49, i64 0, i32 12
   %58 = load ptr, ptr %img_buffer_original.i.i161, align 8
@@ -14512,7 +14512,7 @@ if.then2.i188:                                    ; preds = %if.end.i185
   %buffer_start.i.i191 = getelementptr inbounds %struct.stbi__context, ptr %62, i64 0, i32 8
   %buflen.i.i192 = getelementptr inbounds %struct.stbi__context, ptr %62, i64 0, i32 7
   %69 = load i32, ptr %buflen.i.i192, align 4
-  %call.i.i193 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i191, i32 noundef %69) #44
+  %call.i.i193 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i191, i32 noundef %69) #40
   %70 = load ptr, ptr %img_buffer.i182, align 8
   %img_buffer_original.i.i194 = getelementptr inbounds %struct.stbi__context, ptr %62, i64 0, i32 12
   %71 = load ptr, ptr %img_buffer_original.i.i194, align 8
@@ -14691,7 +14691,7 @@ if.then2.i223:                                    ; preds = %if.end.i220
   %buffer_start.i.i226 = getelementptr inbounds %struct.stbi__context, ptr %82, i64 0, i32 8
   %buflen.i.i227 = getelementptr inbounds %struct.stbi__context, ptr %82, i64 0, i32 7
   %89 = load i32, ptr %buflen.i.i227, align 4
-  %call.i.i228 = tail call i32 %87(ptr noundef %88, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %89) #44
+  %call.i.i228 = tail call i32 %87(ptr noundef %88, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %89) #40
   %90 = load ptr, ptr %img_buffer.i217, align 8
   %img_buffer_original.i.i229 = getelementptr inbounds %struct.stbi__context, ptr %82, i64 0, i32 12
   %91 = load ptr, ptr %img_buffer_original.i.i229, align 8
@@ -14784,7 +14784,7 @@ if.then2.i256:                                    ; preds = %if.end.i253
   %buffer_start.i.i259 = getelementptr inbounds %struct.stbi__context, ptr %95, i64 0, i32 8
   %buflen.i.i260 = getelementptr inbounds %struct.stbi__context, ptr %95, i64 0, i32 7
   %102 = load i32, ptr %buflen.i.i260, align 4
-  %call.i.i261 = tail call i32 %100(ptr noundef %101, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %102) #44
+  %call.i.i261 = tail call i32 %100(ptr noundef %101, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %102) #40
   %103 = load ptr, ptr %img_buffer.i250, align 8
   %img_buffer_original.i.i262 = getelementptr inbounds %struct.stbi__context, ptr %95, i64 0, i32 12
   %104 = load ptr, ptr %img_buffer_original.i.i262, align 8
@@ -14896,7 +14896,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %112, i64 0, i32 5
   %118 = load ptr, ptr %io_user_data.i, align 8
   %sub.i286 = sub nsw i32 %L.2, %conv.i
-  tail call void %117(ptr noundef %118, i32 noundef %sub.i286) #44
+  tail call void %117(ptr noundef %118, i32 noundef %sub.i286) #40
   br label %return
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -14919,7 +14919,7 @@ return:                                           ; preds = %if.else, %if.then87
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__process_scan_header(ptr nocapture noundef %z) local_unnamed_addr #2 {
+define noundef i32 @stbi__process_scan_header(ptr nocapture noundef %z) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call i32 @stbi__get16be(ptr noundef %0), !range !7
@@ -14956,7 +14956,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 7
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #44
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #40
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %1, i64 0, i32 12
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -15053,7 +15053,7 @@ if.then2.i59:                                     ; preds = %if.end.i56
   %buffer_start.i.i62 = getelementptr inbounds %struct.stbi__context, ptr %18, i64 0, i32 8
   %buflen.i.i63 = getelementptr inbounds %struct.stbi__context, ptr %18, i64 0, i32 7
   %25 = load i32, ptr %buflen.i.i63, align 4
-  %call.i.i64 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %buffer_start.i.i62, i32 noundef %25) #44
+  %call.i.i64 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %buffer_start.i.i62, i32 noundef %25) #40
   %26 = load ptr, ptr %img_buffer.i53, align 8
   %img_buffer_original.i.i65 = getelementptr inbounds %struct.stbi__context, ptr %18, i64 0, i32 12
   %27 = load ptr, ptr %img_buffer_original.i.i65, align 8
@@ -15119,7 +15119,7 @@ if.then2.i92:                                     ; preds = %if.end.i89
   %buffer_start.i.i95 = getelementptr inbounds %struct.stbi__context, ptr %30, i64 0, i32 8
   %buflen.i.i96 = getelementptr inbounds %struct.stbi__context, ptr %30, i64 0, i32 7
   %37 = load i32, ptr %buflen.i.i96, align 4
-  %call.i.i97 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %buffer_start.i.i95, i32 noundef %37) #44
+  %call.i.i97 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %buffer_start.i.i95, i32 noundef %37) #40
   %38 = load ptr, ptr %img_buffer.i86, align 8
   %img_buffer_original.i.i98 = getelementptr inbounds %struct.stbi__context, ptr %30, i64 0, i32 12
   %39 = load ptr, ptr %img_buffer_original.i.i98, align 8
@@ -15250,7 +15250,7 @@ if.then2.i125:                                    ; preds = %if.end.i122
   %buffer_start.i.i128 = getelementptr inbounds %struct.stbi__context, ptr %42, i64 0, i32 8
   %buflen.i.i129 = getelementptr inbounds %struct.stbi__context, ptr %42, i64 0, i32 7
   %56 = load i32, ptr %buflen.i.i129, align 4
-  %call.i.i130 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i128, i32 noundef %56) #44
+  %call.i.i130 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i128, i32 noundef %56) #40
   %57 = load ptr, ptr %img_buffer.i119, align 8
   %img_buffer_original.i.i131 = getelementptr inbounds %struct.stbi__context, ptr %42, i64 0, i32 12
   %58 = load ptr, ptr %img_buffer_original.i.i131, align 8
@@ -15318,7 +15318,7 @@ if.then2.i158:                                    ; preds = %if.end.i155
   %buffer_start.i.i161 = getelementptr inbounds %struct.stbi__context, ptr %61, i64 0, i32 8
   %buflen.i.i162 = getelementptr inbounds %struct.stbi__context, ptr %61, i64 0, i32 7
   %68 = load i32, ptr %buflen.i.i162, align 4
-  %call.i.i163 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i161, i32 noundef %68) #44
+  %call.i.i163 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i161, i32 noundef %68) #40
   %69 = load ptr, ptr %img_buffer.i152, align 8
   %img_buffer_original.i.i164 = getelementptr inbounds %struct.stbi__context, ptr %61, i64 0, i32 12
   %70 = load ptr, ptr %img_buffer_original.i.i164, align 8
@@ -15386,7 +15386,7 @@ if.then2.i191:                                    ; preds = %if.end.i188
   %buffer_start.i.i194 = getelementptr inbounds %struct.stbi__context, ptr %73, i64 0, i32 8
   %buflen.i.i195 = getelementptr inbounds %struct.stbi__context, ptr %73, i64 0, i32 7
   %80 = load i32, ptr %buflen.i.i195, align 4
-  %call.i.i196 = tail call i32 %78(ptr noundef %79, ptr noundef nonnull %buffer_start.i.i194, i32 noundef %80) #44
+  %call.i.i196 = tail call i32 %78(ptr noundef %79, ptr noundef nonnull %buffer_start.i.i194, i32 noundef %80) #40
   %81 = load ptr, ptr %img_buffer.i185, align 8
   %img_buffer_original.i.i197 = getelementptr inbounds %struct.stbi__context, ptr %73, i64 0, i32 12
   %82 = load ptr, ptr %img_buffer_original.i.i197, align 8
@@ -15488,7 +15488,7 @@ return:                                           ; preds = %for.end, %for.inc, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__free_jpeg_components(ptr nocapture noundef %z, i32 noundef %ncomp, i32 noundef returned %why) local_unnamed_addr #2 {
+define noundef i32 @stbi__free_jpeg_components(ptr nocapture noundef %z, i32 noundef %ncomp, i32 noundef returned %why) local_unnamed_addr #2 {
 entry:
   %cmp25 = icmp sgt i32 %ncomp, 0
   br i1 %cmp25, label %for.body.preheader, label %for.end
@@ -15505,7 +15505,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @free(ptr noundef nonnull %0) #44
+  tail call void @free(ptr noundef nonnull %0) #40
   %data = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
   br label %if.end
@@ -15517,7 +15517,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool15.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %1) #44
+  tail call void @free(ptr noundef nonnull %1) #40
   store ptr null, ptr %raw_coeff, align 8
   %coeff = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv, i32 15
   store ptr null, ptr %coeff, align 8
@@ -15530,7 +15530,7 @@ if.end28:                                         ; preds = %if.then16, %if.end
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %if.end28
-  tail call void @free(ptr noundef nonnull %2) #44
+  tail call void @free(ptr noundef nonnull %2) #40
   store ptr null, ptr %linebuf, align 8
   br label %for.inc
 
@@ -15544,7 +15544,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__process_frame_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
+define noundef i32 @stbi__process_frame_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call i32 @stbi__get16be(ptr noundef %0), !range !7
@@ -15584,7 +15584,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 7
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #44
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #40
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 12
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -15688,7 +15688,7 @@ if.then2.i173:                                    ; preds = %if.end.i170
   %buffer_start.i.i176 = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 8
   %buflen.i.i177 = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 7
   %24 = load i32, ptr %buflen.i.i177, align 4
-  %call.i.i178 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i176, i32 noundef %24) #44
+  %call.i.i178 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i176, i32 noundef %24) #40
   %25 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i179 = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 12
   %26 = load ptr, ptr %img_buffer_original.i.i179, align 8
@@ -15805,7 +15805,7 @@ if.then2.i206:                                    ; preds = %if.end.i203
   %36 = load ptr, ptr %io.i.i207, align 8
   %37 = load ptr, ptr %io_user_data.i.i208, align 8
   %38 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i211 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %38) #44
+  %call.i.i211 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %38) #40
   %39 = load ptr, ptr %img_buffer.i, align 8
   %40 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i213 = ptrtoint ptr %39 to i64
@@ -15883,7 +15883,7 @@ if.then2.i239:                                    ; preds = %if.end.i236
   %50 = load ptr, ptr %io.i.i207, align 8
   %51 = load ptr, ptr %io_user_data.i.i208, align 8
   %52 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i244 = tail call i32 %50(ptr noundef %51, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %52) #44
+  %call.i.i244 = tail call i32 %50(ptr noundef %51, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %52) #40
   %53 = load ptr, ptr %img_buffer.i, align 8
   %54 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i246 = ptrtoint ptr %53 to i64
@@ -15968,7 +15968,7 @@ if.then2.i272:                                    ; preds = %if.end.i269
   %65 = load ptr, ptr %io.i.i207, align 8
   %66 = load ptr, ptr %io_user_data.i.i208, align 8
   %67 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i277 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %67) #44
+  %call.i.i277 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %67) #40
   %68 = load ptr, ptr %img_buffer.i, align 8
   %69 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %68 to i64
@@ -16223,7 +16223,7 @@ return:                                           ; preds = %for.inc367, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__decode_jpeg_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
+define noundef i32 @stbi__decode_jpeg_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
 entry:
   %jfif = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 22
   store i32 0, ptr %jfif, align 8
@@ -16285,7 +16285,7 @@ if.then.i:                                        ; preds = %while.body23
   %5 = load ptr, ptr %eof.i, align 8
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %3, i64 0, i32 5
   %6 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %5(ptr noundef %6) #44
+  %call.i = tail call i32 %5(ptr noundef %6) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end28, label %if.end.i
 
@@ -16345,7 +16345,7 @@ if.then.i:                                        ; preds = %while.cond
   %2 = load ptr, ptr %eof.i, align 8
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %0, i64 0, i32 5
   %3 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %2(ptr noundef %3) #44
+  %call.i = tail call i32 %2(ptr noundef %3) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %while.body, label %if.end.i
 
@@ -16392,7 +16392,7 @@ if.then2.i:                                       ; preds = %if.end.i10
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %7, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %7, i64 0, i32 7
   %14 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %buffer_start.i.i, i32 noundef %14) #44
+  %call.i.i = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %buffer_start.i.i, i32 noundef %14) #40
   %15 = load ptr, ptr %img_buffer.i7, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %7, i64 0, i32 12
   %16 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -16448,7 +16448,7 @@ if.then.i17:                                      ; preds = %while.body5
   %21 = load ptr, ptr %eof.i18, align 8
   %io_user_data.i19 = getelementptr inbounds %struct.stbi__context, ptr %19, i64 0, i32 5
   %22 = load ptr, ptr %io_user_data.i19, align 8
-  %call.i20 = tail call i32 %21(ptr noundef %22) #44
+  %call.i20 = tail call i32 %21(ptr noundef %22) #40
   %tobool2.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool2.not.i21, label %if.end, label %if.end.i22
 
@@ -16495,7 +16495,7 @@ if.then2.i38:                                     ; preds = %if.end.i35
   %buffer_start.i.i41 = getelementptr inbounds %struct.stbi__context, ptr %26, i64 0, i32 8
   %buflen.i.i42 = getelementptr inbounds %struct.stbi__context, ptr %26, i64 0, i32 7
   %33 = load i32, ptr %buflen.i.i42, align 4
-  %call.i.i43 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %buffer_start.i.i41, i32 noundef %33) #44
+  %call.i.i43 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %buffer_start.i.i41, i32 noundef %33) #40
   %34 = load ptr, ptr %img_buffer.i32, align 8
   %img_buffer_original.i.i44 = getelementptr inbounds %struct.stbi__context, ptr %26, i64 0, i32 12
   %35 = load ptr, ptr %img_buffer_original.i.i44, align 8
@@ -16542,7 +16542,7 @@ return:                                           ; preds = %if.end.i, %stbi__at
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__decode_jpeg_image(ptr noundef %j) local_unnamed_addr #2 {
+define noundef i32 @stbi__decode_jpeg_image(ptr noundef %j) local_unnamed_addr #2 {
 entry:
   br label %for.body
 
@@ -16663,13 +16663,13 @@ return:                                           ; preds = %if.else54, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @resample_row_1(ptr nocapture readnone %out, ptr noundef readnone returned %in_near, ptr nocapture readnone %in_far, i32 %w, i32 %hs) #0 {
+define noundef ptr @resample_row_1(ptr nocapture readnone %out, ptr noundef readnone returned %in_near, ptr nocapture readnone %in_far, i32 %w, i32 %hs) #0 {
 entry:
   ret ptr %in_near
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #21 {
+define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #21 {
 entry:
   %cmp6 = icmp sgt i32 %w, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -16702,7 +16702,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @stbi__resample_row_h_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 %hs) #21 {
+define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 %hs) #21 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -16799,7 +16799,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 noundef %hs) local_unnamed_addr #21 {
+define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 noundef %hs) local_unnamed_addr #21 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -16884,8 +16884,8 @@ return:                                           ; preds = %for.end, %if.then
   ret ptr %out
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #24 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #23 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -17061,7 +17061,7 @@ return:                                           ; preds = %for.end111, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @stbi__resample_row_generic(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 noundef %hs) #21 {
+define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 noundef %hs) #21 {
 entry:
   %cmp10 = icmp sgt i32 %w, 0
   %cmp28 = icmp sgt i32 %hs, 0
@@ -17100,7 +17100,7 @@ for.end8:                                         ; preds = %for.cond1.for.inc6_
   ret ptr %out
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbi__YCbCr_to_RGB_row(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) local_unnamed_addr #20 {
 entry:
   %cmp24 = icmp sgt i32 %count, 0
@@ -17164,8 +17164,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) #25 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) #24 {
 entry:
   %cmp = icmp eq i32 %step, 4
   %cmp7111 = icmp sgt i32 %count, 7
@@ -17330,7 +17330,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @free(ptr noundef nonnull %2) #44
+  tail call void @free(ptr noundef nonnull %2) #40
   %data.i = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 11, i64 %indvars.iv.i, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i8 0, i64 16, i1 false)
   br label %if.end.i
@@ -17342,7 +17342,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br i1 %tobool15.not.i, label %if.end28.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %3) #44
+  tail call void @free(ptr noundef nonnull %3) #40
   store ptr null, ptr %raw_coeff.i, align 8
   %coeff.i = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 11, i64 %indvars.iv.i, i32 15
   store ptr null, ptr %coeff.i, align 8
@@ -17355,7 +17355,7 @@ if.end28.i:                                       ; preds = %if.then16.i, %if.en
   br i1 %tobool32.not.i, label %for.inc.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end28.i
-  tail call void @free(ptr noundef nonnull %4) #44
+  tail call void @free(ptr noundef nonnull %4) #40
   store ptr null, ptr %linebuf.i, align 8
   br label %for.inc.i
 
@@ -17383,7 +17383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @load_jpeg_image(ptr noundef %z, ptr nocapture noundef writeonly %out_x, ptr nocapture noundef writeonly %out_y, ptr noundef writeonly %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @load_jpeg_image(ptr noundef %z, ptr nocapture noundef writeonly %out_x, ptr nocapture noundef writeonly %out_y, ptr noundef writeonly %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %coutput = alloca [4 x ptr], align 16
   %res_comp = alloca [4 x %struct.stbi__resample], align 16
@@ -17422,7 +17422,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @free(ptr noundef nonnull %4) #44
+  tail call void @free(ptr noundef nonnull %4) #40
   %data.i.i = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i, i8 0, i64 16, i1 false)
   br label %if.end.i.i
@@ -17434,7 +17434,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   br i1 %tobool15.not.i.i, label %if.end28.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
-  tail call void @free(ptr noundef nonnull %5) #44
+  tail call void @free(ptr noundef nonnull %5) #40
   store ptr null, ptr %raw_coeff.i.i, align 8
   %coeff.i.i = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i, i32 15
   store ptr null, ptr %coeff.i.i, align 8
@@ -17447,7 +17447,7 @@ if.end28.i.i:                                     ; preds = %if.then16.i.i, %if.
   br i1 %tobool32.not.i.i, label %for.inc.i.i, label %if.then33.i.i
 
 if.then33.i.i:                                    ; preds = %if.end28.i.i
-  tail call void @free(ptr noundef nonnull %6) #44
+  tail call void @free(ptr noundef nonnull %6) #40
   store ptr null, ptr %linebuf.i.i, align 8
   br label %for.inc.i.i
 
@@ -17512,7 +17512,7 @@ for.body.i.i235:                                  ; preds = %for.inc.i.i250, %fo
   br i1 %tobool.not.i.i238, label %if.end.i.i241, label %if.then.i.i239
 
 if.then.i.i239:                                   ; preds = %for.body.i.i235
-  tail call void @free(ptr noundef nonnull %12) #44
+  tail call void @free(ptr noundef nonnull %12) #40
   %data.i.i240 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i236, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i240, i8 0, i64 16, i1 false)
   br label %if.end.i.i241
@@ -17524,7 +17524,7 @@ if.end.i.i241:                                    ; preds = %if.then.i.i239, %fo
   br i1 %tobool15.not.i.i243, label %if.end28.i.i246, label %if.then16.i.i244
 
 if.then16.i.i244:                                 ; preds = %if.end.i.i241
-  tail call void @free(ptr noundef nonnull %13) #44
+  tail call void @free(ptr noundef nonnull %13) #40
   store ptr null, ptr %raw_coeff.i.i242, align 8
   %coeff.i.i245 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i236, i32 15
   store ptr null, ptr %coeff.i.i245, align 8
@@ -17537,7 +17537,7 @@ if.end28.i.i246:                                  ; preds = %if.then16.i.i244, %
   br i1 %tobool32.not.i.i248, label %for.inc.i.i250, label %if.then33.i.i249
 
 if.then33.i.i249:                                 ; preds = %if.end28.i.i246
-  tail call void @free(ptr noundef nonnull %14) #44
+  tail call void @free(ptr noundef nonnull %14) #40
   store ptr null, ptr %linebuf.i.i247, align 8
   br label %for.inc.i.i250
 
@@ -17561,7 +17561,7 @@ for.body:                                         ; preds = %if.end32, %for.inc
   %arrayidx = getelementptr inbounds [4 x %struct.stbi__resample], ptr %res_comp, i64 0, i64 %indvars.iv
   %add = add i32 %15, 3
   %conv = zext i32 %add to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %linebuf = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv, i32 14
   store ptr %call.i, ptr %linebuf, align 8
   %tobool42.not = icmp eq ptr %call.i, null
@@ -17584,7 +17584,7 @@ for.body.i.i258:                                  ; preds = %for.inc.i.i273, %fo
   br i1 %tobool.not.i.i261, label %if.end.i.i264, label %if.then.i.i262
 
 if.then.i.i262:                                   ; preds = %for.body.i.i258
-  tail call void @free(ptr noundef nonnull %17) #44
+  tail call void @free(ptr noundef nonnull %17) #40
   %data.i.i263 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i259, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i263, i8 0, i64 16, i1 false)
   br label %if.end.i.i264
@@ -17596,7 +17596,7 @@ if.end.i.i264:                                    ; preds = %if.then.i.i262, %fo
   br i1 %tobool15.not.i.i266, label %if.end28.i.i269, label %if.then16.i.i267
 
 if.then16.i.i267:                                 ; preds = %if.end.i.i264
-  tail call void @free(ptr noundef nonnull %18) #44
+  tail call void @free(ptr noundef nonnull %18) #40
   store ptr null, ptr %raw_coeff.i.i265, align 8
   %coeff.i.i268 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i259, i32 15
   store ptr null, ptr %coeff.i.i268, align 8
@@ -17609,7 +17609,7 @@ if.end28.i.i269:                                  ; preds = %if.then16.i.i267, %
   br i1 %tobool32.not.i.i271, label %for.inc.i.i273, label %if.then33.i.i272
 
 if.then33.i.i272:                                 ; preds = %if.end28.i.i269
-  tail call void @free(ptr noundef nonnull %19) #44
+  tail call void @free(ptr noundef nonnull %19) #40
   store ptr null, ptr %linebuf.i.i270, align 8
   br label %for.inc.i.i273
 
@@ -17724,7 +17724,7 @@ stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mad3sizes_valid.exit.i
   %add2.i = add nsw i32 %mul4.i.i, 1
   %conv.i = sext i32 %add2.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %tobool113.not = icmp eq ptr %call.i.i, null
   br i1 %tobool113.not, label %if.then114, label %for.cond119.preheader
 
@@ -17760,7 +17760,7 @@ for.body.i.i281:                                  ; preds = %for.inc.i.i296, %fo
   br i1 %tobool.not.i.i284, label %if.end.i.i287, label %if.then.i.i285
 
 if.then.i.i285:                                   ; preds = %for.body.i.i281
-  tail call void @free(ptr noundef nonnull %32) #44
+  tail call void @free(ptr noundef nonnull %32) #40
   %data.i.i286 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i282, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i286, i8 0, i64 16, i1 false)
   br label %if.end.i.i287
@@ -17772,7 +17772,7 @@ if.end.i.i287:                                    ; preds = %if.then.i.i285, %fo
   br i1 %tobool15.not.i.i289, label %if.end28.i.i292, label %if.then16.i.i290
 
 if.then16.i.i290:                                 ; preds = %if.end.i.i287
-  tail call void @free(ptr noundef nonnull %33) #44
+  tail call void @free(ptr noundef nonnull %33) #40
   store ptr null, ptr %raw_coeff.i.i288, align 8
   %coeff.i.i291 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i282, i32 15
   store ptr null, ptr %coeff.i.i291, align 8
@@ -17785,7 +17785,7 @@ if.end28.i.i292:                                  ; preds = %if.then16.i.i290, %
   br i1 %tobool32.not.i.i294, label %for.inc.i.i296, label %if.then33.i.i295
 
 if.then33.i.i295:                                 ; preds = %if.end28.i.i292
-  tail call void @free(ptr noundef nonnull %34) #44
+  tail call void @free(ptr noundef nonnull %34) #40
   store ptr null, ptr %linebuf.i.i293, align 8
   br label %for.inc.i.i296
 
@@ -17831,7 +17831,7 @@ for.body131:                                      ; preds = %for.body131.prehead
   %42 = load i32, ptr %w_lores159, align 16
   %hs160 = getelementptr inbounds [4 x %struct.stbi__resample], ptr %res_comp, i64 0, i64 %indvars.iv479, i32 3
   %43 = load i32, ptr %hs160, align 8
-  %call161 = tail call ptr %40(ptr noundef %41, ptr noundef %cond151, ptr noundef %cond158, i32 noundef %42, i32 noundef %43) #44
+  %call161 = tail call ptr %40(ptr noundef %41, ptr noundef %cond151, ptr noundef %cond158, i32 noundef %42, i32 noundef %43) #40
   %arrayidx163 = getelementptr inbounds [4 x ptr], ptr %coutput, i64 0, i64 %indvars.iv479
   store ptr %call161, ptr %arrayidx163, align 8
   %inc165 = add nsw i32 %38, 1
@@ -17989,7 +17989,7 @@ if.then277:                                       ; preds = %if.then238
   %72 = load ptr, ptr %arrayidx424, align 8
   %73 = load ptr, ptr %arrayidx428, align 16
   %74 = load i32, ptr %49, align 8
-  tail call void %71(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %cond11) #44
+  tail call void %71(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %cond11) #40
   %75 = load ptr, ptr %z, align 8
   %76 = load i32, ptr %75, align 8
   %cmp286452.not = icmp eq i32 %76, 0
@@ -18298,7 +18298,7 @@ for.inc514.sink.split:                            ; preds = %if.then238, %if.the
   %138 = load ptr, ptr %arrayidx424, align 8
   %139 = load ptr, ptr %arrayidx428, align 16
   %140 = load i32, ptr %49, align 8
-  tail call void %137(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %cond11) #44
+  tail call void %137(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %cond11) #40
   br label %for.inc514
 
 for.inc514:                                       ; preds = %for.body458, %for.body414, %for.body501, %for.body487, %for.body378, %for.body355, %for.body288, %for.body248, %for.body209, %for.body330, %for.inc514.sink.split, %for.cond496.preheader, %for.cond482.preheader, %for.cond453.preheader, %for.cond409.preheader, %for.cond373.preheader, %for.cond350.preheader, %if.then277, %for.cond243.preheader, %for.cond204.preheader, %for.cond325.preheader
@@ -18328,7 +18328,7 @@ for.body.i.i396:                                  ; preds = %for.inc.i.i411, %fo
   br i1 %tobool.not.i.i399, label %if.end.i.i402, label %if.then.i.i400
 
 if.then.i.i400:                                   ; preds = %for.body.i.i396
-  tail call void @free(ptr noundef nonnull %144) #44
+  tail call void @free(ptr noundef nonnull %144) #40
   %data.i.i401 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i397, i32 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i401, i8 0, i64 16, i1 false)
   br label %if.end.i.i402
@@ -18340,7 +18340,7 @@ if.end.i.i402:                                    ; preds = %if.then.i.i400, %fo
   br i1 %tobool15.not.i.i404, label %if.end28.i.i407, label %if.then16.i.i405
 
 if.then16.i.i405:                                 ; preds = %if.end.i.i402
-  tail call void @free(ptr noundef nonnull %145) #44
+  tail call void @free(ptr noundef nonnull %145) #40
   store ptr null, ptr %raw_coeff.i.i403, align 8
   %coeff.i.i406 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv.i.i397, i32 15
   store ptr null, ptr %coeff.i.i406, align 8
@@ -18353,7 +18353,7 @@ if.end28.i.i407:                                  ; preds = %if.then16.i.i405, %
   br i1 %tobool32.not.i.i409, label %for.inc.i.i411, label %if.then33.i.i410
 
 if.then33.i.i410:                                 ; preds = %if.end28.i.i407
-  tail call void @free(ptr noundef nonnull %146) #44
+  tail call void @free(ptr noundef nonnull %146) #40
   store ptr null, ptr %linebuf.i.i408, align 8
   br label %for.inc.i.i411
 
@@ -18392,7 +18392,7 @@ return:                                           ; preds = %for.inc.i.i250, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_info_raw(ptr nocapture noundef %j, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_info_raw(ptr nocapture noundef %j, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__decode_jpeg_header(ptr noundef %j, i32 noundef 2), !range !6
   %tobool.not = icmp eq i32 %call, 0
@@ -18446,7 +18446,7 @@ return:                                           ; preds = %if.end8, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__jpeg_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %calloc = tail call dereferenceable_or_null(18568) ptr @calloc(i64 1, i64 18568)
   %tobool.not = icmp eq ptr %calloc, null
@@ -18507,7 +18507,7 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 stbi__jpeg_info_raw.exit:                         ; preds = %if.then.i, %if.end8.i, %if.then10.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ 1, %if.then10.i ], [ 1, %if.end8.i ]
-  tail call void @free(ptr noundef nonnull %calloc) #44
+  tail call void @free(ptr noundef nonnull %calloc) #40
   br label %return
 
 return:                                           ; preds = %stbi__jpeg_info_raw.exit, %if.then
@@ -18515,8 +18515,8 @@ return:                                           ; preds = %stbi__jpeg_info_raw
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__bitreverse16(i32 noundef %n) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef i32 @stbi__bitreverse16(i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %trunc = trunc i32 %n to i16
   %rev = tail call i16 @llvm.bitreverse.i16(i16 %trunc)
@@ -18524,8 +18524,8 @@ entry:
   ret i32 %or16
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__bit_reverse(i32 noundef %v, i32 noundef %bits) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @stbi__bit_reverse(i32 noundef %v, i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   %trunc.i = trunc i32 %v to i16
   %rev.i = tail call i16 @llvm.bitreverse.i16(i16 %trunc.i)
@@ -18535,8 +18535,8 @@ entry:
   ret i32 %shr
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__zbuild_huffman(ptr nocapture noundef %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) local_unnamed_addr #20 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) local_unnamed_addr #20 {
 entry:
   %next_code = alloca [16 x i32], align 16
   %sizes = alloca [17 x i32], align 16
@@ -18700,7 +18700,7 @@ return:                                           ; preds = %for.inc97, %return.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbi__zeof(ptr nocapture noundef readonly %z) local_unnamed_addr #27 {
+define i32 @stbi__zeof(ptr nocapture noundef readonly %z) local_unnamed_addr #25 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %zbuffer_end = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 1
@@ -18711,7 +18711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i8 @stbi__zget8(ptr nocapture noundef %z) local_unnamed_addr #28 {
+define zeroext i8 @stbi__zget8(ptr nocapture noundef %z) local_unnamed_addr #26 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %zbuffer_end.i = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 1
@@ -18731,7 +18731,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__fill_bits(ptr nocapture noundef %z) local_unnamed_addr #29 {
+define void @stbi__fill_bits(ptr nocapture noundef %z) local_unnamed_addr #27 {
 entry:
   %code_buffer = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 4
   %num_bits = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 2
@@ -18780,7 +18780,7 @@ do.end:                                           ; preds = %stbi__zget8.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__zreceive(ptr nocapture noundef %z, i32 noundef %n) local_unnamed_addr #29 {
+define i32 @stbi__zreceive(ptr nocapture noundef %z, i32 noundef %n) local_unnamed_addr #27 {
 entry:
   %num_bits = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 2
   %0 = load i32, ptr %num_bits, align 8
@@ -18842,8 +18842,8 @@ if.end:                                           ; preds = %stbi__zget8.exit.i,
   ret i32 %and
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @stbi__zhuffman_decode_slowpath(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @stbi__zhuffman_decode_slowpath(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #21 {
 entry:
   %code_buffer = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 4
   %0 = load i32, ptr %code_buffer, align 8
@@ -18904,8 +18904,8 @@ return:                                           ; preds = %if.end13, %if.end3,
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__zhuffman_decode(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #31 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define i32 @stbi__zhuffman_decode(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #27 {
 entry:
   %num_bits = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 2
   %0 = load i32, ptr %num_bits, align 8
@@ -19048,7 +19048,7 @@ return:                                           ; preds = %if.end20.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__zexpand(ptr nocapture noundef %z, ptr noundef %zout, i32 noundef %n) local_unnamed_addr #2 {
+define noundef i32 @stbi__zexpand(ptr nocapture noundef %z, ptr noundef %zout, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %zout1 = getelementptr inbounds %struct.stbi__zbuf, ptr %z, i64 0, i32 5
   store ptr %zout, ptr %zout1, align 8
@@ -19106,7 +19106,7 @@ if.end18:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end18, %while.cond.preheader
   %limit.0.lcssa = phi i32 [ %conv7, %while.cond.preheader ], [ %mul, %if.end18 ]
   %conv20 = zext i32 %limit.0.lcssa to i64
-  %call21 = tail call ptr @realloc(ptr noundef %2, i64 noundef %conv20) #47
+  %call21 = tail call ptr @realloc(ptr noundef %2, i64 noundef %conv20) #43
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %if.then24, label %if.end26
 
@@ -19130,10 +19130,10 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #32
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__parse_huffman_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
+define noundef i32 @stbi__parse_huffman_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
 entry:
   %zout1 = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 5
   %0 = load ptr, ptr %zout1, align 8
@@ -19197,7 +19197,7 @@ if.end18.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end18.i, %while.cond.preheader.i
   %limit.0.lcssa.i = phi i32 [ %conv7.i, %while.cond.preheader.i ], [ %mul.i, %if.end18.i ]
   %conv20.i = zext i32 %limit.0.lcssa.i to i64
-  %call21.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv20.i) #47
+  %call21.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv20.i) #43
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %return.sink.split, label %if.end9
 
@@ -19421,7 +19421,7 @@ if.end18.i117:                                    ; preds = %while.body.i114
 while.end.i103:                                   ; preds = %if.end18.i117, %while.cond.preheader.i97
   %limit.0.lcssa.i104 = phi i32 [ %conv7.i100, %while.cond.preheader.i97 ], [ %mul.i118, %if.end18.i117 ]
   %conv20.i105 = zext i32 %limit.0.lcssa.i104 to i64
-  %call21.i106 = tail call ptr @realloc(ptr noundef %25, i64 noundef %conv20.i105) #47
+  %call21.i106 = tail call ptr @realloc(ptr noundef %25, i64 noundef %conv20.i105) #43
   %cmp22.i107 = icmp eq ptr %call21.i106, null
   br i1 %cmp22.i107, label %return.sink.split, label %if.end72
 
@@ -19485,8 +19485,8 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__compute_huffman_codes(ptr nocapture noundef %a) local_unnamed_addr #18 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @stbi__compute_huffman_codes(ptr nocapture noundef %a) local_unnamed_addr #18 {
 entry:
   %z_codelength = alloca %struct.stbi__zhuffman, align 4
   %lencodes = alloca [455 x i8], align 16
@@ -19966,7 +19966,7 @@ return:                                           ; preds = %if.end77, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__parse_uncompressed_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
+define noundef i32 @stbi__parse_uncompressed_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
 entry:
   %header = alloca [4 x i8], align 1
   %num_bits = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 2
@@ -20197,7 +20197,7 @@ if.end18.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end18.i, %while.cond.preheader.i
   %limit.0.lcssa.i = phi i32 [ %conv7.i, %while.cond.preheader.i ], [ %mul.i, %if.end18.i ]
   %conv20.i = zext i32 %limit.0.lcssa.i to i64
-  %call21.i = tail call ptr @realloc(ptr noundef %27, i64 noundef %conv20.i) #47
+  %call21.i = tail call ptr @realloc(ptr noundef %27, i64 noundef %conv20.i) #43
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %if.then24.i, label %stbi__zexpand.exit
 
@@ -20233,8 +20233,8 @@ return:                                           ; preds = %if.then.i29, %if.th
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__parse_zlib_header(ptr nocapture noundef %a) local_unnamed_addr #33 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @stbi__parse_zlib_header(ptr nocapture noundef %a) local_unnamed_addr #29 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %zbuffer_end.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 1
@@ -20298,7 +20298,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__parse_zlib(ptr nocapture noundef %a, i32 noundef %parse_header) local_unnamed_addr #2 {
+define noundef i32 @stbi__parse_zlib(ptr nocapture noundef %a, i32 noundef %parse_header) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %parse_header, 0
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -20367,9 +20367,9 @@ if.end3:                                          ; preds = %if.end13.i, %entry
   store i32 0, ptr %code_buffer, align 8
   %hit_zeof_once = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 3
   store i32 0, ptr %hit_zeof_once, align 4
+  %zbuffer_end.i.i.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 1
   %z_length = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 9
   %z_distance = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 10
-  %zbuffer_end.i.i.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 1
   br label %do.body
 
 do.bodythread-pre-split:                          ; preds = %do.cond
@@ -20478,10 +20478,11 @@ stbi__zreceive.exit43:                            ; preds = %stbi__zget8.exit.i.
   store i32 %shr.i22, ptr %code_buffer, align 8
   %sub3.i23 = add nsw i32 %20, -2
   store i32 %sub3.i23, ptr %num_bits, align 8
-  switch i32 %and.i21, label %if.else24 [
+  switch i32 %and.i21, label %stbi__zreceive.exit43.unreachabledefault [
     i32 0, label %if.then6
     i32 3, label %return
     i32 1, label %if.then15
+    i32 2, label %if.else24
   ]
 
 if.then6:                                         ; preds = %stbi__zreceive.exit43
@@ -20499,6 +20500,9 @@ if.end19:                                         ; preds = %if.then15
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end29
 
+stbi__zreceive.exit43.unreachabledefault:         ; preds = %stbi__zreceive.exit43
+  unreachable
+
 if.else24:                                        ; preds = %stbi__zreceive.exit43
   %call25 = tail call i32 @stbi__compute_huffman_codes(ptr noundef nonnull %a), !range !6
   %tobool26.not = icmp eq i32 %call25, 0
@@ -20513,13 +20517,13 @@ do.cond:                                          ; preds = %if.then6, %if.end29
   %tobool36.not = icmp eq i32 %and.i1459, 0
   br i1 %tobool36.not, label %do.bodythread-pre-split, label %return, !llvm.loop !179
 
-return:                                           ; preds = %do.cond, %if.end29, %if.else24, %if.end19, %if.then15, %stbi__zreceive.exit43, %if.then6, %stbi__parse_zlib_header.exit.thread
+return:                                           ; preds = %stbi__zreceive.exit43, %do.cond, %if.end29, %if.else24, %if.end19, %if.then15, %if.then6, %stbi__parse_zlib_header.exit.thread
   %retval.0 = phi i32 [ 0, %stbi__parse_zlib_header.exit.thread ], [ 1, %do.cond ], [ 0, %if.end29 ], [ 0, %if.else24 ], [ 0, %if.end19 ], [ 0, %if.then15 ], [ 0, %stbi__zreceive.exit43 ], [ 0, %if.then6 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__do_zlib(ptr nocapture noundef %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef %exp, i32 noundef %parse_header) local_unnamed_addr #2 {
+define noundef i32 @stbi__do_zlib(ptr nocapture noundef %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef %exp, i32 noundef %parse_header) local_unnamed_addr #2 {
 entry:
   %zout_start = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 6
   store ptr %obuf, ptr %zout_start, align 8
@@ -20540,7 +20544,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %buffer, i32 noundef %
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20559,7 +20563,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i5 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1), !range !6
+  %call.i5 = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1), !range !6
   %tobool.not = icmp eq i32 %call.i5, 0
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -20579,7 +20583,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #44
+  tail call void @free(ptr noundef %1) #40
   br label %return
 
 return:                                           ; preds = %if.then3, %if.then5, %entry, %if.else
@@ -20592,7 +20596,7 @@ define ptr @stbi_zlib_decode_malloc(ptr noundef %buffer, i32 noundef %len, ptr n
 entry:
   %a.i = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %a.i)
-  %call.i.i = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #45
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #41
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %stbi_zlib_decode_malloc_guesssize.exit, label %if.end.i
 
@@ -20611,7 +20615,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %add.ptr.i.i, ptr %zout_end.i.i, align 8
   %z_expandable.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a.i, i64 0, i32 8
   store i32 1, ptr %z_expandable.i.i, align 8
-  %call.i5.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a.i, i32 noundef 1), !range !6
+  %call.i5.i = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a.i, i32 noundef 1), !range !6
   %tobool.not.i = icmp eq i32 %call.i5.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then3.i
 
@@ -20631,7 +20635,7 @@ if.then5.i:                                       ; preds = %if.then3.i
 
 if.else.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %zout_start.i.i, align 8
-  tail call void @free(ptr noundef %1) #44
+  tail call void @free(ptr noundef %1) #40
   br label %stbi_zlib_decode_malloc_guesssize.exit
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %entry, %if.then3.i, %if.then5.i, %if.else.i
@@ -20645,7 +20649,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %buffer, i3
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20664,7 +20668,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i5 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef %parse_header), !range !6
+  %call.i5 = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef %parse_header), !range !6
   %tobool.not = icmp eq i32 %call.i5, 0
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -20684,7 +20688,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #44
+  tail call void @free(ptr noundef %1) #40
   br label %return
 
 return:                                           ; preds = %if.then3, %if.then5, %entry, %if.else
@@ -20711,7 +20715,7 @@ entry:
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
   store i32 0, ptr %z_expandable.i, align 8
-  %call.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1), !range !6
+  %call.i = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1), !range !6
   %tobool.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %zout.i, align 8
   %1 = load ptr, ptr %zout_start.i, align 8
@@ -20727,7 +20731,7 @@ entry:
 define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly %outlen) local_unnamed_addr #2 {
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
-  %call.i = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #45
+  %call.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #41
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20746,7 +20750,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i4 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0), !range !6
+  %call.i4 = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0), !range !6
   %tobool.not = icmp eq i32 %call.i4, 0
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -20766,7 +20770,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #44
+  tail call void @free(ptr noundef %1) #40
   br label %return
 
 return:                                           ; preds = %if.then2, %if.then4, %entry, %if.else
@@ -20793,7 +20797,7 @@ entry:
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
   store i32 0, ptr %z_expandable.i, align 8
-  %call.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0), !range !6
+  %call.i = call noundef i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0), !range !6
   %tobool.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %zout.i, align 8
   %1 = load ptr, ptr %zout_start.i, align 8
@@ -20824,7 +20828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__check_png_header(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__check_png_header(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %img_buffer_end.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 11
@@ -20867,7 +20871,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -20917,8 +20921,8 @@ return:                                           ; preds = %for.cond, %if.then
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__paeth(i32 noundef %a, i32 noundef %b, i32 noundef %c) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @stbi__paeth(i32 noundef %a, i32 noundef %b, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %mul = mul nsw i32 %c, 3
   %0 = add i32 %b, %a
@@ -21053,7 +21057,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul4, %mul.i.i
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %out = getelementptr inbounds %struct.stbi__png, ptr %a, i64 0, i32 3
   store ptr %call.i.i, ptr %out, align 8
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -21141,7 +21145,7 @@ if.then23:                                        ; preds = %if.end19
 if.end25:                                         ; preds = %if.end19
   %mul.i.i217 = shl nuw nsw i32 %shr, 1
   %conv.i218 = zext nneg i32 %mul.i.i217 to i64
-  %call.i.i219 = tail call noalias ptr @malloc(i64 noundef %conv.i218) #45
+  %call.i.i219 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i218) #41
   %tobool27.not = icmp eq ptr %call.i.i219, null
   br i1 %tobool27.not, label %if.then28, label %if.end30
 
@@ -21724,7 +21728,7 @@ for.inc393:                                       ; preds = %for.body357, %for.b
 
 for.end395:                                       ; preds = %for.inc393, %if.end30, %if.then47
   %cmp34281 = phi i1 [ %cmp34326.lcssa, %if.then47 ], [ true, %if.end30 ], [ true, %for.inc393 ]
-  tail call void @free(ptr noundef %call.i.i219) #44
+  tail call void @free(ptr noundef %call.i.i219) #40
   %. = zext i1 %cmp34281 to i32
   br label %return
 
@@ -21782,7 +21786,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %mul
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %tobool7.not = icmp eq ptr %call.i.i, null
   br i1 %tobool7.not, label %if.then8, label %for.cond.preheader
 
@@ -21886,12 +21890,12 @@ for.cond47.for.inc74_crit_edge.us:                ; preds = %for.body49.us
   br i1 %cmp45.us, label %for.cond47.preheader.us, label %for.end76, !llvm.loop !197
 
 if.then42:                                        ; preds = %if.then33
-  tail call void @free(ptr noundef %call.i.i) #44
+  tail call void @free(ptr noundef %call.i.i) #40
   br label %return
 
 for.end76:                                        ; preds = %for.cond47.for.inc74_crit_edge.us, %for.cond44.preheader
   %32 = load ptr, ptr %out, align 8
-  tail call void @free(ptr noundef %32) #44
+  tail call void @free(ptr noundef %32) #40
   %idx.ext78 = zext i32 %mul39 to i64
   %add.ptr79 = getelementptr inbounds i8, ptr %image_data.addr.064, i64 %idx.ext78
   %sub80 = sub i32 %image_data_len.addr.063, %mul39
@@ -21914,7 +21918,7 @@ return:                                           ; preds = %for.end84, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__compute_transparency(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #22 {
+define noundef i32 @stbi__compute_transparency(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #18 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %1 = load i32, ptr %0, align 8
@@ -21990,7 +21994,7 @@ if.end38:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbi__compute_transparency16(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #22 {
+define noundef i32 @stbi__compute_transparency16(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #18 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %1 = load i32, ptr %0, align 8
@@ -22066,7 +22070,7 @@ if.end38:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__expand_png_palette(ptr nocapture noundef %a, ptr nocapture noundef readonly %palette, i32 %len, i32 noundef %pal_img_n) local_unnamed_addr #2 {
+define noundef i32 @stbi__expand_png_palette(ptr nocapture noundef %a, ptr nocapture noundef readonly %palette, i32 %len, i32 noundef %pal_img_n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8
@@ -22091,7 +22095,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %if.end.i.i.i
 stbi__malloc_mad2.exit:                           ; preds = %if.end.i.i.i, %stbi__mul2sizes_valid.exit.i.i
   %mul.i.i = mul nsw i32 %mul, %pal_img_n
   %conv.i = sext i32 %mul.i.i to i64
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #45
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #41
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22163,7 +22167,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   br i1 %exitcond.not, label %if.end45, label %for.body20, !llvm.loop !204
 
 if.end45:                                         ; preds = %for.body20, %for.body, %for.cond17.preheader, %for.cond.preheader
-  tail call void @free(ptr noundef %3) #44
+  tail call void @free(ptr noundef %3) #40
   store ptr %call.i.i, ptr %out, align 8
   br label %return
 
@@ -22186,7 +22190,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define void @stbi_set_unpremultiply_on_load_thread(i32 noundef %flag_true_if_should_unpremultiply) local_unnamed_addr #10 {
 entry:
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__unpremultiply_on_load_local)
@@ -22196,7 +22200,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define void @stbi_convert_iphone_png_to_rgb_thread(i32 noundef %flag_true_if_should_convert) local_unnamed_addr #10 {
 entry:
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__de_iphone_flag_local)
@@ -22206,7 +22210,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbi__de_iphone(ptr nocapture noundef readonly %z) local_unnamed_addr #18 {
 entry:
   %0 = load ptr, ptr %z, align 8
@@ -22334,7 +22338,7 @@ if.end66:                                         ; preds = %if.end, %for.body55
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__parse_png_file(ptr nocapture noundef %z, i32 noundef %scan, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__parse_png_file(ptr nocapture noundef %z, i32 noundef %scan, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %palette = alloca [1024 x i8], align 16
   %tc = alloca [3 x i8], align 1
@@ -22387,7 +22391,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %5 = load ptr, ptr %io.i.i.i, align 8
   %6 = load ptr, ptr %io_user_data.i.i.i, align 8
   %7 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %7) #44
+  %call.i.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %7) #40
   %8 = load ptr, ptr %img_buffer.i.i, align 8
   %9 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
@@ -22508,7 +22512,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %20 = load ptr, ptr %skip.i, align 8
   %21 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i = sub nsw i32 %add.i.i, %conv.i
-  tail call void %20(ptr noundef %21, i32 noundef %sub.i) #44
+  tail call void %20(ptr noundef %21, i32 noundef %sub.i) #40
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -22590,7 +22594,7 @@ if.then2.i191:                                    ; preds = %if.end.i189
   %32 = load ptr, ptr %io.i.i.i, align 8
   %33 = load ptr, ptr %io_user_data.i.i.i, align 8
   %34 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i192 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %34) #44
+  %call.i.i192 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %34) #40
   %35 = load ptr, ptr %img_buffer.i.i, align 8
   %36 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %35 to i64
@@ -22659,7 +22663,7 @@ if.then2.i205:                                    ; preds = %if.end.i202
   %44 = load ptr, ptr %io.i.i.i, align 8
   %45 = load ptr, ptr %io_user_data.i.i.i, align 8
   %46 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i210 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %46) #44
+  %call.i.i210 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %46) #40
   %47 = load ptr, ptr %img_buffer.i.i, align 8
   %48 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i212 = ptrtoint ptr %47 to i64
@@ -22751,7 +22755,7 @@ if.then2.i238:                                    ; preds = %if.end.i235
   %61 = load ptr, ptr %io.i.i.i, align 8
   %62 = load ptr, ptr %io_user_data.i.i.i, align 8
   %63 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i243 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %63) #44
+  %call.i.i243 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %63) #40
   %64 = load ptr, ptr %img_buffer.i.i, align 8
   %65 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i245 = ptrtoint ptr %64 to i64
@@ -22815,7 +22819,7 @@ if.then2.i271:                                    ; preds = %if.end.i268
   %75 = load ptr, ptr %io.i.i.i, align 8
   %76 = load ptr, ptr %io_user_data.i.i.i, align 8
   %77 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i276 = tail call i32 %75(ptr noundef %76, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %77) #44
+  %call.i.i276 = tail call i32 %75(ptr noundef %76, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %77) #40
   %78 = load ptr, ptr %img_buffer.i.i, align 8
   %79 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i278 = ptrtoint ptr %78 to i64
@@ -22879,7 +22883,7 @@ if.then2.i304:                                    ; preds = %if.end.i301
   %89 = load ptr, ptr %io.i.i.i, align 8
   %90 = load ptr, ptr %io_user_data.i.i.i, align 8
   %91 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i309 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %91) #44
+  %call.i.i309 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %91) #40
   %92 = load ptr, ptr %img_buffer.i.i, align 8
   %93 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i311 = ptrtoint ptr %92 to i64
@@ -23034,7 +23038,7 @@ if.then2.i337:                                    ; preds = %if.end.i334
   %109 = load ptr, ptr %io.i.i.i, align 8
   %110 = load ptr, ptr %io_user_data.i.i.i, align 8
   %111 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i342 = tail call i32 %109(ptr noundef %110, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %111) #44
+  %call.i.i342 = tail call i32 %109(ptr noundef %110, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %111) #40
   %112 = load ptr, ptr %img_buffer.i.i, align 8
   %113 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i344 = ptrtoint ptr %112 to i64
@@ -23090,7 +23094,7 @@ if.then2.i370:                                    ; preds = %if.end.i367
   %121 = load ptr, ptr %io.i.i.i, align 8
   %122 = load ptr, ptr %io_user_data.i.i.i, align 8
   %123 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i375 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %123) #44
+  %call.i.i375 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %123) #40
   %124 = load ptr, ptr %img_buffer.i.i, align 8
   %125 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i377 = ptrtoint ptr %124 to i64
@@ -23146,7 +23150,7 @@ if.then2.i403:                                    ; preds = %if.end.i400
   %133 = load ptr, ptr %io.i.i.i, align 8
   %134 = load ptr, ptr %io_user_data.i.i.i, align 8
   %135 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i408 = tail call i32 %133(ptr noundef %134, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %135) #44
+  %call.i.i408 = tail call i32 %133(ptr noundef %134, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %135) #40
   %136 = load ptr, ptr %img_buffer.i.i, align 8
   %137 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i410 = ptrtoint ptr %136 to i64
@@ -23271,7 +23275,7 @@ if.then2.i436:                                    ; preds = %if.end.i433
   %153 = load ptr, ptr %io.i.i.i, align 8
   %154 = load ptr, ptr %io_user_data.i.i.i, align 8
   %155 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i441 = tail call i32 %153(ptr noundef %154, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %155) #44
+  %call.i.i441 = tail call i32 %153(ptr noundef %154, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %155) #40
   %156 = load ptr, ptr %img_buffer.i.i, align 8
   %157 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i443 = ptrtoint ptr %156 to i64
@@ -23453,7 +23457,7 @@ while.cond:                                       ; preds = %while.cond, %if.the
 while.end:                                        ; preds = %while.cond
   %176 = load ptr, ptr %idata, align 8
   %conv320 = zext i32 %idata_limit.2 to i64
-  %call321 = tail call ptr @realloc(ptr noundef %176, i64 noundef %conv320) #47
+  %call321 = tail call ptr @realloc(ptr noundef %176, i64 noundef %conv320) #43
   %cmp322 = icmp eq ptr %call321, null
   br i1 %cmp322, label %if.then324, label %if.end326
 
@@ -23513,7 +23517,7 @@ stbi__getn.exit:                                  ; preds = %if.then.i465
   %186 = load ptr, ptr %io_user_data.i.i.i, align 8
   %add.ptr.i476 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv4.i
   %sub.i477 = sub nsw i32 %add.i.i, %conv.i471
-  %call.i478 = tail call i32 %185(ptr noundef %186, ptr noundef %add.ptr.i476, i32 noundef %sub.i477) #44
+  %call.i478 = tail call i32 %185(ptr noundef %186, ptr noundef %add.ptr.i476, i32 noundef %sub.i477) #40
   %cmp8.i.not = icmp eq i32 %call.i478, %sub.i477
   %187 = load ptr, ptr %img_buffer_end.i.i, align 8
   store ptr %187, ptr %img_buffer.i.i, align 8
@@ -23568,7 +23572,7 @@ if.end352:                                        ; preds = %if.end346
 
 if.end372:                                        ; preds = %if.end352
   %196 = load ptr, ptr %idata, align 8
-  call void @free(ptr noundef %196) #44
+  call void @free(ptr noundef %196) #40
   store ptr null, ptr %idata, align 8
   %197 = load i32, ptr %img_n208, align 8
   %add376 = add nsw i32 %197, 1
@@ -23659,7 +23663,7 @@ if.then453:                                       ; preds = %if.else451
 
 if.end457:                                        ; preds = %if.else451, %if.then453, %if.then435
   %211 = load ptr, ptr %expanded, align 8
-  call void @free(ptr noundef %211) #44
+  call void @free(ptr noundef %211) #40
   store ptr null, ptr %expanded, align 8
   %call460 = call i32 @stbi__get32be(ptr noundef nonnull %0)
   br label %return
@@ -23720,7 +23724,7 @@ if.then9.i498:                                    ; preds = %if.then4.i486
   %219 = load ptr, ptr %skip.i, align 8
   %220 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i501 = sub nsw i32 %add.i.i, %conv.i492
-  tail call void %219(ptr noundef %220, i32 noundef %sub.i501) #44
+  tail call void %219(ptr noundef %220, i32 noundef %sub.i501) #40
   br label %sw.epilog
 
 if.end14.i494:                                    ; preds = %if.then4.i486, %if.end3.if.end14_crit_edge.i502
@@ -23847,15 +23851,15 @@ if.end52:                                         ; preds = %if.end43, %if.then4
   %result.2 = phi ptr [ %result.1, %if.then49 ], [ %result.1, %if.end43 ], [ null, %if.end ]
   %out53 = getelementptr inbounds %struct.stbi__png, ptr %p, i64 0, i32 3
   %15 = load ptr, ptr %out53, align 8
-  tail call void @free(ptr noundef %15) #44
+  tail call void @free(ptr noundef %15) #40
   store ptr null, ptr %out53, align 8
   %expanded = getelementptr inbounds %struct.stbi__png, ptr %p, i64 0, i32 2
   %16 = load ptr, ptr %expanded, align 8
-  tail call void @free(ptr noundef %16) #44
+  tail call void @free(ptr noundef %16) #40
   store ptr null, ptr %expanded, align 8
   %idata = getelementptr inbounds %struct.stbi__png, ptr %p, i64 0, i32 1
   %17 = load ptr, ptr %idata, align 8
-  tail call void @free(ptr noundef %17) #44
+  tail call void @free(ptr noundef %17) #40
   store ptr null, ptr %idata, align 8
   br label %return
 
@@ -23865,7 +23869,7 @@ return:                                           ; preds = %if.end37, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__png_info_raw(ptr nocapture noundef %p, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__png_info_raw(ptr nocapture noundef %p, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__parse_png_file(ptr noundef %p, i32 noundef 2, i32 noundef 0), !range !6
   %tobool.not = icmp eq i32 %call, 0
@@ -23917,7 +23921,7 @@ return:                                           ; preds = %if.end8, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__png_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__png_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %p = alloca %struct.stbi__png, align 8
   store ptr %s, ptr %p, align 8
@@ -23971,7 +23975,7 @@ stbi__png_info_raw.exit:                          ; preds = %if.then.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__png_is16(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__png_is16(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %p = alloca %struct.stbi__png, align 8
   store ptr %s, ptr %p, align 8
@@ -23997,7 +24001,7 @@ return:                                           ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__bmp_test_raw(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__bmp_test_raw(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -24026,7 +24030,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24092,7 +24096,7 @@ if.then2.i19:                                     ; preds = %if.end.i16
   %buffer_start.i.i22 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i23 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i23, align 4
-  %call.i.i24 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %17) #44
+  %call.i.i24 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i25 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i25, align 8
@@ -24218,8 +24222,8 @@ entry:
   ret i32 %and13
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__shiftsigned(i32 noundef %v, i32 noundef %shift, i32 noundef %bits) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @stbi__shiftsigned(i32 noundef %v, i32 noundef %shift, i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   %shift_table = alloca [9 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %shift_table, i8 0, i64 36, i1 false)
@@ -24248,8 +24252,8 @@ entry:
   ret i32 %shr5
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbi__bmp_set_mask_defaults(ptr nocapture noundef %info, i32 noundef %compress) local_unnamed_addr #34 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i32 @stbi__bmp_set_mask_defaults(ptr nocapture noundef %info, i32 noundef %compress) local_unnamed_addr #7 {
 entry:
   switch i32 %compress, label %if.end18 [
     i32 3, label %return
@@ -24291,7 +24295,7 @@ return:                                           ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__bmp_parse_header(ptr noundef %s, ptr nocapture noundef %info) local_unnamed_addr #2 {
+define noundef ptr @stbi__bmp_parse_header(ptr noundef %s, ptr nocapture noundef %info) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -24320,7 +24324,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24386,7 +24390,7 @@ if.then2.i101:                                    ; preds = %if.end.i98
   %buffer_start.i.i104 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i105 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i105, align 4
-  %call.i.i106 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i104, i32 noundef %17) #44
+  %call.i.i106 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i104, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i107 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i107, align 8
@@ -24689,7 +24693,7 @@ return:                                           ; preds = %if.else11.i, %if.th
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
+define noundef i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %is_rgb16, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -24733,7 +24737,7 @@ return:                                           ; preds = %sw.bb1, %sw.bb5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__tga_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__tga_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -24760,7 +24764,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #44
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #40
   %6 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24824,7 +24828,7 @@ if.then2.i55:                                     ; preds = %if.end.i52
   %buffer_start.i.i58 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i59 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %15 = load i32, ptr %buflen.i.i59, align 4
-  %call.i.i60 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i58, i32 noundef %15) #44
+  %call.i.i60 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i58, i32 noundef %15) #40
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i61 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %17 = load ptr, ptr %img_buffer_original.i.i61, align 8
@@ -24899,7 +24903,7 @@ if.then2.i90:                                     ; preds = %if.end.i87
   %buffer_start.i.i93 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i94 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %29 = load i32, ptr %buflen.i.i94, align 4
-  %call.i.i95 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i93, i32 noundef %29) #44
+  %call.i.i95 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i93, i32 noundef %29) #40
   %30 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i96 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %31 = load ptr, ptr %img_buffer_original.i.i96, align 8
@@ -24973,7 +24977,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %39 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 4, %conv.i
-  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #44
+  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #40
   %.pre = load ptr, ptr %img_buffer.i, align 8
   %.pre308 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__skip.exit
@@ -25008,7 +25012,7 @@ if.then2.i130:                                    ; preds = %if.end.i127
   %buffer_start.i.i133 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i134 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %46 = load i32, ptr %buflen.i.i134, align 4
-  %call.i.i135 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i133, i32 noundef %46) #44
+  %call.i.i135 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i133, i32 noundef %46) #40
   %47 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i136 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %48 = load ptr, ptr %img_buffer_original.i.i136, align 8
@@ -25081,7 +25085,7 @@ if.then9.i175:                                    ; preds = %if.then4.i164
   %io_user_data.i177 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %55 = load ptr, ptr %io_user_data.i177, align 8
   %sub.i178 = sub nsw i32 4, %conv.i170
-  tail call void %54(ptr noundef %55, i32 noundef %sub.i178) #44
+  tail call void %54(ptr noundef %55, i32 noundef %sub.i178) #40
   br label %if.end45
 
 if.end14.i172:                                    ; preds = %if.end31, %if.then4.i164
@@ -25121,7 +25125,7 @@ if.then9.i201:                                    ; preds = %if.then4.i190
   %io_user_data.i203 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %60 = load ptr, ptr %io_user_data.i203, align 8
   %sub.i204 = sub nsw i32 9, %conv.i196
-  tail call void %59(ptr noundef %60, i32 noundef %sub.i204) #44
+  tail call void %59(ptr noundef %60, i32 noundef %sub.i204) #40
   br label %if.end45
 
 if.end14.i198:                                    ; preds = %if.end44, %if.then4.i190
@@ -25178,7 +25182,7 @@ if.then2.i223:                                    ; preds = %if.end.i220
   %buffer_start.i.i226 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i227 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %69 = load i32, ptr %buflen.i.i227, align 4
-  %call.i.i228 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %69) #44
+  %call.i.i228 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %69) #40
   %70 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i229 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %71 = load ptr, ptr %img_buffer_original.i.i229, align 8
@@ -25238,7 +25242,7 @@ if.then2.i256:                                    ; preds = %if.end.i253
   %buffer_start.i.i259 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i260 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %79 = load i32, ptr %buflen.i.i260, align 4
-  %call.i.i261 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %79) #44
+  %call.i.i261 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %79) #40
   %80 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i262 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %81 = load ptr, ptr %img_buffer_original.i.i262, align 8
@@ -25398,7 +25402,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__psd_decode_rle(ptr noundef %s, ptr nocapture noundef writeonly %p, i32 noundef %pixelCount) local_unnamed_addr #2 {
+define noundef i32 @stbi__psd_decode_rle(ptr noundef %s, ptr nocapture noundef writeonly %p, i32 noundef %pixelCount) local_unnamed_addr #2 {
 entry:
   %cmp104 = icmp sgt i32 %pixelCount, 0
   br i1 %cmp104, label %while.body.lr.ph, label %return
@@ -25440,7 +25444,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -25515,7 +25519,7 @@ if.then2.i27:                                     ; preds = %if.end.i24
   %17 = load ptr, ptr %io.i.i, align 8
   %18 = load ptr, ptr %io_user_data.i.i, align 8
   %19 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i32 = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i, i32 noundef %19) #44
+  %call.i.i32 = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i, i32 noundef %19) #40
   %20 = load ptr, ptr %img_buffer.i, align 8
   %21 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %20 to i64
@@ -25578,7 +25582,7 @@ if.then2.i60:                                     ; preds = %if.end.i57
   %26 = load ptr, ptr %io.i.i, align 8
   %27 = load ptr, ptr %io_user_data.i.i, align 8
   %28 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i65 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #44
+  %call.i.i65 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i, align 8
   %30 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i67 = ptrtoint ptr %29 to i64
@@ -25643,7 +25647,7 @@ return:                                           ; preds = %if.then5, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pic_is4(ptr noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #2 {
+define noundef i32 @stbi__pic_is4(ptr noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %img_buffer_end.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 11
@@ -25686,7 +25690,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -25732,7 +25736,7 @@ return:                                           ; preds = %for.cond, %stbi__ge
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pic_test_core(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__pic_test_core(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %img_buffer_end.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 11
@@ -25775,7 +25779,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #44
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -25835,7 +25839,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %io.i.i.i, align 8
   %18 = load ptr, ptr %io_user_data.i.i.i, align 8
   %19 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %19) #44
+  %call.i.i = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %19) #40
   %20 = load ptr, ptr %img_buffer.i.i, align 8
   %21 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
@@ -25903,7 +25907,7 @@ if.then2.i.i25:                                   ; preds = %if.end.i.i23
   %27 = load ptr, ptr %io.i.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i.i, align 8
   %29 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i26 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %29) #44
+  %call.i.i.i26 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %29) #40
   %30 = load ptr, ptr %img_buffer.i.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i27 = ptrtoint ptr %30 to i64
@@ -25949,7 +25953,7 @@ return:                                           ; preds = %stbi__get8.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__readval(ptr noundef %s, i32 noundef %channel, ptr noundef writeonly %dest) local_unnamed_addr #2 {
+define noundef ptr @stbi__readval(ptr noundef %s, i32 noundef %channel, ptr noundef writeonly %dest) local_unnamed_addr #2 {
 entry:
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
   %eof.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4, i32 2
@@ -25979,7 +25983,7 @@ if.then:                                          ; preds = %for.body
 if.then.i:                                        ; preds = %if.then
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #44
+  %call.i = tail call i32 %1(ptr noundef %2) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.then.i.if.end_crit_edge, label %if.end.i
 
@@ -26025,7 +26029,7 @@ if.then2.i:                                       ; preds = %if.end.i9
   %11 = load ptr, ptr %io.i, align 8
   %12 = load ptr, ptr %io_user_data.i, align 8
   %13 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #44
+  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #40
   %14 = load ptr, ptr %img_buffer.i, align 8
   %15 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
@@ -26103,7 +26107,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__pic_load_core(ptr noundef %s, i32 noundef %width, i32 noundef %height, ptr nocapture noundef writeonly %comp, ptr noundef writeonly %result) local_unnamed_addr #2 {
+define noundef ptr @stbi__pic_load_core(ptr noundef %s, i32 noundef %width, i32 noundef %height, ptr nocapture noundef writeonly %comp, ptr noundef writeonly %result) local_unnamed_addr #2 {
 entry:
   %packets = alloca [10 x %struct.stbi__pic_packet], align 16
   %value = alloca [4 x i8], align 1
@@ -26151,7 +26155,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -26204,7 +26208,7 @@ if.then2.i69:                                     ; preds = %if.end.i66
   %15 = load ptr, ptr %io.i.i, align 8
   %16 = load ptr, ptr %io_user_data.i.i, align 8
   %17 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i74 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i, i32 noundef %17) #44
+  %call.i.i74 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %19 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i76 = ptrtoint ptr %18 to i64
@@ -26258,7 +26262,7 @@ if.then2.i102:                                    ; preds = %if.end.i99
   %27 = load ptr, ptr %io.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i, align 8
   %29 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i107 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #44
+  %call.i.i107 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #40
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %30 to i64
@@ -26313,7 +26317,7 @@ if.then2.i135:                                    ; preds = %if.end.i132
   %38 = load ptr, ptr %io.i.i, align 8
   %39 = load ptr, ptr %io_user_data.i.i, align 8
   %40 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i140 = tail call i32 %38(ptr noundef %39, ptr noundef nonnull %buffer_start.i.i, i32 noundef %40) #44
+  %call.i.i140 = tail call i32 %38(ptr noundef %39, ptr noundef nonnull %buffer_start.i.i, i32 noundef %40) #40
   %41 = load ptr, ptr %img_buffer.i, align 8
   %42 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i142 = ptrtoint ptr %41 to i64
@@ -26359,7 +26363,7 @@ stbi__get8.exit161:                               ; preds = %if.then.i159, %if.e
 if.then.i163:                                     ; preds = %stbi__get8.exit161
   %48 = load ptr, ptr %eof.i, align 8
   %49 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i = tail call i32 %48(ptr noundef %49) #44
+  %call.i = tail call i32 %48(ptr noundef %49) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end15, label %if.end.i164
 
@@ -26464,7 +26468,7 @@ if.then.i173:                                     ; preds = %for.body.i
 if.then.i.i174:                                   ; preds = %if.then.i173
   %57 = load ptr, ptr %eof.i, align 8
   %58 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i175 = tail call i32 %57(ptr noundef %58) #44
+  %call.i.i175 = tail call i32 %57(ptr noundef %58) #40
   %tobool2.not.i.i = icmp eq i32 %call.i.i175, 0
   br i1 %tobool2.not.i.i, label %if.then.i.if.end_crit_edge.i, label %if.end.i.i
 
@@ -26505,7 +26509,7 @@ if.then2.i.i:                                     ; preds = %if.end.i9.i
   %66 = load ptr, ptr %io.i.i, align 8
   %67 = load ptr, ptr %io_user_data.i.i, align 8
   %68 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i, i32 noundef %68) #44
+  %call.i.i.i = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i, i32 noundef %68) #40
   %69 = load ptr, ptr %img_buffer.i, align 8
   %70 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %69 to i64
@@ -26581,7 +26585,7 @@ if.then2.i187:                                    ; preds = %if.end.i184
   %77 = load ptr, ptr %io.i.i, align 8
   %78 = load ptr, ptr %io_user_data.i.i, align 8
   %79 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i192 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i, i32 noundef %79) #44
+  %call.i.i192 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i, i32 noundef %79) #40
   %80 = load ptr, ptr %img_buffer.i, align 8
   %81 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i194 = ptrtoint ptr %80 to i64
@@ -26623,7 +26627,7 @@ stbi__get8.exit213:                               ; preds = %if.then.i211, %if.e
 if.then.i216:                                     ; preds = %stbi__get8.exit213
   %87 = load ptr, ptr %eof.i, align 8
   %88 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i219 = tail call i32 %87(ptr noundef %88) #44
+  %call.i219 = tail call i32 %87(ptr noundef %88) #40
   %tobool2.not.i220 = icmp eq i32 %call.i219, 0
   br i1 %tobool2.not.i220, label %if.end65, label %if.end.i221
 
@@ -26667,7 +26671,7 @@ if.then.i247:                                     ; preds = %for.body.i242
 if.then.i.i249:                                   ; preds = %if.then.i247
   %94 = load ptr, ptr %eof.i, align 8
   %95 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i250 = tail call i32 %94(ptr noundef %95) #44
+  %call.i.i250 = tail call i32 %94(ptr noundef %95) #40
   %tobool2.not.i.i251 = icmp eq i32 %call.i.i250, 0
   br i1 %tobool2.not.i.i251, label %if.then.i.if.end_crit_edge.i286, label %if.end.i.i252
 
@@ -26708,7 +26712,7 @@ if.then2.i.i262:                                  ; preds = %if.end.i9.i260
   %103 = load ptr, ptr %io.i.i, align 8
   %104 = load ptr, ptr %io_user_data.i.i, align 8
   %105 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i263 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i, i32 noundef %105) #44
+  %call.i.i.i263 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i, i32 noundef %105) #40
   %106 = load ptr, ptr %img_buffer.i, align 8
   %107 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i264 = ptrtoint ptr %106 to i64
@@ -26818,7 +26822,7 @@ if.then2.i306:                                    ; preds = %if.end.i303
   %116 = load ptr, ptr %io.i.i, align 8
   %117 = load ptr, ptr %io_user_data.i.i, align 8
   %118 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i311 = tail call i32 %116(ptr noundef %117, ptr noundef nonnull %buffer_start.i.i, i32 noundef %118) #44
+  %call.i.i311 = tail call i32 %116(ptr noundef %117, ptr noundef nonnull %buffer_start.i.i, i32 noundef %118) #40
   %119 = load ptr, ptr %img_buffer.i, align 8
   %120 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i313 = ptrtoint ptr %119 to i64
@@ -26861,7 +26865,7 @@ stbi__get8.exit332:                               ; preds = %if.then.i330, %if.e
 if.then.i335:                                     ; preds = %stbi__get8.exit332
   %126 = load ptr, ptr %eof.i, align 8
   %127 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i338 = tail call i32 %126(ptr noundef %127) #44
+  %call.i338 = tail call i32 %126(ptr noundef %127) #40
   %tobool2.not.i339 = icmp eq i32 %call.i338, 0
   br i1 %tobool2.not.i339, label %if.end107, label %if.end.i340
 
@@ -26922,7 +26926,7 @@ if.then.i366:                                     ; preds = %for.body.i361
 if.then.i.i368:                                   ; preds = %if.then.i366
   %133 = load ptr, ptr %eof.i, align 8
   %134 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i369 = tail call i32 %133(ptr noundef %134) #44
+  %call.i.i369 = tail call i32 %133(ptr noundef %134) #40
   %tobool2.not.i.i370 = icmp eq i32 %call.i.i369, 0
   br i1 %tobool2.not.i.i370, label %if.then.i.if.end_crit_edge.i405, label %if.end.i.i371
 
@@ -26963,7 +26967,7 @@ if.then2.i.i381:                                  ; preds = %if.end.i9.i379
   %142 = load ptr, ptr %io.i.i, align 8
   %143 = load ptr, ptr %io_user_data.i.i, align 8
   %144 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i382 = tail call i32 %142(ptr noundef %143, ptr noundef nonnull %buffer_start.i.i, i32 noundef %144) #44
+  %call.i.i.i382 = tail call i32 %142(ptr noundef %143, ptr noundef nonnull %buffer_start.i.i, i32 noundef %144) #40
   %145 = load ptr, ptr %img_buffer.i, align 8
   %146 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i383 = ptrtoint ptr %145 to i64
@@ -27070,7 +27074,7 @@ if.then.i438:                                     ; preds = %for.body.i433
 if.then.i.i440:                                   ; preds = %if.then.i438
   %153 = load ptr, ptr %eof.i, align 8
   %154 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i441 = tail call i32 %153(ptr noundef %154) #44
+  %call.i.i441 = tail call i32 %153(ptr noundef %154) #40
   %tobool2.not.i.i442 = icmp eq i32 %call.i.i441, 0
   br i1 %tobool2.not.i.i442, label %if.then.i.if.end_crit_edge.i477, label %if.end.i.i443
 
@@ -27111,7 +27115,7 @@ if.then2.i.i453:                                  ; preds = %if.end.i9.i451
   %162 = load ptr, ptr %io.i.i, align 8
   %163 = load ptr, ptr %io_user_data.i.i, align 8
   %164 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i454 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i, i32 noundef %164) #44
+  %call.i.i.i454 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i, i32 noundef %164) #40
   %165 = load ptr, ptr %img_buffer.i, align 8
   %166 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i455 = ptrtoint ptr %165 to i64
@@ -27193,7 +27197,7 @@ return:                                           ; preds = %for.inc172, %stbi__
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__gif_test_raw(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__gif_test_raw(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -27222,7 +27226,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -27288,7 +27292,7 @@ if.then2.i13:                                     ; preds = %if.end.i10
   %buffer_start.i.i16 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i17 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i17, align 4
-  %call.i.i18 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i16, i32 noundef %17) #44
+  %call.i.i18 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i16, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i19 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i19, align 8
@@ -27354,7 +27358,7 @@ if.then2.i46:                                     ; preds = %if.end.i43
   %buffer_start.i.i49 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i50 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %28 = load i32, ptr %buflen.i.i50, align 4
-  %call.i.i51 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i49, i32 noundef %28) #44
+  %call.i.i51 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i49, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i52 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %30 = load ptr, ptr %img_buffer_original.i.i52, align 8
@@ -27420,7 +27424,7 @@ if.then2.i79:                                     ; preds = %if.end.i76
   %buffer_start.i.i82 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i83 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %39 = load i32, ptr %buflen.i.i83, align 4
-  %call.i.i84 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i82, i32 noundef %39) #44
+  %call.i.i84 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i82, i32 noundef %39) #40
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i85 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %41 = load ptr, ptr %img_buffer_original.i.i85, align 8
@@ -27486,7 +27490,7 @@ if.then2.i112:                                    ; preds = %if.end.i109
   %buffer_start.i.i115 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i116 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %50 = load i32, ptr %buflen.i.i116, align 4
-  %call.i.i117 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i115, i32 noundef %50) #44
+  %call.i.i117 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i115, i32 noundef %50) #40
   %51 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i118 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %52 = load ptr, ptr %img_buffer_original.i.i118, align 8
@@ -27554,7 +27558,7 @@ if.then2.i145:                                    ; preds = %if.end.i142
   %buffer_start.i.i148 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i149 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %61 = load i32, ptr %buflen.i.i149, align 4
-  %call.i.i150 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i148, i32 noundef %61) #44
+  %call.i.i150 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i148, i32 noundef %61) #40
   %62 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i151 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %63 = load ptr, ptr %img_buffer_original.i.i151, align 8
@@ -27644,7 +27648,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr %io.i.i, align 8
   %6 = load ptr, ptr %io_user_data.i.i, align 8
   %7 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i, i32 noundef %7) #44
+  %call.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i, i32 noundef %7) #40
   %8 = load ptr, ptr %img_buffer.i, align 8
   %9 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
@@ -27700,7 +27704,7 @@ if.then2.i18:                                     ; preds = %if.end.i15
   %16 = load ptr, ptr %io.i.i, align 8
   %17 = load ptr, ptr %io_user_data.i.i, align 8
   %18 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i23 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i, i32 noundef %18) #44
+  %call.i.i23 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i, i32 noundef %18) #40
   %19 = load ptr, ptr %img_buffer.i, align 8
   %20 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %19 to i64
@@ -27755,7 +27759,7 @@ if.then2.i51:                                     ; preds = %if.end.i48
   %27 = load ptr, ptr %io.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i, align 8
   %29 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i56 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #44
+  %call.i.i56 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #40
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i58 = ptrtoint ptr %30 to i64
@@ -27802,7 +27806,7 @@ for.end:                                          ; preds = %stbi__get8.exit77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__gif_header(ptr noundef %s, ptr nocapture noundef %g, ptr noundef writeonly %comp, i32 noundef %is_info) local_unnamed_addr #2 {
+define noundef i32 @stbi__gif_header(ptr noundef %s, ptr nocapture noundef %g, ptr noundef writeonly %comp, i32 noundef %is_info) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -27831,7 +27835,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -27897,7 +27901,7 @@ if.then2.i30:                                     ; preds = %if.end.i27
   %buffer_start.i.i33 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i34 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %17 = load i32, ptr %buflen.i.i34, align 4
-  %call.i.i35 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %17) #44
+  %call.i.i35 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %17) #40
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i36 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %19 = load ptr, ptr %img_buffer_original.i.i36, align 8
@@ -27963,7 +27967,7 @@ if.then2.i63:                                     ; preds = %if.end.i60
   %buffer_start.i.i66 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i67 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %28 = load i32, ptr %buflen.i.i67, align 4
-  %call.i.i68 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i66, i32 noundef %28) #44
+  %call.i.i68 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i66, i32 noundef %28) #40
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i69 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %30 = load ptr, ptr %img_buffer_original.i.i69, align 8
@@ -28029,7 +28033,7 @@ if.then2.i96:                                     ; preds = %if.end.i93
   %buffer_start.i.i99 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i100 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %39 = load i32, ptr %buflen.i.i100, align 4
-  %call.i.i101 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i99, i32 noundef %39) #44
+  %call.i.i101 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i99, i32 noundef %39) #40
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i102 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %41 = load ptr, ptr %img_buffer_original.i.i102, align 8
@@ -28100,7 +28104,7 @@ if.then2.i129:                                    ; preds = %if.end.i126
   %buffer_start.i.i132 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i133 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %51 = load i32, ptr %buflen.i.i133, align 4
-  %call.i.i134 = tail call i32 %49(ptr noundef %50, ptr noundef nonnull %buffer_start.i.i132, i32 noundef %51) #44
+  %call.i.i134 = tail call i32 %49(ptr noundef %50, ptr noundef nonnull %buffer_start.i.i132, i32 noundef %51) #40
   %52 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i135 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %53 = load ptr, ptr %img_buffer_original.i.i135, align 8
@@ -28173,7 +28177,7 @@ if.then2.i162:                                    ; preds = %if.end.i159
   %buffer_start.i.i165 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i166 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %63 = load i32, ptr %buflen.i.i166, align 4
-  %call.i.i167 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i165, i32 noundef %63) #44
+  %call.i.i167 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i165, i32 noundef %63) #40
   %64 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i168 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %65 = load ptr, ptr %img_buffer_original.i.i168, align 8
@@ -28251,7 +28255,7 @@ if.then2.i195:                                    ; preds = %if.end.i192
   %buffer_start.i.i198 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i199 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %76 = load i32, ptr %buflen.i.i199, align 4
-  %call.i.i200 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %76) #44
+  %call.i.i200 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %76) #40
   %77 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i201 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %78 = load ptr, ptr %img_buffer_original.i.i201, align 8
@@ -28316,7 +28320,7 @@ if.then2.i228:                                    ; preds = %if.end.i225
   %buffer_start.i.i231 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i232 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %87 = load i32, ptr %buflen.i.i232, align 4
-  %call.i.i233 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i231, i32 noundef %87) #44
+  %call.i.i233 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i231, i32 noundef %87) #40
   %88 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i234 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %89 = load ptr, ptr %img_buffer_original.i.i234, align 8
@@ -28381,7 +28385,7 @@ if.then2.i261:                                    ; preds = %if.end.i258
   %buffer_start.i.i264 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i265 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %98 = load i32, ptr %buflen.i.i265, align 4
-  %call.i.i266 = tail call i32 %96(ptr noundef %97, ptr noundef nonnull %buffer_start.i.i264, i32 noundef %98) #44
+  %call.i.i266 = tail call i32 %96(ptr noundef %97, ptr noundef nonnull %buffer_start.i.i264, i32 noundef %98) #40
   %99 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i267 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %100 = load ptr, ptr %img_buffer_original.i.i267, align 8
@@ -28471,9 +28475,9 @@ return:                                           ; preds = %if.end59, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__gif_info_raw(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__gif_info_raw(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #45
+  %call.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #41
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -28488,7 +28492,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call.i) #44
+  tail call void @free(ptr noundef nonnull %call.i) #40
   %img_buffer_original.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %1 = load <2 x ptr>, ptr %img_buffer_original.i, align 8
@@ -28515,7 +28519,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
-  tail call void @free(ptr noundef nonnull %call.i) #44
+  tail call void @free(ptr noundef nonnull %call.i) #40
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then4, %if.then
@@ -28524,7 +28528,7 @@ return:                                           ; preds = %if.end11, %if.then4
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__out_gif_code(ptr nocapture noundef %g, i16 noundef zeroext %code) local_unnamed_addr #18 {
+define void @stbi__out_gif_code(ptr nocapture noundef %g, i16 noundef zeroext %code) local_unnamed_addr #30 {
 entry:
   %idxprom = zext i16 %code to i64
   %arrayidx = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 12, i64 %idxprom
@@ -28667,7 +28671,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -28786,7 +28790,7 @@ if.then2.i67:                                     ; preds = %if.end.i64
   %13 = load ptr, ptr %io.i.i68, align 8
   %14 = load ptr, ptr %io_user_data.i.i69, align 8
   %15 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i72 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %15) #44
+  %call.i.i72 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %15) #40
   %16 = load ptr, ptr %img_buffer.i, align 8
   %17 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %16 to i64
@@ -28853,7 +28857,7 @@ if.then2.i100:                                    ; preds = %if.end.i97
   %27 = load ptr, ptr %io.i.i68, align 8
   %28 = load ptr, ptr %io_user_data.i.i69, align 8
   %29 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i105 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %29) #44
+  %call.i.i105 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %29) #40
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %30 to i64
@@ -28941,7 +28945,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %38 = load ptr, ptr %skip.i, align 8
   %39 = load ptr, ptr %io_user_data.i.i69, align 8
   %sub.i = sub nsw i32 %len.0, %conv.i
-  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #44
+  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -28976,7 +28980,7 @@ if.then2.i140:                                    ; preds = %if.end.i137
   %45 = load ptr, ptr %io.i.i68, align 8
   %46 = load ptr, ptr %io_user_data.i.i69, align 8
   %47 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i145 = tail call i32 %45(ptr noundef %46, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %47) #44
+  %call.i.i145 = tail call i32 %45(ptr noundef %46, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %47) #40
   %48 = load ptr, ptr %img_buffer.i, align 8
   %49 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i147 = ptrtoint ptr %48 to i64
@@ -29033,7 +29037,7 @@ if.then9.i184:                                    ; preds = %if.then4.i172
   %54 = load ptr, ptr %skip.i185, align 8
   %55 = load ptr, ptr %io_user_data.i.i69, align 8
   %sub.i187 = sub nsw i32 %conv50, %conv.i178
-  tail call void %54(ptr noundef %55, i32 noundef %sub.i187) #44
+  tail call void %54(ptr noundef %55, i32 noundef %sub.i187) #40
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9.i184, %if.end14.i180
@@ -29180,13 +29184,13 @@ if.end7:                                          ; preds = %stbi__mul2sizes_val
   %mul = mul nsw i32 %2, %1
   %mul10 = shl nsw i32 %mul, 2
   %conv = zext nneg i32 %mul10 to i64
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   store ptr %call.i, ptr %out, align 8
-  %call.i141 = tail call noalias ptr @malloc(i64 noundef %conv) #45
+  %call.i141 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #41
   %background = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   store ptr %call.i141, ptr %background, align 8
   %conv16 = zext nneg i32 %mul to i64
-  %call.i142 = tail call noalias ptr @malloc(i64 noundef %conv16) #45
+  %call.i142 = tail call noalias noundef ptr @malloc(i64 noundef %conv16) #41
   %history = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   store ptr %call.i142, ptr %history, align 8
   %tobool19.not = icmp eq ptr %call.i, null
@@ -29349,7 +29353,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %24 = load ptr, ptr %io.i.i, align 8
   %25 = load ptr, ptr %io_user_data.i.i, align 8
   %26 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #44
+  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #40
   %27 = load ptr, ptr %img_buffer.i, align 8
   %28 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
@@ -29453,7 +29457,7 @@ if.then2.i149:                                    ; preds = %if.end.i146
   %39 = load ptr, ptr %io.i.i, align 8
   %40 = load ptr, ptr %io_user_data.i.i, align 8
   %41 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i154 = tail call i32 %39(ptr noundef %40, ptr noundef nonnull %buffer_start.i.i, i32 noundef %41) #44
+  %call.i.i154 = tail call i32 %39(ptr noundef %40, ptr noundef nonnull %buffer_start.i.i, i32 noundef %41) #40
   %42 = load ptr, ptr %img_buffer.i, align 8
   %43 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i156 = ptrtoint ptr %42 to i64
@@ -29611,7 +29615,7 @@ if.then2.i182:                                    ; preds = %if.end.i179
   %60 = load ptr, ptr %io.i.i, align 8
   %61 = load ptr, ptr %io_user_data.i.i, align 8
   %62 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i187 = tail call i32 %60(ptr noundef %61, ptr noundef nonnull %buffer_start.i.i, i32 noundef %62) #44
+  %call.i.i187 = tail call i32 %60(ptr noundef %61, ptr noundef nonnull %buffer_start.i.i, i32 noundef %62) #40
   %63 = load ptr, ptr %img_buffer.i, align 8
   %64 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i189 = ptrtoint ptr %63 to i64
@@ -29674,7 +29678,7 @@ if.then2.i215:                                    ; preds = %if.end.i212
   %71 = load ptr, ptr %io.i.i, align 8
   %72 = load ptr, ptr %io_user_data.i.i, align 8
   %73 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i220 = tail call i32 %71(ptr noundef %72, ptr noundef nonnull %buffer_start.i.i, i32 noundef %73) #44
+  %call.i.i220 = tail call i32 %71(ptr noundef %72, ptr noundef nonnull %buffer_start.i.i, i32 noundef %73) #40
   %74 = load ptr, ptr %img_buffer.i, align 8
   %75 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i222 = ptrtoint ptr %74 to i64
@@ -29731,7 +29735,7 @@ if.then2.i248:                                    ; preds = %if.end.i245
   %82 = load ptr, ptr %io.i.i, align 8
   %83 = load ptr, ptr %io_user_data.i.i, align 8
   %84 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i253 = tail call i32 %82(ptr noundef %83, ptr noundef nonnull %buffer_start.i.i, i32 noundef %84) #44
+  %call.i.i253 = tail call i32 %82(ptr noundef %83, ptr noundef nonnull %buffer_start.i.i, i32 noundef %84) #40
   %85 = load ptr, ptr %img_buffer.i, align 8
   %86 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i255 = ptrtoint ptr %85 to i64
@@ -29806,7 +29810,7 @@ if.then2.i281:                                    ; preds = %if.end.i278
   %95 = load ptr, ptr %io.i.i, align 8
   %96 = load ptr, ptr %io_user_data.i.i, align 8
   %97 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i286 = tail call i32 %95(ptr noundef %96, ptr noundef nonnull %buffer_start.i.i, i32 noundef %97) #44
+  %call.i.i286 = tail call i32 %95(ptr noundef %96, ptr noundef nonnull %buffer_start.i.i, i32 noundef %97) #40
   %98 = load ptr, ptr %img_buffer.i, align 8
   %99 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i288 = ptrtoint ptr %98 to i64
@@ -29870,7 +29874,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %105 = load ptr, ptr %skip.i327, align 8
   %106 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i = sub nsw i32 1, %conv.i
-  tail call void %105(ptr noundef %106, i32 noundef %sub.i) #44
+  tail call void %105(ptr noundef %106, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -29906,7 +29910,7 @@ if.then9.i326:                                    ; preds = %if.then4.i315
   %109 = load ptr, ptr %skip.i327, align 8
   %110 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i329 = sub nsw i32 %conv231, %conv.i321
-  tail call void %109(ptr noundef %110, i32 noundef %sub.i329) #44
+  tail call void %109(ptr noundef %110, i32 noundef %sub.i329) #40
   br label %for.cond104.backedge
 
 if.end14.i323:                                    ; preds = %if.end.i312, %if.then4.i315
@@ -29936,7 +29940,7 @@ if.then2.i340:                                    ; preds = %if.end.i337
   %115 = load ptr, ptr %io.i.i, align 8
   %116 = load ptr, ptr %io_user_data.i.i, align 8
   %117 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i345 = tail call i32 %115(ptr noundef %116, ptr noundef nonnull %buffer_start.i.i, i32 noundef %117) #44
+  %call.i.i345 = tail call i32 %115(ptr noundef %116, ptr noundef nonnull %buffer_start.i.i, i32 noundef %117) #40
   %118 = load ptr, ptr %img_buffer.i, align 8
   %119 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i347 = ptrtoint ptr %118 to i64
@@ -29993,7 +29997,7 @@ if.then9.i383:                                    ; preds = %if.then4.i371
   %124 = load ptr, ptr %skip.i327, align 8
   %125 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i386 = sub nsw i32 %conv274, %conv.i377
-  tail call void %124(ptr noundef %125, i32 noundef %sub.i386) #44
+  tail call void %124(ptr noundef %125, i32 noundef %sub.i386) #40
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9.i383, %if.end14.i379
@@ -30017,22 +30021,22 @@ return:                                           ; preds = %stbi__get8.exit, %f
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias ptr @stbi__load_gif_main_outofmem(ptr nocapture noundef readonly %g, ptr noundef %out, ptr noundef readonly %delays) local_unnamed_addr #35 {
+define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr nocapture noundef readonly %g, ptr noundef %out, ptr noundef readonly %delays) local_unnamed_addr #31 {
 entry:
   %out1 = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 2
   %0 = load ptr, ptr %out1, align 8
-  tail call void @free(ptr noundef %0) #44
+  tail call void @free(ptr noundef %0) #40
   %history = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 4
   %1 = load ptr, ptr %history, align 8
-  tail call void @free(ptr noundef %1) #44
+  tail call void @free(ptr noundef %1) #40
   %background = getelementptr inbounds %struct.stbi__gif, ptr %g, i64 0, i32 3
   %2 = load ptr, ptr %background, align 8
-  tail call void @free(ptr noundef %2) #44
+  tail call void @free(ptr noundef %2) #40
   %tobool.not = icmp eq ptr %out, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %out) #44
+  tail call void @free(ptr noundef nonnull %out) #40
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -30045,7 +30049,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  tail call void @free(ptr noundef nonnull %3) #44
+  tail call void @free(ptr noundef nonnull %3) #40
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %land.lhs.true, %if.end
@@ -30055,9 +30059,9 @@ if.end5:                                          ; preds = %if.then4, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__gif_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__gif_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
-  %call.i.i = tail call noalias dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #45
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #41
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -30072,7 +30076,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %1 = load <2 x ptr>, ptr %img_buffer_original.i.i, align 8
@@ -30099,7 +30103,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i) #40
   br label %stbi__gif_info_raw.exit
 
 stbi__gif_info_raw.exit:                          ; preds = %if.then.i, %if.then4.i, %if.end11.i
@@ -30108,7 +30112,7 @@ stbi__gif_info_raw.exit:                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__hdr_test_core(ptr noundef %s, ptr nocapture noundef readonly %signature) local_unnamed_addr #2 {
+define noundef i32 @stbi__hdr_test_core(ptr noundef %s, ptr nocapture noundef readonly %signature) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %signature, align 1
   %tobool.not7 = icmp eq i8 %0, 0
@@ -30159,7 +30163,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr %io.i.i, align 8
   %7 = load ptr, ptr %io_user_data.i.i, align 8
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #44
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #40
   %9 = load ptr, ptr %img_buffer.i, align 8
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -30213,7 +30217,7 @@ return:                                           ; preds = %stbi__get8.exit, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__hdr_gettoken(ptr noundef %z, ptr noundef returned writeonly %buffer) local_unnamed_addr #2 {
+define noundef ptr @stbi__hdr_gettoken(ptr noundef %z, ptr noundef returned writeonly %buffer) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %z, i64 0, i32 10
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -30242,7 +30246,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %z, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %z, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds %struct.stbi__context, ptr %z, i64 0, i32 12
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -30304,7 +30308,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 if.then.i11:                                      ; preds = %while.cond
   %16 = load ptr, ptr %eof.i, align 8
   %17 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %16(ptr noundef %17) #44
+  %call.i = tail call i32 %16(ptr noundef %17) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %stbi__at_eof.exit, label %if.end.i12
 
@@ -30347,7 +30351,7 @@ while.cond5:                                      ; preds = %while.body, %stbi__
 if.then.i20:                                      ; preds = %while.cond5
   %23 = load ptr, ptr %eof.i, align 8
   %24 = load ptr, ptr %io_user_data.i, align 8
-  %call.i23 = tail call i32 %23(ptr noundef %24) #44
+  %call.i23 = tail call i32 %23(ptr noundef %24) #40
   %tobool2.not.i24 = icmp eq i32 %call.i23, 0
   br i1 %tobool2.not.i24, label %if.then.i20.land.rhs8_crit_edge, label %if.end.i25
 
@@ -30388,7 +30392,7 @@ if.then2.i41:                                     ; preds = %if.end.i38
   %32 = load ptr, ptr %io.i, align 8
   %33 = load ptr, ptr %io_user_data.i, align 8
   %34 = load i32, ptr %buflen.i.i78, align 4
-  %call.i.i46 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %34) #44
+  %call.i.i46 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %34) #40
   %35 = load ptr, ptr %img_buffer.i, align 8
   %36 = load ptr, ptr %img_buffer_original.i.i80, align 8
   %sub.ptr.lhs.cast.i.i48 = ptrtoint ptr %35 to i64
@@ -30451,7 +30455,7 @@ if.then2.i74:                                     ; preds = %if.end.i71
   %43 = load ptr, ptr %io.i, align 8
   %44 = load ptr, ptr %io_user_data.i, align 8
   %45 = load i32, ptr %buflen.i.i78, align 4
-  %call.i.i79 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %45) #44
+  %call.i.i79 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %45) #40
   %46 = load ptr, ptr %img_buffer.i, align 8
   %47 = load ptr, ptr %img_buffer_original.i.i80, align 8
   %sub.ptr.lhs.cast.i.i81 = ptrtoint ptr %46 to i64
@@ -30494,7 +30498,7 @@ while.end16:                                      ; preds = %if.end.i25, %stbi__
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @stbi__hdr_convert(ptr nocapture noundef writeonly %output, ptr nocapture noundef readonly %input, i32 noundef %req_comp) local_unnamed_addr #36 {
+define void @stbi__hdr_convert(ptr nocapture noundef writeonly %output, ptr nocapture noundef readonly %input, i32 noundef %req_comp) local_unnamed_addr #32 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 3
   %0 = load i8, ptr %arrayidx, align 1
@@ -30504,7 +30508,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext i8 %0 to i32
   %sub = add nsw i32 %conv, -136
-  %call = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub) #44
+  %call = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub) #40
   %conv4 = fptrunc double %call to float
   %cmp5 = icmp slt i32 %req_comp, 3
   %1 = load i8, ptr %input, align 1
@@ -30593,16 +30597,16 @@ if.end52:                                         ; preds = %if.then34, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #37
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #38
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #37
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #33
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__hdr_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__hdr_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %token = alloca ptr, align 8
@@ -30663,7 +30667,7 @@ if.then26:                                        ; preds = %if.end21
 if.end27:                                         ; preds = %if.end21
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 3
   store ptr %add.ptr, ptr %token, align 8
-  %call28 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #44
+  %call28 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #40
   br i1 %tobool1.not, label %if.end27.cont, label %if.end27.else
 
 if.end27.else:                                    ; preds = %if.end27
@@ -30683,7 +30687,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   br i1 %cmp31, label %while.cond, label %while.end, !llvm.loop !240
 
 while.end:                                        ; preds = %while.cond
-  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr31, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #46
+  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr31, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #42
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %if.then35
 
@@ -30697,7 +30701,7 @@ if.then35:                                        ; preds = %while.end
 if.end36:                                         ; preds = %while.end
   %add.ptr37 = getelementptr inbounds i8, ptr %incdec.ptr31, i64 3
   store ptr %add.ptr37, ptr %token, align 8
-  %call38 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr37, ptr noundef null, i32 noundef 10) #44
+  %call38 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr37, ptr noundef null, i32 noundef 10) #40
   br i1 %tobool.not, label %if.end36.cont24, label %if.end36.else26
 
 if.end36.else26:                                  ; preds = %if.end36
@@ -30718,7 +30722,7 @@ return:                                           ; preds = %if.end36.else, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__bmp_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__bmp_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %info = alloca %struct.stbi__bmp_data, align 4
   %all_a = getelementptr inbounds %struct.stbi__bmp_data, ptr %info, i64 0, i32 7
@@ -30782,7 +30786,7 @@ return:                                           ; preds = %if.end5, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__psd_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__psd_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %x, null
   %tobool1.not = icmp eq ptr %y, null
@@ -30843,7 +30847,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %6 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #44
+  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -30927,7 +30931,7 @@ return:                                           ; preds = %if.end28.else, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__psd_is16(ptr noundef %s) local_unnamed_addr #2 {
+define noundef i32 @stbi__psd_is16(ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @stbi__get16be(ptr noundef %s), !range !7
   %shl.i = shl nuw i32 %call.i, 16
@@ -30971,7 +30975,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 5
   %4 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %3(ptr noundef %4, i32 noundef %sub.i) #44
+  tail call void %3(ptr noundef %4, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -31004,7 +31008,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pic_info(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__pic_info(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %x, null
   %tobool1.not = icmp eq ptr %y, null
@@ -31050,7 +31054,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #44
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -31114,7 +31118,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %15 = load ptr, ptr %skip.i, align 8
   %16 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i = sub nsw i32 88, %conv.i
-  tail call void %15(ptr noundef %16, i32 noundef %sub.i) #44
+  tail call void %15(ptr noundef %16, i32 noundef %sub.i) #40
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.end9, %if.then4.i
@@ -31148,7 +31152,7 @@ if.then.i:                                        ; preds = %stbi__skip.exit.con
   %eof.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4, i32 2
   %18 = load ptr, ptr %eof.i, align 8
   %19 = load ptr, ptr %io_user_data.i.i.i, align 8
-  %call.i = tail call i32 %18(ptr noundef %19) #44
+  %call.i = tail call i32 %18(ptr noundef %19) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end15, label %if.end.i
 
@@ -31223,7 +31227,7 @@ if.then9.i61:                                     ; preds = %if.then4.i50
   %30 = load ptr, ptr %skip.i62, align 8
   %31 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i64 = sub nsw i32 8, %conv.i56
-  tail call void %30(ptr noundef %31, i32 noundef %sub.i64) #44
+  tail call void %30(ptr noundef %31, i32 noundef %sub.i64) #40
   br label %stbi__skip.exit68
 
 if.end14.i58:                                     ; preds = %if.then4.i50, %if.end3.if.end14_crit_edge.i65
@@ -31264,7 +31268,7 @@ if.then2.i:                                       ; preds = %if.end.i72
   %37 = load ptr, ptr %io.i.i.i, align 8
   %38 = load ptr, ptr %io_user_data.i.i.i, align 8
   %39 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %39) #44
+  %call.i.i = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %39) #40
   %40 = load ptr, ptr %img_buffer.i.i, align 8
   %41 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %40 to i64
@@ -31317,7 +31321,7 @@ if.then2.i86:                                     ; preds = %if.end.i83
   %48 = load ptr, ptr %io.i.i.i, align 8
   %49 = load ptr, ptr %io_user_data.i.i.i, align 8
   %50 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i91 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %50) #44
+  %call.i.i91 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %50) #40
   %51 = load ptr, ptr %img_buffer.i.i, align 8
   %52 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i93 = ptrtoint ptr %51 to i64
@@ -31368,7 +31372,7 @@ if.then2.i119:                                    ; preds = %if.end.i116
   %59 = load ptr, ptr %io.i.i.i, align 8
   %60 = load ptr, ptr %io_user_data.i.i.i, align 8
   %61 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i124 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %61) #44
+  %call.i.i124 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %61) #40
   %62 = load ptr, ptr %img_buffer.i.i, align 8
   %63 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i126 = ptrtoint ptr %62 to i64
@@ -31423,7 +31427,7 @@ if.then2.i152:                                    ; preds = %if.end.i149
   %69 = load ptr, ptr %io.i.i.i, align 8
   %70 = load ptr, ptr %io_user_data.i.i.i, align 8
   %71 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i157 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %71) #44
+  %call.i.i157 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %71) #40
   %72 = load ptr, ptr %img_buffer.i.i, align 8
   %73 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i159 = ptrtoint ptr %72 to i64
@@ -31467,7 +31471,7 @@ stbi__get8.exit178:                               ; preds = %if.then.i176, %if.e
 if.then.i181:                                     ; preds = %stbi__get8.exit178
   %79 = load ptr, ptr %eof.i182, align 8
   %80 = load ptr, ptr %io_user_data.i.i.i, align 8
-  %call.i184 = tail call i32 %79(ptr noundef %80) #44
+  %call.i184 = tail call i32 %79(ptr noundef %80) #40
   %tobool2.not.i185 = icmp eq i32 %call.i184, 0
   br i1 %tobool2.not.i185, label %if.end33, label %if.end.i186
 
@@ -31558,7 +31562,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #44
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #40
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -31620,7 +31624,7 @@ if.then2.i30:                                     ; preds = %if.end.i27
   %buffer_start.i.i33 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i34 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %18 = load i32, ptr %buflen.i.i34, align 4
-  %call.i.i35 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %18) #44
+  %call.i.i35 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %18) #40
   %19 = load ptr, ptr %img_buffer.i, align 8
   %20 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %19 to i64
@@ -31709,7 +31713,7 @@ if.then2.i67:                                     ; preds = %if.end.i64
   %buffer_start.i.i70 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8
   %buflen.i.i71 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 7
   %35 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i72 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %35) #44
+  %call.i.i72 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %35) #40
   %36 = load ptr, ptr %img_buffer.i, align 8
   %37 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %36 to i64
@@ -31803,7 +31807,7 @@ return:                                           ; preds = %if.else, %if.then36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__pnm_isspace(i8 noundef signext %c) local_unnamed_addr #0 {
+define noundef i32 @stbi__pnm_isspace(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   switch i8 %c, label %lor.rhs [
     i8 32, label %lor.end
@@ -31847,7 +31851,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 if.then.i:                                        ; preds = %while.cond
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #44
+  %call.i = tail call i32 %1(ptr noundef %2) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs, label %if.end.i
 
@@ -31894,7 +31898,7 @@ if.then2.i:                                       ; preds = %if.end.i13
   %11 = load ptr, ptr %io.i, align 8
   %12 = load ptr, ptr %io_user_data.i, align 8
   %13 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #44
+  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #40
   %14 = load ptr, ptr %img_buffer.i, align 8
   %15 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
@@ -31941,7 +31945,7 @@ while.end:                                        ; preds = %land.rhs, %if.end.i
 if.then.i20:                                      ; preds = %while.end
   %19 = load ptr, ptr %eof.i, align 8
   %20 = load ptr, ptr %io_user_data.i, align 8
-  %call.i23 = tail call i32 %19(ptr noundef %20) #44
+  %call.i23 = tail call i32 %19(ptr noundef %20) #40
   %tobool2.not.i24 = icmp eq i32 %call.i23, 0
   br i1 %tobool2.not.i24, label %lor.lhs.false, label %if.end.i25
 
@@ -31969,7 +31973,7 @@ while.cond7:                                      ; preds = %lor.lhs.false, %stb
 if.then.i37:                                      ; preds = %while.cond7
   %26 = load ptr, ptr %eof.i, align 8
   %27 = load ptr, ptr %io_user_data.i, align 8
-  %call.i40 = tail call i32 %26(ptr noundef %27) #44
+  %call.i40 = tail call i32 %26(ptr noundef %27) #40
   %tobool2.not.i41 = icmp eq i32 %call.i40, 0
   br i1 %tobool2.not.i41, label %land.lhs.true, label %if.end.i42
 
@@ -32012,7 +32016,7 @@ if.then2.i58:                                     ; preds = %if.end.i55
   %36 = load ptr, ptr %io.i, align 8
   %37 = load ptr, ptr %io_user_data.i, align 8
   %38 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i63 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i, i32 noundef %38) #44
+  %call.i.i63 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i, i32 noundef %38) #40
   %39 = load ptr, ptr %img_buffer.i, align 8
   %40 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %39 to i64
@@ -32053,7 +32057,7 @@ for.end:                                          ; preds = %if.end.i25, %stbi__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbi__pnm_isdigit(i8 noundef signext %c) local_unnamed_addr #0 {
+define noundef i32 @stbi__pnm_isdigit(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = add i8 %c, -48
   %1 = icmp ult i8 %0, 10
@@ -32086,7 +32090,7 @@ while.cond:                                       ; preds = %lor.lhs.false, %ent
 if.then.i:                                        ; preds = %while.cond
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #44
+  %call.i = tail call i32 %1(ptr noundef %2) #40
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs, label %if.end.i
 
@@ -32132,7 +32136,7 @@ if.then2.i:                                       ; preds = %if.end.i11
   %13 = load ptr, ptr %io.i, align 8
   %14 = load ptr, ptr %io_user_data.i, align 8
   %15 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #44
+  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #40
   %16 = load ptr, ptr %img_buffer.i, align 8
   %17 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
@@ -32195,7 +32199,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__info_main(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi__info_main(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %info.i = alloca %struct.stbi__bmp_data, align 4
   %p.i = alloca %struct.stbi__png, align 8
@@ -32249,7 +32253,7 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
   br label %stbi__jpeg_info.exit.thread68
 
 stbi__jpeg_info.exit.thread68:                    ; preds = %if.then10.i.i, %if.end8.i.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #44
+  tail call void @free(ptr noundef nonnull %calloc.i) #40
   br label %return
 
 stbi__jpeg_info.exit:                             ; preds = %if.end.i
@@ -32258,7 +32262,7 @@ stbi__jpeg_info.exit:                             ; preds = %if.end.i
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %7, i64 0, i32 10
   %8 = load <2 x ptr>, ptr %img_buffer_original.i.i.i, align 8
   store <2 x ptr> %8, ptr %img_buffer.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %calloc.i) #44
+  tail call void @free(ptr noundef nonnull %calloc.i) #40
   br label %if.end
 
 if.end:                                           ; preds = %stbi__jpeg_info.exit, %stbi__jpeg_info.exit.thread
@@ -32311,7 +32315,7 @@ if.end4:                                          ; preds = %if.end
   %16 = load <2 x ptr>, ptr %img_buffer_original.i.i.i47, align 8
   store <2 x ptr> %16, ptr %img_buffer.i.i.i48, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i)
-  %call.i.i.i = tail call noalias dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #45
+  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #41
   %tobool.not.i.i51 = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i51, label %if.then.i.i61, label %if.end.i.i52
 
@@ -32326,7 +32330,7 @@ if.end.i.i52:                                     ; preds = %if.end4
   br i1 %tobool3.not.i.i, label %if.then4.i.i, label %if.end5.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i52
-  tail call void @free(ptr noundef nonnull %call.i.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i.i) #40
   %img_buffer_original.i.i.i57 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 12
   %img_buffer.i.i.i58 = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   %18 = load <2 x ptr>, ptr %img_buffer_original.i.i.i57, align 8
@@ -32353,7 +32357,7 @@ if.then10.i.i55:                                  ; preds = %if.end8.i.i53
   br label %stbi__gif_info.exit
 
 stbi__gif_info.exit:                              ; preds = %if.end8.i.i53, %if.then10.i.i55
-  tail call void @free(ptr noundef nonnull %call.i.i.i) #44
+  tail call void @free(ptr noundef nonnull %call.i.i.i) #40
   br label %return
 
 if.end8:                                          ; preds = %if.then4.i.i, %if.then.i.i61
@@ -32485,10 +32489,10 @@ return:                                           ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -32516,7 +32520,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds %struct.stbi__context, ptr %s.i, i64 0, i32 10
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #44
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #40
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -32559,7 +32563,7 @@ return:                                           ; preds = %stbi_info_from_file
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_info_from_file(ptr noundef %f, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi_info_from_file(ptr noundef %f, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
@@ -32579,7 +32583,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -32618,7 +32622,7 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: nounwind uwtable
 define i32 @stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -32659,7 +32663,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #44
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -32728,7 +32732,7 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -32752,7 +32756,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define noundef i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -32771,7 +32775,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -32884,7 +32888,7 @@ entry:
   %img_buffer.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 10
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #44
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #40
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -32952,49 +32956,49 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #39
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #39
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #39
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #39
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #40
+declare i64 @llvm.umin.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bitreverse.i16(i16) #40
+declare i16 @llvm.bitreverse.i16(i16) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #40
+declare i32 @llvm.smin.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #40
+declare i32 @llvm.smax.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #40
+declare i32 @llvm.umax.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #41
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #41
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #37
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #42
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #38
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #43
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #40
+declare i64 @llvm.umax.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #40
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #36
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33004,9 +33008,9 @@ attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33014,36 +33018,32 @@ attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #41 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #42 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #43 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #44 = { nounwind }
-attributes #45 = { nounwind allocsize(0) }
-attributes #46 = { nounwind willreturn memory(read) }
-attributes #47 = { nounwind allocsize(1) }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #36 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #37 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #38 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #39 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #40 = { nounwind }
+attributes #41 = { nounwind allocsize(0) }
+attributes #42 = { nounwind willreturn memory(read) }
+attributes #43 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

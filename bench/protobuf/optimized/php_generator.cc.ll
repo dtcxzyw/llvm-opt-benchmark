@@ -17271,10 +17271,11 @@ if.then85:                                        ; preds = %if.else, %_ZNK6goog
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 5
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 3
   %conv.i.i = zext nneg i8 %bf.clear.i.i to i32
-  switch i32 %conv.i.i, label %sw.default.i [
+  switch i32 %conv.i.i, label %entry.unreachabledefault.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
     i32 3, label %sw.bb5.i
+    i32 0, label %sw.default.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then85
@@ -17420,6 +17421,9 @@ lpad7.i:                                          ; preds = %call.i.noexc14.i, %
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
+
+entry.unreachabledefault.i:                       ; preds = %if.then85
+  unreachable
 
 sw.default.i:                                     ; preds = %if.then85
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #25, !noalias !486

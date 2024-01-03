@@ -760,7 +760,7 @@ if.then.i:                                        ; preds = %if.then
   br label %while.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %mptsas_fetch_request.exit
-  %4 = phi i16 [ %1, %while.body.lr.ph ], [ %80, %mptsas_fetch_request.exit ]
+  %4 = phi i16 [ %1, %while.body.lr.ph ], [ %81, %mptsas_fetch_request.exit ]
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %req.i)
   %5 = load i64, ptr %host_mfa_high_addr.i, align 16
   %inc.i = add i16 %4, 1
@@ -1072,30 +1072,35 @@ if.end23.i.i:                                     ; preds = %if.end14.i.i
 
 if.end37.i.i:                                     ; preds = %if.end23.i.i
   %56 = load i32, ptr %Control.i.i, align 4
-  %and.i.i = and i32 %56, 50331648
-  switch i32 %and.i.i, label %sw.epilog.i.i [
+  %and.i.i = lshr i32 %56, 24
+  %57 = and i32 %and.i.i, 3
+  switch i32 %57, label %if.end37.unreachabledefault.i.i [
     i32 0, label %sw.bb.i.i
-    i32 16777216, label %sw.bb44.i.i
-    i32 33554432, label %sw.bb52.i.i
+    i32 1, label %sw.bb44.i.i
+    i32 2, label %sw.bb52.i.i
+    i32 3, label %sw.epilog.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end37.i.i
   %mode.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %call30.i.i, i64 0, i32 10, i32 4
-  %57 = load i32, ptr %mode.i.i, align 8
-  %cmp40.not.i.i = icmp eq i32 %57, 0
+  %58 = load i32, ptr %mode.i.i, align 8
+  %cmp40.not.i.i = icmp eq i32 %58, 0
   br i1 %cmp40.not.i.i, label %sw.epilog.i.i, label %overrun.i.i
 
 sw.bb44.i.i:                                      ; preds = %if.end37.i.i
   %mode47.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %call30.i.i, i64 0, i32 10, i32 4
-  %58 = load i32, ptr %mode47.i.i, align 8
-  %cmp48.not.i.i = icmp eq i32 %58, 2
+  %59 = load i32, ptr %mode47.i.i, align 8
+  %cmp48.not.i.i = icmp eq i32 %59, 2
   br i1 %cmp48.not.i.i, label %sw.epilog.i.i, label %overrun.i.i
 
 sw.bb52.i.i:                                      ; preds = %if.end37.i.i
   %mode55.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %call30.i.i, i64 0, i32 10, i32 4
-  %59 = load i32, ptr %mode55.i.i, align 8
-  %cmp56.not.i.i = icmp eq i32 %59, 1
+  %60 = load i32, ptr %mode55.i.i, align 8
+  %cmp56.not.i.i = icmp eq i32 %60, 1
   br i1 %cmp56.not.i.i, label %sw.epilog.i.i, label %overrun.i.i
+
+if.end37.unreachabledefault.i.i:                  ; preds = %if.end37.i.i
+  unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb52.i.i, %sw.bb44.i.i, %sw.bb.i.i, %if.end37.i.i
   %call61.i.i = call i32 @scsi_req_enqueue(ptr noundef nonnull %call30.i.i) #11
@@ -1103,42 +1108,42 @@ sw.epilog.i.i:                                    ; preds = %sw.bb52.i.i, %sw.bb
   br i1 %tobool62.not.i.i, label %mptsas_process_scsi_io_request.exit.i, label %if.then63.i.i
 
 if.then63.i.i:                                    ; preds = %sw.epilog.i.i
-  %60 = load ptr, ptr %sreq.i.i, align 8
-  call void @scsi_req_continue(ptr noundef %60) #11
+  %61 = load ptr, ptr %sreq.i.i, align 8
+  call void @scsi_req_continue(ptr noundef %61) #11
   br label %mptsas_process_scsi_io_request.exit.i
 
 overrun.i.i:                                      ; preds = %sw.bb52.i.i, %sw.bb44.i.i, %sw.bb.i.i, %if.end23.i.i
-  %61 = load i32, ptr %MsgContext.i.i, align 8
+  %62 = load i32, ptr %MsgContext.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i68.i.i)
-  %62 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i69.i.i = icmp ne i32 %62, 0
-  %63 = load i16, ptr @_TRACE_MPTSAS_SCSI_OVERFLOW_DSTATE, align 2
-  %tobool4.i.i70.i.i = icmp ne i16 %63, 0
+  %63 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i69.i.i = icmp ne i32 %63, 0
+  %64 = load i16, ptr @_TRACE_MPTSAS_SCSI_OVERFLOW_DSTATE, align 2
+  %tobool4.i.i70.i.i = icmp ne i16 %64, 0
   %or.cond.i.i71.i.i = select i1 %tobool.i.i69.i.i, i1 %tobool4.i.i70.i.i, i1 false
   br i1 %or.cond.i.i71.i.i, label %land.lhs.true5.i.i72.i.i, label %trace_mptsas_scsi_overflow.exit.i.i
 
 land.lhs.true5.i.i72.i.i:                         ; preds = %overrun.i.i
-  %64 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i73.i.i = and i32 %64, 32768
+  %65 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i73.i.i = and i32 %65, 32768
   %cmp.i.not.i.i74.i.i = icmp eq i32 %and.i.i.i73.i.i, 0
   br i1 %cmp.i.not.i.i74.i.i, label %trace_mptsas_scsi_overflow.exit.i.i, label %if.then.i.i75.i.i
 
 if.then.i.i75.i.i:                                ; preds = %land.lhs.true5.i.i72.i.i
-  %65 = load i8, ptr @message_with_timestamp, align 1
-  %66 = and i8 %65, 1
-  %tobool7.not.i.i76.i.i = icmp eq i8 %66, 0
+  %66 = load i8, ptr @message_with_timestamp, align 1
+  %67 = and i8 %66, 1
+  %tobool7.not.i.i76.i.i = icmp eq i8 %67, 0
   br i1 %tobool7.not.i.i76.i.i, label %if.else.i.i81.i.i, label %if.then8.i.i77.i.i
 
 if.then8.i.i77.i.i:                               ; preds = %if.then.i.i75.i.i
   %call9.i.i78.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i68.i.i, ptr noundef null) #11
   %call10.i.i79.i.i = call i32 @qemu_get_thread_id() #11
-  %67 = load i64, ptr %_now.i.i68.i.i, align 8
-  %68 = load i64, ptr %tv_usec.i.i80.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i79.i.i, i64 noundef %67, i64 noundef %68, ptr noundef %opaque, i32 noundef %61, i64 noundef %54, i64 noundef %conv33.i.i) #11
+  %68 = load i64, ptr %_now.i.i68.i.i, align 8
+  %69 = load i64, ptr %tv_usec.i.i80.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i79.i.i, i64 noundef %68, i64 noundef %69, ptr noundef %opaque, i32 noundef %62, i64 noundef %54, i64 noundef %conv33.i.i) #11
   br label %trace_mptsas_scsi_overflow.exit.i.i
 
 if.else.i.i81.i.i:                                ; preds = %if.then.i.i75.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %opaque, i32 noundef %61, i64 noundef %54, i64 noundef %conv33.i.i) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %opaque, i32 noundef %62, i64 noundef %54, i64 noundef %conv33.i.i) #11
   br label %trace_mptsas_scsi_overflow.exit.i.i
 
 trace_mptsas_scsi_overflow.exit.i.i:              ; preds = %if.else.i.i81.i.i, %if.then8.i.i77.i.i, %land.lhs.true5.i.i72.i.i, %overrun.i.i
@@ -1148,15 +1153,15 @@ trace_mptsas_scsi_overflow.exit.i.i:              ; preds = %if.else.i.i81.i.i, 
 free_bad.i.i:                                     ; preds = %trace_mptsas_scsi_overflow.exit.i.i, %trace_mptsas_sgl_overflow.exit.i.i, %mptsas_build_sgl.exit.i.i
   %status.0.i.i = phi i16 [ 3, %mptsas_build_sgl.exit.i.i ], [ 3, %trace_mptsas_sgl_overflow.exit.i.i ], [ 68, %trace_mptsas_scsi_overflow.exit.i.i ]
   %sreq.i.i.i = getelementptr inbounds %struct.MPTSASRequest, ptr %call9.i.i, i64 0, i32 1
-  %69 = load ptr, ptr %sreq.i.i.i, align 8
-  %cmp.not.i82.i.i = icmp eq ptr %69, null
+  %70 = load ptr, ptr %sreq.i.i.i, align 8
+  %cmp.not.i82.i.i = icmp eq ptr %70, null
   br i1 %cmp.not.i82.i.i, label %mptsas_free_request.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %free_bad.i.i
-  %hba_private.i.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %69, i64 0, i32 8
+  %hba_private.i.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %70, i64 0, i32 8
   store ptr null, ptr %hba_private.i.i.i, align 8
-  %70 = load ptr, ptr %sreq.i.i.i, align 8
-  call void @scsi_req_unref(ptr noundef %70) #11
+  %71 = load ptr, ptr %sreq.i.i.i, align 8
+  call void @scsi_req_unref(ptr noundef %71) #11
   store ptr null, ptr %sreq.i.i.i, align 8
   br label %mptsas_free_request.exit.i.i
 
@@ -1168,38 +1173,38 @@ mptsas_free_request.exit.i.i:                     ; preds = %if.then.i.i.i, %fre
 bad.i.i:                                          ; preds = %mptsas_free_request.exit.i.i, %if.end4.i.i.i, %if.end.i.i.i, %trace_mptsas_process_scsi_io_request.exit.i.i
   %status.1.i.i = phi i16 [ %status.0.i.i, %mptsas_free_request.exit.i.i ], [ 66, %if.end.i.i.i ], [ 65, %trace_mptsas_process_scsi_io_request.exit.i.i ], [ 67, %if.end4.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %3, i8 0, i64 30, i1 false)
-  %71 = load i8, ptr %req.i, align 16
-  store i8 %71, ptr %reply.i.i, align 1
-  %72 = load i8, ptr %Bus.i.i, align 1
-  store i8 %72, ptr %Bus75.i.i, align 1
+  %72 = load i8, ptr %req.i, align 16
+  store i8 %72, ptr %reply.i.i, align 1
+  %73 = load i8, ptr %Bus.i.i, align 1
+  store i8 %73, ptr %Bus75.i.i, align 1
   store i8 9, ptr %MsgLength.i.i, align 1
-  %73 = load i8, ptr %Function.i, align 1
-  store i8 %73, ptr %Function76.i.i, align 1
-  %74 = load i8, ptr %CDBLength.i.i, align 4
-  store i8 %74, ptr %CDBLength78.i.i, align 1
-  %75 = load i8, ptr %SenseBufferLength.i.i, align 1
-  store i8 %75, ptr %SenseBufferLength79.i.i, align 1
-  %76 = load i32, ptr %MsgContext.i.i, align 8
-  store i32 %76, ptr %MsgContext81.i.i, align 1
+  %74 = load i8, ptr %Function.i, align 1
+  store i8 %74, ptr %Function76.i.i, align 1
+  %75 = load i8, ptr %CDBLength.i.i, align 4
+  store i8 %75, ptr %CDBLength78.i.i, align 1
+  %76 = load i8, ptr %SenseBufferLength.i.i, align 1
+  store i8 %76, ptr %SenseBufferLength79.i.i, align 1
+  %77 = load i32, ptr %MsgContext.i.i, align 8
+  store i32 %77, ptr %MsgContext81.i.i, align 1
   store i8 4, ptr %SCSIState.i.i, align 1
   store i16 %status.1.i.i, ptr %IOCStatus.i.i, align 1
   call void @mptsas_fix_scsi_io_reply_endianness(ptr noundef nonnull %reply.i.i) #11
-  %77 = load i8, ptr %doorbell_state.i.i.i, align 1
-  %cmp.i.i.i = icmp eq i8 %77, 1
+  %78 = load i8, ptr %doorbell_state.i.i.i, align 1
+  %cmp.i.i.i = icmp eq i8 %78, 1
   br i1 %cmp.i.i.i, label %if.then.i86.i.i, label %if.else.i.i.i
 
 if.then.i86.i.i:                                  ; preds = %bad.i.i
   store i8 2, ptr %doorbell_state.i.i.i, align 1
   store i32 0, ptr %doorbell_reply_idx.i.i.i, align 4
-  %78 = load i8, ptr %MsgLength.i.i, align 1
-  %conv3.i.i.i = zext i8 %78 to i32
+  %79 = load i8, ptr %MsgLength.i.i, align 1
+  %conv3.i.i.i = zext i8 %79 to i32
   %mul.i87.i.i = shl nuw nsw i32 %conv3.i.i.i, 1
   store i32 %mul.i87.i.i, ptr %doorbell_reply_size.i.i.i, align 16
   %mul5.i.i.i = shl nuw nsw i32 %conv3.i.i.i, 2
   %conv6.i88.i.i = zext nneg i32 %mul5.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %doorbell_reply.i.i.i, ptr nonnull align 1 %reply.i.i, i64 %conv6.i88.i.i, i1 false)
-  %79 = load i32, ptr %intr_status.i.i.i, align 16
-  %or.i.i.i = or i32 %79, 1
+  %80 = load i32, ptr %intr_status.i.i.i, align 16
+  %or.i.i.i = or i32 %80, 1
   store i32 %or.i.i.i, ptr %intr_status.i.i.i, align 16
   call fastcc void @mptsas_update_interrupt(ptr noundef nonnull %opaque)
   br label %mptsas_process_scsi_io_request.exit.i
@@ -1218,9 +1223,9 @@ if.else27.i:                                      ; preds = %if.end19.i, %while.
 
 mptsas_fetch_request.exit:                        ; preds = %mptsas_process_scsi_io_request.exit.i, %if.else27.i
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %req.i)
-  %80 = load i16, ptr %request_post_head, align 8
-  %81 = load i16, ptr %request_post_tail, align 2
-  %cmp2.not = icmp eq i16 %80, %81
+  %81 = load i16, ptr %request_post_head, align 8
+  %82 = load i16, ptr %request_post_tail, align 2
+  %cmp2.not = icmp eq i16 %81, %82
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %mptsas_fetch_request.exit, %while.cond.preheader, %if.then.i, %if.then
@@ -2797,7 +2802,7 @@ declare void @mptsas_fix_event_notification_reply_endianness(ptr noundef) local_
 declare void @qemu_bh_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_diag_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal noundef i64 @mptsas_diag_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %addr to i32
@@ -3230,7 +3235,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mptsas_load_request(ptr noundef %f, ptr noundef %sreq) #0 {
+define internal noundef ptr @mptsas_load_request(ptr noundef %f, ptr noundef %sreq) #0 {
 entry:
   %0 = load ptr, ptr %sreq, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 -6616

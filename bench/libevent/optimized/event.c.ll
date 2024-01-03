@@ -144,7 +144,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [12 x i8] c" [NextTime]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_debug_map_HT_GROW(ptr nocapture noundef %head, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_debug_map_HT_GROW(ptr nocapture noundef %head, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %hth_prime_idx = getelementptr inbounds %struct.event_debug_map, ptr %head, i64 0, i32 4
   %0 = load i32, ptr %hth_prime_idx, align 4
@@ -183,11 +183,11 @@ do.end:                                           ; preds = %do.body
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end
-  %call.i = tail call ptr %6(i64 noundef %mul11) #28
+  %call.i = tail call ptr %6(i64 noundef %mul11) #26
   br label %event_mm_malloc_.exit
 
 if.else.i:                                        ; preds = %do.end
-  %call2.i = tail call noalias ptr @malloc(i64 noundef %mul11) #29
+  %call2.i = tail call noalias ptr @malloc(i64 noundef %mul11) #27
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %if.then1.i, %if.else.i
@@ -250,11 +250,11 @@ if.then30:                                        ; preds = %for.end
   br i1 %tobool.not.i56, label %if.else.i58, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then30
-  tail call void %18(ptr noundef nonnull %17) #28
+  tail call void %18(ptr noundef nonnull %17) #26
   br label %if.end82
 
 if.else.i58:                                      ; preds = %if.then30
-  tail call void @free(ptr noundef nonnull %17) #28
+  tail call void @free(ptr noundef nonnull %17) #26
   br label %if.end82
 
 if.else:                                          ; preds = %event_mm_malloc_.exit
@@ -264,11 +264,11 @@ if.else:                                          ; preds = %event_mm_malloc_.ex
   br i1 %tobool.not.i59, label %if.else.i63, label %if.then.i60
 
 if.then.i60:                                      ; preds = %if.else
-  %call.i61 = tail call ptr %20(ptr noundef %19, i64 noundef %mul11) #28
+  %call.i61 = tail call ptr %20(ptr noundef %19, i64 noundef %mul11) #26
   br label %event_mm_realloc_.exit
 
 if.else.i63:                                      ; preds = %if.else
-  %call1.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul11) #30
+  %call1.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul11) #28
   br label %event_mm_realloc_.exit
 
 event_mm_realloc_.exit:                           ; preds = %if.then.i60, %if.else.i63
@@ -362,11 +362,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call = tail call ptr %0(i64 noundef %sz) #28
+  %call = tail call ptr %0(i64 noundef %sz) #26
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call2 = tail call noalias ptr @malloc(i64 noundef %sz) #29
+  %call2 = tail call noalias ptr @malloc(i64 noundef %sz) #27
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then1
@@ -385,11 +385,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %ptr) #28
+  tail call void %0(ptr noundef %ptr) #26
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @free(ptr noundef %ptr) #28
+  tail call void @free(ptr noundef %ptr) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -404,11 +404,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %sz) #28
+  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %sz) #26
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %sz) #30
+  %call1 = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %sz) #28
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -429,11 +429,11 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void %1(ptr noundef nonnull %0) #28
+  tail call void %1(ptr noundef nonnull %0) #26
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
@@ -565,7 +565,7 @@ return:                                           ; preds = %for.end56, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_gettimeofday_cached(ptr noundef readonly %base, ptr nocapture noundef %tv) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_gettimeofday_cached(ptr noundef readonly %base, ptr nocapture noundef %tv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %base, null
   br i1 %tobool.not, label %if.then, label %do.body4
@@ -576,7 +576,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %do.body4
 
 if.then2:                                         ; preds = %if.then
-  %call = tail call i32 @gettimeofday(ptr noundef %tv, ptr noundef null) #28
+  %call = tail call i32 @gettimeofday(ptr noundef %tv, ptr noundef null) #26
   br label %return
 
 do.body4:                                         ; preds = %if.then, %entry
@@ -588,7 +588,7 @@ do.body4:                                         ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %do.body4
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call8 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call8 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end10
 
 do.end10:                                         ; preds = %if.then6, %do.body4
@@ -598,7 +598,7 @@ do.end10:                                         ; preds = %if.then6, %do.body4
   br i1 %cmp, label %if.then11, label %do.body13
 
 if.then11:                                        ; preds = %do.end10
-  %call12 = tail call i32 @gettimeofday(ptr noundef %tv, ptr noundef null) #28
+  %call12 = tail call i32 @gettimeofday(ptr noundef %tv, ptr noundef null) #26
   br label %do.body32
 
 do.body13:                                        ; preds = %do.end10
@@ -631,7 +631,7 @@ do.body32:                                        ; preds = %if.then25, %do.body
 
 if.then35:                                        ; preds = %do.body32
   %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call37 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #28
+  %call37 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #26
   br label %return
 
 return:                                           ; preds = %do.body32, %if.then35, %if.then2
@@ -643,7 +643,7 @@ return:                                           ; preds = %do.body32, %if.then
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_update_cache_time(ptr noundef %base) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_update_cache_time(ptr noundef %base) local_unnamed_addr #0 {
 entry:
   %tv.i.i = alloca %struct.timeval, align 16
   %tobool.not = icmp eq ptr %base, null
@@ -663,7 +663,7 @@ do.body4:                                         ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %do.body4
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end9
 
 do.end9:                                          ; preds = %if.then6, %do.body4
@@ -684,7 +684,7 @@ if.then11:                                        ; preds = %do.end9
 if.end7.i.i:                                      ; preds = %if.then11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %monotonic_timer.i.i = getelementptr inbounds %struct.event_base, ptr %base.addr.0, i64 0, i32 27
-  %call.i.i = tail call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #28
+  %call.i.i = tail call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #26
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %gettime.exit.i, label %if.end9.i.i
 
@@ -696,7 +696,7 @@ if.end9.i.i:                                      ; preds = %if.end7.i.i
   br i1 %cmp11.not.i.i, label %gettime.exit.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end9.i.i
-  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #28
+  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #26
   %tv_clock_diff.i.i = getelementptr inbounds %struct.event_base, ptr %base.addr.0, i64 0, i32 28
   %7 = load <2 x i64>, ptr %tv.i.i, align 16
   %8 = load <2 x i64>, ptr %tv_cache.i, align 8
@@ -721,7 +721,7 @@ do.body14:                                        ; preds = %gettime.exit.i, %if
 
 if.then17:                                        ; preds = %do.body14
   %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call19 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #28
+  %call19 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #26
   br label %return
 
 return:                                           ; preds = %do.body14, %if.then17, %if.then
@@ -737,7 +737,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.event_init) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.event_init) #29
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -757,7 +757,7 @@ entry:
   br i1 %tobool.not.i, label %event_mm_calloc_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 1208) #28
+  %call.i = tail call ptr %0(i64 noundef 1208) #26
   %tobool6.not.i = icmp eq ptr %call.i, null
   br i1 %tobool6.not.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread91
 
@@ -766,17 +766,17 @@ event_mm_calloc_.exit.thread91:                   ; preds = %if.then2.i
   br label %if.end
 
 event_mm_calloc_.exit.thread:                     ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   br label %if.then
 
 event_mm_calloc_.exit:                            ; preds = %entry
-  %call10.i = tail call noalias dereferenceable_or_null(1208) ptr @calloc(i64 noundef 1, i64 noundef 1208) #33
+  %call10.i = tail call noalias dereferenceable_or_null(1208) ptr @calloc(i64 noundef 1, i64 noundef 1208) #31
   %cmp = icmp eq ptr %call10.i, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %event_mm_calloc_.exit.thread, %event_mm_calloc_.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_new_with_config) #28
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_new_with_config) #26
   br label %return
 
 if.end:                                           ; preds = %event_mm_calloc_.exit.thread91, %event_mm_calloc_.exit
@@ -803,7 +803,7 @@ land.end12:                                       ; preds = %if.end, %land.rhs8
   br i1 %or.cond, label %if.end23, label %if.then16
 
 if.then16:                                        ; preds = %land.end12
-  %call17 = tail call ptr @evutil_getenv_(ptr noundef nonnull @.str.4) #28
+  %call17 = tail call ptr @evutil_getenv_(ptr noundef nonnull @.str.4) #26
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end23, label %if.then20
 
@@ -818,7 +818,7 @@ if.end23:                                         ; preds = %if.then16, %if.then
   %precise_time.0.in = phi i1 [ %3, %land.end12 ], [ true, %if.then20 ], [ false, %if.then16 ]
   %cond = zext i1 %precise_time.0.in to i32
   %monotonic_timer = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 27
-  %call25 = tail call i32 @evutil_configure_monotonic_time_(ptr noundef nonnull %monotonic_timer, i32 noundef %cond) #28
+  %call25 = tail call i32 @evutil_configure_monotonic_time_(ptr noundef nonnull %monotonic_timer, i32 noundef %cond) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   %tv_cache.i = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 26
   %5 = load i64, ptr %tv_cache.i, align 8
@@ -830,7 +830,7 @@ if.then5.i:                                       ; preds = %if.end23
   br label %gettime.exit
 
 if.end7.i:                                        ; preds = %if.end23
-  %call.i78 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer, ptr noundef nonnull %tmp) #28
+  %call.i78 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer, ptr noundef nonnull %tmp) #26
   %cmp.i = icmp eq i32 %call.i78, -1
   br i1 %cmp.i, label %gettime.exit, label %if.end9.i
 
@@ -842,7 +842,7 @@ if.end9.i:                                        ; preds = %if.end7.i
   br i1 %cmp11.not.i, label %gettime.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #28
+  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #26
   %tv_clock_diff.i = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 28
   %8 = load <2 x i64>, ptr %tv.i, align 16
   %9 = load <2 x i64>, ptr %tmp, align 16
@@ -873,11 +873,11 @@ gettime.exit:                                     ; preds = %if.then5.i, %if.end
   %tqh_last = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 19, i32 1
   store ptr %active_later_queue, ptr %tqh_last, align 8
   %io = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 23
-  call void @evmap_io_initmap_(ptr noundef nonnull %io) #28
+  call void @evmap_io_initmap_(ptr noundef nonnull %io) #26
   %sigmap = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 24
-  call void @evmap_signal_initmap_(ptr noundef nonnull %sigmap) #28
+  call void @evmap_signal_initmap_(ptr noundef nonnull %sigmap) #26
   %changelist = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 2
-  call void @event_changelist_init_(ptr noundef nonnull %changelist) #28
+  call void @event_changelist_init_(ptr noundef nonnull %changelist) #26
   %evbase = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 1
   store ptr null, ptr %evbase, align 8
   %max_dispatch_time39 = getelementptr inbounds %struct.event_base, ptr %retval.0.i94, i64 0, i32 36
@@ -945,7 +945,7 @@ for.body.us.us:                                   ; preds = %land.rhs65.us.us
   store ptr %18, ptr %retval.0.i94, align 8
   %init.us.us = getelementptr inbounds %struct.eventop, ptr %18, i64 0, i32 1
   %19 = load ptr, ptr %init.us.us, align 8
-  %call102.us.us = call ptr %19(ptr noundef nonnull %retval.0.i94) #28
+  %call102.us.us = call ptr %19(ptr noundef nonnull %retval.0.i94) #26
   store ptr %call102.us.us, ptr %evbase, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %arrayidx63.us.us = getelementptr inbounds [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv.next129
@@ -963,7 +963,7 @@ land.rhs65.us:                                    ; preds = %if.end62.split.us, 
 for.body.us:                                      ; preds = %land.rhs65.us
   %23 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %environment.i)
-  %call.i81.us = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %environment.i, i64 noundef 64, ptr noundef nonnull @.str.34, ptr noundef %23) #28
+  %call.i81.us = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %environment.i, i64 noundef 64, ptr noundef nonnull @.str.34, ptr noundef %23) #26
   %24 = load i8, ptr %arrayidx4.i, align 8
   %cmp.not5.i82.us = icmp eq i8 %24, 0
   br i1 %cmp.not5.i82.us, label %event_is_method_disabled.exit.us, label %for.body.i83.us
@@ -972,7 +972,7 @@ for.body.i83.us:                                  ; preds = %for.body.us, %for.b
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %for.body.i83.us ], [ 8, %for.body.us ]
   %25 = phi i8 [ %26, %for.body.i83.us ], [ %24, %for.body.us ]
   %arrayidx7.i.us = phi ptr [ %arrayidx.i.us, %for.body.i83.us ], [ %arrayidx4.i, %for.body.us ]
-  %call4.i.us = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %25) #28
+  %call4.i.us = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %25) #26
   store i8 %call4.i.us, ptr %arrayidx7.i.us, align 1
   %indvars.iv.next.i.us = add nuw i64 %indvars.iv.i.us, 1
   %arrayidx.i.us = getelementptr inbounds [64 x i8], ptr %environment.i, i64 0, i64 %indvars.iv.next.i.us
@@ -981,7 +981,7 @@ for.body.i83.us:                                  ; preds = %for.body.us, %for.b
   br i1 %cmp.not.i84.us, label %event_is_method_disabled.exit.us, label %for.body.i83.us, !llvm.loop !14
 
 event_is_method_disabled.exit.us:                 ; preds = %for.body.i83.us, %for.body.us
-  %call8.i.us = call ptr @evutil_getenv_(ptr noundef nonnull %environment.i) #28
+  %call8.i.us = call ptr @evutil_getenv_(ptr noundef nonnull %environment.i) #26
   %cmp9.i.not.us = icmp eq ptr %call8.i.us, null
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %environment.i)
   br i1 %cmp9.i.not.us, label %if.end98.us, label %for.inc.us
@@ -990,7 +990,7 @@ if.end98.us:                                      ; preds = %event_is_method_dis
   store ptr %21, ptr %retval.0.i94, align 8
   %init.us = getelementptr inbounds %struct.eventop, ptr %21, i64 0, i32 1
   %27 = load ptr, ptr %init.us, align 8
-  %call102.us = call ptr %27(ptr noundef nonnull %retval.0.i94) #28
+  %call102.us = call ptr %27(ptr noundef nonnull %retval.0.i94) #26
   store ptr %call102.us, ptr %evbase, align 8
   br label %for.inc.us
 
@@ -1027,7 +1027,7 @@ for.body.i.us:                                    ; preds = %for.body.us103, %fo
   br i1 %cmp2.not.i.us, label %for.inc.i.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.i.us
-  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %31) #34
+  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %31) #32
   %cmp4.i.us = icmp eq i32 %call.i79.us, 0
   br i1 %cmp4.i.us, label %for.inc.us108, label %for.inc.i.us
 
@@ -1048,7 +1048,7 @@ if.end89.us104:                                   ; preds = %if.end80.us
   store ptr %30, ptr %retval.0.i94, align 8
   %init.us106 = getelementptr inbounds %struct.eventop, ptr %30, i64 0, i32 1
   %35 = load ptr, ptr %init.us106, align 8
-  %call102.us107 = call ptr %35(ptr noundef nonnull %retval.0.i94) #28
+  %call102.us107 = call ptr %35(ptr noundef nonnull %retval.0.i94) #26
   store ptr %call102.us107, ptr %evbase, align 8
   br label %for.inc.us108
 
@@ -1081,7 +1081,7 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %40) #34
+  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %40) #32
   %cmp4.i = icmp eq i32 %call.i79, 0
   br i1 %cmp4.i, label %for.inc, label %for.inc.i
 
@@ -1100,7 +1100,7 @@ if.end80:                                         ; preds = %for.inc.i, %for.bod
 
 if.end89:                                         ; preds = %if.end80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %environment.i)
-  %call.i81 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %environment.i, i64 noundef 64, ptr noundef nonnull @.str.34, ptr noundef %40) #28
+  %call.i81 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %environment.i, i64 noundef 64, ptr noundef nonnull @.str.34, ptr noundef %40) #26
   %44 = load i8, ptr %arrayidx4.i138, align 1
   %cmp.not5.i82 = icmp eq i8 %44, 0
   br i1 %cmp.not5.i82, label %event_is_method_disabled.exit, label %for.body.i83
@@ -1109,7 +1109,7 @@ for.body.i83:                                     ; preds = %if.end89, %for.body
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i83 ], [ 8, %if.end89 ]
   %45 = phi i8 [ %46, %for.body.i83 ], [ %44, %if.end89 ]
   %arrayidx7.i = phi ptr [ %arrayidx.i, %for.body.i83 ], [ %arrayidx4.i138, %if.end89 ]
-  %call4.i = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %45) #28
+  %call4.i = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %45) #26
   store i8 %call4.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds [64 x i8], ptr %environment.i, i64 0, i64 %indvars.iv.next.i
@@ -1118,7 +1118,7 @@ for.body.i83:                                     ; preds = %if.end89, %for.body
   br i1 %cmp.not.i84, label %event_is_method_disabled.exit, label %for.body.i83, !llvm.loop !14
 
 event_is_method_disabled.exit:                    ; preds = %for.body.i83, %if.end89
-  %call8.i = call ptr @evutil_getenv_(ptr noundef nonnull %environment.i) #28
+  %call8.i = call ptr @evutil_getenv_(ptr noundef nonnull %environment.i) #26
   %cmp9.i.not = icmp eq ptr %call8.i, null
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %environment.i)
   br i1 %cmp9.i.not, label %if.end98, label %for.inc
@@ -1127,7 +1127,7 @@ if.end98:                                         ; preds = %event_is_method_dis
   store ptr %38, ptr %retval.0.i94, align 8
   %init = getelementptr inbounds %struct.eventop, ptr %38, i64 0, i32 1
   %47 = load ptr, ptr %init, align 8
-  %call102 = call ptr %47(ptr noundef nonnull %retval.0.i94) #28
+  %call102 = call ptr %47(ptr noundef nonnull %retval.0.i94) #26
   store ptr %call102, ptr %evbase, align 8
   br label %for.inc
 
@@ -1148,20 +1148,20 @@ for.end:                                          ; preds = %for.body.us.us, %fo
   br i1 %cmp105, label %if.then107, label %if.end109
 
 if.then107:                                       ; preds = %for.end
-  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.event_base_new_with_config) #28
+  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.event_base_new_with_config) #26
   store ptr null, ptr %retval.0.i94, align 8
   call fastcc void @event_base_free_(ptr noundef nonnull %retval.0.i94, i32 noundef 1)
   br label %return
 
 if.end109:                                        ; preds = %land.rhs65, %land.rhs65.us100, %land.rhs65.us, %land.rhs65.us.us, %for.end
-  %call110 = call ptr @evutil_getenv_(ptr noundef nonnull @.str.6) #28
+  %call110 = call ptr @evutil_getenv_(ptr noundef nonnull @.str.6) #26
   %tobool111.not = icmp eq ptr %call110, null
   br i1 %tobool111.not, label %if.end115, label %if.then112
 
 if.then112:                                       ; preds = %if.end109
   %49 = load ptr, ptr %retval.0.i94, align 8
   %50 = load ptr, ptr %49, align 8
-  call void (ptr, ...) @event_msgx(ptr noundef nonnull @.str.7, ptr noundef %50) #28
+  call void (ptr, ...) @event_msgx(ptr noundef nonnull @.str.7, ptr noundef %50) #26
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.end109
@@ -1195,7 +1195,7 @@ if.then128:                                       ; preds = %lor.lhs.false, %lan
   br i1 %tobool129.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then128
-  %call130 = call ptr %53(i32 noundef 0) #28
+  %call130 = call ptr %53(i32 noundef 0) #26
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then128, %cond.true
@@ -1207,7 +1207,7 @@ cond.end:                                         ; preds = %if.then128, %cond.t
   br i1 %tobool133.not, label %do.body1.i, label %cond.true134
 
 cond.true134:                                     ; preds = %cond.end
-  %call135 = call ptr %54(i32 noundef 0) #28
+  %call135 = call ptr %54(i32 noundef 0) #26
   %.pr98 = load ptr, ptr %th_base_lock, align 8
   br label %do.body1.i
 
@@ -1221,7 +1221,7 @@ do.body1.i:                                       ; preds = %cond.true134, %cond
 
 if.then3.i:                                       ; preds = %do.body1.i
   %56 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i86 = call i32 %56(i32 noundef 0, ptr noundef nonnull %55) #28
+  %call.i86 = call i32 %56(i32 noundef 0, ptr noundef nonnull %55) #26
   br label %do.end6.i
 
 do.end6.i:                                        ; preds = %if.then3.i, %do.body1.i
@@ -1232,7 +1232,7 @@ do.end6.i:                                        ; preds = %if.then3.i, %do.bod
 
 if.then12.i87:                                    ; preds = %do.end6.i
   %58 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14.i = call i32 %58(i32 noundef 0, ptr noundef nonnull %57) #28
+  %call14.i = call i32 %58(i32 noundef 0, ptr noundef nonnull %57) #26
   br label %evthread_make_base_notifiable.exit
 
 evthread_make_base_notifiable.exit:               ; preds = %do.end6.i, %if.then12.i87
@@ -1240,7 +1240,7 @@ evthread_make_base_notifiable.exit:               ; preds = %do.end6.i, %if.then
   br i1 %cmp141, label %if.then143, label %do.body150
 
 if.then143:                                       ; preds = %evthread_make_base_notifiable.exit
-  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.event_base_new_with_config) #28
+  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.event_base_new_with_config) #26
   call fastcc void @event_base_free_(ptr noundef nonnull %retval.0.i94, i32 noundef 1)
   br label %return
 
@@ -1271,7 +1271,7 @@ entry:
   br i1 %tobool.not.i.i, label %event_mm_calloc_.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %entry
-  %call.i.i = tail call ptr %0(i64 noundef 56) #28
+  %call.i.i = tail call ptr %0(i64 noundef 56) #26
   %tobool6.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool6.not.i.i, label %event_mm_calloc_.exit.thread.i, label %event_mm_calloc_.exit.thread10.i
 
@@ -1280,12 +1280,12 @@ event_mm_calloc_.exit.thread10.i:                 ; preds = %if.then2.i.i
   br label %if.then
 
 event_mm_calloc_.exit.thread.i:                   ; preds = %if.then2.i.i
-  %call12.i.i = tail call ptr @__errno_location() #32
+  %call12.i.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i.i, align 4
   br label %if.end
 
 event_mm_calloc_.exit.i:                          ; preds = %entry
-  %call10.i.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #33
+  %call10.i.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #31
   %cmp.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i, label %if.end, label %if.then
 
@@ -1327,12 +1327,12 @@ if.then.i.i:                                      ; preds = %do.body.i4
   br i1 %tobool.not.i.i.i, label %if.end.thread.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  tail call void %.pr.i.pre13.i(ptr noundef nonnull %6) #28
+  tail call void %.pr.i.pre13.i(ptr noundef nonnull %6) #26
   %.pr.i.pre.i = load ptr, ptr @mm_free_fn_, align 8
   br label %if.end.i.i
 
 if.end.thread.i.i:                                ; preds = %if.then.i.i
-  tail call void @free(ptr noundef nonnull %6) #28
+  tail call void @free(ptr noundef nonnull %6) #26
   br label %if.else.i5.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i, %do.body.i4
@@ -1341,11 +1341,11 @@ if.end.i.i:                                       ; preds = %if.then.i.i.i, %do.
   br i1 %tobool.not.i3.i.i, label %if.else.i5.i.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %if.end.i.i
-  tail call void %.pr.i.i(ptr noundef nonnull %2) #28
+  tail call void %.pr.i.i(ptr noundef nonnull %2) #26
   br label %event_config_entry_free.exit.i
 
 if.else.i5.i.i:                                   ; preds = %if.end.i.i, %if.end.thread.i.i
-  tail call void @free(ptr noundef nonnull %2) #28
+  tail call void @free(ptr noundef nonnull %2) #26
   br label %event_config_entry_free.exit.i
 
 event_config_entry_free.exit.i:                   ; preds = %if.else.i5.i.i, %if.then.i4.i.i
@@ -1359,11 +1359,11 @@ while.end.i:                                      ; preds = %event_config_entry_
   br i1 %tobool.not.i.i5, label %if.else.i.i, label %if.then.i10.i
 
 if.then.i10.i:                                    ; preds = %while.end.i
-  tail call void %8(ptr noundef nonnull %retval.0.i13.i) #28
+  tail call void %8(ptr noundef nonnull %retval.0.i13.i) #26
   br label %if.end
 
 if.else.i.i:                                      ; preds = %while.end.i
-  tail call void @free(ptr noundef nonnull %retval.0.i13.i) #28
+  tail call void @free(ptr noundef nonnull %retval.0.i13.i) #26
   br label %if.end
 
 if.end:                                           ; preds = %event_mm_calloc_.exit.thread.i, %event_mm_calloc_.exit.i, %if.else.i.i, %if.then.i10.i
@@ -1372,14 +1372,14 @@ if.end:                                           ; preds = %event_mm_calloc_.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @event_config_new() local_unnamed_addr #0 {
+define dso_local noundef ptr @event_config_new() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @mm_malloc_fn_, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %event_mm_calloc_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 56) #28
+  %call.i = tail call ptr %0(i64 noundef 56) #26
   %tobool6.not.i = icmp eq ptr %call.i, null
   br i1 %tobool6.not.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread10
 
@@ -1388,12 +1388,12 @@ event_mm_calloc_.exit.thread10:                   ; preds = %if.then2.i
   br label %do.body
 
 event_mm_calloc_.exit.thread:                     ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   br label %return
 
 event_mm_calloc_.exit:                            ; preds = %entry
-  %call10.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #33
+  %call10.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #31
   %cmp = icmp eq ptr %call10.i, null
   br i1 %cmp, label %return, label %do.body
 
@@ -1448,12 +1448,12 @@ if.then.i:                                        ; preds = %do.body
   br i1 %tobool.not.i.i, label %if.end.thread.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void %.pr.i.pre13(ptr noundef nonnull %5) #28
+  tail call void %.pr.i.pre13(ptr noundef nonnull %5) #26
   %.pr.i.pre = load ptr, ptr @mm_free_fn_, align 8
   br label %if.end.i
 
 if.end.thread.i:                                  ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %5) #28
+  tail call void @free(ptr noundef nonnull %5) #26
   br label %if.else.i5.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %do.body
@@ -1462,11 +1462,11 @@ if.end.i:                                         ; preds = %if.then.i.i, %do.bo
   br i1 %tobool.not.i3.i, label %if.else.i5.i, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %if.end.i
-  tail call void %.pr.i(ptr noundef nonnull %1) #28
+  tail call void %.pr.i(ptr noundef nonnull %1) #26
   br label %event_config_entry_free.exit
 
 if.else.i5.i:                                     ; preds = %if.end.i, %if.end.thread.i
-  tail call void @free(ptr noundef nonnull %1) #28
+  tail call void @free(ptr noundef nonnull %1) #26
   br label %event_config_entry_free.exit
 
 event_config_entry_free.exit:                     ; preds = %if.then.i4.i, %if.else.i5.i
@@ -1480,11 +1480,11 @@ while.end:                                        ; preds = %event_config_entry_
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %while.end
-  tail call void %7(ptr noundef nonnull %cfg) #28
+  tail call void %7(ptr noundef nonnull %cfg) #26
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %while.end
-  tail call void @free(ptr noundef nonnull %cfg) #28
+  tail call void @free(ptr noundef nonnull %cfg) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i10, %if.else.i
@@ -1508,7 +1508,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.event_enable_debug_mode) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.event_enable_debug_mode) #29
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1516,7 +1516,7 @@ if.end:                                           ; preds = %entry
   br i1 %.b, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.event_enable_debug_mode) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.event_enable_debug_mode) #29
   unreachable
 
 if.end3:                                          ; preds = %if.end
@@ -1535,7 +1535,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -1611,11 +1611,11 @@ event_debug_map_HT_NEXT_RMV.exit:                 ; preds = %while.cond.i6, %eve
   br i1 %tobool.not.i11, label %if.else.i12, label %if.then.i
 
 if.then.i:                                        ; preds = %event_debug_map_HT_NEXT_RMV.exit
-  tail call void %14(ptr noundef nonnull %5) #28
+  tail call void %14(ptr noundef nonnull %5) #26
   br label %event_mm_free_.exit
 
 if.else.i12:                                      ; preds = %event_debug_map_HT_NEXT_RMV.exit
-  tail call void @free(ptr noundef %5) #28
+  tail call void @free(ptr noundef %5) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i12
@@ -1633,11 +1633,11 @@ if.then.i14:                                      ; preds = %for.end
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i14
-  tail call void %16(ptr noundef nonnull %15) #28
+  tail call void %16(ptr noundef nonnull %15) #26
   br label %event_debug_map_HT_CLEAR.exit
 
 if.else.i.i:                                      ; preds = %if.then.i14
-  tail call void @free(ptr noundef nonnull %15) #28
+  tail call void @free(ptr noundef nonnull %15) #26
   br label %event_debug_map_HT_CLEAR.exit
 
 event_debug_map_HT_CLEAR.exit:                    ; preds = %for.end, %if.then.i.i, %if.else.i.i
@@ -1649,7 +1649,7 @@ event_debug_map_HT_CLEAR.exit:                    ; preds = %for.end, %if.then.i
 
 if.then6:                                         ; preds = %event_debug_map_HT_CLEAR.exit
   %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call7 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #28
+  %call7 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #26
   br label %do.end9
 
 do.end9:                                          ; preds = %event_debug_map_HT_CLEAR.exit, %if.then6
@@ -1677,7 +1677,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %mul.ov, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %call = tail call ptr %0(i64 noundef %mul) #28
+  %call = tail call ptr %0(i64 noundef %mul) #26
   %tobool6.not = icmp eq ptr %call, null
   br i1 %tobool6.not, label %error, label %if.then7
 
@@ -1686,11 +1686,11 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call10 = tail call noalias ptr @calloc(i64 noundef %count, i64 noundef %size) #33
+  %call10 = tail call noalias ptr @calloc(i64 noundef %count, i64 noundef %size) #31
   br label %return
 
 error:                                            ; preds = %if.end5, %if.then2
-  %call12 = tail call ptr @__errno_location() #32
+  %call12 = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12, align 4
   br label %return
 
@@ -1726,7 +1726,7 @@ entry:
 declare void @event_msgx(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_priority_init(ptr nocapture noundef %base, i32 noundef %npriorities) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_priority_init(ptr nocapture noundef %base, i32 noundef %npriorities) local_unnamed_addr #0 {
 entry:
   %th_base_lock = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 31
   %0 = load ptr, ptr %th_base_lock, align 8
@@ -1735,7 +1735,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -1765,11 +1765,11 @@ if.then14:                                        ; preds = %if.end11
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14
-  tail call void %7(ptr noundef %6) #28
+  tail call void %7(ptr noundef %6) #26
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %if.then14
-  tail call void @free(ptr noundef %6) #28
+  tail call void @free(ptr noundef %6) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i
@@ -1784,7 +1784,7 @@ if.end16:                                         ; preds = %event_mm_free_.exit
 
 if.then2.i:                                       ; preds = %if.end16
   %mul.i = shl nuw nsw i64 %conv, 4
-  %call.i = tail call ptr %8(i64 noundef %mul.i) #28
+  %call.i = tail call ptr %8(i64 noundef %mul.i) #26
   %tobool6.not.i = icmp eq ptr %call.i, null
   br i1 %tobool6.not.i, label %error.i, label %event_mm_calloc_.exit.thread32
 
@@ -1795,21 +1795,21 @@ event_mm_calloc_.exit.thread32:                   ; preds = %if.then2.i
   br label %do.body28.preheader
 
 error.i:                                          ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   %activequeues1830 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 17
   store ptr null, ptr %activequeues1830, align 8
   br label %if.then22
 
 event_mm_calloc_.exit:                            ; preds = %if.end16
-  %call10.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 16) #33
+  %call10.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 16) #31
   %activequeues18 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 17
   store ptr %call10.i, ptr %activequeues18, align 8
   %cmp20 = icmp eq ptr %call10.i, null
   br i1 %cmp20, label %if.then22, label %do.body28.preheader
 
 if.then22:                                        ; preds = %error.i, %event_mm_calloc_.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_priority_init) #28
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_priority_init) #26
   br label %do.body39
 
 do.body28.preheader:                              ; preds = %event_mm_calloc_.exit, %event_mm_calloc_.exit.thread32
@@ -1840,7 +1840,7 @@ do.body39:                                        ; preds = %do.body28, %if.end8
 
 if.then42:                                        ; preds = %do.body39
   %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call44 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #28
+  %call44 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #26
   br label %do.end47
 
 do.end47:                                         ; preds = %if.then42, %do.body39
@@ -1861,7 +1861,7 @@ do.body1:                                         ; preds = %entry
 
 if.then3:                                         ; preds = %do.body1
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end6
 
 do.end6:                                          ; preds = %if.then3, %do.body1
@@ -1872,7 +1872,7 @@ do.end6:                                          ; preds = %if.then3, %do.body1
 
 if.then12:                                        ; preds = %do.end6
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call14 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %return
 
 return:                                           ; preds = %do.end6, %if.then12, %entry
@@ -1881,7 +1881,7 @@ return:                                           ; preds = %do.end6, %if.then12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @event_base_start_iocp_(ptr nocapture noundef readnone %base, i32 noundef %n_cpus) local_unnamed_addr #8 {
+define dso_local noundef i32 @event_base_start_iocp_(ptr nocapture noundef readnone %base, i32 noundef %n_cpus) local_unnamed_addr #8 {
 entry:
   ret i32 -1
 }
@@ -1911,7 +1911,7 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %entry
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.event_base_free_) #28
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.event_base_free_) #26
   br label %return
 
 if.end3:                                          ; preds = %entry
@@ -1931,7 +1931,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.then.i.i:                                      ; preds = %if.then5
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call.i.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %do.end3.i.i
 
 do.end3.i.i:                                      ; preds = %if.then.i.i, %if.then5
@@ -1942,19 +1942,19 @@ do.end3.i.i:                                      ; preds = %if.then.i.i, %if.th
 
 if.then9.i.i:                                     ; preds = %do.end3.i.i
   %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #28
+  %call11.i.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #26
   br label %event_del.exit
 
 event_del.exit:                                   ; preds = %do.end3.i.i, %if.then9.i.i
   %7 = load i32, ptr %th_notify_fd, align 4
-  %call8 = tail call i32 @evutil_closesocket(i32 noundef %7) #28
+  %call8 = tail call i32 @evutil_closesocket(i32 noundef %7) #26
   %arrayidx10 = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 40, i64 1
   %8 = load i32, ptr %arrayidx10, align 4
   %cmp11.not = icmp eq i32 %8, -1
   br i1 %cmp11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %event_del.exit
-  %call15 = tail call i32 @evutil_closesocket(i32 noundef %8) #28
+  %call15 = tail call i32 @evutil_closesocket(i32 noundef %8) #26
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %event_del.exit
@@ -1964,7 +1964,7 @@ if.end16:                                         ; preds = %if.then12, %event_d
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end16, %if.end3
-  tail call void @evmap_delete_all_(ptr noundef nonnull %spec.select) #28
+  tail call void @evmap_delete_all_(ptr noundef nonnull %spec.select) #26
   %timeheap = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 25
   %n.i = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 25, i32 1
   %9 = load i64, ptr %n.i, align 8
@@ -1999,7 +1999,7 @@ while.body:                                       ; preds = %min_heap_top_.exit
 
 if.then.i.i86:                                    ; preds = %while.body
   %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i87 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #28
+  %call.i.i87 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #26
   br label %do.end3.i.i88
 
 do.end3.i.i88:                                    ; preds = %if.then.i.i86, %while.body
@@ -2010,7 +2010,7 @@ do.end3.i.i88:                                    ; preds = %if.then.i.i86, %whi
 
 if.then9.i.i91:                                   ; preds = %do.end3.i.i88
   %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i92 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #28
+  %call11.i.i92 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #26
   br label %event_del.exit93
 
 event_del.exit93:                                 ; preds = %do.end3.i.i88, %if.then9.i.i91
@@ -2035,7 +2035,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ev
 
 if.then.i.i97:                                    ; preds = %for.body
   %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i98 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #28
+  %call.i.i98 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #26
   br label %do.end3.i.i99
 
 do.end3.i.i99:                                    ; preds = %if.then.i.i97, %for.body
@@ -2046,7 +2046,7 @@ do.end3.i.i99:                                    ; preds = %if.then.i.i97, %for
 
 if.then9.i.i102:                                  ; preds = %do.end3.i.i99
   %25 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i103 = tail call i32 %25(i32 noundef 0, ptr noundef nonnull %24) #28
+  %call11.i.i103 = tail call i32 %25(i32 noundef 0, ptr noundef nonnull %24) #26
   br label %event_del.exit104
 
 event_del.exit104:                                ; preds = %do.end3.i.i99, %if.then9.i.i102
@@ -2076,7 +2076,7 @@ if.then34:                                        ; preds = %for.body32
 
 if.then.i.i108:                                   ; preds = %if.then34
   %32 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i109 = tail call i32 %32(i32 noundef 0, ptr noundef nonnull %31) #28
+  %call.i.i109 = tail call i32 %32(i32 noundef 0, ptr noundef nonnull %31) #26
   br label %do.end3.i.i110
 
 do.end3.i.i110:                                   ; preds = %if.then.i.i108, %if.then34
@@ -2087,7 +2087,7 @@ do.end3.i.i110:                                   ; preds = %if.then.i.i108, %if
 
 if.then9.i.i113:                                  ; preds = %do.end3.i.i110
   %34 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i114 = tail call i32 %34(i32 noundef 0, ptr noundef nonnull %33) #28
+  %call11.i.i114 = tail call i32 %34(i32 noundef 0, ptr noundef nonnull %33) #26
   br label %event_del.exit115
 
 event_del.exit115:                                ; preds = %do.end3.i.i110, %if.then9.i.i113
@@ -2106,11 +2106,11 @@ for.end:                                          ; preds = %if.end37, %event_de
   br i1 %tobool.not.i116, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  tail call void %35(ptr noundef nonnull %20) #28
+  tail call void %35(ptr noundef nonnull %20) #26
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %for.end
-  tail call void @free(ptr noundef %20) #28
+  tail call void @free(ptr noundef %20) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i
@@ -2133,11 +2133,11 @@ if.then42:                                        ; preds = %for.end39
   br i1 %tobool.not.i117, label %if.else.i119, label %if.then.i118
 
 if.then.i118:                                     ; preds = %if.then42
-  tail call void %39(ptr noundef nonnull %38) #28
+  tail call void %39(ptr noundef nonnull %38) #26
   br label %if.end44
 
 if.else.i119:                                     ; preds = %if.then42
-  tail call void @free(ptr noundef nonnull %38) #28
+  tail call void @free(ptr noundef nonnull %38) #26
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else.i119, %if.then.i118, %for.end39
@@ -2190,7 +2190,7 @@ if.then5.i34.us.i:                                ; preds = %if.then.i14.us.i
 
 if.then.i.i38.us.i:                               ; preds = %if.then5.i34.us.i
   %48 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i39.us.i = tail call i32 %48(i32 noundef 0, ptr noundef nonnull %47) #28
+  %call.i.i39.us.i = tail call i32 %48(i32 noundef 0, ptr noundef nonnull %47) #26
   br label %do.end3.i.i40.us.i
 
 do.end3.i.i40.us.i:                               ; preds = %if.then.i.i38.us.i, %if.then5.i34.us.i
@@ -2206,7 +2206,7 @@ do.body7.i46.us.i:                                ; preds = %while.body.us.i
 
 if.then9.i49.us.i:                                ; preds = %do.body7.i46.us.i
   %51 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call11.i50.us.i = tail call i32 %51(i32 noundef 0, ptr noundef nonnull %50) #28
+  %call11.i50.us.i = tail call i32 %51(i32 noundef 0, ptr noundef nonnull %50) #26
   %.pre219 = load i16, ptr %evcb_flags.i12.us.i, align 8
   br label %do.end13.i51.us.i
 
@@ -2306,7 +2306,7 @@ event_callback_cancel_nolock_.exit191:            ; preds = %if.then6.i155, %if.
 if.end25.sink.split.i43.us.i:                     ; preds = %event_callback_cancel_nolock_.exit191, %do.end3.i.i40.us.i
   %.sink.i44.us.i = phi ptr [ %49, %do.end3.i.i40.us.i ], [ %74, %event_callback_cancel_nolock_.exit191 ]
   %75 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i45.us.i = tail call i32 %75(i32 noundef 0, ptr noundef nonnull %.sink.i44.us.i) #28
+  %call11.i.i45.us.i = tail call i32 %75(i32 noundef 0, ptr noundef nonnull %.sink.i44.us.i) #26
   br label %if.end25.i16.us.i
 
 if.end25.i16.us.i:                                ; preds = %if.end25.sink.split.i43.us.i, %event_callback_cancel_nolock_.exit191, %do.end3.i.i40.us.i, %if.then.i14.us.i
@@ -2351,7 +2351,7 @@ if.then5.i.i:                                     ; preds = %if.then.i.i123
 
 if.then.i.i.i:                                    ; preds = %if.then5.i.i
   %86 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i.i = tail call i32 %86(i32 noundef 0, ptr noundef nonnull %85) #28
+  %call.i.i.i = tail call i32 %86(i32 noundef 0, ptr noundef nonnull %85) #26
   br label %do.end3.i.i.i
 
 do.end3.i.i.i:                                    ; preds = %if.then.i.i.i, %if.then5.i.i
@@ -2367,7 +2367,7 @@ do.body7.i.i:                                     ; preds = %for.body2.i
 
 if.then9.i.i126:                                  ; preds = %do.body7.i.i
   %89 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call11.i.i127 = tail call i32 %89(i32 noundef 0, ptr noundef nonnull %88) #28
+  %call11.i.i127 = tail call i32 %89(i32 noundef 0, ptr noundef nonnull %88) #26
   %.pre.i = load i16, ptr %evcb_flags.i.i, align 8
   br label %do.end13.i.i
 
@@ -2467,7 +2467,7 @@ event_callback_cancel_nolock_.exit.i:             ; preds = %sw.bb14.i.i, %event
 if.end25.sink.split.i.i:                          ; preds = %event_callback_cancel_nolock_.exit.i, %do.end3.i.i.i
   %.sink.i.i = phi ptr [ %87, %do.end3.i.i.i ], [ %112, %event_callback_cancel_nolock_.exit.i ]
   %113 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i.i = tail call i32 %113(i32 noundef 0, ptr noundef nonnull %.sink.i.i) #28
+  %call11.i.i.i = tail call i32 %113(i32 noundef 0, ptr noundef nonnull %.sink.i.i) #26
   br label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.end25.sink.split.i.i, %event_callback_cancel_nolock_.exit.i, %do.end3.i.i.i, %if.then.i.i123
@@ -2494,7 +2494,7 @@ sw.bb.i.i:                                        ; preds = %if.then31.i.i, %if.
   %117 = load ptr, ptr %evcb_cb_union.i.i, align 8
   %evcb_arg.i.i = getelementptr inbounds %struct.event_callback, ptr %evcb.060.i, i64 0, i32 5
   %118 = load ptr, ptr %evcb_arg.i.i, align 8
-  tail call void %117(ptr noundef nonnull %evcb.060.i, ptr noundef %118) #28
+  tail call void %117(ptr noundef nonnull %evcb.060.i, ptr noundef %118) #26
   %119 = load i8, ptr %evcb_closure.i.i, align 1
   %cmp.i.i = icmp eq i8 %119, 6
   br i1 %cmp.i.i, label %if.then40.i.i, label %event_base_cancel_single_callback_.exit.i
@@ -2505,11 +2505,11 @@ if.then40.i.i:                                    ; preds = %sw.bb.i.i
   br i1 %tobool.not.i19.i.i, label %if.else.i.i.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then40.i.i
-  tail call void %120(ptr noundef nonnull %evcb.060.i) #28
+  tail call void %120(ptr noundef nonnull %evcb.060.i) #26
   br label %event_base_cancel_single_callback_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then40.i.i
-  tail call void @free(ptr noundef nonnull %evcb.060.i) #28
+  tail call void @free(ptr noundef nonnull %evcb.060.i) #26
   br label %event_base_cancel_single_callback_.exit.i
 
 sw.bb42.i.i:                                      ; preds = %if.then31.i.i
@@ -2517,7 +2517,7 @@ sw.bb42.i.i:                                      ; preds = %if.then31.i.i
   %121 = load ptr, ptr %evcb_cb_union43.i.i, align 8
   %evcb_arg44.i.i = getelementptr inbounds %struct.event_callback, ptr %evcb.060.i, i64 0, i32 5
   %122 = load ptr, ptr %evcb_arg44.i.i, align 8
-  tail call void %121(ptr noundef nonnull %evcb.060.i, ptr noundef %122) #28
+  tail call void %121(ptr noundef nonnull %evcb.060.i, ptr noundef %122) #26
   br label %event_base_cancel_single_callback_.exit.i
 
 event_base_cancel_single_callback_.exit.i:        ; preds = %sw.bb42.i.i, %if.else.i.i.i, %if.then.i20.i.i, %sw.bb.i.i, %if.then31.i.i, %land.lhs.true.i.i, %if.end25.i.i
@@ -2561,7 +2561,7 @@ if.then5.i34.i:                                   ; preds = %if.then.i14.i
 
 if.then.i.i38.i:                                  ; preds = %if.then5.i34.i
   %131 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i39.i = tail call i32 %131(i32 noundef 0, ptr noundef nonnull %130) #28
+  %call.i.i39.i = tail call i32 %131(i32 noundef 0, ptr noundef nonnull %130) #26
   br label %do.end3.i.i40.i
 
 do.end3.i.i40.i:                                  ; preds = %if.then.i.i38.i, %if.then5.i34.i
@@ -2577,7 +2577,7 @@ do.body7.i46.i:                                   ; preds = %while.body.i
 
 if.then9.i49.i:                                   ; preds = %do.body7.i46.i
   %134 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call11.i50.i = tail call i32 %134(i32 noundef 0, ptr noundef nonnull %133) #28
+  %call11.i50.i = tail call i32 %134(i32 noundef 0, ptr noundef nonnull %133) #26
   %.pre = load i16, ptr %evcb_flags.i12.i, align 8
   br label %do.end13.i51.i
 
@@ -2677,7 +2677,7 @@ event_callback_cancel_nolock_.exit:               ; preds = %if.then6.i, %if.end
 if.end25.sink.split.i43.i:                        ; preds = %event_callback_cancel_nolock_.exit, %do.end3.i.i40.i
   %.sink.i44.i = phi ptr [ %132, %do.end3.i.i40.i ], [ %157, %event_callback_cancel_nolock_.exit ]
   %158 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i45.i = tail call i32 %158(i32 noundef 0, ptr noundef nonnull %.sink.i44.i) #28
+  %call11.i.i45.i = tail call i32 %158(i32 noundef 0, ptr noundef nonnull %.sink.i44.i) #26
   br label %if.end25.i16.i
 
 if.end25.i16.i:                                   ; preds = %if.end25.sink.split.i43.i, %event_callback_cancel_nolock_.exit, %do.end3.i.i40.i, %if.then.i14.i
@@ -2701,7 +2701,7 @@ sw.bb.i26.i:                                      ; preds = %if.then31.i21.i, %i
   %162 = load ptr, ptr %evcb_cb_union.i27.i, align 8
   %evcb_arg.i28.i = getelementptr inbounds %struct.event_callback, ptr %125, i64 0, i32 5
   %163 = load ptr, ptr %evcb_arg.i28.i, align 8
-  tail call void %162(ptr noundef nonnull %125, ptr noundef %163) #28
+  tail call void %162(ptr noundef nonnull %125, ptr noundef %163) #26
   %164 = load i8, ptr %evcb_closure.i22.i, align 1
   %cmp.i29.i = icmp eq i8 %164, 6
   br i1 %cmp.i29.i, label %if.then40.i30.i, label %event_base_cancel_single_callback_.exit54.i
@@ -2712,11 +2712,11 @@ if.then40.i30.i:                                  ; preds = %sw.bb.i26.i
   br i1 %tobool.not.i19.i31.i, label %if.else.i.i33.i, label %if.then.i20.i32.i
 
 if.then.i20.i32.i:                                ; preds = %if.then40.i30.i
-  tail call void %165(ptr noundef nonnull %125) #28
+  tail call void %165(ptr noundef nonnull %125) #26
   br label %event_base_cancel_single_callback_.exit54.i
 
 if.else.i.i33.i:                                  ; preds = %if.then40.i30.i
-  tail call void @free(ptr noundef nonnull %125) #28
+  tail call void @free(ptr noundef nonnull %125) #26
   br label %event_base_cancel_single_callback_.exit54.i
 
 sw.bb42.i23.i:                                    ; preds = %if.then31.i21.i
@@ -2724,7 +2724,7 @@ sw.bb42.i23.i:                                    ; preds = %if.then31.i21.i
   %166 = load ptr, ptr %evcb_cb_union43.i24.i, align 8
   %evcb_arg44.i25.i = getelementptr inbounds %struct.event_callback, ptr %125, i64 0, i32 5
   %167 = load ptr, ptr %evcb_arg44.i25.i, align 8
-  tail call void %166(ptr noundef nonnull %125, ptr noundef %167) #28
+  tail call void %166(ptr noundef nonnull %125, ptr noundef %167) #26
   br label %event_base_cancel_single_callback_.exit54.i
 
 event_base_cancel_single_callback_.exit54.i:      ; preds = %sw.bb42.i23.i, %if.else.i.i33.i, %if.then.i20.i32.i, %sw.bb.i26.i, %if.then31.i21.i, %if.end25.i16.i
@@ -2740,7 +2740,7 @@ event_base_free_queues_.exit:                     ; preds = %event_base_cancel_s
   br i1 %tobool48.not, label %do.end, label %if.then49
 
 if.then49:                                        ; preds = %event_base_free_queues_.exit
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.event_base_free_, i32 noundef %deleted.2.lcssa.i) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.event_base_free_, i32 noundef %deleted.2.lcssa.i) #26
   br label %do.end
 
 do.end:                                           ; preds = %event_base_free_queues_.exit, %if.then49
@@ -2757,7 +2757,7 @@ for.end55:                                        ; preds = %do.end
   br i1 %or.cond2, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %for.end55
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.event_base_free_, i64 noundef %n_deleted.4) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.event_base_free_, i64 noundef %n_deleted.4) #26
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then60, %for.end55
@@ -2788,11 +2788,11 @@ if.end78:                                         ; preds = %while.body66, %if.t
   br i1 %tobool.not.i128, label %if.else.i130, label %if.then.i129
 
 if.then.i129:                                     ; preds = %if.end78
-  tail call void %175(ptr noundef nonnull %172) #28
+  tail call void %175(ptr noundef nonnull %172) #26
   br label %event_mm_free_.exit131
 
 if.else.i130:                                     ; preds = %if.end78
-  tail call void @free(ptr noundef nonnull %172) #28
+  tail call void @free(ptr noundef nonnull %172) #26
   br label %event_mm_free_.exit131
 
 event_mm_free_.exit131:                           ; preds = %if.then.i129, %if.else.i130
@@ -2812,7 +2812,7 @@ land.lhs.true87:                                  ; preds = %while.end84
   br i1 %cmp89.not, label %if.end94, label %if.then91
 
 if.then91:                                        ; preds = %land.lhs.true87
-  tail call void %178(ptr noundef nonnull %spec.select) #28
+  tail call void %178(ptr noundef nonnull %spec.select) #26
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then91, %land.lhs.true87, %while.end84
@@ -2826,12 +2826,12 @@ if.then.i133:                                     ; preds = %if.end94
   br i1 %tobool.not.i.i134, label %min_heap_dtor_.exit.thread, label %if.then.i.i135
 
 if.then.i.i135:                                   ; preds = %if.then.i133
-  tail call void %.pr.pre222(ptr noundef nonnull %timeheap.val) #28
+  tail call void %.pr.pre222(ptr noundef nonnull %timeheap.val) #26
   %.pr.pre = load ptr, ptr @mm_free_fn_, align 8
   br label %min_heap_dtor_.exit
 
 min_heap_dtor_.exit.thread:                       ; preds = %if.then.i133
-  tail call void @free(ptr noundef nonnull %timeheap.val) #28
+  tail call void @free(ptr noundef nonnull %timeheap.val) #26
   %179 = load ptr, ptr %activequeues.i, align 8
   br label %if.else.i138
 
@@ -2842,21 +2842,21 @@ min_heap_dtor_.exit:                              ; preds = %if.end94, %if.then.
   br i1 %tobool.not.i136, label %if.else.i138, label %if.then.i137
 
 if.then.i137:                                     ; preds = %min_heap_dtor_.exit
-  tail call void %.pr(ptr noundef %180) #28
+  tail call void %.pr(ptr noundef %180) #26
   br label %event_mm_free_.exit139
 
 if.else.i138:                                     ; preds = %min_heap_dtor_.exit.thread, %min_heap_dtor_.exit
   %181 = phi ptr [ %179, %min_heap_dtor_.exit.thread ], [ %180, %min_heap_dtor_.exit ]
-  tail call void @free(ptr noundef %181) #28
+  tail call void @free(ptr noundef %181) #26
   br label %event_mm_free_.exit139
 
 event_mm_free_.exit139:                           ; preds = %if.then.i137, %if.else.i138
   %io = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 23
-  tail call void @evmap_io_clear_(ptr noundef nonnull %io) #28
+  tail call void @evmap_io_clear_(ptr noundef nonnull %io) #26
   %sigmap = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 24
-  tail call void @evmap_signal_clear_(ptr noundef nonnull %sigmap) #28
+  tail call void @evmap_signal_clear_(ptr noundef nonnull %sigmap) #26
   %changelist = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 2
-  tail call void @event_changelist_freemem_(ptr noundef nonnull %changelist) #28
+  tail call void @event_changelist_freemem_(ptr noundef nonnull %changelist) #26
   %182 = load ptr, ptr %th_base_lock.i.i121, align 8
   %tobool108 = icmp ne ptr %182, null
   %183 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 3), align 8
@@ -2865,7 +2865,7 @@ event_mm_free_.exit139:                           ; preds = %if.then.i137, %if.e
   br i1 %or.cond1, label %if.then111, label %do.body114
 
 if.then111:                                       ; preds = %event_mm_free_.exit139
-  tail call void %183(ptr noundef nonnull %182, i32 noundef 0) #28
+  tail call void %183(ptr noundef nonnull %182, i32 noundef 0) #26
   br label %do.body114
 
 do.body114:                                       ; preds = %if.then111, %event_mm_free_.exit139
@@ -2876,7 +2876,7 @@ do.body114:                                       ; preds = %if.then111, %event_
 
 if.then116:                                       ; preds = %do.body114
   %185 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 2), align 8
-  tail call void %185(ptr noundef nonnull %184) #28
+  tail call void %185(ptr noundef nonnull %184) #26
   br label %while.cond124.preheader.preheader
 
 while.cond124.preheader.preheader:                ; preds = %do.body114, %if.then116
@@ -2910,11 +2910,11 @@ while.body130:                                    ; preds = %while.body130.lr.ph
   br i1 %tobool.not.i140, label %if.else.i142, label %if.then.i141
 
 if.then.i141:                                     ; preds = %while.body130
-  tail call void %191(ptr noundef nonnull %187) #28
+  tail call void %191(ptr noundef nonnull %187) #26
   br label %event_mm_free_.exit143
 
 if.else.i142:                                     ; preds = %while.body130
-  tail call void @free(ptr noundef nonnull %187) #28
+  tail call void @free(ptr noundef nonnull %187) #26
   br label %event_mm_free_.exit143
 
 event_mm_free_.exit143:                           ; preds = %if.then.i141, %if.else.i142
@@ -2940,11 +2940,11 @@ if.end164:                                        ; preds = %if.then163, %for.en
   br i1 %tobool.not.i144, label %if.else.i146, label %if.then.i145
 
 if.then.i145:                                     ; preds = %if.end164
-  tail call void %194(ptr noundef nonnull %spec.select) #28
+  tail call void %194(ptr noundef nonnull %spec.select) #26
   br label %return
 
 if.else.i146:                                     ; preds = %if.end164
-  tail call void @free(ptr noundef nonnull %spec.select) #28
+  tail call void @free(ptr noundef nonnull %spec.select) #26
   br label %return
 
 return:                                           ; preds = %if.else.i146, %if.then.i145, %if.then2
@@ -2952,7 +2952,7 @@ return:                                           ; preds = %if.else.i146, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @nil_backend_del(ptr nocapture readnone %b, i32 %fd, i16 signext %old, i16 signext %events, ptr nocapture readnone %fdinfo) #8 {
+define internal noundef i32 @nil_backend_del(ptr nocapture readnone %b, i32 %fd, i16 signext %old, i16 signext %events, ptr nocapture readnone %fdinfo) #8 {
 entry:
   ret i32 0
 }
@@ -2967,7 +2967,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -3002,7 +3002,7 @@ if.end19:                                         ; preds = %if.then10, %if.end8
   br i1 %cmp.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call25 = tail call i32 @evutil_closesocket(i32 noundef %5) #28
+  %call25 = tail call i32 @evutil_closesocket(i32 noundef %5) #26
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then21, %if.end19
@@ -3012,7 +3012,7 @@ if.end26:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp30.not, label %if.end36, label %if.then31
 
 if.then31:                                        ; preds = %if.end26
-  %call35 = tail call i32 @evutil_closesocket(i32 noundef %6) #28
+  %call35 = tail call i32 @evutil_closesocket(i32 noundef %6) #26
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then31, %if.end26
@@ -3035,14 +3035,14 @@ if.then43:                                        ; preds = %if.end40
   %th_notify = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 41
   %call44 = tail call i32 @event_del_nolock_(ptr noundef nonnull %th_notify, i32 noundef 2), !range !17
   %9 = load i32, ptr %th_notify_fd, align 4
-  %call47 = tail call i32 @evutil_closesocket(i32 noundef %9) #28
+  %call47 = tail call i32 @evutil_closesocket(i32 noundef %9) #26
   %arrayidx49 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 40, i64 1
   %10 = load i32, ptr %arrayidx49, align 4
   %cmp50.not = icmp eq i32 %10, -1
   br i1 %cmp50.not, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %if.then43
-  %call54 = tail call i32 @evutil_closesocket(i32 noundef %10) #28
+  %call54 = tail call i32 @evutil_closesocket(i32 noundef %10) #26
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then51, %if.then43
@@ -3064,31 +3064,31 @@ if.then65:                                        ; preds = %if.end61
   br i1 %cmp67.not, label %if.end71, label %if.then68
 
 if.then68:                                        ; preds = %if.then65
-  tail call void %12(ptr noundef nonnull %base) #28
+  tail call void %12(ptr noundef nonnull %base) #26
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then68, %if.then65
   %init = getelementptr inbounds %struct.eventop, ptr %2, i64 0, i32 1
   %13 = load ptr, ptr %init, align 8
-  %call72 = tail call ptr %13(ptr noundef nonnull %base) #28
+  %call72 = tail call ptr %13(ptr noundef nonnull %base) #26
   %evbase = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 1
   store ptr %call72, ptr %evbase, align 8
   %cmp74 = icmp eq ptr %call72, null
   br i1 %cmp74, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.end71
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.event_reinit) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.event_reinit) #29
   unreachable
 
 if.end76:                                         ; preds = %if.end71
   %changelist = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 2
-  tail call void @event_changelist_freemem_(ptr noundef nonnull %changelist) #28
-  %call77 = tail call i32 @evmap_reinit_(ptr noundef nonnull %base) #28
+  tail call void @event_changelist_freemem_(ptr noundef nonnull %changelist) #26
+  %call77 = tail call i32 @evmap_reinit_(ptr noundef nonnull %base) #26
   %call77.lobit = ashr i32 %call77, 31
   br label %if.end94
 
 if.else:                                          ; preds = %if.end61
-  %call81 = tail call i32 @evsig_init_(ptr noundef nonnull %base) #28
+  %call81 = tail call i32 @evsig_init_(ptr noundef nonnull %base) #26
   %cmp82 = icmp eq i32 %call81, 0
   %or.cond = and i1 %tobool9.not, %cmp82
   br i1 %or.cond, label %if.then84, label %if.end94
@@ -3120,7 +3120,7 @@ do.body102:                                       ; preds = %if.then84, %if.end9
 
 if.then105:                                       ; preds = %do.body102
   %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call107 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #28
+  %call107 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #26
   br label %do.end110
 
 do.end110:                                        ; preds = %if.then105, %do.body102
@@ -3139,7 +3139,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %ev_fd, align 8
   %evcb_cb_union = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 4
   %2 = load ptr, ptr %evcb_cb_union, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.27, ptr noundef %ev, i32 noundef %1, ptr noundef %2) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.27, ptr noundef %ev, i32 noundef %1, ptr noundef %2) #26
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -3304,11 +3304,11 @@ if.then63:                                        ; preds = %if.end57
   br i1 %tobool67.not, label %if.else71, label %if.then68
 
 if.then68:                                        ; preds = %if.then63
-  %call70 = tail call i32 @evmap_io_del_(ptr noundef nonnull %3, i32 noundef %41, ptr noundef nonnull %ev) #28
+  %call70 = tail call i32 @evmap_io_del_(ptr noundef nonnull %3, i32 noundef %41, ptr noundef nonnull %ev) #26
   br label %if.end74
 
 if.else71:                                        ; preds = %if.then63
-  %call73 = tail call i32 @evmap_signal_del_(ptr noundef nonnull %3, i32 noundef %41, ptr noundef nonnull %ev) #28
+  %call73 = tail call i32 @evmap_signal_del_(ptr noundef nonnull %3, i32 noundef %41, ptr noundef nonnull %ev) #26
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else71, %if.then68
@@ -3350,7 +3350,7 @@ land.lhs.true93:                                  ; preds = %if.end85
 land.lhs.true95:                                  ; preds = %land.lhs.true93
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %3, i64 0, i32 30
   %48 = load i64, ptr %th_owner_id, align 8
-  %call96 = tail call i64 %46() #28
+  %call96 = tail call i64 %46() #26
   %cmp97.not = icmp eq i64 %48, %call96
   br i1 %cmp97.not, label %if.end101, label %if.then99
 
@@ -3368,7 +3368,7 @@ if.end6.i:                                        ; preds = %if.then99
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %49(ptr noundef nonnull %3) #28
+  %call.i = tail call i32 %49(ptr noundef nonnull %3) #26
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end57, %if.end9.i, %if.end6.i, %if.then99, %land.lhs.true95, %land.lhs.true93, %if.end85
@@ -3384,7 +3384,7 @@ if.end.i:                                         ; preds = %if.end101
 
 if.then2.i:                                       ; preds = %if.end.i
   %53 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i74 = tail call i32 %53(i32 noundef 0, ptr noundef nonnull %52) #28
+  %call.i74 = tail call i32 %53(i32 noundef 0, ptr noundef nonnull %52) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -3430,12 +3430,12 @@ if.else.i76:                                      ; preds = %while.cond.i.i.i, %
   %61 = load i32, ptr %ev_fd.i, align 8
   %62 = load i16, ptr %evcb_flags37, align 8
   %conv7.i = sext i16 %62 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.event_debug_note_del_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %61, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.event_debug_note_del_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %61, i32 noundef %conv7.i) #29
   unreachable
 
 if.then11.i75:                                    ; preds = %if.then6.i
   %63 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %63(i32 noundef 0, ptr noundef nonnull %59) #28
+  %call12.i = tail call i32 %63(i32 noundef 0, ptr noundef nonnull %59) #26
   br label %event_debug_note_del_.exit
 
 event_debug_note_del_.exit:                       ; preds = %if.end101, %if.then6.i, %if.then11.i75
@@ -3455,7 +3455,7 @@ land.lhs.true104:                                 ; preds = %event_debug_note_de
 lor.lhs.false:                                    ; preds = %land.lhs.true104
   %th_owner_id111 = getelementptr inbounds %struct.event_base, ptr %3, i64 0, i32 30
   %66 = load i64, ptr %th_owner_id111, align 8
-  %call112 = tail call i64 %65() #28
+  %call112 = tail call i64 %65() #26
   %cmp113 = icmp eq i64 %66, %call112
   br i1 %cmp113, label %return, label %land.lhs.true115
 
@@ -3483,7 +3483,7 @@ cond.true:                                        ; preds = %if.then123
   %71 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 4), align 8
   %th_base_lock126 = getelementptr inbounds %struct.event_base, ptr %3, i64 0, i32 31
   %72 = load ptr, ptr %th_base_lock126, align 8
-  %call127 = tail call i32 %71(ptr noundef nonnull %70, ptr noundef %72, ptr noundef null) #28
+  %call127 = tail call i32 %71(ptr noundef nonnull %70, ptr noundef %72, ptr noundef null) #26
   br label %return
 
 return:                                           ; preds = %event_debug_note_del_.exit, %land.lhs.true104, %lor.lhs.false, %lor.lhs.false118, %if.then123, %cond.true, %if.then13, %do.end
@@ -3505,7 +3505,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -3551,7 +3551,7 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv8.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.event_debug_assert_not_added_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv8.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.event_debug_assert_not_added_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv8.i) #29
   unreachable
 
 do.body10.i:                                      ; preds = %while.cond.i.i.i, %land.lhs.true.i, %do.end.i
@@ -3561,7 +3561,7 @@ do.body10.i:                                      ; preds = %while.cond.i.i.i, %
 
 if.then12.i:                                      ; preds = %do.body10.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call13.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call13.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_not_added_.exit
 
 event_debug_assert_not_added_.exit:               ; preds = %do.body10.i, %if.then12.i
@@ -3576,7 +3576,7 @@ if.end.i4:                                        ; preds = %event_debug_assert_
 
 if.then2.i6:                                      ; preds = %if.end.i4
   %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i7 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #28
+  %call.i7 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #26
   br label %do.end.i8
 
 do.end.i8:                                        ; preds = %if.then2.i6, %if.end.i4
@@ -3618,11 +3618,11 @@ if.then6.i:                                       ; preds = %while.body.i.i.i19
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  tail call void %22(ptr noundef nonnull %18) #28
+  tail call void %22(ptr noundef nonnull %18) #26
   br label %do.body8.i
 
 if.else.i.i:                                      ; preds = %if.then6.i
-  tail call void @free(ptr noundef nonnull %18) #28
+  tail call void @free(ptr noundef nonnull %18) #26
   br label %do.body8.i
 
 do.body8.i:                                       ; preds = %while.cond.i.i.i16, %if.else.i.i, %if.then.i.i, %do.end.i8
@@ -3632,7 +3632,7 @@ do.body8.i:                                       ; preds = %while.cond.i.i.i16,
 
 if.then10.i:                                      ; preds = %do.body8.i
   %24 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %24(i32 noundef 0, ptr noundef nonnull %23) #28
+  %call11.i = tail call i32 %24(i32 noundef 0, ptr noundef nonnull %23) #26
   br label %event_debug_note_teardown_.exit
 
 event_debug_note_teardown_.exit:                  ; preds = %entry, %event_debug_assert_not_added_.exit, %do.body8.i, %if.then10.i
@@ -3672,7 +3672,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -3711,7 +3711,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %11 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %11 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -3721,7 +3721,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #28
+  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -3748,7 +3748,7 @@ if.then6:                                         ; preds = %event_debug_assert_
   %cond19 = select i1 %tobool18.not, ptr @.str.22, ptr @.str.25
   %evcb_cb_union = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 4
   %17 = load ptr, ptr %evcb_cb_union, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.20, ptr noundef %ev, i32 noundef %15, ptr noundef nonnull %cond, ptr noundef nonnull %cond12, ptr noundef nonnull %cond17, ptr noundef nonnull %cond19, ptr noundef %17) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.20, ptr noundef %ev, i32 noundef %15, ptr noundef nonnull %cond, ptr noundef nonnull %cond12, ptr noundef nonnull %cond17, ptr noundef nonnull %cond19, ptr noundef %17) #26
   br label %do.end23
 
 do.end23:                                         ; preds = %event_debug_assert_is_setup_.exit, %if.then6
@@ -3788,11 +3788,11 @@ if.then.i:                                        ; preds = %if.then37
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call ptr %22(ptr noundef %21, i64 noundef %mul7.i) #28
+  %call.i.i = tail call ptr %22(ptr noundef %21, i64 noundef %mul7.i) #26
   br label %event_mm_realloc_.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %call1.i.i = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul7.i) #30
+  %call1.i.i = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul7.i) #28
   br label %event_mm_realloc_.exit.i
 
 event_mm_realloc_.exit.i:                         ; preds = %if.else.i.i, %if.then.i.i
@@ -3824,7 +3824,7 @@ land.lhs.true48:                                  ; preds = %if.end44
 lor.lhs.false:                                    ; preds = %land.lhs.true48
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 30
   %27 = load i64, ptr %th_owner_id, align 8
-  %call56 = tail call i64 %26() #28
+  %call56 = tail call i64 %26() #26
   %cmp57 = icmp eq i64 %27, %call56
   br i1 %cmp57, label %if.end65, label %if.then59
 
@@ -3841,7 +3841,7 @@ if.then59:                                        ; preds = %lor.lhs.false
 cond.true:                                        ; preds = %if.then59
   %30 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 4), align 8
   %31 = load ptr, ptr %th_base_lock, align 8
-  %call63 = tail call i32 %30(ptr noundef nonnull %29, ptr noundef %31, ptr noundef null) #28
+  %call63 = tail call i32 %30(ptr noundef nonnull %29, ptr noundef %31, ptr noundef null) #26
   br label %if.end65
 
 if.end65:                                         ; preds = %cond.true, %if.then59, %lor.lhs.false, %land.lhs.true48, %if.end44
@@ -3866,7 +3866,7 @@ if.then76:                                        ; preds = %land.lhs.true70
 if.then81:                                        ; preds = %if.then76
   %ev_fd82 = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
   %35 = load i32, ptr %ev_fd82, align 8
-  %call83 = tail call i32 @evmap_io_add_(ptr noundef nonnull %0, i32 noundef %35, ptr noundef nonnull %ev) #28
+  %call83 = tail call i32 @evmap_io_add_(ptr noundef nonnull %0, i32 noundef %35, ptr noundef nonnull %ev) #26
   br label %if.end92
 
 if.else:                                          ; preds = %if.then76
@@ -3877,7 +3877,7 @@ if.else:                                          ; preds = %if.then76
 if.then88:                                        ; preds = %if.else
   %ev_fd89 = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 2
   %36 = load i32, ptr %ev_fd89, align 8
-  %call90 = tail call i32 @evmap_signal_add_(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull %ev) #28
+  %call90 = tail call i32 @evmap_signal_add_(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull %ev) #26
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then88, %if.then81
@@ -4032,7 +4032,7 @@ if.then5.i:                                       ; preds = %if.end150
 
 if.end7.i:                                        ; preds = %if.end150
   %monotonic_timer.i = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 27
-  %call.i112 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i, ptr noundef nonnull %now) #28
+  %call.i112 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i, ptr noundef nonnull %now) #26
   %cmp.i113 = icmp eq i32 %call.i112, -1
   br i1 %cmp.i113, label %gettime.exit, label %if.end9.i
 
@@ -4044,7 +4044,7 @@ if.end9.i:                                        ; preds = %if.end7.i
   br i1 %cmp11.not.i, label %gettime.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #28
+  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #26
   %tv_clock_diff.i = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 28
   %69 = load <2 x i64>, ptr %tv.i, align 16
   %70 = load <2 x i64>, ptr %now, align 16
@@ -4157,7 +4157,7 @@ if.then215:                                       ; preds = %do.body213
   %conv219 = trunc i64 %88 to i32
   %evcb_cb_union221 = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 4
   %89 = load ptr, ptr %evcb_cb_union221, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.26, ptr noundef nonnull %ev, i32 noundef %conv217, i32 noundef %conv219, ptr noundef %89) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.26, ptr noundef nonnull %ev, i32 noundef %conv217, i32 noundef %conv219, ptr noundef %89) #26
   br label %do.end223
 
 do.end223:                                        ; preds = %do.body213, %if.then215
@@ -4285,11 +4285,11 @@ if.then.i.i.i:                                    ; preds = %if.else.i127
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %call.i.i.i.i = call ptr %110(ptr noundef %109, i64 noundef %mul7.i.i.i) #28
+  %call.i.i.i.i = call ptr %110(ptr noundef %109, i64 noundef %mul7.i.i.i) #26
   br label %event_mm_realloc_.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %call1.i.i.i.i = call ptr @realloc(ptr noundef %109, i64 noundef %mul7.i.i.i) #30
+  %call1.i.i.i.i = call ptr @realloc(ptr noundef %109, i64 noundef %mul7.i.i.i) #28
   br label %event_mm_realloc_.exit.i.i.i
 
 event_mm_realloc_.exit.i.i.i:                     ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -4438,7 +4438,7 @@ land.lhs.true271:                                 ; preds = %if.end263
 land.lhs.true273:                                 ; preds = %land.lhs.true271
   %th_owner_id274 = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 30
   %133 = load i64, ptr %th_owner_id274, align 8
-  %call275 = call i64 %131() #28
+  %call275 = call i64 %131() #26
   %cmp276.not = icmp eq i64 %133, %call275
   br i1 %cmp276.not, label %if.end280, label %if.then278
 
@@ -4456,7 +4456,7 @@ if.end6.i:                                        ; preds = %if.then278
 
 if.end9.i141:                                     ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i142 = call i32 %134(ptr noundef nonnull %0) #28
+  %call.i142 = call i32 %134(ptr noundef nonnull %0) #26
   br label %if.end280
 
 if.end280:                                        ; preds = %if.end92, %if.end9.i141, %if.end6.i, %if.then278, %land.lhs.true273, %land.lhs.true271, %if.end263
@@ -4472,7 +4472,7 @@ if.end.i144:                                      ; preds = %if.end280
 
 if.then2.i146:                                    ; preds = %if.end.i144
   %138 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i147 = call i32 %138(i32 noundef 0, ptr noundef nonnull %137) #28
+  %call.i147 = call i32 %138(i32 noundef 0, ptr noundef nonnull %137) #26
   br label %do.end.i148
 
 do.end.i148:                                      ; preds = %if.then2.i146, %if.end.i144
@@ -4518,12 +4518,12 @@ if.else.i166:                                     ; preds = %while.cond.i.i.i156
   %146 = load i32, ptr %ev_fd.i169, align 8
   %147 = load i16, ptr %evcb_flags, align 8
   %conv7.i171 = sext i16 %147 to i32
-  call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.event_debug_note_add_, ptr noundef %ev, i32 noundef %conv.i168, i32 noundef %146, i32 noundef %conv7.i171) #31
+  call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.event_debug_note_add_, ptr noundef %ev, i32 noundef %conv.i168, i32 noundef %146, i32 noundef %conv7.i171) #29
   unreachable
 
 if.then11.i164:                                   ; preds = %if.then6.i162
   %148 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i165 = call i32 %148(i32 noundef 0, ptr noundef nonnull %144) #28
+  %call12.i165 = call i32 %148(i32 noundef 0, ptr noundef nonnull %144) #26
   br label %event_debug_note_add_.exit
 
 event_debug_note_add_.exit:                       ; preds = %if.end280, %if.then6.i162, %if.then11.i164
@@ -4544,7 +4544,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @evutil_eventfd_(i32 noundef 0, i32 noundef 526336) #28
+  %call = tail call i32 @evutil_eventfd_(i32 noundef 0, i32 noundef 526336) #26
   %th_notify_fd = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 40
   store i32 %call, ptr %th_notify_fd, align 4
   %cmp3 = icmp sgt i32 %call, -1
@@ -4556,7 +4556,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %call8 = tail call i32 @evutil_make_internal_pipe_(ptr noundef nonnull %th_notify_fd) #28
+  %call8 = tail call i32 @evutil_make_internal_pipe_(ptr noundef nonnull %th_notify_fd) #26
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.else.if.end13_crit_edge, label %return
 
@@ -4586,7 +4586,7 @@ if.end.i.i:                                       ; preds = %if.end13
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #28
+  %call.i.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #26
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.then2.i.i, %if.end.i.i
@@ -4624,7 +4624,7 @@ if.then6.i.i:                                     ; preds = %while.cond.i.i.i.i,
   %13 = load i32, ptr %ev_fd.i.i, align 8
   %14 = load i16, ptr %evcb_flags, align 8
   %conv7.i.i = sext i16 %14 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef nonnull %th_notify, i32 noundef %conv.i.i, i32 noundef %13, i32 noundef %conv7.i.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef nonnull %th_notify, i32 noundef %conv.i.i, i32 noundef %13, i32 noundef %conv7.i.i) #29
   unreachable
 
 do.body9.i.i:                                     ; preds = %while.body.i.i.i.i
@@ -4634,7 +4634,7 @@ do.body9.i.i:                                     ; preds = %while.body.i.i.i.i
 
 if.then11.i.i:                                    ; preds = %do.body9.i.i
   %16 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i.i = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %15) #28
+  %call12.i.i = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %15) #26
   br label %event_debug_assert_is_setup_.exit.i
 
 event_debug_assert_is_setup_.exit.i:              ; preds = %if.then11.i.i, %do.body9.i.i, %if.end13
@@ -4681,19 +4681,19 @@ do.body2:                                         ; preds = %entry
 
 if.then4:                                         ; preds = %do.body2
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end6
 
 do.end6:                                          ; preds = %if.then4, %do.body2
   %monotonic_timer = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 27
-  %call7 = tail call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer, ptr noundef nonnull %tv) #28
+  %call7 = tail call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer, ptr noundef nonnull %tv) #26
   %2 = load ptr, ptr %th_base_lock, align 8
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call14 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %if.end18
 
 if.end18:                                         ; preds = %do.end6, %if.then12, %entry
@@ -4711,7 +4711,7 @@ entry:
   br i1 %tobool.not.i, label %event_mm_calloc_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 32) #28
+  %call.i = tail call ptr %0(i64 noundef 32) #26
   %tobool6.not.i = icmp eq ptr %call.i, null
   br i1 %tobool6.not.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread23
 
@@ -4720,12 +4720,12 @@ event_mm_calloc_.exit.thread23:                   ; preds = %if.then2.i
   br label %for.body6.preheader
 
 event_mm_calloc_.exit.thread:                     ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   br label %return
 
 event_mm_calloc_.exit:                            ; preds = %entry
-  %call10.i = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 4, i64 noundef 8) #33
+  %call10.i = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 4, i64 noundef 8) #31
   %cmp1 = icmp eq ptr %call10.i, null
   br i1 %cmp1, label %return, label %for.body6.preheader
 
@@ -4757,11 +4757,11 @@ if.then19:                                        ; preds = %for.end14
   br i1 %tobool.not.i11, label %if.else.i12, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
-  tail call void %4(ptr noundef nonnull %3) #28
+  tail call void %4(ptr noundef nonnull %3) #26
   br label %if.end20
 
 if.else.i12:                                      ; preds = %if.then19
-  tail call void @free(ptr noundef nonnull %3) #28
+  tail call void @free(ptr noundef nonnull %3) #26
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else.i12, %if.then.i, %for.end14
@@ -4774,7 +4774,7 @@ return:                                           ; preds = %event_mm_calloc_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @event_config_set_flag(ptr noundef %cfg, i32 noundef %flag) local_unnamed_addr #9 {
+define dso_local noundef i32 @event_config_set_flag(ptr noundef %cfg, i32 noundef %flag) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4792,18 +4792,18 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_config_avoid_method(ptr nocapture noundef %cfg, ptr noundef readonly %method) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_config_avoid_method(ptr nocapture noundef %cfg, ptr noundef readonly %method) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @mm_malloc_fn_, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 24) #28
+  %call.i = tail call ptr %0(i64 noundef 24) #26
   br label %event_mm_malloc_.exit
 
 if.else.i:                                        ; preds = %entry
-  %call2.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #29
+  %call2.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %if.then1.i, %if.else.i
@@ -4821,13 +4821,13 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool1.not.i, label %event_mm_strdup_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %method) #34
+  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %method) #32
   %cmp.i = icmp eq i64 %call3.i, -1
   br i1 %cmp.i, label %event_mm_strdup_.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i
   %add.i = add nuw i64 %call3.i, 1
-  %call6.i = tail call ptr %1(i64 noundef %add.i) #28
+  %call6.i = tail call ptr %1(i64 noundef %add.i) #26
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %event_mm_strdup_.exit.thread, label %event_mm_strdup_.exit.thread20
 
@@ -4839,14 +4839,14 @@ event_mm_strdup_.exit.thread20:                   ; preds = %if.end5.i
 
 event_mm_strdup_.exit.thread:                     ; preds = %if.then2.i, %if.end5.i, %if.end
   %.sink = phi i32 [ 22, %if.end ], [ 12, %if.end5.i ], [ 12, %if.then2.i ]
-  %call13.i = tail call ptr @__errno_location() #32
+  %call13.i = tail call ptr @__errno_location() #30
   store i32 %.sink, ptr %call13.i, align 4
   %avoid_method18 = getelementptr inbounds %struct.event_config_entry, ptr %retval.0.i, i64 0, i32 1
   store ptr null, ptr %avoid_method18, align 8
   br label %if.then4
 
 event_mm_strdup_.exit:                            ; preds = %if.end.i
-  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull %method) #28
+  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull %method) #26
   %avoid_method = getelementptr inbounds %struct.event_config_entry, ptr %retval.0.i, i64 0, i32 1
   store ptr %call11.i, ptr %avoid_method, align 8
   %cmp3 = icmp eq ptr %call11.i, null
@@ -4858,11 +4858,11 @@ if.then4:                                         ; preds = %event_mm_strdup_.ex
   br i1 %tobool.not.i13, label %if.else.i16, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then4
-  tail call void %2(ptr noundef nonnull %retval.0.i) #28
+  tail call void %2(ptr noundef nonnull %retval.0.i) #26
   br label %return
 
 if.else.i16:                                      ; preds = %if.then4
-  tail call void @free(ptr noundef nonnull %retval.0.i) #28
+  tail call void @free(ptr noundef nonnull %retval.0.i) #26
   br label %return
 
 do.body:                                          ; preds = %event_mm_strdup_.exit.thread20, %event_mm_strdup_.exit
@@ -4887,7 +4887,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #32
+  %call = tail call ptr @__errno_location() #30
   store i32 22, ptr %call, align 4
   br label %return
 
@@ -4897,13 +4897,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #34
+  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #32
   %cmp = icmp eq i64 %call3, -1
   br i1 %cmp, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
   %add = add nuw i64 %call3, 1
-  %call6 = tail call ptr %0(i64 noundef %add) #28
+  %call6 = tail call ptr %0(i64 noundef %add) #26
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %error, label %if.then8
 
@@ -4912,11 +4912,11 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call11 = tail call noalias ptr @strdup(ptr noundef nonnull %str) #28
+  %call11 = tail call noalias ptr @strdup(ptr noundef nonnull %str) #26
   br label %return
 
 error:                                            ; preds = %if.end5, %if.then2
-  %call13 = tail call ptr @__errno_location() #32
+  %call13 = tail call ptr @__errno_location() #30
   store i32 12, ptr %call13, align 4
   br label %return
 
@@ -4926,7 +4926,7 @@ return:                                           ; preds = %error, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @event_config_require_features(ptr noundef writeonly %cfg, i32 noundef %features) local_unnamed_addr #10 {
+define dso_local noundef i32 @event_config_require_features(ptr noundef writeonly %cfg, i32 noundef %features) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4942,7 +4942,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @event_config_set_num_cpus_hint(ptr noundef writeonly %cfg, i32 noundef %cpus) local_unnamed_addr #10 {
+define dso_local noundef i32 @event_config_set_num_cpus_hint(ptr noundef writeonly %cfg, i32 noundef %cpus) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4957,8 +4957,8 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @event_config_set_max_dispatch_interval(ptr nocapture noundef writeonly %cfg, ptr noundef readonly %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @event_config_set_max_dispatch_interval(ptr nocapture noundef writeonly %cfg, ptr noundef readonly %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %max_interval, null
   %max_dispatch_interval1 = getelementptr inbounds %struct.event_config, ptr %cfg, i64 0, i32 2
@@ -4984,7 +4984,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_priority_init(i32 noundef %npriorities) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_priority_init(i32 noundef %npriorities) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
   %call = tail call i32 @event_base_priority_init(ptr noundef %0, i32 noundef %npriorities), !range !16
@@ -5009,7 +5009,7 @@ do.end5.thread:                                   ; preds = %entry
 
 do.end5:                                          ; preds = %entry
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %1) #26
   %.pr = load ptr, ptr %th_base_lock, align 8
   %nactivequeues = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 18
   %4 = load i32, ptr %nactivequeues, align 8
@@ -5018,7 +5018,7 @@ do.end5:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %do.end5
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %.pr) #28
+  %call12 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %.pr) #26
   br label %do.end15
 
 do.end15:                                         ; preds = %do.end5.thread, %if.then10, %do.end5
@@ -5036,7 +5036,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -5081,7 +5081,7 @@ do.body18:                                        ; preds = %if.then14, %if.end1
 
 if.then21:                                        ; preds = %do.body18
   %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call23 = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #28
+  %call23 = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #26
   br label %do.end26
 
 do.end26:                                         ; preds = %if.then21, %do.body18
@@ -5098,7 +5098,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -5169,7 +5169,7 @@ do.body30:                                        ; preds = %if.then22, %if.then
 
 if.then33:                                        ; preds = %do.body30
   %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call35 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #28
+  %call35 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #26
   br label %do.end38
 
 do.end38:                                         ; preds = %if.then33, %do.body30
@@ -5187,7 +5187,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -5270,7 +5270,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %for.end
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.event_base_init_common_timeout, i32 noundef 256) #28
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.event_base_init_common_timeout, i32 noundef 256) #26
   br label %done
 
 if.end31:                                         ; preds = %if.end12, %for.end
@@ -5292,11 +5292,11 @@ if.then34:                                        ; preds = %if.end31
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then34
-  %call.i = tail call ptr %18(ptr noundef %17, i64 noundef %mul39) #28
+  %call.i = tail call ptr %18(ptr noundef %17, i64 noundef %mul39) #26
   br label %event_mm_realloc_.exit
 
 if.else.i:                                        ; preds = %if.then34
-  %call1.i = tail call ptr @realloc(ptr noundef %17, i64 noundef %mul39) #30
+  %call1.i = tail call ptr @realloc(ptr noundef %17, i64 noundef %mul39) #28
   br label %event_mm_realloc_.exit
 
 event_mm_realloc_.exit:                           ; preds = %if.then.i, %if.else.i
@@ -5305,7 +5305,7 @@ event_mm_realloc_.exit:                           ; preds = %if.then.i, %if.else
   br i1 %tobool41.not, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %event_mm_realloc_.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.event_base_init_common_timeout) #28
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.event_base_init_common_timeout) #26
   br label %done
 
 if.end43:                                         ; preds = %event_mm_realloc_.exit
@@ -5319,7 +5319,7 @@ if.end46:                                         ; preds = %if.end43, %if.end31
   br i1 %tobool.not.i49, label %event_mm_calloc_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end46
-  %call.i50 = tail call ptr %19(i64 noundef 160) #28
+  %call.i50 = tail call ptr %19(i64 noundef 160) #26
   %tobool6.not.i = icmp eq ptr %call.i50, null
   br i1 %tobool6.not.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread59
 
@@ -5328,17 +5328,17 @@ event_mm_calloc_.exit.thread59:                   ; preds = %if.then2.i
   br label %do.body51
 
 event_mm_calloc_.exit.thread:                     ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   br label %if.then49
 
 event_mm_calloc_.exit:                            ; preds = %if.end46
-  %call10.i = tail call noalias dereferenceable_or_null(160) ptr @calloc(i64 noundef 1, i64 noundef 160) #33
+  %call10.i = tail call noalias dereferenceable_or_null(160) ptr @calloc(i64 noundef 1, i64 noundef 160) #31
   %tobool48.not = icmp eq ptr %call10.i, null
   br i1 %tobool48.not, label %if.then49, label %do.body51
 
 if.then49:                                        ; preds = %event_mm_calloc_.exit.thread, %event_mm_calloc_.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_init_common_timeout) #28
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.event_base_init_common_timeout) #26
   br label %done
 
 do.body51:                                        ; preds = %event_mm_calloc_.exit.thread59, %event_mm_calloc_.exit
@@ -5375,7 +5375,7 @@ if.end.i.i:                                       ; preds = %do.body51
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %27 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i = tail call i32 %27(i32 noundef 0, ptr noundef nonnull %26) #28
+  %call.i.i = tail call i32 %27(i32 noundef 0, ptr noundef nonnull %26) #26
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.then2.i.i, %if.end.i.i
@@ -5413,7 +5413,7 @@ if.then6.i.i:                                     ; preds = %while.cond.i.i.i.i,
   %34 = load i32, ptr %ev_fd.i.i, align 8
   %35 = load i16, ptr %evcb_flags, align 8
   %conv7.i.i = sext i16 %35 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef nonnull %timeout_event, i32 noundef %conv.i.i, i32 noundef %34, i32 noundef %conv7.i.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef nonnull %timeout_event, i32 noundef %conv.i.i, i32 noundef %34, i32 noundef %conv7.i.i) #29
   unreachable
 
 do.body9.i.i:                                     ; preds = %while.body.i.i.i.i
@@ -5423,7 +5423,7 @@ do.body9.i.i:                                     ; preds = %while.body.i.i.i.i
 
 if.then11.i.i:                                    ; preds = %do.body9.i.i
   %37 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i.i = tail call i32 %37(i32 noundef 0, ptr noundef nonnull %36) #28
+  %call12.i.i = tail call i32 %37(i32 noundef 0, ptr noundef nonnull %36) #26
   br label %event_debug_assert_is_setup_.exit.i
 
 event_debug_assert_is_setup_.exit.i:              ; preds = %if.then11.i.i, %do.body9.i.i, %do.body51
@@ -5470,7 +5470,7 @@ done:                                             ; preds = %done.loopexit, %eve
 
 if.then88:                                        ; preds = %done
   %45 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call90 = tail call i32 %45(i32 noundef 0, ptr noundef nonnull %44) #28
+  %call90 = tail call i32 %45(i32 noundef 0, ptr noundef nonnull %44) #26
   br label %do.end93
 
 do.end93:                                         ; preds = %if.then88, %done
@@ -5478,7 +5478,7 @@ do.end93:                                         ; preds = %if.then88, %done
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_assign(ptr noundef %ev, ptr noundef %base, i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_assign(ptr noundef %ev, ptr noundef %base, i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8
@@ -5498,7 +5498,7 @@ if.then4:                                         ; preds = %entry
   br i1 %or.cond.i, label %if.end5, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.then4
-  %call.i = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %fd, i32 noundef 3, ptr noundef null) #28
+  %call.i = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %fd, i32 noundef 3, ptr noundef null) #26
   br label %if.end5thread-pre-split
 
 if.end5thread-pre-split:                          ; preds = %entry, %if.end2.i
@@ -5517,7 +5517,7 @@ if.end.i:                                         ; preds = %if.end5
 
 if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i28 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call.i28 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -5563,7 +5563,7 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %12 = load i16, ptr %evcb_flags.i, align 8
   %conv8.i = sext i16 %12 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.event_debug_assert_not_added_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %11, i32 noundef %conv8.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.event_debug_assert_not_added_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %11, i32 noundef %conv8.i) #29
   unreachable
 
 do.body10.i:                                      ; preds = %while.cond.i.i.i, %land.lhs.true.i, %do.end.i
@@ -5573,7 +5573,7 @@ do.body10.i:                                      ; preds = %while.cond.i.i.i, %
 
 if.then12.i:                                      ; preds = %do.body10.i
   %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call13.i = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #28
+  %call13.i = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #26
   br label %event_debug_assert_not_added_.exit
 
 event_debug_assert_not_added_.exit:               ; preds = %if.end5, %do.body10.i, %if.then12.i
@@ -5603,7 +5603,7 @@ if.then12:                                        ; preds = %event_debug_assert_
   br i1 %cmp15.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.then12
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.event_assign) #28
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.event_assign) #26
   br label %return
 
 if.end18:                                         ; preds = %if.then12
@@ -5653,7 +5653,7 @@ if.end.i30:                                       ; preds = %if.end39
 
 if.then2.i32:                                     ; preds = %if.end.i30
   %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i33 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #28
+  %call.i33 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #26
   br label %do.end.i34
 
 do.end.i34:                                       ; preds = %if.then2.i32, %if.end.i30
@@ -5696,11 +5696,11 @@ if.else.i:                                        ; preds = %while.cond.i.i.i42,
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.else.i
-  %call.i.i = tail call ptr %24(i64 noundef 24) #28
+  %call.i.i = tail call ptr %24(i64 noundef 24) #26
   br label %event_mm_malloc_.exit.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  %call2.i.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #29
+  %call2.i.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   br label %event_mm_malloc_.exit.i
 
 event_mm_malloc_.exit.i:                          ; preds = %if.else.i.i, %if.then1.i.i
@@ -5709,7 +5709,7 @@ event_mm_malloc_.exit.i:                          ; preds = %if.else.i.i, %if.th
   br i1 %tobool8.not.i, label %if.then9.i, label %if.end10.i
 
 if.then9.i:                                       ; preds = %event_mm_malloc_.exit.i
-  tail call void (i32, ptr, ...) @event_err(i32 noundef 1, ptr noundef nonnull @.str.41) #31
+  tail call void (i32, ptr, ...) @event_err(i32 noundef 1, ptr noundef nonnull @.str.41) #29
   unreachable
 
 if.end10.i:                                       ; preds = %event_mm_malloc_.exit.i
@@ -5759,7 +5759,7 @@ do.body17.i:                                      ; preds = %event_debug_map_HT_
 
 if.then19.i:                                      ; preds = %do.body17.i
   %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call20.i = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %32) #28
+  %call20.i = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %32) #26
   br label %event_debug_note_setup_.exit
 
 event_debug_note_setup_.exit:                     ; preds = %if.end39, %do.body17.i, %if.then19.i
@@ -5786,7 +5786,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -5802,7 +5802,7 @@ if.then5.i:                                       ; preds = %do.end4
 
 if.end7.i:                                        ; preds = %do.end4
   %monotonic_timer.i = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 27
-  %call.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i, ptr noundef nonnull %now) #28
+  %call.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i, ptr noundef nonnull %now) #26
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %gettime.exit, label %if.end9.i
 
@@ -5814,7 +5814,7 @@ if.end9.i:                                        ; preds = %if.end7.i
   br i1 %cmp11.not.i, label %gettime.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #28
+  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #26
   %tv_clock_diff.i = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 28
   %6 = load <2 x i64>, ptr %tv.i, align 16
   %7 = load <2 x i64>, ptr %now, align 16
@@ -5885,7 +5885,7 @@ do.body23:                                        ; preds = %if.end17, %gettime.
 
 if.then26:                                        ; preds = %do.body23
   %21 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call28 = call i32 %21(i32 noundef 0, ptr noundef nonnull %20) #28
+  %call28 = call i32 %21(i32 noundef 0, ptr noundef nonnull %20) #26
   br label %do.end31
 
 do.end31:                                         ; preds = %if.then26, %do.body23
@@ -5893,7 +5893,7 @@ do.end31:                                         ; preds = %if.then26, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_priority_set(ptr noundef %ev, i32 noundef %pri) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_priority_set(ptr noundef %ev, i32 noundef %pri) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @event_debug_mode_on_, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -5906,7 +5906,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -5945,7 +5945,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -5955,7 +5955,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -5987,15 +5987,15 @@ return:                                           ; preds = %lor.lhs.false, %eve
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_dispatch() local_unnamed_addr #0 {
+define dso_local noundef i32 @event_dispatch() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
-  %call.i = tail call i32 @event_base_loop(ptr noundef %0, i32 noundef 0), !range !37
+  %call.i = tail call noundef i32 @event_base_loop(ptr noundef %0, i32 noundef 0), !range !37
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_loop(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_loop(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
   %call = tail call i32 @event_base_loop(ptr noundef %0, i32 noundef %flags), !range !37
@@ -6003,14 +6003,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_dispatch(ptr noundef %event_base) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_dispatch(ptr noundef %event_base) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @event_base_loop(ptr noundef %event_base, i32 noundef 0), !range !37
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_loop(ptr noundef %base, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_loop(ptr noundef %base, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %tv.i.i128 = alloca %struct.timeval, align 16
   %tv.i.i.i = alloca %struct.timeval, align 16
@@ -6031,7 +6031,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then, %entry
@@ -6041,14 +6041,14 @@ do.end5:                                          ; preds = %if.then, %entry
   br i1 %tobool6.not, label %if.end18, label %if.then7
 
 if.then7:                                         ; preds = %do.end5
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.event_base_loop) #28
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.event_base_loop) #26
   %4 = load ptr, ptr %th_base_lock, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.then7
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %return
 
 if.end18:                                         ; preds = %do.end5
@@ -6067,7 +6067,7 @@ land.lhs.true:                                    ; preds = %if.end18
   br i1 %tobool22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  tail call void @evsig_set_base_(ptr noundef nonnull %base) #28
+  tail call void @evsig_set_base_(ptr noundef nonnull %base) #26
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %land.lhs.true, %if.end18
@@ -6076,7 +6076,7 @@ if.end24:                                         ; preds = %if.then23, %land.lh
   br i1 %tobool25.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end24
-  %call26 = tail call i64 %8() #28
+  %call26 = tail call i64 %8() #26
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end24, %cond.true
@@ -6164,7 +6164,7 @@ if.then5.i.i:                                     ; preds = %if.end.i
   br label %if.end4.i
 
 if.end7.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i) #28
+  %call.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i) #26
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %gettime.exit.i, label %if.end9.i.i
 
@@ -6175,7 +6175,7 @@ if.end9.i.i:                                      ; preds = %if.end7.i.i
   br i1 %cmp11.not.i.i, label %if.end4.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end9.i.i
-  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #28
+  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #26
   %19 = load <2 x i64>, ptr %tv.i.i, align 16
   %20 = load <2 x i64>, ptr %now.i, align 16
   %21 = sub nsw <2 x i64> %19, %20
@@ -6248,7 +6248,7 @@ do.body37.i:                                      ; preds = %if.then29.i, %do.bo
 if.then38.i:                                      ; preds = %do.body37.i
   %conv.i = trunc i64 %32 to i32
   %conv41.i = trunc i64 %31 to i32
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.45, ptr noundef nonnull %15, i32 noundef %conv.i, i32 noundef %conv41.i) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.45, ptr noundef nonnull %15, i32 noundef %conv.i, i32 noundef %conv41.i) #26
   br label %timeout_next.exit
 
 timeout_next.exit:                                ; preds = %if.then39, %min_heap_top_.exit.i, %gettime.exit.i, %if.then14.i, %do.body37.i, %if.then38.i
@@ -6347,7 +6347,7 @@ do.body58:                                        ; preds = %event_queue_make_la
 
 if.then61:                                        ; preds = %do.body58
   %57 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call63 = call i32 %57(i32 noundef 0, ptr noundef nonnull %56) #28
+  %call63 = call i32 %57(i32 noundef 0, ptr noundef nonnull %56) #26
   br label %do.end66
 
 do.end66:                                         ; preds = %if.then61, %do.body58
@@ -6355,14 +6355,14 @@ do.end66:                                         ; preds = %if.then61, %do.body
   %58 = load ptr, ptr %callback, align 8
   %arg = getelementptr inbounds %struct.evwatch, ptr %watcher.0170, i64 0, i32 4
   %59 = load ptr, ptr %arg, align 8
-  call void %58(ptr noundef nonnull %watcher.0170, ptr noundef nonnull %prepare_info, ptr noundef %59) #28
+  call void %58(ptr noundef nonnull %watcher.0170, ptr noundef nonnull %prepare_info, ptr noundef %59) #26
   %60 = load ptr, ptr %th_base_lock, align 8
   %tobool70.not = icmp eq ptr %60, null
   br i1 %tobool70.not, label %for.inc, label %if.then71
 
 if.then71:                                        ; preds = %do.end66
   %61 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call73 = call i32 %61(i32 noundef 0, ptr noundef nonnull %60) #28
+  %call73 = call i32 %61(i32 noundef 0, ptr noundef nonnull %60) #26
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end66, %if.then71
@@ -6373,7 +6373,7 @@ for.inc:                                          ; preds = %do.end66, %if.then7
 for.end:                                          ; preds = %for.inc, %event_queue_make_later_events_active.exit
   store i64 0, ptr %tv_cache.i, align 8
   %62 = load ptr, ptr %dispatch, align 8
-  %call77 = call i32 %62(ptr noundef nonnull %base, ptr noundef %tv_p.1) #28
+  %call77 = call i32 %62(ptr noundef nonnull %base, ptr noundef %tv_p.1) #26
   %cmp78 = icmp eq i32 %call77, -1
   br i1 %cmp78, label %do.body80, label %if.end85
 
@@ -6391,7 +6391,7 @@ if.end85:                                         ; preds = %for.end
 
 if.end7.i.i72:                                    ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i68)
-  %call.i.i74 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #28
+  %call.i.i74 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #26
   %cmp.i.i75 = icmp eq i32 %call.i.i74, -1
   br i1 %cmp.i.i75, label %gettime.exit.i89, label %if.end9.i.i76
 
@@ -6402,7 +6402,7 @@ if.end9.i.i76:                                    ; preds = %if.end7.i.i72
   br i1 %cmp11.not.i.i78, label %gettime.exit.i89, label %if.then12.i.i79
 
 if.then12.i.i79:                                  ; preds = %if.end9.i.i76
-  %call13.i.i80 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i68, ptr noundef null) #28
+  %call13.i.i80 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i68, ptr noundef null) #26
   %67 = load <2 x i64>, ptr %tv.i.i68, align 16
   %68 = load <2 x i64>, ptr %tv_cache.i, align 8
   %69 = sub nsw <2 x i64> %67, %68
@@ -6432,7 +6432,7 @@ do.body93:                                        ; preds = %update_time_cache.e
 
 if.then96:                                        ; preds = %do.body93
   %74 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call98 = call i32 %74(i32 noundef 0, ptr noundef nonnull %73) #28
+  %call98 = call i32 %74(i32 noundef 0, ptr noundef nonnull %73) #26
   br label %do.end101
 
 do.end101:                                        ; preds = %if.then96, %do.body93
@@ -6440,14 +6440,14 @@ do.end101:                                        ; preds = %if.then96, %do.body
   %75 = load ptr, ptr %callback102, align 8
   %arg103 = getelementptr inbounds %struct.evwatch, ptr %watcher.1173, i64 0, i32 4
   %76 = load ptr, ptr %arg103, align 8
-  call void %75(ptr noundef nonnull %watcher.1173, ptr noundef nonnull %check_info, ptr noundef %76) #28
+  call void %75(ptr noundef nonnull %watcher.1173, ptr noundef nonnull %check_info, ptr noundef %76) #26
   %77 = load ptr, ptr %th_base_lock, align 8
   %tobool107.not = icmp eq ptr %77, null
   br i1 %tobool107.not, label %for.inc114, label %if.then108
 
 if.then108:                                       ; preds = %do.end101
   %78 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call110 = call i32 %78(i32 noundef 0, ptr noundef nonnull %77) #28
+  %call110 = call i32 %78(i32 noundef 0, ptr noundef nonnull %77) #26
   br label %for.inc114
 
 for.inc114:                                       ; preds = %do.end101, %if.then108
@@ -6472,7 +6472,7 @@ if.then5.i.i99:                                   ; preds = %if.end.i96
   br label %gettime.exit.i100
 
 if.end7.i.i109:                                   ; preds = %if.end.i96
-  %call.i.i111 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i94) #28
+  %call.i.i111 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i94) #26
   %cmp.i10.i = icmp eq i32 %call.i.i111, -1
   br i1 %cmp.i10.i, label %gettime.exit.i100, label %if.end9.i.i112
 
@@ -6483,7 +6483,7 @@ if.end9.i.i112:                                   ; preds = %if.end7.i.i109
   br i1 %cmp11.not.i.i114, label %gettime.exit.i100, label %if.then12.i.i115
 
 if.then12.i.i115:                                 ; preds = %if.end9.i.i112
-  %call13.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i93, ptr noundef null) #28
+  %call13.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i93, ptr noundef null) #26
   %82 = load <2 x i64>, ptr %tv.i.i93, align 16
   %83 = load <2 x i64>, ptr %now.i94, align 16
   %84 = sub nsw <2 x i64> %82, %83
@@ -6535,7 +6535,7 @@ if.end14.i:                                       ; preds = %cond.false.i105, %c
 if.then17.i:                                      ; preds = %if.end14.i
   %evcb_cb_union.i = getelementptr inbounds %struct.event_callback, ptr %90, i64 0, i32 4
   %96 = load ptr, ptr %evcb_cb_union.i, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.46, ptr noundef nonnull %90, ptr noundef %96) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.46, ptr noundef nonnull %90, ptr noundef %96) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then17.i, %if.end14.i
@@ -6571,7 +6571,7 @@ update_time_cache.exit.thread.i:                  ; preds = %if.then.i133
 
 if.end7.i.i.i:                                    ; preds = %if.then.i133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i.i)
-  %call.i.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #28
+  %call.i.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i) #26
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   %.pr.pr.pre.i = load i64, ptr %tv_cache.i, align 8
   br i1 %cmp.i.i.i, label %update_time_cache.exit.i, label %if.end9.i.i.i
@@ -6582,7 +6582,7 @@ if.end9.i.i.i:                                    ; preds = %if.end7.i.i.i
   br i1 %cmp11.not.i.i.i, label %update_time_cache.exit.i, label %if.then12.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  %call13.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #28
+  %call13.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #26
   %104 = load <2 x i64>, ptr %tv.i.i.i, align 16
   %105 = load <2 x i64>, ptr %tv_cache.i, align 8
   %106 = sub nsw <2 x i64> %104, %105
@@ -6608,7 +6608,7 @@ if.then5.i.i161:                                  ; preds = %update_time_cache.e
   br label %gettime.exit.i153
 
 if.end7.i.i136:                                   ; preds = %update_time_cache.exit.i, %update_time_cache.exit.thread.i
-  %call.i.i138 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv.i) #28
+  %call.i.i138 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv.i) #26
   %cmp.i.i139 = icmp eq i32 %call.i.i138, -1
   %.pre29.i = load i64, ptr %tv.i, align 16
   br i1 %cmp.i.i139, label %gettime.exit.i153, label %if.end9.i.i140
@@ -6619,7 +6619,7 @@ if.end9.i.i140:                                   ; preds = %if.end7.i.i136
   br i1 %cmp11.not.i.i142, label %gettime.exit.i153, label %if.then12.i.i143
 
 if.then12.i.i143:                                 ; preds = %if.end9.i.i140
-  %call13.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i128, ptr noundef null) #28
+  %call13.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i128, ptr noundef null) #26
   %111 = load <2 x i64>, ptr %tv.i.i128, align 16
   %112 = load <2 x i64>, ptr %tv.i, align 16
   %113 = sub nsw <2 x i64> %111, %112
@@ -6727,7 +6727,7 @@ do.body137:                                       ; preds = %if.end136, %while.b
 done142.sink.split:                               ; preds = %do.body137, %do.body80, %do.body50
   %.str.15.sink = phi ptr [ @.str.14, %do.body50 ], [ @.str.15, %do.body80 ], [ @.str.16, %do.body137 ]
   %retval2.0.ph = phi i32 [ 1, %do.body50 ], [ -1, %do.body80 ], [ 0, %do.body137 ]
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull %.str.15.sink, ptr noundef nonnull @__func__.event_base_loop) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull %.str.15.sink, ptr noundef nonnull @__func__.event_base_loop) #26
   br label %done142
 
 done142:                                          ; preds = %done142.sink.split, %do.body80, %do.body50, %do.body137
@@ -6740,7 +6740,7 @@ done142:                                          ; preds = %done142.sink.split,
 
 if.then148:                                       ; preds = %done142
   %132 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call150 = call i32 %132(i32 noundef 0, ptr noundef nonnull %131) #28
+  %call150 = call i32 %132(i32 noundef 0, ptr noundef nonnull %131) #26
   br label %return
 
 return:                                           ; preds = %done142, %if.then148, %if.then7, %if.then12
@@ -6814,7 +6814,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %event_mm_calloc_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end3
-  %call.i = tail call ptr %0(i64 noundef 152) #28
+  %call.i = tail call ptr %0(i64 noundef 152) #26
   %tobool6.not.i = icmp eq ptr %call.i, null
   br i1 %tobool6.not.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread42
 
@@ -6823,12 +6823,12 @@ event_mm_calloc_.exit.thread42:                   ; preds = %if.then2.i
   br label %if.end6
 
 event_mm_calloc_.exit.thread:                     ; preds = %if.then2.i
-  %call12.i = tail call ptr @__errno_location() #32
+  %call12.i = tail call ptr @__errno_location() #30
   store i32 12, ptr %call12.i, align 4
   br label %return
 
 event_mm_calloc_.exit:                            ; preds = %if.end3
-  %call10.i = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #33
+  %call10.i = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #31
   %cmp = icmp eq ptr %call10.i, null
   br i1 %cmp, label %return, label %if.end6
 
@@ -6879,11 +6879,11 @@ if.else30:                                        ; preds = %if.else
   br i1 %tobool.not.i34, label %if.else.i35, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else30
-  tail call void %3(ptr noundef nonnull %retval.0.i45) #28
+  tail call void %3(ptr noundef nonnull %retval.0.i45) #26
   br label %return
 
 if.else.i35:                                      ; preds = %if.else30
-  tail call void @free(ptr noundef nonnull %retval.0.i45) #28
+  tail call void @free(ptr noundef nonnull %retval.0.i45) #26
   br label %return
 
 do.body36:                                        ; preds = %if.then24, %if.then19, %lor.lhs.false17, %lor.lhs.false
@@ -6895,7 +6895,7 @@ do.body36:                                        ; preds = %if.then24, %if.then
 
 if.then38:                                        ; preds = %do.body36
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call40 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call40 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end42
 
 do.end42:                                         ; preds = %if.then38, %do.body36
@@ -6917,11 +6917,11 @@ if.then52:                                        ; preds = %if.end49
   br i1 %tobool.not.i36, label %if.else.i38, label %if.then.i37
 
 if.then.i37:                                      ; preds = %if.then52
-  tail call void %6(ptr noundef nonnull %retval.0.i45) #28
+  tail call void %6(ptr noundef nonnull %retval.0.i45) #26
   br label %return
 
 if.else.i38:                                      ; preds = %if.then52
-  tail call void @free(ptr noundef nonnull %retval.0.i45) #28
+  tail call void @free(ptr noundef nonnull %retval.0.i45) #26
   br label %return
 
 do.body54:                                        ; preds = %if.end49.thread, %if.end49
@@ -6946,7 +6946,7 @@ if.end63:                                         ; preds = %if.then57, %do.body
 
 if.then76:                                        ; preds = %if.end63
   %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call78 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #28
+  %call78 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #26
   br label %return
 
 return:                                           ; preds = %if.else.i38, %if.then.i37, %if.else.i35, %if.then.i, %event_mm_calloc_.exit.thread, %if.then76, %if.end63, %event_mm_calloc_.exit, %if.end, %entry
@@ -6969,7 +6969,7 @@ do.body1.i:                                       ; preds = %entry
 
 if.then2.i:                                       ; preds = %do.body1.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end5.i
 
 do.end5.i:                                        ; preds = %if.then2.i, %do.body1.i
@@ -6988,7 +6988,7 @@ land.lhs.true.i:                                  ; preds = %do.end5.i
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %th_owner_id.i = getelementptr inbounds %struct.event_base, ptr %0, i64 0, i32 30
   %5 = load i64, ptr %th_owner_id.i, align 8
-  %call9.i = tail call i64 %3() #28
+  %call9.i = tail call i64 %3() #26
   %cmp10.not.i = icmp eq i64 %5, %call9.i
   br i1 %cmp10.not.i, label %do.body15.i, label %if.then11.i
 
@@ -7006,7 +7006,7 @@ if.end6.i.i:                                      ; preds = %if.then11.i
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
   store i32 1, ptr %is_notify_pending.i.i, align 8
-  %call.i.i = tail call i32 %6(ptr noundef nonnull %0) #28
+  %call.i.i = tail call i32 %6(ptr noundef nonnull %0) #26
   br label %do.body15.i
 
 do.body15.i:                                      ; preds = %if.end9.i.i, %if.end6.i.i, %if.then11.i, %land.lhs.true8.i, %land.lhs.true.i, %do.end5.i
@@ -7017,7 +7017,7 @@ do.body15.i:                                      ; preds = %if.end9.i.i, %if.en
 
 if.then18.i:                                      ; preds = %do.body15.i
   %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call20.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #28
+  %call20.i = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #26
   br label %event_base_loopbreak.exit
 
 event_base_loopbreak.exit:                        ; preds = %entry, %do.body15.i, %if.then18.i
@@ -7039,7 +7039,7 @@ do.body1:                                         ; preds = %entry
 
 if.then2:                                         ; preds = %do.body1
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then2, %do.body1
@@ -7058,7 +7058,7 @@ land.lhs.true:                                    ; preds = %do.end5
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %event_base, i64 0, i32 30
   %4 = load i64, ptr %th_owner_id, align 8
-  %call9 = tail call i64 %2() #28
+  %call9 = tail call i64 %2() #26
   %cmp10.not = icmp eq i64 %4, %call9
   br i1 %cmp10.not, label %do.body15, label %if.then11
 
@@ -7076,7 +7076,7 @@ if.end6.i:                                        ; preds = %if.then11
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %5(ptr noundef nonnull %event_base) #28
+  %call.i = tail call i32 %5(ptr noundef nonnull %event_base) #26
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end9.i, %if.end6.i, %if.then11, %do.end5, %land.lhs.true, %land.lhs.true8
@@ -7087,7 +7087,7 @@ do.body15:                                        ; preds = %if.end9.i, %if.end6
 
 if.then18:                                        ; preds = %do.body15
   %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call20 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #28
+  %call20 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #26
   br label %return
 
 return:                                           ; preds = %do.body15, %if.then18, %entry
@@ -7109,7 +7109,7 @@ do.body1:                                         ; preds = %entry
 
 if.then2:                                         ; preds = %do.body1
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then2, %do.body1
@@ -7128,7 +7128,7 @@ land.lhs.true:                                    ; preds = %do.end5
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %event_base, i64 0, i32 30
   %4 = load i64, ptr %th_owner_id, align 8
-  %call9 = tail call i64 %2() #28
+  %call9 = tail call i64 %2() #26
   %cmp10.not = icmp eq i64 %4, %call9
   br i1 %cmp10.not, label %do.body15, label %if.then11
 
@@ -7146,7 +7146,7 @@ if.end6.i:                                        ; preds = %if.then11
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %5(ptr noundef nonnull %event_base) #28
+  %call.i = tail call i32 %5(ptr noundef nonnull %event_base) #26
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end9.i, %if.end6.i, %if.then11, %do.end5, %land.lhs.true, %land.lhs.true8
@@ -7157,7 +7157,7 @@ do.body15:                                        ; preds = %if.end9.i, %if.end6
 
 if.then18:                                        ; preds = %do.body15
   %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call20 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #28
+  %call20 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #26
   br label %return
 
 return:                                           ; preds = %do.body15, %if.then18, %entry
@@ -7180,7 +7180,7 @@ do.end3.thread:                                   ; preds = %entry
 
 do.end3:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #26
   %.pr = load ptr, ptr %th_base_lock, align 8
   %event_break = getelementptr inbounds %struct.event_base, ptr %event_base, i64 0, i32 12
   %3 = load i32, ptr %event_break, align 4
@@ -7189,7 +7189,7 @@ do.end3:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %do.end3
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call10 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #28
+  %call10 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #26
   br label %do.end13
 
 do.end13:                                         ; preds = %do.end3.thread, %if.then8, %do.end3
@@ -7212,7 +7212,7 @@ do.end3.thread:                                   ; preds = %entry
 
 do.end3:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #26
   %.pr = load ptr, ptr %th_base_lock, align 8
   %event_gotterm = getelementptr inbounds %struct.event_base, ptr %event_base, i64 0, i32 11
   %3 = load i32, ptr %event_gotterm, align 8
@@ -7221,7 +7221,7 @@ do.end3:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %do.end3
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call10 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #28
+  %call10 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %.pr) #26
   br label %do.end13
 
 do.end13:                                         ; preds = %do.end3.thread, %if.then8, %do.end3
@@ -7240,7 +7240,7 @@ entry:
   %0 = load ptr, ptr %cb, align 8
   %arg1 = getelementptr inbounds %struct.event_once, ptr %arg, i64 0, i32 3
   %1 = load ptr, ptr %arg1, align 8
-  tail call void %0(i32 noundef %fd, i16 noundef signext %events, ptr noundef %1) #28
+  tail call void %0(i32 noundef %fd, i16 noundef signext %events, ptr noundef %1) #26
   %ev_base = getelementptr inbounds %struct.event_once, ptr %arg, i64 0, i32 1, i32 5
   %2 = load ptr, ptr %ev_base, align 8
   %th_base_lock = getelementptr inbounds %struct.event_base, ptr %2, i64 0, i32 31
@@ -7250,7 +7250,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %do.body7
 
 do.body7:                                         ; preds = %entry, %if.then
@@ -7277,7 +7277,7 @@ if.end14:                                         ; preds = %do.body7, %if.then8
 
 if.then26:                                        ; preds = %if.end14
   %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call30 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #28
+  %call30 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #26
   br label %do.end33
 
 do.end33:                                         ; preds = %if.then26, %if.end14
@@ -7288,11 +7288,11 @@ do.end33:                                         ; preds = %if.then26, %if.end1
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end33
-  tail call void %10(ptr noundef nonnull %arg) #28
+  tail call void %10(ptr noundef nonnull %arg) #26
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %do.end33
-  tail call void @free(ptr noundef nonnull %arg) #28
+  tail call void @free(ptr noundef nonnull %arg) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i
@@ -7311,7 +7311,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %ev_fd, align 8
   %evcb_cb_union = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 4
   %2 = load ptr, ptr %evcb_cb_union, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.28, ptr noundef %ev, i32 noundef %1, i32 noundef %res, ptr noundef %2) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.28, ptr noundef %ev, i32 noundef %1, i32 noundef %res, ptr noundef %2) #26
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -7393,7 +7393,7 @@ if.then38:                                        ; preds = %if.end34
 lor.lhs.false:                                    ; preds = %if.then38
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %3, i64 0, i32 30
   %16 = load i64, ptr %th_owner_id, align 8
-  %call44 = tail call i64 %15() #28
+  %call44 = tail call i64 %15() #26
   %cmp45 = icmp eq i64 %16, %call44
   br i1 %cmp45, label %if.end52, label %if.then47
 
@@ -7410,7 +7410,7 @@ if.then47:                                        ; preds = %lor.lhs.false
 cond.true:                                        ; preds = %if.then47
   %19 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 4), align 8
   %20 = load ptr, ptr %th_base_lock, align 8
-  %call51 = tail call i32 %19(ptr noundef nonnull %18, ptr noundef %20, ptr noundef null) #28
+  %call51 = tail call i32 %19(ptr noundef nonnull %18, ptr noundef %20, ptr noundef null) #26
   br label %if.end52
 
 if.end52:                                         ; preds = %cond.true, %if.then47, %lor.lhs.false, %if.then38
@@ -7429,7 +7429,7 @@ return:                                           ; preds = %do.end, %if.end54, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_set(ptr noundef %base, ptr noundef %ev) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_set(ptr noundef %base, ptr noundef %ev) local_unnamed_addr #0 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -7448,7 +7448,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -7486,7 +7486,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %10 = load i32, ptr %ev_fd.i, align 8
   %11 = load i16, ptr %evcb_flags, align 8
   %conv7.i = sext i16 %11 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -7496,7 +7496,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #28
+  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %if.end, %do.body9.i, %if.then11.i
@@ -7524,7 +7524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @event_self_cbarg() local_unnamed_addr #8 {
+define dso_local noundef nonnull ptr @event_self_cbarg() local_unnamed_addr #8 {
 entry:
   ret ptr @event_self_cbarg_ptr_
 }
@@ -7539,7 +7539,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -7550,7 +7550,7 @@ do.end3:                                          ; preds = %if.then, %entry
 lor.lhs.false:                                    ; preds = %do.end3
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 30
   %3 = load i64, ptr %th_owner_id, align 8
-  %call4 = tail call i64 %2() #28
+  %call4 = tail call i64 %2() #26
   %cmp5 = icmp eq i64 %3, %call4
   br i1 %cmp5, label %if.then6, label %do.body13
 
@@ -7572,7 +7572,7 @@ do.body13:                                        ; preds = %if.then6, %lor.lhs.
 
 if.then16:                                        ; preds = %do.body13
   %8 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call18 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #28
+  %call18 = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #26
   br label %do.end21
 
 do.end21:                                         ; preds = %if.then16, %do.body13
@@ -7587,11 +7587,11 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 120) #28
+  %call.i = tail call ptr %0(i64 noundef 120) #26
   br label %event_mm_malloc_.exit
 
 if.else.i:                                        ; preds = %entry
-  %call2.i = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #29
+  %call2.i = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #27
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %if.then1.i, %if.else.i
@@ -7610,11 +7610,11 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not.i4, label %if.else.i5, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  tail call void %1(ptr noundef nonnull %retval.0.i) #28
+  tail call void %1(ptr noundef nonnull %retval.0.i) #26
   br label %return
 
 if.else.i5:                                       ; preds = %if.then3
-  tail call void @free(ptr noundef nonnull %retval.0.i) #28
+  tail call void @free(ptr noundef nonnull %retval.0.i) #26
   br label %return
 
 return:                                           ; preds = %if.else.i5, %if.then.i, %if.end, %event_mm_malloc_.exit
@@ -7634,7 +7634,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i.i
 
 do.end3.i.i:                                      ; preds = %if.then.i.i, %entry
@@ -7645,7 +7645,7 @@ do.end3.i.i:                                      ; preds = %if.then.i.i, %entry
 
 if.then9.i.i:                                     ; preds = %do.end3.i.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call11.i.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %event_del.exit
 
 event_del.exit:                                   ; preds = %do.end3.i.i, %if.then9.i.i
@@ -7660,7 +7660,7 @@ if.end.i:                                         ; preds = %event_del.exit
 
 if.then2.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #28
+  %call.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -7702,11 +7702,11 @@ if.then6.i:                                       ; preds = %while.body.i.i.i
   br i1 %tobool.not.i.i3, label %if.else.i.i, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %if.then6.i
-  tail call void %15(ptr noundef nonnull %11) #28
+  tail call void %15(ptr noundef nonnull %11) #26
   br label %do.body8.i
 
 if.else.i.i:                                      ; preds = %if.then6.i
-  tail call void @free(ptr noundef nonnull %11) #28
+  tail call void @free(ptr noundef nonnull %11) #26
   br label %do.body8.i
 
 do.body8.i:                                       ; preds = %while.cond.i.i.i, %if.else.i.i, %if.then.i.i4, %do.end.i
@@ -7716,7 +7716,7 @@ do.body8.i:                                       ; preds = %while.cond.i.i.i, %
 
 if.then10.i:                                      ; preds = %do.body8.i
   %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #28
+  %call11.i = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #26
   br label %event_debug_note_teardown_.exit
 
 event_debug_note_teardown_.exit:                  ; preds = %event_del.exit, %do.body8.i, %if.then10.i
@@ -7726,11 +7726,11 @@ event_debug_note_teardown_.exit:                  ; preds = %event_del.exit, %do
   br i1 %tobool.not.i5, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %event_debug_note_teardown_.exit
-  tail call void %18(ptr noundef %ev) #28
+  tail call void %18(ptr noundef %ev) #26
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %event_debug_note_teardown_.exit
-  tail call void @free(ptr noundef %ev) #28
+  tail call void @free(ptr noundef %ev) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i
@@ -7749,7 +7749,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -7760,7 +7760,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %event_del_.exit
 
 event_del_.exit:                                  ; preds = %do.end3.i, %if.then9.i
@@ -7768,7 +7768,7 @@ event_del_.exit:                                  ; preds = %do.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_finalize(i32 noundef %flags, ptr noundef %ev, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_finalize(i32 noundef %flags, ptr noundef %ev, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %ev_base.i = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 5
   %0 = load ptr, ptr %ev_base.i, align 8
@@ -7779,7 +7779,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -7802,7 +7802,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #28
+  %call11.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #26
   br label %event_finalize_impl_.exit
 
 event_finalize_impl_.exit:                        ; preds = %do.end3.i, %if.then9.i
@@ -7810,7 +7810,7 @@ event_finalize_impl_.exit:                        ; preds = %do.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_free_finalize(i32 noundef %flags, ptr noundef %ev, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_free_finalize(i32 noundef %flags, ptr noundef %ev, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %ev_base.i = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 5
   %0 = load ptr, ptr %ev_base.i, align 8
@@ -7821,7 +7821,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -7841,7 +7841,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #28
+  %call11.i = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #26
   br label %event_finalize_impl_.exit
 
 event_finalize_impl_.exit:                        ; preds = %do.end3.i, %if.then9.i
@@ -7988,7 +7988,7 @@ return:                                           ; preds = %sw.bb14, %if.end9, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_callback_activate_nolock_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_callback_activate_nolock_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %evcb, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -7998,45 +7998,51 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %and3 = and i32 %conv13, 40
-  switch i32 %and3, label %sw.bb [
+  %and3 = lshr i32 %conv13, 3
+  %1 = and i32 %and3, 5
+  switch i32 %1, label %if.end.unreachabledefault [
+    i32 4, label %sw.bb
+    i32 1, label %return
     i32 0, label %sw.epilog
-    i32 8, label %return
+    i32 5, label %sw.bb
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %1 = lshr i16 %0, 4
-  %2 = and i16 %1, 1
-  %sext.i = add nsw i16 %2, -1
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
+
+sw.bb:                                            ; preds = %if.end, %if.end
+  %2 = lshr i16 %0, 4
+  %3 = and i16 %2, 1
+  %sext.i = add nsw i16 %3, -1
   %lnot.ext.neg.i = sext i16 %sext.i to i32
   %event_count.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 7
-  %3 = load i32, ptr %event_count.i, align 8
-  %sub.i = add i32 %3, %lnot.ext.neg.i
+  %4 = load i32, ptr %event_count.i, align 8
+  %sub.i = add i32 %4, %lnot.ext.neg.i
   store i32 %sub.i, ptr %event_count.i, align 8
-  %4 = load i16, ptr %evcb_flags, align 8
-  %5 = and i16 %4, -33
-  store i16 %5, ptr %evcb_flags, align 8
+  %5 = load i16, ptr %evcb_flags, align 8
+  %6 = and i16 %5, -33
+  store i16 %6, ptr %evcb_flags, align 8
   %event_count_active.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 9
-  %6 = load i32, ptr %event_count_active.i, align 8
-  %dec.i = add nsw i32 %6, -1
+  %7 = load i32, ptr %event_count_active.i, align 8
+  %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %event_count_active.i, align 8
-  %7 = load ptr, ptr %evcb, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %evcb, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   %tqe_prev18.i = getelementptr inbounds %struct.anon.0, ptr %evcb, i64 0, i32 1
-  %8 = load ptr, ptr %tqe_prev18.i, align 8
+  %9 = load ptr, ptr %tqe_prev18.i, align 8
   %tqh_last.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 19, i32 1
-  %tqe_prev16.i = getelementptr inbounds %struct.anon.0, ptr %7, i64 0, i32 1
+  %tqe_prev16.i = getelementptr inbounds %struct.anon.0, ptr %8, i64 0, i32 1
   %tqh_last.sink.i = select i1 %cmp.not.i, ptr %tqh_last.i, ptr %tqe_prev16.i
-  store ptr %8, ptr %tqh_last.sink.i, align 8
-  %9 = load ptr, ptr %evcb, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %9, ptr %tqh_last.sink.i, align 8
+  %10 = load ptr, ptr %evcb, align 8
+  store ptr %10, ptr %9, align 8
   %.pre = load i16, ptr %evcb_flags, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb
-  %10 = phi i16 [ %.pre, %sw.bb ], [ %0, %if.end ]
-  %r.0 = phi i32 [ 0, %sw.bb ], [ 1, %if.end ]
-  %conv26.i = zext i16 %10 to i32
+  %11 = phi i16 [ %0, %if.end ], [ %.pre, %sw.bb ]
+  %r.0 = phi i32 [ 1, %if.end ], [ 0, %sw.bb ]
+  %conv26.i = zext i16 %11 to i32
   %and.i = and i32 %conv26.i, 8
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %do.body7.i, label %event_queue_insert_active.exit
@@ -8046,78 +8052,78 @@ do.body7.i:                                       ; preds = %sw.epilog
   %and10.lobit.i = and i32 %and10.i, 1
   %lnot.ext.i = xor i32 %and10.lobit.i, 1
   %event_count.i9 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 7
-  %11 = load i32, ptr %event_count.i9, align 8
-  %add.i = add nsw i32 %11, %lnot.ext.i
+  %12 = load i32, ptr %event_count.i9, align 8
+  %add.i = add nsw i32 %12, %lnot.ext.i
   store i32 %add.i, ptr %event_count.i9, align 8
   %event_count_max.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 8
-  %12 = load i32, ptr %event_count_max.i, align 4
-  %.add.i = tail call i32 @llvm.smax.i32(i32 %12, i32 %add.i)
+  %13 = load i32, ptr %event_count_max.i, align 4
+  %.add.i = tail call i32 @llvm.smax.i32(i32 %13, i32 %add.i)
   store i32 %.add.i, ptr %event_count_max.i, align 4
-  %13 = load i16, ptr %evcb_flags, align 8
-  %14 = or i16 %13, 8
-  store i16 %14, ptr %evcb_flags, align 8
+  %14 = load i16, ptr %evcb_flags, align 8
+  %15 = or i16 %14, 8
+  store i16 %15, ptr %evcb_flags, align 8
   %event_count_active.i10 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 9
-  %15 = load i32, ptr %event_count_active.i10, align 8
-  %inc.i = add nsw i32 %15, 1
+  %16 = load i32, ptr %event_count_active.i10, align 8
+  %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %event_count_active.i10, align 8
   %event_count_active_max.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 10
-  %16 = load i32, ptr %event_count_active_max.i, align 4
-  %cond29.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %inc.i)
+  %17 = load i32, ptr %event_count_active_max.i, align 4
+  %cond29.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %inc.i)
   store i32 %cond29.i, ptr %event_count_active_max.i, align 4
   store ptr null, ptr %evcb, align 8
   %activequeues.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 17
-  %17 = load ptr, ptr %activequeues.i, align 8
+  %18 = load ptr, ptr %activequeues.i, align 8
   %evcb_pri.i = getelementptr inbounds %struct.event_callback, ptr %evcb, i64 0, i32 2
-  %18 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom.i = zext i8 %18 to i64
-  %tqh_last.i11 = getelementptr inbounds %struct.evcallback_list, ptr %17, i64 %idxprom.i, i32 1
-  %19 = load ptr, ptr %tqh_last.i11, align 8
+  %19 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom.i = zext i8 %19 to i64
+  %tqh_last.i11 = getelementptr inbounds %struct.evcallback_list, ptr %18, i64 %idxprom.i, i32 1
+  %20 = load ptr, ptr %tqh_last.i11, align 8
   %tqe_prev.i = getelementptr inbounds %struct.anon.0, ptr %evcb, i64 0, i32 1
-  store ptr %19, ptr %tqe_prev.i, align 8
-  %20 = load ptr, ptr %activequeues.i, align 8
-  %tqh_last39.i = getelementptr inbounds %struct.evcallback_list, ptr %20, i64 %idxprom.i, i32 1
-  %21 = load ptr, ptr %tqh_last39.i, align 8
-  store ptr %evcb, ptr %21, align 8
-  %22 = load ptr, ptr %activequeues.i, align 8
-  %23 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom44.i = zext i8 %23 to i64
-  %tqh_last46.i = getelementptr inbounds %struct.evcallback_list, ptr %22, i64 %idxprom44.i, i32 1
+  store ptr %20, ptr %tqe_prev.i, align 8
+  %21 = load ptr, ptr %activequeues.i, align 8
+  %tqh_last39.i = getelementptr inbounds %struct.evcallback_list, ptr %21, i64 %idxprom.i, i32 1
+  %22 = load ptr, ptr %tqh_last39.i, align 8
+  store ptr %evcb, ptr %22, align 8
+  %23 = load ptr, ptr %activequeues.i, align 8
+  %24 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom44.i = zext i8 %24 to i64
+  %tqh_last46.i = getelementptr inbounds %struct.evcallback_list, ptr %23, i64 %idxprom44.i, i32 1
   store ptr %evcb, ptr %tqh_last46.i, align 8
   br label %event_queue_insert_active.exit
 
 event_queue_insert_active.exit:                   ; preds = %sw.epilog, %do.body7.i
-  %24 = load ptr, ptr @evthread_id_fn_, align 8
-  %cmp.not = icmp eq ptr %24, null
+  %25 = load ptr, ptr @evthread_id_fn_, align 8
+  %cmp.not = icmp eq ptr %25, null
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %event_queue_insert_active.exit
   %running_loop = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 15
-  %25 = load i32, ptr %running_loop, align 8
-  %tobool7.not = icmp eq i32 %25, 0
+  %26 = load i32, ptr %running_loop, align 8
+  %tobool7.not = icmp eq i32 %26, 0
   br i1 %tobool7.not, label %return, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 30
-  %26 = load i64, ptr %th_owner_id, align 8
-  %call = tail call i64 %24() #28
-  %cmp9.not = icmp eq i64 %26, %call
+  %27 = load i64, ptr %th_owner_id, align 8
+  %call = tail call i64 %25() #26
+  %cmp9.not = icmp eq i64 %27, %call
   br i1 %cmp9.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
   %th_notify_fn.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 42
-  %27 = load ptr, ptr %th_notify_fn.i, align 8
-  %tobool4.not.i12 = icmp eq ptr %27, null
+  %28 = load ptr, ptr %th_notify_fn.i, align 8
+  %tobool4.not.i12 = icmp eq ptr %28, null
   br i1 %tobool4.not.i12, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then11
   %is_notify_pending.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 39
-  %28 = load i32, ptr %is_notify_pending.i, align 8
-  %tobool7.not.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %is_notify_pending.i, align 8
+  %tobool7.not.i = icmp eq i32 %29, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %return
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %27(ptr noundef nonnull %base) #28
+  %call.i = tail call i32 %28(ptr noundef nonnull %base) #26
   br label %return
 
 return:                                           ; preds = %if.end9.i, %if.end6.i, %if.then11, %event_queue_insert_active.exit, %land.lhs.true, %land.lhs.true8, %if.end, %entry
@@ -8135,7 +8141,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -8168,7 +8174,7 @@ event_callback_finalize_nolock_.exit:             ; preds = %if.then.i, %if.else
 
 if.then8:                                         ; preds = %event_callback_finalize_nolock_.exit
   %7 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call10 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #28
+  %call10 = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %6) #26
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then8, %event_callback_finalize_nolock_.exit
@@ -8176,7 +8182,7 @@ do.end13:                                         ; preds = %if.then8, %event_ca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_callback_finalize_many_(ptr noundef %base, i32 noundef %n_cbs, ptr nocapture noundef readonly %evcbs, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_callback_finalize_many_(ptr noundef %base, i32 noundef %n_cbs, ptr nocapture noundef readonly %evcbs, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8
@@ -8188,7 +8194,7 @@ entry:
 
 if.then2:                                         ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.body6
 
 do.body6:                                         ; preds = %entry, %if.then2
@@ -8197,7 +8203,7 @@ do.body6:                                         ; preds = %entry, %if.then2
   br i1 %tobool7.not, label %do.end10, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.event_callback_finalize_many_, i32 noundef %n_cbs) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.event_callback_finalize_many_, i32 noundef %n_cbs) #26
   br label %do.end10
 
 do.end10:                                         ; preds = %do.body6, %if.then8
@@ -8293,7 +8299,7 @@ do.body22:                                        ; preds = %event_callback_fina
 
 if.then25:                                        ; preds = %do.body22
   %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call27 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #28
+  %call27 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %16) #26
   br label %do.end30
 
 do.end30:                                         ; preds = %if.then25, %do.body22
@@ -8312,7 +8318,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -8327,7 +8333,7 @@ if.end.i:                                         ; preds = %do.end4
 
 if.then2.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8366,7 +8372,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %13 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %13 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %12, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %12, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8376,7 +8382,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #28
+  %call12.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %do.end4, %do.body9.i, %if.then11.i
@@ -8457,7 +8463,7 @@ do.body57:                                        ; preds = %if.then50, %if.then
 
 if.then61:                                        ; preds = %do.body57
   %31 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call64 = tail call i32 %31(i32 noundef 0, ptr noundef nonnull %30) #28
+  %call64 = tail call i32 %31(i32 noundef 0, ptr noundef nonnull %30) #26
   br label %do.end67
 
 do.end67:                                         ; preds = %if.then61, %do.body57
@@ -8468,7 +8474,7 @@ do.end67:                                         ; preds = %if.then61, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @event_initialized(ptr nocapture noundef readonly %ev) local_unnamed_addr #12 {
+define dso_local i32 @event_initialized(ptr nocapture noundef readonly %ev) local_unnamed_addr #11 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -8492,7 +8498,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8531,7 +8537,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %event, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %event, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %event, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8541,7 +8547,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8599,7 +8605,7 @@ if.end13:                                         ; preds = %if.then11, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @event_get_struct_event_size() local_unnamed_addr #8 {
+define dso_local noundef i64 @event_get_struct_event_size() local_unnamed_addr #8 {
 entry:
   ret i64 120
 }
@@ -8618,7 +8624,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8657,7 +8663,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8667,7 +8673,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8690,7 +8696,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8729,7 +8735,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8739,7 +8745,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8762,7 +8768,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8801,7 +8807,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8811,7 +8817,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8834,7 +8840,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8873,7 +8879,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8883,7 +8889,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8906,7 +8912,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -8945,7 +8951,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -8955,7 +8961,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -8978,7 +8984,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -9017,7 +9023,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %10 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %10 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %9, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -9027,7 +9033,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #28
+  %call12.i = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -9049,7 +9055,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -9062,7 +9068,7 @@ do.end4:                                          ; preds = %if.then, %entry
 
 if.then11:                                        ; preds = %do.end4
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end17
 
 do.end17:                                         ; preds = %if.then11, %do.end4
@@ -9070,7 +9076,7 @@ do.end17:                                         ; preds = %if.then11, %do.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_remove_timer_nolock_(ptr noundef %ev) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_remove_timer_nolock_(ptr noundef %ev) local_unnamed_addr #0 {
 entry:
   %ev_base = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 5
   %0 = load ptr, ptr %ev_base, align 8
@@ -9085,7 +9091,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call.i = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -9124,7 +9130,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %11 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %11 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %10, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -9134,7 +9140,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #28
+  %call12.i = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i, %if.then11.i
@@ -9143,7 +9149,7 @@ event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i,
   br i1 %tobool5.not, label %do.end8, label %if.then6
 
 if.then6:                                         ; preds = %event_debug_assert_is_setup_.exit
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.19, ptr noundef %ev) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.19, ptr noundef %ev) #26
   br label %do.end8
 
 do.end8:                                          ; preds = %event_debug_assert_is_setup_.exit, %if.then6
@@ -9164,7 +9170,7 @@ if.end13:                                         ; preds = %if.then10, %do.end8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @event_queue_remove_timeout(ptr nocapture noundef %base, ptr nocapture noundef %ev) unnamed_addr #13 {
+define internal fastcc void @event_queue_remove_timeout(ptr nocapture noundef %base, ptr nocapture noundef %ev) unnamed_addr #12 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -9420,7 +9426,7 @@ if.end32:                                         ; preds = %if.end.i19, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_remove_timer(ptr noundef %ev) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_remove_timer(ptr noundef %ev) local_unnamed_addr #0 {
 entry:
   %ev_base = getelementptr inbounds %struct.event, ptr %ev, i64 0, i32 5
   %0 = load ptr, ptr %ev_base, align 8
@@ -9431,7 +9437,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -9444,7 +9450,7 @@ do.end4:                                          ; preds = %if.then, %entry
 
 if.then11:                                        ; preds = %do.end4
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end17
 
 do.end17:                                         ; preds = %if.then11, %do.end4
@@ -9467,7 +9473,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -9478,7 +9484,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %event_del_.exit
 
 event_del_.exit:                                  ; preds = %do.end3.i, %if.then9.i
@@ -9497,7 +9503,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -9508,7 +9514,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %event_del_.exit
 
 event_del_.exit:                                  ; preds = %do.end3.i, %if.then9.i
@@ -9531,7 +9537,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -9546,7 +9552,7 @@ if.end.i:                                         ; preds = %do.end4
 
 if.then2.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -9585,7 +9591,7 @@ if.then6.i:                                       ; preds = %while.cond.i.i.i, %
   %evcb_flags.i = getelementptr inbounds %struct.event_callback, ptr %ev, i64 0, i32 1
   %13 = load i16, ptr %evcb_flags.i, align 8
   %conv7.i = sext i16 %13 to i32
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %12, i32 noundef %conv7.i) #31
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef -559030611, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.event_debug_assert_is_setup_, ptr noundef %ev, i32 noundef %conv.i, i32 noundef %12, i32 noundef %conv7.i) #29
   unreachable
 
 do.body9.i:                                       ; preds = %while.body.i.i.i
@@ -9595,7 +9601,7 @@ do.body9.i:                                       ; preds = %while.body.i.i.i
 
 if.then11.i:                                      ; preds = %do.body9.i
   %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call12.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #28
+  %call12.i = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #26
   br label %event_debug_assert_is_setup_.exit
 
 event_debug_assert_is_setup_.exit:                ; preds = %do.end4, %do.body9.i, %if.then11.i
@@ -9608,7 +9614,7 @@ event_debug_assert_is_setup_.exit:                ; preds = %do.end4, %do.body9.
 
 if.then10:                                        ; preds = %event_debug_assert_is_setup_.exit
   %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call13 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #28
+  %call13 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %17) #26
   br label %do.end16
 
 do.end16:                                         ; preds = %if.then10, %event_debug_assert_is_setup_.exit
@@ -9627,7 +9633,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
@@ -9692,7 +9698,7 @@ land.lhs.true.i.i:                                ; preds = %do.body7.i.i.i
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
   %th_owner_id.i.i = getelementptr inbounds %struct.event_base, ptr %6, i64 0, i32 30
   %19 = load i64, ptr %th_owner_id.i.i, align 8
-  %call.i.i = tail call i64 %17() #28
+  %call.i.i = tail call i64 %17() #26
   %cmp4.not.i.i = icmp eq i64 %19, %call.i.i
   br i1 %cmp4.not.i.i, label %event_active_later_nolock_.exit, label %if.then6.i.i
 
@@ -9710,7 +9716,7 @@ if.end6.i.i.i:                                    ; preds = %if.then6.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end6.i.i.i
   store i32 1, ptr %is_notify_pending.i.i.i, align 8
-  %call.i.i.i = tail call i32 %20(ptr noundef nonnull %6) #28
+  %call.i.i.i = tail call i32 %20(ptr noundef nonnull %6) #26
   br label %event_active_later_nolock_.exit
 
 event_active_later_nolock_.exit:                  ; preds = %if.then5.i, %do.body7.i.i.i, %land.lhs.true.i.i, %land.lhs.true3.i.i, %if.then6.i.i, %if.end6.i.i.i, %if.end9.i.i.i
@@ -9722,7 +9728,7 @@ event_active_later_nolock_.exit:                  ; preds = %if.then5.i, %do.bod
 
 if.then10:                                        ; preds = %event_active_later_nolock_.exit
   %24 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call13 = tail call i32 %24(i32 noundef 0, ptr noundef nonnull %23) #28
+  %call13 = tail call i32 %24(i32 noundef 0, ptr noundef nonnull %23) #26
   br label %do.end16
 
 do.end16:                                         ; preds = %if.then10, %event_active_later_nolock_.exit
@@ -9794,7 +9800,7 @@ land.lhs.true.i:                                  ; preds = %do.body7.i.i
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %th_owner_id.i = getelementptr inbounds %struct.event_base, ptr %3, i64 0, i32 30
   %16 = load i64, ptr %th_owner_id.i, align 8
-  %call.i = tail call i64 %14() #28
+  %call.i = tail call i64 %14() #26
   %cmp4.not.i = icmp eq i64 %16, %call.i
   br i1 %cmp4.not.i, label %return, label %if.then6.i
 
@@ -9812,7 +9818,7 @@ if.end6.i.i:                                      ; preds = %if.then6.i
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
   store i32 1, ptr %is_notify_pending.i.i, align 8
-  %call.i.i = tail call i32 %17(ptr noundef nonnull %3) #28
+  %call.i.i = tail call i32 %17(ptr noundef nonnull %3) #26
   br label %return
 
 return:                                           ; preds = %if.end9.i.i, %if.end6.i.i, %if.then6.i, %land.lhs.true3.i, %land.lhs.true.i, %do.body7.i.i, %if.then5
@@ -9820,7 +9826,7 @@ return:                                           ; preds = %if.end9.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_callback_activate_later_nolock_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_callback_activate_later_nolock_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %evcb, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -9872,7 +9878,7 @@ land.lhs.true:                                    ; preds = %do.body7.i
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 30
   %14 = load i64, ptr %th_owner_id, align 8
-  %call = tail call i64 %12() #28
+  %call = tail call i64 %12() #26
   %cmp4.not = icmp eq i64 %14, %call
   br i1 %cmp4.not, label %return, label %if.then6
 
@@ -9890,7 +9896,7 @@ if.end6.i:                                        ; preds = %if.then6
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %15(ptr noundef nonnull %base) #28
+  %call.i = tail call i32 %15(ptr noundef nonnull %base) #26
   br label %return
 
 return:                                           ; preds = %if.end9.i, %if.end6.i, %if.then6, %do.body7.i, %land.lhs.true, %land.lhs.true3, %entry
@@ -9899,7 +9905,7 @@ return:                                           ; preds = %if.end9.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_callback_activate_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_callback_activate_(ptr noundef %base, ptr noundef %evcb) local_unnamed_addr #0 {
 entry:
   %th_base_lock = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 31
   %0 = load ptr, ptr %th_base_lock, align 8
@@ -9908,7 +9914,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -9919,15 +9925,15 @@ do.end3:                                          ; preds = %if.then, %entry
 
 if.then9:                                         ; preds = %do.end3
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call11 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end14
 
 do.end14:                                         ; preds = %if.then9, %do.end3
   ret i32 %call4
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @event_callback_init_(ptr nocapture noundef readonly %base, ptr nocapture noundef writeonly %cb) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @event_callback_init_(ptr nocapture noundef readonly %base, ptr nocapture noundef writeonly %cb) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cb, i8 0, i64 40, i1 false)
   %nactivequeues = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 18
@@ -9949,7 +9955,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -9960,15 +9966,15 @@ do.end3:                                          ; preds = %if.then, %entry
 
 if.then9:                                         ; preds = %do.end3
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call11 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end14
 
 do.end14:                                         ; preds = %if.then9, %do.end3
   ret i32 %call4
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @event_deferred_cb_init_(ptr nocapture noundef writeonly %cb, i8 noundef zeroext %priority, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local void @event_deferred_cb_init_(ptr nocapture noundef writeonly %cb, i8 noundef zeroext %priority, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cb, i8 0, i64 24, i1 false)
   %evcb_cb_union = getelementptr inbounds %struct.event_callback, ptr %cb, i64 0, i32 4
@@ -10003,7 +10009,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
@@ -10014,7 +10020,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
 
 if.then9.i:                                       ; preds = %do.end3.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #28
+  %call11.i = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #26
   br label %event_callback_cancel_.exit
 
 event_callback_cancel_.exit:                      ; preds = %do.end3.i, %if.then9.i
@@ -10022,7 +10028,7 @@ event_callback_cancel_.exit:                      ; preds = %do.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_deferred_cb_schedule_(ptr noundef %base, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_deferred_cb_schedule_(ptr noundef %base, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8
@@ -10034,7 +10040,7 @@ entry:
 
 if.then3:                                         ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   br label %do.end6
 
 do.end6:                                          ; preds = %if.then3, %entry
@@ -10094,7 +10100,7 @@ land.lhs.true.i:                                  ; preds = %do.body7.i.i
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %th_owner_id.i = getelementptr inbounds %struct.event_base, ptr %spec.select, i64 0, i32 30
   %18 = load i64, ptr %th_owner_id.i, align 8
-  %call.i = tail call i64 %16() #28
+  %call.i = tail call i64 %16() #26
   %cmp4.not.i = icmp eq i64 %18, %call.i
   br i1 %cmp4.not.i, label %do.body16, label %if.then6.i
 
@@ -10112,7 +10118,7 @@ if.end6.i.i:                                      ; preds = %if.then6.i
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
   store i32 1, ptr %is_notify_pending.i.i, align 8
-  %call.i.i = tail call i32 %19(ptr noundef nonnull %spec.select) #28
+  %call.i.i = tail call i32 %19(ptr noundef nonnull %spec.select) #26
   br label %do.body16
 
 if.else:                                          ; preds = %do.end6
@@ -10134,7 +10140,7 @@ do.body16:                                        ; preds = %if.end9.i.i, %if.en
 
 if.then19:                                        ; preds = %do.body16
   %23 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call21 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #28
+  %call21 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %22) #26
   br label %do.end24
 
 do.end24:                                         ; preds = %if.then19, %do.body16
@@ -10142,13 +10148,13 @@ do.end24:                                         ; preds = %if.then19, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @event_get_version() local_unnamed_addr #8 {
+define dso_local noundef nonnull ptr @event_get_version() local_unnamed_addr #8 {
 entry:
   ret ptr @.str.29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @event_get_version_number() local_unnamed_addr #8 {
+define dso_local noundef i32 @event_get_version_number() local_unnamed_addr #8 {
 entry:
   ret i32 33685760
 }
@@ -10163,28 +10169,28 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #17
+declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #21
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @event_set_mem_functions(ptr noundef %malloc_fn, ptr noundef %realloc_fn, ptr noundef %free_fn) local_unnamed_addr #22 {
+define dso_local void @event_set_mem_functions(ptr noundef %malloc_fn, ptr noundef %realloc_fn, ptr noundef %free_fn) local_unnamed_addr #20 {
 entry:
   store ptr %malloc_fn, ptr @mm_malloc_fn_, align 8
   store ptr %realloc_fn, ptr @mm_realloc_fn_, align 8
@@ -10195,7 +10201,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @event_base_foreach_event_nolock_(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @evmap_foreach_event_(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) #28
+  %call = tail call i32 @evmap_foreach_event_(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) #26
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.cond.preheader, label %return
 
@@ -10232,7 +10238,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool2.not, label %if.end4, label %for.inc
 
 if.end4:                                          ; preds = %for.body
-  %call5 = tail call i32 %fn(ptr noundef nonnull %base, ptr noundef nonnull %4, ptr noundef %arg) #28
+  %call5 = tail call i32 %fn(ptr noundef nonnull %base, ptr noundef nonnull %4, ptr noundef %arg) #26
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end4.for.inc_crit_edge, label %return
 
@@ -10275,7 +10281,7 @@ for.body17:                                       ; preds = %for.body12, %for.in
   br i1 %tobool22.not, label %if.end24, label %for.inc29
 
 if.end24:                                         ; preds = %for.body17
-  %call25 = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %ev.042, ptr noundef %arg) #28
+  %call25 = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %ev.042, ptr noundef %arg) #26
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %for.inc29, label %return
 
@@ -10314,7 +10320,7 @@ for.body44:                                       ; preds = %for.body37, %for.in
   br i1 %cmp48.not, label %if.end51, label %for.inc57
 
 if.end51:                                         ; preds = %for.body44
-  %call53 = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %evcb.047, ptr noundef %arg) #28
+  %call53 = tail call i32 %fn(ptr noundef %base, ptr noundef nonnull %evcb.047, ptr noundef %arg) #26
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %for.inc57, label %return
 
@@ -10357,7 +10363,7 @@ do.body2:                                         ; preds = %entry
 
 if.then4:                                         ; preds = %do.body2
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end7
 
 do.end7:                                          ; preds = %if.then4, %do.body2
@@ -10368,7 +10374,7 @@ do.end7:                                          ; preds = %if.then4, %do.body2
 
 if.then13:                                        ; preds = %do.end7
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call15 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call15 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %return
 
 return:                                           ; preds = %do.end7, %if.then13, %entry
@@ -10386,7 +10392,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -10400,7 +10406,7 @@ do.end3:                                          ; preds = %if.then, %entry
 
 if.then12:                                        ; preds = %do.end3
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #28
+  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #26
   br label %do.end17
 
 do.end17:                                         ; preds = %if.then12, %do.end3
@@ -10411,7 +10417,7 @@ do.end17:                                         ; preds = %if.then12, %do.end3
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @dump_inserted_event_fn(ptr nocapture noundef readonly %base, ptr noundef %e, ptr nocapture noundef %arg) #23 {
+define internal noundef i32 @dump_inserted_event_fn(ptr nocapture noundef readonly %base, ptr noundef %e, ptr nocapture noundef %arg) #21 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %e, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -10485,7 +10491,7 @@ return:                                           ; preds = %entry, %if.end69
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @dump_active_event_fn(ptr nocapture readnone %base, ptr noundef %e, ptr nocapture noundef %arg) #23 {
+define internal noundef i32 @dump_active_event_fn(ptr nocapture readnone %base, ptr noundef %e, ptr nocapture noundef %arg) #21 {
 entry:
   %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %e, i64 0, i32 1
   %0 = load i16, ptr %evcb_flags, align 8
@@ -10546,7 +10552,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
@@ -10566,7 +10572,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 if.then5:                                         ; preds = %do.end3
   %and7 = and i16 %events, 134
-  tail call void @evmap_io_active_(ptr noundef nonnull %base, i32 noundef %fd, i16 noundef signext %and7) #28
+  tail call void @evmap_io_active_(ptr noundef nonnull %base, i32 noundef %fd, i16 noundef signext %and7) #26
   br label %do.body37
 
 for.cond15.preheader:                             ; preds = %for.inc, %for.cond.preheader
@@ -10602,7 +10608,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp, label %for.body, label %for.cond15.preheader, !llvm.loop !53
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc32
-  %10 = phi i32 [ %4, %for.body18.lr.ph ], [ %60, %for.inc32 ]
+  %10 = phi i32 [ %4, %for.body18.lr.ph ], [ %61, %for.inc32 ]
   %indvars.iv = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next, %for.inc32 ]
   %11 = load ptr, ptr %common_timeout_queues, align 8
   %arrayidx19 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
@@ -10626,7 +10632,7 @@ if.then28:                                        ; preds = %for.body24
 if.then.i:                                        ; preds = %if.then28
   %evcb_cb_union.i = getelementptr inbounds %struct.event_callback, ptr %ev.031, i64 0, i32 4
   %15 = load ptr, ptr %evcb_cb_union.i, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.28, ptr noundef nonnull %ev.031, i32 noundef %fd, i32 noundef 1, ptr noundef %15) #28
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.28, ptr noundef nonnull %ev.031, i32 noundef %fd, i32 noundef 1, ptr noundef %15) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %if.then28
@@ -10705,7 +10711,7 @@ if.then38.i:                                      ; preds = %if.end34.i
 lor.lhs.false.i:                                  ; preds = %if.then38.i
   %th_owner_id.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 30
   %27 = load i64, ptr %th_owner_id.i, align 8
-  %call44.i = tail call i64 %26() #28
+  %call44.i = tail call i64 %26() #26
   %cmp45.i = icmp eq i64 %27, %call44.i
   br i1 %cmp45.i, label %if.end52.i, label %if.then47.i
 
@@ -10722,7 +10728,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false.i
 cond.true.i:                                      ; preds = %if.then47.i
   %30 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 4), align 8
   %31 = load ptr, ptr %th_base_lock.i, align 8
-  %call51.i = tail call i32 %30(ptr noundef nonnull %29, ptr noundef %31, ptr noundef null) #28
+  %call51.i = tail call i32 %30(ptr noundef nonnull %29, ptr noundef %31, ptr noundef null) #26
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %cond.true.i, %if.then47.i, %lor.lhs.false.i, %if.then38.i
@@ -10740,38 +10746,44 @@ if.end54.i:                                       ; preds = %if.end52.i, %if.end
   br i1 %tobool.not.i24, label %if.end.i, label %for.inc30
 
 if.end.i:                                         ; preds = %if.end54.i
-  %and3.i = and i32 %conv13.i, 40
-  switch i32 %and3.i, label %sw.bb.i [
+  %and3.i = lshr i32 %conv13.i, 3
+  %33 = and i32 %and3.i, 5
+  switch i32 %33, label %if.end.unreachabledefault.i [
+    i32 4, label %sw.bb.i
+    i32 1, label %for.inc30
     i32 0, label %sw.epilog.i25
-    i32 8, label %for.inc30
+    i32 5, label %sw.bb.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
-  %33 = lshr i16 %32, 4
-  %34 = and i16 %33, 1
-  %sext.i.i = add nsw i16 %34, -1
+if.end.unreachabledefault.i:                      ; preds = %if.end.i
+  unreachable
+
+sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
+  %34 = lshr i16 %32, 4
+  %35 = and i16 %34, 1
+  %sext.i.i = add nsw i16 %35, -1
   %lnot.ext.neg.i.i = sext i16 %sext.i.i to i32
   %event_count.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 7
-  %35 = load i32, ptr %event_count.i.i, align 8
-  %sub.i.i = add i32 %35, %lnot.ext.neg.i.i
+  %36 = load i32, ptr %event_count.i.i, align 8
+  %sub.i.i = add i32 %36, %lnot.ext.neg.i.i
   store i32 %sub.i.i, ptr %event_count.i.i, align 8
-  %36 = load i16, ptr %evcb_flags.i, align 8
-  %37 = and i16 %36, -33
-  store i16 %37, ptr %evcb_flags.i, align 8
+  %37 = load i16, ptr %evcb_flags.i, align 8
+  %38 = and i16 %37, -33
+  store i16 %38, ptr %evcb_flags.i, align 8
   %event_count_active.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 9
-  %38 = load i32, ptr %event_count_active.i.i, align 8
-  %dec.i.i = add nsw i32 %38, -1
+  %39 = load i32, ptr %event_count_active.i.i, align 8
+  %dec.i.i = add nsw i32 %39, -1
   store i32 %dec.i.i, ptr %event_count_active.i.i, align 8
-  %39 = load ptr, ptr %ev.031, align 8
-  %cmp.not.i.i = icmp eq ptr %39, null
+  %40 = load ptr, ptr %ev.031, align 8
+  %cmp.not.i.i = icmp eq ptr %40, null
   %tqe_prev18.i.i = getelementptr inbounds %struct.anon.0, ptr %ev.031, i64 0, i32 1
-  %40 = load ptr, ptr %tqe_prev18.i.i, align 8
+  %41 = load ptr, ptr %tqe_prev18.i.i, align 8
   %tqh_last.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 19, i32 1
-  %tqe_prev16.i.i = getelementptr inbounds %struct.anon.0, ptr %39, i64 0, i32 1
+  %tqe_prev16.i.i = getelementptr inbounds %struct.anon.0, ptr %40, i64 0, i32 1
   %tqh_last.sink.i.i = select i1 %cmp.not.i.i, ptr %tqh_last.i.i, ptr %tqe_prev16.i.i
-  store ptr %40, ptr %tqh_last.sink.i.i, align 8
-  %41 = load ptr, ptr %ev.031, align 8
-  store ptr %41, ptr %40, align 8
+  store ptr %41, ptr %tqh_last.sink.i.i, align 8
+  %42 = load ptr, ptr %ev.031, align 8
+  store ptr %42, ptr %41, align 8
   %.pre.i = load i16, ptr %evcb_flags.i, align 8
   %.pre37 = zext i16 %.pre.i to i32
   br label %sw.epilog.i25
@@ -10787,77 +10799,77 @@ do.body7.i.i:                                     ; preds = %sw.epilog.i25
   %and10.lobit.i.i = and i32 %and10.i.i, 1
   %lnot.ext.i.i = xor i32 %and10.lobit.i.i, 1
   %event_count.i9.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 7
-  %42 = load i32, ptr %event_count.i9.i, align 8
-  %add.i.i = add nsw i32 %42, %lnot.ext.i.i
+  %43 = load i32, ptr %event_count.i9.i, align 8
+  %add.i.i = add nsw i32 %43, %lnot.ext.i.i
   store i32 %add.i.i, ptr %event_count.i9.i, align 8
   %event_count_max.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 8
-  %43 = load i32, ptr %event_count_max.i.i, align 4
-  %.add.i.i = tail call i32 @llvm.smax.i32(i32 %43, i32 %add.i.i)
+  %44 = load i32, ptr %event_count_max.i.i, align 4
+  %.add.i.i = tail call i32 @llvm.smax.i32(i32 %44, i32 %add.i.i)
   store i32 %.add.i.i, ptr %event_count_max.i.i, align 4
-  %44 = load i16, ptr %evcb_flags.i, align 8
-  %45 = or i16 %44, 8
-  store i16 %45, ptr %evcb_flags.i, align 8
+  %45 = load i16, ptr %evcb_flags.i, align 8
+  %46 = or i16 %45, 8
+  store i16 %46, ptr %evcb_flags.i, align 8
   %event_count_active.i10.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 9
-  %46 = load i32, ptr %event_count_active.i10.i, align 8
-  %inc.i.i = add nsw i32 %46, 1
+  %47 = load i32, ptr %event_count_active.i10.i, align 8
+  %inc.i.i = add nsw i32 %47, 1
   store i32 %inc.i.i, ptr %event_count_active.i10.i, align 8
   %event_count_active_max.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 10
-  %47 = load i32, ptr %event_count_active_max.i.i, align 4
-  %cond29.i.i = tail call i32 @llvm.smax.i32(i32 %47, i32 %inc.i.i)
+  %48 = load i32, ptr %event_count_active_max.i.i, align 4
+  %cond29.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 %inc.i.i)
   store i32 %cond29.i.i, ptr %event_count_active_max.i.i, align 4
   store ptr null, ptr %ev.031, align 8
   %activequeues.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 17
-  %48 = load ptr, ptr %activequeues.i.i, align 8
-  %49 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom.i.i = zext i8 %49 to i64
-  %tqh_last.i11.i = getelementptr inbounds %struct.evcallback_list, ptr %48, i64 %idxprom.i.i, i32 1
-  %50 = load ptr, ptr %tqh_last.i11.i, align 8
+  %49 = load ptr, ptr %activequeues.i.i, align 8
+  %50 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom.i.i = zext i8 %50 to i64
+  %tqh_last.i11.i = getelementptr inbounds %struct.evcallback_list, ptr %49, i64 %idxprom.i.i, i32 1
+  %51 = load ptr, ptr %tqh_last.i11.i, align 8
   %tqe_prev.i.i = getelementptr inbounds %struct.anon.0, ptr %ev.031, i64 0, i32 1
-  store ptr %50, ptr %tqe_prev.i.i, align 8
-  %51 = load ptr, ptr %activequeues.i.i, align 8
-  %tqh_last39.i.i = getelementptr inbounds %struct.evcallback_list, ptr %51, i64 %idxprom.i.i, i32 1
-  %52 = load ptr, ptr %tqh_last39.i.i, align 8
-  store ptr %ev.031, ptr %52, align 8
-  %53 = load ptr, ptr %activequeues.i.i, align 8
-  %54 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom44.i.i = zext i8 %54 to i64
-  %tqh_last46.i.i = getelementptr inbounds %struct.evcallback_list, ptr %53, i64 %idxprom44.i.i, i32 1
+  store ptr %51, ptr %tqe_prev.i.i, align 8
+  %52 = load ptr, ptr %activequeues.i.i, align 8
+  %tqh_last39.i.i = getelementptr inbounds %struct.evcallback_list, ptr %52, i64 %idxprom.i.i, i32 1
+  %53 = load ptr, ptr %tqh_last39.i.i, align 8
+  store ptr %ev.031, ptr %53, align 8
+  %54 = load ptr, ptr %activequeues.i.i, align 8
+  %55 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom44.i.i = zext i8 %55 to i64
+  %tqh_last46.i.i = getelementptr inbounds %struct.evcallback_list, ptr %54, i64 %idxprom44.i.i, i32 1
   store ptr %ev.031, ptr %tqh_last46.i.i, align 8
   br label %event_queue_insert_active.exit.i
 
 event_queue_insert_active.exit.i:                 ; preds = %do.body7.i.i, %sw.epilog.i25
-  %55 = load ptr, ptr @evthread_id_fn_, align 8
-  %cmp.not.i = icmp eq ptr %55, null
+  %56 = load ptr, ptr @evthread_id_fn_, align 8
+  %cmp.not.i = icmp eq ptr %56, null
   br i1 %cmp.not.i, label %for.inc30, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %event_queue_insert_active.exit.i
   %running_loop.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 15
-  %56 = load i32, ptr %running_loop.i, align 8
-  %tobool7.not.i = icmp eq i32 %56, 0
+  %57 = load i32, ptr %running_loop.i, align 8
+  %tobool7.not.i = icmp eq i32 %57, 0
   br i1 %tobool7.not.i, label %for.inc30, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %th_owner_id.i26 = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 30
-  %57 = load i64, ptr %th_owner_id.i26, align 8
-  %call.i = tail call i64 %55() #28
-  %cmp9.not.i = icmp eq i64 %57, %call.i
+  %58 = load i64, ptr %th_owner_id.i26, align 8
+  %call.i = tail call i64 %56() #26
+  %cmp9.not.i = icmp eq i64 %58, %call.i
   br i1 %cmp9.not.i, label %for.inc30, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true8.i
   %th_notify_fn.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 42
-  %58 = load ptr, ptr %th_notify_fn.i.i, align 8
-  %tobool4.not.i12.i = icmp eq ptr %58, null
+  %59 = load ptr, ptr %th_notify_fn.i.i, align 8
+  %tobool4.not.i12.i = icmp eq ptr %59, null
   br i1 %tobool4.not.i12.i, label %for.inc30, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then11.i
   %is_notify_pending.i.i = getelementptr inbounds %struct.event_base, ptr %16, i64 0, i32 39
-  %59 = load i32, ptr %is_notify_pending.i.i, align 8
-  %tobool7.not.i.i = icmp eq i32 %59, 0
+  %60 = load i32, ptr %is_notify_pending.i.i, align 8
+  %tobool7.not.i.i = icmp eq i32 %60, 0
   br i1 %tobool7.not.i.i, label %if.end9.i.i, label %for.inc30
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
   store i32 1, ptr %is_notify_pending.i.i, align 8
-  %call.i.i = tail call i32 %58(ptr noundef nonnull %16) #28
+  %call.i.i = tail call i32 %59(ptr noundef nonnull %16) #26
   br label %for.inc30
 
 for.inc30:                                        ; preds = %sw.bb19.i, %do.end.i, %if.end54.i, %if.end.i, %event_queue_insert_active.exit.i, %land.lhs.true.i, %land.lhs.true8.i, %if.then11.i, %if.end6.i.i, %if.end9.i.i, %for.body24
@@ -10871,20 +10883,20 @@ for.inc32.loopexit:                               ; preds = %for.inc30
   br label %for.inc32
 
 for.inc32:                                        ; preds = %for.inc32.loopexit, %for.body18
-  %60 = phi i32 [ %.pre36, %for.inc32.loopexit ], [ %10, %for.body18 ]
+  %61 = phi i32 [ %.pre36, %for.inc32.loopexit ], [ %10, %for.body18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = sext i32 %60 to i64
-  %cmp16 = icmp slt i64 %indvars.iv.next, %61
+  %62 = sext i32 %61 to i64
+  %cmp16 = icmp slt i64 %indvars.iv.next, %62
   br i1 %cmp16, label %for.body18, label %do.body37, !llvm.loop !55
 
 do.body37:                                        ; preds = %for.inc32, %for.cond15.preheader, %if.then5
-  %62 = load ptr, ptr %th_base_lock, align 8
-  %tobool39.not = icmp eq ptr %62, null
+  %63 = load ptr, ptr %th_base_lock, align 8
+  %tobool39.not = icmp eq ptr %63, null
   br i1 %tobool39.not, label %do.end45, label %if.then40
 
 if.then40:                                        ; preds = %do.body37
-  %63 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call42 = tail call i32 %63(i32 noundef 0, ptr noundef nonnull %62) #28
+  %64 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %call42 = tail call i32 %64(i32 noundef 0, ptr noundef nonnull %63) #26
   br label %do.end45
 
 do.end45:                                         ; preds = %if.then40, %do.body37
@@ -10903,18 +10915,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  tail call void @evmap_signal_active_(ptr noundef nonnull %base, i32 noundef %sig, i32 noundef 1) #28
+  tail call void @evmap_signal_active_(ptr noundef nonnull %base, i32 noundef %sig, i32 noundef 1) #26
   %2 = load ptr, ptr %th_base_lock, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.end13, label %if.then8
 
 if.then8:                                         ; preds = %do.end3
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call10 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call10 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then8, %do.end3
@@ -10933,7 +10945,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   %.pre = load ptr, ptr %th_base_lock, align 8
   br label %do.end3
 
@@ -10952,7 +10964,7 @@ do.end3:                                          ; preds = %if.then, %entry
 
 if.then12:                                        ; preds = %do.end3
   %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call14 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end17
 
 do.end17:                                         ; preds = %if.then12, %do.end3
@@ -10969,7 +10981,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then, %entry
@@ -10992,7 +11004,7 @@ land.lhs.true8:                                   ; preds = %do.end5
 land.lhs.true10:                                  ; preds = %land.lhs.true8
   %th_owner_id = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 30
   %5 = load i64, ptr %th_owner_id, align 8
-  %call11 = tail call i64 %3() #28
+  %call11 = tail call i64 %3() #26
   %cmp12.not = icmp eq i64 %5, %call11
   br i1 %cmp12.not, label %do.body17, label %if.then13
 
@@ -11010,7 +11022,7 @@ if.end6.i:                                        ; preds = %if.then13
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %6(ptr noundef nonnull %base) #28
+  %call.i = tail call i32 %6(ptr noundef nonnull %base) #26
   br label %do.body17
 
 do.body17:                                        ; preds = %if.end9.i, %if.end6.i, %if.then13, %land.lhs.true10, %land.lhs.true8, %do.end5
@@ -11020,7 +11032,7 @@ do.body17:                                        ; preds = %if.end9.i, %if.end6
 
 if.then20:                                        ; preds = %do.body17
   %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call22 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #28
+  %call22 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #26
   br label %do.end25
 
 do.end25:                                         ; preds = %if.then20, %do.body17
@@ -11041,17 +11053,17 @@ do.body.i.i.i:                                    ; preds = %entry
   br i1 %tobool1.not.i.i.i, label %do.end.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %do.body.i.i.i
-  tail call void %1(ptr noundef nonnull %0, i32 noundef 0) #28
+  tail call void %1(ptr noundef nonnull %0, i32 noundef 0) #26
   br label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %do.body.i.i.i
   store ptr null, ptr @event_debug_map_lock_, align 8
-  tail call void @evthreadimpl_disable_lock_debugging_() #28
+  tail call void @evthreadimpl_disable_lock_debugging_() #26
   br label %event_free_globals.exit
 
 event_free_globals.exit:                          ; preds = %entry, %do.end.i.i.i
-  tail call void @evsig_free_globals_() #28
-  tail call void @evutil_free_globals_() #28
+  tail call void @evsig_free_globals_() #26
+  tail call void @evutil_free_globals_() #26
   ret void
 }
 
@@ -11059,27 +11071,27 @@ event_free_globals.exit:                          ; preds = %entry, %do.end.i.i.
 define dso_local i32 @event_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_debug_map_lock_, align 8
-  %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #28
+  %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #26
   store ptr %call, ptr @event_debug_map_lock_, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #28
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #26
   br label %return
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call i32 @evsig_global_setup_locks_(i32 noundef %enable_locks) #28
+  %call1 = tail call i32 @evsig_global_setup_locks_(i32 noundef %enable_locks) #26
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %do.end
-  %call4 = tail call i32 @evutil_global_setup_locks_(i32 noundef %enable_locks) #28
+  %call4 = tail call i32 @evutil_global_setup_locks_(i32 noundef %enable_locks) #26
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call i32 @evutil_secure_rng_global_setup_locks_(i32 noundef %enable_locks) #28
+  %call8 = tail call i32 @evutil_secure_rng_global_setup_locks_(i32 noundef %enable_locks) #26
   %call8.lobit = ashr i32 %call8, 31
   br label %return
 
@@ -11106,18 +11118,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  tail call void @evmap_check_integrity_(ptr noundef nonnull %base) #28
+  tail call void @evmap_check_integrity_(ptr noundef nonnull %base) #26
   %2 = load ptr, ptr %th_base_lock, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.end13, label %if.then8
 
 if.then8:                                         ; preds = %do.end3
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call10 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #28
+  %call10 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #26
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then8, %do.end3
@@ -11127,14 +11139,14 @@ do.end13:                                         ; preds = %if.then8, %do.end3
 ; Function Attrs: nounwind uwtable
 define dso_local void @event_base_assert_ok_nolock_(ptr noundef %base) local_unnamed_addr #0 {
 entry:
-  tail call void @evmap_check_integrity_(ptr noundef %base) #28
+  tail call void @evmap_check_integrity_(ptr noundef %base) #26
   ret void
 }
 
 declare void @evmap_check_integrity_(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -11263,7 +11275,7 @@ if.then13:                                        ; preds = %do.body11
   %cond26 = select i1 %tobool25.not, ptr @.str.22, ptr @.str.24
   %evcb_cb_union = getelementptr inbounds %struct.event_callback, ptr %evcb.0, i64 0, i32 4
   %19 = load ptr, ptr %evcb_cb_union, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.38, ptr noundef nonnull %evcb.0, ptr noundef nonnull %cond, ptr noundef nonnull %cond21, ptr noundef nonnull %cond26, ptr noundef %19) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.38, ptr noundef nonnull %evcb.0, ptr noundef nonnull %cond, ptr noundef nonnull %cond21, ptr noundef nonnull %cond26, ptr noundef %19) #26
   br label %if.end38
 
 if.else30:                                        ; preds = %for.body
@@ -11313,7 +11325,7 @@ if.then33:                                        ; preds = %event_queue_remove_
   %conv34 = zext i8 %32 to i32
   %evcb_cb_union35 = getelementptr inbounds %struct.event_callback, ptr %evcb.0, i64 0, i32 4
   %33 = load ptr, ptr %evcb_cb_union35, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.39, ptr noundef nonnull %evcb.0, i32 noundef %conv34, ptr noundef %33) #28
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.39, ptr noundef nonnull %evcb.0, i32 noundef %conv34, ptr noundef %33) #26
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then33, %event_queue_remove_active.exit95, %if.then13, %do.body11
@@ -11357,7 +11369,7 @@ do.body3.i:                                       ; preds = %if.then.i, %do.end4
 
 if.then4.i:                                       ; preds = %do.body3.i
   %39 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call.i = call i32 %39(i32 noundef 0, ptr noundef nonnull %38) #28
+  %call.i = call i32 %39(i32 noundef 0, ptr noundef nonnull %38) #26
   br label %do.end7.i
 
 do.end7.i:                                        ; preds = %if.then4.i, %do.body3.i
@@ -11389,7 +11401,7 @@ if.end17.i:                                       ; preds = %if.then14.i, %while
   %42 = load i32, ptr %ev_fd.i, align 8
   %43 = load i16, ptr %ev_res.i, align 2
   %44 = load ptr, ptr %evcb_arg.i, align 8
-  call void %41(i32 noundef %42, i16 noundef signext %43, ptr noundef %44) #28
+  call void %41(i32 noundef %42, i16 noundef signext %43, ptr noundef %44) #26
   %45 = load ptr, ptr %th_base_lock114, align 8
   %tobool22.not.i = icmp eq ptr %45, null
   br i1 %tobool22.not.i, label %do.end28.thread.i, label %do.end28.i
@@ -11400,7 +11412,7 @@ do.end28.thread.i:                                ; preds = %if.end17.i
 
 do.end28.i:                                       ; preds = %if.end17.i
   %47 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call25.i = call i32 %47(i32 noundef 0, ptr noundef nonnull %45) #28
+  %call25.i = call i32 %47(i32 noundef 0, ptr noundef nonnull %45) #26
   %.pr.i = load ptr, ptr %th_base_lock114, align 8
   %48 = load i32, ptr %event_break.i, align 4
   %tobool32.not.i = icmp eq ptr %.pr.i, null
@@ -11408,7 +11420,7 @@ do.end28.i:                                       ; preds = %if.end17.i
 
 if.then33.i:                                      ; preds = %do.end28.i
   %49 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call35.i = call i32 %49(i32 noundef 0, ptr noundef nonnull %.pr.i) #28
+  %call35.i = call i32 %49(i32 noundef 0, ptr noundef nonnull %.pr.i) #26
   br label %do.end38.i
 
 do.end38.i:                                       ; preds = %if.then33.i, %do.end28.i, %do.end28.thread.i
@@ -11454,7 +11466,7 @@ if.then5.i.i:                                     ; preds = %if.then.i99
   br label %gettime.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then.i99
-  %call.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i) #28
+  %call.i.i = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now.i) #26
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %gettime.exit.i, label %if.end9.i.i
 
@@ -11465,7 +11477,7 @@ if.end9.i.i:                                      ; preds = %if.end7.i.i
   br i1 %cmp11.not.i.i, label %gettime.exit.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end9.i.i
-  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #28
+  %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #26
   %57 = load <2 x i64>, ptr %tv.i.i, align 16
   %58 = load <2 x i64>, ptr %now.i, align 16
   %59 = sub nsw <2 x i64> %57, %58
@@ -11609,11 +11621,11 @@ if.end83.i:                                       ; preds = %if.end79.i, %lor.lh
 
 if.then90.i:                                      ; preds = %if.end83.i
   %83 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call92.i = call i32 %83(i32 noundef 0, ptr noundef nonnull %82) #28
+  %call92.i = call i32 %83(i32 noundef 0, ptr noundef nonnull %82) #26
   br label %event_persist_closure.exit
 
 event_persist_closure.exit:                       ; preds = %if.end83.i, %if.then90.i
-  call void %78(i32 noundef %79, i16 noundef signext %80, ptr noundef %81) #28
+  call void %78(i32 noundef %79, i16 noundef signext %80, ptr noundef %81) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %run_at.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %now.i)
   br label %do.body126
@@ -11629,7 +11641,7 @@ do.end54:                                         ; preds = %if.end38
 
 if.then61:                                        ; preds = %do.end54
   %87 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call63 = call i32 %87(i32 noundef 0, ptr noundef nonnull %86) #28
+  %call63 = call i32 %87(i32 noundef 0, ptr noundef nonnull %86) #26
   br label %do.end66
 
 do.end66:                                         ; preds = %if.then61, %do.end54
@@ -11637,7 +11649,7 @@ do.end66:                                         ; preds = %if.then61, %do.end5
   %88 = load i32, ptr %ev_fd, align 8
   %evcb_arg = getelementptr inbounds %struct.event_callback, ptr %ev.0, i64 0, i32 5
   %89 = load ptr, ptr %evcb_arg, align 8
-  call void %84(i32 noundef %88, i16 noundef signext %85, ptr noundef %89) #28
+  call void %84(i32 noundef %88, i16 noundef signext %85, ptr noundef %89) #26
   br label %do.body126
 
 sw.bb68:                                          ; preds = %if.end38
@@ -11649,13 +11661,13 @@ sw.bb68:                                          ; preds = %if.end38
 
 if.then74:                                        ; preds = %sw.bb68
   %92 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call76 = call i32 %92(i32 noundef 0, ptr noundef nonnull %91) #28
+  %call76 = call i32 %92(i32 noundef 0, ptr noundef nonnull %91) #26
   br label %do.end79
 
 do.end79:                                         ; preds = %if.then74, %sw.bb68
   %evcb_arg80 = getelementptr inbounds %struct.event_callback, ptr %evcb.0, i64 0, i32 5
   %93 = load ptr, ptr %evcb_arg80, align 8
-  call void %90(ptr noundef nonnull %evcb.0, ptr noundef %93) #28
+  call void %90(ptr noundef nonnull %evcb.0, ptr noundef %93) #26
   br label %do.body126
 
 sw.bb81:                                          ; preds = %if.end38, %if.end38
@@ -11668,7 +11680,7 @@ sw.bb81:                                          ; preds = %if.end38, %if.end38
 
 if.then96:                                        ; preds = %sw.bb81
   %96 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call98 = call i32 %96(i32 noundef 0, ptr noundef nonnull %95) #28
+  %call98 = call i32 %96(i32 noundef 0, ptr noundef nonnull %95) #26
   br label %do.end101
 
 do.end101:                                        ; preds = %if.then96, %sw.bb81
@@ -11683,7 +11695,7 @@ if.end.i:                                         ; preds = %do.end101
 
 if.then2.i:                                       ; preds = %if.end.i
   %99 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call.i107 = call i32 %99(i32 noundef 0, ptr noundef nonnull %98) #28
+  %call.i107 = call i32 %99(i32 noundef 0, ptr noundef nonnull %98) #26
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then2.i, %if.end.i
@@ -11725,11 +11737,11 @@ if.then6.i:                                       ; preds = %while.body.i.i.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  call void %107(ptr noundef nonnull %103) #28
+  call void %107(ptr noundef nonnull %103) #26
   br label %do.body8.i
 
 if.else.i.i:                                      ; preds = %if.then6.i
-  call void @free(ptr noundef nonnull %103) #28
+  call void @free(ptr noundef nonnull %103) #26
   br label %do.body8.i
 
 do.body8.i:                                       ; preds = %while.cond.i.i.i, %if.else.i.i, %if.then.i.i, %do.end.i
@@ -11739,14 +11751,14 @@ do.body8.i:                                       ; preds = %while.cond.i.i.i, %
 
 if.then10.i:                                      ; preds = %do.body8.i
   %109 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11.i = call i32 %109(i32 noundef 0, ptr noundef nonnull %108) #28
+  %call11.i = call i32 %109(i32 noundef 0, ptr noundef nonnull %108) #26
   br label %event_debug_note_teardown_.exit
 
 event_debug_note_teardown_.exit:                  ; preds = %do.end101, %do.body8.i, %if.then10.i
   store i1 true, ptr @event_debug_mode_too_late, align 4
   %evcb_arg103 = getelementptr inbounds %struct.event_callback, ptr %ev.0, i64 0, i32 5
   %110 = load ptr, ptr %evcb_arg103, align 8
-  call void %94(ptr noundef %ev.0, ptr noundef %110) #28
+  call void %94(ptr noundef %ev.0, ptr noundef %110) #26
   %cmp = icmp eq i8 %36, 6
   br i1 %cmp, label %if.then105, label %do.body126
 
@@ -11756,11 +11768,11 @@ if.then105:                                       ; preds = %event_debug_note_te
   br i1 %tobool.not.i109, label %if.else.i112, label %if.then.i110
 
 if.then.i110:                                     ; preds = %if.then105
-  call void %111(ptr noundef nonnull %ev.0) #28
+  call void %111(ptr noundef nonnull %ev.0) #26
   br label %do.body126
 
 if.else.i112:                                     ; preds = %if.then105
-  call void @free(ptr noundef nonnull %ev.0) #28
+  call void @free(ptr noundef nonnull %ev.0) #26
   br label %do.body126
 
 sw.bb107:                                         ; preds = %if.end38
@@ -11773,13 +11785,13 @@ sw.bb107:                                         ; preds = %if.end38
 
 if.then116:                                       ; preds = %sw.bb107
   %114 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call118 = call i32 %114(i32 noundef 0, ptr noundef nonnull %113) #28
+  %call118 = call i32 %114(i32 noundef 0, ptr noundef nonnull %113) #26
   br label %do.end121
 
 do.end121:                                        ; preds = %if.then116, %sw.bb107
   %evcb_arg122 = getelementptr inbounds %struct.event_callback, ptr %evcb.0, i64 0, i32 5
   %115 = load ptr, ptr %evcb_arg122, align 8
-  call void %112(ptr noundef nonnull %evcb.0, ptr noundef %115) #28
+  call void %112(ptr noundef nonnull %evcb.0, ptr noundef %115) #26
   br label %do.body126
 
 do.body126:                                       ; preds = %if.else.i112, %if.then.i110, %if.end38, %event_debug_note_teardown_.exit, %do.end121, %do.end79, %do.end66, %event_persist_closure.exit, %event_signal_closure.exit
@@ -11789,7 +11801,7 @@ do.body126:                                       ; preds = %if.else.i112, %if.t
 
 if.then129:                                       ; preds = %do.body126
   %117 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call131 = call i32 %117(i32 noundef 0, ptr noundef nonnull %116) #28
+  %call131 = call i32 %117(i32 noundef 0, ptr noundef nonnull %116) #26
   br label %do.end134
 
 do.end134:                                        ; preds = %if.then129, %do.body126
@@ -11806,7 +11818,7 @@ if.then138:                                       ; preds = %do.end134
 
 cond.true:                                        ; preds = %if.then138
   %120 = load ptr, ptr getelementptr inbounds (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i64 0, i32 3), align 8
-  %call142 = call i32 %120(ptr noundef nonnull %119, i32 noundef 1) #28
+  %call142 = call i32 %120(ptr noundef nonnull %119, i32 noundef 1) #26
   br label %if.end144
 
 if.end144:                                        ; preds = %cond.true, %if.then138, %do.end134
@@ -11836,7 +11848,7 @@ update_time_cache.exit.thread:                    ; preds = %if.then154
 
 if.end7.i.i116:                                   ; preds = %if.then154
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i113)
-  %call.i.i118 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i.i) #28
+  %call.i.i118 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %tv_cache.i.i) #26
   %cmp.i.i119 = icmp eq i32 %call.i.i118, -1
   %.pr.pr.pre = load i64, ptr %tv_cache.i.i, align 8
   br i1 %cmp.i.i119, label %update_time_cache.exit, label %if.end9.i.i120
@@ -11847,7 +11859,7 @@ if.end9.i.i120:                                   ; preds = %if.end7.i.i116
   br i1 %cmp11.not.i.i122, label %update_time_cache.exit, label %if.then12.i.i123
 
 if.then12.i.i123:                                 ; preds = %if.end9.i.i120
-  %call13.i.i124 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i113, ptr noundef null) #28
+  %call13.i.i124 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i113, ptr noundef null) #26
   %124 = load <2 x i64>, ptr %tv.i.i113, align 16
   %125 = load <2 x i64>, ptr %tv_cache.i.i, align 8
   %126 = sub nsw <2 x i64> %124, %125
@@ -11873,7 +11885,7 @@ if.then5.i:                                       ; preds = %update_time_cache.e
   br label %gettime.exit
 
 if.end7.i:                                        ; preds = %update_time_cache.exit.thread, %update_time_cache.exit
-  %call.i138 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now) #28
+  %call.i138 = call i32 @evutil_gettime_monotonic_(ptr noundef nonnull %monotonic_timer.i.i, ptr noundef nonnull %now) #26
   %cmp.i139 = icmp eq i32 %call.i138, -1
   %.pre152 = load i64, ptr %now, align 16
   br i1 %cmp.i139, label %gettime.exit, label %if.end9.i
@@ -11884,7 +11896,7 @@ if.end9.i:                                        ; preds = %if.end7.i
   br i1 %cmp11.not.i, label %gettime.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #28
+  %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #26
   %131 = load <2 x i64>, ptr %tv.i, align 16
   %132 = load <2 x i64>, ptr %now, align 16
   %133 = sub nsw <2 x i64> %131, %132
@@ -11932,7 +11944,7 @@ declare void @event_err(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 declare i32 @evutil_eventfd_(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @evthread_notify_base_eventfd(ptr nocapture noundef readonly %base) #23 {
+define internal noundef i32 @evthread_notify_base_eventfd(ptr nocapture noundef readonly %base) #21 {
 entry:
   %msg = alloca i64, align 8
   store i64 1, ptr %msg, align 8
@@ -11941,13 +11953,13 @@ entry:
 
 do.body:                                          ; preds = %land.rhs, %entry
   %0 = load i32, ptr %th_notify_fd, align 4
-  %call = call i64 @write(i32 noundef %0, ptr noundef nonnull %msg, i64 noundef 8) #28
+  %call = call i64 @write(i32 noundef %0, ptr noundef nonnull %msg, i64 noundef 8) #26
   %1 = and i64 %call, 2147483648
   %cmp.not.not = icmp ne i64 %1, 0
   br i1 %cmp.not.not, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
-  %call2 = tail call ptr @__errno_location() #32
+  %call2 = tail call ptr @__errno_location() #30
   %2 = load i32, ptr %call2, align 4
   %cmp3 = icmp eq i32 %2, 11
   br i1 %cmp3, label %do.body, label %do.end, !llvm.loop !58
@@ -11961,18 +11973,18 @@ do.end:                                           ; preds = %do.body, %land.rhs
 define internal void @evthread_notify_drain_eventfd(i32 noundef %fd, i16 signext %what, ptr nocapture noundef %arg) #0 {
 entry:
   %msg = alloca i64, align 8
-  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %msg, i64 noundef 8) #28
+  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %msg, i64 noundef 8) #26
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %land.lhs.true, label %do.body3
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #32
+  %call1 = tail call ptr @__errno_location() #30
   %0 = load i32, ptr %call1, align 4
   %cmp2.not = icmp eq i32 %0, 11
   br i1 %cmp2.not, label %do.body3, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef %fd, ptr noundef nonnull @.str.47) #28
+  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef %fd, ptr noundef nonnull @.str.47) #26
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then, %land.lhs.true, %entry
@@ -11988,7 +12000,7 @@ do.end8.thread:                                   ; preds = %do.body3
 
 do.end8:                                          ; preds = %do.body3
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call6 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #28
+  %call6 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %1) #26
   %.pr = load ptr, ptr %th_base_lock, align 8
   %is_notify_pending = getelementptr inbounds %struct.event_base, ptr %arg, i64 0, i32 39
   store i32 0, ptr %is_notify_pending, align 8
@@ -11997,7 +12009,7 @@ do.end8:                                          ; preds = %do.body3
 
 if.then13:                                        ; preds = %do.end8
   %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call15 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %.pr) #28
+  %call15 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %.pr) #26
   br label %do.end18
 
 do.end18:                                         ; preds = %do.end8.thread, %if.then13, %do.end8
@@ -12007,19 +12019,19 @@ do.end18:                                         ; preds = %do.end8.thread, %if
 declare i32 @evutil_make_internal_pipe_(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @evthread_notify_base_default(ptr nocapture noundef readonly %base) #23 {
+define internal i32 @evthread_notify_base_default(ptr nocapture noundef readonly %base) #21 {
 entry:
   %buf = alloca [1 x i8], align 1
   store i8 0, ptr %buf, align 1
   %arrayidx1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 40, i64 1
   %0 = load i32, ptr %arrayidx1, align 4
-  %call = call i64 @write(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 1) #28
+  %call = call i64 @write(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 1) #26
   %1 = and i64 %call, 2147483648
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #32
+  %call3 = tail call ptr @__errno_location() #30
   %2 = load i32, ptr %call3, align 4
   %cmp4 = icmp ne i32 %2, 11
   %3 = sext i1 %cmp4 to i32
@@ -12037,7 +12049,7 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
-  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %buf, i64 noundef 1024) #28
+  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %buf, i64 noundef 1024) #26
   %cmp = icmp sgt i64 %call, 0
   br i1 %cmp, label %while.cond, label %do.body1, !llvm.loop !59
 
@@ -12054,7 +12066,7 @@ do.end4.thread:                                   ; preds = %do.body1
 
 do.end4:                                          ; preds = %do.body1
   %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call3 = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #28
+  %call3 = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #26
   %.pr = load ptr, ptr %th_base_lock, align 8
   %is_notify_pending = getelementptr inbounds %struct.event_base, ptr %arg, i64 0, i32 39
   store i32 0, ptr %is_notify_pending, align 8
@@ -12063,7 +12075,7 @@ do.end4:                                          ; preds = %do.body1
 
 if.then9:                                         ; preds = %do.end4
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call11 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #28
+  %call11 = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #26
   br label %do.end14
 
 do.end14:                                         ; preds = %do.end4.thread, %if.then9, %do.end4
@@ -12071,10 +12083,10 @@ do.end14:                                         ; preds = %do.end4.thread, %if
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #24
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #22
 
 declare void @event_sock_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -12088,22 +12100,22 @@ declare void @evsig_free_globals_() local_unnamed_addr #6
 declare void @evutil_free_globals_() local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #25
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -12116,30 +12128,28 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nofree nounwind }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nounwind }
-attributes #29 = { nounwind allocsize(0) }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { nounwind willreturn memory(none) }
-attributes #33 = { nounwind allocsize(0,1) }
-attributes #34 = { nounwind willreturn memory(read) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nounwind }
+attributes #27 = { nounwind allocsize(0) }
+attributes #28 = { nounwind allocsize(1) }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { nounwind allocsize(0,1) }
+attributes #32 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

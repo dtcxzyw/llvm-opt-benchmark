@@ -5488,10 +5488,11 @@ if.end4:                                          ; preds = %land.rhs.i
   %bf.load = load i32, ptr %m_kind, align 8
   %bf.lshr = lshr i32 %bf.load, 3
   %bf.clear = and i32 %bf.lshr, 3
-  switch i32 %bf.clear, label %if.end19 [
+  switch i32 %bf.clear, label %if.end4.unreachabledefault [
     i32 0, label %return
     i32 3, label %return
     i32 1, label %if.then17
+    i32 2, label %if.end19
   ]
 
 if.then17:                                        ; preds = %if.end4
@@ -5528,6 +5529,9 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
   %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %return
+
+if.end4.unreachabledefault:                       ; preds = %if.end4
+  unreachable
 
 if.end19:                                         ; preds = %if.end4
   %m_todo = getelementptr inbounds %class.bound_propagator, ptr %this, i64 0, i32 26

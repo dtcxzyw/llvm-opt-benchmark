@@ -9463,17 +9463,23 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool15.not, label %if.else25, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %entry
-  %and19 = and i32 %2, 768
-  switch i32 %and19, label %sw.default [
+  %and19 = lshr i32 %2, 8
+  %4 = and i32 %and19, 3
+  switch i32 %4, label %if.then16.unreachabledefault [
     i32 0, label %if.end27
-    i32 256, label %sw.bb21
+    i32 1, label %sw.bb21
+    i32 2, label %sw.default
+    i32 3, label %sw.default
   ]
 
 sw.bb21:                                          ; preds = %if.then16
   %or22 = or i32 %res.0, 64
   br label %if.end27
 
-sw.default:                                       ; preds = %if.then16
+if.then16.unreachabledefault:                     ; preds = %if.then16
+  unreachable
+
+sw.default:                                       ; preds = %if.then16, %if.then16
   %or24 = or i32 %res.0, 128
   br label %if.end27
 
@@ -9490,9 +9496,9 @@ if.end27:                                         ; preds = %if.then16, %sw.bb21
   %or31 = or i32 %or30, 262144
   %res.2 = select i1 %tobool28.not, i32 %res.1, i32 %or31
   %and35 = shl i32 %2, 17
-  %4 = and i32 %and35, 524288
-  %5 = xor i32 %4, 524288
-  %res.3 = or i32 %res.2, %5
+  %5 = and i32 %and35, 524288
+  %6 = xor i32 %5, 524288
+  %res.3 = or i32 %res.2, %6
   ret i32 %res.3
 }
 

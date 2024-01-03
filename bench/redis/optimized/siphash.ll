@@ -13,7 +13,7 @@ entry:
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @siphash(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
@@ -66,7 +66,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor27, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor31, %for.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
-  switch i32 %conv, label %sw.epilog [
+  switch i32 %conv, label %for.end.unreachabledefault [
     i32 7, label %sw.bb
     i32 6, label %sw.bb36
     i32 5, label %sw.bb41
@@ -74,6 +74,7 @@ for.end:                                          ; preds = %for.body, %entry
     i32 3, label %sw.bb51
     i32 2, label %sw.bb56
     i32 1, label %sw.bb61
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -136,7 +137,10 @@ sw.bb61:                                          ; preds = %sw.bb56, %for.end
   %or64 = or i64 %b.5, %conv63
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb61, %for.end
+for.end.unreachabledefault:                       ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb61
   %b.6 = phi i64 [ %shl, %for.end ], [ %or64, %sw.bb61 ]
   %xor66 = xor i64 %b.6, %v3.0.lcssa
   %add68 = add i64 %v0.0.lcssa, %v1.0.lcssa
@@ -185,7 +189,7 @@ sw.epilog:                                        ; preds = %sw.bb61, %for.end
   ret i64 %xor155
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @siphash_nocase(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
@@ -282,7 +286,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor71, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor75, %for.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
-  switch i32 %conv, label %sw.epilog [
+  switch i32 %conv, label %for.end.unreachabledefault [
     i32 7, label %sw.bb
     i32 6, label %sw.bb83
     i32 5, label %sw.bb90
@@ -290,6 +294,7 @@ for.end:                                          ; preds = %for.body, %entry
     i32 3, label %sw.bb104
     i32 2, label %sw.bb111
     i32 1, label %sw.bb118
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -387,7 +392,10 @@ sw.bb118:                                         ; preds = %sw.bb111, %for.end
   %or123 = or i64 %b.5, %conv122
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb118, %for.end
+for.end.unreachabledefault:                       ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb118
   %b.6 = phi i64 [ %shl, %for.end ], [ %or123, %sw.bb118 ]
   %xor125 = xor i64 %b.6, %v3.0.lcssa
   %add127 = add i64 %v0.0.lcssa, %v1.0.lcssa
@@ -443,7 +451,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 declare i64 @llvm.vector.reduce.or.v4i64(<4 x i64>) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

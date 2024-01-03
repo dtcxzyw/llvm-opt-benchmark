@@ -27175,7 +27175,7 @@ luaX_next.exit:                                   ; preds = %if.then.i22, %if.el
   store i32 5, ptr %e2.i, align 8
   %u.i = getelementptr inbounds %struct.expdesc, ptr %e2.i, i64 0, i32 1
   store double 0.000000e+00, ptr %u.i, align 8
-  switch i32 %retval.0.i.ph, label %luaK_prefix.exit [
+  switch i32 %retval.0.i.ph, label %luaX_next.exit.unreachabledefault [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb2.i23
     i32 2, label %sw.bb3.i
@@ -27480,7 +27480,10 @@ sw.bb3.i:                                         ; preds = %luaX_next.exit
   call fastcc void @codearith(ptr noundef %5, i32 noundef 20, ptr noundef %v, ptr noundef nonnull %e2.i)
   br label %luaK_prefix.exit
 
-luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i48.i.i, %luaX_next.exit, %if.end.i, %removevalues.exit.i.i, %sw.bb3.i
+luaX_next.exit.unreachabledefault:                ; preds = %luaX_next.exit
+  unreachable
+
+luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i48.i.i, %if.end.i, %removevalues.exit.i.i, %sw.bb3.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e2.i)
   br label %if.endthread-pre-split
 

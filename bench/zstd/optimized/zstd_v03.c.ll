@@ -473,12 +473,17 @@ if.end.i:                                         ; preds = %entry
   %0 = load i8, ptr %src, align 1
   %1 = and i8 %0, 3
   %and.i = zext nneg i8 %1 to i32
-  switch i32 %and.i, label %sw.bb.i [
-    i32 2, label %sw.bb39.i
+  switch i32 %and.i, label %if.end.unreachabledefault.i [
+    i32 0, label %sw.bb.i
     i32 1, label %sw.bb7.i
+    i32 2, label %sw.bb39.i
+    i32 3, label %sw.bb.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
+if.end.unreachabledefault.i:                      ; preds = %if.end.i
+  unreachable
+
+sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
   %litBuffer.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %ctx, i64 0, i32 10
   %src.val.i.i = load i32, ptr %src, align 1
   %and.i.i = lshr i32 %src.val.i.i, 2
@@ -584,7 +589,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
 
 if.then14.i:                                      ; preds = %sw.bb7.i
   %cmp15.i = icmp ugt i32 %shr.i, 131072
-  %sub19.i = add i64 %srcSize, -3
+  %sub19.i = add nsw i64 %srcSize, -3
   %cmp20.i = icmp ult i64 %sub19.i, %conv11.i
   %or.cond.i = or i1 %cmp15.i, %cmp20.i
   br i1 %or.cond.i, label %return, label %if.end23.i
@@ -648,10 +653,10 @@ ZSTD_decodeLiteralsBlock.exit:                    ; preds = %HUF_decompress.exit
   store i64 0, ptr %add.ptr.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %ZSTD_decodeLiteralsBlock.exit, %if.end48.i, %if.end34.i, %if.end23.i, %ZSTD_decodeLiteralsBlock.exit.thread53
-  %11 = phi i64 [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ %conv44.i, %if.end48.i ], [ %conv11.i, %if.end34.i ], [ %conv11.i, %if.end23.i ]
-  %12 = phi ptr [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit ], [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ %litBuffer49.i, %if.end48.i ], [ %add.ptr35.i, %if.end34.i ], [ %litBuffer24.i, %if.end23.i ]
-  %retval.0.i36 = phi i64 [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ 4, %if.end48.i ], [ %add38.i, %if.end34.i ], [ %add.i, %if.end23.i ]
+if.end:                                           ; preds = %ZSTD_decodeLiteralsBlock.exit, %if.end34.i, %if.end23.i, %if.end48.i, %ZSTD_decodeLiteralsBlock.exit.thread53
+  %11 = phi i64 [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ %conv11.i, %if.end34.i ], [ %conv11.i, %if.end23.i ], [ %conv44.i, %if.end48.i ]
+  %12 = phi ptr [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit ], [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ %add.ptr35.i, %if.end34.i ], [ %litBuffer24.i, %if.end23.i ], [ %litBuffer49.i, %if.end48.i ]
+  %retval.0.i36 = phi i64 [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit.thread53 ], [ %add38.i, %if.end34.i ], [ %add.i, %if.end23.i ], [ 4, %if.end48.i ]
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %retval.0.i36
   %sub = sub i64 %srcSize, %retval.0.i36
   %add.ptr1.i = getelementptr inbounds i8, ptr %dst, i64 %maxDstSize

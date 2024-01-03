@@ -19711,10 +19711,11 @@ sw.bb82.i:                                        ; preds = %sw.epilog.i
   %149 = load i8, ptr %arrayidx1.i218.i, align 1
   %conv.i219.i = zext i8 %149 to i64
   %and88.i = and i64 %conv.i219.i, 3
-  switch i64 %and88.i, label %while.end [
+  switch i64 %and88.i, label %sw.bb82.unreachabledefault.i [
     i64 0, label %sw.bb89.i
     i64 1, label %sw.bb100.i
     i64 2, label %sw.bb102.i
+    i64 3, label %while.end
   ]
 
 sw.bb89.i:                                        ; preds = %sw.bb82.i
@@ -19745,6 +19746,9 @@ sw.bb102.i:                                       ; preds = %sw.bb82.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val47.i, i8 noundef zeroext %154)
   br label %while.end
 
+sw.bb82.unreachabledefault.i:                     ; preds = %sw.bb82.i
+  unreachable
+
 sw.bb109.i:                                       ; preds = %sw.epilog.i
   %155 = load i64, ptr %buffer_.i37.i.i, align 8
   %and112.i = lshr i64 %155, 6
@@ -19761,10 +19765,11 @@ sw.bb109.i:                                       ; preds = %sw.epilog.i
   %159 = load i16, ptr %arrayidx4.i.i, align 2
   %conv.i235.i = zext i16 %159 to i64
   %and115.i = and i64 %conv.i235.i, 3
-  switch i64 %and115.i, label %while.end [
+  switch i64 %and115.i, label %sw.bb109.unreachabledefault.i [
     i64 0, label %sw.bb116.i
     i64 1, label %sw.bb118.i
     i64 2, label %sw.bb129.i
+    i64 3, label %while.end
   ]
 
 sw.bb116.i:                                       ; preds = %sw.bb109.i
@@ -19795,6 +19800,9 @@ sw.bb129.i:                                       ; preds = %sw.bb109.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val50.i, i8 noundef zeroext %164)
   br label %while.end
 
+sw.bb109.unreachabledefault.i:                    ; preds = %sw.bb109.i
+  unreachable
+
 sw.bb136.i:                                       ; preds = %sw.epilog.i
   %165 = load i64, ptr %buffer_.i37.i.i, align 8
   %and139.i = lshr i64 %165, 5
@@ -19806,10 +19814,11 @@ sw.bb136.i:                                       ; preds = %sw.epilog.i
   %167 = load i8, ptr %arrayidx1.i251.i, align 1
   %conv.i252.i = zext i8 %167 to i64
   %and142.i = and i64 %conv.i252.i, 3
-  switch i64 %and142.i, label %while.end [
+  switch i64 %and142.i, label %sw.bb136.unreachabledefault.i [
     i64 0, label %sw.bb143.i
     i64 1, label %sw.bb145.i
     i64 2, label %sw.bb156.i
+    i64 3, label %while.end
   ]
 
 sw.bb143.i:                                       ; preds = %sw.bb136.i
@@ -19840,6 +19849,9 @@ sw.bb156.i:                                       ; preds = %sw.bb136.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val53.i, i8 noundef zeroext %172)
   br label %while.end
 
+sw.bb136.unreachabledefault.i:                    ; preds = %sw.bb136.i
+  unreachable
+
 sw.bb163.i:                                       ; preds = %sw.epilog.i
   %173 = load i64, ptr %buffer_.i37.i.i, align 8
   %and166.i = lshr i64 %173, 6
@@ -19856,10 +19868,11 @@ sw.bb163.i:                                       ; preds = %sw.epilog.i
   %177 = load i16, ptr %arrayidx4.i271.i, align 2
   %conv.i272.i = zext i16 %177 to i64
   %and169.i = and i64 %conv.i272.i, 3
-  switch i64 %and169.i, label %while.end [
+  switch i64 %and169.i, label %sw.bb163.unreachabledefault.i [
     i64 0, label %sw.bb170.i
     i64 1, label %sw.bb172.i
     i64 2, label %sw.bb183.i
+    i64 3, label %while.end
   ]
 
 sw.bb170.i:                                       ; preds = %sw.bb163.i
@@ -19890,6 +19903,9 @@ sw.bb183.i:                                       ; preds = %sw.bb163.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val56.i, i8 noundef zeroext %182)
   br label %while.end
 
+sw.bb163.unreachabledefault.i:                    ; preds = %sw.bb163.i
+  unreachable
+
 sw.bb190.i:                                       ; preds = %sw.epilog.i
   %183 = load i64, ptr %buffer_.i37.i.i, align 8
   %and193.i = lshr i64 %183, 6
@@ -19906,10 +19922,11 @@ sw.bb190.i:                                       ; preds = %sw.epilog.i
   %187 = load i16, ptr %arrayidx4.i291.i, align 2
   %conv.i292.i = zext i16 %187 to i64
   %and196.i = and i64 %conv.i292.i, 3
-  switch i64 %and196.i, label %while.end [
+  switch i64 %and196.i, label %sw.bb190.unreachabledefault.i [
     i64 0, label %sw.bb197.i
     i64 1, label %sw.bb199.i
     i64 2, label %sw.bb210.i
+    i64 3, label %while.end
   ]
 
 sw.bb197.i:                                       ; preds = %sw.bb190.i
@@ -19939,6 +19956,9 @@ sw.bb210.i:                                       ; preds = %sw.bb190.i
   %this.val59.i = load ptr, ptr %this, align 8
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val59.i, i8 noundef zeroext %192)
   br label %while.end
+
+sw.bb190.unreachabledefault.i:                    ; preds = %sw.bb190.i
+  unreachable
 
 if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i113.i, %return.sink.split.i27.i, %return.sink.split.i.i, %while.body
   %193 = phi i32 [ %.pre349, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i113.i ], [ %add.i100.i.i, %return.sink.split.i27.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %2, %while.body ]
@@ -25044,10 +25064,11 @@ sw.bb82.i:                                        ; preds = %sw.epilog.i
   %165 = load i8, ptr %arrayidx1.i223.i, align 1
   %conv.i224.i = zext i8 %165 to i64
   %and88.i = and i64 %conv.i224.i, 3
-  switch i64 %and88.i, label %while.end [
+  switch i64 %and88.i, label %sw.bb82.unreachabledefault.i [
     i64 0, label %sw.bb89.i
     i64 1, label %sw.bb100.i
     i64 2, label %sw.bb102.i
+    i64 3, label %while.end
   ]
 
 sw.bb89.i:                                        ; preds = %sw.bb82.i
@@ -25075,6 +25096,9 @@ sw.bb102.i:                                       ; preds = %sw.bb82.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %170)
   br label %while.end
 
+sw.bb82.unreachabledefault.i:                     ; preds = %sw.bb82.i
+  unreachable
+
 sw.bb109.i:                                       ; preds = %sw.epilog.i
   %171 = load i64, ptr %buffer_.i37.i.i, align 8
   %and112.i = lshr i64 %171, 6
@@ -25091,10 +25115,11 @@ sw.bb109.i:                                       ; preds = %sw.epilog.i
   %175 = load i16, ptr %arrayidx4.i.i, align 2
   %conv.i240.i = zext i16 %175 to i64
   %and115.i = and i64 %conv.i240.i, 3
-  switch i64 %and115.i, label %while.end [
+  switch i64 %and115.i, label %sw.bb109.unreachabledefault.i [
     i64 0, label %sw.bb116.i
     i64 1, label %sw.bb118.i
     i64 2, label %sw.bb129.i
+    i64 3, label %while.end
   ]
 
 sw.bb116.i:                                       ; preds = %sw.bb109.i
@@ -25122,6 +25147,9 @@ sw.bb129.i:                                       ; preds = %sw.bb109.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %180)
   br label %while.end
 
+sw.bb109.unreachabledefault.i:                    ; preds = %sw.bb109.i
+  unreachable
+
 sw.bb136.i:                                       ; preds = %sw.epilog.i
   %181 = load i64, ptr %buffer_.i37.i.i, align 8
   %and139.i = lshr i64 %181, 5
@@ -25133,10 +25161,11 @@ sw.bb136.i:                                       ; preds = %sw.epilog.i
   %183 = load i8, ptr %arrayidx1.i256.i, align 1
   %conv.i257.i = zext i8 %183 to i64
   %and142.i = and i64 %conv.i257.i, 3
-  switch i64 %and142.i, label %while.end [
+  switch i64 %and142.i, label %sw.bb136.unreachabledefault.i [
     i64 0, label %sw.bb143.i
     i64 1, label %sw.bb145.i
     i64 2, label %sw.bb156.i
+    i64 3, label %while.end
   ]
 
 sw.bb143.i:                                       ; preds = %sw.bb136.i
@@ -25164,6 +25193,9 @@ sw.bb156.i:                                       ; preds = %sw.bb136.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %188)
   br label %while.end
 
+sw.bb136.unreachabledefault.i:                    ; preds = %sw.bb136.i
+  unreachable
+
 sw.bb163.i:                                       ; preds = %sw.epilog.i
   %189 = load i64, ptr %buffer_.i37.i.i, align 8
   %and166.i = lshr i64 %189, 6
@@ -25180,10 +25212,11 @@ sw.bb163.i:                                       ; preds = %sw.epilog.i
   %193 = load i16, ptr %arrayidx4.i276.i, align 2
   %conv.i277.i = zext i16 %193 to i64
   %and169.i = and i64 %conv.i277.i, 3
-  switch i64 %and169.i, label %while.end [
+  switch i64 %and169.i, label %sw.bb163.unreachabledefault.i [
     i64 0, label %sw.bb170.i
     i64 1, label %sw.bb172.i
     i64 2, label %sw.bb183.i
+    i64 3, label %while.end
   ]
 
 sw.bb170.i:                                       ; preds = %sw.bb163.i
@@ -25211,6 +25244,9 @@ sw.bb183.i:                                       ; preds = %sw.bb163.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %198)
   br label %while.end
 
+sw.bb163.unreachabledefault.i:                    ; preds = %sw.bb163.i
+  unreachable
+
 sw.bb190.i:                                       ; preds = %sw.epilog.i
   %199 = load i64, ptr %buffer_.i37.i.i, align 8
   %and193.i = lshr i64 %199, 6
@@ -25227,10 +25263,11 @@ sw.bb190.i:                                       ; preds = %sw.epilog.i
   %203 = load i16, ptr %arrayidx4.i296.i, align 2
   %conv.i297.i = zext i16 %203 to i64
   %and196.i = and i64 %conv.i297.i, 3
-  switch i64 %and196.i, label %while.end [
+  switch i64 %and196.i, label %sw.bb190.unreachabledefault.i [
     i64 0, label %sw.bb197.i
     i64 1, label %sw.bb199.i
     i64 2, label %sw.bb210.i
+    i64 3, label %while.end
   ]
 
 sw.bb197.i:                                       ; preds = %sw.bb190.i
@@ -25257,6 +25294,9 @@ sw.bb210.i:                                       ; preds = %sw.bb190.i
   %208 = load i8, ptr %arrayidx1.i308.i, align 1
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %208)
   br label %while.end
+
+sw.bb190.unreachabledefault.i:                    ; preds = %sw.bb190.i
+  unreachable
 
 if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i113.i, %return.sink.split.i27.i, %return.sink.split.i.i, %while.body
   %209 = phi i32 [ %.pre382, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i113.i ], [ %add.i100.i.i, %return.sink.split.i27.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %3, %while.body ]

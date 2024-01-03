@@ -96,7 +96,7 @@ if.end16:                                         ; preds = %if.then15, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr nocapture noundef %val, i32 noundef %new_if_free, ptr nocapture noundef writeonly %waited) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr nocapture noundef %val, i32 noundef %new_if_free, ptr nocapture noundef writeonly %waited) unnamed_addr #2 {
 entry:
   %_now.i.i80 = alloca %struct.timeval, align 8
   %_now.i.i66 = alloca %struct.timeval, align 8
@@ -199,10 +199,11 @@ if.end4:                                          ; preds = %trace_lockcnt_fast_
 while.cond5:                                      ; preds = %while.cond5.backedge, %if.end4
   %18 = phi i32 [ %17, %if.end4 ], [ %.be, %while.cond5.backedge ]
   %and6 = and i32 %18, 3
-  switch i32 %and6, label %if.end43 [
+  switch i32 %and6, label %while.cond5.unreachabledefault [
     i32 0, label %return
     i32 1, label %if.then11
     i32 2, label %if.then34
+    i32 3, label %if.end43
   ]
 
 if.then11:                                        ; preds = %while.cond5
@@ -349,6 +350,9 @@ trace_lockcnt_futex_wait_resume.exit:             ; preds = %qemu_futex_wait.exi
   %.pre.pre = load i32, ptr %val, align 4
   br label %while.cond5.backedge
 
+while.cond5.unreachabledefault:                   ; preds = %while.cond5
+  unreachable
+
 if.end43:                                         ; preds = %while.cond5
   tail call void @abort() #12
   unreachable
@@ -409,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_lockcnt_dec_and_lock(ptr noundef %lockcnt) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_lockcnt_dec_and_lock(ptr noundef %lockcnt) local_unnamed_addr #2 {
 entry:
   %val = alloca i32, align 4
   %waited = alloca i8, align 1
@@ -463,7 +467,7 @@ return:                                           ; preds = %if.else, %for.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_lockcnt_dec_if_lock(ptr noundef %lockcnt) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_lockcnt_dec_if_lock(ptr noundef %lockcnt) local_unnamed_addr #2 {
 entry:
   %val = alloca i32, align 4
   %waited = alloca i8, align 1

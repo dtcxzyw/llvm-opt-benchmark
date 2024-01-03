@@ -4452,10 +4452,10 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   store i64 %add.i, ptr %indent_.i, align 8
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderGenerator", ptr %this, i64 0, i32 1
   %7 = load ptr, ptr %descriptor_, align 8
-  %field_count_.i79 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %7, i64 0, i32 3
-  %8 = load i32, ptr %field_count_.i79, align 4
-  %cmp80 = icmp sgt i32 %8, 0
-  br i1 %cmp80, label %for.body.lr.ph, label %for.end53
+  %field_count_.i80 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %7, i64 0, i32 3
+  %8 = load i32, ptr %field_count_.i80, align 4
+  %cmp81 = icmp sgt i32 %8, 0
+  br i1 %cmp81, label %for.body.lr.ph, label %for.end53
 
 for.body.lr.ph:                                   ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
   %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderGenerator", ptr %this, i64 0, i32 2
@@ -4496,11 +4496,11 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp, label %for.body, label %for.cond8.preheader, !llvm.loop !126
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.inc51
-  %indvars.iv88 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next89, %for.inc51 ]
+  %indvars.iv89 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next90, %for.inc51 ]
   %16 = phi ptr [ %13, %for.body12.lr.ph ], [ %36, %for.inc51 ]
   %fields_.i29 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %16, i64 0, i32 10
   %17 = load ptr, ptr %fields_.i29, align 8
-  %add.ptr.i31 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %17, i64 %indvars.iv88
+  %add.ptr.i31 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %17, i64 %indvars.iv89
   %18 = load ptr, ptr %context_17, align 8
   %call18 = call noundef ptr @_ZNK6google8protobuf8compiler4java7Context21GetFieldGeneratorInfoEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(152) %18, ptr noundef %add.ptr.i31)
   %call19 = call noundef i32 @_ZN6google8protobuf8compiler4java11GetJavaTypeEPKNS0_15FieldDescriptorE(ptr noundef %add.ptr.i31)
@@ -4513,15 +4513,16 @@ land.lhs.true:                                    ; preds = %for.body12
   br i1 %call22, label %if.then23, label %for.inc51
 
 if.then23:                                        ; preds = %land.lhs.true
-  %label_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %17, i64 %indvars.iv88, i32 1
+  %label_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %17, i64 %indvars.iv89, i32 1
   %bf.load.i = load i8, ptr %label_.i, align 1
   %bf.lshr.i = lshr i8 %bf.load.i, 5
   %bf.clear.i = and i8 %bf.lshr.i, 3
   %conv.i = zext nneg i8 %bf.clear.i to i32
-  switch i32 %conv.i, label %for.inc51 [
+  switch i32 %conv.i, label %if.then23.unreachabledefault [
     i32 2, label %sw.bb
     i32 1, label %sw.bb28
     i32 3, label %sw.bb31
+    i32 0, label %for.inc51
   ]
 
 sw.bb:                                            ; preds = %if.then23
@@ -4644,13 +4645,16 @@ lpad47:                                           ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #25
   br label %common.resume
 
-for.inc51:                                        ; preds = %for.body12, %land.lhs.true, %invoke.cont41, %invoke.cont48, %sw.bb28, %invoke.cont, %if.then23
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+if.then23.unreachabledefault:                     ; preds = %if.then23
+  unreachable
+
+for.inc51:                                        ; preds = %if.then23, %for.body12, %land.lhs.true, %invoke.cont41, %invoke.cont48, %sw.bb28, %invoke.cont
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %36 = load ptr, ptr %descriptor_, align 8
   %field_count_.i28 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %36, i64 0, i32 3
   %37 = load i32, ptr %field_count_.i28, align 4
   %38 = sext i32 %37 to i64
-  %cmp11 = icmp slt i64 %indvars.iv.next89, %38
+  %cmp11 = icmp slt i64 %indvars.iv.next90, %38
   br i1 %cmp11, label %for.body12, label %for.end53, !llvm.loop !130
 
 for.end53:                                        ; preds = %for.inc51, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit, %for.cond8.preheader

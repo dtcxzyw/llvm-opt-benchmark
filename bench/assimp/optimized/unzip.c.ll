@@ -3153,10 +3153,11 @@ if.then30:                                        ; preds = %if.end27
   %flag = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 2
   %101 = load i64, ptr %flag, align 8
   %and = and i64 %101, 6
-  switch i64 %and, label %if.end34 [
+  switch i64 %and, label %if.then30.unreachabledefault [
     i64 6, label %if.end34.sink.split
     i64 4, label %sw.bb32
     i64 2, label %sw.bb33
+    i64 0, label %if.end34
   ]
 
 sw.bb32:                                          ; preds = %if.then30
@@ -3164,6 +3165,9 @@ sw.bb32:                                          ; preds = %if.then30
 
 sw.bb33:                                          ; preds = %if.then30
   br label %if.end34.sink.split
+
+if.then30.unreachabledefault:                     ; preds = %if.then30
+  unreachable
 
 if.end34.sink.split:                              ; preds = %if.then30, %sw.bb33, %sw.bb32
   %.sink = phi i32 [ 2, %sw.bb32 ], [ 9, %sw.bb33 ], [ 1, %if.then30 ]

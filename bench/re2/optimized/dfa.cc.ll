@@ -2175,12 +2175,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %dense_.i.i.i.i = getelementptr inbounds %"class.re2::SparseSetT", ptr %newq, i64 0, i32 2
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.re2::SparseSetT", ptr %newq, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.re2::SparseSetT", ptr %newq, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
   %cmp31 = icmp eq i32 %c, 256
   %kind_ = getelementptr inbounds %"class.re2::DFA", ptr %this, i64 0, i32 1
   %3 = add i32 %c, -65
   %4 = icmp ult i32 %3, 26
   %add.i = add nuw nsw i32 %c, 32
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2237,7 +2237,7 @@ if.end5:                                          ; preds = %for.body
   %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %19, i64 %conv.i.i
   %20 = load i32, ptr %arrayidx.i.i.i, align 4
   %and.i = and i32 %20, 7
-  switch i32 %and.i, label %sw.default [
+  switch i32 %and.i, label %if.end5.unreachabledefault [
     i32 7, label %for.inc
     i32 3, label %for.inc
     i32 6, label %for.inc
@@ -2245,7 +2245,11 @@ if.end5:                                          ; preds = %for.body
     i32 4, label %for.inc
     i32 2, label %sw.bb15
     i32 5, label %sw.bb28
+    i32 0, label %sw.default
   ]
+
+if.end5.unreachabledefault:                       ; preds = %if.end5
+  unreachable
 
 sw.default:                                       ; preds = %if.end5
   store i8 0, ptr %ref.tmp, align 8
@@ -2361,7 +2365,7 @@ if.end35:                                         ; preds = %sw.bb28
   %cmp37 = icmp eq i32 %37, 0
   br i1 %cmp37, label %for.end, label %for.inc
 
-for.inc:                                          ; preds = %if.end.i.i.i, %if.end.i, %if.end, %sw.bb28, %invoke.cont13, %if.end5, %if.end5, %if.end5, %if.end5, %if.end5, %sw.bb15, %while.end, %if.then22, %if.end35
+for.inc:                                          ; preds = %if.end5, %if.end5, %if.end5, %if.end5, %if.end5, %if.end.i.i.i, %if.end.i, %if.end, %sw.bb28, %invoke.cont13, %sw.bb15, %while.end, %if.then22, %if.end35
   %i.1 = phi ptr [ %i.038, %invoke.cont13 ], [ %i.038, %if.end35 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
   %incdec.ptr40 = getelementptr inbounds i32, ptr %i.1, i64 1
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8

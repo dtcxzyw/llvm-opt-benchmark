@@ -17,7 +17,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN18OpenImageIO_v2_6_06bjhash8hashwordEPKjmj(ptr nocapture noundef readonly %k, i64 noundef %length, i32 noundef %initval) local_unnamed_addr #3 {
 entry:
   %conv = trunc i64 %length to i32
@@ -76,10 +76,11 @@ while.end:                                        ; preds = %while.body, %entry
   %a.0.lcssa = phi i32 [ %add1, %entry ], [ %add32, %while.body ]
   %b.0.lcssa = phi i32 [ %add1, %entry ], [ %add38, %while.body ]
   %c.0.lcssa = phi i32 [ %add1, %entry ], [ %xor37, %while.body ]
-  switch i64 %length.addr.0.lcssa, label %sw.epilog [
+  switch i64 %length.addr.0.lcssa, label %while.end.unreachabledefault [
     i64 3, label %sw.bb
     i64 2, label %sw.bb42
     i64 1, label %sw.bb45
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -123,12 +124,15 @@ sw.bb45:                                          ; preds = %sw.bb42, %while.end
   %sub82 = sub i32 %xor78, %or81
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb45, %while.end
+while.end.unreachabledefault:                     ; preds = %while.end
+  unreachable
+
+sw.epilog:                                        ; preds = %while.end, %sw.bb45
   %c.3 = phi i32 [ %c.0.lcssa, %while.end ], [ %sub82, %sw.bb45 ]
   ret i32 %c.3
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN18OpenImageIO_v2_6_06bjhash10hashlittleEPKvmj(ptr noundef %key, i64 noundef %length, i32 noundef %initval) local_unnamed_addr #3 {
 entry:
   %conv = trunc i64 %length to i32
@@ -762,7 +766,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

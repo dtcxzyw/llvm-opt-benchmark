@@ -5919,7 +5919,7 @@ lpad21.loopexit:                                  ; preds = %if.else95, %if.then
           cleanup
   br label %ehcleanup
 
-lpad21.loopexit.split-lp:                         ; preds = %sw.bb2.i.invoke, %land.rhs.invoke, %invoke.cont49.invoke, %if.then30, %if.then34, %if.then37, %invoke.cont38, %invoke.cont39, %if.else52, %invoke.cont53, %if.then122, %if.else132, %if.then136, %if.then139, %invoke.cont140, %invoke.cont141, %if.else154, %invoke.cont155, %if.else172, %if.then176, %if.then179, %invoke.cont180, %invoke.cont181, %if.else194, %invoke.cont195, %invoke.cont41, %invoke.cont55, %invoke.cont143, %invoke.cont157, %invoke.cont183, %invoke.cont197, %sw.bb.i
+lpad21.loopexit.split-lp:                         ; preds = %land.rhs.invoke, %invoke.cont49.invoke, %if.then30, %if.then34, %if.then37, %invoke.cont38, %invoke.cont39, %if.else52, %invoke.cont53, %if.then122, %if.else132, %if.then136, %if.then139, %invoke.cont140, %invoke.cont141, %if.else154, %invoke.cont155, %if.else172, %if.then176, %if.then179, %invoke.cont180, %invoke.cont181, %if.else194, %invoke.cont195, %invoke.cont41, %invoke.cont55, %invoke.cont143, %invoke.cont157, %invoke.cont183, %invoke.cont197, %sw.bb.i, %sw.bb2.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -6339,8 +6339,9 @@ if.end211:                                        ; preds = %_ZN5arith14theory_c
   br i1 %cmp26.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end211, %sw.epilog
-  switch i32 %retval.0.i.ph, label %sw.bb2.i.invoke [
+  switch i32 %retval.0.i.ph, label %for.end.unreachabledefault [
     i32 1, label %sw.bb.i
+    i32 3, label %sw.bb2.i
     i32 2, label %land.rhs.invoke
   ]
 
@@ -6348,30 +6349,33 @@ sw.bb.i:                                          ; preds = %for.end
   %call.i131132 = invoke noundef zeroext i1 @_ZN5arith14theory_checker12check_farkasEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
           to label %cleanup unwind label %lpad21.loopexit.split-lp
 
-sw.bb2.i.invoke:                                  ; preds = %for.end
-  %64 = invoke noundef zeroext i1 @_ZN5arith14theory_checker11check_boundEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
+sw.bb2.i:                                         ; preds = %for.end
+  %call3.i133 = invoke noundef zeroext i1 @_ZN5arith14theory_checker11check_boundEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
           to label %cleanup unwind label %lpad21.loopexit.split-lp
+
+for.end.unreachabledefault:                       ; preds = %for.end
+  unreachable
 
 cleanup.sink.split:                               ; preds = %invoke.cont203, %invoke.cont163, %invoke.cont61
   %ref.tmp199.sink.sroa.phi = phi ptr [ %ref.tmp57.sroa.gep, %invoke.cont61 ], [ %ref.tmp159.sroa.gep, %invoke.cont163 ], [ %ref.tmp199.sroa.gep, %invoke.cont203 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp199.sink.sroa.phi) #16
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %sw.bb2.i.invoke, %land.rhs.invoke, %invoke.cont49.invoke, %sw.bb.i, %invoke.cont124
-  %retval.0 = phi i1 [ false, %invoke.cont124 ], [ %call.i131132, %sw.bb.i ], [ false, %invoke.cont49.invoke ], [ %55, %land.rhs.invoke ], [ %64, %sw.bb2.i.invoke ], [ false, %cleanup.sink.split ]
-  %65 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %coeff)
+cleanup:                                          ; preds = %cleanup.sink.split, %land.rhs.invoke, %invoke.cont49.invoke, %sw.bb.i, %sw.bb2.i, %invoke.cont124
+  %retval.0 = phi i1 [ false, %invoke.cont124 ], [ %call.i131132, %sw.bb.i ], [ %call3.i133, %sw.bb2.i ], [ false, %invoke.cont49.invoke ], [ %55, %land.rhs.invoke ], [ false, %cleanup.sink.split ]
+  %64 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %coeff)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %cleanup
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #17
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #17
   unreachable
 
 ehcleanup:                                        ; preds = %lpad21.loopexit, %lpad21.loopexit.split-lp, %lpad.i, %lpad.i102, %lpad202, %lpad188, %lpad162, %lpad148, %lpad60, %lpad46

@@ -1868,11 +1868,14 @@ entry:
   %arrayidx8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 17
   %3 = load i32, ptr %arrayidx8, align 8
   %cmp9 = icmp slt i32 %2, %3
-  %spec.store.select1 = select i1 %cmp9, i32 17, i32 %spec.store.select
-  switch i32 %spec.store.select1, label %sw.epilog [
-    i32 19, label %sw.bb
-    i32 1, label %sw.bb12
-    i32 17, label %sw.bb19
+  %4 = add nsw i32 %spec.store.select, -1
+  %5 = lshr exact i32 %4, 1
+  %6 = select i1 %cmp9, i32 8, i32 %5
+  switch i32 %6, label %entry.unreachabledefault [
+    i32 9, label %sw.bb
+    i32 0, label %sw.bb12
+    i32 8, label %sw.bb19
+    i32 1, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1881,25 +1884,25 @@ sw.bb:                                            ; preds = %entry
 
 cond.true.i:                                      ; preds = %sw.bb
   %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  %4 = load i32, ptr %arrayidx3.i, align 8
+  %7 = load i32, ptr %arrayidx3.i, align 8
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
   %arrayidx.i4 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %5 = load i32, ptr %arrayidx.i4, align 4
-  %cmp.i5 = icmp sgt i32 %5, 0
+  %8 = load i32, ptr %arrayidx.i4, align 4
+  %cmp.i5 = icmp sgt i32 %8, 0
   %arrayidx3.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %6 = load i32, ptr %arrayidx3.i8, align 4
-  %cmp14 = icmp eq i32 %6, 0
+  %9 = load i32, ptr %arrayidx3.i8, align 4
+  %cmp14 = icmp eq i32 %9, 0
   %or.cond = select i1 %cmp.i5, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %sw.bb12
   %arrayidx3.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %7 = load i32, ptr %arrayidx3.i14, align 8
-  %8 = sub nsw i32 1, %7
+  %10 = load i32, ptr %arrayidx3.i14, align 8
+  %11 = sub nsw i32 1, %10
   %cmp.i11.inv.inv = icmp sgt i32 %1, 0
-  %sub = select i1 %cmp.i11.inv.inv, i32 %8, i32 0
+  %sub = select i1 %cmp.i11.inv.inv, i32 %11, i32 0
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb12
@@ -1908,22 +1911,25 @@ if.else:                                          ; preds = %sw.bb12
 
 cond.true.i19:                                    ; preds = %if.else
   %arrayidx3.i20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %9 = load i32, ptr %arrayidx3.i20, align 8
+  %12 = load i32, ptr %arrayidx3.i20, align 8
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
   %arrayidx.i22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 17
-  %10 = load i32, ptr %arrayidx.i22, align 8
+  %13 = load i32, ptr %arrayidx.i22, align 8
   %arrayidx.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 3
-  %11 = load i32, ptr %arrayidx.i23, align 8
+  %14 = load i32, ptr %arrayidx.i23, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 43
-  %12 = load ptr, ptr %vfn, align 8
-  %call22 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %10, i32 noundef %11)
+  %15 = load ptr, ptr %vfn, align 8
+  %call22 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %13, i32 noundef %14)
   br label %sw.epilog
 
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
 sw.epilog:                                        ; preds = %cond.true.i19, %if.else, %cond.true.i, %sw.bb, %entry, %if.then15, %sw.bb19
-  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %4, %cond.true.i ], [ 1970, %sw.bb ], [ %9, %cond.true.i19 ], [ 1970, %if.else ]
+  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %7, %cond.true.i ], [ 1970, %sw.bb ], [ %12, %cond.true.i19 ], [ 1970, %if.else ]
   ret i32 %year.0
 }
 

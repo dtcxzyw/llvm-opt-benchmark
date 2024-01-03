@@ -3052,7 +3052,7 @@ _ZN4llvh9StringRefC2EPKc.exit89:                  ; preds = %if.end.i133, %if.en
   %6 = load ptr, ptr %_left, align 8
   %call30 = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %6, ptr null)
   %call32 = tail call noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call30, ptr noundef %call23) #16
-  switch i32 %kind.0, label %sw.epilog [
+  switch i32 %kind.0, label %_ZN4llvh9StringRefC2EPKc.exit89.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb35
     i32 2, label %sw.bb38
@@ -3075,7 +3075,10 @@ sw.bb38:                                          ; preds = %_ZN4llvh9StringRefC
   %call44 = tail call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %spec.select, ptr noundef %call25, ptr noundef %call27) #16
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb38, %sw.bb35, %sw.bb, %_ZN4llvh9StringRefC2EPKc.exit89
+_ZN4llvh9StringRefC2EPKc.exit89.unreachabledefault: ; preds = %_ZN4llvh9StringRefC2EPKc.exit89
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb38, %sw.bb35, %sw.bb
   tail call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call25) #16
   %_right = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %logical, i64 0, i32 2
   %8 = load ptr, ptr %_right, align 8
@@ -3952,7 +3955,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPN6hermes13LiteralStringESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %6 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6

@@ -179,7 +179,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cirrus_vga_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cirrus_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @cirrus_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %cirrus_shadow_gr0 = getelementptr inbounds %struct.CirrusVGAState, ptr %opaque, i64 0, i32 12
   %0 = load i8, ptr %cirrus_shadow_gr0, align 8
@@ -283,38 +283,38 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %cirrus_vga_io = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 1
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_vga_io, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_io_ops, ptr noundef %s, ptr noundef nonnull @.str.28, i64 noundef 48) #14
-  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_vga_io) #14
-  tail call void @memory_region_add_subregion(ptr noundef %system_io, i64 noundef 944, ptr noundef nonnull %cirrus_vga_io) #14
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_vga_io, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_io_ops, ptr noundef %s, ptr noundef nonnull @.str.28, i64 noundef 48) #13
+  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_vga_io) #13
+  tail call void @memory_region_add_subregion(ptr noundef %system_io, i64 noundef 944, ptr noundef nonnull %cirrus_vga_io) #13
   %low_mem_container = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 7
-  tail call void @memory_region_init(ptr noundef nonnull %low_mem_container, ptr noundef %owner, ptr noundef nonnull @.str.29, i64 noundef 131072) #14
+  tail call void @memory_region_init(ptr noundef nonnull %low_mem_container, ptr noundef %owner, ptr noundef nonnull @.str.29, i64 noundef 131072) #13
   %low_mem = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 8
-  tail call void @memory_region_init_io(ptr noundef nonnull %low_mem, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.30, i64 noundef 131072) #14
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef nonnull %low_mem) #14
+  tail call void @memory_region_init_io(ptr noundef nonnull %low_mem, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.30, i64 noundef 131072) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef nonnull %low_mem) #13
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   %arrayidx14 = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 9, i64 0
-  tail call void @memory_region_init_alias(ptr noundef %arrayidx14, ptr noundef %owner, ptr noundef nonnull @.str.31, ptr noundef nonnull %vram, i64 noundef 0, i64 noundef 32768) #14
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx14, i1 noundef zeroext false) #14
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef %arrayidx14, i32 noundef 1) #14
+  tail call void @memory_region_init_alias(ptr noundef %arrayidx14, ptr noundef %owner, ptr noundef nonnull @.str.31, ptr noundef nonnull %vram, i64 noundef 0, i64 noundef 32768) #13
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx14, i1 noundef zeroext false) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef %arrayidx14, i32 noundef 1) #13
   %arrayidx14.c = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 9, i64 1
-  tail call void @memory_region_init_alias(ptr noundef %arrayidx14.c, ptr noundef %owner, ptr noundef nonnull @.str.32, ptr noundef nonnull %vram, i64 noundef 0, i64 noundef 32768) #14
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx14.c, i1 noundef zeroext false) #14
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 32768, ptr noundef %arrayidx14.c, i32 noundef 1) #14
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %system_memory, i64 noundef 655360, ptr noundef nonnull %low_mem_container, i32 noundef 1) #14
-  tail call void @memory_region_set_coalescing(ptr noundef nonnull %low_mem) #14
+  tail call void @memory_region_init_alias(ptr noundef %arrayidx14.c, ptr noundef %owner, ptr noundef nonnull @.str.32, ptr noundef nonnull %vram, i64 noundef 0, i64 noundef 32768) #13
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx14.c, i1 noundef zeroext false) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 32768, ptr noundef %arrayidx14.c, i32 noundef 1) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %system_memory, i64 noundef 655360, ptr noundef nonnull %low_mem_container, i32 noundef 1) #13
+  tail call void @memory_region_set_coalescing(ptr noundef nonnull %low_mem) #13
   %cirrus_linear_io = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 2
   %vram_size_mb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 4
   %0 = load i32, ptr %vram_size_mb, align 4
   %conv24 = zext i32 %0 to i64
   %mul25 = shl nuw nsw i64 %conv24, 20
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_io_ops, ptr noundef %s, ptr noundef nonnull @.str.33, i64 noundef %mul25) #14
-  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_io) #14
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_io_ops, ptr noundef %s, ptr noundef nonnull @.str.33, i64 noundef %mul25) #13
+  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_io) #13
   %cirrus_linear_bitblt_io = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 3
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_bitblt_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_bitblt_io_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 4194304) #14
-  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_bitblt_io) #14
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_bitblt_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_bitblt_io_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 4194304) #13
+  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_bitblt_io) #13
   %cirrus_mmio_io = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 4
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_mmio_io, ptr noundef %owner, ptr noundef nonnull @cirrus_mmio_io_ops, ptr noundef %s, ptr noundef nonnull @.str.35, i64 noundef 4096) #14
-  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_mmio_io) #14
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_mmio_io, ptr noundef %owner, ptr noundef nonnull @cirrus_mmio_io_ops, ptr noundef %s, ptr noundef nonnull @.str.35, i64 noundef 4096) #13
+  tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_mmio_io) #13
   %device_id29 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 42
   %1 = load i32, ptr %device_id29, align 4
   %cmp30 = icmp eq i32 %1, 184
@@ -337,7 +337,7 @@ if.end5:                                          ; preds = %if.then, %entry
   store ptr @cirrus_cursor_invalidate, ptr %cursor_invalidate, align 8
   %cursor_draw_line = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 76
   store ptr @cirrus_cursor_draw_line, ptr %cursor_draw_line, align 16
-  tail call void @qemu_register_reset(ptr noundef nonnull @cirrus_reset, ptr noundef %s) #14
+  tail call void @qemu_register_reset(ptr noundef nonnull @cirrus_reset, ptr noundef %s) #13
   ret void
 }
 
@@ -358,7 +358,7 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 declare void @memory_region_set_coalescing(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cirrus_get_bpp(ptr nocapture noundef readonly %s1) #0 {
+define internal noundef i32 @cirrus_get_bpp(ptr nocapture noundef readonly %s1) #0 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s1, i64 0, i32 11, i64 7
   %0 = load i8, ptr %arrayidx, align 1
@@ -396,7 +396,7 @@ do.body.i:                                        ; preds = %sw.bb7
   br i1 %cmp.i.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i) #13
   br label %if.end
 
 sw.bb8:                                           ; preds = %if.then
@@ -422,7 +422,7 @@ do.body.i8:                                       ; preds = %sw.bb9
   br i1 %cmp.i.not.i10, label %if.end, label %if.then.i11
 
 if.then.i11:                                      ; preds = %do.body.i8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i5) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i5) #13
   br label %if.end
 
 sw.bb11:                                          ; preds = %if.then
@@ -566,7 +566,7 @@ if.then.i:                                        ; preds = %if.then18
   %last_hw_cursor_y_end.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s1, i64 0, i32 40
   %8 = load i32, ptr %last_hw_cursor_y_end.i, align 4
   %add2.i = add i32 %8, %6
-  tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i, i32 noundef %add2.i) #14
+  tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i, i32 noundef %add2.i) #13
   %.pre = load i8, ptr %arrayidx, align 1
   br label %invalidate_cursor1.exit
 
@@ -660,14 +660,14 @@ cirrus_cursor_compute_yrange.exit:                ; preds = %for.body.i, %for.bo
 if.then.i21:                                      ; preds = %cirrus_cursor_compute_yrange.exit
   %add.i24 = add i32 %spec.select51.i, %11
   %add2.i26 = add i32 %spec.select52.i, %11
-  tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i24, i32 noundef %add2.i26) #14
+  tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i24, i32 noundef %add2.i26) #13
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then.i21, %cirrus_cursor_compute_yrange.exit, %lor.lhs.false14
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_cursor_draw_line(ptr nocapture noundef readonly %s1, ptr nocapture noundef %d1, i32 noundef %scr_y) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s1, i64 0, i32 11, i64 18
@@ -847,10 +847,11 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %and10.i = shl nuw nsw i32 %shr9.i, 1
   %shl.i80 = and i32 %and10.i, 2
   %or.i81 = or disjoint i32 %shl.i80, %and2.i
-  switch i32 %or.i81, label %sw.epilog.i [
+  switch i32 %or.i81, label %for.body.unreachabledefault.i [
     i32 3, label %sw.bb15.i
     i32 1, label %sw.bb11.i
     i32 2, label %sw.epilog.sink.split.i
+    i32 0, label %sw.epilog.i
   ]
 
 sw.bb11.i:                                        ; preds = %for.body.i
@@ -860,6 +861,9 @@ sw.bb11.i:                                        ; preds = %for.body.i
 
 sw.bb15.i:                                        ; preds = %for.body.i
   br label %sw.epilog.sink.split.i
+
+for.body.unreachabledefault.i:                    ; preds = %for.body.i
+  unreachable
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb15.i, %sw.bb11.i, %for.body.i
   %color1.sink.i = phi i32 [ %or2.i78, %sw.bb15.i ], [ %xor.i, %sw.bb11.i ], [ %or2.i, %for.body.i ]
@@ -881,7 +885,7 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cirrus_reset(ptr noundef %opaque) #0 {
 entry:
-  tail call void @vga_common_reset(ptr noundef %opaque) #14
+  tail call void @vga_common_reset(ptr noundef %opaque) #13
   %bustype.i = getelementptr inbounds %struct.CirrusVGAState, ptr %opaque, i64 0, i32 43
   %0 = load i32, ptr %bustype.i, align 16
   %cmp.i = icmp eq i32 %0, 32
@@ -898,14 +902,14 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %linear_vram.i, align 16
   %pci_bar.i = getelementptr inbounds %struct.CirrusVGAState, ptr %opaque, i64 0, i32 5
   %vram.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i, ptr noundef nonnull %vram.i) #14
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i, ptr noundef nonnull %vram.i) #13
   br label %unmap_linear_vram.exit
 
 unmap_linear_vram.exit:                           ; preds = %entry, %land.lhs.true.i, %if.then.i
   %cirrus_bank.i = getelementptr inbounds %struct.CirrusVGAState, ptr %opaque, i64 0, i32 9
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #14
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #13
   %arrayidx3.i = getelementptr %struct.CirrusVGAState, ptr %opaque, i64 0, i32 9, i64 1
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #14
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #13
   %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 6
   store i8 15, ptr %arrayidx, align 1
   %device_id = getelementptr inbounds %struct.CirrusVGAState, ptr %opaque, i64 0, i32 42
@@ -949,7 +953,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_cirrus_vga_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @cirrus_vga_register_types, i32 noundef 3) #14
+  tail call void @register_module_init(ptr noundef nonnull @cirrus_vga_register_types, i32 noundef 3) #13
   ret void
 }
 
@@ -958,14 +962,14 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cirrus_vga_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @cirrus_vga_info) #14
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @cirrus_vga_info) #13
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cirrus_update_memory_access(ptr noundef %s) unnamed_addr #0 {
 entry:
-  tail call void @memory_region_transaction_begin() #14
+  tail call void @memory_region_transaction_begin() #13
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 23
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 68
@@ -1018,7 +1022,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i
   store i8 1, ptr %linear_vram.i, align 16
   %pci_bar.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 5
   %vram.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %pci_bar.i, i64 noundef 0, ptr noundef nonnull %vram.i, i32 noundef 1) #14
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %pci_bar.i, i64 noundef 0, ptr noundef nonnull %vram.i, i32 noundef 1) #13
   %.pre = load ptr, ptr %cirrus_srcptr, align 16
   %.pre20 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp.not.i.i = icmp eq ptr %.pre, %.pre20
@@ -1046,11 +1050,11 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true4.i.i
 map_linear_vram_bank.exit.i:                      ; preds = %land.rhs.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i, %if.end.i
   %13 = phi i1 [ false, %land.lhs.true4.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i ], [ %tobool.not.i.i, %land.rhs.i.i ]
   %arrayidx.i.i = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 9, i64 0
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx.i.i, i1 noundef zeroext %13) #14
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx.i.i, i1 noundef zeroext %13) #13
   %arrayidx18.i.i = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 16, i64 0
   %14 = load i32, ptr %arrayidx18.i.i, align 4
   %conv19.i.i = zext i32 %14 to i64
-  tail call void @memory_region_set_alias_offset(ptr noundef %arrayidx.i.i, i64 noundef %conv19.i.i) #14
+  tail call void @memory_region_set_alias_offset(ptr noundef %arrayidx.i.i, i64 noundef %conv19.i.i) #13
   %15 = load ptr, ptr %cirrus_srcptr, align 16
   %16 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp.not.i9.i = icmp eq ptr %15, %16
@@ -1078,11 +1082,11 @@ land.rhs.i21.i:                                   ; preds = %land.lhs.true4.i16.
 map_linear_vram.exit:                             ; preds = %map_linear_vram_bank.exit.i, %land.lhs.true.i13.i, %land.lhs.true4.i16.i, %land.rhs.i21.i
   %20 = phi i1 [ false, %land.lhs.true4.i16.i ], [ false, %land.lhs.true.i13.i ], [ false, %map_linear_vram_bank.exit.i ], [ %tobool.not.i23.i, %land.rhs.i21.i ]
   %arrayidx.i10.i = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 9, i64 1
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx.i10.i, i1 noundef zeroext %20) #14
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx.i10.i, i1 noundef zeroext %20) #13
   %arrayidx18.i11.i = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 16, i64 1
   %21 = load i32, ptr %arrayidx18.i11.i, align 4
   %conv19.i12.i = zext i32 %21 to i64
-  tail call void @memory_region_set_alias_offset(ptr noundef %arrayidx.i10.i, i64 noundef %conv19.i12.i) #14
+  tail call void @memory_region_set_alias_offset(ptr noundef %arrayidx.i10.i, i64 noundef %conv19.i12.i) #13
   br label %if.end42
 
 generic_io:                                       ; preds = %if.end20, %if.else5, %if.else, %entry
@@ -1102,18 +1106,18 @@ if.then.i17:                                      ; preds = %land.lhs.true.i14
   store i8 0, ptr %linear_vram.i15, align 16
   %pci_bar.i18 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 5
   %vram.i19 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i18, ptr noundef nonnull %vram.i19) #14
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i18, ptr noundef nonnull %vram.i19) #13
   br label %unmap_linear_vram.exit
 
 unmap_linear_vram.exit:                           ; preds = %generic_io, %land.lhs.true.i14, %if.then.i17
   %cirrus_bank.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 9
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #14
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #13
   %arrayidx3.i = getelementptr %struct.CirrusVGAState, ptr %s, i64 0, i32 9, i64 1
-  tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #14
+  tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #13
   br label %if.end42
 
 if.end42:                                         ; preds = %unmap_linear_vram.exit, %map_linear_vram.exit
-  tail call void @memory_region_transaction_commit() #14
+  tail call void @memory_region_transaction_commit() #13
   ret void
 }
 
@@ -1131,7 +1135,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = trunc i64 %addr to i32
   %conv = add i32 %0, 944
-  %call = tail call i32 @vga_ioport_invalid(ptr noundef %opaque, i32 noundef %conv) #14
+  %call = tail call i32 @vga_ioport_invalid(ptr noundef %opaque, i32 noundef %conv) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.end48
 
@@ -1340,13 +1344,13 @@ do.body.i:                                        ; preds = %sw.bb40
   br i1 %cmp.i.not.i, label %if.end48, label %if.then.i31
 
 if.then.i31:                                      ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %conv42) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %conv42) #13
   br label %if.end48
 
 sw.bb44:                                          ; preds = %if.else, %if.else
   %retrace = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 79
   %24 = load ptr, ptr %retrace, align 8
-  %call45 = tail call zeroext i8 %24(ptr noundef %opaque) #14
+  %call45 = tail call zeroext i8 %24(ptr noundef %opaque) #13
   %st01 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 23
   store i8 %call45, ptr %st01, align 16
   %conv46 = zext i8 %call45 to i32
@@ -1377,16 +1381,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %30 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %31 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %conv, i32 noundef %val.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %conv, i32 noundef %val.0) #13
   br label %trace_vga_cirrus_read_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv, i32 noundef %val.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv, i32 noundef %val.0) #13
   br label %trace_vga_cirrus_read_io.exit
 
 trace_vga_cirrus_read_io.exit:                    ; preds = %if.end48, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1401,7 +1405,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = trunc i64 %addr to i32
   %conv = add i32 %0, 944
-  %call = tail call i32 @vga_ioport_invalid(ptr noundef %opaque, i32 noundef %conv) #14
+  %call = tail call i32 @vga_ioport_invalid(ptr noundef %opaque, i32 noundef %conv) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %sw.epilog73
 
@@ -1428,16 +1432,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %conv2) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %conv2) #13
   br label %trace_vga_cirrus_write_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %conv, i32 noundef %conv2) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %conv, i32 noundef %conv2) #13
   br label %trace_vga_cirrus_write_io.exit
 
 trace_vga_cirrus_write_io.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1559,7 +1563,7 @@ sw.bb43:                                          ; preds = %trace_vga_cirrus_wr
   store i8 %conv45, ptr %msr, align 1
   %update_retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %19 = load ptr, ptr %update_retrace_info, align 16
-  tail call void %19(ptr noundef %opaque) #14
+  tail call void %19(ptr noundef %opaque) #13
   br label %sw.epilog73
 
 sw.bb46:                                          ; preds = %trace_vga_cirrus_write_io.exit
@@ -1633,7 +1637,7 @@ sw.bb.i:                                          ; preds = %sw.bb48, %sw.bb48, 
 if.then.i:                                        ; preds = %sw.bb.i
   %update_retrace_info.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %23 = load ptr, ptr %update_retrace_info.i, align 16
-  tail call void %23(ptr noundef nonnull %opaque) #14
+  tail call void %23(ptr noundef nonnull %opaque) #13
   br label %sw.epilog73
 
 sw.bb16.i:                                        ; preds = %sw.bb48
@@ -1715,7 +1719,7 @@ do.body.i:                                        ; preds = %sw.bb48
 
 if.then94.i:                                      ; preds = %do.body.i
   %conv97.i = zext i8 %20 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv97.i, i32 noundef %conv2) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv97.i, i32 noundef %conv2) #13
   br label %sw.epilog73
 
 sw.bb50:                                          ; preds = %trace_vga_cirrus_write_io.exit
@@ -1896,7 +1900,7 @@ if.end23.i:                                       ; preds = %sw.bb.i66
 sw.bb33.i:                                        ; preds = %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i
   %update_retrace_info.i71 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
   %45 = load ptr, ptr %update_retrace_info.i71, align 16
-  tail call void %45(ptr noundef nonnull %opaque) #14
+  tail call void %45(ptr noundef nonnull %opaque) #13
   br label %sw.epilog73
 
 sw.bb36.i:                                        ; preds = %sw.bb68, %sw.bb68, %sw.bb68, %sw.bb68, %sw.bb68
@@ -1914,7 +1918,7 @@ do.body.i73:                                      ; preds = %sw.bb68
 
 if.then49.i:                                      ; preds = %do.body.i73
   %conv52.i = zext i8 %39 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %conv52.i, i32 noundef %conv2) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %conv52.i, i32 noundef %conv2) #13
   br label %sw.epilog73
 
 sw.bb70:                                          ; preds = %trace_vga_cirrus_write_io.exit, %trace_vga_cirrus_write_io.exit
@@ -2019,7 +2023,7 @@ do.body:                                          ; preds = %entry
 
 if.then:                                          ; preds = %do.body
   %conv35 = zext i8 %0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %conv35) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %conv35) #13
   br label %return
 
 return:                                           ; preds = %if.then, %do.body, %sw.bb23, %sw.bb18, %sw.bb13, %sw.bb5, %sw.bb
@@ -2131,7 +2135,7 @@ do.body:                                          ; preds = %sw.epilog
   br i1 %cmp.i.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %reg_index) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %reg_index) #13
   br label %return
 
 return:                                           ; preds = %if.then15, %do.body, %if.then, %sw.bb3, %sw.bb1, %sw.bb
@@ -2173,20 +2177,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %reg_index, 255
   %conv12.i.i = and i32 %reg_value, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #13
   br label %trace_vga_cirrus_write_gr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = and i32 %reg_index, 255
   %conv14.i.i = and i32 %reg_value, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #13
   br label %trace_vga_cirrus_write_gr.exit
 
 trace_vga_cirrus_write_gr.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2477,7 +2481,7 @@ do.body:                                          ; preds = %trace_vga_cirrus_wr
   br i1 %cmp.i.not, label %sw.epilog, label %if.then83
 
 if.then83:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %reg_index, i32 noundef %reg_value) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %reg_index, i32 noundef %reg_value) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then16.i, %if.else.i, %if.end.i.i, %lor.rhs.i.i, %if.then83, %do.body, %sw.bb60, %if.then, %sw.bb72, %sw.bb53, %sw.bb47, %cirrus_update_bank_ptr.exit114, %cirrus_update_bank_ptr.exit69, %sw.bb28, %sw.bb18, %sw.bb7, %sw.bb
@@ -2593,8 +2597,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %28 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %29 = load i64, ptr %tv_usec.i.i, align 8
@@ -2602,7 +2606,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %18 to i32
   %conv13.i.i = zext i8 %19 to i32
   %conv14.i.i = zext i8 %22 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %28, i64 noundef %29, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %add, i32 noundef %add21, i32 noundef %or31, i32 noundef %or41, i32 noundef %and, i32 noundef %and86, i32 noundef %conv14.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %28, i64 noundef %29, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %add, i32 noundef %add21, i32 noundef %or31, i32 noundef %or41, i32 noundef %and, i32 noundef %and86, i32 noundef %conv14.i.i) #13
   br label %trace_vga_cirrus_bitblt_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -2610,7 +2614,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %conv16.i.i = zext i8 %18 to i32
   %conv17.i.i = zext i8 %19 to i32
   %conv18.i.i = zext i8 %22 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %add, i32 noundef %add21, i32 noundef %or31, i32 noundef %or41, i32 noundef %and, i32 noundef %and86, i32 noundef %conv18.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %add, i32 noundef %add21, i32 noundef %or31, i32 noundef %or41, i32 noundef %and, i32 noundef %and86, i32 noundef %conv18.i.i) #13
   br label %trace_vga_cirrus_bitblt_start.exit
 
 trace_vga_cirrus_bitblt_start.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2726,7 +2730,7 @@ cirrus_bitblt_fgcol.exit:                         ; preds = %if.then142, %sw.epi
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i110
 
 if.else.i.i110:                                   ; preds = %cirrus_bitblt_fgcol.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end.i.i:                                       ; preds = %cirrus_bitblt_fgcol.exit
@@ -2735,7 +2739,7 @@ if.end.i.i:                                       ; preds = %cirrus_bitblt_fgcol
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -2790,7 +2794,7 @@ if.end.i:                                         ; preds = %blit_is_unsafe.exit
   %idxprom3.i = zext nneg i32 %sub.i to i64
   %arrayidx4.i = getelementptr [16 x [4 x ptr]], ptr @cirrus_fill, i64 0, i64 %idxprom1.i, i64 %idxprom3.i
   %53 = load ptr, ptr %arrayidx4.i, align 8
-  tail call void %53(ptr noundef nonnull %s, i32 noundef %49, i32 noundef %48, i32 noundef %46, i32 noundef %47) #14
+  tail call void %53(ptr noundef nonnull %s, i32 noundef %49, i32 noundef %48, i32 noundef %46, i32 noundef %47) #13
   %54 = load i32, ptr %cirrus_blt_dstpitch, align 4
   %55 = load i32, ptr %cirrus_blt_height, align 8
   %cmp218.i.i = icmp sgt i32 %55, 0
@@ -2826,14 +2830,14 @@ if.else.i14.i:                                    ; preds = %for.body.i.i
   %add15.i.i = add i32 %58, 1
   %sub16.i.i = sub i32 %add15.i.i, %and.i.i
   %conv17.i.i115 = zext i32 %sub16.i.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %conv13.i.i113, i64 noundef %conv17.i.i115) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %conv13.i.i113, i64 noundef %conv17.i.i115) #13
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i14.i, %if.then8.i.i114
   %add6.sink.i.i = phi i32 [ %add6.i.i, %if.else.i14.i ], [ %sub9.i.i, %if.then8.i.i114 ]
   %.sink.i.i = phi i64 [ 0, %if.else.i14.i ], [ %conv13.i.i113, %if.then8.i.i114 ]
   %conv20.i.i = sext i32 %add6.sink.i.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %.sink.i.i, i64 noundef %conv20.i.i) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %.sink.i.i, i64 noundef %conv20.i.i) #13
   %add22.i.i = add i32 %off_begin.addr.120.i.i, %54
   %inc.i.i = add nuw nsw i32 %y.019.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %55
@@ -3170,7 +3174,7 @@ if.then318:                                       ; preds = %if.end313
   br i1 %cmp.i.i182, label %if.end.i.i184, label %if.else.i.i183
 
 if.else.i.i183:                                   ; preds = %if.then318
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end.i.i184:                                    ; preds = %if.then318
@@ -3179,7 +3183,7 @@ if.end.i.i184:                                    ; preds = %if.then318
   br i1 %cmp1.i.i186, label %if.end4.i.i188, label %if.else3.i.i187
 
 if.else3.i.i187:                                  ; preds = %if.end.i.i184
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end4.i.i188:                                   ; preds = %if.end.i.i184
@@ -3284,7 +3288,7 @@ if.end42.i:                                       ; preds = %if.end38.i, %if.the
   br i1 %cmp.i209, label %cirrus_bitblt_cputovideo.exit, label %if.else46.i
 
 if.else46.i:                                      ; preds = %if.end42.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 904, ptr noundef nonnull @__PRETTY_FUNCTION__.cirrus_bitblt_cputovideo) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 904, ptr noundef nonnull @__PRETTY_FUNCTION__.cirrus_bitblt_cputovideo) #14
   unreachable
 
 cirrus_bitblt_cputovideo.exit:                    ; preds = %if.end42.i
@@ -3312,7 +3316,7 @@ if.else333:                                       ; preds = %if.else323
   br i1 %tobool.not.i223, label %if.else.i237, label %if.then.i224
 
 if.then.i224:                                     ; preds = %if.else333
-  %call.i.i = tail call fastcc i32 @cirrus_bitblt_common_patterncopy(ptr noundef nonnull %s), !range !11
+  %call.i.i = tail call fastcc noundef i32 @cirrus_bitblt_common_patterncopy(ptr noundef nonnull %s), !range !11
   br label %if.end.i225
 
 if.else.i237:                                     ; preds = %if.else333
@@ -3321,7 +3325,7 @@ if.else.i237:                                     ; preds = %if.else333
   br i1 %cmp.i.i.i238, label %if.end.i.i.i239, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i237
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end.i.i.i239:                                  ; preds = %if.else.i237
@@ -3330,7 +3334,7 @@ if.end.i.i.i239:                                  ; preds = %if.else.i237
   br i1 %cmp1.i.i.i, label %if.end4.i.i.i, label %if.else3.i.i.i
 
 if.else3.i.i.i:                                   ; preds = %if.end.i.i.i239
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i239
@@ -3423,7 +3427,7 @@ if.end.i.i241:                                    ; preds = %if.else.i18.i.i.i, 
 if.then.i.i.i:                                    ; preds = %if.end.i.i241
   %get_bpp.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 32
   %129 = load ptr, ptr %get_bpp.i.i.i, align 16
-  %call.i.i.i = tail call i32 %129(ptr noundef nonnull %s) #14
+  %call.i.i.i = tail call i32 %129(ptr noundef nonnull %s) #13
   %div.i.i.i = sdiv i32 %call.i.i.i, 8
   %call.off.i.i.i = add i32 %call.i.i.i, 7
   %tobool.not.i.i.i244 = icmp ult i32 %call.off.i.i.i, 15
@@ -3432,7 +3436,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i241
 if.end.i15.i.i:                                   ; preds = %if.then.i.i.i
   %get_resolution.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 34
   %130 = load ptr, ptr %get_resolution.i.i.i, align 16
-  call void %130(ptr noundef nonnull %s, ptr noundef nonnull %width.i.i.i, ptr noundef nonnull %height.i.i.i) #14
+  call void %130(ptr noundef nonnull %s, ptr noundef nonnull %width.i.i.i, ptr noundef nonnull %height.i.i.i) #13
   %131 = load i32, ptr %cirrus_blt_srcpitch, align 16
   %cond.i.i.i = call i32 @llvm.abs.i32(i32 %131, i1 false)
   %rem.i.i.i = srem i32 %sub3.i.i243, %cond.i.i.i
@@ -3503,7 +3507,7 @@ if.end77.i.i.i:                                   ; preds = %land.lhs.true66.i.i
   %141 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %142 = load i32, ptr %cirrus_blt_width, align 4
   %143 = load i32, ptr %cirrus_blt_height, align 8
-  call void %139(ptr noundef nonnull %s, i32 noundef %140, i32 noundef %141, i32 noundef %138, i32 noundef %137, i32 noundef %142, i32 noundef %143) #14
+  call void %139(ptr noundef nonnull %s, i32 noundef %140, i32 noundef %141, i32 noundef %138, i32 noundef %137, i32 noundef %142, i32 noundef %143) #13
   br i1 %tobool83.not.i.i.i, label %if.end89.i.i.i, label %if.then84.i.i.i
 
 if.then84.i.i.i:                                  ; preds = %if.end77.i.i.i
@@ -3512,7 +3516,7 @@ if.then84.i.i.i:                                  ; preds = %if.end77.i.i.i
   %145 = load i32, ptr %cirrus_blt_width, align 4
   %div87.i.i.i = sdiv i32 %145, %depth.0.i.i.i
   %146 = load i32, ptr %cirrus_blt_height, align 8
-  call void @dpy_gfx_update(ptr noundef %144, i32 noundef %dx.1.i.i.i, i32 noundef %dy.1.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %146) #14
+  call void @dpy_gfx_update(ptr noundef %144, i32 noundef %dx.1.i.i.i, i32 noundef %dy.1.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %146) #13
   br label %if.end89.i.i.i
 
 if.end89.i.i.i:                                   ; preds = %if.then84.i.i.i, %if.end77.i.i.i
@@ -3551,14 +3555,14 @@ if.else.i.i14.i.i:                                ; preds = %for.body.i.i.i.i
   %add15.i.i.i.i = add i32 %151, 1
   %sub16.i.i.i.i = sub i32 %add15.i.i.i.i, %and.i.i.i.i
   %conv17.i.i.i.i = zext i32 %sub16.i.i.i.i to i64
-  call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %conv13.i.i.i.i, i64 noundef %conv17.i.i.i.i) #14
+  call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %conv13.i.i.i.i, i64 noundef %conv17.i.i.i.i) #13
   br label %if.end21.i.i.i.i
 
 if.end21.i.i.i.i:                                 ; preds = %if.else.i.i14.i.i, %if.then8.i.i.i.i
   %add6.sink.i.i.i.i = phi i32 [ %add6.i.i.i.i, %if.else.i.i14.i.i ], [ %sub9.i.i.i.i, %if.then8.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ 0, %if.else.i.i14.i.i ], [ %conv13.i.i.i.i, %if.then8.i.i.i.i ]
   %conv20.i.i.i.i = sext i32 %add6.sink.i.i.i.i to i64
-  call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %.sink.i.i.i.i, i64 noundef %conv20.i.i.i.i) #14
+  call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %.sink.i.i.i.i, i64 noundef %conv20.i.i.i.i) #13
   %add22.i.i.i.i = add i32 %off_begin.addr.120.i.i.i.i, %147
   %inc.i.i.i.i = add nuw nsw i32 %y.019.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %148
@@ -3608,7 +3612,7 @@ if.end.i5.i:                                      ; preds = %if.end.critedge.i.i
 
 bitblt_ignore.sink.split:                         ; preds = %if.then328, %do.body244, %do.body121
   %.str.56.sink = phi ptr [ @.str.48, %do.body121 ], [ @.str.49, %do.body244 ], [ @.str.56, %if.then328 ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.56.sink) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.56.sink) #13
   br label %bitblt_ignore
 
 bitblt_ignore:                                    ; preds = %bitblt_ignore.sink.split, %if.else.i.i.i.i, %if.then1.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end8.i.i.i, %if.else.i18.i.i.i, %if.then1.i28.i.i.i, %if.end12.i.i.i, %if.end4.i.i.i, %if.end.i225, %if.then1.i.i.i212, %if.end8.i.i190, %if.end4.i.i188, %lor.lhs.false.i.i.i218, %blit_is_unsafe.exit.i200, %if.then328, %do.body244, %do.body121, %entry
@@ -3957,7 +3961,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4003,7 +4007,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4050,7 +4054,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4118,7 +4122,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -4164,13 +4168,13 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @cirrus_bitblt_fill_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %dstpitch, i32 %bltwidth, i32 %bltheight) #10 {
+define internal void @cirrus_bitblt_fill_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %dstpitch, i32 %bltwidth, i32 %bltheight) #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4217,7 +4221,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4265,7 +4269,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4336,7 +4340,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -4383,7 +4387,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4426,7 +4430,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4470,7 +4474,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4531,7 +4535,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4950,7 +4954,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4997,7 +5001,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5045,7 +5049,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5116,7 +5120,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5163,7 +5167,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5209,7 +5213,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5256,7 +5260,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5324,7 +5328,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5370,7 +5374,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5416,7 +5420,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5463,7 +5467,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5531,7 +5535,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5577,7 +5581,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5624,7 +5628,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5672,7 +5676,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5743,7 +5747,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5790,7 +5794,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5837,7 +5841,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5885,7 +5889,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5956,7 +5960,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6003,7 +6007,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6050,7 +6054,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6098,7 +6102,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6169,7 +6173,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -6417,7 +6421,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6464,7 +6468,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6512,7 +6516,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6583,7 +6587,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6630,7 +6634,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6677,7 +6681,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6725,7 +6729,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6796,7 +6800,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #9 {
+define internal void @cirrus_fill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #3 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -6845,7 +6849,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -6970,7 +6974,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7097,7 +7101,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7238,7 +7242,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7365,7 +7369,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7497,7 +7501,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7631,7 +7635,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7787,7 +7791,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -7920,13 +7924,13 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @cirrus_bitblt_rop_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %srcaddr, i32 %dstpitch, i32 %srcpitch, i32 %bltwidth, i32 %bltheight) #10 {
+define internal void @cirrus_bitblt_rop_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %srcaddr, i32 %dstpitch, i32 %srcpitch, i32 %bltwidth, i32 %bltheight) #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8059,7 +8063,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8194,7 +8198,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8353,7 +8357,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8487,7 +8491,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8614,7 +8618,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8743,7 +8747,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -8890,7 +8894,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9019,7 +9023,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9149,7 +9153,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9281,7 +9285,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9431,7 +9435,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9562,7 +9566,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9687,7 +9691,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9814,7 +9818,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -9955,7 +9959,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10082,7 +10086,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10215,7 +10219,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10350,7 +10354,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10509,7 +10513,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10643,7 +10647,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10775,7 +10779,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -10909,7 +10913,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11065,7 +11069,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11198,7 +11202,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11330,7 +11334,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11464,7 +11468,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11620,7 +11624,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11753,7 +11757,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -11886,7 +11890,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12021,7 +12025,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12180,7 +12184,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12314,7 +12318,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12447,7 +12451,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12582,7 +12586,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12741,7 +12745,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -12875,7 +12879,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13008,7 +13012,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13143,7 +13147,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13302,7 +13306,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13436,7 +13440,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13567,7 +13571,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13700,7 +13704,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13853,7 +13857,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -13985,7 +13989,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14118,7 +14122,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14253,7 +14257,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14412,7 +14416,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14546,7 +14550,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14679,7 +14683,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14814,7 +14818,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -14973,7 +14977,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -15310,7 +15314,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -15433,7 +15437,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -15558,7 +15562,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -15704,7 +15708,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -15828,7 +15832,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -15952,7 +15956,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16078,7 +16082,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16227,7 +16231,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16352,7 +16356,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -16400,7 +16404,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -16450,7 +16454,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -16517,7 +16521,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -16567,7 +16571,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16688,7 +16692,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16811,7 +16815,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -16951,7 +16955,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17276,7 +17280,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17400,7 +17404,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17526,7 +17530,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17675,7 +17679,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17800,7 +17804,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -17923,7 +17927,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18048,7 +18052,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18194,7 +18198,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18318,7 +18322,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18441,7 +18445,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18566,7 +18570,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18712,7 +18716,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18836,7 +18840,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -18960,7 +18964,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19086,7 +19090,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19235,7 +19239,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19360,7 +19364,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19484,7 +19488,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19610,7 +19614,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19759,7 +19763,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -19884,7 +19888,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20008,7 +20012,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20134,7 +20138,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20283,7 +20287,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20408,7 +20412,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20530,7 +20534,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20654,7 +20658,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20797,7 +20801,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -20920,7 +20924,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21044,7 +21048,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21170,7 +21174,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21319,7 +21323,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21444,7 +21448,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21568,7 +21572,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21694,7 +21698,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21843,7 +21847,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -21968,7 +21972,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22065,7 +22069,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22164,7 +22168,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22277,7 +22281,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22376,7 +22380,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22480,7 +22484,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22586,7 +22590,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22714,7 +22718,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22819,7 +22823,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -22924,7 +22928,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23031,7 +23035,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23162,7 +23166,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23268,7 +23272,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23367,7 +23371,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23468,7 +23472,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23587,7 +23591,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23688,7 +23692,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23790,7 +23794,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -23894,7 +23898,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24016,7 +24020,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24119,7 +24123,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24216,7 +24220,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24315,7 +24319,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24428,7 +24432,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24527,7 +24531,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24632,7 +24636,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24739,7 +24743,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24870,7 +24874,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -24976,7 +24980,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25080,7 +25084,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25186,7 +25190,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25314,7 +25318,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25419,7 +25423,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25523,7 +25527,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25629,7 +25633,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25757,7 +25761,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25862,7 +25866,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -25967,7 +25971,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26074,7 +26078,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26205,7 +26209,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26311,7 +26315,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26416,7 +26420,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26523,7 +26527,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26654,7 +26658,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26760,7 +26764,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26865,7 +26869,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -26972,7 +26976,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27103,7 +27107,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27209,7 +27213,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27312,7 +27316,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27417,7 +27421,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27542,7 +27546,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27646,7 +27650,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27751,7 +27755,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27858,7 +27862,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -27989,7 +27993,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -28095,7 +28099,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -28200,7 +28204,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -28307,7 +28311,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -28438,7 +28442,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -28747,7 +28751,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -28842,7 +28846,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -28939,7 +28943,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29057,7 +29061,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29153,7 +29157,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29249,7 +29253,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29347,7 +29351,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29468,7 +29472,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29565,7 +29569,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -29613,7 +29617,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -29663,7 +29667,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -29730,7 +29734,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -29780,7 +29784,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29873,7 +29877,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -29968,7 +29972,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30080,7 +30084,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30377,7 +30381,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30473,7 +30477,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30571,7 +30575,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30692,7 +30696,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30789,7 +30793,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30884,7 +30888,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -30981,7 +30985,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31099,7 +31103,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31195,7 +31199,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31290,7 +31294,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31387,7 +31391,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31505,7 +31509,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31601,7 +31605,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31697,7 +31701,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31795,7 +31799,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -31916,7 +31920,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32013,7 +32017,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32109,7 +32113,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32207,7 +32211,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32328,7 +32332,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32425,7 +32429,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32521,7 +32525,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32619,7 +32623,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32740,7 +32744,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32837,7 +32841,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -32931,7 +32935,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33027,7 +33031,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33142,7 +33146,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33237,7 +33241,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33333,7 +33337,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33431,7 +33435,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33552,7 +33556,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33649,7 +33653,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33745,7 +33749,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33843,7 +33847,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -33964,7 +33968,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %colors = alloca [2 x i32], align 8
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
@@ -34263,7 +34267,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34349,7 +34353,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34438,7 +34442,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34563,7 +34567,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34652,7 +34656,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34739,7 +34743,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34829,7 +34833,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -34957,7 +34961,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35047,7 +35051,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35095,7 +35099,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35145,7 +35149,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35211,7 +35215,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35261,7 +35265,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35345,7 +35349,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35432,7 +35436,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35551,7 +35555,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35840,7 +35844,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -35927,7 +35931,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36017,7 +36021,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36145,7 +36149,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36235,7 +36239,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36321,7 +36325,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36410,7 +36414,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36535,7 +36539,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36624,7 +36628,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36710,7 +36714,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36799,7 +36803,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -36924,7 +36928,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37013,7 +37017,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37100,7 +37104,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37190,7 +37194,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37318,7 +37322,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37408,7 +37412,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37495,7 +37499,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37585,7 +37589,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37713,7 +37717,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37803,7 +37807,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37890,7 +37894,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -37980,7 +37984,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38108,7 +38112,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38198,7 +38202,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38283,7 +38287,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38371,7 +38375,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38493,7 +38497,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38581,7 +38585,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38668,7 +38672,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38758,7 +38762,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38886,7 +38890,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -38976,7 +38980,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -39063,7 +39067,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -39153,7 +39157,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -39281,7 +39285,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 47
   %0 = load i8, ptr %arrayidx, align 1
@@ -39469,7 +39473,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -39551,7 +39555,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -39637,7 +39641,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -39720,7 +39724,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -39807,7 +39811,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -39860,7 +39864,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -39915,7 +39919,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -39993,7 +39997,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -40173,7 +40177,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -40256,7 +40260,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -40343,7 +40347,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -40425,7 +40429,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -40511,7 +40515,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -40593,7 +40597,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -40679,7 +40683,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -40762,7 +40766,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -40849,7 +40853,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -40932,7 +40936,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41019,7 +41023,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -41102,7 +41106,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41189,7 +41193,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -41268,7 +41272,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41351,7 +41355,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -41434,7 +41438,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41521,7 +41525,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -41604,7 +41608,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41800,7 +41804,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -41887,7 +41891,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -41976,7 +41980,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42064,7 +42068,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -42154,7 +42158,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42213,7 +42217,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -42273,7 +42277,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42356,7 +42360,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -42550,7 +42554,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42638,7 +42642,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -42728,7 +42732,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42815,7 +42819,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -42904,7 +42908,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -42991,7 +42995,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43080,7 +43084,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -43168,7 +43172,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43258,7 +43262,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -43346,7 +43350,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43436,7 +43440,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -43524,7 +43528,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43614,7 +43618,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -43698,7 +43702,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43784,7 +43788,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -43872,7 +43876,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -43962,7 +43966,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i8, ptr %arrayidx, align 2
@@ -44050,7 +44054,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 52
   %0 = load i16, ptr %arrayidx, align 2
@@ -44182,7 +44186,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44255,7 +44259,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44329,7 +44333,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp21 = icmp sgt i32 %bltheight, 0
@@ -44373,7 +44377,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44486,7 +44490,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44560,7 +44564,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44633,7 +44637,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44706,7 +44710,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44780,7 +44784,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44854,7 +44858,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44928,7 +44932,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45000,7 +45004,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45074,7 +45078,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45196,7 +45200,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45274,7 +45278,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45353,7 +45357,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45403,7 +45407,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45527,7 +45531,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45606,7 +45610,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45684,7 +45688,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45762,7 +45766,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45841,7 +45845,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45920,7 +45924,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45999,7 +46003,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46076,7 +46080,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46155,7 +46159,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #3 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46234,7 +46238,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @cirrus_bitblt_common_patterncopy(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc noundef i32 @cirrus_bitblt_common_patterncopy(ptr noundef %s) unnamed_addr #0 {
 entry:
   %cirrus_srccounter = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 35
   %0 = load i32, ptr %cirrus_srccounter, align 16
@@ -46244,7 +46248,7 @@ entry:
 if.then:                                          ; preds = %entry
   %get_bpp = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 32
   %1 = load ptr, ptr %get_bpp, align 16
-  %call = tail call i32 %1(ptr noundef nonnull %s) #14
+  %call = tail call i32 %1(ptr noundef nonnull %s) #13
   switch i32 %call, label %sw.default [
     i32 8, label %sw.epilog
     i32 15, label %sw.bb3
@@ -46277,7 +46281,7 @@ if.end8:                                          ; preds = %sw.epilog, %entry
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end.i:                                         ; preds = %if.end8
@@ -46287,7 +46291,7 @@ if.end.i:                                         ; preds = %if.end8
   br i1 %cmp1.i, label %if.end4.i, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.blit_is_unsafe) #14
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -46347,7 +46351,7 @@ cond.true:                                        ; preds = %if.end11
 
 cond.end:                                         ; preds = %if.end11, %cond.true
   %cond = phi i32 [ %11, %cond.true ], [ 0, %if.end11 ]
-  tail call void %10(ptr noundef nonnull %s, i32 noundef %7, i32 noundef %cond, i32 noundef %6, i32 noundef 0, i32 noundef %4, i32 noundef %5) #14
+  tail call void %10(ptr noundef nonnull %s, i32 noundef %7, i32 noundef %cond, i32 noundef %6, i32 noundef 0, i32 noundef %4, i32 noundef %5) #13
   %12 = load i32, ptr %cirrus_blt_dstpitch.i, align 4
   %13 = load i32, ptr %cirrus_blt_height.i, align 8
   %cmp218.i = icmp sgt i32 %13, 0
@@ -46384,14 +46388,14 @@ if.else.i22:                                      ; preds = %for.body.i
   %add15.i = add i32 %16, 1
   %sub16.i = sub i32 %add15.i, %and.i
   %conv17.i = zext i32 %sub16.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %conv13.i, i64 noundef %conv17.i) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %conv13.i, i64 noundef %conv17.i) #13
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i22, %if.then8.i
   %add6.sink.i = phi i32 [ %add6.i, %if.else.i22 ], [ %sub9.i, %if.then8.i ]
   %.sink.i = phi i64 [ 0, %if.else.i22 ], [ %conv13.i, %if.then8.i ]
   %conv20.i = sext i32 %add6.sink.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %.sink.i, i64 noundef %conv20.i) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %.sink.i, i64 noundef %conv20.i) #13
   %add22.i = add i32 %off_begin.addr.120.i, %12
   %inc.i = add nuw nsw i32 %y.019.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %13
@@ -46414,7 +46418,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @vga_mem_readb(ptr noundef nonnull %opaque, i64 noundef %addr) #14
+  %call = tail call i32 @vga_mem_readb(ptr noundef nonnull %opaque, i64 noundef %addr) #13
   %conv3 = zext i32 %call to i64
   br label %return
 
@@ -46490,7 +46494,7 @@ if.else56:                                        ; preds = %if.else37
   br i1 %cmp.i.not, label %if.end64, label %if.then61
 
 if.then61:                                        ; preds = %if.else56
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i64 noundef %addr) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i64 noundef %addr) #13
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then6, %if.then50, %if.then42, %if.else56, %if.then61, %if.end31
@@ -46514,7 +46518,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv3 = trunc i64 %mem_value to i32
-  tail call void @vga_mem_writeb(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv3) #14
+  tail call void @vga_mem_writeb(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv3) #13
   br label %if.end108
 
 if.end:                                           ; preds = %entry
@@ -46598,7 +46602,7 @@ if.then62:                                        ; preds = %if.end43
   %add.ptr = getelementptr i8, ptr %14, i64 %idx.ext
   store i8 %conv63, ptr %add.ptr, align 1
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %idx.ext, i64 noundef 8) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %idx.ext, i64 noundef 8) #13
   br label %if.end108
 
 if.else67:                                        ; preds = %if.end43
@@ -46639,7 +46643,7 @@ do.body:                                          ; preds = %if.else83
   br i1 %cmp.i.not, label %if.end108, label %if.then105
 
 if.then105:                                       ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i64 noundef %addr, i64 noundef %mem_value) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i64 noundef %addr, i64 noundef %mem_value) #13
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then96, %if.then88, %do.body, %if.then105, %if.then16, %if.then9, %if.then62, %if.else77, %if.then75, %if.else, %if.then
@@ -46848,7 +46852,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %address) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %address) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then, %do.body, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
@@ -46875,16 +46879,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %37 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %38 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %address, i32 noundef %value.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %address, i32 noundef %value.0) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %value.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %value.0) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 trace_vga_cirrus_write_blt.exit:                  ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -46961,7 +46965,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %7 = phi i32 [ %.pre, %do.body.preheader ], [ %add, %if.end ]
   %8 = load ptr, ptr %cirrus_rop, align 8
   %9 = load i32, ptr %cirrus_blt_width, align 4
-  tail call void %8(ptr noundef nonnull %s, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef 1) #14
+  tail call void %8(ptr noundef nonnull %s, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef 1) #13
   %10 = load i32, ptr %cirrus_blt_dstaddr, align 4
   %11 = load i32, ptr %cirrus_blt_width, align 4
   %sub.i = add i32 %11, -1
@@ -46982,14 +46986,14 @@ if.else.i:                                        ; preds = %do.body
   %add15.i = add i32 %12, 1
   %sub16.i = sub i32 %add15.i, %and.i
   %conv17.i = zext i32 %sub16.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %conv13.i, i64 noundef %conv17.i) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %conv13.i, i64 noundef %conv17.i) #13
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then8.i
   %add6.sink.i = phi i32 [ %add6.i, %if.else.i ], [ %sub9.i, %if.then8.i ]
   %.sink.i = phi i64 [ 0, %if.else.i ], [ %conv13.i, %if.then8.i ]
   %conv20.i = sext i32 %add6.sink.i to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %.sink.i, i64 noundef %conv20.i) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %.sink.i, i64 noundef %conv20.i) #13
   %13 = load i32, ptr %cirrus_blt_dstpitch, align 4
   %14 = load i32, ptr %cirrus_blt_dstaddr, align 4
   %add = add i32 %14, %13
@@ -47078,7 +47082,7 @@ if.end4:                                          ; preds = %for.body, %if.then
 for.end:                                          ; preds = %if.end4, %for.body.us
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   %conv = zext i32 %offset to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 8) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 8) #13
   ret void
 }
 
@@ -47151,7 +47155,7 @@ if.end11:                                         ; preds = %for.body, %if.then
 for.end:                                          ; preds = %if.end11, %for.body.us
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   %conv = zext i32 %offset to i64
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 16) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 16) #13
   ret void
 }
 
@@ -47210,16 +47214,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %address, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %address, i32 noundef %conv) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %conv) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 trace_vga_cirrus_write_blt.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -47281,16 +47285,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #13
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #13
   %12 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
   %13 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef 0, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef 0, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 0, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 0, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit
 
 cirrus_vga_write_gr.exit:                         ; preds = %sw.bb, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -47325,16 +47329,16 @@ if.then.i.i.i72:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i73, label %if.else.i.i.i79, label %if.then8.i.i.i74
 
 if.then8.i.i.i74:                                 ; preds = %if.then.i.i.i72
-  %call9.i.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i65, ptr noundef null) #14
-  %call10.i.i.i76 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i65, ptr noundef null) #13
+  %call10.i.i.i76 = tail call i32 @qemu_get_thread_id() #13
   %20 = load i64, ptr %_now.i.i.i65, align 8
   %tv_usec.i.i.i77 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i65, i64 0, i32 1
   %21 = load i64, ptr %tv_usec.i.i.i77, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i76, i64 noundef %20, i64 noundef %21, i32 noundef 16, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i76, i64 noundef %20, i64 noundef %21, i32 noundef 16, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit81
 
 if.else.i.i.i79:                                  ; preds = %if.then.i.i.i72
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 16, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 16, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit81
 
 cirrus_vga_write_gr.exit81:                       ; preds = %sw.bb2, %land.lhs.true5.i.i.i69, %if.then8.i.i.i74, %if.else.i.i.i79
@@ -47365,16 +47369,16 @@ if.then.i.i.i90:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i91, label %if.else.i.i.i97, label %if.then8.i.i.i92
 
 if.then8.i.i.i92:                                 ; preds = %if.then.i.i.i90
-  %call9.i.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82, ptr noundef null) #14
-  %call10.i.i.i94 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82, ptr noundef null) #13
+  %call10.i.i.i94 = tail call i32 @qemu_get_thread_id() #13
   %27 = load i64, ptr %_now.i.i.i82, align 8
   %tv_usec.i.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i82, i64 0, i32 1
   %28 = load i64, ptr %tv_usec.i.i.i95, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i94, i64 noundef %27, i64 noundef %28, i32 noundef 18, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i94, i64 noundef %27, i64 noundef %28, i32 noundef 18, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit99
 
 if.else.i.i.i97:                                  ; preds = %if.then.i.i.i90
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 18, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 18, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit99
 
 cirrus_vga_write_gr.exit99:                       ; preds = %sw.bb4, %land.lhs.true5.i.i.i87, %if.then8.i.i.i92, %if.else.i.i.i97
@@ -47405,16 +47409,16 @@ if.then.i.i.i108:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i109, label %if.else.i.i.i115, label %if.then8.i.i.i110
 
 if.then8.i.i.i110:                                ; preds = %if.then.i.i.i108
-  %call9.i.i.i111 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i100, ptr noundef null) #14
-  %call10.i.i.i112 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i111 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i100, ptr noundef null) #13
+  %call10.i.i.i112 = tail call i32 @qemu_get_thread_id() #13
   %34 = load i64, ptr %_now.i.i.i100, align 8
   %tv_usec.i.i.i113 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i100, i64 0, i32 1
   %35 = load i64, ptr %tv_usec.i.i.i113, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i112, i64 noundef %34, i64 noundef %35, i32 noundef 20, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i112, i64 noundef %34, i64 noundef %35, i32 noundef 20, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit117
 
 if.else.i.i.i115:                                 ; preds = %if.then.i.i.i108
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 20, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 20, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit117
 
 cirrus_vga_write_gr.exit117:                      ; preds = %sw.bb6, %land.lhs.true5.i.i.i105, %if.then8.i.i.i110, %if.else.i.i.i115
@@ -47445,16 +47449,16 @@ if.then.i.i.i125:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i126, label %if.else.i.i.i132, label %if.then8.i.i.i127
 
 if.then8.i.i.i127:                                ; preds = %if.then.i.i.i125
-  %call9.i.i.i128 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i118, ptr noundef null) #14
-  %call10.i.i.i129 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i128 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i118, ptr noundef null) #13
+  %call10.i.i.i129 = tail call i32 @qemu_get_thread_id() #13
   %41 = load i64, ptr %_now.i.i.i118, align 8
   %tv_usec.i.i.i130 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i118, i64 0, i32 1
   %42 = load i64, ptr %tv_usec.i.i.i130, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i129, i64 noundef %41, i64 noundef %42, i32 noundef 1, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i129, i64 noundef %41, i64 noundef %42, i32 noundef 1, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit134
 
 if.else.i.i.i132:                                 ; preds = %if.then.i.i.i125
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 1, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 1, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit134
 
 cirrus_vga_write_gr.exit134:                      ; preds = %sw.bb8, %land.lhs.true5.i.i.i122, %if.then8.i.i.i127, %if.else.i.i.i132
@@ -47489,16 +47493,16 @@ if.then.i.i.i143:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i144, label %if.else.i.i.i150, label %if.then8.i.i.i145
 
 if.then8.i.i.i145:                                ; preds = %if.then.i.i.i143
-  %call9.i.i.i146 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i135, ptr noundef null) #14
-  %call10.i.i.i147 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i146 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i135, ptr noundef null) #13
+  %call10.i.i.i147 = tail call i32 @qemu_get_thread_id() #13
   %49 = load i64, ptr %_now.i.i.i135, align 8
   %tv_usec.i.i.i148 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i135, i64 0, i32 1
   %50 = load i64, ptr %tv_usec.i.i.i148, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i147, i64 noundef %49, i64 noundef %50, i32 noundef 17, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i147, i64 noundef %49, i64 noundef %50, i32 noundef 17, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit152
 
 if.else.i.i.i150:                                 ; preds = %if.then.i.i.i143
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 17, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 17, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit152
 
 cirrus_vga_write_gr.exit152:                      ; preds = %sw.bb10, %land.lhs.true5.i.i.i140, %if.then8.i.i.i145, %if.else.i.i.i150
@@ -47529,16 +47533,16 @@ if.then.i.i.i161:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i162, label %if.else.i.i.i168, label %if.then8.i.i.i163
 
 if.then8.i.i.i163:                                ; preds = %if.then.i.i.i161
-  %call9.i.i.i164 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i153, ptr noundef null) #14
-  %call10.i.i.i165 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i164 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i153, ptr noundef null) #13
+  %call10.i.i.i165 = tail call i32 @qemu_get_thread_id() #13
   %56 = load i64, ptr %_now.i.i.i153, align 8
   %tv_usec.i.i.i166 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i153, i64 0, i32 1
   %57 = load i64, ptr %tv_usec.i.i.i166, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i165, i64 noundef %56, i64 noundef %57, i32 noundef 19, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i165, i64 noundef %56, i64 noundef %57, i32 noundef 19, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit170
 
 if.else.i.i.i168:                                 ; preds = %if.then.i.i.i161
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 19, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 19, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit170
 
 cirrus_vga_write_gr.exit170:                      ; preds = %sw.bb12, %land.lhs.true5.i.i.i158, %if.then8.i.i.i163, %if.else.i.i.i168
@@ -47569,16 +47573,16 @@ if.then.i.i.i179:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i180, label %if.else.i.i.i186, label %if.then8.i.i.i181
 
 if.then8.i.i.i181:                                ; preds = %if.then.i.i.i179
-  %call9.i.i.i182 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i171, ptr noundef null) #14
-  %call10.i.i.i183 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i182 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i171, ptr noundef null) #13
+  %call10.i.i.i183 = tail call i32 @qemu_get_thread_id() #13
   %63 = load i64, ptr %_now.i.i.i171, align 8
   %tv_usec.i.i.i184 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i171, i64 0, i32 1
   %64 = load i64, ptr %tv_usec.i.i.i184, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i183, i64 noundef %63, i64 noundef %64, i32 noundef 21, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i183, i64 noundef %63, i64 noundef %64, i32 noundef 21, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit188
 
 if.else.i.i.i186:                                 ; preds = %if.then.i.i.i179
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 21, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 21, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit188
 
 cirrus_vga_write_gr.exit188:                      ; preds = %sw.bb14, %land.lhs.true5.i.i.i176, %if.then8.i.i.i181, %if.else.i.i.i186
@@ -47609,16 +47613,16 @@ if.then.i.i.i197:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i198, label %if.else.i.i.i204, label %if.then8.i.i.i199
 
 if.then8.i.i.i199:                                ; preds = %if.then.i.i.i197
-  %call9.i.i.i200 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i189, ptr noundef null) #14
-  %call10.i.i.i201 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i200 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i189, ptr noundef null) #13
+  %call10.i.i.i201 = tail call i32 @qemu_get_thread_id() #13
   %70 = load i64, ptr %_now.i.i.i189, align 8
   %tv_usec.i.i.i202 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i189, i64 0, i32 1
   %71 = load i64, ptr %tv_usec.i.i.i202, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i201, i64 noundef %70, i64 noundef %71, i32 noundef 32, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i201, i64 noundef %70, i64 noundef %71, i32 noundef 32, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit206
 
 if.else.i.i.i204:                                 ; preds = %if.then.i.i.i197
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 32, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 32, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit206
 
 cirrus_vga_write_gr.exit206:                      ; preds = %sw.bb16, %land.lhs.true5.i.i.i194, %if.then8.i.i.i199, %if.else.i.i.i204
@@ -47649,16 +47653,16 @@ if.then.i.i.i214:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i215, label %if.else.i.i.i221, label %if.then8.i.i.i216
 
 if.then8.i.i.i216:                                ; preds = %if.then.i.i.i214
-  %call9.i.i.i217 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i207, ptr noundef null) #14
-  %call10.i.i.i218 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i217 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i207, ptr noundef null) #13
+  %call10.i.i.i218 = tail call i32 @qemu_get_thread_id() #13
   %77 = load i64, ptr %_now.i.i.i207, align 8
   %tv_usec.i.i.i219 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i207, i64 0, i32 1
   %78 = load i64, ptr %tv_usec.i.i.i219, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i218, i64 noundef %77, i64 noundef %78, i32 noundef 33, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i218, i64 noundef %77, i64 noundef %78, i32 noundef 33, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit223
 
 if.else.i.i.i221:                                 ; preds = %if.then.i.i.i214
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 33, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 33, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit223
 
 cirrus_vga_write_gr.exit223:                      ; preds = %sw.bb18, %land.lhs.true5.i.i.i211, %if.then8.i.i.i216, %if.else.i.i.i221
@@ -47690,16 +47694,16 @@ if.then.i.i.i232:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i233, label %if.else.i.i.i239, label %if.then8.i.i.i234
 
 if.then8.i.i.i234:                                ; preds = %if.then.i.i.i232
-  %call9.i.i.i235 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i224, ptr noundef null) #14
-  %call10.i.i.i236 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i235 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i224, ptr noundef null) #13
+  %call10.i.i.i236 = tail call i32 @qemu_get_thread_id() #13
   %84 = load i64, ptr %_now.i.i.i224, align 8
   %tv_usec.i.i.i237 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i224, i64 0, i32 1
   %85 = load i64, ptr %tv_usec.i.i.i237, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i236, i64 noundef %84, i64 noundef %85, i32 noundef 34, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i236, i64 noundef %84, i64 noundef %85, i32 noundef 34, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit241
 
 if.else.i.i.i239:                                 ; preds = %if.then.i.i.i232
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 34, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 34, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit241
 
 cirrus_vga_write_gr.exit241:                      ; preds = %sw.bb20, %land.lhs.true5.i.i.i229, %if.then8.i.i.i234, %if.else.i.i.i239
@@ -47730,16 +47734,16 @@ if.then.i.i.i251:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i252, label %if.else.i.i.i258, label %if.then8.i.i.i253
 
 if.then8.i.i.i253:                                ; preds = %if.then.i.i.i251
-  %call9.i.i.i254 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i242, ptr noundef null) #14
-  %call10.i.i.i255 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i254 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i242, ptr noundef null) #13
+  %call10.i.i.i255 = tail call i32 @qemu_get_thread_id() #13
   %91 = load i64, ptr %_now.i.i.i242, align 8
   %tv_usec.i.i.i256 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i242, i64 0, i32 1
   %92 = load i64, ptr %tv_usec.i.i.i256, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i255, i64 noundef %91, i64 noundef %92, i32 noundef 35, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i255, i64 noundef %91, i64 noundef %92, i32 noundef 35, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit260
 
 if.else.i.i.i258:                                 ; preds = %if.then.i.i.i251
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 35, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 35, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit260
 
 cirrus_vga_write_gr.exit260:                      ; preds = %sw.bb22, %land.lhs.true5.i.i.i248, %if.then8.i.i.i253, %if.else.i.i.i258
@@ -47771,16 +47775,16 @@ if.then.i.i.i269:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i270, label %if.else.i.i.i276, label %if.then8.i.i.i271
 
 if.then8.i.i.i271:                                ; preds = %if.then.i.i.i269
-  %call9.i.i.i272 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i261, ptr noundef null) #14
-  %call10.i.i.i273 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i272 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i261, ptr noundef null) #13
+  %call10.i.i.i273 = tail call i32 @qemu_get_thread_id() #13
   %98 = load i64, ptr %_now.i.i.i261, align 8
   %tv_usec.i.i.i274 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i261, i64 0, i32 1
   %99 = load i64, ptr %tv_usec.i.i.i274, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i273, i64 noundef %98, i64 noundef %99, i32 noundef 36, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i273, i64 noundef %98, i64 noundef %99, i32 noundef 36, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit278
 
 if.else.i.i.i276:                                 ; preds = %if.then.i.i.i269
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 36, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 36, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit278
 
 cirrus_vga_write_gr.exit278:                      ; preds = %sw.bb24, %land.lhs.true5.i.i.i266, %if.then8.i.i.i271, %if.else.i.i.i276
@@ -47811,16 +47815,16 @@ if.then.i.i.i288:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i289, label %if.else.i.i.i295, label %if.then8.i.i.i290
 
 if.then8.i.i.i290:                                ; preds = %if.then.i.i.i288
-  %call9.i.i.i291 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i279, ptr noundef null) #14
-  %call10.i.i.i292 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i291 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i279, ptr noundef null) #13
+  %call10.i.i.i292 = tail call i32 @qemu_get_thread_id() #13
   %105 = load i64, ptr %_now.i.i.i279, align 8
   %tv_usec.i.i.i293 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i279, i64 0, i32 1
   %106 = load i64, ptr %tv_usec.i.i.i293, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i292, i64 noundef %105, i64 noundef %106, i32 noundef 37, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i292, i64 noundef %105, i64 noundef %106, i32 noundef 37, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit297
 
 if.else.i.i.i295:                                 ; preds = %if.then.i.i.i288
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 37, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 37, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit297
 
 cirrus_vga_write_gr.exit297:                      ; preds = %sw.bb26, %land.lhs.true5.i.i.i285, %if.then8.i.i.i290, %if.else.i.i.i295
@@ -47852,16 +47856,16 @@ if.then.i.i.i306:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i307, label %if.else.i.i.i313, label %if.then8.i.i.i308
 
 if.then8.i.i.i308:                                ; preds = %if.then.i.i.i306
-  %call9.i.i.i309 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i298, ptr noundef null) #14
-  %call10.i.i.i310 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i309 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i298, ptr noundef null) #13
+  %call10.i.i.i310 = tail call i32 @qemu_get_thread_id() #13
   %112 = load i64, ptr %_now.i.i.i298, align 8
   %tv_usec.i.i.i311 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i298, i64 0, i32 1
   %113 = load i64, ptr %tv_usec.i.i.i311, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i310, i64 noundef %112, i64 noundef %113, i32 noundef 38, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i310, i64 noundef %112, i64 noundef %113, i32 noundef 38, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit315
 
 if.else.i.i.i313:                                 ; preds = %if.then.i.i.i306
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 38, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 38, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit315
 
 cirrus_vga_write_gr.exit315:                      ; preds = %sw.bb28, %land.lhs.true5.i.i.i303, %if.then8.i.i.i308, %if.else.i.i.i313
@@ -47892,16 +47896,16 @@ if.then.i.i.i325:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i326, label %if.else.i.i.i332, label %if.then8.i.i.i327
 
 if.then8.i.i.i327:                                ; preds = %if.then.i.i.i325
-  %call9.i.i.i328 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i316, ptr noundef null) #14
-  %call10.i.i.i329 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i328 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i316, ptr noundef null) #13
+  %call10.i.i.i329 = tail call i32 @qemu_get_thread_id() #13
   %119 = load i64, ptr %_now.i.i.i316, align 8
   %tv_usec.i.i.i330 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i316, i64 0, i32 1
   %120 = load i64, ptr %tv_usec.i.i.i330, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i329, i64 noundef %119, i64 noundef %120, i32 noundef 39, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i329, i64 noundef %119, i64 noundef %120, i32 noundef 39, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit334
 
 if.else.i.i.i332:                                 ; preds = %if.then.i.i.i325
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 39, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 39, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit334
 
 cirrus_vga_write_gr.exit334:                      ; preds = %sw.bb30, %land.lhs.true5.i.i.i322, %if.then8.i.i.i327, %if.else.i.i.i332
@@ -47933,16 +47937,16 @@ if.then.i.i.i343:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i344, label %if.else.i.i.i350, label %if.then8.i.i.i345
 
 if.then8.i.i.i345:                                ; preds = %if.then.i.i.i343
-  %call9.i.i.i346 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i335, ptr noundef null) #14
-  %call10.i.i.i347 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i346 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i335, ptr noundef null) #13
+  %call10.i.i.i347 = tail call i32 @qemu_get_thread_id() #13
   %126 = load i64, ptr %_now.i.i.i335, align 8
   %tv_usec.i.i.i348 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i335, i64 0, i32 1
   %127 = load i64, ptr %tv_usec.i.i.i348, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i347, i64 noundef %126, i64 noundef %127, i32 noundef 40, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i347, i64 noundef %126, i64 noundef %127, i32 noundef 40, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit352
 
 if.else.i.i.i350:                                 ; preds = %if.then.i.i.i343
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 40, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 40, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit352
 
 cirrus_vga_write_gr.exit352:                      ; preds = %sw.bb32, %land.lhs.true5.i.i.i340, %if.then8.i.i.i345, %if.else.i.i.i350
@@ -47973,16 +47977,16 @@ if.then.i.i.i361:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i362, label %if.else.i.i.i368, label %if.then8.i.i.i363
 
 if.then8.i.i.i363:                                ; preds = %if.then.i.i.i361
-  %call9.i.i.i364 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i353, ptr noundef null) #14
-  %call10.i.i.i365 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i364 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i353, ptr noundef null) #13
+  %call10.i.i.i365 = tail call i32 @qemu_get_thread_id() #13
   %133 = load i64, ptr %_now.i.i.i353, align 8
   %tv_usec.i.i.i366 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i353, i64 0, i32 1
   %134 = load i64, ptr %tv_usec.i.i.i366, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i365, i64 noundef %133, i64 noundef %134, i32 noundef 41, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i365, i64 noundef %133, i64 noundef %134, i32 noundef 41, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit370
 
 if.else.i.i.i368:                                 ; preds = %if.then.i.i.i361
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 41, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 41, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit370
 
 cirrus_vga_write_gr.exit370:                      ; preds = %sw.bb34, %land.lhs.true5.i.i.i358, %if.then8.i.i.i363, %if.else.i.i.i368
@@ -48017,16 +48021,16 @@ if.then.i.i.i379:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i380, label %if.else.i.i.i386, label %if.then8.i.i.i381
 
 if.then8.i.i.i381:                                ; preds = %if.then.i.i.i379
-  %call9.i.i.i382 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i371, ptr noundef null) #14
-  %call10.i.i.i383 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i382 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i371, ptr noundef null) #13
+  %call10.i.i.i383 = tail call i32 @qemu_get_thread_id() #13
   %140 = load i64, ptr %_now.i.i.i371, align 8
   %tv_usec.i.i.i384 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i371, i64 0, i32 1
   %141 = load i64, ptr %tv_usec.i.i.i384, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i383, i64 noundef %140, i64 noundef %141, i32 noundef 44, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i383, i64 noundef %140, i64 noundef %141, i32 noundef 44, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit388
 
 if.else.i.i.i386:                                 ; preds = %if.then.i.i.i379
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 44, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 44, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit388
 
 cirrus_vga_write_gr.exit388:                      ; preds = %sw.bb39, %land.lhs.true5.i.i.i376, %if.then8.i.i.i381, %if.else.i.i.i386
@@ -48057,16 +48061,16 @@ if.then.i.i.i397:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i398, label %if.else.i.i.i404, label %if.then8.i.i.i399
 
 if.then8.i.i.i399:                                ; preds = %if.then.i.i.i397
-  %call9.i.i.i400 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i389, ptr noundef null) #14
-  %call10.i.i.i401 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i400 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i389, ptr noundef null) #13
+  %call10.i.i.i401 = tail call i32 @qemu_get_thread_id() #13
   %147 = load i64, ptr %_now.i.i.i389, align 8
   %tv_usec.i.i.i402 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i389, i64 0, i32 1
   %148 = load i64, ptr %tv_usec.i.i.i402, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i401, i64 noundef %147, i64 noundef %148, i32 noundef 45, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i401, i64 noundef %147, i64 noundef %148, i32 noundef 45, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit406
 
 if.else.i.i.i404:                                 ; preds = %if.then.i.i.i397
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 45, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 45, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit406
 
 cirrus_vga_write_gr.exit406:                      ; preds = %sw.bb41, %land.lhs.true5.i.i.i394, %if.then8.i.i.i399, %if.else.i.i.i404
@@ -48097,16 +48101,16 @@ if.then.i.i.i414:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i415, label %if.else.i.i.i421, label %if.then8.i.i.i416
 
 if.then8.i.i.i416:                                ; preds = %if.then.i.i.i414
-  %call9.i.i.i417 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i407, ptr noundef null) #14
-  %call10.i.i.i418 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i417 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i407, ptr noundef null) #13
+  %call10.i.i.i418 = tail call i32 @qemu_get_thread_id() #13
   %154 = load i64, ptr %_now.i.i.i407, align 8
   %tv_usec.i.i.i419 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i407, i64 0, i32 1
   %155 = load i64, ptr %tv_usec.i.i.i419, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i418, i64 noundef %154, i64 noundef %155, i32 noundef 46, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i418, i64 noundef %154, i64 noundef %155, i32 noundef 46, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit423
 
 if.else.i.i.i421:                                 ; preds = %if.then.i.i.i414
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 46, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 46, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit423
 
 cirrus_vga_write_gr.exit423:                      ; preds = %sw.bb43, %land.lhs.true5.i.i.i411, %if.then8.i.i.i416, %if.else.i.i.i421
@@ -48138,16 +48142,16 @@ if.then.i.i.i432:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i433, label %if.else.i.i.i439, label %if.then8.i.i.i434
 
 if.then8.i.i.i434:                                ; preds = %if.then.i.i.i432
-  %call9.i.i.i435 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i424, ptr noundef null) #14
-  %call10.i.i.i436 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i435 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i424, ptr noundef null) #13
+  %call10.i.i.i436 = tail call i32 @qemu_get_thread_id() #13
   %161 = load i64, ptr %_now.i.i.i424, align 8
   %tv_usec.i.i.i437 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i424, i64 0, i32 1
   %162 = load i64, ptr %tv_usec.i.i.i437, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i436, i64 noundef %161, i64 noundef %162, i32 noundef 47, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i436, i64 noundef %161, i64 noundef %162, i32 noundef 47, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit441
 
 if.else.i.i.i439:                                 ; preds = %if.then.i.i.i432
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 47, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 47, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit441
 
 cirrus_vga_write_gr.exit441:                      ; preds = %sw.bb45, %land.lhs.true5.i.i.i429, %if.then8.i.i.i434, %if.else.i.i.i439
@@ -48178,16 +48182,16 @@ if.then.i.i.i450:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i451, label %if.else.i.i.i457, label %if.then8.i.i.i452
 
 if.then8.i.i.i452:                                ; preds = %if.then.i.i.i450
-  %call9.i.i.i453 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i442, ptr noundef null) #14
-  %call10.i.i.i454 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i453 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i442, ptr noundef null) #13
+  %call10.i.i.i454 = tail call i32 @qemu_get_thread_id() #13
   %168 = load i64, ptr %_now.i.i.i442, align 8
   %tv_usec.i.i.i455 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i442, i64 0, i32 1
   %169 = load i64, ptr %tv_usec.i.i.i455, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i454, i64 noundef %168, i64 noundef %169, i32 noundef 48, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i454, i64 noundef %168, i64 noundef %169, i32 noundef 48, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit459
 
 if.else.i.i.i457:                                 ; preds = %if.then.i.i.i450
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 48, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 48, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit459
 
 cirrus_vga_write_gr.exit459:                      ; preds = %sw.bb47, %land.lhs.true5.i.i.i447, %if.then8.i.i.i452, %if.else.i.i.i457
@@ -48218,16 +48222,16 @@ if.then.i.i.i468:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i469, label %if.else.i.i.i475, label %if.then8.i.i.i470
 
 if.then8.i.i.i470:                                ; preds = %if.then.i.i.i468
-  %call9.i.i.i471 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i460, ptr noundef null) #14
-  %call10.i.i.i472 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i471 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i460, ptr noundef null) #13
+  %call10.i.i.i472 = tail call i32 @qemu_get_thread_id() #13
   %175 = load i64, ptr %_now.i.i.i460, align 8
   %tv_usec.i.i.i473 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i460, i64 0, i32 1
   %176 = load i64, ptr %tv_usec.i.i.i473, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i472, i64 noundef %175, i64 noundef %176, i32 noundef 50, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i472, i64 noundef %175, i64 noundef %176, i32 noundef 50, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit477
 
 if.else.i.i.i475:                                 ; preds = %if.then.i.i.i468
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 50, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 50, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit477
 
 cirrus_vga_write_gr.exit477:                      ; preds = %sw.bb49, %land.lhs.true5.i.i.i465, %if.then8.i.i.i470, %if.else.i.i.i475
@@ -48258,16 +48262,16 @@ if.then.i.i.i486:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i487, label %if.else.i.i.i493, label %if.then8.i.i.i488
 
 if.then8.i.i.i488:                                ; preds = %if.then.i.i.i486
-  %call9.i.i.i489 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i478, ptr noundef null) #14
-  %call10.i.i.i490 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i489 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i478, ptr noundef null) #13
+  %call10.i.i.i490 = tail call i32 @qemu_get_thread_id() #13
   %182 = load i64, ptr %_now.i.i.i478, align 8
   %tv_usec.i.i.i491 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i478, i64 0, i32 1
   %183 = load i64, ptr %tv_usec.i.i.i491, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i490, i64 noundef %182, i64 noundef %183, i32 noundef 51, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i490, i64 noundef %182, i64 noundef %183, i32 noundef 51, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit495
 
 if.else.i.i.i493:                                 ; preds = %if.then.i.i.i486
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 51, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 51, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit495
 
 cirrus_vga_write_gr.exit495:                      ; preds = %sw.bb51, %land.lhs.true5.i.i.i483, %if.then8.i.i.i488, %if.else.i.i.i493
@@ -48298,16 +48302,16 @@ if.then.i.i.i504:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i505, label %if.else.i.i.i511, label %if.then8.i.i.i506
 
 if.then8.i.i.i506:                                ; preds = %if.then.i.i.i504
-  %call9.i.i.i507 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i496, ptr noundef null) #14
-  %call10.i.i.i508 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i507 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i496, ptr noundef null) #13
+  %call10.i.i.i508 = tail call i32 @qemu_get_thread_id() #13
   %189 = load i64, ptr %_now.i.i.i496, align 8
   %tv_usec.i.i.i509 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i496, i64 0, i32 1
   %190 = load i64, ptr %tv_usec.i.i.i509, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i508, i64 noundef %189, i64 noundef %190, i32 noundef 52, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i508, i64 noundef %189, i64 noundef %190, i32 noundef 52, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit513
 
 if.else.i.i.i511:                                 ; preds = %if.then.i.i.i504
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 52, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 52, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit513
 
 cirrus_vga_write_gr.exit513:                      ; preds = %sw.bb53, %land.lhs.true5.i.i.i501, %if.then8.i.i.i506, %if.else.i.i.i511
@@ -48338,16 +48342,16 @@ if.then.i.i.i522:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i523, label %if.else.i.i.i529, label %if.then8.i.i.i524
 
 if.then8.i.i.i524:                                ; preds = %if.then.i.i.i522
-  %call9.i.i.i525 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i514, ptr noundef null) #14
-  %call10.i.i.i526 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i525 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i514, ptr noundef null) #13
+  %call10.i.i.i526 = tail call i32 @qemu_get_thread_id() #13
   %196 = load i64, ptr %_now.i.i.i514, align 8
   %tv_usec.i.i.i527 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i514, i64 0, i32 1
   %197 = load i64, ptr %tv_usec.i.i.i527, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i526, i64 noundef %196, i64 noundef %197, i32 noundef 53, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i526, i64 noundef %196, i64 noundef %197, i32 noundef 53, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit531
 
 if.else.i.i.i529:                                 ; preds = %if.then.i.i.i522
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 53, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 53, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit531
 
 cirrus_vga_write_gr.exit531:                      ; preds = %sw.bb55, %land.lhs.true5.i.i.i519, %if.then8.i.i.i524, %if.else.i.i.i529
@@ -48378,16 +48382,16 @@ if.then.i.i.i540:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i541, label %if.else.i.i.i547, label %if.then8.i.i.i542
 
 if.then8.i.i.i542:                                ; preds = %if.then.i.i.i540
-  %call9.i.i.i543 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i532, ptr noundef null) #14
-  %call10.i.i.i544 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i543 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i532, ptr noundef null) #13
+  %call10.i.i.i544 = tail call i32 @qemu_get_thread_id() #13
   %203 = load i64, ptr %_now.i.i.i532, align 8
   %tv_usec.i.i.i545 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i532, i64 0, i32 1
   %204 = load i64, ptr %tv_usec.i.i.i545, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i544, i64 noundef %203, i64 noundef %204, i32 noundef 56, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i544, i64 noundef %203, i64 noundef %204, i32 noundef 56, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit549
 
 if.else.i.i.i547:                                 ; preds = %if.then.i.i.i540
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 56, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 56, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit549
 
 cirrus_vga_write_gr.exit549:                      ; preds = %sw.bb57, %land.lhs.true5.i.i.i537, %if.then8.i.i.i542, %if.else.i.i.i547
@@ -48418,16 +48422,16 @@ if.then.i.i.i558:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.not.i.i.i559, label %if.else.i.i.i565, label %if.then8.i.i.i560
 
 if.then8.i.i.i560:                                ; preds = %if.then.i.i.i558
-  %call9.i.i.i561 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i550, ptr noundef null) #14
-  %call10.i.i.i562 = tail call i32 @qemu_get_thread_id() #14
+  %call9.i.i.i561 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i550, ptr noundef null) #13
+  %call10.i.i.i562 = tail call i32 @qemu_get_thread_id() #13
   %210 = load i64, ptr %_now.i.i.i550, align 8
   %tv_usec.i.i.i563 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i550, i64 0, i32 1
   %211 = load i64, ptr %tv_usec.i.i.i563, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i562, i64 noundef %210, i64 noundef %211, i32 noundef 57, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i562, i64 noundef %210, i64 noundef %211, i32 noundef 57, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit567
 
 if.else.i.i.i565:                                 ; preds = %if.then.i.i.i558
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 57, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef 57, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit567
 
 cirrus_vga_write_gr.exit567:                      ; preds = %sw.bb59, %land.lhs.true5.i.i.i555, %if.then8.i.i.i560, %if.else.i.i.i565
@@ -48447,7 +48451,7 @@ do.body:                                          ; preds = %trace_vga_cirrus_wr
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %address, i32 noundef %conv) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %address, i32 noundef %conv) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then, %do.body, %trace_vga_cirrus_write_blt.exit, %sw.bb61, %cirrus_vga_write_gr.exit567, %cirrus_vga_write_gr.exit549, %cirrus_vga_write_gr.exit531, %cirrus_vga_write_gr.exit513, %cirrus_vga_write_gr.exit495, %cirrus_vga_write_gr.exit477, %cirrus_vga_write_gr.exit459, %cirrus_vga_write_gr.exit441, %cirrus_vga_write_gr.exit423, %cirrus_vga_write_gr.exit406, %cirrus_vga_write_gr.exit388, %sw.bb36, %cirrus_vga_write_gr.exit370, %cirrus_vga_write_gr.exit352, %cirrus_vga_write_gr.exit334, %cirrus_vga_write_gr.exit315, %cirrus_vga_write_gr.exit297, %cirrus_vga_write_gr.exit278, %cirrus_vga_write_gr.exit260, %cirrus_vga_write_gr.exit241, %cirrus_vga_write_gr.exit223, %cirrus_vga_write_gr.exit206, %cirrus_vga_write_gr.exit188, %cirrus_vga_write_gr.exit170, %cirrus_vga_write_gr.exit152, %cirrus_vga_write_gr.exit134, %cirrus_vga_write_gr.exit117, %cirrus_vga_write_gr.exit99, %cirrus_vga_write_gr.exit81, %cirrus_vga_write_gr.exit
@@ -48607,7 +48611,7 @@ if.then61:                                        ; preds = %if.end40
   %add.ptr = getelementptr i8, ptr %13, i64 %and43
   store i8 %conv62, ptr %add.ptr, align 1
   %vram = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %and43, i64 noundef 1) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %and43, i64 noundef 1) #13
   br label %if.end82
 
 if.else65:                                        ; preds = %if.end40
@@ -48667,7 +48671,7 @@ if.end4.i:                                        ; preds = %if.then.i, %for.bod
 
 cirrus_mem_writeb_mode4and5_8bpp.exit:            ; preds = %if.end4.i, %for.body.us.i
   %vram.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %and43, i64 noundef 8) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %and43, i64 noundef 8) #13
   br label %if.end82
 
 if.else76:                                        ; preds = %if.else65
@@ -48733,7 +48737,7 @@ if.end11.i:                                       ; preds = %if.then.i43, %for.b
 
 cirrus_mem_writeb_mode4and5_16bpp.exit:           ; preds = %if.end11.i, %for.body.us.i54
   %vram.i52 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i52, i64 noundef %and43, i64 noundef 16) #14
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i52, i64 noundef %and43, i64 noundef 16) #13
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then22, %if.then15, %cirrus_mem_writeb_mode4and5_8bpp.exit, %cirrus_mem_writeb_mode4and5_16bpp.exit, %if.then61, %if.then
@@ -48741,7 +48745,7 @@ if.end82:                                         ; preds = %if.then22, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cirrus_linear_bitblt_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #0 {
+define internal noundef i64 @cirrus_linear_bitblt_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #0 {
 entry:
   %0 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %0, 1024
@@ -48749,7 +48753,7 @@ entry:
   br i1 %cmp.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64) #13
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -48838,8 +48842,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cirrus_vga_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
-  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
+  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #13
   %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 1
   store ptr @pci_cirrus_vga_realize, ptr %realize, align 8
   %romfile = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 11
@@ -48858,7 +48862,7 @@ entry:
   store ptr @.str.71, ptr %desc, align 8
   %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
   store ptr @vmstate_pci_cirrus_vga, ptr %vmsd, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_vga_cirrus_properties) #14
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_vga_cirrus_properties) #13
   %hotpluggable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 6
   store i8 0, ptr %hotpluggable, align 1
   ret void
@@ -48867,10 +48871,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_cirrus_vga_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.53, i32 noundef 189, ptr noundef nonnull @__func__.PCI_CIRRUS_VGA) #14
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.53, i32 noundef 189, ptr noundef nonnull @__func__.PCI_CIRRUS_VGA) #13
   %cirrus_vga = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1
-  %call.i27 = tail call ptr @object_get_class(ptr noundef %dev) #14
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #14
+  %call.i27 = tail call ptr @object_get_class(ptr noundef %dev) #13
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
   %device_id2 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 6
   %0 = load i16, ptr %device_id2, align 2
   %vram_size_mb = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 0, i32 4
@@ -48882,37 +48886,37 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.53, i32 noundef 2956, ptr noundef nonnull @__func__.pci_cirrus_vga_realize, ptr noundef nonnull @.str.75, i32 noundef %1) #14
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.53, i32 noundef 2956, ptr noundef nonnull @__func__.pci_cirrus_vga_realize, ptr noundef nonnull @.str.75, i32 noundef %1) #13
   br label %if.end32
 
 if.end:                                           ; preds = %entry, %entry, %entry
-  %call13 = tail call zeroext i1 @vga_common_init(ptr noundef nonnull %cirrus_vga, ptr noundef %dev, ptr noundef %errp) #14
+  %call13 = tail call zeroext i1 @vga_common_init(ptr noundef nonnull %cirrus_vga, ptr noundef %dev, ptr noundef %errp) #13
   br i1 %call13, label %if.end15, label %if.end32
 
 if.end15:                                         ; preds = %if.end
   %conv = sext i16 %0 to i32
-  %call16 = tail call ptr @pci_address_space(ptr noundef %dev) #14
-  %call17 = tail call ptr @pci_address_space_io(ptr noundef %dev) #14
+  %call16 = tail call ptr @pci_address_space(ptr noundef %dev) #13
+  %call17 = tail call ptr @pci_address_space_io(ptr noundef %dev) #13
   tail call void @cirrus_init_common(ptr noundef nonnull %cirrus_vga, ptr noundef %dev, i32 noundef %conv, i32 noundef 1, ptr noundef %call16, ptr noundef %call17)
-  %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
   %hw_ops = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 0, i32 66
   %2 = load ptr, ptr %hw_ops, align 16
-  %call21 = tail call ptr @graphic_console_init(ptr noundef %call.i28, i32 noundef 0, ptr noundef %2, ptr noundef nonnull %cirrus_vga) #14
+  %call21 = tail call ptr @graphic_console_init(ptr noundef %call.i28, i32 noundef 0, ptr noundef %2, ptr noundef nonnull %cirrus_vga) #13
   %con = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 0, i32 42
   store ptr %call21, ptr %con, align 16
   %pci_bar = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 5
-  tail call void @memory_region_init(ptr noundef nonnull %pci_bar, ptr noundef %dev, ptr noundef nonnull @.str.76, i64 noundef 33554432) #14
+  tail call void @memory_region_init(ptr noundef nonnull %pci_bar, ptr noundef %dev, ptr noundef nonnull @.str.76, i64 noundef 33554432) #13
   %cirrus_linear_io = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 2
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 0, ptr noundef nonnull %cirrus_linear_io) #14
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 0, ptr noundef nonnull %cirrus_linear_io) #13
   %cirrus_linear_bitblt_io = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 3
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 16777216, ptr noundef nonnull %cirrus_linear_bitblt_io) #14
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %pci_bar) #14
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 16777216, ptr noundef nonnull %cirrus_linear_bitblt_io) #13
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %pci_bar) #13
   %cmp28 = icmp eq i16 %0, 184
   br i1 %cmp28, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %if.end15
   %cirrus_mmio_io = getelementptr inbounds %struct.PCICirrusVGAState, ptr %call.i, i64 0, i32 1, i32 4
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %cirrus_mmio_io) #14
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %cirrus_mmio_io) #13
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end, %if.then30, %if.end15, %if.then
@@ -48940,51 +48944,50 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #11
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #11
+declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

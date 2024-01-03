@@ -151,7 +151,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_tx_packet(ptr nocapture noundef %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_tx_packet(ptr nocapture noundef %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
 entry:
   %pkt_space = getelementptr inbounds %struct.ossl_ackm_tx_pkt_st, ptr %pkt, i64 0, i32 4
   %bf.load = load i8, ptr %pkt_space, align 8
@@ -386,13 +386,13 @@ return:                                           ; preds = %if.then.i21, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_ackm_on_rx_datagram(ptr nocapture noundef readnone %ackm, i64 noundef %num_bytes) local_unnamed_addr #3 {
+define noundef i32 @ossl_ackm_on_rx_datagram(ptr nocapture noundef readnone %ackm, i64 noundef %num_bytes) local_unnamed_addr #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr nocapture noundef readonly %ack, i32 noundef %pkt_space, i64 %rx_time.coerce) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr nocapture noundef readonly %ack, i32 noundef %pkt_space, i64 %rx_time.coerce) local_unnamed_addr #0 {
 entry:
   %space.i79 = alloca i32, align 4
   %r.i.i = alloca %struct.uint_range_st, align 8
@@ -1212,7 +1212,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
 entry:
   %space.i = alloca i32, align 4
   %idxprom = sext i32 %pkt_space to i64
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %entry, %ackm_set_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_handshake_confirmed(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
 entry:
   %space.i = alloca i32, align 4
   %handshake_confirmed = getelementptr inbounds %struct.ossl_ackm_st, ptr %ackm, i64 0, i32 17
@@ -1491,7 +1491,7 @@ ackm_set_loss_detection_timer.exit:               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_timeout(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_timeout(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
 entry:
   %space.i20 = alloca i32, align 4
   %space.i = alloca i32, align 4
@@ -1849,7 +1849,7 @@ entry:
   %retval.sroa.0.0.i22 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %a.coerce.b.coerce.i)
   %pto_count = getelementptr inbounds %struct.ossl_ackm_st, ptr %ackm, i64 0, i32 7
   %6 = load i32, ptr %pto_count, align 8
-  %cond.i = call i32 @llvm.umin.i32(i32 %6, i32 16)
+  %cond.i = call noundef i32 @llvm.umin.i32(i32 %6, i32 16)
   %sh_prom = zext nneg i32 %cond.i to i64
   %shl = shl nuw nsw i64 1, %sh_prom
   %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.sroa.0.0.i22, i64 %shl)
@@ -1969,7 +1969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ossl_ackm_get_largest_unacked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space, ptr nocapture noundef writeonly %pn) local_unnamed_addr #5 {
+define noundef i32 @ossl_ackm_get_largest_unacked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space, ptr nocapture noundef writeonly %pn) local_unnamed_addr #5 {
 entry:
   %idxprom.i = sext i32 %pkt_space to i64
   %0 = getelementptr [3 x %struct.tx_pkt_history_st], ptr %ackm, i64 0, i64 %idxprom.i, i32 0, i32 1
@@ -2019,7 +2019,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %r.i.i.i = alloca %struct.uint_range_st, align 8
   %r.i.i = alloca %struct.uint_range_st, align 8
@@ -2297,10 +2297,11 @@ if.end48:                                         ; preds = %if.then.i40.i, %if.
   %bf.lshr50 = lshr i8 %bf.load49, 3
   %bf.clear51 = and i8 %bf.lshr50, 3
   %bf.cast52 = zext nneg i8 %bf.clear51 to i32
-  switch i32 %bf.cast52, label %return [
+  switch i32 %bf.cast52, label %if.end48.unreachabledefault [
     i32 2, label %sw.bb
     i32 1, label %sw.bb59
     i32 3, label %sw.bb67
+    i32 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end48
@@ -2329,6 +2330,9 @@ sw.bb67:                                          ; preds = %if.end48
   %inc74 = add i64 %36, 1
   store i64 %inc74, ptr %arrayidx73, align 8
   br label %return
+
+if.end48.unreachabledefault:                      ; preds = %if.end48
+  unreachable
 
 return:                                           ; preds = %entry, %rx_pkt_history_add_pn.exit, %sw.bb, %sw.bb59, %sw.bb67, %if.end48, %ossl_ackm_is_rx_pn_processable.exit
   %retval.0 = phi i32 [ 1, %ossl_ackm_is_rx_pn_processable.exit ], [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %if.end48 ], [ 1, %sw.bb67 ], [ 1, %sw.bb59 ], [ 1, %sw.bb ], [ 1, %entry ]
@@ -2503,7 +2507,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ackm_mark_packet_pseudo_lost(ptr nocapture noundef %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_mark_packet_pseudo_lost(ptr nocapture noundef %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
 entry:
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
   %key.i.i = alloca %struct.ossl_ackm_tx_pkt_st, align 8

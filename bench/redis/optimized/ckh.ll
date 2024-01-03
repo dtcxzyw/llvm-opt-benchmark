@@ -100,7 +100,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arena_config_default = external constant %struct.arena_config_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ckh_new(ptr noundef %tsd, ptr nocapture noundef writeonly %ckh, i64 noundef %minitems, ptr noundef %ckh_hash, ptr noundef %keycomp) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_new(ptr noundef %tsd, ptr nocapture noundef writeonly %ckh, i64 noundef %minitems, ptr noundef %ckh_hash, ptr noundef %keycomp) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.rtree_contents_s, align 8
   store i64 42, ptr %ckh, align 8
@@ -352,7 +352,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @ckh_iter(ptr nocapture noundef readonly %ckh, ptr nocapture noundef %tabind, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @ckh_iter(ptr nocapture noundef readonly %ckh, ptr nocapture noundef %tabind, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %tabind, align 8
   %lg_curbuckets = getelementptr inbounds %struct.ckh_t, ptr %ckh, i64 0, i32 3
@@ -411,7 +411,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ckh_insert(ptr noundef %tsd, ptr nocapture noundef %ckh, ptr noundef %key, ptr noundef %data) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_insert(ptr noundef %tsd, ptr nocapture noundef %ckh, ptr noundef %key, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %key.i.i = alloca ptr, align 8
   %data.i.i = alloca ptr, align 8
@@ -693,7 +693,7 @@ label_return:                                     ; preds = %ckh_grow.exit, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ckh_try_insert(ptr nocapture noundef %ckh, ptr nocapture noundef %argkey, ptr nocapture noundef %argdata) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ckh_try_insert(ptr nocapture noundef %ckh, ptr nocapture noundef %argkey, ptr nocapture noundef %argdata) unnamed_addr #0 {
 entry:
   %hashes.i = alloca [2 x i64], align 16
   %hashes = alloca [2 x i64], align 16
@@ -933,7 +933,7 @@ return:                                           ; preds = %return.critedge79, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ckh_remove(ptr noundef %tsd, ptr nocapture noundef %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_remove(ptr noundef %tsd, ptr nocapture noundef %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
 entry:
   %key.i.i = alloca ptr, align 8
   %data.i.i = alloca ptr, align 8
@@ -1329,7 +1329,7 @@ return:                                           ; preds = %ckh_isearch.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ckh_search(ptr nocapture noundef readonly %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_search(ptr nocapture noundef readonly %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
 entry:
   %hashes.i = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashes.i)
@@ -1450,7 +1450,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @hash(ptr nocapture noundef readonly %key, i64 noundef %len, i32 noundef %seed, ptr nocapture noundef writeonly %r_hash) unnamed_addr #4 {
 entry:
   %conv = trunc i64 %len to i32
@@ -1504,7 +1504,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   %idx.ext.i = sext i32 %mul21.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %key, i64 %idx.ext.i
   %and.i = and i32 %conv, 15
-  switch i32 %and.i, label %hash_x64_128.exit [
+  switch i32 %and.i, label %for.end.unreachabledefault.i [
     i32 15, label %sw.bb.i
     i32 14, label %sw.bb26.i
     i32 13, label %sw.bb31.i
@@ -1520,6 +1520,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
     i32 3, label %sw.bb85.i
     i32 2, label %sw.bb90.i
     i32 1, label %sw.bb95.i
+    i32 0, label %hash_x64_128.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -1670,6 +1671,9 @@ sw.bb95.i:                                        ; preds = %sw.bb90.i, %for.end
   %xor103.i = xor i64 %mul102.i, %h1.0.lcssa.i
   br label %hash_x64_128.exit
 
+for.end.unreachabledefault.i:                     ; preds = %for.end.i
+  unreachable
+
 hash_x64_128.exit:                                ; preds = %for.end.i, %sw.bb95.i
   %h2.9.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.8.i, %sw.bb95.i ]
   %h1.1.i = phi i64 [ %h1.0.lcssa.i, %for.end.i ], [ %xor103.i, %sw.bb95.i ]
@@ -1754,7 +1758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i1 @ckh_pointer_keycomp(ptr noundef readnone %k1, ptr noundef readnone %k2) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @ckh_pointer_keycomp(ptr noundef readnone %k1, ptr noundef readnone %k2) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %k1, %k2
   ret i1 %cmp
@@ -2048,7 +2052,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

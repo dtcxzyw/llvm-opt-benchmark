@@ -7971,7 +7971,7 @@ if.end264:                                        ; preds = %if.then.i.i.i.i273,
           to label %invoke.cont267 unwind label %lpad159
 
 invoke.cont267:                                   ; preds = %if.end264
-  switch i32 %call_type.0, label %if.end371 [
+  switch i32 %call_type.0, label %invoke.cont267.unreachabledefault [
     i32 1, label %sw.bb268
     i32 0, label %sw.bb304
     i32 2, label %sw.bb315
@@ -8119,7 +8119,10 @@ lpad326:                                          ; preds = %invoke.cont348, %in
   call void @_ZN9LogHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp323) #17
   br label %ehcleanup666
 
-if.end371:                                        ; preds = %cleanup.done357.invoke, %invoke.cont267
+invoke.cont267.unreachabledefault:                ; preds = %invoke.cont267
+  unreachable
+
+if.end371:                                        ; preds = %cleanup.done357.invoke
   %vtable372 = load ptr, ptr %p, align 8
   %vfn373 = getelementptr inbounds ptr, ptr %vtable372, i64 3
   %96 = load ptr, ptr %vfn373, align 8
@@ -8146,7 +8149,7 @@ sw.bb380:                                         ; preds = %if.then379
   br label %invoke.cont650.invoke
 
 if.then395:                                       ; preds = %invoke.cont377
-  switch i32 %call_type.0, label %if.end659 [
+  switch i32 %call_type.0, label %if.then395.unreachabledefault [
     i32 1, label %sw.bb396
     i32 0, label %sw.bb480
     i32 2, label %sw.bb596
@@ -8904,8 +8907,8 @@ invoke.cont650:                                   ; preds = %invoke.cont648
 
 invoke.cont650.invoke:                            ; preds = %sw.bb380, %if.end476, %invoke.cont589, %invoke.cont650
   %143 = phi ptr [ @.str.171, %invoke.cont650 ], [ @.str.169, %invoke.cont589 ], [ @.str.160, %if.end476 ], [ %.str.152..str.153, %sw.bb380 ]
-  %.in807 = phi ptr [ %vfn655, %invoke.cont650 ], [ %vfn594, %invoke.cont589 ], [ %vfn478, %if.end476 ], [ %vfn384, %sw.bb380 ]
-  %144 = load ptr, ptr %.in807, align 8
+  %.in819 = phi ptr [ %vfn655, %invoke.cont650 ], [ %vfn594, %invoke.cont589 ], [ %vfn478, %if.end476 ], [ %vfn384, %sw.bb380 ]
+  %144 = load ptr, ptr %.in819, align 8
   invoke void %144(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %143)
           to label %if.end659 unwind label %lpad159
 
@@ -8931,7 +8934,10 @@ ehcleanup653:                                     ; preds = %lpad645, %lpad.i401
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp644) #17
   br label %ehcleanup666
 
-if.end659:                                        ; preds = %invoke.cont650.invoke, %if.then395, %if.then379
+if.then395.unreachabledefault:                    ; preds = %if.then395
+  unreachable
+
+if.end659:                                        ; preds = %invoke.cont650.invoke, %if.then379
   %vtable660 = load ptr, ptr %p, align 8
   %vfn661 = getelementptr inbounds ptr, ptr %vtable660, i64 6
   %148 = load ptr, ptr %vfn661, align 8
@@ -10736,7 +10742,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isspace_75(i32 noundef %c) local_unnamed_addr #0 {
+define noundef signext i8 @u_isspace_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -2203,10 +2203,11 @@ while.body:                                       ; preds = %if.then70, %while.b
 while.end:                                        ; preds = %while.body, %if.then70
   %exp.0.lcssa = phi i32 [ %add74, %if.then70 ], [ %sub77, %while.body ]
   %numValue.0.lcssa = phi double [ %conv75, %if.then70 ], [ %mul, %while.body ]
-  switch i32 %exp.0.lcssa, label %return [
+  switch i32 %exp.0.lcssa, label %while.end.unreachabledefault [
     i32 3, label %sw.bb
     i32 2, label %sw.bb79
     i32 1, label %sw.bb81
+    i32 0, label %return
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -2268,7 +2269,10 @@ if.then121:                                       ; preds = %if.else119
   %div132 = fdiv double %conv130, %conv131
   br label %return
 
-return:                                           ; preds = %if.else119, %sw.bb, %sw.bb79, %sw.bb81, %while.end, %cond.end39, %if.then121, %if.then107, %if.then86, %if.then61, %if.then56, %if.then51, %if.then47
+while.end.unreachabledefault:                     ; preds = %while.end
+  unreachable
+
+return:                                           ; preds = %while.end, %if.else119, %sw.bb, %sw.bb79, %sw.bb81, %cond.end39, %if.then121, %if.then107, %if.then86, %if.then61, %if.then56, %if.then51, %if.then47
   %retval.0 = phi double [ %conv48, %if.then47 ], [ %conv53, %if.then51 ], [ %conv58, %if.then56 ], [ %div, %if.then61 ], [ %conv104, %if.then86 ], [ %div118, %if.then107 ], [ %div132, %if.then121 ], [ 0xC19D6F3454000000, %cond.end39 ], [ %numValue.0.lcssa, %while.end ], [ %mul82, %sw.bb81 ], [ %mul80, %sw.bb79 ], [ %mul78, %sw.bb ], [ 0xC19D6F3454000000, %if.else119 ]
   ret double %retval.0
 }
@@ -2483,7 +2487,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @uprv_getMaxValues_75(i32 noundef %column) local_unnamed_addr #0 {
+define noundef i32 @uprv_getMaxValues_75(i32 noundef %column) local_unnamed_addr #0 {
 entry:
   %switch.selectcmp = icmp eq i32 %column, 2
   %switch.select = select i1 %switch.selectcmp, i32 49764913, i32 0

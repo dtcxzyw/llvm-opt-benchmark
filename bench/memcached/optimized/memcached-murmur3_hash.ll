@@ -3,7 +3,7 @@ source_filename = "bench/memcached/original/memcached-murmur3_hash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @MurmurHash3_x86_32(ptr nocapture noundef readonly %key, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %div35 = lshr i64 %length, 2
@@ -41,10 +41,11 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %entry
   %h1.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]
   %and = and i64 %length, 3
-  switch i64 %and, label %sw.epilog [
+  switch i64 %and, label %for.end.unreachabledefault [
     i64 3, label %sw.bb
     i64 2, label %sw.bb12
     i64 1, label %sw.bb17
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -54,7 +55,7 @@ sw.bb:                                            ; preds = %for.end
   %shl = shl nuw nsw i32 %conv10, 16
   br label %sw.bb12
 
-sw.bb12:                                          ; preds = %sw.bb, %for.end
+sw.bb12:                                          ; preds = %for.end, %sw.bb
   %k19.0 = phi i32 [ 0, %for.end ], [ %shl, %sw.bb ]
   %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %4 = load i8, ptr %arrayidx13, align 1
@@ -63,7 +64,7 @@ sw.bb12:                                          ; preds = %sw.bb, %for.end
   %xor16 = or disjoint i32 %shl15, %k19.0
   br label %sw.bb17
 
-sw.bb17:                                          ; preds = %sw.bb12, %for.end
+sw.bb17:                                          ; preds = %for.end, %sw.bb12
   %k19.1 = phi i32 [ 0, %for.end ], [ %xor16, %sw.bb12 ]
   %5 = load i8, ptr %add.ptr, align 1
   %conv19 = zext i8 %5 to i32
@@ -76,7 +77,10 @@ sw.bb17:                                          ; preds = %sw.bb12, %for.end
   %xor24 = xor i32 %mul23, %h1.0.lcssa
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb17, %for.end
+for.end.unreachabledefault:                       ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb17
   %h1.1 = phi i32 [ %h1.0.lcssa, %for.end ], [ %xor24, %sw.bb17 ]
   %6 = trunc i64 %length to i32
   %conv27 = xor i32 %h1.1, %6
@@ -94,7 +98,7 @@ sw.epilog:                                        ; preds = %sw.bb17, %for.end
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #1
 
-attributes #0 = { nofree nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

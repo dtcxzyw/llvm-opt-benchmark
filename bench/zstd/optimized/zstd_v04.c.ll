@@ -1102,10 +1102,11 @@ if.end.i:                                         ; preds = %entry
   %1 = load i8, ptr %src, align 1
   %2 = and i8 %1, 3
   %and.i = zext nneg i8 %2 to i32
-  switch i32 %and.i, label %return [
+  switch i32 %and.i, label %if.end.unreachabledefault.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb7.i
     i32 2, label %sw.bb39.i
+    i32 3, label %return
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -1259,6 +1260,9 @@ if.end48.i:                                       ; preds = %sw.bb39.i
   %litSize56.i = getelementptr inbounds %struct.ZSTDv04_Dctx_s, ptr %dctx, i64 0, i32 13
   store i64 %conv44.i, ptr %litSize56.i, align 8
   br label %if.end3
+
+if.end.unreachabledefault.i:                      ; preds = %if.end.i
+  unreachable
 
 ZSTD_decodeLiteralsBlock.exit.thread45:           ; preds = %sw.bb.i, %if.end.i.i, %HUF_decompress.exit.thread13.i.i, %HUF_decompress.exit.i.i
   %litPtr.i48 = getelementptr inbounds %struct.ZSTDv04_Dctx_s, ptr %dctx, i64 0, i32 12
@@ -4958,7 +4962,7 @@ if.end22.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %cmp30.i.i.i.i = icmp ult ptr %add.ptr28.i.i.i.i, %add.ptr.i
   %conv35.i.i.i.i = trunc i64 %bitD.i14.sroa.59852.0907.idx.i.i to i32
   %nbBytes.0.i.i.i.i = select i1 %cmp30.i.i.i.i, i32 %conv35.i.i.i.i, i32 %shr24.i.i.i.i
-  %mul.i.i.i.i = shl i32 %nbBytes.0.i.i.i.i, 3
+  %mul.i.i.i.i = shl nsw i32 %nbBytes.0.i.i.i.i, 3
   %sub.i.i.i.i = sub i32 %add.i.i.i.i.i, %mul.i.i.i.i
   br label %BIT_reloadDStream.exit.sink.split.i.i.i
 
@@ -4966,7 +4970,7 @@ BIT_reloadDStream.exit.sink.split.i.i.i:          ; preds = %if.end22.i.i.i.i, %
   %idx.ext38.i.i.pn.in.i.i = phi i32 [ %nbBytes.0.i.i.i.i, %if.end22.i.i.i.i ], [ %shr.i.i.i.i, %if.then4.i.i.i.i ]
   %and.i.sink.i.i.i = phi i32 [ %sub.i.i.i.i, %if.end22.i.i.i.i ], [ %and.i.i.i.i, %if.then4.i.i.i.i ]
   %idx.ext38.i.i.pn.i.i = zext i32 %idx.ext38.i.i.pn.in.i.i to i64
-  %bitD.i14.sroa.59852.0907.ptr.add.i.i = sub i64 %bitD.i14.sroa.59852.0907.idx.i.i, %idx.ext38.i.i.pn.i.i
+  %bitD.i14.sroa.59852.0907.ptr.add.i.i = sub nsw i64 %bitD.i14.sroa.59852.0907.idx.i.i, %idx.ext38.i.i.pn.i.i
   %bitD.i14.sroa.59852.1.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i14.sroa.59852.0907.ptr.add.i.i
   %add.ptr7.val.i.i.i.i = load i64, ptr %bitD.i14.sroa.59852.1.ptr.i.i, align 1
   br label %FSE_initDState.exit.i.i
@@ -5014,7 +5018,7 @@ FSE_initDState.exit118.i.i:                       ; preds = %if.end10.i.i100.i.i
   %mul.i.i116.i.i = shl i32 %nbBytes.0.i.i112.i.i, 3
   %sub.i.i117.i.i = sub i32 %add.i.i.i81.i.i, %mul.i.i116.i.i
   %idx.ext38.i.i113.pn.i.i = zext i32 %nbBytes.0.i.i112.i.i to i64
-  %bitD.i14.sroa.59852.2.ptr.add.i.i = sub i64 %bitD.i14.sroa.59852.2.idx.i.i, %idx.ext38.i.i113.pn.i.i
+  %bitD.i14.sroa.59852.2.ptr.add.i.i = sub nsw i64 %bitD.i14.sroa.59852.2.idx.i.i, %idx.ext38.i.i113.pn.i.i
   %bitD.i14.sroa.59852.3.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i14.sroa.59852.2.ptr.add.i.i
   %add.ptr7.val.i.i97.i.i = load i64, ptr %bitD.i14.sroa.59852.3.ptr.i.i, align 1
   %cmp.i120.i54.i = icmp ugt i32 %sub.i.i117.i.i, 64
@@ -5484,7 +5488,7 @@ if.end22.i.i437.i.i:                              ; preds = %if.end10.i.i435.i.i
   %cmp30.i.i442.i.i = icmp ult ptr %add.ptr28.i.i441.i.i, %add.ptr.i
   %conv35.i.i446.i.i = trunc i64 %bitD.i.sroa.59798.0950.idx.i.i to i32
   %nbBytes.0.i.i447.i.i = select i1 %cmp30.i.i442.i.i, i32 %conv35.i.i446.i.i, i32 %shr24.i.i438.i.i
-  %mul.i.i451.i.i = shl i32 %nbBytes.0.i.i447.i.i, 3
+  %mul.i.i451.i.i = shl nsw i32 %nbBytes.0.i.i447.i.i, 3
   %sub.i.i452.i.i = sub i32 %add.i.i.i416.i.i, %mul.i.i451.i.i
   br label %BIT_reloadDStream.exit.sink.split.i429.i.i
 
@@ -5492,7 +5496,7 @@ BIT_reloadDStream.exit.sink.split.i429.i.i:       ; preds = %if.end22.i.i437.i.i
   %idx.ext38.i.i448.pn.in.i.i = phi i32 [ %nbBytes.0.i.i447.i.i, %if.end22.i.i437.i.i ], [ %shr.i.i424.i.i, %if.then4.i.i423.i.i ]
   %and.i.sink.i430.i.i = phi i32 [ %sub.i.i452.i.i, %if.end22.i.i437.i.i ], [ %and.i.i428.i.i, %if.then4.i.i423.i.i ]
   %idx.ext38.i.i448.pn.i.i = zext i32 %idx.ext38.i.i448.pn.in.i.i to i64
-  %bitD.i.sroa.59798.0950.ptr.add.i.i = sub i64 %bitD.i.sroa.59798.0950.idx.i.i, %idx.ext38.i.i448.pn.i.i
+  %bitD.i.sroa.59798.0950.ptr.add.i.i = sub nsw i64 %bitD.i.sroa.59798.0950.idx.i.i, %idx.ext38.i.i448.pn.i.i
   %bitD.i.sroa.59798.1.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i.sroa.59798.0950.ptr.add.i.i
   %add.ptr7.val.i.i432.i.i = load i64, ptr %bitD.i.sroa.59798.1.ptr.i.i, align 1
   br label %FSE_initDState.exit453.i.i
@@ -5540,7 +5544,7 @@ FSE_initDState.exit503.i.i:                       ; preds = %if.end10.i.i485.i.i
   %mul.i.i501.i.i = shl i32 %nbBytes.0.i.i497.i.i, 3
   %sub.i.i502.i.i = sub i32 %add.i.i.i466.i.i, %mul.i.i501.i.i
   %idx.ext38.i.i498.pn.i.i = zext i32 %nbBytes.0.i.i497.i.i to i64
-  %bitD.i.sroa.59798.2.ptr.add.i.i = sub i64 %bitD.i.sroa.59798.2.idx.i.i, %idx.ext38.i.i498.pn.i.i
+  %bitD.i.sroa.59798.2.ptr.add.i.i = sub nsw i64 %bitD.i.sroa.59798.2.idx.i.i, %idx.ext38.i.i498.pn.i.i
   %bitD.i.sroa.59798.3.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bitD.i.sroa.59798.2.ptr.add.i.i
   %add.ptr7.val.i.i482.i.i = load i64, ptr %bitD.i.sroa.59798.3.ptr.i.i, align 1
   %cmp.i505.i69.i = icmp ugt i32 %sub.i.i502.i.i, 64

@@ -711,7 +711,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %6
@@ -1718,9 +1718,11 @@ while.body:                                       ; preds = %do.body, %_ZN6googl
   %it.015 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit ], [ %4, %do.body ]
   %elem.i.0.copyload = load i64, ptr %it.015, align 1
   %and.i = and i64 %elem.i.0.copyload, 3
-  switch i64 %and.i, label %sw.default.i [
+  switch i64 %and.i, label %while.body.unreachabledefault [
     i64 1, label %sw.bb.i
     i64 2, label %sw.bb1.i
+    i64 0, label %sw.default.i
+    i64 3, label %sw.default.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body
@@ -1748,7 +1750,10 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   tail call void @__clang_call_terminate(ptr %10) #27
   unreachable
 
-sw.default.i:                                     ; preds = %while.body
+while.body.unreachabledefault:                    ; preds = %while.body
+  unreachable
+
+sw.default.i:                                     ; preds = %while.body, %while.body
   %destructor.i = getelementptr inbounds %"struct.google::protobuf::internal::cleanup::DynamicNode", ptr %it.015, i64 0, i32 1
   %11 = load ptr, ptr %destructor.i, align 8
   %12 = inttoptr i64 %elem.i.0.copyload to ptr
@@ -2604,20 +2609,20 @@ entry:
   %head_.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %this, i64 0, i32 4
   %0 = load atomic i64, ptr %head_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %capacity.i.i3.i = getelementptr inbounds %"struct.google::protobuf::internal::SerialArenaChunkHeader", ptr %atomic-temp.i.0.i.i, i64 0, i32 1
-  %1 = load i32, ptr %capacity.i.i3.i, align 8
-  %cmp.i4.i = icmp eq i32 %1, 0
-  br i1 %cmp.i4.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i
+  %capacity.i.i4.i = getelementptr inbounds %"struct.google::protobuf::internal::SerialArenaChunkHeader", ptr %atomic-temp.i.0.i.i, i64 0, i32 1
+  %1 = load i32, ptr %capacity.i.i4.i, align 8
+  %cmp.i5.i = icmp eq i32 %1, 0
+  br i1 %cmp.i5.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i"
   %2 = phi i32 [ %21, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %1, %entry ]
-  %chunk.05.i = phi ptr [ %3, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %entry ]
-  %3 = load ptr, ptr %chunk.05.i, align 8
+  %chunk.06.i = phi ptr [ %3, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %entry ]
+  %3 = load ptr, ptr %chunk.06.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
-  %4 = getelementptr i8, ptr %chunk.05.i, i64 %mul.i.i.i.i.i.i
+  %4 = getelementptr i8, ptr %chunk.06.i, i64 %mul.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %4, i64 16
-  %size.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SerialArenaChunkHeader", ptr %chunk.05.i, i64 0, i32 2
+  %size.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SerialArenaChunkHeader", ptr %chunk.06.i, i64 0, i32 2
   %5 = load atomic i32, ptr %size.i.i.i.i.i monotonic, align 4
   %cmp.i.i.not4.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.not4.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.preheader.i.i
@@ -2628,180 +2633,108 @@ for.body.preheader.i.i:                           ; preds = %while.body.i
   %add.ptr.i.i.idx.i.i = shl nuw nsw i64 %conv6.i.i.i, 3
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %for.body.preheader.i.i
-  %it.sroa.0.0.idx5.i.i = phi i64 [ %it.sroa.0.0.add.i.i, %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i ], [ %add.ptr.i.i.idx.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, %for.body.preheader.i.i
+  %it.sroa.0.0.idx5.i.i = phi i64 [ %it.sroa.0.0.add.i.i, %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i ], [ %add.ptr.i.i.idx.i.i, %for.body.preheader.i.i ]
   %it.sroa.0.0.add.i.i = add nsw i64 %it.sroa.0.0.idx5.i.i, -8
   %incdec.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
   %6 = load atomic i64, ptr %incdec.ptr.i.ptr.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
-  %head_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 6
-  %7 = load atomic i64, ptr %head_.i.i.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %7 to ptr
-  %size.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 2
-  %8 = load i64, ptr %size.i.i.i.i, align 8
-  %cmp.i.i1.i.i = icmp eq i64 %8, 0
-  br i1 %cmp.i.i1.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %if.end.i.i.i
+  %head_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 6
+  %7 = load atomic i64, ptr %head_.i.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
+  %size.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 2
+  %8 = load i64, ptr %size.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i64 %8, 0
+  br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, label %if.end.i.i
 
-if.end.i.i.i:                                     ; preds = %for.body.i.i
-  %limit_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
-  %9 = load ptr, ptr %limit_.i.i.i, align 8
-  %cleanup_nodes.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 1
-  store ptr %9, ptr %cleanup_nodes.i.i.i, align 8
-  br label %do.body.i.i.i
+if.end.i.i:                                       ; preds = %for.body.i.i
+  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
+  %9 = load ptr, ptr %limit_.i.i, align 8
+  %cleanup_nodes.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 1
+  store ptr %9, ptr %cleanup_nodes.i.i, align 8
+  br label %do.body.i.i
 
-do.body.i.i.i:                                    ; preds = %while.end.i.i.i, %if.end.i.i.i
-  %b.0.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %if.end.i.i.i ], [ %20, %while.end.i.i.i ]
-  %size.i12.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i.i.i, i64 0, i32 2
-  %10 = load i64, ptr %size.i12.i.i.i, align 8
-  %and.i13.i.i.i = and i64 %10, -8
-  %add.ptr.i.i.i2.i.i = getelementptr inbounds i8, ptr %b.0.i.i.i, i64 %and.i13.i.i.i
-  %cleanup_nodes4.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i.i.i, i64 0, i32 1
-  %11 = load ptr, ptr %cleanup_nodes4.i.i.i, align 8
-  %cmp14.i.i.i = icmp ult ptr %11, %add.ptr.i.i.i2.i.i
-  br i1 %cmp14.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
+do.body.i.i:                                      ; preds = %while.end.i.i, %if.end.i.i
+  %b.0.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i ], [ %20, %while.end.i.i ]
+  %size.i12.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i.i, i64 0, i32 2
+  %10 = load i64, ptr %size.i12.i.i, align 8
+  %and.i13.i.i = and i64 %10, -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 %and.i13.i.i
+  %cleanup_nodes4.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i.i, i64 0, i32 1
+  %11 = load ptr, ptr %cleanup_nodes4.i.i, align 8
+  %cmp14.i.i = icmp ult ptr %11, %add.ptr.i.i.i.i
+  br i1 %cmp14.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i.i:                                 ; preds = %do.body.i.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
-  %it.015.i.i.i = phi ptr [ %add.ptr.i.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i ], [ %11, %do.body.i.i.i ]
-  %elem.i.0.copyload.i.i.i = load i64, ptr %it.015.i.i.i, align 1
-  %and.i.i.i.i = and i64 %elem.i.0.copyload.i.i.i, 3
-  switch i64 %and.i.i.i.i, label %sw.default.i.i.i.i [
-    i64 1, label %sw.bb.i.i.i.i
-    i64 2, label %sw.bb1.i.i.i.i
+while.body.i.i:                                   ; preds = %do.body.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i
+  %it.015.i.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i ], [ %11, %do.body.i.i ]
+  %elem.i.0.copyload.i.i = load i64, ptr %it.015.i.i, align 1
+  %and.i.i.i = and i64 %elem.i.0.copyload.i.i, 3
+  switch i64 %and.i.i.i, label %while.body.unreachabledefault.i.i [
+    i64 1, label %sw.bb.i.i.i
+    i64 2, label %sw.bb1.i.i.i
+    i64 0, label %sw.default.i.i.i
+    i64 3, label %sw.default.i.i.i
   ]
 
-sw.bb.i.i.i.i:                                    ; preds = %while.body.i.i.i
-  %sub.i.i.i.i = add i64 %elem.i.0.copyload.i.i.i, -1
-  %12 = inttoptr i64 %sub.i.i.i.i to ptr
+sw.bb.i.i.i:                                      ; preds = %while.body.i.i
+  %sub.i.i.i = add i64 %elem.i.0.copyload.i.i, -1
+  %12 = inttoptr i64 %sub.i.i.i to ptr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
-  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
+  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i
 
-sw.bb1.i.i.i.i:                                   ; preds = %while.body.i.i.i
-  %sub2.i.i.i.i = add i64 %elem.i.0.copyload.i.i.i, -2
-  %13 = inttoptr i64 %sub2.i.i.i.i to ptr
+sw.bb1.i.i.i:                                     ; preds = %while.body.i.i
+  %sub2.i.i.i = add i64 %elem.i.0.copyload.i.i, -2
+  %13 = inttoptr i64 %sub2.i.i.i to ptr
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
-  %cmp.i.i.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, label %if.then.i.i.i.i
+  %cmp.i.i.not.i.i.i = icmp eq i8 %15, 0
+  br i1 %cmp.i.i.not.i.i.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i, label %if.then.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i.i
+if.then.i.i.i:                                    ; preds = %sw.bb1.i.i.i
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
+          to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
-  %destructor.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::cleanup::DynamicNode", ptr %it.015.i.i.i, i64 0, i32 1
-  %18 = load ptr, ptr %destructor.i.i.i.i, align 8
-  %19 = inttoptr i64 %elem.i.0.copyload.i.i.i to ptr
+while.body.unreachabledefault.i.i:                ; preds = %while.body.i.i
+  unreachable
+
+sw.default.i.i.i:                                 ; preds = %while.body.i.i, %while.body.i.i
+  %destructor.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::cleanup::DynamicNode", ptr %it.015.i.i, i64 0, i32 1
+  %18 = load ptr, ptr %destructor.i.i.i, align 8
+  %19 = inttoptr i64 %elem.i.0.copyload.i.i to ptr
   tail call void %18(ptr noundef %19)
-  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
+  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i
 
-_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.default.i.i.i.i, %if.then.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.i.0.i.i.i = phi i64 [ 16, %sw.default.i.i.i.i ], [ 8, %sw.bb.i.i.i.i ], [ 8, %sw.bb1.i.i.i.i ], [ 8, %if.then.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.015.i.i.i, i64 %retval.i.0.i.i.i
-  %cmp.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i.i2.i.i
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !18
+_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i: ; preds = %sw.default.i.i.i, %if.then.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i
+  %retval.i.0.i.i = phi i64 [ 16, %sw.default.i.i.i ], [ 8, %sw.bb.i.i.i ], [ 8, %sw.bb1.i.i.i ], [ 8, %if.then.i.i.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.015.i.i, i64 %retval.i.0.i.i
+  %cmp.i3.i = icmp ult ptr %add.ptr.i.i, %add.ptr.i.i.i.i
+  br i1 %cmp.i3.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !18
 
-while.end.i.i.i:                                  ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, %do.body.i.i.i
-  %20 = load ptr, ptr %b.0.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !19
+while.end.i.i:                                    ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i, %do.body.i.i
+  %20 = load ptr, ptr %b.0.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %20, null
+  br i1 %tobool.not.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, label %do.body.i.i, !llvm.loop !19
 
-_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %while.end.i.i.i, %for.body.i.i
+_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i: ; preds = %while.end.i.i, %for.body.i.i
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !20
 
-"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
+"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i, %while.body.i
   %capacity.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SerialArenaChunkHeader", ptr %3, i64 0, i32 1
   %21 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %21, 0
   br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !21
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %entry
-  %head_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %this, i64 0, i32 6, i32 6
-  %22 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i1 = inttoptr i64 %22 to ptr
-  %size.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i1, i64 0, i32 2
-  %23 = load i64, ptr %size.i.i, align 8
-  %cmp.i.i2 = icmp eq i64 %23, 0
-  br i1 %cmp.i.i2, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
-  %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %this, i64 0, i32 6, i32 1
-  %24 = load ptr, ptr %limit_.i, align 8
-  %cleanup_nodes.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i1, i64 0, i32 1
-  store ptr %24, ptr %cleanup_nodes.i, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %while.end.i, %if.end.i
-  %b.0.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %if.end.i ], [ %35, %while.end.i ]
-  %size.i12.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i, i64 0, i32 2
-  %25 = load i64, ptr %size.i12.i, align 8
-  %and.i13.i = and i64 %25, -8
-  %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr %b.0.i, i64 %and.i13.i
-  %cleanup_nodes4.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %b.0.i, i64 0, i32 1
-  %26 = load ptr, ptr %cleanup_nodes4.i, align 8
-  %cmp14.i = icmp ult ptr %26, %add.ptr.i.i.i3
-  br i1 %cmp14.i, label %while.body.i4, label %while.end.i
-
-while.body.i4:                                    ; preds = %do.body.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
-  %it.015.i = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i ], [ %26, %do.body.i ]
-  %elem.i.0.copyload.i = load i64, ptr %it.015.i, align 1
-  %and.i.i = and i64 %elem.i.0.copyload.i, 3
-  switch i64 %and.i.i, label %sw.default.i.i [
-    i64 1, label %sw.bb.i.i
-    i64 2, label %sw.bb1.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %while.body.i4
-  %sub.i.i = add i64 %elem.i.0.copyload.i, -1
-  %27 = inttoptr i64 %sub.i.i to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #25
-  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
-
-sw.bb1.i.i:                                       ; preds = %while.body.i4
-  %sub2.i.i = add i64 %elem.i.0.copyload.i, -2
-  %28 = inttoptr i64 %sub2.i.i to ptr
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %cmp.i.i.not.i.i5 = icmp eq i8 %30, 0
-  br i1 %cmp.i.i.not.i.i5, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %sw.bb1.i.i
-  invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %31 = landingpad { ptr, i32 }
-          catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #27
-  unreachable
-
-sw.default.i.i:                                   ; preds = %while.body.i4
-  %destructor.i.i = getelementptr inbounds %"struct.google::protobuf::internal::cleanup::DynamicNode", ptr %it.015.i, i64 0, i32 1
-  %33 = load ptr, ptr %destructor.i.i, align 8
-  %34 = inttoptr i64 %elem.i.0.copyload.i to ptr
-  tail call void %33(ptr noundef %34)
-  br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
-
-_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.default.i.i, %if.then.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %retval.i.0.i = phi i64 [ 16, %sw.default.i.i ], [ 8, %sw.bb.i.i ], [ 8, %sw.bb1.i.i ], [ 8, %if.then.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %it.015.i, i64 %retval.i.0.i
-  %cmp.i = icmp ult ptr %add.ptr.i, %add.ptr.i.i.i3
-  br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !18
-
-while.end.i:                                      ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, %do.body.i
-  %35 = load ptr, ptr %b.0.i, align 8
-  %tobool.not.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !19
-
-_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit: ; preds = %while.end.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
+  %first_arena_ = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %this, i64 0, i32 6
+  tail call void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_)
   ret void
 }
 

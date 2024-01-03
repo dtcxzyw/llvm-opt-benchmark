@@ -937,7 +937,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.523, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.525, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.523, ptr @.str.526, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.525, ptr @.str.526, i32 215, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %_now.i.i92.i = alloca %struct.timeval, align 8
   %_now.i.i78.i = alloca %struct.timeval, align 8
@@ -946,10 +946,11 @@ entry:
   %0 = load i8, ptr %flags, align 1
   %1 = lshr i8 %0, 6
   %shr = zext nneg i8 %1 to i32
-  switch i32 %shr, label %return [
+  switch i32 %shr, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb7
     i32 2, label %sw.bb7
+    i32 3, label %return
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1335,13 +1336,16 @@ sw.bb7:                                           ; preds = %entry, %entry
   %call9 = tail call fastcc zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %58, i64 %60, i64 noundef %len)
   br label %return
 
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
 return:                                           ; preds = %if.end5.i.i, %unmap.i, %if.end128.i, %cleanup.i, %if.end.i, %entry, %sw.bb7
   %retval.0 = phi i16 [ %call9, %sw.bb7 ], [ 2, %entry ], [ 0, %cleanup.i ], [ 0, %if.end128.i ], [ 0, %if.end.i ], [ %status.2.i, %unmap.i ], [ %status.2.i, %if.end5.i.i ]
   ret i16 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %sgl.coerce0, i64 %sgl.coerce1, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %sgl.coerce0, i64 %sgl.coerce1, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i40 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1647,7 +1651,7 @@ return:                                           ; preds = %if.end22, %sw.epilo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @nvme_bounce_data(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @nvme_bounce_data(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %ns1 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 1
   %0 = load ptr, ptr %ns1, align 8
@@ -1700,7 +1704,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr nocapture noundef readonly %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_tx_interleaved(ptr noundef %n, ptr nocapture noundef readonly %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sg, align 8
   %and = and i32 %0, 2
@@ -1940,7 +1944,7 @@ return:                                           ; preds = %if.else45, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_tx(ptr noundef %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_tx(ptr noundef %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2078,7 +2082,7 @@ return:                                           ; preds = %if.end10, %if.end26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @nvme_bounce_mdata(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @nvme_bounce_mdata(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, i32 noundef %dir, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %ns1 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 1
   %0 = load ptr, ptr %ns1, align 8
@@ -2143,7 +2147,7 @@ return:                                           ; preds = %nvme_sg_unmap.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_mptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, i8 %cmd.1.val, i64 %cmd.16.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_mptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, i8 %cmd.1.val, i64 %cmd.16.val) unnamed_addr #0 {
 entry:
   %sgl = alloca %struct.NvmeSglDescriptor, align 8
   %.mask = and i8 %cmd.1.val, -64
@@ -2843,7 +2847,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_addr(ptr nocapture noundef readonly %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_addr(ptr nocapture noundef readonly %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3281,7 +3285,7 @@ declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_addr_cmb(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_addr_cmb(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3373,7 +3377,7 @@ return:                                           ; preds = %trace_pci_nvme_map_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_addr_pmr(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_addr_pmr(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %cmse.i = getelementptr inbounds %struct.NvmeCtrl, ptr %n, i64 0, i32 26, i32 1
   %0 = load i8, ptr %cmse.i, align 8
@@ -3439,7 +3443,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_sgl_data(ptr nocapture noundef readonly %n, ptr noundef %sg, ptr nocapture noundef readonly %segment, i64 noundef %nsgld, ptr nocapture noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_sgl_data(ptr nocapture noundef readonly %n, ptr noundef %sg, ptr nocapture noundef readonly %segment, i64 noundef %nsgld, ptr nocapture noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp1.not = icmp eq i64 %nsgld, 0
@@ -3571,7 +3575,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_zrm_finish(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_zrm_finish(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -12131,7 +12135,7 @@ if.end18.i.i:                                     ; preds = %if.then12.i.i414, %
   br i1 %tobool21.not.i.i, label %if.end32.i.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %if.end18.i.i
-  %317 = call i64 @llvm.bswap.i64(i64 %316)
+  %317 = call noundef i64 @llvm.bswap.i64(i64 %316)
   store i8 1, ptr %pos.0.i.i, align 1
   %eui64.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pos.0.i.i, i64 1
   store i8 8, ptr %eui64.sroa.3.0..sroa_idx.i.i, align 1
@@ -13473,7 +13477,7 @@ if.end7.i.i:                                      ; preds = %if.end.i26.i
   %cond22.in.i.i33.i = select i1 %tobool.not.i.i.i, ptr %vqrfa.i.i31.i, ptr %virfa.i.i32.i
   %cond22.i.i34.i = load i32, ptr %cond22.in.i.i33.i, align 4
   %conv25.i.i35.i = and i32 %cond22.i.i34.i, 65535
-  %sub.i.i = sub i32 %cond.i.i30.i, %conv25.i.i35.i
+  %sub.i.i = sub nsw i32 %cond.i.i30.i, %conv25.i.i35.i
   %cmp8.i.i = icmp slt i32 %sub.i.i, %and8.i192
   br i1 %cmp8.i.i, label %if.then55, label %if.end11.i.i
 
@@ -14332,7 +14336,7 @@ return:                                           ; preds = %invalid, %if.end65,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_compare(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_compare(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 nvme_nsid.exit:
   %err.i = alloca ptr, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -14546,7 +14550,7 @@ return:                                           ; preds = %nvme_check_dulbe.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_dsm(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_dsm(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ns1 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 1
@@ -15284,7 +15288,7 @@ trace_pci_nvme_close_zone.exit:                   ; preds = %sw.bb24, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i, label %if.then14.i
 
 if.then.i:                                        ; preds = %trace_pci_nvme_close_zone.exit
-  %call.i244 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
+  %call.i244 = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
   br label %sw.epilog
 
 if.then14.i:                                      ; preds = %trace_pci_nvme_close_zone.exit
@@ -15308,7 +15312,7 @@ land.rhs17.i:                                     ; preds = %if.then14.i, %for.c
   br i1 %switch, label %nvme_bulk_proc_zone.exit75.i, label %for.cond15.i
 
 nvme_bulk_proc_zone.exit75.i:                     ; preds = %land.rhs17.i
-  %call.i243 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2114.i), !range !12
+  %call.i243 = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2114.i), !range !12
   %34 = add nsw i16 %call.i243, -1
   %or.cond1.i = icmp ult i16 %34, -2
   br i1 %or.cond1.i, label %sw.epilog, label %for.cond15.i, !llvm.loop !49
@@ -15334,7 +15338,7 @@ land.rhs34.i:                                     ; preds = %for.end31.i, %for.c
   br i1 %switch253, label %nvme_bulk_proc_zone.exit88.i, label %for.cond32.i
 
 nvme_bulk_proc_zone.exit88.i:                     ; preds = %land.rhs34.i
-  %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3117.i), !range !12
+  %call.i = tail call fastcc noundef zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3117.i), !range !12
   %39 = add nsw i16 %call.i, -1
   %or.cond2.i = icmp ult i16 %39, -2
   br i1 %or.cond2.i, label %sw.epilog, label %for.cond32.i, !llvm.loop !50
@@ -15380,7 +15384,7 @@ trace_pci_nvme_finish_zone.exit:                  ; preds = %sw.bb31, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i162, label %if.else.i114
 
 if.then.i162:                                     ; preds = %trace_pci_nvme_finish_zone.exit
-  %call.i248 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
+  %call.i248 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx), !range !12
   br label %sw.epilog
 
 if.else.i114:                                     ; preds = %trace_pci_nvme_finish_zone.exit
@@ -15406,7 +15410,7 @@ land.rhs.i:                                       ; preds = %if.else.i114, %for.
   br i1 %switch254, label %nvme_bulk_proc_zone.exit.i, label %for.cond.i
 
 nvme_bulk_proc_zone.exit.i:                       ; preds = %land.rhs.i
-  %call.i247 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0112.i), !range !12
+  %call.i247 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0112.i), !range !12
   %51 = add nsw i16 %call.i247, -1
   %or.cond.i = icmp ult i16 %51, -2
   br i1 %or.cond.i, label %sw.epilog, label %for.cond.i, !llvm.loop !51
@@ -15455,7 +15459,7 @@ sw.epilog.i66.i125:                               ; preds = %sw.bb1.i73.i161, %l
   br i1 %tobool13.not.i69.i128, label %for.cond15.i132, label %nvme_bulk_proc_zone.exit75.i129
 
 nvme_bulk_proc_zone.exit75.i129:                  ; preds = %sw.epilog.i66.i125
-  %call.i246 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2114.i120), !range !12
+  %call.i246 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2114.i120), !range !12
   %58 = add nsw i16 %call.i246, -1
   %or.cond1.i131 = icmp ult i16 %58, -2
   br i1 %or.cond1.i131, label %sw.epilog, label %for.cond15.i132, !llvm.loop !49
@@ -15499,7 +15503,7 @@ sw.epilog.i79.i146:                               ; preds = %sw.bb1.i86.i160, %l
   br i1 %tobool13.not.i82.i149, label %for.cond32.i153, label %nvme_bulk_proc_zone.exit88.i150
 
 nvme_bulk_proc_zone.exit88.i150:                  ; preds = %sw.epilog.i79.i146
-  %call.i245 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3117.i141), !range !12
+  %call.i245 = tail call fastcc noundef zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3117.i141), !range !12
   %65 = add nsw i16 %call.i245, -1
   %or.cond2.i152 = icmp ult i16 %65, -2
   br i1 %or.cond2.i152, label %sw.epilog, label %for.cond32.i153, !llvm.loop !50
@@ -15840,7 +15844,7 @@ return:                                           ; preds = %for.cond32.i153, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_zone_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_zone_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %zone_idx = alloca i32, align 4
@@ -16247,7 +16251,7 @@ return:                                           ; preds = %nvme_check_mdts.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_io_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_io_mgmt_recv(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw102 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 7
   %0 = load i32, ptr %cdw102, align 1
@@ -16407,7 +16411,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_io_mgmt_send(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_io_mgmt_send(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw102 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 7
   %0 = load i32, ptr %cdw102, align 1
@@ -16449,11 +16453,11 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp13.not.i, label %if.end19.i, label %nvme_io_mgmt_send_ruh_update.exit
 
 if.end19.i:                                       ; preds = %if.end.i
-  %conv20.i = zext i32 %add.i to i64
+  %conv20.i = zext nneg i32 %add.i to i64
   %call21.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv20.i, i64 noundef 2) #19
-  %mul23.i = shl i32 %add.i, 1
+  %mul23.i = shl nuw nsw i32 %add.i, 1
   %sg.i.i = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 8
-  %conv.i.i = zext i32 %mul23.i to i64
+  %conv.i.i = zext nneg i32 %mul23.i to i64
   %cmd.i.i = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6
   %call.i.i = tail call zeroext i16 @nvme_map_dptr(ptr noundef nonnull %n, ptr noundef nonnull %sg.i.i, i64 noundef %conv.i.i, ptr noundef nonnull %cmd.i.i)
   %tobool.not.i.i = icmp eq i16 %call.i.i, 0
@@ -17291,7 +17295,7 @@ return:                                           ; preds = %if.end165, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_check_bounds(i64 %ns.272.val, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_check_bounds(i64 %ns.272.val, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sub = xor i64 %slba, -1
@@ -17430,7 +17434,7 @@ _nocheck__trace_pci_nvme_err_zasl.exit:           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_check_zone_write(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %zone, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_check_zone_write(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %zone, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i22 = alloca %struct.timeval, align 8
@@ -17735,7 +17739,7 @@ return:                                           ; preds = %trace_pci_nvme_err_
 declare zeroext i16 @nvme_dif_rw(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_map_data(ptr noundef %n, i32 noundef %nlb, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_map_data(ptr noundef %n, i32 noundef %nlb, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = alloca %struct.NvmeSg, align 8
   %ns1 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 1
@@ -18525,7 +18529,7 @@ return:                                           ; preds = %if.end16, %trace_pc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_zrm_close(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_zrm_close(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -18645,7 +18649,7 @@ return:                                           ; preds = %entry, %nvme_assign
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @nvme_update_ruh(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %ns, i16 noundef zeroext %pid) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @nvme_update_ruh(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %ns, i16 noundef zeroext %pid) unnamed_addr #0 {
 entry:
   %endgrp1 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 32
   %0 = load ptr, ptr %endgrp1, align 8
@@ -19043,7 +19047,7 @@ declare ptr @dma_blk_read(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare ptr @blk_aio_preadv(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_check_zone_state_for_read(ptr nocapture noundef readonly %zone) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_check_zone_state_for_read(ptr nocapture noundef readonly %zone) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %zone, i64 1
@@ -19613,7 +19617,7 @@ declare zeroext i16 @nvme_dif_check(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare ptr @blk_aio_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_h2c(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_h2c(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 8
   %conv = zext i32 %len to i64
@@ -21114,7 +21118,7 @@ out:                                              ; preds = %if.else, %if.end11,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %slba, ptr nocapture noundef writeonly %zone_idx) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %slba, ptr nocapture noundef writeonly %zone_idx) unnamed_addr #0 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -21856,7 +21860,7 @@ return:                                           ; preds = %done, %trace_pci_nv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
+define internal noundef zeroext i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
 entry:
   switch i32 %state, label %sw.default [
     i32 13, label %sw.bb
@@ -22224,7 +22228,7 @@ return:                                           ; preds = %out, %if.end
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef %ptr, i32 noundef %len, ptr noundef %req) unnamed_addr #0 {
 entry:
   %sg = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 8
   %conv = zext i32 %len to i64
@@ -22427,7 +22431,7 @@ _nocheck__trace_pci_nvme_err_invalid_create_sq_qflags.exit: ; preds = %entry, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_error_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_error_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %errlog = alloca %struct.NvmeErrorLog, align 1
   %cmp = icmp ugt i64 %off, 63
@@ -22473,7 +22477,7 @@ return:                                           ; preds = %if.end.i, %if.end2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_smart_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_smart_info(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %smart = alloca %struct.NvmeSmartLog, align 1
   %nsid1 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 3
@@ -22641,7 +22645,7 @@ return:                                           ; preds = %if.then3, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_fw_log_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_fw_log_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %fw_log = alloca %struct.NvmeFwSlotInfoLog, align 1
   %0 = getelementptr inbounds i8, ptr %fw_log, i64 1
@@ -22674,7 +22678,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_changed_nslist(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_changed_nslist(ptr noundef %n, i8 noundef zeroext %rae, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %nslist = alloca [1024 x i32], align 16
@@ -22821,7 +22825,7 @@ return:                                           ; preds = %if.end.i, %if.end26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_cmd_effects(ptr noundef %n, i8 noundef zeroext %csi, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_cmd_effects(ptr noundef %n, i8 noundef zeroext %csi, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %log = alloca %struct.NvmeEffectsLog, align 4
@@ -22919,7 +22923,7 @@ return:                                           ; preds = %if.end.i, %if.end8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_endgrp_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_endgrp_info(ptr noundef %n, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %info = alloca %struct.NvmeEndGrpLog, align 1
   %cdw11 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 8
@@ -23016,7 +23020,7 @@ return:                                           ; preds = %if.end.i16, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_fdp_confs(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_fdp_confs(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %endgrpid, 1
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
@@ -23144,7 +23148,7 @@ cleanup:                                          ; preds = %if.end.i, %if.end80
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_fdp_ruh_usage(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_fdp_ruh_usage(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %endgrpid, 1
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
@@ -23223,7 +23227,7 @@ cleanup:                                          ; preds = %if.end.i, %for.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_fdp_stats(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_fdp_stats(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %log = alloca %struct.NvmeFdpStatsLog, align 8
   %0 = getelementptr inbounds i8, ptr %log, i64 8
@@ -23279,7 +23283,7 @@ return:                                           ; preds = %if.end.i, %if.end8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_fdp_events(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_fdp_events(ptr noundef %n, i32 noundef %endgrpid, i32 noundef %buf_len, i64 noundef %off, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw10 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 7
   %0 = load i32, ptr %cdw10, align 1
@@ -23618,7 +23622,7 @@ _nocheck__trace_pci_nvme_err_invalid_create_cq_qflags.exit: ; preds = %entry, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_identify_ns(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_identify_ns(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %id.i21 = alloca [4096 x i8], align 16
   %id.i = alloca [4096 x i8], align 16
@@ -23759,7 +23763,7 @@ return:                                           ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_identify_ctrl_list(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %attached) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_identify_ctrl_list(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %attached) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [2048 x i16], align 16
@@ -23927,7 +23931,7 @@ return:                                           ; preds = %if.end.i27, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_identify_ns_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_identify_ns_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %id.i26 = alloca [4096 x i8], align 16
   %id.i = alloca [4096 x i8], align 16
@@ -24088,7 +24092,7 @@ return:                                           ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_identify_nslist(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_identify_nslist(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [4096 x i8], align 16
@@ -24222,7 +24226,7 @@ return:                                           ; preds = %if.end.i18, %for.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_identify_nslist_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_identify_nslist_csi(ptr noundef %n, ptr noundef %req, i1 noundef zeroext %active) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %list = alloca [4096 x i8], align 16
@@ -24434,7 +24438,7 @@ _nocheck__trace_pci_nvme_setfeat_numq.exit:       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_set_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_set_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %timestamp = alloca i64, align 8
   %sg.i = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 8
@@ -24501,7 +24505,7 @@ _nocheck__trace_pci_nvme_err_invalid_iocsci.exit: ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly %ns, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly %ns, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 8
   %0 = load i32, ptr %cdw112, align 1
@@ -24645,7 +24649,7 @@ _nocheck__trace_pci_nvme_getfeat_vwcache.exit:    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_get_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_get_feature_timestamp(ptr noundef %n, ptr noundef %req) unnamed_addr #0 {
 entry:
   %timestamp = alloca i64, align 8
   %call = tail call fastcc i64 @nvme_get_timestamp(ptr noundef %n)
@@ -24666,7 +24670,7 @@ nvme_c2h.exit:                                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr nocapture noundef readonly %ns, ptr noundef %req, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr nocapture noundef readonly %ns, ptr noundef %req, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 8
   %0 = load i32, ptr %cdw112, align 1
@@ -24781,7 +24785,7 @@ cleanup:                                          ; preds = %for.end, %nvme_c2h.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_virt_set_state(ptr noundef %n, i16 noundef zeroext %cntlid, i1 noundef zeroext %online) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @nvme_virt_set_state(ptr noundef %n, i16 noundef zeroext %cntlid, i1 noundef zeroext %online) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %sec_ctrl_list.i = getelementptr inbounds %struct.NvmeCtrl, ptr %n, i64 0, i32 43

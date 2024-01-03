@@ -763,7 +763,7 @@ if.then40:                                        ; preds = %if.end32
   br label %fail
 
 if.end41:                                         ; preds = %if.end32
-  switch i32 %call33, label %sw.default [
+  switch i32 %call33, label %if.end41.unreachabledefault [
     i32 6, label %sw.epilog
     i32 5, label %sw.bb42
     i32 2, label %sw.epilog
@@ -821,11 +821,10 @@ if.then60:                                        ; preds = %if.end54
   call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef nonnull %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.6, i64 noundef %and48, i64 noundef %sub62, i32 noundef %conv1.i105) #13
   br label %fail
 
-sw.default:                                       ; preds = %if.end41
-  call void @abort() #15
+if.end41.unreachabledefault:                      ; preds = %if.end41
   unreachable
 
-sw.epilog:                                        ; preds = %if.end54, %if.end41, %if.end41, %if.end41, %if.end45
+sw.epilog:                                        ; preds = %if.end41, %if.end41, %if.end41, %if.end54, %if.end45
   %conv64 = trunc i64 %shr.i118 to i32
   %35 = load ptr, ptr %l2_slice, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
@@ -1117,9 +1116,6 @@ if.end39:                                         ; preds = %switch.lookup, %if.
   %retval.0 = phi i32 [ 5, %if.then2 ], [ 6, %sw.bb3 ], [ 3, %if.else5 ], [ %., %if.else10 ], [ 6, %sw.bb17 ], [ %.12, %if.else21 ], [ %switch.load, %switch.lookup ]
   ret i32 %retval.0
 }
-
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
 
 declare void @qcow2_cache_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 

@@ -6369,7 +6369,7 @@ if.then.i.i204.cont:                              ; preds = %if.then.i.i204.invo
 _ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 576460752303423487)
   %cond.i.i = select i1 %cmp7.i.i, i64 576460752303423487, i64 %24
@@ -6464,7 +6464,7 @@ if.else.i38:                                      ; preds = %do.end62
 _ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE12_M_check_lenEmPKc.exit.i212: ; preds = %if.else.i38
   %sub.ptr.div.i.i.i213 = ashr exact i64 %sub.ptr.sub.i.i.i210, 4
   %.sroa.speculated.i.i214 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i213, i64 1)
-  %add.i.i215 = add i64 %.sroa.speculated.i.i214, %sub.ptr.div.i.i.i213
+  %add.i.i215 = add nsw i64 %.sroa.speculated.i.i214, %sub.ptr.div.i.i.i213
   %cmp7.i.i216 = icmp ult i64 %add.i.i215, %sub.ptr.div.i.i.i213
   %31 = tail call i64 @llvm.umin.i64(i64 %add.i.i215, i64 576460752303423487)
   %cond.i.i217 = select i1 %cmp7.i.i216, i64 576460752303423487, i64 %31
@@ -6606,10 +6606,11 @@ invoke.cont88:                                    ; preds = %if.then87
 if.end91:                                         ; preds = %invoke.cont88, %if.end84
   store ptr null, ptr %picker, align 8
   store i64 0, ptr %status, align 8
-  switch i32 %connectivity_state.0, label %sw.default109 [
+  switch i32 %connectivity_state.0, label %if.end91.unreachabledefault [
     i32 2, label %sw.bb95
     i32 1, label %invoke.cont105
     i32 0, label %invoke.cont105
+    i32 3, label %sw.default109
   ]
 
 sw.bb95:                                          ; preds = %if.end91
@@ -6675,6 +6676,9 @@ if.then.i.i104:                                   ; preds = %if.then.i101
   %50 = load ptr, ptr %vfn.i.i.i106, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(56) %this) #27
   br label %ehcleanup
+
+if.end91.unreachabledefault:                      ; preds = %if.end91
+  unreachable
 
 sw.default109:                                    ; preds = %if.end91
   invoke fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116WeightedTargetLb14WeightedPickerEJSt6vectorISt4pairImNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEESaISA_EEEEENS6_IT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(24) %tf_picker_list)
@@ -10164,7 +10168,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

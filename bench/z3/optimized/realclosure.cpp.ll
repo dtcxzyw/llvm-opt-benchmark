@@ -6418,10 +6418,11 @@ entry:
   %m_kind.i.i = getelementptr inbounds %"struct.realclosure::extension", ptr %x, i64 0, i32 1
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 3
-  switch i32 %bf.clear.i.i, label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit [
+  switch i32 %bf.clear.i.i, label %entry.unreachabledefault.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb4.i
     i32 2, label %sw.bb7.i
+    i32 3, label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -6459,6 +6460,9 @@ sw.bb7.i:                                         ; preds = %entry
   tail call void @_ZNK11realclosure7manager3imp21display_algebraic_defERSoPNS_9algebraicEbb(ptr noundef nonnull align 8 dereferenceable(1497) %imp, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %x, i1 noundef zeroext false, i1 noundef zeroext false) #22
   br label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit
 
+entry.unreachabledefault.i:                       ; preds = %entry
+  unreachable
+
 _ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit: ; preds = %if.else5.i4.i, %if.else.i13.i, %if.then2.i11.i, %entry, %sw.bb4.i, %sw.bb7.i
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret void
@@ -6470,10 +6474,11 @@ entry:
   %m_kind.i = getelementptr inbounds %"struct.realclosure::extension", ptr %r, i64 0, i32 1
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 3
-  switch i32 %bf.clear.i, label %sw.epilog [
+  switch i32 %bf.clear.i, label %entry.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
     i32 2, label %sw.bb7
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -6509,7 +6514,10 @@ if.else18:                                        ; preds = %sw.bb7
   tail call void @_ZNK11realclosure7manager3imp21display_algebraic_defERSoPNS_9algebraicEbb(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %r, i1 noundef zeroext false, i1 noundef zeroext %pp)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.else18, %if.else, %if.then10, %sw.bb4, %sw.bb, %entry
+entry.unreachabledefault:                         ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %entry, %if.else18, %if.else, %if.then10, %sw.bb4, %sw.bb
   ret void
 }
 
@@ -9277,10 +9285,11 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %arrayidx.i, align 8
   %bf.load.i10 = load i32, ptr %m_kind.i, align 4
   %bf.clear.i11 = and i32 %bf.load.i10, 3
-  switch i32 %bf.clear.i11, label %if.end [
+  switch i32 %bf.clear.i11, label %if.then.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
     i32 2, label %sw.bb7
+    i32 3, label %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then
@@ -9396,6 +9405,9 @@ if.then.i:                                        ; preds = %_ZN11realclosure7ma
 if.then4.i:                                       ; preds = %if.then.i
   tail call void @_ZN11realclosure7manager3imp12del_sign_detEPNS_8sign_detE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %25)
   br label %if.end.sink.split
+
+if.then.unreachabledefault:                       ; preds = %if.then
+  unreachable
 
 if.end.sink.split:                                ; preds = %if.then4.i, %if.then.i, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit, %sw.bb6, %sw.bb
   %m_allocator.i.i.sink = phi ptr [ %m_allocator.i.i, %sw.bb ], [ %m_allocator.i.i15, %sw.bb6 ], [ %m_allocator.i.i2028, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit ], [ %m_allocator.i.i2028, %if.then.i ], [ %m_allocator.i.i2028, %if.then4.i ]
@@ -10443,11 +10455,15 @@ if.else:                                          ; preds = %invoke.cont
 if.end:                                           ; preds = %invoke.cont, %if.else
   %bf.load.i.i12 = phi i32 [ %bf.load.i.i, %invoke.cont ], [ %bf.load.i.i12.pre, %if.else ]
   %bf.clear.i.i13 = and i32 %bf.load.i.i12, 3
-  switch i32 %bf.clear.i.i13, label %sw.default.i [
+  switch i32 %bf.clear.i.i13, label %entry.unreachabledefault.i [
     i32 0, label %lor.lhs.false
     i32 1, label %lor.end
     i32 2, label %_ZN11realclosure7manager3imp25depends_on_infinitesimalsEPNS_9extensionE.exit
+    i32 3, label %sw.default.i
   ]
+
+entry.unreachabledefault.i:                       ; preds = %if.end
+  unreachable
 
 sw.default.i:                                     ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 1093, ptr noundef nonnull @.str.2)
@@ -43569,10 +43585,11 @@ if.end:                                           ; preds = %land.rhs.i.i, %_ZNK
   %m_kind.i = getelementptr inbounds %"struct.realclosure::extension", ptr %8, i64 0, i32 1
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 3
-  switch i32 %bf.clear.i, label %sw.default [
+  switch i32 %bf.clear.i, label %if.end.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb5
     i32 2, label %sw.bb6
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -43629,6 +43646,9 @@ sw.bb5:                                           ; preds = %if.end
 sw.bb6:                                           ; preds = %if.end
   %call7 = tail call noundef zeroext i1 @_ZN11realclosure7manager3imp24determine_algebraic_signEPNS_23rational_function_valueE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %v)
   br label %return
+
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 4975, ptr noundef nonnull @.str.2)
@@ -50293,7 +50313,7 @@ if.then2.i66:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.div.i.i.i.i.i.i70 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i69, 3
   %.pre.i.i.i.i.i.i71 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i70
   %add.ptr.i.i.i.i.i.i72 = getelementptr inbounds ptr, ptr %add.ptr3.i67, i64 %.pre.i.i.i.i.i.i71
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i72, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i69, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i69, i1 false)
   br label %for.inc.i52
 
 while.cond.i.i41:                                 ; preds = %while.cond.i.i41.preheader, %while.body.i.i60
@@ -50578,7 +50598,7 @@ while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i
   %6 = load ptr, ptr %add.ptr13.i, align 8
@@ -50815,7 +50835,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i
   %7 = load ptr, ptr %add.ptr13.i, align 8

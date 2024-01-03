@@ -19039,10 +19039,11 @@ invoke.cont45:                                    ; preds = %invoke.cont41
           to label %invoke.cont49 unwind label %terminate.lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont45
-  switch i16 %and, label %if.else76 [
+  switch i16 %and, label %invoke.cont49.unreachabledefault [
     i16 2, label %if.end120.sink.split
     i16 4, label %if.then58
     i16 6, label %if.then64
+    i16 0, label %if.else76
   ]
 
 if.then58:                                        ; preds = %invoke.cont49
@@ -19062,6 +19063,9 @@ if.end70:                                         ; preds = %if.then64
   %14 = load ptr, ptr %readCallback_, align 8, !tbaa !133
   %tobool71.not = icmp eq ptr %14, null
   br i1 %tobool71.not, label %if.end120, label %if.end120.sink.split
+
+invoke.cont49.unreachabledefault:                 ; preds = %invoke.cont49
+  unreachable
 
 if.else76:                                        ; preds = %invoke.cont49
   %15 = load ptr, ptr @_ZZN5folly11AsyncSocket7ioReadyEtE8vlocal___0, align 8, !tbaa !24
@@ -19128,7 +19132,7 @@ cleanup.done117:                                  ; preds = %cleanup.action113, 
   call void @abort() #43
   unreachable
 
-if.end120.sink.split:                             ; preds = %if.end70, %if.then58, %invoke.cont49
+if.end120.sink.split:                             ; preds = %invoke.cont49, %if.end70, %if.then58
   %.sink = phi i64 [ 94, %if.then58 ], [ 93, %invoke.cont49 ], [ 93, %if.end70 ]
   %vtable59 = load ptr, ptr %this, align 8, !tbaa !7
   %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 %.sink

@@ -150,7 +150,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3sat7cleanerC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s) unnamed_addr #3 align 2 {
 entry:
   store ptr %_s, ptr %this, align 8
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat7cleaner16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3sat7cleaner16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_elim_clauses = getelementptr inbounds %"class.sat::cleaner", ptr %this, i64 0, i32 3
   store i32 0, ptr %m_elim_clauses, align 8
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cleaner15cleanup_watchesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat7cleaner15cleanup_watchesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_watches = getelementptr inbounds %"class.sat::solver", ptr %0, i64 0, i32 36
@@ -183,19 +183,19 @@ _ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit: ; preds = %entry
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %class.vector.51, ptr %1, i64 %3
-  %cmp.not31 = icmp eq i32 %2, 0
-  br i1 %cmp.not31, label %for.end31, label %for.body
+  %cmp.not32 = icmp eq i32 %2, 0
+  br i1 %cmp.not32, label %for.end31, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit, %for.inc29
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc29 ], [ 0, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
-  %it.033 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %1, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
+  %it.034 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %1, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
   %4 = load ptr, ptr %this, align 8
   %m_assignment.i = getelementptr inbounds %"class.sat::solver", ptr %4, i64 0, i32 37
   %5 = load ptr, ptr %m_assignment.i, align 8
   %arrayidx.i.i17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx.i.i17, align 4
   %cmp9.not = icmp eq i32 %6, 0
-  %7 = load ptr, ptr %it.033, align 8
+  %7 = load ptr, ptr %it.034, align 8
   %cmp.i.i18 = icmp eq ptr %7, null
   br i1 %cmp9.not, label %if.end, label %if.then
 
@@ -208,7 +208,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit
 
 _ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit:  ; preds = %if.then, %if.then.i.i
-  store ptr null, ptr %it.033, align 8
+  store ptr null, ptr %it.034, align 8
   br label %for.inc29
 
 if.end:                                           ; preds = %for.body
@@ -219,24 +219,25 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %if.end
   %8 = load i32, ptr %arrayidx.i.i20, align 4
   %9 = zext i32 %8 to i64
   %add.ptr.i22 = getelementptr inbounds %"class.sat::watched", ptr %7, i64 %9
-  %cmp13.not28 = icmp eq i32 %8, 0
-  br i1 %cmp13.not28, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, label %for.body14
+  %cmp13.not29 = icmp eq i32 %8, 0
+  br i1 %cmp13.not29, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, label %for.body14
 
 for.body14:                                       ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %for.inc
-  %it_prev.030 = phi ptr [ %it_prev.1, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %it2.029 = phi ptr [ %incdec.ptr28, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %m_val2.i = getelementptr inbounds %"class.sat::watched", ptr %it2.029, i64 0, i32 1
+  %it_prev.031 = phi ptr [ %it_prev.1, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %it2.030 = phi ptr [ %incdec.ptr28, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %m_val2.i = getelementptr inbounds %"class.sat::watched", ptr %it2.030, i64 0, i32 1
   %10 = load i32, ptr %m_val2.i, align 8
   %and.i = and i32 %10, 3
-  switch i32 %and.i, label %sw.default [
+  switch i32 %and.i, label %for.body14.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %for.inc
     i32 2, label %for.inc.sink.split
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %for.body14
   %11 = load ptr, ptr %this, align 8
-  %12 = load i64, ptr %it2.029, align 8
+  %12 = load i64, ptr %it2.030, align 8
   %m_assignment.i23 = getelementptr inbounds %"class.sat::solver", ptr %11, i64 0, i32 37
   %13 = load ptr, ptr %m_assignment.i23, align 8
   %idxprom.i.i24 = and i64 %12, 4294967295
@@ -245,31 +246,34 @@ sw.bb:                                            ; preds = %for.body14
   %cmp22 = icmp eq i32 %14, 0
   br i1 %cmp22, label %for.inc.sink.split, label %for.inc
 
+for.body14.unreachabledefault:                    ; preds = %for.body14
+  unreachable
+
 sw.default:                                       ; preds = %for.body14
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #14
+  tail call void @exit(i32 noundef 114) #13
   unreachable
 
 for.inc.sink.split:                               ; preds = %for.body14, %sw.bb
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %it_prev.030, ptr noundef nonnull align 8 dereferenceable(12) %it2.029, i64 12, i1 false)
-  %incdec.ptr27 = getelementptr inbounds %"class.sat::watched", ptr %it_prev.030, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %it_prev.031, ptr noundef nonnull align 8 dereferenceable(12) %it2.030, i64 12, i1 false)
+  %incdec.ptr27 = getelementptr inbounds %"class.sat::watched", ptr %it_prev.031, i64 1
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %sw.bb, %for.body14
-  %it_prev.1 = phi ptr [ %it_prev.030, %for.body14 ], [ %it_prev.030, %sw.bb ], [ %incdec.ptr27, %for.inc.sink.split ]
-  %incdec.ptr28 = getelementptr inbounds %"class.sat::watched", ptr %it2.029, i64 1
+for.inc:                                          ; preds = %for.inc.sink.split, %for.body14, %sw.bb
+  %it_prev.1 = phi ptr [ %it_prev.031, %for.body14 ], [ %it_prev.031, %sw.bb ], [ %incdec.ptr27, %for.inc.sink.split ]
+  %incdec.ptr28 = getelementptr inbounds %"class.sat::watched", ptr %it2.030, i64 1
   %cmp13.not = icmp eq ptr %incdec.ptr28, %add.ptr.i22
   br i1 %cmp13.not, label %for.end, label %for.body14, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %.pre = load ptr, ptr %it.033, align 8
+  %.pre = load ptr, ptr %it.034, align 8
   %tobool.not.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i, label %for.inc29, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %for.end
-  %it_prev.0.lcssa46 = phi ptr [ %it_prev.1, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %it_prev.0.lcssa47 = phi ptr [ %it_prev.1, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
   %15 = phi ptr [ %.pre, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %it_prev.0.lcssa46 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %it_prev.0.lcssa47 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
@@ -279,7 +283,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZN6vectorIN3sat7wa
   br label %for.inc29
 
 for.inc29:                                        ; preds = %if.end, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %for.end, %_ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit
-  %incdec.ptr30 = getelementptr inbounds %class.vector.51, ptr %it.033, i64 1
+  %incdec.ptr30 = getelementptr inbounds %class.vector.51, ptr %it.034, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq ptr %incdec.ptr30, %add.ptr.i
   br i1 %cmp.not, label %for.end31, label %for.body, !llvm.loop !6
@@ -289,15 +293,15 @@ for.end31:                                        ; preds = %for.inc29, %entry, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cs) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cs) local_unnamed_addr #4 align 2 {
 entry:
   %reinit.i = alloca i8, align 1
   %agg.tmp4.i = alloca %"class.sat::status", align 8
@@ -548,7 +552,7 @@ declare void @_ZN3sat6solver10del_clauseERNS_6clauseE(ptr noundef nonnull align 
 declare void @_ZN3sat6solver6shrinkERNS_6clauseEjj(ptr noundef nonnull align 8 dereferenceable(4408), ptr noundef nonnull align 4 dereferenceable(20), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat7cleaner8is_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat7cleaner8is_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_clauses = getelementptr inbounds %"class.sat::solver", ptr %0, i64 0, i32 29
@@ -738,7 +742,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3sat7cleanerclEb(ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %force) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3sat7cleanerclEb(ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %force) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rpt = alloca %"struct.sat::cleaner::report", align 8
   %0 = load ptr, ptr %this, align 8
@@ -785,7 +789,7 @@ if.end10:                                         ; preds = %if.end6
   %9 = load <2 x i32>, ptr %m_elim_clauses2.i, align 8
   store <2 x i32> %9, ptr %m_elim_clauses.i, align 8
   %m_running.i.i = getelementptr inbounds %"struct.sat::cleaner::report", ptr %rpt, i64 0, i32 1, i32 2
-  %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
+  %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   store i64 %call.i.i.i, ptr %m_watch.i, align 8
   store i8 1, ptr %m_running.i.i, align 8
   store i32 %retval.0.i, ptr %m_last_num_units, align 8
@@ -852,13 +856,13 @@ land.rhs:                                         ; preds = %_ZNK6vectorIN3sat7l
   br i1 %tobool.i.not, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12, %land.rhs
-  call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rpt) #15
+  call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rpt) #14
   br label %return
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont18, %invoke.cont16, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rpt) #15
+  call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rpt) #14
   resume { ptr, i32 } %20
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %do.end
@@ -871,7 +875,7 @@ declare noundef zeroext i1 @_ZN3sat6solver9propagateEb(ptr noundef nonnull align
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_watch = getelementptr inbounds %"struct.sat::cleaner::report", ptr %this, i64 0, i32 1
   %m_running.i = getelementptr inbounds %"struct.sat::cleaner::report", ptr %this, i64 0, i32 1, i32 2
@@ -881,7 +885,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %m_watch, align 8
   %sub.i.i.i = sub i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i
   %m_elapsed.i = getelementptr inbounds %"struct.sat::cleaner::report", ptr %this, i64 0, i32 1, i32 1
@@ -1055,12 +1059,12 @@ terminate.lpad:                                   ; preds = %invoke.cont73, %inv
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #14
+  tail call void @__clang_call_terminate(ptr %20) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3sat7cleaner18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK3sat7cleaner18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #4 align 2 {
 entry:
   %m_elim_clauses = getelementptr inbounds %"class.sat::cleaner", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %m_elim_clauses, align 8
@@ -1082,9 +1086,9 @@ declare void @_ZN3sat6solver13mk_bin_clauseENS_7literalES1_NS_6statusE(ptr nound
 declare void @_ZN3sat6solver13attach_clauseERNS_6clauseERb(ptr noundef nonnull align 8 dereferenceable(4408), ptr noundef nonnull align 4 dereferenceable(20), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -1108,7 +1112,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv() lo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9stopwatch(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(17) %sw) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9stopwatch(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(17) %sw) local_unnamed_addr #4 comdat {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
@@ -1120,7 +1124,7 @@ entry:
   br i1 %tobool.not.i, label %_ZNK9stopwatch11get_secondsEv.exit, label %_ZN9stopwatch4stopEv.exit.i
 
 _ZN9stopwatch4stopEv.exit.i:                      ; preds = %entry
-  %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
+  %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %sw, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
   %m_elapsed.i.i = getelementptr inbounds %class.stopwatch, ptr %sw, i64 0, i32 1
@@ -1128,7 +1132,7 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %entry
   %add.i.i.i = add nsw i64 %sub.i.i.i.i, %2
   store i64 %add.i.i.i, ptr %m_elapsed.i.i, align 8
   store i8 0, ptr %m_running.i, align 8
-  %call.i.i4.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
+  %call.i.i4.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   store i64 %call.i.i4.i, ptr %sw, align 8
   store i8 1, ptr %m_running.i, align 8
   br label %_ZNK9stopwatch11get_secondsEv.exit
@@ -1152,7 +1156,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #5 comdat {
+define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #4 comdat {
 entry:
   %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
   %0 = load i32, ptr %_M_flags.i, align 8
@@ -1167,39 +1171,38 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sat_cleaner.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_sat_cleaner.cpp() #10 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   store i1 true, ptr @_ZN3satL12null_literalE.0, align 4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3135,7 +3135,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %30 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
   %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %30
@@ -3423,7 +3423,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %38 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
   %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %38
@@ -3839,7 +3839,7 @@ if.then.i.i:                                      ; preds = %if.else.i69
 _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i69
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %46 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
   %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %46
@@ -6834,8 +6834,8 @@ if.end9:                                          ; preds = %_ZN4absl7debian211s
   br i1 %tobool12.not, label %while.cond27.preheader, label %while.cond
 
 while.cond27.preheader:                           ; preds = %if.end9
-  %cmp.i36481 = icmp eq i64 %3, 0
-  br i1 %cmp.i36481, label %while.end411.invoke, label %invoke.cont31.lr.ph
+  %cmp.i36484 = icmp eq i64 %3, 0
+  br i1 %cmp.i36484, label %while.end411.invoke, label %invoke.cont31.lr.ph
 
 invoke.cont31.lr.ph:                              ; preds = %while.cond27.preheader
   %4 = load i32, ptr @_ZN3re215num_perl_groupsE, align 4
@@ -6913,8 +6913,8 @@ if.end19:                                         ; preds = %invoke.cont15
 
 invoke.cont31:                                    ; preds = %invoke.cont31.lr.ph, %Break2
   %11 = phi i64 [ %3, %invoke.cont31.lr.ph ], [ %111, %Break2 ]
-  %lastunary.sroa.0.0484 = phi ptr [ null, %invoke.cont31.lr.ph ], [ %isunary.sroa.0.1, %Break2 ]
-  %lastunary.sroa.6.0483 = phi i64 [ 0, %invoke.cont31.lr.ph ], [ %isunary.sroa.4.1, %Break2 ]
+  %lastunary.sroa.0.0487 = phi ptr [ null, %invoke.cont31.lr.ph ], [ %isunary.sroa.0.1, %Break2 ]
+  %lastunary.sroa.6.0486 = phi i64 [ 0, %invoke.cont31.lr.ph ], [ %isunary.sroa.4.1, %Break2 ]
   %12 = load ptr, ptr %t, align 8
   %13 = load i8, ptr %12, align 1
   %conv = sext i8 %13 to i32
@@ -7245,13 +7245,13 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit133: ; preds = %invoke.cont12
 if.end135:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit133, %invoke.cont129, %if.then126
   %40 = phi ptr [ %add.ptr.i117, %if.then126 ], [ %add.ptr.i130, %_ZN4absl7debian211string_view13remove_prefixEm.exit133 ], [ %add.ptr.i117, %invoke.cont129 ]
   %nongreedy.0 = phi i1 [ false, %if.then126 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit133 ], [ false, %invoke.cont129 ]
-  %cmp.i135 = icmp eq i64 %lastunary.sroa.6.0483, 0
+  %cmp.i135 = icmp eq i64 %lastunary.sroa.6.0486, 0
   br i1 %cmp.i135, label %if.end146, label %if.then137
 
 if.then137:                                       ; preds = %if.end135
   store i32 11, ptr %spec.store.select, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %40 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %lastunary.sroa.0.0484 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %lastunary.sroa.0.0487 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
   br i1 %cmp.i.i, label %invoke.cont143, label %cond.false.i.i136
@@ -7263,7 +7263,7 @@ cond.false.i.i136:                                ; preds = %if.then137
 invoke.cont143:                                   ; preds = %if.then137
   %status.sroa.gep371 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %status, i64 0, i32 1
   %spec.store.select.sroa.sel372 = select i1 %cmp, ptr %error_arg_.i, ptr %status.sroa.gep371
-  store ptr %lastunary.sroa.0.0484, ptr %spec.store.select.sroa.sel372, align 8
+  store ptr %lastunary.sroa.0.0487, ptr %spec.store.select.sroa.sel372, align 8
   %xstatus.sroa.gep373 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %xstatus, i64 0, i32 1, i32 1
   %status.sroa.gep374 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %status, i64 0, i32 1, i32 1
   %spec.store.select.sroa.sel375 = select i1 %cmp, ptr %xstatus.sroa.gep373, ptr %status.sroa.gep374
@@ -7380,7 +7380,7 @@ if.else.i:                                        ; preds = %_ZNK4absl7debian211
   br i1 %or.cond.not.i, label %if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge, label %if.then165
 
 if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge: ; preds = %if.else.i
-  %.pre556 = load ptr, ptr %s.i, align 8
+  %.pre563 = load ptr, ptr %s.i, align 8
   br label %_ZNK4absl7debian211string_viewixEm.exit34.i
 
 _ZNK4absl7debian211string_viewixEm.exit34.sink.split.i: ; preds = %_ZNK4absl7debian211string_viewixEm.exit28.i, %_ZNK4absl7debian211string_viewixEm.exit16.i
@@ -7391,7 +7391,7 @@ _ZNK4absl7debian211string_viewixEm.exit34.sink.split.i: ; preds = %_ZNK4absl7deb
   br label %_ZNK4absl7debian211string_viewixEm.exit34.i
 
 _ZNK4absl7debian211string_viewixEm.exit34.i:      ; preds = %if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge, %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i
-  %58 = phi ptr [ %.pre556, %if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge ], [ %57, %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i ]
+  %58 = phi ptr [ %.pre563, %if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge ], [ %57, %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i ]
   %59 = phi i64 [ %.pre.i, %if.else.i._ZNK4absl7debian211string_viewixEm.exit34.i_crit_edge ], [ %.ph.i, %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i ]
   %60 = load i8, ptr %58, align 1
   %cmp29.not.i = icmp eq i8 %60, 125
@@ -7432,37 +7432,37 @@ if.end171:                                        ; preds = %_ZNK4absl7debian211
   br i1 %tobool177.not, label %if.end171.if.end201_crit_edge, label %if.then178
 
 if.end171.if.end201_crit_edge:                    ; preds = %if.end171
-  %.pre557 = load ptr, ptr %t, align 8
+  %.pre564 = load ptr, ptr %t, align 8
   br label %if.end201
 
 if.then178:                                       ; preds = %if.end171
   %64 = load i64, ptr %s.sroa.3.0.t.sroa_idx, align 8
   %cmp.i161 = icmp eq i64 %64, 0
-  %.pre558.pre = load ptr, ptr %t, align 8
+  %.pre565.pre = load ptr, ptr %t, align 8
   br i1 %cmp.i161, label %if.end187, label %invoke.cont181
 
 invoke.cont181:                                   ; preds = %if.then178
-  %65 = load i8, ptr %.pre558.pre, align 1
+  %65 = load i8, ptr %.pre565.pre, align 1
   %cmp184 = icmp eq i8 %65, 63
   br i1 %cmp184, label %_ZN4absl7debian211string_view13remove_prefixEm.exit171, label %if.end187
 
 _ZN4absl7debian211string_view13remove_prefixEm.exit171: ; preds = %invoke.cont181
-  %add.ptr.i168 = getelementptr inbounds i8, ptr %.pre558.pre, i64 1
+  %add.ptr.i168 = getelementptr inbounds i8, ptr %.pre565.pre, i64 1
   store ptr %add.ptr.i168, ptr %t, align 8
   %sub.i169 = add i64 %64, -1
   store i64 %sub.i169, ptr %s.sroa.3.0.t.sroa_idx, align 8
   br label %if.end187
 
 if.end187:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit171, %invoke.cont181, %if.then178
-  %.pre558 = phi ptr [ %.pre558.pre, %if.then178 ], [ %add.ptr.i168, %_ZN4absl7debian211string_view13remove_prefixEm.exit171 ], [ %.pre558.pre, %invoke.cont181 ]
+  %.pre565 = phi ptr [ %.pre565.pre, %if.then178 ], [ %add.ptr.i168, %_ZN4absl7debian211string_view13remove_prefixEm.exit171 ], [ %.pre565.pre, %invoke.cont181 ]
   %nongreedy172.0 = phi i1 [ false, %if.then178 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit171 ], [ false, %invoke.cont181 ]
-  %cmp.i173 = icmp eq i64 %lastunary.sroa.6.0483, 0
+  %cmp.i173 = icmp eq i64 %lastunary.sroa.6.0486, 0
   br i1 %cmp.i173, label %if.end201, label %if.then189
 
 if.then189:                                       ; preds = %if.end187
   store i32 11, ptr %spec.store.select, align 8
-  %sub.ptr.lhs.cast195 = ptrtoint ptr %.pre558 to i64
-  %sub.ptr.rhs.cast196 = ptrtoint ptr %lastunary.sroa.0.0484 to i64
+  %sub.ptr.lhs.cast195 = ptrtoint ptr %.pre565 to i64
+  %sub.ptr.rhs.cast196 = ptrtoint ptr %lastunary.sroa.0.0487 to i64
   %sub.ptr.sub197 = sub i64 %sub.ptr.lhs.cast195, %sub.ptr.rhs.cast196
   %cmp.i.i174 = icmp sgt i64 %sub.ptr.sub197, -1
   br i1 %cmp.i.i174, label %invoke.cont198, label %cond.false.i.i175
@@ -7474,7 +7474,7 @@ cond.false.i.i175:                                ; preds = %if.then189
 invoke.cont198:                                   ; preds = %if.then189
   %status.sroa.gep377 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %status, i64 0, i32 1
   %spec.store.select.sroa.sel378 = select i1 %cmp, ptr %error_arg_.i, ptr %status.sroa.gep377
-  store ptr %lastunary.sroa.0.0484, ptr %spec.store.select.sroa.sel378, align 8
+  store ptr %lastunary.sroa.0.0487, ptr %spec.store.select.sroa.sel378, align 8
   %xstatus.sroa.gep379 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %xstatus, i64 0, i32 1, i32 1
   %status.sroa.gep380 = getelementptr inbounds %"class.re2::RegexpStatus", ptr %status, i64 0, i32 1, i32 1
   %spec.store.select.sroa.sel381 = select i1 %cmp, ptr %xstatus.sroa.gep379, ptr %status.sroa.gep380
@@ -7482,7 +7482,7 @@ invoke.cont198:                                   ; preds = %if.then189
   br label %cleanup
 
 if.end201:                                        ; preds = %if.end171.if.end201_crit_edge, %if.end187
-  %66 = phi ptr [ %.pre558, %if.end187 ], [ %.pre557, %if.end171.if.end201_crit_edge ]
+  %66 = phi ptr [ %.pre565, %if.end187 ], [ %.pre564, %if.end171.if.end201_crit_edge ]
   %nongreedy172.1 = phi i1 [ %nongreedy172.0, %if.end187 ], [ false, %if.end171.if.end201_crit_edge ]
   %sub.ptr.lhs.cast206 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast207 = ptrtoint ptr %12 to i64
@@ -7789,11 +7789,11 @@ if.end324:                                        ; preds = %if.end244
 
 if.end324.invoke.cont328_crit_edge:               ; preds = %if.end324
   %arrayidx.i330.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 1
-  %.pre555 = load i8, ptr %arrayidx.i330.phi.trans.insert, align 1
+  %.pre561 = load i8, ptr %arrayidx.i330.phi.trans.insert, align 1
   br label %invoke.cont328
 
 invoke.cont328:                                   ; preds = %if.end324.invoke.cont328_crit_edge, %invoke.cont254
-  %92 = phi i8 [ %.pre555, %if.end324.invoke.cont328_crit_edge ], [ %74, %invoke.cont254 ]
+  %92 = phi i8 [ %.pre561, %if.end324.invoke.cont328_crit_edge ], [ %74, %invoke.cont254 ]
   switch i8 %92, label %if.end367 [
     i8 112, label %if.then337
     i8 80, label %if.then337
@@ -7824,7 +7824,7 @@ invoke.cont352:                                   ; preds = %invoke.cont349
           to label %invoke.cont356 unwind label %lpad1.loopexit.split-lp.loopexit, !range !56
 
 invoke.cont356:                                   ; preds = %invoke.cont352
-  switch i32 %call357, label %if.end367 [
+  switch i32 %call357, label %invoke.cont356.unreachabledefault [
     i32 0, label %invoke.cont393.invoke
     i32 1, label %sw.bb363
     i32 2, label %sw.bb365
@@ -7848,10 +7848,17 @@ sw.bb363:                                         ; preds = %invoke.cont356
 
 sw.bb365:                                         ; preds = %invoke.cont356
   invoke void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call340)
-          to label %if.end367 unwind label %lpad1.loopexit.split-lp.loopexit
+          to label %sw.bb365.if.end367_crit_edge unwind label %lpad1.loopexit.split-lp.loopexit
 
-if.end367:                                        ; preds = %invoke.cont328, %land.lhs.true222, %land.lhs.true250, %invoke.cont356, %sw.bb365, %if.end324
-  %96 = load i32, ptr %ps, align 8
+sw.bb365.if.end367_crit_edge:                     ; preds = %sw.bb365
+  %.pre562 = load i32, ptr %ps, align 8
+  br label %if.end367
+
+invoke.cont356.unreachabledefault:                ; preds = %invoke.cont356
+  unreachable
+
+if.end367:                                        ; preds = %sw.bb365.if.end367_crit_edge, %invoke.cont328, %land.lhs.true222, %land.lhs.true250, %if.end324
+  %96 = phi i32 [ %.pre562, %sw.bb365.if.end367_crit_edge ], [ %68, %invoke.cont328 ], [ %68, %land.lhs.true222 ], [ %68, %land.lhs.true250 ], [ %68, %if.end324 ]
   %and.i.i338 = and i32 %96, 128
   %tobool.not.i339 = icmp eq i32 %and.i.i338, 0
   br i1 %tobool.not.i339, label %if.end398, label %if.end.i340
@@ -7965,11 +7972,11 @@ if.end405.invoke:                                 ; preds = %invoke.cont34, %if.
 Break2thread-pre-split:                           ; preds = %while.cond293, %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont56, %if.end112, %invoke.cont157, %invoke.cont212
   %isunary.sroa.4.1.ph = phi i64 [ %sub.ptr.sub208, %invoke.cont212 ], [ %sub.ptr.sub153, %invoke.cont157 ], [ 0, %invoke.cont56 ], [ 0, %if.end112 ], [ 0, %if.end405.invoke ], [ 0, %invoke.cont393.invoke ], [ %83, %while.cond293 ]
   %isunary.sroa.0.1.ph = phi ptr [ %12, %invoke.cont212 ], [ %12, %invoke.cont157 ], [ null, %invoke.cont56 ], [ null, %if.end112 ], [ null, %if.end405.invoke ], [ null, %invoke.cont393.invoke ], [ null, %while.cond293 ]
-  %.pr560 = load i64, ptr %s.sroa.3.0.t.sroa_idx, align 8
+  %.pr567 = load i64, ptr %s.sroa.3.0.t.sroa_idx, align 8
   br label %Break2
 
 Break2:                                           ; preds = %Break2thread-pre-split, %_ZN4absl7debian211string_view13remove_prefixEm.exit298, %_ZN4absl7debian211string_view13remove_prefixEm.exit269, %_ZN4absl7debian211string_view13remove_prefixEm.exit258, %_ZN4absl7debian211string_view13remove_prefixEm.exit238, %_ZN4absl7debian211string_view13remove_prefixEm.exit217, %_ZN4absl7debian211string_view13remove_prefixEm.exit158, %_ZN4absl7debian211string_view13remove_prefixEm.exit114, %_ZN4absl7debian211string_view13remove_prefixEm.exit108, %_ZN4absl7debian211string_view13remove_prefixEm.exit102, %_ZN4absl7debian211string_view13remove_prefixEm.exit89, %_ZN4absl7debian211string_view13remove_prefixEm.exit83, %_ZN4absl7debian211string_view13remove_prefixEm.exit
-  %111 = phi i64 [ %.pr560, %Break2thread-pre-split ], [ %sub.i296, %_ZN4absl7debian211string_view13remove_prefixEm.exit298 ], [ %sub.i267, %_ZN4absl7debian211string_view13remove_prefixEm.exit269 ], [ %sub.i256, %_ZN4absl7debian211string_view13remove_prefixEm.exit258 ], [ %sub.i236, %_ZN4absl7debian211string_view13remove_prefixEm.exit238 ], [ %sub.i215, %_ZN4absl7debian211string_view13remove_prefixEm.exit217 ], [ %sub.i156, %_ZN4absl7debian211string_view13remove_prefixEm.exit158 ], [ %sub.i112, %_ZN4absl7debian211string_view13remove_prefixEm.exit114 ], [ %sub.i106, %_ZN4absl7debian211string_view13remove_prefixEm.exit108 ], [ %sub.i100, %_ZN4absl7debian211string_view13remove_prefixEm.exit102 ], [ %sub.i87, %_ZN4absl7debian211string_view13remove_prefixEm.exit89 ], [ %sub.i81, %_ZN4absl7debian211string_view13remove_prefixEm.exit83 ], [ %sub.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit ]
+  %111 = phi i64 [ %.pr567, %Break2thread-pre-split ], [ %sub.i296, %_ZN4absl7debian211string_view13remove_prefixEm.exit298 ], [ %sub.i267, %_ZN4absl7debian211string_view13remove_prefixEm.exit269 ], [ %sub.i256, %_ZN4absl7debian211string_view13remove_prefixEm.exit258 ], [ %sub.i236, %_ZN4absl7debian211string_view13remove_prefixEm.exit238 ], [ %sub.i215, %_ZN4absl7debian211string_view13remove_prefixEm.exit217 ], [ %sub.i156, %_ZN4absl7debian211string_view13remove_prefixEm.exit158 ], [ %sub.i112, %_ZN4absl7debian211string_view13remove_prefixEm.exit114 ], [ %sub.i106, %_ZN4absl7debian211string_view13remove_prefixEm.exit108 ], [ %sub.i100, %_ZN4absl7debian211string_view13remove_prefixEm.exit102 ], [ %sub.i87, %_ZN4absl7debian211string_view13remove_prefixEm.exit89 ], [ %sub.i81, %_ZN4absl7debian211string_view13remove_prefixEm.exit83 ], [ %sub.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit ]
   %isunary.sroa.4.1 = phi i64 [ %isunary.sroa.4.1.ph, %Break2thread-pre-split ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit298 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit269 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit258 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit238 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit217 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit158 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit114 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit108 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit102 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit89 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit83 ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit ]
   %isunary.sroa.0.1 = phi ptr [ %isunary.sroa.0.1.ph, %Break2thread-pre-split ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit298 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit269 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit258 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit238 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit217 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit158 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit114 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit108 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit102 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit89 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit83 ], [ null, %_ZN4absl7debian211string_view13remove_prefixEm.exit ]
   %cmp.i36 = icmp eq i64 %111, 0
@@ -9445,7 +9452,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
   %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
