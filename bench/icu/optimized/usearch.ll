@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @usearch_open_75(ptr noundef %pattern, i32 noundef %patternlength, ptr noundef %text, i32 noundef %textlength, ptr noundef %locale, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @usearch_open_75(ptr noundef %pattern, i32 noundef %patternlength, ptr noundef %text, i32 noundef %textlength, ptr noundef %locale, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -74,7 +74,7 @@ return:                                           ; preds = %if.then7, %if.then9
 declare ptr @ucol_open_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @usearch_openFromCollator_75(ptr noundef %pattern, i32 noundef %patternlength, ptr noundef %text, i32 noundef %textlength, ptr noundef %collator, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @usearch_openFromCollator_75(ptr noundef %pattern, i32 noundef %patternlength, ptr noundef %text, i32 noundef %textlength, ptr noundef %collator, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -409,7 +409,8 @@ if.then2.i:                                       ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr @_ZL9g_nfcImpl, align 8
   %idx.ext1.i.i = sext i32 %2 to i64
-  %add.ptr2.i.i = getelementptr i16, ptr %1, i64 %idx.ext1.i.i
+  %add.ptr2.i.idx.i = shl nsw i64 %idx.ext1.i.i, 1
+  %add.ptr2.i.i = getelementptr i8, ptr %1, i64 %add.ptr2.i.idx.i
   %incdec.ptr.i.i.i = getelementptr inbounds i16, ptr %1, i64 1
   %5 = load i16, ptr %1, align 2
   %conv.i.i.i = zext i16 %5 to i32
@@ -438,7 +439,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else.i
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %and.i.i.i = and i32 %conv.i.i.i, 64512
   %cmp3.i.i.i = icmp ne i32 %and.i.i.i, 55296
-  %cmp4.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr2.i.i
+  %cmp4.not.i.i.i = icmp eq i32 %2, 1
   %or.cond.i.i.i = select i1 %cmp3.i.i.i, i1 true, i1 %cmp4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.end12.i.i.i, label %land.lhs.true5.i.i.i
 
@@ -2060,7 +2061,7 @@ if.end9:                                          ; preds = %if.then8, %land.lhs
 declare void @ucol_setOffset_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @usearch_handleNextCanonical_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 {
+define noundef signext i8 @usearch_handleNextCanonical_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %localStatus.i9 = alloca i32, align 4
   %localStatus.i = alloca i32, align 4
@@ -2181,7 +2182,7 @@ return:                                           ; preds = %_ZL16setMatchNotFou
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @usearch_handleNextExact_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 {
+define noundef signext i8 @usearch_handleNextExact_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %localStatus.i9 = alloca i32, align 4
   %localStatus.i = alloca i32, align 4
@@ -2302,7 +2303,7 @@ return:                                           ; preds = %_ZL16setMatchNotFou
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @usearch_handlePreviousCanonical_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @usearch_handlePreviousCanonical_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus.i62 = alloca i32, align 4
   %localStatus.i47 = alloca i32, align 4
@@ -2609,7 +2610,7 @@ return:                                           ; preds = %_ZL16setMatchNotFou
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @usearch_handlePreviousExact_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @usearch_handlePreviousExact_75(ptr noundef %strsrch, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus.i62 = alloca i32, align 4
   %localStatus.i47 = alloca i32, align 4

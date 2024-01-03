@@ -1994,7 +1994,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 56
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %36 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 164703072086692425)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 164703072086692425, i64 %36
@@ -3142,20 +3142,22 @@ if.then113:                                       ; preds = %for.end111
 
 if.else:                                          ; preds = %for.end111
   %162 = load ptr, ptr %bvhLights, align 8
-  %add.ptr.i497 = getelementptr inbounds %"struct.std::pair", ptr %162, i64 %.pre-phi
-  %163 = sext i32 %end to i64
-  %164 = getelementptr %"struct.std::pair", ptr %162, i64 %163
-  %cmp7376.i.i = icmp eq ptr %add.ptr.i497, %164
-  br i1 %cmp7376.i.i, label %"_ZSt9partitionIPSt4pairIiN4pbrt11LightBoundsEEZNS1_15BVHLightSampler8buildBVHERSt6vectorIS3_SaIS3_EEiijiE3$_0ET_SB_SB_T0_.exit", label %if.else.lr.ph.i.i.preheader
+  %add.ptr.i497.idx = mul nsw i64 %.pre-phi, 56
+  %add.ptr.i497 = getelementptr i8, ptr %162, i64 %add.ptr.i497.idx
+  %cmp7376.i.i = icmp eq i32 %start, %end
+  br i1 %cmp7376.i.i, label %"_ZSt9partitionIPSt4pairIiN4pbrt11LightBoundsEEZNS1_15BVHLightSampler8buildBVHERSt6vectorIS3_SaIS3_EEiijiE3$_0ET_SB_SB_T0_.exit", label %if.else.lr.ph.i.preheader.i
 
-if.else.lr.ph.i.i.preheader:                      ; preds = %if.else
+if.else.lr.ph.i.preheader.i:                      ; preds = %if.else
+  %163 = sext i32 %end to i64
+  %.idx = mul nsw i64 %163, 56
+  %164 = getelementptr i8, ptr %162, i64 %.idx
   %165 = select i1 %cmp.i139, <2 x float> %26, <2 x float> <float 1.000000e+00, float poison>
   %166 = select i1 %cmp.i139, <2 x float> %26, <2 x float> <float 1.000000e+00, float poison>
   br label %if.else.lr.ph.i.i
 
-if.else.lr.ph.i.i:                                ; preds = %if.else.lr.ph.i.i.preheader, %while.end18.i.i
-  %__last.addr.078.i.i = phi ptr [ %__last.addr.1.i.i, %while.end18.i.i ], [ %164, %if.else.lr.ph.i.i.preheader ]
-  %__first.addr.077.i.i = phi ptr [ %incdec.ptr19.i.i, %while.end18.i.i ], [ %add.ptr.i497, %if.else.lr.ph.i.i.preheader ]
+if.else.lr.ph.i.i:                                ; preds = %while.end18.i.i, %if.else.lr.ph.i.preheader.i
+  %__last.addr.078.i.i = phi ptr [ %__last.addr.1.i.i, %while.end18.i.i ], [ %164, %if.else.lr.ph.i.preheader.i ]
+  %__first.addr.077.i.i = phi ptr [ %incdec.ptr19.i.i, %while.end18.i.i ], [ %add.ptr.i497, %if.else.lr.ph.i.preheader.i ]
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then3.i.i510, %if.else.lr.ph.i.i

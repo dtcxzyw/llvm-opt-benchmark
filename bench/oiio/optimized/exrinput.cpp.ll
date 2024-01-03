@@ -8025,7 +8025,7 @@ for.body40.lr.ph:                                 ; preds = %invoke.cont32
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %invoke.cont96
-  %96 = phi ptr [ %cnh.sroa.0.0, %for.body40.lr.ph ], [ %layerend.sroa.0.0.ptr.ptr.lcssa, %invoke.cont96 ]
+  %96 = phi ptr [ %cnh.sroa.0.0, %for.body40.lr.ph ], [ %layerend.sroa.0.0.ptr.lcssa, %invoke.cont96 ]
   %storemerge1209 = phi i64 [ %sub.ptr.rhs.cast.i, %for.body40.lr.ph ], [ %sub.ptr.lhs.cast.i79.pre-phi, %invoke.cont96 ]
   %add.ptr.i.ptr.ptr = getelementptr inbounds i8, ptr %96, i64 80
   %cmp.i73.not1196 = icmp eq ptr %add.ptr.i.ptr.ptr, %cnh.sroa.24.0
@@ -8040,11 +8040,11 @@ land.rhs.lr.ph:                                   ; preds = %for.body40
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
-  %layerend.sroa.0.0.ptr.ptr1198 = phi ptr [ %add.ptr.i.ptr.ptr, %land.rhs.lr.ph ], [ %layerend.sroa.0.0.ptr.ptr, %while.body ]
+  %layerend.sroa.0.0.ptr1198 = phi ptr [ %add.ptr.i.ptr.ptr, %land.rhs.lr.ph ], [ %layerend.sroa.0.0.ptr, %while.body ]
   %layerend.sroa.0.0.idx1197 = phi i64 [ 80, %land.rhs.lr.ph ], [ %layerend.sroa.0.0.add, %while.body ]
-  %layer52 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %layerend.sroa.0.0.ptr.ptr1198, i64 0, i32 1
+  %layer52 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %layerend.sroa.0.0.ptr1198, i64 0, i32 1
   %99 = load ptr, ptr %layer52, align 8
-  %m_len.i.i75 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %layerend.sroa.0.0.ptr.ptr1198, i64 0, i32 1, i32 1
+  %m_len.i.i75 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %layerend.sroa.0.0.ptr1198, i64 0, i32 1, i32 1
   %100 = load i64, ptr %m_len.i.i75, align 8
   %cmp.i77 = icmp eq i64 %98, %100
   br i1 %cmp.i77, label %cond.true.i, label %while.end.loopexit
@@ -8059,20 +8059,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %cond.true.i
 
 while.body:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %cond.true.i
   %layerend.sroa.0.0.add = add nuw nsw i64 %layerend.sroa.0.0.idx1197, 80
-  %layerend.sroa.0.0.ptr.ptr = getelementptr inbounds i8, ptr %96, i64 %layerend.sroa.0.0.add
-  %cmp.i73.not = icmp eq ptr %layerend.sroa.0.0.ptr.ptr, %cnh.sroa.24.0
+  %layerend.sroa.0.0.ptr = getelementptr inbounds i8, ptr %96, i64 %layerend.sroa.0.0.add
+  %cmp.i73.not = icmp eq ptr %layerend.sroa.0.0.ptr, %cnh.sroa.24.0
   br i1 %cmp.i73.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !58
 
 while.end.loopexit:                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs, %while.body
   %layerend.sroa.0.0.idx.lcssa.ph = phi i64 [ %layerend.sroa.0.0.add, %while.body ], [ %layerend.sroa.0.0.idx1197, %land.rhs ], [ %layerend.sroa.0.0.idx1197, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %layerend.sroa.0.0.ptr.ptr.lcssa.ph = phi ptr [ %cnh.sroa.24.0, %while.body ], [ %layerend.sroa.0.0.ptr.ptr1198, %land.rhs ], [ %layerend.sroa.0.0.ptr.ptr1198, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %.pre = ptrtoint ptr %layerend.sroa.0.0.ptr.ptr.lcssa.ph to i64
+  %layerend.sroa.0.0.ptr.lcssa.ph = phi ptr [ %cnh.sroa.24.0, %while.body ], [ %layerend.sroa.0.0.ptr1198, %land.rhs ], [ %layerend.sroa.0.0.ptr1198, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %.pre = ptrtoint ptr %layerend.sroa.0.0.ptr.lcssa.ph to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %for.body40
   %sub.ptr.lhs.cast.i79.pre-phi = phi i64 [ %.pre, %while.end.loopexit ], [ %sub.ptr.lhs.cast.i, %for.body40 ]
   %layerend.sroa.0.0.idx.lcssa = phi i64 [ %layerend.sroa.0.0.idx.lcssa.ph, %while.end.loopexit ], [ 80, %for.body40 ]
-  %layerend.sroa.0.0.ptr.ptr.lcssa = phi ptr [ %layerend.sroa.0.0.ptr.ptr.lcssa.ph, %while.end.loopexit ], [ %cnh.sroa.24.0, %for.body40 ]
+  %layerend.sroa.0.0.ptr.lcssa = phi ptr [ %layerend.sroa.0.0.ptr.lcssa.ph, %while.end.loopexit ], [ %cnh.sroa.24.0, %for.body40 ]
   %sub.ptr.sub.i81 = sub i64 %sub.ptr.lhs.cast.i79.pre-phi, %storemerge1209
   %sub.ptr.div.i82 = sdiv exact i64 %sub.ptr.sub.i81, 80
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -8274,7 +8274,7 @@ if.then.i.i165:                                   ; preds = %for.inc76, %for.inc
   %115 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i82, i1 true), !range !53
   %sub.i.i.i170 = shl nuw nsw i64 %115, 1
   %mul.i.i171 = xor i64 %sub.i.i.i170, 126
-  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %96, ptr nonnull %layerend.sroa.0.0.ptr.ptr.lcssa, i64 noundef %mul.i.i171, ptr nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder11compare_cnhERKS1_S3_)
+  invoke fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_(ptr %96, ptr nonnull %layerend.sroa.0.0.ptr.lcssa, i64 noundef %mul.i.i171, ptr nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolder11compare_cnhERKS1_S3_)
           to label %.noexc214 unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc214:                                        ; preds = %if.then.i.i165
@@ -8867,7 +8867,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v
   %__val.i.i.i.i.i163.sroa.25.0.__last.sroa.0.0.lcssa.i.i.i.i.i206.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i206, i64 68
   store i64 %178, ptr %__val.i.i.i.i.i163.sroa.25.0.__last.sroa.0.0.lcssa.i.i.i.i.i206.sroa_idx, align 4
   %incdec.ptr.i.i.i.i.i207 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__i.sroa.0.02.i.i.i.i191, i64 1
-  %cmp.i.not.i.i.i.i208 = icmp eq ptr %incdec.ptr.i.i.i.i.i207, %layerend.sroa.0.0.ptr.ptr.lcssa
+  %cmp.i.not.i.i.i.i208 = icmp eq ptr %incdec.ptr.i.i.i.i.i207, %layerend.sroa.0.0.ptr.lcssa
   br i1 %cmp.i.not.i.i.i.i208, label %invoke.cont96, label %for.body.i.i.i.i190, !llvm.loop !57
 
 for.cond.preheader.i456:                          ; preds = %.noexc214
@@ -9240,7 +9240,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v
 
 for.inc.i504:                                     ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i502, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i527
   %__i.sroa.0.0.i505 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %__i.sroa.0.012.i486, i64 1
-  %cmp.i6.not.i506 = icmp eq ptr %__i.sroa.0.0.i505, %layerend.sroa.0.0.ptr.ptr.lcssa
+  %cmp.i6.not.i506 = icmp eq ptr %__i.sroa.0.0.i505, %layerend.sroa.0.0.ptr.lcssa
   br i1 %cmp.i6.not.i506, label %.noexc216, label %for.body.i485, !llvm.loop !56
 
 .noexc216:                                        ; preds = %for.inc.i504, %for.cond.preheader.i456
@@ -9248,7 +9248,7 @@ for.inc.i504:                                     ; preds = %_ZSt25__unguarded_l
   br label %invoke.cont96
 
 invoke.cont96:                                    ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i.i.i.i205, %.noexc216, %.noexc215
-  %cmp.i.not = icmp eq ptr %cnh.sroa.24.0, %layerend.sroa.0.0.ptr.ptr.lcssa
+  %cmp.i.not = icmp eq ptr %cnh.sroa.24.0, %layerend.sroa.0.0.ptr.lcssa
   br i1 %cmp.i.not, label %for.end97thread-pre-split, label %for.body40, !llvm.loop !61
 
 for.end97thread-pre-split:                        ; preds = %invoke.cont96, %invoke.cont32
@@ -12201,11 +12201,12 @@ if.else.i:                                        ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp6.i, label %if.then7.i, label %invoke.cont
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %cond.i.i.i.i58, i64 %conv
-  %tobool.not.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i
+  %add.ptr.i.idx = shl nsw i64 %conv, 2
+  %tobool.not.i.i = icmp eq i64 %sub.ptr.sub.i.i, %add.ptr.i.idx
   br i1 %tobool.not.i.i, label %invoke.cont, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then7.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i.i58, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %_M_finish.i.i.i59, align 8
   br label %invoke.cont
 
