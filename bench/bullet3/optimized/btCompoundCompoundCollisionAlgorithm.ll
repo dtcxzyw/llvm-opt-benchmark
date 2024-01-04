@@ -1054,15 +1054,11 @@ if.then.i.i.i39.i:                                ; preds = %if.then.i.i.i123
           to label %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i unwind label %lpad.i
 
 _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i: ; preds = %if.then.i.i.i39.i
-  %cmp4.i.i.i.i = icmp sgt i32 %153, 0
-  br i1 %cmp4.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %if.then.i7.i.i.i
-
-for.body.lr.ph.i.i.i.i:                           ; preds = %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %153 to i64
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
   %arrayidx.i.i.i46.i = getelementptr inbounds %"struct.btDbvt::sStkNN", ptr %call.i.i.i.i47.i, i64 %indvars.iv.i.i.i.i
   %arrayidx3.i.i.i.i = getelementptr inbounds %"struct.btDbvt::sStkNN", ptr %.pre97.i, i64 %indvars.iv.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i46.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i.i, i64 16, i1 false)
@@ -1070,8 +1066,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %if.then.i7.i.i.i, label %for.body.i.i.i.i, !llvm.loop !23
 
-if.then.i7.i.i.i:                                 ; preds = %for.body.i.i.i.i, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i, %if.then.i.i.i123
-  %retval.0.i.i.i101107.i = phi ptr [ null, %if.then.i.i.i123 ], [ %call.i.i.i.i47.i, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i.i ], [ %call.i.i.i.i47.i, %for.body.i.i.i.i ]
+if.then.i7.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then.i.i.i123
+  %retval.0.i.i.i101107.i = phi ptr [ null, %if.then.i.i.i123 ], [ %call.i.i.i.i47.i, %for.body.i.i.i.i ]
   %195 = and i8 %151, 1
   %tobool2.not.i.i.i42.i = icmp eq i8 %195, 0
   br i1 %tobool2.not.i.i.i42.i, label %if.end.i.i, label %if.then3.i.i.i43.i
