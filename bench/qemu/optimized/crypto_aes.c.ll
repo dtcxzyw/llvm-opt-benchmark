@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @AES_mc_rot = internal unnamed_addr constant [256 x i32] [i32 0, i32 50397442, i32 100794884, i32 84083462, i32 201589768, i32 251987210, i32 168166924, i32 151455502, i32 403179536, i32 453576978, i32 503974420, i32 487262998, i32 336333848, i32 386731290, i32 302911004, i32 286199582, i32 806359072, i32 856756514, i32 907153956, i32 890442534, i32 1007948840, i32 1058346282, i32 974525996, i32 957814574, i32 672667696, i32 723065138, i32 773462580, i32 756751158, i32 605822008, i32 656219450, i32 572399164, i32 555687742, i32 1612718144, i32 1663115586, i32 1713513028, i32 1696801606, i32 1814307912, i32 1864705354, i32 1780885068, i32 1764173646, i32 2015897680, i32 2066295122, i32 2116692564, i32 2099981142, i32 1949051992, i32 1999449434, i32 1915629148, i32 1898917726, i32 1345335392, i32 1395732834, i32 1446130276, i32 1429418854, i32 1546925160, i32 1597322602, i32 1513502316, i32 1496790894, i32 1211644016, i32 1262041458, i32 1312438900, i32 1295727478, i32 1144798328, i32 1195195770, i32 1111375484, i32 1094664062, i32 -1069531008, i32 -1019133566, i32 -968736124, i32 -985447546, i32 -867941240, i32 -817543798, i32 -901364084, i32 -918075506, i32 -666351472, i32 -615954030, i32 -565556588, i32 -582268010, i32 -733197160, i32 -682799718, i32 -766620004, i32 -783331426, i32 -263171936, i32 -212774494, i32 -162377052, i32 -179088474, i32 -61582168, i32 -11184726, i32 -95005012, i32 -111716434, i32 -396863312, i32 -346465870, i32 -296068428, i32 -312779850, i32 -463709000, i32 -413311558, i32 -497131844, i32 -513843266, i32 -1604296512, i32 -1553899070, i32 -1503501628, i32 -1520213050, i32 -1402706744, i32 -1352309302, i32 -1436129588, i32 -1452841010, i32 -1201116976, i32 -1150719534, i32 -1100322092, i32 -1117033514, i32 -1267962664, i32 -1217565222, i32 -1301385508, i32 -1318096930, i32 -1871679264, i32 -1821281822, i32 -1770884380, i32 -1787595802, i32 -1670089496, i32 -1619692054, i32 -1703512340, i32 -1720223762, i32 -2005370640, i32 -1954973198, i32 -1904575756, i32 -1921287178, i32 -2072216328, i32 -2021818886, i32 -2105639172, i32 -2122350594, i32 -1686077413, i32 -1736343271, i32 -1652391393, i32 -1635548387, i32 -1752923117, i32 -1803188975, i32 -1853454825, i32 -1836611819, i32 -2088204277, i32 -2138470135, i32 -2054518257, i32 -2037675251, i32 -1886614525, i32 -1936880383, i32 -1987146233, i32 -1970303227, i32 -1416589253, i32 -1466855111, i32 -1382903233, i32 -1366060227, i32 -1483434957, i32 -1533700815, i32 -1583966665, i32 -1567123659, i32 -1281845205, i32 -1332111063, i32 -1248159185, i32 -1231316179, i32 -1080255453, i32 -1130521311, i32 -1180787161, i32 -1163944155, i32 -73359269, i32 -123625127, i32 -39673249, i32 -22830243, i32 -140204973, i32 -190470831, i32 -240736681, i32 -223893675, i32 -475486133, i32 -525751991, i32 -441800113, i32 -424957107, i32 -273896381, i32 -324162239, i32 -374428089, i32 -357585083, i32 -877612933, i32 -927878791, i32 -843926913, i32 -827083907, i32 -944458637, i32 -994724495, i32 -1044990345, i32 -1028147339, i32 -742868885, i32 -793134743, i32 -709182865, i32 -692339859, i32 -541279133, i32 -591544991, i32 -641810841, i32 -624967835, i32 1539358875, i32 1489093017, i32 1573044895, i32 1589887901, i32 1472513171, i32 1422247313, i32 1371981463, i32 1388824469, i32 1137232011, i32 1086966153, i32 1170918031, i32 1187761037, i32 1338821763, i32 1288555905, i32 1238290055, i32 1255133061, i32 1808847035, i32 1758581177, i32 1842533055, i32 1859376061, i32 1742001331, i32 1691735473, i32 1641469623, i32 1658312629, i32 1943591083, i32 1893325225, i32 1977277103, i32 1994120109, i32 2145180835, i32 2094914977, i32 2044649127, i32 2061492133, i32 1004593371, i32 954327513, i32 1038279391, i32 1055122397, i32 937747667, i32 887481809, i32 837215959, i32 854058965, i32 602466507, i32 552200649, i32 636152527, i32 652995533, i32 804056259, i32 753790401, i32 703524551, i32 720367557, i32 200339707, i32 150073849, i32 234025727, i32 250868733, i32 133494003, i32 83228145, i32 32962295, i32 49805301, i32 335083755, i32 284817897, i32 368769775, i32 385612781, i32 536673507, i32 486407649, i32 436141799, i32 452984805], align 16
 @AES_imc_rot = internal unnamed_addr constant [256 x i32] [i32 0, i32 185403662, i32 370807324, i32 488053522, i32 741614648, i32 658058550, i32 976107044, i32 824393514, i32 1483229296, i32 1399144830, i32 1316117100, i32 1165972322, i32 1952214088, i32 2136040774, i32 1648787028, i32 1766553434, i32 -1328508704, i32 -1143105042, i32 -1496677636, i32 -1379431438, i32 -1662733096, i32 -1746289194, i32 -1963022652, i32 -2114736182, i32 -390539120, i32 -474623586, i32 -22885748, i32 -173030526, i32 -997393240, i32 -813566554, i32 -761860428, i32 -644094022, i32 2075868123, i32 1890988757, i32 1839278535, i32 1722556617, i32 1468997603, i32 1552029421, i32 1100287487, i32 1251476721, i32 601060267, i32 685669029, i32 902390199, i32 1053059257, i32 266819475, i32 82468509, i32 436028815, i32 317738113, i32 -882136261, i32 -1067015627, i32 -579749593, i32 -696471511, i32 -413167869, i32 -330136051, i32 -247096033, i32 -95906799, i32 -1828461749, i32 -1743852987, i32 -2061897385, i32 -1911228327, i32 -1086863501, i32 -1271214467, i32 -1456614033, i32 -1574904735, i32 -160598355, i32 -44007517, i32 -529046351, i32 -344298049, i32 -631680363, i32 -783000677, i32 -868007799, i32 -951170681, i32 -1375387939, i32 -1526188077, i32 -1205916479, i32 -1290656305, i32 -2110711067, i32 -1992551445, i32 -1809118983, i32 -1624899081, i32 1186850381, i32 1303441219, i32 1353184337, i32 1537932639, i32 1787413109, i32 1636092795, i32 2090061929, i32 2006899047, i32 517320253, i32 366520115, i32 147831841, i32 63092015, i32 853641733, i32 971801355, i32 620468249, i32 804688151, i32 -1915335306, i32 -2032450440, i32 -1681105046, i32 -1866377628, i32 -1578997426, i32 -1427152832, i32 -1208452270, i32 -1124765092, i32 -708967162, i32 -558691320, i32 -1012656358, i32 -928440812, i32 -108388034, i32 -226023376, i32 -275762398, i32 -459458004, i32 1023860118, i32 906744984, i32 723308426, i32 538035844, i32 288553390, i32 440397984, i32 120122290, i32 203809468, i32 1701746150, i32 1852021992, i32 1937016826, i32 2021232372, i32 1230680542, i32 1113045200, i32 1598071746, i32 1414376140, i32 -136647615, i32 -52959921, i32 -507445667, i32 -355600557, i32 -605108103, i32 -790380169, i32 -839591323, i32 -956705941, i32 -1347247055, i32 -1530942145, i32 -1180125651, i32 -1297760477, i32 -2088337399, i32 -2004121337, i32 -1784901099, i32 -1634624741, i32 1191869601, i32 1275557295, i32 1360031421, i32 1511876531, i32 1799248025, i32 1613975959, i32 2099530373, i32 1982415755, i32 526529745, i32 342834655, i32 158869197, i32 41234371, i32 861278441, i32 945494503, i32 625738485, i32 776014843, i32 -1939744870, i32 -2022908268, i32 -1703164538, i32 -1854485368, i32 -1604979806, i32 -1420232020, i32 -1236278850, i32 -1119688528, i32 -737566742, i32 -553347356, i32 -1038905866, i32 -920746760, i32 -130171950, i32 -214912292, i32 -299390514, i32 -450191168, i32 1018251130, i32 935087732, i32 715871590, i32 564550760, i32 277177154, i32 461924940, i32 111112542, i32 227702864, i32 1691946762, i32 1876166148, i32 1925389590, i32 2043548696, i32 1223502642, i32 1138762300, i32 1593260334, i32 1442459680, i32 28809964, i32 179999714, i32 397248752, i32 480281086, i32 763608788, i32 646887386, i32 999926984, i32 815048134, i32 1507840668, i32 1389550482, i32 1338359936, i32 1154009486, i32 1978398372, i32 2129067946, i32 1676797112, i32 1761406390, i32 -1318647284, i32 -1167457534, i32 -1484974064, i32 -1401941730, i32 -1655493068, i32 -1772214470, i32 -1958134744, i32 -2143013594, i32 -384875908, i32 -503166094, i32 -15380384, i32 -199730834, i32 -985962940, i32 -835293366, i32 -752782248, i32 -668172970, i32 2047648055, i32 1895934009, i32 1813426987, i32 1729870373, i32 1446544655, i32 1563790337, i32 1076008723, i32 1261411869, i32 577038663, i32 694804553, i32 880737115, i32 1064563285, i32 240176511, i32 90031217, i32 407560035, i32 323475053, i32 -891538985, i32 -1043253031, i32 -590994485, i32 -674551099, i32 -420997649, i32 -303751967, i32 -252573709, i32 -67170563, i32 -1833666137, i32 -1715900247, i32 -2068943941, i32 -1885117771, i32 -1098883681, i32 -1249028975, i32 -1466282109, i32 -1550367091], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesenc_MC_gen(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
@@ -37,21 +37,21 @@ entry:
   %idxprom14.i = zext i8 %2 to i64
   %arrayidx15.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom14.i
   %3 = load i32, ptr %arrayidx15.i, align 4
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %xor16.i = xor i32 %or.i.i, %1
   %arrayidx19.i = getelementptr [16 x i8], ptr %st, i64 0, i64 2
   %4 = load i8, ptr %arrayidx19.i, align 1
   %idxprom20.i = zext i8 %4 to i64
   %arrayidx21.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom20.i
   %5 = load i32, ptr %arrayidx21.i, align 4
-  %or.i49.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
+  %or.i49.i = tail call noundef i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
   %xor23.i = xor i32 %xor16.i, %or.i49.i
   %arrayidx26.i = getelementptr [16 x i8], ptr %st, i64 0, i64 3
   %6 = load i8, ptr %arrayidx26.i, align 1
   %idxprom27.i = zext i8 %6 to i64
   %arrayidx28.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 4
-  %or.i50.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
+  %or.i50.i = tail call noundef i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
   %xor30.i = xor i32 %xor23.i, %or.i50.i
   store i32 %xor30.i, ptr %r, align 4
   %arrayidx37.i = getelementptr [16 x i8], ptr %st, i64 0, i64 4
@@ -64,21 +64,21 @@ entry:
   %idxprom43.i = zext i8 %10 to i64
   %arrayidx44.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom43.i
   %11 = load i32, ptr %arrayidx44.i, align 4
-  %or.i51.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 8)
+  %or.i51.i = tail call noundef i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 8)
   %xor46.i = xor i32 %or.i51.i, %9
   %arrayidx49.i = getelementptr [16 x i8], ptr %st, i64 0, i64 6
   %12 = load i8, ptr %arrayidx49.i, align 1
   %idxprom50.i = zext i8 %12 to i64
   %arrayidx51.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom50.i
   %13 = load i32, ptr %arrayidx51.i, align 4
-  %or.i52.i = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 16)
+  %or.i52.i = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 16)
   %xor53.i = xor i32 %xor46.i, %or.i52.i
   %arrayidx56.i = getelementptr [16 x i8], ptr %st, i64 0, i64 7
   %14 = load i8, ptr %arrayidx56.i, align 1
   %idxprom57.i = zext i8 %14 to i64
   %arrayidx58.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom57.i
   %15 = load i32, ptr %arrayidx58.i, align 4
-  %or.i53.i = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 24)
+  %or.i53.i = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 24)
   %xor60.i = xor i32 %xor53.i, %or.i53.i
   %arrayidx66.i = getelementptr [4 x i32], ptr %r, i64 0, i64 1
   store i32 %xor60.i, ptr %arrayidx66.i, align 4
@@ -92,21 +92,21 @@ entry:
   %idxprom75.i = zext i8 %18 to i64
   %arrayidx76.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom75.i
   %19 = load i32, ptr %arrayidx76.i, align 4
-  %or.i54.i = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
+  %or.i54.i = tail call noundef i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
   %xor78.i = xor i32 %or.i54.i, %17
   %arrayidx81.i = getelementptr [16 x i8], ptr %st, i64 0, i64 10
   %20 = load i8, ptr %arrayidx81.i, align 1
   %idxprom82.i = zext i8 %20 to i64
   %arrayidx83.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom82.i
   %21 = load i32, ptr %arrayidx83.i, align 4
-  %or.i55.i = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
+  %or.i55.i = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
   %xor85.i = xor i32 %xor78.i, %or.i55.i
   %arrayidx88.i = getelementptr [16 x i8], ptr %st, i64 0, i64 11
   %22 = load i8, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext i8 %22 to i64
   %arrayidx90.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom89.i
   %23 = load i32, ptr %arrayidx90.i, align 4
-  %or.i56.i = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 24)
+  %or.i56.i = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 24)
   %xor92.i = xor i32 %xor85.i, %or.i56.i
   %arrayidx98.i = getelementptr [4 x i32], ptr %r, i64 0, i64 2
   store i32 %xor92.i, ptr %arrayidx98.i, align 4
@@ -120,28 +120,28 @@ entry:
   %idxprom107.i = zext i8 %26 to i64
   %arrayidx108.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom107.i
   %27 = load i32, ptr %arrayidx108.i, align 4
-  %or.i57.i = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 8)
+  %or.i57.i = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 8)
   %xor110.i = xor i32 %or.i57.i, %25
   %arrayidx113.i = getelementptr [16 x i8], ptr %st, i64 0, i64 14
   %28 = load i8, ptr %arrayidx113.i, align 1
   %idxprom114.i = zext i8 %28 to i64
   %arrayidx115.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom114.i
   %29 = load i32, ptr %arrayidx115.i, align 4
-  %or.i58.i = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 16)
+  %or.i58.i = tail call noundef i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 16)
   %xor117.i = xor i32 %xor110.i, %or.i58.i
   %arrayidx120.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
   %30 = load i8, ptr %arrayidx120.i, align 1
   %idxprom121.i = zext i8 %30 to i64
   %arrayidx122.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom121.i
   %31 = load i32, ptr %arrayidx122.i, align 4
-  %or.i59.i = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 24)
+  %or.i59.i = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 24)
   %xor124.i = xor i32 %xor117.i, %or.i59.i
   %arrayidx130.i = getelementptr [4 x i32], ptr %r, i64 0, i64 3
   store i32 %xor124.i, ptr %arrayidx130.i, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesenc_MC_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
@@ -154,21 +154,21 @@ entry:
   %idxprom14.i = zext i8 %2 to i64
   %arrayidx15.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom14.i
   %3 = load i32, ptr %arrayidx15.i, align 4
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %xor16.i = xor i32 %or.i.i, %1
   %arrayidx19.i = getelementptr [16 x i8], ptr %st, i64 0, i64 13
   %4 = load i8, ptr %arrayidx19.i, align 1
   %idxprom20.i = zext i8 %4 to i64
   %arrayidx21.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom20.i
   %5 = load i32, ptr %arrayidx21.i, align 4
-  %or.i49.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
+  %or.i49.i = tail call noundef i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
   %xor23.i = xor i32 %xor16.i, %or.i49.i
   %arrayidx26.i = getelementptr [16 x i8], ptr %st, i64 0, i64 12
   %6 = load i8, ptr %arrayidx26.i, align 1
   %idxprom27.i = zext i8 %6 to i64
   %arrayidx28.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 4
-  %or.i50.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
+  %or.i50.i = tail call noundef i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
   %xor30.i = xor i32 %xor23.i, %or.i50.i
   %8 = tail call i32 @llvm.bswap.i32(i32 %xor30.i)
   %arrayidx34.i = getelementptr [4 x i32], ptr %r, i64 0, i64 3
@@ -183,21 +183,21 @@ entry:
   %idxprom43.i = zext i8 %11 to i64
   %arrayidx44.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom43.i
   %12 = load i32, ptr %arrayidx44.i, align 4
-  %or.i51.i = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 8)
+  %or.i51.i = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 8)
   %xor46.i = xor i32 %or.i51.i, %10
   %arrayidx49.i = getelementptr [16 x i8], ptr %st, i64 0, i64 9
   %13 = load i8, ptr %arrayidx49.i, align 1
   %idxprom50.i = zext i8 %13 to i64
   %arrayidx51.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom50.i
   %14 = load i32, ptr %arrayidx51.i, align 4
-  %or.i52.i = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 16)
+  %or.i52.i = tail call noundef i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 16)
   %xor53.i = xor i32 %xor46.i, %or.i52.i
   %arrayidx56.i = getelementptr [16 x i8], ptr %st, i64 0, i64 8
   %15 = load i8, ptr %arrayidx56.i, align 1
   %idxprom57.i = zext i8 %15 to i64
   %arrayidx58.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom57.i
   %16 = load i32, ptr %arrayidx58.i, align 4
-  %or.i53.i = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 24)
+  %or.i53.i = tail call noundef i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 24)
   %xor60.i = xor i32 %xor53.i, %or.i53.i
   %17 = tail call i32 @llvm.bswap.i32(i32 %xor60.i)
   %arrayidx66.i = getelementptr [4 x i32], ptr %r, i64 0, i64 2
@@ -212,21 +212,21 @@ entry:
   %idxprom75.i = zext i8 %20 to i64
   %arrayidx76.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom75.i
   %21 = load i32, ptr %arrayidx76.i, align 4
-  %or.i54.i = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 8)
+  %or.i54.i = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 8)
   %xor78.i = xor i32 %or.i54.i, %19
   %arrayidx81.i = getelementptr [16 x i8], ptr %st, i64 0, i64 5
   %22 = load i8, ptr %arrayidx81.i, align 1
   %idxprom82.i = zext i8 %22 to i64
   %arrayidx83.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom82.i
   %23 = load i32, ptr %arrayidx83.i, align 4
-  %or.i55.i = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
+  %or.i55.i = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
   %xor85.i = xor i32 %xor78.i, %or.i55.i
   %arrayidx88.i = getelementptr [16 x i8], ptr %st, i64 0, i64 4
   %24 = load i8, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext i8 %24 to i64
   %arrayidx90.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom89.i
   %25 = load i32, ptr %arrayidx90.i, align 4
-  %or.i56.i = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 24)
+  %or.i56.i = tail call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 24)
   %xor92.i = xor i32 %xor85.i, %or.i56.i
   %26 = tail call i32 @llvm.bswap.i32(i32 %xor92.i)
   %arrayidx98.i = getelementptr [4 x i32], ptr %r, i64 0, i64 1
@@ -241,20 +241,20 @@ entry:
   %idxprom107.i = zext i8 %29 to i64
   %arrayidx108.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom107.i
   %30 = load i32, ptr %arrayidx108.i, align 4
-  %or.i57.i = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 8)
+  %or.i57.i = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 8)
   %xor110.i = xor i32 %or.i57.i, %28
   %arrayidx113.i = getelementptr [16 x i8], ptr %st, i64 0, i64 1
   %31 = load i8, ptr %arrayidx113.i, align 1
   %idxprom114.i = zext i8 %31 to i64
   %arrayidx115.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom114.i
   %32 = load i32, ptr %arrayidx115.i, align 4
-  %or.i58.i = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 16)
+  %or.i58.i = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 16)
   %xor117.i = xor i32 %xor110.i, %or.i58.i
   %33 = load i8, ptr %st, align 1
   %idxprom121.i = zext i8 %33 to i64
   %arrayidx122.i = getelementptr [256 x i32], ptr @AES_mc_rot, i64 0, i64 %idxprom121.i
   %34 = load i32, ptr %arrayidx122.i, align 4
-  %or.i59.i = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 24)
+  %or.i59.i = tail call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 24)
   %xor124.i = xor i32 %xor117.i, %or.i59.i
   %35 = tail call i32 @llvm.bswap.i32(i32 %xor124.i)
   store i32 %35, ptr %r, align 4
@@ -469,7 +469,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesenc_SB_SR_MC_AK_gen(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
@@ -589,7 +589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_SB_SR_MC_AK_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #2 {
+define dso_local void @aesenc_SB_SR_MC_AK_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -703,7 +703,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesdec_IMC_gen(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
@@ -715,21 +715,21 @@ entry:
   %idxprom14.i = zext i8 %2 to i64
   %arrayidx15.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom14.i
   %3 = load i32, ptr %arrayidx15.i, align 4
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %xor16.i = xor i32 %or.i.i, %1
   %arrayidx19.i = getelementptr [16 x i8], ptr %st, i64 0, i64 2
   %4 = load i8, ptr %arrayidx19.i, align 1
   %idxprom20.i = zext i8 %4 to i64
   %arrayidx21.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom20.i
   %5 = load i32, ptr %arrayidx21.i, align 4
-  %or.i49.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
+  %or.i49.i = tail call noundef i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
   %xor23.i = xor i32 %xor16.i, %or.i49.i
   %arrayidx26.i = getelementptr [16 x i8], ptr %st, i64 0, i64 3
   %6 = load i8, ptr %arrayidx26.i, align 1
   %idxprom27.i = zext i8 %6 to i64
   %arrayidx28.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 4
-  %or.i50.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
+  %or.i50.i = tail call noundef i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
   %xor30.i = xor i32 %xor23.i, %or.i50.i
   store i32 %xor30.i, ptr %r, align 4
   %arrayidx37.i = getelementptr [16 x i8], ptr %st, i64 0, i64 4
@@ -742,21 +742,21 @@ entry:
   %idxprom43.i = zext i8 %10 to i64
   %arrayidx44.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom43.i
   %11 = load i32, ptr %arrayidx44.i, align 4
-  %or.i51.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 8)
+  %or.i51.i = tail call noundef i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 8)
   %xor46.i = xor i32 %or.i51.i, %9
   %arrayidx49.i = getelementptr [16 x i8], ptr %st, i64 0, i64 6
   %12 = load i8, ptr %arrayidx49.i, align 1
   %idxprom50.i = zext i8 %12 to i64
   %arrayidx51.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom50.i
   %13 = load i32, ptr %arrayidx51.i, align 4
-  %or.i52.i = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 16)
+  %or.i52.i = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 16)
   %xor53.i = xor i32 %xor46.i, %or.i52.i
   %arrayidx56.i = getelementptr [16 x i8], ptr %st, i64 0, i64 7
   %14 = load i8, ptr %arrayidx56.i, align 1
   %idxprom57.i = zext i8 %14 to i64
   %arrayidx58.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom57.i
   %15 = load i32, ptr %arrayidx58.i, align 4
-  %or.i53.i = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 24)
+  %or.i53.i = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 24)
   %xor60.i = xor i32 %xor53.i, %or.i53.i
   %arrayidx66.i = getelementptr [4 x i32], ptr %r, i64 0, i64 1
   store i32 %xor60.i, ptr %arrayidx66.i, align 4
@@ -770,21 +770,21 @@ entry:
   %idxprom75.i = zext i8 %18 to i64
   %arrayidx76.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom75.i
   %19 = load i32, ptr %arrayidx76.i, align 4
-  %or.i54.i = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
+  %or.i54.i = tail call noundef i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 8)
   %xor78.i = xor i32 %or.i54.i, %17
   %arrayidx81.i = getelementptr [16 x i8], ptr %st, i64 0, i64 10
   %20 = load i8, ptr %arrayidx81.i, align 1
   %idxprom82.i = zext i8 %20 to i64
   %arrayidx83.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom82.i
   %21 = load i32, ptr %arrayidx83.i, align 4
-  %or.i55.i = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
+  %or.i55.i = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
   %xor85.i = xor i32 %xor78.i, %or.i55.i
   %arrayidx88.i = getelementptr [16 x i8], ptr %st, i64 0, i64 11
   %22 = load i8, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext i8 %22 to i64
   %arrayidx90.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom89.i
   %23 = load i32, ptr %arrayidx90.i, align 4
-  %or.i56.i = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 24)
+  %or.i56.i = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 24)
   %xor92.i = xor i32 %xor85.i, %or.i56.i
   %arrayidx98.i = getelementptr [4 x i32], ptr %r, i64 0, i64 2
   store i32 %xor92.i, ptr %arrayidx98.i, align 4
@@ -798,28 +798,28 @@ entry:
   %idxprom107.i = zext i8 %26 to i64
   %arrayidx108.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom107.i
   %27 = load i32, ptr %arrayidx108.i, align 4
-  %or.i57.i = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 8)
+  %or.i57.i = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 8)
   %xor110.i = xor i32 %or.i57.i, %25
   %arrayidx113.i = getelementptr [16 x i8], ptr %st, i64 0, i64 14
   %28 = load i8, ptr %arrayidx113.i, align 1
   %idxprom114.i = zext i8 %28 to i64
   %arrayidx115.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom114.i
   %29 = load i32, ptr %arrayidx115.i, align 4
-  %or.i58.i = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 16)
+  %or.i58.i = tail call noundef i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 16)
   %xor117.i = xor i32 %xor110.i, %or.i58.i
   %arrayidx120.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
   %30 = load i8, ptr %arrayidx120.i, align 1
   %idxprom121.i = zext i8 %30 to i64
   %arrayidx122.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom121.i
   %31 = load i32, ptr %arrayidx122.i, align 4
-  %or.i59.i = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 24)
+  %or.i59.i = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 24)
   %xor124.i = xor i32 %xor117.i, %or.i59.i
   %arrayidx130.i = getelementptr [4 x i32], ptr %r, i64 0, i64 3
   store i32 %xor124.i, ptr %arrayidx130.i, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesdec_IMC_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
@@ -832,21 +832,21 @@ entry:
   %idxprom14.i = zext i8 %2 to i64
   %arrayidx15.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom14.i
   %3 = load i32, ptr %arrayidx15.i, align 4
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %xor16.i = xor i32 %or.i.i, %1
   %arrayidx19.i = getelementptr [16 x i8], ptr %st, i64 0, i64 13
   %4 = load i8, ptr %arrayidx19.i, align 1
   %idxprom20.i = zext i8 %4 to i64
   %arrayidx21.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom20.i
   %5 = load i32, ptr %arrayidx21.i, align 4
-  %or.i49.i = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
+  %or.i49.i = tail call noundef i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 16)
   %xor23.i = xor i32 %xor16.i, %or.i49.i
   %arrayidx26.i = getelementptr [16 x i8], ptr %st, i64 0, i64 12
   %6 = load i8, ptr %arrayidx26.i, align 1
   %idxprom27.i = zext i8 %6 to i64
   %arrayidx28.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 4
-  %or.i50.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
+  %or.i50.i = tail call noundef i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 24)
   %xor30.i = xor i32 %xor23.i, %or.i50.i
   %8 = tail call i32 @llvm.bswap.i32(i32 %xor30.i)
   %arrayidx34.i = getelementptr [4 x i32], ptr %r, i64 0, i64 3
@@ -861,21 +861,21 @@ entry:
   %idxprom43.i = zext i8 %11 to i64
   %arrayidx44.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom43.i
   %12 = load i32, ptr %arrayidx44.i, align 4
-  %or.i51.i = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 8)
+  %or.i51.i = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 8)
   %xor46.i = xor i32 %or.i51.i, %10
   %arrayidx49.i = getelementptr [16 x i8], ptr %st, i64 0, i64 9
   %13 = load i8, ptr %arrayidx49.i, align 1
   %idxprom50.i = zext i8 %13 to i64
   %arrayidx51.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom50.i
   %14 = load i32, ptr %arrayidx51.i, align 4
-  %or.i52.i = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 16)
+  %or.i52.i = tail call noundef i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 16)
   %xor53.i = xor i32 %xor46.i, %or.i52.i
   %arrayidx56.i = getelementptr [16 x i8], ptr %st, i64 0, i64 8
   %15 = load i8, ptr %arrayidx56.i, align 1
   %idxprom57.i = zext i8 %15 to i64
   %arrayidx58.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom57.i
   %16 = load i32, ptr %arrayidx58.i, align 4
-  %or.i53.i = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 24)
+  %or.i53.i = tail call noundef i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 24)
   %xor60.i = xor i32 %xor53.i, %or.i53.i
   %17 = tail call i32 @llvm.bswap.i32(i32 %xor60.i)
   %arrayidx66.i = getelementptr [4 x i32], ptr %r, i64 0, i64 2
@@ -890,21 +890,21 @@ entry:
   %idxprom75.i = zext i8 %20 to i64
   %arrayidx76.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom75.i
   %21 = load i32, ptr %arrayidx76.i, align 4
-  %or.i54.i = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 8)
+  %or.i54.i = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 8)
   %xor78.i = xor i32 %or.i54.i, %19
   %arrayidx81.i = getelementptr [16 x i8], ptr %st, i64 0, i64 5
   %22 = load i8, ptr %arrayidx81.i, align 1
   %idxprom82.i = zext i8 %22 to i64
   %arrayidx83.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom82.i
   %23 = load i32, ptr %arrayidx83.i, align 4
-  %or.i55.i = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
+  %or.i55.i = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
   %xor85.i = xor i32 %xor78.i, %or.i55.i
   %arrayidx88.i = getelementptr [16 x i8], ptr %st, i64 0, i64 4
   %24 = load i8, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext i8 %24 to i64
   %arrayidx90.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom89.i
   %25 = load i32, ptr %arrayidx90.i, align 4
-  %or.i56.i = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 24)
+  %or.i56.i = tail call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 24)
   %xor92.i = xor i32 %xor85.i, %or.i56.i
   %26 = tail call i32 @llvm.bswap.i32(i32 %xor92.i)
   %arrayidx98.i = getelementptr [4 x i32], ptr %r, i64 0, i64 1
@@ -919,20 +919,20 @@ entry:
   %idxprom107.i = zext i8 %29 to i64
   %arrayidx108.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom107.i
   %30 = load i32, ptr %arrayidx108.i, align 4
-  %or.i57.i = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 8)
+  %or.i57.i = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 8)
   %xor110.i = xor i32 %or.i57.i, %28
   %arrayidx113.i = getelementptr [16 x i8], ptr %st, i64 0, i64 1
   %31 = load i8, ptr %arrayidx113.i, align 1
   %idxprom114.i = zext i8 %31 to i64
   %arrayidx115.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom114.i
   %32 = load i32, ptr %arrayidx115.i, align 4
-  %or.i58.i = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 16)
+  %or.i58.i = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 16)
   %xor117.i = xor i32 %xor110.i, %or.i58.i
   %33 = load i8, ptr %st, align 1
   %idxprom121.i = zext i8 %33 to i64
   %arrayidx122.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom121.i
   %34 = load i32, ptr %arrayidx122.i, align 4
-  %or.i59.i = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 24)
+  %or.i59.i = tail call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 24)
   %xor124.i = xor i32 %xor117.i, %or.i59.i
   %35 = tail call i32 @llvm.bswap.i32(i32 %xor124.i)
   store i32 %35, ptr %r, align 4
@@ -1147,7 +1147,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @aesdec_ISB_ISR_IMC_AK_gen(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
@@ -1267,7 +1267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_IMC_AK_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #2 {
+define dso_local void @aesdec_ISB_ISR_IMC_AK_genrev(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1381,8 +1381,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_IMC_gen(ptr nocapture noundef %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local void @aesdec_ISB_ISR_AK_IMC_gen(ptr nocapture noundef %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #1 {
 entry:
   %k.val.i = load <16 x i8>, ptr %rk, align 16
   %0 = load i8, ptr %st, align 1
@@ -1491,19 +1491,19 @@ entry:
   %idxprom14.i.i = zext i8 %34 to i64
   %arrayidx15.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom14.i.i
   %35 = load i32, ptr %arrayidx15.i.i, align 4
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 8)
+  %or.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 8)
   %xor16.i.i = xor i32 %or.i.i.i, %33
   %36 = extractelement <16 x i8> %xor126.i.i, i64 2
   %idxprom20.i.i = zext i8 %36 to i64
   %arrayidx21.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom20.i.i
   %37 = load i32, ptr %arrayidx21.i.i, align 4
-  %or.i49.i.i = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 16)
+  %or.i49.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 16)
   %xor23.i.i = xor i32 %xor16.i.i, %or.i49.i.i
   %38 = extractelement <16 x i8> %xor126.i.i, i64 3
   %idxprom27.i.i = zext i8 %38 to i64
   %arrayidx28.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom27.i.i
   %39 = load i32, ptr %arrayidx28.i.i, align 4
-  %or.i50.i.i = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 24)
+  %or.i50.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 24)
   %xor30.i.i = xor i32 %xor23.i.i, %or.i50.i.i
   store i32 %xor30.i.i, ptr %ret, align 4
   %arrayidx37.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 4
@@ -1515,19 +1515,19 @@ entry:
   %idxprom43.i.i = zext i8 %42 to i64
   %arrayidx44.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom43.i.i
   %43 = load i32, ptr %arrayidx44.i.i, align 4
-  %or.i51.i.i = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 8)
+  %or.i51.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 8)
   %xor46.i.i = xor i32 %or.i51.i.i, %41
   %44 = extractelement <16 x i8> %xor126.i.i, i64 6
   %idxprom50.i.i = zext i8 %44 to i64
   %arrayidx51.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom50.i.i
   %45 = load i32, ptr %arrayidx51.i.i, align 4
-  %or.i52.i.i = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 16)
+  %or.i52.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 16)
   %xor53.i.i = xor i32 %xor46.i.i, %or.i52.i.i
   %46 = extractelement <16 x i8> %xor126.i.i, i64 7
   %idxprom57.i.i8 = zext i8 %46 to i64
   %arrayidx58.i.i9 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom57.i.i8
   %47 = load i32, ptr %arrayidx58.i.i9, align 4
-  %or.i53.i.i = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 24)
+  %or.i53.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 24)
   %xor60.i.i = xor i32 %xor53.i.i, %or.i53.i.i
   store i32 %xor60.i.i, ptr %arrayidx37.i.i, align 4
   %arrayidx69.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 8
@@ -1539,19 +1539,19 @@ entry:
   %idxprom75.i.i = zext i8 %50 to i64
   %arrayidx76.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom75.i.i
   %51 = load i32, ptr %arrayidx76.i.i, align 4
-  %or.i54.i.i = tail call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 8)
+  %or.i54.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 8)
   %xor78.i.i = xor i32 %or.i54.i.i, %49
   %52 = extractelement <16 x i8> %xor126.i.i, i64 10
   %idxprom82.i.i = zext i8 %52 to i64
   %arrayidx83.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom82.i.i
   %53 = load i32, ptr %arrayidx83.i.i, align 4
-  %or.i55.i.i = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 16)
+  %or.i55.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 16)
   %xor85.i.i = xor i32 %xor78.i.i, %or.i55.i.i
   %54 = extractelement <16 x i8> %xor126.i.i, i64 11
   %idxprom89.i.i13 = zext i8 %54 to i64
   %arrayidx90.i.i14 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom89.i.i13
   %55 = load i32, ptr %arrayidx90.i.i14, align 4
-  %or.i56.i.i = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 24)
+  %or.i56.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 24)
   %xor92.i.i = xor i32 %xor85.i.i, %or.i56.i.i
   store i32 %xor92.i.i, ptr %arrayidx69.i.i, align 4
   %arrayidx101.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 12
@@ -1564,28 +1564,28 @@ entry:
   %idxprom107.i.i = zext i8 %58 to i64
   %arrayidx108.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom107.i.i
   %59 = load i32, ptr %arrayidx108.i.i, align 4
-  %or.i57.i.i = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 8)
+  %or.i57.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 8)
   %xor110.i.i = xor i32 %or.i57.i.i, %57
   %arrayidx113.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 14
   %60 = load i8, ptr %arrayidx113.i.i, align 1
   %idxprom114.i.i = zext i8 %60 to i64
   %arrayidx115.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom114.i.i
   %61 = load i32, ptr %arrayidx115.i.i, align 4
-  %or.i58.i.i = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 16)
+  %or.i58.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 16)
   %xor117.i.i = xor i32 %xor110.i.i, %or.i58.i.i
   %arrayidx120.i.i17 = getelementptr [16 x i8], ptr %ret, i64 0, i64 15
   %62 = load i8, ptr %arrayidx120.i.i17, align 1
   %idxprom121.i.i18 = zext i8 %62 to i64
   %arrayidx122.i.i19 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom121.i.i18
   %63 = load i32, ptr %arrayidx122.i.i19, align 4
-  %or.i59.i.i = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 24)
+  %or.i59.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 24)
   %xor124.i.i = xor i32 %xor117.i.i, %or.i59.i.i
   store i32 %xor124.i.i, ptr %arrayidx101.i.i, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_IMC_genrev(ptr nocapture noundef %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local void @aesdec_ISB_ISR_AK_IMC_genrev(ptr nocapture noundef %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #1 {
 entry:
   %k.val.i = load <16 x i8>, ptr %rk, align 16
   %arrayidx.i.i = getelementptr [16 x i8], ptr %st, i64 0, i64 15
@@ -1693,20 +1693,20 @@ entry:
   %idxprom14.i.i = zext i8 %49 to i64
   %arrayidx15.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom14.i.i
   %50 = load i32, ptr %arrayidx15.i.i, align 4
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 8)
+  %or.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 8)
   %xor16.i.i = xor i32 %or.i.i.i, %48
   %51 = extractelement <16 x i8> %xor126.i.i, i64 13
   %idxprom20.i.i = zext i8 %51 to i64
   %arrayidx21.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom20.i.i
   %52 = load i32, ptr %arrayidx21.i.i, align 4
-  %or.i49.i.i = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 16)
+  %or.i49.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 16)
   %xor23.i.i = xor i32 %xor16.i.i, %or.i49.i.i
   %arrayidx26.i.i6 = getelementptr [16 x i8], ptr %ret, i64 0, i64 12
   %53 = extractelement <16 x i8> %xor126.i.i, i64 12
   %idxprom27.i.i = zext i8 %53 to i64
   %arrayidx28.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom27.i.i
   %54 = load i32, ptr %arrayidx28.i.i, align 4
-  %or.i50.i.i = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 24)
+  %or.i50.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 24)
   %xor30.i.i = xor i32 %xor23.i.i, %or.i50.i.i
   %55 = tail call i32 @llvm.bswap.i32(i32 %xor30.i.i)
   store i32 %55, ptr %arrayidx26.i.i6, align 4
@@ -1718,20 +1718,20 @@ entry:
   %idxprom43.i.i = zext i8 %58 to i64
   %arrayidx44.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom43.i.i
   %59 = load i32, ptr %arrayidx44.i.i, align 4
-  %or.i51.i.i = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 8)
+  %or.i51.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 8)
   %xor46.i.i = xor i32 %or.i51.i.i, %57
   %60 = extractelement <16 x i8> %xor126.i.i, i64 9
   %idxprom50.i.i = zext i8 %60 to i64
   %arrayidx51.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom50.i.i
   %61 = load i32, ptr %arrayidx51.i.i, align 4
-  %or.i52.i.i = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 16)
+  %or.i52.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 16)
   %xor53.i.i = xor i32 %xor46.i.i, %or.i52.i.i
   %arrayidx56.i.i9 = getelementptr [16 x i8], ptr %ret, i64 0, i64 8
   %62 = extractelement <16 x i8> %xor126.i.i, i64 8
   %idxprom57.i.i10 = zext i8 %62 to i64
   %arrayidx58.i.i11 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom57.i.i10
   %63 = load i32, ptr %arrayidx58.i.i11, align 4
-  %or.i53.i.i = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 24)
+  %or.i53.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 24)
   %xor60.i.i = xor i32 %xor53.i.i, %or.i53.i.i
   %64 = tail call i32 @llvm.bswap.i32(i32 %xor60.i.i)
   store i32 %64, ptr %arrayidx56.i.i9, align 4
@@ -1743,20 +1743,20 @@ entry:
   %idxprom75.i.i = zext i8 %67 to i64
   %arrayidx76.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom75.i.i
   %68 = load i32, ptr %arrayidx76.i.i, align 4
-  %or.i54.i.i = tail call i32 @llvm.fshl.i32(i32 %68, i32 %68, i32 8)
+  %or.i54.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %68, i32 %68, i32 8)
   %xor78.i.i = xor i32 %or.i54.i.i, %66
   %69 = extractelement <16 x i8> %xor126.i.i, i64 5
   %idxprom82.i.i = zext i8 %69 to i64
   %arrayidx83.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom82.i.i
   %70 = load i32, ptr %arrayidx83.i.i, align 4
-  %or.i55.i.i = tail call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 16)
+  %or.i55.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 16)
   %xor85.i.i = xor i32 %xor78.i.i, %or.i55.i.i
   %arrayidx88.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 4
   %71 = extractelement <16 x i8> %xor126.i.i, i64 4
   %idxprom89.i.i14 = zext i8 %71 to i64
   %arrayidx90.i.i15 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom89.i.i14
   %72 = load i32, ptr %arrayidx90.i.i15, align 4
-  %or.i56.i.i = tail call i32 @llvm.fshl.i32(i32 %72, i32 %72, i32 24)
+  %or.i56.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %72, i32 %72, i32 24)
   %xor92.i.i = xor i32 %xor85.i.i, %or.i56.i.i
   %73 = tail call i32 @llvm.bswap.i32(i32 %xor92.i.i)
   store i32 %73, ptr %arrayidx88.i.i, align 4
@@ -1770,20 +1770,20 @@ entry:
   %idxprom107.i.i = zext i8 %76 to i64
   %arrayidx108.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom107.i.i
   %77 = load i32, ptr %arrayidx108.i.i, align 4
-  %or.i57.i.i = tail call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 8)
+  %or.i57.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 8)
   %xor110.i.i = xor i32 %or.i57.i.i, %75
   %arrayidx113.i.i = getelementptr [16 x i8], ptr %ret, i64 0, i64 1
   %78 = load i8, ptr %arrayidx113.i.i, align 1
   %idxprom114.i.i = zext i8 %78 to i64
   %arrayidx115.i.i = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom114.i.i
   %79 = load i32, ptr %arrayidx115.i.i, align 4
-  %or.i58.i.i = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 16)
+  %or.i58.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 16)
   %xor117.i.i = xor i32 %xor110.i.i, %or.i58.i.i
   %80 = load i8, ptr %ret, align 1
   %idxprom121.i.i18 = zext i8 %80 to i64
   %arrayidx122.i.i19 = getelementptr [256 x i32], ptr @AES_imc_rot, i64 0, i64 %idxprom121.i.i18
   %81 = load i32, ptr %arrayidx122.i.i19, align 4
-  %or.i59.i.i = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 24)
+  %or.i59.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 24)
   %xor124.i.i = xor i32 %xor117.i.i, %or.i59.i.i
   %82 = tail call i32 @llvm.bswap.i32(i32 %xor124.i.i)
   store i32 %82, ptr %ret, align 4
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #4 {
+define dso_local noundef i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %userKey, null
   %tobool1 = icmp ne ptr %key, null
@@ -2212,7 +2212,7 @@ if.end312:                                        ; preds = %while.body267
   br label %while.body267
 
 if.end351:                                        ; preds = %if.end225
-  tail call void @abort() #8
+  tail call void @abort() #6
   unreachable
 
 return:                                           ; preds = %while.body267, %while.body170, %while.body, %if.end, %entry
@@ -2221,10 +2221,10 @@ return:                                           ; preds = %while.body267, %whi
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #4 {
+define dso_local noundef i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @QEMU_AES_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key), !range !5
   %cmp = icmp slt i32 %call, 0
@@ -2239,6 +2239,12 @@ if.end:                                           ; preds = %entry
 
 for.body.preheader:                               ; preds = %if.end
   %1 = zext nneg i32 %mul to i64
+  %invariant.gep = getelementptr i32, ptr %key, i64 1
+  %invariant.gep81 = getelementptr i32, ptr %key, i64 1
+  %invariant.gep83 = getelementptr i32, ptr %key, i64 2
+  %invariant.gep85 = getelementptr i32, ptr %key, i64 2
+  %invariant.gep87 = getelementptr i32, ptr %key, i64 3
+  %invariant.gep89 = getelementptr i32, ptr %key, i64 3
   br label %for.body
 
 for.cond44.preheader.loopexit:                    ; preds = %for.body
@@ -2259,30 +2265,24 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load i32, ptr %arrayidx3, align 4
   store i32 %4, ptr %arrayidx, align 4
   store i32 %3, ptr %arrayidx3, align 4
-  %5 = or disjoint i64 %indvars.iv73, 1
-  %arrayidx9 = getelementptr i32, ptr %key, i64 %5
-  %6 = load i32, ptr %arrayidx9, align 4
-  %7 = or disjoint i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr i32, ptr %key, i64 %7
-  %8 = load i32, ptr %arrayidx12, align 4
-  store i32 %8, ptr %arrayidx9, align 4
-  store i32 %6, ptr %arrayidx12, align 4
-  %9 = or disjoint i64 %indvars.iv73, 2
-  %arrayidx21 = getelementptr i32, ptr %key, i64 %9
-  %10 = load i32, ptr %arrayidx21, align 4
-  %11 = or disjoint i64 %indvars.iv, 2
-  %arrayidx24 = getelementptr i32, ptr %key, i64 %11
-  %12 = load i32, ptr %arrayidx24, align 4
-  store i32 %12, ptr %arrayidx21, align 4
-  store i32 %10, ptr %arrayidx24, align 4
-  %13 = or disjoint i64 %indvars.iv73, 3
-  %arrayidx33 = getelementptr i32, ptr %key, i64 %13
-  %14 = load i32, ptr %arrayidx33, align 4
-  %15 = or disjoint i64 %indvars.iv, 3
-  %arrayidx36 = getelementptr i32, ptr %key, i64 %15
-  %16 = load i32, ptr %arrayidx36, align 4
-  store i32 %16, ptr %arrayidx33, align 4
-  store i32 %14, ptr %arrayidx36, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv73
+  %5 = load i32, ptr %gep, align 4
+  %gep82 = getelementptr i32, ptr %invariant.gep81, i64 %indvars.iv
+  %6 = load i32, ptr %gep82, align 4
+  store i32 %6, ptr %gep, align 4
+  store i32 %5, ptr %gep82, align 4
+  %gep84 = getelementptr i32, ptr %invariant.gep83, i64 %indvars.iv73
+  %7 = load i32, ptr %gep84, align 4
+  %gep86 = getelementptr i32, ptr %invariant.gep85, i64 %indvars.iv
+  %8 = load i32, ptr %gep86, align 4
+  store i32 %8, ptr %gep84, align 4
+  store i32 %7, ptr %gep86, align 4
+  %gep88 = getelementptr i32, ptr %invariant.gep87, i64 %indvars.iv73
+  %9 = load i32, ptr %gep88, align 4
+  %gep90 = getelementptr i32, ptr %invariant.gep89, i64 %indvars.iv
+  %10 = load i32, ptr %gep90, align 4
+  store i32 %10, ptr %gep88, align 4
+  store i32 %9, ptr %gep90, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %cmp1 = icmp slt i64 %indvars.iv.next74, %indvars.iv.next
@@ -2292,168 +2292,168 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %rk.069 = phi ptr [ %add.ptr, %for.body47 ], [ %key, %for.cond44.preheader ]
   %i.168 = phi i32 [ %inc, %for.body47 ], [ 1, %for.cond44.preheader ]
   %add.ptr = getelementptr i32, ptr %rk.069, i64 4
-  %17 = load i32, ptr %add.ptr, align 4
-  %shr = lshr i32 %17, 24
+  %11 = load i32, ptr %add.ptr, align 4
+  %shr = lshr i32 %11, 24
   %idxprom49 = zext nneg i32 %shr to i64
   %arrayidx50 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom49
-  %18 = load i32, ptr %arrayidx50, align 4
-  %and = and i32 %18, 255
+  %12 = load i32, ptr %arrayidx50, align 4
+  %and = and i32 %12, 255
   %idxprom51 = zext nneg i32 %and to i64
   %arrayidx52 = getelementptr [256 x i32], ptr @AES_Td0, i64 0, i64 %idxprom51
-  %19 = load i32, ptr %arrayidx52, align 4
-  %shr54 = lshr i32 %17, 16
+  %13 = load i32, ptr %arrayidx52, align 4
+  %shr54 = lshr i32 %11, 16
   %and55 = and i32 %shr54, 255
   %idxprom56 = zext nneg i32 %and55 to i64
   %arrayidx57 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom56
-  %20 = load i32, ptr %arrayidx57, align 4
-  %and58 = and i32 %20, 255
+  %14 = load i32, ptr %arrayidx57, align 4
+  %and58 = and i32 %14, 255
   %idxprom59 = zext nneg i32 %and58 to i64
   %arrayidx60 = getelementptr [256 x i32], ptr @AES_Td1, i64 0, i64 %idxprom59
-  %21 = load i32, ptr %arrayidx60, align 4
-  %xor = xor i32 %21, %19
-  %shr62 = lshr i32 %17, 8
+  %15 = load i32, ptr %arrayidx60, align 4
+  %xor = xor i32 %15, %13
+  %shr62 = lshr i32 %11, 8
   %and63 = and i32 %shr62, 255
   %idxprom64 = zext nneg i32 %and63 to i64
   %arrayidx65 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom64
-  %22 = load i32, ptr %arrayidx65, align 4
-  %and66 = and i32 %22, 255
+  %16 = load i32, ptr %arrayidx65, align 4
+  %and66 = and i32 %16, 255
   %idxprom67 = zext nneg i32 %and66 to i64
   %arrayidx68 = getelementptr [256 x i32], ptr @AES_Td2, i64 0, i64 %idxprom67
-  %23 = load i32, ptr %arrayidx68, align 4
-  %xor69 = xor i32 %xor, %23
-  %and71 = and i32 %17, 255
+  %17 = load i32, ptr %arrayidx68, align 4
+  %xor69 = xor i32 %xor, %17
+  %and71 = and i32 %11, 255
   %idxprom72 = zext nneg i32 %and71 to i64
   %arrayidx73 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom72
-  %24 = load i32, ptr %arrayidx73, align 4
-  %and74 = and i32 %24, 255
+  %18 = load i32, ptr %arrayidx73, align 4
+  %and74 = and i32 %18, 255
   %idxprom75 = zext nneg i32 %and74 to i64
   %arrayidx76 = getelementptr [256 x i32], ptr @AES_Td3, i64 0, i64 %idxprom75
-  %25 = load i32, ptr %arrayidx76, align 4
-  %xor77 = xor i32 %xor69, %25
+  %19 = load i32, ptr %arrayidx76, align 4
+  %xor77 = xor i32 %xor69, %19
   store i32 %xor77, ptr %add.ptr, align 4
   %arrayidx79 = getelementptr i32, ptr %rk.069, i64 5
-  %26 = load i32, ptr %arrayidx79, align 4
-  %shr80 = lshr i32 %26, 24
+  %20 = load i32, ptr %arrayidx79, align 4
+  %shr80 = lshr i32 %20, 24
   %idxprom81 = zext nneg i32 %shr80 to i64
   %arrayidx82 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom81
-  %27 = load i32, ptr %arrayidx82, align 4
-  %and83 = and i32 %27, 255
+  %21 = load i32, ptr %arrayidx82, align 4
+  %and83 = and i32 %21, 255
   %idxprom84 = zext nneg i32 %and83 to i64
   %arrayidx85 = getelementptr [256 x i32], ptr @AES_Td0, i64 0, i64 %idxprom84
-  %28 = load i32, ptr %arrayidx85, align 4
-  %shr87 = lshr i32 %26, 16
+  %22 = load i32, ptr %arrayidx85, align 4
+  %shr87 = lshr i32 %20, 16
   %and88 = and i32 %shr87, 255
   %idxprom89 = zext nneg i32 %and88 to i64
   %arrayidx90 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom89
-  %29 = load i32, ptr %arrayidx90, align 4
-  %and91 = and i32 %29, 255
+  %23 = load i32, ptr %arrayidx90, align 4
+  %and91 = and i32 %23, 255
   %idxprom92 = zext nneg i32 %and91 to i64
   %arrayidx93 = getelementptr [256 x i32], ptr @AES_Td1, i64 0, i64 %idxprom92
-  %30 = load i32, ptr %arrayidx93, align 4
-  %xor94 = xor i32 %30, %28
-  %shr96 = lshr i32 %26, 8
+  %24 = load i32, ptr %arrayidx93, align 4
+  %xor94 = xor i32 %24, %22
+  %shr96 = lshr i32 %20, 8
   %and97 = and i32 %shr96, 255
   %idxprom98 = zext nneg i32 %and97 to i64
   %arrayidx99 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom98
-  %31 = load i32, ptr %arrayidx99, align 4
-  %and100 = and i32 %31, 255
+  %25 = load i32, ptr %arrayidx99, align 4
+  %and100 = and i32 %25, 255
   %idxprom101 = zext nneg i32 %and100 to i64
   %arrayidx102 = getelementptr [256 x i32], ptr @AES_Td2, i64 0, i64 %idxprom101
-  %32 = load i32, ptr %arrayidx102, align 4
-  %xor103 = xor i32 %xor94, %32
-  %and105 = and i32 %26, 255
+  %26 = load i32, ptr %arrayidx102, align 4
+  %xor103 = xor i32 %xor94, %26
+  %and105 = and i32 %20, 255
   %idxprom106 = zext nneg i32 %and105 to i64
   %arrayidx107 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom106
-  %33 = load i32, ptr %arrayidx107, align 4
-  %and108 = and i32 %33, 255
+  %27 = load i32, ptr %arrayidx107, align 4
+  %and108 = and i32 %27, 255
   %idxprom109 = zext nneg i32 %and108 to i64
   %arrayidx110 = getelementptr [256 x i32], ptr @AES_Td3, i64 0, i64 %idxprom109
-  %34 = load i32, ptr %arrayidx110, align 4
-  %xor111 = xor i32 %xor103, %34
+  %28 = load i32, ptr %arrayidx110, align 4
+  %xor111 = xor i32 %xor103, %28
   store i32 %xor111, ptr %arrayidx79, align 4
   %arrayidx113 = getelementptr i32, ptr %rk.069, i64 6
-  %35 = load i32, ptr %arrayidx113, align 4
-  %shr114 = lshr i32 %35, 24
+  %29 = load i32, ptr %arrayidx113, align 4
+  %shr114 = lshr i32 %29, 24
   %idxprom115 = zext nneg i32 %shr114 to i64
   %arrayidx116 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom115
-  %36 = load i32, ptr %arrayidx116, align 4
-  %and117 = and i32 %36, 255
+  %30 = load i32, ptr %arrayidx116, align 4
+  %and117 = and i32 %30, 255
   %idxprom118 = zext nneg i32 %and117 to i64
   %arrayidx119 = getelementptr [256 x i32], ptr @AES_Td0, i64 0, i64 %idxprom118
-  %37 = load i32, ptr %arrayidx119, align 4
-  %shr121 = lshr i32 %35, 16
+  %31 = load i32, ptr %arrayidx119, align 4
+  %shr121 = lshr i32 %29, 16
   %and122 = and i32 %shr121, 255
   %idxprom123 = zext nneg i32 %and122 to i64
   %arrayidx124 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom123
-  %38 = load i32, ptr %arrayidx124, align 4
-  %and125 = and i32 %38, 255
+  %32 = load i32, ptr %arrayidx124, align 4
+  %and125 = and i32 %32, 255
   %idxprom126 = zext nneg i32 %and125 to i64
   %arrayidx127 = getelementptr [256 x i32], ptr @AES_Td1, i64 0, i64 %idxprom126
-  %39 = load i32, ptr %arrayidx127, align 4
-  %xor128 = xor i32 %39, %37
-  %shr130 = lshr i32 %35, 8
+  %33 = load i32, ptr %arrayidx127, align 4
+  %xor128 = xor i32 %33, %31
+  %shr130 = lshr i32 %29, 8
   %and131 = and i32 %shr130, 255
   %idxprom132 = zext nneg i32 %and131 to i64
   %arrayidx133 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom132
-  %40 = load i32, ptr %arrayidx133, align 4
-  %and134 = and i32 %40, 255
+  %34 = load i32, ptr %arrayidx133, align 4
+  %and134 = and i32 %34, 255
   %idxprom135 = zext nneg i32 %and134 to i64
   %arrayidx136 = getelementptr [256 x i32], ptr @AES_Td2, i64 0, i64 %idxprom135
-  %41 = load i32, ptr %arrayidx136, align 4
-  %xor137 = xor i32 %xor128, %41
-  %and139 = and i32 %35, 255
+  %35 = load i32, ptr %arrayidx136, align 4
+  %xor137 = xor i32 %xor128, %35
+  %and139 = and i32 %29, 255
   %idxprom140 = zext nneg i32 %and139 to i64
   %arrayidx141 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom140
-  %42 = load i32, ptr %arrayidx141, align 4
-  %and142 = and i32 %42, 255
+  %36 = load i32, ptr %arrayidx141, align 4
+  %and142 = and i32 %36, 255
   %idxprom143 = zext nneg i32 %and142 to i64
   %arrayidx144 = getelementptr [256 x i32], ptr @AES_Td3, i64 0, i64 %idxprom143
-  %43 = load i32, ptr %arrayidx144, align 4
-  %xor145 = xor i32 %xor137, %43
+  %37 = load i32, ptr %arrayidx144, align 4
+  %xor145 = xor i32 %xor137, %37
   store i32 %xor145, ptr %arrayidx113, align 4
   %arrayidx147 = getelementptr i32, ptr %rk.069, i64 7
-  %44 = load i32, ptr %arrayidx147, align 4
-  %shr148 = lshr i32 %44, 24
+  %38 = load i32, ptr %arrayidx147, align 4
+  %shr148 = lshr i32 %38, 24
   %idxprom149 = zext nneg i32 %shr148 to i64
   %arrayidx150 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom149
-  %45 = load i32, ptr %arrayidx150, align 4
-  %and151 = and i32 %45, 255
+  %39 = load i32, ptr %arrayidx150, align 4
+  %and151 = and i32 %39, 255
   %idxprom152 = zext nneg i32 %and151 to i64
   %arrayidx153 = getelementptr [256 x i32], ptr @AES_Td0, i64 0, i64 %idxprom152
-  %46 = load i32, ptr %arrayidx153, align 4
-  %shr155 = lshr i32 %44, 16
+  %40 = load i32, ptr %arrayidx153, align 4
+  %shr155 = lshr i32 %38, 16
   %and156 = and i32 %shr155, 255
   %idxprom157 = zext nneg i32 %and156 to i64
   %arrayidx158 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom157
-  %47 = load i32, ptr %arrayidx158, align 4
-  %and159 = and i32 %47, 255
+  %41 = load i32, ptr %arrayidx158, align 4
+  %and159 = and i32 %41, 255
   %idxprom160 = zext nneg i32 %and159 to i64
   %arrayidx161 = getelementptr [256 x i32], ptr @AES_Td1, i64 0, i64 %idxprom160
-  %48 = load i32, ptr %arrayidx161, align 4
-  %xor162 = xor i32 %48, %46
-  %shr164 = lshr i32 %44, 8
+  %42 = load i32, ptr %arrayidx161, align 4
+  %xor162 = xor i32 %42, %40
+  %shr164 = lshr i32 %38, 8
   %and165 = and i32 %shr164, 255
   %idxprom166 = zext nneg i32 %and165 to i64
   %arrayidx167 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom166
-  %49 = load i32, ptr %arrayidx167, align 4
-  %and168 = and i32 %49, 255
+  %43 = load i32, ptr %arrayidx167, align 4
+  %and168 = and i32 %43, 255
   %idxprom169 = zext nneg i32 %and168 to i64
   %arrayidx170 = getelementptr [256 x i32], ptr @AES_Td2, i64 0, i64 %idxprom169
-  %50 = load i32, ptr %arrayidx170, align 4
-  %xor171 = xor i32 %xor162, %50
-  %and173 = and i32 %44, 255
+  %44 = load i32, ptr %arrayidx170, align 4
+  %xor171 = xor i32 %xor162, %44
+  %and173 = and i32 %38, 255
   %idxprom174 = zext nneg i32 %and173 to i64
   %arrayidx175 = getelementptr [256 x i32], ptr @AES_Te4, i64 0, i64 %idxprom174
-  %51 = load i32, ptr %arrayidx175, align 4
-  %and176 = and i32 %51, 255
+  %45 = load i32, ptr %arrayidx175, align 4
+  %and176 = and i32 %45, 255
   %idxprom177 = zext nneg i32 %and176 to i64
   %arrayidx178 = getelementptr [256 x i32], ptr @AES_Td3, i64 0, i64 %idxprom177
-  %52 = load i32, ptr %arrayidx178, align 4
-  %xor179 = xor i32 %xor171, %52
+  %46 = load i32, ptr %arrayidx178, align 4
+  %xor179 = xor i32 %xor171, %46
   store i32 %xor179, ptr %arrayidx147, align 4
   %inc = add nuw nsw i32 %i.168, 1
-  %53 = load i32, ptr %rounds, align 4
-  %cmp46 = icmp slt i32 %inc, %53
+  %47 = load i32, ptr %rounds, align 4
+  %cmp46 = icmp slt i32 %inc, %47
   br i1 %cmp46, label %for.body47, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body47, %for.cond44.preheader, %entry
@@ -2462,7 +2462,7 @@ return:                                           ; preds = %for.body47, %for.co
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
+define dso_local void @QEMU_AES_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -2472,7 +2472,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1456, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_encrypt) #8
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1456, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_encrypt) #6
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2948,10 +2948,10 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_decrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
+define dso_local void @QEMU_AES_decrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -2961,7 +2961,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_decrypt) #8
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_decrypt) #6
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3437,20 +3437,18 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

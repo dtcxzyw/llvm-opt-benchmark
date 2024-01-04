@@ -2247,8 +2247,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %10 = load i8, ptr %arrayidx39, align 1
   %conv40 = zext i8 %10 to i64
   %mul41 = shl nuw nsw i64 %conv40, 8
-  %add43 = or disjoint i64 %mul38, 1
-  %arrayidx44 = getelementptr inbounds i8, ptr %call.i, i64 %add43
+  %arrayidx44 = getelementptr i8, ptr %arrayidx39, i64 1
   %11 = load i8, ptr %arrayidx44, align 1
   %conv45 = zext i8 %11 to i64
   %add46 = or disjoint i64 %mul41, %conv45
@@ -2257,50 +2256,41 @@ for.body:                                         ; preds = %for.cond.preheader,
   %mul48 = shl nuw nsw i64 %i.0100, 2
   %arrayidx50 = getelementptr inbounds float, ptr %out, i64 %mul48
   store float %12, ptr %arrayidx50, align 4
-  %add52 = or disjoint i64 %mul38, 2
-  %arrayidx53 = getelementptr inbounds i8, ptr %call.i, i64 %add52
+  %arrayidx53 = getelementptr i8, ptr %arrayidx39, i64 2
   %13 = load i8, ptr %arrayidx53, align 1
   %conv54 = zext i8 %13 to i64
   %mul55 = shl nuw nsw i64 %conv54, 8
-  %add57 = or disjoint i64 %mul38, 3
-  %arrayidx58 = getelementptr inbounds i8, ptr %call.i, i64 %add57
+  %arrayidx58 = getelementptr i8, ptr %arrayidx39, i64 3
   %14 = load i8, ptr %arrayidx58, align 1
   %conv59 = zext i8 %14 to i64
   %add60 = or disjoint i64 %mul55, %conv59
   %arrayidx62 = getelementptr inbounds float, ptr %gammatable_g.0, i64 %add60
   %15 = load float, ptr %arrayidx62, align 4
-  %add64 = or disjoint i64 %mul48, 1
-  %arrayidx65 = getelementptr inbounds float, ptr %out, i64 %add64
+  %arrayidx65 = getelementptr float, ptr %arrayidx50, i64 1
   store float %15, ptr %arrayidx65, align 4
-  %add67 = or disjoint i64 %mul38, 4
-  %arrayidx68 = getelementptr inbounds i8, ptr %call.i, i64 %add67
+  %arrayidx68 = getelementptr i8, ptr %arrayidx39, i64 4
   %16 = load i8, ptr %arrayidx68, align 1
   %conv69 = zext i8 %16 to i64
   %mul70 = shl nuw nsw i64 %conv69, 8
-  %add72 = or disjoint i64 %mul38, 5
-  %arrayidx73 = getelementptr inbounds i8, ptr %call.i, i64 %add72
+  %arrayidx73 = getelementptr i8, ptr %arrayidx39, i64 5
   %17 = load i8, ptr %arrayidx73, align 1
   %conv74 = zext i8 %17 to i64
   %add75 = or disjoint i64 %mul70, %conv74
   %arrayidx77 = getelementptr inbounds float, ptr %gammatable_b.0, i64 %add75
   %18 = load float, ptr %arrayidx77, align 4
-  %add79 = or disjoint i64 %mul48, 2
-  %arrayidx80 = getelementptr inbounds float, ptr %out, i64 %add79
+  %arrayidx80 = getelementptr float, ptr %arrayidx50, i64 2
   store float %18, ptr %arrayidx80, align 4
-  %add82 = or disjoint i64 %mul38, 6
-  %arrayidx83 = getelementptr inbounds i8, ptr %call.i, i64 %add82
+  %arrayidx83 = getelementptr i8, ptr %arrayidx39, i64 6
   %19 = load i8, ptr %arrayidx83, align 1
   %conv84 = zext i8 %19 to i32
   %mul85 = shl nuw nsw i32 %conv84, 8
-  %add87 = or disjoint i64 %mul38, 7
-  %arrayidx88 = getelementptr inbounds i8, ptr %call.i, i64 %add87
+  %arrayidx88 = getelementptr i8, ptr %arrayidx39, i64 7
   %20 = load i8, ptr %arrayidx88, align 1
   %conv89 = zext i8 %20 to i32
   %add90 = or disjoint i32 %mul85, %conv89
   %conv91 = sitofp i32 %add90 to float
   %mul92 = fmul float %conv91, 0x3EF0001000000000
-  %add94 = or disjoint i64 %mul48, 3
-  %arrayidx95 = getelementptr inbounds float, ptr %out, i64 %add94
+  %arrayidx95 = getelementptr float, ptr %arrayidx50, i64 3
   store float %mul92, ptr %arrayidx95, align 4
   %inc = add nuw nsw i64 %i.0100, 1
   %exitcond102.not = icmp eq i64 %inc, %conv
@@ -3707,10 +3697,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %mul4 = shl nuw nsw i64 %i.017, 2
   %arrayidx = getelementptr inbounds float, ptr %im, i64 %mul4
-  %add5 = or disjoint i64 %mul4, 1
-  %arrayidx6 = getelementptr inbounds float, ptr %im, i64 %add5
-  %add7 = or disjoint i64 %mul4, 2
-  %arrayidx8 = getelementptr inbounds float, ptr %im, i64 %add7
+  %arrayidx6 = getelementptr float, ptr %arrayidx, i64 1
+  %arrayidx8 = getelementptr float, ptr %arrayidx, i64 2
   %19 = load float, ptr %arrayidx, align 4
   %conv12 = fpext float %19 to double
   %20 = load float, ptr %arrayidx6, align 4
@@ -4212,28 +4200,27 @@ for.cond23.preheader:                             ; preds = %if.then21, %for.inc
   %i.082 = phi i64 [ %inc59, %for.inc58 ], [ 0, %if.then21 ]
   %mul26 = shl nuw nsw i64 %i.082, 3
   %mul28 = shl nuw nsw i64 %i.082, 2
-  %invariant.gep = getelementptr float, ptr %call.i, i64 %mul28
+  %8 = getelementptr float, ptr %call.i, i64 %mul28
+  %9 = getelementptr i8, ptr %call.i71, i64 %mul26
   br label %for.body25
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25
   %c.080 = phi i64 [ 0, %for.cond23.preheader ], [ %inc, %for.body25 ]
   %mul27 = shl nuw nsw i64 %c.080, 1
-  %add = add nuw nsw i64 %mul27, %mul26
-  %gep = getelementptr float, ptr %invariant.gep, i64 %c.080
-  %8 = load float, ptr %gep, align 4
-  %cmp30 = fcmp olt float %8, 0.000000e+00
-  %cond = select i1 %cmp30, float 0.000000e+00, float %8
+  %arrayidx = getelementptr float, ptr %8, i64 %c.080
+  %10 = load float, ptr %arrayidx, align 4
+  %cmp30 = fcmp olt float %10, 0.000000e+00
+  %cond = select i1 %cmp30, float 0.000000e+00, float %10
   %cmp34.inv = fcmp olt float %cond, 1.000000e+00
   %cond49 = select i1 %cmp34.inv, float %cond, float 1.000000e+00
-  %9 = call float @llvm.fmuladd.f32(float %cond49, float 6.553500e+04, float 5.000000e-01)
-  %conv51 = fptosi float %9 to i32
+  %11 = call float @llvm.fmuladd.f32(float %cond49, float 6.553500e+04, float 5.000000e-01)
+  %conv51 = fptosi float %11 to i32
   %shr = lshr i32 %conv51, 8
   %conv52 = trunc i32 %shr to i8
-  %arrayidx54 = getelementptr inbounds i8, ptr %call.i71, i64 %add
+  %arrayidx54 = getelementptr i8, ptr %9, i64 %mul27
   store i8 %conv52, ptr %arrayidx54, align 1
   %conv55 = trunc i32 %conv51 to i8
-  %add56 = or disjoint i64 %add, 1
-  %arrayidx57 = getelementptr inbounds i8, ptr %call.i71, i64 %add56
+  %arrayidx57 = getelementptr i8, ptr %arrayidx54, i64 1
   store i8 %conv55, ptr %arrayidx57, align 1
   %inc = add nuw nsw i64 %c.080, 1
   %exitcond84.not = icmp eq i64 %inc, 4
@@ -4257,13 +4244,13 @@ for.body70:                                       ; preds = %for.cond68.preheade
   %c.177 = phi i64 [ 0, %for.cond68.preheader ], [ %inc104, %for.body70 ]
   %add72 = add nuw nsw i64 %c.177, %mul71
   %arrayidx73 = getelementptr inbounds float, ptr %call.i, i64 %add72
-  %10 = load float, ptr %arrayidx73, align 4
-  %cmp74 = fcmp olt float %10, 0.000000e+00
-  %cond81 = select i1 %cmp74, float 0.000000e+00, float %10
+  %12 = load float, ptr %arrayidx73, align 4
+  %cmp74 = fcmp olt float %12, 0.000000e+00
+  %cond81 = select i1 %cmp74, float 0.000000e+00, float %12
   %cmp82.inv = fcmp olt float %cond81, 1.000000e+00
   %cond97 = select i1 %cmp82.inv, float %cond81, float 1.000000e+00
-  %11 = call float @llvm.fmuladd.f32(float %cond97, float 2.550000e+02, float 5.000000e-01)
-  %conv99 = fptoui float %11 to i8
+  %13 = call float @llvm.fmuladd.f32(float %cond97, float 2.550000e+02, float 5.000000e-01)
+  %conv99 = fptoui float %13 to i8
   %arrayidx102 = getelementptr inbounds i8, ptr %call.i71, i64 %add72
   store i8 %conv99, ptr %arrayidx102, align 1
   %inc104 = add nuw nsw i64 %c.177, 1
@@ -4284,12 +4271,12 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   %im.0 = phi ptr [ null, %if.then ], [ %call.i, %if.end6 ], [ %call.i, %cleanup.sink.split ]
   %data.0 = phi ptr [ null, %if.then ], [ null, %if.end6 ], [ %call.i71, %cleanup.sink.split ]
   %error.0 = phi i32 [ 1, %if.then ], [ 1, %if.end6 ], [ %call109, %cleanup.sink.split ]
-  %12 = load ptr, ptr %lut.i.i, align 8
-  call void @free(ptr noundef %12) #26
-  %13 = load ptr, ptr %lut.i3.i, align 8
-  call void @free(ptr noundef %13) #26
-  %14 = load ptr, ptr %lut.i4.i, align 8
+  %14 = load ptr, ptr %lut.i.i, align 8
   call void @free(ptr noundef %14) #26
+  %15 = load ptr, ptr %lut.i3.i, align 8
+  call void @free(ptr noundef %15) #26
+  %16 = load ptr, ptr %lut.i4.i, align 8
+  call void @free(ptr noundef %16) #26
   call void @free(ptr noundef %im.0) #26
   call void @free(ptr noundef %data.0) #26
   ret i32 %error.0
@@ -4479,20 +4466,20 @@ for.body.lr.ph:                                   ; preds = %if.then26
   %arrayidx20.i34 = getelementptr inbounds float, ptr %m, i64 8
   %93 = load float, ptr %arrayidx20.i34, align 16
   %conv21.i35 = fpext float %93 to double
+  %invariant.gep = getelementptr float, ptr %in, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.040 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %mul28 = shl nuw nsw i64 %i.040, 2
   %arrayidx29 = getelementptr inbounds float, ptr %out, i64 %mul28
-  %add30 = or disjoint i64 %mul28, 1
   %add32 = or disjoint i64 %mul28, 2
   %arrayidx33 = getelementptr inbounds float, ptr %out, i64 %add32
   %arrayidx36 = getelementptr inbounds float, ptr %in, i64 %mul28
   %94 = load float, ptr %arrayidx36, align 4
   %conv37 = fpext float %94 to double
-  %arrayidx39 = getelementptr inbounds float, ptr %in, i64 %add30
-  %95 = load float, ptr %arrayidx39, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %mul28
+  %95 = load float, ptr %gep, align 4
   %conv40 = fpext float %95 to double
   %arrayidx42 = getelementptr inbounds float, ptr %in, i64 %add32
   %96 = load float, ptr %arrayidx42, align 4
@@ -4552,16 +4539,16 @@ for.cond.preheader:                               ; preds = %entry
 for.cond1.preheader:                              ; preds = %for.cond.preheader, %for.inc9
   %i.051 = phi i64 [ %inc10, %for.inc9 ], [ 0, %for.cond.preheader ]
   %mul4 = shl nuw nsw i64 %i.051, 2
-  %invariant.gep = getelementptr float, ptr %im, i64 %mul4
+  %0 = getelementptr float, ptr %im, i64 %mul4
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
   %c.048 = phi i64 [ 0, %for.cond1.preheader ], [ %inc, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit ]
   %arrayidx = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048
-  %gep = getelementptr float, ptr %invariant.gep, i64 %c.048
-  %0 = load float, ptr %gep, align 4
-  %1 = load i32, ptr %arrayidx, align 8
-  switch i32 %1, label %if.end130.i [
+  %arrayidx5 = getelementptr float, ptr %0, i64 %c.048
+  %1 = load float, ptr %arrayidx5, align 4
+  %2 = load i32, ptr %arrayidx, align 8
+  switch i32 %2, label %if.end130.i [
     i32 0, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
     i32 1, label %if.then3.i
     i32 2, label %if.then36.i
@@ -4572,15 +4559,15 @@ for.body3:                                        ; preds = %for.cond1.preheader
   ]
 
 if.then3.i:                                       ; preds = %for.body3
-  %cmp4.i = fcmp ugt float %0, 0.000000e+00
-  %cmp7.i = fcmp ult float %0, 1.000000e+00
+  %cmp4.i = fcmp ugt float %1, 0.000000e+00
+  %cmp7.i = fcmp ult float %1, 1.000000e+00
   %or.cond.i = and i1 %cmp4.i, %cmp7.i
   br i1 %or.cond.i, label %if.end9.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.end9.i:                                        ; preds = %if.then3.i
   %lut_size.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 2
-  %2 = load i64, ptr %lut_size.i, align 8
-  %cmp1085.i = icmp eq i64 %2, 0
+  %3 = load i64, ptr %lut_size.i, align 8
+  %cmp1085.i = icmp eq i64 %3, 0
   %lut.phi.trans.insert.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 1
   br i1 %cmp1085.i, label %if.end9.if.then11_crit_edge.i, label %if.end12.i
 
@@ -4589,185 +4576,185 @@ if.end9.if.then11_crit_edge.i:                    ; preds = %if.end9.i
   br label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end25.i, %if.end9.if.then11_crit_edge.i
-  %3 = phi ptr [ %.pre.i, %if.end9.if.then11_crit_edge.i ], [ %9, %if.end25.i ]
+  %4 = phi ptr [ %.pre.i, %if.end9.if.then11_crit_edge.i ], [ %10, %if.end25.i ]
   %a.0.lcssa.i = phi i64 [ 0, %if.end9.if.then11_crit_edge.i ], [ %div2782.b.0.i, %if.end25.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %3, i64 %a.0.lcssa.i
-  %4 = load float, ptr %arrayidx.i, align 4
+  %arrayidx.i = getelementptr inbounds float, ptr %4, i64 %a.0.lcssa.i
+  %5 = load float, ptr %arrayidx.i, align 4
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.end12.i:                                       ; preds = %if.end9.i, %if.end25.i
   %a.087.i = phi i64 [ %a.0.div2782.i, %if.end25.i ], [ 0, %if.end9.i ]
-  %b.086.i = phi i64 [ %div2782.b.0.i, %if.end25.i ], [ %2, %if.end9.i ]
+  %b.086.i = phi i64 [ %div2782.b.0.i, %if.end25.i ], [ %3, %if.end9.i ]
   %add.i = add nuw i64 %a.087.i, 1
   %cmp13.i = icmp eq i64 %add.i, %b.086.i
   br i1 %cmp13.i, label %if.then14.i, label %if.end25.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %5 = load ptr, ptr %lut.phi.trans.insert.i, align 8
-  %arrayidx16.i = getelementptr inbounds float, ptr %5, i64 %a.087.i
-  %6 = load float, ptr %arrayidx16.i, align 4
-  %arrayidx18.i = getelementptr inbounds float, ptr %5, i64 %b.086.i
-  %7 = load float, ptr %arrayidx18.i, align 4
-  %cmp19.i = fcmp oeq float %6, %7
+  %6 = load ptr, ptr %lut.phi.trans.insert.i, align 8
+  %arrayidx16.i = getelementptr inbounds float, ptr %6, i64 %a.087.i
+  %7 = load float, ptr %arrayidx16.i, align 4
+  %arrayidx18.i = getelementptr inbounds float, ptr %6, i64 %b.086.i
+  %8 = load float, ptr %arrayidx18.i, align 4
+  %cmp19.i = fcmp oeq float %7, %8
   br i1 %cmp19.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then14.i
-  %sub.i = fsub float %0, %6
-  %sub22.i = fsub float %7, %6
+  %sub.i = fsub float %1, %7
+  %sub22.i = fsub float %8, %7
   %div.i = fdiv float %sub.i, %sub22.i
   %sub23.i = fsub float 1.000000e+00, %div.i
-  %mul24.i = fmul float %7, %div.i
-  %8 = tail call float @llvm.fmuladd.f32(float %6, float %sub23.i, float %mul24.i)
+  %mul24.i = fmul float %8, %div.i
+  %9 = tail call float @llvm.fmuladd.f32(float %7, float %sub23.i, float %mul24.i)
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.end25.i:                                       ; preds = %if.end12.i
   %add26.i = add i64 %b.086.i, %a.087.i
   %div2782.i = lshr i64 %add26.i, 1
-  %9 = load ptr, ptr %lut.phi.trans.insert.i, align 8
-  %arrayidx29.i = getelementptr inbounds float, ptr %9, i64 %div2782.i
-  %10 = load float, ptr %arrayidx29.i, align 4
-  %cmp30.i = fcmp ogt float %10, %0
+  %10 = load ptr, ptr %lut.phi.trans.insert.i, align 8
+  %arrayidx29.i = getelementptr inbounds float, ptr %10, i64 %div2782.i
+  %11 = load float, ptr %arrayidx29.i, align 4
+  %cmp30.i = fcmp ogt float %11, %1
   %div2782.b.0.i = select i1 %cmp30.i, i64 %div2782.i, i64 %b.086.i
   %a.0.div2782.i = select i1 %cmp30.i, i64 %a.087.i, i64 %div2782.i
   %cmp10.i = icmp eq i64 %a.0.div2782.i, %div2782.b.0.i
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i, !llvm.loop !46
 
 if.then36.i:                                      ; preds = %for.body3
-  %cmp37.i = fcmp ogt float %0, 0.000000e+00
+  %cmp37.i = fcmp ogt float %1, 0.000000e+00
   br i1 %cmp37.i, label %cond.true.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.true.i:                                      ; preds = %if.then36.i
   %gamma.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
-  %11 = load float, ptr %gamma.i, align 8
-  %div38.i = fdiv float 1.000000e+00, %11
-  %call.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div38.i)
+  %12 = load float, ptr %gamma.i, align 8
+  %div38.i = fdiv float 1.000000e+00, %12
+  %call.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %1, float noundef %div38.i)
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then42.i:                                      ; preds = %for.body3
-  %cmp43.i = fcmp olt float %0, 0.000000e+00
+  %cmp43.i = fcmp olt float %1, 0.000000e+00
   br i1 %cmp43.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit, label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then42.i
-  %cmp46.i = fcmp ogt float %0, 0.000000e+00
+  %cmp46.i = fcmp ogt float %1, 0.000000e+00
   br i1 %cmp46.i, label %cond.true47.i, label %cond.false55.i
 
 cond.true47.i:                                    ; preds = %if.end45.i
   %gamma48.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
-  %12 = load float, ptr %gamma48.i, align 8
-  %div49.i = fdiv float 1.000000e+00, %12
-  %call50.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div49.i)
+  %13 = load float, ptr %gamma48.i, align 8
+  %div49.i = fdiv float 1.000000e+00, %13
+  %call50.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %1, float noundef %div49.i)
   %b51.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %13 = load float, ptr %b51.i, align 8
-  %sub52.i = fsub float %call50.i, %13
+  %14 = load float, ptr %b51.i, align 8
+  %sub52.i = fsub float %call50.i, %14
   %a53.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %14 = load float, ptr %a53.i, align 4
-  %div54.i = fdiv float %sub52.i, %14
+  %15 = load float, ptr %a53.i, align 4
+  %div54.i = fdiv float %sub52.i, %15
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false55.i:                                   ; preds = %if.end45.i
   %b56.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %15 = load float, ptr %b56.i, align 8
-  %fneg.i = fneg float %15
+  %16 = load float, ptr %b56.i, align 8
+  %fneg.i = fneg float %16
   %a57.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %16 = load float, ptr %a57.i, align 4
-  %div58.i = fdiv float %fneg.i, %16
+  %17 = load float, ptr %a57.i, align 4
+  %div58.i = fdiv float %fneg.i, %17
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then64.i:                                      ; preds = %for.body3
-  %cmp65.i = fcmp olt float %0, 0.000000e+00
+  %cmp65.i = fcmp olt float %1, 0.000000e+00
   br i1 %cmp65.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then64.i
   %c.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
-  %17 = load float, ptr %c.i, align 4
-  %cmp68.i = fcmp olt float %17, %0
+  %18 = load float, ptr %c.i, align 4
+  %cmp68.i = fcmp olt float %18, %1
   br i1 %cmp68.i, label %cond.true69.i, label %cond.false79.i
 
 cond.true69.i:                                    ; preds = %if.end67.i
-  %sub71.i = fsub float %0, %17
+  %sub71.i = fsub float %1, %18
   %gamma72.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
-  %18 = load float, ptr %gamma72.i, align 8
-  %div73.i = fdiv float 1.000000e+00, %18
+  %19 = load float, ptr %gamma72.i, align 8
+  %div73.i = fdiv float 1.000000e+00, %19
   %call74.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %sub71.i, float noundef %div73.i)
   %b75.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %19 = load float, ptr %b75.i, align 8
-  %sub76.i = fsub float %call74.i, %19
+  %20 = load float, ptr %b75.i, align 8
+  %sub76.i = fsub float %call74.i, %20
   %a77.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %20 = load float, ptr %a77.i, align 4
-  %div78.i = fdiv float %sub76.i, %20
+  %21 = load float, ptr %a77.i, align 4
+  %div78.i = fdiv float %sub76.i, %21
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false79.i:                                   ; preds = %if.end67.i
   %b80.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %21 = load float, ptr %b80.i, align 8
-  %fneg81.i = fneg float %21
+  %22 = load float, ptr %b80.i, align 8
+  %fneg81.i = fneg float %22
   %a82.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %22 = load float, ptr %a82.i, align 4
-  %div83.i = fdiv float %fneg81.i, %22
+  %23 = load float, ptr %a82.i, align 4
+  %div83.i = fdiv float %fneg81.i, %23
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then89.i:                                      ; preds = %for.body3
   %c90.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
-  %23 = load float, ptr %c90.i, align 4
+  %24 = load float, ptr %c90.i, align 4
   %d.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 7
-  %24 = load float, ptr %d.i, align 8
-  %mul.i = fmul float %23, %24
-  %cmp91.i = fcmp olt float %mul.i, %0
+  %25 = load float, ptr %d.i, align 8
+  %mul.i = fmul float %24, %25
+  %cmp91.i = fcmp olt float %mul.i, %1
   br i1 %cmp91.i, label %cond.true92.i, label %cond.false100.i
 
 cond.true92.i:                                    ; preds = %if.then89.i
   %gamma93.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
-  %25 = load float, ptr %gamma93.i, align 8
-  %div94.i = fdiv float 1.000000e+00, %25
-  %call95.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div94.i)
+  %26 = load float, ptr %gamma93.i, align 8
+  %div94.i = fdiv float 1.000000e+00, %26
+  %call95.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %1, float noundef %div94.i)
   %b96.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %26 = load float, ptr %b96.i, align 8
-  %sub97.i = fsub float %call95.i, %26
+  %27 = load float, ptr %b96.i, align 8
+  %sub97.i = fsub float %call95.i, %27
   %a98.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %27 = load float, ptr %a98.i, align 4
-  %div99.i = fdiv float %sub97.i, %27
+  %28 = load float, ptr %a98.i, align 4
+  %div99.i = fdiv float %sub97.i, %28
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false100.i:                                  ; preds = %if.then89.i
-  %div102.i = fdiv float %0, %23
+  %div102.i = fdiv float %1, %24
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then108.i:                                     ; preds = %for.body3
   %c109.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
-  %28 = load float, ptr %c109.i, align 4
+  %29 = load float, ptr %c109.i, align 4
   %d110.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 7
-  %29 = load float, ptr %d110.i, align 8
+  %30 = load float, ptr %d110.i, align 8
   %f.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 9
-  %30 = load float, ptr %f.i, align 8
-  %31 = tail call float @llvm.fmuladd.f32(float %28, float %29, float %30)
-  %cmp112.i = fcmp olt float %31, %0
+  %31 = load float, ptr %f.i, align 8
+  %32 = tail call float @llvm.fmuladd.f32(float %29, float %30, float %31)
+  %cmp112.i = fcmp olt float %32, %1
   br i1 %cmp112.i, label %cond.true113.i, label %cond.false123.i
 
 cond.true113.i:                                   ; preds = %if.then108.i
-  %sub115.i = fsub float %0, %28
+  %sub115.i = fsub float %1, %29
   %gamma116.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
-  %32 = load float, ptr %gamma116.i, align 8
-  %div117.i = fdiv float 1.000000e+00, %32
+  %33 = load float, ptr %gamma116.i, align 8
+  %div117.i = fdiv float 1.000000e+00, %33
   %call118.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %sub115.i, float noundef %div117.i)
   %b119.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
-  %33 = load float, ptr %b119.i, align 8
-  %sub120.i = fsub float %call118.i, %33
+  %34 = load float, ptr %b119.i, align 8
+  %sub120.i = fsub float %call118.i, %34
   %a121.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
-  %34 = load float, ptr %a121.i, align 4
-  %div122.i = fdiv float %sub120.i, %34
+  %35 = load float, ptr %a121.i, align 4
+  %div122.i = fdiv float %sub120.i, %35
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false123.i:                                  ; preds = %if.then108.i
-  %sub125.i = fsub float %0, %30
-  %div127.i = fdiv float %sub125.i, %28
+  %sub125.i = fsub float %1, %31
+  %div127.i = fdiv float %sub125.i, %29
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.end130.i:                                      ; preds = %for.body3
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %for.body3, %if.then3.i, %if.then11.i, %if.then14.i, %if.end21.i, %if.then36.i, %cond.true.i, %if.then42.i, %cond.true47.i, %cond.false55.i, %if.then64.i, %cond.true69.i, %cond.false79.i, %cond.true92.i, %cond.false100.i, %cond.true113.i, %cond.false123.i, %if.end130.i
-  %retval.0.i = phi float [ %4, %if.then11.i ], [ %8, %if.end21.i ], [ 0.000000e+00, %if.end130.i ], [ %0, %for.body3 ], [ %0, %if.then3.i ], [ %6, %if.then14.i ], [ %call.i, %cond.true.i ], [ %0, %if.then36.i ], [ %0, %if.then42.i ], [ %div54.i, %cond.true47.i ], [ %div58.i, %cond.false55.i ], [ %0, %if.then64.i ], [ %div78.i, %cond.true69.i ], [ %div83.i, %cond.false79.i ], [ %div99.i, %cond.true92.i ], [ %div102.i, %cond.false100.i ], [ %div122.i, %cond.true113.i ], [ %div127.i, %cond.false123.i ]
-  store float %retval.0.i, ptr %gep, align 4
+  %retval.0.i = phi float [ %5, %if.then11.i ], [ %9, %if.end21.i ], [ 0.000000e+00, %if.end130.i ], [ %1, %for.body3 ], [ %1, %if.then3.i ], [ %7, %if.then14.i ], [ %call.i, %cond.true.i ], [ %1, %if.then36.i ], [ %1, %if.then42.i ], [ %div54.i, %cond.true47.i ], [ %div58.i, %cond.false55.i ], [ %1, %if.then64.i ], [ %div78.i, %cond.true69.i ], [ %div83.i, %cond.false79.i ], [ %div99.i, %cond.true92.i ], [ %div102.i, %cond.false100.i ], [ %div122.i, %cond.true113.i ], [ %div127.i, %cond.false123.i ]
+  store float %retval.0.i, ptr %arrayidx5, align 4
   %inc = add nuw nsw i64 %c.048, 1
   %exitcond.not = icmp eq i64 %inc, 3
   br i1 %exitcond.not, label %for.inc9, label %for.body3, !llvm.loop !47
@@ -4779,24 +4766,24 @@ for.inc9:                                         ; preds = %_ZN7lodepngL14iccBa
 
 if.else:                                          ; preds = %entry
   %gama_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 22
-  %35 = load i32, ptr %gama_defined, align 4
-  %tobool12.not = icmp eq i32 %35, 0
+  %36 = load i32, ptr %gama_defined, align 4
+  %tobool12.not = icmp eq i32 %36, 0
   br i1 %tobool12.not, label %if.else44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %srgb_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
-  %36 = load i32, ptr %srgb_defined, align 8
-  %tobool13.not = icmp eq i32 %36, 0
+  %37 = load i32, ptr %srgb_defined, align 8
+  %tobool13.not = icmp eq i32 %37, 0
   br i1 %tobool13.not, label %if.then14, label %if.else44
 
 if.then14:                                        ; preds = %land.lhs.true
   %gama_gamma = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 23
-  %37 = load i32, ptr %gama_gamma, align 8
-  %cmp15.not = icmp eq i32 %37, 100000
+  %38 = load i32, ptr %gama_gamma, align 8
+  %cmp15.not = icmp eq i32 %38, 100000
   br i1 %cmp15.not, label %if.end65, label %if.then16
 
 if.then16:                                        ; preds = %if.then14
-  %conv18 = uitofp i32 %37 to float
+  %conv18 = uitofp i32 %38 to float
   %div = fdiv float %conv18, 1.000000e+05
   %cmp2053.not = icmp eq i32 %mul, 0
   br i1 %cmp2053.not, label %if.end65, label %for.cond22.preheader
@@ -4804,19 +4791,19 @@ if.then16:                                        ; preds = %if.then14
 for.cond22.preheader:                             ; preds = %if.then16, %for.inc40
   %i.154 = phi i64 [ %inc41, %for.inc40 ], [ 0, %if.then16 ]
   %mul25 = shl nuw nsw i64 %i.154, 2
-  %invariant.gep71 = getelementptr float, ptr %im, i64 %mul25
+  %39 = getelementptr float, ptr %im, i64 %mul25
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %for.inc37
   %c.152 = phi i64 [ 0, %for.cond22.preheader ], [ %inc38, %for.inc37 ]
-  %gep72 = getelementptr float, ptr %invariant.gep71, i64 %c.152
-  %38 = load float, ptr %gep72, align 4
-  %cmp28 = fcmp ogt float %38, 0.000000e+00
+  %arrayidx27 = getelementptr float, ptr %39, i64 %c.152
+  %40 = load float, ptr %arrayidx27, align 4
+  %cmp28 = fcmp ogt float %40, 0.000000e+00
   br i1 %cmp28, label %if.then29, label %for.inc37
 
 if.then29:                                        ; preds = %for.body24
-  %call33 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %38, float noundef %div)
-  store float %call33, ptr %gep72, align 4
+  %call33 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %40, float noundef %div)
+  store float %call33, ptr %arrayidx27, align 4
   br label %for.inc37
 
 for.inc37:                                        ; preds = %for.body24, %if.then29
@@ -4836,68 +4823,68 @@ if.else44:                                        ; preds = %land.lhs.true, %if.
 for.cond48.preheader:                             ; preds = %if.else44, %for.inc61
   %i.257 = phi i64 [ %inc62, %for.inc61 ], [ 0, %if.else44 ]
   %mul51 = shl nuw nsw i64 %i.257, 2
-  %invariant.gep73 = getelementptr float, ptr %im, i64 %mul51
+  %41 = getelementptr float, ptr %im, i64 %mul51
   br label %for.body50
 
 for.body50:                                       ; preds = %for.cond48.preheader, %cond.end
   %c.255 = phi i64 [ 0, %for.cond48.preheader ], [ %inc59, %cond.end ]
-  %gep74 = getelementptr float, ptr %invariant.gep73, i64 %c.255
-  %39 = load float, ptr %gep74, align 4
-  %cmp54 = fcmp olt float %39, 0x3F69A5C380000000
+  %arrayidx53 = getelementptr float, ptr %41, i64 %c.255
+  %42 = load float, ptr %arrayidx53, align 4
+  %cmp54 = fcmp olt float %42, 0x3F69A5C380000000
   br i1 %cmp54, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body50
-  %mul55 = fmul float %39, 0x4029D70A40000000
+  %mul55 = fmul float %42, 0x4029D70A40000000
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body50
-  %cmp.i = fcmp oeq float %39, 1.000000e+00
+  %cmp.i = fcmp oeq float %42, 1.000000e+00
   br i1 %cmp.i, label %_ZN7lodepngL12lodepng_powfEff.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.false
-  %cmp5.i = fcmp ogt float %39, 0.000000e+00
-  %cmp6.i = fcmp ole float %39, 0x47EFFFFFE0000000
+  %cmp5.i = fcmp ogt float %42, 0.000000e+00
+  %cmp6.i = fcmp ole float %42, 0x47EFFFFFE0000000
   %or.cond3.i = and i1 %cmp5.i, %cmp6.i
   br i1 %or.cond3.i, label %if.end119.i, label %if.then11.i39
 
 if.then11.i39:                                    ; preds = %if.end.i
-  %or.cond98.i = fcmp uno float %39, 0.000000e+00
+  %or.cond98.i = fcmp uno float %42, 0.000000e+00
   br i1 %or.cond98.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.then11.i39
-  %add.i43 = fadd float %39, 0x3FDAAAAAA0000000
+  %add.i43 = fadd float %42, 0x3FDAAAAAA0000000
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 if.end16.i:                                       ; preds = %if.then11.i39
   br i1 %cmp5.i, label %if.then18.i, label %if.else.i
 
 if.then18.i:                                      ; preds = %if.end16.i
-  %cmp19.i40 = fcmp ogt float %39, 0x47EFFFFFE0000000
+  %cmp19.i40 = fcmp ogt float %42, 0x47EFFFFFE0000000
   br i1 %cmp19.i40, label %_ZN7lodepngL12lodepng_powfEff.exit, label %if.end119.i
 
 if.else.i:                                        ; preds = %if.end16.i
-  %cmp33.i = fcmp olt float %39, 0xC7EFFFFFE0000000
+  %cmp33.i = fcmp olt float %42, 0xC7EFFFFFE0000000
   br i1 %cmp33.i, label %_ZN7lodepngL12lodepng_powfEff.exit, label %cond.false40.i
 
 cond.false40.i:                                   ; preds = %if.else.i
-  %cmp41.i = fcmp oeq float %39, 0.000000e+00
+  %cmp41.i = fcmp oeq float %42, 0.000000e+00
   br i1 %cmp41.i, label %cond.true42.i, label %_ZN7lodepngL12lodepng_powfEff.exit
 
 cond.true42.i:                                    ; preds = %cond.false40.i
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 if.end119.i:                                      ; preds = %if.then18.i, %if.end.i
-  %cmp12099.i = fcmp olt float %39, 0x3EF0000000000000
+  %cmp12099.i = fcmp olt float %42, 0x3EF0000000000000
   br i1 %cmp12099.i, label %while.body.i, label %while.cond121.preheader.i
 
 while.cond121.preheader.i:                        ; preds = %while.body.i, %if.end119.i
   %j.0.lcssa.i = phi float [ 0.000000e+00, %if.end119.i ], [ %sub.i41, %while.body.i ]
-  %l.0.lcssa.i = phi float [ %39, %if.end119.i ], [ %mul.i42, %while.body.i ]
+  %l.0.lcssa.i = phi float [ %42, %if.end119.i ], [ %mul.i42, %while.body.i ]
   %cmp122103.i = fcmp ogt float %l.0.lcssa.i, 6.553600e+04
   br i1 %cmp122103.i, label %while.body123.i, label %while.cond127.preheader.i
 
 while.body.i:                                     ; preds = %if.end119.i, %while.body.i
-  %l.0101.i = phi float [ %mul.i42, %while.body.i ], [ %39, %if.end119.i ]
+  %l.0101.i = phi float [ %mul.i42, %while.body.i ], [ %42, %if.end119.i ]
   %j.0100.i = phi float [ %sub.i41, %while.body.i ], [ 0.000000e+00, %if.end119.i ]
   %sub.i41 = fadd float %j.0100.i, -1.600000e+01
   %mul.i42 = fmul float %l.0101.i, 6.553600e+04
@@ -4943,15 +4930,15 @@ while.body134.i:                                  ; preds = %while.cond132.prehe
 while.end136.i:                                   ; preds = %while.body134.i, %while.cond132.preheader.i
   %j.3.lcssa.i = phi float [ %j.2.lcssa.i, %while.cond132.preheader.i ], [ %inc.i, %while.body134.i ]
   %l.3.lcssa.i = phi float [ %l.2.lcssa.i, %while.cond132.preheader.i ], [ %mul135.i, %while.body134.i ]
-  %40 = tail call float @llvm.fmuladd.f32(float %l.3.lcssa.i, float 0x3F8F6A7020000000, float 0x3FDDD54800000000)
-  %41 = insertelement <2 x float> poison, float %l.3.lcssa.i, i64 0
-  %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
-  %43 = insertelement <2 x float> <float poison, float 0x3FC190B240000000>, float %40, i64 0
-  %44 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %42, <2 x float> %43, <2 x float> <float 0xBFB69F0500000000, float 0x3FD8E39B60000000>)
-  %45 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %42, <2 x float> %44, <2 x float> <float 0xBFD928DA20000000, float 0x3FB73B0D00000000>)
-  %46 = extractelement <2 x float> %45, i64 0
-  %47 = extractelement <2 x float> %45, i64 1
-  %div142.i = fdiv float %46, %47
+  %43 = tail call float @llvm.fmuladd.f32(float %l.3.lcssa.i, float 0x3F8F6A7020000000, float 0x3FDDD54800000000)
+  %44 = insertelement <2 x float> poison, float %l.3.lcssa.i, i64 0
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = insertelement <2 x float> <float poison, float 0x3FC190B240000000>, float %43, i64 0
+  %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> %46, <2 x float> <float 0xBFB69F0500000000, float 0x3FD8E39B60000000>)
+  %48 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> %47, <2 x float> <float 0xBFD928DA20000000, float 0x3FB73B0D00000000>)
+  %49 = extractelement <2 x float> %48, i64 0
+  %50 = extractelement <2 x float> %48, i64 1
+  %div142.i = fdiv float %49, %50
   %add143.i = fadd float %j.3.lcssa.i, %div142.i
   %mul144.i = fmul float %add143.i, 0x3FDAAAAAA0000000
   %cmp145.i = fcmp ole float %mul144.i, -1.280000e+02
@@ -4960,7 +4947,7 @@ while.end136.i:                                   ; preds = %while.body134.i, %w
   br i1 %or.cond6.i, label %if.then148.i, label %if.end158.i
 
 if.then148.i:                                     ; preds = %while.end136.i
-  %cmp149.i = fcmp ogt float %39, 1.000000e+00
+  %cmp149.i = fcmp ogt float %42, 1.000000e+00
   %cond157.i = select i1 %cmp149.i, float 0x7FF0000000000000, float 0.000000e+00
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
@@ -4968,11 +4955,11 @@ if.end158.i:                                      ; preds = %while.end136.i
   %conv159.i = fptosi float %mul144.i to i32
   %conv160.i = sitofp i32 %conv159.i to float
   %sub161.i = fsub float %mul144.i, %conv160.i
-  %48 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
-  %49 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %48, float 0x3FDABCE160000000)
-  %50 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %49, float 1.000000e+00)
-  %51 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
-  %52 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %51, float 1.000000e+00)
+  %51 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
+  %52 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %51, float 0x3FDABCE160000000)
+  %53 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %52, float 1.000000e+00)
+  %54 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %55 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %54, float 1.000000e+00)
   %cmp168118.i = icmp slt i32 %conv159.i, -30
   br i1 %cmp168118.i, label %while.body169.i, label %while.cond173.preheader.i
 
@@ -4982,7 +4969,7 @@ while.cond173.preheader.i:                        ; preds = %if.end158.i
 
 while.body169.i:                                  ; preds = %if.end158.i, %while.body169.i
   %i.1120.i = phi i32 [ %add171.i, %while.body169.i ], [ %conv159.i, %if.end158.i ]
-  %t0.0119.i = phi float [ %mul170.i, %while.body169.i ], [ %50, %if.end158.i ]
+  %t0.0119.i = phi float [ %mul170.i, %while.body169.i ], [ %53, %if.end158.i ]
   %mul170.i = fmul float %t0.0119.i, 0x3E00000000000000
   %add171.i = add nsw i32 %i.1120.i, 31
   %cmp168.i = icmp ult i32 %i.1120.i, -61
@@ -4990,14 +4977,14 @@ while.body169.i:                                  ; preds = %if.end158.i, %while
 
 while.body175.i:                                  ; preds = %while.cond173.preheader.i, %while.body175.i
   %i.2125.i = phi i32 [ %sub177.i, %while.body175.i ], [ %conv159.i, %while.cond173.preheader.i ]
-  %t0.1124.i = phi float [ %mul176.i, %while.body175.i ], [ %50, %while.cond173.preheader.i ]
+  %t0.1124.i = phi float [ %mul176.i, %while.body175.i ], [ %53, %while.cond173.preheader.i ]
   %mul176.i = fmul float %t0.1124.i, 0x41E0000000000000
   %sub177.i = add nsw i32 %i.2125.i, -31
   %cmp174.i = icmp ugt i32 %i.2125.i, 61
   br i1 %cmp174.i, label %while.body175.i, label %cond.false185.i, !llvm.loop !37
 
 while.end178.i:                                   ; preds = %while.body169.i, %while.cond173.preheader.i
-  %t0.1.lcssa.i = phi float [ %50, %while.cond173.preheader.i ], [ %mul170.i, %while.body169.i ]
+  %t0.1.lcssa.i = phi float [ %53, %while.cond173.preheader.i ], [ %mul170.i, %while.body169.i ]
   %i.2.lcssa.i = phi i32 [ %conv159.i, %while.cond173.preheader.i ], [ %add171.i, %while.body169.i ]
   %cmp179.i = icmp slt i32 %i.2.lcssa.i, 0
   br i1 %cmp179.i, label %cond.true180.i, label %cond.false185.i
@@ -5006,7 +4993,7 @@ cond.true180.i:                                   ; preds = %while.end178.i
   %sub181.i = sub nsw i32 0, %i.2.lcssa.i
   %shl.i = shl nuw nsw i32 1, %sub181.i
   %conv182.i = sitofp i32 %shl.i to float
-  %mul183.i = fmul float %52, %conv182.i
+  %mul183.i = fmul float %55, %conv182.i
   %div184.i = fdiv float %t0.1.lcssa.i, %mul183.i
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
@@ -5016,17 +5003,17 @@ cond.false185.i:                                  ; preds = %while.body175.i, %w
   %shl186.i = shl nuw nsw i32 1, %i.2.lcssa135.i
   %conv187.i = sitofp i32 %shl186.i to float
   %mul188.i = fmul float %t0.1.lcssa134.i, %conv187.i
-  %div189.i = fdiv float %mul188.i, %52
+  %div189.i = fdiv float %mul188.i, %55
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 _ZN7lodepngL12lodepng_powfEff.exit:               ; preds = %if.else.i, %if.then18.i, %cond.false, %if.then15.i, %cond.false40.i, %cond.true42.i, %if.then148.i, %cond.true180.i, %cond.false185.i
-  %common.ret.op.i = phi float [ %cond157.i, %if.then148.i ], [ %add.i43, %if.then15.i ], [ 1.000000e+00, %cond.false ], [ 0.000000e+00, %cond.true42.i ], [ 0x7FF8000000000000, %cond.false40.i ], [ %div184.i, %cond.true180.i ], [ %div189.i, %cond.false185.i ], [ %39, %if.then18.i ], [ 0x7FF0000000000000, %if.else.i ]
-  %53 = tail call float @llvm.fmuladd.f32(float %common.ret.op.i, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
+  %common.ret.op.i = phi float [ %cond157.i, %if.then148.i ], [ %add.i43, %if.then15.i ], [ 1.000000e+00, %cond.false ], [ 0.000000e+00, %cond.true42.i ], [ 0x7FF8000000000000, %cond.false40.i ], [ %div184.i, %cond.true180.i ], [ %div189.i, %cond.false185.i ], [ %42, %if.then18.i ], [ 0x7FF0000000000000, %if.else.i ]
+  %56 = tail call float @llvm.fmuladd.f32(float %common.ret.op.i, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN7lodepngL12lodepng_powfEff.exit, %cond.true
-  %cond = phi float [ %mul55, %cond.true ], [ %53, %_ZN7lodepngL12lodepng_powfEff.exit ]
-  store float %cond, ptr %gep74, align 4
+  %cond = phi float [ %mul55, %cond.true ], [ %56, %_ZN7lodepngL12lodepng_powfEff.exit ]
+  store float %cond, ptr %arrayidx53, align 4
   %inc59 = add nuw nsw i64 %c.255, 1
   %exitcond65.not = icmp eq i64 %inc59, 3
   br i1 %exitcond65.not, label %for.inc61, label %for.body50, !llvm.loop !51
@@ -10262,7 +10249,7 @@ for.cond46.preheader.lr.ph:                       ; preds = %_ZNSt6vectorImSaImE
   br label %for.cond46.preheader
 
 for.cond46.preheader:                             ; preds = %for.cond46.preheader.lr.ph, %for.inc89
-  %15 = phi ptr [ %.pre171, %for.cond46.preheader.lr.ph ], [ %25, %for.inc89 ]
+  %15 = phi ptr [ %.pre171, %for.cond46.preheader.lr.ph ], [ %26, %for.inc89 ]
   %n42.0163 = phi i64 [ 0, %for.cond46.preheader.lr.ph ], [ %inc90, %for.inc89 ]
   %nodefilled.0162 = phi i64 [ 0, %for.cond46.preheader.lr.ph ], [ %nodefilled.1.lcssa, %for.inc89 ]
   %treepos.0161 = phi i64 [ 0, %for.cond46.preheader.lr.ph ], [ %treepos.1.lcssa, %for.inc89 ]
@@ -10276,7 +10263,7 @@ for.body49.lr.ph:                                 ; preds = %for.cond46.preheade
   br label %for.body49
 
 for.body49:                                       ; preds = %for.body49.lr.ph, %for.inc86
-  %17 = phi i64 [ %16, %for.body49.lr.ph ], [ %24, %for.inc86 ]
+  %17 = phi i64 [ %16, %for.body49.lr.ph ], [ %25, %for.inc86 ]
   %i.0158 = phi i64 [ 0, %for.body49.lr.ph ], [ %inc87.pre-phi, %for.inc86 ]
   %nodefilled.1157 = phi i64 [ %nodefilled.0162, %for.body49.lr.ph ], [ %nodefilled.2, %for.inc86 ]
   %treepos.1156 = phi i64 [ %treepos.0161, %for.body49.lr.ph ], [ %treepos.2, %for.inc86 ]
@@ -10300,11 +10287,11 @@ if.end57:                                         ; preds = %for.body49
   %shr = lshr i64 %19, %sub53
   %and = and i64 %shr, 1
   %mul59 = shl i64 %treepos.1156, 1
-  %add60 = or disjoint i64 %and, %mul59
   %21 = load ptr, ptr %this, align 8
-  %add.ptr.i96 = getelementptr inbounds i64, ptr %21, i64 %add60
-  %22 = load i64, ptr %add.ptr.i96, align 8
-  %cmp62 = icmp eq i64 %22, 32767
+  %22 = getelementptr i64, ptr %21, i64 %mul59
+  %add.ptr.i96 = getelementptr i64, ptr %22, i64 %and
+  %23 = load i64, ptr %add.ptr.i96, align 8
+  %cmp62 = icmp eq i64 %23, 32767
   br i1 %cmp62, label %if.then63, label %if.else79
 
 if.then63:                                        ; preds = %if.end57
@@ -10323,7 +10310,7 @@ if.else:                                          ; preds = %if.then63
   br label %for.inc86
 
 if.else79:                                        ; preds = %if.end57
-  %sub84 = sub i64 %22, %sub.ptr.div.i
+  %sub84 = sub i64 %23, %sub.ptr.div.i
   %.pre172 = add nuw i64 %i.0158, 1
   br label %for.inc86
 
@@ -10331,14 +10318,14 @@ for.inc86:                                        ; preds = %if.else79, %if.else
   %inc87.pre-phi = phi i64 [ %.pre172, %if.else79 ], [ %add64, %if.else ], [ %add64, %if.then67 ]
   %treepos.2 = phi i64 [ %sub84, %if.else79 ], [ %inc72, %if.else ], [ 0, %if.then67 ]
   %nodefilled.2 = phi i64 [ %nodefilled.1157, %if.else79 ], [ %inc72, %if.else ], [ %nodefilled.1157, %if.then67 ]
-  %23 = load ptr, ptr %bitlen, align 8
-  %add.ptr.i93 = getelementptr inbounds i64, ptr %23, i64 %n42.0163
-  %24 = load i64, ptr %add.ptr.i93, align 8
-  %cmp48 = icmp ult i64 %inc87.pre-phi, %24
+  %24 = load ptr, ptr %bitlen, align 8
+  %add.ptr.i93 = getelementptr inbounds i64, ptr %24, i64 %n42.0163
+  %25 = load i64, ptr %add.ptr.i93, align 8
+  %cmp48 = icmp ult i64 %inc87.pre-phi, %25
   br i1 %cmp48, label %for.body49, label %for.inc89, !llvm.loop !85
 
 for.inc89:                                        ; preds = %for.inc86, %for.cond46.preheader
-  %25 = phi ptr [ %15, %for.cond46.preheader ], [ %23, %for.inc86 ]
+  %26 = phi ptr [ %15, %for.cond46.preheader ], [ %24, %for.inc86 ]
   %treepos.1.lcssa = phi i64 [ %treepos.0161, %for.cond46.preheader ], [ %treepos.2, %for.inc86 ]
   %nodefilled.1.lcssa = phi i64 [ %nodefilled.0162, %for.cond46.preheader ], [ %nodefilled.2, %for.inc86 ]
   %inc90 = add nuw i64 %n42.0163, 1

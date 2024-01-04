@@ -7436,22 +7436,22 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp25 = icmp sgt i64 %div, %__holeIndex
-  br i1 %cmp25, label %while.body.lr.ph, label %while.end
+  %invariant.gep = getelementptr i32, ptr %__first, i64 1
+  %cmp26 = icmp sgt i64 %div, %__holeIndex
+  br i1 %cmp26, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %m_A.i.i = getelementptr inbounds %"class.lp::lp_core_solver_base.5", ptr %__comp.coerce, i64 0, i32 7
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread
-  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread ]
-  %add = shl i64 %__secondChild.026, 1
+  %__secondChild.027 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread ]
+  %add = shl i64 %__secondChild.027, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds i32, ptr %__first, i64 %sub2
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %add
   %0 = load i32, ptr %add.ptr, align 4
-  %1 = load i32, ptr %add.ptr3, align 4
+  %1 = load i32, ptr %gep, align 4
   %2 = load ptr, ptr %m_A.i.i, align 8
   %m_columns.i.i.i = getelementptr inbounds %"class.lp::static_matrix", ptr %2, i64 0, i32 4
   %3 = load ptr, ptr %m_columns.i.i.i, align 8
@@ -7489,8 +7489,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E1
   %or.cond1.i.i = and i1 %cmp5.i.i, %cmp7.i.i
   %cmp10.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i.i1218.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %or.cond1.i.i
+  %dec = or disjoint i64 %add, 1
   %cond.fr = freeze i1 %spec.select.i.i
-  %spec.select = select i1 %cond.fr, i64 %sub2, i64 %mul
+  %spec.select = select i1 %cond.fr, i64 %dec, i64 %mul
   %add.ptr4.phi.trans.insert = getelementptr inbounds i32, ptr %__first, i64 %spec.select
   %.pre = load i32, ptr %add.ptr4.phi.trans.insert, align 4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread
@@ -7498,7 +7499,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E1
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i
   %8 = phi i32 [ %0, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit ]
   %9 = phi i64 [ %mul, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit ]
-  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
+  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.027
   store i32 %8, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %9, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !43
@@ -15689,22 +15690,22 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp25 = icmp sgt i64 %div, %__holeIndex
-  br i1 %cmp25, label %while.body.lr.ph, label %while.end
+  %invariant.gep = getelementptr i32, ptr %__first, i64 1
+  %cmp26 = icmp sgt i64 %div, %__holeIndex
+  br i1 %cmp26, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %m_A.i.i = getelementptr inbounds %"class.lp::lp_core_solver_base", ptr %__comp.coerce, i64 0, i32 7
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread
-  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread ]
-  %add = shl i64 %__secondChild.026, 1
+  %__secondChild.027 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread ]
+  %add = shl i64 %__secondChild.027, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds i32, ptr %__first, i64 %sub2
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %add
   %0 = load i32, ptr %add.ptr, align 4
-  %1 = load i32, ptr %add.ptr3, align 4
+  %1 = load i32, ptr %gep, align 4
   %2 = load ptr, ptr %m_A.i.i, align 8
   %m_columns.i.i.i = getelementptr inbounds %"class.lp::static_matrix.21", ptr %2, i64 0, i32 4
   %3 = load ptr, ptr %m_columns.i.i.i, align 8
@@ -15742,8 +15743,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_1
   %or.cond1.i.i = and i1 %cmp5.i.i, %cmp7.i.i
   %cmp10.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i.i1218.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %or.cond1.i.i
+  %dec = or disjoint i64 %add, 1
   %cond.fr = freeze i1 %spec.select.i.i
-  %spec.select = select i1 %cond.fr, i64 %sub2, i64 %mul
+  %spec.select = select i1 %cond.fr, i64 %dec, i64 %mul
   %add.ptr4.phi.trans.insert = getelementptr inbounds i32, ptr %__first, i64 %spec.select
   %.pre = load i32, ptr %add.ptr4.phi.trans.insert, align 4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread
@@ -15751,7 +15753,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_1
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i
   %8 = phi i32 [ %0, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit ]
   %9 = phi i64 [ %mul, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit ]
-  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
+  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.027
   store i32 %8, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %9, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !103

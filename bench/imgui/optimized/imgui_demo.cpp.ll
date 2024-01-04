@@ -4209,8 +4209,8 @@ for.body376.i:                                    ; preds = %if.end372.i, %for.b
   %346 = load <2 x float>, ptr %arrayidx.i315.i, align 4
   %347 = fadd <2 x float> %303, %346
   store <2 x float> %347, ptr %ref.tmp377.i, align 8
-  %348 = or disjoint i64 %indvars.iv.i62, 1
-  %arrayidx.i320.i = getelementptr inbounds %struct.ImVec2, ptr %345, i64 %348
+  %348 = getelementptr %struct.ImVec2, ptr %345, i64 %indvars.iv.i62
+  %arrayidx.i320.i = getelementptr %struct.ImVec2, ptr %348, i64 1
   %349 = load <2 x float>, ptr %arrayidx.i320.i, align 4
   %350 = fadd <2 x float> %303, %349
   store <2 x float> %350, ptr %ref.tmp386.i, align 8

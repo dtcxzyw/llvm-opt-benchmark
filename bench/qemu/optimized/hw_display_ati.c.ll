@@ -501,6 +501,7 @@ for.body:                                         ; preds = %if.end, %for.inc57
   %12 = shl nuw nsw i64 %indvars.iv49, 3
   %invariant.gep = getelementptr i32, ptr %arrayidx, i64 %12
   %13 = trunc i64 %12 to i32
+  %invariant.gep56 = getelementptr i32, ptr %arrayidx, i64 %12
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body, %for.inc
@@ -538,9 +539,8 @@ if.end39:                                         ; preds = %if.else33, %if.then
   br i1 %cmp44.not, label %if.end47, label %for.end59
 
 if.end47:                                         ; preds = %if.end39
-  %16 = or disjoint i64 %indvars.iv, %12
-  %arrayidx51 = getelementptr i32, ptr %arrayidx, i64 %16
-  store i32 %color.0, ptr %arrayidx51, align 4
+  %gep57 = getelementptr i32, ptr %invariant.gep56, i64 %indvars.iv
+  store i32 %color.0, ptr %gep57, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then23, %if.end47

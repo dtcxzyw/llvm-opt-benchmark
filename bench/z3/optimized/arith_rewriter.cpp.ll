@@ -51782,6 +51782,7 @@ entry:
   store ptr %__comp.coerce, ptr %__comp, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr ptr, ptr %__first, i64 1
   %cmp23 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp23, label %while.body, label %while.end
 
@@ -51790,10 +51791,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__secondChild.024, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %sub2
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr3, align 8
+  %1 = load ptr, ptr %gep, align 8
   %2 = load ptr, ptr %__comp, align 8
   %m_ast_order.i.i = getelementptr inbounds %class.poly_rewriter, ptr %2, i64 0, i32 10
   %3 = load i8, ptr %m_ast_order.i.i, align 2
@@ -51813,7 +51813,8 @@ if.end.i.i:                                       ; preds = %while.body
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i1 [ %call.i.i, %if.then.i.i ], [ %cmp.i.i, %if.end.i.i ]
-  %spec.select = select i1 %retval.0.i.i, i64 %sub2, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.0.i.i, i64 %dec, i64 %mul
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %5 = load ptr, ptr %add.ptr4, align 8
   %add.ptr5 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024
@@ -51834,7 +51835,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds ptr, ptr %__first, i64 %sub13
   %6 = load ptr, ptr %add.ptr14, align 8
@@ -52137,7 +52138,7 @@ if.then3:                                         ; preds = %if.then.i.i, %_ZN9_
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %.pre.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %5, ptr %__first, align 8
   br label %for.inc
 

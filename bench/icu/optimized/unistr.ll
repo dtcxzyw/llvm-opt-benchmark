@@ -495,15 +495,15 @@ for.body38.preheader:                             ; preds = %if.then6.i97, %if.e
   %13 = and i16 %12, 1023
   %conv34 = or disjoint i16 %13, -9216
   %14 = zext nneg i32 %mul to i64
+  %invariant.gep = getelementptr i16, ptr %cond.i114, i64 1
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.body38
   %indvars.iv = phi i64 [ 0, %for.body38.preheader ], [ %indvars.iv.next, %for.body38 ]
   %arrayidx40 = getelementptr inbounds i16, ptr %cond.i114, i64 %indvars.iv
   store i16 %conv33, ptr %arrayidx40, align 2
-  %15 = or disjoint i64 %indvars.iv, 1
-  %arrayidx43 = getelementptr inbounds i16, ptr %cond.i114, i64 %15
-  store i16 %conv34, ptr %arrayidx43, align 2
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  store i16 %conv34, ptr %gep, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp37 = icmp ult i64 %indvars.iv.next, %14
   br i1 %cmp37, label %for.body38, label %for.end46, !llvm.loop !6
@@ -514,10 +514,10 @@ for.end46:                                        ; preds = %for.body38
   br i1 %cmp.i115, label %if.then.i121, label %if.else.i117
 
 if.then.i121:                                     ; preds = %for.end46
-  %16 = and i16 %.pre139, 31
+  %15 = and i16 %.pre139, 31
   %len.tr.i.i122 = trunc i32 %mul to i16
-  %17 = shl nuw nsw i16 %len.tr.i.i122, 5
-  %conv2.i.i123 = or disjoint i16 %16, %17
+  %16 = shl nuw nsw i16 %len.tr.i.i122, 5
+  %conv2.i.i123 = or disjoint i16 %15, %16
   store i16 %conv2.i.i123, ptr %fUnion2, align 8
   br label %if.end50
 
@@ -6533,7 +6533,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashUnicodeString_75(ptr %key.coerce) local_unnamed_addr #5 {
+define noundef i32 @uhash_hashUnicodeString_75(ptr %key.coerce) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %key.coerce, null
   br i1 %cmp, label %cond.end, label %cond.false

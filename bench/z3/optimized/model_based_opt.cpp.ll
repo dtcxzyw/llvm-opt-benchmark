@@ -29029,6 +29029,7 @@ entry:
   %agg.tmp = alloca %"struct.opt::model_based_opt::var", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr %"struct.opt::model_based_opt::var", ptr %__first, i64 1
   %cmp75 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp75, label %while.body, label %while.end
 
@@ -29037,10 +29038,10 @@ while.body:                                       ; preds = %entry, %while.body
   %add = shl i64 %__holeIndex.addr.076, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %sub1
-  %call = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2)
-  %spec.select = select i1 %call, i64 %sub1, i64 %mul
+  %gep = getelementptr %"struct.opt::model_based_opt::var", ptr %invariant.gep, i64 %add
+  %call = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp, ptr noundef %add.ptr, ptr noundef %gep)
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %call, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %__holeIndex.addr.076
   %0 = load i32, ptr %add.ptr3, align 8
@@ -29131,7 +29132,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %__holeIndex.addr.0.lcssa

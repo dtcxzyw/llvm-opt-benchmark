@@ -20564,76 +20564,28 @@ if.end7:                                          ; preds = %for.body, %lor.lhs.
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.body.i10, %if.end7
-  %i.032.i = phi i64 [ 0, %if.end7 ], [ %inc.i12, %for.body.i10 ]
-  %mul.i.i11 = shl nuw nsw i64 %i.032.i, 2
+  %i.016.i = phi i64 [ 0, %if.end7 ], [ %inc.i12, %for.body.i10 ]
+  %mul.i.i11 = shl nuw nsw i64 %i.016.i, 2
   %arrayidx.i.i = getelementptr i8, ptr @.str.98, i64 %mul.i.i11
-  %2 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %2 to i32
-  %add1.i.i = or disjoint i64 %mul.i.i11, 1
-  %arrayidx2.i.i = getelementptr i8, ptr @.str.98, i64 %add1.i.i
-  %3 = load i8, ptr %arrayidx2.i.i, align 1
-  %conv3.i.i = zext i8 %3 to i32
-  %shl.i.i = shl nuw nsw i32 %conv3.i.i, 8
-  %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
-  %add4.i.i = or disjoint i64 %mul.i.i11, 2
-  %arrayidx5.i.i = getelementptr i8, ptr @.str.98, i64 %add4.i.i
-  %4 = load i8, ptr %arrayidx5.i.i, align 1
-  %conv6.i.i = zext i8 %4 to i32
-  %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 16
-  %or8.i.i = or disjoint i32 %or.i.i, %shl7.i.i
-  %add9.i.i = or disjoint i64 %mul.i.i11, 3
-  %arrayidx10.i.i = getelementptr i8, ptr @.str.98, i64 %add9.i.i
-  %5 = load i8, ptr %arrayidx10.i.i, align 1
-  %conv11.i.i = zext i8 %5 to i32
-  %shl12.i.i = shl nuw i32 %conv11.i.i, 24
-  %or13.i.i = or disjoint i32 %or8.i.i, %shl12.i.i
-  %arrayidx.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 %i.032.i
-  store i32 %or13.i.i, ptr %arrayidx.i, align 4
-  %inc.i12 = add nuw nsw i64 %i.032.i, 1
+  %2 = load i32, ptr %arrayidx.i.i, align 1
+  %arrayidx.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 %i.016.i
+  store i32 %2, ptr %arrayidx.i, align 4
+  %inc.i12 = add nuw nsw i64 %i.016.i, 1
   %exitcond.not.i13 = icmp eq i64 %inc.i12, 4
-  br i1 %exitcond.not.i13, label %for.body4.i, label %for.body.i10, !llvm.loop !96
+  br i1 %exitcond.not.i13, label %for.body4.i.preheader, label %for.body.i10, !llvm.loop !96
 
-for.body4.i:                                      ; preds = %for.body.i10, %for.body4.i
-  %i1.033.i = phi i64 [ %inc9.i, %for.body4.i ], [ 0, %for.body.i10 ]
-  %mul.i14.i = shl nuw nsw i64 %i1.033.i, 2
-  %arrayidx.i15.i = getelementptr i8, ptr %key, i64 %mul.i14.i
-  %6 = load i8, ptr %arrayidx.i15.i, align 4
-  %conv.i16.i = zext i8 %6 to i32
-  %add1.i17.i = or disjoint i64 %mul.i14.i, 1
-  %arrayidx2.i18.i = getelementptr i8, ptr %key, i64 %add1.i17.i
-  %7 = load i8, ptr %arrayidx2.i18.i, align 1
-  %conv3.i19.i = zext i8 %7 to i32
-  %shl.i20.i = shl nuw nsw i32 %conv3.i19.i, 8
-  %or.i21.i = or disjoint i32 %shl.i20.i, %conv.i16.i
-  %add4.i22.i = or disjoint i64 %mul.i14.i, 2
-  %arrayidx5.i23.i = getelementptr i8, ptr %key, i64 %add4.i22.i
-  %8 = load i8, ptr %arrayidx5.i23.i, align 2
-  %conv6.i24.i = zext i8 %8 to i32
-  %shl7.i25.i = shl nuw nsw i32 %conv6.i24.i, 16
-  %or8.i26.i = or disjoint i32 %or.i21.i, %shl7.i25.i
-  %add9.i27.i = or disjoint i64 %mul.i14.i, 3
-  %arrayidx10.i28.i = getelementptr i8, ptr %key, i64 %add9.i27.i
-  %9 = load i8, ptr %arrayidx10.i28.i, align 1
-  %conv11.i29.i = zext i8 %9 to i32
-  %shl12.i30.i = shl nuw i32 %conv11.i29.i, 24
-  %or13.i31.i = or disjoint i32 %or8.i26.i, %shl12.i30.i
-  %add.i = add nuw nsw i64 %i1.033.i, 4
-  %arrayidx7.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 %add.i
-  store i32 %or13.i31.i, ptr %arrayidx7.i, align 4
-  %inc9.i = add nuw nsw i64 %i1.033.i, 1
-  %exitcond34.not.i = icmp eq i64 %inc9.i, 8
-  br i1 %exitcond34.not.i, label %chacha_init.exit, label %for.body4.i, !llvm.loop !97
-
-chacha_init.exit:                                 ; preds = %for.body4.i
-  %10 = ptrtoint ptr %ctx to i64
+for.body4.i.preheader:                            ; preds = %for.body.i10
+  %scevgep = getelementptr i8, ptr %ctx, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %key, i64 32, i1 false)
+  %3 = ptrtoint ptr %ctx to i64
   %arrayidx12.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 12
   store i32 0, ptr %arrayidx12.i, align 4
   %arrayidx14.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 13
   store i32 0, ptr %arrayidx14.i, align 4
-  %conv.i = trunc i64 %10 to i32
+  %conv.i = trunc i64 %3 to i32
   %arrayidx16.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 14
   store i32 %conv.i, ptr %arrayidx16.i, align 4
-  %shr.i14 = lshr i64 %10, 32
+  %shr.i14 = lshr i64 %3, 32
   %conv17.i = trunc i64 %shr.i14 to i32
   %arrayidx19.i = getelementptr [16 x i32], ptr %ctx, i64 0, i64 15
   store i32 %conv17.i, ptr %arrayidx19.i, align 4
@@ -20690,13 +20642,13 @@ for.body5:                                        ; preds = %for.body, %for.body
   %spec.select = add i64 %and, %count.110
   %shr = lshr i64 %mask.011, 1
   %cmp4.not = icmp ult i64 %mask.011, 2
-  br i1 %cmp4.not, label %for.inc9, label %for.body5, !llvm.loop !98
+  br i1 %cmp4.not, label %for.inc9, label %for.body5, !llvm.loop !97
 
 for.inc9:                                         ; preds = %for.body5, %for.body, %if.then
   %count.3 = phi i64 [ %add, %if.then ], [ %count.012, %for.body ], [ %spec.select, %for.body5 ]
   %inc10 = add nuw nsw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc10, 8
-  br i1 %exitcond.not, label %for.end11, label %for.body, !llvm.loop !99
+  br i1 %exitcond.not, label %for.end11, label %for.body, !llvm.loop !98
 
 for.end11:                                        ; preds = %for.inc9
   %div8 = lshr i64 %total, 9
@@ -20737,12 +20689,12 @@ while.body5:                                      ; preds = %while.cond3.prehead
   %inc = add i64 %ofs.134, 1
   %2 = and i64 %mask.135, 2
   %cmp4 = icmp eq i64 %2, 0
-  br i1 %cmp4, label %while.body5, label %if.else, !llvm.loop !100
+  br i1 %cmp4, label %while.body5, label %if.else, !llvm.loop !99
 
 if.end:                                           ; preds = %while.body
   %inc7 = add nuw nsw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc7, 8
-  br i1 %exitcond.not, label %if.then10, label %while.body, !llvm.loop !101
+  br i1 %exitcond.not, label %if.then10, label %while.body, !llvm.loop !100
 
 if.then10:                                        ; preds = %if.end, %entry
   store i64 512, ptr %idx, align 8
@@ -20769,7 +20721,7 @@ do.body11:                                        ; preds = %do.body11, %do.body
   %shr13 = lshr i64 %mask.4, 1
   %3 = and i64 %mask.4, 2
   %cmp15.not = icmp eq i64 %3, 0
-  br i1 %cmp15.not, label %do.end, label %do.body11, !llvm.loop !102
+  br i1 %cmp15.not, label %do.end, label %do.body11, !llvm.loop !101
 
 do.end:                                           ; preds = %do.body11
   %add16 = add i64 %inc12, %ofs.1.lcssa
@@ -20792,7 +20744,7 @@ do.cond27:                                        ; preds = %do.end, %if.end23
   %mask.5 = phi i64 [ %4, %if.end23 ], [ %shr13, %do.end ]
   %and28 = and i64 %mask.5, 1
   %cmp29.not = icmp eq i64 %and28, 0
-  br i1 %cmp29.not, label %return, label %do.body, !llvm.loop !103
+  br i1 %cmp29.not, label %return, label %do.body, !llvm.loop !102
 
 return:                                           ; preds = %do.cond27, %if.then19, %if.then10
   %retval.0 = phi i64 [ 0, %if.then10 ], [ %inc12, %if.then19 ], [ %inc12, %do.cond27 ]
@@ -21169,7 +21121,7 @@ if.end:                                           ; preds = %mi_segment_span_rem
   %idx.ext = zext i32 %11 to i64
   %add.ptr = getelementptr %struct.mi_page_s, ptr %slice.021, i64 %idx.ext
   %cmp = icmp ult ptr %add.ptr, %arrayidx.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !104
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !103
 
 while.end:                                        ; preds = %if.end, %entry
   %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
@@ -21275,7 +21227,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %30 = cmpxchg weak ptr %arrayidx.i.i16, i64 %mask.0.i.i, i64 %and.i.i release monotonic, align 8
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = extractvalue { i64, i1 } %30, 0
-  br i1 %31, label %_mi_segment_map_freed_at.exit.i, label %do.body.i.i, !llvm.loop !105
+  br i1 %31, label %_mi_segment_map_freed_at.exit.i, label %do.body.i.i, !llvm.loop !104
 
 _mi_segment_map_freed_at.exit.i:                  ; preds = %do.body.i.i, %_mi_stat_decrease.exit
   %33 = getelementptr i8, ptr %segment, i64 224
@@ -21307,13 +21259,13 @@ for.body5.i.i:                                    ; preds = %for.body.i.i, %for.
   %spec.select.i.i = add i64 %and.i14.i, %count.110.i.i
   %shr.i.i = lshr i64 %mask.011.i.i, 1
   %cmp4.not.i.i = icmp ult i64 %mask.011.i.i, 2
-  br i1 %cmp4.not.i.i, label %for.inc9.i.i, label %for.body5.i.i, !llvm.loop !98
+  br i1 %cmp4.not.i.i, label %for.inc9.i.i, label %for.body5.i.i, !llvm.loop !97
 
 for.inc9.i.i:                                     ; preds = %for.body5.i.i, %if.then.i.i18, %for.body.i.i
   %count.3.i.i = phi i64 [ %add.i.i19, %if.then.i.i18 ], [ %count.012.i.i, %for.body.i.i ], [ %spec.select.i.i, %for.body5.i.i ]
   %inc10.i.i = add nuw nsw i64 %i.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc10.i.i, 8
-  br i1 %exitcond.not.i.i, label %_mi_commit_mask_committed_size.exit.i, label %for.body.i.i, !llvm.loop !99
+  br i1 %exitcond.not.i.i, label %_mi_commit_mask_committed_size.exit.i, label %for.body.i.i, !llvm.loop !98
 
 _mi_commit_mask_committed_size.exit.i:            ; preds = %for.inc9.i.i
   %35 = load atomic i64, ptr @abandoned_readers acquire, align 64
@@ -21324,7 +21276,7 @@ if.then.i15.i:                                    ; preds = %_mi_commit_mask_com
   tail call void @llvm.x86.sse2.pause()
   %36 = load atomic i64, ptr @abandoned_readers acquire, align 64
   %cmp.not.i.i17 = icmp eq i64 %36, 0
-  br i1 %cmp.not.i.i17, label %mi_segment_os_free.exit, label %if.then.i15.i, !llvm.loop !106
+  br i1 %cmp.not.i.i17, label %mi_segment_os_free.exit, label %if.then.i15.i, !llvm.loop !105
 
 mi_segment_os_free.exit:                          ; preds = %if.then.i15.i, %_mi_commit_mask_committed_size.exit.i
   %37 = shl i64 %segment.val9.i, 7
@@ -21428,7 +21380,7 @@ if.end:                                           ; preds = %mi_segment_span_rem
   %idx.ext = zext i32 %9 to i64
   %add.ptr = getelementptr %struct.mi_page_s, ptr %slice.019, i64 %idx.ext
   %cmp = icmp ult ptr %add.ptr, %arrayidx.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !107
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !106
 
 while.end:                                        ; preds = %if.end, %entry
   %call.i = tail call i64 @mi_option_get(i32 noundef 12)
@@ -21510,7 +21462,7 @@ do.body.i:                                        ; preds = %do.body.i, %_mi_sta
   %25 = cmpxchg weak ptr @abandoned, i64 %ts.0.i, i64 %or.i.i release monotonic, align 64
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
-  br i1 %26, label %mi_abandoned_push.exit, label %do.body.i, !llvm.loop !108
+  br i1 %26, label %mi_abandoned_push.exit, label %do.body.i, !llvm.loop !107
 
 mi_abandoned_push.exit:                           ; preds = %do.body.i
   %28 = atomicrmw add ptr @abandoned_count, i64 1 monotonic, align 64
@@ -21528,7 +21480,7 @@ if.then:                                          ; preds = %entry, %if.then
   tail call void @llvm.x86.sse2.pause()
   %1 = load atomic i64, ptr @abandoned_readers acquire, align 64
   %cmp.not = icmp eq i64 %1, 0
-  br i1 %cmp.not, label %do.end, label %if.then, !llvm.loop !106
+  br i1 %cmp.not, label %do.end, label %if.then, !llvm.loop !105
 
 do.end:                                           ; preds = %if.then, %entry
   ret void
@@ -21577,7 +21529,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   %abandoned_next.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
   %7 = load atomic i64, ptr %abandoned_next.i.i monotonic, align 8
   %cmp19.not.i.i = icmp eq i64 %7, 0
-  br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !109
+  br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !108
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %abandoned_next.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
@@ -21595,7 +21547,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %while
   %10 = cmpxchg weak ptr @abandoned, i64 %anext.0.i.i, i64 %or.i16.i.i release monotonic, align 64
   %11 = extractvalue { i64, i1 } %10, 1
   %12 = extractvalue { i64, i1 } %10, 0
-  br i1 %11, label %mi_abandoned_visited_revisit.exit.i, label %do.body.i.i, !llvm.loop !110
+  br i1 %11, label %mi_abandoned_visited_revisit.exit.i, label %do.body.i.i, !llvm.loop !109
 
 mi_abandoned_visited_revisit.exit.i:              ; preds = %do.body.i.i, %if.then7.i.i
   %.lcssa.sink17.i.i = phi i64 [ %4, %if.then7.i.i ], [ %9, %do.body.i.i ]
@@ -21628,7 +21580,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %20 = cmpxchg weak ptr @abandoned, i64 %ts.0.i, i64 %or.i.i acq_rel acquire, align 64
   %21 = extractvalue { i64, i1 } %20, 1
   %22 = extractvalue { i64, i1 } %20, 0
-  br i1 %21, label %while.body, label %do.body.i, !llvm.loop !111
+  br i1 %21, label %while.body, label %do.body.i, !llvm.loop !110
 
 while.body:                                       ; preds = %land.rhs.i
   %abandoned_next.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %18, i64 0, i32 7
@@ -21636,7 +21588,7 @@ while.body:                                       ; preds = %land.rhs.i
   store atomic i64 0, ptr %abandoned_next.i.le release, align 8
   %24 = atomicrmw sub ptr @abandoned_count, i64 1 monotonic, align 64
   %call1 = tail call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %18, ptr noundef %heap, i64 noundef 0, ptr noundef null, ptr noundef %tld)
-  br label %while.cond, !llvm.loop !112
+  br label %while.cond, !llvm.loop !111
 
 while.end:                                        ; preds = %if.end.i.i, %if.then.i, %mi_abandoned_pop.exit.thread3
   ret void
@@ -22046,7 +21998,7 @@ if.end24:                                         ; preds = %if.then9, %if.then1
   %idx.ext = zext i32 %65 to i64
   %add.ptr = getelementptr %struct.mi_page_s, ptr %slice.1, i64 %idx.ext
   %cmp3 = icmp ult ptr %add.ptr, %arrayidx.i.i
-  br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !113
+  br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !112
 
 while.end:                                        ; preds = %if.end24, %_mi_stat_decrease.exit
   %used = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 11
@@ -22101,7 +22053,7 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %abandoned_next.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i, i64 0, i32 7
   %6 = load atomic i64, ptr %abandoned_next.i monotonic, align 8
   %cmp19.not.i = icmp eq i64 %6, 0
-  br i1 %cmp19.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !109
+  br i1 %cmp19.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !108
 
 while.end.i:                                      ; preds = %while.cond.i
   %abandoned_next.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i, i64 0, i32 7
@@ -22119,7 +22071,7 @@ do.body.i:                                        ; preds = %do.body.i, %while.e
   %9 = cmpxchg weak ptr @abandoned, i64 %anext.0.i, i64 %or.i16.i release monotonic, align 64
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
-  br i1 %10, label %return.sink.split.i, label %do.body.i, !llvm.loop !110
+  br i1 %10, label %return.sink.split.i, label %do.body.i, !llvm.loop !109
 
 return.sink.split.i:                              ; preds = %do.body.i, %if.then7.i
   %.lcssa.sink17.i = phi i64 [ %3, %if.then7.i ], [ %8, %do.body.i ]
@@ -22171,7 +22123,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   %abandoned_next.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
   %21 = load atomic i64, ptr %abandoned_next.i.i monotonic, align 8
   %cmp19.not.i.i = icmp eq i64 %21, 0
-  br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !109
+  br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !108
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %abandoned_next.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
@@ -22189,7 +22141,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %while
   %24 = cmpxchg weak ptr @abandoned, i64 %anext.0.i.i, i64 %or.i16.i.i release monotonic, align 64
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
-  br i1 %25, label %mi_abandoned_visited_revisit.exit.i, label %do.body.i.i, !llvm.loop !110
+  br i1 %25, label %mi_abandoned_visited_revisit.exit.i, label %do.body.i.i, !llvm.loop !109
 
 mi_abandoned_visited_revisit.exit.i:              ; preds = %do.body.i.i, %if.then7.i.i
   %.lcssa.sink17.i.i = phi i64 [ %18, %if.then7.i.i ], [ %23, %do.body.i.i ]
@@ -22222,7 +22174,7 @@ land.rhs.i:                                       ; preds = %do.body.i10
   %34 = cmpxchg weak ptr @abandoned, i64 %ts.0.i, i64 %or.i.i14 acq_rel acquire, align 64
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
-  br i1 %35, label %while.body, label %do.body.i10, !llvm.loop !111
+  br i1 %35, label %while.body, label %do.body.i10, !llvm.loop !110
 
 while.body:                                       ; preds = %land.rhs.i
   %abandoned_next.i11.le = getelementptr inbounds %struct.mi_segment_s, ptr %32, i64 0, i32 7
@@ -22251,7 +22203,7 @@ do.body.i19:                                      ; preds = %do.body.i19, %if.el
   %42 = cmpxchg weak ptr @abandoned_visited, i64 %anext.0.in.i, i64 %and.i10.i release monotonic, align 64
   %43 = extractvalue { i64, i1 } %42, 1
   %44 = extractvalue { i64, i1 } %42, 0
-  br i1 %43, label %mi_abandoned_visited_push.exit, label %do.body.i19, !llvm.loop !114
+  br i1 %43, label %mi_abandoned_visited_push.exit, label %do.body.i19, !llvm.loop !113
 
 mi_abandoned_visited_push.exit:                   ; preds = %do.body.i19
   %45 = atomicrmw add ptr @abandoned_visited_count, i64 1 monotonic, align 64
@@ -22260,7 +22212,7 @@ mi_abandoned_visited_push.exit:                   ; preds = %do.body.i19
 if.end9:                                          ; preds = %mi_abandoned_visited_push.exit, %if.then6
   %dec = add nsw i32 %dec31, -1
   %cmp = icmp sgt i32 %dec31, 0
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !115
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !114
 
 while.end:                                        ; preds = %if.end.i.i, %if.then.i, %if.end9, %mi_abandoned_pop.exit.thread22
   ret void
@@ -22485,7 +22437,7 @@ if.end24:                                         ; preds = %mi_page_has_any_ava
   %idx.ext = zext i32 %36 to i64
   %add.ptr = getelementptr %struct.mi_page_s, ptr %slice.1, i64 %idx.ext
   %cmp = icmp ult ptr %add.ptr, %arrayidx.i.i
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !116
+  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !115
 
 while.end.loopexit:                               ; preds = %if.end24
   %37 = and i8 %has_page.1, 1
@@ -22518,13 +22470,13 @@ for.cond.i:                                       ; preds = %lor.lhs.false, %for
   %i.03.i23 = phi i64 [ %inc.i, %for.body.i ], [ 0, %lor.lhs.false ]
   %inc.i = add nuw nsw i64 %i.03.i23, 1
   %exitcond.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.i, label %while.end, label %for.body.i, !llvm.loop !117
+  br i1 %exitcond.i, label %while.end, label %for.body.i, !llvm.loop !116
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr [8 x i64], ptr %purge_mask, i64 0, i64 %inc.i
   %3 = load i64, ptr %arrayidx.i, align 8
   %cmp1.not.i = icmp eq i64 %3, 0
-  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit, !llvm.loop !117
+  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit, !llvm.loop !116
 
 mi_commit_mask_is_empty.exit:                     ; preds = %for.body.i
   %cmp.i.le = icmp ugt i64 %i.03.i23, 6
@@ -22581,12 +22533,12 @@ while.body5.i:                                    ; preds = %while.cond3.prehead
   %inc.i11 = add i64 %ofs.134.i, 1
   %8 = and i64 %mask.135.i, 2
   %cmp4.i12 = icmp eq i64 %8, 0
-  br i1 %cmp4.i12, label %while.body5.i, label %if.else.i, !llvm.loop !100
+  br i1 %cmp4.i12, label %while.body5.i, label %if.else.i, !llvm.loop !99
 
 if.end.i:                                         ; preds = %while.body.i
   %inc7.i = add nuw nsw i64 %i.030.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, 8
-  br i1 %exitcond.not.i, label %while.end, label %while.body.i, !llvm.loop !101
+  br i1 %exitcond.not.i, label %while.end, label %while.body.i, !llvm.loop !100
 
 if.else.i:                                        ; preds = %while.body5.i, %while.cond3.preheader.i
   %ofs.1.lcssa.i = phi i64 [ %ofs.031.i, %while.cond3.preheader.i ], [ %inc.i11, %while.body5.i ]
@@ -22608,7 +22560,7 @@ do.body11.i:                                      ; preds = %do.body11.i, %do.bo
   %shr13.i = lshr i64 %mask.4.i, 1
   %9 = and i64 %mask.4.i, 2
   %cmp15.not.i = icmp eq i64 %9, 0
-  br i1 %cmp15.not.i, label %do.end.i, label %do.body11.i, !llvm.loop !102
+  br i1 %cmp15.not.i, label %do.end.i, label %do.body11.i, !llvm.loop !101
 
 do.end.i:                                         ; preds = %do.body11.i
   %add16.i = add i64 %inc12.i, %ofs.1.lcssa.i
@@ -22631,7 +22583,7 @@ do.cond27.i:                                      ; preds = %if.end23.i, %do.end
   %mask.5.i = phi i64 [ %10, %if.end23.i ], [ %shr13.i, %do.end.i ]
   %and28.i = and i64 %mask.5.i, 1
   %cmp29.not.i = icmp eq i64 %and28.i, 0
-  br i1 %cmp29.not.i, label %_mi_commit_mask_next_run.exit, label %do.body.i, !llvm.loop !103
+  br i1 %cmp29.not.i, label %_mi_commit_mask_next_run.exit, label %do.body.i, !llvm.loop !102
 
 _mi_commit_mask_next_run.exit:                    ; preds = %if.then19.i, %do.cond27.i
   %cmp9.not = icmp eq i64 %inc12.i, 0
@@ -22644,7 +22596,7 @@ if.then11:                                        ; preds = %_mi_commit_mask_nex
   call fastcc void @mi_segment_purge(ptr noundef %segment, ptr noundef %add.ptr, i64 noundef %mul12, ptr noundef %stats)
   %add = add i64 %inc12.i, %add.i
   %cmp29.i = icmp ult i64 %add, 512
-  br i1 %cmp29.i, label %while.body.preheader.i, label %while.end, !llvm.loop !118
+  br i1 %cmp29.i, label %while.body.preheader.i, label %while.end, !llvm.loop !117
 
 while.end:                                        ; preds = %for.cond.i, %if.then11, %_mi_commit_mask_next_run.exit, %if.end.i, %land.lhs.true, %entry, %mi_commit_mask_is_empty.exit
   ret void
@@ -23028,7 +22980,7 @@ for.cond.preheader.us.i:                          ; preds = %for.cond.preheader.
 for.end.us.i:                                     ; preds = %for.inc.us.us.i, %for.cond.preheader.us.i
   %incdec.ptr.us.i = getelementptr %struct.mi_span_queue_s, ptr %sq.051.us.i, i64 1
   %cmp1.not.us.i = icmp ugt ptr %incdec.ptr.us.i, %arrayidx.i
-  br i1 %cmp1.not.us.i, label %if.then, label %for.cond.preheader.us.i, !llvm.loop !119
+  br i1 %cmp1.not.us.i, label %if.then, label %for.cond.preheader.us.i, !llvm.loop !118
 
 for.body.us.us.i:                                 ; preds = %for.cond.preheader.us.i, %for.inc.us.us.i
   %slice.037.us.us.i = phi ptr [ %slice.0.us.us.i, %for.inc.us.us.i ], [ %slice.035.us.i, %for.cond.preheader.us.i ]
@@ -23062,7 +23014,7 @@ for.inc.us.us.i:                                  ; preds = %if.then.i.us.us.i, 
   %next.us.us.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.037.us.us.i, i64 0, i32 13
   %slice.0.us.us.i = load ptr, ptr %next.us.us.i, align 8
   %cmp2.not.us.us.i = icmp eq ptr %slice.0.us.us.i, null
-  br i1 %cmp2.not.us.us.i, label %for.end.us.i, label %for.body.us.us.i, !llvm.loop !120
+  br i1 %cmp2.not.us.us.i, label %for.end.us.i, label %for.body.us.us.i, !llvm.loop !119
 
 for.cond.preheader.i:                             ; preds = %for.cond.preheader.lr.ph.i, %for.end.i
   %sq.051.i = phi ptr [ %incdec.ptr.i, %for.end.i ], [ %arrayidx.i.i, %for.cond.preheader.lr.ph.i ]
@@ -23260,12 +23212,12 @@ for.inc.i:                                        ; preds = %if.then.i.i, %if.th
   %next.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.037.i, i64 0, i32 13
   %slice.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %slice.0.i, null
-  br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !120
+  br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !119
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %incdec.ptr.i = getelementptr %struct.mi_span_queue_s, ptr %sq.051.i, i64 1
   %cmp1.not.i = icmp ugt ptr %incdec.ptr.i, %arrayidx.i
-  br i1 %cmp1.not.i, label %if.then, label %for.cond.preheader.i, !llvm.loop !119
+  br i1 %cmp1.not.i, label %if.then, label %for.cond.preheader.i, !llvm.loop !118
 
 if.then:                                          ; preds = %for.end.i, %for.end.us.i, %if.then22.i, %mi_span_queue_for.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %reclaimed.i)
@@ -23316,7 +23268,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.
   %abandoned_next.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i.i.i, i64 0, i32 7
   %37 = load atomic i64, ptr %abandoned_next.i.i.i.i monotonic, align 8
   %cmp19.not.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %cmp19.not.i.i.i.i, label %while.end.i.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !109
+  br i1 %cmp19.not.i.i.i.i, label %while.end.i.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !108
 
 while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i
   %abandoned_next.i.i.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i.i.i, i64 0, i32 7
@@ -23334,7 +23286,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %w
   %40 = cmpxchg weak ptr @abandoned, i64 %anext.0.i.i.i.i, i64 %or.i16.i.i.i.i release monotonic, align 64
   %41 = extractvalue { i64, i1 } %40, 1
   %42 = extractvalue { i64, i1 } %40, 0
-  br i1 %41, label %mi_abandoned_visited_revisit.exit.i.i.i, label %do.body.i.i.i.i, !llvm.loop !110
+  br i1 %41, label %mi_abandoned_visited_revisit.exit.i.i.i, label %do.body.i.i.i.i, !llvm.loop !109
 
 mi_abandoned_visited_revisit.exit.i.i.i:          ; preds = %do.body.i.i.i.i, %if.then7.i.i.i.i
   %.lcssa.sink17.i.i.i.i = phi i64 [ %34, %if.then7.i.i.i.i ], [ %39, %do.body.i.i.i.i ]
@@ -23367,7 +23319,7 @@ land.rhs.i.i.i:                                   ; preds = %do.body.i.i.i
   %50 = cmpxchg weak ptr @abandoned, i64 %ts.0.i.i.i, i64 %or.i.i.i.i15 acq_rel acquire, align 64
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = extractvalue { i64, i1 } %50, 0
-  br i1 %51, label %while.body.i.i, label %do.body.i.i.i, !llvm.loop !111
+  br i1 %51, label %while.body.i.i, label %do.body.i.i.i, !llvm.loop !110
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i.i
   %abandoned_next.i.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %48, i64 0, i32 7
@@ -23444,7 +23396,7 @@ do.body.i26.i.i:                                  ; preds = %do.body.i26.i.i, %i
   %64 = cmpxchg weak ptr @abandoned_visited, i64 %anext.0.in.i.i.i, i64 %and.i10.i.i.i release monotonic, align 64
   %65 = extractvalue { i64, i1 } %64, 1
   %66 = extractvalue { i64, i1 } %64, 0
-  br i1 %65, label %mi_abandoned_visited_push.exit.i.i, label %do.body.i26.i.i, !llvm.loop !114
+  br i1 %65, label %mi_abandoned_visited_push.exit.i.i, label %do.body.i26.i.i, !llvm.loop !113
 
 mi_abandoned_visited_push.exit.i.i:               ; preds = %do.body.i26.i.i
   %67 = atomicrmw add ptr @abandoned_visited_count, i64 1 monotonic, align 64
@@ -23452,7 +23404,7 @@ mi_abandoned_visited_push.exit.i.i:               ; preds = %do.body.i26.i.i
 
 if.end20.i.i:                                     ; preds = %mi_abandoned_visited_push.exit.i.i, %if.then16.i.i19, %if.then.i.i20
   %cmp.i.i17 = icmp sgt i64 %dec38.in.i.i, 1
-  br i1 %cmp.i.i17, label %land.rhs.i.i, label %mi_segment_try_reclaim.exit.i, !llvm.loop !121
+  br i1 %cmp.i.i17, label %land.rhs.i.i, label %mi_segment_try_reclaim.exit.i, !llvm.loop !120
 
 mi_segment_try_reclaim.exit.i:                    ; preds = %if.end20.i.i, %if.end.i.i.i.i, %if.then.i.i.i, %if.then9.i.i, %mi_abandoned_pop.exit.thread30.i.i
   %retval.0.i.i = phi i1 [ %60, %if.then9.i.i ], [ true, %mi_abandoned_pop.exit.thread30.i.i ], [ true, %if.then.i.i.i ], [ true, %if.end.i.i.i.i ], [ true, %if.end20.i.i ]
@@ -23521,7 +23473,7 @@ do.body:                                          ; preds = %do.body, %if.end
   %3 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %or release monotonic, align 8
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
-  br i1 %4, label %do.end, label %do.body, !llvm.loop !122
+  br i1 %4, label %do.end, label %do.body, !llvm.loop !121
 
 do.end:                                           ; preds = %do.body, %entry
   ret void
@@ -23552,7 +23504,7 @@ do.body:                                          ; preds = %do.body, %if.end
   %4 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %and release monotonic, align 8
   %5 = extractvalue { i64, i1 } %4, 1
   %6 = extractvalue { i64, i1 } %4, 0
-  br i1 %5, label %do.end, label %do.body, !llvm.loop !105
+  br i1 %5, label %do.end, label %do.body, !llvm.loop !104
 
 do.end:                                           ; preds = %do.body, %entry
   ret void
@@ -24921,7 +24873,7 @@ if.else:                                          ; preds = %while.body
 if.end24:                                         ; preds = %if.then17, %if.then17, %if.else
   %count.1 = phi i64 [ %count.019, %if.then17 ], [ %add, %if.else ], [ %count.019, %if.then17 ]
   %cmp13 = icmp ult i64 %count.1, %buf_len
-  br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !123
+  br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !122
 
 while.end:                                        ; preds = %if.end24, %if.then17, %while.cond.preheader
   %count.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %count.019, %if.then17 ], [ %count.1, %if.end24 ]
@@ -26340,13 +26292,13 @@ for.body23:                                       ; preds = %if.end11, %for.body
   %add24 = add i64 %n.132, %conv
   %add25 = add i64 %base.033, 16384
   %cmp22 = icmp ult i64 %add25, %22
-  br i1 %cmp22, label %for.body23, label %for.inc26, !llvm.loop !124
+  br i1 %cmp22, label %for.body23, label %for.inc26, !llvm.loop !123
 
 for.inc26:                                        ; preds = %for.body23, %if.end11, %for.body
   %n.2 = phi i64 [ %n.035, %for.body ], [ %n.035, %if.end11 ], [ %add24, %for.body23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !125
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !124
 
 return:                                           ; preds = %for.inc26, %for.inc.i.i.i, %if.end6, %lor.lhs.false.i.i.i, %mi_heap_get_default.exit
   %retval.0 = phi i64 [ 0, %mi_heap_get_default.exit ], [ 0, %lor.lhs.false.i.i.i ], [ %17, %if.end6 ], [ %allocated_blocks.2, %for.inc.i.i.i ], [ %n.2, %for.inc26 ]
@@ -26544,7 +26496,7 @@ for.inc:                                          ; preds = %has_own_state.exit,
   %total.1 = phi i64 [ %add18, %if.then16 ], [ %total.031, %has_own_state.exit ]
   %call20 = tail call ptr @PyInterpreterState_Next(ptr noundef nonnull %interp11.032) #45
   %cmp13.not = icmp eq ptr %call20, null
-  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !126
+  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !125
 
 for.end:                                          ; preds = %for.inc, %PyMutex_LockFlags.exit
   %total.0.lcssa = phi i64 [ 0, %PyMutex_LockFlags.exit ], [ %total.1, %for.inc ]
@@ -26727,7 +26679,7 @@ if.end.i.i:                                       ; preds = %land.end.i.i, %if.t
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %14 = load ptr, ptr @stderr, align 8
-  %call5.i.i = tail call i32 @_PyObject_DebugMallocStats(ptr noundef %14), !range !127
+  %call5.i.i = tail call i32 @_PyObject_DebugMallocStats(ptr noundef %14), !range !126
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i
@@ -26780,7 +26732,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %nextarena.i.i = getelementptr %struct.arena_object, ptr %.pre.i.i, i64 %indvars.iv.i.i, i32 5
   store ptr %cond45.i.i, ptr %nextarena.i.i, align 8
   %exitcond.not.i.i = icmp eq i64 %24, %conv20.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !128
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !127
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   %.pre67.i.i = load ptr, ptr %mgmt.i, align 8
@@ -27783,7 +27735,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %incdec.ptr.i.i = getelementptr i8, ptr %q.04.i.i, i64 -1
   %dec.i.i = add nsw i32 %dec5.i.i, -1
   %cmp.not.i.i = icmp eq i32 %dec5.i.i, 0
-  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !128
 
 write_size_t.exit.i:                              ; preds = %for.body.i.i
   %add.ptr.i = getelementptr i8, ptr %call7.i, i64 16
@@ -27840,7 +27792,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %incdec.ptr.i.i = getelementptr i8, ptr %q.04.i.i, i64 -1
   %dec.i.i = add nsw i32 %dec5.i.i, -1
   %cmp.not.i.i = icmp eq i32 %dec5.i.i, 0
-  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !128
 
 write_size_t.exit.i:                              ; preds = %for.body.i.i
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 16
@@ -27883,7 +27835,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
   %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !130
+  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !129
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %add = add i64 %or.i, 24
@@ -27917,7 +27869,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %dec = add nsw i32 %i.016, -1
   %cmp5 = icmp ugt i32 %i.016, 1
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !131
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !130
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.016 = phi i32 [ %dec, %for.cond ], [ 7, %entry ]
@@ -27950,7 +27902,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
   %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !130
+  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !129
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %add.ptr13 = getelementptr i8, ptr %p, i64 %or.i
@@ -27959,7 +27911,7 @@ read_size_t.exit:                                 ; preds = %for.body.i
 for.cond14:                                       ; preds = %for.body17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end25, label %for.body17, !llvm.loop !132
+  br i1 %exitcond.not, label %for.end25, label %for.body17, !llvm.loop !131
 
 for.body17:                                       ; preds = %read_size_t.exit, %for.cond14
   %indvars.iv = phi i64 [ 0, %read_size_t.exit ], [ %indvars.iv.next, %for.cond14 ]
@@ -28012,7 +27964,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %incdec.ptr.i.i = getelementptr i8, ptr %q.04.i.i, i64 -1
   %dec.i.i = add nsw i32 %dec5.i.i, -1
   %cmp.not.i.i = icmp eq i32 %dec5.i.i, 0
-  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i, label %write_size_t.exit.i, label %for.body.i.i, !llvm.loop !128
 
 write_size_t.exit.i:                              ; preds = %for.body.i.i
   %add.ptr.i = getelementptr i8, ptr %call7.i, i64 16
@@ -28052,7 +28004,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
   %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !130
+  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !129
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %cmp2 = icmp ugt i64 %nbytes, 9223372036854775783
@@ -28101,7 +28053,7 @@ for.body.i54:                                     ; preds = %for.body.i54, %if.e
   %incdec.ptr.i = getelementptr i8, ptr %q.04.i, i64 -1
   %dec.i56 = add nsw i32 %dec5.i, -1
   %cmp.not.i57 = icmp eq i32 %dec5.i, 0
-  br i1 %cmp.not.i57, label %write_size_t.exit, label %for.body.i54, !llvm.loop !129
+  br i1 %cmp.not.i57, label %write_size_t.exit, label %for.body.i54, !llvm.loop !128
 
 write_size_t.exit:                                ; preds = %for.body.i54
   %add.ptr21 = getelementptr i8, ptr %add.ptr.call16, i64 16
@@ -28191,7 +28143,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %incdec.ptr.i.i.i = getelementptr i8, ptr %q.04.i.i.i, i64 -1
   %dec.i.i.i = add nsw i32 %dec5.i.i.i, -1
   %cmp.not.i.i.i = icmp eq i32 %dec5.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %write_size_t.exit.i.i, label %for.body.i.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i.i, label %write_size_t.exit.i.i, label %for.body.i.i.i, !llvm.loop !128
 
 write_size_t.exit.i.i:                            ; preds = %for.body.i.i.i
   %add.ptr.i.i = getelementptr i8, ptr %call7.i.i, i64 16
@@ -28257,7 +28209,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %incdec.ptr.i.i.i = getelementptr i8, ptr %q.04.i.i.i, i64 -1
   %dec.i.i.i = add nsw i32 %dec5.i.i.i, -1
   %cmp.not.i.i.i = icmp eq i32 %dec5.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %write_size_t.exit.i.i, label %for.body.i.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i.i, label %write_size_t.exit.i.i, label %for.body.i.i.i, !llvm.loop !128
 
 write_size_t.exit.i.i:                            ; preds = %for.body.i.i.i
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 16
@@ -28309,7 +28261,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %or.i.i = or disjoint i64 %shl.i.i, %conv2.i.i
   %dec.i.i = add nsw i32 %dec6.i.i, -1
   %cmp.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %read_size_t.exit.i, label %for.body.i.i, !llvm.loop !130
+  br i1 %cmp.not.i.i, label %read_size_t.exit.i, label %for.body.i.i, !llvm.loop !129
 
 read_size_t.exit.i:                               ; preds = %for.body.i.i
   %add.i = add i64 %or.i.i, 24
@@ -28371,7 +28323,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call3 = tail call i32 @fputc(i32 noundef 32, ptr noundef %out)
   %inc = add i32 %i.022, 1
   %exitcond.not = icmp eq i32 %inc, 35
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !133
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !132
 
 for.end:                                          ; preds = %for.body, %entry
   %call4 = tail call i32 @fputc(i32 noundef 61, ptr noundef %out)
@@ -28414,7 +28366,7 @@ do.cond:                                          ; preds = %do.body, %if.then
   %i.2 = phi i32 [ %dec19, %if.then ], [ %dec10, %do.body ]
   %cmp23 = icmp sgt i32 %i.2, -1
   %0 = and i1 %tobool, %cmp23
-  br i1 %0, label %do.body, label %while.cond.preheader, !llvm.loop !134
+  br i1 %0, label %do.body, label %while.cond.preheader, !llvm.loop !133
 
 while.cond.preheader:                             ; preds = %do.cond
   br i1 %cmp23, label %while.body.preheader, label %while.end
@@ -28687,7 +28639,7 @@ if.end37.i:                                       ; preds = %for.body34.i
 for.inc51.i:                                      ; preds = %if.end37.i, %for.body34.i
   %add52.i = add i64 %base.196.i, 16384
   %cmp33.i = icmp ult i64 %add52.i, %31
-  br i1 %cmp33.i, label %for.body34.i, label %for.inc54.i, !llvm.loop !135
+  br i1 %cmp33.i, label %for.body34.i, label %for.inc54.i, !llvm.loop !134
 
 for.inc54.i:                                      ; preds = %for.inc51.i, %if.end.i, %for.body8.i
   %narenas.1.i = phi i64 [ %narenas.098.i, %for.body8.i ], [ %add.i, %if.end.i ], [ %add.i, %for.inc51.i ]
@@ -28695,7 +28647,7 @@ for.inc54.i:                                      ; preds = %for.inc51.i, %if.en
   %numfreepools.1.i = phi i32 [ %numfreepools.0100.i, %for.body8.i ], [ %add22.i, %if.end.i ], [ %add22.i, %for.inc51.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end56.i, label %for.body8.i, !llvm.loop !136
+  br i1 %exitcond.not.i, label %for.end56.i, label %for.body8.i, !llvm.loop !135
 
 for.end56.i:                                      ; preds = %for.inc54.i, %get_state.exit.i
   %narenas.0.lcssa.i = phi i64 [ 0, %get_state.exit.i ], [ %narenas.1.i, %for.inc54.i ]
@@ -28746,7 +28698,7 @@ for.inc87.i:                                      ; preds = %if.end75.i, %for.bo
   %available_bytes.1.i = phi i64 [ %available_bytes.0106.i, %for.body62.i ], [ %add81.i, %if.end75.i ]
   %allocated_bytes.1.i = phi i64 [ %allocated_bytes.0107.i, %for.body62.i ], [ %add78.i, %if.end75.i ]
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next112.i, 32
-  br i1 %exitcond115.not.i, label %pymalloc_print_stats.exit, label %for.body62.i, !llvm.loop !137
+  br i1 %exitcond115.not.i, label %pymalloc_print_stats.exit, label %for.body62.i, !llvm.loop !136
 
 pymalloc_print_stats.exit:                        ; preds = %for.inc87.i
   %call90.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %out)
@@ -29776,7 +29728,7 @@ for.body5:                                        ; preds = %entry, %for.body5
   %or.i44.i126 = tail call i32 @llvm.fshl.i32(i32 %xor26.i125, i32 %xor26.i125, i32 7)
   %add = add nuw nsw i64 %i2.0144, 2
   %cmp4 = icmp ult i64 %i2.0144, 18
-  br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !138
+  br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !137
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.body18
   %i15.0145 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
@@ -29789,7 +29741,7 @@ for.body18:                                       ; preds = %for.cond16.preheade
   store i32 %add22, ptr %arrayidx23, align 4
   %inc25 = add nuw nsw i64 %i15.0145, 1
   %exitcond.not = icmp eq i64 %inc25, 16
-  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !139
+  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !138
 
 for.end26:                                        ; preds = %for.body18
   %output_available = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 2
@@ -30148,13 +30100,13 @@ for.cond.i.i:                                     ; preds = %if.else.i, %for.bod
   %i.03.i27.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.else.i ]
   %inc.i.i = add nuw nsw i64 %i.03.i27.i, 1
   %exitcond.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, label %for.body.i.i, !llvm.loop !117
+  br i1 %exitcond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, label %for.body.i.i, !llvm.loop !116
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr [8 x i64], ptr %mask.i, i64 0, i64 %inc.i.i
   %10 = load i64, ptr %arrayidx.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %10, 0
-  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, !llvm.loop !117
+  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, !llvm.loop !116
 
 mi_commit_mask_is_empty.exit.loopexit.i:          ; preds = %for.body.i.i, %for.cond.i.i
   %cmp.i.le.i = icmp ugt i64 %i.03.i27.i, 6
@@ -30182,7 +30134,7 @@ for.body.i18.i:                                   ; preds = %for.body.i18.i, %if
   store i64 %and.i.i21, ptr %arrayidx4.i.i, align 8
   %inc.i20.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i20.i, 8
-  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %for.body.i18.i, !llvm.loop !140
+  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %for.body.i18.i, !llvm.loop !139
 
 mi_commit_mask_create_intersect.exit.i:           ; preds = %for.body.i18.i
   %purge_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
@@ -30198,7 +30150,7 @@ for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi
   store i64 %or.i.i, ptr %arrayidx2.i23.i, align 8
   %inc.i24.i = add nuw nsw i64 %i.04.i.i, 1
   %exitcond.not.i25.i = icmp eq i64 %inc.i24.i, 8
-  br i1 %exitcond.not.i25.i, label %mi_commit_mask_set.exit.i, label %for.body.i21.i, !llvm.loop !141
+  br i1 %exitcond.not.i25.i, label %mi_commit_mask_set.exit.i, label %for.body.i21.i, !llvm.loop !140
 
 mi_commit_mask_set.exit.i:                        ; preds = %for.body.i21.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
@@ -30304,13 +30256,13 @@ for.cond.i:                                       ; preds = %if.end, %for.body.i
   %i.03.i39 = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
   %inc.i = add nuw nsw i64 %i.03.i39, 1
   %exitcond.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.i, label %mi_commit_mask_is_empty.exit.loopexit, label %for.body.i, !llvm.loop !117
+  br i1 %exitcond.i, label %mi_commit_mask_is_empty.exit.loopexit, label %for.body.i, !llvm.loop !116
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr [8 x i64], ptr %mask, i64 0, i64 %inc.i
   %3 = load i64, ptr %arrayidx.i, align 8
   %cmp1.not.i = icmp eq i64 %3, 0
-  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit.loopexit, !llvm.loop !117
+  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit.loopexit, !llvm.loop !116
 
 mi_commit_mask_is_empty.exit.loopexit:            ; preds = %for.cond.i, %for.body.i
   %cmp.i.le = icmp ugt i64 %i.03.i39, 6
@@ -30334,7 +30286,7 @@ for.cond.i9:                                      ; preds = %if.end2, %for.body.
   %i.04.i43 = phi i64 [ %inc.i10, %for.body.i6 ], [ 0, %if.end2 ]
   %inc.i10 = add nuw nsw i64 %i.04.i43, 1
   %exitcond.not.i = icmp eq i64 %inc.i10, 8
-  br i1 %exitcond.not.i, label %if.end12, label %for.body.i6, !llvm.loop !142
+  br i1 %exitcond.not.i, label %if.end12, label %for.body.i6, !llvm.loop !141
 
 for.body.i6:                                      ; preds = %for.cond.i9
   %arrayidx.i7 = getelementptr [8 x i64], ptr %commit_mask, i64 0, i64 %inc.i10
@@ -30343,7 +30295,7 @@ for.body.i6:                                      ; preds = %for.cond.i9
   %7 = load i64, ptr %arrayidx2.i, align 8
   %and.i = and i64 %7, %6
   %cmp3.not.i = icmp eq i64 %and.i, 0
-  br i1 %cmp3.not.i, label %for.cond.i9, label %mi_commit_mask_any_set.exit, !llvm.loop !142
+  br i1 %cmp3.not.i, label %for.cond.i9, label %mi_commit_mask_any_set.exit, !llvm.loop !141
 
 mi_commit_mask_any_set.exit:                      ; preds = %for.body.i6
   %cmp.i11.le = icmp ult i64 %i.04.i43, 7
@@ -30365,7 +30317,7 @@ for.body.i12:                                     ; preds = %if.then4, %for.body
   store i64 %and.i15, ptr %arrayidx4.i, align 8
   %inc.i16 = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i17 = icmp eq i64 %inc.i16, 8
-  br i1 %exitcond.not.i17, label %for.body.i18, label %for.body.i12, !llvm.loop !140
+  br i1 %exitcond.not.i17, label %for.body.i18, label %for.body.i12, !llvm.loop !139
 
 for.body.i18:                                     ; preds = %for.body.i12, %for.inc9.i
   %i.013.i = phi i64 [ %inc10.i, %for.inc9.i ], [ 0, %for.body.i12 ]
@@ -30388,13 +30340,13 @@ for.body5.i:                                      ; preds = %for.body.i18, %for.
   %spec.select.i = add i64 %and.i21, %count.110.i
   %shr.i = lshr i64 %mask.011.i, 1
   %cmp4.not.i = icmp ult i64 %mask.011.i, 2
-  br i1 %cmp4.not.i, label %for.inc9.i, label %for.body5.i, !llvm.loop !98
+  br i1 %cmp4.not.i, label %for.inc9.i, label %for.body5.i, !llvm.loop !97
 
 for.inc9.i:                                       ; preds = %for.body5.i, %if.then.i, %for.body.i18
   %count.3.i = phi i64 [ %add.i, %if.then.i ], [ %count.012.i, %for.body.i18 ], [ %spec.select.i, %for.body5.i ]
   %inc10.i = add nuw nsw i64 %i.013.i, 1
   %exitcond.not.i20 = icmp eq i64 %inc10.i, 8
-  br i1 %exitcond.not.i20, label %_mi_commit_mask_committed_size.exit, label %for.body.i18, !llvm.loop !99
+  br i1 %exitcond.not.i20, label %_mi_commit_mask_committed_size.exit, label %for.body.i18, !llvm.loop !98
 
 _mi_commit_mask_committed_size.exit:              ; preds = %for.inc9.i
   %mul.i = shl i64 %count.3.i, 16
@@ -30446,7 +30398,7 @@ for.body.i22:                                     ; preds = %for.body.i22.prehea
   store i64 %and.i26, ptr %arrayidx2.i25, align 8
   %inc.i27 = add nuw nsw i64 %i.04.i23, 1
   %exitcond.not.i28 = icmp eq i64 %inc.i27, 8
-  br i1 %exitcond.not.i28, label %if.end12, label %for.body.i22, !llvm.loop !143
+  br i1 %exitcond.not.i28, label %if.end12, label %for.body.i22, !llvm.loop !142
 
 if.end12:                                         ; preds = %for.cond.i9, %for.body.i22, %if.then4, %mi_commit_mask_any_set.exit
   %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
@@ -30463,7 +30415,7 @@ for.body.i29:                                     ; preds = %for.body.i29, %if.e
   store i64 %and.i34, ptr %arrayidx2.i33, align 8
   %inc.i35 = add nuw nsw i64 %i.04.i30, 1
   %exitcond.not.i36 = icmp eq i64 %inc.i35, 8
-  br i1 %exitcond.not.i36, label %return, label %for.body.i29, !llvm.loop !143
+  br i1 %exitcond.not.i36, label %return, label %for.body.i29, !llvm.loop !142
 
 return:                                           ; preds = %for.body.i29, %mi_commit_mask_is_empty.exit, %entry
   ret void
@@ -30563,7 +30515,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %sub14.i = sub i64 %bitcount.addr.019.i, %cond.i
   %inc.i = add i64 %i.018.i, 1
   %cmp4.not.i = icmp eq i64 %sub14.i, 0
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !144
+  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !143
 
 return:                                           ; preds = %while.body.i, %if.then2.i, %if.then.i, %if.end7, %if.end, %entry, %lor.lhs.false2
   ret void
@@ -30845,7 +30797,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %sub14.i.i = sub i64 %bitcount.addr.019.i.i, %cond.i29.i
   %inc.i.i = add i64 %i.018.i.i, 1
   %cmp4.not.i.i = icmp eq i64 %sub14.i.i, 0
-  br i1 %cmp4.not.i.i, label %mi_commit_mask_create.exit.i, label %while.body.i.i, !llvm.loop !144
+  br i1 %cmp4.not.i.i, label %mi_commit_mask_create.exit.i, label %while.body.i.i, !llvm.loop !143
 
 mi_commit_mask_create.exit.i:                     ; preds = %while.body.i.i, %if.then2.i.i, %if.then.i27.i
   %mul15.i = and i64 %info_slices.0.in, -65536
@@ -30914,7 +30866,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %21 = cmpxchg weak ptr %arrayidx.i33.i, i64 %mask.0.i.i, i64 %or.i.i release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
-  br i1 %22, label %mi_segment_os_alloc.exit, label %do.body.i.i, !llvm.loop !122
+  br i1 %22, label %mi_segment_os_alloc.exit, label %do.body.i.i, !llvm.loop !121
 
 mi_segment_os_alloc.exit.thread:                  ; preds = %if.then17.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
@@ -31161,13 +31113,13 @@ for.cond.i.i:                                     ; preds = %entry, %for.body.i.
   %i.03.i17.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %entry ]
   %inc.i.i = add nuw nsw i64 %i.03.i17.i, 1
   %exitcond.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !145
+  br i1 %exitcond.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !144
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr [8 x i64], ptr %commit_mask.i, i64 0, i64 %inc.i.i
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %2, -1
-  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_full.exit.i, !llvm.loop !145
+  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_full.exit.i, !llvm.loop !144
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %for.body.i.i
   %cmp.i.le.i = icmp ugt i64 %i.03.i17.i, 6
@@ -31183,13 +31135,13 @@ for.cond.i9.i:                                    ; preds = %land.lhs.true.i, %f
   %i.03.i520.i = phi i64 [ %inc.i10.i, %for.body.i3.i ], [ 0, %land.lhs.true.i ]
   %inc.i10.i = add nuw nsw i64 %i.03.i520.i, 1
   %exitcond.i12.i = icmp eq i64 %inc.i10.i, 8
-  br i1 %exitcond.i12.i, label %if.end, label %for.body.i3.i, !llvm.loop !117
+  br i1 %exitcond.i12.i, label %if.end, label %for.body.i3.i, !llvm.loop !116
 
 for.body.i3.i:                                    ; preds = %for.cond.i9.i
   %arrayidx.i6.i = getelementptr [8 x i64], ptr %purge_mask.i, i64 0, i64 %inc.i10.i
   %4 = load i64, ptr %arrayidx.i6.i, align 8
   %cmp1.not.i7.i = icmp eq i64 %4, 0
-  br i1 %cmp1.not.i7.i, label %for.cond.i9.i, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !117
+  br i1 %cmp1.not.i7.i, label %for.cond.i9.i, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !116
 
 mi_commit_mask_is_empty.exit.i:                   ; preds = %for.body.i3.i
   %cmp.i11.le.i = icmp ugt i64 %i.03.i520.i, 6
@@ -31212,13 +31164,13 @@ for.cond.i.i.i:                                   ; preds = %if.end.i, %for.body
   %i.03.i47.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end.i ]
   %inc.i.i.i = add nuw nsw i64 %i.03.i47.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %inc.i.i.i, 8
-  br i1 %exitcond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !117
+  br i1 %exitcond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !116
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %arrayidx.i.i.i = getelementptr [8 x i64], ptr %mask.i.i, i64 0, i64 %inc.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp1.not.i.i.i = icmp eq i64 %6, 0
-  br i1 %cmp1.not.i.i.i, label %for.cond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, !llvm.loop !117
+  br i1 %cmp1.not.i.i.i, label %for.cond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, !llvm.loop !116
 
 mi_commit_mask_is_empty.exit.loopexit.i.i:        ; preds = %for.body.i.i.i, %for.cond.i.i.i
   %cmp.i.le.i.i = icmp ugt i64 %i.03.i47.i.i, 6
@@ -31241,7 +31193,7 @@ for.cond.i10.i.i:                                 ; preds = %if.end.i.i, %for.bo
   %i.06.i51.i.i = phi i64 [ %inc.i11.i.i, %for.body.i7.i.i ], [ 0, %if.end.i.i ]
   %inc.i11.i.i = add nuw nsw i64 %i.06.i51.i.i, 1
   %exitcond.i13.i.i = icmp eq i64 %inc.i11.i.i, 8
-  br i1 %exitcond.i13.i.i, label %if.end9.i.i, label %for.body.i7.i.i, !llvm.loop !146
+  br i1 %exitcond.i13.i.i, label %if.end9.i.i, label %for.body.i7.i.i, !llvm.loop !145
 
 for.body.i7.i.i:                                  ; preds = %for.cond.i10.i.i
   %arrayidx.i8.i.i = getelementptr [8 x i64], ptr %commit_mask.i, i64 0, i64 %inc.i11.i.i
@@ -31250,7 +31202,7 @@ for.body.i7.i.i:                                  ; preds = %for.cond.i10.i.i
   %10 = load i64, ptr %arrayidx2.i.i.i, align 8
   %and.i.i.i = and i64 %10, %9
   %cmp5.not.i.i.i = icmp eq i64 %and.i.i.i, %10
-  br i1 %cmp5.not.i.i.i, label %for.cond.i10.i.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !146
+  br i1 %cmp5.not.i.i.i, label %for.cond.i10.i.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !145
 
 mi_commit_mask_all_set.exit.i.i:                  ; preds = %for.body.i7.i.i
   %cmp.i12.le.i.i = icmp ugt i64 %i.06.i51.i.i, 6
@@ -31271,7 +31223,7 @@ for.body.i14.i.i:                                 ; preds = %for.body.i14.i.i, %
   store i64 %and.i17.i.i, ptr %arrayidx4.i.i.i, align 8
   %inc.i18.i.i = add nuw nsw i64 %i.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i18.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %for.body.i19.i.i, label %for.body.i14.i.i, !llvm.loop !140
+  br i1 %exitcond.not.i.i.i, label %for.body.i19.i.i, label %for.body.i14.i.i, !llvm.loop !139
 
 for.body.i19.i.i:                                 ; preds = %for.body.i14.i.i, %for.inc9.i.i.i
   %i.013.i.i.i = phi i64 [ %inc10.i.i.i, %for.inc9.i.i.i ], [ 0, %for.body.i14.i.i ]
@@ -31294,13 +31246,13 @@ for.body5.i.i.i:                                  ; preds = %for.body.i19.i.i, %
   %spec.select.i.i.i = add i64 %and.i22.i.i, %count.110.i.i.i
   %shr.i.i.i = lshr i64 %mask.011.i.i.i, 1
   %cmp4.not.i.i.i = icmp ult i64 %mask.011.i.i.i, 2
-  br i1 %cmp4.not.i.i.i, label %for.inc9.i.i.i, label %for.body5.i.i.i, !llvm.loop !98
+  br i1 %cmp4.not.i.i.i, label %for.inc9.i.i.i, label %for.body5.i.i.i, !llvm.loop !97
 
 for.inc9.i.i.i:                                   ; preds = %for.body5.i.i.i, %if.then.i.i.i, %for.body.i19.i.i
   %count.3.i.i.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %count.012.i.i.i, %for.body.i19.i.i ], [ %spec.select.i.i.i, %for.body5.i.i.i ]
   %inc10.i.i.i = add nuw nsw i64 %i.013.i.i.i, 1
   %exitcond.not.i21.i.i = icmp eq i64 %inc10.i.i.i, 8
-  br i1 %exitcond.not.i21.i.i, label %_mi_commit_mask_committed_size.exit.i.i, label %for.body.i19.i.i, !llvm.loop !99
+  br i1 %exitcond.not.i21.i.i, label %_mi_commit_mask_committed_size.exit.i.i, label %for.body.i19.i.i, !llvm.loop !98
 
 _mi_commit_mask_committed_size.exit.i.i:          ; preds = %for.inc9.i.i.i
   %mul.i.i.i = shl i64 %count.3.i.i.i, 16
@@ -31353,7 +31305,7 @@ for.body.i23.i.i:                                 ; preds = %_mi_stat_decrease.e
   store i64 %or.i.i.i, ptr %arrayidx2.i25.i.i, align 8
   %inc.i26.i.i = add nuw nsw i64 %i.04.i.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %inc.i26.i.i, 8
-  br i1 %exitcond.not.i27.i.i, label %if.end9.loopexit.i.i, label %for.body.i23.i.i, !llvm.loop !141
+  br i1 %exitcond.not.i27.i.i, label %if.end9.loopexit.i.i, label %for.body.i23.i.i, !llvm.loop !140
 
 if.end9.loopexit.i.i:                             ; preds = %for.body.i23.i.i
   %.pre.i.i = load i64, ptr %mask.i.i, align 8
@@ -31371,7 +31323,7 @@ for.cond.i34.i.i:                                 ; preds = %if.end9.i.i, %for.b
   %i.04.i2956.i.i = phi i64 [ %inc.i35.i.i, %for.body.i28.i.i ], [ 0, %if.end9.i.i ]
   %inc.i35.i.i = add nuw nsw i64 %i.04.i2956.i.i, 1
   %exitcond.not.i37.i.i = icmp eq i64 %inc.i35.i.i, 8
-  br i1 %exitcond.not.i37.i.i, label %for.body.i39.i.i.preheader, label %for.body.i28.i.i, !llvm.loop !142
+  br i1 %exitcond.not.i37.i.i, label %for.body.i39.i.i.preheader, label %for.body.i28.i.i, !llvm.loop !141
 
 for.body.i28.i.i:                                 ; preds = %for.cond.i34.i.i
   %arrayidx.i30.i.i = getelementptr [8 x i64], ptr %purge_mask.i.i, i64 0, i64 %inc.i35.i.i
@@ -31380,7 +31332,7 @@ for.body.i28.i.i:                                 ; preds = %for.cond.i34.i.i
   %28 = load i64, ptr %arrayidx2.i31.i.i, align 8
   %and.i32.i.i = and i64 %28, %27
   %cmp3.not.i.i.i = icmp eq i64 %and.i32.i.i, 0
-  br i1 %cmp3.not.i.i.i, label %for.cond.i34.i.i, label %mi_commit_mask_any_set.exit.i.i, !llvm.loop !142
+  br i1 %cmp3.not.i.i.i, label %for.cond.i34.i.i, label %mi_commit_mask_any_set.exit.i.i, !llvm.loop !141
 
 mi_commit_mask_any_set.exit.i.i:                  ; preds = %for.body.i28.i.i
   %cmp.i36.le.i.i = icmp ult i64 %i.04.i2956.i.i, 7
@@ -31416,7 +31368,7 @@ for.body.i39.i.i:                                 ; preds = %for.body.i39.i.i.pr
   store i64 %and.i43.i.i, ptr %arrayidx2.i42.i.i, align 8
   %inc.i44.i.i = add nuw nsw i64 %i.04.i40.i.i, 1
   %exitcond.not.i45.i.i = icmp eq i64 %inc.i44.i.i, 8
-  br i1 %exitcond.not.i45.i.i, label %mi_segment_ensure_committed.exit.thread3, label %for.body.i39.i.i, !llvm.loop !143
+  br i1 %exitcond.not.i45.i.i, label %mi_segment_ensure_committed.exit.thread3, label %for.body.i39.i.i, !llvm.loop !142
 
 mi_segment_ensure_committed.exit.thread3:         ; preds = %for.body.i39.i.i, %mi_commit_mask_is_empty.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.i.i)
@@ -31473,7 +31425,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 1, ptr %xblock_size24, align 4
   %inc = add nuw i64 %i.011, 1
   %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %for.end.loopexit, label %for.body, !llvm.loop !147
+  br i1 %exitcond, label %for.end.loopexit, label %for.body, !llvm.loop !146
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load i64, ptr %slice_entries, align 8
@@ -31642,7 +31594,7 @@ for.inc:                                          ; preds = %if.end7, %mi_buffer
   %incdec.ptr = getelementptr i8, ptr %src.028, i64 1
   %29 = load i8, ptr %incdec.ptr, align 1
   %cmp2.not = icmp eq i8 %29, 0
-  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !148
+  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !147
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -31879,7 +31831,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
   %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !130
+  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !129
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %5 = load ptr, ptr @stderr, align 8
@@ -31891,7 +31843,7 @@ read_size_t.exit:                                 ; preds = %for.body.i
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %if.then14, label %for.body, !llvm.loop !149
+  br i1 %exitcond.not, label %if.then14, label %for.body, !llvm.loop !148
 
 for.body:                                         ; preds = %read_size_t.exit, %for.cond
   %indvars.iv = phi i64 [ 1, %read_size_t.exit ], [ %indvars.iv.next, %for.cond ]
@@ -31933,7 +31885,7 @@ if.end31:                                         ; preds = %if.then29, %for.bod
   %call32 = tail call i32 @fputc(i32 noundef 10, ptr noundef %16)
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %cmp18 = icmp ugt i64 %indvars.iv55, 1
-  br i1 %cmp18, label %for.body20, label %for.end34, !llvm.loop !150
+  br i1 %cmp18, label %for.body20, label %for.end34, !llvm.loop !149
 
 for.end34:                                        ; preds = %if.end31
   %17 = load ptr, ptr @stderr, align 8
@@ -31949,7 +31901,7 @@ if.end36:                                         ; preds = %for.end34, %if.then
 for.cond39:                                       ; preds = %for.body42
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 8
-  br i1 %exitcond61.not, label %if.then53, label %for.body42, !llvm.loop !151
+  br i1 %exitcond61.not, label %if.then53, label %for.body42, !llvm.loop !150
 
 for.body42:                                       ; preds = %if.end36, %for.cond39
   %indvars.iv58 = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next59, %for.cond39 ]
@@ -31989,7 +31941,7 @@ if.end71:                                         ; preds = %if.then69, %for.bod
   %call72 = tail call i32 @fputc(i32 noundef 10, ptr noundef %29)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 8
-  br i1 %exitcond65.not, label %if.end76, label %for.body60, !llvm.loop !152
+  br i1 %exitcond65.not, label %if.end76, label %for.body60, !llvm.loop !151
 
 if.end76:                                         ; preds = %if.end71, %if.then53
   %cmp77.not = icmp eq i64 %or.i, 0
@@ -32013,7 +31965,7 @@ while.body:                                       ; preds = %if.then79, %while.b
   %cmp81 = icmp ult ptr %incdec.ptr, %add.ptr37
   %cmp83 = icmp ult i32 %i.448, 7
   %34 = select i1 %cmp81, i1 %cmp83, i1 false
-  br i1 %34, label %while.body, label %while.end, !llvm.loop !153
+  br i1 %34, label %while.body, label %while.end, !llvm.loop !152
 
 while.end:                                        ; preds = %while.body
   br i1 %cmp81, label %if.then90, label %if.end105
@@ -32044,7 +31996,7 @@ while.body100:                                    ; preds = %if.end96, %while.bo
   %call102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.174, i32 noundef %conv101) #54
   %incdec.ptr103 = getelementptr i8, ptr %q.252, i64 1
   %cmp98 = icmp ult ptr %incdec.ptr103, %add.ptr37
-  br i1 %cmp98, label %while.body100, label %if.end105, !llvm.loop !154
+  br i1 %cmp98, label %while.body100, label %if.end105, !llvm.loop !153
 
 if.end105:                                        ; preds = %while.body100, %if.then79, %if.end96, %while.end
   %39 = load ptr, ptr @stderr, align 8
@@ -32305,8 +32257,8 @@ attributes #57 = { nounwind allocsize(1) }
 !123 = distinct !{!123, !6}
 !124 = distinct !{!124, !6}
 !125 = distinct !{!125, !6}
-!126 = distinct !{!126, !6}
-!127 = !{i32 0, i32 2}
+!126 = !{i32 0, i32 2}
+!127 = distinct !{!127, !6}
 !128 = distinct !{!128, !6}
 !129 = distinct !{!129, !6}
 !130 = distinct !{!130, !6}
@@ -32333,4 +32285,3 @@ attributes #57 = { nounwind allocsize(1) }
 !151 = distinct !{!151, !6}
 !152 = distinct !{!152, !6}
 !153 = distinct !{!153, !6}
-!154 = distinct !{!154, !6}

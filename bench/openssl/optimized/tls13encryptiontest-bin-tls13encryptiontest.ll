@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [10 x i8] c"rec->data\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_tls13_encryption) #5
   ret i32 1
@@ -71,7 +71,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13_encryption() #0 {
+define internal noundef i32 @test_tls13_encryption() #0 {
 entry:
   %refdatalen.i18 = alloca i64, align 8
   %refdatalen.i = alloca i64, align 8
@@ -358,15 +358,15 @@ for.cond9.preheader:                              ; preds = %for.end, %for.inc34
   br i1 %cmp12.not28, label %for.inc34, label %for.body14
 
 for.body14:                                       ; preds = %for.cond9.preheader, %if.end27
-  %3 = phi i8 [ %7, %if.end27 ], [ %2, %for.cond9.preheader ]
+  %3 = phi i8 [ %8, %if.end27 ], [ %2, %for.cond9.preheader ]
   %inner.030 = phi i64 [ %add32, %if.end27 ], [ 0, %for.cond9.preheader ]
   %curr.129 = phi i64 [ %inc29, %if.end27 ], [ %curr.031, %for.cond9.preheader ]
   %call17 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %3) #5
   %4 = load ptr, ptr %arrayidx10, align 8
-  %add19 = or disjoint i64 %inner.030, 1
-  %arrayidx20 = getelementptr inbounds i8, ptr %4, i64 %add19
-  %5 = load i8, ptr %arrayidx20, align 1
-  %call21 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %5) #5
+  %5 = getelementptr i8, ptr %4, i64 %inner.030
+  %arrayidx20 = getelementptr i8, ptr %5, i64 1
+  %6 = load i8, ptr %arrayidx20, align 1
+  %call21 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %6) #5
   %cmp22 = icmp slt i32 %call17, 0
   %cmp24 = icmp slt i32 %call21, 0
   %or.cond = select i1 %cmp22, i1 true, i1 %cmp24
@@ -384,10 +384,10 @@ if.end27:                                         ; preds = %for.body14
   %arrayidx30 = getelementptr inbounds i8, ptr %call2, i64 %curr.129
   store i8 %conv28, ptr %arrayidx30, align 1
   %add32 = add i64 %inner.030, 2
-  %6 = load ptr, ptr %arrayidx10, align 8
-  %arrayidx11 = getelementptr inbounds i8, ptr %6, i64 %add32
-  %7 = load i8, ptr %arrayidx11, align 1
-  %cmp12.not = icmp eq i8 %7, 0
+  %7 = load ptr, ptr %arrayidx10, align 8
+  %arrayidx11 = getelementptr inbounds i8, ptr %7, i64 %add32
+  %8 = load i8, ptr %arrayidx11, align 1
+  %cmp12.not = icmp eq i8 %8, 0
   br i1 %cmp12.not, label %for.inc34, label %for.body14, !llvm.loop !8
 
 for.inc34:                                        ; preds = %if.end27, %for.cond9.preheader

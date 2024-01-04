@@ -46,7 +46,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @aesni_cbc_sha256_enc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_prov_cipher_hw_aes_cbc_hmac_sha256() local_unnamed_addr #2 {
+define noundef nonnull ptr @ossl_prov_cipher_hw_aes_cbc_hmac_sha256() local_unnamed_addr #2 {
 entry:
   ret ptr @cipher_hw_aes_hmac_sha256
 }
@@ -696,8 +696,8 @@ for.end319:                                       ; preds = %for.inc317, %if.end
 
 for.end329:                                       ; preds = %for.end319
   %conv320 = zext nneg i32 %res.0.lcssa to i64
-  %77 = or disjoint i64 %conv320, 768
-  %scevgep574 = getelementptr i8, ptr %vctx, i64 %77
+  %77 = getelementptr i8, ptr %vctx, i64 %conv320
+  %scevgep574 = getelementptr i8, ptr %77, i64 768
   %78 = sub nuw nsw i64 64, %conv320
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep574, i8 0, i64 %78, i1 false)
   %79 = add i64 %len.addr.0, 64
@@ -1191,7 +1191,7 @@ sha256_update.exit80:                             ; preds = %if.end21.i73, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_set_tls1_aad(ptr noundef %vctx, ptr noundef %aad_rec, i32 noundef %aad_len) #0 {
+define internal noundef i32 @aesni_cbc_hmac_sha256_set_tls1_aad(ptr noundef %vctx, ptr noundef %aad_rec, i32 noundef %aad_len) #0 {
 entry:
   %cmp.not = icmp eq i32 %aad_len, 13
   br i1 %cmp.not, label %if.end, label %return
@@ -1311,7 +1311,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(ptr noundef %vctx, ptr nocapture noundef %param) #0 {
+define internal noundef i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(ptr noundef %vctx, ptr nocapture noundef %param) #0 {
 entry:
   %inp = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %param, i64 0, i32 1
   %0 = load ptr, ptr %inp, align 8

@@ -4069,7 +4069,6 @@ for.body.lr.ph.i.i:                               ; preds = %sw.bb2
 
 for.body.lr.ph.i.i.new:                           ; preds = %for.body.lr.ph.i.i
   %unroll_iter247 = and i64 %wide.trip.count.i.i, 30
-  %invariant.gep6 = getelementptr i8, ptr %16, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i.new
@@ -4082,12 +4081,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %and21.i.i.i = and i8 %23, %19
   %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %22, i8 %and21.i.i.i, i8 %20)
   %conv3.i.i = zext i8 %conv19.i23.i.i to i32
-  %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
   %24 = shl i32 %result.027.i.i, 16
   %25 = shl nuw nsw i32 %conv3.i.i, 8
   %shl.i.i.1 = or disjoint i32 %25, %24
-  %gep7 = getelementptr i8, ptr %invariant.gep6, i64 %indvars.iv.next.i.i
-  %26 = load i8, ptr %gep7, align 1, !tbaa !63
+  %arrayidx10.i.i.i.1 = getelementptr i8, ptr %arrayidx.i22.i.i, i64 2
+  %26 = load i8, ptr %arrayidx10.i.i.i.1, align 1, !tbaa !63
   %and21.i.i.i.1 = and i8 %26, %19
   %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i.1, i8 %20)
   %conv3.i.i.1 = zext i8 %conv19.i23.i.i.1 to i32
@@ -4215,7 +4213,6 @@ for.body.lr.ph.i.i99:                             ; preds = %sw.bb19
 
 for.body.lr.ph.i.i99.new:                         ; preds = %for.body.lr.ph.i.i99
   %unroll_iter242 = and i64 %wide.trip.count.i.i105, 30
-  %invariant.gep4 = getelementptr i8, ptr %45, i64 1
   br label %for.body.i.i106
 
 for.body.i.i106:                                  ; preds = %for.body.i.i106, %for.body.lr.ph.i.i99.new
@@ -4228,12 +4225,11 @@ for.body.i.i106:                                  ; preds = %for.body.i.i106, %f
   %and21.i.i.i112 = and i8 %52, %48
   %conv19.i23.i.i113 = tail call noundef i8 @llvm.fshl.i8(i8 %51, i8 %and21.i.i.i112, i8 %49)
   %conv3.i.i114 = zext i8 %conv19.i23.i.i113 to i32
-  %indvars.iv.next.i.i116 = or disjoint i64 %indvars.iv.i.i107, 1
   %53 = shl i32 %result.027.i.i108, 16
   %54 = shl nuw nsw i32 %conv3.i.i114, 8
   %shl.i.i109.1 = or disjoint i32 %54, %53
-  %gep5 = getelementptr i8, ptr %invariant.gep4, i64 %indvars.iv.next.i.i116
-  %55 = load i8, ptr %gep5, align 1, !tbaa !63
+  %arrayidx10.i.i.i111.1 = getelementptr i8, ptr %arrayidx.i22.i.i110, i64 2
+  %55 = load i8, ptr %arrayidx10.i.i.i111.1, align 1, !tbaa !63
   %and21.i.i.i112.1 = and i8 %55, %48
   %conv19.i23.i.i113.1 = tail call noundef i8 @llvm.fshl.i8(i8 %52, i8 %and21.i.i.i112.1, i8 %49)
   %conv3.i.i114.1 = zext i8 %conv19.i23.i.i113.1 to i32
@@ -4359,7 +4355,6 @@ for.body.lr.ph.i.i165:                            ; preds = %sw.bb27
 
 for.body.lr.ph.i.i165.new:                        ; preds = %for.body.lr.ph.i.i165
   %unroll_iter = and i64 %wide.trip.count.i.i171, 30
-  %invariant.gep = getelementptr i8, ptr %73, i64 1
   br label %for.body.i.i172
 
 for.body.i.i172:                                  ; preds = %for.body.i.i172, %for.body.lr.ph.i.i165.new
@@ -4372,12 +4367,11 @@ for.body.i.i172:                                  ; preds = %for.body.i.i172, %f
   %and21.i.i.i178 = and i8 %80, %76
   %conv19.i23.i.i179 = tail call noundef i8 @llvm.fshl.i8(i8 %79, i8 %and21.i.i.i178, i8 %77)
   %conv3.i.i180 = zext i8 %conv19.i23.i.i179 to i32
-  %indvars.iv.next.i.i182 = or disjoint i64 %indvars.iv.i.i173, 1
   %81 = shl i32 %result.027.i.i174, 16
   %82 = shl nuw nsw i32 %conv3.i.i180, 8
   %shl.i.i175.1 = or disjoint i32 %82, %81
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next.i.i182
-  %83 = load i8, ptr %gep, align 1, !tbaa !63
+  %arrayidx10.i.i.i177.1 = getelementptr i8, ptr %arrayidx.i22.i.i176, i64 2
+  %83 = load i8, ptr %arrayidx10.i.i.i177.1, align 1, !tbaa !63
   %and21.i.i.i178.1 = and i8 %83, %76
   %conv19.i23.i.i179.1 = tail call noundef i8 @llvm.fshl.i8(i8 %80, i8 %and21.i.i.i178.1, i8 %77)
   %conv3.i.i180.1 = zext i8 %conv19.i23.i.i179.1 to i32
@@ -8081,7 +8075,6 @@ for.body.lr.ph.i.i:                               ; preds = %sw.bb2
 
 for.body.lr.ph.i.i.new:                           ; preds = %for.body.lr.ph.i.i
   %unroll_iter246 = and i64 %wide.trip.count.i.i, 30
-  %invariant.gep6 = getelementptr i8, ptr %16, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i.new
@@ -8094,12 +8087,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %and21.i.i.i = and i8 %23, %19
   %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %22, i8 %and21.i.i.i, i8 %20)
   %conv3.i.i = zext i8 %conv19.i23.i.i to i64
-  %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
   %24 = shl i64 %result.027.i.i, 16
   %25 = shl nuw nsw i64 %conv3.i.i, 8
   %shl.i.i.1 = or disjoint i64 %25, %24
-  %gep7 = getelementptr i8, ptr %invariant.gep6, i64 %indvars.iv.next.i.i
-  %26 = load i8, ptr %gep7, align 1, !tbaa !63
+  %arrayidx10.i.i.i.1 = getelementptr i8, ptr %arrayidx.i22.i.i, i64 2
+  %26 = load i8, ptr %arrayidx10.i.i.i.1, align 1, !tbaa !63
   %and21.i.i.i.1 = and i8 %26, %19
   %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i.1, i8 %20)
   %conv3.i.i.1 = zext i8 %conv19.i23.i.i.1 to i64
@@ -8227,7 +8219,6 @@ for.body.lr.ph.i.i96:                             ; preds = %sw.bb16
 
 for.body.lr.ph.i.i96.new:                         ; preds = %for.body.lr.ph.i.i96
   %unroll_iter241 = and i64 %wide.trip.count.i.i102, 30
-  %invariant.gep4 = getelementptr i8, ptr %44, i64 1
   br label %for.body.i.i103
 
 for.body.i.i103:                                  ; preds = %for.body.i.i103, %for.body.lr.ph.i.i96.new
@@ -8240,12 +8231,11 @@ for.body.i.i103:                                  ; preds = %for.body.i.i103, %f
   %and21.i.i.i109 = and i8 %51, %47
   %conv19.i23.i.i110 = tail call noundef i8 @llvm.fshl.i8(i8 %50, i8 %and21.i.i.i109, i8 %48)
   %conv3.i.i111 = zext i8 %conv19.i23.i.i110 to i64
-  %indvars.iv.next.i.i113 = or disjoint i64 %indvars.iv.i.i104, 1
   %52 = shl i64 %result.027.i.i105, 16
   %53 = shl nuw nsw i64 %conv3.i.i111, 8
   %shl.i.i106.1 = or disjoint i64 %53, %52
-  %gep5 = getelementptr i8, ptr %invariant.gep4, i64 %indvars.iv.next.i.i113
-  %54 = load i8, ptr %gep5, align 1, !tbaa !63
+  %arrayidx10.i.i.i108.1 = getelementptr i8, ptr %arrayidx.i22.i.i107, i64 2
+  %54 = load i8, ptr %arrayidx10.i.i.i108.1, align 1, !tbaa !63
   %and21.i.i.i109.1 = and i8 %54, %47
   %conv19.i23.i.i110.1 = tail call noundef i8 @llvm.fshl.i8(i8 %51, i8 %and21.i.i.i109.1, i8 %48)
   %conv3.i.i111.1 = zext i8 %conv19.i23.i.i110.1 to i64
@@ -8372,7 +8362,6 @@ for.body.lr.ph.i.i163:                            ; preds = %sw.bb24
 
 for.body.lr.ph.i.i163.new:                        ; preds = %for.body.lr.ph.i.i163
   %unroll_iter = and i64 %wide.trip.count.i.i169, 30
-  %invariant.gep = getelementptr i8, ptr %72, i64 1
   br label %for.body.i.i170
 
 for.body.i.i170:                                  ; preds = %for.body.i.i170, %for.body.lr.ph.i.i163.new
@@ -8385,12 +8374,11 @@ for.body.i.i170:                                  ; preds = %for.body.i.i170, %f
   %and21.i.i.i176 = and i8 %79, %75
   %conv19.i23.i.i177 = tail call noundef i8 @llvm.fshl.i8(i8 %78, i8 %and21.i.i.i176, i8 %76)
   %conv3.i.i178 = zext i8 %conv19.i23.i.i177 to i64
-  %indvars.iv.next.i.i180 = or disjoint i64 %indvars.iv.i.i171, 1
   %80 = shl i64 %result.027.i.i172, 16
   %81 = shl nuw nsw i64 %conv3.i.i178, 8
   %shl.i.i173.1 = or disjoint i64 %81, %80
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next.i.i180
-  %82 = load i8, ptr %gep, align 1, !tbaa !63
+  %arrayidx10.i.i.i175.1 = getelementptr i8, ptr %arrayidx.i22.i.i174, i64 2
+  %82 = load i8, ptr %arrayidx10.i.i.i175.1, align 1, !tbaa !63
   %and21.i.i.i176.1 = and i8 %82, %75
   %conv19.i23.i.i177.1 = tail call noundef i8 @llvm.fshl.i8(i8 %79, i8 %and21.i.i.i176.1, i8 %76)
   %conv3.i.i178.1 = zext i8 %conv19.i23.i.i177.1 to i64

@@ -16637,12 +16637,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %index.058 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %i.057 = phi i64 [ %add16, %for.body ], [ 0, %for.body.preheader ]
   %13 = load ptr, ptr %call4, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %13, i64 %i.057
+  %add.ptr.i = getelementptr i32, ptr %13, i64 %i.057
   %14 = load i32, ptr %add.ptr.i, align 4
   %add.ptr.i38 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i19, i64 %index.058
   store i32 %14, ptr %add.ptr.i38, align 4
-  %add = or disjoint i64 %i.057, 1
-  %add.ptr.i39 = getelementptr inbounds i32, ptr %13, i64 %add
+  %add.ptr.i39 = getelementptr i32, ptr %add.ptr.i, i64 1
   %15 = load i32, ptr %add.ptr.i39, align 4
   %add.ptr.i40 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i36, i64 %index.058
   store i32 %15, ptr %add.ptr.i40, align 4
@@ -19747,7 +19746,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

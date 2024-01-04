@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [22 x i8] c"%s: cannot %s %s: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %s = alloca %struct.Smain, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %s) #10
@@ -282,7 +282,7 @@ declare ptr @luaL_newstate() local_unnamed_addr #2
 declare i32 @lua_cpcall(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmain(ptr noundef %L) #0 {
+define internal noundef i32 @pmain(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1) #10
   %0 = load i32, ptr %call, align 8, !tbaa !13
@@ -443,35 +443,34 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shl.i = shl i32 %21, 14
   %or.i = or disjoint i32 %shl.i, 36
   %22 = load ptr, ptr %code.i, align 8, !tbaa !27
-  %23 = or disjoint i64 %indvars.iv92.i, 1
   %arrayidx39.i = getelementptr inbounds i32, ptr %22, i64 %indvars.iv92.i
   store i32 %or.i, ptr %arrayidx39.i, align 4, !tbaa !9
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 2
-  %arrayidx43.i = getelementptr inbounds i32, ptr %22, i64 %23
+  %arrayidx43.i = getelementptr i32, ptr %arrayidx39.i, i64 1
   store i32 8405020, ptr %arrayidx43.i, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !31
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %24 = and i64 %indvars.iv.next93.i, 4294967294
+  %23 = and i64 %indvars.iv.next93.i, 4294967294
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %cond.end26.for.end_crit_edge.i
-  %25 = phi ptr [ %.pre98.i, %cond.end26.for.end_crit_edge.i ], [ %22, %for.end.loopexit.i ]
-  %pc.0.lcssa.i = phi i64 [ 0, %cond.end26.for.end_crit_edge.i ], [ %24, %for.end.loopexit.i ]
-  %arrayidx48.i = getelementptr inbounds i32, ptr %25, i64 %pc.0.lcssa.i
+  %24 = phi ptr [ %.pre98.i, %cond.end26.for.end_crit_edge.i ], [ %22, %for.end.loopexit.i ]
+  %pc.0.lcssa.i = phi i64 [ 0, %cond.end26.for.end_crit_edge.i ], [ %23, %for.end.loopexit.i ]
+  %arrayidx48.i = getelementptr inbounds i32, ptr %24, i64 %pc.0.lcssa.i
   store i32 8388638, ptr %arrayidx48.i, align 4, !tbaa !9
   br label %combine.exit
 
 combine.exit:                                     ; preds = %for.end.i, %if.then.i
   %retval.0.i = phi ptr [ %9, %if.then.i ], [ %call.i62, %for.end.i ]
-  %26 = load i32, ptr @listing, align 4, !tbaa !9
-  %tobool14.not = icmp eq i32 %26, 0
+  %25 = load i32, ptr @listing, align 4, !tbaa !9
+  %tobool14.not = icmp eq i32 %25, 0
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %combine.exit
-  %cmp16 = icmp sgt i32 %26, 1
+  %cmp16 = icmp sgt i32 %25, 1
   %conv = zext i1 %cmp16 to i32
   tail call void @luaU_print(ptr noundef %retval.0.i, i32 noundef %conv) #10
   br label %if.end17
@@ -481,50 +480,50 @@ if.end17:                                         ; preds = %if.then15, %combine
   br i1 %.b, label %if.end40, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %27 = load ptr, ptr @output, align 8, !tbaa !4
-  %cmp20 = icmp eq ptr %27, null
+  %26 = load ptr, ptr @output, align 8, !tbaa !4
+  %cmp20 = icmp eq ptr %26, null
   br i1 %cmp20, label %cond.true22, label %cond.false23
 
 cond.true22:                                      ; preds = %if.then19
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !4
   br label %cond.end25
 
 cond.false23:                                     ; preds = %if.then19
-  %call24 = tail call noalias ptr @fopen(ptr noundef nonnull %27, ptr noundef nonnull @.str.18)
+  %call24 = tail call noalias ptr @fopen(ptr noundef nonnull %26, ptr noundef nonnull @.str.18)
   br label %cond.end25
 
 cond.end25:                                       ; preds = %cond.false23, %cond.true22
-  %cond26 = phi ptr [ %28, %cond.true22 ], [ %call24, %cond.false23 ]
+  %cond26 = phi ptr [ %27, %cond.true22 ], [ %call24, %cond.false23 ]
   %cmp27 = icmp eq ptr %cond26, null
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %cond.end25
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %30 = load ptr, ptr @progname, align 8, !tbaa !4
-  %31 = load ptr, ptr @output, align 8, !tbaa !4
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %29 = load ptr, ptr @progname, align 8, !tbaa !4
+  %30 = load ptr, ptr @output, align 8, !tbaa !4
   %call.i63 = tail call ptr @__errno_location() #14
-  %32 = load i32, ptr %call.i63, align 4, !tbaa !9
-  %call1.i = tail call ptr @strerror(i32 noundef %32) #10
-  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.23, ptr noundef %30, ptr noundef nonnull @.str.19, ptr noundef %31, ptr noundef %call1.i) #12
+  %31 = load i32, ptr %call.i63, align 4, !tbaa !9
+  %call1.i = tail call ptr @strerror(i32 noundef %31) #10
+  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.23, ptr noundef %29, ptr noundef nonnull @.str.19, ptr noundef %30, ptr noundef %call1.i) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end30:                                         ; preds = %cond.end25
   %.b59 = load i1, ptr @stripping, align 4
-  %33 = zext i1 %.b59 to i32
-  %call31 = tail call i32 @luaU_dump(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %cond26, i32 noundef %33) #10
+  %32 = zext i1 %.b59 to i32
+  %call31 = tail call i32 @luaU_dump(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %cond26, i32 noundef %32) #10
   %call32 = tail call i32 @ferror(ptr noundef nonnull %cond26) #10
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end30
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %35 = load ptr, ptr @progname, align 8, !tbaa !4
-  %36 = load ptr, ptr @output, align 8, !tbaa !4
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %34 = load ptr, ptr @progname, align 8, !tbaa !4
+  %35 = load ptr, ptr @output, align 8, !tbaa !4
   %call.i64 = tail call ptr @__errno_location() #14
-  %37 = load i32, ptr %call.i64, align 4, !tbaa !9
-  %call1.i65 = tail call ptr @strerror(i32 noundef %37) #10
-  %call2.i66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.23, ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef %36, ptr noundef %call1.i65) #12
+  %36 = load i32, ptr %call.i64, align 4, !tbaa !9
+  %call1.i65 = tail call ptr @strerror(i32 noundef %36) #10
+  %call2.i66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.23, ptr noundef %34, ptr noundef nonnull @.str.20, ptr noundef %35, ptr noundef %call1.i65) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -534,13 +533,13 @@ if.end35:                                         ; preds = %if.end30
   br i1 %tobool37.not, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %38 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %39 = load ptr, ptr @progname, align 8, !tbaa !4
-  %40 = load ptr, ptr @output, align 8, !tbaa !4
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %38 = load ptr, ptr @progname, align 8, !tbaa !4
+  %39 = load ptr, ptr @output, align 8, !tbaa !4
   %call.i68 = tail call ptr @__errno_location() #14
-  %41 = load i32, ptr %call.i68, align 4, !tbaa !9
-  %call1.i69 = tail call ptr @strerror(i32 noundef %41) #10
-  %call2.i70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.23, ptr noundef %39, ptr noundef nonnull @.str.21, ptr noundef %40, ptr noundef %call1.i69) #12
+  %40 = load i32, ptr %call.i68, align 4, !tbaa !9
+  %call1.i69 = tail call ptr @strerror(i32 noundef %40) #10
+  %call2.i70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.23, ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %39, ptr noundef %call1.i69) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -581,7 +580,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare hidden i32 @luaU_dump(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @writer(ptr nocapture readnone %L, ptr nocapture noundef %p, i64 noundef %size, ptr nocapture noundef %u) #6 {
+define internal noundef i32 @writer(ptr nocapture readnone %L, ptr nocapture noundef %p, i64 noundef %size, ptr nocapture noundef %u) #6 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %p, i64 noundef %size, i64 noundef 1, ptr noundef %u)
   %cmp = icmp ne i64 %call, 1

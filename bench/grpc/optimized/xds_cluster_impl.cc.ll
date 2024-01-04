@@ -1936,15 +1936,12 @@ call.i63.noexc.i:                                 ; preds = %if.then42.i
   %53 = ptrtoint ptr %bit_gen_.i.i.i to i64
   %and.i.i.i.i.i.i.i.i.i = and i64 %53, 8
   %cond.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen_.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !24, !noalias !21
-  %54 = or disjoint i64 %and.i.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %bit_gen_.i.i.i, i64 %54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !24, !noalias !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i.i.i, i8 0, i64 256, i1 false), !alias.scope !24, !noalias !21
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i.i)
           to label %invoke.cont45.i unwind label %lpad2.i.i.i, !noalias !21
 
 lpad2.i.i.i:                                      ; preds = %.noexc.i.i.i, %call.i63.noexc.i
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   %mu_.i.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %call.i6366.i, i64 0, i32 3
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i.i) #23, !noalias !21
@@ -1955,28 +1952,28 @@ lpad2.i.i.i:                                      ; preds = %.noexc.i.i.i, %call
 invoke.cont45.i:                                  ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i.i.i), !noalias !21
   %drop_config_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::XdsClusterImplLbConfig", ptr %dst, i64 0, i32 6
-  %56 = load ptr, ptr %drop_config_.i, align 8
+  %55 = load ptr, ptr %drop_config_.i, align 8
   store ptr %call.i6366.i, ptr %drop_config_.i, align 8
-  %cmp.not.i.i68.i = icmp eq ptr %56, null
+  %cmp.not.i.i68.i = icmp eq ptr %55, null
   br i1 %cmp.not.i.i68.i, label %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i, label %if.then.i.i69.i
 
 if.then.i.i69.i:                                  ; preds = %invoke.cont45.i
-  %refs_.i.i.i70.i = getelementptr inbounds %"class.grpc_core::RefCounted.156", ptr %56, i64 0, i32 1
-  %57 = atomicrmw sub ptr %refs_.i.i.i70.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i71.i = icmp eq i64 %57, 1
+  %refs_.i.i.i70.i = getelementptr inbounds %"class.grpc_core::RefCounted.156", ptr %55, i64 0, i32 1
+  %56 = atomicrmw sub ptr %refs_.i.i.i70.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i71.i = icmp eq i64 %56, 1
   br i1 %cmp.i.i.i.i71.i, label %if.then.i.i.i73.i, label %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i
 
 if.then.i.i.i73.i:                                ; preds = %if.then.i.i69.i
-  %vtable.i.i.i.i74.i = load ptr, ptr %56, align 8
+  %vtable.i.i.i.i74.i = load ptr, ptr %55, align 8
   %vfn.i.i.i.i75.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i74.i, i64 1
-  %58 = load ptr, ptr %vfn.i.i.i.i75.i, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(344) %56) #23
+  %57 = load ptr, ptr %vfn.i.i.i.i75.i, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(344) %55) #23
   br label %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i
 
 _ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i: ; preds = %if.then.i.i.i73.i, %if.then.i.i69.i, %invoke.cont45.i
   %call47.val.i = load ptr, ptr %value.i, align 8
-  %59 = getelementptr inbounds i8, ptr %value.i, i64 8
-  %call47.val15.i = load ptr, ptr %59, align 8
+  %58 = getelementptr inbounds i8, ptr %value.i, i64 8
+  %call47.val15.i = load ptr, ptr %58, align 8
   %cmp96.not.i = icmp eq ptr %call47.val15.i, %call47.val.i
   br i1 %cmp96.not.i, label %if.end58.i, label %for.body.lr.ph.i
 
@@ -1992,47 +1989,47 @@ for.body.lr.ph.i:                                 ; preds = %_ZN9grpc_core13RefC
 for.body.i:                                       ; preds = %invoke.cont56.i, %for.body.lr.ph.i
   %i.097.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %invoke.cont56.i ]
   %add.ptr.i81.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::DropCategory", ptr %call47.val.i, i64 %i.097.i
-  %60 = load ptr, ptr %drop_config_.i, align 8
+  %59 = load ptr, ptr %drop_config_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i81.i) #23
   %requests_per_million.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::DropCategory", ptr %call47.val.i, i64 %i.097.i, i32 1
-  %61 = load i32, ptr %requests_per_million.i, align 8
+  %60 = load i32, ptr %requests_per_million.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i82.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i82.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54.i) #23
-  store i32 %61, ptr %parts_per_million3.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %60, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %62 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %60, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %63 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not.i.i83.i = icmp eq ptr %62, %63
+  store i32 %60, ptr %parts_per_million3.i.i, align 8
+  %_M_finish.i.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %59, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %61 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %59, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %62 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %cmp.not.i.i83.i = icmp eq ptr %61, %62
   br i1 %cmp.not.i.i83.i, label %if.else.i.i89.i, label %if.then.i.i84.i
 
 if.then.i.i84.i:                                  ; preds = %for.body.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i82.i) #23
-  %parts_per_million.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::DropConfig::DropCategory", ptr %62, i64 0, i32 1
-  %64 = load i32, ptr %parts_per_million3.i.i, align 8
-  store i32 %64, ptr %parts_per_million.i.i.i.i.i.i, align 8
-  %65 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::DropConfig::DropCategory", ptr %65, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i82.i) #23
+  %parts_per_million.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::DropConfig::DropCategory", ptr %61, i64 0, i32 1
+  %63 = load i32, ptr %parts_per_million3.i.i, align 8
+  store i32 %63, ptr %parts_per_million.i.i.i.i.i.i, align 8
+  %64 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsEndpointResource::DropConfig::DropCategory", ptr %64, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont.i85.i
 
 if.else.i.i89.i:                                  ; preds = %for.body.i
-  %drop_category_list_.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %60, i64 0, i32 1
-  invoke void @_ZNSt6vectorIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %drop_category_list_.i.i, ptr %62, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i82.i)
+  %drop_category_list_.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %59, i64 0, i32 1
+  invoke void @_ZNSt6vectorIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %drop_category_list_.i.i, ptr %61, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i82.i)
           to label %invoke.cont.i85.i unwind label %lpad.i90.i
 
 invoke.cont.i85.i:                                ; preds = %if.else.i.i89.i, %if.then.i.i84.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i82.i) #23
-  %cmp.i86.i = icmp eq i32 %61, 1000000
+  %cmp.i86.i = icmp eq i32 %60, 1000000
   br i1 %cmp.i86.i, label %if.then.i88.i, label %invoke.cont56.i
 
 if.then.i88.i:                                    ; preds = %invoke.cont.i85.i
-  %drop_all_.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %60, i64 0, i32 2
+  %drop_all_.i.i = getelementptr inbounds %"class.grpc_core::XdsEndpointResource::DropConfig", ptr %59, i64 0, i32 2
   store i8 1, ptr %drop_all_.i.i, align 8
   br label %invoke.cont56.i
 
 lpad.i90.i:                                       ; preds = %if.else.i.i89.i
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i82.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54.i) #23
@@ -2051,40 +2048,40 @@ ehcleanup38.i:                                    ; preds = %lpad22.i, %ehcleanu
   br label %common.resume.i
 
 lpad44.i:                                         ; preds = %if.then42.i
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59.i
 
 if.end58.i:                                       ; preds = %invoke.cont56.i, %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i, %_ZN9grpc_core19LoadJsonObjectFieldISt6vectorINS_12_GLOBAL__N_112DropCategoryESaIS3_EEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISF_ESaISt4pairIKSF_SH_EEERKNS_8JsonArgsESt17basic_string_viewIcSD_EPNS_16ValidationErrorsEb.exit.i
-  %68 = load i8, ptr %51, align 8
-  %69 = and i8 %68, 1
-  %tobool.not.i.i.i.i92.i = icmp eq i8 %69, 0
+  %67 = load i8, ptr %51, align 8
+  %68 = and i8 %67, 1
+  %tobool.not.i.i.i.i92.i = icmp eq i8 %68, 0
   br i1 %tobool.not.i.i.i.i92.i, label %_ZN9grpc_core12_GLOBAL__N_122XdsClusterImplLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %if.then.i.i.i.i93.i
 
 if.then.i.i.i.i93.i:                              ; preds = %if.end58.i
-  %70 = load ptr, ptr %value.i, align 8
+  %69 = load ptr, ptr %value.i, align 8
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::(anonymous namespace)::DropCategory, std::allocator<grpc_core::(anonymous namespace)::DropCategory>>::_Vector_impl_data", ptr %value.i, i64 0, i32 1
-  %71 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %70, %71
+  %70 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %69, %70
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i93.i, %for.body.i.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %70, %if.then.i.i.i.i93.i ]
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %69, %if.then.i.i.i.i93.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::DropCategory", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %71
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %70
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i93.i
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %70, null
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_122XdsClusterImplLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %70) #25
+  call void @_ZdlPv(ptr noundef nonnull %69) #25
   br label %_ZN9grpc_core12_GLOBAL__N_122XdsClusterImplLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 ehcleanup59.i:                                    ; preds = %lpad44.i, %lpad.i90.i, %lpad2.i.i.i
-  %.pn12.i = phi { ptr, i32 } [ %66, %lpad.i90.i ], [ %67, %lpad44.i ], [ %55, %lpad2.i.i.i ]
+  %.pn12.i = phi { ptr, i32 } [ %65, %lpad.i90.i ], [ %66, %lpad44.i ], [ %54, %lpad2.i.i.i ]
   call fastcc void @_ZNSt8optionalISt6vectorIN9grpc_core12_GLOBAL__N_112DropCategoryESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #23
   br label %common.resume.i
 
@@ -2624,7 +2621,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2

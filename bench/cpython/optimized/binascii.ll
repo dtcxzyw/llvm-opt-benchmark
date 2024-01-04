@@ -141,7 +141,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @binascii_clear(ptr noundef %module) #0 {
+define internal noundef i32 @binascii_clear(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %0 = load ptr, ptr %call.i, align 8
@@ -2427,7 +2427,7 @@ if.end52:                                         ; preds = %if.then51, %exit
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc noundef i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %arg, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2562,8 +2562,7 @@ for.body:                                         ; preds = %if.end7, %if.end31
   %idxprom = zext i8 %2 to i64
   %arrayidx11 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx11, align 1
-  %add = or disjoint i64 %i.03, 1
-  %arrayidx13 = getelementptr i8, ptr %hexstr.0.val, i64 %add
+  %arrayidx13 = getelementptr i8, ptr %arrayidx, i64 1
   %4 = load i8, ptr %arrayidx13, align 1
   %idxprom17 = zext i8 %4 to i64
   %arrayidx18 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom17

@@ -1536,7 +1536,8 @@ call.i.i.noexc:                                   ; preds = %for.body.preheader.
   store i32 %6, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr2.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 8
   store ptr %incdec.ptr2.ptr.i.i, ptr %m_d, align 8
-  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 %add.i.i
+  %7 = getelementptr i8, ptr %call.i.i12, i64 %mul.i.i
+  %add.ptr.i.ptr.i.i = getelementptr i8, ptr %7, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %call.i.i.noexc
@@ -1588,29 +1589,29 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE12column_countEv.exit10
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14
 
 lpad7:                                            ; preds = %for.body.preheader.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10, %invoke.cont12
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #20
   call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_d) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7
-  %.pn = phi { ptr, i32 } [ %9, %lpad11 ], [ %8, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad11 ], [ %9, %lpad7 ]
   call void @_ZN2lp14indexed_vectorI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pivot_row) #20
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad ]
   call void @_ZN4heapIN2lp8lpvar_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap) #20
   resume { ptr, i32 } %.pn.pn
 }
@@ -2391,7 +2392,8 @@ call.i.i.noexc:                                   ; preds = %for.body.preheader.
   store i32 %6, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr2.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 8
   store ptr %incdec.ptr2.ptr.i.i, ptr %m_d, align 8
-  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 %add.i.i
+  %7 = getelementptr i8, ptr %call.i.i12, i64 %mul.i.i
+  %add.ptr.i.ptr.i.i = getelementptr i8, ptr %7, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %call.i.i.noexc
@@ -2443,29 +2445,29 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14
 
 lpad7:                                            ; preds = %for.body.preheader.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10, %invoke.cont12
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_trace_of_basis_change_vector) #20
   call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_d) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7
-  %.pn = phi { ptr, i32 } [ %9, %lpad11 ], [ %8, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad11 ], [ %9, %lpad7 ]
   call void @_ZN2lp14indexed_vectorI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pivot_row) #20
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad ]
   call void @_ZN4heapIN2lp8lpvar_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_inf_heap) #20
   resume { ptr, i32 } %.pn.pn
 }

@@ -597,7 +597,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7518LocaleDistanceDataC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %data) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %data, align 8
@@ -1466,8 +1466,8 @@ cond.true.i:                                      ; preds = %for.body
 
 invoke.cont140:                                   ; preds = %cond.true.i, %for.body
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ null, %for.body ]
-  %31 = or disjoint i64 %indvars.iv, 1
-  %arrayidx.i85 = getelementptr inbounds i32, ptr %25, i64 %31
+  %31 = getelementptr i32, ptr %25, i64 %indvars.iv
+  %arrayidx.i85 = getelementptr i32, ptr %31, i64 1
   %32 = load i32, ptr %arrayidx.i85, align 4
   %cmp.i88 = icmp sgt i32 %32, 0
   %or.cond.i89 = and i1 %tobool.i, %cmp.i88
@@ -1542,8 +1542,8 @@ cond.true.i107:                                   ; preds = %for.body157
 
 invoke.cont163:                                   ; preds = %cond.true.i107, %for.body157
   %cond.i106 = phi ptr [ %add.ptr.i110, %cond.true.i107 ], [ null, %for.body157 ]
-  %48 = or disjoint i64 %indvars.iv264, 1
-  %arrayidx.i112 = getelementptr inbounds i32, ptr %42, i64 %48
+  %48 = getelementptr i32, ptr %42, i64 %indvars.iv264
+  %arrayidx.i112 = getelementptr i32, ptr %48, i64 1
   %49 = load i32, ptr %arrayidx.i112, align 4
   %cmp.i115 = icmp sgt i32 %49, 0
   %or.cond.i116 = and i1 %tobool.i103, %cmp.i115
@@ -5507,7 +5507,7 @@ attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

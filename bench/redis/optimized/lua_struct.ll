@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [30 x i8] c"option 'c0' has no fixed size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_struct(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_struct(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @thislib) #7
   ret i32 1
@@ -35,7 +35,7 @@ entry:
 declare void @luaL_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b_pack(ptr noundef %L) #0 {
+define internal noundef i32 @b_pack(ptr noundef %L) #0 {
 entry:
   %buff.i = alloca [32 x i8], align 16
   %b = alloca %struct.luaL_Buffer, align 8
@@ -558,23 +558,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv50.i
   %14 = load i8, ptr %arrayidx.i, align 1, !tbaa !10
   %conv.i147 = zext i8 %14 to i64
-  %indvars.iv.next51.i = or disjoint i64 %indvars.iv50.i, 1
   %15 = shl i64 %l.045.i, 16
   %16 = shl nuw nsw i64 %conv.i147, 8
   %shl.i.1 = or disjoint i64 %16, %15
-  %arrayidx.i.1 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next51.i
+  %arrayidx.i.1 = getelementptr i8, ptr %arrayidx.i, i64 1
   %17 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !10
   %conv.i147.1 = zext i8 %17 to i64
   %or.i.1 = or disjoint i64 %shl.i.1, %conv.i147.1
-  %indvars.iv.next51.i.1 = or disjoint i64 %indvars.iv50.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next51.i.1
+  %arrayidx.i.2 = getelementptr i8, ptr %arrayidx.i, i64 2
   %18 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !10
   %conv.i147.2 = zext i8 %18 to i64
-  %indvars.iv.next51.i.2 = or disjoint i64 %indvars.iv50.i, 3
   %19 = shl i64 %or.i.1, 16
   %20 = shl nuw nsw i64 %conv.i147.2, 8
   %shl.i.3 = or disjoint i64 %19, %20
-  %arrayidx.i.3 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next51.i.2
+  %arrayidx.i.3 = getelementptr i8, ptr %arrayidx.i, i64 3
   %21 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !10
   %conv.i147.3 = zext i8 %21 to i64
   %or.i.3 = or disjoint i64 %shl.i.3, %conv.i147.3
@@ -829,7 +826,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b_size(ptr noundef %L) #0 {
+define internal noundef i32 @b_size(ptr noundef %L) #0 {
 entry:
   %h = alloca %struct.Header, align 4
   %fmt = alloca ptr, align 8

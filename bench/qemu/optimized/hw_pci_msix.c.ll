@@ -498,8 +498,8 @@ land.lhs.true.i.us:                               ; preds = %for.body.us
   %mul.i.us = shl i64 %indvars.iv, 4
   %27 = load ptr, ptr %msix_table.i, align 8
   %add.i.us = and i64 %mul.i.us, 4294967280
-  %idxprom.i.us = or disjoint i64 %add.i.us, 8
-  %arrayidx.i37.us = getelementptr i8, ptr %27, i64 %idxprom.i.us
+  %28 = getelementptr i8, ptr %27, i64 %add.i.us
+  %arrayidx.i37.us = getelementptr i8, ptr %28, i64 8
   %arrayidx.val.i.us = load i32, ptr %arrayidx.i37.us, align 1
   %call1.i.us = tail call i32 @xen_is_pirq_msi(i32 noundef %arrayidx.val.i.us) #14
   %tobool2.not.i.us.not = icmp eq i32 %call1.i.us, 0
@@ -510,47 +510,47 @@ msix_vector_masked.exit.us:                       ; preds = %for.body.us, %land.
   %.pre-phi = trunc i64 %indvars.iv to i32
   tail call fastcc void @msix_handle_mask_update(ptr noundef nonnull %dev, i32 noundef %.pre-phi, i1 noundef zeroext %retval.0.i.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %msix_entries_nr, align 4
-  %29 = sext i32 %28 to i64
-  %cmp22.us = icmp slt i64 %indvars.iv.next, %29
+  %29 = load i32, ptr %msix_entries_nr, align 4
+  %30 = sext i32 %29 to i64
+  %cmp22.us = icmp slt i64 %indvars.iv.next, %30
   br i1 %cmp22.us, label %for.body.us, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %msix_vector_masked.exit
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %msix_vector_masked.exit ], [ 0, %for.body.lr.ph ]
-  %30 = trunc i64 %indvars.iv50 to i32
-  %mul.i = shl i32 %30, 4
-  %31 = load i8, ptr @xen_allowed, align 1
-  %32 = and i8 %31, 1
-  %tobool.not.i36 = icmp eq i8 %32, 0
+  %31 = trunc i64 %indvars.iv50 to i32
+  %mul.i = shl i32 %31, 4
+  %32 = load i8, ptr @xen_allowed, align 1
+  %33 = and i8 %32, 1
+  %tobool.not.i36 = icmp eq i8 %33, 0
   br i1 %tobool.not.i36, label %lor.rhs.i38, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %33 = load ptr, ptr %msix_table.i, align 8
+  %34 = load ptr, ptr %msix_table.i, align 8
   %add.i = or disjoint i32 %mul.i, 8
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i37 = getelementptr i8, ptr %33, i64 %idxprom.i
+  %arrayidx.i37 = getelementptr i8, ptr %34, i64 %idxprom.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i37, align 1
   %call1.i = tail call i32 @xen_is_pirq_msi(i32 noundef %arrayidx.val.i) #14
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %lor.rhs.i38, label %msix_vector_masked.exit
 
 lor.rhs.i38:                                      ; preds = %for.body, %land.lhs.true.i
-  %34 = load ptr, ptr %msix_table.i, align 8
+  %35 = load ptr, ptr %msix_table.i, align 8
   %add5.i = or disjoint i32 %mul.i, 12
   %idxprom6.i = zext i32 %add5.i to i64
-  %arrayidx7.i = getelementptr i8, ptr %34, i64 %idxprom6.i
-  %35 = load i8, ptr %arrayidx7.i, align 1
-  %36 = and i8 %35, 1
-  %tobool8.i = icmp ne i8 %36, 0
+  %arrayidx7.i = getelementptr i8, ptr %35, i64 %idxprom6.i
+  %36 = load i8, ptr %arrayidx7.i, align 1
+  %37 = and i8 %36, 1
+  %tobool8.i = icmp ne i8 %37, 0
   br label %msix_vector_masked.exit
 
 msix_vector_masked.exit:                          ; preds = %land.lhs.true.i, %lor.rhs.i38
   %retval.0.i = phi i1 [ false, %land.lhs.true.i ], [ %tobool8.i, %lor.rhs.i38 ]
-  tail call fastcc void @msix_handle_mask_update(ptr noundef nonnull %dev, i32 noundef %30, i1 noundef zeroext %retval.0.i)
+  tail call fastcc void @msix_handle_mask_update(ptr noundef nonnull %dev, i32 noundef %31, i1 noundef zeroext %retval.0.i)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %37 = load i32, ptr %msix_entries_nr, align 4
-  %38 = sext i32 %37 to i64
-  %cmp22 = icmp slt i64 %indvars.iv.next51, %38
+  %38 = load i32, ptr %msix_entries_nr, align 4
+  %39 = sext i32 %38 to i64
+  %cmp22 = icmp slt i64 %indvars.iv.next51, %39
   br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %msix_vector_masked.exit.us, %msix_vector_masked.exit, %for.cond.preheader, %msix_enabled.exit35.thread, %if.end13, %msix_enabled.exit.i, %entry, %lor.lhs.false
@@ -1851,14 +1851,14 @@ entry:
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_msix_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_msix_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   tail call void @msix_load(ptr noundef %pv, ptr noundef %f)
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_msix_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_msix_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %cap_present.i.i = getelementptr inbounds %struct.PCIDevice, ptr %pv, i64 0, i32 20
   %0 = load i32, ptr %cap_present.i.i, align 4

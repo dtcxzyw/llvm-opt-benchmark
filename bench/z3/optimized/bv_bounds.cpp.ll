@@ -16634,29 +16634,29 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__holeIndex.addr.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub1
-  %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  %0 = getelementptr %"struct.std::pair", ptr %__first, i64 %add
+  %add.ptr2 = getelementptr %"struct.std::pair", ptr %0, i64 1
+  %1 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr, i64 0, i32 1
   %m_kind.i.i.i.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr, i64 0, i32 1, i32 1
   %bf.load.i.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i, 0
-  %1 = load i32, ptr %m_den.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %1, 1
-  %2 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
-  br i1 %2, label %land.lhs.true.i.i.i.i, label %if.else.i.i.i.i
+  %2 = load i32, ptr %m_den.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %2, 1
+  %3 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
+  br i1 %3, label %land.lhs.true.i.i.i.i, label %if.else.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.body
-  %m_den.i5.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr2, i64 0, i32 1
-  %m_kind.i.i.i.i6.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr2, i64 0, i32 1, i32 1
+  %m_den.i5.i.i.i.i = getelementptr %"struct.std::pair", ptr %0, i64 1, i32 0, i32 0, i32 1
+  %m_kind.i.i.i.i6.i.i.i.i = getelementptr %"struct.std::pair", ptr %0, i64 1, i32 0, i32 0, i32 1, i32 1
   %bf.load.i.i.i.i7.i.i.i.i = load i8, ptr %m_kind.i.i.i.i6.i.i.i.i, align 4
   %bf.clear.i.i.i.i8.i.i.i.i = and i8 %bf.load.i.i.i.i7.i.i.i.i, 1
   %cmp.i.i.i.i9.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i8.i.i.i.i, 0
-  %3 = load i32, ptr %m_den.i5.i.i.i.i, align 8
-  %cmp.i.i.i10.i.i.i.i = icmp eq i32 %3, 1
-  %4 = select i1 %cmp.i.i.i.i9.i.i.i.i, i1 %cmp.i.i.i10.i.i.i.i, i1 false
-  br i1 %4, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  %4 = load i32, ptr %m_den.i5.i.i.i.i, align 8
+  %cmp.i.i.i10.i.i.i.i = icmp eq i32 %4, 1
+  %5 = select i1 %cmp.i.i.i.i9.i.i.i.i, i1 %cmp.i.i.i10.i.i.i.i, i1 false
+  br i1 %5, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %m_kind.i.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %add.ptr, i64 0, i32 1
@@ -16666,30 +16666,31 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i11.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i
-  %m_kind.i5.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %add.ptr2, i64 0, i32 1
+  %m_kind.i5.i.i.i.i.i.i = getelementptr %"struct.std::pair", ptr %0, i64 1, i32 0, i32 0, i32 0, i32 1
   %bf.load.i6.i.i.i.i.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i = and i8 %bf.load.i6.i.i.i.i.i.i, 1
   %cmp.i8.i.i.i.i.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i, 0
   br i1 %cmp.i8.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
-  %5 = load i32, ptr %add.ptr, align 8
-  %6 = load i32, ptr %add.ptr2, align 8
-  %cmp.i.i.i.i.i.i = icmp slt i32 %5, %6
+  %6 = load i32, ptr %add.ptr, align 8
+  %7 = load i32, ptr %add.ptr2, align 8
+  %cmp.i.i.i.i.i.i = icmp slt i32 %6, %7
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_ES8_EEbT_T0_.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i, %if.then.i.i.i.i
-  %call4.i.i.i.i.i.i = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2)
+  %call4.i.i.i.i.i.i = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2)
   %cmp5.i.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i.i, 0
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_ES8_EEbT_T0_.exit
 
 if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i, %while.body
-  %call5.i.i.i.i = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2)
+  %call5.i.i.i.i = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2)
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_ES8_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_ES8_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
-  %spec.select = select i1 %retval.0.i.i.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.0.i.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026
   %call5 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt4pairI8rationalS0_EaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr3) #16
@@ -16709,7 +16710,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
@@ -16718,103 +16719,103 @@ if.then10:                                        ; preds = %land.lhs.true
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %7 = load i32, ptr %__value, align 8
-  store i32 %7, ptr %agg.tmp, align 8
+  %8 = load i32, ptr %__value, align 8
+  store i32 %8, ptr %agg.tmp, align 8
   %m_kind.i.i.i.i = getelementptr inbounds %class.mpz, ptr %agg.tmp, i64 0, i32 1
   %m_kind3.i.i.i.i = getelementptr inbounds %class.mpz, ptr %__value, i64 0, i32 1
   %bf.load.i.i.i.i = load i8, ptr %m_kind3.i.i.i.i, align 4
-  %8 = and i8 %bf.load.i.i.i.i, 3
-  store i8 %8, ptr %m_kind.i.i.i.i, align 4
+  %9 = and i8 %bf.load.i.i.i.i, 3
+  store i8 %9, ptr %m_kind.i.i.i.i, align 4
   %m_ptr.i.i.i.i = getelementptr inbounds %class.mpz, ptr %agg.tmp, i64 0, i32 2
   %m_ptr15.i.i.i.i = getelementptr inbounds %class.mpz, ptr %__value, i64 0, i32 2
-  %9 = load ptr, ptr %m_ptr15.i.i.i.i, align 8
-  store ptr %9, ptr %m_ptr.i.i.i.i, align 8
+  %10 = load ptr, ptr %m_ptr15.i.i.i.i, align 8
+  store ptr %10, ptr %m_ptr.i.i.i.i, align 8
   store ptr null, ptr %m_ptr15.i.i.i.i, align 8
   %m_den.i.i.i = getelementptr inbounds %class.mpq, ptr %agg.tmp, i64 0, i32 1
   %m_den3.i.i.i = getelementptr inbounds %class.mpq, ptr %__value, i64 0, i32 1
-  %10 = load i32, ptr %m_den3.i.i.i, align 8
-  store i32 %10, ptr %m_den.i.i.i, align 8
+  %11 = load i32, ptr %m_den3.i.i.i, align 8
+  store i32 %11, ptr %m_den.i.i.i, align 8
   %m_kind.i2.i.i.i = getelementptr inbounds %class.mpq, ptr %agg.tmp, i64 0, i32 1, i32 1
   %m_kind3.i3.i.i.i = getelementptr inbounds %class.mpq, ptr %__value, i64 0, i32 1, i32 1
   %bf.load.i4.i.i.i = load i8, ptr %m_kind3.i3.i.i.i, align 4
-  %11 = and i8 %bf.load.i4.i.i.i, 3
-  store i8 %11, ptr %m_kind.i2.i.i.i, align 4
+  %12 = and i8 %bf.load.i4.i.i.i, 3
+  store i8 %12, ptr %m_kind.i2.i.i.i, align 4
   %m_ptr.i13.i.i.i = getelementptr inbounds %class.mpq, ptr %agg.tmp, i64 0, i32 1, i32 2
   %m_ptr15.i14.i.i.i = getelementptr inbounds %class.mpq, ptr %__value, i64 0, i32 1, i32 2
-  %12 = load ptr, ptr %m_ptr15.i14.i.i.i, align 8
-  store ptr %12, ptr %m_ptr.i13.i.i.i, align 8
+  %13 = load ptr, ptr %m_ptr15.i14.i.i.i, align 8
+  store ptr %13, ptr %m_ptr.i13.i.i.i, align 8
   store ptr null, ptr %m_ptr15.i14.i.i.i, align 8
   %second.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1
   %second3.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1
-  %13 = load i32, ptr %second3.i, align 8
-  store i32 %13, ptr %second.i, align 8
+  %14 = load i32, ptr %second3.i, align 8
+  store i32 %14, ptr %second.i, align 8
   %m_kind.i.i.i2.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
   %m_kind3.i.i.i3.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1, i32 0, i32 0, i32 1
   %bf.load.i.i.i4.i = load i8, ptr %m_kind3.i.i.i3.i, align 4
-  %14 = and i8 %bf.load.i.i.i4.i, 3
-  store i8 %14, ptr %m_kind.i.i.i2.i, align 4
+  %15 = and i8 %bf.load.i.i.i4.i, 3
+  store i8 %15, ptr %m_kind.i.i.i2.i, align 4
   %m_ptr.i.i.i13.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 2
   %m_ptr15.i.i.i14.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1, i32 0, i32 0, i32 2
-  %15 = load ptr, ptr %m_ptr15.i.i.i14.i, align 8
-  store ptr %15, ptr %m_ptr.i.i.i13.i, align 8
+  %16 = load ptr, ptr %m_ptr15.i.i.i14.i, align 8
+  store ptr %16, ptr %m_ptr.i.i.i13.i, align 8
   store ptr null, ptr %m_ptr15.i.i.i14.i, align 8
   %m_den.i.i15.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 1
   %m_den3.i.i16.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1, i32 0, i32 1
-  %16 = load i32, ptr %m_den3.i.i16.i, align 8
-  store i32 %16, ptr %m_den.i.i15.i, align 8
+  %17 = load i32, ptr %m_den3.i.i16.i, align 8
+  store i32 %17, ptr %m_den.i.i15.i, align 8
   %m_kind.i2.i.i17.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 1, i32 1
   %m_kind3.i3.i.i18.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1, i32 0, i32 1, i32 1
   %bf.load.i4.i.i19.i = load i8, ptr %m_kind3.i3.i.i18.i, align 4
-  %17 = and i8 %bf.load.i4.i.i19.i, 3
-  store i8 %17, ptr %m_kind.i2.i.i17.i, align 4
+  %18 = and i8 %bf.load.i4.i.i19.i, 3
+  store i8 %18, ptr %m_kind.i2.i.i17.i, align 4
   %m_ptr.i13.i.i28.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 1, i32 2
   %m_ptr15.i14.i.i29.i = getelementptr inbounds %"struct.std::pair", ptr %__value, i64 0, i32 1, i32 0, i32 1, i32 2
-  %18 = load ptr, ptr %m_ptr15.i14.i.i29.i, align 8
-  store ptr %18, ptr %m_ptr.i13.i.i28.i, align 8
+  %19 = load ptr, ptr %m_ptr15.i14.i.i29.i, align 8
+  store ptr %19, ptr %m_ptr.i13.i.i28.i, align 8
   store ptr null, ptr %m_ptr15.i14.i.i29.i, align 8
   invoke void @_ZSt11__push_heapIPSt4pairI8rationalS1_ElS2_N9__gnu_cxx5__ops14_Iter_comp_valI15interval_comp_tEEEvT_T0_SA_T1_RT2_(ptr noundef %__first, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__cmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end18
-  %19 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  %20 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %invoke.cont
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i15.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i15.i)
           to label %_ZN8rationalD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #15
   unreachable
 
 _ZN8rationalD2Ev.exit.i:                          ; preds = %.noexc.i.i
-  %22 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
+  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
           to label %.noexc.i2.i unwind label %terminate.lpad.i1.i
 
 .noexc.i2.i:                                      ; preds = %_ZN8rationalD2Ev.exit.i
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
           to label %_ZNSt4pairI8rationalS0_ED2Ev.exit unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %.noexc.i2.i, %_ZN8rationalD2Ev.exit.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #15
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #15
   unreachable
 
 _ZNSt4pairI8rationalS0_ED2Ev.exit:                ; preds = %.noexc.i2.i
   ret void
 
 lpad:                                             ; preds = %if.end18
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairI8rationalS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #16
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

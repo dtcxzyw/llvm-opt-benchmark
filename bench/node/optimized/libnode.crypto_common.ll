@@ -828,16 +828,16 @@ if.end:                                           ; preds = %entry
   %or = or disjoint i64 %shl, %conv2
   %add = add nuw nsw i64 %or, 2
   %cmp4.not = icmp eq i64 %add, %1
-  br i1 %cmp4.not, label %if.end6, label %return
+  br i1 %cmp4.not, label %lor.lhs.false8, label %return
 
-if.end6:                                          ; preds = %if.end
+lor.lhs.false8:                                   ; preds = %if.end
   store i64 %or, ptr %rem, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %2, i64 2
   %5 = load i8, ptr %add.ptr9, align 1
   %cmp11.not = icmp eq i8 %5, 0
   br i1 %cmp11.not, label %if.end13, label %return
 
-if.end13:                                         ; preds = %if.end6
+if.end13:                                         ; preds = %lor.lhs.false8
   %dec = add nsw i64 %or, -1
   store i64 %dec, ptr %rem, align 8
   %cmp14 = icmp ult i64 %or, 4
@@ -858,8 +858,8 @@ if.end16:                                         ; preds = %if.end13
   %spec.select = select i1 %cmp25, ptr null, ptr %add.ptr28
   br label %return
 
-return:                                           ; preds = %if.end16, %if.end13, %if.end6, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end6 ], [ null, %if.end13 ], [ %spec.select, %if.end16 ]
+return:                                           ; preds = %if.end16, %if.end13, %lor.lhs.false8, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %lor.lhs.false8 ], [ null, %if.end13 ], [ %spec.select, %if.end16 ]
   ret ptr %retval.0
 }
 
@@ -1098,7 +1098,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 declare ptr @SSL_get_certificate(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto12X509ToObjectEPNS_11EnvironmentEP7x509_st(ptr noundef %env, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto12X509ToObjectEPNS_11EnvironmentEP7x509_st(ptr noundef %env, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %type_buf.i74 = alloca [80 x i8], align 16
   %value_str.i75 = alloca ptr, align 8
@@ -2739,8 +2739,12 @@ if.then68:                                        ; preds = %entry
   %16 = load i32, ptr %14, align 8
   switch i32 %16, label %if.else98 [
     i32 4, label %if.then73
-    i32 16, label %for.body
+    i32 16, label %for.body.preheader
   ]
+
+for.body.preheader:                               ; preds = %if.then68
+  %invariant.gep = getelementptr i8, ptr %15, i64 1
+  br label %for.body
 
 if.then73:                                        ; preds = %if.then68
   %17 = load ptr, ptr %out, align 8
@@ -2758,44 +2762,43 @@ if.then73:                                        ; preds = %if.then68
   %call81 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.79, i32 noundef %conv, i32 noundef %conv76, i32 noundef %conv78, i32 noundef %conv80) #17
   br label %return
 
-for.body:                                         ; preds = %if.then68, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then68 ]
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %22 = shl nuw nsw i64 %indvars.iv, 1
   %arrayidx87 = getelementptr inbounds i8, ptr %15, i64 %22
   %23 = load i8, ptr %arrayidx87, align 1
   %conv88 = zext i8 %23 to i32
   %shl = shl nuw nsw i32 %conv88, 8
-  %24 = or disjoint i64 %22, 1
-  %arrayidx91 = getelementptr inbounds i8, ptr %15, i64 %24
-  %25 = load i8, ptr %arrayidx91, align 1
-  %conv92 = zext i8 %25 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %22
+  %24 = load i8, ptr %gep, align 1
+  %conv92 = zext i8 %24 to i32
   %or = or disjoint i32 %shl, %conv92
-  %26 = load ptr, ptr %out, align 8
+  %25 = load ptr, ptr %out, align 8
   %cmp95 = icmp eq i64 %indvars.iv, 0
   %cond = select i1 %cmp95, ptr @.str.80, ptr @.str.81
-  %call97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull %cond, i32 noundef %or) #17
+  %call97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull %cond, i32 noundef %or) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
 if.else98:                                        ; preds = %if.then68
-  %27 = load ptr, ptr %out, align 8
-  %call101 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.82, i32 noundef %16) #17
+  %26 = load ptr, ptr %out, align 8
+  %call101 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.82, i32 noundef %16) #17
   br label %return
 
 if.then107:                                       ; preds = %entry
   %d109 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
-  %28 = load ptr, ptr %d109, align 8
-  %call110 = call i32 @OBJ_obj2txt(ptr noundef nonnull %oline108, i32 noundef 256, ptr noundef %28, i32 noundef 1) #17
-  %29 = load ptr, ptr %out, align 8
-  %call113 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.83, ptr noundef nonnull %oline108) #17
+  %27 = load ptr, ptr %d109, align 8
+  %call110 = call i32 @OBJ_obj2txt(ptr noundef nonnull %oline108, i32 noundef 256, ptr noundef %27, i32 noundef 1) #17
+  %28 = load ptr, ptr %out, align 8
+  %call113 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.83, ptr noundef nonnull %oline108) #17
   br label %return
 
 if.then117:                                       ; preds = %entry
   %d118 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
-  %30 = load ptr, ptr %d118, align 8
-  %31 = load ptr, ptr %30, align 8
-  %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %31) #17
+  %29 = load ptr, ptr %d118, align 8
+  %30 = load ptr, ptr %29, align 8
+  %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %30) #17
   switch i32 %call119, label %sw.epilog [
     i32 1208, label %sw.bb
     i32 1209, label %sw.bb120
@@ -2823,34 +2826,34 @@ sw.epilog:                                        ; preds = %sw.bb123, %sw.bb122
   %unicode.0 = phi i1 [ true, %if.then117 ], [ true, %sw.bb123 ], [ true, %sw.bb122 ], [ false, %sw.bb121 ], [ true, %sw.bb120 ], [ true, %sw.bb ]
   %cmp126 = phi i1 [ true, %if.then117 ], [ false, %sw.bb123 ], [ false, %sw.bb122 ], [ false, %sw.bb121 ], [ false, %sw.bb120 ], [ false, %sw.bb ]
   %prefix.0 = phi ptr [ null, %if.then117 ], [ @.str.88, %sw.bb123 ], [ @.str.87, %sw.bb122 ], [ @.str.86, %sw.bb121 ], [ @.str.85, %sw.bb120 ], [ @.str.84, %sw.bb ]
-  %32 = load ptr, ptr %d118, align 8
-  %value = getelementptr inbounds %struct.otherName_st, ptr %32, i64 0, i32 1
-  %33 = load ptr, ptr %value, align 8
-  %34 = load i32, ptr %33, align 8
-  %cmp127 = icmp ne i32 %34, 12
+  %31 = load ptr, ptr %d118, align 8
+  %value = getelementptr inbounds %struct.otherName_st, ptr %31, i64 0, i32 1
+  %32 = load ptr, ptr %value, align 8
+  %33 = load i32, ptr %32, align 8
+  %cmp127 = icmp ne i32 %33, 12
   %or.cond = select i1 %unicode.0, i1 %cmp127, i1 false
   %or.cond58 = select i1 %cmp126, i1 true, i1 %or.cond
   %or.cond58.not = xor i1 %or.cond58, true
-  %cmp131 = icmp eq i32 %34, 22
+  %cmp131 = icmp eq i32 %33, 22
   %or.cond1.not = select i1 %unicode.0, i1 true, i1 %cmp131
   %or.cond59 = select i1 %or.cond58.not, i1 %or.cond1.not, i1 false
-  %35 = load ptr, ptr %out, align 8
+  %34 = load ptr, ptr %out, align 8
   br i1 %or.cond59, label %if.else135, label %if.then132
 
 if.then132:                                       ; preds = %sw.epilog
-  %call134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.89) #17
+  %call134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.89) #17
   br label %return
 
 if.else135:                                       ; preds = %sw.epilog
-  %call137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.90) #17
-  %36 = load ptr, ptr %d118, align 8
-  %value141 = getelementptr inbounds %struct.otherName_st, ptr %36, i64 0, i32 1
-  %37 = load ptr, ptr %value141, align 8
-  %value142 = getelementptr inbounds %struct.asn1_type_st, ptr %37, i64 0, i32 1
-  %38 = load ptr, ptr %value142, align 8
-  %.val67 = load i32, ptr %38, align 8
-  %39 = getelementptr i8, ptr %38, i64 8
-  %.val68 = load ptr, ptr %39, align 8
+  %call137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.90) #17
+  %35 = load ptr, ptr %d118, align 8
+  %value141 = getelementptr inbounds %struct.otherName_st, ptr %35, i64 0, i32 1
+  %36 = load ptr, ptr %value141, align 8
+  %value142 = getelementptr inbounds %struct.asn1_type_st, ptr %36, i64 0, i32 1
+  %37 = load ptr, ptr %value142, align 8
+  %.val67 = load i32, ptr %37, align 8
+  %38 = getelementptr i8, ptr %37, i64 8
+  %.val68 = load ptr, ptr %38, align 8
   %conv.i71 = sext i32 %.val67 to i64
   br i1 %unicode.0, label %if.then139, label %if.else143
 
@@ -2863,13 +2866,13 @@ if.else143:                                       ; preds = %if.else135
   br label %return
 
 if.then152:                                       ; preds = %entry
-  %40 = load ptr, ptr %out, align 8
-  %call154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.91) #17
+  %39 = load ptr, ptr %out, align 8
+  %call154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %39, ptr noundef nonnull @.str.91) #17
   br label %return
 
 if.then158:                                       ; preds = %entry
-  %41 = load ptr, ptr %out, align 8
-  %call160 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.92) #17
+  %40 = load ptr, ptr %out, align 8
+  %call160 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.92) #17
   br label %return
 
 do.body162:                                       ; preds = %entry
@@ -3252,7 +3255,7 @@ return:                                           ; preds = %_ZN4node6crypto9ToV
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %buf = alloca ptr, align 8
@@ -3584,7 +3587,7 @@ return:                                           ; preds = %if.end5.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %0 = load ptr, ptr %ssl, align 8
@@ -3803,7 +3806,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %raw_key = alloca ptr, align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8

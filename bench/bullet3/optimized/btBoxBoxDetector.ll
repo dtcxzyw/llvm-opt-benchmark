@@ -200,6 +200,7 @@ if.end84:                                         ; preds = %for.body, %for.cond
 for.body87.preheader:                             ; preds = %if.then, %if.then3, %if.end84
   %38 = phi <2 x float> [ %37, %if.end84 ], [ %4, %if.then3 ], [ %0, %if.then ]
   %wide.trip.count114 = zext nneg i32 %n to i64
+  %invariant.gep140 = getelementptr float, ptr %p, i64 1
   %39 = extractelement <2 x float> %38, i64 0
   %40 = extractelement <2 x float> %38, i64 1
   br label %for.body87
@@ -211,13 +212,12 @@ for.body105.preheader:                            ; preds = %for.body87
 for.body87:                                       ; preds = %for.body87.preheader, %for.body87
   %indvars.iv109 = phi i64 [ 0, %for.body87.preheader ], [ %indvars.iv.next110, %for.body87 ]
   %41 = shl nuw nsw i64 %indvars.iv109, 1
-  %42 = or disjoint i64 %41, 1
-  %arrayidx91 = getelementptr inbounds float, ptr %p, i64 %42
-  %43 = load float, ptr %arrayidx91, align 4
-  %sub92 = fsub float %43, %40
+  %gep141 = getelementptr float, ptr %invariant.gep140, i64 %41
+  %42 = load float, ptr %gep141, align 4
+  %sub92 = fsub float %42, %40
   %arrayidx95 = getelementptr inbounds float, ptr %p, i64 %41
-  %44 = load float, ptr %arrayidx95, align 4
-  %sub96 = fsub float %44, %39
+  %43 = load float, ptr %arrayidx95, align 4
+  %sub96 = fsub float %43, %39
   %call.i = tail call noundef float @atan2f(float noundef %sub92, float noundef %sub96) #11
   %arrayidx99 = getelementptr inbounds [8 x float], ptr %A, i64 0, i64 %indvars.iv109
   store float %call.i, ptr %arrayidx99, align 4
@@ -247,7 +247,7 @@ for.body116.lr.ph:                                ; preds = %for.end110
   %conv117 = sitofp i32 %m to float
   %div118 = fdiv float 0x401921FB60000000, %conv117
   %arrayidx121 = getelementptr inbounds [8 x float], ptr %A, i64 0, i64 %idxprom111
-  %45 = load float, ptr %arrayidx121, align 4
+  %44 = load float, ptr %arrayidx121, align 4
   br i1 %cmp8693133136, label %for.body116.us.preheader, label %for.body116
 
 for.body116.us.preheader:                         ; preds = %for.body116.lr.ph
@@ -258,47 +258,47 @@ for.body116.us:                                   ; preds = %for.body116.us.preh
   %iret.addr.0103.us = phi ptr [ %iret.addr.0.us, %for.cond126.for.end146_crit_edge.us ], [ %iret.addr.0100, %for.body116.us.preheader ]
   %j.0102.us = phi i32 [ %inc151.us, %for.cond126.for.end146_crit_edge.us ], [ 1, %for.body116.us.preheader ]
   %conv.us = sitofp i32 %j.0102.us to float
-  %46 = tail call float @llvm.fmuladd.f32(float %conv.us, float %div118, float %45)
-  %cmp122.us = fcmp ogt float %46, 0x400921FB60000000
-  %sub124.us = fadd float %46, 0xC01921FB60000000
-  %a.2.us = select i1 %cmp122.us, float %sub124.us, float %46
+  %45 = tail call float @llvm.fmuladd.f32(float %conv.us, float %div118, float %44)
+  %cmp122.us = fcmp ogt float %45, 0x400921FB60000000
+  %sub124.us = fadd float %45, 0xC01921FB60000000
+  %a.2.us = select i1 %cmp122.us, float %sub124.us, float %45
   store i32 %i0, ptr %iret.addr.0103.us, align 4
   br label %for.body128.us
 
 for.body128.us:                                   ; preds = %for.body116.us, %for.inc144.us
-  %47 = phi i32 [ %i0, %for.body116.us ], [ %52, %for.inc144.us ]
+  %46 = phi i32 [ %i0, %for.body116.us ], [ %51, %for.inc144.us ]
   %indvars.iv122 = phi i64 [ 0, %for.body116.us ], [ %indvars.iv.next123, %for.inc144.us ]
   %maxdiff.099.us = phi float [ 1.000000e+09, %for.body116.us ], [ %maxdiff.1.us, %for.inc144.us ]
   %arrayidx130.us = getelementptr inbounds [8 x i32], ptr %avail, i64 0, i64 %indvars.iv122
-  %48 = load i32, ptr %arrayidx130.us, align 4
-  %tobool.not.us = icmp eq i32 %48, 0
+  %47 = load i32, ptr %arrayidx130.us, align 4
+  %tobool.not.us = icmp eq i32 %47, 0
   br i1 %tobool.not.us, label %for.inc144.us, label %if.then131.us
 
 if.then131.us:                                    ; preds = %for.body128.us
   %arrayidx133.us = getelementptr inbounds [8 x float], ptr %A, i64 0, i64 %indvars.iv122
-  %49 = load float, ptr %arrayidx133.us, align 4
-  %sub134.us = fsub float %49, %a.2.us
-  %50 = tail call noundef float @llvm.fabs.f32(float %sub134.us)
-  %cmp136.us = fcmp ogt float %50, 0x400921FB60000000
-  %sub138.us = fsub float 0x401921FB60000000, %50
-  %diff.0.us = select i1 %cmp136.us, float %sub138.us, float %50
+  %48 = load float, ptr %arrayidx133.us, align 4
+  %sub134.us = fsub float %48, %a.2.us
+  %49 = tail call noundef float @llvm.fabs.f32(float %sub134.us)
+  %cmp136.us = fcmp ogt float %49, 0x400921FB60000000
+  %sub138.us = fsub float 0x401921FB60000000, %49
+  %diff.0.us = select i1 %cmp136.us, float %sub138.us, float %49
   %cmp140.us = fcmp olt float %diff.0.us, %maxdiff.099.us
   br i1 %cmp140.us, label %if.then141.us, label %for.inc144.us
 
 if.then141.us:                                    ; preds = %if.then131.us
-  %51 = trunc i64 %indvars.iv122 to i32
-  store i32 %51, ptr %iret.addr.0103.us, align 4
+  %50 = trunc i64 %indvars.iv122 to i32
+  store i32 %50, ptr %iret.addr.0103.us, align 4
   br label %for.inc144.us
 
 for.inc144.us:                                    ; preds = %if.then141.us, %if.then131.us, %for.body128.us
-  %52 = phi i32 [ %51, %if.then141.us ], [ %47, %if.then131.us ], [ %47, %for.body128.us ]
+  %51 = phi i32 [ %50, %if.then141.us ], [ %46, %if.then131.us ], [ %46, %for.body128.us ]
   %maxdiff.1.us = phi float [ %diff.0.us, %if.then141.us ], [ %maxdiff.099.us, %if.then131.us ], [ %maxdiff.099.us, %for.body128.us ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %for.cond126.for.end146_crit_edge.us, label %for.body128.us, !llvm.loop !9
 
 for.cond126.for.end146_crit_edge.us:              ; preds = %for.inc144.us
-  %idxprom147.us = sext i32 %52 to i64
+  %idxprom147.us = sext i32 %51 to i64
   %arrayidx148.us = getelementptr inbounds [8 x i32], ptr %avail, i64 0, i64 %idxprom147.us
   store i32 0, ptr %arrayidx148.us, align 4
   %inc151.us = add nuw nsw i32 %j.0102.us, 1

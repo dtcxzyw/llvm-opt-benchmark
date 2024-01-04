@@ -775,18 +775,17 @@ for.end56.i.i:                                    ; preds = %for.body51.i.i, %fo
 for.cond69.i.preheader.i:                         ; preds = %for.cond69.i.preheader.i, %for.cond64.i.preheader.i
   %position.i.0101.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %and84.i.i, %for.cond69.i.preheader.i ]
   %s63.i.0100.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %add86.i.i, %for.cond69.i.preheader.i ]
+  %5 = getelementptr i8, ptr %add.ptr2.i.i, i64 %s63.i.0100.i
   %and.i.i = and i64 %position.i.0101.i, %conv33.i134.i
-  %arrayidx75.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %s63.i.0100.i
-  %5 = load i8, ptr %arrayidx75.i.i, align 1
-  %conv76.i.i = zext i8 %5 to i32
+  %6 = load i8, ptr %5, align 1
+  %conv76.i.i = zext i8 %6 to i32
   %baseValue78.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %and.i.i, i32 3
   store i32 %conv76.i.i, ptr %baseValue78.i.i, align 4
   %add73.i.i.c = add nuw nsw i64 %position.i.0101.i, %conv37.i135.i
   %and.i.i.c = and i64 %add73.i.i.c, %conv33.i134.i
-  %add74.i.i.c = or disjoint i64 %s63.i.0100.i, 1
-  %arrayidx75.i.i.c = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %add74.i.i.c
-  %6 = load i8, ptr %arrayidx75.i.i.c, align 1
-  %conv76.i.i.c = zext i8 %6 to i32
+  %arrayidx75.i.i.c = getelementptr i8, ptr %5, i64 1
+  %7 = load i8, ptr %arrayidx75.i.i.c, align 1
+  %conv76.i.i.c = zext i8 %7 to i32
   %baseValue78.i.i.c = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %and.i.i.c, i32 3
   store i32 %conv76.i.i.c, ptr %baseValue78.i.i.c, align 4
   %add83.i.i = add nuw nsw i64 %position.i.0101.i, %mul82.i.i
@@ -805,13 +804,13 @@ for.body101.i.i:                                  ; preds = %for.end123.i.i, %fo
   %indvars.iv106.i = phi i64 [ 0, %for.body101.i.lr.ph.i ], [ %indvars.iv.next107.i, %for.end123.i.i ]
   %position97.i.091.i = phi i32 [ 0, %for.body101.i.lr.ph.i ], [ %position97.i.1.lcssa.i, %for.end123.i.i ]
   %arrayidx105.i.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv106.i
-  %7 = load i16, ptr %arrayidx105.i.i, align 2
-  %conv106.i.i = sext i16 %7 to i32
-  %cmp108.i86.i = icmp sgt i16 %7, 0
+  %8 = load i16, ptr %arrayidx105.i.i, align 2
+  %conv106.i.i = sext i16 %8 to i32
+  %cmp108.i86.i = icmp sgt i16 %8, 0
   br i1 %cmp108.i86.i, label %for.body110.i.preheader.i, label %for.end123.i.i
 
 for.body110.i.preheader.i:                        ; preds = %for.body101.i.i
-  %8 = trunc i64 %indvars.iv106.i to i32
+  %9 = trunc i64 %indvars.iv106.i to i32
   br label %for.body110.i.i
 
 for.body110.i.i:                                  ; preds = %while.end.i.i, %for.body110.i.preheader.i
@@ -819,7 +818,7 @@ for.body110.i.i:                                  ; preds = %while.end.i.i, %for
   %position97.i.187.i = phi i32 [ %position97.i.2.i, %while.end.i.i ], [ %position97.i.091.i, %for.body110.i.preheader.i ]
   %idxprom111.i.i = zext i32 %position97.i.187.i to i64
   %baseValue113.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %idxprom111.i.i, i32 3
-  store i32 %8, ptr %baseValue113.i.i, align 4
+  store i32 %9, ptr %baseValue113.i.i, align 4
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %for.body110.i.i
@@ -852,15 +851,15 @@ for.body132.i.i:                                  ; preds = %for.body132.i.i, %i
   %indvars.iv119.i = phi i64 [ 0, %if.end127.i.i ], [ %indvars.iv.next120.i, %for.body132.i.i ]
   %arrayidx134.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %indvars.iv119.i
   %baseValue135.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %indvars.iv119.i, i32 3
-  %9 = load i32, ptr %baseValue135.i.i, align 4
-  %idxprom136.i.i = zext i32 %9 to i64
+  %10 = load i32, ptr %baseValue135.i.i, align 4
+  %idxprom136.i.i = zext i32 %10 to i64
   %arrayidx137.i.i = getelementptr inbounds i16, ptr %wksp, i64 %idxprom136.i.i
-  %10 = load i16, ptr %arrayidx137.i.i, align 2
-  %inc138.i.i = add i16 %10, 1
+  %11 = load i16, ptr %arrayidx137.i.i, align 2
+  %inc138.i.i = add i16 %11, 1
   store i16 %inc138.i.i, ptr %arrayidx137.i.i, align 2
-  %conv139.i.i = zext i16 %10 to i32
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %conv139.i.i, i1 true), !range !14
-  %sub.i79.i = xor i32 %11, 31
+  %conv139.i.i = zext i16 %11 to i32
+  %12 = tail call i32 @llvm.ctlz.i32(i32 %conv139.i.i, i1 true), !range !14
+  %sub.i79.i = xor i32 %12, 31
   %sub140.i.i = sub i32 %tableLog, %sub.i79.i
   %conv141.i.i = trunc i32 %sub140.i.i to i8
   %nbBits.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %indvars.iv119.i, i32 2
@@ -871,12 +870,12 @@ for.body132.i.i:                                  ; preds = %for.body132.i.i, %i
   %conv150.i.i = trunc i32 %sub149.i.i to i16
   store i16 %conv150.i.i, ptr %arrayidx134.i.i, align 4
   %arrayidx155.i.i = getelementptr inbounds i8, ptr %nbAdditionalBits, i64 %idxprom136.i.i
-  %12 = load i8, ptr %arrayidx155.i.i, align 1
+  %13 = load i8, ptr %arrayidx155.i.i, align 1
   %nbAdditionalBits158.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %indvars.iv119.i, i32 1
-  store i8 %12, ptr %nbAdditionalBits158.i.i, align 2
+  store i8 %13, ptr %nbAdditionalBits158.i.i, align 2
   %arrayidx160.i.i = getelementptr inbounds i32, ptr %baseValue, i64 %idxprom136.i.i
-  %13 = load i32, ptr %arrayidx160.i.i, align 4
-  store i32 %13, ptr %baseValue135.i.i, align 4
+  %14 = load i32, ptr %arrayidx160.i.i, align 4
+  store i32 %14, ptr %baseValue135.i.i, align 4
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i.pre-phi
   br i1 %exitcond123.not.i, label %return, label %for.body132.i.i, !llvm.loop !15
@@ -1006,18 +1005,17 @@ for.end56.i:                                      ; preds = %for.body51.i, %for.
 for.cond69.i.preheader:                           ; preds = %for.cond64.i.preheader, %for.cond69.i.preheader
   %position.i.0101 = phi i64 [ 0, %for.cond64.i.preheader ], [ %and84.i, %for.cond69.i.preheader ]
   %s63.i.0100 = phi i64 [ 0, %for.cond64.i.preheader ], [ %add86.i, %for.cond69.i.preheader ]
+  %5 = getelementptr i8, ptr %add.ptr2.i, i64 %s63.i.0100
   %and.i = and i64 %position.i.0101, %conv33.i134
-  %arrayidx75.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %s63.i.0100
-  %5 = load i8, ptr %arrayidx75.i, align 1
-  %conv76.i = zext i8 %5 to i32
+  %6 = load i8, ptr %5, align 1
+  %conv76.i = zext i8 %6 to i32
   %baseValue78.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %and.i, i32 3
   store i32 %conv76.i, ptr %baseValue78.i, align 4
   %add73.i.c = add nuw nsw i64 %position.i.0101, %conv37.i135
   %and.i.c = and i64 %add73.i.c, %conv33.i134
-  %add74.i.c = or disjoint i64 %s63.i.0100, 1
-  %arrayidx75.i.c = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %add74.i.c
-  %6 = load i8, ptr %arrayidx75.i.c, align 1
-  %conv76.i.c = zext i8 %6 to i32
+  %arrayidx75.i.c = getelementptr i8, ptr %5, i64 1
+  %7 = load i8, ptr %arrayidx75.i.c, align 1
+  %conv76.i.c = zext i8 %7 to i32
   %baseValue78.i.c = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %and.i.c, i32 3
   store i32 %conv76.i.c, ptr %baseValue78.i.c, align 4
   %add83.i = add nuw nsw i64 %position.i.0101, %mul82.i
@@ -1041,13 +1039,13 @@ for.body101.i:                                    ; preds = %for.body101.i.lr.ph
   %indvars.iv106 = phi i64 [ 0, %for.body101.i.lr.ph ], [ %indvars.iv.next107, %for.end123.i ]
   %position97.i.091 = phi i32 [ 0, %for.body101.i.lr.ph ], [ %position97.i.1.lcssa, %for.end123.i ]
   %arrayidx105.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv106
-  %7 = load i16, ptr %arrayidx105.i, align 2
-  %conv106.i = sext i16 %7 to i32
-  %cmp108.i86 = icmp sgt i16 %7, 0
+  %8 = load i16, ptr %arrayidx105.i, align 2
+  %conv106.i = sext i16 %8 to i32
+  %cmp108.i86 = icmp sgt i16 %8, 0
   br i1 %cmp108.i86, label %for.body110.i.preheader, label %for.end123.i
 
 for.body110.i.preheader:                          ; preds = %for.body101.i
-  %8 = trunc i64 %indvars.iv106 to i32
+  %9 = trunc i64 %indvars.iv106 to i32
   br label %for.body110.i
 
 for.body110.i:                                    ; preds = %for.body110.i.preheader, %while.end.i
@@ -1055,7 +1053,7 @@ for.body110.i:                                    ; preds = %for.body110.i.prehe
   %position97.i.187 = phi i32 [ %position97.i.2, %while.end.i ], [ %position97.i.091, %for.body110.i.preheader ]
   %idxprom111.i = zext i32 %position97.i.187 to i64
   %baseValue113.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %idxprom111.i, i32 3
-  store i32 %8, ptr %baseValue113.i, align 4
+  store i32 %9, ptr %baseValue113.i, align 4
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %for.body110.i
@@ -1084,15 +1082,15 @@ for.body132.i:                                    ; preds = %if.end127.i, %for.b
   %indvars.iv119 = phi i64 [ 0, %if.end127.i ], [ %indvars.iv.next120, %for.body132.i ]
   %arrayidx134.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %indvars.iv119
   %baseValue135.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %indvars.iv119, i32 3
-  %9 = load i32, ptr %baseValue135.i, align 4
-  %idxprom136.i = zext i32 %9 to i64
+  %10 = load i32, ptr %baseValue135.i, align 4
+  %idxprom136.i = zext i32 %10 to i64
   %arrayidx137.i = getelementptr inbounds i16, ptr %wksp, i64 %idxprom136.i
-  %10 = load i16, ptr %arrayidx137.i, align 2
-  %inc138.i = add i16 %10, 1
+  %11 = load i16, ptr %arrayidx137.i, align 2
+  %inc138.i = add i16 %11, 1
   store i16 %inc138.i, ptr %arrayidx137.i, align 2
-  %conv139.i = zext i16 %10 to i32
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %conv139.i, i1 true), !range !14
-  %sub.i79 = xor i32 %11, 31
+  %conv139.i = zext i16 %11 to i32
+  %12 = tail call i32 @llvm.ctlz.i32(i32 %conv139.i, i1 true), !range !14
+  %sub.i79 = xor i32 %12, 31
   %sub140.i = sub i32 %tableLog, %sub.i79
   %conv141.i = trunc i32 %sub140.i to i8
   %nbBits.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %indvars.iv119, i32 2
@@ -1103,12 +1101,12 @@ for.body132.i:                                    ; preds = %if.end127.i, %for.b
   %conv150.i = trunc i32 %sub149.i to i16
   store i16 %conv150.i, ptr %arrayidx134.i, align 4
   %arrayidx155.i = getelementptr inbounds i8, ptr %nbAdditionalBits, i64 %idxprom136.i
-  %12 = load i8, ptr %arrayidx155.i, align 1
+  %13 = load i8, ptr %arrayidx155.i, align 1
   %nbAdditionalBits158.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %indvars.iv119, i32 1
-  store i8 %12, ptr %nbAdditionalBits158.i, align 2
+  store i8 %13, ptr %nbAdditionalBits158.i, align 2
   %arrayidx160.i = getelementptr inbounds i32, ptr %baseValue, i64 %idxprom136.i
-  %13 = load i32, ptr %arrayidx160.i, align 4
-  store i32 %13, ptr %baseValue135.i, align 4
+  %14 = load i32, ptr %arrayidx160.i, align 4
+  store i32 %14, ptr %baseValue135.i, align 4
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
   br i1 %exitcond123.not, label %ZSTD_buildFSETable_body.exit, label %for.body132.i, !llvm.loop !15

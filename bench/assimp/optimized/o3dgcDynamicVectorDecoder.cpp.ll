@@ -38,8 +38,7 @@ while.body:                                       ; preds = %entry, %while.body
   %2 = getelementptr i64, ptr %data, i64 %p.016
   %arrayidx4 = getelementptr i64, ptr %2, i64 -1
   %3 = load i64, ptr %arrayidx4, align 8
-  %add = or disjoint i64 %p.016, 1
-  %arrayidx5 = getelementptr inbounds i64, ptr %data, i64 %add
+  %arrayidx5 = getelementptr i64, ptr %2, i64 1
   %4 = load i64, ptr %arrayidx5, align 8
   %add6 = add i64 %3, 2
   %add7 = add i64 %add6, %4
@@ -1146,41 +1145,41 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %data, i64 noundef %size) local_unnamed_addr #4 comdat {
 entry:
-  %cmp33 = icmp ugt i64 %size, 1
-  br i1 %cmp33, label %while.body.preheader, label %for.end
+  %cmp32 = icmp ugt i64 %size, 1
+  br i1 %cmp32, label %while.body.preheader, label %for.end
 
 while.body.preheader:                             ; preds = %entry
   %and = and i64 %size, 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %k.036 = phi i64 [ %inc4, %while.body ], [ 1, %while.body.preheader ]
-  %even.035 = phi i64 [ %add6, %while.body ], [ %and, %while.body.preheader ]
-  %n.034 = phi i64 [ %add2, %while.body ], [ %size, %while.body.preheader ]
-  %shr = lshr i64 %n.034, 1
-  %and1 = and i64 %n.034, 1
+  %k.035 = phi i64 [ %inc4, %while.body ], [ 1, %while.body.preheader ]
+  %even.034 = phi i64 [ %add6, %while.body ], [ %and, %while.body.preheader ]
+  %n.033 = phi i64 [ %add2, %while.body ], [ %size, %while.body.preheader ]
+  %shr = lshr i64 %n.033, 1
+  %and1 = and i64 %n.033, 1
   %add2 = add nuw i64 %shr, %and1
   %and3 = and i64 %add2, 1
-  %inc4 = add i64 %k.036, 1
-  %shl5 = shl nuw i64 %and3, %k.036
-  %add6 = add i64 %shl5, %even.035
+  %inc4 = add i64 %k.035, 1
+  %shl5 = shl nuw i64 %and3, %k.035
+  %add6 = add i64 %shl5, %even.034
   %cmp = icmp ugt i64 %add2, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %while.body
-  %0 = add i64 %k.036, -1
-  %cmp739 = icmp sgt i64 %0, -1
-  br i1 %cmp739, label %for.body.lr.ph, label %for.end
+  %0 = add i64 %k.035, -1
+  %cmp738 = icmp sgt i64 %0, -1
+  br i1 %cmp738, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %while.end
   %arrayidx.i17 = getelementptr inbounds i64, ptr %data, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5o3dgc8IPredictEPll.exit
-  %i.041 = phi i64 [ %0, %for.body.lr.ph ], [ %dec, %_ZN5o3dgc8IPredictEPll.exit ]
-  %n.140 = phi i64 [ 1, %for.body.lr.ph ], [ %sub11, %_ZN5o3dgc8IPredictEPll.exit ]
-  %shl8 = shl i64 %n.140, 1
-  %shr9 = lshr i64 %add6, %i.041
+  %i.040 = phi i64 [ %0, %for.body.lr.ph ], [ %dec, %_ZN5o3dgc8IPredictEPll.exit ]
+  %n.139 = phi i64 [ 1, %for.body.lr.ph ], [ %sub11, %_ZN5o3dgc8IPredictEPll.exit ]
+  %shl8 = shl i64 %n.139, 1
+  %shr9 = lshr i64 %add6, %i.040
   %and10 = and i64 %shr9, 1
   %sub11 = sub i64 %shl8, %and10
   %shr.i = ashr i64 %sub11, 1
@@ -1226,8 +1225,7 @@ while.body.i:                                     ; preds = %_ZN5o3dgc5MergeEPll
   %5 = getelementptr i64, ptr %data, i64 %p.016.i
   %arrayidx4.i = getelementptr i64, ptr %5, i64 -1
   %6 = load i64, ptr %arrayidx4.i, align 8
-  %add.i19 = or disjoint i64 %p.016.i, 1
-  %arrayidx5.i = getelementptr inbounds i64, ptr %data, i64 %add.i19
+  %arrayidx5.i = getelementptr i64, ptr %5, i64 1
   %7 = load i64, ptr %arrayidx5.i, align 8
   %add6.i = add i64 %6, 2
   %add7.i = add i64 %add6.i, %7
@@ -1236,8 +1234,8 @@ while.body.i:                                     ; preds = %_ZN5o3dgc5MergeEPll
   %sub10.i = sub nsw i64 %8, %shr8.i
   store i64 %sub10.i, ptr %5, align 8
   %add11.i = add nuw nsw i64 %p.016.i, 2
-  %cmp.i20 = icmp slt i64 %add11.i, %sub.i
-  br i1 %cmp.i20, label %while.body.i, label %while.end.i, !llvm.loop !4
+  %cmp.i19 = icmp slt i64 %add11.i, %sub.i
+  br i1 %cmp.i19, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %_ZN5o3dgc5MergeEPll.exit
   %p.0.lcssa.i = phi i64 [ 2, %_ZN5o3dgc5MergeEPll.exit ], [ %add11.i, %while.body.i ]
@@ -1255,32 +1253,32 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZN5o3dgc7IUpdateEPll.exit
 
 _ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %while.end.i, %if.then.i
-  %cmp13.i22 = icmp sgt i64 %sub11, 2
-  br i1 %cmp13.i22, label %while.body.i26, label %while.end.i23
+  %cmp13.i21 = icmp sgt i64 %sub11, 2
+  br i1 %cmp13.i21, label %while.body.i25, label %while.end.i22
 
-while.body.i26:                                   ; preds = %_ZN5o3dgc7IUpdateEPll.exit, %while.body.i26
-  %p.014.i = phi i64 [ %add7.i31, %while.body.i26 ], [ 1, %_ZN5o3dgc7IUpdateEPll.exit ]
+while.body.i25:                                   ; preds = %_ZN5o3dgc7IUpdateEPll.exit, %while.body.i25
+  %p.014.i = phi i64 [ %add7.i30, %while.body.i25 ], [ 1, %_ZN5o3dgc7IUpdateEPll.exit ]
   %12 = getelementptr i64, ptr %data, i64 %p.014.i
-  %arrayidx.i27 = getelementptr i64, ptr %12, i64 -1
-  %13 = load i64, ptr %arrayidx.i27, align 8
+  %arrayidx.i26 = getelementptr i64, ptr %12, i64 -1
+  %13 = load i64, ptr %arrayidx.i26, align 8
   %arrayidx2.i = getelementptr i64, ptr %12, i64 1
   %14 = load i64, ptr %arrayidx2.i, align 8
   %add3.i = add i64 %13, 1
-  %add4.i28 = add i64 %add3.i, %14
-  %shr.i29 = ashr i64 %add4.i28, 1
+  %add4.i27 = add i64 %add3.i, %14
+  %shr.i28 = ashr i64 %add4.i27, 1
   %15 = load i64, ptr %12, align 8
-  %add6.i30 = add nsw i64 %shr.i29, %15
-  store i64 %add6.i30, ptr %12, align 8
-  %add7.i31 = add nuw nsw i64 %p.014.i, 2
-  %cmp.i32 = icmp slt i64 %add7.i31, %sub.i
-  br i1 %cmp.i32, label %while.body.i26, label %while.end.i23, !llvm.loop !6
+  %add6.i29 = add nsw i64 %shr.i28, %15
+  store i64 %add6.i29, ptr %12, align 8
+  %add7.i30 = add nuw nsw i64 %p.014.i, 2
+  %cmp.i31 = icmp slt i64 %add7.i30, %sub.i
+  br i1 %cmp.i31, label %while.body.i25, label %while.end.i22, !llvm.loop !6
 
-while.end.i23:                                    ; preds = %while.body.i26, %_ZN5o3dgc7IUpdateEPll.exit
-  %p.0.lcssa.i24 = phi i64 [ 1, %_ZN5o3dgc7IUpdateEPll.exit ], [ %add7.i31, %while.body.i26 ]
-  %cmp8.i = icmp eq i64 %p.0.lcssa.i24, %sub.i
-  br i1 %cmp8.i, label %if.then.i25, label %_ZN5o3dgc8IPredictEPll.exit
+while.end.i22:                                    ; preds = %while.body.i25, %_ZN5o3dgc7IUpdateEPll.exit
+  %p.0.lcssa.i23 = phi i64 [ 1, %_ZN5o3dgc7IUpdateEPll.exit ], [ %add7.i30, %while.body.i25 ]
+  %cmp8.i = icmp eq i64 %p.0.lcssa.i23, %sub.i
+  br i1 %cmp8.i, label %if.then.i24, label %_ZN5o3dgc8IPredictEPll.exit
 
-if.then.i25:                                      ; preds = %while.end.i23
+if.then.i24:                                      ; preds = %while.end.i22
   %16 = getelementptr i64, ptr %data, i64 %sub.i
   %arrayidx10.i = getelementptr i64, ptr %16, i64 -1
   %17 = load i64, ptr %arrayidx10.i, align 8
@@ -1289,9 +1287,9 @@ if.then.i25:                                      ; preds = %while.end.i23
   store i64 %add12.i, ptr %16, align 8
   br label %_ZN5o3dgc8IPredictEPll.exit
 
-_ZN5o3dgc8IPredictEPll.exit:                      ; preds = %while.end.i23, %if.then.i25
-  %dec = add nsw i64 %i.041, -1
-  %cmp7 = icmp sgt i64 %i.041, 0
+_ZN5o3dgc8IPredictEPll.exit:                      ; preds = %while.end.i22, %if.then.i24
+  %dec = add nsw i64 %i.040, -1
+  %cmp7 = icmp sgt i64 %i.040, 0
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %_ZN5o3dgc8IPredictEPll.exit, %entry, %while.end

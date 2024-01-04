@@ -6575,14 +6575,14 @@ if.then:                                          ; preds = %entry
   %and.i = and i64 %shr.i, 1040384
   %shr1.i = lshr i64 %sub.i, 42
   %and3.i = and i64 %shr1.i, 8128
-  %or.i = or disjoint i64 %and.i, %and3.i
   %3 = lshr i64 %sub.i, 24
   %and6.i = and i64 %3, 63
-  %or7.i = or disjoint i64 %or.i, %and6.i
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %or7.i
-  %4 = load i64, ptr %arrayidx, align 8
+  %4 = getelementptr i64, ptr %2, i64 %and.i
+  %5 = getelementptr i64, ptr %4, i64 %and3.i
+  %arrayidx = getelementptr i64, ptr %5, i64 %and6.i
+  %6 = load i64, ptr %arrayidx, align 8
   %and = and i64 %ce, 49152
-  %or = or i64 %4, %and
+  %or = or i64 %6, %and
   br label %return
 
 return:                                           ; preds = %entry, %if.then

@@ -2680,6 +2680,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN6hermes6parser10JSO
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr %"struct.std::pair", ptr %__first, i64 1
   %cmp27 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp27, label %while.body, label %while.end
 
@@ -2688,10 +2689,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub1
+  %gep = getelementptr %"struct.std::pair", ptr %invariant.gep, i64 %add
   %add.ptr.val = load ptr, ptr %add.ptr, align 8
-  %add.ptr2.val = load ptr, ptr %add.ptr2, align 8
+  %add.ptr2.val = load ptr, ptr %gep, align 8
   %0 = getelementptr i8, ptr %add.ptr.val, i64 16
   %add.ptr.val.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %add.ptr2.val, i64 16
@@ -2721,7 +2721,8 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh9StringRef1
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
   %retval.i.0.i.i.i = phi i1 [ %cmp.i.inv.i.i.i, %if.then.i.i.i.i ], [ %cmp12.i.i.i.i, %if.end.i.i.i.i ]
-  %spec.select = select i1 %retval.i.0.i.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.i.0.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
   %4 = load <2 x ptr>, ptr %add.ptr3, align 8
@@ -2742,7 +2743,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa

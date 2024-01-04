@@ -233,7 +233,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.rewriteFunctions.function_load = private unnamed_addr constant [25 x i8] c"$8\0D\0AFUNCTION\0D\0A$4\0D\0ALOAD\0D\0A\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofInfoCreate() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofInfoCreate() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   ret ptr %call
@@ -277,7 +277,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 declare void @zfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofInfoDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofInfoDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %orig, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -288,7 +288,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %0 = load ptr, ptr %orig, align 8
   %call2 = tail call ptr @sdsdup(ptr noundef %0) #19
   store ptr %call2, ptr %call.i, align 8
@@ -412,7 +412,7 @@ aofInfoFree.exit:                                 ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofListDup(ptr noundef readonly %item) #0 {
+define dso_local noalias noundef ptr @aofListDup(ptr noundef readonly %item) #0 {
 entry:
   %cmp.not.i = icmp eq ptr %item, null
   br i1 %cmp.not.i, label %cond.false.i, label %aofInfoDup.exit
@@ -423,7 +423,7 @@ cond.false.i:                                     ; preds = %entry
   unreachable
 
 aofInfoDup.exit:                                  ; preds = %entry
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %0 = load ptr, ptr %item, align 8
   %call2.i = tail call ptr @sdsdup(ptr noundef %0) #19
   store ptr %call2.i, ptr %call.i.i, align 8
@@ -439,7 +439,7 @@ aofInfoDup.exit:                                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofManifestCreate() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofManifestCreate() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zcalloc(i64 noundef 48) #18
   %call1 = tail call ptr @listCreate() #19
@@ -727,7 +727,7 @@ declare ptr @makePath(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @fileExist(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofLoadManifestFromFile(ptr noundef %am_filepath) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofLoadManifestFromFile(ptr noundef %am_filepath) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1025 x i8], align 16
   %argc = alloca i32, align 4
@@ -857,7 +857,7 @@ if.end32:                                         ; preds = %sdslen.exit
   br i1 %or.cond53, label %if.end41, label %loaderr
 
 if.end41:                                         ; preds = %if.end32
-  %call.i54 = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i54 = call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %9 = load i32, ptr %argc, align 4
   %cmp43120 = icmp sgt i32 %9, 0
   br i1 %cmp43120, label %for.body.lr.ph, label %for.end
@@ -865,10 +865,13 @@ if.end41:                                         ; preds = %if.end32
 for.body.lr.ph:                                   ; preds = %if.end41
   %file_type = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 2
   %file_seq = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 1
+  %invariant.gep = getelementptr ptr, ptr %call33, i64 1
+  %invariant.gep182 = getelementptr ptr, ptr %call33, i64 1
+  %invariant.gep184 = getelementptr ptr, ptr %call33, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %10 = phi i32 [ %9, %for.body.lr.ph ], [ %19, %for.inc ]
+  %10 = phi i32 [ %9, %for.body.lr.ph ], [ %16, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx45 = getelementptr inbounds ptr, ptr %call33, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx45, align 8
@@ -877,10 +880,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool47.not, label %if.then48, label %if.else57
 
 if.then48:                                        ; preds = %for.body
-  %12 = or disjoint i64 %indvars.iv, 1
-  %arrayidx50 = getelementptr inbounds ptr, ptr %call33, i64 %12
-  %13 = load ptr, ptr %arrayidx50, align 8
-  %call51 = call ptr @sdsnew(ptr noundef %13) #19
+  %gep185 = getelementptr ptr, ptr %invariant.gep184, i64 %indvars.iv
+  %12 = load ptr, ptr %gep185, align 8
+  %call51 = call ptr @sdsnew(ptr noundef %12) #19
   store ptr %call51, ptr %call.i54, align 8
   %call53 = call i32 @pathIsBaseName(ptr noundef %call51) #19
   %tobool54.not = icmp eq i32 %call53, 0
@@ -893,10 +895,9 @@ if.else57:                                        ; preds = %for.body
   br i1 %tobool61.not, label %if.then62, label %if.else67
 
 if.then62:                                        ; preds = %if.else57
-  %14 = or disjoint i64 %indvars.iv, 1
-  %arrayidx65 = getelementptr inbounds ptr, ptr %call33, i64 %14
-  %15 = load ptr, ptr %arrayidx65, align 8
-  %call66 = call i64 @atoll(ptr nocapture noundef %15) #22
+  %gep183 = getelementptr ptr, ptr %invariant.gep182, i64 %indvars.iv
+  %13 = load ptr, ptr %gep183, align 8
+  %call66 = call i64 @atoll(ptr nocapture noundef %13) #22
   store i64 %call66, ptr %file_seq, align 8
   br label %for.inc
 
@@ -906,57 +907,56 @@ if.else67:                                        ; preds = %if.else57
   br i1 %tobool71.not, label %if.then72, label %for.inc
 
 if.then72:                                        ; preds = %if.else67
-  %16 = or disjoint i64 %indvars.iv, 1
-  %arrayidx75 = getelementptr inbounds ptr, ptr %call33, i64 %16
-  %17 = load ptr, ptr %arrayidx75, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv77 = sext i8 %18 to i32
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %14 = load ptr, ptr %gep, align 8
+  %15 = load i8, ptr %14, align 1
+  %conv77 = sext i8 %15 to i32
   store i32 %conv77, ptr %file_type, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then48, %if.else67, %if.then72, %if.then62
-  %19 = phi i32 [ %10, %if.else67 ], [ %10, %if.then72 ], [ %10, %if.then62 ], [ %.pre143, %if.then48 ]
+  %16 = phi i32 [ %10, %if.else67 ], [ %10, %if.then72 ], [ %10, %if.then62 ], [ %.pre143, %if.then48 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %20 = trunc i64 %indvars.iv.next to i32
-  %cmp43 = icmp sgt i32 %19, %20
+  %17 = trunc i64 %indvars.iv.next to i32
+  %cmp43 = icmp sgt i32 %16, %17
   br i1 %cmp43, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end41
-  %.lcssa = phi i32 [ %9, %if.end41 ], [ %19, %for.inc ]
-  %21 = load ptr, ptr %call.i54, align 8
-  %tobool83.not = icmp eq ptr %21, null
+  %.lcssa = phi i32 [ %9, %if.end41 ], [ %16, %for.inc ]
+  %18 = load ptr, ptr %call.i54, align 8
+  %tobool83.not = icmp eq ptr %18, null
   br i1 %tobool83.not, label %if.end127.thread152, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %for.end
   %file_seq85 = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 1
-  %22 = load i64, ptr %file_seq85, align 8
-  %tobool86.not = icmp eq i64 %22, 0
+  %19 = load i64, ptr %file_seq85, align 8
+  %tobool86.not = icmp eq i64 %19, 0
   br i1 %tobool86.not, label %if.end127.thread152, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false84
   %file_type88 = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 2
-  %23 = load i32, ptr %file_type88, align 8
-  %tobool89.not = icmp eq i32 %23, 0
+  %20 = load i32, ptr %file_type88, align 8
+  %tobool89.not = icmp eq i32 %20, 0
   br i1 %tobool89.not, label %if.end127.thread152, label %if.end91
 
 if.end91:                                         ; preds = %lor.lhs.false87
   call void @sdsfreesplitres(ptr noundef nonnull %call33, i32 noundef %.lcssa) #19
-  %24 = load i32, ptr %file_type88, align 8
-  switch i32 %24, label %if.then129 [
+  %21 = load i32, ptr %file_type88, align 8
+  switch i32 %21, label %if.then129 [
     i32 98, label %if.then95
     i32 104, label %if.then105
     i32 105, label %if.then111
   ]
 
 if.then95:                                        ; preds = %if.end91
-  %25 = load ptr, ptr %call.i, align 8
-  %tobool96.not = icmp eq ptr %25, null
+  %22 = load ptr, ptr %call.i, align 8
+  %tobool96.not = icmp eq ptr %22, null
   br i1 %tobool96.not, label %if.end98, label %if.then129
 
 if.end98:                                         ; preds = %if.then95
   store ptr %call.i54, ptr %call.i, align 8
-  %26 = load i64, ptr %file_seq85, align 8
-  store i64 %26, ptr %curr_base_file_seq, align 8
+  %23 = load i64, ptr %file_seq85, align 8
+  store i64 %23, ptr %curr_base_file_seq, align 8
   br label %if.end123
 
 if.then105:                                       ; preds = %if.end91
@@ -964,18 +964,18 @@ if.then105:                                       ; preds = %if.end91
   br label %if.end123
 
 if.then111:                                       ; preds = %if.end91
-  %27 = load i64, ptr %file_seq85, align 8
-  %cmp113.not = icmp sgt i64 %27, %maxseq.0.ph
+  %24 = load i64, ptr %file_seq85, align 8
+  %cmp113.not = icmp sgt i64 %24, %maxseq.0.ph
   br i1 %cmp113.not, label %if.end116, label %if.then129
 
 if.end116:                                        ; preds = %if.then111
   %call117 = call ptr @listAddNodeTail(ptr noundef %call1.i, ptr noundef nonnull %call.i54) #19
-  %28 = load i64, ptr %file_seq85, align 8
-  store i64 %28, ptr %curr_incr_file_seq, align 8
+  %25 = load i64, ptr %file_seq85, align 8
+  store i64 %25, ptr %curr_incr_file_seq, align 8
   br label %if.end123
 
 if.end123:                                        ; preds = %if.then105, %if.end116, %if.end98
-  %maxseq.1 = phi i64 [ %maxseq.0.ph, %if.end98 ], [ %maxseq.0.ph, %if.then105 ], [ %28, %if.end116 ]
+  %maxseq.1 = phi i64 [ %maxseq.0.ph, %if.end98 ], [ %maxseq.0.ph, %if.then105 ], [ %25, %if.end116 ]
   call void @sdsfree(ptr noundef %call28) #19
   br label %while.body.outer
 
@@ -1011,8 +1011,8 @@ do.body131:                                       ; preds = %if.end25, %if.end19
   %err.06389 = phi ptr [ @.str.20, %if.end127 ], [ %err.063101, %if.then129 ], [ @.str.16, %if.then11 ], [ @.str.17, %if.then9 ], [ @.str.20, %loaderr ], [ @.str.20, %sdslen.exit ], [ @.str.18, %if.end19 ], [ @.str.20, %if.end25 ]
   %line.16588 = phi ptr [ %call28, %if.end127 ], [ %call28, %if.then129 ], [ null, %if.then11 ], [ null, %if.then9 ], [ %call28, %loaderr ], [ %call28, %sdslen.exit ], [ null, %if.end19 ], [ %call28, %if.end25 ]
   %linenum.16687 = phi i32 [ %inc, %if.end127 ], [ %inc, %if.then129 ], [ 0, %if.then11 ], [ %linenum.0, %if.then9 ], [ %inc, %loaderr ], [ %inc, %sdslen.exit ], [ %inc, %if.end19 ], [ %inc, %if.end25 ]
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
-  %cmp132 = icmp sgt i32 %29, 3
+  %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %cmp132 = icmp sgt i32 %26, 3
   br i1 %cmp132, label %do.end136, label %if.end135
 
 if.end135:                                        ; preds = %do.body131
@@ -1021,7 +1021,7 @@ if.end135:                                        ; preds = %do.body131
   br label %do.end136
 
 do.end136:                                        ; preds = %do.body131, %if.end135
-  %.pr80.pre144 = phi i32 [ %29, %do.body131 ], [ %.pr80.pre144.pre, %if.end135 ]
+  %.pr80.pre144 = phi i32 [ %26, %do.body131 ], [ %.pr80.pre144.pre, %if.end135 ]
   %tobool137.not = icmp eq ptr %line.16588, null
   br i1 %tobool137.not, label %do.body152, label %do.body139
 
@@ -1160,7 +1160,7 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @aofManifestDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofManifestDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %orig, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -1185,7 +1185,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool5.not, label %if.end, label %aofInfoDup.exit
 
 aofInfoDup.exit:                                  ; preds = %cond.end
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %3 = load ptr, ptr %2, align 8
   %call2.i = tail call ptr @sdsdup(ptr noundef %3) #19
   store ptr %call2.i, ptr %call.i.i, align 8
@@ -1273,7 +1273,7 @@ if.end:                                           ; preds = %cond.end14, %cond.e
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 214), align 4
   %tobool18.not = icmp eq i32 %4, 0
   %cond = select i1 %tobool18.not, ptr @.str.33, ptr @.str.32
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %call20 = tail call ptr @sdsempty() #19
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
   %curr_base_file_seq = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 3
@@ -1298,7 +1298,7 @@ declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @getNewIncrAofName(ptr nocapture noundef %am) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %file_type = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 2
   store i32 105, ptr %file_type, align 8
   %call1 = tail call ptr @sdsempty() #19
@@ -1350,7 +1350,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
   store i32 105, ptr %file_type.i, align 8
   %call1.i = tail call ptr @sdsempty() #19
@@ -1444,7 +1444,7 @@ cond.false31:                                     ; preds = %while.body
   unreachable
 
 aofInfoDup.exit:                                  ; preds = %while.body
-  %call.i.i = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %5 = load ptr, ptr %3, align 8
   %call2.i = call ptr @sdsdup(ptr noundef %5) #19
   store ptr %call2.i, ptr %call.i.i, align 8
@@ -1476,7 +1476,7 @@ declare void @listRewindTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @writeAofManifestFile(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local noundef i32 @writeAofManifestFile(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @sdsempty() #19
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
@@ -1672,7 +1672,7 @@ declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @persistAofManifest(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local noundef i32 @persistAofManifest(ptr noundef %am) local_unnamed_addr #0 {
 entry:
   %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
   %0 = load i32, ptr %dirty, align 8
@@ -1753,7 +1753,7 @@ aofInfoFree.exit:                                 ; preds = %cond.end.i, %if.the
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end11, %aofInfoFree.exit
-  %call.i11 = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i11 = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
   %call17 = tail call ptr @sdsnew(ptr noundef %8) #19
   store ptr %call17, ptr %call.i11, align 8
@@ -1834,7 +1834,7 @@ entry:
 declare i32 @dirCreateIfMissing(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aofDelHistoryFiles() local_unnamed_addr #0 {
+define dso_local noundef i32 @aofDelHistoryFiles() local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
@@ -2099,7 +2099,7 @@ if.end76:                                         ; preds = %if.end60, %if.end76
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteAppendOnlyFile(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteAppendOnlyFile(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %aof = alloca %struct._rio, align 8
   %tmpfile = alloca [256 x i8], align 16
@@ -2325,7 +2325,7 @@ if.end26:                                         ; preds = %if.end18, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @openNewIncrAofForAppend() local_unnamed_addr #0 {
+define dso_local noundef i32 @openNewIncrAofForAppend() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2351,7 +2351,7 @@ if.then6:                                         ; preds = %cond.end
 
 if.else:                                          ; preds = %cond.end
   %call7 = tail call ptr @aofManifestDup(ptr noundef nonnull %0)
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
   store i32 105, ptr %file_type.i, align 8
   %call1.i18 = tail call ptr @sdsempty() #19
@@ -2570,7 +2570,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aofRewriteLimited() local_unnamed_addr #0 {
+define dso_local noundef i32 @aofRewriteLimited() local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 110), align 8
   %cmp = icmp slt i64 %0, 3
@@ -3528,7 +3528,7 @@ if.end217:                                        ; preds = %if.end175, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @startAppendOnly() local_unnamed_addr #0 {
+define dso_local noundef i32 @startAppendOnly() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
   %cmp = icmp eq i32 %0, 0
@@ -3648,7 +3648,7 @@ return:                                           ; preds = %if.end51, %do.end60
 declare i32 @hasActiveChildProcess() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteAppendOnlyFileBackground() local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteAppendOnlyFileBackground() local_unnamed_addr #0 {
 entry:
   %tmpfile = alloca [256 x i8], align 16
   %call = tail call i32 @hasActiveChildProcess() #19
@@ -4220,7 +4220,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createAOFClient() local_unnamed_addr #0 {
+define dso_local noundef ptr @createAOFClient() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @createClient(ptr noundef null) #19
   store i64 -1, ptr %call, align 8
@@ -5297,7 +5297,7 @@ declare i64 @rioWriteBulkString(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteListObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteListObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %entry2 = alloca %struct.listTypeEntry, align 8
   %vlen = alloca i64, align 8
@@ -5378,7 +5378,7 @@ declare void @listTypeReleaseIterator(ptr noundef) local_unnamed_addr #2
 declare ptr @listTypeGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -5462,7 +5462,7 @@ declare i32 @setTypeNext(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @setTypeReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteSortedSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteSortedSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %eptr = alloca ptr, align 8
   %sptr = alloca ptr, align 8
@@ -5703,7 +5703,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #2
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteHashObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteHashObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @hashTypeLength(ptr noundef %o) #19
   %call1 = tail call ptr @hashTypeInitIterator(ptr noundef %o) #19
@@ -6173,7 +6173,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteStreamObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteStreamObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %id = alloca %struct.streamID, align 8
@@ -6645,7 +6645,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @moduleFreeContext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rewriteAppendOnlyFileRio(ptr noundef %aof) local_unnamed_addr #0 {
+define dso_local noundef i32 @rewriteAppendOnlyFileRio(ptr noundef %aof) local_unnamed_addr #0 {
 entry:
   %io.i = alloca %struct.RedisModuleIO, align 8
   %function_load.i = alloca [25 x i8], align 16
@@ -7561,7 +7561,7 @@ if.then59:                                        ; preds = %do.end56
   %call1.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %16, ptr noundef nonnull @.str.36) #19
   %17 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 188), align 8
   %call61 = call ptr @makePath(ptr noundef %17, ptr noundef %call1.i) #19
-  %call.i.i = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
+  %call.i.i = call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
   store i32 105, ptr %file_type.i, align 8
   %call1.i46 = call ptr @sdsempty() #19

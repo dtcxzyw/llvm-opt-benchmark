@@ -6941,8 +6941,7 @@ for.body10.us30.i.i1865:                          ; preds = %for.body10.us30.i.i
   %xor5.i.i.i.us41.i.i1876 = xor i64 %shr4.i.i.i.us40.i.i1875, %mul3.i.i.i.us39.i.i1874
   %arrayidx17.us42.i.i1877 = getelementptr inbounds i64, ptr %112, i64 %conv.i46.us.i.i1868
   store i64 %xor5.i.i.i.us41.i.i1876, ptr %arrayidx17.us42.i.i1877, align 8, !tbaa !26, !alias.scope !280, !noalias !287
-  %inc19.us43.i.i1878 = or disjoint i64 %i6.029.us31.i.i1866, 1
-  %arrayidx.i45.us.i.i1867.1 = getelementptr inbounds i32, ptr %124, i64 %inc19.us43.i.i1878
+  %arrayidx.i45.us.i.i1867.1 = getelementptr i32, ptr %arrayidx.i45.us.i.i1867, i64 1
   %145 = load i32, ptr %arrayidx.i45.us.i.i1867.1, align 4, !tbaa !49, !noalias !284
   %conv.i46.us.i.i1868.1 = zext i32 %145 to i64
   %arrayidx15.us34.i.i1869.1 = getelementptr inbounds i32, ptr %111, i64 %conv.i46.us.i.i1868.1
@@ -7016,8 +7015,7 @@ for.body10.i.i1848:                               ; preds = %for.body10.i.i1848,
   %xor5.i.i.i.i27.i1861 = xor i64 %shr4.i.i.i.i26.i1860, %mul3.i.i.i.i25.i1859
   %arrayidx17.i.i1862 = getelementptr inbounds i64, ptr %112, i64 %conv.i46.i.i1851
   store i64 %xor5.i.i.i.i27.i1861, ptr %arrayidx17.i.i1862, align 8, !tbaa !26, !alias.scope !280, !noalias !287
-  %inc19.i.i1863 = or disjoint i64 %i6.029.i.i1849, 1
-  %arrayidx.i45.i.i1850.1 = getelementptr inbounds i32, ptr %124, i64 %inc19.i.i1863
+  %arrayidx.i45.i.i1850.1 = getelementptr i32, ptr %arrayidx.i45.i.i1850, i64 1
   %154 = load i32, ptr %arrayidx.i45.i.i1850.1, align 4, !tbaa !49, !noalias !284
   %conv.i46.i.i1851.1 = zext i32 %154 to i64
   %arrayidx.i51.i.i1852.1 = getelementptr inbounds i32, ptr %125, i64 %conv.i46.i.i1851.1
@@ -7857,8 +7855,7 @@ for.body10.us30.i.i1465:                          ; preds = %for.body10.us30.i.i
   %xor5.i.i.i.us41.i.i1476 = xor i64 %shr4.i.i.i.us40.i.i1475, %mul3.i.i.i.us39.i.i1474
   %arrayidx17.us42.i.i1477 = getelementptr inbounds i64, ptr %228, i64 %conv.i46.us.i.i1468
   store i64 %xor5.i.i.i.us41.i.i1476, ptr %arrayidx17.us42.i.i1477, align 8, !tbaa !26, !alias.scope !308, !noalias !315
-  %inc19.us43.i.i1478 = or disjoint i64 %i6.029.us31.i.i1466, 1
-  %arrayidx.i45.us.i.i1467.1 = getelementptr inbounds i32, ptr %240, i64 %inc19.us43.i.i1478
+  %arrayidx.i45.us.i.i1467.1 = getelementptr i32, ptr %arrayidx.i45.us.i.i1467, i64 1
   %251 = load i32, ptr %arrayidx.i45.us.i.i1467.1, align 4, !tbaa !49, !noalias !312
   %conv.i46.us.i.i1468.1 = zext i32 %251 to i64
   %arrayidx15.us34.i.i1469.1 = getelementptr inbounds i8, ptr %227, i64 %conv.i46.us.i.i1468.1
@@ -7932,8 +7929,7 @@ for.body10.i.i1448:                               ; preds = %for.body10.i.i1448,
   %xor5.i.i.i.i27.i1461 = xor i64 %shr4.i.i.i.i26.i1460, %mul3.i.i.i.i25.i1459
   %arrayidx17.i.i1462 = getelementptr inbounds i64, ptr %228, i64 %conv.i46.i.i1451
   store i64 %xor5.i.i.i.i27.i1461, ptr %arrayidx17.i.i1462, align 8, !tbaa !26, !alias.scope !308, !noalias !315
-  %inc19.i.i1463 = or disjoint i64 %i6.029.i.i1449, 1
-  %arrayidx.i45.i.i1450.1 = getelementptr inbounds i32, ptr %240, i64 %inc19.i.i1463
+  %arrayidx.i45.i.i1450.1 = getelementptr i32, ptr %arrayidx.i45.i.i1450, i64 1
   %260 = load i32, ptr %arrayidx.i45.i.i1450.1, align 4, !tbaa !49, !noalias !312
   %conv.i46.i.i1451.1 = zext i32 %260 to i64
   %arrayidx.i51.i.i1452.1 = getelementptr inbounds i32, ptr %241, i64 %conv.i46.i.i1451.1
@@ -8426,8 +8422,7 @@ for.body10.us30.i.i1227:                          ; preds = %for.body10.us30.i.i
   %xor5.i.i.i.us41.i.i1238 = xor i64 %shr4.i.i.i.us40.i.i1237, %mul3.i.i.i.us39.i.i1236
   %arrayidx17.us42.i.i1239 = getelementptr inbounds i64, ptr %290, i64 %conv.i46.us.i.i1230
   store i64 %xor5.i.i.i.us41.i.i1238, ptr %arrayidx17.us42.i.i1239, align 8, !tbaa !26, !alias.scope !321, !noalias !328
-  %inc19.us43.i.i1240 = or disjoint i64 %i6.029.us31.i.i1228, 1
-  %arrayidx.i45.us.i.i1229.1 = getelementptr inbounds i32, ptr %302, i64 %inc19.us43.i.i1240
+  %arrayidx.i45.us.i.i1229.1 = getelementptr i32, ptr %arrayidx.i45.us.i.i1229, i64 1
   %313 = load i32, ptr %arrayidx.i45.us.i.i1229.1, align 4, !tbaa !49, !noalias !325
   %conv.i46.us.i.i1230.1 = zext i32 %313 to i64
   %arrayidx15.us34.i.i1231.1 = getelementptr inbounds i16, ptr %289, i64 %conv.i46.us.i.i1230.1
@@ -8501,8 +8496,7 @@ for.body10.i.i1210:                               ; preds = %for.body10.i.i1210,
   %xor5.i.i.i.i27.i1223 = xor i64 %shr4.i.i.i.i26.i1222, %mul3.i.i.i.i25.i1221
   %arrayidx17.i.i1224 = getelementptr inbounds i64, ptr %290, i64 %conv.i46.i.i1213
   store i64 %xor5.i.i.i.i27.i1223, ptr %arrayidx17.i.i1224, align 8, !tbaa !26, !alias.scope !321, !noalias !328
-  %inc19.i.i1225 = or disjoint i64 %i6.029.i.i1211, 1
-  %arrayidx.i45.i.i1212.1 = getelementptr inbounds i32, ptr %302, i64 %inc19.i.i1225
+  %arrayidx.i45.i.i1212.1 = getelementptr i32, ptr %arrayidx.i45.i.i1212, i64 1
   %322 = load i32, ptr %arrayidx.i45.i.i1212.1, align 4, !tbaa !49, !noalias !325
   %conv.i46.i.i1213.1 = zext i32 %322 to i64
   %arrayidx.i51.i.i1214.1 = getelementptr inbounds i32, ptr %303, i64 %conv.i46.i.i1213.1
@@ -9011,8 +9005,7 @@ for.body10.us30.i.i:                              ; preds = %for.body10.us30.i.i
   %xor5.i.i.i.us41.i.i = xor i64 %shr4.i.i.i.us40.i.i, %mul3.i.i.i.us39.i.i
   %arrayidx17.us42.i.i = getelementptr inbounds i64, ptr %352, i64 %conv.i46.us.i.i1035
   store i64 %xor5.i.i.i.us41.i.i, ptr %arrayidx17.us42.i.i, align 8, !tbaa !26, !alias.scope !334, !noalias !341
-  %inc19.us43.i.i = or disjoint i64 %i6.029.us31.i.i, 1
-  %arrayidx.i45.us.i.i1034.1 = getelementptr inbounds i32, ptr %364, i64 %inc19.us43.i.i
+  %arrayidx.i45.us.i.i1034.1 = getelementptr i32, ptr %arrayidx.i45.us.i.i1034, i64 1
   %385 = load i32, ptr %arrayidx.i45.us.i.i1034.1, align 4, !tbaa !49, !noalias !338
   %conv.i46.us.i.i1035.1 = zext i32 %385 to i64
   %arrayidx15.us34.i.i.1 = getelementptr inbounds i32, ptr %351, i64 %conv.i46.us.i.i1035.1
@@ -9086,8 +9079,7 @@ for.body10.i.i1026:                               ; preds = %for.body10.i.i1026,
   %xor5.i.i.i.i27.i = xor i64 %shr4.i.i.i.i26.i, %mul3.i.i.i.i25.i
   %arrayidx17.i.i1032 = getelementptr inbounds i64, ptr %352, i64 %conv.i46.i.i1028
   store i64 %xor5.i.i.i.i27.i, ptr %arrayidx17.i.i1032, align 8, !tbaa !26, !alias.scope !334, !noalias !341
-  %inc19.i.i1033 = or disjoint i64 %i6.029.i.i, 1
-  %arrayidx.i45.i.i1027.1 = getelementptr inbounds i32, ptr %364, i64 %inc19.i.i1033
+  %arrayidx.i45.i.i1027.1 = getelementptr i32, ptr %arrayidx.i45.i.i1027, i64 1
   %394 = load i32, ptr %arrayidx.i45.i.i1027.1, align 4, !tbaa !49, !noalias !338
   %conv.i46.i.i1028.1 = zext i32 %394 to i64
   %arrayidx.i51.i.i1029.1 = getelementptr inbounds i32, ptr %365, i64 %conv.i46.i.i1028.1
@@ -24159,8 +24151,7 @@ for.body11.us32.i:                                ; preds = %for.body11.us32.i, 
   %xor.i62.us44.i = xor i64 %30, %mul3.i.i.i.us42.i
   %arrayidx20.us45.i = getelementptr inbounds i64, ptr %12, i64 %conv.i50.us.i
   store i64 %xor.i62.us44.i, ptr %arrayidx20.us45.i, align 8, !tbaa !26, !alias.scope !824, !noalias !831
-  %inc22.us46.i = or disjoint i64 %i7.031.us33.i, 1
-  %arrayidx.i49.us.i.1 = getelementptr inbounds i32, ptr %22, i64 %inc22.us46.i
+  %arrayidx.i49.us.i.1 = getelementptr i32, ptr %arrayidx.i49.us.i, i64 1
   %31 = load i32, ptr %arrayidx.i49.us.i.1, align 4, !tbaa !49, !noalias !828
   %conv.i50.us.i.1 = zext i32 %31 to i64
   %arrayidx17.us36.i.1 = getelementptr inbounds i8, ptr %11, i64 %conv.i50.us.i.1
@@ -24884,8 +24875,7 @@ for.body11.us32.i:                                ; preds = %for.body11.us32.i, 
   %xor.i62.us44.i = xor i64 %30, %mul3.i.i.i.us42.i
   %arrayidx20.us45.i = getelementptr inbounds i64, ptr %12, i64 %conv.i50.us.i
   store i64 %xor.i62.us44.i, ptr %arrayidx20.us45.i, align 8, !tbaa !26, !alias.scope !850, !noalias !857
-  %inc22.us46.i = or disjoint i64 %i7.031.us33.i, 1
-  %arrayidx.i49.us.i.1 = getelementptr inbounds i32, ptr %22, i64 %inc22.us46.i
+  %arrayidx.i49.us.i.1 = getelementptr i32, ptr %arrayidx.i49.us.i, i64 1
   %31 = load i32, ptr %arrayidx.i49.us.i.1, align 4, !tbaa !49, !noalias !854
   %conv.i50.us.i.1 = zext i32 %31 to i64
   %arrayidx17.us36.i.1 = getelementptr inbounds i16, ptr %11, i64 %conv.i50.us.i.1

@@ -1243,7 +1243,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.ne
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i: ; preds = %cleanup.us.i.1, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new
   %valid.050.us.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new ], [ %valid.3.us.i.1, %cleanup.us.i.1 ]
   %entry_idx.049.us.i = phi i64 [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i.preheader.new ], [ %inc.us.i.1, %cleanup.us.i.1 ]
-  %inc.us.i = or disjoint i64 %entry_idx.049.us.i, 1
   %arrayidx.i.i.us.i = getelementptr inbounds i64, ptr %0, i64 %entry_idx.049.us.i
   %12 = load i64, ptr %arrayidx.i.i.us.i, align 8, !tbaa !24
   switch i64 %12, label %while.body.us.i [
@@ -1267,7 +1266,7 @@ if.then17.us.i:                                   ; preds = %_ZNK6duckdb21Templa
 cleanup.us.i:                                     ; preds = %while.body.us.i, %if.then17.us.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i
   %valid.3.us.i = phi i64 [ %add18.us.i, %if.then17.us.i ], [ %valid.050.us.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i ], [ %inc20.us.i, %while.body.us.i ]
   %inc.us.i.1 = add nuw nsw i64 %entry_idx.049.us.i, 2
-  %arrayidx.i.i.us.i.1 = getelementptr inbounds i64, ptr %0, i64 %inc.us.i
+  %arrayidx.i.i.us.i.1 = getelementptr i64, ptr %arrayidx.i.i.us.i, i64 1
   %13 = load i64, ptr %arrayidx.i.i.us.i.1, align 8, !tbaa !24
   switch i64 %13, label %while.body.us.i.1 [
     i64 -1, label %if.then17.us.i.1
@@ -1382,8 +1381,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %24 = lshr i64 %23, %rem.i.i.i
   %conv18 = and i64 %24, 1
   %add19 = add i64 %conv18, %valid.084
-  %inc = or disjoint i64 %i.085, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %6, i64 %inc
+  %arrayidx.i.1 = getelementptr i32, ptr %arrayidx.i, i64 1
   %25 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !36
   %conv.i71.1 = zext i32 %25 to i64
   %div2.i.i.i.1 = lshr i64 %conv.i71.1, 6

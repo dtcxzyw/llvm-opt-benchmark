@@ -27398,8 +27398,7 @@ if.then84.us.i:                                   ; preds = %for.body.us.i
 
 for.inc.us.i:                                     ; preds = %if.then84.us.i, %for.body.us.i
   %inc.i.i294.us.i = phi i64 [ %inc.i.i.us.i, %if.then84.us.i ], [ %inc.i.i295.us.i, %for.body.us.i ]
-  %inc.us.i = or disjoint i64 %i.0292.us.i, 1
-  %arrayidx.us.i.1 = getelementptr inbounds i8, ptr %39, i64 %inc.us.i
+  %arrayidx.us.i.1 = getelementptr i8, ptr %arrayidx.us.i, i64 1
   %44 = load i8, ptr %arrayidx.us.i.1, align 1, !tbaa !458, !range !185, !noundef !186
   %tobool83.not.us.i.1 = icmp eq i8 %44, 0
   br i1 %tobool83.not.us.i.1, label %if.then84.us.i.1, label %for.inc.us.i.1
@@ -28366,8 +28365,7 @@ if.then77.us.i:                                   ; preds = %for.body.us.i204
 
 for.inc.us.i206:                                  ; preds = %if.then77.us.i, %for.body.us.i204
   %inc.i.i284.us.i = phi i64 [ %inc.i.i.us.i208, %if.then77.us.i ], [ %inc.i.i285.us.i, %for.body.us.i204 ]
-  %inc.us.i207 = or disjoint i64 %i.0282.us.i, 1
-  %arrayidx.us.i205.1 = getelementptr inbounds i8, ptr %133, i64 %inc.us.i207
+  %arrayidx.us.i205.1 = getelementptr i8, ptr %arrayidx.us.i205, i64 1
   %138 = load i8, ptr %arrayidx.us.i205.1, align 1, !tbaa !458, !range !185, !noundef !186
   %tobool76.not.us.i.1 = icmp eq i8 %138, 0
   br i1 %tobool76.not.us.i.1, label %if.then77.us.i.1, label %for.inc.us.i206.1
@@ -50203,8 +50201,7 @@ if.then43.us:                                     ; preds = %for.body.us
 
 for.inc.us:                                       ; preds = %if.then43.us, %for.body.us
   %.pre.i.i2.us = phi i64 [ %inc.i.i.us, %if.then43.us ], [ %.pre.i.i35.us, %for.body.us ]
-  %inc.us = or disjoint i64 %i.06.us, 1
-  %arrayidx.us.1 = getelementptr inbounds i8, ptr %23, i64 %inc.us
+  %arrayidx.us.1 = getelementptr i8, ptr %arrayidx.us, i64 1
   %28 = load i8, ptr %arrayidx.us.1, align 1, !tbaa !458, !range !185, !noundef !186
   %tobool.not.us.1 = icmp eq i8 %28, 0
   br i1 %tobool.not.us.1, label %for.inc.us.1, label %if.then43.us.1

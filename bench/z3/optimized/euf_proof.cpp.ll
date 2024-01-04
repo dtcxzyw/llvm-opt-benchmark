@@ -9361,6 +9361,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr %"class.std::tuple", ptr %__first, i64 1, i32 0, i32 0, i32 0, i32 1
   %cmp36 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp36, label %while.body, label %while.end
 
@@ -9368,26 +9369,26 @@ while.body:                                       ; preds = %entry, %while.body
   %__secondChild.037 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.037, 1
   %mul = add i64 %add, 2
-  %sub1 = or disjoint i64 %add, 1
   %0 = getelementptr %"class.std::tuple", ptr %__first, i64 %mul, i32 0, i32 0, i32 0, i32 1
   %add.ptr.val = load i64, ptr %0, align 8
-  %1 = getelementptr %"class.std::tuple", ptr %__first, i64 %sub1, i32 0, i32 0, i32 0, i32 1
-  %add.ptr2.val = load i64, ptr %1, align 8
+  %gep = getelementptr %"class.std::tuple", ptr %invariant.gep, i64 %add
+  %add.ptr2.val = load i64, ptr %gep, align 8
   %cmp.i.i = icmp ult i64 %add.ptr.val, %add.ptr2.val
-  %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %__secondChild.037
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr3, i64 16
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %add.ptr4, i64 16
-  %2 = load <2 x ptr>, ptr %add.ptr.i.i.i.i, align 8
-  store <2 x ptr> %2, ptr %add.ptr.i2.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %add.ptr.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %add.ptr.i2.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr3, i64 8
-  %3 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %2 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.i2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr4, i64 8
-  store i64 %3, ptr %add.ptr.i2.i.i.i.i, align 8
-  %4 = load i8, ptr %add.ptr3, align 1
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %add.ptr4, align 1
+  store i64 %2, ptr %add.ptr.i2.i.i.i.i, align 8
+  %3 = load i8, ptr %add.ptr3, align 1
+  %4 = and i8 %3, 1
+  store i8 %4, ptr %add.ptr4, align 1
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !95
 
@@ -9404,30 +9405,30 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %__secondChild.0.lcssa
   %add.ptr.i.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr14, i64 16
   %add.ptr.i2.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr15, i64 16
-  %6 = load <2 x ptr>, ptr %add.ptr.i.i.i.i25, align 8
-  store <2 x ptr> %6, ptr %add.ptr.i2.i.i.i26, align 8
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i.i.i25, align 8
+  store <2 x ptr> %5, ptr %add.ptr.i2.i.i.i26, align 8
   %add.ptr.i.i.i.i.i27 = getelementptr inbounds i8, ptr %add.ptr14, i64 8
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i27, align 8
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i27, align 8
   %add.ptr.i2.i.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr15, i64 8
-  store i64 %7, ptr %add.ptr.i2.i.i.i.i28, align 8
-  %8 = load i8, ptr %add.ptr14, align 1
-  %9 = and i8 %8, 1
-  store i8 %9, ptr %add.ptr15, align 1
+  store i64 %6, ptr %add.ptr.i2.i.i.i.i28, align 8
+  %7 = load i8, ptr %add.ptr14, align 1
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %add.ptr15, align 1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
-  %10 = load i8, ptr %__value, align 1
+  %9 = load i8, ptr %__value, align 1
   %add.ptr.i.i.i.i29 = getelementptr inbounds i8, ptr %__value, i64 8
-  %11 = load i64, ptr %add.ptr.i.i.i.i29, align 8
+  %10 = load i64, ptr %add.ptr.i.i.i.i29, align 8
   %add.ptr.i.i.i30 = getelementptr inbounds i8, ptr %__value, i64 16
-  %12 = load <2 x i64>, ptr %add.ptr.i.i.i30, align 8
+  %11 = load <2 x i64>, ptr %add.ptr.i.i.i30, align 8
   %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
@@ -9436,35 +9437,35 @@ land.rhs.i:                                       ; preds = %if.end18, %while.bo
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
   %add.ptr.i = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %__parent.05.i
-  %13 = getelementptr i8, ptr %add.ptr.i, i64 8
-  %add.ptr.val.i = load i64, ptr %13, align 8
-  %cmp.i.i.i = icmp ult i64 %add.ptr.val.i, %11
+  %12 = getelementptr i8, ptr %add.ptr.i, i64 8
+  %add.ptr.val.i = load i64, ptr %12, align 8
+  %cmp.i.i.i = icmp ult i64 %add.ptr.val.i, %10
   br i1 %cmp.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %land.rhs.i
   %add.ptr2.i = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %__holeIndex.addr.04.i
   %add.ptr.i.i.i.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %add.ptr.i2.i.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %14 = load <2 x ptr>, ptr %add.ptr.i.i.i.i.i33, align 8
-  store <2 x ptr> %14, ptr %add.ptr.i2.i.i.i.i34, align 8
+  %13 = load <2 x ptr>, ptr %add.ptr.i.i.i.i.i33, align 8
+  store <2 x ptr> %13, ptr %add.ptr.i2.i.i.i.i34, align 8
   %add.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 8
   store i64 %add.ptr.val.i, ptr %add.ptr.i2.i.i.i.i.i, align 8
-  %15 = load i8, ptr %add.ptr.i, align 1
-  %16 = and i8 %15, 1
-  store i8 %16, ptr %add.ptr2.i, align 1
+  %14 = load i8, ptr %add.ptr.i, align 1
+  %15 = and i8 %14, 1
+  store i8 %15, ptr %add.ptr2.i, align 1
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !96
 
 "_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %land.rhs.i, %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %while.body.i ]
-  %17 = inttoptr <2 x i64> %12 to <2 x ptr>
+  %16 = inttoptr <2 x i64> %11 to <2 x ptr>
   %add.ptr6.i = getelementptr inbounds %"class.std::tuple", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %add.ptr.i2.i.i.i13.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 16
-  store <2 x ptr> %17, ptr %add.ptr.i2.i.i.i13.i, align 8
+  store <2 x ptr> %16, ptr %add.ptr.i2.i.i.i13.i, align 8
   %add.ptr.i2.i.i.i.i15.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 8
-  store i64 %11, ptr %add.ptr.i2.i.i.i.i15.i, align 8
-  %18 = and i8 %10, 1
-  store i8 %18, ptr %add.ptr6.i, align 1
+  store i64 %10, ptr %add.ptr.i2.i.i.i.i15.i, align 8
+  %17 = and i8 %9, 1
+  store i8 %17, ptr %add.ptr6.i, align 1
   ret void
 }
 

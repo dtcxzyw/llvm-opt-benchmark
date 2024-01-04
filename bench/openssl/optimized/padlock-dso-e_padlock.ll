@@ -1226,6 +1226,9 @@ if.end.i:                                         ; preds = %sw.bb42
 for.body.preheader.i:                             ; preds = %if.end.i
   %mul.i = shl i32 %6, 2
   %7 = sext i32 %mul.i to i64
+  %invariant.gep.i = getelementptr %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2, i32 0, i64 1
+  %invariant.gep93.i = getelementptr %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2, i32 0, i64 2
+  %invariant.gep97.i = getelementptr %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2, i32 0, i64 3
   br label %for.body.i
 
 for.cond44.preheader.i:                           ; preds = %for.body.i
@@ -1242,30 +1245,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %10 = load i32, ptr %arrayidx3.i, align 4
   store i32 %10, ptr %arrayidx.i, align 4
   store i32 %9, ptr %arrayidx3.i, align 4
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx9.i = getelementptr inbounds i32, ptr %ks52, i64 %11
-  %12 = load i32, ptr %arrayidx9.i, align 4
-  %13 = or disjoint i64 %indvars.iv79.i, 1
-  %arrayidx12.i = getelementptr inbounds i32, ptr %ks52, i64 %13
-  %14 = load i32, ptr %arrayidx12.i, align 4
-  store i32 %14, ptr %arrayidx9.i, align 4
-  store i32 %12, ptr %arrayidx12.i, align 4
-  %15 = or disjoint i64 %indvars.iv.i, 2
-  %arrayidx21.i = getelementptr inbounds i32, ptr %ks52, i64 %15
-  %16 = load i32, ptr %arrayidx21.i, align 4
-  %17 = or disjoint i64 %indvars.iv79.i, 2
-  %arrayidx24.i = getelementptr inbounds i32, ptr %ks52, i64 %17
-  %18 = load i32, ptr %arrayidx24.i, align 4
-  store i32 %18, ptr %arrayidx21.i, align 4
-  store i32 %16, ptr %arrayidx24.i, align 4
-  %19 = or disjoint i64 %indvars.iv.i, 3
-  %arrayidx33.i = getelementptr inbounds i32, ptr %ks52, i64 %19
-  %20 = load i32, ptr %arrayidx33.i, align 4
-  %21 = or disjoint i64 %indvars.iv79.i, 3
-  %arrayidx36.i = getelementptr inbounds i32, ptr %ks52, i64 %21
-  %22 = load i32, ptr %arrayidx36.i, align 4
-  store i32 %22, ptr %arrayidx33.i, align 4
-  store i32 %20, ptr %arrayidx36.i, align 4
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %11 = load i32, ptr %gep.i, align 4
+  %gep92.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv79.i
+  %12 = load i32, ptr %gep92.i, align 4
+  store i32 %12, ptr %gep.i, align 4
+  store i32 %11, ptr %gep92.i, align 4
+  %gep94.i = getelementptr i32, ptr %invariant.gep93.i, i64 %indvars.iv.i
+  %13 = load i32, ptr %gep94.i, align 4
+  %gep96.i = getelementptr i32, ptr %invariant.gep93.i, i64 %indvars.iv79.i
+  %14 = load i32, ptr %gep96.i, align 4
+  store i32 %14, ptr %gep94.i, align 4
+  store i32 %13, ptr %gep96.i, align 4
+  %gep98.i = getelementptr i32, ptr %invariant.gep97.i, i64 %indvars.iv.i
+  %15 = load i32, ptr %gep98.i, align 4
+  %gep100.i = getelementptr i32, ptr %invariant.gep97.i, i64 %indvars.iv79.i
+  %16 = load i32, ptr %gep100.i, align 4
+  store i32 %16, ptr %gep98.i, align 4
+  store i32 %15, ptr %gep100.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, -4
   %cmp1.i = icmp slt i64 %indvars.iv.next.i, %indvars.iv.next80.i
@@ -1280,9 +1277,9 @@ for.body47.i:                                     ; preds = %for.cond44.preheade
 for.body50.i:                                     ; preds = %for.body50.i, %for.body47.i
   %indvars.iv87.i = phi i64 [ 0, %for.body47.i ], [ %indvars.iv.next88.i, %for.body50.i ]
   %arrayidx52.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv87.i
-  %23 = load i32, ptr %arrayidx52.i, align 4
-  %and.i = and i32 %23, -2139062144
-  %and53.i = shl i32 %23, 1
+  %17 = load i32, ptr %arrayidx52.i, align 4
+  %and.i = and i32 %17, -2139062144
+  %and53.i = shl i32 %17, 1
   %shl.i = and i32 %and53.i, -16843010
   %shr.i = lshr exact i32 %and.i, 7
   %sub54.i = sub i32 %and.i, %shr.i
@@ -1302,19 +1299,19 @@ for.body50.i:                                     ; preds = %for.body50.i, %for.
   %sub67.i = sub i32 %and63.i, %shr66.i
   %and68.i = and i32 %sub67.i, 454761243
   %xor69.i = xor i32 %shl65.i, %and68.i
-  %xor70.i = xor i32 %xor69.i, %23
+  %xor70.i = xor i32 %xor69.i, %17
   %xor71.i = xor i32 %xor70.i, %xor.i
   %xor72.i = xor i32 %xor70.i, %xor62.i
-  %24 = tail call i32 @llvm.fshl.i32(i32 %xor72.i, i32 %xor72.i, i32 16)
+  %18 = tail call i32 @llvm.fshl.i32(i32 %xor72.i, i32 %xor72.i, i32 16)
   %shr83.i = lshr i32 %xor71.i, 24
   %shl85.i = shl i32 %xor71.i, 8
-  %25 = tail call i32 @llvm.fshl.i32(i32 %xor70.i, i32 %xor70.i, i32 24)
-  %26 = xor i32 %25, %24
-  %27 = xor i32 %26, %shr83.i
-  %28 = xor i32 %27, %shl85.i
-  %29 = xor i32 %28, %xor.i
-  %30 = xor i32 %29, %xor62.i
-  %xor86.i = xor i32 %30, %xor69.i
+  %19 = tail call i32 @llvm.fshl.i32(i32 %xor70.i, i32 %xor70.i, i32 24)
+  %20 = xor i32 %19, %18
+  %21 = xor i32 %20, %shr83.i
+  %22 = xor i32 %21, %shl85.i
+  %23 = xor i32 %22, %xor.i
+  %24 = xor i32 %23, %xor62.i
+  %xor86.i = xor i32 %24, %xor69.i
   store i32 %xor86.i, ptr %arrayidx52.i, align 4
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next88.i, 4
@@ -1322,8 +1319,8 @@ for.body50.i:                                     ; preds = %for.body50.i, %for.
 
 for.inc91.i:                                      ; preds = %for.body50.i
   %inc92.i = add nuw nsw i32 %i.174.i, 1
-  %31 = load i32, ptr %rounds.i, align 4
-  %cmp46.i = icmp slt i32 %inc92.i, %31
+  %25 = load i32, ptr %rounds.i, align 4
+  %cmp46.i = icmp slt i32 %inc92.i, %25
   br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !8
 
 if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i, %if.end.i

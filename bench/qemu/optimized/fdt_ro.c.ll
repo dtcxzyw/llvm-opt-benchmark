@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [11 x i8] c"compatible\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %stroffset, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
+define dso_local noundef ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %stroffset, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %call7 = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp = icmp slt i32 %call7, 0
@@ -196,7 +196,7 @@ declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #2
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_string(ptr noundef %fdt, i32 noundef %stroffset) local_unnamed_addr #0 {
+define dso_local noundef ptr @fdt_string(ptr noundef %fdt, i32 noundef %stroffset) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %stroffset, ptr noundef null)
   ret ptr %call
@@ -240,7 +240,7 @@ return:                                           ; preds = %while.end, %if.then
 declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_get_phandle(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local noundef i32 @fdt_get_phandle(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %poffset.i.i6 = alloca i32, align 4
   %poffset.i.i = alloca i32, align 4
@@ -285,7 +285,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.end10.i.i
 
@@ -347,7 +347,7 @@ land.lhs.true3.i.i30:                             ; preds = %if.end.i.i11
 land.lhs.true5.i.i32:                             ; preds = %land.lhs.true3.i.i30
   %len.i.i33 = getelementptr inbounds %struct.fdt_property, ptr %call.i.i9, i64 0, i32 1
   %len.val.i.i34 = load i32, ptr %len.i.i33, align 4
-  %rev.i.i.i.i35 = call i32 @llvm.bswap.i32(i32 %len.val.i.i34)
+  %rev.i.i.i.i35 = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i34)
   %cmp7.i.i36 = icmp ugt i32 %rev.i.i.i.i35, 7
   br i1 %cmp7.i.i36, label %if.then9.i.i37, label %if.end10.i.i27
 
@@ -371,7 +371,7 @@ fdt_getprop.exit39:                               ; preds = %if.then9.i.i37, %if
 if.end9:                                          ; preds = %fdt_getprop.exit39, %fdt_getprop.exit
   %php.0 = phi ptr [ %retval.0.i.i29, %fdt_getprop.exit39 ], [ %retval.0.i.i, %fdt_getprop.exit ]
   %php.0.val = load i32, ptr %php.0, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %php.0.val)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %php.0.val)
   br label %return
 
 return:                                           ; preds = %fdt_getprop.exit39.thread, %fdt_getprop.exit39, %if.end9
@@ -482,13 +482,13 @@ fdt_mem_rsv.exit:                                 ; preds = %if.end.i
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
   %conv2.i.i.i = zext i8 %1 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
-  %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
   %conv5.i.i.i = zext i8 %2 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
-  %or7.i.i.i = or disjoint i64 %or.i.i.i, %shl6.i.i.i
   %conv9.i.i.i = zext i8 %3 to i64
-  %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
+  %8 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %9 = getelementptr i8, ptr %8, i64 %shl.i.i.i
+  %10 = getelementptr i8, ptr %9, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %10, i64 %conv9.i.i.i
   %idx.ext1.i.i = sext i32 %n to i64
   %add.ptr2.i.i = getelementptr %struct.fdt_reserve_entry, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   %tobool.not = icmp eq ptr %add.ptr2.i.i, null
@@ -496,11 +496,11 @@ fdt_mem_rsv.exit:                                 ; preds = %if.end.i
 
 if.end4:                                          ; preds = %fdt_mem_rsv.exit
   %call1.val = load i64, ptr %add.ptr2.i.i, align 8
-  %or26.i.i = tail call i64 @llvm.bswap.i64(i64 %call1.val)
+  %or26.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %call1.val)
   store i64 %or26.i.i, ptr %address, align 8
   %size7 = getelementptr %struct.fdt_reserve_entry, ptr %add.ptr.i.i, i64 %idx.ext1.i.i, i32 1
   %size7.val = load i64, ptr %size7, align 8
-  %or26.i.i4 = tail call i64 @llvm.bswap.i64(i64 %size7.val)
+  %or26.i.i4 = tail call noundef i64 @llvm.bswap.i64(i64 %size7.val)
   store i64 %or26.i.i4, ptr %size, align 8
   br label %return
 
@@ -553,13 +553,13 @@ entry:
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
   %conv2.i.i.i = zext i8 %1 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
-  %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
   %conv5.i.i.i = zext i8 %2 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
-  %or7.i.i.i = or disjoint i64 %or.i.i.i, %shl6.i.i.i
   %conv9.i.i.i = zext i8 %3 to i64
-  %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
+  %8 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %9 = getelementptr i8, ptr %8, i64 %shl.i.i.i
+  %10 = getelementptr i8, ptr %9, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %10, i64 %conv9.i.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %for.inc
@@ -596,7 +596,6 @@ return:                                           ; preds = %if.end.i, %for.inc,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_subnode_offset_namelen(ptr noundef %fdt, i32 noundef %offset, ptr noundef readonly %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %olen.i = alloca i32, align 4
   %depth = alloca i32, align 4
   %call = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp = icmp slt i32 %call, 0
@@ -604,70 +603,124 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %depth, align 4
-  %cmp116 = icmp sgt i32 %offset, -1
-  br i1 %cmp116, label %for.body.lr.ph, label %return
+  %cmp114 = icmp sgt i32 %offset, -1
+  br i1 %cmp114, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
+  %off_dt_struct.i.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %arrayidx1.i.i.i.i = getelementptr i8, ptr %fdt, i64 9
+  %arrayidx4.i.i.i.i = getelementptr i8, ptr %fdt, i64 10
+  %arrayidx8.i.i.i.i = getelementptr i8, ptr %fdt, i64 11
+  %version.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %arrayidx1.i.i.i = getelementptr i8, ptr %fdt, i64 21
+  %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 22
+  %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 23
   %conv.i = sext i32 %namelen to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %offset.addr.017 = phi i32 [ %offset, %for.body.lr.ph ], [ %call7, %for.inc ]
+  %offset.addr.015 = phi i32 [ %offset, %for.body.lr.ph ], [ %call7, %for.inc ]
   %0 = phi i32 [ 0, %for.body.lr.ph ], [ %.pr, %for.inc ]
   %cmp3 = icmp eq i32 %0, 1
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %olen.i)
-  %call.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.addr.017, ptr noundef nonnull %olen.i)
-  %tobool.not.i = icmp eq ptr %call.i, null
-  %1 = load i32, ptr %olen.i, align 4
-  %cmp.i = icmp slt i32 %1, %namelen
-  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
-  br i1 %or.cond.i, label %fdt_nodename_eq_.exit.thread, label %if.end.i
+  %1 = load i8, ptr %off_dt_struct.i.i.i, align 1
+  %conv.i.i.i.i = zext i8 %1 to i64
+  %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 24
+  %2 = load i8, ptr %arrayidx1.i.i.i.i, align 1
+  %conv2.i.i.i.i = zext i8 %2 to i64
+  %shl3.i.i.i.i = shl nuw nsw i64 %conv2.i.i.i.i, 16
+  %3 = load i8, ptr %arrayidx4.i.i.i.i, align 1
+  %conv5.i.i.i.i = zext i8 %3 to i64
+  %shl6.i.i.i.i = shl nuw nsw i64 %conv5.i.i.i.i, 8
+  %4 = load i8, ptr %arrayidx8.i.i.i.i, align 1
+  %conv9.i.i.i.i = zext i8 %4 to i64
+  %5 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i.i
+  %6 = getelementptr i8, ptr %5, i64 %shl.i.i.i.i
+  %7 = getelementptr i8, ptr %6, i64 %shl6.i.i.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 %conv9.i.i.i.i
+  %idx.ext1.i.i.i = zext nneg i32 %offset.addr.015 to i64
+  %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %idx.ext1.i.i.i
+  %call1.i.i = call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
+  %cmp.i.i = icmp slt i32 %call1.i.i, 0
+  br i1 %cmp.i.i, label %for.inc, label %lor.lhs.false.i.i
 
-if.end.i:                                         ; preds = %land.lhs.true
-  %bcmp.i = call i32 @bcmp(ptr nonnull %call.i, ptr %name, i64 %conv.i)
+lor.lhs.false.i.i:                                ; preds = %land.lhs.true
+  %call2.i.i = call i32 @fdt_check_node_offset_(ptr noundef nonnull %fdt, i32 noundef %offset.addr.015) #9
+  %cmp3.i.i = icmp slt i32 %call2.i.i, 0
+  br i1 %cmp3.i.i, label %for.inc, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
+  %name.i.i = getelementptr inbounds %struct.fdt_node_header, ptr %add.ptr2.i.i.i, i64 0, i32 1
+  %8 = load i8, ptr %version.i.i, align 1
+  %conv.i.i.i = zext i8 %8 to i32
+  %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
+  %9 = load i8, ptr %arrayidx1.i.i.i, align 1
+  %conv2.i.i.i = zext i8 %9 to i32
+  %shl3.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 16
+  %or.i.i.i = or disjoint i32 %shl3.i.i.i, %shl.i.i.i
+  %10 = load i8, ptr %arrayidx4.i.i.i, align 1
+  %conv5.i.i.i = zext i8 %10 to i32
+  %shl6.i.i.i = shl nuw nsw i32 %conv5.i.i.i, 8
+  %or7.i.i.i = or disjoint i32 %or.i.i.i, %shl6.i.i.i
+  %11 = load i8, ptr %arrayidx8.i.i.i, align 1
+  %conv9.i.i.i = zext i8 %11 to i32
+  %or10.i.i.i = or disjoint i32 %or7.i.i.i, %conv9.i.i.i
+  %cmp6.i.i = icmp ult i32 %or10.i.i.i, 16
+  br i1 %cmp6.i.i, label %if.then7.i.i, label %fdt_get_name.exit.i
+
+if.then7.i.i:                                     ; preds = %if.end.i.i
+  %call8.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name.i.i, i32 noundef 47) #10
+  %cmp9.i.i = icmp eq ptr %call8.i.i, null
+  br i1 %cmp9.i.i, label %for.inc, label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then7.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %call8.i.i, i64 1
+  br label %fdt_get_name.exit.i
+
+fdt_get_name.exit.i:                              ; preds = %if.end11.i.i, %if.end.i.i
+  %nameptr.0.i.i = phi ptr [ %add.ptr.i.i, %if.end11.i.i ], [ %name.i.i, %if.end.i.i ]
+  %call14.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %nameptr.0.i.i) #10
+  %conv.i.i = trunc i64 %call14.i.i to i32
+  %tobool.not.i = icmp eq ptr %nameptr.0.i.i, null
+  %cmp.i = icmp slt i32 %conv.i.i, %namelen
+  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
+  br i1 %or.cond.i, label %for.inc, label %if.end.i
+
+if.end.i:                                         ; preds = %fdt_get_name.exit.i
+  %bcmp.i = call i32 @bcmp(ptr nonnull %nameptr.0.i.i, ptr %name, i64 %conv.i)
   %cmp2.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp2.not.i, label %if.end5.i, label %fdt_nodename_eq_.exit.thread
+  br i1 %cmp2.not.i, label %if.end5.i, label %for.inc
 
 if.end5.i:                                        ; preds = %if.end.i
-  %arrayidx.i = getelementptr i8, ptr %call.i, i64 %conv.i
-  %2 = load i8, ptr %arrayidx.i, align 1
-  %cmp7.i = icmp eq i8 %2, 0
-  br i1 %cmp7.i, label %fdt_nodename_eq_.exit.thread9, label %fdt_nodename_eq_.exit
-
-fdt_nodename_eq_.exit.thread9:                    ; preds = %if.end5.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %olen.i)
-  br label %return
-
-fdt_nodename_eq_.exit.thread:                     ; preds = %land.lhs.true, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %olen.i)
-  br label %for.inc
+  %arrayidx.i = getelementptr i8, ptr %nameptr.0.i.i, i64 %conv.i
+  %12 = load i8, ptr %arrayidx.i, align 1
+  %cmp7.i = icmp eq i8 %12, 0
+  br i1 %cmp7.i, label %return, label %fdt_nodename_eq_.exit
 
 fdt_nodename_eq_.exit:                            ; preds = %if.end5.i
   %call11.i = call ptr @memchr(ptr noundef %name, i32 noundef 64, i64 noundef %conv.i) #10
   %tobool12.not.i = icmp ne ptr %call11.i, null
-  %cmp16.i = icmp ne i8 %2, 64
+  %cmp16.i = icmp ne i8 %12, 64
   %or.cond9.i.not = or i1 %cmp16.i, %tobool12.not.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %olen.i)
   br i1 %or.cond9.i.not, label %for.inc, label %return
 
-for.inc:                                          ; preds = %fdt_nodename_eq_.exit.thread, %for.body, %fdt_nodename_eq_.exit
-  %call7 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.addr.017, ptr noundef nonnull %depth) #9
+for.inc:                                          ; preds = %land.lhs.true, %lor.lhs.false.i.i, %if.then7.i.i, %if.end.i, %fdt_get_name.exit.i, %for.body, %fdt_nodename_eq_.exit
+  %call7 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.addr.015, ptr noundef nonnull %depth) #9
   %.pr = load i32, ptr %depth, align 4
   %cmp1 = icmp sgt i32 %call7, -1
   %cmp2 = icmp sgt i32 %.pr, -1
-  %3 = select i1 %cmp1, i1 %cmp2, i1 false
-  br i1 %3, label %for.body, label %for.end.loopexit, !llvm.loop !7
+  %13 = select i1 %cmp1, i1 %cmp2, i1 false
+  br i1 %13, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %4 = icmp sgt i32 %.pr, -1
-  %5 = select i1 %4, i32 %call7, i32 -1
+  %14 = icmp sgt i32 %.pr, -1
+  %15 = select i1 %14, i32 %call7, i32 -1
   br label %return
 
-return:                                           ; preds = %fdt_nodename_eq_.exit, %if.end, %for.end.loopexit, %fdt_nodename_eq_.exit.thread9, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ %offset.addr.017, %fdt_nodename_eq_.exit.thread9 ], [ %offset, %if.end ], [ %5, %for.end.loopexit ], [ %offset.addr.017, %fdt_nodename_eq_.exit ]
+return:                                           ; preds = %if.end5.i, %fdt_nodename_eq_.exit, %if.end, %for.end.loopexit, %entry
+  %retval.0 = phi i32 [ %call, %entry ], [ %offset, %if.end ], [ %15, %for.end.loopexit ], [ %offset.addr.015, %fdt_nodename_eq_.exit ], [ %offset.addr.015, %if.end5.i ]
   ret i32 %retval.0
 }
 
@@ -748,7 +801,7 @@ land.lhs.true3.i:                                 ; preds = %if.end.i36
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %call.i35, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
   br i1 %cmp7.i, label %fdt_get_alias_namelen.exit, label %fdt_get_alias_namelen.exit.thread46
 
@@ -856,7 +909,7 @@ land.lhs.true3.i:                                 ; preds = %if.end.i
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %call.i3, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
   br i1 %cmp7.i, label %if.then9.i, label %if.end10.i
 
@@ -898,17 +951,17 @@ entry:
   %1 = load i8, ptr %arrayidx1.i.i, align 1
   %conv2.i.i = zext i8 %1 to i64
   %shl3.i.i = shl nuw nsw i64 %conv2.i.i, 16
-  %or.i.i = or disjoint i64 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr i8, ptr %fdt, i64 10
   %2 = load i8, ptr %arrayidx4.i.i, align 1
   %conv5.i.i = zext i8 %2 to i64
   %shl6.i.i = shl nuw nsw i64 %conv5.i.i, 8
-  %or7.i.i = or disjoint i64 %or.i.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr i8, ptr %fdt, i64 11
   %3 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %3 to i64
-  %or10.i.i = or disjoint i64 %or7.i.i, %conv9.i.i
-  %add.ptr.i = getelementptr i8, ptr %fdt, i64 %or10.i.i
+  %4 = getelementptr i8, ptr %fdt, i64 %shl3.i.i
+  %5 = getelementptr i8, ptr %4, i64 %shl.i.i
+  %6 = getelementptr i8, ptr %5, i64 %shl6.i.i
+  %add.ptr.i = getelementptr i8, ptr %6, i64 %conv9.i.i
   %idx.ext1.i = sext i32 %nodeoffset to i64
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.ext1.i
   %call1 = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
@@ -923,22 +976,22 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %name = getelementptr inbounds %struct.fdt_node_header, ptr %add.ptr2.i, i64 0, i32 1
   %version = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
-  %4 = load i8, ptr %version, align 1
-  %conv.i = zext i8 %4 to i32
+  %7 = load i8, ptr %version, align 1
+  %conv.i = zext i8 %7 to i32
   %shl.i = shl nuw i32 %conv.i, 24
   %arrayidx1.i = getelementptr i8, ptr %fdt, i64 21
-  %5 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %5 to i32
+  %8 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %8 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
   %arrayidx4.i = getelementptr i8, ptr %fdt, i64 22
-  %6 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %6 to i32
+  %9 = load i8, ptr %arrayidx4.i, align 1
+  %conv5.i = zext i8 %9 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %or7.i = or disjoint i32 %or.i, %shl6.i
   %arrayidx8.i = getelementptr i8, ptr %fdt, i64 23
-  %7 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %7 to i32
+  %10 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %10 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
   %cmp6 = icmp ult i32 %or10.i, 16
   br i1 %cmp6, label %if.then7, label %if.end12
@@ -1113,17 +1166,17 @@ if.end3.i:                                        ; preds = %if.end3
   %5 = load i8, ptr %arrayidx1.i.i.i, align 1
   %conv2.i.i.i = zext i8 %5 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
-  %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
   %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 10
   %6 = load i8, ptr %arrayidx4.i.i.i, align 1
   %conv5.i.i.i = zext i8 %6 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
-  %or7.i.i.i = or disjoint i64 %or.i.i.i, %shl6.i.i.i
   %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 11
   %7 = load i8, ptr %arrayidx8.i.i.i, align 1
   %conv9.i.i.i = zext i8 %7 to i64
-  %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
+  %8 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %9 = getelementptr i8, ptr %8, i64 %shl.i.i.i
+  %10 = getelementptr i8, ptr %9, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %10, i64 %conv9.i.i.i
   %idx.ext1.i.i = sext i32 %offset to i64
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   %tobool5.not.i = icmp eq ptr %lenp, null
@@ -1132,7 +1185,7 @@ if.end3.i:                                        ; preds = %if.end3
 if.then6.i:                                       ; preds = %if.end3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then.i, %if.then6.i, %if.then
@@ -1255,15 +1308,15 @@ if.end3.i:                                        ; preds = %for.body
   %3 = load i8, ptr %arrayidx1.i.i.i, align 1
   %conv2.i.i.i = zext i8 %3 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
-  %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
   %4 = load i8, ptr %arrayidx4.i.i.i, align 1
   %conv5.i.i.i = zext i8 %4 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
-  %or7.i.i.i = or disjoint i64 %or.i.i.i, %shl6.i.i.i
   %5 = load i8, ptr %arrayidx8.i.i.i, align 1
   %conv9.i.i.i = zext i8 %5 to i64
-  %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
+  %6 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %7 = getelementptr i8, ptr %6, i64 %shl.i.i.i
+  %8 = getelementptr i8, ptr %7, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %8, i64 %conv9.i.i.i
   %idx.ext1.i.i = zext nneg i32 %offset.addr.043 to i64
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   br i1 %tobool5.not.i, label %fdt_get_property_by_offset_.exit, label %if.then6.i
@@ -1271,7 +1324,7 @@ if.end3.i:                                        ; preds = %for.body
 if.then6.i:                                       ; preds = %if.end3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then6.i, %if.then.i
@@ -1288,12 +1341,12 @@ fdt_get_property_by_offset_.exit:                 ; preds = %if.end3.i, %return.
 if.end:                                           ; preds = %fdt_get_property_by_offset_.exit
   %nameoff = getelementptr inbounds %struct.fdt_property, ptr %retval.0.i15, i64 0, i32 2
   %nameoff.val = load i32, ptr %nameoff, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %nameoff.val)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %nameoff.val)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen.i)
   %call.i16 = call ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %rev.i.i, ptr noundef nonnull %slen.i)
   %tobool.not.i17 = icmp ne ptr %call.i16, null
-  %6 = load i32, ptr %slen.i, align 4
-  %cmp.i18 = icmp eq i32 %6, %namelen
+  %9 = load i32, ptr %slen.i, align 4
+  %cmp.i18 = icmp eq i32 %9, %namelen
   %or.cond.i = select i1 %tobool.not.i17, i1 %cmp.i18, i1 false
   br i1 %or.cond.i, label %fdt_string_eq_.exit, label %fdt_string_eq_.exit.thread
 
@@ -1325,7 +1378,7 @@ if.end.i22:                                       ; preds = %for.inc
   br label %do.body.i.i23
 
 do.body.i.i23:                                    ; preds = %sw.epilog.i.i32, %if.end.i22
-  %offset.addr.0.i.i24 = phi i32 [ %call.i20, %if.end.i22 ], [ %8, %sw.epilog.i.i32 ]
+  %offset.addr.0.i.i24 = phi i32 [ %call.i20, %if.end.i22 ], [ %11, %sw.epilog.i.i32 ]
   %call.i.i25 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %offset.addr.0.i.i24, ptr noundef nonnull %nextoffset.i.i19) #9
   switch i32 %call.i.i25, label %sw.epilog.i.i32 [
     i32 9, label %sw.bb.i.i29
@@ -1333,13 +1386,13 @@ do.body.i.i23:                                    ; preds = %sw.epilog.i.i32, %i
   ]
 
 sw.bb.i.i29:                                      ; preds = %do.body.i.i23
-  %7 = load i32, ptr %nextoffset.i.i19, align 4
-  %cmp.i.i30 = icmp sgt i32 %7, -1
-  %spec.select70 = select i1 %cmp.i.i30, i32 -11, i32 %7
+  %10 = load i32, ptr %nextoffset.i.i19, align 4
+  %cmp.i.i30 = icmp sgt i32 %10, -1
+  %spec.select70 = select i1 %cmp.i.i30, i32 -11, i32 %10
   br label %fdt_next_property_offset.exit.thread56
 
 sw.epilog.i.i32:                                  ; preds = %do.body.i.i23
-  %8 = load i32, ptr %nextoffset.i.i19, align 4
+  %11 = load i32, ptr %nextoffset.i.i19, align 4
   %cmp2.i.i33 = icmp eq i32 %call.i.i25, 4
   br i1 %cmp2.i.i33, label %do.body.i.i23, label %fdt_next_property_offset.exit.thread56, !llvm.loop !10
 
@@ -1449,7 +1502,7 @@ land.lhs.true3:                                   ; preds = %if.end
 land.lhs.true5:                                   ; preds = %land.lhs.true3
   %len = getelementptr inbounds %struct.fdt_property, ptr %call, i64 0, i32 1
   %len.val = load i32, ptr %len, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %len.val)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val)
   %cmp7 = icmp ugt i32 %rev.i.i, 7
   br i1 %cmp7, label %if.then9, label %if.end10
 
@@ -1487,17 +1540,17 @@ if.end3.i:                                        ; preds = %entry
   %1 = load i8, ptr %arrayidx1.i.i.i, align 1
   %conv2.i.i.i = zext i8 %1 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
-  %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
   %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 10
   %2 = load i8, ptr %arrayidx4.i.i.i, align 1
   %conv5.i.i.i = zext i8 %2 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
-  %or7.i.i.i = or disjoint i64 %or.i.i.i, %shl6.i.i.i
   %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 11
   %3 = load i8, ptr %arrayidx8.i.i.i, align 1
   %conv9.i.i.i = zext i8 %3 to i64
-  %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
+  %4 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %5 = getelementptr i8, ptr %4, i64 %shl.i.i.i
+  %6 = getelementptr i8, ptr %5, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %6, i64 %conv9.i.i.i
   %idx.ext1.i.i = sext i32 %offset to i64
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   %tobool5.not.i = icmp eq ptr %lenp, null
@@ -1506,7 +1559,7 @@ if.end3.i:                                        ; preds = %entry
 if.then6.i:                                       ; preds = %if.end3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then6.i, %if.then.i
@@ -1527,7 +1580,7 @@ if.end:                                           ; preds = %fdt_get_property_by
 if.then2:                                         ; preds = %if.end
   %nameoff = getelementptr inbounds %struct.fdt_property, ptr %retval.0.i, i64 0, i32 2
   %nameoff.val = load i32, ptr %nameoff, align 4
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %nameoff.val)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %nameoff.val)
   %call6 = call ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %rev.i.i, ptr noundef nonnull %namelen)
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then8, label %if.end12
@@ -1537,8 +1590,8 @@ if.then8:                                         ; preds = %if.then2
   br i1 %tobool9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %4 = load i32, ptr %namelen, align 4
-  store i32 %4, ptr %lenp, align 4
+  %7 = load i32, ptr %namelen, align 4
+  store i32 %7, ptr %lenp, align 4
   br label %return
 
 if.end12:                                         ; preds = %if.then2
@@ -1547,33 +1600,33 @@ if.end12:                                         ; preds = %if.then2
 
 if.end17:                                         ; preds = %if.end12, %if.end
   %version = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
-  %5 = load i8, ptr %version, align 1
-  %conv.i = zext i8 %5 to i32
+  %8 = load i8, ptr %version, align 1
+  %conv.i = zext i8 %8 to i32
   %shl.i = shl nuw i32 %conv.i, 24
   %arrayidx1.i = getelementptr i8, ptr %fdt, i64 21
-  %6 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %6 to i32
+  %9 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %9 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
   %arrayidx4.i = getelementptr i8, ptr %fdt, i64 22
-  %7 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %7 to i32
+  %10 = load i8, ptr %arrayidx4.i, align 1
+  %conv5.i = zext i8 %10 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %or7.i = or disjoint i32 %or.i, %shl6.i
   %arrayidx8.i = getelementptr i8, ptr %fdt, i64 23
-  %8 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %8 to i32
+  %11 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %11 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
   %cmp = icmp ugt i32 %or10.i, 15
-  %9 = and i32 %offset, 7
-  %tobool21.not = icmp eq i32 %9, 4
+  %12 = and i32 %offset, 7
+  %tobool21.not = icmp eq i32 %12, 4
   %or.cond = or i1 %tobool21.not, %cmp
   br i1 %or.cond, label %if.end27, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.end17
   %len = getelementptr inbounds %struct.fdt_property, ptr %retval.0.i, i64 0, i32 1
   %len.val = load i32, ptr %len, align 4
-  %rev.i.i15 = call i32 @llvm.bswap.i32(i32 %len.val)
+  %rev.i.i15 = call noundef i32 @llvm.bswap.i32(i32 %len.val)
   %cmp24 = icmp ugt i32 %rev.i.i15, 7
   br i1 %cmp24, label %if.then26, label %if.end27
 
@@ -1632,7 +1685,7 @@ land.lhs.true3.i:                                 ; preds = %if.end.i
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
   %len.i = getelementptr inbounds %struct.fdt_property, ptr %call.i, i64 0, i32 1
   %len.val.i = load i32, ptr %len.i, align 4
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
   br i1 %cmp7.i, label %if.then9.i, label %if.end10.i
 
@@ -1697,7 +1750,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i3.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.end10.i.i
 
@@ -1723,7 +1776,6 @@ fdt_get_alias_namelen.exit:                       ; preds = %entry, %fdt_getprop
 define dso_local i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %nodeoffset, ptr nocapture noundef %buf, i32 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %depth = alloca i32, align 4
-  %namelen = alloca i32, align 4
   %call = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
@@ -1734,28 +1786,39 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store i32 0, ptr %depth, align 4
-  %cmp536 = icmp sgt i32 %nodeoffset, -1
-  br i1 %cmp536, label %while.cond.preheader, label %return
+  %cmp549 = icmp sgt i32 %nodeoffset, -1
+  br i1 %cmp549, label %while.cond.preheader.lr.ph, label %return
 
-while.cond.preheader:                             ; preds = %if.end3, %for.inc
-  %pdepth.039 = phi i32 [ %pdepth.2, %for.inc ], [ 0, %if.end3 ]
-  %offset.038 = phi i32 [ %call43, %for.inc ], [ 0, %if.end3 ]
-  %p.037 = phi i32 [ %p.3, %for.inc ], [ 0, %if.end3 ]
+while.cond.preheader.lr.ph:                       ; preds = %if.end3
+  %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %arrayidx1.i.i.i = getelementptr i8, ptr %fdt, i64 9
+  %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 10
+  %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 11
+  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %arrayidx1.i.i = getelementptr i8, ptr %fdt, i64 21
+  %arrayidx4.i.i = getelementptr i8, ptr %fdt, i64 22
+  %arrayidx8.i.i = getelementptr i8, ptr %fdt, i64 23
+  br label %while.cond.preheader
+
+while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %for.inc
+  %pdepth.052 = phi i32 [ 0, %while.cond.preheader.lr.ph ], [ %pdepth.2, %for.inc ]
+  %offset.051 = phi i32 [ 0, %while.cond.preheader.lr.ph ], [ %call43, %for.inc ]
+  %p.050 = phi i32 [ 0, %while.cond.preheader.lr.ph ], [ %p.3, %for.inc ]
   %0 = load i32, ptr %depth, align 4
-  %cmp631 = icmp sgt i32 %pdepth.039, %0
-  br i1 %cmp631, label %do.body.preheader.preheader, label %while.end
+  %cmp644 = icmp sgt i32 %pdepth.052, %0
+  br i1 %cmp644, label %do.body.preheader.preheader, label %while.end
 
 do.body.preheader.preheader:                      ; preds = %while.cond.preheader
-  %1 = add nsw i32 %pdepth.039, -1
+  %1 = add nsw i32 %pdepth.052, -1
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.preheader, %do.end
-  %pdepth.133 = phi i32 [ %dec9, %do.end ], [ %pdepth.039, %do.body.preheader.preheader ]
-  %p.132 = phi i32 [ %dec, %do.end ], [ %p.037, %do.body.preheader.preheader ]
+  %pdepth.146 = phi i32 [ %dec9, %do.end ], [ %pdepth.052, %do.body.preheader.preheader ]
+  %p.145 = phi i32 [ %dec, %do.end ], [ %p.050, %do.body.preheader.preheader ]
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
-  %p.2 = phi i32 [ %dec, %do.body ], [ %p.132, %do.body.preheader ]
+  %p.2 = phi i32 [ %dec, %do.body ], [ %p.145, %do.body.preheader ]
   %dec = add i32 %p.2, -1
   %sub = add i32 %p.2, -2
   %idxprom = sext i32 %sub to i64
@@ -1765,7 +1828,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp7.not, label %do.end, label %do.body, !llvm.loop !12
 
 do.end:                                           ; preds = %do.body
-  %dec9 = add nsw i32 %pdepth.133, -1
+  %dec9 = add nsw i32 %pdepth.146, -1
   %cmp6 = icmp sgt i32 %dec9, %0
   br i1 %cmp6, label %do.body.preheader, label %while.end.loopexit, !llvm.loop !13
 
@@ -1774,19 +1837,78 @@ while.end.loopexit:                               ; preds = %do.end
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %p.1.lcssa = phi i32 [ %p.037, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
-  %pdepth.1.lcssa = phi i32 [ %pdepth.039, %while.cond.preheader ], [ %smin, %while.end.loopexit ]
+  %p.1.lcssa = phi i32 [ %p.050, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
+  %pdepth.1.lcssa = phi i32 [ %pdepth.052, %while.cond.preheader ], [ %smin, %while.end.loopexit ]
   %cmp10.not = icmp slt i32 %pdepth.1.lcssa, %0
   br i1 %cmp10.not, label %if.end26, label %if.then12
 
 if.then12:                                        ; preds = %while.end
-  %call13 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.038, ptr noundef nonnull %namelen)
-  %tobool.not = icmp eq ptr %call13, null
-  %3 = load i32, ptr %namelen, align 4
+  %3 = load i8, ptr %off_dt_struct.i.i, align 1
+  %conv.i.i.i = zext i8 %3 to i64
+  %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
+  %4 = load i8, ptr %arrayidx1.i.i.i, align 1
+  %conv2.i.i.i = zext i8 %4 to i64
+  %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
+  %5 = load i8, ptr %arrayidx4.i.i.i, align 1
+  %conv5.i.i.i = zext i8 %5 to i64
+  %shl6.i.i.i = shl nuw nsw i64 %conv5.i.i.i, 8
+  %6 = load i8, ptr %arrayidx8.i.i.i, align 1
+  %conv9.i.i.i = zext i8 %6 to i64
+  %7 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i
+  %8 = getelementptr i8, ptr %7, i64 %shl.i.i.i
+  %9 = getelementptr i8, ptr %8, i64 %shl6.i.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %9, i64 %conv9.i.i.i
+  %idx.ext1.i.i = sext i32 %offset.051 to i64
+  %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
+  %call1.i = call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
+  %cmp.i = icmp slt i32 %call1.i, 0
+  br i1 %cmp.i, label %return, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.then12
+  %call2.i = call i32 @fdt_check_node_offset_(ptr noundef nonnull %fdt, i32 noundef %offset.051) #9
+  %cmp3.i = icmp slt i32 %call2.i, 0
+  br i1 %cmp3.i, label %return, label %if.end.i
+
+if.end.i:                                         ; preds = %lor.lhs.false.i
+  %name.i = getelementptr inbounds %struct.fdt_node_header, ptr %add.ptr2.i.i, i64 0, i32 1
+  %10 = load i8, ptr %version.i, align 1
+  %conv.i.i = zext i8 %10 to i32
+  %shl.i.i = shl nuw i32 %conv.i.i, 24
+  %11 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %11 to i32
+  %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
+  %or.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
+  %12 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %12 to i32
+  %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
+  %or7.i.i = or disjoint i32 %or.i.i, %shl6.i.i
+  %13 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %13 to i32
+  %or10.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
+  %cmp6.i = icmp ult i32 %or10.i.i, 16
+  br i1 %cmp6.i, label %if.then7.i, label %fdt_get_name.exit.thread35
+
+fdt_get_name.exit.thread35:                       ; preds = %if.end.i
+  %call14.i37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i) #10
+  %conv.i38 = trunc i64 %call14.i37 to i32
+  br label %if.end15
+
+if.then7.i:                                       ; preds = %if.end.i
+  %call8.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name.i, i32 noundef 47) #10
+  %cmp9.i = icmp eq ptr %call8.i, null
+  br i1 %cmp9.i, label %return, label %fdt_get_name.exit
+
+fdt_get_name.exit:                                ; preds = %if.then7.i
+  %add.ptr.i = getelementptr i8, ptr %call8.i, i64 1
+  %call14.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #10
+  %conv.i = trunc i64 %call14.i to i32
+  %tobool.not = icmp eq ptr %add.ptr.i, null
   br i1 %tobool.not, label %return, label %if.end15
 
-if.end15:                                         ; preds = %if.then12
-  %add = add i32 %3, %p.1.lcssa
+if.end15:                                         ; preds = %fdt_get_name.exit.thread35, %fdt_get_name.exit
+  %conv.i41 = phi i32 [ %conv.i38, %fdt_get_name.exit.thread35 ], [ %conv.i, %fdt_get_name.exit ]
+  %nameptr.0.i40 = phi ptr [ %name.i, %fdt_get_name.exit.thread35 ], [ %add.ptr.i, %fdt_get_name.exit ]
+  %add = add i32 %conv.i41, %p.1.lcssa
   %add16 = add i32 %add, 1
   %cmp17.not = icmp sgt i32 %add16, %buflen
   br i1 %cmp17.not, label %if.end26, label %if.then19
@@ -1794,8 +1916,8 @@ if.end15:                                         ; preds = %if.then12
 if.then19:                                        ; preds = %if.end15
   %idx.ext = sext i32 %p.1.lcssa to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
-  %conv20 = sext i32 %3 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %call13, i64 %conv20, i1 false)
+  %conv20 = sext i32 %conv.i41 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %nameptr.0.i40, i64 %conv20, i1 false)
   %idxprom22 = sext i32 %add to i64
   %arrayidx23 = getelementptr i8, ptr %buf, i64 %idxprom22
   store i8 47, ptr %arrayidx23, align 1
@@ -1805,12 +1927,12 @@ if.then19:                                        ; preds = %if.end15
 if.end26:                                         ; preds = %if.end15, %if.then19, %while.end
   %p.3 = phi i32 [ %add16, %if.then19 ], [ %p.1.lcssa, %if.end15 ], [ %p.1.lcssa, %while.end ]
   %pdepth.2 = phi i32 [ %inc24, %if.then19 ], [ %pdepth.1.lcssa, %if.end15 ], [ %pdepth.1.lcssa, %while.end ]
-  %cmp27 = icmp eq i32 %offset.038, %nodeoffset
+  %cmp27 = icmp eq i32 %offset.051, %nodeoffset
   br i1 %cmp27, label %if.then29, label %for.inc
 
 if.then29:                                        ; preds = %if.end26
-  %4 = load i32, ptr %depth, align 4
-  %add30 = add i32 %4, 1
+  %14 = load i32, ptr %depth, align 4
+  %add30 = add i32 %14, 1
   %cmp31 = icmp slt i32 %pdepth.2, %add30
   br i1 %cmp31, label %return, label %if.end34
 
@@ -1824,7 +1946,7 @@ if.end34:                                         ; preds = %if.then29
   br label %return
 
 for.inc:                                          ; preds = %if.end26
-  %call43 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.038, ptr noundef nonnull %depth) #9
+  %call43 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.051, ptr noundef nonnull %depth) #9
   %.not = icmp ugt i32 %call43, %nodeoffset
   br i1 %.not, label %for.end, label %while.cond.preheader, !llvm.loop !14
 
@@ -1837,8 +1959,8 @@ if.else:                                          ; preds = %for.end
   %.offset.0 = select i1 %cmp49, i32 -11, i32 %call43
   br label %return
 
-return:                                           ; preds = %if.then12, %if.end3, %if.else, %for.end, %if.then29, %if.end, %entry, %if.end34
-  %retval.0 = phi i32 [ 0, %if.end34 ], [ %call, %entry ], [ -3, %if.end ], [ -3, %if.then29 ], [ -4, %for.end ], [ %.offset.0, %if.else ], [ -4, %if.end3 ], [ %3, %if.then12 ]
+return:                                           ; preds = %if.then12, %lor.lhs.false.i, %if.then7.i, %fdt_get_name.exit, %if.end3, %if.else, %for.end, %if.then29, %if.end, %entry, %if.end34
+  %retval.0 = phi i32 [ 0, %if.end34 ], [ %call, %entry ], [ -3, %if.end ], [ -3, %if.then29 ], [ -4, %for.end ], [ %.offset.0, %if.else ], [ -4, %if.end3 ], [ %call1.i, %if.then12 ], [ %call2.i, %lor.lhs.false.i ], [ -11, %if.then7.i ], [ %conv.i, %fdt_get_name.exit ]
   ret i32 %retval.0
 }
 
@@ -2154,7 +2276,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread11
 
@@ -2224,7 +2346,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_stringlist_contains(ptr noundef %strlist, i32 noundef %listlen, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
+define dso_local noundef i32 @fdt_stringlist_contains(ptr noundef %strlist, i32 noundef %listlen, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
   %conv = trunc i64 %call to i32
@@ -2310,7 +2432,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread12
 
@@ -2412,7 +2534,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread14
 
@@ -2476,7 +2598,7 @@ return:                                           ; preds = %while.body, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_stringlist_get(ptr noundef %fdt, i32 noundef %nodeoffset, ptr nocapture noundef readonly %property, i32 noundef %idx, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
+define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %fdt, i32 noundef %nodeoffset, ptr nocapture noundef readonly %property, i32 noundef %idx, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %poffset.i.i = alloca i32, align 4
   %length = alloca i32, align 4
@@ -2522,7 +2644,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread20
 
@@ -2648,7 +2770,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
   %len.val.i.i = load i32, ptr %len.i.i, align 4
-  %rev.i.i.i.i = call i32 @llvm.bswap.i32(i32 %len.val.i.i)
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread6
 

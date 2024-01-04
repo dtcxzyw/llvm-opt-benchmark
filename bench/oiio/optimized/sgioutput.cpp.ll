@@ -1109,6 +1109,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv937 = zext nneg i32 %10 to i64
+  %invariant.gep = getelementptr i8, ptr %call7, i64 1
   %cmp19 = icmp eq i64 %mul.i.fr, 2
   %conv41 = sext i32 %sub2 to i64
   br i1 %cmp19, label %for.body.us, label %for.body.us45
@@ -1154,14 +1155,14 @@ if.end36.us:                                      ; preds = %for.body.i.us, %for
   %mul47.us = mul i64 %mul46.us, %add42.us
   %add48.us = add i64 %mul47.us, 512
   %call50.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %add48.us, i32 noundef 0)
-          to label %invoke.cont49.us unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
+          to label %invoke.cont49.us unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
 
 invoke.cont49.us:                                 ; preds = %if.end36.us
   %16 = load i32, ptr %width, align 4
   %conv55.us = sext i32 %16 to i64
   %mul56.us = shl nsw i64 %conv55.us, 1
   %call58.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %call7, i64 noundef 1, i64 noundef %mul56.us)
-          to label %invoke.cont57.us unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
+          to label %invoke.cont57.us unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
 
 invoke.cont57.us:                                 ; preds = %invoke.cont49.us
   br i1 %call58.us, label %for.cond.us, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit25
@@ -1181,15 +1182,14 @@ for.body16.us.us:                                 ; preds = %for.body16.us.us, %
   store i8 %17, ptr %arrayidx.i.us.us, align 1
   %arrayidx20.us.us = getelementptr inbounds i8, ptr %cdata.033.us.us, i64 1
   %18 = load i8, ptr %arrayidx20.us.us, align 1
-  %add.us.us = or disjoint i64 %mul17.us.us, 1
-  %arrayidx.i21.us.us = getelementptr inbounds i8, ptr %call7, i64 %add.us.us
-  store i8 %18, ptr %arrayidx.i21.us.us, align 1
+  %gep.us.us = getelementptr i8, ptr %invariant.gep, i64 %mul17.us.us
+  store i8 %18, ptr %gep.us.us, align 1
   %add.ptr28.us.us = getelementptr inbounds i8, ptr %cdata.033.us.us, i64 %mul27.us
   %inc.us.us = add nuw nsw i64 %x.034.us.us, 1
-  %exitcond85.not = icmp eq i64 %inc.us.us, %conv14.us
-  br i1 %exitcond85.not, label %for.end.us, label %for.body16.us.us, !llvm.loop !7
+  %exitcond92.not = icmp eq i64 %inc.us.us, %conv14.us
+  br i1 %exitcond92.not, label %for.end.us, label %for.body16.us.us, !llvm.loop !7
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %invoke.cont49.us, %if.end36.us
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split: ; preds = %invoke.cont49.us, %if.end36.us
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
@@ -1253,8 +1253,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us: ; preds =
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
-  %.us-phi43 = phi { ptr, i32 } [ %19, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us ], [ %25, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
+  %.us-phi43 = phi { ptr, i32 } [ %19, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split ], [ %25, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us ]
   call void @_ZdaPv(ptr noundef nonnull %call7) #22
   resume { ptr, i32 } %.us-phi43
 

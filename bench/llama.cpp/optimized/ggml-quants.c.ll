@@ -20,15 +20,16 @@ target triple = "x86_64-unknown-linux-gnu"
 @get_scale_shuffle_k4.k_shuffle = internal unnamed_addr constant [256 x i8] c"\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\00\01\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\02\03\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\04\05\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\06\07\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\08\09\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0A\0B\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0C\0D\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F\0E\0F", align 16
 @get_scale_shuffle.k_shuffle = internal unnamed_addr constant [128 x i8] c"\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\08\08\08\08\08\08\08\08\09\09\09\09\09\09\09\09\0A\0A\0A\0A\0A\0A\0A\0A\0B\0B\0B\0B\0B\0B\0B\0B\0C\0C\0C\0C\0C\0C\0C\0C\0D\0D\0D\0D\0D\0D\0D\0D\0E\0E\0E\0E\0E\0E\0E\0E\0F\0F\0F\0F\0F\0F\0F\0F", align 16
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q4_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp30 = icmp sgt i32 %k, 31
   br i1 %cmp30, label %for.cond1.preheader.preheader, label %for.end71
 
 for.cond1.preheader.preheader:                    ; preds = %entry
-  %div4647 = lshr i32 %k, 5
-  %wide.trip.count = zext nneg i32 %div4647 to i64
+  %div4649 = lshr i32 %k, 5
+  %wide.trip.count = zext nneg i32 %div4649 to i64
+  %invariant.gep47 = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.preheader, %for.inc69
@@ -69,19 +70,18 @@ for.body16:                                       ; preds = %for.end, %for.body1
   %arrayidx21 = getelementptr inbounds float, ptr %x, i64 %4
   %5 = load float, ptr %arrayidx21, align 4
   %mul22 = fmul float %cond, %5
-  %6 = or disjoint i64 %4, 16
-  %arrayidx27 = getelementptr inbounds float, ptr %x, i64 %6
-  %7 = load float, ptr %arrayidx27, align 4
-  %mul28 = fmul float %cond, %7
+  %gep48 = getelementptr float, ptr %invariant.gep47, i64 %4
+  %6 = load float, ptr %gep48, align 4
+  %mul28 = fmul float %cond, %6
   %add29 = fadd float %mul22, 8.500000e+00
   %conv = fptosi float %add29 to i8
-  %8 = tail call i8 @llvm.smin.i8(i8 %conv, i8 15)
+  %7 = tail call i8 @llvm.smin.i8(i8 %conv, i8 15)
   %add41 = fadd float %mul28, 8.500000e+00
   %conv42 = fptosi float %add41 to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv42, i8 15)
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv42, i8 15)
   %arrayidx57 = getelementptr inbounds %struct.block_q4_0, ptr %y, i64 %indvars.iv40, i32 1, i64 %indvars.iv34
-  %shl = shl i8 %9, 4
-  %or = or i8 %shl, %8
+  %shl = shl i8 %8, 4
+  %or = or i8 %shl, %7
   store i8 %or, ptr %arrayidx57, align 1
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next35, 16
@@ -102,7 +102,7 @@ declare float @llvm.fabs.f32(float) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float>, i32 immarg) #2
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @quantize_row_q4_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
@@ -111,8 +111,9 @@ entry:
   br i1 %cmp30.i, label %for.cond1.preheader.preheader.i, label %quantize_row_q4_0_reference.exit
 
 for.cond1.preheader.preheader.i:                  ; preds = %entry
-  %div4647.i = lshr i32 %k, 5
-  %wide.trip.count.i = zext nneg i32 %div4647.i to i64
+  %div4649.i = lshr i32 %k, 5
+  %wide.trip.count.i = zext nneg i32 %div4649.i to i64
+  %invariant.gep47.i = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc69.i, %for.cond1.preheader.preheader.i
@@ -153,19 +154,18 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %arrayidx21.i = getelementptr inbounds float, ptr %x, i64 %4
   %5 = load float, ptr %arrayidx21.i, align 4, !alias.scope !8, !noalias !11
   %mul22.i = fmul float %cond.i, %5
-  %6 = or disjoint i64 %4, 16
-  %arrayidx27.i = getelementptr inbounds float, ptr %x, i64 %6
-  %7 = load float, ptr %arrayidx27.i, align 4, !alias.scope !8, !noalias !11
-  %mul28.i = fmul float %cond.i, %7
+  %gep48.i = getelementptr float, ptr %invariant.gep47.i, i64 %4
+  %6 = load float, ptr %gep48.i, align 4, !alias.scope !8, !noalias !11
+  %mul28.i = fmul float %cond.i, %6
   %add29.i = fadd float %mul22.i, 8.500000e+00
   %conv.i = fptosi float %add29.i to i8
-  %8 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 15)
+  %7 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 15)
   %add41.i = fadd float %mul28.i, 8.500000e+00
   %conv42.i = fptosi float %add41.i to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv42.i, i8 15)
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv42.i, i8 15)
   %arrayidx57.i = getelementptr inbounds %struct.block_q4_0, ptr %y, i64 %indvars.iv40.i, i32 1, i64 %indvars.iv34.i
-  %shl.i = shl i8 %9, 4
-  %or.i = or i8 %shl.i, %8
+  %shl.i = shl i8 %8, 4
+  %or.i = or i8 %shl.i, %7
   store i8 %or.i, ptr %arrayidx57.i, align 1, !alias.scope !11, !noalias !8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next35.i, 16
@@ -180,15 +180,16 @@ quantize_row_q4_0_reference.exit:                 ; preds = %for.inc69.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q4_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp38 = icmp sgt i32 %k, 31
   br i1 %cmp38, label %for.cond1.preheader.preheader, label %for.end85
 
 for.cond1.preheader.preheader:                    ; preds = %entry
-  %div5455 = lshr i32 %k, 5
-  %wide.trip.count = zext nneg i32 %div5455 to i64
+  %div5457 = lshr i32 %k, 5
+  %wide.trip.count = zext nneg i32 %div5457 to i64
+  %invariant.gep55 = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.preheader, %for.inc83
@@ -233,20 +234,19 @@ for.body28:                                       ; preds = %for.end, %for.body2
   %6 = load float, ptr %arrayidx33, align 4
   %sub34 = fsub float %6, %min.1
   %mul35 = fmul float %cond, %sub34
-  %7 = or disjoint i64 %5, 16
-  %arrayidx40 = getelementptr inbounds float, ptr %x, i64 %7
-  %8 = load float, ptr %arrayidx40, align 4
-  %sub41 = fsub float %8, %min.1
+  %gep56 = getelementptr float, ptr %invariant.gep55, i64 %5
+  %7 = load float, ptr %gep56, align 4
+  %sub41 = fsub float %7, %min.1
   %mul42 = fmul float %cond, %sub41
   %add43 = fadd float %mul35, 5.000000e-01
   %conv = fptosi float %add43 to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv, i8 15)
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv, i8 15)
   %add55 = fadd float %mul42, 5.000000e-01
   %conv56 = fptosi float %add55 to i8
-  %10 = tail call i8 @llvm.smin.i8(i8 %conv56, i8 15)
+  %9 = tail call i8 @llvm.smin.i8(i8 %conv56, i8 15)
   %arrayidx71 = getelementptr inbounds %struct.block_q4_1, ptr %y, i64 %indvars.iv48, i32 2, i64 %indvars.iv42
-  %shl = shl i8 %10, 4
-  %or = or i8 %shl, %9
+  %shl = shl i8 %9, 4
+  %or = or i8 %shl, %8
   store i8 %or, ptr %arrayidx71, align 1
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next43, 16
@@ -261,7 +261,7 @@ for.end85:                                        ; preds = %for.inc83, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @quantize_row_q4_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -270,8 +270,9 @@ entry:
   br i1 %cmp38.i, label %for.cond1.preheader.preheader.i, label %quantize_row_q4_1_reference.exit
 
 for.cond1.preheader.preheader.i:                  ; preds = %entry
-  %div5455.i = lshr i32 %k, 5
-  %wide.trip.count.i = zext nneg i32 %div5455.i to i64
+  %div5457.i = lshr i32 %k, 5
+  %wide.trip.count.i = zext nneg i32 %div5457.i to i64
+  %invariant.gep55.i = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc83.i, %for.cond1.preheader.preheader.i
@@ -316,20 +317,19 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %6 = load float, ptr %arrayidx33.i, align 4, !alias.scope !16, !noalias !19
   %sub34.i = fsub float %6, %min.1.i
   %mul35.i = fmul float %cond.i, %sub34.i
-  %7 = or disjoint i64 %5, 16
-  %arrayidx40.i = getelementptr inbounds float, ptr %x, i64 %7
-  %8 = load float, ptr %arrayidx40.i, align 4, !alias.scope !16, !noalias !19
-  %sub41.i = fsub float %8, %min.1.i
+  %gep56.i = getelementptr float, ptr %invariant.gep55.i, i64 %5
+  %7 = load float, ptr %gep56.i, align 4, !alias.scope !16, !noalias !19
+  %sub41.i = fsub float %7, %min.1.i
   %mul42.i = fmul float %cond.i, %sub41.i
   %add43.i = fadd float %mul35.i, 5.000000e-01
   %conv.i = fptosi float %add43.i to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 15)
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 15)
   %add55.i = fadd float %mul42.i, 5.000000e-01
   %conv56.i = fptosi float %add55.i to i8
-  %10 = tail call i8 @llvm.smin.i8(i8 %conv56.i, i8 15)
+  %9 = tail call i8 @llvm.smin.i8(i8 %conv56.i, i8 15)
   %arrayidx71.i = getelementptr inbounds %struct.block_q4_1, ptr %y, i64 %indvars.iv48.i, i32 2, i64 %indvars.iv42.i
-  %shl.i = shl i8 %10, 4
-  %or.i = or i8 %shl.i, %9
+  %shl.i = shl i8 %9, 4
+  %or.i = or i8 %shl.i, %8
   store i8 %or.i, ptr %arrayidx71.i, align 1, !alias.scope !19, !noalias !16
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next43.i, 16
@@ -344,15 +344,16 @@ quantize_row_q4_1_reference.exit:                 ; preds = %for.inc83.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q5_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp35 = icmp sgt i32 %k, 31
   br i1 %cmp35, label %for.cond1.preheader.preheader, label %for.end81
 
 for.cond1.preheader.preheader:                    ; preds = %entry
-  %div5253 = lshr i32 %k, 5
-  %wide.trip.count = zext nneg i32 %div5253 to i64
+  %div5255 = lshr i32 %k, 5
+  %wide.trip.count = zext nneg i32 %div5255 to i64
+  %invariant.gep53 = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.preheader, %for.end75
@@ -394,34 +395,33 @@ for.body16:                                       ; preds = %for.end, %for.body1
   %arrayidx21 = getelementptr inbounds float, ptr %x, i64 %4
   %5 = load float, ptr %arrayidx21, align 4
   %mul22 = fmul float %cond, %5
-  %6 = or disjoint i64 %4, 16
-  %arrayidx27 = getelementptr inbounds float, ptr %x, i64 %6
-  %7 = load float, ptr %arrayidx27, align 4
-  %mul28 = fmul float %cond, %7
+  %gep54 = getelementptr float, ptr %invariant.gep53, i64 %4
+  %6 = load float, ptr %gep54, align 4
+  %mul28 = fmul float %cond, %6
   %add29 = fadd float %mul22, 1.650000e+01
   %conv = fptosi float %add29 to i8
-  %8 = tail call i8 @llvm.smin.i8(i8 %conv, i8 31)
+  %7 = tail call i8 @llvm.smin.i8(i8 %conv, i8 31)
   %add41 = fadd float %mul28, 1.650000e+01
   %conv42 = fptosi float %add41 to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv42, i8 31)
-  %and = and i8 %8, 15
-  %and56 = shl i8 %9, 4
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv42, i8 31)
+  %and = and i8 %7, 15
+  %and56 = shl i8 %8, 4
   %or = or disjoint i8 %and56, %and
   %arrayidx61 = getelementptr inbounds %struct.block_q5_0, ptr %y, i64 %indvars.iv46, i32 2, i64 %indvars.iv39
   store i8 %or, ptr %arrayidx61, align 1
-  %10 = lshr i8 %8, 4
-  %11 = and i8 %10, 1
-  %shr = zext nneg i8 %11 to i32
-  %12 = trunc i64 %indvars.iv39 to i32
-  %shl65 = shl nuw nsw i32 %shr, %12
-  %13 = lshr i8 %9, 4
-  %14 = and i8 %13, 1
-  %shr69 = zext nneg i8 %14 to i32
-  %15 = trunc i64 %indvars.iv39 to i32
-  %16 = add i32 %15, 16
-  %shl71 = shl nuw i32 %shr69, %16
-  %17 = add nuw nsw i32 %shl71, %shl65
-  %or72 = or i32 %17, %qh.033
+  %9 = lshr i8 %7, 4
+  %10 = and i8 %9, 1
+  %shr = zext nneg i8 %10 to i32
+  %11 = trunc i64 %indvars.iv39 to i32
+  %shl65 = shl nuw nsw i32 %shr, %11
+  %12 = lshr i8 %8, 4
+  %13 = and i8 %12, 1
+  %shr69 = zext nneg i8 %13 to i32
+  %14 = trunc i64 %indvars.iv39 to i32
+  %15 = add i32 %14, 16
+  %shl71 = shl nuw i32 %shr69, %15
+  %16 = add nuw nsw i32 %shl71, %shl65
+  %or72 = or i32 %16, %qh.033
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next40, 16
   br i1 %exitcond45.not, label %for.end75, label %for.body16, !llvm.loop !22
@@ -440,7 +440,7 @@ for.end81:                                        ; preds = %for.end75, %entry
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @quantize_row_q5_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -449,8 +449,9 @@ entry:
   br i1 %cmp35.i, label %for.cond1.preheader.preheader.i, label %quantize_row_q5_0_reference.exit
 
 for.cond1.preheader.preheader.i:                  ; preds = %entry
-  %div5253.i = lshr i32 %k, 5
-  %wide.trip.count.i = zext nneg i32 %div5253.i to i64
+  %div5255.i = lshr i32 %k, 5
+  %wide.trip.count.i = zext nneg i32 %div5255.i to i64
+  %invariant.gep53.i = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.end75.i, %for.cond1.preheader.preheader.i
@@ -492,33 +493,32 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %arrayidx21.i = getelementptr inbounds float, ptr %x, i64 %4
   %5 = load float, ptr %arrayidx21.i, align 4, !alias.scope !24, !noalias !27
   %mul22.i = fmul float %cond.i, %5
-  %6 = or disjoint i64 %4, 16
-  %arrayidx27.i = getelementptr inbounds float, ptr %x, i64 %6
-  %7 = load float, ptr %arrayidx27.i, align 4, !alias.scope !24, !noalias !27
-  %mul28.i = fmul float %cond.i, %7
+  %gep54.i = getelementptr float, ptr %invariant.gep53.i, i64 %4
+  %6 = load float, ptr %gep54.i, align 4, !alias.scope !24, !noalias !27
+  %mul28.i = fmul float %cond.i, %6
   %add29.i = fadd float %mul22.i, 1.650000e+01
   %conv.i = fptosi float %add29.i to i8
-  %8 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 31)
+  %7 = tail call i8 @llvm.smin.i8(i8 %conv.i, i8 31)
   %add41.i = fadd float %mul28.i, 1.650000e+01
   %conv42.i = fptosi float %add41.i to i8
-  %9 = tail call i8 @llvm.smin.i8(i8 %conv42.i, i8 31)
-  %and.i = and i8 %8, 15
-  %and56.i = shl i8 %9, 4
+  %8 = tail call i8 @llvm.smin.i8(i8 %conv42.i, i8 31)
+  %and.i = and i8 %7, 15
+  %and56.i = shl i8 %8, 4
   %or.i = or disjoint i8 %and56.i, %and.i
   %arrayidx61.i = getelementptr inbounds %struct.block_q5_0, ptr %y, i64 %indvars.iv46.i, i32 2, i64 %indvars.iv39.i
   store i8 %or.i, ptr %arrayidx61.i, align 1, !alias.scope !27, !noalias !24
-  %10 = lshr i8 %8, 4
-  %11 = and i8 %10, 1
-  %shr.i = zext nneg i8 %11 to i32
-  %12 = trunc i64 %indvars.iv39.i to i32
-  %shl65.i = shl nuw nsw i32 %shr.i, %12
-  %13 = lshr i8 %9, 4
-  %14 = and i8 %13, 1
-  %shr69.i = zext nneg i8 %14 to i32
-  %15 = add i32 %12, 16
-  %shl71.i = shl nuw i32 %shr69.i, %15
-  %16 = add nuw nsw i32 %shl71.i, %shl65.i
-  %or72.i = or i32 %16, %qh.033.i
+  %9 = lshr i8 %7, 4
+  %10 = and i8 %9, 1
+  %shr.i = zext nneg i8 %10 to i32
+  %11 = trunc i64 %indvars.iv39.i to i32
+  %shl65.i = shl nuw nsw i32 %shr.i, %11
+  %12 = lshr i8 %8, 4
+  %13 = and i8 %12, 1
+  %shr69.i = zext nneg i8 %13 to i32
+  %14 = add i32 %11, 16
+  %shl71.i = shl nuw i32 %shr69.i, %14
+  %15 = add nuw nsw i32 %shl71.i, %shl65.i
+  %or72.i = or i32 %15, %qh.033.i
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next40.i, 16
   br i1 %exitcond45.not.i, label %for.end75.i, label %for.body16.i, !llvm.loop !22
@@ -534,15 +534,16 @@ quantize_row_q5_0_reference.exit:                 ; preds = %for.end75.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q5_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp41 = icmp sgt i32 %k, 31
   br i1 %cmp41, label %for.cond1.preheader.preheader, label %for.end73
 
 for.cond1.preheader.preheader:                    ; preds = %entry
-  %div6061 = lshr i32 %k, 5
-  %wide.trip.count = zext nneg i32 %div6061 to i64
+  %div6063 = lshr i32 %k, 5
+  %wide.trip.count = zext nneg i32 %div6063 to i64
+  %invariant.gep61 = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.preheader, %for.end67
@@ -588,10 +589,9 @@ for.body28:                                       ; preds = %for.end, %for.body2
   %6 = load float, ptr %arrayidx33, align 4
   %sub34 = fsub float %6, %min.1
   %mul35 = fmul float %cond, %sub34
-  %7 = or disjoint i64 %5, 16
-  %arrayidx40 = getelementptr inbounds float, ptr %x, i64 %7
-  %8 = load float, ptr %arrayidx40, align 4
-  %sub41 = fsub float %8, %min.1
+  %gep62 = getelementptr float, ptr %invariant.gep61, i64 %5
+  %7 = load float, ptr %gep62, align 4
+  %sub41 = fsub float %7, %min.1
   %mul42 = fmul float %cond, %sub41
   %add43 = fadd float %mul35, 5.000000e-01
   %conv = fptoui float %add43 to i8
@@ -602,19 +602,19 @@ for.body28:                                       ; preds = %for.end, %for.body2
   %or = or disjoint i8 %and48, %and
   %arrayidx53 = getelementptr inbounds %struct.block_q5_1, ptr %y, i64 %indvars.iv54, i32 3, i64 %indvars.iv47
   store i8 %or, ptr %arrayidx53, align 1
-  %9 = lshr i8 %conv, 4
-  %10 = and i8 %9, 1
-  %shr = zext nneg i8 %10 to i32
-  %11 = trunc i64 %indvars.iv47 to i32
-  %shl57 = shl nuw nsw i32 %shr, %11
-  %12 = lshr i8 %conv45, 4
-  %13 = and i8 %12, 1
-  %shr61 = zext nneg i8 %13 to i32
-  %14 = trunc i64 %indvars.iv47 to i32
-  %15 = add i32 %14, 16
-  %shl63 = shl nuw i32 %shr61, %15
-  %16 = add nuw nsw i32 %shl63, %shl57
-  %or64 = or i32 %16, %qh.039
+  %8 = lshr i8 %conv, 4
+  %9 = and i8 %8, 1
+  %shr = zext nneg i8 %9 to i32
+  %10 = trunc i64 %indvars.iv47 to i32
+  %shl57 = shl nuw nsw i32 %shr, %10
+  %11 = lshr i8 %conv45, 4
+  %12 = and i8 %11, 1
+  %shr61 = zext nneg i8 %12 to i32
+  %13 = trunc i64 %indvars.iv47 to i32
+  %14 = add i32 %13, 16
+  %shl63 = shl nuw i32 %shr61, %14
+  %15 = add nuw nsw i32 %shl63, %shl57
+  %or64 = or i32 %15, %qh.039
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next48, 16
   br i1 %exitcond53.not, label %for.end67, label %for.body28, !llvm.loop !30
@@ -630,14 +630,14 @@ for.end73:                                        ; preds = %for.end67, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q5_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   tail call void @quantize_row_q5_1_reference(ptr noundef %x, ptr noundef %y, i32 noundef %k)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q8_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp21 = icmp sgt i32 %k, 31
@@ -704,7 +704,7 @@ for.end35:                                        ; preds = %for.inc33, %entry
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #1
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @quantize_row_q8_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %vy, i32 noundef %k) local_unnamed_addr #6 {
 entry:
   %cmp58 = icmp sgt i32 %k, 31
@@ -782,15 +782,16 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #2
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q8_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %cmp40 = icmp sgt i32 %k, 31
   br i1 %cmp40, label %for.cond1.preheader.preheader, label %for.end64
 
 for.cond1.preheader.preheader:                    ; preds = %entry
-  %div5758 = lshr i32 %k, 5
-  %wide.trip.count = zext nneg i32 %div5758 to i64
+  %div5760 = lshr i32 %k, 5
+  %wide.trip.count = zext nneg i32 %div5760 to i64
+  %invariant.gep58 = getelementptr float, ptr %x, i64 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.preheader, %for.end57
@@ -827,21 +828,20 @@ for.body17:                                       ; preds = %for.end, %for.body1
   %arrayidx21 = getelementptr inbounds float, ptr %x, i64 %3
   %4 = load float, ptr %arrayidx21, align 4
   %mul22 = fmul float %cond10, %4
-  %5 = or disjoint i64 %3, 16
-  %arrayidx27 = getelementptr inbounds float, ptr %x, i64 %5
-  %6 = load float, ptr %arrayidx27, align 4
-  %mul28 = fmul float %cond10, %6
-  %7 = tail call float @llvm.round.f32(float %mul22)
-  %conv = fptosi float %7 to i8
+  %gep59 = getelementptr float, ptr %invariant.gep58, i64 %3
+  %5 = load float, ptr %gep59, align 4
+  %mul28 = fmul float %cond10, %5
+  %6 = tail call float @llvm.round.f32(float %mul22)
+  %conv = fptosi float %6 to i8
   %arrayidx32 = getelementptr inbounds %struct.block_q8_1, ptr %y, i64 %indvars.iv51, i32 2, i64 %indvars.iv44
   store i8 %conv, ptr %arrayidx32, align 1
-  %8 = tail call float @llvm.round.f32(float %mul28)
-  %conv33 = fptosi float %8 to i8
-  %9 = or disjoint i64 %indvars.iv44, 16
-  %arrayidx39 = getelementptr inbounds %struct.block_q8_1, ptr %y, i64 %indvars.iv51, i32 2, i64 %9
+  %7 = tail call float @llvm.round.f32(float %mul28)
+  %conv33 = fptosi float %7 to i8
+  %8 = or disjoint i64 %indvars.iv44, 16
+  %arrayidx39 = getelementptr inbounds %struct.block_q8_1, ptr %y, i64 %indvars.iv51, i32 2, i64 %8
   store i8 %conv33, ptr %arrayidx39, align 1
-  %10 = load i8, ptr %arrayidx32, align 1
-  %conv45 = sext i8 %10 to i32
+  %9 = load i8, ptr %arrayidx32, align 1
+  %conv45 = sext i8 %9 to i32
   %add46 = add nsw i32 %sum.038, %conv45
   %conv53 = sext i8 %conv33 to i32
   %add54 = add nsw i32 %add46, %conv53
@@ -862,7 +862,7 @@ for.end64:                                        ; preds = %for.end57, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @quantize_row_q8_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %vy, i32 noundef %k) local_unnamed_addr #6 {
 entry:
   %cmp65 = icmp sgt i32 %k, 31
@@ -958,6 +958,7 @@ entry:
 for.body.preheader:                               ; preds = %entry
   %div2728 = lshr i32 %k, 5
   %wide.trip.count = zext nneg i32 %div2728 to i64
+  %invariant.gep = getelementptr float, ptr %y, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc28
@@ -986,9 +987,8 @@ for.body4:                                        ; preds = %for.body, %for.body
   store float %mul, ptr %arrayidx20, align 4
   %conv21 = sitofp i32 %sub15 to float
   %mul22 = fmul float %1, %conv21
-  %5 = or disjoint i64 %4, 16
-  %arrayidx27 = getelementptr inbounds float, ptr %y, i64 %5
-  store float %mul22, ptr %arrayidx27, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %4
+  store float %mul22, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.inc28, label %for.body4, !llvm.loop !40
@@ -1002,8 +1002,8 @@ for.end30:                                        ; preds = %for.inc28, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q4_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp22 = icmp sgt i32 %k, 31
   br i1 %cmp22, label %for.body.preheader, label %for.end32
@@ -1011,6 +1011,7 @@ entry:
 for.body.preheader:                               ; preds = %entry
   %div3233 = lshr i32 %k, 5
   %wide.trip.count = zext nneg i32 %div3233 to i64
+  %invariant.gep = getelementptr float, ptr %y, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc30
@@ -1042,9 +1043,8 @@ for.body8:                                        ; preds = %for.body, %for.body
   store float %6, ptr %arrayidx22, align 4
   %conv23 = sitofp i32 %shr to float
   %8 = tail call float @llvm.fmuladd.f32(float %conv23, float %1, float %3)
-  %9 = or disjoint i64 %7, 16
-  %arrayidx29 = getelementptr inbounds float, ptr %y, i64 %9
-  store float %8, ptr %arrayidx29, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %7
+  store float %8, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.inc30, label %for.body8, !llvm.loop !42
@@ -1070,6 +1070,7 @@ entry:
 for.body.preheader:                               ; preds = %entry
   %div3334 = lshr i32 %k, 5
   %wide.trip.count = zext nneg i32 %div3334 to i64
+  %invariant.gep = getelementptr float, ptr %y, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc42
@@ -1110,9 +1111,8 @@ for.body7:                                        ; preds = %for.body, %for.body
   store float %mul, ptr %arrayidx34, align 4
   %conv35 = sitofp i32 %sub28 to float
   %mul36 = fmul float %1, %conv35
-  %9 = or disjoint i64 %8, 16
-  %arrayidx41 = getelementptr inbounds float, ptr %y, i64 %9
-  store float %mul36, ptr %arrayidx41, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %8
+  store float %mul36, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.inc42, label %for.body7, !llvm.loop !44
@@ -1126,8 +1126,8 @@ for.end44:                                        ; preds = %for.inc42, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q5_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp27 = icmp sgt i32 %k, 31
   br i1 %cmp27, label %for.body.preheader, label %for.end46
@@ -1135,6 +1135,7 @@ entry:
 for.body.preheader:                               ; preds = %entry
   %div3839 = lshr i32 %k, 5
   %wide.trip.count = zext nneg i32 %div3839 to i64
+  %invariant.gep = getelementptr float, ptr %y, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc44
@@ -1178,9 +1179,8 @@ for.body11:                                       ; preds = %for.body, %for.body
   store float %10, ptr %arrayidx36, align 4
   %conv37 = sitofp i32 %or31 to float
   %12 = tail call float @llvm.fmuladd.f32(float %conv37, float %1, float %3)
-  %13 = or disjoint i64 %11, 16
-  %arrayidx43 = getelementptr inbounds float, ptr %y, i64 %13
-  store float %12, ptr %arrayidx43, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %11
+  store float %12, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.inc44, label %for.body11, !llvm.loop !46
@@ -1237,8 +1237,8 @@ for.end15:                                        ; preds = %for.inc13, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q2_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @quantize_row_q2_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
 entry:
   %L = alloca [256 x i8], align 16
   %Laux = alloca [16 x i8], align 16
@@ -1651,8 +1651,8 @@ for.end239:                                       ; preds = %for.end235, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   %cmp44 = icmp sgt i32 %k, 255
   br i1 %cmp44, label %for.body.preheader, label %for.end77
@@ -1771,15 +1771,15 @@ for.end77:                                        ; preds = %for.inc75, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @quantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #10 {
 entry:
   tail call void @quantize_row_q2_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i64 @ggml_quantize_q2_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define i64 @ggml_quantize_q2_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #10 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -1808,8 +1808,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret i64 %mul
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q3_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @quantize_row_q3_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
 entry:
   %L = alloca [256 x i8], align 16
   %scales = alloca [16 x float], align 16
@@ -2218,10 +2218,10 @@ for.end284:                                       ; preds = %for.end280, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   %aux = alloca [4 x i32], align 16
   %cmp48 = icmp sgt i32 %k, 255
@@ -2361,15 +2361,15 @@ for.end116:                                       ; preds = %for.inc114, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @quantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #10 {
 entry:
   tail call void @quantize_row_q3_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i64 @ggml_quantize_q3_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define i64 @ggml_quantize_q3_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #10 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -2399,7 +2399,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q4_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #13 {
+define void @quantize_row_q4_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #12 {
 entry:
   %L = alloca [256 x i8], align 16
   %Laux = alloca [32 x i8], align 16
@@ -2439,7 +2439,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
 
 for.end:                                          ; preds = %for.body6
   %div12 = fmul float %3, 3.125000e-02
-  %call = tail call float @sqrtf(float noundef %div12) #22
+  %call = tail call float @sqrtf(float noundef %div12) #20
   br label %for.body16
 
 for.body16:                                       ; preds = %for.end, %for.body16
@@ -2846,10 +2846,10 @@ for.end258:                                       ; preds = %for.end254, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #14
+declare float @sqrtf(float noundef) local_unnamed_addr #13
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   %cmp50 = icmp sgt i32 %k, 255
   br i1 %cmp50, label %for.body.preheader, label %for.end58
@@ -3003,14 +3003,14 @@ for.end58:                                        ; preds = %for.inc56, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #15 {
+define void @quantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #14 {
 entry:
   tail call void @quantize_row_q4_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @ggml_quantize_q4_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #15 {
+define i64 @ggml_quantize_q4_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #14 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -3040,7 +3040,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q5_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #13 {
+define void @quantize_row_q5_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #12 {
 entry:
   %L = alloca [256 x i8], align 16
   %mins = alloca [8 x float], align 16
@@ -3080,7 +3080,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
 
 for.end:                                          ; preds = %for.body6
   %div12 = fmul float %3, 3.125000e-02
-  %call = tail call float @sqrtf(float noundef %div12) #22
+  %call = tail call float @sqrtf(float noundef %div12) #20
   br label %for.body16
 
 for.body16:                                       ; preds = %for.end, %for.body16
@@ -3518,8 +3518,8 @@ for.end289:                                       ; preds = %for.end285, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @dequantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   %cmp61 = icmp sgt i32 %k, 255
   br i1 %cmp61, label %for.body.preheader, label %for.end81
@@ -3692,14 +3692,14 @@ for.end81:                                        ; preds = %for.inc79, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #15 {
+define void @quantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #14 {
 entry:
   tail call void @quantize_row_q5_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @ggml_quantize_q5_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #15 {
+define i64 @ggml_quantize_q5_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #14 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -3728,8 +3728,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret i64 %mul
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define void @quantize_row_q6_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #16 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define void @quantize_row_q6_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #15 {
 entry:
   %L = alloca [256 x i8], align 16
   %scales = alloca [16 x float], align 16
@@ -4055,7 +4055,7 @@ for.end207:                                       ; preds = %for.inc205, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #17 {
+define void @dequantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   %cmp54 = icmp sgt i32 %k, 255
   br i1 %cmp54, label %for.body.preheader, label %for.end131
@@ -4177,15 +4177,15 @@ for.end131:                                       ; preds = %for.inc129, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define void @quantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #18 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define void @quantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #16 {
 entry:
   tail call void @quantize_row_q6_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define i64 @ggml_quantize_q6_K(ptr nocapture noundef readonly %src, ptr nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr nocapture noundef readnone %hist) local_unnamed_addr #18 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define i64 @ggml_quantize_q6_K(ptr nocapture noundef readonly %src, ptr nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr nocapture noundef readnone %hist) local_unnamed_addr #16 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -4214,8 +4214,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret i64 %mul
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @quantize_row_q8_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @quantize_row_q8_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp40 = icmp sgt i32 %k, 255
   br i1 %cmp40, label %for.cond1.preheader.preheader, label %for.end64
@@ -4314,7 +4314,7 @@ for.end64:                                        ; preds = %for.inc62, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #19 {
+define void @dequantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #17 {
 entry:
   %cmp9 = icmp sgt i32 %k, 255
   br i1 %cmp9, label %for.cond1.preheader.preheader, label %for.end11
@@ -4353,8 +4353,8 @@ for.end11:                                        ; preds = %for.inc9, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @quantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -4454,7 +4454,7 @@ quantize_row_q8_K_reference.exit:                 ; preds = %for.inc62.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp51 = icmp sgt i32 %n, 31
@@ -4517,7 +4517,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp31 = icmp sgt i32 %n, 31
@@ -4585,7 +4585,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp54 = icmp sgt i32 %n, 31
@@ -4661,7 +4661,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp66 = icmp sgt i32 %n, 31
@@ -4742,7 +4742,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp18 = icmp sgt i32 %n, 31
@@ -4797,7 +4797,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %scales40 = alloca [2 x <4 x i64>], align 32
@@ -4934,7 +4934,7 @@ for.end98:                                        ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %scales49 = alloca [2 x <4 x i64>], align 32
@@ -5105,7 +5105,7 @@ for.end142:                                       ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp96 = icmp sgt i32 %n, 255
@@ -5118,8 +5118,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
   %indvars.iv105 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next106, %for.end ]
-  %acc.099 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %42, %for.end ]
-  %acc_m.098 = phi <4 x float> [ zeroinitializer, %for.body.preheader ], [ %41, %for.end ]
+  %acc.099 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %41, %for.end ]
+  %acc_m.098 = phi <4 x float> [ zeroinitializer, %for.body.preheader ], [ %40, %for.end ]
   %arrayidx = getelementptr inbounds %struct.block_q8_K, ptr %vy, i64 %indvars.iv105
   %0 = load float, ptr %arrayidx, align 4
   %arrayidx5 = getelementptr inbounds %struct.block_q4_K, ptr %vx, i64 %indvars.iv105
@@ -5185,30 +5185,29 @@ for.body67:                                       ; preds = %for.body, %for.body
   %add.ptr.i = getelementptr inbounds <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %20
   %21 = load <32 x i8>, ptr %add.ptr.i, align 16
   %22 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %18, <32 x i8> %21)
-  %23 = or disjoint i64 %20, 1
-  %add.ptr.i92 = getelementptr inbounds <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %23
-  %24 = load <32 x i8>, ptr %add.ptr.i92, align 16
-  %25 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %18, <32 x i8> %24)
-  %26 = load <4 x i64>, ptr %q4.095, align 1
+  %gep = getelementptr <4 x i64>, ptr getelementptr inbounds ([256 x i8], ptr @get_scale_shuffle_k4.k_shuffle, i64 0, i64 32), i64 %20
+  %23 = load <32 x i8>, ptr %gep, align 16
+  %24 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %18, <32 x i8> %23)
+  %25 = load <4 x i64>, ptr %q4.095, align 1
   %add.ptr = getelementptr inbounds i8, ptr %q4.095, i64 32
-  %27 = bitcast <4 x i64> %26 to <16 x i16>
-  %28 = lshr <16 x i16> %27, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %29 = load <32 x i8>, ptr %q8.094, align 1
+  %26 = bitcast <4 x i64> %25 to <16 x i16>
+  %27 = lshr <16 x i16> %26, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %28 = load <32 x i8>, ptr %q8.094, align 1
   %add.ptr80 = getelementptr inbounds i8, ptr %q8.094, i64 32
-  %30 = bitcast <4 x i64> %26 to <32 x i8>
-  %31 = and <32 x i8> %30, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %32 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %31, <32 x i8> %29)
-  %33 = bitcast <32 x i8> %22 to <16 x i16>
-  %34 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %33, <16 x i16> %32)
-  %35 = load <32 x i8>, ptr %add.ptr80, align 1
+  %29 = bitcast <4 x i64> %25 to <32 x i8>
+  %30 = and <32 x i8> %29, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %31 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %30, <32 x i8> %28)
+  %32 = bitcast <32 x i8> %22 to <16 x i16>
+  %33 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %32, <16 x i16> %31)
+  %34 = load <32 x i8>, ptr %add.ptr80, align 1
   %add.ptr84 = getelementptr inbounds i8, ptr %q8.094, i64 64
-  %36 = bitcast <16 x i16> %28 to <32 x i8>
-  %37 = and <32 x i8> %36, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %38 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %37, <32 x i8> %35)
-  %39 = bitcast <32 x i8> %25 to <16 x i16>
-  %40 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %39, <16 x i16> %38)
-  %add.i109 = add <8 x i32> %34, %19
-  %add.i = add <8 x i32> %add.i109, %40
+  %35 = bitcast <16 x i16> %27 to <32 x i8>
+  %36 = and <32 x i8> %35, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %37 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %36, <32 x i8> %34)
+  %38 = bitcast <32 x i8> %24 to <16 x i16>
+  %39 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %38, <16 x i16> %37)
+  %add.i109 = add <8 x i32> %33, %19
+  %add.i = add <8 x i32> %add.i109, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body67, !llvm.loop !254
@@ -5216,36 +5215,36 @@ for.body67:                                       ; preds = %for.body, %for.body
 for.end:                                          ; preds = %for.body67
   %mul = fmul float %0, %2
   %vecinit3.i152 = shufflevector <4 x float> %vecinit.i149, <4 x float> poison, <4 x i32> zeroinitializer
-  %41 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %vecinit3.i152, <4 x float> %conv.i154, <4 x float> %acc_m.098)
+  %40 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %vecinit3.i152, <4 x float> %conv.i154, <4 x float> %acc_m.098)
   %vecinit.i165 = insertelement <8 x float> poison, float %mul, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i165, <8 x float> poison, <8 x i32> zeroinitializer
   %conv.i = sitofp <8 x i32> %add.i to <8 x float>
-  %42 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit7.i, <8 x float> %conv.i, <8 x float> %acc.099)
+  %41 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit7.i, <8 x float> %conv.i, <8 x float> %acc.099)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
   br i1 %exitcond108.not, label %for.end94, label %for.body, !llvm.loop !255
 
 for.end94:                                        ; preds = %for.end, %entry
-  %acc_m.0.lcssa = phi <4 x float> [ zeroinitializer, %entry ], [ %41, %for.end ]
-  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %42, %for.end ]
+  %acc_m.0.lcssa = phi <4 x float> [ zeroinitializer, %entry ], [ %40, %for.end ]
+  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %41, %for.end ]
   %shuffle.i = shufflevector <4 x float> %acc_m.0.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %add.i157 = fadd <4 x float> %acc_m.0.lcssa, %shuffle.i
   %shift = shufflevector <4 x float> %add.i157, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %43 = fadd <4 x float> %add.i157, %shift
+  %42 = fadd <4 x float> %add.i157, %shift
   %extract.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %shuffle.i.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %add.i16.i = fadd <4 x float> %extract.i, %shuffle.i.i
   %shuffle.i8.i = shufflevector <4 x float> %add.i16.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %add.i.i = fadd <4 x float> %add.i16.i, %shuffle.i8.i
   %shift113 = shufflevector <4 x float> %add.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %44 = fadd <4 x float> %add.i.i, %shift113
-  %45 = fadd <4 x float> %43, %44
-  %add101 = extractelement <4 x float> %45, i64 0
+  %43 = fadd <4 x float> %add.i.i, %shift113
+  %44 = fadd <4 x float> %42, %43
+  %add101 = extractelement <4 x float> %44, i64 0
   store float %add101, ptr %s, align 4
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp126 = icmp sgt i32 %n, 255
@@ -5258,8 +5257,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
   %indvars.iv135 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next136, %for.end ]
-  %acc.0129 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %59, %for.end ]
-  %summs.0128 = phi float [ 0.000000e+00, %for.body.preheader ], [ %58, %for.end ]
+  %acc.0129 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %58, %for.end ]
+  %summs.0128 = phi float [ 0.000000e+00, %for.body.preheader ], [ %57, %for.end ]
   %arrayidx = getelementptr inbounds %struct.block_q5_K, ptr %vx, i64 %indvars.iv135
   %qs = getelementptr inbounds %struct.block_q5_K, ptr %vx, i64 %indvars.iv135, i32 4
   %arrayidx5 = getelementptr inbounds %struct.block_q8_K, ptr %vy, i64 %indvars.iv135
@@ -5324,54 +5323,53 @@ for.body73:                                       ; preds = %for.body, %for.body
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body73 ]
   %q5.0125 = phi ptr [ %qs, %for.body ], [ %add.ptr, %for.body73 ]
   %q8.0124 = phi ptr [ %qs6, %for.body ], [ %add.ptr99, %for.body73 ]
-  %hmask.0123 = phi <4 x i64> [ <i64 72340172838076673, i64 72340172838076673, i64 72340172838076673, i64 72340172838076673>, %for.body ], [ %49, %for.body73 ]
+  %hmask.0123 = phi <4 x i64> [ <i64 72340172838076673, i64 72340172838076673, i64 72340172838076673, i64 72340172838076673>, %for.body ], [ %48, %for.body73 ]
   %24 = phi <8 x i32> [ zeroinitializer, %for.body ], [ %add.i, %for.body73 ]
   %bit.0122 = phi i32 [ 0, %for.body ], [ %inc91, %for.body73 ]
   %25 = shl nuw nsw i64 %indvars.iv, 1
   %add.ptr.i = getelementptr inbounds <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %25
   %26 = load <32 x i8>, ptr %add.ptr.i, align 16
   %27 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %22, <32 x i8> %26)
-  %28 = or disjoint i64 %25, 1
-  %add.ptr.i120 = getelementptr inbounds <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %28
-  %29 = load <32 x i8>, ptr %add.ptr.i120, align 16
-  %30 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %22, <32 x i8> %29)
-  %31 = load <4 x i64>, ptr %q5.0125, align 1
+  %gep = getelementptr <4 x i64>, ptr getelementptr inbounds ([256 x i8], ptr @get_scale_shuffle_k4.k_shuffle, i64 0, i64 32), i64 %25
+  %28 = load <32 x i8>, ptr %gep, align 16
+  %29 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %22, <32 x i8> %28)
+  %30 = load <4 x i64>, ptr %q5.0125, align 1
   %add.ptr = getelementptr inbounds i8, ptr %q5.0125, i64 32
   %and.i133 = and <4 x i64> %hmask.0123, %21
   %inc = or disjoint i32 %bit.0122, 1
-  %32 = bitcast <4 x i64> %and.i133 to <16 x i16>
-  %33 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %32, i32 %bit.0122)
-  %34 = shl <16 x i16> %33, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %35 = bitcast <4 x i64> %31 to <32 x i8>
-  %36 = and <32 x i8> %35, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %37 = bitcast <16 x i16> %34 to <32 x i8>
-  %add.i181 = add <32 x i8> %36, %37
-  %38 = bitcast <4 x i64> %hmask.0123 to <16 x i16>
-  %39 = shl <16 x i16> %38, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
-  %40 = bitcast <4 x i64> %31 to <16 x i16>
-  %41 = lshr <16 x i16> %40, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %31 = bitcast <4 x i64> %and.i133 to <16 x i16>
+  %32 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %31, i32 %bit.0122)
+  %33 = shl <16 x i16> %32, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %34 = bitcast <4 x i64> %30 to <32 x i8>
+  %35 = and <32 x i8> %34, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %36 = bitcast <16 x i16> %33 to <32 x i8>
+  %add.i181 = add <32 x i8> %35, %36
+  %37 = bitcast <4 x i64> %hmask.0123 to <16 x i16>
+  %38 = shl <16 x i16> %37, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %39 = bitcast <4 x i64> %30 to <16 x i16>
+  %40 = lshr <16 x i16> %39, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %inc91 = add nuw nsw i32 %bit.0122, 2
-  %42 = and <16 x i16> %39, %23
-  %43 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %42, i32 %inc)
-  %44 = shl <16 x i16> %43, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %45 = bitcast <16 x i16> %41 to <32 x i8>
-  %46 = and <32 x i8> %45, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %47 = bitcast <16 x i16> %44 to <32 x i8>
-  %add.i178 = add <32 x i8> %46, %47
-  %48 = shl <16 x i16> %38, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %49 = bitcast <16 x i16> %48 to <4 x i64>
-  %50 = load <32 x i8>, ptr %q8.0124, align 1
+  %41 = and <16 x i16> %38, %23
+  %42 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %41, i32 %inc)
+  %43 = shl <16 x i16> %42, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %44 = bitcast <16 x i16> %40 to <32 x i8>
+  %45 = and <32 x i8> %44, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %46 = bitcast <16 x i16> %43 to <32 x i8>
+  %add.i178 = add <32 x i8> %45, %46
+  %47 = shl <16 x i16> %37, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %48 = bitcast <16 x i16> %47 to <4 x i64>
+  %49 = load <32 x i8>, ptr %q8.0124, align 1
   %add.ptr97 = getelementptr inbounds i8, ptr %q8.0124, i64 32
-  %51 = load <32 x i8>, ptr %add.ptr97, align 1
+  %50 = load <32 x i8>, ptr %add.ptr97, align 1
   %add.ptr99 = getelementptr inbounds i8, ptr %q8.0124, i64 64
-  %52 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %add.i181, <32 x i8> %50)
-  %53 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %add.i178, <32 x i8> %51)
-  %54 = bitcast <32 x i8> %27 to <16 x i16>
-  %55 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %54, <16 x i16> %52)
-  %56 = bitcast <32 x i8> %30 to <16 x i16>
-  %57 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %56, <16 x i16> %53)
-  %add.i117 = add <8 x i32> %55, %24
-  %add.i = add <8 x i32> %add.i117, %57
+  %51 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %add.i181, <32 x i8> %49)
+  %52 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %add.i178, <32 x i8> %50)
+  %53 = bitcast <32 x i8> %27 to <16 x i16>
+  %54 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %53, <16 x i16> %51)
+  %55 = bitcast <32 x i8> %29 to <16 x i16>
+  %56 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %55, <16 x i16> %52)
+  %add.i117 = add <8 x i32> %54, %24
+  %add.i = add <8 x i32> %add.i117, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body73, !llvm.loop !256
@@ -5379,45 +5377,45 @@ for.body73:                                       ; preds = %for.body, %for.body
 for.end:                                          ; preds = %for.body73
   %fneg = fneg float %0
   %mul22 = fmul float %4, %fneg
-  %58 = tail call float @llvm.fmuladd.f32(float %mul22, float %conv, float %summs.0128)
+  %57 = tail call float @llvm.fmuladd.f32(float %mul22, float %conv, float %summs.0128)
   %vecinit.i185 = insertelement <8 x float> poison, float %mul, i64 0
   %vecinit7.i = shufflevector <8 x float> %vecinit.i185, <8 x float> poison, <8 x i32> zeroinitializer
   %conv.i = sitofp <8 x i32> %add.i to <8 x float>
-  %59 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit7.i, <8 x float> %conv.i, <8 x float> %acc.0129)
+  %58 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit7.i, <8 x float> %conv.i, <8 x float> %acc.0129)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count
   br i1 %exitcond138.not, label %for.end112, label %for.body, !llvm.loop !257
 
 for.end112:                                       ; preds = %for.end, %entry
-  %summs.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %58, %for.end ]
-  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %59, %for.end ]
+  %summs.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %57, %for.end ]
+  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %58, %for.end ]
   %extract.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %shuffle.i.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %add.i16.i = fadd <4 x float> %extract.i, %shuffle.i.i
   %shuffle.i8.i = shufflevector <4 x float> %add.i16.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %add.i.i = fadd <4 x float> %add.i16.i, %shuffle.i8.i
   %shift = shufflevector <4 x float> %add.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %60 = fadd <4 x float> %add.i.i, %shift
-  %add.i20.i = extractelement <4 x float> %60, i64 0
+  %59 = fadd <4 x float> %add.i.i, %shift
+  %add.i20.i = extractelement <4 x float> %59, i64 0
   %add114 = fadd float %summs.0.lcssa, %add.i20.i
   store float %add114, ptr %s, align 4
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #6 {
 entry:
   %cmp171 = icmp sgt i32 %n, 255
   br i1 %cmp171, label %for.body.preheader, label %for.end102
 
 for.body.preheader:                               ; preds = %entry
-  %div181182 = lshr i32 %n, 8
-  %wide.trip.count = zext nneg i32 %div181182 to i64
+  %div181184 = lshr i32 %n, 8
+  %wide.trip.count = zext nneg i32 %div181184 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
   %indvars.iv178 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next179, %for.end ]
-  %acc.0173 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %56, %for.end ]
+  %acc.0173 = phi <8 x float> [ zeroinitializer, %for.body.preheader ], [ %53, %for.end ]
   %arrayidx = getelementptr inbounds %struct.block_q8_K, ptr %vy, i64 %indvars.iv178
   %0 = load float, ptr %arrayidx, align 4
   %arrayidx6 = getelementptr inbounds %struct.block_q6_K, ptr %vx, i64 %indvars.iv178
@@ -5442,86 +5440,83 @@ for.body26:                                       ; preds = %for.body, %for.body
   %add.ptr.i = getelementptr inbounds <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %indvars.iv
   %5 = load <16 x i8>, ptr %add.ptr.i, align 16
   %6 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %5)
-  %7 = or disjoint i64 %indvars.iv, 1
-  %add.ptr.i161 = getelementptr inbounds <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %7
-  %8 = load <16 x i8>, ptr %add.ptr.i161, align 16
-  %9 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %8)
-  %10 = or disjoint i64 %indvars.iv, 2
-  %add.ptr.i163 = getelementptr inbounds <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %10
-  %11 = load <16 x i8>, ptr %add.ptr.i163, align 16
+  %gep = getelementptr <2 x i64>, ptr getelementptr inbounds ([128 x i8], ptr @get_scale_shuffle.k_shuffle, i64 0, i64 16), i64 %indvars.iv
+  %7 = load <16 x i8>, ptr %gep, align 16
+  %8 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %7)
+  %gep182 = getelementptr <2 x i64>, ptr getelementptr inbounds ([128 x i8], ptr @get_scale_shuffle.k_shuffle, i64 0, i64 32), i64 %indvars.iv
+  %9 = load <16 x i8>, ptr %gep182, align 16
+  %10 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %9)
+  %gep183 = getelementptr <2 x i64>, ptr getelementptr inbounds ([128 x i8], ptr @get_scale_shuffle.k_shuffle, i64 0, i64 48), i64 %indvars.iv
+  %11 = load <16 x i8>, ptr %gep183, align 16
   %12 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %11)
-  %13 = or disjoint i64 %indvars.iv, 3
-  %add.ptr.i165 = getelementptr inbounds <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %13
-  %14 = load <16 x i8>, ptr %add.ptr.i165, align 16
-  %15 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %3, <16 x i8> %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %16 = load <4 x i64>, ptr %q4.0170, align 1
+  %13 = load <4 x i64>, ptr %q4.0170, align 1
   %add.ptr = getelementptr inbounds i8, ptr %q4.0170, i64 32
-  %17 = load <4 x i64>, ptr %add.ptr, align 1
+  %14 = load <4 x i64>, ptr %add.ptr, align 1
   %add.ptr41 = getelementptr inbounds i8, ptr %q4.0170, i64 64
-  %18 = load <4 x i64>, ptr %qh.0169, align 1
+  %15 = load <4 x i64>, ptr %qh.0169, align 1
   %add.ptr43 = getelementptr inbounds i8, ptr %qh.0169, i64 32
-  %19 = bitcast <4 x i64> %18 to <16 x i16>
-  %20 = shl <16 x i16> %19, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %16 = bitcast <4 x i64> %15 to <16 x i16>
+  %17 = shl <16 x i16> %16, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %18 = bitcast <16 x i16> %17 to <4 x i64>
+  %19 = and <4 x i64> %18, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
+  %20 = shl <16 x i16> %16, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %21 = bitcast <16 x i16> %20 to <4 x i64>
   %22 = and <4 x i64> %21, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
-  %23 = shl <16 x i16> %19, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %24 = bitcast <16 x i16> %23 to <4 x i64>
-  %25 = and <4 x i64> %24, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
-  %26 = and <4 x i64> %18, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
-  %27 = lshr <16 x i16> %19, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %28 = bitcast <16 x i16> %27 to <4 x i64>
-  %29 = and <4 x i64> %28, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
-  %and.i145 = and <4 x i64> %16, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
-  %or.i134 = or disjoint <4 x i64> %22, %and.i145
-  %and.i142 = and <4 x i64> %17, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
-  %or.i131 = or disjoint <4 x i64> %25, %and.i142
-  %30 = bitcast <4 x i64> %16 to <16 x i16>
+  %23 = and <4 x i64> %15, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
+  %24 = lshr <16 x i16> %16, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %25 = bitcast <16 x i16> %24 to <4 x i64>
+  %26 = and <4 x i64> %25, <i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304, i64 3472328296227680304>
+  %and.i145 = and <4 x i64> %13, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
+  %or.i134 = or disjoint <4 x i64> %19, %and.i145
+  %and.i142 = and <4 x i64> %14, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
+  %or.i131 = or disjoint <4 x i64> %22, %and.i142
+  %27 = bitcast <4 x i64> %13 to <16 x i16>
+  %28 = lshr <16 x i16> %27, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %29 = bitcast <16 x i16> %28 to <4 x i64>
+  %and.i139 = and <4 x i64> %29, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
+  %or.i128 = or disjoint <4 x i64> %and.i139, %23
+  %30 = bitcast <4 x i64> %14 to <16 x i16>
   %31 = lshr <16 x i16> %30, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %32 = bitcast <16 x i16> %31 to <4 x i64>
-  %and.i139 = and <4 x i64> %32, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
-  %or.i128 = or disjoint <4 x i64> %and.i139, %26
-  %33 = bitcast <4 x i64> %17 to <16 x i16>
-  %34 = lshr <16 x i16> %33, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %35 = bitcast <16 x i16> %34 to <4 x i64>
-  %and.i = and <4 x i64> %35, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
-  %or.i = or disjoint <4 x i64> %29, %and.i
-  %36 = load <32 x i8>, ptr %q8.0168, align 1
+  %and.i = and <4 x i64> %32, <i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095, i64 1085102592571150095>
+  %or.i = or disjoint <4 x i64> %26, %and.i
+  %33 = load <32 x i8>, ptr %q8.0168, align 1
   %add.ptr66 = getelementptr inbounds i8, ptr %q8.0168, i64 32
-  %37 = load <32 x i8>, ptr %add.ptr66, align 1
+  %34 = load <32 x i8>, ptr %add.ptr66, align 1
   %add.ptr68 = getelementptr inbounds i8, ptr %q8.0168, i64 64
-  %38 = load <32 x i8>, ptr %add.ptr68, align 1
+  %35 = load <32 x i8>, ptr %add.ptr68, align 1
   %add.ptr70 = getelementptr inbounds i8, ptr %q8.0168, i64 96
-  %39 = load <32 x i8>, ptr %add.ptr70, align 1
+  %36 = load <32 x i8>, ptr %add.ptr70, align 1
   %add.ptr72 = getelementptr inbounds i8, ptr %q8.0168, i64 128
+  %37 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %33)
+  %38 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %34)
+  %39 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %35)
   %40 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %36)
-  %41 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %37)
-  %42 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %38)
-  %43 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <32 x i8> %39)
-  %44 = bitcast <4 x i64> %or.i134 to <32 x i8>
-  %45 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %44, <32 x i8> %36)
-  %46 = bitcast <4 x i64> %or.i131 to <32 x i8>
-  %47 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %46, <32 x i8> %37)
-  %48 = bitcast <4 x i64> %or.i128 to <32 x i8>
-  %49 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %48, <32 x i8> %38)
-  %50 = bitcast <4 x i64> %or.i to <32 x i8>
-  %51 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %50, <32 x i8> %39)
-  %sub.i221 = sub <16 x i16> %45, %40
-  %sub.i218 = sub <16 x i16> %47, %41
-  %sub.i215 = sub <16 x i16> %49, %42
-  %sub.i = sub <16 x i16> %51, %43
+  %41 = bitcast <4 x i64> %or.i134 to <32 x i8>
+  %42 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %41, <32 x i8> %33)
+  %43 = bitcast <4 x i64> %or.i131 to <32 x i8>
+  %44 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %43, <32 x i8> %34)
+  %45 = bitcast <4 x i64> %or.i128 to <32 x i8>
+  %46 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %45, <32 x i8> %35)
+  %47 = bitcast <4 x i64> %or.i to <32 x i8>
+  %48 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %47, <32 x i8> %36)
+  %sub.i221 = sub <16 x i16> %42, %37
+  %sub.i218 = sub <16 x i16> %44, %38
+  %sub.i215 = sub <16 x i16> %46, %39
+  %sub.i = sub <16 x i16> %48, %40
   %conv.i164 = sext <16 x i8> %6 to <16 x i16>
-  %52 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i164, <16 x i16> %sub.i221)
-  %conv.i162 = sext <16 x i8> %9 to <16 x i16>
-  %53 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i162, <16 x i16> %sub.i218)
-  %conv.i160 = sext <16 x i8> %12 to <16 x i16>
-  %54 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i160, <16 x i16> %sub.i215)
-  %conv.i = sext <16 x i8> %15 to <16 x i16>
-  %55 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i, <16 x i16> %sub.i)
-  %add.i106 = add <8 x i32> %52, %4
-  %add.i112 = add <8 x i32> %add.i106, %53
-  %add.i109 = add <8 x i32> %add.i112, %54
-  %add.i = add <8 x i32> %add.i109, %55
+  %49 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i164, <16 x i16> %sub.i221)
+  %conv.i162 = sext <16 x i8> %8 to <16 x i16>
+  %50 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i162, <16 x i16> %sub.i218)
+  %conv.i160 = sext <16 x i8> %10 to <16 x i16>
+  %51 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i160, <16 x i16> %sub.i215)
+  %conv.i = sext <16 x i8> %12 to <16 x i16>
+  %52 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %conv.i, <16 x i16> %sub.i)
+  %add.i106 = add <8 x i32> %49, %4
+  %add.i112 = add <8 x i32> %add.i106, %50
+  %add.i109 = add <8 x i32> %add.i112, %51
+  %add.i = add <8 x i32> %add.i109, %52
   br i1 %cmp25, label %for.body26, label %for.end, !llvm.loop !258
 
 for.end:                                          ; preds = %for.body26
@@ -5529,21 +5524,21 @@ for.end:                                          ; preds = %for.body26
   %vecinit.i = insertelement <8 x float> poison, float %mul, i64 0
   %vecinit8.i = shufflevector <8 x float> %vecinit.i, <8 x float> poison, <8 x i32> zeroinitializer
   %conv.i176 = sitofp <8 x i32> %add.i to <8 x float>
-  %56 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit8.i, <8 x float> %conv.i176, <8 x float> %acc.0173)
+  %53 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %vecinit8.i, <8 x float> %conv.i176, <8 x float> %acc.0173)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count
   br i1 %exitcond.not, label %for.end102, label %for.body, !llvm.loop !259
 
 for.end102:                                       ; preds = %for.end, %entry
-  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %56, %for.end ]
+  %acc.0.lcssa = phi <8 x float> [ zeroinitializer, %entry ], [ %53, %for.end ]
   %extract.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %shuffle.i.i = shufflevector <8 x float> %acc.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %add.i16.i = fadd <4 x float> %extract.i, %shuffle.i.i
   %shuffle.i8.i = shufflevector <4 x float> %add.i16.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %add.i.i = fadd <4 x float> %add.i16.i, %shuffle.i8.i
   %shift = shufflevector <4 x float> %add.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %57 = fadd <4 x float> %add.i.i, %shift
-  %add.i20.i = extractelement <4 x float> %57, i64 0
+  %54 = fadd <4 x float> %add.i.i, %shift
+  %add.i20.i = extractelement <4 x float> %54, i64 0
   store float %add.i20.i, ptr %s, align 4
   ret void
 }
@@ -5603,46 +5598,44 @@ declare <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32>, <4 x i32>) #2
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #20
+declare i8 @llvm.smin.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #20
+declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #8 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #9 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #11 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #19 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nounwind }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

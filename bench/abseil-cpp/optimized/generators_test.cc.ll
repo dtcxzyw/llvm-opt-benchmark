@@ -8644,7 +8644,7 @@ entry:
   %lo.addr.i38.i.i = alloca i64, align 8
   %hi.addr.i39.i.i = alloca i64, align 8
   %base.addr.i40.i.i = alloca i64, align 8
-  %seeder.i.i.i45.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i41.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %lo.addr.i34.i.i = alloca i64, align 8
   %hi.addr.i35.i.i = alloca i64, align 8
   %base.addr.i36.i.i = alloca i64, align 8
@@ -8666,19 +8666,19 @@ entry:
   %lo.addr.i10.i.i = alloca i8, align 1
   %hi.addr.i11.i.i = alloca i8, align 1
   %base.addr.i12.i.i = alloca i8, align 1
-  %lo.addr.i.i46.i = alloca i32, align 4
-  %hi.addr.i.i47.i = alloca i32, align 4
+  %lo.addr.i.i42.i = alloca i32, align 4
+  %hi.addr.i.i43.i = alloca i32, align 4
   %base.addr.i.i.i = alloca i32, align 4
-  %ref.tmp.i48.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %ref.tmp.i44.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %seeder.i.i.i36.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i33.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %dist.i.i.i2.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %dist.i.i.i.i37.i = alloca %"class.absl::gaussian_distribution", align 4
-  %ref.tmp.i38.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %dist.i.i.i.i34.i = alloca %"class.absl::gaussian_distribution", align 4
+  %ref.tmp.i35.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %dist.i.i.i28.i.i = alloca %"class.absl::zipf_distribution.53", align 16
   %dist.i.i.i26.i.i = alloca %"class.absl::zipf_distribution.52", align 16
   %dist.i.i.i24.i.i = alloca %"class.absl::zipf_distribution.51", align 8
-  %seeder.i.i.i27.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i25.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %dist.i.i.i22.i.i = alloca %"class.absl::zipf_distribution.51", align 8
   %dist.i.i.i20.i.i = alloca %"class.absl::zipf_distribution.50", align 8
   %dist.i.i.i18.i.i = alloca %"class.absl::zipf_distribution.49", align 8
@@ -8686,12 +8686,12 @@ entry:
   %dist.i.i.i14.i.i = alloca %"class.absl::zipf_distribution.48", align 8
   %dist.i.i.i12.i.i = alloca %"class.absl::zipf_distribution.47", align 8
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
-  %dist.i.i.i.i28.i = alloca %"class.absl::zipf_distribution", align 8
-  %ref.tmp.i29.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %dist.i.i.i.i26.i = alloca %"class.absl::zipf_distribution", align 8
+  %ref.tmp.i27.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %mean.addr.i25.i.i = alloca double, align 8
   %mean.addr.i23.i.i = alloca double, align 8
   %mean.addr.i21.i.i = alloca double, align 8
-  %seeder.i.i.i8.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i7.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %mean.addr.i19.i.i = alloca double, align 8
   %mean.addr.i17.i.i = alloca double, align 8
   %mean.addr.i15.i.i = alloca double, align 8
@@ -8699,11 +8699,11 @@ entry:
   %mean.addr.i11.i.i = alloca double, align 8
   %mean.addr.i9.i.i = alloca double, align 8
   %mean.addr.i.i.i = alloca double, align 8
-  %ref.tmp.i9.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %ref.tmp.i8.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %seeder.i.i.i1.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %ref.tmp.i.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
-  %lo.addr.i367.i.i = alloca double, align 8
-  %hi.addr.i368.i.i = alloca double, align 8
+  %lo.addr.i366.i.i = alloca double, align 8
+  %hi.addr.i367.i.i = alloca double, align 8
   %seeder.i.i358.i.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %dist.i.i.i347.i.i = alloca %"struct.absl::random_internal::UniformDistributionWrapper", align 8
   %seeder.i.i.i.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
@@ -8781,10 +8781,7 @@ entry:
   %0 = ptrtoint ptr %gen.i to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 %and.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !57
-  %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen.i, i64 %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !57
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i, i8 0, i64 256, i1 false), !alias.scope !57
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp89.i.i)
@@ -8819,30 +8816,30 @@ entry:
   %call.i.i41.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i.i.i)
-  %2 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %2, 31
+  %1 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m.exit.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
   %has_crypto_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
-  %3 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
-  %5 = load ptr, ptr %impl_.i.i.i.i, align 8
+  %2 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
+  %3 = and i8 %2, 1
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
+  %4 = load ptr, ptr %impl_.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %5, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %4, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %5, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %4, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m.exit.i.i
 
 _ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %entry
-  %6 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add i64 %6, 1
+  %5 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add i64 %5, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i46.i.i)
   store i32 1, ptr %dist.i.i.i46.i.i, align 8
@@ -8861,10 +8858,10 @@ _ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureUR
   %call.i.i56.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
   %cmp.i.i.i.i = fcmp ole double %call.i.i56.i.i, 1.000000e+00
   %sub.i.i.i.i = fsub double 1.000000e+00, %call.i.i56.i.i
-  %7 = call double @llvm.fabs.f64(double %sub.i.i.i.i)
-  %8 = fcmp one double %7, 0x7FF0000000000000
-  %9 = and i1 %cmp.i.i.i.i, %8
-  br i1 %9, label %if.end.i.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
+  %6 = call double @llvm.fabs.f64(double %sub.i.i.i.i)
+  %7 = fcmp one double %6, 0x7FF0000000000000
+  %8 = and i1 %cmp.i.i.i.i, %7
+  br i1 %8, label %if.end.i.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m.exit.i.i
   %call.i1.i.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i54.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i55.i.i)
@@ -8894,10 +8891,10 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   %call.i.i84.i.i = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #17
   %cmp.i.i85.i.i = fcmp ole double %call.i.i84.i.i, 1.000000e+00
   %sub.i.i86.i.i = fsub double 1.000000e+00, %call.i.i84.i.i
-  %10 = call double @llvm.fabs.f64(double %sub.i.i86.i.i)
-  %11 = fcmp one double %10, 0x7FF0000000000000
-  %12 = and i1 %cmp.i.i85.i.i, %11
-  br i1 %12, label %if.end.i88.i.i, label %invoke.cont20.i.i
+  %9 = call double @llvm.fabs.f64(double %sub.i.i86.i.i)
+  %10 = fcmp one double %9, 0x7FF0000000000000
+  %11 = and i1 %cmp.i.i85.i.i, %10
+  br i1 %11, label %if.end.i88.i.i, label %invoke.cont20.i.i
 
 if.end.i88.i.i:                                   ; preds = %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeET0_OT1_SA_SA_.exit.i.i
   %call.i1.i8990.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i81.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i82.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i83.i.i)
@@ -8913,10 +8910,10 @@ invoke.cont20.i.i:                                ; preds = %if.end.i88.i.i, %_Z
   %call.i.i95.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
   %cmp.i.i96.i.i = fcmp ole double %call.i.i95.i.i, 1.000000e+00
   %sub.i.i97.i.i = fsub double 1.000000e+00, %call.i.i95.i.i
-  %13 = call double @llvm.fabs.f64(double %sub.i.i97.i.i)
-  %14 = fcmp one double %13, 0x7FF0000000000000
-  %15 = and i1 %cmp.i.i96.i.i, %14
-  br i1 %15, label %if.end.i99.i.i, label %invoke.cont23.i.i
+  %12 = call double @llvm.fabs.f64(double %sub.i.i97.i.i)
+  %13 = fcmp one double %12, 0x7FF0000000000000
+  %14 = and i1 %cmp.i.i96.i.i, %13
+  br i1 %14, label %if.end.i99.i.i, label %invoke.cont23.i.i
 
 if.end.i99.i.i:                                   ; preds = %invoke.cont20.i.i
   store double 0.000000e+00, ptr %ref.tmp.i93.i.i, align 8
@@ -8982,55 +8979,55 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i163.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i162.i.i to i32
   %call3.i.i.i.i.i164167.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i157.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i163.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i157.i.i)
-  %16 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i386.i.i = icmp ugt i64 %16, 31
-  br i1 %cmp.i.i.i.i.i386.i.i, label %if.then.i.i.i.i.i391.i.i, label %invoke.cont37.i.i
+  %15 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i385.i.i = icmp ugt i64 %15, 31
+  br i1 %cmp.i.i.i.i.i385.i.i, label %if.then.i.i.i.i.i390.i.i, label %invoke.cont37.i.i
 
-if.then.i.i.i.i.i391.i.i:                         ; preds = %invoke.cont23.i.i
+if.then.i.i.i.i.i390.i.i:                         ; preds = %invoke.cont23.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i393.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
-  %17 = load i8, ptr %has_crypto_.i.i.i.i.i.i393.i.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.not.i.i.i.i.i.i394.i.i = icmp eq i8 %18, 0
-  %19 = load ptr, ptr %impl_.i.i.i.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i394.i.i, label %if.else.i.i.i.i.i.i396.i.i, label %if.then.i.i.i.i.i.i395.i.i
+  %has_crypto_.i.i.i.i.i.i392.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %16 = load i8, ptr %has_crypto_.i.i.i.i.i.i392.i.i, align 8
+  %17 = and i8 %16, 1
+  %tobool.not.i.i.i.i.i.i393.i.i = icmp eq i8 %17, 0
+  %18 = load ptr, ptr %impl_.i.i.i.i, align 8
+  br i1 %tobool.not.i.i.i.i.i.i393.i.i, label %if.else.i.i.i.i.i.i395.i.i, label %if.then.i.i.i.i.i.i394.i.i
 
-if.then.i.i.i.i.i.i395.i.i:                       ; preds = %if.then.i.i.i.i.i391.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %19, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.then.i.i.i.i.i.i394.i.i:                       ; preds = %if.then.i.i.i.i.i390.i.i
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %18, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %invoke.cont37.i.i
 
-if.else.i.i.i.i.i.i396.i.i:                       ; preds = %if.then.i.i.i.i.i391.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %19, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.else.i.i.i.i.i.i395.i.i:                       ; preds = %if.then.i.i.i.i.i390.i.i
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %18, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %invoke.cont37.i.i
 
-invoke.cont37.i.i:                                ; preds = %if.else.i.i.i.i.i.i396.i.i, %if.then.i.i.i.i.i.i395.i.i, %invoke.cont23.i.i
-  %20 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i387.i.i = add i64 %20, 1
-  store i64 %inc.i.i.i.i.i387.i.i, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i403.i.i = icmp ugt i64 %inc.i.i.i.i.i387.i.i, 31
-  br i1 %cmp.i.i.i.i.i403.i.i, label %if.then.i.i.i.i.i408.i.i, label %invoke.cont39.i.i
+invoke.cont37.i.i:                                ; preds = %if.else.i.i.i.i.i.i395.i.i, %if.then.i.i.i.i.i.i394.i.i, %invoke.cont23.i.i
+  %19 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i386.i.i = add i64 %19, 1
+  store i64 %inc.i.i.i.i.i386.i.i, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i402.i.i = icmp ugt i64 %inc.i.i.i.i.i386.i.i, 31
+  br i1 %cmp.i.i.i.i.i402.i.i, label %if.then.i.i.i.i.i407.i.i, label %invoke.cont39.i.i
 
-if.then.i.i.i.i.i408.i.i:                         ; preds = %invoke.cont37.i.i
+if.then.i.i.i.i.i407.i.i:                         ; preds = %invoke.cont37.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i410.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
-  %21 = load i8, ptr %has_crypto_.i.i.i.i.i.i410.i.i, align 8
-  %22 = and i8 %21, 1
-  %tobool.not.i.i.i.i.i.i411.i.i = icmp eq i8 %22, 0
-  %23 = load ptr, ptr %impl_.i.i.i.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i411.i.i, label %if.else.i.i.i.i.i.i413.i.i, label %if.then.i.i.i.i.i.i412.i.i
+  %has_crypto_.i.i.i.i.i.i409.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %20 = load i8, ptr %has_crypto_.i.i.i.i.i.i409.i.i, align 8
+  %21 = and i8 %20, 1
+  %tobool.not.i.i.i.i.i.i410.i.i = icmp eq i8 %21, 0
+  %22 = load ptr, ptr %impl_.i.i.i.i, align 8
+  br i1 %tobool.not.i.i.i.i.i.i410.i.i, label %if.else.i.i.i.i.i.i412.i.i, label %if.then.i.i.i.i.i.i411.i.i
 
-if.then.i.i.i.i.i.i412.i.i:                       ; preds = %if.then.i.i.i.i.i408.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.then.i.i.i.i.i.i411.i.i:                       ; preds = %if.then.i.i.i.i.i407.i.i
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %22, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %invoke.cont39.i.i
 
-if.else.i.i.i.i.i.i413.i.i:                       ; preds = %if.then.i.i.i.i.i408.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.else.i.i.i.i.i.i412.i.i:                       ; preds = %if.then.i.i.i.i.i407.i.i
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %22, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %invoke.cont39.i.i
 
-invoke.cont39.i.i:                                ; preds = %if.else.i.i.i.i.i.i413.i.i, %if.then.i.i.i.i.i.i412.i.i, %invoke.cont37.i.i
-  %24 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i404.i.i = add i64 %24, 1
-  store i64 %inc.i.i.i.i.i404.i.i, ptr %next_.i.i.i.i.i.i, align 8
+invoke.cont39.i.i:                                ; preds = %if.else.i.i.i.i.i.i412.i.i, %if.then.i.i.i.i.i.i411.i.i, %invoke.cont37.i.i
+  %23 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i403.i.i = add i64 %23, 1
+  store i64 %inc.i.i.i.i.i403.i.i, ptr %next_.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.addr.i181.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.addr.i182.i.i)
   store float 0.000000e+00, ptr %lo.addr.i181.i.i, align 4
@@ -9079,8 +9076,8 @@ invoke.cont39.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   store double 0.000000e+00, ptr %lo.addr.i222.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i223.i.i, align 8
   %call1.i.i.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
-  %25 = call i1 @llvm.is.fpclass.f64(double %call1.i.i.i.i, i32 480)
-  br i1 %25, label %if.end.i226.i.i, label %invoke.cont54.i.i
+  %24 = call i1 @llvm.is.fpclass.f64(double %call1.i.i.i.i, i32 480)
+  br i1 %24, label %if.end.i226.i.i, label %invoke.cont54.i.i
 
 if.end.i226.i.i:                                  ; preds = %invoke.cont39.i.i
   %call.i.i227228.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i221.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i222.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i223.i.i)
@@ -9107,10 +9104,10 @@ invoke.cont54.i.i:                                ; preds = %if.end.i226.i.i, %i
   %call.i.i239.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
   %cmp.i.i240.i.i = fcmp ole double %call.i.i239.i.i, 1.000000e+00
   %sub.i.i241.i.i = fsub double 1.000000e+00, %call.i.i239.i.i
-  %26 = call double @llvm.fabs.f64(double %sub.i.i241.i.i)
-  %27 = fcmp one double %26, 0x7FF0000000000000
-  %28 = and i1 %cmp.i.i240.i.i, %27
-  br i1 %28, label %if.end.i243.i.i, label %invoke.cont60.i.i
+  %25 = call double @llvm.fabs.f64(double %sub.i.i241.i.i)
+  %26 = fcmp one double %25, 0x7FF0000000000000
+  %27 = and i1 %cmp.i.i240.i.i, %26
+  br i1 %27, label %if.end.i243.i.i, label %invoke.cont60.i.i
 
 if.end.i243.i.i:                                  ; preds = %invoke.cont54.i.i
   %call.i1.i244245.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i236.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i237.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i238.i.i)
@@ -9129,10 +9126,10 @@ invoke.cont60.i.i:                                ; preds = %if.end.i243.i.i, %i
   %call1.i.i251.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
   %cmp.i.i252.i.i = fcmp ole double %call.i.i250.i.i, %call1.i.i251.i.i
   %sub.i.i253.i.i = fsub double %call1.i.i251.i.i, %call.i.i250.i.i
-  %29 = call double @llvm.fabs.f64(double %sub.i.i253.i.i)
-  %30 = fcmp one double %29, 0x7FF0000000000000
-  %31 = and i1 %cmp.i.i252.i.i, %30
-  br i1 %31, label %if.end.i255.i.i, label %invoke.cont63.i.i
+  %28 = call double @llvm.fabs.f64(double %sub.i.i253.i.i)
+  %29 = fcmp one double %28, 0x7FF0000000000000
+  %30 = and i1 %cmp.i.i252.i.i, %29
+  br i1 %30, label %if.end.i255.i.i, label %invoke.cont63.i.i
 
 if.end.i255.i.i:                                  ; preds = %invoke.cont60.i.i
   %call.i1.i256257.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i247.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i248.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i249.i.i)
@@ -9148,8 +9145,8 @@ invoke.cont63.i.i:                                ; preds = %if.end.i255.i.i, %i
   store double 0.000000e+00, ptr %lo.addr.i259.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i260.i.i, align 8
   %call1.i.i261.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
-  %32 = call i1 @llvm.is.fpclass.f64(double %call1.i.i261.i.i, i32 480)
-  br i1 %32, label %if.end.i264.i.i, label %invoke.cont66.i.i
+  %31 = call i1 @llvm.is.fpclass.f64(double %call1.i.i261.i.i, i32 480)
+  br i1 %31, label %if.end.i264.i.i, label %invoke.cont66.i.i
 
 if.end.i264.i.i:                                  ; preds = %invoke.cont63.i.i
   %call.i.i265266.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i258.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i259.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i260.i.i)
@@ -9167,10 +9164,10 @@ invoke.cont66.i.i:                                ; preds = %if.end.i264.i.i, %i
   %call.i.i271.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
   %cmp.i.i272.i.i = fcmp ole double %call.i.i271.i.i, 1.000000e+00
   %sub.i.i273.i.i = fsub double 1.000000e+00, %call.i.i271.i.i
-  %33 = call double @llvm.fabs.f64(double %sub.i.i273.i.i)
-  %34 = fcmp one double %33, 0x7FF0000000000000
-  %35 = and i1 %cmp.i.i272.i.i, %34
-  br i1 %35, label %if.end.i275.i.i, label %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %32 = call double @llvm.fabs.f64(double %sub.i.i273.i.i)
+  %33 = fcmp one double %32, 0x7FF0000000000000
+  %34 = and i1 %cmp.i.i272.i.i, %33
+  br i1 %34, label %if.end.i275.i.i, label %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 if.end.i275.i.i:                                  ; preds = %invoke.cont66.i.i
   %call.i1.i276277.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 1 dereferenceable(1) %tag.i268.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i269.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i270.i.i)
@@ -9239,13 +9236,10 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i.i)
   %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp89.i.i, i64 0, i32 1
   store i64 32, ptr %next_.i.i.i.i.i.i.i, align 8, !alias.scope !60
-  %36 = ptrtoint ptr %ref.tmp89.i.i to i64
-  %and.i.i.i.i.i.i.i.i = and i64 %36, 8
+  %35 = ptrtoint ptr %ref.tmp89.i.i to i64
+  %and.i.i.i.i.i.i.i.i = and i64 %35, 8
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp89.i.i, i64 %and.i.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !60
-  %37 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %ref.tmp89.i.i, i64 %37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i.i, i8 0, i64 256, i1 false), !alias.scope !60
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp89.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i347.i.i)
@@ -9262,114 +9256,111 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i359.i.i)
   %next_.i.i.i.i.i360.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp93.i.i, i64 0, i32 1
   store i64 32, ptr %next_.i.i.i.i.i360.i.i, align 8, !alias.scope !63
-  %38 = ptrtoint ptr %ref.tmp93.i.i to i64
-  %and.i.i.i.i.i.i361.i.i = and i64 %38, 8
+  %36 = ptrtoint ptr %ref.tmp93.i.i to i64
+  %and.i.i.i.i.i.i361.i.i = and i64 %36, 8
   %cond.i.i.i.i.i.i362.i.i = getelementptr inbounds i8, ptr %ref.tmp93.i.i, i64 %and.i.i.i.i.i.i361.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i362.i.i, i8 0, i64 16, i1 false), !alias.scope !63
-  %39 = or disjoint i64 %and.i.i.i.i.i.i361.i.i, 16
-  %scevgep.i.i.i.i363.i.i = getelementptr i8, ptr %ref.tmp93.i.i, i64 %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i363.i.i, i8 0, i64 240, i1 false), !alias.scope !63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i362.i.i, i8 0, i64 256, i1 false), !alias.scope !63
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp93.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i358.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i358.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i367.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i368.i.i)
-  store double 0.000000e+00, ptr %lo.addr.i367.i.i, align 8
-  store double 1.000000e+00, ptr %hi.addr.i368.i.i, align 8
-  %call.i.i370372.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp93.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i367.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i368.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i367.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i368.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i366.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i367.i.i)
+  store double 0.000000e+00, ptr %lo.addr.i366.i.i, align 8
+  store double 1.000000e+00, ptr %hi.addr.i367.i.i, align 8
+  %call.i.i369371.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp93.i.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i366.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i367.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i366.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i367.i.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp89.i.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp93.i.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i.i)
-  %40 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %40, 31
+  %37 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %37, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
   %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
-  %41 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %42 = and i8 %41, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
-  %43 = load ptr, ptr %impl_.i.i.i.i, align 8
+  %38 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %39 = and i8 %38, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %39, 0
+  %40 = load ptr, ptr %impl_.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %43, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %40, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %43, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %40, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 _ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %44 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i.i.i.i.i = add i64 %44, 1
+  %41 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.i.i.i.i = add i64 %41, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %44
-  %45 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %46 = call i64 @llvm.ctlz.i64(i64 %45, i1 false), !range !8
-  %cast.i.i.i.i.i.i.i.i.i.i = trunc i64 %46 to i32
-  %and.i.i.i.i.i.i.i2.i = and i64 %46, 63
-  %shl.i.i.i.i.i.i.i.i = shl i64 %45, %and.i.i.i.i.i.i.i2.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %41
+  %42 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %43 = call i64 @llvm.ctlz.i64(i64 %42, i1 false), !range !8
+  %cast.i.i.i.i.i.i.i.i.i.i = trunc i64 %43 to i32
+  %and.i.i.i.i.i.i.i2.i = and i64 %43, 63
+  %shl.i.i.i.i.i.i.i.i = shl i64 %42, %and.i.i.i.i.i.i.i2.i
   %shr.i.i.i.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i.i.i.i, 40
   %conv.i.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i.i to i32
   %and2.i.i.i.i.i.i.i.i = and i32 %conv.i.i.i.i.i.i.i.i, 8388607
-  %47 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i.i.i, 23
-  %reass.sub = sub nsw i32 %and2.i.i.i.i.i.i.i.i, %47
+  %44 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i.i.i, 23
+  %reass.sub = sub nsw i32 %and2.i.i.i.i.i.i.i.i, %44
   %or.i.i.i.i.i.i.i.i = add nsw i32 %reass.sub, 1056964608
   %or3.i.i.i.i.i.i.i.i = or i32 %or.i.i.i.i.i.i.i.i, -2147483648
-  %48 = bitcast i32 %or3.i.i.i.i.i.i.i.i to float
-  %49 = fcmp ugt float %48, -1.000000e+00
-  br i1 %49, label %cdce.end.i.i, label %cdce.end, !prof !15
+  %45 = bitcast i32 %or3.i.i.i.i.i.i.i.i to float
+  %46 = fcmp ugt float %45, -1.000000e+00
+  br i1 %46, label %cdce.end.i.i, label %cdce.end, !prof !15
 
 cdce.end:                                         ; preds = %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %48) #17
+  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %45) #17
   %.pre.i.pre.i.pre = load i64, ptr %next_.i.i.i.i.i.i, align 8
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.end, %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %50 = phi i64 [ %inc.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i ], [ %.pre.i.pre.i.pre, %cdce.end ]
-  %cmp.i.i.i.i.i.i.i.i.i5.i.i = icmp ugt i64 %50, 31
+  %47 = phi i64 [ %inc.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i ], [ %.pre.i.pre.i.pre, %cdce.end ]
+  %cmp.i.i.i.i.i.i.i.i.i5.i.i = icmp ugt i64 %47, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i5.i.i, label %if.then.i.i.i.i.i.i.i.i.i15.i.i, label %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i15.i.i:                  ; preds = %cdce.end.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
   %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
-  %51 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i, align 8
-  %52 = and i8 %51, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i18.i.i = icmp eq i8 %52, 0
-  %53 = load ptr, ptr %impl_.i.i.i.i, align 8
+  %48 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i, align 8
+  %49 = and i8 %48, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i18.i.i = icmp eq i8 %49, 0
+  %50 = load ptr, ptr %impl_.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i18.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i20.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i19.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i19.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i15.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %53, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %50, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i20.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i15.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %53, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %50, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
 
 _ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i20.i.i, %if.then.i.i.i.i.i.i.i.i.i.i19.i.i, %cdce.end.i.i
-  %54 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i.i.i6.i.i = add i64 %54, 1
+  %51 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.i.i6.i.i = add i64 %51, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i6.i.i, ptr %next_.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i7.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %54
-  %55 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i7.i.i, align 8
-  %56 = call i64 @llvm.ctlz.i64(i64 %55, i1 false), !range !8
-  %and.i.i.i.i.i.i8.i.i = and i64 %56, 63
-  %shl.i.i.i.i.i.i9.i.i = shl i64 %55, %and.i.i.i.i.i.i8.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i7.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i, i64 %51
+  %52 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i7.i.i, align 8
+  %53 = call i64 @llvm.ctlz.i64(i64 %52, i1 false), !range !8
+  %and.i.i.i.i.i.i8.i.i = and i64 %53, 63
+  %shl.i.i.i.i.i.i9.i.i = shl i64 %52, %and.i.i.i.i.i.i8.i.i
   %shr.i.i.i.i.i.i10.i.i = lshr i64 %shl.i.i.i.i.i.i9.i.i, 11
   %and2.i.i.i.i.i.i11.i.i = and i64 %shr.i.i.i.i.i.i10.i.i, 4503599627370495
-  %57 = shl nuw nsw i64 %56, 52
-  %reass.sub8 = sub nsw i64 %and2.i.i.i.i.i.i11.i.i, %57
+  %54 = shl nuw nsw i64 %53, 52
+  %reass.sub8 = sub nsw i64 %and2.i.i.i.i.i.i11.i.i, %54
   %or3.i.i.i.i.i.i13.i.i = add nsw i64 %reass.sub8, -4620693217682128896
-  %58 = bitcast i64 %or3.i.i.i.i.i.i13.i.i to double
-  %59 = fcmp ugt double %58, -1.000000e+00
-  br i1 %59, label %cdce.end43.i.i, label %cdce.call1, !prof !15
+  %55 = bitcast i64 %or3.i.i.i.i.i.i13.i.i to double
+  %56 = fcmp ugt double %55, -1.000000e+00
+  br i1 %56, label %cdce.end43.i.i, label %cdce.call1, !prof !15
 
 cdce.call1:                                       ; preds = %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %call3.i.i.i.i.i.i3.i = call double @log1p(double noundef %58) #17
+  %call3.i.i.i.i.i.i3.i = call double @log1p(double noundef %55) #17
   br label %cdce.end43.i.i
 
 cdce.end43.i.i:                                   ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -9378,64 +9369,61 @@ cdce.end43.i.i:                                   ; preds = %cdce.call1, %_ZN4ab
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i4.i)
   %next_.i.i.i.i.i.i5.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i.i, i64 0, i32 1
   store i64 32, ptr %next_.i.i.i.i.i.i5.i, align 8, !alias.scope !66
-  %60 = ptrtoint ptr %ref.tmp.i.i to i64
-  %and.i.i.i.i.i.i21.i.i = and i64 %60, 8
+  %57 = ptrtoint ptr %ref.tmp.i.i to i64
+  %and.i.i.i.i.i.i21.i.i = and i64 %57, 8
   %cond.i.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 %and.i.i.i.i.i.i21.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i6.i, i8 0, i64 16, i1 false), !alias.scope !66
-  %61 = or disjoint i64 %and.i.i.i.i.i.i21.i.i, 16
-  %scevgep.i.i.i.i.i7.i = getelementptr i8, ptr %ref.tmp.i.i, i64 %61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i7.i, i8 0, i64 240, i1 false), !alias.scope !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i6.i, i8 0, i64 256, i1 false), !alias.scope !66
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i1.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i1.i)
-  %62 = load i64, ptr %next_.i.i.i.i.i.i5.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i25.i.i = icmp ugt i64 %62, 31
+  %58 = load i64, ptr %next_.i.i.i.i.i.i5.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i25.i.i = icmp ugt i64 %58, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i25.i.i, label %if.then.i.i.i.i.i.i.i.i.i36.i.i, label %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i.i36.i.i:                  ; preds = %cdce.end43.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i5.i, align 8
   %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i.i, i64 0, i32 2, i32 1
-  %63 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i, align 8
-  %64 = and i8 %63, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i39.i.i = icmp eq i8 %64, 0
-  %65 = load ptr, ptr %impl_.i.i.i.i4.i, align 8
+  %59 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i, align 8
+  %60 = and i8 %59, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i39.i.i = icmp eq i8 %60, 0
+  %61 = load ptr, ptr %impl_.i.i.i.i4.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i39.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i41.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i40.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i40.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i36.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %65, ptr noundef nonnull %cond.i.i.i.i.i.i.i6.i)
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %61, ptr noundef nonnull %cond.i.i.i.i.i.i.i6.i)
   br label %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i41.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i36.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %65, ptr noundef nonnull %cond.i.i.i.i.i.i.i6.i)
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %61, ptr noundef nonnull %cond.i.i.i.i.i.i.i6.i)
   br label %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
 
 _ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i41.i.i, %if.then.i.i.i.i.i.i.i.i.i.i40.i.i, %cdce.end43.i.i
-  %66 = load i64, ptr %next_.i.i.i.i.i.i5.i, align 8
-  %inc.i.i.i.i.i.i.i.i.i26.i.i = add i64 %66, 1
+  %62 = load i64, ptr %next_.i.i.i.i.i.i5.i, align 8
+  %inc.i.i.i.i.i.i.i.i.i26.i.i = add i64 %62, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i26.i.i, ptr %next_.i.i.i.i.i.i5.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i27.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i6.i, i64 %66
-  %67 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i27.i.i, align 8
-  %68 = call i64 @llvm.ctlz.i64(i64 %67, i1 false), !range !8
-  %and.i.i.i.i.i.i28.i.i = and i64 %68, 63
-  %shl.i.i.i.i.i.i29.i.i = shl i64 %67, %and.i.i.i.i.i.i28.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i27.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i6.i, i64 %62
+  %63 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i27.i.i, align 8
+  %64 = call i64 @llvm.ctlz.i64(i64 %63, i1 false), !range !8
+  %and.i.i.i.i.i.i28.i.i = and i64 %64, 63
+  %shl.i.i.i.i.i.i29.i.i = shl i64 %63, %and.i.i.i.i.i.i28.i.i
   %shr.i.i.i.i.i.i30.i.i = lshr i64 %shl.i.i.i.i.i.i29.i.i, 11
   %and2.i.i.i.i.i.i31.i.i = and i64 %shr.i.i.i.i.i.i30.i.i, 4503599627370495
-  %69 = shl nuw nsw i64 %68, 52
-  %reass.sub9 = sub nsw i64 %and2.i.i.i.i.i.i31.i.i, %69
+  %65 = shl nuw nsw i64 %64, 52
+  %reass.sub9 = sub nsw i64 %and2.i.i.i.i.i.i31.i.i, %65
   %or3.i.i.i.i.i.i33.i.i = add nsw i64 %reass.sub9, -4620693217682128896
-  %70 = bitcast i64 %or3.i.i.i.i.i.i33.i.i to double
-  %71 = fcmp ugt double %70, -1.000000e+00
-  br i1 %71, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !15
+  %66 = bitcast i64 %or3.i.i.i.i.i.i33.i.i to double
+  %67 = fcmp ugt double %66, -1.000000e+00
+  br i1 %67, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !15
 
 cdce.call3:                                       ; preds = %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
-  %call3.i.i.i.i.i34.i.i = call double @log1p(double noundef %70) #17
+  %call3.i.i.i.i.i34.i.i = call double @log1p(double noundef %66) #17
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i9.i)
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i8.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
   store double 1.000000e+00, ptr %mean.addr.i.i.i, align 8
-  %call.i.i.i10.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i.i.i)
+  %call.i.i.i9.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
   store double 1.000000e+00, ptr %mean.addr.i9.i.i, align 8
@@ -9461,23 +9449,20 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   store double 1.000000e+00, ptr %mean.addr.i19.i.i, align 8
   %call.i.i20.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i19.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
-  %impl_.i.i.i.i11.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i9.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i11.i)
-  %next_.i.i.i.i.i.i12.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i9.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i12.i, align 8, !alias.scope !69
-  %72 = ptrtoint ptr %ref.tmp.i9.i to i64
-  %and.i.i.i.i.i.i.i13.i = and i64 %72, 8
-  %cond.i.i.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 %and.i.i.i.i.i.i.i13.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i14.i, i8 0, i64 16, i1 false), !alias.scope !69
-  %73 = or disjoint i64 %and.i.i.i.i.i.i.i13.i, 16
-  %scevgep.i.i.i.i.i15.i = getelementptr i8, ptr %ref.tmp.i9.i, i64 %73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i15.i, i8 0, i64 240, i1 false), !alias.scope !69
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i8.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i7.i)
+  %impl_.i.i.i.i10.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i8.i, i64 0, i32 2
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i10.i)
+  %next_.i.i.i.i.i.i11.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i8.i, i64 0, i32 1
+  store i64 32, ptr %next_.i.i.i.i.i.i11.i, align 8, !alias.scope !69
+  %68 = ptrtoint ptr %ref.tmp.i8.i to i64
+  %and.i.i.i.i.i.i.i12.i = and i64 %68, 8
+  %cond.i.i.i.i.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp.i8.i, i64 %and.i.i.i.i.i.i.i12.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i13.i, i8 0, i64 256, i1 false), !alias.scope !69
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i8.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i7.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i7.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
   store double 1.000000e+00, ptr %mean.addr.i21.i.i, align 8
-  %call.i.i22.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i21.i.i)
+  %call.i.i22.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i8.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
   store double 1.000000e+00, ptr %mean.addr.i23.i.i, align 8
@@ -9487,68 +9472,68 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   store double 1.000000e+00, ptr %mean.addr.i25.i.i, align 8
   %call.i.i26.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i9.i)
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i8.i)
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
   %.pre.i.i.i.i.i.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i21.i = icmp ugt i64 %.pre.i.i.i.i.i.i.i, 31
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i21.i, label %if.then.i.i.i.i.i.i.i.i.i.i23.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i19.i = icmp ugt i64 %.pre.i.i.i.i.i.i.i, 31
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i19.i, label %if.then.i.i.i.i.i.i.i.i.i.i21.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i23.i:                  ; preds = %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+if.then.i.i.i.i.i.i.i.i.i.i21.i:                  ; preds = %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %74 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i20.i, align 8
-  %75 = and i8 %74, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i24.i = icmp eq i8 %75, 0
-  %76 = load ptr, ptr %impl_.i.i.i.i, align 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i24.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i26.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i25.i
+  %69 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %70 = and i8 %69, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i22.i = icmp eq i8 %70, 0
+  %71 = load ptr, ptr %impl_.i.i.i.i, align 8
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i22.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i24.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i23.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i25.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i23.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %76, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.then.i.i.i.i.i.i.i.i.i.i.i23.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i21.i
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %71, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i.i.i26.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i23.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %76, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+if.else.i.i.i.i.i.i.i.i.i.i.i24.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i21.i
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %71, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
 
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i26.i, %if.then.i.i.i.i.i.i.i.i.i.i.i25.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %77 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i.i.i.i22.i = add i64 %77, 1
-  store i64 %inc.i.i.i.i.i.i.i.i.i.i22.i, ptr %next_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ugt i64 %inc.i.i.i.i.i.i.i.i.i.i22.i, 31
+_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i24.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %72 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.i.i.i20.i = add i64 %72, 1
+  store i64 %inc.i.i.i.i.i.i.i.i.i.i20.i, ptr %next_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ugt i64 %inc.i.i.i.i.i.i.i.i.i.i20.i, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i12.i.i, label %if.then.i.i.i.i.i.i.i.i.i27.i.i, label %_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvv.exit
 
 if.then.i.i.i.i.i.i.i.i.i27.i.i:                  ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %78 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i20.i, align 8
-  %79 = and i8 %78, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i28.i.i = icmp eq i8 %79, 0
-  %80 = load ptr, ptr %impl_.i.i.i.i, align 8
+  %73 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %74 = and i8 %73, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i28.i.i = icmp eq i8 %74, 0
+  %75 = load ptr, ptr %impl_.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i28.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i30.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i29.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i29.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i27.i.i
-  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %80, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %75, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvv.exit
 
 if.else.i.i.i.i.i.i.i.i.i.i30.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i27.i.i
-  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %80, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
+  call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %75, ptr noundef nonnull %cond.i.i.i.i.i.i.i)
   br label %_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvv.exit
 
 _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvv.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i29.i.i, %if.else.i.i.i.i.i.i.i.i.i.i30.i.i
-  %81 = load i64, ptr %next_.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i.i.i14.i.i = add i64 %81, 1
+  %76 = load i64, ptr %next_.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.i.i14.i.i = add i64 %76, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i14.i.i, ptr %next_.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i29.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
-  store i32 100, ptr %dist.i.i.i.i28.i, align 8
-  %q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i27.i)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i26.i)
+  store i32 100, ptr %dist.i.i.i.i26.i, align 8
+  %q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i26.i, i64 0, i32 1
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
-  %one_minus_q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 3
-  %one_minus_q_inv_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 5
+  %one_minus_q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i26.i, i64 0, i32 3
+  %one_minus_q_inv_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i26.i, i64 0, i32 5
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
-  %hx0_minus_hxm_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 7
+  %hx0_minus_hxm_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i26.i, i64 0, i32 7
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
+  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i26.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i26.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i26.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
   %q_.i30.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 1
@@ -9633,20 +9618,17 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i27.i)
-  %impl_.i.i.i.i30.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i29.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i30.i)
-  %next_.i.i.i.i.i.i31.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i29.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i31.i, align 8, !alias.scope !72
-  %82 = ptrtoint ptr %ref.tmp.i29.i to i64
-  %and.i.i.i.i.i.i.i32.i = and i64 %82, 8
-  %cond.i.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %ref.tmp.i29.i, i64 %and.i.i.i.i.i.i.i32.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i33.i, i8 0, i64 16, i1 false), !alias.scope !72
-  %83 = or disjoint i64 %and.i.i.i.i.i.i.i32.i, 16
-  %scevgep.i.i.i.i.i34.i = getelementptr i8, ptr %ref.tmp.i29.i, i64 %83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i34.i, i8 0, i64 240, i1 false), !alias.scope !72
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i29.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i27.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i27.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i25.i)
+  %impl_.i.i.i.i28.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i27.i, i64 0, i32 2
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i28.i)
+  %next_.i.i.i.i.i.i29.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i27.i, i64 0, i32 1
+  store i64 32, ptr %next_.i.i.i.i.i.i29.i, align 8, !alias.scope !72
+  %77 = ptrtoint ptr %ref.tmp.i27.i to i64
+  %and.i.i.i.i.i.i.i30.i = and i64 %77, 8
+  %cond.i.i.i.i.i.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp.i27.i, i64 %and.i.i.i.i.i.i.i30.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i31.i, i8 0, i64 256, i1 false), !alias.scope !72
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i27.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i25.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i25.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
   %q_.i93.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 1
@@ -9657,7 +9639,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %hx0_minus_hxm_.i100.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 7
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
-  %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i29.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
+  %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i27.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
   store i64 1024, ptr %dist.i.i.i26.i.i, align 16
@@ -9683,8 +9665,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 5
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i35.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
-  %add.i.i115.i.i = fadd double %call.i.i.i35.i, 1.024000e+03
+  %call.i.i.i32.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %add.i.i115.i.i = fadd double %call.i.i.i32.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
   %add.i118.i.i = fadd double %kd.0.i117.i.i, 5.000000e-01
@@ -9699,48 +9681,45 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store double 0x3FDD89D89D89D898, ptr %s_.i123.i.i, align 8
   %call.i.i.i.i29.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i28.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i29.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i38.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i37.i)
-  %param_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::gaussian_distribution", ptr %dist.i.i.i.i37.i, i64 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i27.i)
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i35.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i34.i)
+  %param_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::gaussian_distribution", ptr %dist.i.i.i.i34.i, i64 0, i32 1
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
-  %call3.i.i.i.i.i.i39.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i37.i)
+  %call3.i.i.i.i.i.i36.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i34.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i34.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   %param_.i.i.i.i3.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i2.i.i, i64 0, i32 1
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i36.i)
-  %impl_.i.i.i.i40.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i38.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i40.i)
-  %next_.i.i.i.i.i.i41.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i38.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i41.i, align 8, !alias.scope !75
-  %84 = ptrtoint ptr %ref.tmp.i38.i to i64
-  %and.i.i.i.i.i.i.i42.i = and i64 %84, 8
-  %cond.i.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %ref.tmp.i38.i, i64 %and.i.i.i.i.i.i.i42.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i43.i, i8 0, i64 16, i1 false), !alias.scope !75
-  %85 = or disjoint i64 %and.i.i.i.i.i.i.i42.i, 16
-  %scevgep.i.i.i.i.i44.i = getelementptr i8, ptr %ref.tmp.i38.i, i64 %85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i44.i, i8 0, i64 240, i1 false), !alias.scope !75
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i38.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i36.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i36.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i33.i)
+  %impl_.i.i.i.i37.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i35.i, i64 0, i32 2
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i37.i)
+  %next_.i.i.i.i.i.i38.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i35.i, i64 0, i32 1
+  store i64 32, ptr %next_.i.i.i.i.i.i38.i, align 8, !alias.scope !75
+  %78 = ptrtoint ptr %ref.tmp.i35.i to i64
+  %and.i.i.i.i.i.i.i39.i = and i64 %78, 8
+  %cond.i.i.i.i.i.i.i40.i = getelementptr inbounds i8, ptr %ref.tmp.i35.i, i64 %and.i.i.i.i.i.i.i39.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i40.i, i8 0, i64 256, i1 false), !alias.scope !75
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i35.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i33.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i33.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   %param_.i.i.i.i7.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i6.i.i, i64 0, i32 1
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
-  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i38.i)
+  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i35.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i38.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i48.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.addr.i.i46.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.addr.i.i47.i)
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i35.i)
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i44.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.addr.i.i42.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.addr.i.i43.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i.i.i)
-  store i32 0, ptr %lo.addr.i.i46.i, align 4
-  store i32 100, ptr %hi.addr.i.i47.i, align 4
+  store i32 0, ptr %lo.addr.i.i42.i, align 4
+  store i32 100, ptr %hi.addr.i.i43.i, align 4
   store i32 2, ptr %base.addr.i.i.i, align 4
-  %call.i.i.i49.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionIiEEJRiSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 4 dereferenceable(4) %lo.addr.i.i46.i, ptr noundef nonnull align 4 dereferenceable(4) %hi.addr.i.i47.i, ptr noundef nonnull align 4 dereferenceable(4) %base.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.addr.i.i46.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.addr.i.i47.i)
+  %call.i.i.i45.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionIiEEJRiSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 4 dereferenceable(4) %lo.addr.i.i42.i, ptr noundef nonnull align 4 dereferenceable(4) %hi.addr.i.i43.i, ptr noundef nonnull align 4 dereferenceable(4) %base.addr.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.addr.i.i42.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.addr.i.i43.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %base.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %lo.addr.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hi.addr.i11.i.i)
@@ -9812,27 +9791,24 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i35.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %base.addr.i36.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i45.i)
-  %impl_.i.i.i.i50.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i48.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i50.i)
-  %next_.i.i.i.i.i.i51.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i48.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i51.i, align 8, !alias.scope !78
-  %86 = ptrtoint ptr %ref.tmp.i48.i to i64
-  %and.i.i.i.i.i.i.i52.i = and i64 %86, 8
-  %cond.i.i.i.i.i.i.i53.i = getelementptr inbounds i8, ptr %ref.tmp.i48.i, i64 %and.i.i.i.i.i.i.i52.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i53.i, i8 0, i64 16, i1 false), !alias.scope !78
-  %87 = or disjoint i64 %and.i.i.i.i.i.i.i52.i, 16
-  %scevgep.i.i.i.i.i54.i = getelementptr i8, ptr %ref.tmp.i48.i, i64 %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i54.i, i8 0, i64 240, i1 false), !alias.scope !78
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i48.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i45.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i45.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i41.i)
+  %impl_.i.i.i.i46.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i44.i, i64 0, i32 2
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i46.i)
+  %next_.i.i.i.i.i.i47.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i44.i, i64 0, i32 1
+  store i64 32, ptr %next_.i.i.i.i.i.i47.i, align 8, !alias.scope !78
+  %79 = ptrtoint ptr %ref.tmp.i44.i to i64
+  %and.i.i.i.i.i.i.i48.i = and i64 %79, 8
+  %cond.i.i.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %ref.tmp.i44.i, i64 %and.i.i.i.i.i.i.i48.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i49.i, i8 0, i64 256, i1 false), !alias.scope !78
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i44.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i41.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i41.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i38.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i39.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %base.addr.i40.i.i)
   store i64 0, ptr %lo.addr.i38.i.i, align 8
   store i64 1024, ptr %hi.addr.i39.i.i, align 8
   store i64 2, ptr %base.addr.i40.i.i, align 8
-  %call.i.i41.i55.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionImEEJRmSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i48.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i38.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i39.i.i, ptr noundef nonnull align 8 dereferenceable(8) %base.addr.i40.i.i)
+  %call.i.i41.i50.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionImEEJRmSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i44.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i38.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i39.i.i, ptr noundef nonnull align 8 dereferenceable(8) %base.addr.i40.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i38.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i39.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %base.addr.i40.i.i)
@@ -9842,8 +9818,8 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i128 2, ptr %agg.tmp1042.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i.i.i, align 16
-  %88 = getelementptr inbounds { i64, i64 }, ptr %hi.i.i.i, i64 0, i32 1
-  store i64 0, ptr %88, align 8
+  %80 = getelementptr inbounds { i64, i64 }, ptr %hi.i.i.i, i64 0, i32 1
+  store i64 0, ptr %80, align 8
   %call.i.i43.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1042.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1042.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i.i.i)
@@ -9856,13 +9832,13 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i64 0, ptr %agg.tmp14.sroa.2.0.agg.tmp1446.sroa_idx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i47.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i48.i.i, align 16
-  %89 = getelementptr inbounds { i64, i64 }, ptr %hi.i48.i.i, i64 0, i32 1
-  store i64 0, ptr %89, align 8
+  %81 = getelementptr inbounds { i64, i64 }, ptr %hi.i48.i.i, i64 0, i32 1
+  store i64 0, ptr %81, align 8
   %call.i.i49.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i47.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i48.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1446.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1446.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i47.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i48.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i48.i)
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i44.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %gen.i)
   ret void
 }

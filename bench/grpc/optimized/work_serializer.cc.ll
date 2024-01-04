@@ -3064,8 +3064,8 @@ entry:
   %shr.i9 = lshr i64 %2, 1
   %sub = sub nsw i64 %shr.i9, %shr.i8
   %add.ptr.idx.i = shl nsw i64 %shr.i8, 5
-  %data_.i.add.i = or disjoint i64 %add.ptr.idx.i, 8
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %data_.i.add.i
+  %4 = getelementptr i8, ptr %this, i64 %add.ptr.idx.i
+  %add.ptr.ptr.i = getelementptr i8, ptr %4, i64 8
   %cmp.not5.i.i = icmp ult i64 %3, 2
   br i1 %cmp.not5.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %for.body.i.preheader.i
 
@@ -3098,18 +3098,18 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %add.ptr.i, i64 0, i32 1
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %move_values.sroa.0.0, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
-  %4 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_invoker.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %move_values.sroa.0.0, i64 0, i32 1
-  %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %for.inc.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
-  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.inc.i
 
@@ -3124,19 +3124,19 @@ for.body.i12:                                     ; preds = %for.inc.i, %_ZNSt16
   %dec.i = add i64 %i.04.i, -1
   %add.ptr.i13 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %add.ptr, i64 %dec.i
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i13, i64 0, i32 1
-  %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i14:                            ; preds = %for.body.i12
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i13, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i14
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %if.then.i.i.i.i.i.i14, %for.body.i12

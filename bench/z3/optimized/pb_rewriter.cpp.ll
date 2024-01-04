@@ -12089,6 +12089,7 @@ entry:
   %agg.tmp = alloca %"struct.std::pair", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr %"struct.std::pair", ptr %__first, i64 1
   %cmp75 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp75, label %while.body.preheader, label %while.end
 
@@ -12114,14 +12115,14 @@ while.body:                                       ; preds = %while.body.preheade
   %add = shl i64 %__holeIndex.addr.076, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub1
+  %gep = getelementptr %"struct.std::pair", ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
   %1 = load i32, ptr %0, align 4
-  %2 = load ptr, ptr %add.ptr2, align 8
+  %2 = load ptr, ptr %gep, align 8
   %3 = load i32, ptr %2, align 4
   %cmp.i.i = icmp ult i32 %1, %3
-  %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.076
   %4 = load ptr, ptr %add.ptr3, align 8
@@ -12206,7 +12207,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa

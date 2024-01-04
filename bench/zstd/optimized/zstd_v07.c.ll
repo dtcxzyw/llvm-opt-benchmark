@@ -363,6 +363,7 @@ if.end49.thread:                                  ; preds = %if.end17
 
 for.body.preheader:                               ; preds = %if.end17
   %2 = trunc i64 %sub8 to i32
+  %invariant.gep = getelementptr i8, ptr %huffWeight, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -375,9 +376,8 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %5, ptr %arrayidx26, align 1
   %6 = load i8, ptr %arrayidx22, align 1
   %7 = and i8 %6, 15
-  %8 = or disjoint i64 %indvars.iv, 1
-  %arrayidx34 = getelementptr inbounds i8, ptr %huffWeight, i64 %8
-  store i8 %7, ptr %arrayidx34, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  store i8 %7, ptr %gep, align 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %cmp19 = icmp ugt i32 %2, %indvars
@@ -406,18 +406,18 @@ for.body55:                                       ; preds = %if.end49, %if.end62
   %weightTotal.061 = phi i32 [ %add71, %if.end62 ], [ 0, %if.end49 ]
   %n50.060 = phi i32 [ %inc73, %if.end62 ], [ 0, %if.end49 ]
   %arrayidx57 = getelementptr inbounds i8, ptr %huffWeight, i64 %conv5262
-  %9 = load i8, ptr %arrayidx57, align 1
-  %cmp59 = icmp ugt i8 %9, 15
+  %8 = load i8, ptr %arrayidx57, align 1
+  %cmp59 = icmp ugt i8 %8, 15
   br i1 %cmp59, label %return, label %if.end62
 
 if.end62:                                         ; preds = %for.body55
-  %idxprom65 = zext nneg i8 %9 to i64
+  %idxprom65 = zext nneg i8 %8 to i64
   %arrayidx66 = getelementptr inbounds i32, ptr %rankStats, i64 %idxprom65
-  %10 = load i32, ptr %arrayidx66, align 4
-  %inc = add i32 %10, 1
+  %9 = load i32, ptr %arrayidx66, align 4
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %arrayidx66, align 4
-  %11 = load i8, ptr %arrayidx57, align 1
-  %conv69 = zext nneg i8 %11 to i32
+  %10 = load i8, ptr %arrayidx57, align 1
+  %conv69 = zext nneg i8 %10 to i32
   %shl = shl nuw i32 1, %conv69
   %shr70 = ashr i32 %shl, 1
   %add71 = add i32 %shr70, %weightTotal.061
@@ -431,43 +431,43 @@ for.end74:                                        ; preds = %if.end62
   br i1 %cmp75, label %return, label %if.end78
 
 if.end78:                                         ; preds = %for.end74
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %add71, i1 true), !range !11
-  %xor.i = xor i32 %12, 31
+  %11 = tail call i32 @llvm.ctlz.i32(i32 %add71, i1 true), !range !11
+  %xor.i = xor i32 %11, 31
   %cmp81 = icmp ugt i32 %xor.i, 15
   br i1 %cmp81, label %return, label %if.end84
 
 if.end84:                                         ; preds = %if.end78
-  %add80 = sub nuw nsw i32 32, %12
+  %add80 = sub nuw nsw i32 32, %11
   store i32 %add80, ptr %tableLogPtr, align 4
   %shl85 = shl nuw nsw i32 2, %xor.i
   %sub86 = sub i32 %shl85, %add71
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %sub86, i1 true), !range !11
-  %xor.i53 = xor i32 %13, 31
+  %12 = tail call i32 @llvm.ctlz.i32(i32 %sub86, i1 true), !range !11
+  %xor.i53 = xor i32 %12, 31
   %shl88 = shl nuw i32 1, %xor.i53
   %cmp91.not = icmp eq i32 %shl88, %sub86
   br i1 %cmp91.not, label %if.end94, label %return
 
 if.end94:                                         ; preds = %if.end84
-  %add90 = sub nuw nsw i32 32, %13
+  %add90 = sub nuw nsw i32 32, %12
   %conv95 = trunc i32 %add90 to i8
   %arrayidx96 = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.0
   store i8 %conv95, ptr %arrayidx96, align 1
   %idxprom97 = zext nneg i32 %add90 to i64
   %arrayidx98 = getelementptr inbounds i32, ptr %rankStats, i64 %idxprom97
-  %14 = load i32, ptr %arrayidx98, align 4
-  %inc99 = add i32 %14, 1
+  %13 = load i32, ptr %arrayidx98, align 4
+  %inc99 = add i32 %13, 1
   store i32 %inc99, ptr %arrayidx98, align 4
   %arrayidx100 = getelementptr inbounds i32, ptr %rankStats, i64 1
-  %15 = load i32, ptr %arrayidx100, align 4
-  %cmp101 = icmp ugt i32 %15, 1
-  %and104 = and i32 %15, 1
+  %14 = load i32, ptr %arrayidx100, align 4
+  %cmp101 = icmp ugt i32 %14, 1
+  %and104 = and i32 %14, 1
   %tobool105.not = icmp eq i32 %and104, 0
   %or.cond = and i1 %cmp101, %tobool105.not
   br i1 %or.cond, label %if.end107, label %return
 
 if.end107:                                        ; preds = %if.end94
-  %16 = trunc i64 %oSize.0 to i32
-  %conv109 = add i32 %16, 1
+  %15 = trunc i64 %oSize.0 to i32
+  %conv109 = add i32 %15, 1
   store i32 %conv109, ptr %nbSymbolsPtr, align 4
   %add110 = add nuw nsw i64 %iSize.0, 1
   br label %return

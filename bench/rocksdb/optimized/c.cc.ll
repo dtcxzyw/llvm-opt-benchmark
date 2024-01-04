@@ -12252,7 +12252,7 @@ arrayctor.cont12:                                 ; preds = %invoke.cont8, %arra
   %10 = select i1 %0, i64 -1, i64 %9
   %call13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #38
   store i64 %num_keys, ptr %call13, align 16
-  %.ptr = getelementptr i8, ptr %call13, i64 8
+  %.ptr = getelementptr inbounds i8, ptr %call13, i64 8
   br i1 %isempty, label %delete.notnull.critedge, label %new.ctorloop15
 
 new.ctorloop15:                                   ; preds = %arrayctor.cont12
@@ -12394,46 +12394,47 @@ delete.notnull:                                   ; preds = %for.inc61, %delete.
 
 arraydestroy.body68.preheader:                    ; preds = %delete.notnull
   %delete.end66.idx = mul nsw i64 %24, 96
-  %.ptr.add = or disjoint i64 %delete.end66.idx, 8
+  %25 = getelementptr i8, ptr %call1, i64 %delete.end66.idx
+  %delete.end66.ptr = getelementptr i8, ptr %25, i64 8
   br label %arraydestroy.body68
 
 arraydestroy.body68:                              ; preds = %arraydestroy.body68.preheader, %arraydestroy.body68
-  %arraydestroy.elementPast69.idx = phi i64 [ %arraydestroy.elementPast69.add, %arraydestroy.body68 ], [ %.ptr.add, %arraydestroy.body68.preheader ]
-  %arraydestroy.elementPast69.add = add nsw i64 %arraydestroy.elementPast69.idx, -96
-  %arraydestroy.element70.ptr = getelementptr inbounds i8, ptr %call1, i64 %arraydestroy.elementPast69.add
-  %self_space_.i37 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %arraydestroy.element70.ptr, i64 0, i32 2
+  %arraydestroy.elementPast69 = phi ptr [ %arraydestroy.element70, %arraydestroy.body68 ], [ %delete.end66.ptr, %arraydestroy.body68.preheader ]
+  %arraydestroy.element70 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %arraydestroy.elementPast69, i64 -1
+  %self_space_.i37 = getelementptr %"class.rocksdb::PinnableSlice", ptr %arraydestroy.elementPast69, i64 -1, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i37) #35
-  %25 = getelementptr inbounds i8, ptr %arraydestroy.element70.ptr, i64 16
-  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #35
-  %arraydestroy.done71 = icmp eq i64 %arraydestroy.elementPast69.add, 8
+  %26 = getelementptr %"class.rocksdb::PinnableSlice", ptr %arraydestroy.elementPast69, i64 -1, i32 1
+  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #35
+  %arraydestroy.done71 = icmp eq ptr %arraydestroy.element70, %.ptr.ptr
   br i1 %arraydestroy.done71, label %arraydestroy.done72, label %arraydestroy.body68
 
 arraydestroy.done72:                              ; preds = %arraydestroy.body68, %delete.notnull
   call void @_ZdaPv(ptr noundef nonnull %call1) #37
-  %26 = load i64, ptr %call13, align 8
-  %arraydestroy.isempty77 = icmp eq i64 %26, 0
+  %27 = load i64, ptr %call13, align 8
+  %arraydestroy.isempty77 = icmp eq i64 %27, 0
   br i1 %arraydestroy.isempty77, label %arraydestroy.done82, label %arraydestroy.body78.preheader
 
 arraydestroy.body78.preheader:                    ; preds = %arraydestroy.done72
-  %delete.end76.idx = shl nsw i64 %26, 4
-  %.add = or disjoint i64 %delete.end76.idx, 8
+  %delete.end76.idx = shl nsw i64 %27, 4
+  %28 = getelementptr i8, ptr %call13, i64 %delete.end76.idx
+  %delete.end76.ptr = getelementptr i8, ptr %28, i64 8
   br label %arraydestroy.body78
 
 arraydestroy.body78:                              ; preds = %arraydestroy.body78.preheader, %_ZN7rocksdb6StatusD2Ev.exit
-  %arraydestroy.elementPast79.idx = phi i64 [ %arraydestroy.elementPast79.add, %_ZN7rocksdb6StatusD2Ev.exit ], [ %.add, %arraydestroy.body78.preheader ]
-  %arraydestroy.elementPast79.add = add nsw i64 %arraydestroy.elementPast79.idx, -16
-  %gep = getelementptr i8, ptr %.ptr, i64 %arraydestroy.elementPast79.add
-  %27 = load ptr, ptr %gep, align 8
-  %cmp.not.i.i = icmp eq ptr %27, null
+  %arraydestroy.elementPast79 = phi ptr [ %arraydestroy.element80, %_ZN7rocksdb6StatusD2Ev.exit ], [ %delete.end76.ptr, %arraydestroy.body78.preheader ]
+  %arraydestroy.element80 = getelementptr inbounds %"class.rocksdb::Status", ptr %arraydestroy.elementPast79, i64 -1
+  %state_.i38 = getelementptr %"class.rocksdb::Status", ptr %arraydestroy.elementPast79, i64 -1, i32 6
+  %29 = load ptr, ptr %state_.i38, align 8
+  %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %arraydestroy.body78
-  call void @_ZdaPv(ptr noundef nonnull %27) #37
+  call void @_ZdaPv(ptr noundef nonnull %29) #37
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %arraydestroy.body78, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  store ptr null, ptr %gep, align 8
-  %arraydestroy.done81 = icmp eq i64 %arraydestroy.elementPast79.add, 8
+  store ptr null, ptr %state_.i38, align 8
+  %arraydestroy.done81 = icmp eq ptr %arraydestroy.element80, %.ptr
   br i1 %arraydestroy.done81, label %arraydestroy.done82, label %arraydestroy.body78
 
 arraydestroy.done82:                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %arraydestroy.done72

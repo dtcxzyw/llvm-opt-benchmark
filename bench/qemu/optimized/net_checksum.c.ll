@@ -16,6 +16,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sub to i64
+  %invariant.gep = getelementptr i8, ptr %buf, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -26,31 +27,30 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %1 to i32
   %add = add i32 %sum1.015, %conv
-  %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx3 = getelementptr i8, ptr %buf, i64 %2
-  %3 = load i8, ptr %arrayidx3, align 1
-  %conv4 = zext i8 %3 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %2 = load i8, ptr %gep, align 1
+  %conv4 = zext i8 %2 to i32
   %add5 = add i32 %sum2.016, %conv4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp = icmp ult i64 %indvars.iv.next, %0
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
-  %4 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %sum1.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.end.loopexit ]
   %sum2.0.lcssa = phi i32 [ 0, %entry ], [ %add5, %for.end.loopexit ]
-  %i.0.lcssa = phi i32 [ 0, %entry ], [ %4, %for.end.loopexit ]
+  %i.0.lcssa = phi i32 [ 0, %entry ], [ %3, %for.end.loopexit ]
   %cmp7 = icmp slt i32 %i.0.lcssa, %len
   br i1 %cmp7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
   %idxprom9 = sext i32 %i.0.lcssa to i64
   %arrayidx10 = getelementptr i8, ptr %buf, i64 %idxprom9
-  %5 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %5 to i32
+  %4 = load i8, ptr %arrayidx10, align 1
+  %conv11 = zext i8 %4 to i32
   %add12 = add i32 %sum1.0.lcssa, %conv11
   br label %if.end
 
@@ -97,6 +97,7 @@ entry:
 for.body.preheader.i.i:                           ; preds = %entry
   %sub.i.i = add nsw i32 %conv, -1
   %0 = zext nneg i32 %sub.i.i to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %buf, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -107,82 +108,81 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %1 to i32
   %add.i.i = add i32 %sum1.015.i.i, %conv.i.i
-  %2 = or disjoint i64 %indvars.iv.i.i, 1
-  %arrayidx3.i.i = getelementptr i8, ptr %buf, i64 %2
-  %3 = load i8, ptr %arrayidx3.i.i, align 1
-  %conv4.i.i = zext i8 %3 to i32
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %2 = load i8, ptr %gep.i.i, align 1
+  %conv4.i.i = zext i8 %2 to i32
   %add5.i.i = add i32 %sum2.016.i.i, %conv4.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %0
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %3 = trunc i64 %indvars.iv.next.i.i to i32
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %entry
   %sum1.0.lcssa.i.i = phi i32 [ 0, %entry ], [ %add.i.i, %for.end.loopexit.i.i ]
   %sum2.0.lcssa.i.i = phi i32 [ 0, %entry ], [ %add5.i.i, %for.end.loopexit.i.i ]
-  %i.0.lcssa.i.i = phi i32 [ 0, %entry ], [ %4, %for.end.loopexit.i.i ]
+  %i.0.lcssa.i.i = phi i32 [ 0, %entry ], [ %3, %for.end.loopexit.i.i ]
   %cmp7.i.i = icmp slt i32 %i.0.lcssa.i.i, %conv
   br i1 %cmp7.i.i, label %if.then.i.i, label %net_checksum_add.exit
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %idxprom9.i.i = sext i32 %i.0.lcssa.i.i to i64
   %arrayidx10.i.i = getelementptr i8, ptr %buf, i64 %idxprom9.i.i
-  %5 = load i8, ptr %arrayidx10.i.i, align 1
-  %conv11.i.i = zext i8 %5 to i32
+  %4 = load i8, ptr %arrayidx10.i.i, align 1
+  %conv11.i.i = zext i8 %4 to i32
   %add12.i.i = add i32 %sum1.0.lcssa.i.i, %conv11.i.i
   br label %net_checksum_add.exit
 
 net_checksum_add.exit:                            ; preds = %for.end.i.i, %if.then.i.i
   %sum1.1.i.i = phi i32 [ %add12.i.i, %if.then.i.i ], [ %sum1.0.lcssa.i.i, %for.end.i.i ]
-  br label %for.body.i.i6
+  %invariant.gep.i.i6 = getelementptr i8, ptr %addrs, i64 1
+  br label %for.body.i.i7
 
-for.body.i.i6:                                    ; preds = %for.body.i.i6, %net_checksum_add.exit
-  %indvars.iv.i.i7 = phi i64 [ 0, %net_checksum_add.exit ], [ %indvars.iv.next.i.i16, %for.body.i.i6 ]
-  %sum2.016.i.i8 = phi i32 [ 0, %net_checksum_add.exit ], [ %add5.i.i15, %for.body.i.i6 ]
-  %sum1.015.i.i9 = phi i32 [ 0, %net_checksum_add.exit ], [ %add.i.i12, %for.body.i.i6 ]
-  %arrayidx.i.i10 = getelementptr i8, ptr %addrs, i64 %indvars.iv.i.i7
-  %6 = load i8, ptr %arrayidx.i.i10, align 1
-  %conv.i.i11 = zext i8 %6 to i32
-  %add.i.i12 = add i32 %sum1.015.i.i9, %conv.i.i11
-  %7 = or disjoint i64 %indvars.iv.i.i7, 1
-  %arrayidx3.i.i13 = getelementptr i8, ptr %addrs, i64 %7
-  %8 = load i8, ptr %arrayidx3.i.i13, align 1
-  %conv4.i.i14 = zext i8 %8 to i32
-  %add5.i.i15 = add i32 %sum2.016.i.i8, %conv4.i.i14
-  %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i7, 2
-  %cmp.i.i17 = icmp ult i64 %indvars.iv.i.i7, 5
-  br i1 %cmp.i.i17, label %for.body.i.i6, label %net_checksum_add.exit32, !llvm.loop !5
+for.body.i.i7:                                    ; preds = %for.body.i.i7, %net_checksum_add.exit
+  %indvars.iv.i.i8 = phi i64 [ 0, %net_checksum_add.exit ], [ %indvars.iv.next.i.i17, %for.body.i.i7 ]
+  %sum2.016.i.i9 = phi i32 [ 0, %net_checksum_add.exit ], [ %add5.i.i16, %for.body.i.i7 ]
+  %sum1.015.i.i10 = phi i32 [ 0, %net_checksum_add.exit ], [ %add.i.i13, %for.body.i.i7 ]
+  %arrayidx.i.i11 = getelementptr i8, ptr %addrs, i64 %indvars.iv.i.i8
+  %5 = load i8, ptr %arrayidx.i.i11, align 1
+  %conv.i.i12 = zext i8 %5 to i32
+  %add.i.i13 = add i32 %sum1.015.i.i10, %conv.i.i12
+  %gep.i.i14 = getelementptr i8, ptr %invariant.gep.i.i6, i64 %indvars.iv.i.i8
+  %6 = load i8, ptr %gep.i.i14, align 1
+  %conv4.i.i15 = zext i8 %6 to i32
+  %add5.i.i16 = add i32 %sum2.016.i.i9, %conv4.i.i15
+  %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i8, 2
+  %cmp.i.i18 = icmp ult i64 %indvars.iv.i.i8, 5
+  br i1 %cmp.i.i18, label %for.body.i.i7, label %net_checksum_add.exit33, !llvm.loop !5
 
-net_checksum_add.exit32:                          ; preds = %for.body.i.i6
+net_checksum_add.exit33:                          ; preds = %for.body.i.i7
   %conv3 = zext i16 %proto to i32
-  %reass.add = add i32 %add.i.i12, %sum1.1.i.i
+  %reass.add = add i32 %add.i.i13, %sum1.1.i.i
   %reass.mul = shl i32 %reass.add, 8
   %add16.i.i = add nuw nsw i32 %conv3, %conv
   %add2 = add i32 %add16.i.i, %sum2.0.lcssa.i.i
-  %add5 = add i32 %add2, %add5.i.i15
+  %add5 = add i32 %add2, %add5.i.i16
   %add6 = add i32 %add5, %reass.mul
   %tobool.not4.i = icmp ult i32 %add6, 65536
   br i1 %tobool.not4.i, label %net_checksum_finish.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %net_checksum_add.exit32, %while.body.i
-  %sum.addr.05.i = phi i32 [ %add.i, %while.body.i ], [ %add6, %net_checksum_add.exit32 ]
+while.body.i:                                     ; preds = %net_checksum_add.exit33, %while.body.i
+  %sum.addr.05.i = phi i32 [ %add.i, %while.body.i ], [ %add6, %net_checksum_add.exit33 ]
   %shr.i = lshr i32 %sum.addr.05.i, 16
   %and.i = and i32 %sum.addr.05.i, 65535
   %add.i = add nuw nsw i32 %and.i, %shr.i
   %tobool.not.i = icmp ult i32 %add.i, 65536
   br i1 %tobool.not.i, label %net_checksum_finish.exit, label %while.body.i, !llvm.loop !7
 
-net_checksum_finish.exit:                         ; preds = %while.body.i, %net_checksum_add.exit32
-  %sum.addr.0.lcssa.i = phi i32 [ %add6, %net_checksum_add.exit32 ], [ %add.i, %while.body.i ]
-  %9 = trunc i32 %sum.addr.0.lcssa.i to i16
-  %conv.i = xor i16 %9, -1
+net_checksum_finish.exit:                         ; preds = %while.body.i, %net_checksum_add.exit33
+  %sum.addr.0.lcssa.i = phi i32 [ %add6, %net_checksum_add.exit33 ], [ %add.i, %while.body.i ]
+  %7 = trunc i32 %sum.addr.0.lcssa.i to i16
+  %conv.i = xor i16 %7, -1
   ret i16 %conv.i
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @net_checksum_calculate(ptr nocapture noundef %data, i32 noundef %length, i32 noundef %csum_flag) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %length, 14
@@ -238,6 +238,7 @@ if.then21:                                        ; preds = %if.end19
 for.body.preheader.i.i.i:                         ; preds = %if.then21
   %sub.i.i.i = add nsw i32 %shl, -1
   %2 = zext nneg i32 %sub.i.i.i to i64
+  %invariant.gep.i.i.i = getelementptr i8, ptr %add.ptr14, i64 1
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -248,31 +249,30 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %3 to i32
   %add.i.i.i = add i32 %sum1.015.i.i.i, %conv.i.i.i
-  %4 = or disjoint i64 %indvars.iv.i.i.i, 1
-  %arrayidx3.i.i.i = getelementptr i8, ptr %add.ptr14, i64 %4
-  %5 = load i8, ptr %arrayidx3.i.i.i, align 1
-  %conv4.i.i.i = zext i8 %5 to i32
+  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %4 = load i8, ptr %gep.i.i.i, align 1
+  %conv4.i.i.i = zext i8 %4 to i32
   %add5.i.i.i = add i32 %sum2.016.i.i.i, %conv4.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 2
   %cmp.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
-  %6 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %5 = trunc i64 %indvars.iv.next.i.i.i to i32
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then21
   %sum1.0.lcssa.i.i.i = phi i32 [ 0, %if.then21 ], [ %add.i.i.i, %for.end.loopexit.i.i.i ]
   %sum2.0.lcssa.i.i.i = phi i32 [ 0, %if.then21 ], [ %add5.i.i.i, %for.end.loopexit.i.i.i ]
-  %i.0.lcssa.i.i.i = phi i32 [ 0, %if.then21 ], [ %6, %for.end.loopexit.i.i.i ]
+  %i.0.lcssa.i.i.i = phi i32 [ 0, %if.then21 ], [ %5, %for.end.loopexit.i.i.i ]
   %cmp7.i.i.i = icmp slt i32 %i.0.lcssa.i.i.i, %shl
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %net_checksum_add.exit.i
 
 if.then.i.i.i:                                    ; preds = %for.end.i.i.i
   %idxprom9.i.i.i = sext i32 %i.0.lcssa.i.i.i to i64
   %arrayidx10.i.i.i = getelementptr i8, ptr %add.ptr14, i64 %idxprom9.i.i.i
-  %7 = load i8, ptr %arrayidx10.i.i.i, align 1
-  %conv11.i.i.i = zext i8 %7 to i32
+  %6 = load i8, ptr %arrayidx10.i.i.i, align 1
+  %conv11.i.i.i = zext i8 %6 to i32
   %add12.i.i.i = add i32 %sum1.0.lcssa.i.i.i, %conv11.i.i.i
   br label %net_checksum_add.exit.i
 
@@ -293,24 +293,24 @@ while.body.i.i:                                   ; preds = %net_checksum_add.ex
 
 net_raw_checksum.exit:                            ; preds = %while.body.i.i, %net_checksum_add.exit.i
   %sum.addr.0.lcssa.i.i = phi i32 [ %add16.i.i.i, %net_checksum_add.exit.i ], [ %add.i.i, %while.body.i.i ]
-  %8 = trunc i32 %sum.addr.0.lcssa.i.i to i16
-  %conv.i.i = xor i16 %8, -1
-  %9 = tail call i16 @llvm.bswap.i16(i16 %conv.i.i)
-  store i16 %9, ptr %ip_sum, align 1
+  %7 = trunc i32 %sum.addr.0.lcssa.i.i to i16
+  %conv.i.i = xor i16 %7, -1
+  %8 = tail call i16 @llvm.bswap.i16(i16 %conv.i.i)
+  store i16 %8, ptr %ip_sum, align 1
   br label %if.end27
 
 if.end27:                                         ; preds = %net_raw_checksum.exit, %if.end19
   %ip_off = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 4
-  %10 = load i16, ptr %ip_off, align 2
-  %11 = and i16 %10, -193
-  %cmp31.not = icmp eq i16 %11, 0
+  %9 = load i16, ptr %ip_off, align 2
+  %10 = and i16 %9, -193
+  %cmp31.not = icmp eq i16 %10, 0
   br i1 %cmp31.not, label %if.end34, label %sw.epilog81
 
 if.end34:                                         ; preds = %if.end27
   %ip_len35 = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 2
   %ip_len35.val = load i16, ptr %ip_len35, align 1
-  %12 = tail call i16 @llvm.bswap.i16(i16 %ip_len35.val)
-  %conv1.i38 = zext i16 %12 to i32
+  %11 = tail call i16 @llvm.bswap.i16(i16 %ip_len35.val)
+  %conv1.i38 = zext i16 %11 to i32
   %cmp37 = icmp slt i32 %sub, %conv1.i38
   br i1 %cmp37, label %sw.epilog81, label %if.end40
 
@@ -320,8 +320,8 @@ if.end40:                                         ; preds = %if.end34
   %shl44 = and i32 %and43, 60
   %sub45 = sub nsw i32 %conv1.i38, %shl44
   %ip_p = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 6
-  %13 = load i8, ptr %ip_p, align 1
-  switch i8 %13, label %sw.epilog81 [
+  %12 = load i8, ptr %ip_p, align 1
+  switch i8 %12, label %sw.epilog81 [
     i8 6, label %sw.bb47
     i8 17, label %sw.bb63
   ]
@@ -361,15 +361,15 @@ if.end73:                                         ; preds = %sw.bb63
 sw.epilog81.sink.split:                           ; preds = %if.end57, %if.end73
   %call78.sink = phi i16 [ %call78, %if.end73 ], [ %call61, %if.end57 ]
   %uh_sum.sink = phi ptr [ %uh_sum, %if.end73 ], [ %th_sum, %if.end57 ]
-  %14 = tail call i16 @llvm.bswap.i16(i16 %call78.sink)
-  store i16 %14, ptr %uh_sum.sink, align 1
+  %13 = tail call i16 @llvm.bswap.i16(i16 %call78.sink)
+  store i16 %13, ptr %uh_sum.sink, align 1
   br label %sw.epilog81
 
 sw.epilog81:                                      ; preds = %sw.epilog81.sink.split, %if.end40, %sw.bb63, %sw.bb47, %if.end34, %if.end27, %if.end13, %sw.epilog, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @net_checksum_add_iov(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i32 noundef %iov_off, i32 noundef %size, i32 noundef %csum_offset) local_unnamed_addr #3 {
 entry:
   %cmp24 = icmp ne i32 %iov_cnt, 0
@@ -410,6 +410,7 @@ if.then:                                          ; preds = %for.body
 
 for.body.preheader.i:                             ; preds = %if.then
   %4 = zext nneg i32 %sub.i to i64
+  %invariant.gep.i = getelementptr i8, ptr %add.ptr, i64 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -420,31 +421,30 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %5 to i32
   %add.i = add i32 %sum1.015.i, %conv.i
-  %6 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx3.i = getelementptr i8, ptr %add.ptr, i64 %6
-  %7 = load i8, ptr %arrayidx3.i, align 1
-  %conv4.i = zext i8 %7 to i32
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %6 = load i8, ptr %gep.i, align 1
+  %conv4.i = zext i8 %6 to i32
   %add5.i = add i32 %sum2.016.i, %conv4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %4
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %8 = trunc i64 %indvars.iv.next.i to i32
+  %7 = trunc i64 %indvars.iv.next.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then
   %sum1.0.lcssa.i = phi i32 [ 0, %if.then ], [ %add.i, %for.end.loopexit.i ]
   %sum2.0.lcssa.i = phi i32 [ 0, %if.then ], [ %add5.i, %for.end.loopexit.i ]
-  %i.0.lcssa.i = phi i32 [ 0, %if.then ], [ %8, %for.end.loopexit.i ]
+  %i.0.lcssa.i = phi i32 [ 0, %if.then ], [ %7, %for.end.loopexit.i ]
   %cmp7.i = icmp slt i32 %i.0.lcssa.i, %conv15
   br i1 %cmp7.i, label %if.then.i, label %net_checksum_add_cont.exit
 
 if.then.i:                                        ; preds = %for.end.i
   %idxprom9.i = sext i32 %i.0.lcssa.i to i64
   %arrayidx10.i = getelementptr i8, ptr %add.ptr, i64 %idxprom9.i
-  %9 = load i8, ptr %arrayidx10.i, align 1
-  %conv11.i = zext i8 %9 to i32
+  %8 = load i8, ptr %arrayidx10.i, align 1
+  %conv11.i = zext i8 %8 to i32
   %add12.i = add i32 %sum1.0.lcssa.i, %conv11.i
   br label %net_checksum_add_cont.exit
 
@@ -471,8 +471,8 @@ if.end:                                           ; preds = %net_checksum_add_co
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ult i64 %indvars.iv.next, %1
   %tobool = icmp ne i32 %size.addr.1, 0
-  %10 = select i1 %cmp, i1 %tobool, i1 false
-  br i1 %10, label %for.body, label %for.end, !llvm.loop !8
+  %9 = select i1 %cmp, i1 %tobool, i1 false
+  br i1 %9, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end, %entry
   %res.0.lcssa = phi i32 [ 0, %entry ], [ %res.1, %if.end ]
@@ -487,8 +487,8 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

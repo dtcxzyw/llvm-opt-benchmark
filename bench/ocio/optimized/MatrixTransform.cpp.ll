@@ -1191,14 +1191,17 @@ if.else:                                          ; preds = %land.lhs.true17, %l
   %arrayidx21 = getelementptr inbounds i32, ptr %channelHot4, i64 3
   %5 = load i32, ptr %arrayidx21, align 4
   %tobool22.not = icmp eq i32 %5, 0
-  br i1 %tobool22.not, label %if.else25, label %for.body
+  br i1 %tobool22.not, label %if.else25, label %for.body.preheader
 
-for.body:                                         ; preds = %if.else, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.else ]
+for.body.preheader:                               ; preds = %if.else
+  %invariant.gep = getelementptr double, ptr %m44, i64 3
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %6 = shl nuw nsw i64 %indvars.iv, 2
-  %7 = or disjoint i64 %6, 3
-  %arrayidx24 = getelementptr inbounds double, ptr %m44, i64 %7
-  store double 1.000000e+00, ptr %arrayidx24, align 8
+  %gep = getelementptr double, ptr %invariant.gep, i64 %6
+  store double 1.000000e+00, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %if.end75, label %for.body, !llvm.loop !7
@@ -1210,36 +1213,36 @@ if.else25:                                        ; preds = %if.else
 for.body29:                                       ; preds = %if.else25, %for.body29
   %indvars.iv38 = phi i64 [ 0, %if.else25 ], [ %indvars.iv.next39, %for.body29 ]
   %arrayidx31 = getelementptr inbounds double, ptr %lumaCoef3, i64 %indvars.iv38
-  %8 = load double, ptr %arrayidx31, align 8
+  %7 = load double, ptr %arrayidx31, align 8
   %arrayidx33 = getelementptr inbounds i32, ptr %channelHot4, i64 %indvars.iv38
-  %9 = load i32, ptr %arrayidx33, align 4
-  %tobool34.not = icmp eq i32 %9, 0
+  %8 = load i32, ptr %arrayidx33, align 4
+  %tobool34.not = icmp eq i32 %8, 0
   %cond = select i1 %tobool34.not, double 0.000000e+00, double 1.000000e+00
   %arrayidx37 = getelementptr inbounds [3 x double], ptr %values, i64 0, i64 %indvars.iv38
-  %10 = load double, ptr %arrayidx37, align 8
-  %11 = tail call double @llvm.fmuladd.f64(double %8, double %cond, double %10)
-  store double %11, ptr %arrayidx37, align 8
+  %9 = load double, ptr %arrayidx37, align 8
+  %10 = tail call double @llvm.fmuladd.f64(double %7, double %cond, double %9)
+  store double %10, ptr %arrayidx37, align 8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 3
   br i1 %exitcond41.not, label %for.end40, label %for.body29, !llvm.loop !8
 
 for.end40:                                        ; preds = %for.body29
-  %12 = load <2 x double>, ptr %values, align 16
-  %shift = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %13 = fadd <2 x double> %12, %shift
-  %add43 = extractelement <2 x double> %13, i64 0
+  %11 = load <2 x double>, ptr %values, align 16
+  %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %12 = fadd <2 x double> %11, %shift
+  %add43 = extractelement <2 x double> %12, i64 0
   %arrayidx44 = getelementptr inbounds [3 x double], ptr %values, i64 0, i64 2
-  %14 = load double, ptr %arrayidx44, align 16
-  %add45 = fadd double %add43, %14
+  %13 = load double, ptr %arrayidx44, align 16
+  %add45 = fadd double %add43, %13
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIdEEbT_(double noundef %add45)
   br i1 %call, label %for.cond57.preheader.preheader, label %if.then46
 
 if.then46:                                        ; preds = %for.end40
-  %15 = insertelement <2 x double> poison, double %add45, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x double> %12, %16
-  store <2 x double> %17, ptr %values, align 16
-  %div51 = fdiv double %14, %add45
+  %14 = insertelement <2 x double> poison, double %add45, i64 0
+  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
+  %16 = fdiv <2 x double> %11, %15
+  store <2 x double> %16, ptr %values, align 16
+  %div51 = fdiv double %13, %add45
   store double %div51, ptr %arrayidx44, align 16
   br label %for.cond57.preheader.preheader
 
@@ -1248,8 +1251,8 @@ for.cond57.preheader.preheader:                   ; preds = %if.then46, %for.end
 
 for.cond57.preheader:                             ; preds = %for.cond57.preheader.preheader, %for.cond57.preheader
   %indvar = phi i64 [ %indvar.next, %for.cond57.preheader ], [ 0, %for.cond57.preheader.preheader ]
-  %18 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %m44, i64 %18
+  %17 = shl nuw nsw i64 %indvar, 5
+  %scevgep = getelementptr i8, ptr %m44, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 16 dereferenceable(24) %values, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond47.not = icmp eq i64 %indvar.next, 3

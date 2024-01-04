@@ -6952,6 +6952,7 @@ entry:
 
 for.body.preheader.i:                             ; preds = %entry
   %wide.trip.count.i = zext nneg i32 %div.i to i64
+  %invariant.gep.i = getelementptr i64, ptr %call, i64 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -6961,9 +6962,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %0 = shl nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i118.i = getelementptr inbounds i64, ptr %call, i64 %0
   %1 = load i64, ptr %arrayidx.i118.i, align 8
-  %2 = or disjoint i64 %0, 1
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %call, i64 %2
-  %3 = load i64, ptr %arrayidx.i.i, align 8
+  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %0
+  %2 = load i64, ptr %gep.i, align 8
   %mul5.i = mul i64 %1, -8663945395140668459
   %shl.i.i = mul i64 %1, -8601547726154366976
   %shr.i93.i = lshr i64 %mul5.i, 33
@@ -6974,8 +6974,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add9.i = add i64 %or.i96.i, %h2.0111.i
   %mul10.i = mul i64 %add9.i, 5
   %add11.i = add i64 %mul10.i, 1390208809
-  %mul12.i = mul i64 %3, 5545529020109919103
-  %shl.i97.i = mul i64 %3, 5659660229084708864
+  %mul12.i = mul i64 %2, 5545529020109919103
+  %shl.i97.i = mul i64 %2, 5659660229084708864
   %shr.i98.i = lshr i64 %mul12.i, 31
   %or.i99.i = or disjoint i64 %shr.i98.i, %shl.i97.i
   %mul14.i = mul i64 %or.i99.i, -8663945395140668459
@@ -7016,16 +7016,16 @@ for.end.i:                                        ; preds = %for.body.i, %entry
 
 sw.bb.i:                                          ; preds = %for.end.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 14
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %conv23.i = zext i8 %4 to i64
+  %3 = load i8, ptr %arrayidx.i, align 1
+  %conv23.i = zext i8 %3 to i64
   %shl.i = shl nuw nsw i64 %conv23.i, 48
   br label %sw.bb25.i
 
 sw.bb25.i:                                        ; preds = %sw.bb.i, %for.end.i
   %k222.0.i = phi i64 [ 0, %for.end.i ], [ %shl.i, %sw.bb.i ]
   %arrayidx26.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 13
-  %5 = load i8, ptr %arrayidx26.i, align 1
-  %conv27.i = zext i8 %5 to i64
+  %4 = load i8, ptr %arrayidx26.i, align 1
+  %conv27.i = zext i8 %4 to i64
   %shl28.i = shl nuw nsw i64 %conv27.i, 40
   %xor29.i = or disjoint i64 %shl28.i, %k222.0.i
   br label %sw.bb30.i
@@ -7033,8 +7033,8 @@ sw.bb25.i:                                        ; preds = %sw.bb.i, %for.end.i
 sw.bb30.i:                                        ; preds = %sw.bb25.i, %for.end.i
   %k222.1.i = phi i64 [ 0, %for.end.i ], [ %xor29.i, %sw.bb25.i ]
   %arrayidx31.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
-  %6 = load i8, ptr %arrayidx31.i, align 1
-  %conv32.i = zext i8 %6 to i64
+  %5 = load i8, ptr %arrayidx31.i, align 1
+  %conv32.i = zext i8 %5 to i64
   %shl33.i = shl nuw nsw i64 %conv32.i, 32
   %xor34.i = xor i64 %shl33.i, %k222.1.i
   br label %sw.bb35.i
@@ -7042,8 +7042,8 @@ sw.bb30.i:                                        ; preds = %sw.bb25.i, %for.end
 sw.bb35.i:                                        ; preds = %sw.bb30.i, %for.end.i
   %k222.2.i = phi i64 [ 0, %for.end.i ], [ %xor34.i, %sw.bb30.i ]
   %arrayidx36.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 11
-  %7 = load i8, ptr %arrayidx36.i, align 1
-  %conv37.i = zext i8 %7 to i64
+  %6 = load i8, ptr %arrayidx36.i, align 1
+  %conv37.i = zext i8 %6 to i64
   %shl38.i = shl nuw nsw i64 %conv37.i, 24
   %xor39.i = xor i64 %shl38.i, %k222.2.i
   br label %sw.bb40.i
@@ -7051,8 +7051,8 @@ sw.bb35.i:                                        ; preds = %sw.bb30.i, %for.end
 sw.bb40.i:                                        ; preds = %sw.bb35.i, %for.end.i
   %k222.3.i = phi i64 [ 0, %for.end.i ], [ %xor39.i, %sw.bb35.i ]
   %arrayidx41.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 10
-  %8 = load i8, ptr %arrayidx41.i, align 1
-  %conv42.i = zext i8 %8 to i64
+  %7 = load i8, ptr %arrayidx41.i, align 1
+  %conv42.i = zext i8 %7 to i64
   %shl43.i = shl nuw nsw i64 %conv42.i, 16
   %xor44.i = xor i64 %shl43.i, %k222.3.i
   br label %sw.bb45.i
@@ -7060,8 +7060,8 @@ sw.bb40.i:                                        ; preds = %sw.bb35.i, %for.end
 sw.bb45.i:                                        ; preds = %sw.bb40.i, %for.end.i
   %k222.4.i = phi i64 [ 0, %for.end.i ], [ %xor44.i, %sw.bb40.i ]
   %arrayidx46.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 9
-  %9 = load i8, ptr %arrayidx46.i, align 1
-  %conv47.i = zext i8 %9 to i64
+  %8 = load i8, ptr %arrayidx46.i, align 1
+  %conv47.i = zext i8 %8 to i64
   %shl48.i = shl nuw nsw i64 %conv47.i, 8
   %xor49.i = xor i64 %shl48.i, %k222.4.i
   br label %sw.bb50.i
@@ -7069,8 +7069,8 @@ sw.bb45.i:                                        ; preds = %sw.bb40.i, %for.end
 sw.bb50.i:                                        ; preds = %sw.bb45.i, %for.end.i
   %k222.5.i = phi i64 [ 0, %for.end.i ], [ %xor49.i, %sw.bb45.i ]
   %arrayidx51.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %10 = load i8, ptr %arrayidx51.i, align 1
-  %conv52.i = zext i8 %10 to i64
+  %9 = load i8, ptr %arrayidx51.i, align 1
+  %conv52.i = zext i8 %9 to i64
   %xor54.i = xor i64 %k222.5.i, %conv52.i
   %mul55.i = mul i64 %xor54.i, 5545529020109919103
   %shl.i103.i = mul i64 %xor54.i, 5659660229084708864
@@ -7083,8 +7083,8 @@ sw.bb50.i:                                        ; preds = %sw.bb45.i, %for.end
 sw.bb59.i:                                        ; preds = %sw.bb50.i, %for.end.i
   %h2.1.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %xor58.i, %sw.bb50.i ]
   %arrayidx60.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
-  %11 = load i8, ptr %arrayidx60.i, align 1
-  %conv61.i = zext i8 %11 to i64
+  %10 = load i8, ptr %arrayidx60.i, align 1
+  %conv61.i = zext i8 %10 to i64
   %shl62.i = shl nuw i64 %conv61.i, 56
   br label %sw.bb64.i
 
@@ -7092,8 +7092,8 @@ sw.bb64.i:                                        ; preds = %sw.bb59.i, %for.end
   %h2.2.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.1.i, %sw.bb59.i ]
   %k121.0.i = phi i64 [ 0, %for.end.i ], [ %shl62.i, %sw.bb59.i ]
   %arrayidx65.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
-  %12 = load i8, ptr %arrayidx65.i, align 1
-  %conv66.i = zext i8 %12 to i64
+  %11 = load i8, ptr %arrayidx65.i, align 1
+  %conv66.i = zext i8 %11 to i64
   %shl67.i = shl nuw nsw i64 %conv66.i, 48
   %xor68.i = or disjoint i64 %shl67.i, %k121.0.i
   br label %sw.bb69.i
@@ -7102,8 +7102,8 @@ sw.bb69.i:                                        ; preds = %sw.bb64.i, %for.end
   %h2.3.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.2.i, %sw.bb64.i ]
   %k121.1.i = phi i64 [ 0, %for.end.i ], [ %xor68.i, %sw.bb64.i ]
   %arrayidx70.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %13 = load i8, ptr %arrayidx70.i, align 1
-  %conv71.i = zext i8 %13 to i64
+  %12 = load i8, ptr %arrayidx70.i, align 1
+  %conv71.i = zext i8 %12 to i64
   %shl72.i = shl nuw nsw i64 %conv71.i, 40
   %xor73.i = xor i64 %shl72.i, %k121.1.i
   br label %sw.bb74.i
@@ -7112,8 +7112,8 @@ sw.bb74.i:                                        ; preds = %sw.bb69.i, %for.end
   %h2.4.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.3.i, %sw.bb69.i ]
   %k121.2.i = phi i64 [ 0, %for.end.i ], [ %xor73.i, %sw.bb69.i ]
   %arrayidx75.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  %14 = load i8, ptr %arrayidx75.i, align 1
-  %conv76.i = zext i8 %14 to i64
+  %13 = load i8, ptr %arrayidx75.i, align 1
+  %conv76.i = zext i8 %13 to i64
   %shl77.i = shl nuw nsw i64 %conv76.i, 32
   %xor78.i = xor i64 %shl77.i, %k121.2.i
   br label %sw.bb79.i
@@ -7122,8 +7122,8 @@ sw.bb79.i:                                        ; preds = %sw.bb74.i, %for.end
   %h2.5.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.4.i, %sw.bb74.i ]
   %k121.3.i = phi i64 [ 0, %for.end.i ], [ %xor78.i, %sw.bb74.i ]
   %arrayidx80.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
-  %15 = load i8, ptr %arrayidx80.i, align 1
-  %conv81.i = zext i8 %15 to i64
+  %14 = load i8, ptr %arrayidx80.i, align 1
+  %conv81.i = zext i8 %14 to i64
   %shl82.i = shl nuw nsw i64 %conv81.i, 24
   %xor83.i = xor i64 %shl82.i, %k121.3.i
   br label %sw.bb84.i
@@ -7132,8 +7132,8 @@ sw.bb84.i:                                        ; preds = %sw.bb79.i, %for.end
   %h2.6.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.5.i, %sw.bb79.i ]
   %k121.4.i = phi i64 [ 0, %for.end.i ], [ %xor83.i, %sw.bb79.i ]
   %arrayidx85.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %16 = load i8, ptr %arrayidx85.i, align 1
-  %conv86.i = zext i8 %16 to i64
+  %15 = load i8, ptr %arrayidx85.i, align 1
+  %conv86.i = zext i8 %15 to i64
   %shl87.i = shl nuw nsw i64 %conv86.i, 16
   %xor88.i = xor i64 %shl87.i, %k121.4.i
   br label %sw.bb89.i
@@ -7142,8 +7142,8 @@ sw.bb89.i:                                        ; preds = %sw.bb84.i, %for.end
   %h2.7.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.6.i, %sw.bb84.i ]
   %k121.5.i = phi i64 [ 0, %for.end.i ], [ %xor88.i, %sw.bb84.i ]
   %arrayidx90.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  %17 = load i8, ptr %arrayidx90.i, align 1
-  %conv91.i = zext i8 %17 to i64
+  %16 = load i8, ptr %arrayidx90.i, align 1
+  %conv91.i = zext i8 %16 to i64
   %shl92.i = shl nuw nsw i64 %conv91.i, 8
   %xor93.i = xor i64 %shl92.i, %k121.5.i
   br label %sw.bb94.i
@@ -7151,8 +7151,8 @@ sw.bb89.i:                                        ; preds = %sw.bb84.i, %for.end
 sw.bb94.i:                                        ; preds = %sw.bb89.i, %for.end.i
   %h2.8.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.7.i, %sw.bb89.i ]
   %k121.6.i = phi i64 [ 0, %for.end.i ], [ %xor93.i, %sw.bb89.i ]
-  %18 = load i8, ptr %add.ptr.i, align 1
-  %conv96.i = zext i8 %18 to i64
+  %17 = load i8, ptr %add.ptr.i, align 1
+  %conv96.i = zext i8 %17 to i64
   %xor98.i = xor i64 %k121.6.i, %conv96.i
   %mul99.i = mul i64 %xor98.i, -8663945395140668459
   %shl.i106.i = mul i64 %xor98.i, -8601547726154366976

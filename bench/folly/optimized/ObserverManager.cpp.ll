@@ -1842,8 +1842,7 @@ arrayctor.loop.i.i.i:                             ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i = phi i64 [ 128, %entry ], [ %arrayctor.cur.add.i.i.i.7, %arrayctor.loop.i.i.i ]
   %arrayctor.cur.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.add.i.i.i
+  %arrayctor.cur.ptr.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -3893,26 +3892,19 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5fo
   %i.08.i = phi i64 [ 0, %_ZN5folly3f146detail10BasePolicyIPKvvvvvS4_E12beforeRehashEmmmmRPh.exit.new ], [ %inc.i.7, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %i.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
-  %inc.i = or disjoint i64 %i.08.i, 1
-  %arrayidx.i.1 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i
+  %arrayidx.i.1 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.1, i8 0, i64 16, i1 false)
-  %inc.i.1 = or disjoint i64 %i.08.i, 2
-  %arrayidx.i.2 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.1
+  %arrayidx.i.2 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.2, i8 0, i64 16, i1 false)
-  %inc.i.2 = or disjoint i64 %i.08.i, 3
-  %arrayidx.i.3 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.2
+  %arrayidx.i.3 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.3, i8 0, i64 16, i1 false)
-  %inc.i.3 = or disjoint i64 %i.08.i, 4
-  %arrayidx.i.4 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.3
+  %arrayidx.i.4 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.4, i8 0, i64 16, i1 false)
-  %inc.i.4 = or disjoint i64 %i.08.i, 5
-  %arrayidx.i.5 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.4
+  %arrayidx.i.5 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.5, i8 0, i64 16, i1 false)
-  %inc.i.5 = or disjoint i64 %i.08.i, 6
-  %arrayidx.i.6 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.5
+  %arrayidx.i.6 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.6, i8 0, i64 16, i1 false)
-  %inc.i.6 = or disjoint i64 %i.08.i, 7
-  %arrayidx.i.7 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.6
+  %arrayidx.i.7 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.7, i8 0, i64 16, i1 false)
   %inc.i.7 = add nuw i64 %i.08.i, 8
   %niter.ncmp.7 = icmp eq i64 %inc.i.7, %unroll_iter
@@ -10595,8 +10587,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i77, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i77, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -10913,8 +10904,7 @@ arrayctor.loop.i.i.i:                             ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i = phi i64 [ 128, %call2.i.noexc.i ], [ %arrayctor.cur.add.i.i.i.7, %arrayctor.loop.i.i.i ]
   %arrayctor.cur.ptr.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i, i64 %arrayctor.cur.add.i.i.i
+  %arrayctor.cur.ptr.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -12339,8 +12329,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i31, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i31, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -12431,8 +12420,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep157 = getelementptr i8, ptr %invariant.gep156, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep157, align 32, !tbaa !40
@@ -12895,8 +12883,7 @@ arrayctor.loop.i.i.i:                             ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i = phi i64 [ 128, %entry ], [ %arrayctor.cur.add.i.i.i.7, %arrayctor.loop.i.i.i ]
   %arrayctor.cur.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %call.i.i, i64 %arrayctor.cur.add.i.i.i
+  %arrayctor.cur.ptr.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -13768,8 +13755,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -15658,8 +15644,7 @@ arrayctor.loop.i.i.i:                             ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i = phi i64 [ 128, %call2.i.noexc.i ], [ %arrayctor.cur.add.i.i.i.7, %arrayctor.loop.i.i.i ]
   %arrayctor.cur.ptr.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i, i64 %arrayctor.cur.add.i.i.i
+  %arrayctor.cur.ptr.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -17331,8 +17316,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i12, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i12, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -17416,8 +17400,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep74, align 32, !tbaa !40
@@ -19216,8 +19199,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i17, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i17, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -19308,8 +19290,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep83, align 32, !tbaa !40
@@ -19677,8 +19658,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i76, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i76, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -19961,8 +19941,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i13, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i13, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -20046,8 +20025,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep74, align 32, !tbaa !40
@@ -20860,8 +20838,7 @@ arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i,
   %arrayctor.cur.idx.i.i = phi i64 [ 128, %call2.i.noexc ], [ %arrayctor.cur.add.i.i.7, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call2.i45, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i = or disjoint i64 %arrayctor.cur.idx.i.i, 80
-  %arrayctor.cur.ptr.i.i.1 = getelementptr inbounds i8, ptr %call2.i45, i64 %arrayctor.cur.add.i.i
+  %arrayctor.cur.ptr.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.1, align 16, !tbaa !40
   %gep = getelementptr i8, ptr %invariant.gep, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %gep, align 32, !tbaa !40
@@ -20952,8 +20929,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 128, %call2.i.noexc.i.i ], [ %arrayctor.cur.add.i.i.i.i.7, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i, align 128, !tbaa !40
-  %arrayctor.cur.add.i.i.i.i = or disjoint i64 %arrayctor.cur.idx.i.i.i.i, 80
-  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr inbounds i8, ptr %call2.i25.i.i, i64 %arrayctor.cur.add.i.i.i.i
+  %arrayctor.cur.ptr.i.i.i.i.1 = getelementptr i8, ptr %arrayctor.cur.ptr.i.i.i.i, i64 80
   store i32 0, ptr %arrayctor.cur.ptr.i.i.i.i.1, align 16, !tbaa !40
   %gep123 = getelementptr i8, ptr %invariant.gep122, i64 %arrayctor.cur.idx.i.i.i.i
   store i32 0, ptr %gep123, align 32, !tbaa !40

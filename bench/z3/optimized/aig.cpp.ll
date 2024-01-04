@@ -6724,53 +6724,59 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIP7aig_litlS0_N9__gnu_cxx5__
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp33 = icmp sgt i64 %div, %__holeIndex
-  br i1 %cmp33, label %while.body, label %while.end
+  %invariant.gep = getelementptr %class.aig_lit, ptr %__first, i64 1
+  %cmp36 = icmp sgt i64 %div, %__holeIndex
+  br i1 %cmp36, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
-  %__holeIndex.addr.034 = phi i64 [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27 ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.034, 1
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29
+  %__holeIndex.addr.037 = phi i64 [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29 ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.037, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %sub1
+  %gep = getelementptr %class.aig_lit, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i.i.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i.i.i to ptr
   %3 = load i32, ptr %2, align 8
-  %4 = load ptr, ptr %add.ptr2, align 8
-  %.fr30 = freeze ptr %4
-  %5 = ptrtoint ptr %.fr30 to i64
+  %4 = load ptr, ptr %gep, align 8
+  %.fr33 = freeze ptr %4
+  %5 = ptrtoint ptr %.fr33 to i64
   %and.i.i5.i.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i.i5.i.i to ptr
   %7 = load i32, ptr %6, align 8
   %cmp.i.i = icmp ult i32 %3, %7
   br i1 %cmp.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread, label %if.end.i.i
 
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread: ; preds = %while.body
+  %dec26 = or disjoint i64 %add, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29
+
 if.end.i.i:                                       ; preds = %while.body
   %cmp5.i.i = icmp eq i32 %3, %7
   %and.i.i.i = and i64 %1, 1
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %or.cond.i.i = and i1 %cmp.i.i.i, %cmp5.i.i
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit: ; preds = %if.end.i.i
   %and.i8.i.i = and i64 %5, 1
   %cmp.i9.not.i.i = icmp eq i64 %and.i8.i.i, 0
-  %or.cond = and i1 %or.cond.i.i, %cmp.i9.not.i.i
-  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i9.not.i.i, i64 %dec, i64 %mul
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread: ; preds = %if.end.i.i, %while.body
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27: ; preds = %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
-  %8 = phi ptr [ %.fr30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %0, %if.end.i.i ]
-  %9 = phi i64 [ %sub1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %mul, %if.end.i.i ]
-  %add.ptr4 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %__holeIndex.addr.034
-  store ptr %8, ptr %add.ptr4, align 8
-  %cmp = icmp slt i64 %9, %div
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit, %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
+  %8 = phi i64 [ %dec26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %mul, %if.end.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit ]
+  %add.ptr3 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %8
+  %add.ptr4 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %__holeIndex.addr.037
+  %9 = load ptr, ptr %add.ptr3, align 8
+  store ptr %9, ptr %add.ptr4, align 8
+  %cmp = icmp slt i64 %8, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !40
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27 ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread29 ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18

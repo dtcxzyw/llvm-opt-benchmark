@@ -6464,8 +6464,8 @@ _ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE17_M_realloc_insertIJS3_
 
 if.else422:                                       ; preds = %for.body406
   %309 = load i16, ptr %add.ptr.i696, align 2
-  %310 = or disjoint i64 %indvars.iv2515, 1
-  %add.ptr.i697 = getelementptr inbounds i16, ptr %304, i64 %310
+  %310 = getelementptr i16, ptr %304, i64 %indvars.iv2515
+  %add.ptr.i697 = getelementptr i16, ptr %310, i64 1
   %311 = load i16, ptr %add.ptr.i697, align 2
   %add.ptr.i698 = getelementptr i16, ptr %add.ptr.i696, i64 2
   %312 = load i16, ptr %add.ptr.i698, align 2

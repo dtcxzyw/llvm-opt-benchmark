@@ -28156,8 +28156,7 @@ for.body12:                                       ; preds = %for.body12.preheade
   %cond.i = tail call noundef i64 @llvm.umax.i64(i64 %max_count.0165, i64 %8)
   %add16 = add i64 %8, %store_forwarded
   store i64 %add16, ptr %arrayidx13, align 8, !tbaa !13
-  %inc18 = or disjoint i64 %radix.0166, 1
-  %arrayidx13.1 = getelementptr inbounds i64, ptr %add.ptr, i64 %inc18
+  %arrayidx13.1 = getelementptr i64, ptr %arrayidx13, i64 1
   %9 = load i64, ptr %arrayidx13.1, align 8, !tbaa !13
   %cond.i.1 = tail call noundef i64 @llvm.umax.i64(i64 %cond.i, i64 %9)
   %add16.1 = add i64 %9, %add16

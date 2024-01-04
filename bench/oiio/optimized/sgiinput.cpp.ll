@@ -1671,7 +1671,7 @@ if.then87:                                        ; preds = %if.end83
   br label %if.end125
 
 for.cond99.preheader:                             ; preds = %for.cond99.preheader.lr.ph, %for.inc122
-  %40 = phi i32 [ %54, %for.inc122 ], [ %35, %for.cond99.preheader.lr.ph ]
+  %40 = phi i32 [ %55, %for.inc122 ], [ %35, %for.cond99.preheader.lr.ph ]
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %for.inc122 ], [ 0, %for.cond99.preheader.lr.ph ]
   %cdata.070 = phi ptr [ %cdata.1.lcssa, %for.inc122 ], [ %data, %for.cond99.preheader.lr.ph ]
   %cmp10265 = icmp sgt i32 %40, 0
@@ -1679,7 +1679,6 @@ for.cond99.preheader:                             ; preds = %for.cond99.preheade
 
 for.body103.lr.ph:                                ; preds = %for.cond99.preheader
   %mul107 = mul nsw i64 %indvars.iv87, %conv
-  %add115 = or disjoint i64 %mul107, 1
   br i1 %cmp109, label %for.body103.us, label %for.body103
 
 for.body103.us:                                   ; preds = %for.body103.lr.ph, %for.body103.us
@@ -1695,39 +1694,40 @@ for.body103.us:                                   ; preds = %for.body103.lr.ph, 
   %44 = load ptr, ptr %channeldata, align 8
   %add.ptr.i41.us = getelementptr inbounds %"class.std::vector.26", ptr %44, i64 %indvars.iv84
   %45 = load ptr, ptr %add.ptr.i41.us, align 8
-  %add.ptr.i42.us = getelementptr inbounds i8, ptr %45, i64 %add115
-  %46 = load i8, ptr %add.ptr.i42.us, align 1
+  %46 = getelementptr i8, ptr %45, i64 %mul107
+  %add.ptr.i42.us = getelementptr i8, ptr %46, i64 1
+  %47 = load i8, ptr %add.ptr.i42.us, align 1
   %incdec.ptr117.us = getelementptr inbounds i8, ptr %cdata.166.us, i64 2
-  store i8 %46, ptr %incdec.ptr.us, align 1
+  store i8 %47, ptr %incdec.ptr.us, align 1
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %47 = load i32, ptr %nchannels, align 4
-  %48 = sext i32 %47 to i64
-  %cmp102.us = icmp slt i64 %indvars.iv.next85, %48
+  %48 = load i32, ptr %nchannels, align 4
+  %49 = sext i32 %48 to i64
+  %cmp102.us = icmp slt i64 %indvars.iv.next85, %49
   br i1 %cmp102.us, label %for.body103.us, label %for.inc122, !llvm.loop !19
 
 for.body103:                                      ; preds = %for.body103.lr.ph, %for.body103
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %for.body103 ], [ 0, %for.body103.lr.ph ]
   %cdata.166 = phi ptr [ %incdec.ptr, %for.body103 ], [ %cdata.070, %for.body103.lr.ph ]
-  %49 = load ptr, ptr %channeldata, align 8
-  %add.ptr.i39 = getelementptr inbounds %"class.std::vector.26", ptr %49, i64 %indvars.iv81
-  %50 = load ptr, ptr %add.ptr.i39, align 8
-  %add.ptr.i40 = getelementptr inbounds i8, ptr %50, i64 %mul107
-  %51 = load i8, ptr %add.ptr.i40, align 1
+  %50 = load ptr, ptr %channeldata, align 8
+  %add.ptr.i39 = getelementptr inbounds %"class.std::vector.26", ptr %50, i64 %indvars.iv81
+  %51 = load ptr, ptr %add.ptr.i39, align 8
+  %add.ptr.i40 = getelementptr inbounds i8, ptr %51, i64 %mul107
+  %52 = load i8, ptr %add.ptr.i40, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %cdata.166, i64 1
-  store i8 %51, ptr %cdata.166, align 1
+  store i8 %52, ptr %cdata.166, align 1
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %52 = load i32, ptr %nchannels, align 4
-  %53 = sext i32 %52 to i64
-  %cmp102 = icmp slt i64 %indvars.iv.next82, %53
+  %53 = load i32, ptr %nchannels, align 4
+  %54 = sext i32 %53 to i64
+  %cmp102 = icmp slt i64 %indvars.iv.next82, %54
   br i1 %cmp102, label %for.body103, label %for.inc122, !llvm.loop !19
 
 for.inc122:                                       ; preds = %for.body103, %for.body103.us, %for.cond99.preheader
-  %54 = phi i32 [ %40, %for.cond99.preheader ], [ %47, %for.body103.us ], [ %52, %for.body103 ]
+  %55 = phi i32 [ %40, %for.cond99.preheader ], [ %48, %for.body103.us ], [ %53, %for.body103 ]
   %cdata.1.lcssa = phi ptr [ %cdata.070, %for.cond99.preheader ], [ %incdec.ptr117.us, %for.body103.us ], [ %incdec.ptr, %for.body103 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %55 = load i32, ptr %width95, align 4
-  %56 = sext i32 %55 to i64
-  %cmp96 = icmp slt i64 %indvars.iv.next88, %56
+  %56 = load i32, ptr %width95, align 4
+  %57 = sext i32 %56 to i64
+  %cmp96 = icmp slt i64 %indvars.iv.next88, %57
   br i1 %cmp96, label %for.cond99.preheader, label %if.end125, !llvm.loop !20
 
 if.end125:                                        ; preds = %for.inc122, %for.cond99.preheader.lr.ph, %for.cond93.preheader, %if.then87
@@ -1737,9 +1737,9 @@ if.end125:                                        ; preds = %for.inc122, %for.co
 
 if.then127:                                       ; preds = %if.end125
   %width129 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 3
-  %57 = load i32, ptr %width129, align 4
-  %58 = load i32, ptr %nchannels, align 4
-  %mul132 = mul nsw i32 %58, %57
+  %58 = load i32, ptr %width129, align 4
+  %59 = load i32, ptr %nchannels, align 4
+  %mul132 = mul nsw i32 %59, %58
   %cmp5.i43 = icmp sgt i32 %mul132, 0
   br i1 %cmp5.i43, label %for.body.preheader.i, label %cleanup
 
@@ -1750,9 +1750,9 @@ for.body.preheader.i:                             ; preds = %if.then127
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %data, i64 %indvars.iv.i
-  %59 = load i16, ptr %arrayidx.i, align 2
-  %60 = tail call i16 @llvm.bswap.i16(i16 %59)
-  store i16 %60, ptr %arrayidx.i, align 2
+  %60 = load i16, ptr %arrayidx.i, align 2
+  %61 = tail call i16 @llvm.bswap.i16(i16 %60)
+  store i16 %61, ptr %arrayidx.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %cleanup, label %for.body.i, !llvm.loop !22
@@ -1760,32 +1760,32 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 cleanup:                                          ; preds = %invoke.cont76, %for.body.i, %if.then127, %if.end125
   %_M_finish.i.i7.i95 = phi ptr [ %_M_finish.i.i7.i96105, %if.end125 ], [ %_M_finish.i.i7.i96105, %if.then127 ], [ %_M_finish.i.i7.i96105, %for.body.i ], [ %_M_finish.i.i7.i, %invoke.cont76 ]
   %retval.0 = phi i1 [ true, %if.end125 ], [ true, %if.then127 ], [ true, %for.body.i ], [ false, %invoke.cont76 ]
-  %61 = load ptr, ptr %channeldata, align 8
-  %62 = load ptr, ptr %_M_finish.i.i7.i95, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %61, %62
+  %62 = load ptr, ptr %channeldata, align 8
+  %63 = load ptr, ptr %_M_finish.i.i7.i95, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %62, %63
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i ], [ %61, %cleanup ]
-  %63 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %63, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i ], [ %62, %cleanup ]
+  %64 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %63) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %64) #22
   br label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.26", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i45 = icmp eq ptr %incdec.ptr.i.i.i.i, %62
+  %cmp.not.i.i.i.i45 = icmp eq ptr %incdec.ptr.i.i.i.i, %63
   br i1 %cmp.not.i.i.i.i45, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !23
 
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i, %cleanup
-  %tobool.not.i.i.i = icmp eq ptr %61, null
+  %tobool.not.i.i.i = icmp eq ptr %62, null
   br i1 %tobool.not.i.i.i, label %cleanup135, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %62) #22
   br label %cleanup135
 
 cleanup135:                                       ; preds = %call.i.noexc, %if.then.i.i.i, %invoke.cont.i, %lor.lhs.false, %invoke.cont
@@ -1794,10 +1794,10 @@ cleanup135:                                       ; preds = %call.i.noexc, %if.t
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup135
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #25
+  %66 = extractvalue { ptr, i32 } %65, 0
+  tail call void @__clang_call_terminate(ptr %66) #25
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %cleanup135
@@ -1809,10 +1809,10 @@ ehcleanup:                                        ; preds = %lpad32, %lpad11, %l
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit49 unwind label %terminate.lpad.i47
 
 terminate.lpad.i47:                               ; preds = %ehcleanup
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #25
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #25
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit49: ; preds = %ehcleanup

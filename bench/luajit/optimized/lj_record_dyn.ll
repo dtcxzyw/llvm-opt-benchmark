@@ -1969,7 +1969,7 @@ if.then4:                                         ; preds = %handlemm
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %if.then4
-  %17 = zext i32 %16 to i64
+  %17 = zext nneg i32 %16 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -2829,7 +2829,7 @@ declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden i32 @lj_opt_fwd_wasnonnil(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
+define hidden noundef i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ix, align 8
   %and = and i64 %0, 140737488355327
@@ -5189,7 +5189,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %if.then
-  %13 = zext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -7136,7 +7136,7 @@ if.end54:                                         ; preds = %if.else40, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %iterins, 8
   %and = and i32 %shr, 255
@@ -7227,7 +7227,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %pc = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 3
@@ -7720,7 +7720,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
   %base.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 6
-  %7 = zext i32 %6 to i64
+  %7 = zext nneg i32 %6 to i64
   %wide.trip.count.i = zext i8 %1 to i64
   br label %for.body.i
 
@@ -7779,7 +7779,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
   %base.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 6
-  %7 = zext i32 %6 to i64
+  %7 = zext nneg i32 %6 to i64
   %wide.trip.count.i = zext i8 %1 to i64
   br label %for.body.i
 
@@ -8237,13 +8237,13 @@ sw.bb52.i:                                        ; preds = %if.else116
 if.then65.i:                                      ; preds = %sw.bb52.i
   %shr60.i = lshr i32 %47, 16
   %conv61.i = zext nneg i32 %shr60.i to i64
-  %sub62.i = or disjoint i64 %conv61.i, -32768
   %add.ptr66.i = getelementptr i32, ptr %46, i64 -32767
-  %add.ptr70.i = getelementptr inbounds i32, ptr %add.ptr66.i, i64 %sub62.i
+  %49 = getelementptr i32, ptr %add.ptr66.i, i64 %conv61.i
+  %add.ptr70.i = getelementptr i32, ptr %49, i64 -32768
   store ptr %add.ptr70.i, ptr %bc_min, align 8
-  %49 = shl nuw nsw i32 %shr60.i, 2
-  %50 = sub nuw nsw i32 131072, %49
-  store i32 %50, ptr %bc_extent, align 8
+  %50 = shl nuw nsw i32 %shr60.i, 2
+  %51 = sub nuw nsw i32 131072, %50
+  store i32 %51, ptr %bc_extent, align 8
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.then65.i, %sw.bb52.i
@@ -8260,10 +8260,10 @@ sw.bb83.i:                                        ; preds = %if.else116, %if.els
 
 sw.bb88.i:                                        ; preds = %if.else116
   %pt.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 5
-  %51 = load ptr, ptr %pt.i, align 8
-  %numparams.i = getelementptr inbounds %struct.GCproto, ptr %51, i64 0, i32 3
-  %52 = load i8, ptr %numparams.i, align 2
-  %conv89.i = zext i8 %52 to i32
+  %52 = load ptr, ptr %pt.i, align 8
+  %numparams.i = getelementptr inbounds %struct.GCproto, ptr %52, i64 0, i32 3
+  %53 = load i8, ptr %numparams.i, align 2
+  %conv89.i = zext i8 %53 to i32
   store i32 %conv89.i, ptr %maxslot, align 4
   %incdec.ptr91.i = getelementptr inbounds i32, ptr %4, i64 1
   br label %rec_setup_root.exit
@@ -8276,16 +8276,16 @@ rec_setup_root.exit:                              ; preds = %if.else116, %sw.bb.
   %pc.0.i = phi ptr [ %4, %if.else116 ], [ %incdec.ptr93.i, %sw.bb92.i ], [ %incdec.ptr91.i, %sw.bb88.i ], [ %4, %sw.bb83.i ], [ %incdec.ptr.i, %if.end81.i ], [ %4, %sw.bb33.i ], [ %add.ptr31.i, %if.end.i ], [ %add.ptr.i, %sw.bb.i ]
   store ptr %pc.0.i, ptr %pc15, align 8
   tail call void @lj_snap_add(ptr noundef nonnull %J) #7
-  %53 = load i32, ptr %startins121, align 8
-  %trunc = trunc i32 %53 to i8
+  %54 = load i32, ptr %startins121, align 8
+  %trunc = trunc i32 %54 to i8
   switch i8 %trunc, label %if.end142 [
     i8 79, label %if.then129
     i8 69, label %if.then139
   ]
 
 if.then129:                                       ; preds = %rec_setup_root.exit
-  %54 = load ptr, ptr %pc15, align 8
-  %add.ptr131 = getelementptr inbounds i32, ptr %54, i64 -1
+  %55 = load ptr, ptr %pc15, align 8
+  %add.ptr131 = getelementptr inbounds i32, ptr %55, i64 -1
   tail call fastcc void @rec_for_loop(ptr noundef nonnull %J, ptr noundef nonnull %add.ptr131, ptr noundef nonnull %scev, i32 noundef 1)
   br label %if.end142
 
@@ -8295,10 +8295,10 @@ if.then139:                                       ; preds = %rec_setup_root.exit
 
 if.end142:                                        ; preds = %rec_setup_root.exit, %if.then139, %if.then129
   %pt143 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 5
-  %55 = load ptr, ptr %pt143, align 8
-  %framesize = getelementptr inbounds %struct.GCproto, ptr %55, i64 0, i32 4
-  %56 = load i8, ptr %framesize, align 1
-  %cmp146 = icmp ugt i8 %56, -8
+  %56 = load ptr, ptr %pt143, align 8
+  %framesize = getelementptr inbounds %struct.GCproto, ptr %56, i64 0, i32 4
+  %57 = load i8, ptr %framesize, align 1
+  %cmp146 = icmp ugt i8 %57, -8
   br i1 %cmp146, label %if.then148, label %if.end150
 
 if.then148:                                       ; preds = %if.end142
@@ -8711,7 +8711,7 @@ entry:
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %entry
-  %13 = zext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

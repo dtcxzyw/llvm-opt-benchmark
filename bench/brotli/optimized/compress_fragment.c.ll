@@ -7876,7 +7876,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @EmitUncompressedMetaBlock(ptr noundef %begin, ptr noundef %end, i64 noundef %storage_ix_start, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #1 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -8146,25 +8146,21 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %i.065 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
-  %add = or disjoint i64 %i.065, 40
-  %arrayidx40 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add
-  %11 = load i8, ptr %arrayidx40, align 1
+  %11 = getelementptr i8, ptr %cmd_depth, i64 %i.065
+  %arrayidx40 = getelementptr i8, ptr %11, i64 40
+  %12 = load i8, ptr %arrayidx40, align 1
   %mul = shl nuw nsw i64 %i.065, 3
-  %add41 = or disjoint i64 %mul, 128
-  %arrayidx42 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add41
-  store i8 %11, ptr %arrayidx42, align 1
-  %add43 = or disjoint i64 %i.065, 48
-  %arrayidx44 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add43
-  %12 = load i8, ptr %arrayidx44, align 1
-  %add46 = or disjoint i64 %mul, 256
-  %arrayidx47 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add46
-  store i8 %12, ptr %arrayidx47, align 1
-  %add48 = or disjoint i64 %i.065, 56
-  %arrayidx49 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add48
-  %13 = load i8, ptr %arrayidx49, align 1
-  %add51 = or disjoint i64 %mul, 448
-  %arrayidx52 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add51
-  store i8 %13, ptr %arrayidx52, align 1
+  %13 = getelementptr i8, ptr %tmp_depth3, i64 %mul
+  %arrayidx42 = getelementptr i8, ptr %13, i64 128
+  store i8 %12, ptr %arrayidx42, align 1
+  %arrayidx44 = getelementptr i8, ptr %11, i64 48
+  %14 = load i8, ptr %arrayidx44, align 1
+  %arrayidx47 = getelementptr i8, ptr %13, i64 256
+  store i8 %14, ptr %arrayidx47, align 1
+  %arrayidx49 = getelementptr i8, ptr %11, i64 56
+  %15 = load i8, ptr %arrayidx49, align 1
+  %arrayidx52 = getelementptr i8, ptr %13, i64 448
+  store i8 %15, ptr %arrayidx52, align 1
   %inc = add nuw nsw i64 %i.065, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
@@ -8205,7 +8201,7 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

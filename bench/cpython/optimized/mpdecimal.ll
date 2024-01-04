@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_coeff_as_uint128.uint128_max = internal constant %struct.mpd_t { i8 -112, i64 0, i64 39, i64 3, i64 3, ptr @_coeff_as_uint128.uint128_max_data }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @mpd_version() local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @mpd_version() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
@@ -325,7 +325,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mpd_lsd(i64 noundef %word) local_unnamed_addr #1 {
+define hidden noundef i64 @mpd_lsd(i64 noundef %word) local_unnamed_addr #1 {
 entry:
   %rem = urem i64 %word, 10
   ret i64 %rem
@@ -456,7 +456,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mpd_iscanonical(ptr nocapture noundef readnone %dec) local_unnamed_addr #1 {
+define hidden noundef i32 @mpd_iscanonical(ptr nocapture noundef readnone %dec) local_unnamed_addr #1 {
 entry:
   ret i32 1
 }
@@ -659,7 +659,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mpd_isoddword(i64 noundef %word) local_unnamed_addr #1 {
+define hidden noundef i32 @mpd_isoddword(i64 noundef %word) local_unnamed_addr #1 {
 entry:
   %0 = trunc i64 %word to i32
   %conv = and i32 %0, 1
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mpd_radix() local_unnamed_addr #1 {
+define hidden noundef i64 @mpd_radix() local_unnamed_addr #1 {
 entry:
   ret i64 10
 }
@@ -924,7 +924,7 @@ if.end6:                                          ; preds = %if.then, %if.then4,
 declare hidden ptr @mpd_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -971,7 +971,7 @@ return:                                           ; preds = %if.then2.i, %entry,
 declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv.i = zext i8 %0 to i32
@@ -3105,7 +3105,7 @@ return:                                           ; preds = %entry, %mpd_qcopy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3316,7 +3316,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext i8 %0 to i32
@@ -3858,7 +3858,7 @@ if.end98:                                         ; preds = %if.end98.sink.split
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3974,7 +3974,7 @@ return:                                           ; preds = %entry, %if.end
 declare hidden ptr @mpd_qnew_size(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4054,7 +4054,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4134,7 +4134,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %b, align 8
   %cmp.i = icmp eq ptr %result, %a
@@ -5014,7 +5014,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
   %0 = load ptr, ptr %data.i.i, align 8
@@ -23298,7 +23298,7 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc noundef i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = getelementptr i8, ptr %ctx, i64 36
@@ -24204,7 +24204,7 @@ return:                                           ; preds = %if.then28, %mpd_set
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
+define internal fastcc noundef i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
 entry:
   %0 = getelementptr i64, ptr %dec.40.val, i64 %dec.24.val
   %arrayidx.i = getelementptr i64, ptr %0, i64 -1
@@ -27984,7 +27984,7 @@ return:                                           ; preds = %mpd_qresize.exit63.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #8 {
+define hidden noundef i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i62 = alloca i8, align 1
   %err.i.i51 = alloca i8, align 1
@@ -28227,7 +28227,7 @@ return:                                           ; preds = %if.end59, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #8 {
+define internal fastcc noundef i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %data = alloca [5 x i64], align 16
   %status = alloca i32, align 4
@@ -31095,27 +31095,27 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then2
-  %add5 = shl nuw i64 %lb, 1
   %0 = shl i64 %lb, 4
   %1 = or disjoint i64 %0, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %1, i1 false)
-  %add6 = or disjoint i64 %add5, 1
+  %add5 = shl nuw i64 %lb, 1
   %add.ptr = getelementptr i64, ptr %a, i64 %div147
-  %add.ptr7 = getelementptr i64, ptr %w, i64 %add6
+  %2 = getelementptr i64, ptr %w, i64 %add5
+  %add.ptr7 = getelementptr i64, ptr %2, i64 1
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %b, ptr noundef %add.ptr, ptr noundef %add.ptr7, i64 noundef %lb, i64 noundef %sub)
   br label %if.end16
 
 if.else:                                          ; preds = %if.then2
+  %3 = shl i64 %la, 1
+  %4 = or disjoint i64 %3, 1
+  %5 = and i64 %add, -2
+  %6 = sub i64 %4, %5
+  %7 = shl nuw i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
   %add11 = shl i64 %sub, 1
-  %2 = shl i64 %la, 1
-  %3 = or disjoint i64 %2, 1
-  %4 = and i64 %add, -2
-  %5 = sub i64 %3, %4
-  %6 = shl nuw i64 %5, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %6, i1 false)
-  %add12 = or disjoint i64 %add11, 1
   %add.ptr13 = getelementptr i64, ptr %a, i64 %div147
-  %add.ptr14 = getelementptr i64, ptr %w, i64 %add12
+  %8 = getelementptr i64, ptr %w, i64 %add11
+  %add.ptr14 = getelementptr i64, ptr %8, i64 1
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %add.ptr13, ptr noundef %b, ptr noundef %add.ptr14, i64 noundef %sub, i64 noundef %lb)
   br label %if.end16
 
@@ -31127,8 +31127,8 @@ if.end16:                                         ; preds = %if.else, %if.then4
   %add19 = add i64 %sub, %lb
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef %w, i64 noundef %add19) #27
   %add21 = or i64 %add, 1
-  %7 = shl nuw i64 %add21, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
+  %9 = shl nuw i64 %add21, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %9, i1 false)
   %add.ptr22 = getelementptr i64, ptr %w, i64 %add21
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr22, i64 noundef %div147, i64 noundef %lb)
   %add23 = add nuw i64 %div147, %lb
@@ -31155,15 +31155,15 @@ if.end24:                                         ; preds = %if.end
   %mul41 = shl i64 %add27, 1
   %add.ptr42 = getelementptr i64, ptr %w, i64 %mul41
   tail call fastcc void @_karatsuba_rec(ptr noundef %add.ptr37, ptr noundef %w, ptr noundef %add.ptr28, ptr noundef %add.ptr42, i64 noundef %add27, i64 noundef %add27)
+  %10 = shl i64 %la, 1
+  %11 = or disjoint i64 %10, 1
+  %12 = and i64 %add, -2
+  %13 = sub i64 %11, %12
+  %14 = shl nuw i64 %13, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %14, i1 false)
   %add47 = shl i64 %sub26, 1
-  %8 = shl i64 %la, 1
-  %9 = or disjoint i64 %8, 1
-  %10 = and i64 %add, -2
-  %11 = sub i64 %9, %10
-  %12 = shl nuw i64 %11, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %12, i1 false)
-  %add48 = or disjoint i64 %add47, 1
-  %add.ptr51 = getelementptr i64, ptr %w, i64 %add48
+  %15 = getelementptr i64, ptr %w, i64 %add47
+  %add.ptr51 = getelementptr i64, ptr %15, i64 1
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %w, ptr noundef %add.ptr25, ptr noundef %add.ptr35, ptr noundef %add.ptr51, i64 noundef %sub26, i64 noundef %sub36)
   %mul54 = and i64 %add, -2
   %add.ptr55 = getelementptr i64, ptr %c, i64 %mul54
@@ -31171,8 +31171,8 @@ if.end24:                                         ; preds = %if.end
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr55, ptr noundef nonnull %w, i64 noundef %add58) #27
   tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %add58) #27
   %add64 = or i64 %add, 1
-  %13 = shl nuw i64 %add64, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %13, i1 false)
+  %16 = shl nuw i64 %add64, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %16, i1 false)
   %add.ptr65 = getelementptr i64, ptr %w, i64 %add64
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr65, i64 noundef %div147, i64 noundef %div147)
   tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul54) #27
@@ -31191,7 +31191,7 @@ declare hidden i32 @fnt_convolute(ptr noundef, ptr noundef, i64 noundef, i32 nou
 declare hidden void @crt3(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
+define internal fastcc noundef i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
 entry:
   %dummy = alloca i64, align 8
   %cmp = icmp ult i64 %la, 6442450945
@@ -31230,28 +31230,28 @@ if.then9:                                         ; preds = %if.end6
   br i1 %cmp10, label %if.then11, label %if.else19
 
 if.then11:                                        ; preds = %if.then9
-  %add12 = shl nuw i64 %lb, 1
   %1 = shl i64 %lb, 4
   %2 = or disjoint i64 %1, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %2, i1 false)
-  %add13 = or disjoint i64 %add12, 1
+  %add12 = shl nuw i64 %lb, 1
   %add.ptr = getelementptr i64, ptr %a, i64 %div156
-  %add.ptr14 = getelementptr i64, ptr %w, i64 %add13
+  %3 = getelementptr i64, ptr %w, i64 %add12
+  %add.ptr14 = getelementptr i64, ptr %3, i64 1
   %call16 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %w, ptr noundef %b, ptr noundef %add.ptr, ptr noundef %add.ptr14, i64 noundef %lb, i64 noundef %sub), !range !9
   %tobool.not = icmp eq i32 %call16, 0
   br i1 %tobool.not, label %return, label %if.end31
 
 if.else19:                                        ; preds = %if.then9
+  %4 = shl i64 %la, 1
+  %5 = or disjoint i64 %4, 1
+  %6 = and i64 %add7, -2
+  %7 = sub i64 %5, %6
+  %8 = shl nuw i64 %7, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %8, i1 false)
   %add22 = shl i64 %sub, 1
-  %3 = shl i64 %la, 1
-  %4 = or disjoint i64 %3, 1
-  %5 = and i64 %add7, -2
-  %6 = sub i64 %4, %5
-  %7 = shl nuw i64 %6, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
-  %add23 = or disjoint i64 %add22, 1
   %add.ptr24 = getelementptr i64, ptr %a, i64 %div156
-  %add.ptr25 = getelementptr i64, ptr %w, i64 %add23
+  %9 = getelementptr i64, ptr %w, i64 %add22
+  %add.ptr25 = getelementptr i64, ptr %9, i64 1
   %call27 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %w, ptr noundef %add.ptr24, ptr noundef %b, ptr noundef %add.ptr25, i64 noundef %sub, i64 noundef %lb), !range !9
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %if.end31
@@ -31261,8 +31261,8 @@ if.end31:                                         ; preds = %if.else19, %if.then
   %add34 = add i64 %sub, %lb
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef %w, i64 noundef %add34) #27
   %add36 = or i64 %add7, 1
-  %8 = shl nuw i64 %add36, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %8, i1 false)
+  %10 = shl nuw i64 %add36, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %10, i1 false)
   %add.ptr37 = getelementptr i64, ptr %w, i64 %add36
   %call38 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr37, i64 noundef %div156, i64 noundef %lb), !range !9
   %tobool39.not = icmp eq i32 %call38, 0
@@ -31297,15 +31297,15 @@ if.end43:                                         ; preds = %if.end6
   br i1 %tobool66.not, label %return, label %if.end68
 
 if.end68:                                         ; preds = %if.end43
+  %11 = shl i64 %la, 1
+  %12 = or disjoint i64 %11, 1
+  %13 = and i64 %add7, -2
+  %14 = sub i64 %12, %13
+  %15 = shl nuw i64 %14, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %15, i1 false)
   %add71 = shl i64 %sub46, 1
-  %9 = shl i64 %la, 1
-  %10 = or disjoint i64 %9, 1
-  %11 = and i64 %add7, -2
-  %12 = sub i64 %10, %11
-  %13 = shl nuw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %13, i1 false)
-  %add72 = or disjoint i64 %add71, 1
-  %add.ptr75 = getelementptr i64, ptr %w, i64 %add72
+  %16 = getelementptr i64, ptr %w, i64 %add71
+  %add.ptr75 = getelementptr i64, ptr %16, i64 1
   %call78 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %w, ptr noundef %add.ptr45, ptr noundef %add.ptr55, ptr noundef %add.ptr75, i64 noundef %sub46, i64 noundef %sub56), !range !9
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %return, label %if.end81
@@ -31317,8 +31317,8 @@ if.end81:                                         ; preds = %if.end68
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr83, ptr noundef nonnull %w, i64 noundef %add86) #27
   tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %add86) #27
   %add92 = or i64 %add7, 1
-  %14 = shl nuw i64 %add92, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %14, i1 false)
+  %17 = shl nuw i64 %add92, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %17, i1 false)
   %add.ptr93 = getelementptr i64, ptr %w, i64 %add92
   %call94 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr93, i64 noundef %div156, i64 noundef %div156), !range !9
   %tobool95.not = icmp eq i32 %call94, 0

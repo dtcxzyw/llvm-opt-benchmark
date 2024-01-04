@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @stbds_probe_position(i64 noundef %hash, i64 noundef %slot_count, i64 noundef %slot_log2) local_unnamed_addr #6 {
+define noundef i64 @stbds_probe_position(i64 noundef %hash, i64 noundef %slot_count, i64 noundef %slot_log2) local_unnamed_addr #6 {
 entry:
   %sub = add i64 %slot_count, -1
   %and = and i64 %sub, %hash
@@ -120,7 +120,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_make_hash_index(i64 noundef %slot_count, ptr noundef readonly %ot) local_unnamed_addr #8 {
+define noundef ptr @stbds_make_hash_index(i64 noundef %slot_count, ptr noundef readonly %ot) local_unnamed_addr #8 {
 entry:
   %shr = lshr i64 %slot_count, 3
   %mul = shl i64 %shr, 7
@@ -195,11 +195,11 @@ if.end34:                                         ; preds = %if.else, %if.then13
 for.body:                                         ; preds = %if.end34, %for.body
   %i.097 = phi i64 [ %inc51, %for.body ], [ 0, %if.end34 ]
   %5 = shl i64 %i.097, 7
-  %6 = or disjoint i64 %5, 64
-  %7 = load ptr, ptr %storage, align 8
-  %arrayidx = getelementptr inbounds %struct.stbds_hash_bucket, ptr %7, i64 %i.097
+  %6 = load ptr, ptr %storage, align 8
+  %arrayidx = getelementptr inbounds %struct.stbds_hash_bucket, ptr %6, i64 %i.097
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i8 0, i64 64, i1 false)
-  %scevgep = getelementptr i8, ptr %7, i64 %6
+  %7 = getelementptr i8, ptr %6, i64 %5
+  %scevgep = getelementptr i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep, i8 -1, i64 64, i1 false)
   %inc51 = add nuw nsw i64 %i.097, 1
   %exitcond.not = icmp eq i64 %inc51, %shr
@@ -313,7 +313,7 @@ if.end131:                                        ; preds = %for.inc128, %if.the
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @stbds_hash_string(ptr nocapture noundef readonly %str, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %str, align 1
@@ -352,7 +352,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i64 %add19
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @stbds_siphash_bytes(ptr nocapture noundef readonly %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %xor = xor i64 %seed, 8317987319222330741
@@ -515,7 +515,7 @@ sw.epilog:                                        ; preds = %sw.bb104, %for.end6
   ret i64 %xor183
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @stbds_hash_bytes(ptr nocapture noundef readonly %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   switch i64 %len, label %if.else89 [
@@ -1623,7 +1623,7 @@ if.end161:                                        ; preds = %if.end48.i, %cond.e
 sw.bb:                                            ; preds = %if.end161
   %call.i174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #22
   %add.i175 = add i64 %call.i174, 1
-  %malloc.i176 = tail call noalias ptr @malloc(i64 %add.i175)
+  %malloc.i176 = tail call noalias noundef ptr @malloc(i64 %add.i175)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i176, ptr align 1 %key, i64 %add.i175, i1 false)
   %mul183 = mul i64 %cond149199207, %elemsize
   %add.ptr184 = getelementptr inbounds i8, ptr %a.addr.1, i64 %mul183
@@ -1740,7 +1740,7 @@ return:                                           ; preds = %if.then45.thread, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias ptr @stbds_strdup(ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
+define noalias noundef ptr @stbds_strdup(ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #22
   %add = add i64 %call, 1
@@ -1883,7 +1883,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbds_hmdel_key(ptr noundef returned %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #13 {
+define noundef ptr @stbds_hmdel_key(ptr noundef returned %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #13 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.else
@@ -2051,7 +2051,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
