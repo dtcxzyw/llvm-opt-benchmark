@@ -1969,7 +1969,7 @@ if.then4:                                         ; preds = %handlemm
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %if.then4
-  %17 = zext i32 %16 to i64
+  %17 = zext nneg i32 %16 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -2829,7 +2829,7 @@ declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden i32 @lj_opt_fwd_wasnonnil(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
+define hidden noundef i32 @lj_record_next(ptr noundef %J, ptr nocapture noundef %ix) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ix, align 8
   %and = and i64 %0, 140737488355327
@@ -3451,10 +3451,9 @@ sw.epilog157:                                     ; preds = %rec_profile_ins.exi
   %and160 = and i32 %shr159, 255
   %80 = lshr i16 %69, 3
   %81 = and i16 %80, 15
-  %and165 = zext nneg i16 %81 to i32
-  switch i32 %and165, label %sw.epilog185 [
-    i32 0, label %sw.bb166
-    i32 3, label %sw.bb168
+  switch i16 %81, label %sw.epilog185 [
+    i16 0, label %sw.bb166
+    i16 3, label %sw.bb168
   ]
 
 sw.bb166:                                         ; preds = %sw.epilog157
@@ -3516,12 +3515,11 @@ sw.epilog185:                                     ; preds = %sw.epilog157, %cond
   %rb.0 = phi i32 [ %shr158, %sw.epilog157 ], [ %cond183, %cond.end182 ], [ 0, %sw.bb166 ]
   %92 = lshr i16 %69, 7
   %93 = and i16 %92, 15
-  %and190 = zext nneg i16 %93 to i32
-  switch i32 %and190, label %sw.epilog247 [
-    i32 3, label %sw.bb191
-    i32 8, label %sw.bb207
-    i32 9, label %sw.bb218
-    i32 10, label %sw.bb234
+  switch i16 %93, label %sw.epilog247 [
+    i16 3, label %sw.bb191
+    i16 8, label %sw.bb207
+    i16 9, label %sw.bb218
+    i16 10, label %sw.bb234
   ]
 
 sw.bb191:                                         ; preds = %sw.epilog185
@@ -5189,7 +5187,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %if.then
-  %13 = zext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -7136,7 +7134,7 @@ if.end54:                                         ; preds = %if.else40, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_iterl(ptr noundef %J, i32 noundef %iterins) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %iterins, 8
   %and = and i32 %shr, 255
@@ -7227,7 +7225,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
+define internal fastcc noundef i32 @rec_itern(ptr noundef %J, i32 noundef %ra, i32 noundef %rb) unnamed_addr #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %pc = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 3
@@ -7720,7 +7718,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
   %base.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 6
-  %7 = zext i32 %6 to i64
+  %7 = zext nneg i32 %6 to i64
   %wide.trip.count.i = zext i8 %1 to i64
   br label %for.body.i
 
@@ -7779,7 +7777,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
   %base.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 6
-  %7 = zext i32 %6 to i64
+  %7 = zext nneg i32 %6 to i64
   %wide.trip.count.i = zext i8 %1 to i64
   br label %for.body.i
 
@@ -8711,7 +8709,7 @@ entry:
   br i1 %cmp714.i, label %for.body.preheader.i, label %rec_mm_prep.exit
 
 for.body.preheader.i:                             ; preds = %entry
-  %13 = zext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

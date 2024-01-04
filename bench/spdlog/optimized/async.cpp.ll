@@ -2613,7 +2613,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %37 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %37
@@ -4901,34 +4901,33 @@ _ZN3fmt2v96detail12parse_arg_idIcRZNS1_23parse_replacement_fieldIcRNS1_21format_
 
 cond.end:                                         ; preds = %_ZN3fmt2v96detail12parse_arg_idIcRZNS1_23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS7_iEEEEEPKT_SC_SC_OT0_E10id_adapterEESC_SC_SC_SE_.exit
   %5 = load i8, ptr %retval.i.0, align 1
-  %6 = sext i8 %5 to i32
-  switch i32 %6, label %if.else26 [
-    i32 125, label %if.end30
-    i32 58, label %if.then17
+  switch i8 %5, label %if.else26 [
+    i8 125, label %if.end30
+    i8 58, label %if.then17
   ]
 
 if.then17:                                        ; preds = %cond.end
-  %7 = load i32, ptr %arg_id, align 8
+  %6 = load i32, ptr %arg_id, align 8
   %add.ptr19 = getelementptr inbounds i8, ptr %retval.i.0, i64 1
-  %8 = load ptr, ptr %handler, align 8
+  %7 = load ptr, ptr %handler, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr19 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i
   %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
   store ptr %add.ptr.i, ptr %handler, align 8
   %size_.i.i.i = getelementptr inbounds %"class.fmt::v9::basic_string_view", ptr %handler, i64 0, i32 1
-  %9 = load i64, ptr %size_.i.i.i, align 8
-  %sub.i.i.i = add i64 %sub.ptr.sub.i.neg.i, %9
+  %8 = load i64, ptr %size_.i.i.i, align 8
+  %sub.i.i.i = add i64 %sub.ptr.sub.i.neg.i, %8
   store i64 %sub.i.i.i, ptr %size_.i.i.i, align 8
-  %or.cond.i = icmp ult i32 %7, 3
+  %or.cond.i = icmp ult i32 %6, 3
   br i1 %or.cond.i, label %cond.true.i, label %_ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit
 
 cond.true.i:                                      ; preds = %if.then17
-  %idxprom.i = zext nneg i32 %7 to i64
+  %idxprom.i = zext nneg i32 %6 to i64
   %arrayidx.i = getelementptr inbounds %"class.fmt::v9::detail::format_string_checker", ptr %handler, i64 0, i32 1, i64 %idxprom.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %call7.i = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(32) %handler)
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %call7.i = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %handler)
   br label %_ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit
 
 _ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit: ; preds = %if.then17, %cond.true.i
@@ -4937,8 +4936,8 @@ _ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_for
   br i1 %cmp21, label %if.then24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit
-  %11 = load i8, ptr %cond.i, align 1
-  %cmp23.not = icmp eq i8 %11, 125
+  %10 = load i8, ptr %cond.i, align 1
+  %cmp23.not = icmp eq i8 %10, 125
   br i1 %cmp23.not, label %if.end30, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false, %_ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit
@@ -5205,11 +5204,10 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 for.cond.i:                                       ; preds = %if.else20.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else20.i ]
   %11 = load i8, ptr %p.1.i, align 1
-  %conv.i = sext i8 %11 to i32
-  switch i32 %conv.i, label %if.else20.i [
-    i32 60, label %if.then7.i.loopexit
-    i32 62, label %if.then7.i.loopexit138
-    i32 94, label %if.then7.i
+  switch i8 %11, label %if.else20.i [
+    i8 60, label %if.then7.i.loopexit
+    i8 62, label %if.then7.i.loopexit138
+    i8 94, label %if.then7.i
   ]
 
 if.then7.i.loopexit:                              ; preds = %for.cond.i
@@ -5279,11 +5277,12 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %13 = load i8, ptr %retval.0.i, align 1
-  %conv18.i = sext i8 %13 to i32
-  switch i32 %conv18.i, label %if.end26.i [
-    i32 43, label %if.then.i.i
-    i32 45, label %if.then.i.i76
-    i32 32, label %if.then.i.i86
+  switch i8 %13, label %if.end42.i [
+    i8 43, label %if.then.i.i
+    i8 45, label %if.then.i.i76
+    i8 32, label %if.then.i.i86
+    i8 35, label %if.then.i.i96
+    i8 48, label %if.then.i.i101
   ]
 
 if.then.i.i:                                      ; preds = %if.end16.i
@@ -5298,21 +5297,15 @@ if.then.i.i86:                                    ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #19
   unreachable
 
-if.end26.i:                                       ; preds = %if.end16.i
-  switch i8 %13, label %if.end42.i [
-    i8 35, label %if.then.i.i96
-    i8 48, label %if.then.i.i101
-  ]
-
-if.then.i.i96:                                    ; preds = %if.end26.i
+if.then.i.i96:                                    ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #19
   unreachable
 
-if.then.i.i101:                                   ; preds = %if.end26.i
+if.then.i.i101:                                   ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #19
   unreachable
 
-if.end42.i:                                       ; preds = %if.end26.i
+if.end42.i:                                       ; preds = %if.end16.i
   %call43.i = call noundef ptr @_ZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(28) %checker)
   %cmp44.i = icmp eq ptr %call43.i, %add.ptr.i.i
   br i1 %cmp44.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
@@ -5412,26 +5405,25 @@ return:                                           ; preds = %_ZN3fmt2v96detail18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #0 comdat {
 entry:
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %sw.default [
-    i32 100, label %return
-    i32 111, label %sw.bb1
-    i32 120, label %sw.bb2
-    i32 88, label %sw.bb3
-    i32 98, label %sw.bb4
-    i32 66, label %sw.bb5
-    i32 97, label %sw.bb6
-    i32 65, label %sw.bb7
-    i32 101, label %sw.bb8
-    i32 69, label %sw.bb9
-    i32 102, label %sw.bb10
-    i32 70, label %sw.bb11
-    i32 103, label %sw.bb12
-    i32 71, label %sw.bb13
-    i32 99, label %sw.bb14
-    i32 115, label %sw.bb15
-    i32 112, label %sw.bb16
-    i32 63, label %sw.bb17
+  switch i8 %type, label %sw.default [
+    i8 100, label %return
+    i8 111, label %sw.bb1
+    i8 120, label %sw.bb2
+    i8 88, label %sw.bb3
+    i8 98, label %sw.bb4
+    i8 66, label %sw.bb5
+    i8 97, label %sw.bb6
+    i8 65, label %sw.bb7
+    i8 101, label %sw.bb8
+    i8 69, label %sw.bb9
+    i8 102, label %sw.bb10
+    i8 70, label %sw.bb11
+    i8 103, label %sw.bb12
+    i8 71, label %sw.bb13
+    i8 99, label %sw.bb14
+    i8 115, label %sw.bb15
+    i8 112, label %sw.bb16
+    i8 63, label %sw.bb17
   ]
 
 sw.bb1:                                           ; preds = %entry
@@ -6332,11 +6324,10 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 for.cond.i:                                       ; preds = %if.else20.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else20.i ]
   %11 = load i8, ptr %p.1.i, align 1
-  %conv.i = sext i8 %11 to i32
-  switch i32 %conv.i, label %if.else20.i [
-    i32 60, label %if.then7.i.loopexit
-    i32 62, label %if.then7.i.loopexit141
-    i32 94, label %if.then7.i
+  switch i8 %11, label %if.else20.i [
+    i8 60, label %if.then7.i.loopexit
+    i8 62, label %if.then7.i.loopexit141
+    i8 94, label %if.then7.i
   ]
 
 if.then7.i.loopexit:                              ; preds = %for.cond.i
@@ -6406,11 +6397,10 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %13 = load i8, ptr %retval.0.i, align 1
-  %conv18.i = sext i8 %13 to i32
-  switch i32 %conv18.i, label %sw.epilog.i [
-    i32 43, label %sw.epilog.i.sink.split
-    i32 45, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84
-    i32 32, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit94
+  switch i8 %13, label %sw.epilog.i [
+    i8 43, label %sw.epilog.i.sink.split
+    i8 45, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84
+    i8 32, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit94
   ]
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84: ; preds = %if.end16.i

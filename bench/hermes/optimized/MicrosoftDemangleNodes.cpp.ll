@@ -6367,11 +6367,10 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN12OutputStream4growEm.exit.i.i, %if.end
-  %conv.i = zext nneg i8 %Mask to i32
-  switch i32 %conv.i, label %return [
-    i32 1, label %if.end.i.i.i
-    i32 2, label %if.end.i.i10.i
-    i32 32, label %if.end.i.i35.i
+  switch i8 %Mask, label %return [
+    i8 1, label %if.end.i.i.i
+    i8 2, label %if.end.i.i10.i
+    i8 32, label %if.end.i.i35.i
   ]
 
 if.end.i.i.i:                                     ; preds = %if.end5

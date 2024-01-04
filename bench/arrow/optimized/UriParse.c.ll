@@ -56,88 +56,87 @@ do.end:                                           ; preds = %do.body, %if.else
 
 if.end.i:                                         ; preds = %do.end
   %2 = load i8, ptr %first, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 65, label %sw.bb.i
-    i32 66, label %sw.bb.i
-    i32 67, label %sw.bb.i
-    i32 68, label %sw.bb.i
-    i32 69, label %sw.bb.i
-    i32 70, label %sw.bb.i
-    i32 97, label %sw.bb.i
-    i32 98, label %sw.bb.i
-    i32 99, label %sw.bb.i
-    i32 100, label %sw.bb.i
-    i32 101, label %sw.bb.i
-    i32 102, label %sw.bb.i
-    i32 103, label %sw.bb.i
-    i32 71, label %sw.bb.i
-    i32 104, label %sw.bb.i
-    i32 72, label %sw.bb.i
-    i32 105, label %sw.bb.i
-    i32 73, label %sw.bb.i
-    i32 106, label %sw.bb.i
-    i32 74, label %sw.bb.i
-    i32 107, label %sw.bb.i
-    i32 75, label %sw.bb.i
-    i32 108, label %sw.bb.i
-    i32 76, label %sw.bb.i
-    i32 109, label %sw.bb.i
-    i32 77, label %sw.bb.i
-    i32 110, label %sw.bb.i
-    i32 78, label %sw.bb.i
-    i32 111, label %sw.bb.i
-    i32 79, label %sw.bb.i
-    i32 112, label %sw.bb.i
-    i32 80, label %sw.bb.i
-    i32 113, label %sw.bb.i
-    i32 81, label %sw.bb.i
-    i32 114, label %sw.bb.i
-    i32 82, label %sw.bb.i
-    i32 115, label %sw.bb.i
-    i32 83, label %sw.bb.i
-    i32 116, label %sw.bb.i
-    i32 84, label %sw.bb.i
-    i32 117, label %sw.bb.i
-    i32 85, label %sw.bb.i
-    i32 118, label %sw.bb.i
-    i32 86, label %sw.bb.i
-    i32 119, label %sw.bb.i
-    i32 87, label %sw.bb.i
-    i32 120, label %sw.bb.i
-    i32 88, label %sw.bb.i
-    i32 121, label %sw.bb.i
-    i32 89, label %sw.bb.i
-    i32 122, label %sw.bb.i
-    i32 90, label %sw.bb.i
-    i32 48, label %sw.bb2.i
-    i32 49, label %sw.bb2.i
-    i32 50, label %sw.bb2.i
-    i32 51, label %sw.bb2.i
-    i32 52, label %sw.bb2.i
-    i32 53, label %sw.bb2.i
-    i32 54, label %sw.bb2.i
-    i32 55, label %sw.bb2.i
-    i32 56, label %sw.bb2.i
-    i32 57, label %sw.bb2.i
-    i32 33, label %sw.bb2.i
-    i32 36, label %sw.bb2.i
-    i32 38, label %sw.bb2.i
-    i32 40, label %sw.bb2.i
-    i32 41, label %sw.bb2.i
-    i32 42, label %sw.bb2.i
-    i32 44, label %sw.bb2.i
-    i32 59, label %sw.bb2.i
-    i32 39, label %sw.bb2.i
-    i32 43, label %sw.bb2.i
-    i32 61, label %sw.bb2.i
-    i32 46, label %sw.bb2.i
-    i32 95, label %sw.bb2.i
-    i32 126, label %sw.bb2.i
-    i32 45, label %sw.bb2.i
-    i32 64, label %sw.bb2.i
-    i32 37, label %sw.bb8.i
-    i32 47, label %sw.bb18.i
+  switch i8 %2, label %sw.default.i [
+    i8 65, label %sw.bb.i
+    i8 66, label %sw.bb.i
+    i8 67, label %sw.bb.i
+    i8 68, label %sw.bb.i
+    i8 69, label %sw.bb.i
+    i8 70, label %sw.bb.i
+    i8 97, label %sw.bb.i
+    i8 98, label %sw.bb.i
+    i8 99, label %sw.bb.i
+    i8 100, label %sw.bb.i
+    i8 101, label %sw.bb.i
+    i8 102, label %sw.bb.i
+    i8 103, label %sw.bb.i
+    i8 71, label %sw.bb.i
+    i8 104, label %sw.bb.i
+    i8 72, label %sw.bb.i
+    i8 105, label %sw.bb.i
+    i8 73, label %sw.bb.i
+    i8 106, label %sw.bb.i
+    i8 74, label %sw.bb.i
+    i8 107, label %sw.bb.i
+    i8 75, label %sw.bb.i
+    i8 108, label %sw.bb.i
+    i8 76, label %sw.bb.i
+    i8 109, label %sw.bb.i
+    i8 77, label %sw.bb.i
+    i8 110, label %sw.bb.i
+    i8 78, label %sw.bb.i
+    i8 111, label %sw.bb.i
+    i8 79, label %sw.bb.i
+    i8 112, label %sw.bb.i
+    i8 80, label %sw.bb.i
+    i8 113, label %sw.bb.i
+    i8 81, label %sw.bb.i
+    i8 114, label %sw.bb.i
+    i8 82, label %sw.bb.i
+    i8 115, label %sw.bb.i
+    i8 83, label %sw.bb.i
+    i8 116, label %sw.bb.i
+    i8 84, label %sw.bb.i
+    i8 117, label %sw.bb.i
+    i8 85, label %sw.bb.i
+    i8 118, label %sw.bb.i
+    i8 86, label %sw.bb.i
+    i8 119, label %sw.bb.i
+    i8 87, label %sw.bb.i
+    i8 120, label %sw.bb.i
+    i8 88, label %sw.bb.i
+    i8 121, label %sw.bb.i
+    i8 89, label %sw.bb.i
+    i8 122, label %sw.bb.i
+    i8 90, label %sw.bb.i
+    i8 48, label %sw.bb2.i
+    i8 49, label %sw.bb2.i
+    i8 50, label %sw.bb2.i
+    i8 51, label %sw.bb2.i
+    i8 52, label %sw.bb2.i
+    i8 53, label %sw.bb2.i
+    i8 54, label %sw.bb2.i
+    i8 55, label %sw.bb2.i
+    i8 56, label %sw.bb2.i
+    i8 57, label %sw.bb2.i
+    i8 33, label %sw.bb2.i
+    i8 36, label %sw.bb2.i
+    i8 38, label %sw.bb2.i
+    i8 40, label %sw.bb2.i
+    i8 41, label %sw.bb2.i
+    i8 42, label %sw.bb2.i
+    i8 44, label %sw.bb2.i
+    i8 59, label %sw.bb2.i
+    i8 39, label %sw.bb2.i
+    i8 43, label %sw.bb2.i
+    i8 61, label %sw.bb2.i
+    i8 46, label %sw.bb2.i
+    i8 95, label %sw.bb2.i
+    i8 126, label %sw.bb2.i
+    i8 45, label %sw.bb2.i
+    i8 64, label %sw.bb2.i
+    i8 37, label %sw.bb8.i
+    i8 47, label %sw.bb18.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
@@ -197,89 +196,88 @@ uriOnExitSegmentNzNcOrScheme2A.exit.i.i:          ; preds = %if.else16.i.i.i.i, 
 if.end2.i.i:                                      ; preds = %sw.bb.i.i, %if.end2.preheader.i.i
   %first.tr83.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %if.end2.preheader.i.i ]
   %15 = load i8, ptr %first.tr83.i.i, align 1
-  %conv.i.i = sext i8 %15 to i32
-  switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 46, label %sw.bb.i.i
-    i32 43, label %sw.bb.i.i
-    i32 45, label %sw.bb.i.i
-    i32 65, label %sw.bb.i.i
-    i32 66, label %sw.bb.i.i
-    i32 67, label %sw.bb.i.i
-    i32 68, label %sw.bb.i.i
-    i32 69, label %sw.bb.i.i
-    i32 70, label %sw.bb.i.i
-    i32 97, label %sw.bb.i.i
-    i32 98, label %sw.bb.i.i
-    i32 99, label %sw.bb.i.i
-    i32 100, label %sw.bb.i.i
-    i32 101, label %sw.bb.i.i
-    i32 102, label %sw.bb.i.i
-    i32 103, label %sw.bb.i.i
-    i32 71, label %sw.bb.i.i
-    i32 104, label %sw.bb.i.i
-    i32 72, label %sw.bb.i.i
-    i32 105, label %sw.bb.i.i
-    i32 73, label %sw.bb.i.i
-    i32 106, label %sw.bb.i.i
-    i32 74, label %sw.bb.i.i
-    i32 107, label %sw.bb.i.i
-    i32 75, label %sw.bb.i.i
-    i32 108, label %sw.bb.i.i
-    i32 76, label %sw.bb.i.i
-    i32 109, label %sw.bb.i.i
-    i32 77, label %sw.bb.i.i
-    i32 110, label %sw.bb.i.i
-    i32 78, label %sw.bb.i.i
-    i32 111, label %sw.bb.i.i
-    i32 79, label %sw.bb.i.i
-    i32 112, label %sw.bb.i.i
-    i32 80, label %sw.bb.i.i
-    i32 113, label %sw.bb.i.i
-    i32 81, label %sw.bb.i.i
-    i32 114, label %sw.bb.i.i
-    i32 82, label %sw.bb.i.i
-    i32 115, label %sw.bb.i.i
-    i32 83, label %sw.bb.i.i
-    i32 116, label %sw.bb.i.i
-    i32 84, label %sw.bb.i.i
-    i32 117, label %sw.bb.i.i
-    i32 85, label %sw.bb.i.i
-    i32 118, label %sw.bb.i.i
-    i32 86, label %sw.bb.i.i
-    i32 119, label %sw.bb.i.i
-    i32 87, label %sw.bb.i.i
-    i32 120, label %sw.bb.i.i
-    i32 88, label %sw.bb.i.i
-    i32 121, label %sw.bb.i.i
-    i32 89, label %sw.bb.i.i
-    i32 122, label %sw.bb.i.i
-    i32 90, label %sw.bb.i.i
-    i32 48, label %sw.bb.i.i
-    i32 49, label %sw.bb.i.i
-    i32 50, label %sw.bb.i.i
-    i32 51, label %sw.bb.i.i
-    i32 52, label %sw.bb.i.i
-    i32 53, label %sw.bb.i.i
-    i32 54, label %sw.bb.i.i
-    i32 55, label %sw.bb.i.i
-    i32 56, label %sw.bb.i.i
-    i32 57, label %sw.bb.i.i
-    i32 37, label %sw.bb4.i.i
-    i32 33, label %sw.bb11.i.i
-    i32 36, label %sw.bb11.i.i
-    i32 38, label %sw.bb11.i.i
-    i32 40, label %sw.bb11.i.i
-    i32 41, label %sw.bb11.i.i
-    i32 42, label %sw.bb11.i.i
-    i32 44, label %sw.bb11.i.i
-    i32 59, label %sw.bb11.i.i
-    i32 64, label %sw.bb11.i.i
-    i32 95, label %sw.bb11.i.i
-    i32 126, label %sw.bb11.i.i
-    i32 61, label %sw.bb11.i.i
-    i32 39, label %sw.bb11.i.i
-    i32 47, label %sw.bb14.i.i
-    i32 58, label %sw.bb40.i.i
+  switch i8 %15, label %sw.default.i.i [
+    i8 46, label %sw.bb.i.i
+    i8 43, label %sw.bb.i.i
+    i8 45, label %sw.bb.i.i
+    i8 65, label %sw.bb.i.i
+    i8 66, label %sw.bb.i.i
+    i8 67, label %sw.bb.i.i
+    i8 68, label %sw.bb.i.i
+    i8 69, label %sw.bb.i.i
+    i8 70, label %sw.bb.i.i
+    i8 97, label %sw.bb.i.i
+    i8 98, label %sw.bb.i.i
+    i8 99, label %sw.bb.i.i
+    i8 100, label %sw.bb.i.i
+    i8 101, label %sw.bb.i.i
+    i8 102, label %sw.bb.i.i
+    i8 103, label %sw.bb.i.i
+    i8 71, label %sw.bb.i.i
+    i8 104, label %sw.bb.i.i
+    i8 72, label %sw.bb.i.i
+    i8 105, label %sw.bb.i.i
+    i8 73, label %sw.bb.i.i
+    i8 106, label %sw.bb.i.i
+    i8 74, label %sw.bb.i.i
+    i8 107, label %sw.bb.i.i
+    i8 75, label %sw.bb.i.i
+    i8 108, label %sw.bb.i.i
+    i8 76, label %sw.bb.i.i
+    i8 109, label %sw.bb.i.i
+    i8 77, label %sw.bb.i.i
+    i8 110, label %sw.bb.i.i
+    i8 78, label %sw.bb.i.i
+    i8 111, label %sw.bb.i.i
+    i8 79, label %sw.bb.i.i
+    i8 112, label %sw.bb.i.i
+    i8 80, label %sw.bb.i.i
+    i8 113, label %sw.bb.i.i
+    i8 81, label %sw.bb.i.i
+    i8 114, label %sw.bb.i.i
+    i8 82, label %sw.bb.i.i
+    i8 115, label %sw.bb.i.i
+    i8 83, label %sw.bb.i.i
+    i8 116, label %sw.bb.i.i
+    i8 84, label %sw.bb.i.i
+    i8 117, label %sw.bb.i.i
+    i8 85, label %sw.bb.i.i
+    i8 118, label %sw.bb.i.i
+    i8 86, label %sw.bb.i.i
+    i8 119, label %sw.bb.i.i
+    i8 87, label %sw.bb.i.i
+    i8 120, label %sw.bb.i.i
+    i8 88, label %sw.bb.i.i
+    i8 121, label %sw.bb.i.i
+    i8 89, label %sw.bb.i.i
+    i8 122, label %sw.bb.i.i
+    i8 90, label %sw.bb.i.i
+    i8 48, label %sw.bb.i.i
+    i8 49, label %sw.bb.i.i
+    i8 50, label %sw.bb.i.i
+    i8 51, label %sw.bb.i.i
+    i8 52, label %sw.bb.i.i
+    i8 53, label %sw.bb.i.i
+    i8 54, label %sw.bb.i.i
+    i8 55, label %sw.bb.i.i
+    i8 56, label %sw.bb.i.i
+    i8 57, label %sw.bb.i.i
+    i8 37, label %sw.bb4.i.i
+    i8 33, label %sw.bb11.i.i
+    i8 36, label %sw.bb11.i.i
+    i8 38, label %sw.bb11.i.i
+    i8 40, label %sw.bb11.i.i
+    i8 41, label %sw.bb11.i.i
+    i8 42, label %sw.bb11.i.i
+    i8 44, label %sw.bb11.i.i
+    i8 59, label %sw.bb11.i.i
+    i8 64, label %sw.bb11.i.i
+    i8 95, label %sw.bb11.i.i
+    i8 126, label %sw.bb11.i.i
+    i8 61, label %sw.bb11.i.i
+    i8 39, label %sw.bb11.i.i
+    i8 47, label %sw.bb14.i.i
+    i8 58, label %sw.bb40.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i, %if.end2.i.i
@@ -939,20 +937,19 @@ for.cond3:                                        ; preds = %if.end, %sw.epilog
   %digitCount.1 = phi i32 [ %digitCount.2, %sw.epilog ], [ 0, %if.end ]
   %ip4OctetsDone.1 = phi i32 [ %ip4OctetsDone.2, %sw.epilog ], [ 1, %if.end ]
   %1 = load i8, ptr %first.addr.1, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 46, label %sw.bb10
-    i32 93, label %sw.bb80
+  switch i8 %1, label %sw.default [
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 46, label %sw.bb10
+    i8 93, label %sw.bb80
   ]
 
 sw.bb:                                            ; preds = %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3, %for.cond3
@@ -969,7 +966,7 @@ if.then6:                                         ; preds = %sw.bb
   br label %return
 
 if.end7:                                          ; preds = %sw.bb
-  %sub = add i8 %1, -48
+  %sub = add nsw i8 %1, -48
   %inc = add nsw i32 %digitCount.1, 1
   %idxprom = sext i32 %digitCount.1 to i64
   %arrayidx = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom
@@ -1251,33 +1248,32 @@ do.body:                                          ; preds = %if.end, %sw.epilog4
   %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.5, %sw.epilog429 ], [ %quadsAfterZipperCount.0476, %if.end ]
   %letterAmong.0 = phi i32 [ %letterAmong.1, %sw.epilog429 ], [ 0, %if.end ]
   %26 = load i8, ptr %first.addr.2, align 1
-  %conv182 = sext i8 %26 to i32
-  switch i32 %conv182, label %sw.default428 [
-    i32 97, label %sw.bb183
-    i32 98, label %sw.bb183
-    i32 99, label %sw.bb183
-    i32 100, label %sw.bb183
-    i32 101, label %sw.bb183
-    i32 102, label %sw.bb183
-    i32 65, label %sw.bb195
-    i32 66, label %sw.bb195
-    i32 67, label %sw.bb195
-    i32 68, label %sw.bb195
-    i32 69, label %sw.bb195
-    i32 70, label %sw.bb195
-    i32 48, label %sw.bb207
-    i32 49, label %sw.bb207
-    i32 50, label %sw.bb207
-    i32 51, label %sw.bb207
-    i32 52, label %sw.bb207
-    i32 53, label %sw.bb207
-    i32 54, label %sw.bb207
-    i32 55, label %sw.bb207
-    i32 56, label %sw.bb207
-    i32 57, label %sw.bb207
-    i32 58, label %sw.bb219
-    i32 46, label %sw.bb291
-    i32 93, label %sw.bb378
+  switch i8 %26, label %sw.default428 [
+    i8 97, label %sw.bb183
+    i8 98, label %sw.bb183
+    i8 99, label %sw.bb183
+    i8 100, label %sw.bb183
+    i8 101, label %sw.bb183
+    i8 102, label %sw.bb183
+    i8 65, label %sw.bb195
+    i8 66, label %sw.bb195
+    i8 67, label %sw.bb195
+    i8 68, label %sw.bb195
+    i8 69, label %sw.bb195
+    i8 70, label %sw.bb195
+    i8 48, label %sw.bb207
+    i8 49, label %sw.bb207
+    i8 50, label %sw.bb207
+    i8 51, label %sw.bb207
+    i8 52, label %sw.bb207
+    i8 53, label %sw.bb207
+    i8 54, label %sw.bb207
+    i8 55, label %sw.bb207
+    i8 56, label %sw.bb207
+    i8 57, label %sw.bb207
+    i8 58, label %sw.bb219
+    i8 46, label %sw.bb291
+    i8 93, label %sw.bb378
   ]
 
 sw.bb183:                                         ; preds = %do.body, %do.body, %do.body, %do.body, %do.body, %do.body
@@ -1614,7 +1610,7 @@ sw.default428:                                    ; preds = %do.body
 sw.epilog429.sink.split:                          ; preds = %sw.bb207, %sw.bb195, %sw.bb183
   %.sink = phi i8 [ -87, %sw.bb183 ], [ -55, %sw.bb195 ], [ -48, %sw.bb207 ]
   %letterAmong.1.ph = phi i32 [ 1, %sw.bb183 ], [ 1, %sw.bb195 ], [ %letterAmong.0, %sw.bb207 ]
-  %sub214 = add i8 %26, %.sink
+  %sub214 = add nsw i8 %26, %.sink
   %idxprom216 = sext i32 %digitCount.3 to i64
   %arrayidx217 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom216
   store i8 %sub214, ptr %arrayidx217, align 1
@@ -3370,88 +3366,87 @@ if.end:                                           ; preds = %if.else16.i, %if.en
 if.end6:                                          ; preds = %entry, %tailrecurse.backedge
   %first.tr72 = phi ptr [ %first.tr.be, %tailrecurse.backedge ], [ %first, %entry ]
   %11 = load i8, ptr %first.tr72, align 1
-  %conv = sext i8 %11 to i32
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 64, label %sw.bb13
-    i32 33, label %sw.bb13
-    i32 36, label %sw.bb13
-    i32 38, label %sw.bb13
-    i32 40, label %sw.bb13
-    i32 41, label %sw.bb13
-    i32 42, label %sw.bb13
-    i32 44, label %sw.bb13
-    i32 59, label %sw.bb13
-    i32 39, label %sw.bb13
-    i32 43, label %sw.bb13
-    i32 61, label %sw.bb13
-    i32 45, label %sw.bb13
-    i32 46, label %sw.bb13
-    i32 95, label %sw.bb13
-    i32 126, label %sw.bb13
-    i32 48, label %sw.bb13
-    i32 49, label %sw.bb13
-    i32 50, label %sw.bb13
-    i32 51, label %sw.bb13
-    i32 52, label %sw.bb13
-    i32 53, label %sw.bb13
-    i32 54, label %sw.bb13
-    i32 55, label %sw.bb13
-    i32 56, label %sw.bb13
-    i32 57, label %sw.bb13
-    i32 65, label %sw.bb13
-    i32 66, label %sw.bb13
-    i32 67, label %sw.bb13
-    i32 68, label %sw.bb13
-    i32 69, label %sw.bb13
-    i32 70, label %sw.bb13
-    i32 97, label %sw.bb13
-    i32 98, label %sw.bb13
-    i32 99, label %sw.bb13
-    i32 100, label %sw.bb13
-    i32 101, label %sw.bb13
-    i32 102, label %sw.bb13
-    i32 103, label %sw.bb13
-    i32 71, label %sw.bb13
-    i32 104, label %sw.bb13
-    i32 72, label %sw.bb13
-    i32 105, label %sw.bb13
-    i32 73, label %sw.bb13
-    i32 106, label %sw.bb13
-    i32 74, label %sw.bb13
-    i32 107, label %sw.bb13
-    i32 75, label %sw.bb13
-    i32 108, label %sw.bb13
-    i32 76, label %sw.bb13
-    i32 109, label %sw.bb13
-    i32 77, label %sw.bb13
-    i32 110, label %sw.bb13
-    i32 78, label %sw.bb13
-    i32 111, label %sw.bb13
-    i32 79, label %sw.bb13
-    i32 112, label %sw.bb13
-    i32 80, label %sw.bb13
-    i32 113, label %sw.bb13
-    i32 81, label %sw.bb13
-    i32 114, label %sw.bb13
-    i32 82, label %sw.bb13
-    i32 115, label %sw.bb13
-    i32 83, label %sw.bb13
-    i32 116, label %sw.bb13
-    i32 84, label %sw.bb13
-    i32 117, label %sw.bb13
-    i32 85, label %sw.bb13
-    i32 118, label %sw.bb13
-    i32 86, label %sw.bb13
-    i32 119, label %sw.bb13
-    i32 87, label %sw.bb13
-    i32 120, label %sw.bb13
-    i32 88, label %sw.bb13
-    i32 121, label %sw.bb13
-    i32 89, label %sw.bb13
-    i32 122, label %sw.bb13
-    i32 90, label %sw.bb13
-    i32 47, label %sw.bb15
+  switch i8 %11, label %sw.default [
+    i8 37, label %sw.bb
+    i8 64, label %sw.bb13
+    i8 33, label %sw.bb13
+    i8 36, label %sw.bb13
+    i8 38, label %sw.bb13
+    i8 40, label %sw.bb13
+    i8 41, label %sw.bb13
+    i8 42, label %sw.bb13
+    i8 44, label %sw.bb13
+    i8 59, label %sw.bb13
+    i8 39, label %sw.bb13
+    i8 43, label %sw.bb13
+    i8 61, label %sw.bb13
+    i8 45, label %sw.bb13
+    i8 46, label %sw.bb13
+    i8 95, label %sw.bb13
+    i8 126, label %sw.bb13
+    i8 48, label %sw.bb13
+    i8 49, label %sw.bb13
+    i8 50, label %sw.bb13
+    i8 51, label %sw.bb13
+    i8 52, label %sw.bb13
+    i8 53, label %sw.bb13
+    i8 54, label %sw.bb13
+    i8 55, label %sw.bb13
+    i8 56, label %sw.bb13
+    i8 57, label %sw.bb13
+    i8 65, label %sw.bb13
+    i8 66, label %sw.bb13
+    i8 67, label %sw.bb13
+    i8 68, label %sw.bb13
+    i8 69, label %sw.bb13
+    i8 70, label %sw.bb13
+    i8 97, label %sw.bb13
+    i8 98, label %sw.bb13
+    i8 99, label %sw.bb13
+    i8 100, label %sw.bb13
+    i8 101, label %sw.bb13
+    i8 102, label %sw.bb13
+    i8 103, label %sw.bb13
+    i8 71, label %sw.bb13
+    i8 104, label %sw.bb13
+    i8 72, label %sw.bb13
+    i8 105, label %sw.bb13
+    i8 73, label %sw.bb13
+    i8 106, label %sw.bb13
+    i8 74, label %sw.bb13
+    i8 107, label %sw.bb13
+    i8 75, label %sw.bb13
+    i8 108, label %sw.bb13
+    i8 76, label %sw.bb13
+    i8 109, label %sw.bb13
+    i8 77, label %sw.bb13
+    i8 110, label %sw.bb13
+    i8 78, label %sw.bb13
+    i8 111, label %sw.bb13
+    i8 79, label %sw.bb13
+    i8 112, label %sw.bb13
+    i8 80, label %sw.bb13
+    i8 113, label %sw.bb13
+    i8 81, label %sw.bb13
+    i8 114, label %sw.bb13
+    i8 82, label %sw.bb13
+    i8 115, label %sw.bb13
+    i8 83, label %sw.bb13
+    i8 116, label %sw.bb13
+    i8 84, label %sw.bb13
+    i8 117, label %sw.bb13
+    i8 85, label %sw.bb13
+    i8 118, label %sw.bb13
+    i8 86, label %sw.bb13
+    i8 119, label %sw.bb13
+    i8 87, label %sw.bb13
+    i8 120, label %sw.bb13
+    i8 88, label %sw.bb13
+    i8 121, label %sw.bb13
+    i8 89, label %sw.bb13
+    i8 122, label %sw.bb13
+    i8 90, label %sw.bb13
+    i8 47, label %sw.bb15
   ]
 
 sw.bb:                                            ; preds = %if.end6
@@ -3571,30 +3566,29 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %2 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.default14 [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
+  switch i8 %2, label %sw.default14 [
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
@@ -3613,30 +3607,29 @@ if.then7:                                         ; preds = %sw.bb
 
 if.end8:                                          ; preds = %sw.bb
   %4 = load i8, ptr %add.ptr4, align 1
-  %conv10 = sext i8 %4 to i32
-  switch i32 %conv10, label %sw.default [
-    i32 48, label %sw.bb11
-    i32 49, label %sw.bb11
-    i32 50, label %sw.bb11
-    i32 51, label %sw.bb11
-    i32 52, label %sw.bb11
-    i32 53, label %sw.bb11
-    i32 54, label %sw.bb11
-    i32 55, label %sw.bb11
-    i32 56, label %sw.bb11
-    i32 57, label %sw.bb11
-    i32 65, label %sw.bb11
-    i32 66, label %sw.bb11
-    i32 67, label %sw.bb11
-    i32 68, label %sw.bb11
-    i32 69, label %sw.bb11
-    i32 70, label %sw.bb11
-    i32 97, label %sw.bb11
-    i32 98, label %sw.bb11
-    i32 99, label %sw.bb11
-    i32 100, label %sw.bb11
-    i32 101, label %sw.bb11
-    i32 102, label %sw.bb11
+  switch i8 %4, label %sw.default [
+    i8 48, label %sw.bb11
+    i8 49, label %sw.bb11
+    i8 50, label %sw.bb11
+    i8 51, label %sw.bb11
+    i8 52, label %sw.bb11
+    i8 53, label %sw.bb11
+    i8 54, label %sw.bb11
+    i8 55, label %sw.bb11
+    i8 56, label %sw.bb11
+    i8 57, label %sw.bb11
+    i8 65, label %sw.bb11
+    i8 66, label %sw.bb11
+    i8 67, label %sw.bb11
+    i8 68, label %sw.bb11
+    i8 69, label %sw.bb11
+    i8 70, label %sw.bb11
+    i8 97, label %sw.bb11
+    i8 98, label %sw.bb11
+    i8 99, label %sw.bb11
+    i8 100, label %sw.bb11
+    i8 101, label %sw.bb11
+    i8 102, label %sw.bb11
   ]
 
 sw.bb11:                                          ; preds = %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8, %if.end8
@@ -3700,89 +3693,88 @@ if.then.i:                                        ; preds = %sw.bb
 
 if.end.i:                                         ; preds = %sw.bb
   %4 = load i8, ptr %add.ptr, align 1
-  %conv.i = sext i8 %4 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 91, label %sw.bb.i
-    i32 33, label %if.end.preheader.i.i
-    i32 36, label %if.end.preheader.i.i
-    i32 37, label %if.end.preheader.i.i
-    i32 38, label %if.end.preheader.i.i
-    i32 40, label %if.end.preheader.i.i
-    i32 41, label %if.end.preheader.i.i
-    i32 45, label %if.end.preheader.i.i
-    i32 42, label %if.end.preheader.i.i
-    i32 44, label %if.end.preheader.i.i
-    i32 46, label %if.end.preheader.i.i
-    i32 58, label %if.end.preheader.i.i
-    i32 59, label %if.end.preheader.i.i
-    i32 64, label %if.end.preheader.i.i
-    i32 39, label %if.end.preheader.i.i
-    i32 95, label %if.end.preheader.i.i
-    i32 126, label %if.end.preheader.i.i
-    i32 43, label %if.end.preheader.i.i
-    i32 61, label %if.end.preheader.i.i
-    i32 48, label %if.end.preheader.i.i
-    i32 49, label %if.end.preheader.i.i
-    i32 50, label %if.end.preheader.i.i
-    i32 51, label %if.end.preheader.i.i
-    i32 52, label %if.end.preheader.i.i
-    i32 53, label %if.end.preheader.i.i
-    i32 54, label %if.end.preheader.i.i
-    i32 55, label %if.end.preheader.i.i
-    i32 56, label %if.end.preheader.i.i
-    i32 57, label %if.end.preheader.i.i
-    i32 65, label %if.end.preheader.i.i
-    i32 66, label %if.end.preheader.i.i
-    i32 67, label %if.end.preheader.i.i
-    i32 68, label %if.end.preheader.i.i
-    i32 69, label %if.end.preheader.i.i
-    i32 70, label %if.end.preheader.i.i
-    i32 97, label %if.end.preheader.i.i
-    i32 98, label %if.end.preheader.i.i
-    i32 99, label %if.end.preheader.i.i
-    i32 100, label %if.end.preheader.i.i
-    i32 101, label %if.end.preheader.i.i
-    i32 102, label %if.end.preheader.i.i
-    i32 103, label %if.end.preheader.i.i
-    i32 71, label %if.end.preheader.i.i
-    i32 104, label %if.end.preheader.i.i
-    i32 72, label %if.end.preheader.i.i
-    i32 105, label %if.end.preheader.i.i
-    i32 73, label %if.end.preheader.i.i
-    i32 106, label %if.end.preheader.i.i
-    i32 74, label %if.end.preheader.i.i
-    i32 107, label %if.end.preheader.i.i
-    i32 75, label %if.end.preheader.i.i
-    i32 108, label %if.end.preheader.i.i
-    i32 76, label %if.end.preheader.i.i
-    i32 109, label %if.end.preheader.i.i
-    i32 77, label %if.end.preheader.i.i
-    i32 110, label %if.end.preheader.i.i
-    i32 78, label %if.end.preheader.i.i
-    i32 111, label %if.end.preheader.i.i
-    i32 79, label %if.end.preheader.i.i
-    i32 112, label %if.end.preheader.i.i
-    i32 80, label %if.end.preheader.i.i
-    i32 113, label %if.end.preheader.i.i
-    i32 81, label %if.end.preheader.i.i
-    i32 114, label %if.end.preheader.i.i
-    i32 82, label %if.end.preheader.i.i
-    i32 115, label %if.end.preheader.i.i
-    i32 83, label %if.end.preheader.i.i
-    i32 116, label %if.end.preheader.i.i
-    i32 84, label %if.end.preheader.i.i
-    i32 117, label %if.end.preheader.i.i
-    i32 85, label %if.end.preheader.i.i
-    i32 118, label %if.end.preheader.i.i
-    i32 86, label %if.end.preheader.i.i
-    i32 119, label %if.end.preheader.i.i
-    i32 87, label %if.end.preheader.i.i
-    i32 120, label %if.end.preheader.i.i
-    i32 88, label %if.end.preheader.i.i
-    i32 121, label %if.end.preheader.i.i
-    i32 89, label %if.end.preheader.i.i
-    i32 122, label %if.end.preheader.i.i
-    i32 90, label %if.end.preheader.i.i
+  switch i8 %4, label %sw.default.i [
+    i8 91, label %sw.bb.i
+    i8 33, label %if.end.preheader.i.i
+    i8 36, label %if.end.preheader.i.i
+    i8 37, label %if.end.preheader.i.i
+    i8 38, label %if.end.preheader.i.i
+    i8 40, label %if.end.preheader.i.i
+    i8 41, label %if.end.preheader.i.i
+    i8 45, label %if.end.preheader.i.i
+    i8 42, label %if.end.preheader.i.i
+    i8 44, label %if.end.preheader.i.i
+    i8 46, label %if.end.preheader.i.i
+    i8 58, label %if.end.preheader.i.i
+    i8 59, label %if.end.preheader.i.i
+    i8 64, label %if.end.preheader.i.i
+    i8 39, label %if.end.preheader.i.i
+    i8 95, label %if.end.preheader.i.i
+    i8 126, label %if.end.preheader.i.i
+    i8 43, label %if.end.preheader.i.i
+    i8 61, label %if.end.preheader.i.i
+    i8 48, label %if.end.preheader.i.i
+    i8 49, label %if.end.preheader.i.i
+    i8 50, label %if.end.preheader.i.i
+    i8 51, label %if.end.preheader.i.i
+    i8 52, label %if.end.preheader.i.i
+    i8 53, label %if.end.preheader.i.i
+    i8 54, label %if.end.preheader.i.i
+    i8 55, label %if.end.preheader.i.i
+    i8 56, label %if.end.preheader.i.i
+    i8 57, label %if.end.preheader.i.i
+    i8 65, label %if.end.preheader.i.i
+    i8 66, label %if.end.preheader.i.i
+    i8 67, label %if.end.preheader.i.i
+    i8 68, label %if.end.preheader.i.i
+    i8 69, label %if.end.preheader.i.i
+    i8 70, label %if.end.preheader.i.i
+    i8 97, label %if.end.preheader.i.i
+    i8 98, label %if.end.preheader.i.i
+    i8 99, label %if.end.preheader.i.i
+    i8 100, label %if.end.preheader.i.i
+    i8 101, label %if.end.preheader.i.i
+    i8 102, label %if.end.preheader.i.i
+    i8 103, label %if.end.preheader.i.i
+    i8 71, label %if.end.preheader.i.i
+    i8 104, label %if.end.preheader.i.i
+    i8 72, label %if.end.preheader.i.i
+    i8 105, label %if.end.preheader.i.i
+    i8 73, label %if.end.preheader.i.i
+    i8 106, label %if.end.preheader.i.i
+    i8 74, label %if.end.preheader.i.i
+    i8 107, label %if.end.preheader.i.i
+    i8 75, label %if.end.preheader.i.i
+    i8 108, label %if.end.preheader.i.i
+    i8 76, label %if.end.preheader.i.i
+    i8 109, label %if.end.preheader.i.i
+    i8 77, label %if.end.preheader.i.i
+    i8 110, label %if.end.preheader.i.i
+    i8 78, label %if.end.preheader.i.i
+    i8 111, label %if.end.preheader.i.i
+    i8 79, label %if.end.preheader.i.i
+    i8 112, label %if.end.preheader.i.i
+    i8 80, label %if.end.preheader.i.i
+    i8 113, label %if.end.preheader.i.i
+    i8 81, label %if.end.preheader.i.i
+    i8 114, label %if.end.preheader.i.i
+    i8 82, label %if.end.preheader.i.i
+    i8 115, label %if.end.preheader.i.i
+    i8 83, label %if.end.preheader.i.i
+    i8 116, label %if.end.preheader.i.i
+    i8 84, label %if.end.preheader.i.i
+    i8 117, label %if.end.preheader.i.i
+    i8 85, label %if.end.preheader.i.i
+    i8 118, label %if.end.preheader.i.i
+    i8 86, label %if.end.preheader.i.i
+    i8 119, label %if.end.preheader.i.i
+    i8 87, label %if.end.preheader.i.i
+    i8 120, label %if.end.preheader.i.i
+    i8 88, label %if.end.preheader.i.i
+    i8 121, label %if.end.preheader.i.i
+    i8 89, label %if.end.preheader.i.i
+    i8 122, label %if.end.preheader.i.i
+    i8 90, label %if.end.preheader.i.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -3811,9 +3803,8 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
   %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %7 = load i8, ptr %first.tr7.i.i.i, align 1
-  %conv.i.i.i = sext i8 %7 to i32
-  %conv.off.i.i.i = add nsw i32 %conv.i.i.i, -48
-  %switch.i.i.i = icmp ult i32 %conv.off.i.i.i, 10
+  %.off.i.i.i = add i8 %7, -48
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
@@ -3841,88 +3832,87 @@ if.end.preheader.i.i:                             ; preds = %if.end.i, %if.end.i
 if.end.i22.i:                                     ; preds = %if.end.i22.i.backedge, %if.end.preheader.i.i
   %11 = phi i8 [ %.pre.i.i, %if.end.preheader.i.i ], [ %26, %if.end.i22.i.backedge ]
   %first.tr53.i.i = phi ptr [ %add.ptr, %if.end.preheader.i.i ], [ %call.i.i, %if.end.i22.i.backedge ]
-  %conv.i.i = sext i8 %11 to i32
-  switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 33, label %sw.bb.i25.i
-    i32 36, label %sw.bb.i25.i
-    i32 37, label %sw.bb.i25.i
-    i32 38, label %sw.bb.i25.i
-    i32 40, label %sw.bb.i25.i
-    i32 41, label %sw.bb.i25.i
-    i32 45, label %sw.bb.i25.i
-    i32 42, label %sw.bb.i25.i
-    i32 44, label %sw.bb.i25.i
-    i32 46, label %sw.bb.i25.i
-    i32 59, label %sw.bb.i25.i
-    i32 39, label %sw.bb.i25.i
-    i32 95, label %sw.bb.i25.i
-    i32 126, label %sw.bb.i25.i
-    i32 43, label %sw.bb.i25.i
-    i32 61, label %sw.bb.i25.i
-    i32 48, label %sw.bb.i25.i
-    i32 49, label %sw.bb.i25.i
-    i32 50, label %sw.bb.i25.i
-    i32 51, label %sw.bb.i25.i
-    i32 52, label %sw.bb.i25.i
-    i32 53, label %sw.bb.i25.i
-    i32 54, label %sw.bb.i25.i
-    i32 55, label %sw.bb.i25.i
-    i32 56, label %sw.bb.i25.i
-    i32 57, label %sw.bb.i25.i
-    i32 65, label %sw.bb.i25.i
-    i32 66, label %sw.bb.i25.i
-    i32 67, label %sw.bb.i25.i
-    i32 68, label %sw.bb.i25.i
-    i32 69, label %sw.bb.i25.i
-    i32 70, label %sw.bb.i25.i
-    i32 97, label %sw.bb.i25.i
-    i32 98, label %sw.bb.i25.i
-    i32 99, label %sw.bb.i25.i
-    i32 100, label %sw.bb.i25.i
-    i32 101, label %sw.bb.i25.i
-    i32 102, label %sw.bb.i25.i
-    i32 103, label %sw.bb.i25.i
-    i32 71, label %sw.bb.i25.i
-    i32 104, label %sw.bb.i25.i
-    i32 72, label %sw.bb.i25.i
-    i32 105, label %sw.bb.i25.i
-    i32 73, label %sw.bb.i25.i
-    i32 106, label %sw.bb.i25.i
-    i32 74, label %sw.bb.i25.i
-    i32 107, label %sw.bb.i25.i
-    i32 75, label %sw.bb.i25.i
-    i32 108, label %sw.bb.i25.i
-    i32 76, label %sw.bb.i25.i
-    i32 109, label %sw.bb.i25.i
-    i32 77, label %sw.bb.i25.i
-    i32 110, label %sw.bb.i25.i
-    i32 78, label %sw.bb.i25.i
-    i32 111, label %sw.bb.i25.i
-    i32 79, label %sw.bb.i25.i
-    i32 112, label %sw.bb.i25.i
-    i32 80, label %sw.bb.i25.i
-    i32 113, label %sw.bb.i25.i
-    i32 81, label %sw.bb.i25.i
-    i32 114, label %sw.bb.i25.i
-    i32 82, label %sw.bb.i25.i
-    i32 115, label %sw.bb.i25.i
-    i32 83, label %sw.bb.i25.i
-    i32 116, label %sw.bb.i25.i
-    i32 84, label %sw.bb.i25.i
-    i32 117, label %sw.bb.i25.i
-    i32 85, label %sw.bb.i25.i
-    i32 118, label %sw.bb.i25.i
-    i32 86, label %sw.bb.i25.i
-    i32 119, label %sw.bb.i25.i
-    i32 87, label %sw.bb.i25.i
-    i32 120, label %sw.bb.i25.i
-    i32 88, label %sw.bb.i25.i
-    i32 121, label %sw.bb.i25.i
-    i32 89, label %sw.bb.i25.i
-    i32 122, label %sw.bb.i25.i
-    i32 90, label %sw.bb.i25.i
-    i32 58, label %sw.bb6.i.i
-    i32 64, label %sw.bb12.i.i
+  switch i8 %11, label %sw.default.i.i [
+    i8 33, label %sw.bb.i25.i
+    i8 36, label %sw.bb.i25.i
+    i8 37, label %sw.bb.i25.i
+    i8 38, label %sw.bb.i25.i
+    i8 40, label %sw.bb.i25.i
+    i8 41, label %sw.bb.i25.i
+    i8 45, label %sw.bb.i25.i
+    i8 42, label %sw.bb.i25.i
+    i8 44, label %sw.bb.i25.i
+    i8 46, label %sw.bb.i25.i
+    i8 59, label %sw.bb.i25.i
+    i8 39, label %sw.bb.i25.i
+    i8 95, label %sw.bb.i25.i
+    i8 126, label %sw.bb.i25.i
+    i8 43, label %sw.bb.i25.i
+    i8 61, label %sw.bb.i25.i
+    i8 48, label %sw.bb.i25.i
+    i8 49, label %sw.bb.i25.i
+    i8 50, label %sw.bb.i25.i
+    i8 51, label %sw.bb.i25.i
+    i8 52, label %sw.bb.i25.i
+    i8 53, label %sw.bb.i25.i
+    i8 54, label %sw.bb.i25.i
+    i8 55, label %sw.bb.i25.i
+    i8 56, label %sw.bb.i25.i
+    i8 57, label %sw.bb.i25.i
+    i8 65, label %sw.bb.i25.i
+    i8 66, label %sw.bb.i25.i
+    i8 67, label %sw.bb.i25.i
+    i8 68, label %sw.bb.i25.i
+    i8 69, label %sw.bb.i25.i
+    i8 70, label %sw.bb.i25.i
+    i8 97, label %sw.bb.i25.i
+    i8 98, label %sw.bb.i25.i
+    i8 99, label %sw.bb.i25.i
+    i8 100, label %sw.bb.i25.i
+    i8 101, label %sw.bb.i25.i
+    i8 102, label %sw.bb.i25.i
+    i8 103, label %sw.bb.i25.i
+    i8 71, label %sw.bb.i25.i
+    i8 104, label %sw.bb.i25.i
+    i8 72, label %sw.bb.i25.i
+    i8 105, label %sw.bb.i25.i
+    i8 73, label %sw.bb.i25.i
+    i8 106, label %sw.bb.i25.i
+    i8 74, label %sw.bb.i25.i
+    i8 107, label %sw.bb.i25.i
+    i8 75, label %sw.bb.i25.i
+    i8 108, label %sw.bb.i25.i
+    i8 76, label %sw.bb.i25.i
+    i8 109, label %sw.bb.i25.i
+    i8 77, label %sw.bb.i25.i
+    i8 110, label %sw.bb.i25.i
+    i8 78, label %sw.bb.i25.i
+    i8 111, label %sw.bb.i25.i
+    i8 79, label %sw.bb.i25.i
+    i8 112, label %sw.bb.i25.i
+    i8 80, label %sw.bb.i25.i
+    i8 113, label %sw.bb.i25.i
+    i8 81, label %sw.bb.i25.i
+    i8 114, label %sw.bb.i25.i
+    i8 82, label %sw.bb.i25.i
+    i8 115, label %sw.bb.i25.i
+    i8 83, label %sw.bb.i25.i
+    i8 116, label %sw.bb.i25.i
+    i8 84, label %sw.bb.i25.i
+    i8 117, label %sw.bb.i25.i
+    i8 85, label %sw.bb.i25.i
+    i8 118, label %sw.bb.i25.i
+    i8 86, label %sw.bb.i25.i
+    i8 119, label %sw.bb.i25.i
+    i8 87, label %sw.bb.i25.i
+    i8 120, label %sw.bb.i25.i
+    i8 88, label %sw.bb.i25.i
+    i8 121, label %sw.bb.i25.i
+    i8 89, label %sw.bb.i25.i
+    i8 122, label %sw.bb.i25.i
+    i8 90, label %sw.bb.i25.i
+    i8 58, label %sw.bb6.i.i
+    i8 64, label %sw.bb12.i.i
   ]
 
 sw.bb.i25.i:                                      ; preds = %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i
@@ -3988,88 +3978,87 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end2.i.i.i:                                    ; preds = %if.end4.i26.i
   %26 = load i8, ptr %call.i.i, align 1
-  %conv.i.i28.i = sext i8 %26 to i32
-  switch i32 %conv.i.i28.i, label %sw.default.i.i.i [
-    i32 33, label %if.end.i22.i.backedge
-    i32 36, label %if.end.i22.i.backedge
-    i32 37, label %if.end.i22.i.backedge
-    i32 38, label %if.end.i22.i.backedge
-    i32 40, label %if.end.i22.i.backedge
-    i32 41, label %if.end.i22.i.backedge
-    i32 45, label %if.end.i22.i.backedge
-    i32 42, label %if.end.i22.i.backedge
-    i32 44, label %if.end.i22.i.backedge
-    i32 46, label %if.end.i22.i.backedge
-    i32 58, label %if.end.i22.i.backedge
-    i32 59, label %if.end.i22.i.backedge
-    i32 64, label %if.end.i22.i.backedge
-    i32 39, label %if.end.i22.i.backedge
-    i32 95, label %if.end.i22.i.backedge
-    i32 126, label %if.end.i22.i.backedge
-    i32 43, label %if.end.i22.i.backedge
-    i32 61, label %if.end.i22.i.backedge
-    i32 48, label %if.end.i22.i.backedge
-    i32 49, label %if.end.i22.i.backedge
-    i32 50, label %if.end.i22.i.backedge
-    i32 51, label %if.end.i22.i.backedge
-    i32 52, label %if.end.i22.i.backedge
-    i32 53, label %if.end.i22.i.backedge
-    i32 54, label %if.end.i22.i.backedge
-    i32 55, label %if.end.i22.i.backedge
-    i32 56, label %if.end.i22.i.backedge
-    i32 57, label %if.end.i22.i.backedge
-    i32 65, label %if.end.i22.i.backedge
-    i32 66, label %if.end.i22.i.backedge
-    i32 67, label %if.end.i22.i.backedge
-    i32 68, label %if.end.i22.i.backedge
-    i32 69, label %if.end.i22.i.backedge
-    i32 70, label %if.end.i22.i.backedge
-    i32 97, label %if.end.i22.i.backedge
-    i32 98, label %if.end.i22.i.backedge
-    i32 99, label %if.end.i22.i.backedge
-    i32 100, label %if.end.i22.i.backedge
-    i32 101, label %if.end.i22.i.backedge
-    i32 102, label %if.end.i22.i.backedge
-    i32 103, label %if.end.i22.i.backedge
-    i32 71, label %if.end.i22.i.backedge
-    i32 104, label %if.end.i22.i.backedge
-    i32 72, label %if.end.i22.i.backedge
-    i32 105, label %if.end.i22.i.backedge
-    i32 73, label %if.end.i22.i.backedge
-    i32 106, label %if.end.i22.i.backedge
-    i32 74, label %if.end.i22.i.backedge
-    i32 107, label %if.end.i22.i.backedge
-    i32 75, label %if.end.i22.i.backedge
-    i32 108, label %if.end.i22.i.backedge
-    i32 76, label %if.end.i22.i.backedge
-    i32 109, label %if.end.i22.i.backedge
-    i32 77, label %if.end.i22.i.backedge
-    i32 110, label %if.end.i22.i.backedge
-    i32 78, label %if.end.i22.i.backedge
-    i32 111, label %if.end.i22.i.backedge
-    i32 79, label %if.end.i22.i.backedge
-    i32 112, label %if.end.i22.i.backedge
-    i32 80, label %if.end.i22.i.backedge
-    i32 113, label %if.end.i22.i.backedge
-    i32 81, label %if.end.i22.i.backedge
-    i32 114, label %if.end.i22.i.backedge
-    i32 82, label %if.end.i22.i.backedge
-    i32 115, label %if.end.i22.i.backedge
-    i32 83, label %if.end.i22.i.backedge
-    i32 116, label %if.end.i22.i.backedge
-    i32 84, label %if.end.i22.i.backedge
-    i32 117, label %if.end.i22.i.backedge
-    i32 85, label %if.end.i22.i.backedge
-    i32 118, label %if.end.i22.i.backedge
-    i32 86, label %if.end.i22.i.backedge
-    i32 119, label %if.end.i22.i.backedge
-    i32 87, label %if.end.i22.i.backedge
-    i32 120, label %if.end.i22.i.backedge
-    i32 88, label %if.end.i22.i.backedge
-    i32 121, label %if.end.i22.i.backedge
-    i32 89, label %if.end.i22.i.backedge
-    i32 122, label %if.end.i22.i.backedge
-    i32 90, label %if.end.i22.i.backedge
+  switch i8 %26, label %sw.default.i.i.i [
+    i8 33, label %if.end.i22.i.backedge
+    i8 36, label %if.end.i22.i.backedge
+    i8 37, label %if.end.i22.i.backedge
+    i8 38, label %if.end.i22.i.backedge
+    i8 40, label %if.end.i22.i.backedge
+    i8 41, label %if.end.i22.i.backedge
+    i8 45, label %if.end.i22.i.backedge
+    i8 42, label %if.end.i22.i.backedge
+    i8 44, label %if.end.i22.i.backedge
+    i8 46, label %if.end.i22.i.backedge
+    i8 58, label %if.end.i22.i.backedge
+    i8 59, label %if.end.i22.i.backedge
+    i8 64, label %if.end.i22.i.backedge
+    i8 39, label %if.end.i22.i.backedge
+    i8 95, label %if.end.i22.i.backedge
+    i8 126, label %if.end.i22.i.backedge
+    i8 43, label %if.end.i22.i.backedge
+    i8 61, label %if.end.i22.i.backedge
+    i8 48, label %if.end.i22.i.backedge
+    i8 49, label %if.end.i22.i.backedge
+    i8 50, label %if.end.i22.i.backedge
+    i8 51, label %if.end.i22.i.backedge
+    i8 52, label %if.end.i22.i.backedge
+    i8 53, label %if.end.i22.i.backedge
+    i8 54, label %if.end.i22.i.backedge
+    i8 55, label %if.end.i22.i.backedge
+    i8 56, label %if.end.i22.i.backedge
+    i8 57, label %if.end.i22.i.backedge
+    i8 65, label %if.end.i22.i.backedge
+    i8 66, label %if.end.i22.i.backedge
+    i8 67, label %if.end.i22.i.backedge
+    i8 68, label %if.end.i22.i.backedge
+    i8 69, label %if.end.i22.i.backedge
+    i8 70, label %if.end.i22.i.backedge
+    i8 97, label %if.end.i22.i.backedge
+    i8 98, label %if.end.i22.i.backedge
+    i8 99, label %if.end.i22.i.backedge
+    i8 100, label %if.end.i22.i.backedge
+    i8 101, label %if.end.i22.i.backedge
+    i8 102, label %if.end.i22.i.backedge
+    i8 103, label %if.end.i22.i.backedge
+    i8 71, label %if.end.i22.i.backedge
+    i8 104, label %if.end.i22.i.backedge
+    i8 72, label %if.end.i22.i.backedge
+    i8 105, label %if.end.i22.i.backedge
+    i8 73, label %if.end.i22.i.backedge
+    i8 106, label %if.end.i22.i.backedge
+    i8 74, label %if.end.i22.i.backedge
+    i8 107, label %if.end.i22.i.backedge
+    i8 75, label %if.end.i22.i.backedge
+    i8 108, label %if.end.i22.i.backedge
+    i8 76, label %if.end.i22.i.backedge
+    i8 109, label %if.end.i22.i.backedge
+    i8 77, label %if.end.i22.i.backedge
+    i8 110, label %if.end.i22.i.backedge
+    i8 78, label %if.end.i22.i.backedge
+    i8 111, label %if.end.i22.i.backedge
+    i8 79, label %if.end.i22.i.backedge
+    i8 112, label %if.end.i22.i.backedge
+    i8 80, label %if.end.i22.i.backedge
+    i8 113, label %if.end.i22.i.backedge
+    i8 81, label %if.end.i22.i.backedge
+    i8 114, label %if.end.i22.i.backedge
+    i8 82, label %if.end.i22.i.backedge
+    i8 115, label %if.end.i22.i.backedge
+    i8 83, label %if.end.i22.i.backedge
+    i8 116, label %if.end.i22.i.backedge
+    i8 84, label %if.end.i22.i.backedge
+    i8 117, label %if.end.i22.i.backedge
+    i8 85, label %if.end.i22.i.backedge
+    i8 118, label %if.end.i22.i.backedge
+    i8 86, label %if.end.i22.i.backedge
+    i8 119, label %if.end.i22.i.backedge
+    i8 87, label %if.end.i22.i.backedge
+    i8 120, label %if.end.i22.i.backedge
+    i8 88, label %if.end.i22.i.backedge
+    i8 121, label %if.end.i22.i.backedge
+    i8 89, label %if.end.i22.i.backedge
+    i8 122, label %if.end.i22.i.backedge
+    i8 90, label %if.end.i22.i.backedge
   ]
 
 if.end.i22.i.backedge:                            ; preds = %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i, %if.end2.i.i.i
@@ -4136,8 +4125,8 @@ uriParseAuthorityA.exit:                          ; preds = %if.then.i, %if.end8
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %sw.default.i.i.i, %if.end.i.i, %sw.default.i, %uriParseAuthorityA.exit
-  %retval.0.i65 = phi ptr [ %retval.0.i, %uriParseAuthorityA.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %add.ptr, %sw.default.i ]
-  %cmp.not19.i = icmp ult ptr %retval.0.i65, %afterLast
+  %retval.0.i64 = phi ptr [ %retval.0.i, %uriParseAuthorityA.exit ], [ %call.i.i, %sw.default.i.i.i ], [ %call.i, %if.end.i.i ], [ %add.ptr, %sw.default.i ]
+  %cmp.not19.i = icmp ult ptr %retval.0.i64, %afterLast
   br i1 %cmp.not19.i, label %if.end.lr.ph.i, label %uriParsePathAbsEmptyA.exit
 
 if.end.lr.ph.i:                                   ; preds = %if.end4
@@ -4146,7 +4135,7 @@ if.end.lr.ph.i:                                   ; preds = %if.end4
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.end8.i26, %if.end.lr.ph.i
-  %first.tr20.i = phi ptr [ %retval.0.i65, %if.end.lr.ph.i ], [ %call.i22, %if.end8.i26 ]
+  %first.tr20.i = phi ptr [ %retval.0.i64, %if.end.lr.ph.i ], [ %call.i22, %if.end8.i26 ]
   %37 = load i8, ptr %first.tr20.i, align 1
   %cond.i = icmp eq i8 %37, 47
   br i1 %cond.i, label %sw.bb.i20, label %uriParsePathAbsEmptyA.exit
@@ -4211,157 +4200,156 @@ if.end.i31:                                       ; preds = %if.end
   %absolutePath.i28 = getelementptr inbounds %struct.UriUriStructA, ptr %state.val17, i64 0, i32 9
   store i32 1, ptr %absolutePath.i28, align 8
   %46 = load i8, ptr %first, align 1
-  %conv.i32 = sext i8 %46 to i32
-  switch i32 %conv.i32, label %return [
-    i32 33, label %sw.bb.i33
-    i32 36, label %sw.bb.i33
-    i32 37, label %sw.bb.i33
-    i32 38, label %sw.bb.i33
-    i32 40, label %sw.bb.i33
-    i32 41, label %sw.bb.i33
-    i32 45, label %sw.bb.i33
-    i32 42, label %sw.bb.i33
-    i32 44, label %sw.bb.i33
-    i32 46, label %sw.bb.i33
-    i32 58, label %sw.bb.i33
-    i32 59, label %sw.bb.i33
-    i32 64, label %sw.bb.i33
-    i32 39, label %sw.bb.i33
-    i32 95, label %sw.bb.i33
-    i32 126, label %sw.bb.i33
-    i32 43, label %sw.bb.i33
-    i32 61, label %sw.bb.i33
-    i32 48, label %sw.bb.i33
-    i32 49, label %sw.bb.i33
-    i32 50, label %sw.bb.i33
-    i32 51, label %sw.bb.i33
-    i32 52, label %sw.bb.i33
-    i32 53, label %sw.bb.i33
-    i32 54, label %sw.bb.i33
-    i32 55, label %sw.bb.i33
-    i32 56, label %sw.bb.i33
-    i32 57, label %sw.bb.i33
-    i32 65, label %sw.bb.i33
-    i32 66, label %sw.bb.i33
-    i32 67, label %sw.bb.i33
-    i32 68, label %sw.bb.i33
-    i32 69, label %sw.bb.i33
-    i32 70, label %sw.bb.i33
-    i32 97, label %sw.bb.i33
-    i32 98, label %sw.bb.i33
-    i32 99, label %sw.bb.i33
-    i32 100, label %sw.bb.i33
-    i32 101, label %sw.bb.i33
-    i32 102, label %sw.bb.i33
-    i32 103, label %sw.bb.i33
-    i32 71, label %sw.bb.i33
-    i32 104, label %sw.bb.i33
-    i32 72, label %sw.bb.i33
-    i32 105, label %sw.bb.i33
-    i32 73, label %sw.bb.i33
-    i32 106, label %sw.bb.i33
-    i32 74, label %sw.bb.i33
-    i32 107, label %sw.bb.i33
-    i32 75, label %sw.bb.i33
-    i32 108, label %sw.bb.i33
-    i32 76, label %sw.bb.i33
-    i32 109, label %sw.bb.i33
-    i32 77, label %sw.bb.i33
-    i32 110, label %sw.bb.i33
-    i32 78, label %sw.bb.i33
-    i32 111, label %sw.bb.i33
-    i32 79, label %sw.bb.i33
-    i32 112, label %sw.bb.i33
-    i32 80, label %sw.bb.i33
-    i32 113, label %sw.bb.i33
-    i32 81, label %sw.bb.i33
-    i32 114, label %sw.bb.i33
-    i32 82, label %sw.bb.i33
-    i32 115, label %sw.bb.i33
-    i32 83, label %sw.bb.i33
-    i32 116, label %sw.bb.i33
-    i32 84, label %sw.bb.i33
-    i32 117, label %sw.bb.i33
-    i32 85, label %sw.bb.i33
-    i32 118, label %sw.bb.i33
-    i32 86, label %sw.bb.i33
-    i32 119, label %sw.bb.i33
-    i32 87, label %sw.bb.i33
-    i32 120, label %sw.bb.i33
-    i32 88, label %sw.bb.i33
-    i32 121, label %sw.bb.i33
-    i32 89, label %sw.bb.i33
-    i32 122, label %sw.bb.i33
-    i32 90, label %sw.bb.i33
+  switch i8 %46, label %return [
+    i8 33, label %sw.bb.i32
+    i8 36, label %sw.bb.i32
+    i8 37, label %sw.bb.i32
+    i8 38, label %sw.bb.i32
+    i8 40, label %sw.bb.i32
+    i8 41, label %sw.bb.i32
+    i8 45, label %sw.bb.i32
+    i8 42, label %sw.bb.i32
+    i8 44, label %sw.bb.i32
+    i8 46, label %sw.bb.i32
+    i8 58, label %sw.bb.i32
+    i8 59, label %sw.bb.i32
+    i8 64, label %sw.bb.i32
+    i8 39, label %sw.bb.i32
+    i8 95, label %sw.bb.i32
+    i8 126, label %sw.bb.i32
+    i8 43, label %sw.bb.i32
+    i8 61, label %sw.bb.i32
+    i8 48, label %sw.bb.i32
+    i8 49, label %sw.bb.i32
+    i8 50, label %sw.bb.i32
+    i8 51, label %sw.bb.i32
+    i8 52, label %sw.bb.i32
+    i8 53, label %sw.bb.i32
+    i8 54, label %sw.bb.i32
+    i8 55, label %sw.bb.i32
+    i8 56, label %sw.bb.i32
+    i8 57, label %sw.bb.i32
+    i8 65, label %sw.bb.i32
+    i8 66, label %sw.bb.i32
+    i8 67, label %sw.bb.i32
+    i8 68, label %sw.bb.i32
+    i8 69, label %sw.bb.i32
+    i8 70, label %sw.bb.i32
+    i8 97, label %sw.bb.i32
+    i8 98, label %sw.bb.i32
+    i8 99, label %sw.bb.i32
+    i8 100, label %sw.bb.i32
+    i8 101, label %sw.bb.i32
+    i8 102, label %sw.bb.i32
+    i8 103, label %sw.bb.i32
+    i8 71, label %sw.bb.i32
+    i8 104, label %sw.bb.i32
+    i8 72, label %sw.bb.i32
+    i8 105, label %sw.bb.i32
+    i8 73, label %sw.bb.i32
+    i8 106, label %sw.bb.i32
+    i8 74, label %sw.bb.i32
+    i8 107, label %sw.bb.i32
+    i8 75, label %sw.bb.i32
+    i8 108, label %sw.bb.i32
+    i8 76, label %sw.bb.i32
+    i8 109, label %sw.bb.i32
+    i8 77, label %sw.bb.i32
+    i8 110, label %sw.bb.i32
+    i8 78, label %sw.bb.i32
+    i8 111, label %sw.bb.i32
+    i8 79, label %sw.bb.i32
+    i8 112, label %sw.bb.i32
+    i8 80, label %sw.bb.i32
+    i8 113, label %sw.bb.i32
+    i8 81, label %sw.bb.i32
+    i8 114, label %sw.bb.i32
+    i8 82, label %sw.bb.i32
+    i8 115, label %sw.bb.i32
+    i8 83, label %sw.bb.i32
+    i8 116, label %sw.bb.i32
+    i8 84, label %sw.bb.i32
+    i8 117, label %sw.bb.i32
+    i8 85, label %sw.bb.i32
+    i8 118, label %sw.bb.i32
+    i8 86, label %sw.bb.i32
+    i8 119, label %sw.bb.i32
+    i8 87, label %sw.bb.i32
+    i8 120, label %sw.bb.i32
+    i8 88, label %sw.bb.i32
+    i8 121, label %sw.bb.i32
+    i8 89, label %sw.bb.i32
+    i8 122, label %sw.bb.i32
+    i8 90, label %sw.bb.i32
   ]
 
-sw.bb.i33:                                        ; preds = %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31
-  %call.i.i34 = tail call fastcc ptr @uriParsePcharA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
-  %cmp.i.i35 = icmp eq ptr %call.i.i34, null
-  br i1 %cmp.i.i35, label %return, label %uriParseSegmentNzA.exit.i
+sw.bb.i32:                                        ; preds = %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31, %if.end.i31
+  %call.i.i33 = tail call fastcc ptr @uriParsePcharA(ptr noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %cmp.i.i34 = icmp eq ptr %call.i.i33, null
+  br i1 %cmp.i.i34, label %return, label %uriParseSegmentNzA.exit.i
 
-uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb.i33
-  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %call.i.i34, ptr noundef nonnull %afterLast, ptr noundef %memory)
-  %cmp1.i36 = icmp eq ptr %call1.i.i, null
-  br i1 %cmp1.i36, label %return, label %if.end4.i37
+uriParseSegmentNzA.exit.i:                        ; preds = %sw.bb.i32
+  %call1.i.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %call.i.i33, ptr noundef nonnull %afterLast, ptr noundef %memory)
+  %cmp1.i35 = icmp eq ptr %call1.i.i, null
+  br i1 %cmp1.i35, label %return, label %if.end4.i36
 
-if.end4.i37:                                      ; preds = %uriParseSegmentNzA.exit.i
-  %calloc.i.i38 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
-  %47 = load ptr, ptr %calloc.i.i38, align 8
-  %call.i16.i39 = tail call ptr %47(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
-  %cmp.i17.i = icmp eq ptr %call.i16.i39, null
+if.end4.i36:                                      ; preds = %uriParseSegmentNzA.exit.i
+  %calloc.i.i37 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %47 = load ptr, ptr %calloc.i.i37, align 8
+  %call.i16.i38 = tail call ptr %47(ptr noundef %memory, i64 noundef 1, i64 noundef 32) #6
+  %cmp.i17.i = icmp eq ptr %call.i16.i38, null
   br i1 %cmp.i17.i, label %return.sink.split.i, label %if.end.i18.i
 
-if.end.i18.i:                                     ; preds = %if.end4.i37
-  %cmp1.i.i40 = icmp eq ptr %call1.i.i, %first
+if.end.i18.i:                                     ; preds = %if.end4.i36
+  %cmp1.i.i39 = icmp eq ptr %call1.i.i, %first
   %48 = load ptr, ptr @uriSafeToPointToA, align 8
-  %spec.select.i.i41 = select i1 %cmp1.i.i40, ptr %48, ptr %first
-  %spec.select16.i.i42 = select i1 %cmp1.i.i40, ptr %48, ptr %call1.i.i
-  store ptr %spec.select.i.i41, ptr %call.i16.i39, align 8
-  %49 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i16.i39, i64 0, i32 1
-  store ptr %spec.select16.i.i42, ptr %49, align 8
+  %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
+  %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
+  store ptr %spec.select.i.i40, ptr %call.i16.i38, align 8
+  %49 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i16.i38, i64 0, i32 1
+  store ptr %spec.select16.i.i41, ptr %49, align 8
   %50 = load ptr, ptr %state, align 8
-  %pathHead.i.i43 = getelementptr inbounds %struct.UriUriStructA, ptr %50, i64 0, i32 5
-  %51 = load ptr, ptr %pathHead.i.i43, align 8
-  %cmp11.i.i44 = icmp eq ptr %51, null
-  br i1 %cmp11.i.i44, label %if.end7.i, label %if.else16.i.i45
+  %pathHead.i.i42 = getelementptr inbounds %struct.UriUriStructA, ptr %50, i64 0, i32 5
+  %51 = load ptr, ptr %pathHead.i.i42, align 8
+  %cmp11.i.i43 = icmp eq ptr %51, null
+  br i1 %cmp11.i.i43, label %if.end7.i, label %if.else16.i.i44
 
-if.else16.i.i45:                                  ; preds = %if.end.i18.i
-  %pathTail18.i.i46 = getelementptr inbounds %struct.UriUriStructA, ptr %50, i64 0, i32 6
-  %52 = load ptr, ptr %pathTail18.i.i46, align 8
-  %next.i.i47 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %52, i64 0, i32 1
+if.else16.i.i44:                                  ; preds = %if.end.i18.i
+  %pathTail18.i.i45 = getelementptr inbounds %struct.UriUriStructA, ptr %50, i64 0, i32 6
+  %52 = load ptr, ptr %pathTail18.i.i45, align 8
+  %next.i.i46 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %52, i64 0, i32 1
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.else16.i.i45, %if.end.i18.i
-  %pathHead.sink.i.i48 = phi ptr [ %next.i.i47, %if.else16.i.i45 ], [ %pathHead.i.i43, %if.end.i18.i ]
-  store ptr %call.i16.i39, ptr %pathHead.sink.i.i48, align 8
+if.end7.i:                                        ; preds = %if.else16.i.i44, %if.end.i18.i
+  %pathHead.sink.i.i47 = phi ptr [ %next.i.i46, %if.else16.i.i44 ], [ %pathHead.i.i42, %if.end.i18.i ]
+  store ptr %call.i16.i38, ptr %pathHead.sink.i.i47, align 8
   %53 = load ptr, ptr %state, align 8
-  %pathTail.i.i49 = getelementptr inbounds %struct.UriUriStructA, ptr %53, i64 0, i32 6
-  store ptr %call.i16.i39, ptr %pathTail.i.i49, align 8
+  %pathTail.i.i48 = getelementptr inbounds %struct.UriUriStructA, ptr %53, i64 0, i32 6
+  store ptr %call.i16.i38, ptr %pathTail.i.i48, align 8
   %cmp.not19.i.i = icmp ult ptr %call1.i.i, %afterLast
-  br i1 %cmp.not19.i.i, label %if.end.i22.i50, label %return
+  br i1 %cmp.not19.i.i, label %if.end.i22.i49, label %return
 
-if.end.i22.i50:                                   ; preds = %if.end7.i, %if.end8.i.i
+if.end.i22.i49:                                   ; preds = %if.end7.i, %if.end8.i.i
   %first.tr20.i.i = phi ptr [ %call.i23.i, %if.end8.i.i ], [ %call1.i.i, %if.end7.i ]
   %54 = load i8, ptr %first.tr20.i.i, align 1
-  %cond.i.i51 = icmp eq i8 %54, 47
-  br i1 %cond.i.i51, label %sw.bb.i.i52, label %return
+  %cond.i.i50 = icmp eq i8 %54, 47
+  br i1 %cond.i.i50, label %sw.bb.i.i51, label %return
 
-sw.bb.i.i52:                                      ; preds = %if.end.i22.i50
-  %add.ptr.i.i53 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
-  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i53, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
+sw.bb.i.i51:                                      ; preds = %if.end.i22.i49
+  %add.ptr.i.i52 = getelementptr inbounds i8, ptr %first.tr20.i.i, i64 1
+  %call.i23.i = tail call fastcc ptr @uriParseSegmentA(ptr noundef nonnull %state, ptr noundef nonnull %add.ptr.i.i52, ptr noundef nonnull %afterLast, ptr noundef nonnull %memory)
   %cmp1.i24.i = icmp eq ptr %call.i23.i, null
-  br i1 %cmp1.i24.i, label %return, label %if.end4.i.i54
+  br i1 %cmp1.i24.i, label %return, label %if.end4.i.i53
 
-if.end4.i.i54:                                    ; preds = %sw.bb.i.i52
-  %55 = load ptr, ptr %calloc.i.i38, align 8
+if.end4.i.i53:                                    ; preds = %sw.bb.i.i51
+  %55 = load ptr, ptr %calloc.i.i37, align 8
   %call.i.i.i = tail call ptr %55(ptr noundef nonnull %memory, i64 noundef 1, i64 noundef 32) #6
-  %cmp.i.i.i55 = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i55, label %return.sink.split.i, label %if.end.i.i.i56
+  %cmp.i.i.i54 = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i.i.i54, label %return.sink.split.i, label %if.end.i.i.i55
 
-if.end.i.i.i56:                                   ; preds = %if.end4.i.i54
-  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i53, %call.i23.i
-  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %add.ptr.i.i53
+if.end.i.i.i55:                                   ; preds = %if.end4.i.i53
+  %cmp1.i.i.i = icmp eq ptr %add.ptr.i.i52, %call.i23.i
+  %spec.select.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %add.ptr.i.i52
   %spec.select16.i.i.i = select i1 %cmp1.i.i.i, ptr %48, ptr %call.i23.i
   store ptr %spec.select.i.i.i, ptr %call.i.i.i, align 8
   %56 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %call.i.i.i, i64 0, i32 1
@@ -4372,32 +4360,32 @@ if.end.i.i.i56:                                   ; preds = %if.end4.i.i54
   %cmp11.i.i.i = icmp eq ptr %58, null
   br i1 %cmp11.i.i.i, label %if.end8.i.i, label %if.else16.i.i.i
 
-if.else16.i.i.i:                                  ; preds = %if.end.i.i.i56
+if.else16.i.i.i:                                  ; preds = %if.end.i.i.i55
   %pathTail18.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %57, i64 0, i32 6
   %59 = load ptr, ptr %pathTail18.i.i.i, align 8
   %next.i.i.i = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %59, i64 0, i32 1
   br label %if.end8.i.i
 
-if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i56
-  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i56 ]
+if.end8.i.i:                                      ; preds = %if.else16.i.i.i, %if.end.i.i.i55
+  %pathHead.sink.i.i.i = phi ptr [ %next.i.i.i, %if.else16.i.i.i ], [ %pathHead.i.i.i, %if.end.i.i.i55 ]
   store ptr %call.i.i.i, ptr %pathHead.sink.i.i.i, align 8
   %60 = load ptr, ptr %state, align 8
   %pathTail.i.i.i = getelementptr inbounds %struct.UriUriStructA, ptr %60, i64 0, i32 6
   store ptr %call.i.i.i, ptr %pathTail.i.i.i, align 8
-  %cmp.not.i.i57 = icmp ult ptr %call.i23.i, %afterLast
-  br i1 %cmp.not.i.i57, label %if.end.i22.i50, label %return
+  %cmp.not.i.i56 = icmp ult ptr %call.i23.i, %afterLast
+  br i1 %cmp.not.i.i56, label %if.end.i22.i49, label %return
 
-return.sink.split.i:                              ; preds = %if.end4.i.i54, %if.end4.i37
+return.sink.split.i:                              ; preds = %if.end4.i.i53, %if.end4.i36
   %61 = load ptr, ptr %state, align 8
   %call.i16.i.i = tail call i32 @uriFreeUriMembersMmA(ptr noundef %61, ptr noundef nonnull %memory), !range !5
-  %errorPos.i.i.i58 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
-  store ptr null, ptr %errorPos.i.i.i58, align 8
+  %errorPos.i.i.i57 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  store ptr null, ptr %errorPos.i.i.i57, align 8
   %errorCode.i.i.i = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
   store i32 3, ptr %errorCode.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end8.i.i, %sw.bb.i.i52, %if.end.i22.i50, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end7.i, %uriParseSegmentNzA.exit.i, %sw.bb.i33, %if.end.i31, %uriParseAuthorityA.exit, %uriParsePathAbsEmptyA.exit, %if.then
-  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseSegmentNzA.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end7.i ], [ null, %sw.bb.i33 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end8.i.i ], [ null, %sw.bb.i.i52 ], [ %first.tr20.i.i, %if.end.i22.i50 ]
+return:                                           ; preds = %if.end8.i.i, %sw.bb.i.i51, %if.end.i22.i49, %sw.bb.i25.i, %if.then6.i.i.i, %if.then1.i.i.i, %sw.default.i.i, %sw.bb.i, %return.sink.split.i, %if.end7.i, %uriParseSegmentNzA.exit.i, %sw.bb.i32, %if.end.i31, %uriParseAuthorityA.exit, %uriParsePathAbsEmptyA.exit, %if.then
+  %retval.0 = phi ptr [ %afterLast, %if.then ], [ %retval.0.i18, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseSegmentNzA.exit.i ], [ %first, %if.end.i31 ], [ %afterLast, %if.end7.i ], [ null, %sw.bb.i32 ], [ null, %return.sink.split.i ], [ null, %sw.bb.i ], [ null, %sw.default.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then6.i.i.i ], [ null, %sw.bb.i25.i ], [ %afterLast, %if.end8.i.i ], [ null, %sw.bb.i.i51 ], [ %first.tr20.i.i, %if.end.i22.i49 ]
   ret ptr %retval.0
 }
 
@@ -4409,10 +4397,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %first, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 35, label %sw.bb
-    i32 63, label %sw.bb10
+  switch i8 %0, label %return [
+    i8 35, label %sw.bb
+    i8 63, label %sw.bb10
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -4522,88 +4509,87 @@ tailrecurse:                                      ; preds = %sw.bb, %entry
 
 if.end:                                           ; preds = %tailrecurse
   %0 = load i8, ptr %first.tr, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 33, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 45, label %sw.bb
-    i32 42, label %sw.bb
-    i32 44, label %sw.bb
-    i32 46, label %sw.bb
-    i32 58, label %sw.bb
-    i32 59, label %sw.bb
-    i32 64, label %sw.bb
-    i32 39, label %sw.bb
-    i32 95, label %sw.bb
-    i32 126, label %sw.bb
-    i32 43, label %sw.bb
-    i32 61, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 71, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 106, label %sw.bb
-    i32 74, label %sw.bb
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 109, label %sw.bb
-    i32 77, label %sw.bb
-    i32 110, label %sw.bb
-    i32 78, label %sw.bb
-    i32 111, label %sw.bb
-    i32 79, label %sw.bb
-    i32 112, label %sw.bb
-    i32 80, label %sw.bb
-    i32 113, label %sw.bb
-    i32 81, label %sw.bb
-    i32 114, label %sw.bb
-    i32 82, label %sw.bb
-    i32 115, label %sw.bb
-    i32 83, label %sw.bb
-    i32 116, label %sw.bb
-    i32 84, label %sw.bb
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 119, label %sw.bb
-    i32 87, label %sw.bb
-    i32 120, label %sw.bb
-    i32 88, label %sw.bb
-    i32 121, label %sw.bb
-    i32 89, label %sw.bb
-    i32 122, label %sw.bb
-    i32 90, label %sw.bb
+  switch i8 %0, label %return [
+    i8 33, label %sw.bb
+    i8 36, label %sw.bb
+    i8 37, label %sw.bb
+    i8 38, label %sw.bb
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb
+    i8 45, label %sw.bb
+    i8 42, label %sw.bb
+    i8 44, label %sw.bb
+    i8 46, label %sw.bb
+    i8 58, label %sw.bb
+    i8 59, label %sw.bb
+    i8 64, label %sw.bb
+    i8 39, label %sw.bb
+    i8 95, label %sw.bb
+    i8 126, label %sw.bb
+    i8 43, label %sw.bb
+    i8 61, label %sw.bb
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 71, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 106, label %sw.bb
+    i8 74, label %sw.bb
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 109, label %sw.bb
+    i8 77, label %sw.bb
+    i8 110, label %sw.bb
+    i8 78, label %sw.bb
+    i8 111, label %sw.bb
+    i8 79, label %sw.bb
+    i8 112, label %sw.bb
+    i8 80, label %sw.bb
+    i8 113, label %sw.bb
+    i8 81, label %sw.bb
+    i8 114, label %sw.bb
+    i8 82, label %sw.bb
+    i8 115, label %sw.bb
+    i8 83, label %sw.bb
+    i8 116, label %sw.bb
+    i8 84, label %sw.bb
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 119, label %sw.bb
+    i8 87, label %sw.bb
+    i8 120, label %sw.bb
+    i8 88, label %sw.bb
+    i8 121, label %sw.bb
+    i8 89, label %sw.bb
+    i8 122, label %sw.bb
+    i8 90, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -4737,89 +4723,88 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %first, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 33, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 45, label %sw.bb
-    i32 42, label %sw.bb
-    i32 44, label %sw.bb
-    i32 46, label %sw.bb
-    i32 58, label %sw.bb
-    i32 59, label %sw.bb
-    i32 64, label %sw.bb
-    i32 39, label %sw.bb
-    i32 95, label %sw.bb
-    i32 126, label %sw.bb
-    i32 43, label %sw.bb
-    i32 61, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 71, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 106, label %sw.bb
-    i32 74, label %sw.bb
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 109, label %sw.bb
-    i32 77, label %sw.bb
-    i32 110, label %sw.bb
-    i32 78, label %sw.bb
-    i32 111, label %sw.bb
-    i32 79, label %sw.bb
-    i32 112, label %sw.bb
-    i32 80, label %sw.bb
-    i32 113, label %sw.bb
-    i32 81, label %sw.bb
-    i32 114, label %sw.bb
-    i32 82, label %sw.bb
-    i32 115, label %sw.bb
-    i32 83, label %sw.bb
-    i32 116, label %sw.bb
-    i32 84, label %sw.bb
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 119, label %sw.bb
-    i32 87, label %sw.bb
-    i32 120, label %sw.bb
-    i32 88, label %sw.bb
-    i32 121, label %sw.bb
-    i32 89, label %sw.bb
-    i32 122, label %sw.bb
-    i32 90, label %sw.bb
-    i32 47, label %sw.bb1
+  switch i8 %0, label %return [
+    i8 33, label %sw.bb
+    i8 36, label %sw.bb
+    i8 37, label %sw.bb
+    i8 38, label %sw.bb
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb
+    i8 45, label %sw.bb
+    i8 42, label %sw.bb
+    i8 44, label %sw.bb
+    i8 46, label %sw.bb
+    i8 58, label %sw.bb
+    i8 59, label %sw.bb
+    i8 64, label %sw.bb
+    i8 39, label %sw.bb
+    i8 95, label %sw.bb
+    i8 126, label %sw.bb
+    i8 43, label %sw.bb
+    i8 61, label %sw.bb
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 71, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 106, label %sw.bb
+    i8 74, label %sw.bb
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 109, label %sw.bb
+    i8 77, label %sw.bb
+    i8 110, label %sw.bb
+    i8 78, label %sw.bb
+    i8 111, label %sw.bb
+    i8 79, label %sw.bb
+    i8 112, label %sw.bb
+    i8 80, label %sw.bb
+    i8 113, label %sw.bb
+    i8 81, label %sw.bb
+    i8 114, label %sw.bb
+    i8 82, label %sw.bb
+    i8 115, label %sw.bb
+    i8 83, label %sw.bb
+    i8 116, label %sw.bb
+    i8 84, label %sw.bb
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 119, label %sw.bb
+    i8 87, label %sw.bb
+    i8 120, label %sw.bb
+    i8 88, label %sw.bb
+    i8 121, label %sw.bb
+    i8 89, label %sw.bb
+    i8 122, label %sw.bb
+    i8 90, label %sw.bb
+    i8 47, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -4950,88 +4935,87 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %first, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 58, label %sw.bb1
-    i32 64, label %sw.bb1
-    i32 33, label %sw.bb1
-    i32 36, label %sw.bb1
-    i32 38, label %sw.bb1
-    i32 40, label %sw.bb1
-    i32 41, label %sw.bb1
-    i32 42, label %sw.bb1
-    i32 44, label %sw.bb1
-    i32 59, label %sw.bb1
-    i32 39, label %sw.bb1
-    i32 43, label %sw.bb1
-    i32 61, label %sw.bb1
-    i32 45, label %sw.bb1
-    i32 46, label %sw.bb1
-    i32 95, label %sw.bb1
-    i32 126, label %sw.bb1
-    i32 48, label %sw.bb1
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb1
-    i32 51, label %sw.bb1
-    i32 52, label %sw.bb1
-    i32 53, label %sw.bb1
-    i32 54, label %sw.bb1
-    i32 55, label %sw.bb1
-    i32 56, label %sw.bb1
-    i32 57, label %sw.bb1
-    i32 65, label %sw.bb1
-    i32 66, label %sw.bb1
-    i32 67, label %sw.bb1
-    i32 68, label %sw.bb1
-    i32 69, label %sw.bb1
-    i32 70, label %sw.bb1
-    i32 97, label %sw.bb1
-    i32 98, label %sw.bb1
-    i32 99, label %sw.bb1
-    i32 100, label %sw.bb1
-    i32 101, label %sw.bb1
-    i32 102, label %sw.bb1
-    i32 103, label %sw.bb1
-    i32 71, label %sw.bb1
-    i32 104, label %sw.bb1
-    i32 72, label %sw.bb1
-    i32 105, label %sw.bb1
-    i32 73, label %sw.bb1
-    i32 106, label %sw.bb1
-    i32 74, label %sw.bb1
-    i32 107, label %sw.bb1
-    i32 75, label %sw.bb1
-    i32 108, label %sw.bb1
-    i32 76, label %sw.bb1
-    i32 109, label %sw.bb1
-    i32 77, label %sw.bb1
-    i32 110, label %sw.bb1
-    i32 78, label %sw.bb1
-    i32 111, label %sw.bb1
-    i32 79, label %sw.bb1
-    i32 112, label %sw.bb1
-    i32 80, label %sw.bb1
-    i32 113, label %sw.bb1
-    i32 81, label %sw.bb1
-    i32 114, label %sw.bb1
-    i32 82, label %sw.bb1
-    i32 115, label %sw.bb1
-    i32 83, label %sw.bb1
-    i32 116, label %sw.bb1
-    i32 84, label %sw.bb1
-    i32 117, label %sw.bb1
-    i32 85, label %sw.bb1
-    i32 118, label %sw.bb1
-    i32 86, label %sw.bb1
-    i32 119, label %sw.bb1
-    i32 87, label %sw.bb1
-    i32 120, label %sw.bb1
-    i32 88, label %sw.bb1
-    i32 121, label %sw.bb1
-    i32 89, label %sw.bb1
-    i32 122, label %sw.bb1
-    i32 90, label %sw.bb1
+  switch i8 %1, label %sw.default [
+    i8 37, label %sw.bb
+    i8 58, label %sw.bb1
+    i8 64, label %sw.bb1
+    i8 33, label %sw.bb1
+    i8 36, label %sw.bb1
+    i8 38, label %sw.bb1
+    i8 40, label %sw.bb1
+    i8 41, label %sw.bb1
+    i8 42, label %sw.bb1
+    i8 44, label %sw.bb1
+    i8 59, label %sw.bb1
+    i8 39, label %sw.bb1
+    i8 43, label %sw.bb1
+    i8 61, label %sw.bb1
+    i8 45, label %sw.bb1
+    i8 46, label %sw.bb1
+    i8 95, label %sw.bb1
+    i8 126, label %sw.bb1
+    i8 48, label %sw.bb1
+    i8 49, label %sw.bb1
+    i8 50, label %sw.bb1
+    i8 51, label %sw.bb1
+    i8 52, label %sw.bb1
+    i8 53, label %sw.bb1
+    i8 54, label %sw.bb1
+    i8 55, label %sw.bb1
+    i8 56, label %sw.bb1
+    i8 57, label %sw.bb1
+    i8 65, label %sw.bb1
+    i8 66, label %sw.bb1
+    i8 67, label %sw.bb1
+    i8 68, label %sw.bb1
+    i8 69, label %sw.bb1
+    i8 70, label %sw.bb1
+    i8 97, label %sw.bb1
+    i8 98, label %sw.bb1
+    i8 99, label %sw.bb1
+    i8 100, label %sw.bb1
+    i8 101, label %sw.bb1
+    i8 102, label %sw.bb1
+    i8 103, label %sw.bb1
+    i8 71, label %sw.bb1
+    i8 104, label %sw.bb1
+    i8 72, label %sw.bb1
+    i8 105, label %sw.bb1
+    i8 73, label %sw.bb1
+    i8 106, label %sw.bb1
+    i8 74, label %sw.bb1
+    i8 107, label %sw.bb1
+    i8 75, label %sw.bb1
+    i8 108, label %sw.bb1
+    i8 76, label %sw.bb1
+    i8 109, label %sw.bb1
+    i8 77, label %sw.bb1
+    i8 110, label %sw.bb1
+    i8 78, label %sw.bb1
+    i8 111, label %sw.bb1
+    i8 79, label %sw.bb1
+    i8 112, label %sw.bb1
+    i8 80, label %sw.bb1
+    i8 113, label %sw.bb1
+    i8 81, label %sw.bb1
+    i8 114, label %sw.bb1
+    i8 82, label %sw.bb1
+    i8 115, label %sw.bb1
+    i8 83, label %sw.bb1
+    i8 116, label %sw.bb1
+    i8 84, label %sw.bb1
+    i8 117, label %sw.bb1
+    i8 85, label %sw.bb1
+    i8 118, label %sw.bb1
+    i8 86, label %sw.bb1
+    i8 119, label %sw.bb1
+    i8 87, label %sw.bb1
+    i8 120, label %sw.bb1
+    i8 88, label %sw.bb1
+    i8 121, label %sw.bb1
+    i8 89, label %sw.bb1
+    i8 122, label %sw.bb1
+    i8 90, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5075,33 +5059,32 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %first, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 118, label %sw.bb
-    i32 58, label %sw.bb14
-    i32 93, label %sw.bb14
-    i32 48, label %sw.bb14
-    i32 49, label %sw.bb14
-    i32 50, label %sw.bb14
-    i32 51, label %sw.bb14
-    i32 52, label %sw.bb14
-    i32 53, label %sw.bb14
-    i32 54, label %sw.bb14
-    i32 55, label %sw.bb14
-    i32 56, label %sw.bb14
-    i32 57, label %sw.bb14
-    i32 65, label %sw.bb14
-    i32 66, label %sw.bb14
-    i32 67, label %sw.bb14
-    i32 68, label %sw.bb14
-    i32 69, label %sw.bb14
-    i32 70, label %sw.bb14
-    i32 97, label %sw.bb14
-    i32 98, label %sw.bb14
-    i32 99, label %sw.bb14
-    i32 100, label %sw.bb14
-    i32 101, label %sw.bb14
-    i32 102, label %sw.bb14
+  switch i8 %1, label %sw.default [
+    i8 118, label %sw.bb
+    i8 58, label %sw.bb14
+    i8 93, label %sw.bb14
+    i8 48, label %sw.bb14
+    i8 49, label %sw.bb14
+    i8 50, label %sw.bb14
+    i8 51, label %sw.bb14
+    i8 52, label %sw.bb14
+    i8 53, label %sw.bb14
+    i8 54, label %sw.bb14
+    i8 55, label %sw.bb14
+    i8 56, label %sw.bb14
+    i8 57, label %sw.bb14
+    i8 65, label %sw.bb14
+    i8 66, label %sw.bb14
+    i8 67, label %sw.bb14
+    i8 68, label %sw.bb14
+    i8 69, label %sw.bb14
+    i8 70, label %sw.bb14
+    i8 97, label %sw.bb14
+    i8 98, label %sw.bb14
+    i8 99, label %sw.bb14
+    i8 100, label %sw.bb14
+    i8 101, label %sw.bb14
+    i8 102, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5209,30 +5192,29 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %2 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
+  switch i8 %2, label %sw.default [
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
@@ -5243,30 +5225,29 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   %first.tr7.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
   %3 = load i8, ptr %first.tr7.i, align 1
-  %conv.i = sext i8 %3 to i32
-  switch i32 %conv.i, label %if.end8 [
-    i32 48, label %sw.bb.i
-    i32 49, label %sw.bb.i
-    i32 50, label %sw.bb.i
-    i32 51, label %sw.bb.i
-    i32 52, label %sw.bb.i
-    i32 53, label %sw.bb.i
-    i32 54, label %sw.bb.i
-    i32 55, label %sw.bb.i
-    i32 56, label %sw.bb.i
-    i32 57, label %sw.bb.i
-    i32 65, label %sw.bb.i
-    i32 66, label %sw.bb.i
-    i32 67, label %sw.bb.i
-    i32 68, label %sw.bb.i
-    i32 69, label %sw.bb.i
-    i32 70, label %sw.bb.i
-    i32 97, label %sw.bb.i
-    i32 98, label %sw.bb.i
-    i32 99, label %sw.bb.i
-    i32 100, label %sw.bb.i
-    i32 101, label %sw.bb.i
-    i32 102, label %sw.bb.i
+  switch i8 %3, label %if.end8 [
+    i8 48, label %sw.bb.i
+    i8 49, label %sw.bb.i
+    i8 50, label %sw.bb.i
+    i8 51, label %sw.bb.i
+    i8 52, label %sw.bb.i
+    i8 53, label %sw.bb.i
+    i8 54, label %sw.bb.i
+    i8 55, label %sw.bb.i
+    i8 56, label %sw.bb.i
+    i8 57, label %sw.bb.i
+    i8 65, label %sw.bb.i
+    i8 66, label %sw.bb.i
+    i8 67, label %sw.bb.i
+    i8 68, label %sw.bb.i
+    i8 69, label %sw.bb.i
+    i8 70, label %sw.bb.i
+    i8 97, label %sw.bb.i
+    i8 98, label %sw.bb.i
+    i8 99, label %sw.bb.i
+    i8 100, label %sw.bb.i
+    i8 101, label %sw.bb.i
+    i8 102, label %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
@@ -5318,176 +5299,174 @@ if.end.preheader.i:                               ; preds = %if.end17
 
 if.end.i46:                                       ; preds = %if.end.i46.backedge, %if.end.preheader.i
   %7 = phi i8 [ %.pre.i, %if.end.preheader.i ], [ %8, %if.end.i46.backedge ]
-  %first.tr17.i = phi ptr [ %add.ptr21, %if.end.preheader.i ], [ %add.ptr.i49, %if.end.i46.backedge ]
-  %conv.i47 = sext i8 %7 to i32
-  switch i32 %conv.i47, label %uriParseIpFutLoopA.exit.thread [
-    i32 33, label %sw.bb.i48
-    i32 36, label %sw.bb.i48
-    i32 38, label %sw.bb.i48
-    i32 40, label %sw.bb.i48
-    i32 41, label %sw.bb.i48
-    i32 45, label %sw.bb.i48
-    i32 42, label %sw.bb.i48
-    i32 44, label %sw.bb.i48
-    i32 46, label %sw.bb.i48
-    i32 58, label %sw.bb.i48
-    i32 59, label %sw.bb.i48
-    i32 39, label %sw.bb.i48
-    i32 95, label %sw.bb.i48
-    i32 126, label %sw.bb.i48
-    i32 43, label %sw.bb.i48
-    i32 61, label %sw.bb.i48
-    i32 48, label %sw.bb.i48
-    i32 49, label %sw.bb.i48
-    i32 50, label %sw.bb.i48
-    i32 51, label %sw.bb.i48
-    i32 52, label %sw.bb.i48
-    i32 53, label %sw.bb.i48
-    i32 54, label %sw.bb.i48
-    i32 55, label %sw.bb.i48
-    i32 56, label %sw.bb.i48
-    i32 57, label %sw.bb.i48
-    i32 65, label %sw.bb.i48
-    i32 66, label %sw.bb.i48
-    i32 67, label %sw.bb.i48
-    i32 68, label %sw.bb.i48
-    i32 69, label %sw.bb.i48
-    i32 70, label %sw.bb.i48
-    i32 97, label %sw.bb.i48
-    i32 98, label %sw.bb.i48
-    i32 99, label %sw.bb.i48
-    i32 100, label %sw.bb.i48
-    i32 101, label %sw.bb.i48
-    i32 102, label %sw.bb.i48
-    i32 103, label %sw.bb.i48
-    i32 71, label %sw.bb.i48
-    i32 104, label %sw.bb.i48
-    i32 72, label %sw.bb.i48
-    i32 105, label %sw.bb.i48
-    i32 73, label %sw.bb.i48
-    i32 106, label %sw.bb.i48
-    i32 74, label %sw.bb.i48
-    i32 107, label %sw.bb.i48
-    i32 75, label %sw.bb.i48
-    i32 108, label %sw.bb.i48
-    i32 76, label %sw.bb.i48
-    i32 109, label %sw.bb.i48
-    i32 77, label %sw.bb.i48
-    i32 110, label %sw.bb.i48
-    i32 78, label %sw.bb.i48
-    i32 111, label %sw.bb.i48
-    i32 79, label %sw.bb.i48
-    i32 112, label %sw.bb.i48
-    i32 80, label %sw.bb.i48
-    i32 113, label %sw.bb.i48
-    i32 81, label %sw.bb.i48
-    i32 114, label %sw.bb.i48
-    i32 82, label %sw.bb.i48
-    i32 115, label %sw.bb.i48
-    i32 83, label %sw.bb.i48
-    i32 116, label %sw.bb.i48
-    i32 84, label %sw.bb.i48
-    i32 117, label %sw.bb.i48
-    i32 85, label %sw.bb.i48
-    i32 118, label %sw.bb.i48
-    i32 86, label %sw.bb.i48
-    i32 119, label %sw.bb.i48
-    i32 87, label %sw.bb.i48
-    i32 120, label %sw.bb.i48
-    i32 88, label %sw.bb.i48
-    i32 121, label %sw.bb.i48
-    i32 89, label %sw.bb.i48
-    i32 122, label %sw.bb.i48
-    i32 90, label %sw.bb.i48
+  %first.tr17.i = phi ptr [ %add.ptr21, %if.end.preheader.i ], [ %add.ptr.i48, %if.end.i46.backedge ]
+  switch i8 %7, label %uriParseIpFutLoopA.exit.thread [
+    i8 33, label %sw.bb.i47
+    i8 36, label %sw.bb.i47
+    i8 38, label %sw.bb.i47
+    i8 40, label %sw.bb.i47
+    i8 41, label %sw.bb.i47
+    i8 45, label %sw.bb.i47
+    i8 42, label %sw.bb.i47
+    i8 44, label %sw.bb.i47
+    i8 46, label %sw.bb.i47
+    i8 58, label %sw.bb.i47
+    i8 59, label %sw.bb.i47
+    i8 39, label %sw.bb.i47
+    i8 95, label %sw.bb.i47
+    i8 126, label %sw.bb.i47
+    i8 43, label %sw.bb.i47
+    i8 61, label %sw.bb.i47
+    i8 48, label %sw.bb.i47
+    i8 49, label %sw.bb.i47
+    i8 50, label %sw.bb.i47
+    i8 51, label %sw.bb.i47
+    i8 52, label %sw.bb.i47
+    i8 53, label %sw.bb.i47
+    i8 54, label %sw.bb.i47
+    i8 55, label %sw.bb.i47
+    i8 56, label %sw.bb.i47
+    i8 57, label %sw.bb.i47
+    i8 65, label %sw.bb.i47
+    i8 66, label %sw.bb.i47
+    i8 67, label %sw.bb.i47
+    i8 68, label %sw.bb.i47
+    i8 69, label %sw.bb.i47
+    i8 70, label %sw.bb.i47
+    i8 97, label %sw.bb.i47
+    i8 98, label %sw.bb.i47
+    i8 99, label %sw.bb.i47
+    i8 100, label %sw.bb.i47
+    i8 101, label %sw.bb.i47
+    i8 102, label %sw.bb.i47
+    i8 103, label %sw.bb.i47
+    i8 71, label %sw.bb.i47
+    i8 104, label %sw.bb.i47
+    i8 72, label %sw.bb.i47
+    i8 105, label %sw.bb.i47
+    i8 73, label %sw.bb.i47
+    i8 106, label %sw.bb.i47
+    i8 74, label %sw.bb.i47
+    i8 107, label %sw.bb.i47
+    i8 75, label %sw.bb.i47
+    i8 108, label %sw.bb.i47
+    i8 76, label %sw.bb.i47
+    i8 109, label %sw.bb.i47
+    i8 77, label %sw.bb.i47
+    i8 110, label %sw.bb.i47
+    i8 78, label %sw.bb.i47
+    i8 111, label %sw.bb.i47
+    i8 79, label %sw.bb.i47
+    i8 112, label %sw.bb.i47
+    i8 80, label %sw.bb.i47
+    i8 113, label %sw.bb.i47
+    i8 81, label %sw.bb.i47
+    i8 114, label %sw.bb.i47
+    i8 82, label %sw.bb.i47
+    i8 115, label %sw.bb.i47
+    i8 83, label %sw.bb.i47
+    i8 116, label %sw.bb.i47
+    i8 84, label %sw.bb.i47
+    i8 117, label %sw.bb.i47
+    i8 85, label %sw.bb.i47
+    i8 118, label %sw.bb.i47
+    i8 86, label %sw.bb.i47
+    i8 119, label %sw.bb.i47
+    i8 87, label %sw.bb.i47
+    i8 120, label %sw.bb.i47
+    i8 88, label %sw.bb.i47
+    i8 121, label %sw.bb.i47
+    i8 89, label %sw.bb.i47
+    i8 122, label %sw.bb.i47
+    i8 90, label %sw.bb.i47
   ]
 
-sw.bb.i48:                                        ; preds = %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46
-  %add.ptr.i49 = getelementptr inbounds i8, ptr %first.tr17.i, i64 1
-  %exitcond.not.i50 = icmp eq ptr %first.tr17.i, %scevgep.i
-  br i1 %exitcond.not.i50, label %if.end26, label %if.end.i.i
+sw.bb.i47:                                        ; preds = %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46
+  %add.ptr.i48 = getelementptr inbounds i8, ptr %first.tr17.i, i64 1
+  %exitcond.not.i49 = icmp eq ptr %first.tr17.i, %scevgep.i
+  br i1 %exitcond.not.i49, label %if.end26, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %sw.bb.i48
-  %8 = load i8, ptr %add.ptr.i49, align 1
-  %conv.i.i = sext i8 %8 to i32
-  switch i32 %conv.i.i, label %if.end26 [
-    i32 33, label %if.end.i46.backedge
-    i32 36, label %if.end.i46.backedge
-    i32 38, label %if.end.i46.backedge
-    i32 40, label %if.end.i46.backedge
-    i32 41, label %if.end.i46.backedge
-    i32 45, label %if.end.i46.backedge
-    i32 42, label %if.end.i46.backedge
-    i32 44, label %if.end.i46.backedge
-    i32 46, label %if.end.i46.backedge
-    i32 58, label %if.end.i46.backedge
-    i32 59, label %if.end.i46.backedge
-    i32 39, label %if.end.i46.backedge
-    i32 95, label %if.end.i46.backedge
-    i32 126, label %if.end.i46.backedge
-    i32 43, label %if.end.i46.backedge
-    i32 61, label %if.end.i46.backedge
-    i32 48, label %if.end.i46.backedge
-    i32 49, label %if.end.i46.backedge
-    i32 50, label %if.end.i46.backedge
-    i32 51, label %if.end.i46.backedge
-    i32 52, label %if.end.i46.backedge
-    i32 53, label %if.end.i46.backedge
-    i32 54, label %if.end.i46.backedge
-    i32 55, label %if.end.i46.backedge
-    i32 56, label %if.end.i46.backedge
-    i32 57, label %if.end.i46.backedge
-    i32 65, label %if.end.i46.backedge
-    i32 66, label %if.end.i46.backedge
-    i32 67, label %if.end.i46.backedge
-    i32 68, label %if.end.i46.backedge
-    i32 69, label %if.end.i46.backedge
-    i32 70, label %if.end.i46.backedge
-    i32 97, label %if.end.i46.backedge
-    i32 98, label %if.end.i46.backedge
-    i32 99, label %if.end.i46.backedge
-    i32 100, label %if.end.i46.backedge
-    i32 101, label %if.end.i46.backedge
-    i32 102, label %if.end.i46.backedge
-    i32 103, label %if.end.i46.backedge
-    i32 71, label %if.end.i46.backedge
-    i32 104, label %if.end.i46.backedge
-    i32 72, label %if.end.i46.backedge
-    i32 105, label %if.end.i46.backedge
-    i32 73, label %if.end.i46.backedge
-    i32 106, label %if.end.i46.backedge
-    i32 74, label %if.end.i46.backedge
-    i32 107, label %if.end.i46.backedge
-    i32 75, label %if.end.i46.backedge
-    i32 108, label %if.end.i46.backedge
-    i32 76, label %if.end.i46.backedge
-    i32 109, label %if.end.i46.backedge
-    i32 77, label %if.end.i46.backedge
-    i32 110, label %if.end.i46.backedge
-    i32 78, label %if.end.i46.backedge
-    i32 111, label %if.end.i46.backedge
-    i32 79, label %if.end.i46.backedge
-    i32 112, label %if.end.i46.backedge
-    i32 80, label %if.end.i46.backedge
-    i32 113, label %if.end.i46.backedge
-    i32 81, label %if.end.i46.backedge
-    i32 114, label %if.end.i46.backedge
-    i32 82, label %if.end.i46.backedge
-    i32 115, label %if.end.i46.backedge
-    i32 83, label %if.end.i46.backedge
-    i32 116, label %if.end.i46.backedge
-    i32 84, label %if.end.i46.backedge
-    i32 117, label %if.end.i46.backedge
-    i32 85, label %if.end.i46.backedge
-    i32 118, label %if.end.i46.backedge
-    i32 86, label %if.end.i46.backedge
-    i32 119, label %if.end.i46.backedge
-    i32 87, label %if.end.i46.backedge
-    i32 120, label %if.end.i46.backedge
-    i32 88, label %if.end.i46.backedge
-    i32 121, label %if.end.i46.backedge
-    i32 89, label %if.end.i46.backedge
-    i32 122, label %if.end.i46.backedge
-    i32 90, label %if.end.i46.backedge
+if.end.i.i:                                       ; preds = %sw.bb.i47
+  %8 = load i8, ptr %add.ptr.i48, align 1
+  switch i8 %8, label %if.end26 [
+    i8 33, label %if.end.i46.backedge
+    i8 36, label %if.end.i46.backedge
+    i8 38, label %if.end.i46.backedge
+    i8 40, label %if.end.i46.backedge
+    i8 41, label %if.end.i46.backedge
+    i8 45, label %if.end.i46.backedge
+    i8 42, label %if.end.i46.backedge
+    i8 44, label %if.end.i46.backedge
+    i8 46, label %if.end.i46.backedge
+    i8 58, label %if.end.i46.backedge
+    i8 59, label %if.end.i46.backedge
+    i8 39, label %if.end.i46.backedge
+    i8 95, label %if.end.i46.backedge
+    i8 126, label %if.end.i46.backedge
+    i8 43, label %if.end.i46.backedge
+    i8 61, label %if.end.i46.backedge
+    i8 48, label %if.end.i46.backedge
+    i8 49, label %if.end.i46.backedge
+    i8 50, label %if.end.i46.backedge
+    i8 51, label %if.end.i46.backedge
+    i8 52, label %if.end.i46.backedge
+    i8 53, label %if.end.i46.backedge
+    i8 54, label %if.end.i46.backedge
+    i8 55, label %if.end.i46.backedge
+    i8 56, label %if.end.i46.backedge
+    i8 57, label %if.end.i46.backedge
+    i8 65, label %if.end.i46.backedge
+    i8 66, label %if.end.i46.backedge
+    i8 67, label %if.end.i46.backedge
+    i8 68, label %if.end.i46.backedge
+    i8 69, label %if.end.i46.backedge
+    i8 70, label %if.end.i46.backedge
+    i8 97, label %if.end.i46.backedge
+    i8 98, label %if.end.i46.backedge
+    i8 99, label %if.end.i46.backedge
+    i8 100, label %if.end.i46.backedge
+    i8 101, label %if.end.i46.backedge
+    i8 102, label %if.end.i46.backedge
+    i8 103, label %if.end.i46.backedge
+    i8 71, label %if.end.i46.backedge
+    i8 104, label %if.end.i46.backedge
+    i8 72, label %if.end.i46.backedge
+    i8 105, label %if.end.i46.backedge
+    i8 73, label %if.end.i46.backedge
+    i8 106, label %if.end.i46.backedge
+    i8 74, label %if.end.i46.backedge
+    i8 107, label %if.end.i46.backedge
+    i8 75, label %if.end.i46.backedge
+    i8 108, label %if.end.i46.backedge
+    i8 76, label %if.end.i46.backedge
+    i8 109, label %if.end.i46.backedge
+    i8 77, label %if.end.i46.backedge
+    i8 110, label %if.end.i46.backedge
+    i8 78, label %if.end.i46.backedge
+    i8 111, label %if.end.i46.backedge
+    i8 79, label %if.end.i46.backedge
+    i8 112, label %if.end.i46.backedge
+    i8 80, label %if.end.i46.backedge
+    i8 113, label %if.end.i46.backedge
+    i8 81, label %if.end.i46.backedge
+    i8 114, label %if.end.i46.backedge
+    i8 82, label %if.end.i46.backedge
+    i8 115, label %if.end.i46.backedge
+    i8 83, label %if.end.i46.backedge
+    i8 116, label %if.end.i46.backedge
+    i8 84, label %if.end.i46.backedge
+    i8 117, label %if.end.i46.backedge
+    i8 85, label %if.end.i46.backedge
+    i8 118, label %if.end.i46.backedge
+    i8 86, label %if.end.i46.backedge
+    i8 119, label %if.end.i46.backedge
+    i8 87, label %if.end.i46.backedge
+    i8 120, label %if.end.i46.backedge
+    i8 88, label %if.end.i46.backedge
+    i8 121, label %if.end.i46.backedge
+    i8 89, label %if.end.i46.backedge
+    i8 122, label %if.end.i46.backedge
+    i8 90, label %if.end.i46.backedge
   ]
 
 if.end.i46.backedge:                              ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -5503,27 +5482,27 @@ uriParseIpFutLoopA.exit.thread:                   ; preds = %if.end.i46, %if.end
   store i32 1, ptr %errorCode.i13.i, align 8
   br label %return
 
-if.end26:                                         ; preds = %sw.bb.i48, %if.end.i.i
-  %retval.0.i4561 = phi ptr [ %add.ptr.i49, %if.end.i.i ], [ %afterLast, %sw.bb.i48 ]
+if.end26:                                         ; preds = %sw.bb.i47, %if.end.i.i
+  %retval.0.i4560 = phi ptr [ %add.ptr.i48, %if.end.i.i ], [ %afterLast, %sw.bb.i47 ]
   %10 = load ptr, ptr %state, align 8
   %afterLast29 = getelementptr inbounds %struct.UriUriStructA, ptr %10, i64 0, i32 2, i32 1
-  store ptr %retval.0.i4561, ptr %afterLast29, align 8
+  store ptr %retval.0.i4560, ptr %afterLast29, align 8
   %11 = load ptr, ptr %state, align 8
   %afterLast33 = getelementptr inbounds %struct.UriUriStructA, ptr %11, i64 0, i32 3, i32 2, i32 1
-  store ptr %retval.0.i4561, ptr %afterLast33, align 8
+  store ptr %retval.0.i4560, ptr %afterLast33, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
   %12 = load ptr, ptr %state, align 8
-  %call.i51 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory), !range !5
-  %errorPos1.i52 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
-  store ptr %add.ptr, ptr %errorPos1.i52, align 8
-  %errorCode.i53 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
-  store i32 1, ptr %errorCode.i53, align 8
+  %call.i50 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory), !range !5
+  %errorPos1.i51 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 2
+  store ptr %add.ptr, ptr %errorPos1.i51, align 8
+  %errorCode.i52 = getelementptr inbounds %struct.UriParserStateStructA, ptr %state, i64 0, i32 1
+  store i32 1, ptr %errorCode.i52, align 8
   br label %return
 
 return:                                           ; preds = %uriParseIpFutLoopA.exit.thread, %sw.default, %if.end26, %if.then16, %if.then11, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then11 ], [ null, %if.then16 ], [ %retval.0.i4561, %if.end26 ], [ null, %uriParseIpFutLoopA.exit.thread ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %sw.default ], [ null, %if.then11 ], [ null, %if.then16 ], [ %retval.0.i4560, %if.end26 ], [ null, %uriParseIpFutLoopA.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -5544,86 +5523,85 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %first, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 33, label %sw.bb1
-    i32 36, label %sw.bb1
-    i32 38, label %sw.bb1
-    i32 40, label %sw.bb1
-    i32 41, label %sw.bb1
-    i32 42, label %sw.bb1
-    i32 44, label %sw.bb1
-    i32 59, label %sw.bb1
-    i32 39, label %sw.bb1
-    i32 43, label %sw.bb1
-    i32 61, label %sw.bb1
-    i32 45, label %sw.bb1
-    i32 46, label %sw.bb1
-    i32 95, label %sw.bb1
-    i32 126, label %sw.bb1
-    i32 48, label %sw.bb1
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb1
-    i32 51, label %sw.bb1
-    i32 52, label %sw.bb1
-    i32 53, label %sw.bb1
-    i32 54, label %sw.bb1
-    i32 55, label %sw.bb1
-    i32 56, label %sw.bb1
-    i32 57, label %sw.bb1
-    i32 65, label %sw.bb1
-    i32 66, label %sw.bb1
-    i32 67, label %sw.bb1
-    i32 68, label %sw.bb1
-    i32 69, label %sw.bb1
-    i32 70, label %sw.bb1
-    i32 97, label %sw.bb1
-    i32 98, label %sw.bb1
-    i32 99, label %sw.bb1
-    i32 100, label %sw.bb1
-    i32 101, label %sw.bb1
-    i32 102, label %sw.bb1
-    i32 103, label %sw.bb1
-    i32 71, label %sw.bb1
-    i32 104, label %sw.bb1
-    i32 72, label %sw.bb1
-    i32 105, label %sw.bb1
-    i32 73, label %sw.bb1
-    i32 106, label %sw.bb1
-    i32 74, label %sw.bb1
-    i32 107, label %sw.bb1
-    i32 75, label %sw.bb1
-    i32 108, label %sw.bb1
-    i32 76, label %sw.bb1
-    i32 109, label %sw.bb1
-    i32 77, label %sw.bb1
-    i32 110, label %sw.bb1
-    i32 78, label %sw.bb1
-    i32 111, label %sw.bb1
-    i32 79, label %sw.bb1
-    i32 112, label %sw.bb1
-    i32 80, label %sw.bb1
-    i32 113, label %sw.bb1
-    i32 81, label %sw.bb1
-    i32 114, label %sw.bb1
-    i32 82, label %sw.bb1
-    i32 115, label %sw.bb1
-    i32 83, label %sw.bb1
-    i32 116, label %sw.bb1
-    i32 84, label %sw.bb1
-    i32 117, label %sw.bb1
-    i32 85, label %sw.bb1
-    i32 118, label %sw.bb1
-    i32 86, label %sw.bb1
-    i32 119, label %sw.bb1
-    i32 87, label %sw.bb1
-    i32 120, label %sw.bb1
-    i32 88, label %sw.bb1
-    i32 121, label %sw.bb1
-    i32 89, label %sw.bb1
-    i32 122, label %sw.bb1
-    i32 90, label %sw.bb1
+  switch i8 %1, label %sw.default [
+    i8 37, label %sw.bb
+    i8 33, label %sw.bb1
+    i8 36, label %sw.bb1
+    i8 38, label %sw.bb1
+    i8 40, label %sw.bb1
+    i8 41, label %sw.bb1
+    i8 42, label %sw.bb1
+    i8 44, label %sw.bb1
+    i8 59, label %sw.bb1
+    i8 39, label %sw.bb1
+    i8 43, label %sw.bb1
+    i8 61, label %sw.bb1
+    i8 45, label %sw.bb1
+    i8 46, label %sw.bb1
+    i8 95, label %sw.bb1
+    i8 126, label %sw.bb1
+    i8 48, label %sw.bb1
+    i8 49, label %sw.bb1
+    i8 50, label %sw.bb1
+    i8 51, label %sw.bb1
+    i8 52, label %sw.bb1
+    i8 53, label %sw.bb1
+    i8 54, label %sw.bb1
+    i8 55, label %sw.bb1
+    i8 56, label %sw.bb1
+    i8 57, label %sw.bb1
+    i8 65, label %sw.bb1
+    i8 66, label %sw.bb1
+    i8 67, label %sw.bb1
+    i8 68, label %sw.bb1
+    i8 69, label %sw.bb1
+    i8 70, label %sw.bb1
+    i8 97, label %sw.bb1
+    i8 98, label %sw.bb1
+    i8 99, label %sw.bb1
+    i8 100, label %sw.bb1
+    i8 101, label %sw.bb1
+    i8 102, label %sw.bb1
+    i8 103, label %sw.bb1
+    i8 71, label %sw.bb1
+    i8 104, label %sw.bb1
+    i8 72, label %sw.bb1
+    i8 105, label %sw.bb1
+    i8 73, label %sw.bb1
+    i8 106, label %sw.bb1
+    i8 74, label %sw.bb1
+    i8 107, label %sw.bb1
+    i8 75, label %sw.bb1
+    i8 108, label %sw.bb1
+    i8 76, label %sw.bb1
+    i8 109, label %sw.bb1
+    i8 77, label %sw.bb1
+    i8 110, label %sw.bb1
+    i8 78, label %sw.bb1
+    i8 111, label %sw.bb1
+    i8 79, label %sw.bb1
+    i8 112, label %sw.bb1
+    i8 80, label %sw.bb1
+    i8 113, label %sw.bb1
+    i8 81, label %sw.bb1
+    i8 114, label %sw.bb1
+    i8 82, label %sw.bb1
+    i8 115, label %sw.bb1
+    i8 83, label %sw.bb1
+    i8 116, label %sw.bb1
+    i8 84, label %sw.bb1
+    i8 117, label %sw.bb1
+    i8 85, label %sw.bb1
+    i8 118, label %sw.bb1
+    i8 86, label %sw.bb1
+    i8 119, label %sw.bb1
+    i8 87, label %sw.bb1
+    i8 120, label %sw.bb1
+    i8 88, label %sw.bb1
+    i8 121, label %sw.bb1
+    i8 89, label %sw.bb1
+    i8 122, label %sw.bb1
+    i8 90, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5717,88 +5695,87 @@ if.then1:                                         ; preds = %if.then
 if.end2:                                          ; preds = %if.end2.preheader, %sw.bb7
   %first.tr52 = phi ptr [ %add.ptr8, %sw.bb7 ], [ %first, %if.end2.preheader ]
   %15 = load i8, ptr %first.tr52, align 1
-  %conv = sext i8 %15 to i32
-  switch i32 %conv, label %sw.default [
-    i32 33, label %sw.bb
-    i32 36, label %sw.bb
-    i32 38, label %sw.bb
-    i32 39, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 42, label %sw.bb
-    i32 43, label %sw.bb
-    i32 44, label %sw.bb
-    i32 59, label %sw.bb
-    i32 61, label %sw.bb
-    i32 45, label %sw.bb
-    i32 46, label %sw.bb
-    i32 95, label %sw.bb
-    i32 126, label %sw.bb
-    i32 58, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 71, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 106, label %sw.bb
-    i32 74, label %sw.bb
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 109, label %sw.bb
-    i32 77, label %sw.bb
-    i32 110, label %sw.bb
-    i32 78, label %sw.bb
-    i32 111, label %sw.bb
-    i32 79, label %sw.bb
-    i32 112, label %sw.bb
-    i32 80, label %sw.bb
-    i32 113, label %sw.bb
-    i32 81, label %sw.bb
-    i32 114, label %sw.bb
-    i32 82, label %sw.bb
-    i32 115, label %sw.bb
-    i32 83, label %sw.bb
-    i32 116, label %sw.bb
-    i32 84, label %sw.bb
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 119, label %sw.bb
-    i32 87, label %sw.bb
-    i32 120, label %sw.bb
-    i32 88, label %sw.bb
-    i32 121, label %sw.bb
-    i32 89, label %sw.bb
-    i32 122, label %sw.bb
-    i32 90, label %sw.bb
-    i32 48, label %sw.bb7
-    i32 49, label %sw.bb7
-    i32 50, label %sw.bb7
-    i32 51, label %sw.bb7
-    i32 52, label %sw.bb7
-    i32 53, label %sw.bb7
-    i32 54, label %sw.bb7
-    i32 55, label %sw.bb7
-    i32 56, label %sw.bb7
-    i32 57, label %sw.bb7
-    i32 37, label %sw.bb10
-    i32 64, label %sw.bb20
+  switch i8 %15, label %sw.default [
+    i8 33, label %sw.bb
+    i8 36, label %sw.bb
+    i8 38, label %sw.bb
+    i8 39, label %sw.bb
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb
+    i8 42, label %sw.bb
+    i8 43, label %sw.bb
+    i8 44, label %sw.bb
+    i8 59, label %sw.bb
+    i8 61, label %sw.bb
+    i8 45, label %sw.bb
+    i8 46, label %sw.bb
+    i8 95, label %sw.bb
+    i8 126, label %sw.bb
+    i8 58, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 71, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 106, label %sw.bb
+    i8 74, label %sw.bb
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 109, label %sw.bb
+    i8 77, label %sw.bb
+    i8 110, label %sw.bb
+    i8 78, label %sw.bb
+    i8 111, label %sw.bb
+    i8 79, label %sw.bb
+    i8 112, label %sw.bb
+    i8 80, label %sw.bb
+    i8 113, label %sw.bb
+    i8 81, label %sw.bb
+    i8 114, label %sw.bb
+    i8 82, label %sw.bb
+    i8 115, label %sw.bb
+    i8 83, label %sw.bb
+    i8 116, label %sw.bb
+    i8 84, label %sw.bb
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 119, label %sw.bb
+    i8 87, label %sw.bb
+    i8 120, label %sw.bb
+    i8 88, label %sw.bb
+    i8 121, label %sw.bb
+    i8 89, label %sw.bb
+    i8 122, label %sw.bb
+    i8 90, label %sw.bb
+    i8 48, label %sw.bb7
+    i8 49, label %sw.bb7
+    i8 50, label %sw.bb7
+    i8 51, label %sw.bb7
+    i8 52, label %sw.bb7
+    i8 53, label %sw.bb7
+    i8 54, label %sw.bb7
+    i8 55, label %sw.bb7
+    i8 56, label %sw.bb7
+    i8 57, label %sw.bb7
+    i8 37, label %sw.bb10
+    i8 64, label %sw.bb20
   ]
 
 sw.bb:                                            ; preds = %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2, %if.end2
@@ -5908,9 +5885,8 @@ sw.bb.i:                                          ; preds = %if.end.i
 if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
   %first.tr7.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
   %4 = load i8, ptr %first.tr7.i.i, align 1
-  %conv.i.i = sext i8 %4 to i32
-  %conv.off.i.i = add nsw i32 %conv.i.i, -48
-  %switch.i.i = icmp ult i32 %conv.off.i.i, 10
+  %.off.i.i = add i8 %4, -48
+  %switch.i.i = icmp ult i8 %.off.i.i, 10
   br i1 %switch.i.i, label %sw.bb.i.i, label %if.end4.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
@@ -5979,86 +5955,85 @@ if.then1.i:                                       ; preds = %if.then.i
 
 if.end2.i:                                        ; preds = %tailrecurse.i
   %18 = load i8, ptr %first.tr.i, align 1
-  %conv.i = sext i8 %18 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 33, label %sw.bb.i19
-    i32 36, label %sw.bb.i19
-    i32 37, label %sw.bb.i19
-    i32 38, label %sw.bb.i19
-    i32 40, label %sw.bb.i19
-    i32 41, label %sw.bb.i19
-    i32 45, label %sw.bb.i19
-    i32 42, label %sw.bb.i19
-    i32 44, label %sw.bb.i19
-    i32 46, label %sw.bb.i19
-    i32 59, label %sw.bb.i19
-    i32 39, label %sw.bb.i19
-    i32 95, label %sw.bb.i19
-    i32 126, label %sw.bb.i19
-    i32 43, label %sw.bb.i19
-    i32 61, label %sw.bb.i19
-    i32 48, label %sw.bb.i19
-    i32 49, label %sw.bb.i19
-    i32 50, label %sw.bb.i19
-    i32 51, label %sw.bb.i19
-    i32 52, label %sw.bb.i19
-    i32 53, label %sw.bb.i19
-    i32 54, label %sw.bb.i19
-    i32 55, label %sw.bb.i19
-    i32 56, label %sw.bb.i19
-    i32 57, label %sw.bb.i19
-    i32 65, label %sw.bb.i19
-    i32 66, label %sw.bb.i19
-    i32 67, label %sw.bb.i19
-    i32 68, label %sw.bb.i19
-    i32 69, label %sw.bb.i19
-    i32 70, label %sw.bb.i19
-    i32 97, label %sw.bb.i19
-    i32 98, label %sw.bb.i19
-    i32 99, label %sw.bb.i19
-    i32 100, label %sw.bb.i19
-    i32 101, label %sw.bb.i19
-    i32 102, label %sw.bb.i19
-    i32 103, label %sw.bb.i19
-    i32 71, label %sw.bb.i19
-    i32 104, label %sw.bb.i19
-    i32 72, label %sw.bb.i19
-    i32 105, label %sw.bb.i19
-    i32 73, label %sw.bb.i19
-    i32 106, label %sw.bb.i19
-    i32 74, label %sw.bb.i19
-    i32 107, label %sw.bb.i19
-    i32 75, label %sw.bb.i19
-    i32 108, label %sw.bb.i19
-    i32 76, label %sw.bb.i19
-    i32 109, label %sw.bb.i19
-    i32 77, label %sw.bb.i19
-    i32 110, label %sw.bb.i19
-    i32 78, label %sw.bb.i19
-    i32 111, label %sw.bb.i19
-    i32 79, label %sw.bb.i19
-    i32 112, label %sw.bb.i19
-    i32 80, label %sw.bb.i19
-    i32 113, label %sw.bb.i19
-    i32 81, label %sw.bb.i19
-    i32 114, label %sw.bb.i19
-    i32 82, label %sw.bb.i19
-    i32 115, label %sw.bb.i19
-    i32 83, label %sw.bb.i19
-    i32 116, label %sw.bb.i19
-    i32 84, label %sw.bb.i19
-    i32 117, label %sw.bb.i19
-    i32 85, label %sw.bb.i19
-    i32 118, label %sw.bb.i19
-    i32 86, label %sw.bb.i19
-    i32 119, label %sw.bb.i19
-    i32 87, label %sw.bb.i19
-    i32 120, label %sw.bb.i19
-    i32 88, label %sw.bb.i19
-    i32 121, label %sw.bb.i19
-    i32 89, label %sw.bb.i19
-    i32 122, label %sw.bb.i19
-    i32 90, label %sw.bb.i19
+  switch i8 %18, label %sw.default.i [
+    i8 33, label %sw.bb.i19
+    i8 36, label %sw.bb.i19
+    i8 37, label %sw.bb.i19
+    i8 38, label %sw.bb.i19
+    i8 40, label %sw.bb.i19
+    i8 41, label %sw.bb.i19
+    i8 45, label %sw.bb.i19
+    i8 42, label %sw.bb.i19
+    i8 44, label %sw.bb.i19
+    i8 46, label %sw.bb.i19
+    i8 59, label %sw.bb.i19
+    i8 39, label %sw.bb.i19
+    i8 95, label %sw.bb.i19
+    i8 126, label %sw.bb.i19
+    i8 43, label %sw.bb.i19
+    i8 61, label %sw.bb.i19
+    i8 48, label %sw.bb.i19
+    i8 49, label %sw.bb.i19
+    i8 50, label %sw.bb.i19
+    i8 51, label %sw.bb.i19
+    i8 52, label %sw.bb.i19
+    i8 53, label %sw.bb.i19
+    i8 54, label %sw.bb.i19
+    i8 55, label %sw.bb.i19
+    i8 56, label %sw.bb.i19
+    i8 57, label %sw.bb.i19
+    i8 65, label %sw.bb.i19
+    i8 66, label %sw.bb.i19
+    i8 67, label %sw.bb.i19
+    i8 68, label %sw.bb.i19
+    i8 69, label %sw.bb.i19
+    i8 70, label %sw.bb.i19
+    i8 97, label %sw.bb.i19
+    i8 98, label %sw.bb.i19
+    i8 99, label %sw.bb.i19
+    i8 100, label %sw.bb.i19
+    i8 101, label %sw.bb.i19
+    i8 102, label %sw.bb.i19
+    i8 103, label %sw.bb.i19
+    i8 71, label %sw.bb.i19
+    i8 104, label %sw.bb.i19
+    i8 72, label %sw.bb.i19
+    i8 105, label %sw.bb.i19
+    i8 73, label %sw.bb.i19
+    i8 106, label %sw.bb.i19
+    i8 74, label %sw.bb.i19
+    i8 107, label %sw.bb.i19
+    i8 75, label %sw.bb.i19
+    i8 108, label %sw.bb.i19
+    i8 76, label %sw.bb.i19
+    i8 109, label %sw.bb.i19
+    i8 77, label %sw.bb.i19
+    i8 110, label %sw.bb.i19
+    i8 78, label %sw.bb.i19
+    i8 111, label %sw.bb.i19
+    i8 79, label %sw.bb.i19
+    i8 112, label %sw.bb.i19
+    i8 80, label %sw.bb.i19
+    i8 113, label %sw.bb.i19
+    i8 81, label %sw.bb.i19
+    i8 114, label %sw.bb.i19
+    i8 82, label %sw.bb.i19
+    i8 115, label %sw.bb.i19
+    i8 83, label %sw.bb.i19
+    i8 116, label %sw.bb.i19
+    i8 84, label %sw.bb.i19
+    i8 117, label %sw.bb.i19
+    i8 85, label %sw.bb.i19
+    i8 118, label %sw.bb.i19
+    i8 86, label %sw.bb.i19
+    i8 119, label %sw.bb.i19
+    i8 87, label %sw.bb.i19
+    i8 120, label %sw.bb.i19
+    i8 88, label %sw.bb.i19
+    i8 121, label %sw.bb.i19
+    i8 89, label %sw.bb.i19
+    i8 122, label %sw.bb.i19
+    i8 90, label %sw.bb.i19
   ]
 
 sw.bb.i19:                                        ; preds = %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i, %if.end2.i
@@ -6093,9 +6068,8 @@ sw.bb.i.i20:                                      ; preds = %if.end.i27.i
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb.i.i.i
   %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
   %21 = load i8, ptr %first.tr7.i.i.i, align 1
-  %conv.i.i.i = sext i8 %21 to i32
-  %conv.off.i.i.i = add nsw i32 %conv.i.i.i, -48
-  %switch.i.i.i = icmp ult i32 %conv.off.i.i.i, 10
+  %.off.i.i.i = add i8 %21, -48
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
@@ -6238,88 +6212,87 @@ if.then:                                          ; preds = %tailrecurse.backedg
 if.end:                                           ; preds = %entry, %tailrecurse.backedge
   %first.tr33 = phi ptr [ %first.tr.be, %tailrecurse.backedge ], [ %first, %entry ]
   %1 = load i8, ptr %first.tr33, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 33, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 45, label %sw.bb
-    i32 42, label %sw.bb
-    i32 44, label %sw.bb
-    i32 46, label %sw.bb
-    i32 59, label %sw.bb
-    i32 39, label %sw.bb
-    i32 95, label %sw.bb
-    i32 126, label %sw.bb
-    i32 43, label %sw.bb
-    i32 61, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 71, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 106, label %sw.bb
-    i32 74, label %sw.bb
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 109, label %sw.bb
-    i32 77, label %sw.bb
-    i32 110, label %sw.bb
-    i32 78, label %sw.bb
-    i32 111, label %sw.bb
-    i32 79, label %sw.bb
-    i32 112, label %sw.bb
-    i32 80, label %sw.bb
-    i32 113, label %sw.bb
-    i32 81, label %sw.bb
-    i32 114, label %sw.bb
-    i32 82, label %sw.bb
-    i32 115, label %sw.bb
-    i32 83, label %sw.bb
-    i32 116, label %sw.bb
-    i32 84, label %sw.bb
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 119, label %sw.bb
-    i32 87, label %sw.bb
-    i32 120, label %sw.bb
-    i32 88, label %sw.bb
-    i32 121, label %sw.bb
-    i32 89, label %sw.bb
-    i32 122, label %sw.bb
-    i32 90, label %sw.bb
-    i32 58, label %sw.bb6
-    i32 64, label %sw.bb8
+  switch i8 %1, label %sw.default [
+    i8 33, label %sw.bb
+    i8 36, label %sw.bb
+    i8 37, label %sw.bb
+    i8 38, label %sw.bb
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb
+    i8 45, label %sw.bb
+    i8 42, label %sw.bb
+    i8 44, label %sw.bb
+    i8 46, label %sw.bb
+    i8 59, label %sw.bb
+    i8 39, label %sw.bb
+    i8 95, label %sw.bb
+    i8 126, label %sw.bb
+    i8 43, label %sw.bb
+    i8 61, label %sw.bb
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 71, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 106, label %sw.bb
+    i8 74, label %sw.bb
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 109, label %sw.bb
+    i8 77, label %sw.bb
+    i8 110, label %sw.bb
+    i8 78, label %sw.bb
+    i8 111, label %sw.bb
+    i8 79, label %sw.bb
+    i8 112, label %sw.bb
+    i8 80, label %sw.bb
+    i8 113, label %sw.bb
+    i8 81, label %sw.bb
+    i8 114, label %sw.bb
+    i8 82, label %sw.bb
+    i8 115, label %sw.bb
+    i8 83, label %sw.bb
+    i8 116, label %sw.bb
+    i8 84, label %sw.bb
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 119, label %sw.bb
+    i8 87, label %sw.bb
+    i8 120, label %sw.bb
+    i8 88, label %sw.bb
+    i8 121, label %sw.bb
+    i8 89, label %sw.bb
+    i8 122, label %sw.bb
+    i8 90, label %sw.bb
+    i8 58, label %sw.bb6
+    i8 64, label %sw.bb8
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
@@ -6413,90 +6386,89 @@ entry:
 if.end:                                           ; preds = %entry, %tailrecurse.backedge
   %first.tr15 = phi ptr [ %first.tr.be, %tailrecurse.backedge ], [ %first, %entry ]
   %0 = load i8, ptr %first.tr15, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 33, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 45, label %sw.bb
-    i32 42, label %sw.bb
-    i32 44, label %sw.bb
-    i32 46, label %sw.bb
-    i32 58, label %sw.bb
-    i32 59, label %sw.bb
-    i32 64, label %sw.bb
-    i32 39, label %sw.bb
-    i32 95, label %sw.bb
-    i32 126, label %sw.bb
-    i32 43, label %sw.bb
-    i32 61, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 71, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 106, label %sw.bb
-    i32 74, label %sw.bb
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 109, label %sw.bb
-    i32 77, label %sw.bb
-    i32 110, label %sw.bb
-    i32 78, label %sw.bb
-    i32 111, label %sw.bb
-    i32 79, label %sw.bb
-    i32 112, label %sw.bb
-    i32 80, label %sw.bb
-    i32 113, label %sw.bb
-    i32 81, label %sw.bb
-    i32 114, label %sw.bb
-    i32 82, label %sw.bb
-    i32 115, label %sw.bb
-    i32 83, label %sw.bb
-    i32 116, label %sw.bb
-    i32 84, label %sw.bb
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 119, label %sw.bb
-    i32 87, label %sw.bb
-    i32 120, label %sw.bb
-    i32 88, label %sw.bb
-    i32 121, label %sw.bb
-    i32 89, label %sw.bb
-    i32 122, label %sw.bb
-    i32 90, label %sw.bb
-    i32 47, label %sw.bb6
-    i32 63, label %sw.bb6
+  switch i8 %0, label %return [
+    i8 33, label %sw.bb
+    i8 36, label %sw.bb
+    i8 37, label %sw.bb
+    i8 38, label %sw.bb
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb
+    i8 45, label %sw.bb
+    i8 42, label %sw.bb
+    i8 44, label %sw.bb
+    i8 46, label %sw.bb
+    i8 58, label %sw.bb
+    i8 59, label %sw.bb
+    i8 64, label %sw.bb
+    i8 39, label %sw.bb
+    i8 95, label %sw.bb
+    i8 126, label %sw.bb
+    i8 43, label %sw.bb
+    i8 61, label %sw.bb
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 50, label %sw.bb
+    i8 51, label %sw.bb
+    i8 52, label %sw.bb
+    i8 53, label %sw.bb
+    i8 54, label %sw.bb
+    i8 55, label %sw.bb
+    i8 56, label %sw.bb
+    i8 57, label %sw.bb
+    i8 65, label %sw.bb
+    i8 66, label %sw.bb
+    i8 67, label %sw.bb
+    i8 68, label %sw.bb
+    i8 69, label %sw.bb
+    i8 70, label %sw.bb
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 71, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 106, label %sw.bb
+    i8 74, label %sw.bb
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 109, label %sw.bb
+    i8 77, label %sw.bb
+    i8 110, label %sw.bb
+    i8 78, label %sw.bb
+    i8 111, label %sw.bb
+    i8 79, label %sw.bb
+    i8 112, label %sw.bb
+    i8 80, label %sw.bb
+    i8 113, label %sw.bb
+    i8 81, label %sw.bb
+    i8 114, label %sw.bb
+    i8 82, label %sw.bb
+    i8 115, label %sw.bb
+    i8 83, label %sw.bb
+    i8 116, label %sw.bb
+    i8 84, label %sw.bb
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 119, label %sw.bb
+    i8 87, label %sw.bb
+    i8 120, label %sw.bb
+    i8 88, label %sw.bb
+    i8 121, label %sw.bb
+    i8 89, label %sw.bb
+    i8 122, label %sw.bb
+    i8 90, label %sw.bb
+    i8 47, label %sw.bb6
+    i8 63, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end

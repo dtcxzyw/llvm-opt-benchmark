@@ -3435,11 +3435,11 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.then.i.i.invoke.cont9_crit_edge unwind label %lpad8
 
 if.then.i.i.invoke.cont9_crit_edge:               ; preds = %if.then.i.i
-  %.pre228 = load i64, ptr %ref.tmp, align 8
+  %.pre227 = load i64, ptr %ref.tmp, align 8
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i.i.invoke.cont9_crit_edge, %invoke.cont7
-  %2 = phi i64 [ %.pre228, %if.then.i.i.invoke.cont9_crit_edge ], [ %0, %invoke.cont7 ]
+  %2 = phi i64 [ %.pre227, %if.then.i.i.invoke.cont9_crit_edge ], [ %0, %invoke.cont7 ]
   %and.i.i.i18 = and i64 %2, 1
   %cmp.i.i.i19 = icmp eq i64 %and.i.i.i18, 0
   br i1 %cmp.i.i.i19, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i20
@@ -3499,7 +3499,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %invoke.cont134.thr_comm
 
 lpad3:                                            ; preds = %if.then.i.i170, %if.then.i.i62, %if.then139, %if.then104, %invoke.cont100, %if.end98, %invoke.cont78, %if.then74, %invoke.cont71, %if.end69, %if.end21, %if.end
-  %result.sroa.0.0 = phi ptr [ %result.sroa.0.1215, %if.then.i.i170 ], [ %result.sroa.0.1216, %if.then139 ], [ null, %if.then.i.i62 ], [ null, %if.then104 ], [ null, %invoke.cont100 ], [ null, %if.end98 ], [ null, %invoke.cont78 ], [ null, %if.then74 ], [ null, %invoke.cont71 ], [ null, %if.end69 ], [ null, %if.end21 ], [ null, %if.end ]
+  %result.sroa.0.0 = phi ptr [ %result.sroa.0.1215, %if.then.i.i170 ], [ %result.sroa.0.1216, %if.then139 ], [ null, %if.then104 ], [ null, %invoke.cont100 ], [ null, %if.end98 ], [ null, %invoke.cont78 ], [ null, %if.then74 ], [ null, %invoke.cont71 ], [ null, %if.end69 ], [ null, %if.then.i.i62 ], [ null, %if.end21 ], [ null, %if.end ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
@@ -3631,11 +3631,11 @@ if.then.i.i41:                                    ; preds = %if.then.i38
           to label %if.then.i.i41.invoke.cont38_crit_edge unwind label %lpad37
 
 if.then.i.i41.invoke.cont38_crit_edge:            ; preds = %if.then.i.i41
-  %.pre226 = load i64, ptr %ref.tmp30, align 8
+  %.pre225 = load i64, ptr %ref.tmp30, align 8
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.then.i.i41.invoke.cont38_crit_edge, %invoke.cont36
-  %29 = phi i64 [ %.pre226, %if.then.i.i41.invoke.cont38_crit_edge ], [ %27, %invoke.cont36 ]
+  %29 = phi i64 [ %.pre225, %if.then.i.i41.invoke.cont38_crit_edge ], [ %27, %invoke.cont36 ]
   %and.i.i.i44 = and i64 %29, 1
   %cmp.i.i.i45 = icmp eq i64 %and.i.i.i44, 0
   br i1 %cmp.i.i.i45, label %_ZN4absl12lts_202308026StatusD2Ev.exit49, label %if.then.i.i46
@@ -3774,9 +3774,14 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit: ; pre
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit
   %50 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  switch i8 %50, label %if.then49 [
+  switch i8 %50, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i62
+    i8 0, label %if.then49
+    i8 1, label %if.then49
+    i8 2, label %if.then49
+    i8 3, label %if.then49
     i8 4, label %if.end69
+    i8 5, label %if.then49
   ]
 
 if.then.i.i62:                                    ; preds = %cleanup.cont
@@ -3790,7 +3795,10 @@ if.then.i.i62:                                    ; preds = %cleanup.cont
 .noexc63:                                         ; preds = %if.then.i.i62
   unreachable
 
-if.then49:                                        ; preds = %cleanup.cont
+sw.default.i.i.i:                                 ; preds = %cleanup.cont
+  unreachable
+
+if.then49:                                        ; preds = %cleanup.cont, %cleanup.cont, %cleanup.cont, %cleanup.cont, %cleanup.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp55, i8 0, i64 24, i1 false)
   invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp51, i32 noundef 2, i64 20, ptr nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53, ptr noundef nonnull %agg.tmp55)
           to label %invoke.cont57 unwind label %lpad56
@@ -3824,11 +3832,11 @@ if.then.i.i79:                                    ; preds = %if.then.i76
           to label %if.then.i.i79.invoke.cont64_crit_edge unwind label %lpad63
 
 if.then.i.i79.invoke.cont64_crit_edge:            ; preds = %if.then.i.i79
-  %.pre227 = load i64, ptr %ref.tmp50, align 8
+  %.pre226 = load i64, ptr %ref.tmp50, align 8
   br label %invoke.cont64
 
 invoke.cont64:                                    ; preds = %if.then.i.i79.invoke.cont64_crit_edge, %invoke.cont62
-  %56 = phi i64 [ %.pre227, %if.then.i.i79.invoke.cont64_crit_edge ], [ %54, %invoke.cont62 ]
+  %56 = phi i64 [ %.pre226, %if.then.i.i79.invoke.cont64_crit_edge ], [ %54, %invoke.cont62 ]
   %and.i.i.i82 = and i64 %56, 1
   %cmp.i.i.i83 = icmp eq i64 %and.i.i.i82, 0
   br i1 %cmp.i.i.i83, label %_ZN4absl12lts_202308026StatusD2Ev.exit87, label %if.then.i.i84
@@ -4442,15 +4450,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.74, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -4597,14 +4604,13 @@ entry:
   %ref.tmp.i.i.i = alloca %class.anon.74, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry

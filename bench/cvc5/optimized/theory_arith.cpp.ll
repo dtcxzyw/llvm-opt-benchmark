@@ -1701,9 +1701,9 @@ entry:
   br i1 %call2, label %if.then.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %entry
-  switch i32 %bf.cast.i, label %if.end76 [
-    i32 81, label %if.then
-    i32 50, label %if.then
+  switch i16 %bf.clear.i, label %if.end76 [
+    i16 81, label %if.then
+    i16 50, label %if.then
   ]
 
 if.then:                                          ; preds = %switch.early.test, %switch.early.test
@@ -2074,10 +2074,9 @@ cond.end:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end25 [
-    i32 5, label %if.then
-    i32 73, label %if.then8
+  switch i16 %bf.clear.i, label %if.end25 [
+    i16 5, label %if.then
+    i16 73, label %if.then8
   ]
 
 if.then:                                          ; preds = %cond.end

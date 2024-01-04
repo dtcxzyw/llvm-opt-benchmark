@@ -182,13 +182,12 @@ for.body:                                         ; preds = %for.cond.preheader,
   %j.09 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %j.09
   %0 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 34, label %sw.bb.invoke
-    i32 92, label %sw.bb2
-    i32 9, label %sw.bb5
-    i32 13, label %sw.bb8
-    i32 10, label %sw.bb11
+  switch i8 %0, label %sw.default [
+    i8 34, label %sw.bb.invoke
+    i8 92, label %sw.bb2
+    i8 9, label %sw.bb5
+    i8 13, label %sw.bb8
+    i8 10, label %sw.bb11
   ]
 
 lpad.loopexit:                                    ; preds = %sw.bb.invoke, %sw.default
@@ -471,7 +470,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %1 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %1

@@ -503,7 +503,6 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %tt_.i = getelementptr inbounds %struct.TValue, ptr %55, i64 %indvars.iv.i, i32 1
   %56 = load i8, ptr %tt_.i, align 8
   %57 = and i8 %56, 63
-  %and.i = zext nneg i8 %57 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i)
   store i8 %57, ptr %x.i.i, align 1
   %58 = load i32, ptr %status.i.i.i26, align 4
@@ -521,11 +520,11 @@ if.then.i.i.i96:                                  ; preds = %for.body.i
 dumpByte.exit.i:                                  ; preds = %if.then.i.i.i96, %for.body.i
   %62 = phi i32 [ %58, %for.body.i ], [ %call.i.i.i97, %if.then.i.i.i96 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i)
-  switch i32 %and.i, label %for.inc.i [
-    i32 19, label %sw.bb.i
-    i32 3, label %sw.bb1.i
-    i32 4, label %sw.bb3.i
-    i32 20, label %sw.bb3.i
+  switch i8 %57, label %for.inc.i [
+    i8 19, label %sw.bb.i
+    i8 3, label %sw.bb1.i
+    i8 4, label %sw.bb3.i
+    i8 20, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %dumpByte.exit.i

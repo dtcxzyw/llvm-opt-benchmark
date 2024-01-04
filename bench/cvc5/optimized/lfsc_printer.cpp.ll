@@ -12913,7 +12913,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %3
@@ -17649,11 +17649,10 @@ sw.bb787:                                         ; preds = %cond.true
   %d_kind.i1642 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %495, i64 0, i32 1
   %bf.load.i1643 = load i16, ptr %d_kind.i1642, align 8
   %bf.clear.i1644 = and i16 %bf.load.i1643, 1023
-  %bf.cast.i1645 = zext nneg i16 %bf.clear.i1644 to i32
-  switch i32 %bf.cast.i1645, label %cleanup [
-    i32 323, label %if.then795
-    i32 312, label %if.then795
-    i32 309, label %if.then795
+  switch i16 %bf.clear.i1644, label %cleanup [
+    i16 323, label %if.then795
+    i16 312, label %if.then795
+    i16 309, label %if.then795
   ]
 
 if.then795:                                       ; preds = %sw.bb787, %sw.bb787, %sw.bb787
@@ -17735,10 +17734,9 @@ sw.bb821:                                         ; preds = %cond.true
   %d_kind.i1646 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %503, i64 0, i32 1
   %bf.load.i1647 = load i16, ptr %d_kind.i1646, align 8
   %bf.clear.i1648 = and i16 %bf.load.i1647, 1023
-  %bf.cast.i1649 = zext nneg i16 %bf.clear.i1648 to i32
-  switch i32 %bf.cast.i1649, label %cleanup [
-    i32 312, label %if.then829
-    i32 306, label %if.then829
+  switch i16 %bf.clear.i1648, label %cleanup [
+    i16 312, label %if.then829
+    i16 306, label %if.then829
   ]
 
 if.then829:                                       ; preds = %sw.bb821, %sw.bb821
@@ -24252,7 +24250,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -26559,7 +26557,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal5proof5PExprESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
@@ -28419,7 +28417,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

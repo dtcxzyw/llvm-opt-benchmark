@@ -49,16 +49,15 @@ define noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(pt
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %keyword, i64 1
   %0 = load i8, ptr %keyword, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 102, label %sw.bb
-    i32 109, label %sw.bb1
-    i32 111, label %sw.bb6
-    i32 116, label %sw.bb15
-    i32 122, label %sw.bb20
-    i32 61, label %sw.bb25
-    i32 48, label %sw.bb35
-    i32 49, label %sw.bb40
+  switch i8 %0, label %sw.epilog [
+    i8 102, label %sw.bb
+    i8 109, label %sw.bb1
+    i8 111, label %sw.bb6
+    i8 116, label %sw.bb15
+    i8 122, label %sw.bb20
+    i8 61, label %sw.bb25
+    i8 48, label %sw.bb35
+    i8 49, label %sw.bb40
   ]
 
 sw.bb:                                            ; preds = %entry

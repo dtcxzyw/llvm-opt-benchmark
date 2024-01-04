@@ -4157,12 +4157,11 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %k.0 = phi i32 [ 0, %if.end7 ], [ %k.0.be, %for.cond.backedge ]
   %a.0 = phi i32 [ %6, %if.end7 ], [ %a.0.be, %for.cond.backedge ]
   %b.0 = phi i32 [ %7, %if.end7 ], [ %b.0.be, %for.cond.backedge ]
-  %conv = sext i8 %polarity.addr.0 to i32
-  switch i32 %conv, label %for.cond.backedge [
-    i32 0, label %sw.bb
-    i32 3, label %sw.bb107
-    i32 1, label %sw.bb139
-    i32 2, label %sw.bb181
+  switch i8 %polarity.addr.0, label %for.cond.backedge [
+    i8 0, label %sw.bb
+    i8 3, label %sw.bb107
+    i8 1, label %sw.bb139
+    i8 2, label %sw.bb181
   ]
 
 sw.bb:                                            ; preds = %for.cond
@@ -5727,12 +5726,11 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %k.0 = phi i32 [ 0, %if.end6 ], [ %k.0.be, %for.cond.backedge ]
   %a.0 = phi i32 [ %6, %if.end6 ], [ %a.0.be, %for.cond.backedge ]
   %b.0 = phi i32 [ %7, %if.end6 ], [ %b.0.be, %for.cond.backedge ]
-  %conv = sext i8 %polarity.addr.0 to i32
-  switch i32 %conv, label %for.cond.backedge [
-    i32 0, label %sw.bb
-    i32 3, label %sw.bb47
-    i32 1, label %sw.bb97
-    i32 2, label %sw.bb139
+  switch i8 %polarity.addr.0, label %for.cond.backedge [
+    i8 0, label %sw.bb
+    i8 3, label %sw.bb47
+    i8 1, label %sw.bb97
+    i8 2, label %sw.bb139
   ]
 
 sw.bb:                                            ; preds = %for.cond

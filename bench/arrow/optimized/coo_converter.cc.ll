@@ -855,10 +855,10 @@ for.body.us481.i:                                 ; preds = %for.body.lr.ph.spli
   %tensor_data.0477.us483.i = phi ptr [ %add.ptr.us486.i, %if.end108.us517.i ], [ %cond.i.i.i, %for.body.lr.ph.split.i ]
   %indices.0473.us485.i = phi ptr [ %indices.1.us518.i, %if.end108.us517.i ], [ %cond.i270.i, %for.body.lr.ph.split.i ]
   %add.ptr.us486.i = getelementptr inbounds i8, ptr %tensor_data.0477.us483.i, i64 %conv65.i
-  switch i64 %conv65.i, label %if.end108.us517.i [
-    i64 3, label %sw.bb.i.i.i.i.i.us490.i
-    i64 2, label %sw.bb20.i.i.i.i.i.us494.i
-    i64 1, label %sw.bb25.i.i.i.i.i.us499.i
+  switch i32 %call18.i, label %if.end108.us517.i [
+    i32 3, label %sw.bb.i.i.i.i.i.us490.i
+    i32 2, label %sw.bb20.i.i.i.i.i.us494.i
+    i32 1, label %sw.bb25.i.i.i.i.i.us499.i
   ]
 
 sw.bb.i.i.i.i.i.us490.i:                          ; preds = %for.body.us481.i
@@ -934,10 +934,10 @@ for.body.i:                                       ; preds = %for.body.lr.ph.spli
   %values.0475.i = phi ptr [ %values.1.i, %if.end108.i ], [ %cond.i300.i, %for.body.lr.ph.split.i ]
   %indices.0473.i = phi ptr [ %indices.1.i, %if.end108.i ], [ %cond.i270.i, %for.body.lr.ph.split.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %tensor_data.0477.i, i64 %conv65.i
-  switch i64 %conv65.i, label %if.end108.i [
-    i64 3, label %sw.bb.i.i.i.i.i.i
-    i64 2, label %sw.bb20.i.i.i.i.i.i
-    i64 1, label %sw.bb25.i.i.i.i.i.i
+  switch i32 %call18.i, label %if.end108.i [
+    i32 3, label %sw.bb.i.i.i.i.i.i
+    i32 2, label %sw.bb20.i.i.i.i.i.i
+    i32 1, label %sw.bb25.i.i.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %for.body.i
@@ -18112,7 +18112,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -18516,7 +18516,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -18917,7 +18917,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -19318,7 +19318,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -19719,7 +19719,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -20120,7 +20120,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -20521,7 +20521,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -20922,7 +20922,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -21323,7 +21323,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -21724,7 +21724,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -22125,7 +22125,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -22526,7 +22526,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -22927,7 +22927,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -23328,7 +23328,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -23729,7 +23729,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8
@@ -24130,7 +24130,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.end33
 
 if.then20:                                        ; preds = %land.lhs.true
-  %add21 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %add.ptr.i21 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24
   %9 = load i64, ptr %add.ptr.i21, align 8

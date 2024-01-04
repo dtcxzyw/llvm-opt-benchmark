@@ -6731,15 +6731,14 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %prev.014.i.i = phi i8 [ %1, %sw.epilog.i.i ], [ 42, %for.cond.preheader.i.i ]
   %call2.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %comments, i64 noundef %i.015.i.i) #17, !noalias !39
   %1 = load i8, ptr %call2.i.i, align 1, !noalias !39
-  %conv.i.i = sext i8 %1 to i32
-  switch i32 %conv.i.i, label %if.else.invoke.i.i [
-    i32 42, label %sw.bb.i.i
-    i32 47, label %sw.bb8.i.i
-    i32 64, label %if.then.invoke.i.i
-    i32 60, label %sw.bb20.i.i
-    i32 62, label %sw.bb23.i.i
-    i32 38, label %sw.bb26.i.i
-    i32 92, label %sw.bb29.i.i
+  switch i8 %1, label %if.else.invoke.i.i [
+    i8 42, label %sw.bb.i.i
+    i8 47, label %sw.bb8.i.i
+    i8 64, label %if.then.invoke.i.i
+    i8 60, label %sw.bb20.i.i
+    i8 62, label %sw.bb23.i.i
+    i8 38, label %sw.bb26.i.i
+    i8 92, label %sw.bb29.i.i
   ]
 
 lpad.loopexit.i.i:                                ; preds = %if.else.invoke.i.i, %if.then.invoke.i.i

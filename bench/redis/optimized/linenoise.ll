@@ -310,7 +310,7 @@ if.end43:                                         ; preds = %if.then, %if.then40
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @linenoiseEditInsert(ptr nocapture noundef %l, i8 noundef signext %c) local_unnamed_addr #9 {
+define dso_local noundef i32 @linenoiseEditInsert(ptr nocapture noundef %l, i8 noundef signext %c) local_unnamed_addr #9 {
 entry:
   %d = alloca i8, align 1
   %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @enableRawMode() unnamed_addr #9 {
+define internal fastcc noundef i32 @enableRawMode() unnamed_addr #9 {
 entry:
   %raw = alloca %struct.termios, align 16
   %call = tail call i32 @isatty(i32 noundef 0) #23
@@ -1487,12 +1487,12 @@ if.then4:                                         ; preds = %for.body.i
 
 if.end:                                           ; preds = %if.then4
   %call10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #24
-  %tobool11.not23 = icmp eq i64 %call10, 0
-  br i1 %tobool11.not23, label %while.end, label %land.rhs
+  %tobool11.not24 = icmp eq i64 %call10, 0
+  br i1 %tobool11.not24, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %while.body
-  %len.024 = phi i64 [ %sub, %while.body ], [ %call10, %if.end ]
-  %sub = add i64 %len.024, -1
+  %len.025 = phi i64 [ %sub, %while.body ], [ %call10, %if.end ]
+  %sub = add i64 %len.025, -1
   %arrayidx = getelementptr inbounds [4096 x i8], ptr %buf, i64 0, i64 %sub
   %5 = load i8, ptr %arrayidx, align 1
   switch i8 %5, label %while.end [
@@ -1702,10 +1702,10 @@ getColumns.exit.i.i:                              ; preds = %if.else.i.i.i, %if.
 
 while.body.preheader.i.i:                         ; preds = %getColumns.exit.i.i
   %19 = load i32, ptr %l.i.i, align 8
-  %call13117.i.i = call i64 @read(i32 noundef %19, ptr noundef nonnull %c.i.i, i64 noundef 1) #23
-  %conv14118.i.i = trunc i64 %call13117.i.i to i32
-  %cmp15119.i.i = icmp slt i32 %conv14118.i.i, 1
-  br i1 %cmp15119.i.i, label %if.then17.i.i, label %if.end20.lr.ph.i.i
+  %call13118.i.i = call i64 @read(i32 noundef %19, ptr noundef nonnull %c.i.i, i64 noundef 1) #23
+  %conv14119.i.i = trunc i64 %call13118.i.i to i32
+  %cmp15120.i.i = icmp slt i32 %conv14119.i.i, 1
+  br i1 %cmp15120.i.i, label %if.then17.i.i, label %if.end20.lr.ph.i.i
 
 if.end20.lr.ph.i.i:                               ; preds = %while.body.preheader.i.i
   %cvec.i.i.i = getelementptr inbounds %struct.linenoiseCompletions, ptr %lc.i.i.i, i64 0, i32 1
@@ -1742,7 +1742,7 @@ if.then.i22.i.i:                                  ; preds = %if.then26.i.i
   %fputc.i.i.i.i = call i32 @fputc(i32 7, ptr %25)
   %26 = load ptr, ptr @stderr, align 8
   %call1.i.i.i.i = call i32 @fflush(ptr noundef %26)
-  br label %if.end46.ithread-pre-split.i.i
+  br label %if.end46.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then26.i.i, %while.body.i.i.i.backedge
   %27 = phi i64 [ %.be, %while.body.i.i.i.backedge ], [ %24, %if.then26.i.i ]
@@ -1807,10 +1807,9 @@ completeLine.exit.thread.i.i:                     ; preds = %for.end.i.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %if.end.i18.i.i
   %37 = load i8, ptr %c.i.i.i, align 1
-  %conv20.i.i.i = sext i8 %37 to i32
-  switch i32 %conv20.i.i.i, label %sw.default.i.i.i [
-    i32 9, label %sw.bb.i.i.i
-    i32 27, label %sw.bb28.i.i.i
+  switch i8 %37, label %sw.default.i.i.i [
+    i8 9, label %sw.bb.i.i.i
+    i8 27, label %sw.bb28.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end19.i.i.i
@@ -1837,16 +1836,16 @@ while.body.i.i.i.backedge:                        ; preds = %if.then26.i.i.i, %s
 sw.bb28.i.i.i:                                    ; preds = %if.end19.i.i.i
   %41 = load i64, ptr %lc.i.i.i, align 8
   %cmp30.i.i.i = icmp ult i64 %i.040.i.i.i, %41
-  br i1 %cmp30.i.i.i, label %if.then32.i.i.i, label %if.end46.i.i.i
+  br i1 %cmp30.i.i.i, label %if.then32.i.i.i, label %if.end46.loopexit.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %sw.bb28.i.i.i
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
-  br label %if.end46.ithread-pre-split.i.i
+  br label %if.end46.loopexit.i.i.i
 
 sw.default.i.i.i:                                 ; preds = %if.end19.i.i.i
   %42 = load i64, ptr %lc.i.i.i, align 8
   %cmp35.i.i.i = icmp ult i64 %i.040.i.i.i, %42
-  br i1 %cmp35.i.i.i, label %if.then37.i.i.i, label %if.end46.i.i.i
+  br i1 %cmp35.i.i.i, label %if.then37.i.i.i, label %if.end46.loopexit.i.i.i
 
 if.then37.i.i.i:                                  ; preds = %sw.default.i.i.i
   %43 = load ptr, ptr %buf1.i.i, align 8
@@ -1858,37 +1857,36 @@ if.then37.i.i.i:                                  ; preds = %sw.default.i.i.i
   %conv42.i.i.i = sext i32 %call41.i.i.i to i64
   store i64 %conv42.i.i.i, ptr %pos.i.i, align 8
   store i64 %conv42.i.i.i, ptr %len.i.i, align 8
-  br label %if.end46.ithread-pre-split.i.i
+  br label %if.end46.loopexit.i.i.i
 
-if.end46.ithread-pre-split.i.i:                   ; preds = %if.then37.i.i.i, %if.then32.i.i.i, %if.then.i22.i.i
-  %conv47.i.ph.i.i = phi i32 [ 27, %if.then32.i.i.i ], [ %conv20.i.i.i, %if.then37.i.i.i ], [ 0, %if.then.i22.i.i ]
-  %.pr.i.i = load i64, ptr %lc.i.i.i, align 8
+if.end46.loopexit.i.i.i:                          ; preds = %if.then37.i.i.i, %sw.default.i.i.i, %if.then32.i.i.i, %sw.bb28.i.i.i
+  %47 = sext i8 %37 to i32
   br label %if.end46.i.i.i
 
-if.end46.i.i.i:                                   ; preds = %if.end46.ithread-pre-split.i.i, %sw.default.i.i.i, %sw.bb28.i.i.i
-  %47 = phi i64 [ %.pr.i.i, %if.end46.ithread-pre-split.i.i ], [ %41, %sw.bb28.i.i.i ], [ %42, %sw.default.i.i.i ]
-  %conv47.i.i.i = phi i32 [ %conv47.i.ph.i.i, %if.end46.ithread-pre-split.i.i ], [ 27, %sw.bb28.i.i.i ], [ %conv20.i.i.i, %sw.default.i.i.i ]
-  %cmp6.not.i27.i.i.i = icmp eq i64 %47, 0
+if.end46.i.i.i:                                   ; preds = %if.end46.loopexit.i.i.i, %if.then.i22.i.i
+  %conv47.i.i.i = phi i32 [ %47, %if.end46.loopexit.i.i.i ], [ 0, %if.then.i22.i.i ]
+  %48 = load i64, ptr %lc.i.i.i, align 8
+  %cmp6.not.i27.i.i.i = icmp eq i64 %48, 0
   br i1 %cmp6.not.i27.i.i.i, label %for.end.i35.i.i.i, label %for.body.i30.i.i.i
 
 for.body.i30.i.i.i:                               ; preds = %if.end46.i.i.i, %for.body.i30.i.i.i
   %i.07.i31.i.i.i = phi i64 [ %inc.i33.i.i.i, %for.body.i30.i.i.i ], [ 0, %if.end46.i.i.i ]
-  %48 = load ptr, ptr %cvec.i.i.i, align 8
-  %arrayidx.i32.i.i.i = getelementptr inbounds ptr, ptr %48, i64 %i.07.i31.i.i.i
-  %49 = load ptr, ptr %arrayidx.i32.i.i.i, align 8
-  call void @free(ptr noundef %49) #23
+  %49 = load ptr, ptr %cvec.i.i.i, align 8
+  %arrayidx.i32.i.i.i = getelementptr inbounds ptr, ptr %49, i64 %i.07.i31.i.i.i
+  %50 = load ptr, ptr %arrayidx.i32.i.i.i, align 8
+  call void @free(ptr noundef %50) #23
   %inc.i33.i.i.i = add nuw i64 %i.07.i31.i.i.i, 1
-  %50 = load i64, ptr %lc.i.i.i, align 8
-  %cmp.i34.i.i.i = icmp ult i64 %inc.i33.i.i.i, %50
+  %51 = load i64, ptr %lc.i.i.i, align 8
+  %cmp.i34.i.i.i = icmp ult i64 %inc.i33.i.i.i, %51
   br i1 %cmp.i34.i.i.i, label %for.body.i30.i.i.i, label %for.end.i35.i.i.i, !llvm.loop !15
 
 for.end.i35.i.i.i:                                ; preds = %for.body.i30.i.i.i, %if.end46.i.i.i
-  %51 = load ptr, ptr %cvec.i.i.i, align 8
-  %cmp2.not.i37.i.i.i = icmp eq ptr %51, null
+  %52 = load ptr, ptr %cvec.i.i.i, align 8
+  %cmp2.not.i37.i.i.i = icmp eq ptr %52, null
   br i1 %cmp2.not.i37.i.i.i, label %completeLine.exit.i.i, label %return.sink.split.i.i.i
 
 return.sink.split.i.i.i:                          ; preds = %for.end.i35.i.i.i, %for.end.i.i.i.i
-  %.sink.i.i.i = phi ptr [ %36, %for.end.i.i.i.i ], [ %51, %for.end.i35.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %36, %for.end.i.i.i.i ], [ %52, %for.end.i35.i.i.i ]
   %retval.0.ph.i.i.i = phi i32 [ -1, %for.end.i.i.i.i ], [ %conv47.i.i.i, %for.end.i35.i.i.i ]
   call void @free(ptr noundef nonnull %.sink.i.i.i) #23
   br label %completeLine.exit.i.i
@@ -1903,8 +1901,8 @@ completeLine.exit.i.i:                            ; preds = %return.sink.split.i
   br i1 %cmp30.i.i, label %if.then32.i.i, label %if.end35.i.i
 
 if.then32.i.i:                                    ; preds = %completeLine.exit.i.i, %completeLine.exit.thread.i.i
-  %52 = load i64, ptr %len.i.i, align 8
-  %conv34.i.i = trunc i64 %52 to i32
+  %53 = load i64, ptr %len.i.i, align 8
+  %conv34.i.i = trunc i64 %53 to i32
   br label %linenoiseEdit.exit.i
 
 if.end35.i.i:                                     ; preds = %completeLine.exit.i.i
@@ -1912,67 +1910,66 @@ if.end35.i.i:                                     ; preds = %completeLine.exit.i
   br i1 %cmp37.i.i, label %while.body.backedge.i.i, label %if.end41.i.i
 
 if.end41.i.i:                                     ; preds = %if.end35.i.i, %if.end20.i.i
-  %53 = phi i8 [ %conv28.i.i, %if.end35.i.i ], [ %21, %if.end20.i.i ]
-  %conv42.i.i = sext i8 %53 to i32
-  switch i32 %conv42.i.i, label %sw.default.i.i [
-    i32 10, label %while.body.backedge.i.i
-    i32 13, label %sw.bb43.i.i
-    i32 3, label %sw.bb53.i.i
-    i32 127, label %sw.bb55.i.i
-    i32 8, label %sw.bb55.i.i
-    i32 4, label %sw.bb56.i.i
-    i32 20, label %sw.bb65.i.i
-    i32 2, label %sw.bb95.i.i
-    i32 6, label %sw.bb96.i.i
-    i32 16, label %sw.bb97.i.i
-    i32 14, label %sw.bb98.i.i
-    i32 27, label %sw.bb99.i.i
-    i32 21, label %sw.bb173.i.i
-    i32 11, label %sw.bb177.i.i
-    i32 1, label %sw.bb182.i.i
-    i32 5, label %sw.bb183.i.i
-    i32 12, label %sw.bb184.i.i
-    i32 23, label %sw.bb185.i.i
+  %54 = phi i8 [ %conv28.i.i, %if.end35.i.i ], [ %21, %if.end20.i.i ]
+  switch i8 %54, label %sw.default.i.i [
+    i8 10, label %while.body.backedge.i.i
+    i8 13, label %sw.bb43.i.i
+    i8 3, label %sw.bb53.i.i
+    i8 127, label %sw.bb55.i.i
+    i8 8, label %sw.bb55.i.i
+    i8 4, label %sw.bb56.i.i
+    i8 20, label %sw.bb65.i.i
+    i8 2, label %sw.bb95.i.i
+    i8 6, label %sw.bb96.i.i
+    i8 16, label %sw.bb97.i.i
+    i8 14, label %sw.bb98.i.i
+    i8 27, label %sw.bb99.i.i
+    i8 21, label %sw.bb173.i.i
+    i8 11, label %sw.bb177.i.i
+    i8 1, label %sw.bb182.i.i
+    i8 5, label %sw.bb183.i.i
+    i8 12, label %sw.bb184.i.i
+    i8 23, label %sw.bb185.i.i
   ]
 
 sw.bb43.i.i:                                      ; preds = %if.end41.i.i
-  %54 = load i32, ptr @history_len, align 4
-  %dec44.i.i = add nsw i32 %54, -1
+  %55 = load i32, ptr @history_len, align 4
+  %dec44.i.i = add nsw i32 %55, -1
   store i32 %dec44.i.i, ptr @history_len, align 4
-  %55 = load ptr, ptr @history, align 8
+  %56 = load ptr, ptr @history, align 8
   %idxprom.i.i = sext i32 %dec44.i.i to i64
-  %arrayidx45.i.i = getelementptr inbounds ptr, ptr %55, i64 %idxprom.i.i
-  %56 = load ptr, ptr %arrayidx45.i.i, align 8
-  call void @free(ptr noundef %56) #23
-  %57 = load i32, ptr @mlmode, align 4
-  %tobool.not.i.i = icmp eq i32 %57, 0
+  %arrayidx45.i.i = getelementptr inbounds ptr, ptr %56, i64 %idxprom.i.i
+  %57 = load ptr, ptr %arrayidx45.i.i, align 8
+  call void @free(ptr noundef %57) #23
+  %58 = load i32, ptr @mlmode, align 4
+  %tobool.not.i.i = icmp eq i32 %58, 0
   br i1 %tobool.not.i.i, label %if.end47.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %sw.bb43.i.i
-  %58 = load i64, ptr %pos.i.i, align 8
-  %59 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i.i.i = icmp eq i64 %58, %59
+  %59 = load i64, ptr %pos.i.i, align 8
+  %60 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i.i.i = icmp eq i64 %59, %60
   br i1 %cmp.not.i.i.i, label %if.end47.i.i, label %if.then.i23.i.i
 
 if.then.i23.i.i:                                  ; preds = %if.then46.i.i
-  store i64 %59, ptr %pos.i.i, align 8
+  store i64 %60, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %if.then.i23.i.i, %if.then46.i.i, %sw.bb43.i.i
-  %60 = load ptr, ptr @hintsCallback, align 8
-  %tobool48.not.i.i = icmp eq ptr %60, null
+  %61 = load ptr, ptr @hintsCallback, align 8
+  %tobool48.not.i.i = icmp eq ptr %61, null
   br i1 %tobool48.not.i.i, label %if.end50.i.i, label %if.then49.i.i
 
 if.then49.i.i:                                    ; preds = %if.end47.i.i
   store ptr null, ptr @hintsCallback, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
-  store ptr %60, ptr @hintsCallback, align 8
+  store ptr %61, ptr @hintsCallback, align 8
   br label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.then49.i.i, %if.end47.i.i
-  %61 = load i64, ptr %len.i.i, align 8
-  %conv52.i.i = trunc i64 %61 to i32
+  %62 = load i64, ptr %len.i.i, align 8
+  %conv52.i.i = trunc i64 %62 to i32
   br label %linenoiseEdit.exit.i
 
 sw.bb53.i.i:                                      ; preds = %if.end41.i.i
@@ -1981,91 +1978,91 @@ sw.bb53.i.i:                                      ; preds = %if.end41.i.i
   br label %linenoiseEdit.exit.i
 
 sw.bb55.i.i:                                      ; preds = %if.end41.i.i, %if.end41.i.i
-  %62 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i26.i.i = icmp eq i64 %62, 0
+  %63 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i26.i.i = icmp eq i64 %63, 0
   br i1 %cmp.not.i26.i.i, label %while.body.backedge.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %sw.bb55.i.i
-  %63 = load i64, ptr %len.i.i, align 8
-  %cmp1.not.i.i.i = icmp eq i64 %63, 0
+  %64 = load i64, ptr %len.i.i, align 8
+  %cmp1.not.i.i.i = icmp eq i64 %64, 0
   br i1 %cmp1.not.i.i.i, label %while.body.backedge.i.i, label %if.then.i28.i.i
 
 if.then.i28.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %64 = load ptr, ptr %buf1.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %64, i64 %62
+  %65 = load ptr, ptr %buf1.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %65, i64 %63
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -1
-  %sub.i30.i.i = sub i64 %63, %62
+  %sub.i30.i.i = sub i64 %64, %63
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr3.i.i.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.i30.i.i, i1 false)
-  %65 = load i64, ptr %pos.i.i, align 8
-  %dec.i.i.i = add i64 %65, -1
+  %66 = load i64, ptr %pos.i.i, align 8
+  %dec.i.i.i = add i64 %66, -1
   store i64 %dec.i.i.i, ptr %pos.i.i, align 8
-  %66 = load i64, ptr %len.i.i, align 8
-  %dec11.i.i.i = add i64 %66, -1
+  %67 = load i64, ptr %len.i.i, align 8
+  %dec11.i.i.i = add i64 %67, -1
   store i64 %dec11.i.i.i, ptr %len.i.i, align 8
-  %67 = load ptr, ptr %buf1.i.i, align 8
-  %arrayidx.i31.i.i = getelementptr inbounds i8, ptr %67, i64 %dec11.i.i.i
+  %68 = load ptr, ptr %buf1.i.i, align 8
+  %arrayidx.i31.i.i = getelementptr inbounds i8, ptr %68, i64 %dec11.i.i.i
   store i8 0, ptr %arrayidx.i31.i.i, align 1
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.bb56.i.i:                                      ; preds = %if.end41.i.i
-  %68 = load i64, ptr %len.i.i, align 8
-  %cmp58.not.i.i = icmp eq i64 %68, 0
+  %69 = load i64, ptr %len.i.i, align 8
+  %cmp58.not.i.i = icmp eq i64 %69, 0
   br i1 %cmp58.not.i.i, label %if.else.i.i, label %land.lhs.true.i35.i.i
 
 land.lhs.true.i35.i.i:                            ; preds = %sw.bb56.i.i
-  %69 = load i64, ptr %pos.i.i, align 8
-  %cmp2.i37.i.i = icmp ult i64 %69, %68
+  %70 = load i64, ptr %pos.i.i, align 8
+  %cmp2.i37.i.i = icmp ult i64 %70, %69
   br i1 %cmp2.i37.i.i, label %if.then.i39.i.i, label %while.body.backedge.i.i
 
 if.then.i39.i.i:                                  ; preds = %land.lhs.true.i35.i.i
-  %70 = load ptr, ptr %buf1.i.i, align 8
-  %add.ptr.i41.i.i = getelementptr inbounds i8, ptr %70, i64 %69
+  %71 = load ptr, ptr %buf1.i.i, align 8
+  %add.ptr.i41.i.i = getelementptr inbounds i8, ptr %71, i64 %70
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i41.i.i, i64 1
-  %71 = xor i64 %69, -1
-  %sub10.i.i.i = add i64 %68, %71
+  %72 = xor i64 %70, -1
+  %sub10.i.i.i = add i64 %69, %72
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i41.i.i, ptr nonnull align 1 %add.ptr7.i.i.i, i64 %sub10.i.i.i, i1 false)
-  %72 = load i64, ptr %len.i.i, align 8
-  %dec.i42.i.i = add i64 %72, -1
+  %73 = load i64, ptr %len.i.i, align 8
+  %dec.i42.i.i = add i64 %73, -1
   store i64 %dec.i42.i.i, ptr %len.i.i, align 8
-  %73 = load ptr, ptr %buf1.i.i, align 8
-  %arrayidx.i43.i.i = getelementptr inbounds i8, ptr %73, i64 %dec.i42.i.i
+  %74 = load ptr, ptr %buf1.i.i, align 8
+  %arrayidx.i43.i.i = getelementptr inbounds i8, ptr %74, i64 %dec.i42.i.i
   store i8 0, ptr %arrayidx.i43.i.i, align 1
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb56.i.i
-  %74 = load i32, ptr @history_len, align 4
-  %dec61.i.i = add nsw i32 %74, -1
+  %75 = load i32, ptr @history_len, align 4
+  %dec61.i.i = add nsw i32 %75, -1
   store i32 %dec61.i.i, ptr @history_len, align 4
-  %75 = load ptr, ptr @history, align 8
+  %76 = load ptr, ptr @history, align 8
   %idxprom62.i.i = sext i32 %dec61.i.i to i64
-  %arrayidx63.i.i = getelementptr inbounds ptr, ptr %75, i64 %idxprom62.i.i
-  %76 = load ptr, ptr %arrayidx63.i.i, align 8
-  call void @free(ptr noundef %76) #23
+  %arrayidx63.i.i = getelementptr inbounds ptr, ptr %76, i64 %idxprom62.i.i
+  %77 = load ptr, ptr %arrayidx63.i.i, align 8
+  call void @free(ptr noundef %77) #23
   br label %linenoiseEdit.exit.i
 
 sw.bb65.i.i:                                      ; preds = %if.end41.i.i
-  %77 = load i64, ptr %pos.i.i, align 8
-  %cmp67.not.i.i = icmp ne i64 %77, 0
-  %78 = load i64, ptr %len.i.i, align 8
-  %cmp72.i.i = icmp ult i64 %77, %78
+  %78 = load i64, ptr %pos.i.i, align 8
+  %cmp67.not.i.i = icmp ne i64 %78, 0
+  %79 = load i64, ptr %len.i.i, align 8
+  %cmp72.i.i = icmp ult i64 %78, %79
   %or.cond16.i.i = select i1 %cmp67.not.i.i, i1 %cmp72.i.i, i1 false
   br i1 %or.cond16.i.i, label %if.then74.i.i, label %while.body.backedge.i.i
 
 if.then74.i.i:                                    ; preds = %sw.bb65.i.i
-  %79 = getelementptr i8, ptr %buf, i64 %77
-  %arrayidx76.i.i = getelementptr i8, ptr %79, i64 -1
-  %80 = load i8, ptr %arrayidx76.i.i, align 1
-  %81 = load i8, ptr %79, align 1
-  store i8 %81, ptr %arrayidx76.i.i, align 1
-  store i8 %80, ptr %79, align 1
-  %sub88.i.i = add i64 %78, -1
-  %cmp89.not.i.i = icmp eq i64 %77, %sub88.i.i
+  %80 = getelementptr i8, ptr %buf, i64 %78
+  %arrayidx76.i.i = getelementptr i8, ptr %80, i64 -1
+  %81 = load i8, ptr %arrayidx76.i.i, align 1
+  %82 = load i8, ptr %80, align 1
+  store i8 %82, ptr %arrayidx76.i.i, align 1
+  store i8 %81, ptr %80, align 1
+  %sub88.i.i = add i64 %79, -1
+  %cmp89.not.i.i = icmp eq i64 %78, %sub88.i.i
   br i1 %cmp89.not.i.i, label %if.end93.i.i, label %if.then91.i.i
 
 if.then91.i.i:                                    ; preds = %if.then74.i.i
-  %inc.i.i = add nuw i64 %77, 1
+  %inc.i.i = add nuw i64 %78, 1
   store i64 %inc.i.i, ptr %pos.i.i, align 8
   br label %if.end93.i.i
 
@@ -2074,24 +2071,24 @@ if.end93.i.i:                                     ; preds = %if.then91.i.i, %if.
   br label %while.body.backedge.i.i
 
 sw.bb95.i.i:                                      ; preds = %if.end41.i.i
-  %82 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i45.i.i = icmp eq i64 %82, 0
+  %83 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i45.i.i = icmp eq i64 %83, 0
   br i1 %cmp.not.i45.i.i, label %while.body.backedge.i.i, label %if.then.i46.i.i
 
 if.then.i46.i.i:                                  ; preds = %sw.bb95.i.i
-  %dec.i47.i.i = add i64 %82, -1
+  %dec.i47.i.i = add i64 %83, -1
   store i64 %dec.i47.i.i, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.bb96.i.i:                                      ; preds = %if.end41.i.i
-  %83 = load i64, ptr %pos.i.i, align 8
-  %84 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i51.i.i = icmp eq i64 %83, %84
+  %84 = load i64, ptr %pos.i.i, align 8
+  %85 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i51.i.i = icmp eq i64 %84, %85
   br i1 %cmp.not.i51.i.i, label %while.body.backedge.i.i, label %if.then.i52.i.i
 
 if.then.i52.i.i:                                  ; preds = %sw.bb96.i.i
-  %inc.i.i.i = add i64 %83, 1
+  %inc.i.i.i = add i64 %84, 1
   store i64 %inc.i.i.i, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
@@ -2105,39 +2102,39 @@ sw.bb98.i.i:                                      ; preds = %if.end41.i.i
   br label %while.body.backedge.i.i
 
 sw.bb99.i.i:                                      ; preds = %if.end41.i.i
-  %85 = load i32, ptr %l.i.i, align 8
-  %call101.i.i = call i64 @read(i32 noundef %85, ptr noundef nonnull %seq.i.i, i64 noundef 1) #23
+  %86 = load i32, ptr %l.i.i, align 8
+  %call101.i.i = call i64 @read(i32 noundef %86, ptr noundef nonnull %seq.i.i, i64 noundef 1) #23
   %cmp102.i.i = icmp eq i64 %call101.i.i, -1
   br i1 %cmp102.i.i, label %while.body.backedge.i.i, label %if.end105.i.i
 
 if.end105.i.i:                                    ; preds = %sw.bb99.i.i
-  %86 = load i32, ptr %l.i.i, align 8
-  %call108.i.i = call i64 @read(i32 noundef %86, ptr noundef nonnull %add.ptr.i.i, i64 noundef 1) #23
+  %87 = load i32, ptr %l.i.i, align 8
+  %call108.i.i = call i64 @read(i32 noundef %87, ptr noundef nonnull %add.ptr.i.i, i64 noundef 1) #23
   %cmp109.i.i = icmp eq i64 %call108.i.i, -1
   br i1 %cmp109.i.i, label %while.body.backedge.i.i, label %if.end112.i.i
 
 if.end112.i.i:                                    ; preds = %if.end105.i.i
-  %87 = load i8, ptr %seq.i.i, align 1
-  switch i8 %87, label %while.body.backedge.i.i [
+  %88 = load i8, ptr %seq.i.i, align 1
+  switch i8 %88, label %while.body.backedge.i.i [
     i8 91, label %if.then117.i.i
     i8 79, label %if.then161.i.i
   ]
 
 if.then117.i.i:                                   ; preds = %if.end112.i.i
-  %88 = load i8, ptr %add.ptr.i.i, align 1
-  %89 = add i8 %88, -48
-  %or.cond1.i.i = icmp ult i8 %89, 10
+  %89 = load i8, ptr %add.ptr.i.i, align 1
+  %90 = add i8 %89, -48
+  %or.cond1.i.i = icmp ult i8 %90, 10
   br i1 %or.cond1.i.i, label %if.then127.i.i, label %if.else145.i.i
 
 if.then127.i.i:                                   ; preds = %if.then117.i.i
-  %90 = load i32, ptr %l.i.i, align 8
-  %call131.i.i = call i64 @read(i32 noundef %90, ptr noundef nonnull %add.ptr130.i.i, i64 noundef 1) #23
+  %91 = load i32, ptr %l.i.i, align 8
+  %call131.i.i = call i64 @read(i32 noundef %91, ptr noundef nonnull %add.ptr130.i.i, i64 noundef 1) #23
   %cmp132.i.i = icmp ne i64 %call131.i.i, -1
-  %91 = load i8, ptr %add.ptr130.i.i, align 1
-  %cmp138.i.i = icmp eq i8 %91, 126
+  %92 = load i8, ptr %add.ptr130.i.i, align 1
+  %cmp138.i.i = icmp eq i8 %92, 126
   %or.cond2.i.i = select i1 %cmp132.i.i, i1 %cmp138.i.i, i1 false
-  %92 = load i8, ptr %add.ptr.i.i, align 1
-  %cond.i.i = icmp eq i8 %92, 51
+  %93 = load i8, ptr %add.ptr.i.i, align 1
+  %cond.i.i = icmp eq i8 %93, 51
   %or.cond3.i.i = select i1 %or.cond2.i.i, i1 %cond.i.i, i1 false
   br i1 %or.cond3.i.i, label %sw.bb143.i.i, label %while.body.backedge.i.i
 
@@ -2146,14 +2143,13 @@ sw.bb143.i.i:                                     ; preds = %if.then127.i.i
   br label %while.body.backedge.i.i
 
 if.else145.i.i:                                   ; preds = %if.then117.i.i
-  %conv119.i.i = sext i8 %88 to i32
-  switch i32 %conv119.i.i, label %while.body.backedge.i.i [
-    i32 65, label %sw.bb148.i.i
-    i32 66, label %sw.bb149.i.i
-    i32 67, label %sw.bb150.i.i
-    i32 68, label %sw.bb151.i.i
-    i32 72, label %sw.bb152.i.i
-    i32 70, label %sw.bb153.i.i
+  switch i8 %89, label %while.body.backedge.i.i [
+    i8 65, label %sw.bb148.i.i
+    i8 66, label %sw.bb149.i.i
+    i8 67, label %sw.bb150.i.i
+    i8 68, label %sw.bb151.i.i
+    i8 72, label %sw.bb152.i.i
+    i8 70, label %sw.bb153.i.i
   ]
 
 sw.bb148.i.i:                                     ; preds = %if.else145.i.i
@@ -2165,31 +2161,31 @@ sw.bb149.i.i:                                     ; preds = %if.else145.i.i
   br label %while.body.backedge.i.i
 
 sw.bb150.i.i:                                     ; preds = %if.else145.i.i
-  %93 = load i64, ptr %pos.i.i, align 8
-  %94 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i56.i.i = icmp eq i64 %93, %94
+  %94 = load i64, ptr %pos.i.i, align 8
+  %95 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i56.i.i = icmp eq i64 %94, %95
   br i1 %cmp.not.i56.i.i, label %while.body.backedge.i.i, label %if.then.i57.i.i
 
 if.then.i57.i.i:                                  ; preds = %sw.bb150.i.i
-  %inc.i58.i.i = add i64 %93, 1
+  %inc.i58.i.i = add i64 %94, 1
   store i64 %inc.i58.i.i, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.bb151.i.i:                                     ; preds = %if.else145.i.i
-  %95 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i62.i.i = icmp eq i64 %95, 0
+  %96 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i62.i.i = icmp eq i64 %96, 0
   br i1 %cmp.not.i62.i.i, label %while.body.backedge.i.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %sw.bb151.i.i
-  %dec.i64.i.i = add i64 %95, -1
+  %dec.i64.i.i = add i64 %96, -1
   store i64 %dec.i64.i.i, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.bb152.i.i:                                     ; preds = %if.else145.i.i
-  %96 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i68.i.i = icmp eq i64 %96, 0
+  %97 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i68.i.i = icmp eq i64 %97, 0
   br i1 %cmp.not.i68.i.i, label %while.body.backedge.i.i, label %if.then.i69.i.i
 
 if.then.i69.i.i:                                  ; preds = %sw.bb152.i.i
@@ -2198,27 +2194,26 @@ if.then.i69.i.i:                                  ; preds = %sw.bb152.i.i
   br label %while.body.backedge.i.i
 
 sw.bb153.i.i:                                     ; preds = %if.else145.i.i
-  %97 = load i64, ptr %pos.i.i, align 8
-  %98 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i73.i.i = icmp eq i64 %97, %98
+  %98 = load i64, ptr %pos.i.i, align 8
+  %99 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i73.i.i = icmp eq i64 %98, %99
   br i1 %cmp.not.i73.i.i, label %while.body.backedge.i.i, label %if.then.i74.i.i
 
 if.then.i74.i.i:                                  ; preds = %sw.bb153.i.i
-  store i64 %98, ptr %pos.i.i, align 8
+  store i64 %99, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 if.then161.i.i:                                   ; preds = %if.end112.i.i
-  %99 = load i8, ptr %add.ptr.i.i, align 1
-  %conv163.i.i = sext i8 %99 to i32
-  switch i32 %conv163.i.i, label %while.body.backedge.i.i [
-    i32 72, label %sw.bb164.i.i
-    i32 70, label %sw.bb165.i.i
+  %100 = load i8, ptr %add.ptr.i.i, align 1
+  switch i8 %100, label %while.body.backedge.i.i [
+    i8 72, label %sw.bb164.i.i
+    i8 70, label %sw.bb165.i.i
   ]
 
 sw.bb164.i.i:                                     ; preds = %if.then161.i.i
-  %100 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i78.i.i = icmp eq i64 %100, 0
+  %101 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i78.i.i = icmp eq i64 %101, 0
   br i1 %cmp.not.i78.i.i, label %while.body.backedge.i.i, label %if.then.i79.i.i
 
 if.then.i79.i.i:                                  ; preds = %sw.bb164.i.i
@@ -2227,18 +2222,18 @@ if.then.i79.i.i:                                  ; preds = %sw.bb164.i.i
   br label %while.body.backedge.i.i
 
 sw.bb165.i.i:                                     ; preds = %if.then161.i.i
-  %101 = load i64, ptr %pos.i.i, align 8
-  %102 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i84.i.i = icmp eq i64 %101, %102
+  %102 = load i64, ptr %pos.i.i, align 8
+  %103 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i84.i.i = icmp eq i64 %102, %103
   br i1 %cmp.not.i84.i.i, label %while.body.backedge.i.i, label %if.then.i85.i.i
 
 if.then.i85.i.i:                                  ; preds = %sw.bb165.i.i
-  store i64 %102, ptr %pos.i.i, align 8
+  store i64 %103, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.default.i.i:                                   ; preds = %if.end41.i.i
-  %call169.i.i = call i32 @linenoiseEditInsert(ptr noundef nonnull %l.i.i, i8 noundef signext %53), !range !17
+  %call169.i.i = call i32 @linenoiseEditInsert(ptr noundef nonnull %l.i.i, i8 noundef signext %54), !range !17
   %tobool170.not.i.i = icmp eq i32 %call169.i.i, 0
   br i1 %tobool170.not.i.i, label %while.body.backedge.i.i, label %linenoiseEdit.exit.i
 
@@ -2250,16 +2245,16 @@ sw.bb173.i.i:                                     ; preds = %if.end41.i.i
   br label %while.body.backedge.i.i
 
 sw.bb177.i.i:                                     ; preds = %if.end41.i.i
-  %103 = load i64, ptr %pos.i.i, align 8
-  %arrayidx179.i.i = getelementptr inbounds i8, ptr %buf, i64 %103
+  %104 = load i64, ptr %pos.i.i, align 8
+  %arrayidx179.i.i = getelementptr inbounds i8, ptr %buf, i64 %104
   store i8 0, ptr %arrayidx179.i.i, align 1
-  store i64 %103, ptr %len.i.i, align 8
+  store i64 %104, ptr %len.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 sw.bb182.i.i:                                     ; preds = %if.end41.i.i
-  %104 = load i64, ptr %pos.i.i, align 8
-  %cmp.not.i89.i.i = icmp eq i64 %104, 0
+  %105 = load i64, ptr %pos.i.i, align 8
+  %cmp.not.i89.i.i = icmp eq i64 %105, 0
   br i1 %cmp.not.i89.i.i, label %while.body.backedge.i.i, label %if.then.i90.i.i
 
 if.then.i90.i.i:                                  ; preds = %sw.bb182.i.i
@@ -2268,13 +2263,13 @@ if.then.i90.i.i:                                  ; preds = %sw.bb182.i.i
   br label %while.body.backedge.i.i
 
 sw.bb183.i.i:                                     ; preds = %if.end41.i.i
-  %105 = load i64, ptr %pos.i.i, align 8
-  %106 = load i64, ptr %len.i.i, align 8
-  %cmp.not.i95.i.i = icmp eq i64 %105, %106
+  %106 = load i64, ptr %pos.i.i, align 8
+  %107 = load i64, ptr %len.i.i, align 8
+  %cmp.not.i95.i.i = icmp eq i64 %106, %107
   br i1 %cmp.not.i95.i.i, label %while.body.backedge.i.i, label %if.then.i96.i.i
 
 if.then.i96.i.i:                                  ; preds = %sw.bb183.i.i
-  store i64 %106, ptr %pos.i.i, align 8
+  store i64 %107, ptr %pos.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
@@ -2284,8 +2279,8 @@ sw.bb184.i.i:                                     ; preds = %if.end41.i.i
   br label %while.body.backedge.i.i
 
 sw.bb185.i.i:                                     ; preds = %if.end41.i.i
-  %107 = load i64, ptr %pos.i.i, align 8
-  %cmp.not19.i.i.i = icmp eq i64 %107, 0
+  %108 = load i64, ptr %pos.i.i, align 8
+  %cmp.not19.i.i.i = icmp eq i64 %108, 0
   %.pre.i.pre.i.i = load ptr, ptr %buf1.i.i, align 8
   br i1 %cmp.not19.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %land.rhs.lr.ph.i.i.i
 
@@ -2294,49 +2289,49 @@ land.rhs.lr.ph.i.i.i:                             ; preds = %sw.bb185.i.i
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i106.i.i, %land.rhs.lr.ph.i.i.i
-  %108 = phi i64 [ %107, %land.rhs.lr.ph.i.i.i ], [ %dec.i107.i.i, %while.body.i106.i.i ]
-  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %108
-  %109 = load i8, ptr %gep.i.i.i, align 1
-  %cmp3.i.i.i = icmp eq i8 %109, 32
+  %109 = phi i64 [ %108, %land.rhs.lr.ph.i.i.i ], [ %dec.i107.i.i, %while.body.i106.i.i ]
+  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %109
+  %110 = load i8, ptr %gep.i.i.i, align 1
+  %cmp3.i.i.i = icmp eq i8 %110, 32
   br i1 %cmp3.i.i.i, label %while.body.i106.i.i, label %land.rhs10.i.i.i
 
 while.body.i106.i.i:                              ; preds = %land.rhs.i.i.i
-  %dec.i107.i.i = add i64 %108, -1
+  %dec.i107.i.i = add i64 %109, -1
   store i64 %dec.i107.i.i, ptr %pos.i.i, align 8
   %cmp.not.i108.i.i = icmp eq i64 %dec.i107.i.i, 0
   br i1 %cmp.not.i108.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !9
 
 land.rhs10.i.i.i:                                 ; preds = %land.rhs.i.i.i, %while.body19.i.i.i
-  %110 = phi i64 [ %dec21.i.i.i, %while.body19.i.i.i ], [ %108, %land.rhs.i.i.i ]
-  %gep23.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %110
-  %111 = load i8, ptr %gep23.i.i.i, align 1
-  %cmp16.not.i.i.i = icmp eq i8 %111, 32
+  %111 = phi i64 [ %dec21.i.i.i, %while.body19.i.i.i ], [ %109, %land.rhs.i.i.i ]
+  %gep23.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %111
+  %112 = load i8, ptr %gep23.i.i.i, align 1
+  %cmp16.not.i.i.i = icmp eq i8 %112, 32
   br i1 %cmp16.not.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %while.body19.i.i.i
 
 while.body19.i.i.i:                               ; preds = %land.rhs10.i.i.i
-  %dec21.i.i.i = add i64 %110, -1
+  %dec21.i.i.i = add i64 %111, -1
   store i64 %dec21.i.i.i, ptr %pos.i.i, align 8
   %cmp8.not.i102.i.i = icmp eq i64 %dec21.i.i.i, 0
   br i1 %cmp8.not.i102.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %land.rhs10.i.i.i, !llvm.loop !10
 
 linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %while.body.i106.i.i, %while.body19.i.i.i, %land.rhs10.i.i.i, %sw.bb185.i.i
-  %.lcssa.i.i.i = phi i64 [ 0, %sw.bb185.i.i ], [ 0, %while.body19.i.i.i ], [ %110, %land.rhs10.i.i.i ], [ 0, %while.body.i106.i.i ]
-  %sub24.neg.i.i.i = sub i64 %.lcssa.i.i.i, %107
+  %.lcssa.i.i.i = phi i64 [ 0, %sw.bb185.i.i ], [ 0, %while.body19.i.i.i ], [ %111, %land.rhs10.i.i.i ], [ 0, %while.body.i106.i.i ]
+  %sub24.neg.i.i.i = sub i64 %.lcssa.i.i.i, %108
   %add.ptr.i103.i.i = getelementptr inbounds i8, ptr %.pre.i.pre.i.i, i64 %.lcssa.i.i.i
-  %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %.pre.i.pre.i.i, i64 %107
-  %112 = load i64, ptr %len.i.i, align 8
-  %reass.sub = sub i64 %112, %107
+  %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %.pre.i.pre.i.i, i64 %108
+  %113 = load i64, ptr %len.i.i, align 8
+  %reass.sub = sub i64 %113, %108
   %add.i105.i.i = add i64 %reass.sub, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i103.i.i, ptr align 1 %add.ptr28.i.i.i, i64 %add.i105.i.i, i1 false)
-  %113 = load i64, ptr %len.i.i, align 8
-  %sub31.i.i.i = add i64 %sub24.neg.i.i.i, %113
+  %114 = load i64, ptr %len.i.i, align 8
+  %sub31.i.i.i = add i64 %sub24.neg.i.i.i, %114
   store i64 %sub31.i.i.i, ptr %len.i.i, align 8
   call fastcc void @refreshLine(ptr noundef nonnull %l.i.i)
   br label %while.body.backedge.i.i
 
 while.body.backedge.i.i:                          ; preds = %linenoiseEditDeletePrevWord.exit.i.i, %sw.bb184.i.i, %if.then.i96.i.i, %sw.bb183.i.i, %if.then.i90.i.i, %sw.bb182.i.i, %sw.bb177.i.i, %sw.bb173.i.i, %sw.default.i.i, %if.then.i85.i.i, %sw.bb165.i.i, %if.then.i79.i.i, %sw.bb164.i.i, %if.then161.i.i, %if.then.i74.i.i, %sw.bb153.i.i, %if.then.i69.i.i, %sw.bb152.i.i, %if.then.i63.i.i, %sw.bb151.i.i, %if.then.i57.i.i, %sw.bb150.i.i, %sw.bb149.i.i, %sw.bb148.i.i, %if.else145.i.i, %sw.bb143.i.i, %if.then127.i.i, %if.end112.i.i, %if.end105.i.i, %sw.bb99.i.i, %sw.bb98.i.i, %sw.bb97.i.i, %if.then.i52.i.i, %sw.bb96.i.i, %if.then.i46.i.i, %sw.bb95.i.i, %if.end93.i.i, %sw.bb65.i.i, %if.then.i39.i.i, %land.lhs.true.i35.i.i, %if.then.i28.i.i, %land.lhs.true.i.i.i, %sw.bb55.i.i, %if.end41.i.i, %if.end35.i.i
-  %114 = load i32, ptr %l.i.i, align 8
-  %call13.i.i = call i64 @read(i32 noundef %114, ptr noundef nonnull %c.i.i, i64 noundef 1) #23
+  %115 = load i32, ptr %l.i.i, align 8
+  %call13.i.i = call i64 @read(i32 noundef %115, ptr noundef nonnull %c.i.i, i64 noundef 1) #23
   %conv14.i.i = trunc i64 %call13.i.i to i32
   %cmp15.i.i = icmp slt i32 %conv14.i.i, 1
   br i1 %cmp15.i.i, label %if.then17.i.i, label %if.end20.i.i
@@ -2386,7 +2381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local i32 @linenoiseHistoryAdd(ptr nocapture noundef readonly %line, i32 noundef %is_sensitive) local_unnamed_addr #3 {
+define dso_local noundef i32 @linenoiseHistoryAdd(ptr nocapture noundef readonly %line, i32 noundef %is_sensitive) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr @history_max_len, align 4
   %1 = load ptr, ptr @history, align 8
@@ -2475,7 +2470,7 @@ return:                                           ; preds = %if.end22, %land.lhs
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @linenoiseHistorySetMaxLen(i32 noundef %len) local_unnamed_addr #9 {
+define dso_local noundef i32 @linenoiseHistorySetMaxLen(i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp slt i32 %len, 1
   br i1 %cmp, label %return, label %if.end
@@ -2560,7 +2555,7 @@ return:                                           ; preds = %if.end31, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @linenoiseHistorySave(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
+define dso_local noundef i32 @linenoiseHistorySave(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
 entry:
   %call = tail call i32 @umask(i32 noundef 127) #23
   %call1 = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.8)
@@ -2633,7 +2628,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @linenoiseHistoryLoad(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
+define dso_local noundef i32 @linenoiseHistoryLoad(ptr nocapture noundef readonly %filename) local_unnamed_addr #9 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.10)

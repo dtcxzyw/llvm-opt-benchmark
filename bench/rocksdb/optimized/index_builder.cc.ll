@@ -187,12 +187,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN7rocksdb12IndexBuilder18CreateIndexBuilderENS_22BlockBasedTableOptions9IndexTypeEPKNS_21InternalKeyComparatorEPKNS_25InternalKeySliceTransformEbRKS1_mb(i8 noundef signext %index_type, ptr noundef %comparator, ptr noundef %int_key_slice_transform, i1 noundef zeroext %use_value_delta_encoding, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %conv = sext i8 %index_type to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb12
-    i32 3, label %sw.bb16
+  switch i8 %index_type, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb3
+    i8 2, label %sw.bb12
+    i8 3, label %sw.bb16
   ]
 
 sw.bb:                                            ; preds = %entry

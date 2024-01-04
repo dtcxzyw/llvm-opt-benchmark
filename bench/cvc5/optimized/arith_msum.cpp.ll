@@ -1732,10 +1732,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end159 [
-    i32 73, label %if.then
-    i32 5, label %land.rhs
+  switch i16 %bf.clear.i, label %if.end159 [
+    i16 73, label %if.then
+    i16 5, label %land.rhs
   ]
 
 land.rhs:                                         ; preds = %entry
@@ -1841,16 +1840,15 @@ cleanup.done13.if.then_crit_edge:                 ; preds = %cleanup.done13
   %d_kind.i.i.i.i33.phi.trans.insert = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %.pre, i64 0, i32 1
   %bf.load.i.i.i.i34.pre = load i16, ptr %d_kind.i.i.i.i33.phi.trans.insert, align 8, !noalias !48
   %.pre417 = and i16 %bf.load.i.i.i.i34.pre, 1023
-  %.pre418 = zext nneg i16 %.pre417 to i32
   br label %if.then
 
 if.then:                                          ; preds = %cleanup.done13.if.then_crit_edge, %entry
-  %bf.cast.i.i.i.i36.pre-phi = phi i32 [ %.pre418, %cleanup.done13.if.then_crit_edge ], [ %bf.cast.i, %entry ]
   %bf.clear.i.i.i.i35.pre-phi = phi i16 [ %.pre417, %cleanup.done13.if.then_crit_edge ], [ %bf.clear.i, %entry ]
   %11 = phi ptr [ %.pre, %cleanup.done13.if.then_crit_edge ], [ %0, %entry ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  %bf.cast.i.i.i.i36 = zext nneg i16 %bf.clear.i.i.i.i35.pre-phi to i32
   %cmp.i.i.i.i.i37 = icmp eq i16 %bf.clear.i.i.i.i35.pre-phi, 1023
-  %cond.i.i.i.i.i38 = select i1 %cmp.i.i.i.i.i37, i32 -1, i32 %bf.cast.i.i.i.i36.pre-phi
+  %cond.i.i.i.i.i38 = select i1 %cmp.i.i.i.i.i37, i32 -1, i32 %bf.cast.i.i.i.i36
   %call2.i.i.i39 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i38), !noalias !48
   %cmp.i.i40 = icmp eq i32 %call2.i.i.i39, 2
   %idxprom.i.i42 = zext i1 %cmp.i.i40 to i64
@@ -8966,7 +8964,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

@@ -261,15 +261,14 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %fType = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 1
   %1 = load i8, ptr %fType, align 8
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %if.end8 [
-    i32 0, label %lor.lhs.false.i
-    i32 3, label %sw.bb2
-    i32 14, label %sw.bb3
-    i32 1, label %sw.bb4
-    i32 7, label %sw.bb5
-    i32 8, label %sw.bb6
-    i32 2, label %if.end.i191
+  switch i8 %1, label %if.end8 [
+    i8 0, label %lor.lhs.false.i
+    i8 3, label %sw.bb2
+    i8 14, label %sw.bb3
+    i8 1, label %sw.bb4
+    i8 7, label %sw.bb5
+    i8 8, label %sw.bb6
+    i8 2, label %if.end.i191
   ]
 
 lor.lhs.false.i:                                  ; preds = %if.then1
@@ -4017,12 +4016,11 @@ for.body.i:                                       ; preds = %sw.bb.i, %for.body.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds i8, ptr %call5, i64 %indvars.iv.next.i
   %6 = load i8, ptr %arrayidx.i, align 1
-  %conv.i8 = sext i8 %6 to i32
-  switch i32 %conv.i8, label %for.end.loopexit.split.loop.exit.i [
-    i32 42, label %sw.bb.i
-    i32 32, label %sw.bb.i
-    i32 10, label %sw.bb.i
-    i32 13, label %sw.bb.i
+  switch i8 %6, label %for.end.loopexit.split.loop.exit.i [
+    i8 42, label %sw.bb.i
+    i8 32, label %sw.bb.i
+    i8 10, label %sw.bb.i
+    i8 13, label %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i

@@ -5308,10 +5308,9 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %arrayidx24 = getelementptr inbounds i8, ptr %data, i64 %i.025
   %24 = load i8, ptr %arrayidx24, align 1
   store i8 %24, ptr %c, align 1
-  %conv25 = sext i8 %24 to i32
-  switch i32 %conv25, label %sw.default [
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb36
+  switch i8 %24, label %sw.default [
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb36
   ]
 
 sw.bb:                                            ; preds = %for.body23

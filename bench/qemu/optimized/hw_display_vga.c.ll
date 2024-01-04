@@ -414,29 +414,28 @@ if.else:                                          ; preds = %sw.bb
   %ar_index2 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
   %12 = load i8, ptr %ar_index2, align 2
   %13 = and i8 %12, 31
-  %and4 = zext nneg i8 %13 to i32
-  switch i32 %and4, label %if.end37 [
-    i32 0, label %sw.bb5
-    i32 1, label %sw.bb5
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb5
-    i32 5, label %sw.bb5
-    i32 6, label %sw.bb5
-    i32 7, label %sw.bb5
-    i32 8, label %sw.bb5
-    i32 9, label %sw.bb5
-    i32 10, label %sw.bb5
-    i32 11, label %sw.bb5
-    i32 12, label %sw.bb5
-    i32 13, label %sw.bb5
-    i32 14, label %sw.bb5
-    i32 15, label %sw.bb5
-    i32 16, label %sw.bb8
-    i32 17, label %sw.bb14
-    i32 18, label %sw.bb19
-    i32 19, label %sw.bb25
-    i32 20, label %sw.bb31
+  switch i8 %13, label %if.end37 [
+    i8 0, label %sw.bb5
+    i8 1, label %sw.bb5
+    i8 2, label %sw.bb5
+    i8 3, label %sw.bb5
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb5
+    i8 6, label %sw.bb5
+    i8 7, label %sw.bb5
+    i8 8, label %sw.bb5
+    i8 9, label %sw.bb5
+    i8 10, label %sw.bb5
+    i8 11, label %sw.bb5
+    i8 12, label %sw.bb5
+    i8 13, label %sw.bb5
+    i8 14, label %sw.bb5
+    i8 15, label %sw.bb5
+    i8 16, label %sw.bb8
+    i8 17, label %sw.bb14
+    i8 18, label %sw.bb19
+    i8 19, label %sw.bb25
+    i8 20, label %sw.bb31
   ]
 
 sw.bb5:                                           ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
@@ -883,12 +882,11 @@ if.then12:                                        ; preds = %land.lhs.true
   %7 = load i8, ptr %arrayidx, align 2
   %8 = lshr i8 %7, 2
   %9 = and i8 %8, 3
-  %and14 = zext nneg i8 %9 to i32
-  switch i32 %and14, label %if.then12.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb15
-    i32 2, label %sw.bb17
-    i32 3, label %sw.default
+  switch i8 %9, label %if.then12.unreachabledefault [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb15
+    i8 2, label %sw.bb17
+    i8 3, label %sw.default
   ]
 
 sw.bb15:                                          ; preds = %if.then12
@@ -1039,7 +1037,6 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
   %0 = load i16, ptr %vbe_index, align 8
-  %conv = zext i16 %0 to i32
   %cmp = icmp ult i16 %0, 10
   br i1 %cmp, label %if.then, label %if.else17
 
@@ -1051,8 +1048,8 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %switch.tableidx = add nsw i32 %conv, -1
-  %3 = icmp ult i32 %switch.tableidx, 3
+  %switch.tableidx = add nsw i16 %0, -1
+  %3 = icmp ult i16 %switch.tableidx, 3
   br i1 %3, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %if.then3
@@ -1080,13 +1077,14 @@ if.then22:                                        ; preds = %if.else17
   br label %if.end27
 
 switch.lookup:                                    ; preds = %if.then3
-  %8 = zext nneg i32 %switch.tableidx to i64
+  %8 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.vbe_ioport_read_data, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %switch.lookup, %if.else17, %if.then22, %if.else, %sw.default
   %val.0 = phi i32 [ %conv11, %sw.default ], [ %conv16, %if.else ], [ %7, %if.then22 ], [ 0, %if.else17 ], [ %switch.load, %switch.lookup ]
+  %conv29 = zext i16 %0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %9, 0
@@ -1113,11 +1111,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv, i32 noundef %val.0) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv29, i32 noundef %val.0) #18
   br label %trace_vga_vbe_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv, i32 noundef %val.0) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv29, i32 noundef %val.0) #18
   br label %trace_vga_vbe_read.exit
 
 trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1520,13 +1518,12 @@ entry:
   %0 = load i8, ptr %arrayidx, align 2
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
-  %and = zext nneg i8 %2 to i32
   %and1 = and i64 %addr, 131071
-  switch i32 %and, label %entry.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb10
+  switch i8 %2, label %entry.unreachabledefault [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb5
+    i8 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1682,13 +1679,12 @@ entry:
   %0 = load i8, ptr %arrayidx, align 2
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
-  %and = zext nneg i8 %2 to i32
   %and1 = and i64 %addr, 131071
-  switch i32 %and, label %entry.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb10
+  switch i8 %2, label %entry.unreachabledefault [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb5
+    i8 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1899,13 +1895,12 @@ sw.epilog130:                                     ; preds = %sw.bb113, %sw.bb106
   %val.addr.0 = phi i32 [ %or101, %sw.bb78 ], [ %25, %sw.bb106 ], [ %31, %sw.bb113 ]
   %bit_mask.0 = phi i32 [ %conv104, %sw.bb78 ], [ %conv112, %sw.bb106 ], [ %and125, %sw.bb113 ]
   %33 = lshr i8 %32, 3
-  %shr134 = zext nneg i8 %33 to i32
   %latch151.phi.trans.insert = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 7
   %.pre107 = load i32, ptr %latch151.phi.trans.insert, align 16
-  switch i32 %shr134, label %sw.epilog145 [
-    i32 3, label %sw.bb143
-    i32 1, label %sw.bb137
-    i32 2, label %sw.bb140
+  switch i8 %33, label %sw.epilog145 [
+    i8 3, label %sw.bb143
+    i8 1, label %sw.bb137
+    i8 2, label %sw.bb140
   ]
 
 sw.bb137:                                         ; preds = %sw.epilog130

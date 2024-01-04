@@ -2296,12 +2296,11 @@ if.end48:                                         ; preds = %if.then.i40.i, %if.
   %bf.load49 = load i8, ptr %pkt_space, align 8
   %bf.lshr50 = lshr i8 %bf.load49, 3
   %bf.clear51 = and i8 %bf.lshr50, 3
-  %bf.cast52 = zext nneg i8 %bf.clear51 to i32
-  switch i32 %bf.cast52, label %if.end48.unreachabledefault [
-    i32 2, label %sw.bb
-    i32 1, label %sw.bb59
-    i32 3, label %sw.bb67
-    i32 0, label %return
+  switch i8 %bf.clear51, label %if.end48.unreachabledefault [
+    i8 2, label %sw.bb
+    i8 1, label %sw.bb59
+    i8 3, label %sw.bb67
+    i8 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end48

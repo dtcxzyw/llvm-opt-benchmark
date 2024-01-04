@@ -114,38 +114,37 @@ if.end43:                                         ; preds = %if.end24, %if.then3
   %f.addr.2 = phi ptr [ %14, %if.then39 ], [ %spec.select, %if.end24 ]
   %w.0 = phi i32 [ %conv41, %if.then39 ], [ -1, %if.end24 ]
   %incdec.ptr44 = getelementptr inbounds i8, ptr %f.addr.2, i64 1
-  %conv45 = sext i8 %15 to i32
-  switch i32 %conv45, label %return [
-    i32 97, label %symbolic_range
-    i32 65, label %symbolic_range
-    i32 98, label %sw.bb46
-    i32 66, label %sw.bb46
-    i32 104, label %sw.bb46
-    i32 99, label %sw.bb47
-    i32 67, label %sw.bb53
-    i32 100, label %sw.bb58
-    i32 101, label %sw.bb58
-    i32 68, label %sw.bb59
-    i32 72, label %sw.bb64
-    i32 73, label %sw.bb65
-    i32 106, label %sw.bb67
-    i32 109, label %sw.bb68
-    i32 77, label %sw.bb70
-    i32 110, label %sw.bb71
-    i32 116, label %sw.bb71
-    i32 112, label %sw.bb88
-    i32 114, label %sw.bb106
-    i32 82, label %sw.bb112
-    i32 83, label %numeric_range
-    i32 84, label %sw.bb118
-    i32 85, label %sw.bb123
-    i32 87, label %sw.bb123
-    i32 119, label %sw.bb124
-    i32 120, label %sw.bb126
-    i32 88, label %sw.bb132
-    i32 121, label %sw.bb138
-    i32 89, label %sw.bb140
-    i32 37, label %sw.bb145
+  switch i8 %15, label %return [
+    i8 97, label %symbolic_range
+    i8 65, label %symbolic_range
+    i8 98, label %sw.bb46
+    i8 66, label %sw.bb46
+    i8 104, label %sw.bb46
+    i8 99, label %sw.bb47
+    i8 67, label %sw.bb53
+    i8 100, label %sw.bb58
+    i8 101, label %sw.bb58
+    i8 68, label %sw.bb59
+    i8 72, label %sw.bb64
+    i8 73, label %sw.bb65
+    i8 106, label %sw.bb67
+    i8 109, label %sw.bb68
+    i8 77, label %sw.bb70
+    i8 110, label %sw.bb71
+    i8 116, label %sw.bb71
+    i8 112, label %sw.bb88
+    i8 114, label %sw.bb106
+    i8 82, label %sw.bb112
+    i8 83, label %numeric_range
+    i8 84, label %sw.bb118
+    i8 85, label %sw.bb123
+    i8 87, label %sw.bb123
+    i8 119, label %sw.bb124
+    i8 120, label %sw.bb126
+    i8 88, label %sw.bb132
+    i8 121, label %sw.bb138
+    i8 89, label %sw.bb140
+    i8 37, label %sw.bb145
   ]
 
 sw.bb46:                                          ; preds = %if.end43, %if.end43, %if.end43

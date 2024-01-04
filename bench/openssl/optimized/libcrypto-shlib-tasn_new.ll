@@ -21,7 +21,7 @@ define ptr @ASN1_item_new(ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
   store ptr null, ptr %ret, align 8
-  %call.i = call fastcc i32 @asn1_item_embed_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0, ptr noundef null, ptr noundef null), !range !4
+  %call.i = call fastcc noundef i32 @asn1_item_embed_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0, ptr noundef null, ptr noundef null), !range !4
   %cmp.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %ret, align 8
   %retval.0 = select i1 %cmp.not, ptr null, ptr %0
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_item_ex_new(ptr noundef %pval, ptr noundef %it) local_unnamed_addr #0 {
+define noundef i32 @ASN1_item_ex_new(ptr noundef %pval, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef 0, ptr noundef null, ptr noundef null), !range !4
   ret i32 %call
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef %embed, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc noundef i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef %embed, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
   %0 = load ptr, ptr %funcs, align 8
@@ -67,14 +67,13 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.end:                                           ; preds = %land.lhs.true, %if.else
   %asn1_cb.0 = phi ptr [ null, %if.else ], [ %1, %land.lhs.true ]
   %2 = load i8, ptr %it, align 8
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %return [
-    i32 4, label %sw.bb
-    i32 0, label %sw.bb26
-    i32 5, label %sw.bb40
-    i32 2, label %sw.bb45
-    i32 6, label %sw.bb74
-    i32 1, label %sw.bb74
+  switch i8 %2, label %return [
+    i8 4, label %sw.bb
+    i8 0, label %sw.bb26
+    i8 5, label %sw.bb40
+    i8 2, label %sw.bb45
+    i8 6, label %sw.bb74
+    i8 1, label %sw.bb74
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -262,14 +261,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_asn1_item_ex_new_intern(ptr noundef %pval, ptr noundef %it, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @ossl_asn1_item_ex_new_intern(ptr noundef %pval, ptr noundef %it, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef 0, ptr noundef %libctx, ptr noundef %propq), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc noundef i32 @asn1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %tval = alloca ptr, align 8
   %item = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
@@ -307,14 +306,13 @@ if.else.i:                                        ; preds = %tailrecurse.i
   %4 = load ptr, ptr %item.i, align 8
   %call.i = tail call ptr %4() #3
   %5 = load i8, ptr %call.i, align 8
-  %conv.i.i = sext i8 %5 to i32
-  switch i32 %conv.i.i, label %return [
-    i32 4, label %sw.bb.i.i
-    i32 0, label %sw.bb3.i.i
-    i32 5, label %land.lhs.true.i4.i
-    i32 2, label %sw.bb10.i.i
-    i32 1, label %sw.bb10.i.i
-    i32 6, label %sw.bb10.i.i
+  switch i8 %5, label %return [
+    i8 4, label %sw.bb.i.i
+    i8 0, label %sw.bb3.i.i
+    i8 5, label %land.lhs.true.i4.i
+    i8 2, label %sw.bb10.i.i
+    i8 1, label %sw.bb10.i.i
+    i8 6, label %sw.bb10.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else.i
@@ -347,7 +345,7 @@ land.lhs.true.i10.i:                              ; preds = %sw.bb3.i.i
   %funcs.i11.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call.i, i64 0, i32 4
   %9 = load ptr, ptr %funcs.i11.i, align 8
   %tobool1.not.i12.i = icmp eq ptr %9, null
-  br i1 %tobool1.not.i12.i, label %lor.lhs.false.i18.i, label %if.then.i13.i
+  br i1 %tobool1.not.i12.i, label %if.else10.i20.i, label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %land.lhs.true.i10.i
   %prim_clear.i14.i = getelementptr inbounds %struct.ASN1_PRIMITIVE_FUNCS_st, ptr %9, i64 0, i32 4
@@ -363,11 +361,7 @@ if.else.i17.i:                                    ; preds = %if.then.i13.i
   store ptr null, ptr %pval.addr.0, align 8
   br label %return
 
-lor.lhs.false.i18.i:                              ; preds = %land.lhs.true.i10.i
-  %cmp.i19.i = icmp eq i8 %5, 5
-  br i1 %cmp.i19.i, label %if.else18.i22.i, label %if.else10.i20.i
-
-if.else10.i20.i:                                  ; preds = %lor.lhs.false.i18.i
+if.else10.i20.i:                                  ; preds = %land.lhs.true.i10.i
   %utype11.i21.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call.i, i64 0, i32 1
   %11 = load i64, ptr %utype11.i21.i, align 8
   %12 = and i64 %11, 4294967295
@@ -381,7 +375,7 @@ if.then16.i23.i:                                  ; preds = %if.else10.i20.i
   store i32 %conv17.i25.i, ptr %pval.addr.0, align 4
   br label %return
 
-if.else18.i22.i:                                  ; preds = %if.else10.i20.i, %lor.lhs.false.i18.i
+if.else18.i22.i:                                  ; preds = %if.else10.i20.i
   store ptr null, ptr %pval.addr.0, align 8
   br label %return
 
@@ -389,7 +383,7 @@ land.lhs.true.i4.i:                               ; preds = %if.else.i
   %funcs.i5.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call.i, i64 0, i32 4
   %15 = load ptr, ptr %funcs.i5.i, align 8
   %tobool1.not.i6.i = icmp eq ptr %15, null
-  br i1 %tobool1.not.i6.i, label %lor.lhs.false.i.i, label %if.then.i7.i
+  br i1 %tobool1.not.i6.i, label %if.else18.i.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %land.lhs.true.i4.i
   %prim_clear.i.i = getelementptr inbounds %struct.ASN1_PRIMITIVE_FUNCS_st, ptr %15, i64 0, i32 4
@@ -405,25 +399,7 @@ if.else.i8.i:                                     ; preds = %if.then.i7.i
   store ptr null, ptr %pval.addr.0, align 8
   br label %return
 
-lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i4.i
-  %cmp.i.i = icmp eq i8 %5, 5
-  br i1 %cmp.i.i, label %if.else18.i.i, label %if.else10.i.i
-
-if.else10.i.i:                                    ; preds = %lor.lhs.false.i.i
-  %utype11.i.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call.i, i64 0, i32 1
-  %17 = load i64, ptr %utype11.i.i, align 8
-  %18 = and i64 %17, 4294967295
-  %19 = icmp eq i64 %18, 1
-  br i1 %19, label %if.then16.i.i, label %if.else18.i.i
-
-if.then16.i.i:                                    ; preds = %if.else10.i.i
-  %size.i.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call.i, i64 0, i32 5
-  %20 = load i64, ptr %size.i.i, align 8
-  %conv17.i.i = trunc i64 %20 to i32
-  store i32 %conv17.i.i, ptr %pval.addr.0, align 4
-  br label %return
-
-if.else18.i.i:                                    ; preds = %if.else10.i.i, %lor.lhs.false.i.i
+if.else18.i.i:                                    ; preds = %land.lhs.true.i4.i
   store ptr null, ptr %pval.addr.0, align 8
   br label %return
 
@@ -464,8 +440,8 @@ if.end19:                                         ; preds = %if.end10
   %call20 = call fastcc i32 @asn1_item_embed_new(ptr noundef %pval.addr.0, ptr noundef %call, i32 noundef %conv, ptr noundef %libctx, ptr noundef %propq), !range !4
   br label %return
 
-return:                                           ; preds = %if.else.i, %sw.bb10.i.i, %if.else18.i.i, %if.then16.i.i, %if.else.i8.i, %if.then4.i.i, %if.else18.i22.i, %if.then16.i23.i, %if.else.i17.i, %if.then4.i16.i, %if.else.i.i, %if.then.i.i, %if.then.i, %if.then17, %if.end18, %if.end19, %if.then9
-  %retval.0 = phi i32 [ 1, %if.then9 ], [ 1, %if.end18 ], [ 0, %if.then17 ], [ %call20, %if.end19 ], [ 1, %if.then.i ], [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ 1, %if.then4.i16.i ], [ 1, %if.else.i17.i ], [ 1, %if.then16.i23.i ], [ 1, %if.else18.i22.i ], [ 1, %if.then4.i.i ], [ 1, %if.else.i8.i ], [ 1, %if.then16.i.i ], [ 1, %if.else18.i.i ], [ 1, %sw.bb10.i.i ], [ 1, %if.else.i ]
+return:                                           ; preds = %if.else.i, %sw.bb10.i.i, %if.else18.i.i, %if.else.i8.i, %if.then4.i.i, %if.else18.i22.i, %if.then16.i23.i, %if.else.i17.i, %if.then4.i16.i, %if.else.i.i, %if.then.i.i, %if.then.i, %if.then17, %if.end18, %if.end19, %if.then9
+  %retval.0 = phi i32 [ 1, %if.then9 ], [ 1, %if.end18 ], [ 0, %if.then17 ], [ %call20, %if.end19 ], [ 1, %if.then.i ], [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ 1, %if.then4.i16.i ], [ 1, %if.else.i17.i ], [ 1, %if.then16.i23.i ], [ 1, %if.else18.i22.i ], [ 1, %if.then4.i.i ], [ 1, %if.else.i8.i ], [ 1, %if.else18.i.i ], [ 1, %sw.bb10.i.i ], [ 1, %if.else.i ]
   ret i32 %retval.0
 }
 

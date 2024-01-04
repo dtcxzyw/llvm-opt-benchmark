@@ -18151,14 +18151,13 @@ while.end:                                        ; preds = %while.cond
 
 if.end:                                           ; preds = %entry
   %7 = load i8, ptr %incdec.ptr, align 1
-  %conv10 = sext i8 %7 to i32
-  switch i32 %conv10, label %sw.epilog [
-    i32 70, label %sw.bb
-    i32 65, label %sw.bb73
-    i32 67, label %sw.bb131
-    i32 80, label %sw.bb189
-    i32 83, label %sw.bb250
-    i32 84, label %sw.bb311
+  switch i8 %7, label %sw.epilog [
+    i8 70, label %sw.bb
+    i8 65, label %sw.bb73
+    i8 67, label %sw.bb131
+    i8 80, label %sw.bb189
+    i8 83, label %sw.bb250
+    i8 84, label %sw.bb311
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -19545,12 +19544,12 @@ do.body:                                          ; preds = %sw.epilog, %entry
   %3 = phi ptr [ %m_position.promoted, %entry ], [ %incdec.ptr, %sw.epilog ]
   %f.0 = phi i32 [ %1, %entry ], [ %f.1, %sw.epilog ]
   %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %do.end [
-    i32 115, label %sw.bb
-    i32 109, label %sw.bb2
-    i32 105, label %sw.bb4
-    i32 120, label %sw.bb6
+  switch i8 %4, label %return [
+    i8 115, label %sw.bb
+    i8 109, label %sw.bb2
+    i8 105, label %sw.bb4
+    i8 120, label %sw.bb6
+    i8 45, label %if.then21
   ]
 
 sw.bb:                                            ; preds = %do.body
@@ -19594,11 +19593,7 @@ while.cond:                                       ; preds = %while.cond, %while.
   %incdec.ptr16 = getelementptr inbounds i8, ptr %storemerge, i64 -1
   br i1 %cmp14.not, label %return.sink.split, label %while.cond, !llvm.loop !155
 
-do.end:                                           ; preds = %do.body
-  %cmp20 = icmp eq i8 %4, 45
-  br i1 %cmp20, label %if.then21, label %return
-
-if.then21:                                        ; preds = %do.end
+if.then21:                                        ; preds = %do.body
   %incdec.ptr23 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %incdec.ptr23, ptr %m_position, align 8
   %cmp25 = icmp eq ptr %incdec.ptr23, %2
@@ -19625,12 +19620,11 @@ do.body45:                                        ; preds = %if.then21, %sw.epil
   %13 = phi ptr [ %incdec.ptr60, %sw.epilog58 ], [ %incdec.ptr23, %if.then21 ]
   %f.3 = phi i32 [ %f.4, %sw.epilog58 ], [ %f.0, %if.then21 ]
   %14 = load i8, ptr %13, align 1
-  %conv47 = sext i8 %14 to i32
-  switch i32 %conv47, label %return [
-    i32 115, label %sw.bb48
-    i32 109, label %sw.bb51
-    i32 105, label %sw.bb53
-    i32 120, label %sw.bb55
+  switch i8 %14, label %return [
+    i8 115, label %sw.bb48
+    i8 109, label %sw.bb51
+    i8 105, label %sw.bb53
+    i8 120, label %sw.bb55
   ]
 
 sw.bb48:                                          ; preds = %do.body45
@@ -19674,8 +19668,8 @@ while.cond66:                                     ; preds = %while.cond66, %whil
   %incdec.ptr74 = getelementptr inbounds i8, ptr %storemerge12, i64 -1
   br i1 %cmp71.not, label %return.sink.split, label %while.cond66, !llvm.loop !158
 
-return.sink.split:                                ; preds = %while.cond, %while.cond66, %while.cond29
-  %storemerge12.lcssa.sink = phi ptr [ %storemerge13, %while.cond29 ], [ %storemerge12, %while.cond66 ], [ %storemerge, %while.cond ]
+return.sink.split:                                ; preds = %while.cond66, %while.cond29, %while.cond
+  %storemerge12.lcssa.sink = phi ptr [ %storemerge, %while.cond ], [ %storemerge13, %while.cond29 ], [ %storemerge12, %while.cond66 ]
   %m_base77 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 2
   %19 = load ptr, ptr %m_base77, align 8
   %sub.ptr.lhs.cast78 = ptrtoint ptr %storemerge12.lcssa.sink to i64
@@ -19684,8 +19678,8 @@ return.sink.split:                                ; preds = %while.cond, %while.
   tail call void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef 8, i64 noundef %sub.ptr.sub80)
   br label %return
 
-return:                                           ; preds = %do.body45, %return.sink.split, %do.end
-  %retval.0 = phi i32 [ %f.0, %do.end ], [ 0, %return.sink.split ], [ %f.3, %do.body45 ]
+return:                                           ; preds = %do.body, %do.body45, %return.sink.split
+  %retval.0 = phi i32 [ 0, %return.sink.split ], [ %f.3, %do.body45 ], [ %f.0, %do.body ]
   ret i32 %retval.0
 }
 
@@ -26047,19 +26041,18 @@ if.then9:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then9, %if.end
   %9 = load i8, ptr %incdec.ptr, align 1
-  %conv12 = sext i8 %9 to i32
-  switch i32 %conv12, label %if.then101.invoke [
-    i32 115, label %sw.bb
-    i32 32, label %sw.bb
-    i32 119, label %sw.bb13
-    i32 95, label %invoke.cont
-    i32 46, label %sw.bb37
-    i32 40, label %invoke.cont43
-    i32 41, label %invoke.cont53
-    i32 34, label %invoke.cont63
-    i32 39, label %invoke.cont73
-    i32 60, label %invoke.cont83
-    i32 62, label %invoke.cont87
+  switch i8 %9, label %if.then101.invoke [
+    i8 115, label %sw.bb
+    i8 32, label %sw.bb
+    i8 119, label %sw.bb13
+    i8 95, label %invoke.cont
+    i8 46, label %sw.bb37
+    i8 40, label %invoke.cont43
+    i8 41, label %invoke.cont53
+    i8 34, label %invoke.cont63
+    i8 39, label %invoke.cont73
+    i8 60, label %invoke.cont83
+    i8 62, label %invoke.cont87
   ]
 
 sw.bb:                                            ; preds = %if.end10, %if.end10

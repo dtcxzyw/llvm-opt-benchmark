@@ -502,9 +502,9 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %if.end.i.i.i
   %6 = phi ptr [ %call2.i8.i5.i.i, %if.then.i.i.i.i ], [ %4, %if.end.i.i.i ]
-  switch i64 %conv.i.i, label %if.end.i.i.i.i.i.i.i [
-    i64 1, label %if.then.i.i.i.i.i.i
-    i64 0, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcRiEEEvRS6_PT_DpOT0_.exit
+  switch i32 %3, label %if.end.i.i.i.i.i.i.i [
+    i32 1, label %if.then.i.i.i.i.i.i
+    i32 0, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcRiEEEvRS6_PT_DpOT0_.exit
   ]
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
@@ -662,9 +662,9 @@ call2.i8.i5.i.i.noexc:                            ; preds = %if.then.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call2.i8.i5.i.i.noexc, %if.end.i.i.i52
   %7 = phi ptr [ %call2.i8.i5.i.i54, %call2.i8.i5.i.i.noexc ], [ %5, %if.end.i.i.i52 ]
-  switch i64 %conv.i.i, label %if.end.i.i.i.i.i.i.i [
-    i64 1, label %if.then.i.i.i.i.i.i
-    i64 0, label %invoke.cont
+  switch i32 %4, label %if.end.i.i.i.i.i.i.i [
+    i32 1, label %if.then.i.i.i.i.i.i
+    i32 0, label %invoke.cont
   ]
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i

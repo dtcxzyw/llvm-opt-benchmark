@@ -13906,77 +13906,75 @@ if.end15:                                         ; preds = %cond.true, %if.end1
   %s.1 = phi ptr [ %13, %if.end13.i ], [ %add.ptr, %cond.true ]
   store i64 %18, ptr %next_read_idx, align 8
   %19 = load i8, ptr %s.1, align 1
-  %.fr2293 = freeze i8 %19
-  %conv = sext i8 %.fr2293 to i32
-  switch i32 %conv, label %sw.default [
-    i32 78, label %sw.bb
-    i32 74, label %sw.bb21
-    i32 75, label %sw.bb27
-    i32 77, label %sw.bb33
-    i32 73, label %sw.bb39
-    i32 76, label %sw.bb45
-    i32 -118, label %sw.bb51
-    i32 -117, label %sw.bb57
-    i32 70, label %sw.bb63
-    i32 71, label %sw.bb69
-    i32 67, label %sw.bb75
-    i32 66, label %sw.bb81
-    i32 -114, label %sw.bb87
-    i32 -106, label %sw.bb93
-    i32 -105, label %sw.bb99
-    i32 -104, label %sw.bb105
-    i32 85, label %sw.bb111
-    i32 84, label %sw.bb117
-    i32 83, label %sw.bb123
-    i32 86, label %sw.bb129
-    i32 -116, label %sw.bb135
-    i32 88, label %sw.bb141
-    i32 -115, label %sw.bb147
-    i32 41, label %sw.bb153
-    i32 -123, label %sw.bb159
-    i32 -122, label %sw.bb165
-    i32 -121, label %sw.bb171
-    i32 116, label %sw.bb177
-    i32 93, label %sw.bb183
-    i32 108, label %sw.bb189
-    i32 125, label %sw.bb195
-    i32 100, label %sw.bb201
-    i32 -113, label %sw.bb207
-    i32 -112, label %sw.bb213
-    i32 -111, label %sw.bb219
-    i32 111, label %sw.bb225
-    i32 105, label %sw.bb231
-    i32 -127, label %sw.bb237
-    i32 -110, label %sw.bb243
-    i32 99, label %sw.bb249
-    i32 -109, label %sw.bb255
-    i32 97, label %sw.bb261
-    i32 101, label %sw.bb267
-    i32 98, label %sw.bb273
-    i32 50, label %sw.bb279
-    i32 104, label %sw.bb285
-    i32 106, label %sw.bb291
-    i32 103, label %sw.bb297
-    i32 40, label %sw.bb303
-    i32 113, label %sw.bb309
-    i32 114, label %sw.bb315
-    i32 112, label %sw.bb321
-    i32 -108, label %sw.bb327
-    i32 48, label %sw.bb333
-    i32 49, label %sw.bb339
-    i32 115, label %sw.bb345
-    i32 117, label %sw.bb351
-    i32 80, label %sw.bb357
-    i32 81, label %sw.bb363
-    i32 82, label %sw.bb369
-    i32 -128, label %sw.bb375
-    i32 -107, label %sw.bb381
-    i32 -126, label %sw.bb387
-    i32 -125, label %sw.bb393
-    i32 -124, label %sw.bb399
-    i32 -120, label %sw.bb405
-    i32 -119, label %sw.bb411
-    i32 46, label %while.end
+  switch i8 %19, label %sw.default [
+    i8 78, label %sw.bb
+    i8 74, label %sw.bb21
+    i8 75, label %sw.bb27
+    i8 77, label %sw.bb33
+    i8 73, label %sw.bb39
+    i8 76, label %sw.bb45
+    i8 -118, label %sw.bb51
+    i8 -117, label %sw.bb57
+    i8 70, label %sw.bb63
+    i8 71, label %sw.bb69
+    i8 67, label %sw.bb75
+    i8 66, label %sw.bb81
+    i8 -114, label %sw.bb87
+    i8 -106, label %sw.bb93
+    i8 -105, label %sw.bb99
+    i8 -104, label %sw.bb105
+    i8 85, label %sw.bb111
+    i8 84, label %sw.bb117
+    i8 83, label %sw.bb123
+    i8 86, label %sw.bb129
+    i8 -116, label %sw.bb135
+    i8 88, label %sw.bb141
+    i8 -115, label %sw.bb147
+    i8 41, label %sw.bb153
+    i8 -123, label %sw.bb159
+    i8 -122, label %sw.bb165
+    i8 -121, label %sw.bb171
+    i8 116, label %sw.bb177
+    i8 93, label %sw.bb183
+    i8 108, label %sw.bb189
+    i8 125, label %sw.bb195
+    i8 100, label %sw.bb201
+    i8 -113, label %sw.bb207
+    i8 -112, label %sw.bb213
+    i8 -111, label %sw.bb219
+    i8 111, label %sw.bb225
+    i8 105, label %sw.bb231
+    i8 -127, label %sw.bb237
+    i8 -110, label %sw.bb243
+    i8 99, label %sw.bb249
+    i8 -109, label %sw.bb255
+    i8 97, label %sw.bb261
+    i8 101, label %sw.bb267
+    i8 98, label %sw.bb273
+    i8 50, label %sw.bb279
+    i8 104, label %sw.bb285
+    i8 106, label %sw.bb291
+    i8 103, label %sw.bb297
+    i8 40, label %sw.bb303
+    i8 113, label %sw.bb309
+    i8 114, label %sw.bb315
+    i8 112, label %sw.bb321
+    i8 -108, label %sw.bb327
+    i8 48, label %sw.bb333
+    i8 49, label %sw.bb339
+    i8 115, label %sw.bb345
+    i8 117, label %sw.bb351
+    i8 80, label %sw.bb357
+    i8 81, label %sw.bb363
+    i8 82, label %sw.bb369
+    i8 -128, label %sw.bb375
+    i8 -107, label %sw.bb381
+    i8 -126, label %sw.bb387
+    i8 -125, label %sw.bb393
+    i8 -124, label %sw.bb399
+    i8 -120, label %sw.bb405
+    i8 -119, label %sw.bb411
+    i8 46, label %while.end
   ]
 
 sw.bb:                                            ; preds = %if.end15
@@ -15998,7 +15996,7 @@ if.end8.i890:                                     ; preds = %lor.lhs.false.i885
   %cmp9.i891 = icmp eq i64 %.val37.i, %249
   br i1 %cmp9.i891, label %while.body.backedge, label %if.end11.i
 
-while.body.backedge:                              ; preds = %if.end8.i890, %for.end.i906, %load_build.exit.thread2880, %while.end.i.i1828, %if.end.i1814, %Py_DECREF.exit.i1779, %cond.end.i1795, %if.then1.i.i579, %if.end.i.i576, %if.else.i575, %if.then1.i24.i, %if.end.i21.i, %if.then10.i580, %sw.bb51, %sw.bb57, %sw.bb75, %sw.bb81, %sw.bb87, %sw.bb111, %sw.bb117, %sw.bb135, %sw.bb141, %sw.bb147, %sw.bb153, %sw.bb159, %sw.bb165, %sw.bb171, %load_tuple.exit, %load_additems.exit, %sw.bb237, %sw.bb243, %load_append.exit, %load_appends.exit, %load_build.exit, %load_binput.exit, %load_long_binput.exit, %load_put.exit, %load_memoize.exit, %sw.bb345, %load_setitems.exit, %sw.bb387, %sw.bb393, %sw.bb399, %load_none.exit, %load_binint.exit, %load_binint1.exit, %load_binint2.exit, %load_int.exit, %load_long.exit, %load_float.exit, %load_binfloat.exit, %load_counted_bytearray.exit, %load_next_buffer.exit, %load_string.exit, %load_unicode.exit, %load_empty_list.exit, %load_list.exit, %load_empty_dict.exit, %load_dict.exit, %load_empty_set.exit, %load_frozenset.exit, %load_obj.exit, %load_inst.exit, %load_global.exit, %load_stack_global.exit, %load_dup.exit, %load_binget.exit, %load_long_binget.exit, %load_get.exit, %load_mark.exit, %load_persid.exit, %load_binpersid.exit, %load_reduce.exit, %load_proto.exit, %load_frame.exit, %load_bool.exit, %load_bool.exit2171
+while.body.backedge:                              ; preds = %if.end8.i890, %for.end.i906, %load_build.exit.thread2881, %while.end.i.i1828, %if.end.i1814, %Py_DECREF.exit.i1779, %cond.end.i1795, %if.then1.i.i579, %if.end.i.i576, %if.else.i575, %if.then1.i24.i, %if.end.i21.i, %if.then10.i580, %sw.bb51, %sw.bb57, %sw.bb75, %sw.bb81, %sw.bb87, %sw.bb111, %sw.bb117, %sw.bb135, %sw.bb141, %sw.bb147, %sw.bb153, %sw.bb159, %sw.bb165, %sw.bb171, %load_tuple.exit, %load_additems.exit, %sw.bb237, %sw.bb243, %load_append.exit, %load_appends.exit, %load_build.exit, %load_binput.exit, %load_long_binput.exit, %load_put.exit, %load_memoize.exit, %sw.bb345, %load_setitems.exit, %sw.bb387, %sw.bb393, %sw.bb399, %load_none.exit, %load_binint.exit, %load_binint1.exit, %load_binint2.exit, %load_int.exit, %load_long.exit, %load_float.exit, %load_binfloat.exit, %load_counted_bytearray.exit, %load_next_buffer.exit, %load_string.exit, %load_unicode.exit, %load_empty_list.exit, %load_list.exit, %load_empty_dict.exit, %load_dict.exit, %load_empty_set.exit, %load_frozenset.exit, %load_obj.exit, %load_inst.exit, %load_global.exit, %load_stack_global.exit, %load_dup.exit, %load_binget.exit, %load_long_binget.exit, %load_get.exit, %load_mark.exit, %load_persid.exit, %load_binpersid.exit, %load_reduce.exit, %load_proto.exit, %load_frame.exit, %load_bool.exit, %load_bool.exit2171
   br label %while.body
 
 if.end11.i:                                       ; preds = %if.end8.i890
@@ -17439,17 +17437,17 @@ if.end22.i1333:                                   ; preds = %Py_DECREF.exit131.i
   %458 = load i64, ptr %call.i.i1329, align 8
   %459 = and i64 %458, 2147483648
   %cmp.i169.not.i = icmp eq i64 %459, 0
-  br i1 %cmp.i169.not.i, label %if.end.i117.i, label %load_build.exit.thread2880
+  br i1 %cmp.i169.not.i, label %if.end.i117.i, label %load_build.exit.thread2881
 
 if.end.i117.i:                                    ; preds = %if.end22.i1333
   %dec.i118.i = add i64 %458, -1
   store i64 %dec.i118.i, ptr %call.i.i1329, align 8
   %cmp.i119.i = icmp eq i64 %dec.i118.i, 0
-  br i1 %cmp.i119.i, label %if.then1.i120.i, label %load_build.exit.thread2880
+  br i1 %cmp.i119.i, label %if.then1.i120.i, label %load_build.exit.thread2881
 
 if.then1.i120.i:                                  ; preds = %if.end.i117.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i.i1329) #11
-  br label %load_build.exit.thread2880
+  br label %load_build.exit.thread2881
 
 if.end23.i1338:                                   ; preds = %if.end16.i1327
   %460 = getelementptr i8, ptr %444, i64 8
@@ -17700,7 +17698,7 @@ load_build.exit.thread:                           ; preds = %Pdata_pop.exit.i131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i59.i)
   br label %while.end
 
-load_build.exit.thread2880:                       ; preds = %if.end22.i1333, %if.then1.i120.i, %if.end.i117.i
+load_build.exit.thread2881:                       ; preds = %if.end22.i1333, %if.then1.i120.i, %if.end.i117.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %setstate.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d_key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d_value.i)
@@ -19573,13 +19571,13 @@ load_bool.exit2171:                               ; preds = %Py_INCREF.exit.i214
   br label %while.body.backedge
 
 sw.default:                                       ; preds = %if.end15
-  %conv418 = zext i8 %.fr2293 to i32
-  %744 = add i8 %.fr2293, -32
+  %conv418 = zext i8 %19 to i32
+  %744 = add i8 %19, -32
   %or.cond = icmp ult i8 %744, 95
   br i1 %or.cond, label %switch.early.test, label %if.else
 
 switch.early.test:                                ; preds = %sw.default
-  switch i8 %.fr2293, label %if.then432 [
+  switch i8 %19, label %if.then432 [
     i8 92, label %if.else
     i8 39, label %if.else
   ]

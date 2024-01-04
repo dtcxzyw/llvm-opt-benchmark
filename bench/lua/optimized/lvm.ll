@@ -1553,11 +1553,10 @@ entry:
   %tt_ = getelementptr inbounds %struct.TValue, ptr %rb, i64 0, i32 1
   %0 = load i8, ptr %tt_, align 8
   %1 = and i8 %0, 63
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %sw.default [
-    i32 5, label %sw.bb
-    i32 4, label %sw.bb14
-    i32 20, label %sw.bb20
+  switch i8 %1, label %sw.default [
+    i8 5, label %sw.bb
+    i8 4, label %sw.bb14
+    i8 20, label %sw.bb20
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -6222,11 +6221,10 @@ L_OP_LEN:                                         ; preds = %indirectgoto
   %tt_.i2292 = getelementptr inbounds %struct.TValue, ptr %add.ptr3297, i64 0, i32 1
   %504 = load i8, ptr %tt_.i2292, align 8
   %505 = and i8 %504, 63
-  %and.i = zext nneg i8 %505 to i32
-  switch i32 %and.i, label %sw.default.i [
-    i32 5, label %sw.bb.i
-    i32 4, label %sw.bb14.i
-    i32 20, label %sw.bb20.i
+  switch i8 %505, label %sw.default.i [
+    i8 5, label %sw.bb.i
+    i8 4, label %sw.bb14.i
+    i8 20, label %sw.bb20.i
   ]
 
 sw.bb.i:                                          ; preds = %L_OP_LEN

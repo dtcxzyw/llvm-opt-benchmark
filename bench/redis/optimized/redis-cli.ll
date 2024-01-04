@@ -7961,7 +7961,7 @@ land.lhs.true.lr.ph:                              ; preds = %if.end21
   %add.ptr.i = getelementptr inbounds i8, ptr %call17, i64 -3
   br label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %hi_sdslen.exit96, %land.lhs.true.lr.ph
+land.lhs.true:                                    ; preds = %hi_sdslen.exit95, %land.lhs.true.lr.ph
   %9 = load i8, ptr %invariant.gep, align 1
   %conv.i = zext i8 %9 to i32
   %and.i = and i32 %conv.i, 7
@@ -8079,16 +8079,15 @@ hi_sdslen.exit70:                                 ; preds = %while.body30, %sw.b
   %retval.0.i57 = phi i64 [ %22, %sw.bb13.i55 ], [ %conv12.i60, %sw.bb9.i58 ], [ %conv8.i63, %sw.bb5.i61 ], [ %conv4.i66, %sw.bb3.i64 ], [ %conv2.i69, %sw.bb.i67 ], [ 0, %while.body30 ]
   %sub32 = add i64 %retval.0.i57, -1
   %23 = and i8 %9, 7
-  %and.i72 = zext nneg i8 %23 to i32
-  switch i32 %and.i72, label %hi_sdssetlen.exit [
-    i32 0, label %sw.bb.i77
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i76
-    i32 3, label %sw.bb9.i75
-    i32 4, label %sw.bb13.i73
+  switch i8 %23, label %hi_sdssetlen.exit [
+    i8 0, label %sw.bb.i76
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb5.i75
+    i8 3, label %sw.bb9.i74
+    i8 4, label %sw.bb13.i72
   ]
 
-sw.bb.i77:                                        ; preds = %hi_sdslen.exit70
+sw.bb.i76:                                        ; preds = %hi_sdslen.exit70
   %newlen.tr.i = trunc i64 %sub32 to i8
   %conv1.i = shl i8 %newlen.tr.i, 3
   store i8 %conv1.i, ptr %invariant.gep, align 1
@@ -8100,58 +8099,58 @@ sw.bb2.i:                                         ; preds = %hi_sdslen.exit70
   store i8 %conv3.i, ptr %add.ptr.i, align 1
   br label %hi_sdssetlen.exit
 
-sw.bb5.i76:                                       ; preds = %hi_sdslen.exit70
+sw.bb5.i75:                                       ; preds = %hi_sdslen.exit70
   %conv6.i = trunc i64 %sub32 to i16
   store i16 %conv6.i, ptr %add.ptr6.i, align 1
   br label %hi_sdssetlen.exit
 
-sw.bb9.i75:                                       ; preds = %hi_sdslen.exit70
+sw.bb9.i74:                                       ; preds = %hi_sdslen.exit70
   %conv10.i = trunc i64 %sub32 to i32
   store i32 %conv10.i, ptr %add.ptr10.i, align 1
   br label %hi_sdssetlen.exit
 
-sw.bb13.i73:                                      ; preds = %hi_sdslen.exit70
+sw.bb13.i72:                                      ; preds = %hi_sdslen.exit70
   store i64 %sub32, ptr %add.ptr14.i, align 1
   br label %hi_sdssetlen.exit
 
-hi_sdssetlen.exit:                                ; preds = %hi_sdslen.exit70, %sw.bb.i77, %sw.bb2.i, %sw.bb5.i76, %sw.bb9.i75, %sw.bb13.i73
-  %conv.i79.pre-phi = phi i32 [ %conv.i, %hi_sdslen.exit70 ], [ %.pre, %sw.bb.i77 ], [ %conv.i, %sw.bb2.i ], [ %conv.i, %sw.bb5.i76 ], [ %conv.i, %sw.bb9.i75 ], [ %conv.i, %sw.bb13.i73 ]
-  %and.i80 = and i32 %conv.i79.pre-phi, 7
-  switch i32 %and.i80, label %hi_sdslen.exit96 [
-    i32 0, label %sw.bb.i93
-    i32 1, label %sw.bb3.i90
-    i32 2, label %sw.bb5.i87
-    i32 3, label %sw.bb9.i84
-    i32 4, label %sw.bb13.i81
+hi_sdssetlen.exit:                                ; preds = %hi_sdslen.exit70, %sw.bb.i76, %sw.bb2.i, %sw.bb5.i75, %sw.bb9.i74, %sw.bb13.i72
+  %conv.i78.pre-phi = phi i32 [ %conv.i, %hi_sdslen.exit70 ], [ %.pre, %sw.bb.i76 ], [ %conv.i, %sw.bb2.i ], [ %conv.i, %sw.bb5.i75 ], [ %conv.i, %sw.bb9.i74 ], [ %conv.i, %sw.bb13.i72 ]
+  %and.i79 = and i32 %conv.i78.pre-phi, 7
+  switch i32 %and.i79, label %hi_sdslen.exit95 [
+    i32 0, label %sw.bb.i92
+    i32 1, label %sw.bb3.i89
+    i32 2, label %sw.bb5.i86
+    i32 3, label %sw.bb9.i83
+    i32 4, label %sw.bb13.i80
   ]
 
-sw.bb.i93:                                        ; preds = %hi_sdssetlen.exit
-  %shr.i94 = lshr i32 %conv.i79.pre-phi, 3
-  %conv2.i95 = zext nneg i32 %shr.i94 to i64
-  br label %hi_sdslen.exit96
+sw.bb.i92:                                        ; preds = %hi_sdssetlen.exit
+  %shr.i93 = lshr i32 %conv.i78.pre-phi, 3
+  %conv2.i94 = zext nneg i32 %shr.i93 to i64
+  br label %hi_sdslen.exit95
 
-sw.bb3.i90:                                       ; preds = %hi_sdssetlen.exit
+sw.bb3.i89:                                       ; preds = %hi_sdssetlen.exit
   %24 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i92 = zext i8 %24 to i64
-  br label %hi_sdslen.exit96
+  %conv4.i91 = zext i8 %24 to i64
+  br label %hi_sdslen.exit95
 
-sw.bb5.i87:                                       ; preds = %hi_sdssetlen.exit
+sw.bb5.i86:                                       ; preds = %hi_sdssetlen.exit
   %25 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i89 = zext i16 %25 to i64
-  br label %hi_sdslen.exit96
+  %conv8.i88 = zext i16 %25 to i64
+  br label %hi_sdslen.exit95
 
-sw.bb9.i84:                                       ; preds = %hi_sdssetlen.exit
+sw.bb9.i83:                                       ; preds = %hi_sdssetlen.exit
   %26 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i86 = zext i32 %26 to i64
-  br label %hi_sdslen.exit96
+  %conv12.i85 = zext i32 %26 to i64
+  br label %hi_sdslen.exit95
 
-sw.bb13.i81:                                      ; preds = %hi_sdssetlen.exit
+sw.bb13.i80:                                      ; preds = %hi_sdssetlen.exit
   %27 = load i64, ptr %add.ptr14.i, align 1
-  br label %hi_sdslen.exit96
+  br label %hi_sdslen.exit95
 
-hi_sdslen.exit96:                                 ; preds = %hi_sdssetlen.exit, %sw.bb.i93, %sw.bb3.i90, %sw.bb5.i87, %sw.bb9.i84, %sw.bb13.i81
-  %retval.0.i83 = phi i64 [ %27, %sw.bb13.i81 ], [ %conv12.i86, %sw.bb9.i84 ], [ %conv8.i89, %sw.bb5.i87 ], [ %conv4.i92, %sw.bb3.i90 ], [ %conv2.i95, %sw.bb.i93 ], [ 0, %hi_sdssetlen.exit ]
-  %arrayidx34 = getelementptr inbounds i8, ptr %call17, i64 %retval.0.i83
+hi_sdslen.exit95:                                 ; preds = %hi_sdssetlen.exit, %sw.bb.i92, %sw.bb3.i89, %sw.bb5.i86, %sw.bb9.i83, %sw.bb13.i80
+  %retval.0.i82 = phi i64 [ %27, %sw.bb13.i80 ], [ %conv12.i85, %sw.bb9.i83 ], [ %conv8.i88, %sw.bb5.i86 ], [ %conv4.i91, %sw.bb3.i89 ], [ %conv2.i94, %sw.bb.i92 ], [ 0, %hi_sdssetlen.exit ]
+  %arrayidx34 = getelementptr inbounds i8, ptr %call17, i64 %retval.0.i82
   store i8 0, ptr %arrayidx34, align 1
   br label %land.lhs.true
 
@@ -9465,7 +9464,7 @@ if.then807.i:                                     ; preds = %land.lhs.true800.i
   br i1 %cmp808.i, label %while.cond813.preheader.i, label %for.inc929.i
 
 while.cond813.preheader.i:                        ; preds = %if.then807.i
-  %84 = add i32 %i.0459.i, 1
+  %84 = add nsw i32 %i.0459.i, 1
   %smax.i = tail call i32 @llvm.smax.i32(i32 %argc, i32 %84)
   %85 = add nsw i32 %smax.i, -1
   br label %while.cond813.i

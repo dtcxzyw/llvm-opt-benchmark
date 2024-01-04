@@ -798,15 +798,14 @@ sw.bb:                                            ; preds = %entry
   %tt_.i = getelementptr inbounds %struct.TValue, ptr %arrayidx.i, i64 0, i32 1
   %4 = load i8, ptr %tt_.i, align 8
   %5 = and i8 %4, 63
-  %and.i = zext nneg i8 %5 to i32
-  switch i32 %and.i, label %sw.epilog [
-    i32 3, label %sw.bb.i
-    i32 19, label %sw.bb1.i
-    i32 1, label %sw.bb5.i
-    i32 17, label %sw.bb7.i
-    i32 0, label %sw.bb9.i
-    i32 4, label %sw.bb11.i
-    i32 20, label %sw.bb11.i
+  switch i8 %5, label %sw.epilog [
+    i8 3, label %sw.bb.i
+    i8 19, label %sw.bb1.i
+    i8 1, label %sw.bb5.i
+    i8 17, label %sw.bb7.i
+    i8 0, label %sw.bb9.i
+    i8 4, label %sw.bb11.i
+    i8 20, label %sw.bb11.i
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
@@ -1008,8 +1007,8 @@ if.then.i65:                                      ; preds = %entry
   %arrayidx.i68 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i67
   %31 = load i32, ptr %arrayidx.i68, align 4
   %shr.i = lshr i32 %31, 7
-  %and.i69 = and i32 %shr.i, 255
-  store i32 %and.i69, ptr %u.i66, align 8
+  %and.i = and i32 %shr.i, 255
+  store i32 %and.i, ptr %u.i66, align 8
   br label %sw.epilog
 
 if.then5.i:                                       ; preds = %entry

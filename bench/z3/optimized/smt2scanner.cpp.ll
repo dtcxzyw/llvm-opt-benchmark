@@ -3014,20 +3014,19 @@ if.end:                                           ; preds = %if.end.lr.ph, %sw.e
   %idxprom = zext i8 %4 to i64
   %arrayidx = getelementptr inbounds %"class.smt2::scanner", ptr %this, i64 0, i32 10, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %5 to i32
-  switch i32 %conv, label %sw.default [
-    i32 32, label %sw.bb
-    i32 10, label %sw.bb2
-    i32 59, label %sw.bb3
-    i32 58, label %sw.bb4
-    i32 40, label %sw.bb6
-    i32 41, label %sw.bb7
-    i32 124, label %sw.bb8
-    i32 97, label %sw.bb10
-    i32 34, label %sw.bb12
-    i32 48, label %sw.bb14
-    i32 35, label %sw.bb16
-    i32 45, label %sw.bb20
+  switch i8 %5, label %sw.default [
+    i8 32, label %sw.bb
+    i8 10, label %sw.bb2
+    i8 59, label %sw.bb3
+    i8 58, label %sw.bb4
+    i8 40, label %sw.bb6
+    i8 41, label %sw.bb7
+    i8 124, label %sw.bb8
+    i8 97, label %sw.bb10
+    i8 34, label %sw.bb12
+    i8 48, label %sw.bb14
+    i8 35, label %sw.bb16
+    i8 45, label %sw.bb20
   ]
 
 sw.bb:                                            ; preds = %if.end

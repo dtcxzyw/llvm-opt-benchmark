@@ -3447,14 +3447,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -3898,16 +3897,16 @@ if.then41:                                        ; preds = %invoke.cont
 invoke.cont44:                                    ; preds = %if.then41
   %31 = load i32, ptr %permission, align 4
   %cmp.i13.i80 = icmp eq i32 %31, 4
-  br i1 %cmp.i13.i80, label %_upb_MiniTable_CopyFieldData.exit26.i82, label %invoke.cont46
+  br i1 %cmp.i13.i80, label %_upb_MiniTable_CopyFieldData.exit24.i82, label %invoke.cont46
 
-_upb_MiniTable_CopyFieldData.exit26.i82:          ; preds = %invoke.cont44
+_upb_MiniTable_CopyFieldData.exit24.i82:          ; preds = %invoke.cont44
   %add.ptr.i.i83 = getelementptr inbounds i8, ptr %permission, i64 8
   %32 = load i64, ptr %add.ptr.i.i83, align 1
   %33 = inttoptr i64 %32 to ptr
   br label %invoke.cont46
 
-invoke.cont46:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit26.i82, %invoke.cont44
-  %ret.2.in.i81 = phi ptr [ %33, %_upb_MiniTable_CopyFieldData.exit26.i82 ], [ null, %invoke.cont44 ]
+invoke.cont46:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i82, %invoke.cont44
+  %ret.2.in.i81 = phi ptr [ %33, %_upb_MiniTable_CopyFieldData.exit24.i82 ], [ null, %invoke.cont44 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.2.in.i81, ptr noundef %errors)
           to label %invoke.cont48 unwind label %lpad45
 
@@ -3973,16 +3972,16 @@ if.then58:                                        ; preds = %invoke.cont
 invoke.cont61:                                    ; preds = %if.then58
   %41 = load i32, ptr %permission, align 4
   %cmp.i13.i100 = icmp eq i32 %41, 10
-  br i1 %cmp.i13.i100, label %_upb_MiniTable_CopyFieldData.exit26.i102, label %invoke.cont63
+  br i1 %cmp.i13.i100, label %_upb_MiniTable_CopyFieldData.exit24.i102, label %invoke.cont63
 
-_upb_MiniTable_CopyFieldData.exit26.i102:         ; preds = %invoke.cont61
+_upb_MiniTable_CopyFieldData.exit24.i102:         ; preds = %invoke.cont61
   %add.ptr.i.i103 = getelementptr inbounds i8, ptr %permission, i64 8
   %42 = load i64, ptr %add.ptr.i.i103, align 1
   %43 = inttoptr i64 %42 to ptr
   br label %invoke.cont63
 
-invoke.cont63:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit26.i102, %invoke.cont61
-  %ret.2.in.i101 = phi ptr [ %43, %_upb_MiniTable_CopyFieldData.exit26.i102 ], [ null, %invoke.cont61 ]
+invoke.cont63:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i102, %invoke.cont61
+  %ret.2.in.i101 = phi ptr [ %43, %_upb_MiniTable_CopyFieldData.exit24.i102 ], [ null, %invoke.cont61 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.2.in.i101, ptr noundef %errors)
           to label %invoke.cont65 unwind label %lpad62
 
@@ -4112,16 +4111,16 @@ if.then114:                                       ; preds = %invoke.cont
 invoke.cont117:                                   ; preds = %if.then114
   %60 = load i32, ptr %permission, align 4
   %cmp.i13.i139 = icmp eq i32 %60, 8
-  br i1 %cmp.i13.i139, label %_upb_MiniTable_CopyFieldData.exit26.i141, label %invoke.cont119
+  br i1 %cmp.i13.i139, label %_upb_MiniTable_CopyFieldData.exit24.i141, label %invoke.cont119
 
-_upb_MiniTable_CopyFieldData.exit26.i141:         ; preds = %invoke.cont117
+_upb_MiniTable_CopyFieldData.exit24.i141:         ; preds = %invoke.cont117
   %add.ptr.i.i142 = getelementptr inbounds i8, ptr %permission, i64 8
   %61 = load i64, ptr %add.ptr.i.i142, align 1
   %62 = inttoptr i64 %61 to ptr
   br label %invoke.cont119
 
-invoke.cont119:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i141, %invoke.cont117
-  %ret.2.in.i140 = phi ptr [ %62, %_upb_MiniTable_CopyFieldData.exit26.i141 ], [ null, %invoke.cont117 ]
+invoke.cont119:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i141, %invoke.cont117
+  %ret.2.in.i140 = phi ptr [ %62, %_upb_MiniTable_CopyFieldData.exit24.i141 ], [ null, %invoke.cont117 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_rule_json, ptr noundef %ret.2.in.i140, ptr noundef nonnull %errors)
           to label %invoke.cont121 unwind label %lpad118
 
@@ -4158,16 +4157,16 @@ if.then131:                                       ; preds = %invoke.cont
 invoke.cont134:                                   ; preds = %if.then131
   %65 = load i32, ptr %permission, align 4
   %cmp.i13.i149 = icmp eq i32 %65, 9
-  br i1 %cmp.i13.i149, label %_upb_MiniTable_CopyFieldData.exit26.i151, label %invoke.cont136
+  br i1 %cmp.i13.i149, label %_upb_MiniTable_CopyFieldData.exit24.i151, label %invoke.cont136
 
-_upb_MiniTable_CopyFieldData.exit26.i151:         ; preds = %invoke.cont134
+_upb_MiniTable_CopyFieldData.exit24.i151:         ; preds = %invoke.cont134
   %add.ptr.i.i152 = getelementptr inbounds i8, ptr %permission, i64 8
   %66 = load i64, ptr %add.ptr.i.i152, align 1
   %67 = inttoptr i64 %66 to ptr
   br label %invoke.cont136
 
-invoke.cont136:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i151, %invoke.cont134
-  %ret.2.in.i150 = phi ptr [ %67, %_upb_MiniTable_CopyFieldData.exit26.i151 ], [ null, %invoke.cont134 ]
+invoke.cont136:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i151, %invoke.cont134
+  %ret.2.in.i150 = phi ptr [ %67, %_upb_MiniTable_CopyFieldData.exit24.i151 ], [ null, %invoke.cont134 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseStringMatcherToJsonEPK35envoy_type_matcher_v3_StringMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %requested_server_name_json, ptr noundef %ret.2.in.i150, ptr noundef nonnull %errors)
           to label %invoke.cont138 unwind label %lpad135
 
@@ -4940,16 +4939,16 @@ if.then120:                                       ; preds = %invoke.cont
 invoke.cont123:                                   ; preds = %if.then120
   %77 = load i32, ptr %principal, align 4
   %cmp.i13.i174 = icmp eq i32 %77, 6
-  br i1 %cmp.i13.i174, label %_upb_MiniTable_CopyFieldData.exit26.i176, label %invoke.cont125
+  br i1 %cmp.i13.i174, label %_upb_MiniTable_CopyFieldData.exit24.i176, label %invoke.cont125
 
-_upb_MiniTable_CopyFieldData.exit26.i176:         ; preds = %invoke.cont123
+_upb_MiniTable_CopyFieldData.exit24.i176:         ; preds = %invoke.cont123
   %add.ptr.i.i177 = getelementptr inbounds i8, ptr %principal, i64 8
   %78 = load i64, ptr %add.ptr.i.i177, align 1
   %79 = inttoptr i64 %78 to ptr
   br label %invoke.cont125
 
-invoke.cont125:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i176, %invoke.cont123
-  %ret.2.in.i175 = phi ptr [ %79, %_upb_MiniTable_CopyFieldData.exit26.i176 ], [ null, %invoke.cont123 ]
+invoke.cont125:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i176, %invoke.cont123
+  %ret.2.in.i175 = phi ptr [ %79, %_upb_MiniTable_CopyFieldData.exit24.i176 ], [ null, %invoke.cont123 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.2.in.i175, ptr noundef %errors)
           to label %invoke.cont127 unwind label %lpad124
 
@@ -4986,16 +4985,16 @@ if.then137:                                       ; preds = %invoke.cont
 invoke.cont140:                                   ; preds = %if.then137
   %82 = load i32, ptr %principal, align 4
   %cmp.i13.i185 = icmp eq i32 %82, 9
-  br i1 %cmp.i13.i185, label %_upb_MiniTable_CopyFieldData.exit26.i187, label %invoke.cont142
+  br i1 %cmp.i13.i185, label %_upb_MiniTable_CopyFieldData.exit24.i187, label %invoke.cont142
 
-_upb_MiniTable_CopyFieldData.exit26.i187:         ; preds = %invoke.cont140
+_upb_MiniTable_CopyFieldData.exit24.i187:         ; preds = %invoke.cont140
   %add.ptr.i.i188 = getelementptr inbounds i8, ptr %principal, i64 8
   %83 = load i64, ptr %add.ptr.i.i188, align 1
   %84 = inttoptr i64 %83 to ptr
   br label %invoke.cont142
 
-invoke.cont142:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i187, %invoke.cont140
-  %ret.2.in.i186 = phi ptr [ %84, %_upb_MiniTable_CopyFieldData.exit26.i187 ], [ null, %invoke.cont140 ]
+invoke.cont142:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i187, %invoke.cont140
+  %ret.2.in.i186 = phi ptr [ %84, %_upb_MiniTable_CopyFieldData.exit24.i187 ], [ null, %invoke.cont140 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.2.in.i186, ptr noundef %errors)
           to label %invoke.cont144 unwind label %lpad141
 
@@ -5055,16 +5054,16 @@ if.then167:                                       ; preds = %invoke.cont
 invoke.cont170:                                   ; preds = %if.then167
   %91 = load i32, ptr %principal, align 4
   %cmp.i13.i202 = icmp eq i32 %91, 8
-  br i1 %cmp.i13.i202, label %_upb_MiniTable_CopyFieldData.exit26.i204, label %invoke.cont172
+  br i1 %cmp.i13.i202, label %_upb_MiniTable_CopyFieldData.exit24.i204, label %invoke.cont172
 
-_upb_MiniTable_CopyFieldData.exit26.i204:         ; preds = %invoke.cont170
+_upb_MiniTable_CopyFieldData.exit24.i204:         ; preds = %invoke.cont170
   %add.ptr.i.i205 = getelementptr inbounds i8, ptr %principal, i64 8
   %92 = load i64, ptr %add.ptr.i.i205, align 1
   %93 = inttoptr i64 %92 to ptr
   br label %invoke.cont172
 
-invoke.cont172:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i204, %invoke.cont170
-  %ret.2.in.i203 = phi ptr [ %93, %_upb_MiniTable_CopyFieldData.exit26.i204 ], [ null, %invoke.cont170 ]
+invoke.cont172:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i204, %invoke.cont170
+  %ret.2.in.i203 = phi ptr [ %93, %_upb_MiniTable_CopyFieldData.exit24.i204 ], [ null, %invoke.cont170 ]
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_id_json, ptr noundef %ret.2.in.i203, ptr noundef nonnull %errors)
           to label %invoke.cont174 unwind label %lpad171
 
@@ -5533,12 +5532,12 @@ entry:
 
 invoke.cont2:                                     ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %header, i64 32
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %header, i64 40
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22, !noalias !71
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont3 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont2
@@ -5654,12 +5653,12 @@ invoke.cont23:                                    ; preds = %if.then.i
 
 invoke.cont29:                                    ; preds = %invoke.cont23
   %add.ptr.i.i36 = getelementptr inbounds i8, ptr %header, i64 16
-  %retval.sroa.0.0.copyload34.i37 = load ptr, ptr %add.ptr.i.i36, align 1
+  %retval.sroa.0.0.copyload32.i37 = load ptr, ptr %add.ptr.i.i36, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i38 = getelementptr inbounds i8, ptr %header, i64 24
-  %retval.sroa.9.0.copyload35.i39 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i38, align 1
+  %retval.sroa.9.0.copyload33.i39 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i38, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i40)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i40) #22, !noalias !77
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef %retval.sroa.0.0.copyload34.i37, i64 noundef %retval.sroa.9.0.copyload35.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i40)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef %retval.sroa.0.0.copyload32.i37, i64 noundef %retval.sroa.9.0.copyload33.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i40)
           to label %invoke.cont31 unwind label %lpad.i42
 
 lpad.i42:                                         ; preds = %invoke.cont29
@@ -6116,12 +6115,12 @@ lpad73:                                           ; preds = %_ZN9grpc_core12expe
 
 invoke.cont85:                                    ; preds = %invoke.cont23
   %add.ptr.i.i117 = getelementptr inbounds i8, ptr %header, i64 16
-  %retval.sroa.0.0.copyload34.i118 = load ptr, ptr %add.ptr.i.i117, align 1
+  %retval.sroa.0.0.copyload32.i118 = load ptr, ptr %add.ptr.i.i117, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i119 = getelementptr inbounds i8, ptr %header, i64 24
-  %retval.sroa.9.0.copyload35.i120 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i119, align 1
+  %retval.sroa.9.0.copyload33.i120 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i119, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i121)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i121) #22, !noalias !93
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef %retval.sroa.0.0.copyload34.i118, i64 noundef %retval.sroa.9.0.copyload35.i120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i121)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef %retval.sroa.0.0.copyload32.i118, i64 noundef %retval.sroa.9.0.copyload33.i120, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i121)
           to label %invoke.cont87 unwind label %lpad.i123
 
 lpad.i123:                                        ; preds = %invoke.cont85
@@ -6190,12 +6189,12 @@ lpad90:                                           ; preds = %_ZN9grpc_core12expe
 
 invoke.cont103:                                   ; preds = %invoke.cont23
   %add.ptr.i.i149 = getelementptr inbounds i8, ptr %header, i64 16
-  %retval.sroa.0.0.copyload34.i150 = load ptr, ptr %add.ptr.i.i149, align 1
+  %retval.sroa.0.0.copyload32.i150 = load ptr, ptr %add.ptr.i.i149, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i151 = getelementptr inbounds i8, ptr %header, i64 24
-  %retval.sroa.9.0.copyload35.i152 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i151, align 1
-  store ptr %retval.sroa.0.0.copyload34.i150, ptr %ref.tmp102, align 8
+  %retval.sroa.9.0.copyload33.i152 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i151, align 1
+  store ptr %retval.sroa.0.0.copyload32.i150, ptr %ref.tmp102, align 8
   %77 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp102, i64 0, i32 1
-  store i64 %retval.sroa.9.0.copyload35.i152, ptr %77, align 8
+  store i64 %retval.sroa.9.0.copyload33.i152, ptr %77, align 8
   invoke void @_ZN9grpc_core20UpbStringToStdStringB5cxx11ERK14upb_StringView(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp101, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102)
           to label %invoke.cont105 unwind label %lpad
 
@@ -6218,12 +6217,12 @@ lpad108:                                          ; preds = %invoke.cont105
 
 invoke.cont121:                                   ; preds = %invoke.cont23
   %add.ptr.i.i164 = getelementptr inbounds i8, ptr %header, i64 16
-  %retval.sroa.0.0.copyload34.i165 = load ptr, ptr %add.ptr.i.i164, align 1
+  %retval.sroa.0.0.copyload32.i165 = load ptr, ptr %add.ptr.i.i164, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i166 = getelementptr inbounds i8, ptr %header, i64 24
-  %retval.sroa.9.0.copyload35.i167 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i166, align 1
-  store ptr %retval.sroa.0.0.copyload34.i165, ptr %ref.tmp120, align 8
+  %retval.sroa.9.0.copyload33.i167 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i166, align 1
+  store ptr %retval.sroa.0.0.copyload32.i165, ptr %ref.tmp120, align 8
   %79 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp120, i64 0, i32 1
-  store i64 %retval.sroa.9.0.copyload35.i167, ptr %79, align 8
+  store i64 %retval.sroa.9.0.copyload33.i167, ptr %79, align 8
   invoke void @_ZN9grpc_core20UpbStringToStdStringB5cxx11ERK14upb_StringView(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120)
           to label %invoke.cont123 unwind label %lpad
 
@@ -6553,12 +6552,12 @@ invoke.cont:
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %range, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %range, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22, !noalias !108
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont3 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont
@@ -7001,12 +7000,12 @@ invoke.cont:
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %add.ptr.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %matcher, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #22, !noalias !126
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont3
@@ -7080,12 +7079,12 @@ lpad6:                                            ; preds = %_ZN9grpc_core12expe
 
 invoke.cont15:                                    ; preds = %invoke.cont
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %matcher, i64 8
-  %retval.sroa.0.0.copyload34.i25 = load ptr, ptr %add.ptr.i.i24, align 1
+  %retval.sroa.0.0.copyload32.i25 = load ptr, ptr %add.ptr.i.i24, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i26 = getelementptr inbounds i8, ptr %matcher, i64 16
-  %retval.sroa.9.0.copyload35.i27 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i26, align 1
+  %retval.sroa.9.0.copyload33.i27 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i26, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i28)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i28) #22, !noalias !132
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef %retval.sroa.0.0.copyload34.i25, i64 noundef %retval.sroa.9.0.copyload35.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i28)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef %retval.sroa.0.0.copyload32.i25, i64 noundef %retval.sroa.9.0.copyload33.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i28)
           to label %invoke.cont17 unwind label %lpad.i30
 
 lpad.i30:                                         ; preds = %invoke.cont15
@@ -7154,12 +7153,12 @@ lpad18:                                           ; preds = %_ZN9grpc_core12expe
 
 invoke.cont29:                                    ; preds = %invoke.cont
   %add.ptr.i.i55 = getelementptr inbounds i8, ptr %matcher, i64 8
-  %retval.sroa.0.0.copyload34.i56 = load ptr, ptr %add.ptr.i.i55, align 1
+  %retval.sroa.0.0.copyload32.i56 = load ptr, ptr %add.ptr.i.i55, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i57 = getelementptr inbounds i8, ptr %matcher, i64 16
-  %retval.sroa.9.0.copyload35.i58 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i57, align 1
+  %retval.sroa.9.0.copyload33.i58 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i57, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i59)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i59) #22, !noalias !138
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef %retval.sroa.0.0.copyload34.i56, i64 noundef %retval.sroa.9.0.copyload35.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i59)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef %retval.sroa.0.0.copyload32.i56, i64 noundef %retval.sroa.9.0.copyload33.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i59)
           to label %invoke.cont31 unwind label %lpad.i61
 
 lpad.i61:                                         ; preds = %invoke.cont29
@@ -7275,12 +7274,12 @@ lpad44:                                           ; preds = %invoke.cont43
 
 invoke.cont55:                                    ; preds = %invoke.cont
   %add.ptr.i.i99 = getelementptr inbounds i8, ptr %matcher, i64 8
-  %retval.sroa.0.0.copyload34.i100 = load ptr, ptr %add.ptr.i.i99, align 1
+  %retval.sroa.0.0.copyload32.i100 = load ptr, ptr %add.ptr.i.i99, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i101 = getelementptr inbounds i8, ptr %matcher, i64 16
-  %retval.sroa.9.0.copyload35.i102 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i101, align 1
+  %retval.sroa.9.0.copyload33.i102 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i101, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i103)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i103) #22, !noalias !144
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef %retval.sroa.0.0.copyload34.i100, i64 noundef %retval.sroa.9.0.copyload35.i102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i103)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef %retval.sroa.0.0.copyload32.i100, i64 noundef %retval.sroa.9.0.copyload33.i102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i103)
           to label %invoke.cont57 unwind label %lpad.i105
 
 lpad.i105:                                        ; preds = %invoke.cont55
@@ -7932,15 +7931,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -8066,15 +8064,14 @@ entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -10635,7 +10632,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
   %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
@@ -12847,15 +12844,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -13524,15 +13520,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry

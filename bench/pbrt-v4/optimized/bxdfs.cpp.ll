@@ -13132,12 +13132,12 @@ invoke.cont172:                                   ; preds = %if.end.i.i.i.i.i.i.
   %shape.sroa.0.1 = phi ptr [ %call5.i.i.i.i2.i.i76, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i76, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
   %conv173 = zext nneg i8 %12 to i32
-  %switch.tableidx = add nsw i32 %conv173, -1
-  %17 = icmp ult i32 %switch.tableidx, 11
+  %switch.tableidx = add nsw i8 %12, -1
+  %17 = icmp ult i8 %switch.tableidx, 11
   br i1 %17, label %switch.lookup, label %_ZN4pbrtL9type_sizeENS_6Tensor4TypeE.exit
 
 switch.lookup:                                    ; preds = %invoke.cont172
-  %18 = zext nneg i32 %switch.tableidx to i64
+  %18 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4pbrtL9type_sizeENS_6Tensor4TypeE.exit

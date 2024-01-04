@@ -66,13 +66,12 @@ entry:
   %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
   %1 = load i32, ptr %tok_mode_stack_index, align 8
   %idxprom = sext i32 %1 to i64
-  %conv = sext i8 %cur to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 123, label %sw.bb17
-    i32 125, label %sw.bb36
-    i32 33, label %sw.bb36
-    i32 58, label %sw.bb36
+  switch i8 %cur, label %sw.default [
+    i8 0, label %sw.bb
+    i8 123, label %sw.bb17
+    i8 125, label %sw.bb36
+    i8 33, label %sw.bb36
+    i8 58, label %sw.bb36
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -3711,12 +3710,11 @@ if.end932:                                        ; preds = %if.end923
   store i32 0, ptr %f_string_debug, align 8
   %295 = load ptr, ptr %start, align 8
   %296 = load i8, ptr %295, align 1
-  %conv943 = sext i8 %296 to i32
-  switch i32 %conv943, label %sw.default [
-    i32 70, label %sw.bb
-    i32 102, label %sw.bb
-    i32 82, label %sw.epilog
-    i32 114, label %sw.epilog
+  switch i8 %296, label %sw.default [
+    i8 70, label %sw.bb
+    i8 102, label %sw.bb
+    i8 82, label %sw.epilog
+    i8 114, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end932, %if.end932

@@ -2574,7 +2574,7 @@ return:                                           ; preds = %if.end7, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_dl_close(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @py_dl_close(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
   %handle = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.71, ptr noundef nonnull @_parse_voidp, ptr noundef nonnull %handle) #10
@@ -2889,7 +2889,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @My_PyObj_FromPtr(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @My_PyObj_FromPtr(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
   %ob = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.83, ptr noundef nonnull @converter, ptr noundef nonnull %ob) #10
@@ -2919,7 +2919,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @My_Py_INCREF(ptr nocapture readnone %self, ptr noundef returned %arg) #4 {
+define internal noundef ptr @My_Py_INCREF(ptr nocapture readnone %self, ptr noundef returned %arg) #4 {
 entry:
   %0 = load i32, ptr %arg, align 8
   %add.i4 = add i32 %0, 1
@@ -2938,7 +2938,7 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit8, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @My_Py_DECREF(ptr nocapture readnone %self, ptr noundef returned %arg) #0 {
+define internal noundef ptr @My_Py_DECREF(ptr nocapture readnone %self, ptr noundef returned %arg) #0 {
 entry:
   %0 = load i64, ptr %arg, align 8
   %1 = and i64 %0, 2147483648
@@ -3058,7 +3058,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PyCArg_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @PyCArg_clear(ptr nocapture noundef %self) #0 {
 entry:
   %obj = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 4
   %0 = load ptr, ptr %obj, align 8
@@ -3091,70 +3091,71 @@ define internal ptr @PyCArg_repr(ptr noundef %self) #0 {
 entry:
   %tag = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 2
   %0 = load i8, ptr %tag, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 98, label %sw.bb
-    i32 66, label %sw.bb
-    i32 104, label %sw.bb4
-    i32 72, label %sw.bb4
-    i32 105, label %sw.bb10
-    i32 73, label %sw.bb10
-    i32 108, label %sw.bb15
-    i32 76, label %sw.bb15
-    i32 113, label %sw.bb20
-    i32 81, label %sw.bb20
-    i32 100, label %sw.bb25
-    i32 102, label %sw.bb25
-    i32 99, label %sw.bb38
-    i32 122, label %sw.bb52
-    i32 90, label %sw.bb52
-    i32 80, label %sw.bb52
+  switch i8 %0, label %sw.default [
+    i8 98, label %sw.bb
+    i8 66, label %sw.bb
+    i8 104, label %sw.bb4
+    i8 72, label %sw.bb4
+    i8 105, label %sw.bb10
+    i8 73, label %sw.bb10
+    i8 108, label %sw.bb15
+    i8 76, label %sw.bb15
+    i8 113, label %sw.bb20
+    i8 81, label %sw.bb20
+    i8 80, label %sw.bb52
+    i8 90, label %sw.bb52
+    i8 99, label %sw.bb38
+    i8 122, label %sw.bb52
+    i8 102, label %cond.true
+    i8 100, label %cond.false
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
+  %conv2 = zext nneg i8 %0 to i32
   %value = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
   %1 = load i8, ptr %value, align 16
   %conv3 = sext i8 %1 to i32
-  %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv, i32 noundef %conv3) #10
+  %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv2, i32 noundef %conv3) #10
   br label %return
 
 sw.bb4:                                           ; preds = %entry, %entry
+  %conv6 = zext nneg i8 %0 to i32
   %value7 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
   %2 = load i16, ptr %value7, align 16
   %conv8 = sext i16 %2 to i32
-  %call9 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv, i32 noundef %conv8) #10
+  %call9 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv6, i32 noundef %conv8) #10
   br label %return
 
 sw.bb10:                                          ; preds = %entry, %entry
+  %conv12 = zext nneg i8 %0 to i32
   %value13 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
   %3 = load i32, ptr %value13, align 16
-  %call14 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv, i32 noundef %3) #10
+  %call14 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv12, i32 noundef %3) #10
   br label %return
 
 sw.bb15:                                          ; preds = %entry, %entry
+  %conv17 = zext nneg i8 %0 to i32
   %value18 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
   %4 = load i64, ptr %value18, align 16
-  %call19 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.34, i32 noundef %conv, i64 noundef %4) #10
+  %call19 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.34, i32 noundef %conv17, i64 noundef %4) #10
   br label %return
 
 sw.bb20:                                          ; preds = %entry, %entry
+  %conv22 = zext nneg i8 %0 to i32
   %value23 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
   %5 = load i64, ptr %value23, align 16
-  %call24 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.35, i32 noundef %conv, i64 noundef %5) #10
+  %call24 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.35, i32 noundef %conv22, i64 noundef %5) #10
   br label %return
 
-sw.bb25:                                          ; preds = %entry, %entry
-  %cmp = icmp eq i8 %0, 102
+cond.true:                                        ; preds = %entry
   %value29 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %sw.bb25
   %6 = load float, ptr %value29, align 16
   %conv30 = fpext float %6 to double
   br label %cond.end
 
-cond.false:                                       ; preds = %sw.bb25
-  %7 = load double, ptr %value29, align 16
+cond.false:                                       ; preds = %entry
+  %value31 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
+  %7 = load double, ptr %value31, align 16
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -3195,17 +3196,13 @@ land.lhs.true.i:                                  ; preds = %sw.bb38
   %tobool.i = icmp eq i32 %call.i.fr, 0
   %.pre = load i8, ptr %tag, align 8
   %.pre50 = load i8, ptr %value39, align 16
-  br i1 %tobool.i, label %land.lhs.true.i.if.else_crit_edge, label %switch.early.test
+  br i1 %tobool.i, label %if.else, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true.i
   switch i8 %11, label %if.then41 [
-    i8 92, label %land.lhs.true.i.if.else_crit_edge
-    i8 39, label %land.lhs.true.i.if.else_crit_edge
+    i8 92, label %if.else
+    i8 39, label %if.else
   ]
-
-land.lhs.true.i.if.else_crit_edge:                ; preds = %switch.early.test, %switch.early.test, %land.lhs.true.i
-  %.pre52 = sext i8 %.pre to i32
-  br label %if.else
 
 if.then41:                                        ; preds = %switch.early.test
   %conv43 = sext i8 %.pre to i32
@@ -3213,17 +3210,19 @@ if.then41:                                        ; preds = %switch.early.test
   %call46 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.37, i32 noundef %conv43, i32 noundef %conv45) #10
   br label %return
 
-if.else:                                          ; preds = %land.lhs.true.i.if.else_crit_edge, %sw.bb38
-  %conv48.pre-phi = phi i32 [ %.pre52, %land.lhs.true.i.if.else_crit_edge ], [ 99, %sw.bb38 ]
-  %12 = phi i8 [ %.pre50, %land.lhs.true.i.if.else_crit_edge ], [ %11, %sw.bb38 ]
+if.else:                                          ; preds = %switch.early.test, %switch.early.test, %land.lhs.true.i, %sw.bb38
+  %12 = phi i8 [ %11, %sw.bb38 ], [ %.pre50, %switch.early.test ], [ %.pre50, %land.lhs.true.i ], [ %.pre50, %switch.early.test ]
+  %13 = phi i8 [ 99, %sw.bb38 ], [ %.pre, %switch.early.test ], [ %.pre, %land.lhs.true.i ], [ %.pre, %switch.early.test ]
+  %conv48 = sext i8 %13 to i32
   %conv50 = zext i8 %12 to i32
-  %call51 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.38, i32 noundef %conv48.pre-phi, i32 noundef %conv50) #10
+  %call51 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.38, i32 noundef %conv48, i32 noundef %conv50) #10
   br label %return
 
 sw.bb52:                                          ; preds = %entry, %entry, %entry
+  %conv54 = zext nneg i8 %0 to i32
   %value55 = getelementptr inbounds %struct.tagPyCArgObject, ptr %self, i64 0, i32 3
-  %13 = load ptr, ptr %value55, align 16
-  %call56 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.39, i32 noundef %conv, ptr noundef %13) #10
+  %14 = load ptr, ptr %value55, align 16
+  %call56 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.39, i32 noundef %conv54, ptr noundef %14) #10
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -3236,22 +3235,22 @@ land.lhs.true.i34:                                ; preds = %sw.default
   %call.i36.fr = freeze i32 %call.i36
   %tobool.i37 = icmp eq i32 %call.i36.fr, 0
   %.pre51 = load i8, ptr %tag, align 8
-  br i1 %tobool.i37, label %if.else64, label %switch.early.test53
+  br i1 %tobool.i37, label %if.else64, label %switch.early.test52
 
-switch.early.test53:                              ; preds = %land.lhs.true.i34
+switch.early.test52:                              ; preds = %land.lhs.true.i34
   switch i8 %0, label %if.then60 [
     i8 92, label %if.else64
     i8 39, label %if.else64
   ]
 
-if.then60:                                        ; preds = %switch.early.test53
+if.then60:                                        ; preds = %switch.early.test52
   %conv62 = zext i8 %.pre51 to i32
   %call63 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.40, i32 noundef %conv62, ptr noundef nonnull %self) #10
   br label %return
 
-if.else64:                                        ; preds = %switch.early.test53, %switch.early.test53, %land.lhs.true.i34, %sw.default
-  %14 = phi i8 [ %0, %sw.default ], [ %.pre51, %switch.early.test53 ], [ %.pre51, %land.lhs.true.i34 ], [ %.pre51, %switch.early.test53 ]
-  %conv66 = zext i8 %14 to i32
+if.else64:                                        ; preds = %switch.early.test52, %switch.early.test52, %land.lhs.true.i34, %sw.default
+  %15 = phi i8 [ %0, %sw.default ], [ %.pre51, %switch.early.test52 ], [ %.pre51, %land.lhs.true.i34 ], [ %.pre51, %switch.early.test52 ]
+  %conv66 = zext i8 %15 to i32
   %call67 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.41, i32 noundef %conv66, ptr noundef nonnull %self) #10
   br label %return
 

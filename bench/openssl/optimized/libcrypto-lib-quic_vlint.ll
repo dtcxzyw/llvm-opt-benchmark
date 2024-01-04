@@ -175,13 +175,12 @@ entry:
   %1 = lshr i8 %0, 6
   %shr.i = zext nneg i8 %1 to i32
   %shl.i = shl nuw nsw i32 1, %shr.i
-  %conv1.i = zext nneg i32 %shl.i to i64
   %2 = and i8 %0, 63
   %conv32 = zext nneg i8 %2 to i64
-  switch i64 %conv1.i, label %if.end29 [
-    i64 1, label %return
-    i64 2, label %if.then4
-    i64 4, label %if.then13
+  switch i32 %shl.i, label %if.end29 [
+    i32 1, label %return
+    i32 2, label %if.then4
+    i32 4, label %if.then13
   ]
 
 if.then4:                                         ; preds = %entry
@@ -268,10 +267,10 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %2 = and i8 %0, 63
   %conv32.i = zext nneg i8 %2 to i64
-  switch i64 %conv1.i, label %if.end29.i [
-    i64 1, label %ossl_quic_vlint_decode_unchecked.exit
-    i64 2, label %if.then4.i
-    i64 4, label %if.then13.i
+  switch i32 %shl.i, label %if.end29.i [
+    i32 1, label %ossl_quic_vlint_decode_unchecked.exit
+    i32 2, label %if.then4.i
+    i32 4, label %if.then13.i
   ]
 
 if.then4.i:                                       ; preds = %if.end3

@@ -4591,13 +4591,13 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 2
   %48 = load i8, ptr %incdec.ptr4.i.i.i, align 1
   %cmp.i27.i.i.i = icmp eq i8 %48, 0
-  br i1 %cmp.i27.i.i.i, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit664, label %if.end7.i.i.i
+  br i1 %cmp.i27.i.i.i, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit663, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
   %incdec.ptr8.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 3
   %49 = load i8, ptr %incdec.ptr8.i.i.i, align 1
   %cmp.i28.i.i.i = icmp eq i8 %49, 0
-  br i1 %cmp.i28.i.i.i, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit666, label %if.end11.i.i.i
+  br i1 %cmp.i28.i.i.i, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit665, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 4
@@ -4651,16 +4651,16 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 1
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit664: ; preds = %if.end3.i.i.i
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit663: ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 2
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit666: ; preds = %if.end7.i.i.i
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit665: ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 3
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %for.body.i.i.i, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit664, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit666, %sw.bb.i.i.i, %sw.bb20.i.i.i, %sw.bb25.i.i.i, %sw.default.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr83, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit664 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit666 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
+_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %for.body.i.i.i, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit663, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit665, %sw.bb.i.i.i, %sw.bb20.i.i.i, %sw.bb25.i.i.i, %sw.default.i.i.i
+  %retval.0.i.i.i = phi ptr [ %add.ptr83, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit663 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit665 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %cmp88.not = icmp eq ptr %retval.0.i.i.i, %add.ptr83
   %sub.ptr.lhs.cast90 = ptrtoint ptr %retval.0.i.i.i to i64
   %sub.ptr.sub92 = sub i64 %sub.ptr.lhs.cast90, %sub.ptr.rhs.cast.i.i.i
@@ -4734,8 +4734,8 @@ if.then114:                                       ; preds = %if.end109
   %65 = icmp ult i32 %64, -11
   %bf.clear119 = and i16 %bf.load118, 15
   %cmp121.not = icmp eq i16 %bf.clear119, 1
-  %or.cond672 = or i1 %65, %cmp121.not
-  br i1 %or.cond672, label %if.else127, label %if.then122
+  %or.cond671 = or i1 %65, %cmp121.not
+  br i1 %or.cond671, label %if.else127, label %if.then122
 
 if.then122:                                       ; preds = %if.then114
   %bf.clear125 = and i16 %bf.load118, -16
@@ -4765,14 +4765,13 @@ cond.true141:                                     ; preds = %cond.end137
 
 cond.end144:                                      ; preds = %cond.end137, %cond.true141
   %cond145 = phi i8 [ %68, %cond.true141 ], [ 0, %cond.end137 ]
-  %conv147 = sext i8 %67 to i32
-  switch i32 %conv147, label %sw.default [
-    i32 104, label %sw.bb
-    i32 108, label %sw.bb161
-    i32 106, label %sw.bb175
-    i32 122, label %sw.bb176
-    i32 116, label %sw.bb177
-    i32 76, label %sw.epilog
+  switch i8 %67, label %sw.default [
+    i8 104, label %sw.bb
+    i8 108, label %sw.bb161
+    i8 106, label %sw.bb175
+    i8 122, label %sw.bb176
+    i8 116, label %sw.bb177
+    i8 76, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %cond.end144
@@ -5260,7 +5259,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_cont
 
 sw.default:                                       ; preds = %if.end131, %cond.end144
   %111 = phi ptr [ %incdec.ptr134, %cond.end144 ], [ %add.ptr.i.i, %if.end131 ]
-  %cond138645649 = phi i8 [ %67, %cond.end144 ], [ 0, %if.end131 ]
+  %cond138645648 = phi i8 [ %67, %cond.end144 ], [ 0, %if.end131 ]
   %incdec.ptr179 = getelementptr inbounds i8, ptr %111, i64 -1
   store ptr %incdec.ptr179, ptr %it, align 8
   %112 = load i32, ptr %type_.i275, align 16
@@ -5274,29 +5273,29 @@ sw.default:                                       ; preds = %if.end131, %cond.en
   ]
 
 sw.bb1.i.i409:                                    ; preds = %sw.default
-  %switch.selectcmp.case1.i.i410 = icmp eq i8 %cond138645649, 105
-  %switch.selectcmp.case2.i.i411 = icmp eq i8 %cond138645649, 100
+  %switch.selectcmp.case1.i.i410 = icmp eq i8 %cond138645648, 105
+  %switch.selectcmp.case2.i.i411 = icmp eq i8 %cond138645648, 100
   %switch.selectcmp.i.i412 = or i1 %switch.selectcmp.case1.i.i410, %switch.selectcmp.case2.i.i411
   %113 = select i1 %switch.selectcmp.i.i412, i32 1, i32 2
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEES6_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 sw.bb2.i.i408:                                    ; preds = %sw.default
-  %switch.selectcmp.case1.i36.i = icmp eq i8 %cond138645649, 105
-  %switch.selectcmp.case2.i37.i = icmp eq i8 %cond138645649, 100
+  %switch.selectcmp.case1.i36.i = icmp eq i8 %cond138645648, 105
+  %switch.selectcmp.case2.i37.i = icmp eq i8 %cond138645648, 100
   %switch.selectcmp.i38.i = or i1 %switch.selectcmp.case1.i36.i, %switch.selectcmp.case2.i37.i
   %114 = select i1 %switch.selectcmp.i38.i, i32 1, i32 2
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEES6_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 sw.bb4.i.i407:                                    ; preds = %sw.default
-  %switch.selectcmp.case1.i41.i = icmp eq i8 %cond138645649, 105
-  %switch.selectcmp.case2.i42.i = icmp eq i8 %cond138645649, 100
+  %switch.selectcmp.case1.i41.i = icmp eq i8 %cond138645648, 105
+  %switch.selectcmp.case2.i42.i = icmp eq i8 %cond138645648, 100
   %switch.selectcmp.i43.i = or i1 %switch.selectcmp.case1.i41.i, %switch.selectcmp.case2.i42.i
   %115 = select i1 %switch.selectcmp.i43.i, i32 3, i32 4
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEES6_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 sw.bb6.i.i406:                                    ; preds = %sw.default
-  %switch.selectcmp.case1.i46.i = icmp eq i8 %cond138645649, 105
-  %switch.selectcmp.case2.i47.i = icmp eq i8 %cond138645649, 100
+  %switch.selectcmp.case1.i46.i = icmp eq i8 %cond138645648, 105
+  %switch.selectcmp.case2.i47.i = icmp eq i8 %cond138645648, 100
   %switch.selectcmp.i48.i = or i1 %switch.selectcmp.case1.i46.i, %switch.selectcmp.case2.i47.i
   %116 = select i1 %switch.selectcmp.i48.i, i32 3, i32 4
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEES6_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
@@ -5304,7 +5303,7 @@ sw.bb6.i.i406:                                    ; preds = %sw.default
 sw.bb18.i.i403:                                   ; preds = %sw.default
   %117 = load i8, ptr %arg, align 16
   %118 = and i8 %117, 1
-  switch i8 %cond138645649, label %if.else.i.i.i405 [
+  switch i8 %cond138645648, label %if.else.i.i.i405 [
     i8 115, label %sw.epilog
     i8 105, label %_ZN3fmt2v86detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEclIbTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS9_.exit.i.i
     i8 100, label %_ZN3fmt2v86detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEclIbTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS9_.exit.i.i
@@ -5321,7 +5320,7 @@ _ZN3fmt2v86detail13arg_converterIvNS0_20basic_printf_contextINS0_8appenderEcEEEc
 
 sw.bb20.i.i413:                                   ; preds = %sw.default
   %119 = load i8, ptr %arg, align 16
-  switch i8 %cond138645649, label %if.else.i.i [
+  switch i8 %cond138645648, label %if.else.i.i [
     i8 105, label %if.then.i.i414
     i8 100, label %if.then.i.i414
   ]
@@ -5369,11 +5368,10 @@ if.end186:                                        ; preds = %do.body, %sw.epilog
   br i1 %125, label %if.then189, label %if.end195
 
 if.then189:                                       ; preds = %if.end186
-  %conv190 = sext i8 %122 to i32
-  switch i32 %conv190, label %if.end195 [
-    i32 105, label %sw.bb191
-    i32 117, label %sw.bb191
-    i32 99, label %sw.bb192
+  switch i8 %122, label %if.end195 [
+    i8 105, label %sw.bb191
+    i8 117, label %sw.bb191
+    i8 99, label %sw.bb192
   ]
 
 sw.bb191:                                         ; preds = %if.then189, %if.then189
@@ -5429,7 +5427,7 @@ sw.bb20.i:                                        ; preds = %sw.bb192
   br label %if.end195
 
 if.end195:                                        ; preds = %sw.bb192, %if.then189, %sw.bb191, %sw.bb20.i, %sw.bb18.i, %sw.bb6.i, %sw.bb4.i, %sw.bb2.i337, %sw.bb1.i338, %if.end186
-  %type.0 = phi i8 [ %122, %if.then189 ], [ %122, %sw.bb20.i ], [ %122, %sw.bb18.i ], [ %122, %sw.bb6.i ], [ %122, %sw.bb4.i ], [ %122, %sw.bb2.i337 ], [ %122, %sw.bb1.i338 ], [ 100, %sw.bb191 ], [ %122, %if.end186 ], [ %122, %sw.bb192 ]
+  %type.0 = phi i8 [ %122, %if.then189 ], [ 99, %sw.bb20.i ], [ 99, %sw.bb18.i ], [ 99, %sw.bb6.i ], [ 99, %sw.bb4.i ], [ 99, %sw.bb2.i337 ], [ 99, %sw.bb1.i338 ], [ 100, %sw.bb191 ], [ %122, %if.end186 ], [ 99, %sw.bb192 ]
   %call196 = call noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type.0)
   store i8 %call196, ptr %type.i, align 8
   %cmp199 = icmp eq i8 %call196, 0
@@ -6001,13 +5999,12 @@ for.body.lr.ph.i:                                 ; preds = %if.end24
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %12 = phi ptr [ %11, %for.body.lr.ph.i ], [ %incdec.ptr.i62, %for.inc.i ]
   %13 = load i8, ptr %12, align 1
-  %conv.i = sext i8 %13 to i32
-  switch i32 %conv.i, label %_ZN3fmt2v86detail11parse_flagsIcEEvRNS0_18basic_format_specsIT_EERPKS4_S8_.exit [
-    i32 45, label %sw.bb.i
-    i32 43, label %sw.bb1.i64
-    i32 48, label %sw.bb5.i63
-    i32 32, label %sw.bb6.i
-    i32 35, label %sw.bb15.i
+  switch i8 %13, label %_ZN3fmt2v86detail11parse_flagsIcEEvRNS0_18basic_format_specsIT_EERPKS4_S8_.exit [
+    i8 45, label %sw.bb.i
+    i8 43, label %sw.bb1.i64
+    i8 48, label %sw.bb5.i63
+    i8 32, label %sw.bb6.i
+    i8 35, label %sw.bb15.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
@@ -6195,7 +6192,7 @@ sw.bb17.i:                                        ; preds = %if.then50
 sw.bb24.i:                                        ; preds = %if.then50
   %31 = load i8, ptr %ref.tmp53, align 16
   %32 = and i8 %31, 1
-  %conv.i100 = zext nneg i8 %32 to i32
+  %conv.i = zext nneg i8 %32 to i32
   br label %_ZN3fmt2v816visit_format_argINS0_6detail20printf_width_handlerIcEENS0_20basic_printf_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
 sw.bb27.i:                                        ; preds = %if.then50
@@ -6247,7 +6244,7 @@ sw.epilog.i:                                      ; preds = %if.then50
   br label %_ZN3fmt2v816visit_format_argINS0_6detail20printf_width_handlerIcEENS0_20basic_printf_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
 _ZN3fmt2v816visit_format_argINS0_6detail20printf_width_handlerIcEENS0_20basic_printf_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.epilog.i, %sw.bb50.i, %sw.bb47.i, %sw.bb42.i, %sw.bb39.i, %sw.bb36.i, %sw.bb33.i, %sw.bb30.i, %sw.bb27.i, %sw.bb24.i, %sw.bb17.i, %sw.bb11.i, %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb1.i
-  %retval.i.0 = phi i32 [ %call56.i, %sw.epilog.i ], [ %call49.i, %sw.bb47.i ], [ %call46.i, %sw.bb42.i ], [ %call41.i, %sw.bb39.i ], [ %call38.i, %sw.bb36.i ], [ %call35.i, %sw.bb33.i ], [ %call32.i, %sw.bb30.i ], [ %call29.i, %sw.bb27.i ], [ %conv.i100, %sw.bb24.i ], [ %call23.i, %sw.bb17.i ], [ %call16.i, %sw.bb11.i ], [ %call10.i, %sw.bb8.i ], [ %call7.i, %sw.bb5.i ], [ %call4.i, %sw.bb2.i ], [ %call.i, %sw.bb1.i ], [ %call54.i, %sw.bb50.i ]
+  %retval.i.0 = phi i32 [ %call56.i, %sw.epilog.i ], [ %call49.i, %sw.bb47.i ], [ %call46.i, %sw.bb42.i ], [ %call41.i, %sw.bb39.i ], [ %call38.i, %sw.bb36.i ], [ %call35.i, %sw.bb33.i ], [ %call32.i, %sw.bb30.i ], [ %call29.i, %sw.bb27.i ], [ %conv.i, %sw.bb24.i ], [ %call23.i, %sw.bb17.i ], [ %call16.i, %sw.bb11.i ], [ %call10.i, %sw.bb8.i ], [ %call7.i, %sw.bb5.i ], [ %call4.i, %sw.bb2.i ], [ %call.i, %sw.bb1.i ], [ %call54.i, %sw.bb50.i ]
   store i32 %retval.i.0, ptr %specs, align 4
   br label %return
 
@@ -6642,25 +6639,24 @@ _ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #5 comdat {
 entry:
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %sw.default [
-    i32 100, label %return
-    i32 111, label %sw.bb1
-    i32 120, label %sw.bb2
-    i32 88, label %sw.bb3
-    i32 98, label %sw.bb4
-    i32 66, label %sw.bb5
-    i32 97, label %sw.bb6
-    i32 65, label %sw.bb7
-    i32 101, label %sw.bb8
-    i32 69, label %sw.bb9
-    i32 102, label %sw.bb10
-    i32 70, label %sw.bb11
-    i32 103, label %sw.bb12
-    i32 71, label %sw.bb13
-    i32 99, label %sw.bb14
-    i32 115, label %sw.bb15
-    i32 112, label %sw.bb16
+  switch i8 %type, label %sw.default [
+    i8 100, label %return
+    i8 111, label %sw.bb1
+    i8 120, label %sw.bb2
+    i8 88, label %sw.bb3
+    i8 98, label %sw.bb4
+    i8 66, label %sw.bb5
+    i8 97, label %sw.bb6
+    i8 65, label %sw.bb7
+    i8 101, label %sw.bb8
+    i8 69, label %sw.bb9
+    i8 102, label %sw.bb10
+    i8 70, label %sw.bb11
+    i8 103, label %sw.bb12
+    i8 71, label %sw.bb13
+    i8 99, label %sw.bb14
+    i8 115, label %sw.bb15
+    i8 112, label %sw.bb16
   ]
 
 sw.bb1:                                           ; preds = %entry

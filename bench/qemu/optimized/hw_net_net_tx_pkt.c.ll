@@ -145,7 +145,7 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %conv
   %conv1 = trunc i64 %add to i16
-  %3 = tail call i16 @llvm.bswap.i16(i16 %conv1)
+  %3 = tail call noundef i16 @llvm.bswap.i16(i16 %conv1)
   %l3_hdr = getelementptr inbounds %struct.NetTxPkt, ptr %pkt, i64 0, i32 6
   %ip_len = getelementptr inbounds i8, ptr %pkt, i64 70
   store i16 %3, ptr %ip_len, align 2
@@ -155,7 +155,7 @@ if.end:                                           ; preds = %entry
   %conv7 = trunc i64 %4 to i32
   %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7, ptr noundef nonnull %l3_hdr, i32 noundef 0) #16
   %call1.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #16
-  %5 = tail call i16 @llvm.bswap.i16(i16 %call1.i)
+  %5 = tail call noundef i16 @llvm.bswap.i16(i16 %call1.i)
   store i16 %5, ptr %ip_sum, align 2
   ret void
 }
@@ -198,7 +198,7 @@ if.end8:                                          ; preds = %if.end
 
 net_tx_pkt_update_ip_hdr_checksum.exit:           ; preds = %if.end8
   %conv1.i = trunc i64 %add to i16
-  %6 = tail call i16 @llvm.bswap.i16(i16 %conv1.i)
+  %6 = tail call noundef i16 @llvm.bswap.i16(i16 %conv1.i)
   %l3_hdr.i = getelementptr inbounds %struct.NetTxPkt, ptr %pkt, i64 0, i32 6
   %ip_len.i = getelementptr inbounds i8, ptr %pkt, i64 70
   store i16 %6, ptr %ip_len.i, align 2
@@ -208,7 +208,7 @@ net_tx_pkt_update_ip_hdr_checksum.exit:           ; preds = %if.end8
   %conv7.i = trunc i64 %7 to i32
   %call.i.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7.i, ptr noundef nonnull %l3_hdr.i, i32 noundef 0) #16
   %call1.i.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i.i) #16
-  %8 = tail call i16 @llvm.bswap.i16(i16 %call1.i.i)
+  %8 = tail call noundef i16 @llvm.bswap.i16(i16 %call1.i.i)
   store i16 %8, ptr %ip_sum.i, align 2
   %9 = load i32, ptr %payload_len, align 4
   %conv17 = trunc i32 %9 to i16
@@ -229,7 +229,7 @@ if.end37:                                         ; preds = %if.then26, %net_tx_
   %call29.sink = phi i32 [ %call29, %if.then26 ], [ %call, %net_tx_pkt_update_ip_hdr_checksum.exit ]
   %call30 = call zeroext i16 @net_checksum_finish(i32 noundef %call29.sink) #16
   %not32 = xor i16 %call30, -1
-  %11 = call i16 @llvm.bswap.i16(i16 %not32)
+  %11 = call noundef i16 @llvm.bswap.i16(i16 %not32)
   store i16 %11, ptr %csum, align 2
   %12 = load ptr, ptr %vec, align 8
   %arrayidx39 = getelementptr %struct.iovec, ptr %12, i64 3
@@ -271,7 +271,7 @@ declare zeroext i16 @net_checksum_finish(i32 noundef) local_unnamed_addr #3
 declare i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef, i16 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_update_sctp_checksum(ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_update_sctp_checksum(ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %csum = alloca i32, align 4
   store i32 0, ptr %csum, align 4
@@ -341,7 +341,7 @@ return:                                           ; preds = %iov_from_buf.exit18
 declare i32 @iov_crc32c(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_parse(ptr noundef %pkt) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_parse(ptr noundef %pkt) local_unnamed_addr #0 {
 entry:
   %hdrinfo.i = alloca %struct.eth_ip6_hdr_info_st, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %hdrinfo.i)
@@ -411,7 +411,7 @@ if.then15.i:                                      ; preds = %if.end4.i
 if.else18.i:                                      ; preds = %if.end4.i
   store i64 22, ptr %iov_len5.i, align 8
   %8 = load i16, ptr %h_proto.i, align 2
-  %9 = tail call i16 @llvm.bswap.i16(i16 %8)
+  %9 = tail call noundef i16 @llvm.bswap.i16(i16 %8)
   switch i16 %9, label %sw.default.i.i [
     i16 -32512, label %eth_get_l2_hdr_length.exit.i
     i16 -30552, label %sw.bb1.i.i
@@ -618,7 +618,7 @@ return:                                           ; preds = %net_tx_pkt_parse_he
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
+define dso_local noundef ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -632,7 +632,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_build_vheader(ptr noundef %pkt, i1 noundef zeroext %tso_enable, i1 noundef zeroext %csum_enable, i32 noundef %gso_size) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_build_vheader(ptr noundef %pkt, i1 noundef zeroext %tso_enable, i1 noundef zeroext %csum_enable, i32 noundef %gso_size) local_unnamed_addr #0 {
 entry:
   %l4hdr = alloca %struct.tcp_hdr, align 4
   %tobool.not = icmp eq ptr %pkt, null
@@ -675,12 +675,11 @@ net_tx_pkt_get_gso_type.exit:                     ; preds = %if.end6
   %gso_type = getelementptr inbounds %struct.virtio_net_hdr, ptr %pkt, i64 0, i32 1
   store i8 %call5.i, ptr %gso_type, align 1
   %5 = and i8 %call5.i, 127
-  %and = zext nneg i8 %5 to i32
-  switch i32 %and, label %do.body [
-    i32 0, label %sw.bb
-    i32 3, label %sw.bb13
-    i32 1, label %sw.bb22
-    i32 4, label %sw.bb22
+  switch i8 %5, label %do.body [
+    i8 0, label %sw.bb
+    i8 3, label %sw.bb13
+    i8 1, label %sw.bb22
+    i8 4, label %sw.bb22
   ]
 
 sw.bb:                                            ; preds = %net_tx_pkt_get_gso_type.exit.thread, %net_tx_pkt_get_gso_type.exit
@@ -818,7 +817,7 @@ if.end:                                           ; preds = %entry
 declare void @eth_setup_vlan_headers(ptr noundef, ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_add_raw_fragment(ptr noundef %pkt, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment(ptr noundef %pkt, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -994,7 +993,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %pkt, ptr noundef %pci_dev, i64 noundef %pa, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %pkt, ptr noundef %pci_dev, i64 noundef %pa, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %xlen.i.i = alloca i64, align 8
   %bus_master_as.i.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 12
@@ -1049,7 +1048,7 @@ return:                                           ; preds = %net_tx_pkt_add_raw_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_send(ptr noundef %pkt, ptr noundef %nc) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_send(ptr noundef %pkt, ptr noundef %nc) local_unnamed_addr #0 {
 entry:
   %peer = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
   %0 = load ptr, ptr %peer, align 8
@@ -1061,7 +1060,7 @@ entry:
 declare zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %offload, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %offload, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %fragment.i = alloca [64 x %struct.iovec], align 16
   %virt_hdr3.i = alloca %struct.virtio_net_hdr, align 2
@@ -1172,11 +1171,10 @@ if.end39:                                         ; preds = %if.end11
   %arrayidx13.i = getelementptr inbounds [64 x %struct.iovec], ptr %fragment.i, i64 0, i64 2
   %arrayidx15.i = getelementptr %struct.iovec, ptr %3, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx15.i, i64 16, i1 false)
-  %conv16.i = zext nneg i8 %1 to i32
-  switch i32 %conv16.i, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 4, label %sw.bb.i
-    i32 3, label %sw.bb17.i
+  switch i8 %1, label %sw.default.i [
+    i8 1, label %sw.bb.i
+    i8 4, label %sw.bb.i
+    i8 3, label %sw.bb17.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end39, %if.end39
@@ -1264,16 +1262,16 @@ sw.epilog.i:                                      ; preds = %sw.bb17.i, %net_tx_
 
 while.body.lr.ph.i.lr.ph.i:                       ; preds = %sw.epilog.i
   %payload_frags.i33.i = getelementptr inbounds %struct.NetTxPkt, ptr %pkt, i64 0, i32 8
-  %iov_len.i56.i = getelementptr inbounds %struct.iovec, ptr %fragment.i, i64 2, i32 1
+  %iov_len.i55.i = getelementptr inbounds %struct.iovec, ptr %fragment.i, i64 2, i32 1
   %iov_len3.i.i = getelementptr inbounds %struct.iovec, ptr %fragment.i, i64 3, i32 1
   %33 = getelementptr inbounds i8, ptr %fragment.i, i64 48
-  %cmp.i58.i = icmp eq i8 %1, 1
+  %cmp.i57.i = icmp eq i8 %1, 1
   br label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end49.i, %while.body.lr.ph.i.lr.ph.i
-  %fragment_offset.092.i = phi i64 [ 0, %while.body.lr.ph.i.lr.ph.i ], [ %add50.i, %if.end49.i ]
-  %src_offset.291.i = phi i64 [ %src_offset.1.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_offset.5.i, %if.end49.i ]
-  %src_idx.390.i = phi i32 [ %src_idx.2.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_idx.6.i, %if.end49.i ]
+  %fragment_offset.091.i = phi i64 [ 0, %while.body.lr.ph.i.lr.ph.i ], [ %add50.i, %if.end49.i ]
+  %src_offset.290.i = phi i64 [ %src_offset.1.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_offset.5.i, %if.end49.i ]
+  %src_idx.389.i = phi i32 [ %src_idx.2.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_idx.6.i, %if.end49.i ]
   %34 = load ptr, ptr %vec, align 8
   %35 = load i32, ptr %payload_frags.i33.i, align 8
   %add.i36.i = add i32 %35, 3
@@ -1281,15 +1279,15 @@ while.body.lr.ph.i.i:                             ; preds = %if.end49.i, %while.
 
 while.body.i34.i:                                 ; preds = %if.end4.i.i, %while.body.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end4.i.i ], [ %pl_idx.1.i, %while.body.lr.ph.i.i ]
-  %src_idx.4.i = phi i32 [ %spec.select.i, %if.end4.i.i ], [ %src_idx.390.i, %while.body.lr.ph.i.i ]
-  %src_offset.3.i = phi i64 [ %spec.select85.i, %if.end4.i.i ], [ %src_offset.291.i, %while.body.lr.ph.i.i ]
+  %src_idx.4.i = phi i32 [ %spec.select.i, %if.end4.i.i ], [ %src_idx.389.i, %while.body.lr.ph.i.i ]
+  %src_offset.3.i = phi i64 [ %spec.select84.i, %if.end4.i.i ], [ %src_offset.290.i, %while.body.lr.ph.i.i ]
   %fetched.028.i.i = phi i64 [ %add22.i.i, %if.end4.i.i ], [ 0, %while.body.lr.ph.i.i ]
   %cmp1.i.i = icmp eq i64 %indvars.iv.i, 64
   br i1 %cmp1.i.i, label %net_tx_pkt_fetch_fragment.exit.i, label %if.end.i35.i
 
 if.end.i35.i:                                     ; preds = %while.body.i34.i
   %cmp2.i.i = icmp eq i32 %src_idx.4.i, %add.i36.i
-  br i1 %cmp2.i.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i, label %if.end4.i.i
+  br i1 %cmp2.i.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i35.i
   %idxprom.i37.i = sext i32 %src_idx.4.i to i64
@@ -1311,59 +1309,59 @@ if.end4.i.i:                                      ; preds = %if.end.i35.i
   %cmp26.i.i = icmp eq i64 %add18.i.i, %38
   %inc.i45.i = zext i1 %cmp26.i.i to i32
   %spec.select.i = add i32 %src_idx.4.i, %inc.i45.i
-  %spec.select85.i = select i1 %cmp26.i.i, i64 0, i64 %add18.i.i
+  %spec.select84.i = select i1 %cmp26.i.i, i64 0, i64 %add18.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i42.i = icmp ult i64 %add22.i.i, %src_len.1.i
-  br i1 %cmp.i42.i, label %while.body.i34.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i, !llvm.loop !8
+  br i1 %cmp.i42.i, label %while.body.i34.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i, !llvm.loop !8
 
-net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i: ; preds = %if.end.i35.i
+net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i: ; preds = %if.end.i35.i
   %39 = trunc i64 %indvars.iv.i to i32
   br label %net_tx_pkt_fetch_fragment.exit.i
 
-net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i: ; preds = %if.end4.i.i
+net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i: ; preds = %if.end4.i.i
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %net_tx_pkt_fetch_fragment.exit.i
 
-net_tx_pkt_fetch_fragment.exit.i:                 ; preds = %while.body.i34.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i
-  %src_idx.6.i = phi i32 [ %add.i36.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i ], [ %spec.select.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i ], [ %src_idx.4.i, %while.body.i34.i ]
-  %dst_idx.1.i = phi i32 [ %39, %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i ], [ %indvars.le.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i ], [ 64, %while.body.i34.i ]
-  %src_offset.5.i = phi i64 [ %src_offset.3.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i ], [ %spec.select85.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i ], [ %src_offset.3.i, %while.body.i34.i ]
-  %fetched.0.lcssa.i.i = phi i64 [ %fetched.028.i.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit102.i ], [ %add22.i.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit107.i ], [ %fetched.028.i.i, %while.body.i34.i ]
+net_tx_pkt_fetch_fragment.exit.i:                 ; preds = %while.body.i34.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i
+  %src_idx.6.i = phi i32 [ %add.i36.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i ], [ %spec.select.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i ], [ %src_idx.4.i, %while.body.i34.i ]
+  %dst_idx.1.i = phi i32 [ %39, %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i ], [ %indvars.le.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i ], [ 64, %while.body.i34.i ]
+  %src_offset.5.i = phi i64 [ %src_offset.3.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i ], [ %spec.select84.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i ], [ %src_offset.3.i, %while.body.i34.i ]
+  %fetched.0.lcssa.i.i = phi i64 [ %fetched.028.i.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i ], [ %add22.i.i, %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i ], [ %fetched.028.i.i, %while.body.i34.i ]
   %tobool23.not.i = icmp eq i64 %fetched.0.lcssa.i.i, 0
   br i1 %tobool23.not.i, label %while.end.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %net_tx_pkt_fetch_fragment.exit.i
-  switch i32 %conv16.i, label %sw.epilog35.i [
-    i32 1, label %sw.bb27.i
-    i32 4, label %sw.bb27.i
-    i32 3, label %sw.bb33.i
+  switch i8 %1, label %sw.epilog35.i [
+    i8 1, label %sw.bb27.i
+    i8 4, label %sw.bb27.i
+    i8 3, label %sw.bb33.i
   ]
 
 sw.bb27.i:                                        ; preds = %if.end25.i, %if.end25.i
   %40 = load ptr, ptr %arrayidx13.i, align 16
-  %41 = load i64, ptr %iov_len.i56.i, align 8
+  %41 = load i64, ptr %iov_len.i55.i, align 8
   %42 = load i64, ptr %iov_len3.i.i, align 8
   %add.i48.i = add i64 %41, %fetched.0.lcssa.i.i
   %add4.i.i = add i64 %add.i48.i, %42
-  switch i32 %conv16.i, label %net_tx_pkt_tcp_fragment_fix.exit.i [
-    i32 1, label %sw.bb.i.i
-    i32 4, label %sw.bb8.i.i
+  switch i8 %1, label %net_tx_pkt_tcp_fragment_fix.exit.i [
+    i8 1, label %sw.bb.i.i
+    i8 4, label %sw.bb8.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.bb27.i
   %conv5.i.i = trunc i64 %add4.i.i to i16
-  %43 = call i16 @llvm.bswap.i16(i16 %conv5.i.i)
+  %43 = call noundef i16 @llvm.bswap.i16(i16 %conv5.i.i)
   %ip_len.i.i = getelementptr inbounds %struct.ip_header, ptr %40, i64 0, i32 2
   store i16 %43, ptr %ip_len.i.i, align 2
   %44 = load ptr, ptr %arrayidx13.i, align 16
-  %45 = load i64, ptr %iov_len.i56.i, align 8
+  %45 = load i64, ptr %iov_len.i55.i, align 8
   call void @eth_fix_ip4_checksum(ptr noundef %44, i64 noundef %45) #16
   br label %net_tx_pkt_tcp_fragment_fix.exit.i
 
 sw.bb8.i.i:                                       ; preds = %sw.bb27.i
   %46 = trunc i64 %add4.i.i to i16
   %conv9.i.i = add i16 %46, -40
-  %47 = call i16 @llvm.bswap.i16(i16 %conv9.i.i)
+  %47 = call noundef i16 @llvm.bswap.i16(i16 %conv9.i.i)
   %ip6_un1_plen.i.i = getelementptr inbounds %struct.ip6_hdrctl, ptr %40, i64 0, i32 1
   store i16 %47, ptr %ip6_un1_plen.i.i, align 4
   br label %net_tx_pkt_tcp_fragment_fix.exit.i
@@ -1378,47 +1376,47 @@ net_tx_pkt_tcp_fragment_fix.exit.i:               ; preds = %sw.bb8.i.i, %sw.bb.
 sw.bb33.i:                                        ; preds = %if.end25.i
   %pkt.val.i = load i32, ptr %payload_len, align 4
   %48 = load ptr, ptr %arrayidx13.i, align 16
-  %rem.i.i = and i64 %fragment_offset.092.i, 7
+  %rem.i.i = and i64 %fragment_offset.091.i, 7
   %cmp3.i.i = icmp eq i64 %rem.i.i, 0
-  br i1 %cmp3.i.i, label %if.end.i51.i, label %if.else.i.i
+  br i1 %cmp3.i.i, label %if.end.i50.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb33.i
   call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #17
   unreachable
 
-if.end.i51.i:                                     ; preds = %sw.bb33.i
-  %49 = trunc i64 %fragment_offset.092.i to i32
+if.end.i50.i:                                     ; preds = %sw.bb33.i
+  %49 = trunc i64 %fragment_offset.091.i to i32
   %50 = and i32 %49, 458752
   %cmp6.i.i = icmp eq i32 %50, 0
   br i1 %cmp6.i.i, label %net_tx_pkt_udp_fragment_fix.exit.i, label %if.else9.i.i
 
-if.else9.i.i:                                     ; preds = %if.end.i51.i
+if.else9.i.i:                                     ; preds = %if.end.i50.i
   call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #17
   unreachable
 
-net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i51.i
+net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i50.i
   %51 = lshr exact i32 %49, 3
-  %add.i52.i = add i64 %fetched.0.lcssa.i.i, %fragment_offset.092.i
-  %conv.i53.i = zext i32 %pkt.val.i to i64
-  %cmp.i54.i = icmp ult i64 %add.i52.i, %conv.i53.i
+  %add.i51.i = add i64 %fetched.0.lcssa.i.i, %fragment_offset.091.i
+  %conv.i52.i = zext i32 %pkt.val.i to i64
+  %cmp.i53.i = icmp ult i64 %add.i51.i, %conv.i52.i
   %ip_off.i.i = getelementptr inbounds %struct.ip_header, ptr %48, i64 0, i32 4
   %52 = load i16, ptr %ip_off.i.i, align 2
   %53 = shl i16 %52, 8
   %54 = and i16 %53, -16384
-  %cond.i55.i = select i1 %cmp.i54.i, i32 8192, i32 0
-  %or.i.i = or disjoint i32 %cond.i55.i, %51
+  %cond.i54.i = select i1 %cmp.i53.i, i32 8192, i32 0
+  %or.i.i = or disjoint i32 %cond.i54.i, %51
   %55 = trunc i32 %or.i.i to i16
   %conv18.i.i = or disjoint i16 %54, %55
-  %56 = call i16 @llvm.bswap.i16(i16 %conv18.i.i)
+  %56 = call noundef i16 @llvm.bswap.i16(i16 %conv18.i.i)
   store i16 %56, ptr %ip_off.i.i, align 2
-  %57 = load i64, ptr %iov_len.i56.i, align 8
+  %57 = load i64, ptr %iov_len.i55.i, align 8
   %add21.i.i = add i64 %57, %fetched.0.lcssa.i.i
   %conv22.i.i = trunc i64 %add21.i.i to i16
-  %58 = call i16 @llvm.bswap.i16(i16 %conv22.i.i)
-  %ip_len.i57.i = getelementptr inbounds %struct.ip_header, ptr %48, i64 0, i32 2
-  store i16 %58, ptr %ip_len.i57.i, align 2
+  %58 = call noundef i16 @llvm.bswap.i16(i16 %conv22.i.i)
+  %ip_len.i56.i = getelementptr inbounds %struct.ip_header, ptr %48, i64 0, i32 2
+  store i16 %58, ptr %ip_len.i56.i, align 2
   %59 = load ptr, ptr %arrayidx13.i, align 16
-  %60 = load i64, ptr %iov_len.i56.i, align 8
+  %60 = load i64, ptr %iov_len.i55.i, align 8
   call void @eth_fix_ip4_checksum(ptr noundef %59, i64 noundef %60) #16
   br label %sw.epilog35.i
 
@@ -1434,34 +1432,34 @@ sw.epilog35.i:                                    ; preds = %net_tx_pkt_udp_frag
 
 if.then47.i:                                      ; preds = %sw.epilog35.i, %sw.epilog35.i, %sw.epilog35.i, %sw.epilog35.i
   %fragment.val29.i = load ptr, ptr %33, align 16
-  br i1 %cmp.i58.i, label %if.then.i.i, label %net_tx_pkt_tcp_fragment_advance.exit.i
+  br i1 %cmp.i57.i, label %if.then.i.i, label %net_tx_pkt_tcp_fragment_advance.exit.i
 
 if.then.i.i:                                      ; preds = %if.then47.i
   %fragment.val.i = load ptr, ptr %arrayidx13.i, align 16
   %ip_id.i.i = getelementptr inbounds %struct.ip_header, ptr %fragment.val.i, i64 0, i32 3
   %61 = load i16, ptr %ip_id.i.i, align 4
-  %62 = call i16 @llvm.bswap.i16(i16 %61)
-  %add.i61.i = add i16 %62, 1
-  %63 = call i16 @llvm.bswap.i16(i16 %add.i61.i)
+  %62 = call noundef i16 @llvm.bswap.i16(i16 %61)
+  %add.i60.i = add i16 %62, 1
+  %63 = call noundef i16 @llvm.bswap.i16(i16 %add.i60.i)
   store i16 %63, ptr %ip_id.i.i, align 4
   br label %net_tx_pkt_tcp_fragment_advance.exit.i
 
 net_tx_pkt_tcp_fragment_advance.exit.i:           ; preds = %if.then.i.i, %if.then47.i
   %th_seq.i.i = getelementptr inbounds %struct.tcp_hdr, ptr %fragment.val29.i, i64 0, i32 2
   %64 = load i32, ptr %th_seq.i.i, align 4
-  %65 = call i32 @llvm.bswap.i32(i32 %64)
+  %65 = call noundef i32 @llvm.bswap.i32(i32 %64)
   %66 = trunc i64 %fetched.0.lcssa.i.i to i32
   %conv11.i.i = add i32 %65, %66
-  %67 = call i32 @llvm.bswap.i32(i32 %conv11.i.i)
+  %67 = call noundef i32 @llvm.bswap.i32(i32 %conv11.i.i)
   store i32 %67, ptr %th_seq.i.i, align 4
-  %th_flags.i60.i = getelementptr inbounds %struct.tcp_hdr, ptr %fragment.val29.i, i64 0, i32 5
-  %68 = load i8, ptr %th_flags.i60.i, align 1
+  %th_flags.i59.i = getelementptr inbounds %struct.tcp_hdr, ptr %fragment.val29.i, i64 0, i32 5
+  %68 = load i8, ptr %th_flags.i59.i, align 1
   %69 = and i8 %68, 127
-  store i8 %69, ptr %th_flags.i60.i, align 1
+  store i8 %69, ptr %th_flags.i59.i, align 1
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %net_tx_pkt_tcp_fragment_advance.exit.i, %sw.epilog35.i
-  %add50.i = add i64 %fetched.0.lcssa.i.i, %fragment_offset.092.i
+  %add50.i = add i64 %fetched.0.lcssa.i.i, %fragment_offset.091.i
   br label %while.body.lr.ph.i.i
 
 while.end.i:                                      ; preds = %net_tx_pkt_fetch_fragment.exit.i, %sw.epilog.i
@@ -1587,7 +1585,7 @@ if.end18:                                         ; preds = %iov_from_buf.exit, 
   %call.i17 = call zeroext i16 @net_checksum_finish(i32 noundef %add24) #16
   %tobool.not.i = icmp eq i16 %call.i17, 0
   %narrow.i = select i1 %tobool.not.i, i16 -1, i16 %call.i17
-  %12 = call i16 @llvm.bswap.i16(i16 %narrow.i)
+  %12 = call noundef i16 @llvm.bswap.i16(i16 %narrow.i)
   store i16 %12, ptr %csum, align 2
   br i1 %tobool.i.not, label %if.else.i19, label %land.lhs.true1.i22
 

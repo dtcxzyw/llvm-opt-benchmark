@@ -221,10 +221,9 @@ land.lhs.true74:                                  ; preds = %land.lhs.true69
 if.then79:                                        ; preds = %land.lhs.true74
   %call81 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %add10)
   %20 = load i8, ptr %call81, align 1
-  %conv82 = sext i8 %20 to i32
-  switch i32 %conv82, label %return [
-    i32 50, label %sw.bb
-    i32 52, label %sw.bb
+  switch i8 %20, label %return [
+    i8 50, label %sw.bb
+    i8 52, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.then79, %if.then79

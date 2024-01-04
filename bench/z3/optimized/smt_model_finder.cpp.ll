@@ -6281,10 +6281,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idxprom.i.i.i.i8 = zext i32 %call6 to i64
   %arrayidx.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 %idxprom.i.i.i.i8
   %15 = load i8, ptr %arrayidx.i.i.i.i9, align 1
-  %conv.i.i.i = sext i8 %15 to i32
-  switch i32 %conv.i.i.i, label %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb9.i
+  switch i8 %15, label %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit [
+    i8 -1, label %sw.bb.i
+    i8 0, label %sw.bb9.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body
@@ -23215,7 +23214,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i
   %5 = load ptr, ptr %add.ptr14.i, align 8
@@ -23390,7 +23389,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i
   %6 = load ptr, ptr %add.ptr14.i, align 8
@@ -23987,7 +23986,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i
   %5 = load ptr, ptr %add.ptr14.i, align 8
@@ -24162,7 +24161,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i
   %6 = load ptr, ptr %add.ptr14.i, align 8
@@ -24773,7 +24772,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i
   %6 = load ptr, ptr %add.ptr13.i, align 8
@@ -24953,7 +24952,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i
   %7 = load ptr, ptr %add.ptr13.i, align 8

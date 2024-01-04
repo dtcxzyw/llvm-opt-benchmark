@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [30 x i8] c"option 'c0' has no fixed size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_struct(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_struct(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @thislib) #7
   ret i32 1
@@ -35,7 +35,7 @@ entry:
 declare void @luaL_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b_pack(ptr noundef %L) #0 {
+define internal noundef i32 @b_pack(ptr noundef %L) #0 {
 entry:
   %buff.i = alloca [32 x i8], align 16
   %b = alloca %struct.luaL_Buffer, align 8
@@ -111,21 +111,21 @@ lor.end:                                          ; preds = %lor.rhs, %while.bod
 
 while.end:                                        ; preds = %lor.end, %gettoalign.exit, %while.body
   %add143 = phi i64 [ %add, %gettoalign.exit ], [ %totalsize.0133, %while.body ], [ %add, %lor.end ]
-  switch i32 %conv3, label %sw.default [
-    i32 98, label %sw.bb
-    i32 66, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 84, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 120, label %sw.bb19
-    i32 102, label %sw.bb33
-    i32 100, label %sw.bb39
-    i32 99, label %sw.bb44
-    i32 115, label %sw.bb44
+  switch i8 %1, label %sw.default [
+    i8 98, label %sw.bb
+    i8 66, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 84, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 120, label %sw.bb19
+    i8 102, label %sw.bb33
+    i8 100, label %sw.bb39
+    i8 99, label %sw.bb44
+    i8 115, label %sw.bb44
   ]
 
 sw.bb:                                            ; preds = %while.end, %while.end, %while.end, %while.end, %while.end, %while.end, %while.end, %while.end, %while.end
@@ -490,27 +490,27 @@ lor.rhs14:                                        ; preds = %gettoalign.exit
 
 lor.end17:                                        ; preds = %lor.rhs14, %gettoalign.exit
   call void @luaL_checkstack(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.11) #7
-  switch i32 %conv5, label %sw.default [
-    i32 98, label %sw.bb
-    i32 66, label %sw.bb
-    i32 104, label %sw.bb
-    i32 72, label %sw.bb
-    i32 108, label %sw.bb
-    i32 76, label %sw.bb
-    i32 84, label %sw.bb
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 120, label %sw.epilog
-    i32 102, label %sw.bb25
-    i32 100, label %sw.bb30
-    i32 99, label %sw.bb34
-    i32 115, label %sw.bb60
+  switch i8 %1, label %sw.default [
+    i8 98, label %sw.bb
+    i8 66, label %sw.bb
+    i8 104, label %sw.bb
+    i8 72, label %sw.bb
+    i8 108, label %sw.bb
+    i8 76, label %sw.bb
+    i8 84, label %sw.bb
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 120, label %sw.epilog
+    i8 102, label %sw.bb25
+    i8 100, label %sw.bb30
+    i8 99, label %sw.bb34
+    i8 115, label %sw.bb60
   ]
 
 sw.bb:                                            ; preds = %lor.end17, %lor.end17, %lor.end17, %lor.end17, %lor.end17, %lor.end17, %lor.end17, %lor.end17, %lor.end17
   %call19 = tail call ptr @__ctype_b_loc() #8
   %5 = load ptr, ptr %call19, align 8, !tbaa !11
-  %idxprom = sext i8 %1 to i64
+  %idxprom = zext nneg i8 %1 to i64
   %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
   %6 = load i16, ptr %arrayidx, align 2, !tbaa !30
   %7 = and i16 %6, 512
@@ -829,7 +829,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b_size(ptr noundef %L) #0 {
+define internal noundef i32 @b_size(ptr noundef %L) #0 {
 entry:
   %h = alloca %struct.Header, align 4
   %fmt = alloca ptr, align 8
@@ -923,21 +923,20 @@ declare void @luaL_buffinit(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @optsize(ptr noundef %L, i8 noundef signext %opt, ptr nocapture noundef %fmt) unnamed_addr #0 {
 entry:
-  %conv = sext i8 %opt to i32
-  switch i32 %conv, label %sw.default [
-    i32 66, label %return
-    i32 98, label %return
-    i32 72, label %sw.bb1
-    i32 104, label %sw.bb1
-    i32 76, label %sw.bb2
-    i32 108, label %sw.bb2
-    i32 84, label %sw.bb3
-    i32 102, label %sw.bb4
-    i32 100, label %sw.bb5
-    i32 120, label %return
-    i32 99, label %sw.bb7
-    i32 105, label %sw.bb9
-    i32 73, label %sw.bb9
+  switch i8 %opt, label %sw.default [
+    i8 66, label %return
+    i8 98, label %return
+    i8 72, label %sw.bb1
+    i8 104, label %sw.bb1
+    i8 76, label %sw.bb2
+    i8 108, label %sw.bb2
+    i8 84, label %sw.bb3
+    i8 102, label %sw.bb4
+    i8 100, label %sw.bb5
+    i8 120, label %return
+    i8 99, label %sw.bb7
+    i8 105, label %sw.bb9
+    i8 73, label %sw.bb9
   ]
 
 sw.bb1:                                           ; preds = %entry, %entry

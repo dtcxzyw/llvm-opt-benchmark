@@ -1547,13 +1547,13 @@ if.then:                                          ; preds = %entry
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else59 [
-    i32 359, label %if.then1
-    i32 360, label %if.then20
+  switch i16 %bf.clear.i, label %if.else59 [
+    i16 359, label %if.then1
+    i16 360, label %if.then20
   ]
 
 if.then1:                                         ; preds = %if.then
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 359)
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 2
   %bf.load.i.i = load i32, ptr %d_nchildren.i.i, align 4
@@ -1639,7 +1639,7 @@ cleanup.action:                                   ; preds = %ehcleanup17.thread1
 
 if.then20:                                        ; preds = %if.then
   %d_children.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3
-  %call2.i.i.i47 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 360)
+  %call2.i.i.i47 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
   %cmp.i.i48 = icmp eq i32 %call2.i.i.i47, 2
   %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 1, i32 1
   %spec.select.i.i = select i1 %cmp.i.i48, ptr %incdec.ptr.i.i, ptr %d_children.i.i

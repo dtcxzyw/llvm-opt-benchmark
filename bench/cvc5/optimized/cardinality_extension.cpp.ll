@@ -21399,13 +21399,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cond.end13, %if.the
   %d_kind.i116 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %9, i64 0, i32 1
   %bf.load.i117 = load i16, ptr %d_kind.i116, align 8
   %bf.clear.i118 = and i16 %bf.load.i117, 1023
-  %bf.cast.i119 = zext nneg i16 %bf.clear.i118 to i32
   br i1 %cmp17, label %if.then, label %if.else326
 
 if.then:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  switch i32 %bf.cast.i119, label %cond.true360 [
-    i32 29, label %if.then21
-    i32 31, label %if.then223
+  switch i16 %bf.clear.i118, label %cond.true360 [
+    i16 29, label %if.then21
+    i16 31, label %if.then223
   ]
 
 if.then21:                                        ; preds = %if.then
@@ -21851,9 +21850,9 @@ lpad229:                                          ; preds = %if.then225
   br label %ehcleanup378
 
 if.else326:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  switch i32 %bf.cast.i119, label %cond.true360 [
-    i32 29, label %cond.true338
-    i32 31, label %cond.true338
+  switch i16 %bf.clear.i118, label %cond.true360 [
+    i16 29, label %cond.true338
+    i16 31, label %cond.true338
   ]
 
 cond.true338:                                     ; preds = %if.else326, %if.else326

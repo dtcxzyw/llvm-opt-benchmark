@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @CnvExtOpen(ptr noundef %ucm) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @CnvExtOpen(ptr noundef %ucm) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(917632) ptr @uprv_malloc_75(i64 noundef 917632) #12
   %cmp = icmp eq ptr %call, null
@@ -99,13 +99,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal signext i8 @CnvExtIsValid(ptr nocapture readnone %cnvData, ptr nocapture readnone %bytes, i32 %length) #5 {
+define internal noundef signext i8 @CnvExtIsValid(ptr nocapture readnone %cnvData, ptr nocapture readnone %bytes, i32 %length) #5 {
 entry:
   ret i8 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext i8 @CnvExtAddTable(ptr nocapture noundef %cnvData, ptr noundef %table, ptr nocapture noundef writeonly %staticData) #0 {
+define internal noundef signext i8 @CnvExtAddTable(ptr nocapture noundef %cnvData, ptr noundef %table, ptr nocapture noundef writeonly %staticData) #0 {
 entry:
   %unicodeMask = getelementptr inbounds %struct.UCMTable, ptr %table, i64 0, i32 10
   %0 = load i8, ptr %unicodeMask, align 8
@@ -198,7 +198,7 @@ makeToUTable.exit:                                ; preds = %for.inc.i.i, %for.i
   %call2.i = tail call ptr @utm_open(ptr noundef nonnull @.str.4, i32 noundef 65536, i32 noundef 262144, i32 noundef 2) #14
   %toUUChars.i = getelementptr inbounds %struct.CnvExtData, ptr %cnvData, i64 0, i32 3
   store ptr %call2.i, ptr %toUUChars.i, align 8
-  %call3.i = tail call fastcc signext i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0), !range !8
+  %call3.i = tail call fastcc noundef signext i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0), !range !8
   %tobool3.not = icmp eq i8 %call3.i, 0
   br i1 %tobool3.not, label %return, label %land.rhs
 
@@ -797,7 +797,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @utm_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @generateToUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
+define internal fastcc noundef signext i8 @generateToUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
 entry:
   %u16Length.i = alloca i32, align 4
   %errorCode.i = alloca i32, align 4
@@ -1312,11 +1312,10 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %b, %cond.true ], [ %add.ptr, %cond.false ]
-  %conv8 = sext i8 %1 to i32
-  switch i32 %conv8, label %sw.default [
-    i32 3, label %sw.bb
-    i32 2, label %sw.bb10
-    i32 1, label %sw.bb14
+  switch i8 %1, label %sw.default [
+    i8 3, label %sw.bb
+    i8 2, label %sw.bb10
+    i8 1, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %cond.end
@@ -1357,14 +1356,14 @@ sw.default:                                       ; preds = %cond.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20, ptr align 1 %cond, i64 %conv22, i1 false)
   %.pre = load i8, ptr %bLen, align 1
   %.pre40 = load i8, ptr %f, align 2
-  %.pre43 = sext i8 %.pre to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb14
-  %conv24.pre-phi = phi i32 [ %.pre43, %sw.default ], [ %conv8, %sw.bb14 ]
   %11 = phi i8 [ %.pre40, %sw.default ], [ %0, %sw.bb14 ]
+  %12 = phi i8 [ %.pre, %sw.default ], [ %1, %sw.bb14 ]
   %value.2 = phi i32 [ %call, %sw.default ], [ %or16, %sw.bb14 ]
-  %shl25 = shl nsw i32 %conv24.pre-phi, 24
+  %conv24 = sext i8 %12 to i32
+  %shl25 = shl nsw i32 %conv24, 24
   %or26 = or i32 %shl25, %value.2
   switch i8 %11, label %if.end40 [
     i8 0, label %if.then31
@@ -1382,26 +1381,26 @@ if.then37:                                        ; preds = %sw.epilog
 if.end40:                                         ; preds = %sw.epilog, %if.then37, %if.then31
   %value.3 = phi i32 [ %or32, %if.then31 ], [ %or38, %if.then37 ], [ %or26, %sw.epilog ]
   %uLen = getelementptr inbounds %struct.UCMapping, ptr %m, i64 0, i32 2
-  %12 = load i8, ptr %uLen, align 4
-  %cmp42 = icmp eq i8 %12, 1
+  %13 = load i8, ptr %uLen, align 4
+  %cmp42 = icmp eq i8 %13, 1
   br i1 %cmp42, label %if.then44, label %cond.end59
 
 if.then44:                                        ; preds = %if.end40
-  %13 = load i32, ptr %m, align 4
-  %cmp45 = icmp ult i32 %13, 65536
+  %14 = load i32, ptr %m, align 4
+  %cmp45 = icmp ult i32 %14, 65536
   %cond47 = select i1 %cmp45, i32 1, i32 2
   br label %if.end66
 
 cond.end59:                                       ; preds = %if.end40
   %codePoints = getelementptr inbounds %struct.UCMTable, ptr %table, i64 0, i32 3
-  %14 = load ptr, ptr %codePoints, align 8
-  %15 = load i32, ptr %m, align 4
-  %idx.ext57 = sext i32 %15 to i64
-  %add.ptr58 = getelementptr inbounds i32, ptr %14, i64 %idx.ext57
-  %16 = load i32, ptr %add.ptr58, align 4
-  %cmp61 = icmp ult i32 %16, 65536
+  %15 = load ptr, ptr %codePoints, align 8
+  %16 = load i32, ptr %m, align 4
+  %idx.ext57 = sext i32 %16 to i64
+  %add.ptr58 = getelementptr inbounds i32, ptr %15, i64 %idx.ext57
+  %17 = load i32, ptr %add.ptr58, align 4
+  %cmp61 = icmp ult i32 %17, 65536
   %cond63 = select i1 %cmp61, i32 1, i32 2
-  %conv65 = sext i8 %12 to i32
+  %conv65 = sext i8 %13 to i32
   %sub = add nsw i32 %conv65, -2
   %add = add nsw i32 %sub, %cond63
   br label %if.end66
@@ -1409,31 +1408,31 @@ cond.end59:                                       ; preds = %if.end40
 if.end66:                                         ; preds = %cond.end59, %if.then44
   %u16Length.0 = phi i32 [ %cond47, %if.then44 ], [ %add, %cond.end59 ]
   %maxInUChars = getelementptr inbounds %struct.CnvExtData, ptr %extData, i64 0, i32 19
-  %17 = load i32, ptr %maxInUChars, align 8
-  %cmp67 = icmp sgt i32 %u16Length.0, %17
+  %18 = load i32, ptr %maxInUChars, align 8
+  %cmp67 = icmp sgt i32 %u16Length.0, %18
   br i1 %cmp67, label %if.then69, label %if.end71
 
 if.then69:                                        ; preds = %if.end66
   store i32 %u16Length.0, ptr %maxInUChars, align 8
   %.pre41 = load i8, ptr %bLen, align 1
-  %.pre44 = sext i8 %.pre41 to i32
+  %.pre43 = sext i8 %.pre41 to i32
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %if.end66
-  %conv73.pre-phi = phi i32 [ %.pre44, %if.then69 ], [ %conv24.pre-phi, %if.end66 ]
+  %conv73.pre-phi = phi i32 [ %.pre43, %if.then69 ], [ %conv24, %if.end66 ]
   %maxOutBytes = getelementptr inbounds %struct.CnvExtData, ptr %extData, i64 0, i32 17
-  %18 = load i32, ptr %maxOutBytes, align 8
-  %cmp74 = icmp slt i32 %18, %conv73.pre-phi
+  %19 = load i32, ptr %maxOutBytes, align 8
+  %cmp74 = icmp slt i32 %19, %conv73.pre-phi
   br i1 %cmp74, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end71
   store i32 %conv73.pre-phi, ptr %maxOutBytes, align 8
   %.pre42 = load i8, ptr %bLen, align 1
-  %.pre45 = sext i8 %.pre42 to i32
+  %.pre44 = sext i8 %.pre42 to i32
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %if.end71
-  %conv82.pre-phi = phi i32 [ %.pre45, %if.then76 ], [ %conv73.pre-phi, %if.end71 ]
+  %conv82.pre-phi = phi i32 [ %.pre44, %if.then76 ], [ %conv73.pre-phi, %if.end71 ]
   %sub83 = add nsw i32 %u16Length.0, 65535
   %add84 = add nsw i32 %sub83, %conv82.pre-phi
   %div.lhs.trunc = trunc i32 %add84 to i16
@@ -1441,8 +1440,8 @@ if.end80:                                         ; preds = %if.then76, %if.end7
   %div39 = sdiv i16 %div.lhs.trunc, %div.rhs.trunc
   %div.sext = sext i16 %div39 to i32
   %maxBytesPerUChar = getelementptr inbounds %struct.CnvExtData, ptr %extData, i64 0, i32 18
-  %19 = load i32, ptr %maxBytesPerUChar, align 4
-  %cmp85 = icmp slt i32 %19, %div.sext
+  %20 = load i32, ptr %maxBytesPerUChar, align 4
+  %cmp85 = icmp slt i32 %20, %div.sext
   br i1 %cmp85, label %if.then87, label %return
 
 if.then87:                                        ; preds = %if.end80
@@ -1668,7 +1667,7 @@ if.end133:                                        ; preds = %if.then80, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @generateFromUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
+define internal fastcc noundef signext i8 @generateFromUTable(ptr nocapture noundef %extData, ptr noundef %table, i32 noundef %start, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %defaultValue) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %reverseMap = getelementptr inbounds %struct.UCMTable, ptr %table, i64 0, i32 9

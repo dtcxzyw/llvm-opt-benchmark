@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.141 = private unnamed_addr constant [64 x i8] c"syntax error, LIMIT cannot be used without the special ~ option\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @streamNew() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @streamNew() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zmalloc(i64 noundef 80) #15
   %call1 = tail call ptr @raxNew() #16
@@ -251,8 +251,8 @@ entry:
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @streamIncrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @streamIncrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
   %0 = load i64, ptr %seq, align 8
@@ -284,8 +284,8 @@ if.end10:                                         ; preds = %if.then2, %if.else,
   ret i32 %ret.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @streamDecrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @streamDecrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
   %0 = load i64, ptr %seq, align 8
@@ -682,7 +682,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 declare void @raxStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamCreateCG(ptr nocapture noundef %s, ptr noundef %name, i64 noundef %namelen, ptr nocapture noundef readonly %id, i64 noundef %entries_read) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateCG(ptr nocapture noundef %s, ptr noundef %name, i64 noundef %namelen, ptr nocapture noundef readonly %id, i64 noundef %entries_read) local_unnamed_addr #0 {
 entry:
   %cgroups = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 6
   %0 = load ptr, ptr %cgroups, align 8
@@ -721,7 +721,7 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @streamCreateNACK(ptr noundef %consumer) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @streamCreateNACK(ptr noundef %consumer) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
   %call1 = tail call i64 @commandTimeSnapshot() #16
@@ -738,7 +738,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
 declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr nocapture noundef readonly %master_id, ptr nocapture noundef writeonly %edge_id) local_unnamed_addr #0 {
+define dso_local noundef i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr nocapture noundef readonly %master_id, ptr nocapture noundef writeonly %edge_id) local_unnamed_addr #0 {
 entry:
   %v.i54 = alloca i64, align 8
   %ll.i55 = alloca i64, align 8
@@ -1200,7 +1200,7 @@ if.end57:                                         ; preds = %if.else53, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamIteratorGetID(ptr noundef %si, ptr nocapture noundef %id, ptr nocapture noundef %numfields) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamIteratorGetID(ptr noundef %si, ptr nocapture noundef %id, ptr nocapture noundef %numfields) local_unnamed_addr #0 {
 entry:
   %v.i181 = alloca i64, align 8
   %ll.i182 = alloca i64, align 8
@@ -1727,7 +1727,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamAppendItem(ptr nocapture noundef %s, ptr nocapture noundef readonly %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamAppendItem(ptr nocapture noundef %s, ptr nocapture noundef readonly %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %v.i151 = alloca i64, align 8
   %ll.i152 = alloca i64, align 8
@@ -3232,7 +3232,7 @@ if.end27:                                         ; preds = %if.else25, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamEntryExists(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamEntryExists(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3269,7 +3269,7 @@ return:                                           ; preds = %if.else6.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamDeleteItem(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamDeleteItem(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3338,13 +3338,12 @@ entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %call, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 7
-  %and.i = zext nneg i8 %2 to i32
-  switch i32 %and.i, label %sdssetlen.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
-    i32 4, label %sw.bb13.i
+  switch i8 %2, label %sdssetlen.exit [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
+    i8 4, label %sw.bb13.i
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -3391,13 +3390,12 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i, i64 -1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = and i8 %1, 7
-  %and.i.i = zext nneg i8 %2 to i32
-  switch i32 %and.i.i, label %createStreamIDString.exit [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb2.i.i
-    i32 2, label %sw.bb5.i.i
-    i32 3, label %sw.bb9.i.i
-    i32 4, label %sw.bb13.i.i
+  switch i8 %2, label %createStreamIDString.exit [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb2.i.i
+    i8 2, label %sw.bb5.i.i
+    i8 3, label %sw.bb9.i.i
+    i8 4, label %sw.bb13.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
@@ -3443,13 +3441,12 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i, i64 -1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = and i8 %1, 7
-  %and.i.i = zext nneg i8 %2 to i32
-  switch i32 %and.i.i, label %createStreamIDString.exit [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb2.i.i
-    i32 2, label %sw.bb5.i.i
-    i32 3, label %sw.bb9.i.i
-    i32 4, label %sw.bb13.i.i
+  switch i8 %2, label %createStreamIDString.exit [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb2.i.i
+    i8 2, label %sw.bb5.i.i
+    i8 3, label %sw.bb9.i.i
+    i8 4, label %sw.bb13.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
@@ -3495,13 +3492,12 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i, i64 -1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = and i8 %1, 7
-  %and.i.i = zext nneg i8 %2 to i32
-  switch i32 %and.i.i, label %createStreamIDString.exit [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb2.i.i
-    i32 2, label %sw.bb5.i.i
-    i32 3, label %sw.bb9.i.i
-    i32 4, label %sw.bb13.i.i
+  switch i8 %2, label %createStreamIDString.exit [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb2.i.i
+    i8 2, label %sw.bb5.i.i
+    i8 3, label %sw.bb9.i.i
+    i8 4, label %sw.bb13.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
@@ -3559,7 +3555,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local noundef i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 1
   %0 = load i64, ptr %length, align 8
@@ -3983,13 +3979,12 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %16 = load i8, ptr %arrayidx.i.i.i, align 1
   %17 = and i8 %16, 7
-  %and.i.i.i = zext nneg i8 %17 to i32
-  switch i32 %and.i.i.i, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %17, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %sdslen.exit
@@ -4066,13 +4061,12 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %4 = and i8 %3, 7
-  %and.i.i.i = zext nneg i8 %4 to i32
-  switch i32 %and.i.i.i, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %4, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %entry
@@ -4320,13 +4314,12 @@ if.end30:                                         ; preds = %if.else6.i, %if.els
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %14 = load i8, ptr %arrayidx.i.i.i, align 1
   %15 = and i8 %14, 7
-  %and.i.i.i = zext nneg i8 %15 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %15, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end30
@@ -4361,12 +4354,12 @@ addReplyStreamID.exit:                            ; preds = %if.end30, %sw.bb.i.
   %18 = load i64, ptr %numfields, align 8
   %mul = shl nsw i64 %18, 1
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef %mul) #16
-  %tobool32.not89 = icmp eq i64 %18, 0
-  br i1 %tobool32.not89, label %while.end, label %while.body33
+  %tobool32.not88 = icmp eq i64 %18, 0
+  br i1 %tobool32.not88, label %while.end, label %while.body33
 
 while.body33:                                     ; preds = %addReplyStreamID.exit, %streamIteratorGetField.exit
-  %dec90.in = phi i64 [ %dec90, %streamIteratorGetField.exit ], [ %18, %addReplyStreamID.exit ]
-  %dec90 = add nsw i64 %dec90.in, -1
+  %dec89.in = phi i64 [ %dec89, %streamIteratorGetField.exit ], [ %18, %addReplyStreamID.exit ]
+  %dec89 = add nsw i64 %dec89.in, -1
   %19 = load i32, ptr %entry_flags.i, align 8
   %and.i = and i32 %19, 2
   %tobool.not.i62 = icmp eq i32 %and.i, 0
@@ -4403,7 +4396,7 @@ streamIteratorGetField.exit:                      ; preds = %if.then.i, %if.else
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %key.0, i64 noundef %29) #16
   %30 = load i64, ptr %value_len, align 8
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %call13.i, i64 noundef %30) #16
-  %tobool32.not = icmp eq i64 %dec90, 0
+  %tobool32.not = icmp eq i64 %dec89, 0
   br i1 %tobool32.not, label %while.end, label %while.body33, !llvm.loop !28
 
 while.end:                                        ; preds = %streamIteratorGetField.exit, %addReplyStreamID.exit
@@ -4480,46 +4473,45 @@ if.then72:                                        ; preds = %if.end69
   %arrayidx.i.i.i70 = getelementptr inbounds i8, ptr %call.i.i69, i64 -1
   %39 = load i8, ptr %arrayidx.i.i.i70, align 1
   %40 = and i8 %39, 7
-  %and.i.i.i71 = zext nneg i8 %40 to i32
-  switch i32 %and.i.i.i71, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i83
-    i32 1, label %sw.bb2.i.i.i81
-    i32 2, label %sw.bb5.i.i.i79
-    i32 3, label %sw.bb9.i.i.i77
-    i32 4, label %sw.bb13.i.i.i72
+  switch i8 %40, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i82
+    i8 1, label %sw.bb2.i.i.i80
+    i8 2, label %sw.bb5.i.i.i78
+    i8 3, label %sw.bb9.i.i.i76
+    i8 4, label %sw.bb13.i.i.i71
   ]
 
-sw.bb.i.i.i83:                                    ; preds = %if.then72
+sw.bb.i.i.i82:                                    ; preds = %if.then72
   store i8 0, ptr %arrayidx.i.i.i70, align 1
   br label %createObjectFromStreamID.exit
 
-sw.bb2.i.i.i81:                                   ; preds = %if.then72
-  %add.ptr4.i.i.i82 = getelementptr inbounds i8, ptr %call.i.i69, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i82, align 1
+sw.bb2.i.i.i80:                                   ; preds = %if.then72
+  %add.ptr4.i.i.i81 = getelementptr inbounds i8, ptr %call.i.i69, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i81, align 1
   br label %createObjectFromStreamID.exit
 
-sw.bb5.i.i.i79:                                   ; preds = %if.then72
-  %add.ptr7.i.i.i80 = getelementptr inbounds i8, ptr %call.i.i69, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i80, align 1
+sw.bb5.i.i.i78:                                   ; preds = %if.then72
+  %add.ptr7.i.i.i79 = getelementptr inbounds i8, ptr %call.i.i69, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i79, align 1
   br label %createObjectFromStreamID.exit
 
-sw.bb9.i.i.i77:                                   ; preds = %if.then72
-  %add.ptr11.i.i.i78 = getelementptr inbounds i8, ptr %call.i.i69, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i78, align 1
+sw.bb9.i.i.i76:                                   ; preds = %if.then72
+  %add.ptr11.i.i.i77 = getelementptr inbounds i8, ptr %call.i.i69, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i77, align 1
   br label %createObjectFromStreamID.exit
 
-sw.bb13.i.i.i72:                                  ; preds = %if.then72
-  %add.ptr14.i.i.i73 = getelementptr inbounds i8, ptr %call.i.i69, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i73, align 1
+sw.bb13.i.i.i71:                                  ; preds = %if.then72
+  %add.ptr14.i.i.i72 = getelementptr inbounds i8, ptr %call.i.i69, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i72, align 1
   br label %createObjectFromStreamID.exit
 
-createObjectFromStreamID.exit:                    ; preds = %if.then72, %sw.bb.i.i.i83, %sw.bb2.i.i.i81, %sw.bb5.i.i.i79, %sw.bb9.i.i.i77, %sw.bb13.i.i.i72
-  %call1.i.i75 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i69, ptr noundef nonnull @.str.15, i64 noundef %16, i64 noundef %17) #16
-  %call1.i76 = call ptr @createObject(i32 noundef 0, ptr noundef %call1.i.i75) #16
+createObjectFromStreamID.exit:                    ; preds = %if.then72, %sw.bb.i.i.i82, %sw.bb2.i.i.i80, %sw.bb5.i.i.i78, %sw.bb9.i.i.i76, %sw.bb13.i.i.i71
+  %call1.i.i74 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i69, ptr noundef nonnull @.str.15, i64 noundef %16, i64 noundef %17) #16
+  %call1.i75 = call ptr @createObject(i32 noundef 0, ptr noundef %call1.i.i74) #16
   %41 = load ptr, ptr %spi, align 8
   %42 = load ptr, ptr %groupname, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %41, ptr noundef nonnull %group, ptr noundef %42, ptr noundef %call1.i76, ptr noundef nonnull %nack.0)
-  call void @decrRefCount(ptr noundef %call1.i76) #16
+  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %41, ptr noundef nonnull %group, ptr noundef %42, ptr noundef %call1.i75, ptr noundef nonnull %nack.0)
+  call void @decrRefCount(ptr noundef %call1.i75) #16
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end69, %createObjectFromStreamID.exit, %while.end
@@ -4630,13 +4622,12 @@ if.then15:                                        ; preds = %if.end11
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %9 = and i8 %8, 7
-  %and.i.i.i = zext nneg i8 %9 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %9, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then15
@@ -4716,7 +4707,7 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key, i32 noundef %no_create) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key, i32 noundef %no_create) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
   %0 = load ptr, ptr %db, align 8
@@ -4755,7 +4746,7 @@ declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %ms45 = alloca i64, align 8
@@ -4959,28 +4950,28 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseID(ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseID(ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %o, ptr noundef %id, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef %seq_given), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
   %0 = load ptr, ptr %ptr, align 8
@@ -5052,12 +5043,12 @@ if.then6:                                         ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
   %sub = add i64 %retval.0.i, -1
   %call7 = tail call ptr @createStringObject(ptr noundef nonnull %add.ptr, i64 noundef %sub) #16
-  %call.i = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null), !range !31
   tail call void @decrRefCount(ptr noundef %call7) #16
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true.thread, %sdslen.exit.thread, %sdslen.exit, %land.lhs.true
-  %call.i12 = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
+  %call.i12 = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then6
@@ -5127,13 +5118,12 @@ streamGetEdgeID.exit:                             ; preds = %if.else, %if.then.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %4 = and i8 %3, 7
-  %and.i.i.i = zext nneg i8 %4 to i32
-  switch i32 %and.i.i.i, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %4, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %streamGetEdgeID.exit
@@ -5316,13 +5306,12 @@ if.end54:                                         ; preds = %if.end26
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i42, i64 -1
   %19 = load i8, ptr %arrayidx.i.i, align 1
   %20 = and i8 %19, 7
-  %and.i.i = zext nneg i8 %20 to i32
-  switch i32 %and.i.i, label %createStreamIDString.exit [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb2.i.i
-    i32 2, label %sw.bb5.i.i
-    i32 3, label %sw.bb9.i.i
-    i32 4, label %sw.bb13.i.i
+  switch i8 %20, label %createStreamIDString.exit [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb2.i.i
+    i8 2, label %sw.bb5.i.i
+    i8 3, label %sw.bb9.i.i
+    i8 4, label %sw.bb13.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end54
@@ -5662,7 +5651,7 @@ if.end118:                                        ; preds = %land.lhs.true89, %l
   %idxprom121 = sext i32 %add120 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %25, i64 %idxprom121
   %26 = load ptr, ptr %arrayidx122, align 8
-  %call.i = tail call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp124.not = icmp eq i32 %call.i, 0
   br i1 %cmp124.not, label %if.end127, label %return
 
@@ -5709,7 +5698,7 @@ if.then157:                                       ; preds = %land.lhs.true154
 
 if.then160:                                       ; preds = %land.lhs.true154
   %seq_given = getelementptr inbounds %struct.streamAddTrimArgs, ptr %args, i64 0, i32 2
-  %call.i96 = tail call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given), !range !31
+  %call.i96 = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given), !range !31
   %cmp165.not = icmp eq i32 %call.i96, 0
   br i1 %cmp165.not, label %if.end168, label %return
 
@@ -6492,7 +6481,7 @@ if.end173:                                        ; preds = %if.then170
 if.end181:                                        ; preds = %if.else162
   %idx.ext = sext i32 %sub113 to i64
   %add.ptr = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %idx.ext
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp186.not = icmp eq i32 %call.i, 0
   br i1 %cmp186.not, label %for.inc190, label %cleanup
 
@@ -6842,13 +6831,12 @@ if.then343:                                       ; preds = %for.body333
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %109 = load i8, ptr %arrayidx.i.i.i, align 1
   %110 = and i8 %109, 7
-  %and.i.i.i = zext nneg i8 %110 to i32
-  switch i32 %and.i.i.i, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %110, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then343
@@ -7057,7 +7045,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamCreateConsumer(ptr noundef readonly %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateConsumer(ptr noundef readonly %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cg, null
   br i1 %cmp, label %return, label %if.end
@@ -7577,7 +7565,7 @@ if.end116.thread:                                 ; preds = %if.then104
   br label %if.then118
 
 if.else109:                                       ; preds = %if.then98
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp113.not = icmp eq i32 %call.i, 0
   br i1 %cmp113.not, label %if.end116, label %if.end249
 
@@ -7730,7 +7718,7 @@ if.then164:                                       ; preds = %if.then157
   br label %if.end174
 
 if.else166:                                       ; preds = %if.then157
-  %call.i111 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %67, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
+  %call.i111 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %67, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
   %cmp170.not = icmp eq i32 %call.i111, 0
   br i1 %cmp170.not, label %if.end174, label %if.end249
 
@@ -7992,7 +7980,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
   %1 = load ptr, ptr %arrayidx, align 8
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %while.cond.preheader, label %return
 
@@ -8051,7 +8039,7 @@ if.else20:                                        ; preds = %while.body
 if.then25:                                        ; preds = %if.else20
   %arrayidx29 = getelementptr ptr, ptr %arrayidx5, i64 1
   %14 = load ptr, ptr %arrayidx29, align 8
-  %call.i40 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i40 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp31.not = icmp eq i32 %call.i40, 0
   br i1 %cmp31.not, label %if.else33, label %return
 
@@ -8364,7 +8352,7 @@ for.body:                                         ; preds = %if.end15, %for.cond
   %21 = load ptr, ptr %arrayidx20, align 8
   %22 = add nsw i64 %indvars.iv, -3
   %arrayidx23 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %22
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp25.not = icmp eq i32 %call.i, 0
   br i1 %cmp25.not, label %for.cond, label %cleanup
 
@@ -8895,13 +8883,12 @@ if.end176:                                        ; preds = %if.then171, %while.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %68 = load i8, ptr %arrayidx.i.i.i, align 1
   %69 = and i8 %68, 7
-  %and.i.i.i = zext nneg i8 %69 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %69, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end176
@@ -9160,7 +9147,7 @@ for.body:                                         ; preds = %if.end30, %for.inc
   %24 = load ptr, ptr %arrayidx35, align 8
   %25 = add nsw i64 %indvars.iv, -5
   %arrayidx38 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %25
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp40.not = icmp eq i32 %call.i, 0
   br i1 %cmp40.not, label %for.inc, label %for.end.loopexit
 
@@ -9268,7 +9255,7 @@ if.then114:                                       ; preds = %if.else109
   %idxprom117 = sext i32 %.neg to i64
   %arrayidx118 = getelementptr inbounds ptr, ptr %31, i64 %idxprom117
   %38 = load ptr, ptr %arrayidx118, align 8
-  %call.i135 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i135 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp120.not = icmp eq i32 %call.i135, 0
   br i1 %cmp120.not, label %for.inc131, label %cleanup
 
@@ -9594,13 +9581,12 @@ if.then264:                                       ; preds = %if.end262
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %93 = load i8, ptr %arrayidx.i.i.i, align 1
   %94 = and i8 %93, 7
-  %and.i.i.i = zext nneg i8 %94 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %94, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then264
@@ -9787,16 +9773,16 @@ if.end16.sink.split:                              ; preds = %if.else.i, %if.else
 if.end16:                                         ; preds = %if.end16.sink.split, %if.end12
   %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
   %11 = load i32, ptr %argc, align 8
-  %cmp17176 = icmp sgt i32 %11, 6
-  br i1 %cmp17176, label %while.body, label %while.end
+  %cmp17173 = icmp sgt i32 %11, 6
+  br i1 %cmp17173, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end16, %if.end39
   %12 = phi i32 [ %18, %if.end39 ], [ %11, %if.end16 ]
-  %justid.0178 = phi i32 [ %justid.1, %if.end39 ], [ 0, %if.end16 ]
-  %j.0177 = phi i32 [ %inc40.pre-phi, %if.end39 ], [ 6, %if.end16 ]
-  %.neg = add nsw i32 %j.0177, 1
+  %justid.0175 = phi i32 [ %justid.1, %if.end39 ], [ 0, %if.end16 ]
+  %j.0174 = phi i32 [ %inc40.pre-phi, %if.end39 ], [ 6, %if.end16 ]
+  %.neg = add nsw i32 %j.0174, 1
   %13 = load ptr, ptr %argv, align 8
-  %idxprom = sext i32 %j.0177 to i64
+  %idxprom = sext i32 %j.0174 to i64
   %arrayidx21 = getelementptr inbounds ptr, ptr %13, i64 %idxprom
   %14 = load ptr, ptr %arrayidx21, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %14, i64 0, i32 2
@@ -9817,7 +9803,7 @@ if.then26:                                        ; preds = %while.body
 
 if.then26.if.end39_crit_edge:                     ; preds = %if.then26
   %.pre = load i32, ptr %argc, align 8
-  %.pre200 = add nsw i32 %j.0177, 2
+  %.pre197 = add nsw i32 %j.0174, 2
   br label %if.end39
 
 if.else:                                          ; preds = %while.body
@@ -9831,9 +9817,9 @@ if.else37:                                        ; preds = %if.else
   br label %return
 
 if.end39:                                         ; preds = %if.then26.if.end39_crit_edge, %if.else
-  %inc40.pre-phi = phi i32 [ %.pre200, %if.then26.if.end39_crit_edge ], [ %.neg, %if.else ]
+  %inc40.pre-phi = phi i32 [ %.pre197, %if.then26.if.end39_crit_edge ], [ %.neg, %if.else ]
   %18 = phi i32 [ %.pre, %if.then26.if.end39_crit_edge ], [ %12, %if.else ]
-  %justid.1 = phi i32 [ %justid.0178, %if.then26.if.end39_crit_edge ], [ 1, %if.else ]
+  %justid.1 = phi i32 [ %justid.0175, %if.then26.if.end39_crit_edge ], [ 1, %if.else ]
   %cmp17 = icmp slt i32 %inc40.pre-phi, %18
   br i1 %cmp17, label %while.body, label %while.end.loopexit, !llvm.loop !48
 
@@ -9943,21 +9929,21 @@ if.end80:                                         ; preds = %if.then72, %if.end6
   %active_time = getelementptr inbounds %struct.streamConsumer, ptr %consumer.0, i64 0, i32 1
   br label %while.cond88.outer
 
-while.cond88.outer:                               ; preds = %createObjectFromStreamID.exit127, %if.end80
-  %arraylen.0.ph = phi i64 [ %inc165, %createObjectFromStreamID.exit127 ], [ 0, %if.end80 ]
-  %attempts.0.ph = phi i64 [ %dec, %createObjectFromStreamID.exit127 ], [ %mul82, %if.end80 ]
-  %deleted_id_num.0.ph = phi i32 [ %73, %createObjectFromStreamID.exit127 ], [ 0, %if.end80 ]
+while.cond88.outer:                               ; preds = %createObjectFromStreamID.exit125, %if.end80
+  %arraylen.0.ph = phi i64 [ %inc165, %createObjectFromStreamID.exit125 ], [ 0, %if.end80 ]
+  %attempts.0.ph = phi i64 [ %dec, %createObjectFromStreamID.exit125 ], [ %mul82, %if.end80 ]
+  %deleted_id_num.0.ph = phi i32 [ %73, %createObjectFromStreamID.exit125 ], [ 0, %if.end80 ]
   %43 = sext i32 %deleted_id_num.0.ph to i64
-  br label %while.cond88.outer156
+  br label %while.cond88.outer153
 
-while.cond88.outer156:                            ; preds = %while.cond88.outer, %createObjectFromStreamID.exit
-  %indvars.iv195 = phi i32 [ %deleted_id_num.0.ph, %while.cond88.outer ], [ %indvars.iv.next196, %createObjectFromStreamID.exit ]
+while.cond88.outer153:                            ; preds = %while.cond88.outer, %createObjectFromStreamID.exit
+  %indvars.iv192 = phi i32 [ %deleted_id_num.0.ph, %while.cond88.outer ], [ %indvars.iv.next193, %createObjectFromStreamID.exit ]
   %indvars.iv = phi i64 [ %43, %while.cond88.outer ], [ %indvars.iv.next, %createObjectFromStreamID.exit ]
-  %attempts.0.ph157 = phi i64 [ %attempts.0.ph, %while.cond88.outer ], [ %dec, %createObjectFromStreamID.exit ]
+  %attempts.0.ph154 = phi i64 [ %attempts.0.ph, %while.cond88.outer ], [ %dec, %createObjectFromStreamID.exit ]
   br label %while.cond88
 
-while.cond88:                                     ; preds = %while.cond88.outer156, %if.then123
-  %attempts.0 = phi i64 [ %dec, %if.then123 ], [ %attempts.0.ph157, %while.cond88.outer156 ]
+while.cond88:                                     ; preds = %while.cond88.outer153, %if.then123
+  %attempts.0 = phi i64 [ %dec, %if.then123 ], [ %attempts.0.ph154, %while.cond88.outer153 ]
   %dec = add nsw i64 %attempts.0, -1
   %tobool89 = icmp ne i64 %attempts.0, 0
   %44 = load i64, ptr %count, align 8
@@ -10016,13 +10002,12 @@ if.then99:                                        ; preds = %while.body94
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %53 = load i8, ptr %arrayidx.i.i.i, align 1
   %54 = and i8 %53, 7
-  %and.i.i.i = zext nneg i8 %54 to i32
-  switch i32 %and.i.i.i, label %createObjectFromStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %54, label %createObjectFromStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then99
@@ -10085,8 +10070,8 @@ createObjectFromStreamID.exit:                    ; preds = %if.then99, %sw.bb.i
   %70 = load i64, ptr %count, align 8
   %dec120 = add nsw i64 %70, -1
   store i64 %dec120, ptr %count, align 8
-  %indvars.iv.next196 = add i32 %indvars.iv195, 1
-  br label %while.cond88.outer156, !llvm.loop !49
+  %indvars.iv.next193 = add i32 %indvars.iv192, 1
+  br label %while.cond88.outer153, !llvm.loop !49
 
 if.end121:                                        ; preds = %if.else6.i.i
   call void @llvm.lifetime.end.p0(i64 648, ptr nonnull %si.i)
@@ -10152,44 +10137,43 @@ if.then157:                                       ; preds = %if.end155
   %arrayidx.i.i.i99 = getelementptr inbounds i8, ptr %call.i.i98, i64 -1
   %84 = load i8, ptr %arrayidx.i.i.i99, align 1
   %85 = and i8 %84, 7
-  %and.i.i.i100 = zext nneg i8 %85 to i32
-  switch i32 %and.i.i.i100, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i111
-    i32 1, label %sw.bb2.i.i.i109
-    i32 2, label %sw.bb5.i.i.i107
-    i32 3, label %sw.bb9.i.i.i105
-    i32 4, label %sw.bb13.i.i.i101
+  switch i8 %85, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i110
+    i8 1, label %sw.bb2.i.i.i108
+    i8 2, label %sw.bb5.i.i.i106
+    i8 3, label %sw.bb9.i.i.i104
+    i8 4, label %sw.bb13.i.i.i100
   ]
 
-sw.bb.i.i.i111:                                   ; preds = %if.then157
+sw.bb.i.i.i110:                                   ; preds = %if.then157
   store i8 0, ptr %arrayidx.i.i.i99, align 1
   br label %addReplyStreamID.exit
 
-sw.bb2.i.i.i109:                                  ; preds = %if.then157
-  %add.ptr4.i.i.i110 = getelementptr inbounds i8, ptr %call.i.i98, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i110, align 1
+sw.bb2.i.i.i108:                                  ; preds = %if.then157
+  %add.ptr4.i.i.i109 = getelementptr inbounds i8, ptr %call.i.i98, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i109, align 1
   br label %addReplyStreamID.exit
 
-sw.bb5.i.i.i107:                                  ; preds = %if.then157
-  %add.ptr7.i.i.i108 = getelementptr inbounds i8, ptr %call.i.i98, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i108, align 1
+sw.bb5.i.i.i106:                                  ; preds = %if.then157
+  %add.ptr7.i.i.i107 = getelementptr inbounds i8, ptr %call.i.i98, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i107, align 1
   br label %addReplyStreamID.exit
 
-sw.bb9.i.i.i105:                                  ; preds = %if.then157
-  %add.ptr11.i.i.i106 = getelementptr inbounds i8, ptr %call.i.i98, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i106, align 1
+sw.bb9.i.i.i104:                                  ; preds = %if.then157
+  %add.ptr11.i.i.i105 = getelementptr inbounds i8, ptr %call.i.i98, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i105, align 1
   br label %addReplyStreamID.exit
 
-sw.bb13.i.i.i101:                                 ; preds = %if.then157
-  %add.ptr14.i.i.i102 = getelementptr inbounds i8, ptr %call.i.i98, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i102, align 1
+sw.bb13.i.i.i100:                                 ; preds = %if.then157
+  %add.ptr14.i.i.i101 = getelementptr inbounds i8, ptr %call.i.i98, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i101, align 1
   br label %addReplyStreamID.exit
 
-addReplyStreamID.exit:                            ; preds = %if.then157, %sw.bb.i.i.i111, %sw.bb2.i.i.i109, %sw.bb5.i.i.i107, %sw.bb9.i.i.i105, %sw.bb13.i.i.i101
+addReplyStreamID.exit:                            ; preds = %if.then157, %sw.bb.i.i.i110, %sw.bb2.i.i.i108, %sw.bb5.i.i.i106, %sw.bb9.i.i.i104, %sw.bb13.i.i.i100
   %86 = load i64, ptr %id95, align 8
   %87 = load i64, ptr %seq.i94, align 8
-  %call1.i.i104 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i98, ptr noundef nonnull @.str.15, i64 noundef %86, i64 noundef %87) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i104) #16
+  %call1.i.i103 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i98, ptr noundef nonnull @.str.15, i64 noundef %86, i64 noundef %87) #16
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i103) #16
   br label %if.end164
 
 if.else158:                                       ; preds = %if.end155
@@ -10211,55 +10195,54 @@ if.end164:                                        ; preds = %if.else158, %addRep
   %call167 = call i64 @commandTimeSnapshot() #16
   store i64 %call167, ptr %active_time, align 8
   %90 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i112 = call ptr @sdsnewlen(ptr noundef %90, i64 noundef 44) #16
-  %arrayidx.i.i.i113 = getelementptr inbounds i8, ptr %call.i.i112, i64 -1
-  %91 = load i8, ptr %arrayidx.i.i.i113, align 1
+  %call.i.i111 = call ptr @sdsnewlen(ptr noundef %90, i64 noundef 44) #16
+  %arrayidx.i.i.i112 = getelementptr inbounds i8, ptr %call.i.i111, i64 -1
+  %91 = load i8, ptr %arrayidx.i.i.i112, align 1
   %92 = and i8 %91, 7
-  %and.i.i.i114 = zext nneg i8 %92 to i32
-  switch i32 %and.i.i.i114, label %createObjectFromStreamID.exit127 [
-    i32 0, label %sw.bb.i.i.i126
-    i32 1, label %sw.bb2.i.i.i124
-    i32 2, label %sw.bb5.i.i.i122
-    i32 3, label %sw.bb9.i.i.i120
-    i32 4, label %sw.bb13.i.i.i115
+  switch i8 %92, label %createObjectFromStreamID.exit125 [
+    i8 0, label %sw.bb.i.i.i124
+    i8 1, label %sw.bb2.i.i.i122
+    i8 2, label %sw.bb5.i.i.i120
+    i8 3, label %sw.bb9.i.i.i118
+    i8 4, label %sw.bb13.i.i.i113
   ]
 
-sw.bb.i.i.i126:                                   ; preds = %if.end164
-  store i8 0, ptr %arrayidx.i.i.i113, align 1
-  br label %createObjectFromStreamID.exit127
+sw.bb.i.i.i124:                                   ; preds = %if.end164
+  store i8 0, ptr %arrayidx.i.i.i112, align 1
+  br label %createObjectFromStreamID.exit125
 
-sw.bb2.i.i.i124:                                  ; preds = %if.end164
-  %add.ptr4.i.i.i125 = getelementptr inbounds i8, ptr %call.i.i112, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i125, align 1
-  br label %createObjectFromStreamID.exit127
+sw.bb2.i.i.i122:                                  ; preds = %if.end164
+  %add.ptr4.i.i.i123 = getelementptr inbounds i8, ptr %call.i.i111, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i123, align 1
+  br label %createObjectFromStreamID.exit125
 
-sw.bb5.i.i.i122:                                  ; preds = %if.end164
-  %add.ptr7.i.i.i123 = getelementptr inbounds i8, ptr %call.i.i112, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i123, align 1
-  br label %createObjectFromStreamID.exit127
+sw.bb5.i.i.i120:                                  ; preds = %if.end164
+  %add.ptr7.i.i.i121 = getelementptr inbounds i8, ptr %call.i.i111, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i121, align 1
+  br label %createObjectFromStreamID.exit125
 
-sw.bb9.i.i.i120:                                  ; preds = %if.end164
-  %add.ptr11.i.i.i121 = getelementptr inbounds i8, ptr %call.i.i112, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i121, align 1
-  br label %createObjectFromStreamID.exit127
+sw.bb9.i.i.i118:                                  ; preds = %if.end164
+  %add.ptr11.i.i.i119 = getelementptr inbounds i8, ptr %call.i.i111, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i119, align 1
+  br label %createObjectFromStreamID.exit125
 
-sw.bb13.i.i.i115:                                 ; preds = %if.end164
-  %add.ptr14.i.i.i116 = getelementptr inbounds i8, ptr %call.i.i112, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i116, align 1
-  br label %createObjectFromStreamID.exit127
+sw.bb13.i.i.i113:                                 ; preds = %if.end164
+  %add.ptr14.i.i.i114 = getelementptr inbounds i8, ptr %call.i.i111, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i114, align 1
+  br label %createObjectFromStreamID.exit125
 
-createObjectFromStreamID.exit127:                 ; preds = %if.end164, %sw.bb.i.i.i126, %sw.bb2.i.i.i124, %sw.bb5.i.i.i122, %sw.bb9.i.i.i120, %sw.bb13.i.i.i115
+createObjectFromStreamID.exit125:                 ; preds = %if.end164, %sw.bb.i.i.i124, %sw.bb2.i.i.i122, %sw.bb5.i.i.i120, %sw.bb9.i.i.i118, %sw.bb13.i.i.i113
   %93 = load i64, ptr %id95, align 8
   %94 = load i64, ptr %seq.i94, align 8
-  %call1.i.i118 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i112, ptr noundef nonnull @.str.15, i64 noundef %93, i64 noundef %94) #16
-  %call1.i119 = call ptr @createObject(i32 noundef 0, ptr noundef %call1.i.i118) #16
+  %call1.i.i116 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i111, ptr noundef nonnull @.str.15, i64 noundef %93, i64 noundef %94) #16
+  %call1.i117 = call ptr @createObject(i32 noundef 0, ptr noundef %call1.i.i116) #16
   %95 = load ptr, ptr %argv, align 8
   %arrayidx171 = getelementptr inbounds ptr, ptr %95, i64 1
   %96 = load ptr, ptr %arrayidx171, align 8
   %arrayidx173 = getelementptr inbounds ptr, ptr %95, i64 2
   %97 = load ptr, ptr %arrayidx173, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %96, ptr noundef nonnull %call51, ptr noundef %97, ptr noundef %call1.i119, ptr noundef nonnull %45)
-  call void @decrRefCount(ptr noundef %call1.i119) #16
+  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %96, ptr noundef nonnull %call51, ptr noundef %97, ptr noundef %call1.i117, ptr noundef nonnull %45)
+  call void @decrRefCount(ptr noundef %call1.i117) #16
   %98 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   %inc174 = add nsw i64 %98, 1
   store i64 %inc174, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
@@ -10274,17 +10257,17 @@ while.end175:                                     ; preds = %while.cond88, %land
 
 if.else180:                                       ; preds = %while.end175
   %100 = load ptr, ptr %key, align 8
-  %e.sroa.0.0.copyload.i128 = load i64, ptr %100, align 1
-  %e.sroa.2.0..sroa_idx.i129 = getelementptr inbounds i8, ptr %100, i64 8
-  %e.sroa.2.0.copyload.i130 = load i64, ptr %e.sroa.2.0..sroa_idx.i129, align 1
-  %call.i131 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i128) #16
-  %call2.i132 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i130) #16
+  %e.sroa.0.0.copyload.i126 = load i64, ptr %100, align 1
+  %e.sroa.2.0..sroa_idx.i127 = getelementptr inbounds i8, ptr %100, i64 8
+  %e.sroa.2.0.copyload.i128 = load i64, ptr %e.sroa.2.0..sroa_idx.i127, align 1
+  %call.i129 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i126) #16
+  %call2.i130 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i128) #16
   br label %if.end182
 
 if.end182:                                        ; preds = %while.end175, %if.else180
-  %.sink199 = phi i64 [ %call.i131, %if.else180 ], [ 0, %while.end175 ]
-  %.sink = phi i64 [ %call2.i132, %if.else180 ], [ 0, %while.end175 ]
-  store i64 %.sink199, ptr %endid, align 8
+  %.sink196 = phi i64 [ %call.i129, %if.else180 ], [ 0, %while.end175 ]
+  %.sink = phi i64 [ %call2.i130, %if.else180 ], [ 0, %while.end175 ]
+  store i64 %.sink196, ptr %endid, align 8
   %101 = getelementptr inbounds %struct.streamID, ptr %endid, i64 0, i32 1
   store i64 %.sink, ptr %101, align 8
   call void @raxStop(ptr noundef nonnull %ri) #16
@@ -10293,65 +10276,64 @@ if.end182:                                        ; preds = %while.end175, %if.e
   %sext = shl i64 %indvars.iv, 32
   %conv183 = ashr exact i64 %sext, 32
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv183) #16
-  %cmp184180 = icmp sgt i32 %99, 0
-  br i1 %cmp184180, label %for.body.preheader, label %for.end
+  %cmp184177 = icmp sgt i32 %99, 0
+  br i1 %cmp184177, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end182
-  %wide.trip.count = zext i32 %indvars.iv195 to i64
+  %wide.trip.count = zext i32 %indvars.iv192 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %addReplyStreamID.exit148
-  %indvars.iv192 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next193, %addReplyStreamID.exit148 ]
-  %arrayidx187 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv192
+for.body:                                         ; preds = %for.body.preheader, %addReplyStreamID.exit145
+  %indvars.iv189 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next190, %addReplyStreamID.exit145 ]
+  %arrayidx187 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv189
   %102 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i134 = call ptr @sdsnewlen(ptr noundef %102, i64 noundef 44) #16
-  %arrayidx.i.i.i135 = getelementptr inbounds i8, ptr %call.i.i134, i64 -1
-  %103 = load i8, ptr %arrayidx.i.i.i135, align 1
+  %call.i.i132 = call ptr @sdsnewlen(ptr noundef %102, i64 noundef 44) #16
+  %arrayidx.i.i.i133 = getelementptr inbounds i8, ptr %call.i.i132, i64 -1
+  %103 = load i8, ptr %arrayidx.i.i.i133, align 1
   %104 = and i8 %103, 7
-  %and.i.i.i136 = zext nneg i8 %104 to i32
-  switch i32 %and.i.i.i136, label %addReplyStreamID.exit148 [
-    i32 0, label %sw.bb.i.i.i147
-    i32 1, label %sw.bb2.i.i.i145
-    i32 2, label %sw.bb5.i.i.i143
-    i32 3, label %sw.bb9.i.i.i141
-    i32 4, label %sw.bb13.i.i.i137
+  switch i8 %104, label %addReplyStreamID.exit145 [
+    i8 0, label %sw.bb.i.i.i144
+    i8 1, label %sw.bb2.i.i.i142
+    i8 2, label %sw.bb5.i.i.i140
+    i8 3, label %sw.bb9.i.i.i138
+    i8 4, label %sw.bb13.i.i.i134
   ]
 
-sw.bb.i.i.i147:                                   ; preds = %for.body
-  store i8 0, ptr %arrayidx.i.i.i135, align 1
-  br label %addReplyStreamID.exit148
+sw.bb.i.i.i144:                                   ; preds = %for.body
+  store i8 0, ptr %arrayidx.i.i.i133, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb2.i.i.i145:                                  ; preds = %for.body
-  %add.ptr4.i.i.i146 = getelementptr inbounds i8, ptr %call.i.i134, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i146, align 1
-  br label %addReplyStreamID.exit148
+sw.bb2.i.i.i142:                                  ; preds = %for.body
+  %add.ptr4.i.i.i143 = getelementptr inbounds i8, ptr %call.i.i132, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i143, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb5.i.i.i143:                                  ; preds = %for.body
-  %add.ptr7.i.i.i144 = getelementptr inbounds i8, ptr %call.i.i134, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i144, align 1
-  br label %addReplyStreamID.exit148
+sw.bb5.i.i.i140:                                  ; preds = %for.body
+  %add.ptr7.i.i.i141 = getelementptr inbounds i8, ptr %call.i.i132, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i141, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb9.i.i.i141:                                  ; preds = %for.body
-  %add.ptr11.i.i.i142 = getelementptr inbounds i8, ptr %call.i.i134, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i142, align 1
-  br label %addReplyStreamID.exit148
+sw.bb9.i.i.i138:                                  ; preds = %for.body
+  %add.ptr11.i.i.i139 = getelementptr inbounds i8, ptr %call.i.i132, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i139, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb13.i.i.i137:                                 ; preds = %for.body
-  %add.ptr14.i.i.i138 = getelementptr inbounds i8, ptr %call.i.i134, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i138, align 1
-  br label %addReplyStreamID.exit148
+sw.bb13.i.i.i134:                                 ; preds = %for.body
+  %add.ptr14.i.i.i135 = getelementptr inbounds i8, ptr %call.i.i132, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i135, align 1
+  br label %addReplyStreamID.exit145
 
-addReplyStreamID.exit148:                         ; preds = %for.body, %sw.bb.i.i.i147, %sw.bb2.i.i.i145, %sw.bb5.i.i.i143, %sw.bb9.i.i.i141, %sw.bb13.i.i.i137
+addReplyStreamID.exit145:                         ; preds = %for.body, %sw.bb.i.i.i144, %sw.bb2.i.i.i142, %sw.bb5.i.i.i140, %sw.bb9.i.i.i138, %sw.bb13.i.i.i134
   %105 = load i64, ptr %arrayidx187, align 8
-  %seq.i.i139 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv192, i32 1
-  %106 = load i64, ptr %seq.i.i139, align 8
-  %call1.i.i140 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i134, ptr noundef nonnull @.str.15, i64 noundef %105, i64 noundef %106) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i140) #16
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
+  %seq.i.i136 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv189, i32 1
+  %106 = load i64, ptr %seq.i.i136, align 8
+  %call1.i.i137 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i132, ptr noundef nonnull @.str.15, i64 noundef %105, i64 noundef %106) #16
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i137) #16
+  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50
 
-for.end:                                          ; preds = %addReplyStreamID.exit148, %if.end182
+for.end:                                          ; preds = %addReplyStreamID.exit145, %if.end182
   call void @zfree(ptr noundef nonnull %call63) #16
   call void @preventCommandPropagation(ptr noundef %c) #16
   br label %return
@@ -10436,7 +10418,7 @@ for.body:                                         ; preds = %if.end5, %for.cond
   %10 = load ptr, ptr %arrayidx10, align 8
   %11 = add nsw i64 %indvars.iv, -2
   %arrayidx13 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %11
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp15.not = icmp eq i32 %call.i, 0
   br i1 %cmp15.not, label %for.cond, label %cleanup
 
@@ -10780,13 +10762,12 @@ if.end23:                                         ; preds = %entry, %if.end5, %i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %14 = load i8, ptr %arrayidx.i.i.i, align 1
   %15 = and i8 %14, 7
-  %and.i.i.i = zext nneg i8 %15 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %15, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end23
@@ -10826,45 +10807,44 @@ addReplyStreamID.exit:                            ; preds = %if.end23, %sw.bb.i.
   %arrayidx.i.i.i119 = getelementptr inbounds i8, ptr %call.i.i118, i64 -1
   %19 = load i8, ptr %arrayidx.i.i.i119, align 1
   %20 = and i8 %19, 7
-  %and.i.i.i120 = zext nneg i8 %20 to i32
-  switch i32 %and.i.i.i120, label %addReplyStreamID.exit132 [
-    i32 0, label %sw.bb.i.i.i131
-    i32 1, label %sw.bb2.i.i.i129
-    i32 2, label %sw.bb5.i.i.i127
-    i32 3, label %sw.bb9.i.i.i125
-    i32 4, label %sw.bb13.i.i.i121
+  switch i8 %20, label %addReplyStreamID.exit131 [
+    i8 0, label %sw.bb.i.i.i130
+    i8 1, label %sw.bb2.i.i.i128
+    i8 2, label %sw.bb5.i.i.i126
+    i8 3, label %sw.bb9.i.i.i124
+    i8 4, label %sw.bb13.i.i.i120
   ]
 
-sw.bb.i.i.i131:                                   ; preds = %addReplyStreamID.exit
+sw.bb.i.i.i130:                                   ; preds = %addReplyStreamID.exit
   store i8 0, ptr %arrayidx.i.i.i119, align 1
-  br label %addReplyStreamID.exit132
+  br label %addReplyStreamID.exit131
 
-sw.bb2.i.i.i129:                                  ; preds = %addReplyStreamID.exit
-  %add.ptr4.i.i.i130 = getelementptr inbounds i8, ptr %call.i.i118, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i130, align 1
-  br label %addReplyStreamID.exit132
+sw.bb2.i.i.i128:                                  ; preds = %addReplyStreamID.exit
+  %add.ptr4.i.i.i129 = getelementptr inbounds i8, ptr %call.i.i118, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i129, align 1
+  br label %addReplyStreamID.exit131
 
-sw.bb5.i.i.i127:                                  ; preds = %addReplyStreamID.exit
-  %add.ptr7.i.i.i128 = getelementptr inbounds i8, ptr %call.i.i118, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i128, align 1
-  br label %addReplyStreamID.exit132
+sw.bb5.i.i.i126:                                  ; preds = %addReplyStreamID.exit
+  %add.ptr7.i.i.i127 = getelementptr inbounds i8, ptr %call.i.i118, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i127, align 1
+  br label %addReplyStreamID.exit131
 
-sw.bb9.i.i.i125:                                  ; preds = %addReplyStreamID.exit
-  %add.ptr11.i.i.i126 = getelementptr inbounds i8, ptr %call.i.i118, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i126, align 1
-  br label %addReplyStreamID.exit132
+sw.bb9.i.i.i124:                                  ; preds = %addReplyStreamID.exit
+  %add.ptr11.i.i.i125 = getelementptr inbounds i8, ptr %call.i.i118, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i125, align 1
+  br label %addReplyStreamID.exit131
 
-sw.bb13.i.i.i121:                                 ; preds = %addReplyStreamID.exit
-  %add.ptr14.i.i.i122 = getelementptr inbounds i8, ptr %call.i.i118, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i122, align 1
-  br label %addReplyStreamID.exit132
+sw.bb13.i.i.i120:                                 ; preds = %addReplyStreamID.exit
+  %add.ptr14.i.i.i121 = getelementptr inbounds i8, ptr %call.i.i118, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i121, align 1
+  br label %addReplyStreamID.exit131
 
-addReplyStreamID.exit132:                         ; preds = %addReplyStreamID.exit, %sw.bb.i.i.i131, %sw.bb2.i.i.i129, %sw.bb5.i.i.i127, %sw.bb9.i.i.i125, %sw.bb13.i.i.i121
+addReplyStreamID.exit131:                         ; preds = %addReplyStreamID.exit, %sw.bb.i.i.i130, %sw.bb2.i.i.i128, %sw.bb5.i.i.i126, %sw.bb9.i.i.i124, %sw.bb13.i.i.i120
   %21 = load i64, ptr %max_deleted_entry_id, align 8
-  %seq.i.i123 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 4, i32 1
-  %22 = load i64, ptr %seq.i.i123, align 8
-  %call1.i.i124 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i118, ptr noundef nonnull @.str.15, i64 noundef %21, i64 noundef %22) #16
-  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i124) #16
+  %seq.i.i122 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 4, i32 1
+  %22 = load i64, ptr %seq.i.i122, align 8
+  %call1.i.i123 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i118, ptr noundef nonnull @.str.15, i64 noundef %21, i64 noundef %22) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i123) #16
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.104) #16
   %entries_added = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 5
   %23 = load i64, ptr %entries_added, align 8
@@ -10872,52 +10852,51 @@ addReplyStreamID.exit132:                         ; preds = %addReplyStreamID.ex
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.105) #16
   %first_id = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 3
   %24 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i133 = call ptr @sdsnewlen(ptr noundef %24, i64 noundef 44) #16
-  %arrayidx.i.i.i134 = getelementptr inbounds i8, ptr %call.i.i133, i64 -1
-  %25 = load i8, ptr %arrayidx.i.i.i134, align 1
+  %call.i.i132 = call ptr @sdsnewlen(ptr noundef %24, i64 noundef 44) #16
+  %arrayidx.i.i.i133 = getelementptr inbounds i8, ptr %call.i.i132, i64 -1
+  %25 = load i8, ptr %arrayidx.i.i.i133, align 1
   %26 = and i8 %25, 7
-  %and.i.i.i135 = zext nneg i8 %26 to i32
-  switch i32 %and.i.i.i135, label %addReplyStreamID.exit147 [
-    i32 0, label %sw.bb.i.i.i146
-    i32 1, label %sw.bb2.i.i.i144
-    i32 2, label %sw.bb5.i.i.i142
-    i32 3, label %sw.bb9.i.i.i140
-    i32 4, label %sw.bb13.i.i.i136
+  switch i8 %26, label %addReplyStreamID.exit145 [
+    i8 0, label %sw.bb.i.i.i144
+    i8 1, label %sw.bb2.i.i.i142
+    i8 2, label %sw.bb5.i.i.i140
+    i8 3, label %sw.bb9.i.i.i138
+    i8 4, label %sw.bb13.i.i.i134
   ]
 
-sw.bb.i.i.i146:                                   ; preds = %addReplyStreamID.exit132
-  store i8 0, ptr %arrayidx.i.i.i134, align 1
-  br label %addReplyStreamID.exit147
+sw.bb.i.i.i144:                                   ; preds = %addReplyStreamID.exit131
+  store i8 0, ptr %arrayidx.i.i.i133, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb2.i.i.i144:                                  ; preds = %addReplyStreamID.exit132
-  %add.ptr4.i.i.i145 = getelementptr inbounds i8, ptr %call.i.i133, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i145, align 1
-  br label %addReplyStreamID.exit147
+sw.bb2.i.i.i142:                                  ; preds = %addReplyStreamID.exit131
+  %add.ptr4.i.i.i143 = getelementptr inbounds i8, ptr %call.i.i132, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i143, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb5.i.i.i142:                                  ; preds = %addReplyStreamID.exit132
-  %add.ptr7.i.i.i143 = getelementptr inbounds i8, ptr %call.i.i133, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i143, align 1
-  br label %addReplyStreamID.exit147
+sw.bb5.i.i.i140:                                  ; preds = %addReplyStreamID.exit131
+  %add.ptr7.i.i.i141 = getelementptr inbounds i8, ptr %call.i.i132, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i141, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb9.i.i.i140:                                  ; preds = %addReplyStreamID.exit132
-  %add.ptr11.i.i.i141 = getelementptr inbounds i8, ptr %call.i.i133, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i141, align 1
-  br label %addReplyStreamID.exit147
+sw.bb9.i.i.i138:                                  ; preds = %addReplyStreamID.exit131
+  %add.ptr11.i.i.i139 = getelementptr inbounds i8, ptr %call.i.i132, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i139, align 1
+  br label %addReplyStreamID.exit145
 
-sw.bb13.i.i.i136:                                 ; preds = %addReplyStreamID.exit132
-  %add.ptr14.i.i.i137 = getelementptr inbounds i8, ptr %call.i.i133, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i137, align 1
-  br label %addReplyStreamID.exit147
+sw.bb13.i.i.i134:                                 ; preds = %addReplyStreamID.exit131
+  %add.ptr14.i.i.i135 = getelementptr inbounds i8, ptr %call.i.i132, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i135, align 1
+  br label %addReplyStreamID.exit145
 
-addReplyStreamID.exit147:                         ; preds = %addReplyStreamID.exit132, %sw.bb.i.i.i146, %sw.bb2.i.i.i144, %sw.bb5.i.i.i142, %sw.bb9.i.i.i140, %sw.bb13.i.i.i136
+addReplyStreamID.exit145:                         ; preds = %addReplyStreamID.exit131, %sw.bb.i.i.i144, %sw.bb2.i.i.i142, %sw.bb5.i.i.i140, %sw.bb9.i.i.i138, %sw.bb13.i.i.i134
   %27 = load i64, ptr %first_id, align 8
-  %seq.i.i138 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 3, i32 1
-  %28 = load i64, ptr %seq.i.i138, align 8
-  %call1.i.i139 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i133, ptr noundef nonnull @.str.15, i64 noundef %27, i64 noundef %28) #16
-  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i139) #16
+  %seq.i.i136 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 3, i32 1
+  %28 = load i64, ptr %seq.i.i136, align 8
+  %call1.i.i137 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i132, ptr noundef nonnull @.str.15, i64 noundef %27, i64 noundef %28) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i137) #16
   br i1 %cmp, label %if.then28, label %if.else45
 
-if.then28:                                        ; preds = %addReplyStreamID.exit147
+if.then28:                                        ; preds = %addReplyStreamID.exit145
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.106) #16
   %cgroups = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 6
   %29 = load ptr, ptr %cgroups, align 8
@@ -10954,7 +10933,7 @@ if.then43:                                        ; preds = %if.end39
   call void @addReplyNull(ptr noundef nonnull %c) #16
   br label %if.end128
 
-if.else45:                                        ; preds = %addReplyStreamID.exit147
+if.else45:                                        ; preds = %addReplyStreamID.exit145
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.109) #16
   %32 = load i64, ptr %count, align 8
   %call46 = call i64 @streamReplyWithRange(ptr noundef nonnull %c, ptr noundef nonnull %s, ptr noundef null, ptr noundef null, i64 noundef %32, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null)
@@ -10974,9 +10953,9 @@ if.else51:                                        ; preds = %if.else45
   %34 = load ptr, ptr %cgroups47, align 8
   call void @raxStart(ptr noundef nonnull %ri_cgroups, ptr noundef %34) #16
   %call55 = call i32 @raxSeek(ptr noundef nonnull %ri_cgroups, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
-  %call56230 = call i32 @raxNext(ptr noundef nonnull %ri_cgroups) #16
-  %tobool57.not231 = icmp eq i32 %call56230, 0
-  br i1 %tobool57.not231, label %while.end126, label %while.body.lr.ph
+  %call56225 = call i32 @raxNext(ptr noundef nonnull %ri_cgroups) #16
+  %tobool57.not226 = icmp eq i32 %call56225, 0
+  br i1 %tobool57.not226, label %while.end126, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else51
   %data = getelementptr inbounds %struct.raxIterator, ptr %ri_cgroups, i64 0, i32 3
@@ -10998,60 +10977,59 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %36, i64 noundef %37) #16
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.111) #16
   %38 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i148 = call ptr @sdsnewlen(ptr noundef %38, i64 noundef 44) #16
-  %arrayidx.i.i.i149 = getelementptr inbounds i8, ptr %call.i.i148, i64 -1
-  %39 = load i8, ptr %arrayidx.i.i.i149, align 1
+  %call.i.i146 = call ptr @sdsnewlen(ptr noundef %38, i64 noundef 44) #16
+  %arrayidx.i.i.i147 = getelementptr inbounds i8, ptr %call.i.i146, i64 -1
+  %39 = load i8, ptr %arrayidx.i.i.i147, align 1
   %40 = and i8 %39, 7
-  %and.i.i.i150 = zext nneg i8 %40 to i32
-  switch i32 %and.i.i.i150, label %addReplyStreamID.exit162 [
-    i32 0, label %sw.bb.i.i.i161
-    i32 1, label %sw.bb2.i.i.i159
-    i32 2, label %sw.bb5.i.i.i157
-    i32 3, label %sw.bb9.i.i.i155
-    i32 4, label %sw.bb13.i.i.i151
+  switch i8 %40, label %addReplyStreamID.exit159 [
+    i8 0, label %sw.bb.i.i.i158
+    i8 1, label %sw.bb2.i.i.i156
+    i8 2, label %sw.bb5.i.i.i154
+    i8 3, label %sw.bb9.i.i.i152
+    i8 4, label %sw.bb13.i.i.i148
   ]
 
-sw.bb.i.i.i161:                                   ; preds = %while.body
-  store i8 0, ptr %arrayidx.i.i.i149, align 1
-  br label %addReplyStreamID.exit162
+sw.bb.i.i.i158:                                   ; preds = %while.body
+  store i8 0, ptr %arrayidx.i.i.i147, align 1
+  br label %addReplyStreamID.exit159
 
-sw.bb2.i.i.i159:                                  ; preds = %while.body
-  %add.ptr4.i.i.i160 = getelementptr inbounds i8, ptr %call.i.i148, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i160, align 1
-  br label %addReplyStreamID.exit162
+sw.bb2.i.i.i156:                                  ; preds = %while.body
+  %add.ptr4.i.i.i157 = getelementptr inbounds i8, ptr %call.i.i146, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i157, align 1
+  br label %addReplyStreamID.exit159
 
-sw.bb5.i.i.i157:                                  ; preds = %while.body
-  %add.ptr7.i.i.i158 = getelementptr inbounds i8, ptr %call.i.i148, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i158, align 1
-  br label %addReplyStreamID.exit162
+sw.bb5.i.i.i154:                                  ; preds = %while.body
+  %add.ptr7.i.i.i155 = getelementptr inbounds i8, ptr %call.i.i146, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i155, align 1
+  br label %addReplyStreamID.exit159
 
-sw.bb9.i.i.i155:                                  ; preds = %while.body
-  %add.ptr11.i.i.i156 = getelementptr inbounds i8, ptr %call.i.i148, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i156, align 1
-  br label %addReplyStreamID.exit162
+sw.bb9.i.i.i152:                                  ; preds = %while.body
+  %add.ptr11.i.i.i153 = getelementptr inbounds i8, ptr %call.i.i146, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i153, align 1
+  br label %addReplyStreamID.exit159
 
-sw.bb13.i.i.i151:                                 ; preds = %while.body
-  %add.ptr14.i.i.i152 = getelementptr inbounds i8, ptr %call.i.i148, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i152, align 1
-  br label %addReplyStreamID.exit162
+sw.bb13.i.i.i148:                                 ; preds = %while.body
+  %add.ptr14.i.i.i149 = getelementptr inbounds i8, ptr %call.i.i146, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i149, align 1
+  br label %addReplyStreamID.exit159
 
-addReplyStreamID.exit162:                         ; preds = %while.body, %sw.bb.i.i.i161, %sw.bb2.i.i.i159, %sw.bb5.i.i.i157, %sw.bb9.i.i.i155, %sw.bb13.i.i.i151
+addReplyStreamID.exit159:                         ; preds = %while.body, %sw.bb.i.i.i158, %sw.bb2.i.i.i156, %sw.bb5.i.i.i154, %sw.bb9.i.i.i152, %sw.bb13.i.i.i148
   %41 = load i64, ptr %35, align 8
-  %seq.i.i153 = getelementptr inbounds %struct.streamID, ptr %35, i64 0, i32 1
-  %42 = load i64, ptr %seq.i.i153, align 8
-  %call1.i.i154 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i148, ptr noundef nonnull @.str.15, i64 noundef %41, i64 noundef %42) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i154) #16
+  %seq.i.i150 = getelementptr inbounds %struct.streamID, ptr %35, i64 0, i32 1
+  %42 = load i64, ptr %seq.i.i150, align 8
+  %call1.i.i151 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i146, ptr noundef nonnull @.str.15, i64 noundef %41, i64 noundef %42) #16
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i151) #16
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.112) #16
   %entries_read = getelementptr inbounds %struct.streamCG, ptr %35, i64 0, i32 1
   %43 = load i64, ptr %entries_read, align 8
   %cmp59.not = icmp eq i64 %43, -1
   br i1 %cmp59.not, label %if.else63, label %if.then61
 
-if.then61:                                        ; preds = %addReplyStreamID.exit162
+if.then61:                                        ; preds = %addReplyStreamID.exit159
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %43) #16
   br label %if.end64
 
-if.else63:                                        ; preds = %addReplyStreamID.exit162
+if.else63:                                        ; preds = %addReplyStreamID.exit159
   call void @addReplyNull(ptr noundef %c) #16
   br label %if.end64
 
@@ -11068,15 +11046,15 @@ if.end64:                                         ; preds = %if.else63, %if.then
   %45 = load ptr, ptr %pel, align 8
   call void @raxStart(ptr noundef nonnull %ri_cg_pel, ptr noundef %45) #16
   %call68 = call i32 @raxSeek(ptr noundef nonnull %ri_cg_pel, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
-  %call70219 = call i32 @raxNext(ptr noundef nonnull %ri_cg_pel) #16
-  %tobool71.not220 = icmp eq i32 %call70219, 0
-  br i1 %tobool71.not220, label %while.end, label %land.rhs
+  %call70214 = call i32 @raxNext(ptr noundef nonnull %ri_cg_pel) #16
+  %tobool71.not215 = icmp eq i32 %call70214, 0
+  br i1 %tobool71.not215, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end64, %sdslen.exit
-  %arraylen_cg_pel.0221 = phi i64 [ %inc, %sdslen.exit ], [ 0, %if.end64 ]
+  %arraylen_cg_pel.0216 = phi i64 [ %inc, %sdslen.exit ], [ 0, %if.end64 ]
   %46 = load i64, ptr %count, align 8
   %tobool72.not = icmp eq i64 %46, 0
-  %cmp73 = icmp slt i64 %arraylen_cg_pel.0221, %46
+  %cmp73 = icmp slt i64 %arraylen_cg_pel.0216, %46
   %47 = select i1 %tobool72.not, i1 true, i1 %cmp73
   br i1 %47, label %while.body75, label %while.end
 
@@ -11090,57 +11068,56 @@ while.body75:                                     ; preds = %land.rhs
   %call.i = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i) #16
   %call2.i = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i) #16
   %50 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i163 = call ptr @sdsnewlen(ptr noundef %50, i64 noundef 44) #16
-  %arrayidx.i.i.i164 = getelementptr inbounds i8, ptr %call.i.i163, i64 -1
-  %51 = load i8, ptr %arrayidx.i.i.i164, align 1
+  %call.i.i160 = call ptr @sdsnewlen(ptr noundef %50, i64 noundef 44) #16
+  %arrayidx.i.i.i161 = getelementptr inbounds i8, ptr %call.i.i160, i64 -1
+  %51 = load i8, ptr %arrayidx.i.i.i161, align 1
   %52 = and i8 %51, 7
-  %and.i.i.i165 = zext nneg i8 %52 to i32
-  switch i32 %and.i.i.i165, label %addReplyStreamID.exit177 [
-    i32 0, label %sw.bb.i.i.i176
-    i32 1, label %sw.bb2.i.i.i174
-    i32 2, label %sw.bb5.i.i.i172
-    i32 3, label %sw.bb9.i.i.i170
-    i32 4, label %sw.bb13.i.i.i166
+  switch i8 %52, label %addReplyStreamID.exit173 [
+    i8 0, label %sw.bb.i.i.i172
+    i8 1, label %sw.bb2.i.i.i170
+    i8 2, label %sw.bb5.i.i.i168
+    i8 3, label %sw.bb9.i.i.i166
+    i8 4, label %sw.bb13.i.i.i162
   ]
 
-sw.bb.i.i.i176:                                   ; preds = %while.body75
-  store i8 0, ptr %arrayidx.i.i.i164, align 1
-  br label %addReplyStreamID.exit177
+sw.bb.i.i.i172:                                   ; preds = %while.body75
+  store i8 0, ptr %arrayidx.i.i.i161, align 1
+  br label %addReplyStreamID.exit173
 
-sw.bb2.i.i.i174:                                  ; preds = %while.body75
-  %add.ptr4.i.i.i175 = getelementptr inbounds i8, ptr %call.i.i163, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i175, align 1
-  br label %addReplyStreamID.exit177
+sw.bb2.i.i.i170:                                  ; preds = %while.body75
+  %add.ptr4.i.i.i171 = getelementptr inbounds i8, ptr %call.i.i160, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i171, align 1
+  br label %addReplyStreamID.exit173
 
-sw.bb5.i.i.i172:                                  ; preds = %while.body75
-  %add.ptr7.i.i.i173 = getelementptr inbounds i8, ptr %call.i.i163, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i173, align 1
-  br label %addReplyStreamID.exit177
+sw.bb5.i.i.i168:                                  ; preds = %while.body75
+  %add.ptr7.i.i.i169 = getelementptr inbounds i8, ptr %call.i.i160, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i169, align 1
+  br label %addReplyStreamID.exit173
 
-sw.bb9.i.i.i170:                                  ; preds = %while.body75
-  %add.ptr11.i.i.i171 = getelementptr inbounds i8, ptr %call.i.i163, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i171, align 1
-  br label %addReplyStreamID.exit177
+sw.bb9.i.i.i166:                                  ; preds = %while.body75
+  %add.ptr11.i.i.i167 = getelementptr inbounds i8, ptr %call.i.i160, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i167, align 1
+  br label %addReplyStreamID.exit173
 
-sw.bb13.i.i.i166:                                 ; preds = %while.body75
-  %add.ptr14.i.i.i167 = getelementptr inbounds i8, ptr %call.i.i163, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i167, align 1
-  br label %addReplyStreamID.exit177
+sw.bb13.i.i.i162:                                 ; preds = %while.body75
+  %add.ptr14.i.i.i163 = getelementptr inbounds i8, ptr %call.i.i160, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i163, align 1
+  br label %addReplyStreamID.exit173
 
-addReplyStreamID.exit177:                         ; preds = %while.body75, %sw.bb.i.i.i176, %sw.bb2.i.i.i174, %sw.bb5.i.i.i172, %sw.bb9.i.i.i170, %sw.bb13.i.i.i166
-  %call1.i.i169 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i163, ptr noundef nonnull @.str.15, i64 noundef %call.i, i64 noundef %call2.i) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i169) #16
+addReplyStreamID.exit173:                         ; preds = %while.body75, %sw.bb.i.i.i172, %sw.bb2.i.i.i170, %sw.bb5.i.i.i168, %sw.bb9.i.i.i166, %sw.bb13.i.i.i162
+  %call1.i.i165 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i160, ptr noundef nonnull @.str.15, i64 noundef %call.i, i64 noundef %call2.i) #16
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i165) #16
   %consumer = getelementptr inbounds %struct.streamNACK, ptr %48, i64 0, i32 2
   %53 = load ptr, ptr %consumer, align 8
   %tobool78.not = icmp eq ptr %53, null
   br i1 %tobool78.not, label %cond.false83, label %cond.end84
 
-cond.false83:                                     ; preds = %addReplyStreamID.exit177
+cond.false83:                                     ; preds = %addReplyStreamID.exit173
   call void @_serverAssert(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.1, i32 noundef 3764) #16
   call void @abort() #17
   unreachable
 
-cond.end84:                                       ; preds = %addReplyStreamID.exit177
+cond.end84:                                       ; preds = %addReplyStreamID.exit173
   %name = getelementptr inbounds %struct.streamConsumer, ptr %53, i64 0, i32 2
   %54 = load ptr, ptr %name, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %54, i64 -1
@@ -11191,13 +11168,13 @@ sdslen.exit:                                      ; preds = %cond.end84, %sw.bb.
   %delivery_count = getelementptr inbounds %struct.streamNACK, ptr %48, i64 0, i32 1
   %61 = load i64, ptr %delivery_count, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %61) #16
-  %inc = add nuw nsw i64 %arraylen_cg_pel.0221, 1
+  %inc = add nuw nsw i64 %arraylen_cg_pel.0216, 1
   %call70 = call i32 @raxNext(ptr noundef nonnull %ri_cg_pel) #16
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %while.end, label %land.rhs, !llvm.loop !53
 
 while.end:                                        ; preds = %land.rhs, %sdslen.exit, %if.end64
-  %arraylen_cg_pel.0.lcssa = phi i64 [ 0, %if.end64 ], [ %inc, %sdslen.exit ], [ %arraylen_cg_pel.0221, %land.rhs ]
+  %arraylen_cg_pel.0.lcssa = phi i64 [ 0, %if.end64 ], [ %inc, %sdslen.exit ], [ %arraylen_cg_pel.0216, %land.rhs ]
   call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call66, i64 noundef %arraylen_cg_pel.0.lcssa) #16
   call void @raxStop(ptr noundef nonnull %ri_cg_pel) #16
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.117) #16
@@ -11208,9 +11185,9 @@ while.end:                                        ; preds = %land.rhs, %sdslen.e
   %63 = load ptr, ptr %consumers, align 8
   call void @raxStart(ptr noundef nonnull %ri_consumers, ptr noundef %63) #16
   %call91 = call i32 @raxSeek(ptr noundef nonnull %ri_consumers, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
-  %call93228 = call i32 @raxNext(ptr noundef nonnull %ri_consumers) #16
-  %tobool94.not229 = icmp eq i32 %call93228, 0
-  br i1 %tobool94.not229, label %while.end125, label %while.body95
+  %call93223 = call i32 @raxNext(ptr noundef nonnull %ri_consumers) #16
+  %tobool94.not224 = icmp eq i32 %call93223, 0
+  br i1 %tobool94.not224, label %while.end125, label %while.body95
 
 while.body95:                                     ; preds = %while.end, %while.end124
   %64 = load ptr, ptr %data97, align 8
@@ -11218,49 +11195,49 @@ while.body95:                                     ; preds = %while.end, %while.e
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.110) #16
   %name98 = getelementptr inbounds %struct.streamConsumer, ptr %64, i64 0, i32 2
   %65 = load ptr, ptr %name98, align 8
-  %arrayidx.i178 = getelementptr inbounds i8, ptr %65, i64 -1
-  %66 = load i8, ptr %arrayidx.i178, align 1
-  %conv.i179 = zext i8 %66 to i32
-  %and.i180 = and i32 %conv.i179, 7
-  switch i32 %and.i180, label %sdslen.exit196 [
-    i32 0, label %sw.bb.i193
-    i32 1, label %sw.bb3.i190
-    i32 2, label %sw.bb5.i187
-    i32 3, label %sw.bb9.i184
-    i32 4, label %sw.bb13.i181
+  %arrayidx.i174 = getelementptr inbounds i8, ptr %65, i64 -1
+  %66 = load i8, ptr %arrayidx.i174, align 1
+  %conv.i175 = zext i8 %66 to i32
+  %and.i176 = and i32 %conv.i175, 7
+  switch i32 %and.i176, label %sdslen.exit192 [
+    i32 0, label %sw.bb.i189
+    i32 1, label %sw.bb3.i186
+    i32 2, label %sw.bb5.i183
+    i32 3, label %sw.bb9.i180
+    i32 4, label %sw.bb13.i177
   ]
 
-sw.bb.i193:                                       ; preds = %while.body95
-  %shr.i194 = lshr i32 %conv.i179, 3
-  %conv2.i195 = zext nneg i32 %shr.i194 to i64
-  br label %sdslen.exit196
+sw.bb.i189:                                       ; preds = %while.body95
+  %shr.i190 = lshr i32 %conv.i175, 3
+  %conv2.i191 = zext nneg i32 %shr.i190 to i64
+  br label %sdslen.exit192
 
-sw.bb3.i190:                                      ; preds = %while.body95
-  %add.ptr.i191 = getelementptr inbounds i8, ptr %65, i64 -3
-  %67 = load i8, ptr %add.ptr.i191, align 1
-  %conv4.i192 = zext i8 %67 to i64
-  br label %sdslen.exit196
+sw.bb3.i186:                                      ; preds = %while.body95
+  %add.ptr.i187 = getelementptr inbounds i8, ptr %65, i64 -3
+  %67 = load i8, ptr %add.ptr.i187, align 1
+  %conv4.i188 = zext i8 %67 to i64
+  br label %sdslen.exit192
 
-sw.bb5.i187:                                      ; preds = %while.body95
-  %add.ptr6.i188 = getelementptr inbounds i8, ptr %65, i64 -5
-  %68 = load i16, ptr %add.ptr6.i188, align 1
-  %conv8.i189 = zext i16 %68 to i64
-  br label %sdslen.exit196
+sw.bb5.i183:                                      ; preds = %while.body95
+  %add.ptr6.i184 = getelementptr inbounds i8, ptr %65, i64 -5
+  %68 = load i16, ptr %add.ptr6.i184, align 1
+  %conv8.i185 = zext i16 %68 to i64
+  br label %sdslen.exit192
 
-sw.bb9.i184:                                      ; preds = %while.body95
-  %add.ptr10.i185 = getelementptr inbounds i8, ptr %65, i64 -9
-  %69 = load i32, ptr %add.ptr10.i185, align 1
-  %conv12.i186 = zext i32 %69 to i64
-  br label %sdslen.exit196
+sw.bb9.i180:                                      ; preds = %while.body95
+  %add.ptr10.i181 = getelementptr inbounds i8, ptr %65, i64 -9
+  %69 = load i32, ptr %add.ptr10.i181, align 1
+  %conv12.i182 = zext i32 %69 to i64
+  br label %sdslen.exit192
 
-sw.bb13.i181:                                     ; preds = %while.body95
-  %add.ptr14.i182 = getelementptr inbounds i8, ptr %65, i64 -17
-  %70 = load i64, ptr %add.ptr14.i182, align 1
-  br label %sdslen.exit196
+sw.bb13.i177:                                     ; preds = %while.body95
+  %add.ptr14.i178 = getelementptr inbounds i8, ptr %65, i64 -17
+  %70 = load i64, ptr %add.ptr14.i178, align 1
+  br label %sdslen.exit192
 
-sdslen.exit196:                                   ; preds = %while.body95, %sw.bb.i193, %sw.bb3.i190, %sw.bb5.i187, %sw.bb9.i184, %sw.bb13.i181
-  %retval.0.i183 = phi i64 [ %70, %sw.bb13.i181 ], [ %conv12.i186, %sw.bb9.i184 ], [ %conv8.i189, %sw.bb5.i187 ], [ %conv4.i192, %sw.bb3.i190 ], [ %conv2.i195, %sw.bb.i193 ], [ 0, %while.body95 ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %65, i64 noundef %retval.0.i183) #16
+sdslen.exit192:                                   ; preds = %while.body95, %sw.bb.i189, %sw.bb3.i186, %sw.bb5.i183, %sw.bb9.i180, %sw.bb13.i177
+  %retval.0.i179 = phi i64 [ %70, %sw.bb13.i177 ], [ %conv12.i182, %sw.bb9.i180 ], [ %conv8.i185, %sw.bb5.i183 ], [ %conv4.i188, %sw.bb3.i186 ], [ %conv2.i191, %sw.bb.i189 ], [ 0, %while.body95 ]
+  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %65, i64 noundef %retval.0.i179) #16
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.118) #16
   %71 = load i64, ptr %64, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %71) #16
@@ -11278,15 +11255,15 @@ sdslen.exit196:                                   ; preds = %while.body95, %sw.b
   %74 = load ptr, ptr %pel101, align 8
   call void @raxStart(ptr noundef nonnull %ri_cpel, ptr noundef %74) #16
   %call105 = call i32 @raxSeek(ptr noundef nonnull %ri_cpel, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
-  %call107223 = call i32 @raxNext(ptr noundef nonnull %ri_cpel) #16
-  %tobool108.not224 = icmp eq i32 %call107223, 0
-  br i1 %tobool108.not224, label %while.end124, label %land.rhs109
+  %call107218 = call i32 @raxNext(ptr noundef nonnull %ri_cpel) #16
+  %tobool108.not219 = icmp eq i32 %call107218, 0
+  br i1 %tobool108.not219, label %while.end124, label %land.rhs109
 
-land.rhs109:                                      ; preds = %sdslen.exit196, %addReplyStreamID.exit217
-  %arraylen_cpel.0225 = phi i64 [ %inc123, %addReplyStreamID.exit217 ], [ 0, %sdslen.exit196 ]
+land.rhs109:                                      ; preds = %sdslen.exit192, %addReplyStreamID.exit212
+  %arraylen_cpel.0220 = phi i64 [ %inc123, %addReplyStreamID.exit212 ], [ 0, %sdslen.exit192 ]
   %75 = load i64, ptr %count, align 8
   %tobool110.not = icmp eq i64 %75, 0
-  %cmp112 = icmp slt i64 %arraylen_cpel.0225, %75
+  %cmp112 = icmp slt i64 %arraylen_cpel.0220, %75
   %76 = select i1 %tobool110.not, i1 true, i1 %cmp112
   br i1 %76, label %while.body116, label %while.end124
 
@@ -11294,64 +11271,63 @@ while.body116:                                    ; preds = %land.rhs109
   %77 = load ptr, ptr %data118, align 8
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef 3) #16
   %78 = load ptr, ptr %key120, align 8
-  %e.sroa.0.0.copyload.i197 = load i64, ptr %78, align 1
-  %e.sroa.2.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %78, i64 8
-  %e.sroa.2.0.copyload.i199 = load i64, ptr %e.sroa.2.0..sroa_idx.i198, align 1
-  %call.i200 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i197) #16
-  %call2.i201 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i199) #16
+  %e.sroa.0.0.copyload.i193 = load i64, ptr %78, align 1
+  %e.sroa.2.0..sroa_idx.i194 = getelementptr inbounds i8, ptr %78, i64 8
+  %e.sroa.2.0.copyload.i195 = load i64, ptr %e.sroa.2.0..sroa_idx.i194, align 1
+  %call.i196 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i193) #16
+  %call2.i197 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i195) #16
   %79 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i203 = call ptr @sdsnewlen(ptr noundef %79, i64 noundef 44) #16
-  %arrayidx.i.i.i204 = getelementptr inbounds i8, ptr %call.i.i203, i64 -1
-  %80 = load i8, ptr %arrayidx.i.i.i204, align 1
+  %call.i.i199 = call ptr @sdsnewlen(ptr noundef %79, i64 noundef 44) #16
+  %arrayidx.i.i.i200 = getelementptr inbounds i8, ptr %call.i.i199, i64 -1
+  %80 = load i8, ptr %arrayidx.i.i.i200, align 1
   %81 = and i8 %80, 7
-  %and.i.i.i205 = zext nneg i8 %81 to i32
-  switch i32 %and.i.i.i205, label %addReplyStreamID.exit217 [
-    i32 0, label %sw.bb.i.i.i216
-    i32 1, label %sw.bb2.i.i.i214
-    i32 2, label %sw.bb5.i.i.i212
-    i32 3, label %sw.bb9.i.i.i210
-    i32 4, label %sw.bb13.i.i.i206
+  switch i8 %81, label %addReplyStreamID.exit212 [
+    i8 0, label %sw.bb.i.i.i211
+    i8 1, label %sw.bb2.i.i.i209
+    i8 2, label %sw.bb5.i.i.i207
+    i8 3, label %sw.bb9.i.i.i205
+    i8 4, label %sw.bb13.i.i.i201
   ]
 
-sw.bb.i.i.i216:                                   ; preds = %while.body116
-  store i8 0, ptr %arrayidx.i.i.i204, align 1
-  br label %addReplyStreamID.exit217
+sw.bb.i.i.i211:                                   ; preds = %while.body116
+  store i8 0, ptr %arrayidx.i.i.i200, align 1
+  br label %addReplyStreamID.exit212
 
-sw.bb2.i.i.i214:                                  ; preds = %while.body116
-  %add.ptr4.i.i.i215 = getelementptr inbounds i8, ptr %call.i.i203, i64 -3
-  store i8 0, ptr %add.ptr4.i.i.i215, align 1
-  br label %addReplyStreamID.exit217
+sw.bb2.i.i.i209:                                  ; preds = %while.body116
+  %add.ptr4.i.i.i210 = getelementptr inbounds i8, ptr %call.i.i199, i64 -3
+  store i8 0, ptr %add.ptr4.i.i.i210, align 1
+  br label %addReplyStreamID.exit212
 
-sw.bb5.i.i.i212:                                  ; preds = %while.body116
-  %add.ptr7.i.i.i213 = getelementptr inbounds i8, ptr %call.i.i203, i64 -5
-  store i16 0, ptr %add.ptr7.i.i.i213, align 1
-  br label %addReplyStreamID.exit217
+sw.bb5.i.i.i207:                                  ; preds = %while.body116
+  %add.ptr7.i.i.i208 = getelementptr inbounds i8, ptr %call.i.i199, i64 -5
+  store i16 0, ptr %add.ptr7.i.i.i208, align 1
+  br label %addReplyStreamID.exit212
 
-sw.bb9.i.i.i210:                                  ; preds = %while.body116
-  %add.ptr11.i.i.i211 = getelementptr inbounds i8, ptr %call.i.i203, i64 -9
-  store i32 0, ptr %add.ptr11.i.i.i211, align 1
-  br label %addReplyStreamID.exit217
+sw.bb9.i.i.i205:                                  ; preds = %while.body116
+  %add.ptr11.i.i.i206 = getelementptr inbounds i8, ptr %call.i.i199, i64 -9
+  store i32 0, ptr %add.ptr11.i.i.i206, align 1
+  br label %addReplyStreamID.exit212
 
-sw.bb13.i.i.i206:                                 ; preds = %while.body116
-  %add.ptr14.i.i.i207 = getelementptr inbounds i8, ptr %call.i.i203, i64 -17
-  store i64 0, ptr %add.ptr14.i.i.i207, align 1
-  br label %addReplyStreamID.exit217
+sw.bb13.i.i.i201:                                 ; preds = %while.body116
+  %add.ptr14.i.i.i202 = getelementptr inbounds i8, ptr %call.i.i199, i64 -17
+  store i64 0, ptr %add.ptr14.i.i.i202, align 1
+  br label %addReplyStreamID.exit212
 
-addReplyStreamID.exit217:                         ; preds = %while.body116, %sw.bb.i.i.i216, %sw.bb2.i.i.i214, %sw.bb5.i.i.i212, %sw.bb9.i.i.i210, %sw.bb13.i.i.i206
-  %call1.i.i209 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i203, ptr noundef nonnull @.str.15, i64 noundef %call.i200, i64 noundef %call2.i201) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i209) #16
+addReplyStreamID.exit212:                         ; preds = %while.body116, %sw.bb.i.i.i211, %sw.bb2.i.i.i209, %sw.bb5.i.i.i207, %sw.bb9.i.i.i205, %sw.bb13.i.i.i201
+  %call1.i.i204 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i199, ptr noundef nonnull @.str.15, i64 noundef %call.i196, i64 noundef %call2.i197) #16
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i204) #16
   %82 = load i64, ptr %77, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %82) #16
   %delivery_count122 = getelementptr inbounds %struct.streamNACK, ptr %77, i64 0, i32 1
   %83 = load i64, ptr %delivery_count122, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %83) #16
-  %inc123 = add nuw nsw i64 %arraylen_cpel.0225, 1
+  %inc123 = add nuw nsw i64 %arraylen_cpel.0220, 1
   %call107 = call i32 @raxNext(ptr noundef nonnull %ri_cpel) #16
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %while.end124, label %land.rhs109, !llvm.loop !54
 
-while.end124:                                     ; preds = %land.rhs109, %addReplyStreamID.exit217, %sdslen.exit196
-  %arraylen_cpel.0.lcssa = phi i64 [ 0, %sdslen.exit196 ], [ %inc123, %addReplyStreamID.exit217 ], [ %arraylen_cpel.0225, %land.rhs109 ]
+while.end124:                                     ; preds = %land.rhs109, %addReplyStreamID.exit212, %sdslen.exit192
+  %arraylen_cpel.0.lcssa = phi i64 [ 0, %sdslen.exit192 ], [ %inc123, %addReplyStreamID.exit212 ], [ %arraylen_cpel.0220, %land.rhs109 ]
   call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call103, i64 noundef %arraylen_cpel.0.lcssa) #16
   call void @raxStop(ptr noundef nonnull %ri_cpel) #16
   %call93 = call i32 @raxNext(ptr noundef nonnull %ri_consumers) #16
@@ -11656,13 +11632,12 @@ while.body60:                                     ; preds = %while.body60.lr.ph,
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %40 = load i8, ptr %arrayidx.i.i.i, align 1
   %41 = and i8 %40, 7
-  %and.i.i.i = zext nneg i8 %41 to i32
-  switch i32 %and.i.i.i, label %addReplyStreamID.exit [
-    i32 0, label %sw.bb.i.i.i
-    i32 1, label %sw.bb2.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb9.i.i.i
-    i32 4, label %sw.bb13.i.i.i
+  switch i8 %41, label %addReplyStreamID.exit [
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb5.i.i.i
+    i8 3, label %sw.bb9.i.i.i
+    i8 4, label %sw.bb13.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.body60
@@ -12050,7 +12025,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

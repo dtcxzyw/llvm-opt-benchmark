@@ -1823,11 +1823,10 @@ invoke.cont4.lor.lhs.false_crit_edge:             ; preds = %invoke.cont4
 
 lor.lhs.false:                                    ; preds = %invoke.cont4.lor.lhs.false_crit_edge, %entry
   %bf.clear.i4.pre-phi = phi i16 [ %.pre20, %invoke.cont4.lor.lhs.false_crit_edge ], [ %bf.clear.i, %entry ]
-  %bf.cast.i5 = zext nneg i16 %bf.clear.i4.pre-phi to i32
-  switch i32 %bf.cast.i5, label %lor.rhs [
-    i32 107, label %lor.end
-    i32 106, label %lor.end
-    i32 111, label %lor.end
+  switch i16 %bf.clear.i4.pre-phi, label %lor.rhs [
+    i16 107, label %lor.end
+    i16 106, label %lor.end
+    i16 111, label %lor.end
   ]
 
 lor.rhs:                                          ; preds = %lor.lhs.false

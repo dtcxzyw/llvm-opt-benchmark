@@ -14460,10 +14460,9 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %p.039.us = phi ptr [ %p.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
   %last.038.us = phi ptr [ %last.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
   %0 = load i8, ptr %p.039.us, align 1
-  %conv.us = sext i8 %0 to i32
-  switch i32 %conv.us, label %sw.default.us [
-    i32 37, label %sw.bb.us
-    i32 43, label %sw.bb24.us
+  switch i8 %0, label %sw.default.us [
+    i8 37, label %sw.bb.us
+    i8 43, label %sw.bb24.us
   ]
 
 sw.bb24.us:                                       ; preds = %while.body.us

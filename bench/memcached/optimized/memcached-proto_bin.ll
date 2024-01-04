@@ -429,7 +429,7 @@ if.end:                                           ; preds = %init_sasl_conn.exit
   %20 = and i16 %19, 8
   %cond = zext nneg i16 %20 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %cond
-  %conv8 = zext i16 %6 to i64
+  %conv8 = zext nneg i16 %6 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %vla, ptr nonnull align 1 %add.ptr, i64 %conv8, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %vla, i64 %conv8
   store i8 0, ptr %arrayidx, align 1
@@ -510,9 +510,9 @@ if.end40:                                         ; preds = %cond.end
   %cmd = getelementptr inbounds %struct.conn, ptr %c, i64 0, i32 39
   %32 = load i16, ptr %cmd, align 8
   %conv41 = sext i16 %32 to i32
-  switch i32 %conv41, label %sw.default [
-    i32 33, label %sw.bb
-    i32 34, label %sw.bb46
+  switch i16 %32, label %sw.default [
+    i16 33, label %sw.bb
+    i16 34, label %sw.bb46
   ]
 
 sw.bb:                                            ; preds = %if.end40
@@ -627,7 +627,7 @@ declare void @do_item_remove(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @try_read_command_binary(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local noundef i32 @try_read_command_binary(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %extbuf = alloca [48 x i8], align 16
   %rbytes = getelementptr inbounds %struct.conn, ptr %c, i64 0, i32 18
@@ -810,9 +810,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %35 = load i16, ptr %cmd, align 8
-  %conv.i.i = sext i16 %35 to i32
-  %switch.tableidx = add nsw i32 %conv.i.i, -11
-  %36 = icmp ult i32 %switch.tableidx, 24
+  %switch.tableidx = add i16 %35, -11
+  %36 = icmp ult i16 %switch.tableidx, 24
   br i1 %36, label %switch.hole_check, label %sw.default.i.i
 
 sw.default.i.i:                                   ; preds = %switch.hole_check, %land.lhs.true.i
@@ -823,7 +822,8 @@ sw.default.i.i:                                   ; preds = %switch.hole_check, 
   br label %sw.epilog.i.i
 
 switch.hole_check:                                ; preds = %land.lhs.true.i
-  %switch.shifted = lshr i32 14680065, %switch.tableidx
+  %switch.maskindex = zext nneg i16 %switch.tableidx to i32
+  %switch.shifted = lshr i32 14680065, %switch.maskindex
   %40 = and i32 %switch.shifted, 1
   %switch.lobit.not = icmp eq i32 %40, 0
   br i1 %switch.lobit.not, label %sw.default.i.i, label %sw.epilog.i.i
@@ -836,8 +836,9 @@ sw.epilog.i.i:                                    ; preds = %switch.hole_check, 
 
 if.then.i.i:                                      ; preds = %sw.epilog.i.i
   %42 = load ptr, ptr @stderr, align 8
+  %conv3.i.i = sext i16 %35 to i32
   %cond.i.i = select i1 %rv.0.i.i, ptr @.str.29, ptr @.str.30
-  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.28, i32 noundef %conv.i.i, ptr noundef nonnull %cond.i.i) #13
+  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.28, i32 noundef %conv3.i.i, ptr noundef nonnull %cond.i.i) #13
   br label %authenticated.exit.i
 
 authenticated.exit.i:                             ; preds = %if.then.i.i, %sw.epilog.i.i
@@ -876,22 +877,21 @@ if.then18.i:                                      ; preds = %if.end14.i
 
 if.end19.i:                                       ; preds = %if.end14.i
   %47 = load i16, ptr %cmd, align 8
-  %conv20.i = sext i16 %47 to i32
-  switch i32 %conv20.i, label %sw.epilog.i [
-    i32 17, label %sw.bb97.sink.split.i
-    i32 18, label %sw.bb22.i
-    i32 19, label %sw.bb24.i
-    i32 20, label %sw.epilog.thread146.i
-    i32 21, label %sw.bb143.sink.split.i
-    i32 22, label %sw.bb30.i
-    i32 23, label %sw.epilog.thread148.i
-    i32 24, label %sw.epilog.thread144.i
-    i32 25, label %sw.bb160.sink.split.i
-    i32 26, label %sw.bb38.i
-    i32 9, label %sw.bb113.sink.split.i
-    i32 13, label %sw.bb42.i
-    i32 30, label %sw.bb218.sink.split.i
-    i32 36, label %sw.bb46.i
+  switch i16 %47, label %sw.epilog.i [
+    i16 17, label %sw.bb97.sink.split.i
+    i16 18, label %sw.bb22.i
+    i16 19, label %sw.bb24.i
+    i16 20, label %sw.epilog.thread139.i
+    i16 21, label %sw.bb143.sink.split.i
+    i16 22, label %sw.bb30.i
+    i16 23, label %sw.epilog.thread140.i
+    i16 24, label %sw.epilog.thread138.i
+    i16 25, label %sw.bb160.sink.split.i
+    i16 26, label %sw.bb38.i
+    i16 9, label %sw.bb113.sink.split.i
+    i16 13, label %sw.bb42.i
+    i16 30, label %sw.bb218.sink.split.i
+    i16 36, label %sw.bb46.i
   ]
 
 sw.bb22.i:                                        ; preds = %if.end19.i
@@ -900,18 +900,18 @@ sw.bb22.i:                                        ; preds = %if.end19.i
 sw.bb24.i:                                        ; preds = %if.end19.i
   br label %sw.bb97.sink.split.i
 
-sw.epilog.thread146.i:                            ; preds = %if.end19.i
+sw.epilog.thread139.i:                            ; preds = %if.end19.i
   store i16 4, ptr %cmd, align 8
   br label %sw.bb128.i
 
 sw.bb30.i:                                        ; preds = %if.end19.i
   br label %sw.bb143.sink.split.i
 
-sw.epilog.thread148.i:                            ; preds = %if.end19.i
+sw.epilog.thread140.i:                            ; preds = %if.end19.i
   store i16 7, ptr %cmd, align 8
   br label %sw.bb178.i
 
-sw.epilog.thread144.i:                            ; preds = %if.end19.i
+sw.epilog.thread138.i:                            ; preds = %if.end19.i
   store i16 8, ptr %cmd, align 8
   br label %sw.bb64.i
 
@@ -926,28 +926,28 @@ sw.bb46.i:                                        ; preds = %if.end19.i
 
 sw.epilog.i:                                      ; preds = %if.end19.i
   store i8 0, ptr %noreply.i, align 4
-  switch i32 %conv20.i, label %sw.default229.i [
-    i32 11, label %sw.bb51.i
-    i32 8, label %sw.bb64.i
-    i32 10, label %sw.bb83.i
-    i32 1, label %sw.bb97.i
-    i32 2, label %sw.bb97.i
-    i32 3, label %sw.bb97.i
-    i32 29, label %sw.bb218.i
-    i32 0, label %sw.bb113.i
-    i32 35, label %sw.bb218.i
-    i32 12, label %sw.bb113.i
-    i32 4, label %sw.bb128.i
-    i32 5, label %sw.bb143.i
-    i32 6, label %sw.bb143.i
-    i32 14, label %sw.bb160.i
-    i32 15, label %sw.bb160.i
-    i32 16, label %sw.bb171.i
-    i32 7, label %sw.bb178.i
-    i32 32, label %sw.bb193.i
-    i32 33, label %sw.bb207.i
-    i32 34, label %sw.bb207.i
-    i32 28, label %sw.bb218.i
+  switch i16 %47, label %sw.default229.i [
+    i16 11, label %sw.bb51.i
+    i16 8, label %sw.bb64.i
+    i16 10, label %sw.bb83.i
+    i16 1, label %sw.bb97.i
+    i16 2, label %sw.bb97.i
+    i16 3, label %sw.bb97.i
+    i16 29, label %sw.bb218.i
+    i16 0, label %sw.bb113.i
+    i16 35, label %sw.bb218.i
+    i16 12, label %sw.bb113.i
+    i16 4, label %sw.bb128.i
+    i16 5, label %sw.bb143.i
+    i16 6, label %sw.bb143.i
+    i16 14, label %sw.bb160.i
+    i16 15, label %sw.bb160.i
+    i16 16, label %sw.bb171.i
+    i16 7, label %sw.bb178.i
+    i16 32, label %sw.bb193.i
+    i16 33, label %sw.bb207.i
+    i16 34, label %sw.bb207.i
+    i16 28, label %sw.bb218.i
   ]
 
 sw.bb51.i:                                        ; preds = %sw.epilog.i
@@ -962,7 +962,7 @@ if.then62.i:                                      ; preds = %sw.bb51.i
   tail call fastcc void @write_bin_response(ptr noundef nonnull %c, ptr noundef nonnull @.str.27, i32 noundef 6)
   br label %return
 
-sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.epilog.thread144.i
+sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.epilog.thread138.i
   %cmp70.i = icmp eq i32 %27, %conv8.i
   %48 = and i8 %26, -5
   %or.cond2.i = icmp eq i8 %48, 0
@@ -994,10 +994,10 @@ sw.bb97.sink.split.i:                             ; preds = %sw.bb24.i, %sw.bb22
 sw.bb97.i:                                        ; preds = %sw.bb97.sink.split.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i
   %cmp99.i = icmp ne i8 %26, 8
   %cmp103.i = icmp eq i16 %20, 0
-  %or.cond5.not130.i = or i1 %cmp103.i, %cmp99.i
+  %or.cond5.not141.i = or i1 %cmp103.i, %cmp99.i
   %add107.i = add nuw nsw i32 %conv62, 8
   %cmp108.not.i = icmp ult i32 %27, %add107.i
-  %or.cond114.i = select i1 %or.cond5.not130.i, i1 true, i1 %cmp108.not.i
+  %or.cond114.i = select i1 %or.cond5.not141.i, i1 true, i1 %cmp108.not.i
   br i1 %or.cond114.i, label %if.then232.i, label %if.then110.i
 
 if.then110.i:                                     ; preds = %sw.bb97.i
@@ -1005,8 +1005,8 @@ if.then110.i:                                     ; preds = %sw.bb97.i
   br label %return
 
 sw.bb113.sink.split.i:                            ; preds = %sw.bb42.i, %if.end19.i
-  %.sink150.i = phi i16 [ 12, %sw.bb42.i ], [ 0, %if.end19.i ]
-  store i16 %.sink150.i, ptr %cmd, align 8
+  %.sink142.i = phi i16 [ 12, %sw.bb42.i ], [ 0, %if.end19.i ]
+  store i16 %.sink142.i, ptr %cmd, align 8
   br label %sw.bb113.i
 
 sw.bb113.i:                                       ; preds = %sw.bb113.sink.split.i, %sw.epilog.i, %sw.epilog.i
@@ -1023,7 +1023,7 @@ if.then125.i:                                     ; preds = %land.lhs.true117.i
   call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
   br label %return
 
-sw.bb128.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread146.i
+sw.bb128.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread139.i
   %cmp130.i = icmp ne i16 %20, 0
   %cmp134.i = icmp eq i8 %26, 0
   %or.cond7.i = select i1 %cmp130.i, i1 %cmp134.i, i1 false
@@ -1036,8 +1036,8 @@ if.then140.i:                                     ; preds = %sw.bb128.i
   br label %return
 
 sw.bb143.sink.split.i:                            ; preds = %sw.bb30.i, %if.end19.i
-  %.sink151.i = phi i16 [ 6, %sw.bb30.i ], [ 5, %if.end19.i ]
-  store i16 %.sink151.i, ptr %cmd, align 8
+  %.sink143.i = phi i16 [ 6, %sw.bb30.i ], [ 5, %if.end19.i ]
+  store i16 %.sink143.i, ptr %cmd, align 8
   br label %sw.bb143.i
 
 sw.bb143.i:                                       ; preds = %sw.bb143.sink.split.i, %sw.epilog.i, %sw.epilog.i
@@ -1053,8 +1053,8 @@ if.then157.i:                                     ; preds = %sw.bb143.i
   br label %return
 
 sw.bb160.sink.split.i:                            ; preds = %sw.bb38.i, %if.end19.i
-  %.sink152.i = phi i16 [ 15, %sw.bb38.i ], [ 14, %if.end19.i ]
-  store i16 %.sink152.i, ptr %cmd, align 8
+  %.sink144.i = phi i16 [ 15, %sw.bb38.i ], [ 14, %if.end19.i ]
+  store i16 %.sink144.i, ptr %cmd, align 8
   br label %sw.bb160.i
 
 sw.bb160.i:                                       ; preds = %sw.bb160.sink.split.i, %sw.epilog.i, %sw.epilog.i
@@ -1075,7 +1075,7 @@ if.then175.i:                                     ; preds = %sw.bb171.i
   tail call fastcc void @process_bin_stat(ptr noundef nonnull %c)
   br label %return
 
-sw.bb178.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread148.i
+sw.bb178.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread140.i
   %cmp180.i = icmp eq i16 %20, 0
   %cmp184.i = icmp eq i8 %26, 0
   %or.cond10.i = select i1 %cmp180.i, i1 %cmp184.i, i1 false
@@ -1115,11 +1115,11 @@ if.then215.i:                                     ; preds = %sw.bb207.i
   br label %return
 
 sw.bb218.sink.split.i:                            ; preds = %sw.bb46.i, %if.end19.i
-  %.sink153.i = phi i16 [ 35, %sw.bb46.i ], [ 29, %if.end19.i ]
-  store i16 %.sink153.i, ptr %cmd, align 8
+  %.sink145.i = phi i16 [ 35, %sw.bb46.i ], [ 29, %if.end19.i ]
+  store i16 %.sink145.i, ptr %cmd, align 8
   br label %sw.bb218.i
 
-sw.bb218.i:                                       ; preds = %sw.epilog.i, %sw.epilog.i, %sw.bb218.sink.split.i, %sw.epilog.i
+sw.bb218.i:                                       ; preds = %sw.bb218.sink.split.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i
   %cmp220.i = icmp eq i8 %26, 4
   %cmp224.i = icmp ne i16 %20, 0
   %or.cond15.i = and i1 %cmp224.i, %cmp220.i
@@ -1744,14 +1744,13 @@ if.then94:                                        ; preds = %if.end90
 if.end96:                                         ; preds = %if.then94, %if.end90
   %cmd97 = getelementptr inbounds %struct.conn, ptr %c, i64 0, i32 39
   %39 = load i16, ptr %cmd97, align 8
-  %conv98 = sext i16 %39 to i32
-  %switch.tableidx = add nsw i32 %conv98, -1
-  %40 = icmp ult i32 %switch.tableidx, 3
+  %switch.tableidx = add i16 %39, -1
+  %40 = icmp ult i16 %switch.tableidx, 3
   br i1 %40, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %if.end96
-  %41 = shl nuw nsw i32 %switch.tableidx, 4
-  %switch.shiftamt = zext nneg i32 %41 to i48
+  %41 = shl nuw nsw i16 %switch.tableidx, 4
+  %switch.shiftamt = zext nneg i16 %41 to i48
   %switch.downshift = lshr i48 12884967426, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
   store i16 %switch.masked, ptr %cmd97, align 8
@@ -2756,10 +2755,9 @@ if.then20:                                        ; preds = %if.end17
 if.end22:                                         ; preds = %if.then20, %if.end17
   %cmd = getelementptr inbounds %struct.conn, ptr %c, i64 0, i32 39
   %13 = load i16, ptr %cmd, align 8
-  %conv23 = sext i16 %13 to i32
-  switch i32 %conv23, label %sw.epilog [
-    i32 14, label %sw.epilog.sink.split
-    i32 15, label %sw.bb25
+  switch i16 %13, label %sw.epilog [
+    i16 14, label %sw.epilog.sink.split
+    i16 15, label %sw.bb25
   ]
 
 sw.bb25:                                          ; preds = %if.end22

@@ -1012,20 +1012,19 @@ if.end.i:                                         ; preds = %entry, %if.end9
   %i.sroa.0.02634 = ptrtoint ptr %i.sroa.0.026 to i64
   %0 = load i8, ptr %i.sroa.0.026, align 1
   %1 = lshr i8 %0, 4
-  %shr.i.i = zext nneg i8 %1 to i32
-  switch i32 %shr.i.i, label %for.body.thread [
-    i32 0, label %if.then7.i
-    i32 1, label %if.then7.i
-    i32 2, label %if.then7.i
-    i32 3, label %if.then7.i
-    i32 4, label %if.then7.i
-    i32 5, label %if.then7.i
-    i32 6, label %if.then7.i
-    i32 7, label %if.then7.i
-    i32 12, label %if.end11.i
-    i32 13, label %if.end11.i
-    i32 14, label %sw.bb2.i.i
-    i32 15, label %sw.bb3.i.i
+  switch i8 %1, label %for.body.thread [
+    i8 0, label %if.then7.i
+    i8 1, label %if.then7.i
+    i8 2, label %if.then7.i
+    i8 3, label %if.then7.i
+    i8 4, label %if.then7.i
+    i8 5, label %if.then7.i
+    i8 6, label %if.then7.i
+    i8 7, label %if.then7.i
+    i8 12, label %if.end11.i
+    i8 13, label %if.end11.i
+    i8 14, label %sw.bb2.i.i
+    i8 15, label %sw.bb3.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end.i
@@ -1268,20 +1267,19 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %sw
   %i.sroa.0.07279 = ptrtoint ptr %i.sroa.0.072 to i64
   %0 = load i8, ptr %i.sroa.0.072, align 1
   %1 = lshr i8 %0, 4
-  %shr.i.i = zext nneg i8 %1 to i32
-  switch i32 %shr.i.i, label %if.else.thread [
-    i32 0, label %if.then7.i
-    i32 1, label %if.then7.i
-    i32 2, label %if.then7.i
-    i32 3, label %if.then7.i
-    i32 4, label %if.then7.i
-    i32 5, label %if.then7.i
-    i32 6, label %if.then7.i
-    i32 7, label %if.then7.i
-    i32 12, label %if.end11.i
-    i32 13, label %if.end11.i
-    i32 14, label %sw.bb2.i.i
-    i32 15, label %sw.bb3.i.i
+  switch i8 %1, label %if.else.thread [
+    i8 0, label %if.then7.i
+    i8 1, label %if.then7.i
+    i8 2, label %if.then7.i
+    i8 3, label %if.then7.i
+    i8 4, label %if.then7.i
+    i8 5, label %if.then7.i
+    i8 6, label %if.then7.i
+    i8 7, label %if.then7.i
+    i8 12, label %if.end11.i
+    i8 13, label %if.end11.i
+    i8 14, label %sw.bb2.i.i
+    i8 15, label %sw.bb3.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end.i
@@ -1554,20 +1552,19 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %if
   %i.sroa.0.02733 = ptrtoint ptr %i.sroa.0.027 to i64
   %0 = load i8, ptr %i.sroa.0.027, align 1
   %1 = lshr i8 %0, 4
-  %shr.i.i = zext nneg i8 %1 to i32
-  switch i32 %shr.i.i, label %for.body.thread [
-    i32 0, label %if.then7.i
-    i32 1, label %if.then7.i
-    i32 2, label %if.then7.i
-    i32 3, label %if.then7.i
-    i32 4, label %if.then7.i
-    i32 5, label %if.then7.i
-    i32 6, label %if.then7.i
-    i32 7, label %if.then7.i
-    i32 12, label %if.end11.i
-    i32 13, label %if.end11.i
-    i32 14, label %sw.bb2.i.i
-    i32 15, label %sw.bb3.i.i
+  switch i8 %1, label %for.body.thread [
+    i8 0, label %if.then7.i
+    i8 1, label %if.then7.i
+    i8 2, label %if.then7.i
+    i8 3, label %if.then7.i
+    i8 4, label %if.then7.i
+    i8 5, label %if.then7.i
+    i8 6, label %if.then7.i
+    i8 7, label %if.then7.i
+    i8 12, label %if.end11.i
+    i8 13, label %if.end11.i
+    i8 14, label %sw.bb2.i.i
+    i8 15, label %sw.bb3.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end.i
@@ -1793,20 +1790,19 @@ if.end.i:                                         ; preds = %_ZN4YAMLlsERNS_15os
   %i.sroa.0.04349 = ptrtoint ptr %i.sroa.0.043 to i64
   %1 = load i8, ptr %i.sroa.0.043, align 1
   %2 = lshr i8 %1, 4
-  %shr.i.i = zext nneg i8 %2 to i32
-  switch i32 %shr.i.i, label %for.body.thread [
-    i32 0, label %if.then7.i
-    i32 1, label %if.then7.i
-    i32 2, label %if.then7.i
-    i32 3, label %if.then7.i
-    i32 4, label %if.then7.i
-    i32 5, label %if.then7.i
-    i32 6, label %if.then7.i
-    i32 7, label %if.then7.i
-    i32 12, label %if.end11.i
-    i32 13, label %if.end11.i
-    i32 14, label %sw.bb2.i.i
-    i32 15, label %sw.bb3.i.i
+  switch i8 %2, label %for.body.thread [
+    i8 0, label %if.then7.i
+    i8 1, label %if.then7.i
+    i8 2, label %if.then7.i
+    i8 3, label %if.then7.i
+    i8 4, label %if.then7.i
+    i8 5, label %if.then7.i
+    i8 6, label %if.then7.i
+    i8 7, label %if.then7.i
+    i8 12, label %if.end11.i
+    i8 13, label %if.end11.i
+    i8 14, label %sw.bb2.i.i
+    i8 15, label %sw.bb3.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end.i
@@ -1953,20 +1949,19 @@ if.end.i:                                         ; preds = %entry, %if.end
   %i.sroa.0.04270 = ptrtoint ptr %i.sroa.0.042 to i64
   %0 = load i8, ptr %i.sroa.0.042, align 1
   %1 = lshr i8 %0, 4
-  %shr.i.i = zext nneg i8 %1 to i32
-  switch i32 %shr.i.i, label %if.end.i2.thread [
-    i32 0, label %if.then7.i
-    i32 1, label %if.then7.i
-    i32 2, label %if.then7.i
-    i32 3, label %if.then7.i
-    i32 4, label %if.then7.i
-    i32 5, label %if.then7.i
-    i32 6, label %if.then7.i
-    i32 7, label %if.then7.i
-    i32 12, label %if.end11.i
-    i32 13, label %if.end11.i
-    i32 14, label %sw.bb2.i.i
-    i32 15, label %sw.bb3.i.i
+  switch i8 %1, label %if.end.i2.thread [
+    i8 0, label %if.then7.i
+    i8 1, label %if.then7.i
+    i8 2, label %if.then7.i
+    i8 3, label %if.then7.i
+    i8 4, label %if.then7.i
+    i8 5, label %if.then7.i
+    i8 6, label %if.then7.i
+    i8 7, label %if.then7.i
+    i8 12, label %if.end11.i
+    i8 13, label %if.end11.i
+    i8 14, label %sw.bb2.i.i
+    i8 15, label %sw.bb3.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end.i

@@ -107,8 +107,8 @@ entry:
   %1 = zext i32 %0 to i64
   %vla = alloca ptr, i64 %1, align 16
   %call = call i32 @dictGetSomeKeys(ptr noundef %sampledict, ptr noundef nonnull %vla, i32 noundef %0) #14
-  %cmp103 = icmp sgt i32 %call, 0
-  br i1 %cmp103, label %for.body.lr.ph, label %for.end
+  %cmp102 = icmp sgt i32 %call, 0
+  br i1 %cmp102, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp3.not = icmp eq ptr %sampledict, %keydict
@@ -121,8 +121,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv107 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next108, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv107
+  %indvars.iv106 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next107, %for.inc ]
+  %arrayidx = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv106
   %2 = load ptr, ptr %arrayidx, align 8
   %call1 = call ptr @dictGetKey(ptr noundef %2) #14
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
@@ -204,8 +204,8 @@ if.else14:                                        ; preds = %if.else
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %for.body, %if.else14
-  %de.1889399 = phi ptr [ %de.0, %if.else14 ], [ %2, %for.body ]
-  %call17 = call ptr @dictGetVal(ptr noundef %de.1889399) #14
+  %de.1879298 = phi ptr [ %de.0, %if.else14 ], [ %2, %for.body ]
+  %call17 = call ptr @dictGetVal(ptr noundef %de.1879298) #14
   %9 = ptrtoint ptr %call17 to i64
   %sub18 = xor i64 %9, -1
   br label %if.end22
@@ -255,24 +255,24 @@ land.lhs.true40:                                  ; preds = %land.lhs.true33, %w
   br i1 %cmp44, label %if.end83, label %if.else46
 
 if.else46:                                        ; preds = %while.body, %land.lhs.true40
-  %k.0101 = phi i32 [ %12, %land.lhs.true40 ], [ 16, %while.body ]
+  %k.0100 = phi i32 [ %12, %land.lhs.true40 ], [ 16, %while.body ]
   %15 = load ptr, ptr %key35, align 8
   %cmp49 = icmp eq ptr %15, null
   br i1 %cmp49, label %if.then50, label %if.else61
 
 if.then50:                                        ; preds = %if.else46
   %16 = load ptr, ptr %cached52, align 8
-  %idx.ext = zext nneg i32 %k.0101 to i64
+  %idx.ext = zext nneg i32 %k.0100 to i64
   %add.ptr = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %idx.ext
   %add.ptr53 = getelementptr inbounds %struct.evictionPoolEntry, ptr %add.ptr, i64 1
-  %sub57 = sub nsw i32 15, %k.0101
+  %sub57 = sub nsw i32 15, %k.0100
   %conv = sext i32 %sub57 to i64
   %mul = shl nsw i64 %conv, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr53, ptr align 8 %add.ptr, i64 %mul, i1 false)
   br label %if.end83.sink.split
 
 if.else61:                                        ; preds = %if.else46
-  %dec = add nsw i32 %k.0101, -1
+  %dec = add nsw i32 %k.0100, -1
   %17 = load ptr, ptr %cached64, align 8
   %18 = load ptr, ptr %key66, align 8
   %cmp69.not = icmp eq ptr %18, %17
@@ -291,7 +291,7 @@ if.end74:                                         ; preds = %if.then71, %if.else
 if.end83.sink.split:                              ; preds = %if.then50, %if.end74
   %conv76.sink = phi i64 [ %conv76, %if.end74 ], [ %idx.ext, %if.then50 ]
   %.sink = phi ptr [ %17, %if.end74 ], [ %16, %if.then50 ]
-  %k.1.ph = phi i32 [ %dec, %if.end74 ], [ %k.0101, %if.then50 ]
+  %k.1.ph = phi i32 [ %dec, %if.end74 ], [ %k.0100, %if.then50 ]
   %cached80 = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %conv76.sink, i32 2
   store ptr %.sink, ptr %cached80, align 8
   br label %if.end83
@@ -350,11 +350,11 @@ if.then88:                                        ; preds = %sdslen.exit
   br label %if.end108
 
 if.else93:                                        ; preds = %if.end83, %sdslen.exit
-  %retval.0.i6581 = phi i64 [ %retval.0.i65, %sdslen.exit ], [ 0, %if.end83 ]
+  %retval.0.i6580 = phi i64 [ %retval.0.i65, %sdslen.exit ], [ 0, %if.end83 ]
   %idxprom94 = sext i32 %k.1 to i64
   %cached96 = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %idxprom94, i32 2
   %24 = load ptr, ptr %cached96, align 8
-  %add = shl i64 %retval.0.i6581, 32
+  %add = shl i64 %retval.0.i6580, 32
   %sext = add i64 %add, 4294967296
   %conv97 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %call1, i64 %conv97, i1 false)
@@ -362,54 +362,53 @@ if.else93:                                        ; preds = %if.end83, %sdslen.e
   %arrayidx.i68 = getelementptr inbounds i8, ptr %25, i64 -1
   %26 = load i8, ptr %arrayidx.i68, align 1
   %27 = and i8 %26, 7
-  %and.i69 = zext nneg i8 %27 to i32
-  switch i32 %and.i69, label %sdssetlen.exit [
-    i32 0, label %sw.bb.i75
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i73
-    i32 3, label %sw.bb9.i72
-    i32 4, label %sw.bb13.i70
+  switch i8 %27, label %sdssetlen.exit [
+    i8 0, label %sw.bb.i74
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb5.i72
+    i8 3, label %sw.bb9.i71
+    i8 4, label %sw.bb13.i69
   ]
 
-sw.bb.i75:                                        ; preds = %if.else93
-  %newlen.tr.i = trunc i64 %retval.0.i6581 to i8
-  %conv1.i76 = shl i8 %newlen.tr.i, 3
-  store i8 %conv1.i76, ptr %arrayidx.i68, align 1
+sw.bb.i74:                                        ; preds = %if.else93
+  %newlen.tr.i = trunc i64 %retval.0.i6580 to i8
+  %conv1.i75 = shl i8 %newlen.tr.i, 3
+  store i8 %conv1.i75, ptr %arrayidx.i68, align 1
   br label %sdssetlen.exit
 
 sw.bb2.i:                                         ; preds = %if.else93
-  %conv3.i74 = trunc i64 %retval.0.i6581 to i8
+  %conv3.i73 = trunc i64 %retval.0.i6580 to i8
   %add.ptr4.i = getelementptr inbounds i8, ptr %25, i64 -3
-  store i8 %conv3.i74, ptr %add.ptr4.i, align 1
+  store i8 %conv3.i73, ptr %add.ptr4.i, align 1
   br label %sdssetlen.exit
 
-sw.bb5.i73:                                       ; preds = %if.else93
-  %conv6.i = trunc i64 %retval.0.i6581 to i16
+sw.bb5.i72:                                       ; preds = %if.else93
+  %conv6.i = trunc i64 %retval.0.i6580 to i16
   %add.ptr7.i = getelementptr inbounds i8, ptr %25, i64 -5
   store i16 %conv6.i, ptr %add.ptr7.i, align 1
   br label %sdssetlen.exit
 
-sw.bb9.i72:                                       ; preds = %if.else93
-  %conv10.i = trunc i64 %retval.0.i6581 to i32
+sw.bb9.i71:                                       ; preds = %if.else93
+  %conv10.i = trunc i64 %retval.0.i6580 to i32
   %add.ptr11.i = getelementptr inbounds i8, ptr %25, i64 -9
   store i32 %conv10.i, ptr %add.ptr11.i, align 1
   br label %sdssetlen.exit
 
-sw.bb13.i70:                                      ; preds = %if.else93
+sw.bb13.i69:                                      ; preds = %if.else93
   %conv101 = ashr exact i64 %add, 32
-  %add.ptr14.i71 = getelementptr inbounds i8, ptr %25, i64 -17
-  store i64 %conv101, ptr %add.ptr14.i71, align 1
+  %add.ptr14.i70 = getelementptr inbounds i8, ptr %25, i64 -17
+  store i64 %conv101, ptr %add.ptr14.i70, align 1
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %if.else93, %sw.bb.i75, %sw.bb2.i, %sw.bb5.i73, %sw.bb9.i72, %sw.bb13.i70
+sdssetlen.exit:                                   ; preds = %if.else93, %sw.bb.i74, %sw.bb2.i, %sw.bb5.i72, %sw.bb9.i71, %sw.bb13.i69
   %28 = load ptr, ptr %cached96, align 8
   br label %if.end108
 
 if.end108:                                        ; preds = %sdssetlen.exit, %if.then88
   %idxprom94.sink = phi i64 [ %idxprom94, %sdssetlen.exit ], [ %idxprom90, %if.then88 ]
-  %.sink114 = phi ptr [ %28, %sdssetlen.exit ], [ %call89, %if.then88 ]
+  %.sink113 = phi ptr [ %28, %sdssetlen.exit ], [ %call89, %if.then88 ]
   %key107 = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %idxprom94.sink, i32 1
-  store ptr %.sink114, ptr %key107, align 8
+  store ptr %.sink113, ptr %key107, align 8
   %arrayidx110 = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %idxprom94.sink
   store i64 %idle.0, ptr %arrayidx110, align 8
   %dbid114 = getelementptr inbounds %struct.evictionPoolEntry, ptr %pool, i64 %idxprom94.sink, i32 3
@@ -419,9 +418,9 @@ if.end108:                                        ; preds = %sdssetlen.exit, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true33, %if.end108
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count
-  br i1 %exitcond110.not, label %for.end, label %for.body, !llvm.loop !8
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
+  br i1 %exitcond109.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
   ret i32 %call
@@ -435,7 +434,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define dso_local i64 @LFUDecrAndReturn(ptr nocapture noundef readonly %o) local_unnamed_addr #5 {
 entry:
   %bf.load = load i32, ptr %o, align 8
@@ -583,7 +582,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 declare i64 @sdsAllocSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getMaxmemoryState(ptr noundef writeonly %total, ptr noundef writeonly %logical, ptr noundef writeonly %tofree, ptr noundef writeonly %level) local_unnamed_addr #0 {
+define dso_local noundef i32 @getMaxmemoryState(ptr noundef writeonly %total, ptr noundef writeonly %logical, ptr noundef writeonly %tofree, ptr noundef writeonly %level) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @zmalloc_used_memory() #14
   %tobool.not = icmp eq ptr %total, null
@@ -758,7 +757,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @aeCreateTimeEvent(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @evictionTimeProc(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
+define internal noundef i32 @evictionTimeProc(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
 entry:
   %call = tail call i32 @performEvictions(), !range !9
   %cmp = icmp eq i32 %call, 1
@@ -1581,7 +1580,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

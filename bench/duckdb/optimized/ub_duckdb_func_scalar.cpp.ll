@@ -3658,9 +3658,39 @@ if.end21:                                         ; preds = %_ZNSt7__cxx1112basi
   %41 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %23, %if.end12 ]
   %arrayidx.i310 = getelementptr inbounds i8, ptr %41, i64 %add
   %42 = load i8, ptr %arrayidx.i310, align 1, !tbaa !14
-  switch i8 %42, label %if.else [
+  switch i8 %42, label %sw.default147 [
     i8 37, label %for.inc174
     i8 45, label %land.lhs.true
+    i8 97, label %if.end159
+    i8 65, label %sw.bb55
+    i8 119, label %sw.bb56
+    i8 117, label %sw.bb57
+    i8 100, label %sw.bb58
+    i8 104, label %sw.bb59
+    i8 98, label %sw.bb59
+    i8 66, label %sw.bb60
+    i8 109, label %sw.bb61
+    i8 121, label %sw.bb62
+    i8 89, label %sw.bb63
+    i8 71, label %sw.bb64
+    i8 72, label %sw.bb65
+    i8 73, label %sw.bb66
+    i8 112, label %sw.bb67
+    i8 77, label %sw.bb68
+    i8 83, label %sw.bb69
+    i8 110, label %sw.bb70
+    i8 102, label %sw.bb71
+    i8 103, label %sw.bb72
+    i8 122, label %sw.bb73
+    i8 90, label %sw.bb74
+    i8 106, label %sw.bb75
+    i8 85, label %sw.bb76
+    i8 87, label %sw.bb77
+    i8 86, label %sw.bb78
+    i8 99, label %sw.bb79
+    i8 120, label %sw.bb79
+    i8 88, label %sw.bb79
+    i8 84, label %sw.bb79
   ]
 
 land.lhs.true:                                    ; preds = %if.end21
@@ -3672,16 +3702,15 @@ land.lhs.true:                                    ; preds = %if.end21
 if.then32:                                        ; preds = %land.lhs.true
   %arrayidx.i312 = getelementptr inbounds i8, ptr %41, i64 %add29
   %44 = load i8, ptr %arrayidx.i312, align 1, !tbaa !14
-  %conv35 = sext i8 %44 to i32
-  switch i32 %conv35, label %sw.default [
-    i32 100, label %if.end159
-    i32 109, label %sw.bb36
-    i32 121, label %sw.bb37
-    i32 72, label %sw.bb38
-    i32 73, label %sw.bb39
-    i32 77, label %sw.bb40
-    i32 83, label %sw.bb41
-    i32 106, label %sw.bb42
+  switch i8 %44, label %sw.default [
+    i8 100, label %if.end159
+    i8 109, label %sw.bb36
+    i8 121, label %sw.bb37
+    i8 72, label %sw.bb38
+    i8 73, label %sw.bb39
+    i8 77, label %sw.bb40
+    i8 83, label %sw.bb41
+    i8 106, label %sw.bb42
   ]
 
 sw.bb36:                                          ; preds = %if.then32
@@ -3796,114 +3825,79 @@ ehcleanup50:                                      ; preds = %if.then.i.i326, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #27
   br label %ehcleanup199
 
-if.else:                                          ; preds = %if.end21
-  %conv23 = sext i8 %42 to i32
-  switch i32 %conv23, label %sw.default147 [
-    i32 97, label %if.end159
-    i32 65, label %sw.bb55
-    i32 119, label %sw.bb56
-    i32 117, label %sw.bb57
-    i32 100, label %sw.bb58
-    i32 104, label %sw.bb59
-    i32 98, label %sw.bb59
-    i32 66, label %sw.bb60
-    i32 109, label %sw.bb61
-    i32 121, label %sw.bb62
-    i32 89, label %sw.bb63
-    i32 71, label %sw.bb64
-    i32 72, label %sw.bb65
-    i32 73, label %sw.bb66
-    i32 112, label %sw.bb67
-    i32 77, label %sw.bb68
-    i32 83, label %sw.bb69
-    i32 110, label %sw.bb70
-    i32 102, label %sw.bb71
-    i32 103, label %sw.bb72
-    i32 122, label %sw.bb73
-    i32 90, label %sw.bb74
-    i32 106, label %sw.bb75
-    i32 85, label %sw.bb76
-    i32 87, label %sw.bb77
-    i32 86, label %sw.bb78
-    i32 99, label %sw.bb79
-    i32 120, label %sw.bb79
-    i32 88, label %sw.bb79
-    i32 84, label %sw.bb79
-  ]
-
-sw.bb55:                                          ; preds = %if.else
+sw.bb55:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb56:                                          ; preds = %if.else
+sw.bb56:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb57:                                          ; preds = %if.else
+sw.bb57:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb58:                                          ; preds = %if.else
+sw.bb58:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb59:                                          ; preds = %if.else, %if.else
+sw.bb59:                                          ; preds = %if.end21, %if.end21
   br label %if.end159
 
-sw.bb60:                                          ; preds = %if.else
+sw.bb60:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb61:                                          ; preds = %if.else
+sw.bb61:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb62:                                          ; preds = %if.else
+sw.bb62:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb63:                                          ; preds = %if.else
+sw.bb63:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb64:                                          ; preds = %if.else
+sw.bb64:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb65:                                          ; preds = %if.else
+sw.bb65:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb66:                                          ; preds = %if.else
+sw.bb66:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb67:                                          ; preds = %if.else
+sw.bb67:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb68:                                          ; preds = %if.else
+sw.bb68:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb69:                                          ; preds = %if.else
+sw.bb69:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb70:                                          ; preds = %if.else
+sw.bb70:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb71:                                          ; preds = %if.else
+sw.bb71:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb72:                                          ; preds = %if.else
+sw.bb72:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb73:                                          ; preds = %if.else
+sw.bb73:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb74:                                          ; preds = %if.else
+sw.bb74:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb75:                                          ; preds = %if.else
+sw.bb75:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb76:                                          ; preds = %if.else
+sw.bb76:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb77:                                          ; preds = %if.else
+sw.bb77:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb78:                                          ; preds = %if.else
+sw.bb78:                                          ; preds = %if.end21
   br label %if.end159
 
-sw.bb79:                                          ; preds = %if.else, %if.else, %if.else, %if.else
+sw.bb79:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %subformat) #27
   store ptr %16, ptr %subformat, align 8, !tbaa !8
   store i64 0, ptr %_M_string_length.i.i.i331, align 8, !tbaa !15
@@ -4438,7 +4432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %subformat) #27
   br label %ehcleanup199
 
-sw.default147:                                    ; preds = %if.else, %land.lhs.true
+sw.default147:                                    ; preds = %if.end21, %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp148) #27
   %131 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp148, i64 0, i32 2
   store ptr %131, ptr %ref.tmp148, align 8, !tbaa !8
@@ -4529,9 +4523,9 @@ ehcleanup155:                                     ; preds = %if.then.i.i448, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp148) #27
   br label %ehcleanup199
 
-if.end159:                                        ; preds = %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %if.else, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %if.then32
-  %i.1 = phi i64 [ %add29, %sw.bb42 ], [ %add29, %sw.bb41 ], [ %add29, %sw.bb40 ], [ %add29, %sw.bb39 ], [ %add29, %sw.bb38 ], [ %add29, %sw.bb37 ], [ %add29, %sw.bb36 ], [ %add, %sw.bb78 ], [ %add, %sw.bb77 ], [ %add, %sw.bb76 ], [ %add, %sw.bb75 ], [ %add, %sw.bb74 ], [ %add, %sw.bb73 ], [ %add, %sw.bb72 ], [ %add, %sw.bb71 ], [ %add, %sw.bb70 ], [ %add, %sw.bb69 ], [ %add, %sw.bb68 ], [ %add, %sw.bb67 ], [ %add, %sw.bb66 ], [ %add, %sw.bb65 ], [ %add, %sw.bb64 ], [ %add, %sw.bb63 ], [ %add, %sw.bb62 ], [ %add, %sw.bb61 ], [ %add, %sw.bb60 ], [ %add, %sw.bb59 ], [ %add, %sw.bb58 ], [ %add, %sw.bb57 ], [ %add, %sw.bb56 ], [ %add, %sw.bb55 ], [ %add29, %if.then32 ], [ %add, %if.else ]
-  %specifier.0 = phi i8 [ 26, %sw.bb42 ], [ 20, %sw.bb41 ], [ 18, %sw.bb40 ], [ 15, %sw.bb39 ], [ 13, %sw.bb38 ], [ 10, %sw.bb37 ], [ 8, %sw.bb36 ], [ 35, %sw.bb78 ], [ 28, %sw.bb77 ], [ 27, %sw.bb76 ], [ 25, %sw.bb75 ], [ 24, %sw.bb74 ], [ 23, %sw.bb73 ], [ 22, %sw.bb72 ], [ 21, %sw.bb71 ], [ 32, %sw.bb70 ], [ 19, %sw.bb69 ], [ 17, %sw.bb68 ], [ 16, %sw.bb67 ], [ 14, %sw.bb66 ], [ 12, %sw.bb65 ], [ 33, %sw.bb64 ], [ 11, %sw.bb63 ], [ 9, %sw.bb62 ], [ 7, %sw.bb61 ], [ 6, %sw.bb60 ], [ 5, %sw.bb59 ], [ 3, %sw.bb58 ], [ 34, %sw.bb57 ], [ 2, %sw.bb56 ], [ 1, %sw.bb55 ], [ 4, %if.then32 ], [ 0, %if.else ]
+if.end159:                                        ; preds = %if.end21, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %if.then32
+  %i.1 = phi i64 [ %add29, %sw.bb42 ], [ %add29, %sw.bb41 ], [ %add29, %sw.bb40 ], [ %add29, %sw.bb39 ], [ %add29, %sw.bb38 ], [ %add29, %sw.bb37 ], [ %add29, %sw.bb36 ], [ %add, %sw.bb78 ], [ %add, %sw.bb77 ], [ %add, %sw.bb76 ], [ %add, %sw.bb75 ], [ %add, %sw.bb74 ], [ %add, %sw.bb73 ], [ %add, %sw.bb72 ], [ %add, %sw.bb71 ], [ %add, %sw.bb70 ], [ %add, %sw.bb69 ], [ %add, %sw.bb68 ], [ %add, %sw.bb67 ], [ %add, %sw.bb66 ], [ %add, %sw.bb65 ], [ %add, %sw.bb64 ], [ %add, %sw.bb63 ], [ %add, %sw.bb62 ], [ %add, %sw.bb61 ], [ %add, %sw.bb60 ], [ %add, %sw.bb59 ], [ %add, %sw.bb58 ], [ %add, %sw.bb57 ], [ %add, %sw.bb56 ], [ %add, %sw.bb55 ], [ %add29, %if.then32 ], [ %add, %if.end21 ]
+  %specifier.0 = phi i8 [ 26, %sw.bb42 ], [ 20, %sw.bb41 ], [ 18, %sw.bb40 ], [ 15, %sw.bb39 ], [ 13, %sw.bb38 ], [ 10, %sw.bb37 ], [ 8, %sw.bb36 ], [ 35, %sw.bb78 ], [ 28, %sw.bb77 ], [ 27, %sw.bb76 ], [ 25, %sw.bb75 ], [ 24, %sw.bb74 ], [ 23, %sw.bb73 ], [ 22, %sw.bb72 ], [ 21, %sw.bb71 ], [ 32, %sw.bb70 ], [ 19, %sw.bb69 ], [ 17, %sw.bb68 ], [ 16, %sw.bb67 ], [ 14, %sw.bb66 ], [ 12, %sw.bb65 ], [ 33, %sw.bb64 ], [ 11, %sw.bb63 ], [ 9, %sw.bb62 ], [ 7, %sw.bb61 ], [ 6, %sw.bb60 ], [ 5, %sw.bb59 ], [ 3, %sw.bb58 ], [ 34, %sw.bb57 ], [ 2, %sw.bb56 ], [ 1, %sw.bb55 ], [ 4, %if.then32 ], [ 0, %if.end21 ]
   store ptr %21, ptr %agg.tmp160, align 8, !tbaa !8
   %144 = load ptr, ptr %current_literal, align 8, !tbaa !12
   %cmp.i.i453 = icmp eq ptr %144, %13
@@ -4610,7 +4604,7 @@ lpad166:                                          ; preds = %_ZNSt7__cxx1112basi
           cleanup
   br label %ehcleanup199
 
-for.inc174:                                       ; preds = %invoke.cont167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391, %if.end21, %for.body
+for.inc174:                                       ; preds = %if.end21, %invoke.cont167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391, %for.body
   %pos.3 = phi i64 [ %pos.0665, %for.body ], [ %add140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391 ], [ %add169, %invoke.cont167 ], [ %add, %if.end21 ]
   %i.4 = phi i64 [ %i.0666, %for.body ], [ %add, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391 ], [ %i.1, %invoke.cont167 ], [ %add, %if.end21 ]
   %inc175 = add i64 %i.4, 1

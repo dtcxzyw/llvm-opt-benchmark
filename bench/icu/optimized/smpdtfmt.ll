@@ -2813,7 +2813,6 @@ if.end:                                           ; preds = %entry
   %country.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 3
   %baseName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 10
   %variantBegin.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 5
-  %conv = sext i8 %type to i32
   %fSharedNumberFormatters = getelementptr inbounds %"class.icu_75::SimpleDateFormat", ptr %this, i64 0, i32 12
   %cmp106 = icmp eq i8 %type, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %ovrField, i64 10
@@ -3119,10 +3118,10 @@ if.end95:                                         ; preds = %while.end, %_ZN6icu
   br i1 %tobool98.not, label %if.else124, label %if.then99
 
 if.then99:                                        ; preds = %if.end95
-  switch i32 %conv, label %cleanup141 [
-    i32 0, label %sw.bb
-    i32 2, label %sw.bb
-    i32 1, label %sw.bb109
+  switch i8 %type, label %cleanup141 [
+    i8 0, label %sw.bb
+    i8 2, label %sw.bb
+    i8 1, label %sw.bb109
   ]
 
 sw.bb:                                            ; preds = %if.then99, %if.then99
@@ -12836,7 +12835,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %compiledPattern.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %ref.tmp, i64 0, i32 1
   %fUnion2.i.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %ref.tmp, i64 0, i32 1, i32 1
   %0 = zext i1 %cmp to i64
-  %wide.trip.count66 = zext i32 %dataCount to i64
+  %wide.trip.count66 = zext nneg i32 %dataCount to i64
   br i1 %cmp6.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %invoke.cont.us

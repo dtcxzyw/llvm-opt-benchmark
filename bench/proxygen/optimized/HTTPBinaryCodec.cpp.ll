@@ -6934,11 +6934,10 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 for.cond.i:                                       ; preds = %if.else20.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else20.i ]
   %11 = load i8, ptr %p.1.i, align 1
-  %conv.i = sext i8 %11 to i32
-  switch i32 %conv.i, label %if.else20.i [
-    i32 60, label %if.then7.i.loopexit
-    i32 62, label %if.then7.i.loopexit139
-    i32 94, label %if.then7.i
+  switch i8 %11, label %if.else20.i [
+    i8 60, label %if.then7.i.loopexit
+    i8 62, label %if.then7.i.loopexit139
+    i8 94, label %if.then7.i
   ]
 
 if.then7.i.loopexit:                              ; preds = %for.cond.i
@@ -7008,11 +7007,12 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %13 = load i8, ptr %retval.0.i, align 1
-  %conv18.i = sext i8 %13 to i32
-  switch i32 %conv18.i, label %if.end26.i [
-    i32 43, label %if.then.i.i
-    i32 45, label %if.then.i.i76
-    i32 32, label %if.then.i.i86
+  switch i8 %13, label %if.end42.i [
+    i8 43, label %if.then.i.i
+    i8 45, label %if.then.i.i76
+    i8 32, label %if.then.i.i86
+    i8 35, label %if.then.i.i96
+    i8 48, label %if.then.i.i101
   ]
 
 if.then.i.i:                                      ; preds = %if.end16.i
@@ -7027,21 +7027,15 @@ if.then.i.i86:                                    ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.138) #31
   unreachable
 
-if.end26.i:                                       ; preds = %if.end16.i
-  switch i8 %13, label %if.end42.i [
-    i8 35, label %if.then.i.i96
-    i8 48, label %if.then.i.i101
-  ]
-
-if.then.i.i96:                                    ; preds = %if.end26.i
+if.then.i.i96:                                    ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.138) #31
   unreachable
 
-if.then.i.i101:                                   ; preds = %if.end26.i
+if.then.i.i101:                                   ; preds = %if.end16.i
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.138) #31
   unreachable
 
-if.end42.i:                                       ; preds = %if.end26.i
+if.end42.i:                                       ; preds = %if.end16.i
   %call43.i = call noundef ptr @_ZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(28) %checker)
   %cmp44.i = icmp eq ptr %call43.i, %add.ptr.i.i
   br i1 %cmp44.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
@@ -7359,26 +7353,25 @@ _ZNK3fmt2v99formatterINS0_17basic_string_viewIcEEcvE6formatINS0_20basic_format_c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #3 comdat {
 entry:
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %sw.default [
-    i32 100, label %return
-    i32 111, label %sw.bb1
-    i32 120, label %sw.bb2
-    i32 88, label %sw.bb3
-    i32 98, label %sw.bb4
-    i32 66, label %sw.bb5
-    i32 97, label %sw.bb6
-    i32 65, label %sw.bb7
-    i32 101, label %sw.bb8
-    i32 69, label %sw.bb9
-    i32 102, label %sw.bb10
-    i32 70, label %sw.bb11
-    i32 103, label %sw.bb12
-    i32 71, label %sw.bb13
-    i32 99, label %sw.bb14
-    i32 115, label %sw.bb15
-    i32 112, label %sw.bb16
-    i32 63, label %sw.bb17
+  switch i8 %type, label %sw.default [
+    i8 100, label %return
+    i8 111, label %sw.bb1
+    i8 120, label %sw.bb2
+    i8 88, label %sw.bb3
+    i8 98, label %sw.bb4
+    i8 66, label %sw.bb5
+    i8 97, label %sw.bb6
+    i8 65, label %sw.bb7
+    i8 101, label %sw.bb8
+    i8 69, label %sw.bb9
+    i8 102, label %sw.bb10
+    i8 70, label %sw.bb11
+    i8 103, label %sw.bb12
+    i8 71, label %sw.bb13
+    i8 99, label %sw.bb14
+    i8 115, label %sw.bb15
+    i8 112, label %sw.bb16
+    i8 63, label %sw.bb17
   ]
 
 sw.bb1:                                           ; preds = %entry

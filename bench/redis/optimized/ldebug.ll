@@ -453,14 +453,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %10 = phi i8 [ %7, %for.body.lr.ph.i ], [ %49, %for.inc.i ]
   %status.071.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %status.1.i, %for.inc.i ]
   %what.addr.070.i = phi ptr [ %what.addr.0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %conv.i = sext i8 %10 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 83, label %sw.bb.i
-    i32 108, label %sw.bb1.i
-    i32 117, label %sw.bb3.i
-    i32 110, label %sw.bb5.i
-    i32 76, label %for.inc.i
-    i32 102, label %for.inc.i
+  switch i8 %10, label %sw.default.i [
+    i8 83, label %sw.bb.i
+    i8 108, label %sw.bb1.i
+    i8 117, label %sw.bb3.i
+    i8 110, label %sw.bb5.i
+    i8 76, label %for.inc.i
+    i8 102, label %for.inc.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
@@ -1013,12 +1012,11 @@ if.end26:                                         ; preds = %sw.bb, %cond.false.
   %and17 = and i32 %shr16, 511
   %14 = lshr i8 %12, 2
   %15 = and i8 %14, 3
-  %and31 = zext nneg i8 %15 to i32
-  switch i32 %and31, label %if.end26.unreachabledefault [
-    i32 0, label %sw.bb.i600
-    i32 3, label %sw.bb6.i589
-    i32 2, label %sw.bb1.i583
-    i32 1, label %sw.epilog
+  switch i8 %15, label %if.end26.unreachabledefault [
+    i8 0, label %sw.bb.i600
+    i8 3, label %sw.bb6.i589
+    i8 2, label %sw.bb1.i583
+    i8 1, label %sw.epilog
   ]
 
 sw.bb.i600:                                       ; preds = %if.end26

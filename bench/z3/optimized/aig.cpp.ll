@@ -11532,12 +11532,11 @@ if.then14:                                        ; preds = %if.end13
   store i8 %bf.clear17, ptr %m_first, align 8
   store i8 1, ptr %visited, align 1
   %bf.clear19 = and i8 %bf.load, 3
-  %bf.cast20 = zext nneg i8 %bf.clear19 to i32
-  switch i32 %bf.cast20, label %if.then14.unreachabledefault [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb27
-    i32 3, label %sw.default
+  switch i8 %bf.clear19, label %if.then14.unreachabledefault [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb27
+    i8 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.then14, %if.then14
@@ -11784,12 +11783,11 @@ sw.epilog.if.end75_crit_edge:                     ; preds = %sw.epilog
 if.end75:                                         ; preds = %sw.epilog.if.end75_crit_edge, %if.end13
   %bf.load77 = phi i8 [ %bf.load77.pre, %sw.epilog.if.end75_crit_edge ], [ %bf.load, %if.end13 ]
   %bf.clear78 = and i8 %bf.load77, 3
-  %bf.cast79 = zext nneg i8 %bf.clear78 to i32
-  switch i32 %bf.cast79, label %if.end75.unreachabledefault [
-    i32 1, label %while.cond.backedge.sink.split
-    i32 0, label %sw.bb81
-    i32 2, label %sw.bb82
-    i32 3, label %sw.default83
+  switch i8 %bf.clear78, label %if.end75.unreachabledefault [
+    i8 1, label %while.cond.backedge.sink.split
+    i8 0, label %sw.bb81
+    i8 2, label %sw.bb82
+    i8 3, label %sw.default83
   ]
 
 sw.bb81:                                          ; preds = %if.end75

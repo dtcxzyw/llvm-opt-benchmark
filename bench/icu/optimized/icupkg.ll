@@ -220,7 +220,6 @@ if.then66:                                        ; preds = %if.end64.thread180,
   %tobool58.not119131 = phi i1 [ false, %if.end64.thread ], [ %tobool58.not120, %if.end64 ], [ true, %if.end64.thread180 ]
   %26 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 2, i32 1), align 8
   %27 = load i8, ptr %26, align 1
-  %conv68 = sext i8 %27 to i32
   %cmp69 = icmp eq i8 %27, 0
   br i1 %cmp69, label %if.then74, label %lor.lhs.false70
 
@@ -236,10 +235,10 @@ if.then74:                                        ; preds = %lor.lhs.false70, %i
   br label %return
 
 if.end75:                                         ; preds = %lor.lhs.false70
-  switch i32 %conv68, label %sw.default [
-    i32 108, label %sw.epilog
-    i32 98, label %sw.epilog
-    i32 101, label %sw.epilog
+  switch i8 %27, label %sw.default [
+    i8 108, label %sw.epilog
+    i8 98, label %sw.epilog
+    i8 101, label %sw.epilog
   ]
 
 sw.default:                                       ; preds = %if.end75

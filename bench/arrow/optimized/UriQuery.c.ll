@@ -517,10 +517,9 @@ for.body:                                         ; preds = %for.body.outer, %fo
   %keyAfter.0145 = phi ptr [ %keyAfter.2, %for.inc ], [ null, %for.body.outer ]
   %walk.0140 = phi ptr [ %incdec.ptr, %for.inc ], [ %walk.0140.ph, %for.body.outer ]
   %1 = load i8, ptr %walk.0140, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %for.inc [
-    i32 38, label %sw.bb
-    i32 61, label %sw.bb38
+  switch i8 %1, label %for.inc [
+    i8 38, label %sw.bb
+    i8 61, label %sw.bb38
   ]
 
 sw.bb:                                            ; preds = %for.body

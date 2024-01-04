@@ -57,7 +57,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaO_rawarith(ptr noundef %L, i32 noundef %op, ptr noundef %p1, ptr noundef %p2, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden noundef i32 @luaO_rawarith(ptr noundef %L, i32 noundef %op, ptr noundef %p1, ptr noundef %p2, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
 entry:
   %i1 = alloca i64, align 8
   %i2 = alloca i64, align 8
@@ -813,16 +813,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef %fmt.addr.053, i64 noundef %sub.ptr.sub)
   %add.ptr = getelementptr inbounds i8, ptr %call54, i64 1
   %1 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 115, label %sw.bb
-    i32 99, label %sw.bb5
-    i32 100, label %sw.bb18
-    i32 73, label %sw.bb31
-    i32 102, label %sw.bb47
-    i32 112, label %sw.bb60
-    i32 85, label %sw.bb75
-    i32 37, label %sw.bb94
+  switch i8 %1, label %sw.default [
+    i8 115, label %sw.bb
+    i8 99, label %sw.bb5
+    i8 100, label %sw.bb18
+    i8 73, label %sw.bb31
+    i8 102, label %sw.bb47
+    i8 112, label %sw.bb60
+    i8 85, label %sw.bb75
+    i8 37, label %sw.bb94
   ]
 
 sw.bb:                                            ; preds = %while.body
@@ -1183,6 +1182,7 @@ addstr2buff.exit46:                               ; preds = %sw.bb94, %clearbuff
   br label %sw.epilog
 
 sw.default:                                       ; preds = %while.body
+  %conv = sext i8 %1 to i32
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %L, ptr noundef nonnull @.str.3, i32 noundef %conv) #20
   unreachable
 

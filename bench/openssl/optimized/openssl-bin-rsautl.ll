@@ -243,7 +243,6 @@ if.end46:                                         ; preds = %while.end
 
 if.end50:                                         ; preds = %if.end46
   %tobool51 = icmp ne i32 %need_priv.0, 0
-  %conv = zext nneg i8 %key_type.0 to i32
   %cmp52 = icmp ne i8 %key_type.0, 1
   %or.cond = select i1 %tobool51, i1 %cmp52, i1 false
   br i1 %or.cond, label %if.then54, label %if.end56
@@ -264,11 +263,11 @@ if.then59:                                        ; preds = %if.end56
   br label %end
 
 if.end61:                                         ; preds = %if.end56
-  switch i32 %conv, label %if.end61.unreachabledefault [
-    i32 1, label %sw.bb63
-    i32 2, label %sw.bb65
-    i32 3, label %sw.bb67
-    i32 0, label %return
+  switch i8 %key_type.0, label %if.end61.unreachabledefault [
+    i8 1, label %sw.bb63
+    i8 2, label %sw.bb65
+    i8 3, label %sw.bb67
+    i8 0, label %return
   ]
 
 sw.bb63:                                          ; preds = %if.end61
@@ -354,12 +353,11 @@ if.end112:                                        ; preds = %for.body, %for.cond
   br i1 %cmp114, label %end, label %if.end117
 
 if.end117:                                        ; preds = %if.end112
-  %conv118 = zext nneg i8 %rsa_mode.0 to i32
-  switch i32 %conv118, label %sw.epilog176 [
-    i32 2, label %sw.bb119
-    i32 1, label %sw.bb131
-    i32 3, label %sw.bb146
-    i32 4, label %sw.bb161
+  switch i8 %rsa_mode.0, label %sw.epilog176 [
+    i8 2, label %sw.bb119
+    i8 1, label %sw.bb131
+    i8 3, label %sw.bb146
+    i8 4, label %sw.bb161
   ]
 
 sw.bb119:                                         ; preds = %if.end117

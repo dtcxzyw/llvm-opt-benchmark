@@ -16606,11 +16606,10 @@ entry:
   %cmp1.not = icmp ult ptr %add.ptr, %end
   %spec.select = select i1 %cmp1.not, ptr %add.ptr, ptr %begin
   %4 = load i8, ptr %spec.select, align 1, !tbaa !14
-  %conv.peel = sext i8 %4 to i32
-  switch i32 %conv.peel, label %if.else16.peel [
-    i32 60, label %if.then6.loopexit
-    i32 62, label %if.then6.loopexit53
-    i32 94, label %if.then6
+  switch i8 %4, label %if.else16.peel [
+    i8 60, label %if.then6.loopexit
+    i8 62, label %if.then6.loopexit53
+    i8 94, label %if.then6
   ]
 
 if.else16.peel:                                   ; preds = %entry
@@ -16618,11 +16617,10 @@ if.else16.peel:                                   ; preds = %entry
   br i1 %cmp17.peel, label %cleanup21, label %for.cond
 
 for.cond:                                         ; preds = %if.else16.peel
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %cleanup21 [
-    i32 60, label %if.then6.thread63
-    i32 62, label %if.then6.thread67
-    i32 94, label %if.end15
+  switch i8 %0, label %cleanup21 [
+    i8 60, label %if.then6.thread63
+    i8 62, label %if.then6.thread67
+    i8 94, label %if.end15
   ]
 
 if.then6.thread67:                                ; preds = %for.cond
@@ -16954,49 +16952,48 @@ lpad:                                             ; preds = %if.then11
 if.end12:                                         ; preds = %if.end8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %ptr.0296, i64 2
   %2 = load i8, ptr %incdec.ptr9, align 1, !tbaa !14
-  %conv14 = sext i8 %2 to i32
-  switch i32 %conv14, label %sw.default102 [
-    i32 37, label %cleanup
-    i32 110, label %cleanup
-    i32 116, label %cleanup
-    i32 89, label %sw.bb22
-    i32 121, label %sw.bb23
-    i32 67, label %sw.bb24
-    i32 71, label %sw.bb25
-    i32 103, label %sw.bb26
-    i32 97, label %sw.bb27
-    i32 65, label %sw.bb28
-    i32 119, label %sw.bb29
-    i32 117, label %sw.bb30
-    i32 98, label %sw.bb31
-    i32 104, label %sw.bb31
-    i32 66, label %sw.bb32
-    i32 109, label %sw.bb33
-    i32 85, label %sw.bb34
-    i32 87, label %sw.bb35
-    i32 86, label %sw.bb36
-    i32 106, label %sw.bb37
-    i32 100, label %sw.bb38
-    i32 101, label %sw.bb39
-    i32 72, label %cleanup
-    i32 73, label %cleanup
-    i32 77, label %cleanup
-    i32 83, label %cleanup
-    i32 99, label %sw.bb44
-    i32 120, label %sw.bb45
-    i32 88, label %sw.bb46
-    i32 68, label %sw.bb47
-    i32 70, label %sw.bb48
-    i32 114, label %cleanup
-    i32 82, label %cleanup
-    i32 84, label %cleanup
-    i32 112, label %cleanup
-    i32 81, label %cleanup
-    i32 113, label %cleanup
-    i32 122, label %sw.bb55
-    i32 90, label %sw.bb56
-    i32 69, label %sw.bb57
-    i32 79, label %sw.bb75
+  switch i8 %2, label %sw.default102 [
+    i8 37, label %cleanup
+    i8 110, label %cleanup
+    i8 116, label %cleanup
+    i8 89, label %sw.bb22
+    i8 121, label %sw.bb23
+    i8 67, label %sw.bb24
+    i8 71, label %sw.bb25
+    i8 103, label %sw.bb26
+    i8 97, label %sw.bb27
+    i8 65, label %sw.bb28
+    i8 119, label %sw.bb29
+    i8 117, label %sw.bb30
+    i8 98, label %sw.bb31
+    i8 104, label %sw.bb31
+    i8 66, label %sw.bb32
+    i8 109, label %sw.bb33
+    i8 85, label %sw.bb34
+    i8 87, label %sw.bb35
+    i8 86, label %sw.bb36
+    i8 106, label %sw.bb37
+    i8 100, label %sw.bb38
+    i8 101, label %sw.bb39
+    i8 72, label %cleanup
+    i8 73, label %cleanup
+    i8 77, label %cleanup
+    i8 83, label %cleanup
+    i8 99, label %sw.bb44
+    i8 120, label %sw.bb45
+    i8 88, label %sw.bb46
+    i8 68, label %sw.bb47
+    i8 70, label %sw.bb48
+    i8 114, label %cleanup
+    i8 82, label %cleanup
+    i8 84, label %cleanup
+    i8 112, label %cleanup
+    i8 81, label %cleanup
+    i8 113, label %cleanup
+    i8 122, label %sw.bb55
+    i8 90, label %sw.bb56
+    i8 69, label %sw.bb57
+    i8 79, label %sw.bb75
   ]
 
 sw.bb22:                                          ; preds = %if.end12
@@ -17119,14 +17116,13 @@ lpad61:                                           ; preds = %if.then59
 
 if.end63:                                         ; preds = %sw.bb57
   %4 = load i8, ptr %incdec.ptr13, align 1, !tbaa !14
-  %conv65 = sext i8 %4 to i32
-  switch i32 %conv65, label %sw.default [
-    i32 89, label %sw.bb66
-    i32 121, label %sw.bb67
-    i32 67, label %sw.bb68
-    i32 99, label %sw.bb69
-    i32 120, label %sw.bb70
-    i32 88, label %sw.bb71
+  switch i8 %4, label %sw.default [
+    i8 89, label %sw.bb66
+    i8 121, label %sw.bb67
+    i8 67, label %sw.bb68
+    i8 99, label %sw.bb69
+    i8 120, label %sw.bb70
+    i8 88, label %sw.bb71
   ]
 
 sw.bb66:                                          ; preds = %if.end63
@@ -17188,21 +17184,20 @@ lpad79:                                           ; preds = %if.then77
 if.end81:                                         ; preds = %sw.bb75
   %incdec.ptr82 = getelementptr inbounds i8, ptr %ptr.0296, i64 3
   %7 = load i8, ptr %incdec.ptr13, align 1, !tbaa !14
-  %conv83 = sext i8 %7 to i32
-  switch i32 %conv83, label %sw.default97 [
-    i32 121, label %sw.bb84
-    i32 109, label %sw.bb85
-    i32 85, label %sw.bb86
-    i32 87, label %sw.bb87
-    i32 86, label %sw.bb88
-    i32 100, label %sw.bb89
-    i32 101, label %sw.bb90
-    i32 119, label %sw.bb91
-    i32 117, label %sw.bb92
-    i32 72, label %cleanup
-    i32 73, label %cleanup
-    i32 77, label %cleanup
-    i32 83, label %cleanup
+  switch i8 %7, label %sw.default97 [
+    i8 121, label %sw.bb84
+    i8 109, label %sw.bb85
+    i8 85, label %sw.bb86
+    i8 87, label %sw.bb87
+    i8 86, label %sw.bb88
+    i8 100, label %sw.bb89
+    i8 101, label %sw.bb90
+    i8 119, label %sw.bb91
+    i8 117, label %sw.bb92
+    i8 72, label %cleanup
+    i8 73, label %cleanup
+    i8 77, label %cleanup
+    i8 83, label %cleanup
   ]
 
 sw.bb84:                                          ; preds = %if.end81
@@ -17606,49 +17601,48 @@ lpad:                                             ; preds = %if.then11
 if.end12:                                         ; preds = %if.end8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %ptr.0341, i64 2
   %10 = load i8, ptr %incdec.ptr9, align 1, !tbaa !14
-  %conv14 = sext i8 %10 to i32
-  switch i32 %conv14, label %sw.default102 [
-    i32 37, label %sw.bb
-    i32 110, label %sw.bb15
-    i32 116, label %sw.bb18
-    i32 89, label %cleanup
-    i32 121, label %cleanup
-    i32 67, label %cleanup
-    i32 71, label %cleanup
-    i32 103, label %cleanup
-    i32 97, label %cleanup
-    i32 65, label %cleanup
-    i32 119, label %cleanup
-    i32 117, label %cleanup
-    i32 98, label %cleanup
-    i32 104, label %cleanup
-    i32 66, label %cleanup
-    i32 109, label %cleanup
-    i32 85, label %cleanup
-    i32 87, label %cleanup
-    i32 86, label %cleanup
-    i32 106, label %cleanup
-    i32 100, label %cleanup
-    i32 101, label %cleanup
-    i32 72, label %sw.bb40
-    i32 73, label %sw.bb41
-    i32 77, label %sw.bb42
-    i32 83, label %sw.bb43
-    i32 99, label %cleanup
-    i32 120, label %cleanup
-    i32 88, label %cleanup
-    i32 68, label %cleanup
-    i32 70, label %cleanup
-    i32 114, label %sw.bb49
-    i32 82, label %sw.bb50
-    i32 84, label %sw.bb51
-    i32 112, label %sw.bb52
-    i32 81, label %sw.bb53
-    i32 113, label %sw.bb54
-    i32 122, label %cleanup
-    i32 90, label %cleanup
-    i32 69, label %sw.bb57
-    i32 79, label %sw.bb75
+  switch i8 %10, label %sw.default102 [
+    i8 37, label %sw.bb
+    i8 110, label %sw.bb15
+    i8 116, label %sw.bb18
+    i8 89, label %cleanup
+    i8 121, label %cleanup
+    i8 67, label %cleanup
+    i8 71, label %cleanup
+    i8 103, label %cleanup
+    i8 97, label %cleanup
+    i8 65, label %cleanup
+    i8 119, label %cleanup
+    i8 117, label %cleanup
+    i8 98, label %cleanup
+    i8 104, label %cleanup
+    i8 66, label %cleanup
+    i8 109, label %cleanup
+    i8 85, label %cleanup
+    i8 87, label %cleanup
+    i8 86, label %cleanup
+    i8 106, label %cleanup
+    i8 100, label %cleanup
+    i8 101, label %cleanup
+    i8 72, label %sw.bb40
+    i8 73, label %sw.bb41
+    i8 77, label %sw.bb42
+    i8 83, label %sw.bb43
+    i8 99, label %cleanup
+    i8 120, label %cleanup
+    i8 88, label %cleanup
+    i8 68, label %cleanup
+    i8 70, label %cleanup
+    i8 114, label %sw.bb49
+    i8 82, label %sw.bb50
+    i8 84, label %sw.bb51
+    i8 112, label %sw.bb52
+    i8 81, label %sw.bb53
+    i8 113, label %sw.bb54
+    i8 122, label %cleanup
+    i8 90, label %cleanup
+    i8 69, label %sw.bb57
+    i8 79, label %sw.bb75
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -17672,7 +17666,7 @@ if.then.i.i.i.i.i.i.i.i.i219:                     ; preds = %sw.bb
   br label %_ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i.i.i213
 
 _ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i.i.i213: ; preds = %if.then.i.i.i.i.i.i.i.i.i219, %sw.bb
-  %14 = phi i8 [ %10, %sw.bb ], [ %.pre, %if.then.i.i.i.i.i.i.i.i.i219 ]
+  %14 = phi i8 [ 37, %sw.bb ], [ %.pre, %if.then.i.i.i.i.i.i.i.i.i219 ]
   %inc.pre-phi.i.i.i.i.i.i.i.i214 = phi i64 [ %add.i.i.i.i.i.i.i.i211, %sw.bb ], [ %.pre3.i.i.i.i.i.i.i.i222, %if.then.i.i.i.i.i.i.i.i.i219 ]
   %15 = phi i64 [ %11, %sw.bb ], [ %.pre.i.i.i.i.i.i.i.i221, %if.then.i.i.i.i.i.i.i.i.i219 ]
   %16 = load ptr, ptr %ptr_.i.i.i.i.i.i.i.i207, align 8, !tbaa !551
@@ -17923,14 +17917,13 @@ lpad61:                                           ; preds = %if.then59
 if.end63:                                         ; preds = %sw.bb57
   %incdec.ptr64 = getelementptr inbounds i8, ptr %ptr.0341, i64 3
   %52 = load i8, ptr %incdec.ptr13, align 1, !tbaa !14
-  %conv65 = sext i8 %52 to i32
-  switch i32 %conv65, label %sw.default [
-    i32 89, label %cleanup
-    i32 121, label %cleanup
-    i32 67, label %cleanup
-    i32 99, label %cleanup
-    i32 120, label %cleanup
-    i32 88, label %cleanup
+  switch i8 %52, label %sw.default [
+    i8 89, label %cleanup
+    i8 121, label %cleanup
+    i8 67, label %cleanup
+    i8 99, label %cleanup
+    i8 120, label %cleanup
+    i8 88, label %cleanup
   ]
 
 sw.default:                                       ; preds = %if.end63
@@ -17968,21 +17961,20 @@ lpad79:                                           ; preds = %if.then77
 if.end81:                                         ; preds = %sw.bb75
   %incdec.ptr82 = getelementptr inbounds i8, ptr %ptr.0341, i64 3
   %55 = load i8, ptr %incdec.ptr13, align 1, !tbaa !14
-  %conv83 = sext i8 %55 to i32
-  switch i32 %conv83, label %sw.default97 [
-    i32 121, label %cleanup
-    i32 109, label %cleanup
-    i32 85, label %cleanup
-    i32 87, label %cleanup
-    i32 86, label %cleanup
-    i32 100, label %cleanup
-    i32 101, label %cleanup
-    i32 119, label %cleanup
-    i32 117, label %cleanup
-    i32 72, label %sw.bb93
-    i32 73, label %sw.bb94
-    i32 77, label %sw.bb95
-    i32 83, label %sw.bb96
+  switch i8 %55, label %sw.default97 [
+    i8 121, label %cleanup
+    i8 109, label %cleanup
+    i8 85, label %cleanup
+    i8 87, label %cleanup
+    i8 86, label %cleanup
+    i8 100, label %cleanup
+    i8 101, label %cleanup
+    i8 119, label %cleanup
+    i8 117, label %cleanup
+    i8 72, label %sw.bb93
+    i8 73, label %sw.bb94
+    i8 77, label %sw.bb95
+    i8 83, label %sw.bb96
   ]
 
 sw.bb93:                                          ; preds = %if.end81

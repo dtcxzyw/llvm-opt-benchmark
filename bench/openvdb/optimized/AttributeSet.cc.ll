@@ -4105,7 +4105,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
@@ -4379,7 +4379,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %16
@@ -5716,7 +5716,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
@@ -5886,7 +5886,7 @@ if.then.i.i.i57:                                  ; preds = %if.else.i31
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i36: ; preds = %if.else.i31
   %sub.ptr.div.i.i.i.i37 = ashr exact i64 %sub.ptr.sub.i.i.i.i34, 3
   %.sroa.speculated.i.i.i38 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i37, i64 1)
-  %add.i.i.i39 = add i64 %.sroa.speculated.i.i.i38, %sub.ptr.div.i.i.i.i37
+  %add.i.i.i39 = add nsw i64 %.sroa.speculated.i.i.i38, %sub.ptr.div.i.i.i.i37
   %cmp7.i.i.i40 = icmp ult i64 %add.i.i.i39, %sub.ptr.div.i.i.i.i37
   %19 = call i64 @llvm.umin.i64(i64 %add.i.i.i39, i64 1152921504606846975)
   %cond.i.i.i41 = select i1 %cmp7.i.i.i40, i64 1152921504606846975, i64 %19
@@ -8845,7 +8845,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
@@ -10554,10 +10554,10 @@ for.body.i.i.i:                                   ; preds = %if.end22.i.i.i, %fo
   br i1 %tobool.not.i.i.i.i.i, label %switch.early.test.i.i.i.i.i, label %if.end.i.i.i
 
 switch.early.test.i.i.i.i.i:                      ; preds = %for.body.i.i.i
-  switch i32 %conv.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
-    i32 124, label %if.end.i.i.i
-    i32 95, label %if.end.i.i.i
-    i32 58, label %if.end.i.i.i
+  switch i8 %1, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
+    i8 124, label %if.end.i.i.i
+    i8 95, label %if.end.i.i.i
+    i8 58, label %if.end.i.i.i
   ]
 
 if.end.i.i.i:                                     ; preds = %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %for.body.i.i.i
@@ -10570,10 +10570,10 @@ if.end.i.i.i:                                     ; preds = %switch.early.test.i
   br i1 %tobool.not.i.i12.i.i.i, label %switch.early.test.i.i14.i.i.i, label %if.end10.i.i.i
 
 switch.early.test.i.i14.i.i.i:                    ; preds = %if.end.i.i.i
-  switch i32 %conv.i9.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit" [
-    i32 124, label %if.end10.i.i.i
-    i32 95, label %if.end10.i.i.i
-    i32 58, label %if.end10.i.i.i
+  switch i8 %2, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit" [
+    i8 124, label %if.end10.i.i.i
+    i8 95, label %if.end10.i.i.i
+    i8 58, label %if.end10.i.i.i
   ]
 
 if.end10.i.i.i:                                   ; preds = %switch.early.test.i.i14.i.i.i, %switch.early.test.i.i14.i.i.i, %switch.early.test.i.i14.i.i.i, %if.end.i.i.i
@@ -10586,10 +10586,10 @@ if.end10.i.i.i:                                   ; preds = %switch.early.test.i
   br i1 %tobool.not.i.i21.i.i.i, label %switch.early.test.i.i23.i.i.i, label %if.end16.i.i.i
 
 switch.early.test.i.i23.i.i.i:                    ; preds = %if.end10.i.i.i
-  switch i32 %conv.i18.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16" [
-    i32 124, label %if.end16.i.i.i
-    i32 95, label %if.end16.i.i.i
-    i32 58, label %if.end16.i.i.i
+  switch i8 %3, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16" [
+    i8 124, label %if.end16.i.i.i
+    i8 95, label %if.end16.i.i.i
+    i8 58, label %if.end16.i.i.i
   ]
 
 if.end16.i.i.i:                                   ; preds = %switch.early.test.i.i23.i.i.i, %switch.early.test.i.i23.i.i.i, %switch.early.test.i.i23.i.i.i, %if.end10.i.i.i
@@ -10602,10 +10602,10 @@ if.end16.i.i.i:                                   ; preds = %switch.early.test.i
   br i1 %tobool.not.i.i30.i.i.i, label %switch.early.test.i.i32.i.i.i, label %if.end22.i.i.i
 
 switch.early.test.i.i32.i.i.i:                    ; preds = %if.end16.i.i.i
-  switch i32 %conv.i27.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18" [
-    i32 124, label %if.end22.i.i.i
-    i32 95, label %if.end22.i.i.i
-    i32 58, label %if.end22.i.i.i
+  switch i8 %4, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18" [
+    i8 124, label %if.end22.i.i.i
+    i8 95, label %if.end22.i.i.i
+    i8 58, label %if.end22.i.i.i
   ]
 
 if.end22.i.i.i:                                   ; preds = %switch.early.test.i.i32.i.i.i, %switch.early.test.i.i32.i.i.i, %switch.early.test.i.i32.i.i.i, %if.end16.i.i.i
@@ -10637,10 +10637,10 @@ sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   br i1 %tobool.not.i.i42.i.i.i, label %switch.early.test.i.i44.i.i.i, label %if.end29.i.i.i
 
 switch.early.test.i.i44.i.i.i:                    ; preds = %sw.bb.i.i.i
-  switch i32 %conv.i39.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
-    i32 124, label %if.end29.i.i.i
-    i32 95, label %if.end29.i.i.i
-    i32 58, label %if.end29.i.i.i
+  switch i8 %5, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
+    i8 124, label %if.end29.i.i.i
+    i8 95, label %if.end29.i.i.i
+    i8 58, label %if.end29.i.i.i
   ]
 
 if.end29.i.i.i:                                   ; preds = %switch.early.test.i.i44.i.i.i, %switch.early.test.i.i44.i.i.i, %switch.early.test.i.i44.i.i.i, %sw.bb.i.i.i
@@ -10657,10 +10657,10 @@ sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %fo
   br i1 %tobool.not.i.i51.i.i.i, label %switch.early.test.i.i53.i.i.i, label %if.end36.i.i.i
 
 switch.early.test.i.i53.i.i.i:                    ; preds = %sw.bb31.i.i.i
-  switch i32 %conv.i48.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
-    i32 124, label %if.end36.i.i.i
-    i32 95, label %if.end36.i.i.i
-    i32 58, label %if.end36.i.i.i
+  switch i8 %6, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
+    i8 124, label %if.end36.i.i.i
+    i8 95, label %if.end36.i.i.i
+    i8 58, label %if.end36.i.i.i
   ]
 
 if.end36.i.i.i:                                   ; preds = %switch.early.test.i.i53.i.i.i, %switch.early.test.i.i53.i.i.i, %switch.early.test.i.i53.i.i.i, %sw.bb31.i.i.i
@@ -10677,10 +10677,10 @@ sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %fo
   br i1 %tobool.not.i.i60.i.i.i, label %switch.early.test.i.i62.i.i.i, label %if.end43.i.i.i
 
 switch.early.test.i.i62.i.i.i:                    ; preds = %sw.bb38.i.i.i
-  switch i32 %conv.i57.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
-    i32 124, label %if.end43.i.i.i
-    i32 95, label %if.end43.i.i.i
-    i32 58, label %if.end43.i.i.i
+  switch i8 %7, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN7openvdb5v11_06points12AttributeSet10Descriptor9validNameERKS9_E3$_0ET_SJ_SJ_T0_.exit" [
+    i8 124, label %if.end43.i.i.i
+    i8 95, label %if.end43.i.i.i
+    i8 58, label %if.end43.i.i.i
   ]
 
 if.end43.i.i.i:                                   ; preds = %switch.early.test.i.i62.i.i.i, %switch.early.test.i.i62.i.i.i, %switch.early.test.i.i62.i.i.i, %sw.bb38.i.i.i
@@ -13139,7 +13139,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %3
@@ -14902,7 +14902,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7openvdb5v11_06points12AttributeSet4Util11NameAndTypeESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 88686269585142075)
   %cond.i = select i1 %cmp7.i, i64 88686269585142075, i64 %2
@@ -15280,7 +15280,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7openvdb5v11_06points12AttributeSet4Util11NameAndTypeESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 88686269585142075)
   %cond.i = select i1 %cmp7.i, i64 88686269585142075, i64 %2
@@ -15752,7 +15752,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -16245,12 +16245,12 @@ land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end19.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
   %sub14.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %idx.neg.i.i24.i.i.i = sub nsw i64 0, %sub14.i.i.i
   %gep = getelementptr i64, ptr %incdec.ptr.i.i1.i.i, i64 %idx.neg.i.i24.i.i.i
   %13 = load i64, ptr %gep, align 8
-  %idx.neg.i.i27.i.i.i = sub i64 0, %__secondChild.0.lcssa.i.i.i
+  %idx.neg.i.i27.i.i.i = sub nsw i64 0, %__secondChild.0.lcssa.i.i.i
   %gep2 = getelementptr i64, ptr %incdec.ptr.i.i1.i.i, i64 %idx.neg.i.i27.i.i.i
   store i64 %13, ptr %gep2, align 8
   br label %if.end19.i.i.i
@@ -16461,13 +16461,13 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i12
   br i1 %cmp9.i.i35, label %if.then10.i.i36, label %if.end19.i.i15
 
 if.then10.i.i36:                                  ; preds = %land.lhs.true.i.i
-  %add11.i.i = shl i64 %__secondChild.0.lcssa.i.i13, 1
+  %add11.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i13, 1
   %sub14.i.i37 = or disjoint i64 %add11.i.i, 1
   %idx.neg.i.i24.i.i38 = sub nsw i64 0, %sub14.i.i37
   %add.ptr.i.i25.i.i39 = getelementptr inbounds i64, ptr %15, i64 %idx.neg.i.i24.i.i38
   %incdec.ptr.i.i26.i.i40 = getelementptr inbounds i64, ptr %add.ptr.i.i25.i.i39, i64 -1
   %22 = load i64, ptr %incdec.ptr.i.i26.i.i40, align 8
-  %idx.neg.i.i27.i.i41 = sub i64 0, %__secondChild.0.lcssa.i.i13
+  %idx.neg.i.i27.i.i41 = sub nsw i64 0, %__secondChild.0.lcssa.i.i13
   %add.ptr.i.i28.i.i42 = getelementptr inbounds i64, ptr %15, i64 %idx.neg.i.i27.i.i41
   %incdec.ptr.i.i29.i.i43 = getelementptr inbounds i64, ptr %add.ptr.i.i28.i.i42, i64 -1
   store i64 %22, ptr %incdec.ptr.i.i29.i.i43, align 8
@@ -17452,7 +17452,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -17579,7 +17579,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 6
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
   %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2
@@ -18704,7 +18704,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp19.i.i.i.i, label %if.then20.i.i.i.i, label %if.end33.i.i.i.i
 
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i20.i.i.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub24.i.i.i.i
   %6 = load i64, ptr %add.ptr.i20.i.i.i.i, align 8

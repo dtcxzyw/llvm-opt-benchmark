@@ -510,7 +510,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
+define dso_local noundef i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
 entry:
   %lba = getelementptr inbounds %struct.SCSICommand, ptr %cmd, i64 0, i32 3
   store i64 -1, ptr %lba, align 8
@@ -639,12 +639,11 @@ sw.bb50.i:                                        ; preds = %sw.bb
   %arrayidx51.i = getelementptr i8, ptr %buf, i64 1
   %16 = load i8, ptr %arrayidx51.i, align 1
   %17 = and i8 %16, 31
-  %and53.i = zext nneg i8 %17 to i32
-  switch i32 %and53.i, label %return [
-    i32 0, label %sw.bb54.i
-    i32 1, label %sw.bb54.i
-    i32 6, label %sw.bb56.i
-    i32 8, label %sw.bb58.i
+  switch i8 %17, label %return [
+    i8 0, label %sw.bb54.i
+    i8 1, label %sw.bb54.i
+    i8 6, label %sw.bb56.i
+    i8 8, label %sw.bb58.i
   ]
 
 sw.bb54.i:                                        ; preds = %sw.bb50.i, %sw.bb50.i
@@ -1080,7 +1079,7 @@ declare ptr @blk_by_legacy_dinfo(ptr noundef) local_unnamed_addr #1
 declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @scsi_req_alloc(ptr noundef %reqops, ptr noundef %d, i32 noundef %tag, i32 noundef %lun, ptr noundef %hba_private) local_unnamed_addr #0 {
+define dso_local noundef ptr @scsi_req_alloc(ptr noundef %reqops, ptr noundef %d, i32 noundef %tag, i32 noundef %lun, ptr noundef %hba_private) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %d, i64 88
@@ -1894,7 +1893,7 @@ scsi_req_ref.exit:                                ; preds = %scsi_req_enqueue_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @scsi_req_ref(ptr noundef returned %req) local_unnamed_addr #0 {
+define dso_local noundef ptr @scsi_req_ref(ptr noundef returned %req) local_unnamed_addr #0 {
 entry:
   %refcount = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 3
   %0 = load i32, ptr %refcount, align 8
@@ -2261,8 +2260,45 @@ sw.bb164:                                         ; preds = %entry
   br i1 %cmp166, label %sw.epilog.sink.split, label %if.else170
 
 if.else170:                                       ; preds = %sw.bb164
-  %call171 = tail call fastcc i32 @ata_passthrough_12_xfer(ptr noundef nonnull %dev, ptr noundef nonnull %buf)
-  %conv172 = sext i32 %call171 to i64
+  %arrayidx.i = getelementptr i8, ptr %buf, i64 2
+  %36 = load i8, ptr %arrayidx.i, align 1
+  %37 = and i8 %36, 3
+  %conv.i.i = zext i8 %36 to i32
+  %38 = and i32 %conv.i.i, 4
+  %tobool.not.i.i = icmp eq i32 %38, 0
+  br i1 %tobool.not.i.i, label %ata_passthrough_xfer_unit.exit.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.else170
+  %39 = and i32 %conv.i.i, 16
+  %tobool5.not.i.i = icmp eq i32 %39, 0
+  br i1 %tobool5.not.i.i, label %ata_passthrough_xfer_unit.exit.i, label %if.then6.i.i
+
+if.then6.i.i:                                     ; preds = %if.then.i.i
+  %blocksize.i.i = getelementptr inbounds %struct.SCSIDevice, ptr %dev, i64 0, i32 12
+  %40 = load i32, ptr %blocksize.i.i, align 8
+  br label %ata_passthrough_xfer_unit.exit.i
+
+ata_passthrough_xfer_unit.exit.i:                 ; preds = %if.then6.i.i, %if.then.i.i, %if.else170
+  %xfer_unit.0.i.i = phi i32 [ %40, %if.then6.i.i ], [ 512, %if.then.i.i ], [ 1, %if.else170 ]
+  switch i8 %37, label %ata_passthrough_12_xfer.exit [
+    i8 2, label %sw.bb4.i
+    i8 1, label %sw.epilog.sink.split.i
+  ]
+
+sw.bb4.i:                                         ; preds = %ata_passthrough_xfer_unit.exit.i
+  br label %sw.epilog.sink.split.i
+
+sw.epilog.sink.split.i:                           ; preds = %sw.bb4.i, %ata_passthrough_xfer_unit.exit.i
+  %.sink.i = phi i64 [ 4, %sw.bb4.i ], [ 3, %ata_passthrough_xfer_unit.exit.i ]
+  %arrayidx5.i = getelementptr i8, ptr %buf, i64 %.sink.i
+  %41 = load i8, ptr %arrayidx5.i, align 1
+  %42 = zext i8 %41 to i32
+  br label %ata_passthrough_12_xfer.exit
+
+ata_passthrough_12_xfer.exit:                     ; preds = %ata_passthrough_xfer_unit.exit.i, %sw.epilog.sink.split.i
+  %xfer.0.shrunk.i = phi i32 [ 0, %ata_passthrough_xfer_unit.exit.i ], [ %42, %sw.epilog.sink.split.i ]
+  %mul.i = mul i32 %xfer.0.shrunk.i, %xfer_unit.0.i.i
+  %conv172 = sext i32 %mul.i to i64
   br label %sw.epilog.sink.split
 
 sw.bb175:                                         ; preds = %entry
@@ -2270,8 +2306,8 @@ sw.bb175:                                         ; preds = %entry
   %conv177 = sext i32 %call176 to i64
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.bb164, %sw.bb74, %cond.false, %sw.bb19, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.end15, %sw.bb26, %sw.bb28, %sw.bb57, %sw.bb69, %sw.bb102, %sw.bb111, %sw.bb124, %sw.bb175, %if.else40, %if.then33, %if.else84, %if.then134, %if.then154, %if.else170
-  %.sink61 = phi i64 [ %conv172, %if.else170 ], [ %or160, %if.then154 ], [ %conv147, %if.then134 ], [ %cond98, %if.else84 ], [ %or, %if.then33 ], [ %or46, %if.else40 ], [ %conv177, %sw.bb175 ], [ %conv127, %sw.bb124 ], [ %or121, %sw.bb111 ], [ %or108, %sw.bb102 ], [ %mul73, %sw.bb69 ], [ %mul61, %sw.bb57 ], [ 6, %sw.bb28 ], [ 8, %sw.bb26 ], [ %mul, %if.end15 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ %7, %cond.false ], [ 0, %sw.bb19 ], [ 12, %sw.bb74 ], [ 0, %sw.bb164 ]
+sw.epilog.sink.split:                             ; preds = %sw.bb164, %sw.bb74, %cond.false, %sw.bb19, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.end15, %sw.bb26, %sw.bb28, %sw.bb57, %sw.bb69, %sw.bb102, %sw.bb111, %sw.bb124, %sw.bb175, %if.else40, %if.then33, %if.else84, %if.then134, %if.then154, %ata_passthrough_12_xfer.exit
+  %.sink61 = phi i64 [ %conv172, %ata_passthrough_12_xfer.exit ], [ %or160, %if.then154 ], [ %conv147, %if.then134 ], [ %cond98, %if.else84 ], [ %or, %if.then33 ], [ %or46, %if.else40 ], [ %conv177, %sw.bb175 ], [ %conv127, %sw.bb124 ], [ %or121, %sw.bb111 ], [ %or108, %sw.bb102 ], [ %mul73, %sw.bb69 ], [ %mul61, %sw.bb57 ], [ 6, %sw.bb28 ], [ 8, %sw.bb26 ], [ %mul, %if.end15 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ %7, %cond.false ], [ 0, %sw.bb19 ], [ 12, %sw.bb74 ], [ 0, %sw.bb164 ]
   store i64 %.sink61, ptr %xfer, align 8
   br label %sw.epilog
 
@@ -3737,7 +3773,7 @@ if.end14:                                         ; preds = %if.else, %if.then13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @scsi_unit_attention(ptr noundef %req, ptr nocapture readnone %buf) #0 {
+define internal noundef i32 @scsi_unit_attention(ptr noundef %req, ptr nocapture readnone %buf) #0 {
 entry:
   tail call void @scsi_req_complete(ptr noundef %req, i32 noundef 2)
   ret i32 0
@@ -4235,7 +4271,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare ptr @qemu_hw_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @scsi_invalid_command(ptr noundef %req, ptr nocapture readnone %buf) #0 {
+define internal noundef i32 @scsi_invalid_command(ptr noundef %req, ptr nocapture readnone %buf) #0 {
 entry:
   %sense_code_INVALID_OPCODE.coerce.0.copyload = load i24, ptr @sense_code_INVALID_OPCODE, align 1
   tail call void @scsi_req_build_sense(ptr noundef %req, i24 %sense_code_INVALID_OPCODE.coerce.0.copyload)
@@ -4244,7 +4280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @scsi_invalid_field(ptr noundef %req, ptr nocapture readnone %buf) #0 {
+define internal noundef i32 @scsi_invalid_field(ptr noundef %req, ptr nocapture readnone %buf) #0 {
 entry:
   %sense_code_INVALID_FIELD.coerce.0.copyload = load i24, ptr @sense_code_INVALID_FIELD, align 1
   tail call void @scsi_req_build_sense(ptr noundef %req, i24 %sense_code_INVALID_FIELD.coerce.0.copyload)
@@ -4302,51 +4338,6 @@ return:                                           ; preds = %entry, %sw.bb9, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @ata_passthrough_12_xfer(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %buf) unnamed_addr #9 {
-entry:
-  %arrayidx = getelementptr i8, ptr %buf, i64 2
-  %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, 3
-  %and = zext nneg i8 %1 to i32
-  %conv.i = zext i8 %0 to i32
-  %2 = and i32 %conv.i, 4
-  %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %ata_passthrough_xfer_unit.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %3 = and i32 %conv.i, 16
-  %tobool5.not.i = icmp eq i32 %3, 0
-  br i1 %tobool5.not.i, label %ata_passthrough_xfer_unit.exit, label %if.then6.i
-
-if.then6.i:                                       ; preds = %if.then.i
-  %blocksize.i = getelementptr inbounds %struct.SCSIDevice, ptr %dev, i64 0, i32 12
-  %4 = load i32, ptr %blocksize.i, align 8
-  br label %ata_passthrough_xfer_unit.exit
-
-ata_passthrough_xfer_unit.exit:                   ; preds = %entry, %if.then.i, %if.then6.i
-  %xfer_unit.0.i = phi i32 [ %4, %if.then6.i ], [ 512, %if.then.i ], [ 1, %entry ]
-  switch i32 %and, label %sw.epilog [
-    i32 2, label %sw.bb4
-    i32 1, label %sw.epilog.sink.split
-  ]
-
-sw.bb4:                                           ; preds = %ata_passthrough_xfer_unit.exit
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %ata_passthrough_xfer_unit.exit, %sw.bb4
-  %.sink = phi i64 [ 4, %sw.bb4 ], [ 3, %ata_passthrough_xfer_unit.exit ]
-  %arrayidx5 = getelementptr i8, ptr %buf, i64 %.sink
-  %5 = load i8, ptr %arrayidx5, align 1
-  %6 = zext i8 %5 to i32
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %ata_passthrough_xfer_unit.exit
-  %xfer.0.shrunk = phi i32 [ 0, %ata_passthrough_xfer_unit.exit ], [ %6, %sw.epilog.sink.split ]
-  %mul = mul i32 %xfer_unit.0.i, %xfer.0.shrunk
-  ret i32 %mul
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal fastcc i32 @ata_passthrough_16_xfer(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %buf) unnamed_addr #9 {
 entry:
   %arrayidx = getelementptr i8, ptr %buf, i64 1
@@ -4355,7 +4346,6 @@ entry:
   %arrayidx1 = getelementptr i8, ptr %buf, i64 2
   %2 = load i8, ptr %arrayidx1, align 1
   %3 = and i8 %2, 3
-  %and3 = zext nneg i8 %3 to i32
   %conv.i = zext i8 %2 to i32
   %4 = and i32 %conv.i, 4
   %tobool.not.i = icmp eq i32 %4, 0
@@ -4373,9 +4363,9 @@ if.then6.i:                                       ; preds = %if.then.i
 
 ata_passthrough_xfer_unit.exit:                   ; preds = %entry, %if.then.i, %if.then6.i
   %xfer_unit.0.i = phi i32 [ %6, %if.then6.i ], [ 512, %if.then.i ], [ 1, %entry ]
-  switch i32 %and3, label %sw.epilog [
-    i32 2, label %sw.bb9
-    i32 1, label %sw.bb4
+  switch i8 %3, label %sw.epilog [
+    i8 2, label %sw.bb9
+    i8 1, label %sw.bb4
   ]
 
 sw.bb4:                                           ; preds = %ata_passthrough_xfer_unit.exit
@@ -4423,7 +4413,7 @@ sw.epilog:                                        ; preds = %ata_passthrough_xfe
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_scsi_requests(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_scsi_requests(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %pv, i64 0, i32 9
@@ -4535,7 +4525,7 @@ while.end:                                        ; preds = %scsi_req_enqueue_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_scsi_requests(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_scsi_requests(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %requests = getelementptr inbounds %struct.SCSIDevice, ptr %pv, i64 0, i32 9
   %req.023 = load ptr, ptr %requests, align 8
@@ -4722,7 +4712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @scsi_bus_check_address(ptr noundef %qbus, ptr noundef %qdev, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @scsi_bus_check_address(ptr noundef %qbus, ptr noundef %qdev, ptr noundef %errp) #0 {
 entry:
   %d = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #15
@@ -4810,7 +4800,7 @@ declare ptr @qdev_fw_name(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @scsi_bus_is_address_free(ptr nocapture noundef readonly %bus, i32 noundef %channel, i32 noundef %target, i32 noundef %lun, ptr noundef writeonly %p_dev) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scsi_bus_is_address_free(ptr nocapture noundef readonly %bus, i32 noundef %channel, i32 noundef %target, i32 noundef %lun, ptr noundef writeonly %p_dev) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #15
   %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2

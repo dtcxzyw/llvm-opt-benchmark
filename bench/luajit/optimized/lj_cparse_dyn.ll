@@ -154,7 +154,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @cpcparser(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr noundef %ud) #1 {
+define internal noalias noundef ptr @cpcparser(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr noundef %ud) #1 {
 entry:
   %decl.i13 = alloca %struct.CPDecl, align 8
   %k.i.i = alloca %struct.CPValue, align 4
@@ -4491,22 +4491,21 @@ if.then22.i:                                      ; preds = %if.then12.i
   %incdec.ptr23.i = getelementptr inbounds i8, ptr %s.0.i, i64 3
   %sub25.i = zext nneg i8 %26 to i32
   %add.i = add nsw i32 %mul.i, %sub25.i
-  %.pre.i = load i8, ptr %incdec.ptr23.i, align 1
+  %.pr27.pre.i = load i8, ptr %incdec.ptr23.i, align 1
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then22.i, %if.then12.i, %if.end.i66
-  %27 = phi i8 [ %.pre.i, %if.then22.i ], [ %25, %if.then12.i ], [ %23, %if.end.i66 ]
-  %s.1.i = phi ptr [ %incdec.ptr23.i, %if.then22.i ], [ %incdec.ptr13.i, %if.then12.i ], [ %s.0.i, %if.end.i66 ]
-  %vlen.0.i = phi i32 [ %add.i, %if.then22.i ], [ %sub.i, %if.then12.i ], [ 0, %if.end.i66 ]
+  %27 = phi i8 [ %25, %if.then12.i ], [ %23, %if.end.i66 ], [ %.pr27.pre.i, %if.then22.i ]
+  %s.1.i = phi ptr [ %incdec.ptr13.i, %if.then12.i ], [ %s.0.i, %if.end.i66 ], [ %incdec.ptr23.i, %if.then22.i ]
+  %vlen.0.i = phi i32 [ %sub.i, %if.then12.i ], [ 0, %if.end.i66 ], [ %add.i, %if.then22.i ]
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %s.1.i, i64 1
-  %conv29.i = sext i8 %27 to i32
-  switch i32 %conv29.i, label %bad_size.i [
-    i32 81, label %sw.epilog.i
-    i32 72, label %sw.bb30.i
-    i32 83, label %sw.bb31.i
-    i32 68, label %sw.bb32.i
-    i32 84, label %sw.bb33.i
-    i32 79, label %sw.bb34.i
+  switch i8 %27, label %bad_size.i [
+    i8 81, label %sw.epilog.i
+    i8 72, label %sw.bb30.i
+    i8 83, label %sw.bb31.i
+    i8 68, label %sw.bb32.i
+    i8 84, label %sw.bb33.i
+    i8 79, label %sw.bb34.i
   ]
 
 sw.bb30.i:                                        ; preds = %if.end27.i
@@ -4554,11 +4553,11 @@ if.then44.i:                                      ; preds = %if.then41.i
 
 bad_size.i:                                       ; preds = %if.then44.i, %if.then41.i, %sw.epilog.i, %if.end27.i
   %call.i72 = tail call fastcc i32 @cp_next(ptr noundef nonnull %cp)
-  %.pr27.i = load i32, ptr %tok, align 4
+  %.pr28.i = load i32, ptr %tok, align 4
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %bad_size.i, %cp_check.exit.i60
-  %32 = phi i32 [ %.pr27.i, %bad_size.i ], [ %19, %cp_check.exit.i60 ]
+  %32 = phi i32 [ %.pr28.i, %bad_size.i ], [ %19, %cp_check.exit.i60 ]
   %cmp.not.i23.i = icmp eq i32 %32, 41
   br i1 %cmp.not.i23.i, label %cp_decl_mode.exit, label %if.then.i24.i
 

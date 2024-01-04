@@ -566,11 +566,10 @@ if.end2:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %valueWidth.i = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 7
   %1 = load i8, ptr %valueWidth.i, align 1
-  %conv.i4 = sext i8 %1 to i32
-  switch i32 %conv.i4, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb8.i
-    i32 2, label %sw.bb19.i
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb8.i
+    i8 2, label %sw.bb19.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end2
@@ -703,8 +702,8 @@ while.cond.i:                                     ; preds = %_ZN6icu_7512LocalPo
           to label %invoke.cont34.i unwind label %lpad33.i
 
 invoke.cont34.i:                                  ; preds = %while.cond.i
-  %cmp.i5 = icmp sgt i32 %call35.i, -1
-  br i1 %cmp.i5, label %while.body.i, label %while.end.i
+  %cmp.i4 = icmp sgt i32 %call35.i, -1
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %invoke.cont34.i
   %25 = load i32, ptr %value.i, align 4

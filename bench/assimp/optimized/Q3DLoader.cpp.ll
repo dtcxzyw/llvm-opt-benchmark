@@ -793,12 +793,11 @@ lpad.i.i354:                                      ; preds = %if.then.i.i352
 invoke.cont107:                                   ; preds = %if.end106
   %59 = load i8, ptr %56, align 1
   store ptr %add.ptr.i.i349, ptr %mCurrent.i, align 8
-  %conv109 = sext i8 %59 to i32
-  switch i32 %conv109, label %sw.default [
-    i32 109, label %for.cond.preheader
-    i32 99, label %for.cond319.preheader
-    i32 116, label %sw.bb379
-    i32 115, label %sw.bb447
+  switch i8 %59, label %sw.default [
+    i8 109, label %for.cond.preheader
+    i8 99, label %for.cond319.preheader
+    i8 116, label %sw.bb379
+    i8 115, label %sw.bb447
   ]
 
 for.cond319.preheader:                            ; preds = %invoke.cont107

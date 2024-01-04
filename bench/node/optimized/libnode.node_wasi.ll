@@ -24074,16 +24074,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !29
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -24370,16 +24370,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !65
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -24715,16 +24715,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !94
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -24969,16 +24969,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !127
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -25336,16 +25336,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !164
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 105, label %sw.bb16
-    i32 117, label %sw.bb16
-    i32 115, label %sw.bb16
-    i32 111, label %sw.bb19
-    i32 120, label %sw.bb22
-    i32 88, label %sw.bb25
-    i32 112, label %do.body31
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 105, label %sw.bb16
+    i8 117, label %sw.bb16
+    i8 115, label %sw.bb16
+    i8 111, label %sw.bb19
+    i8 120, label %sw.bb22
+    i8 88, label %sw.bb25
+    i8 112, label %do.body31
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -25590,16 +25590,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !197
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -25851,16 +25851,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !230
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -26105,16 +26105,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !263
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -26356,16 +26356,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !296
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -26583,16 +26583,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !323
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -26847,16 +26847,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !356
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb18
-    i32 105, label %sw.bb18
-    i32 117, label %sw.bb18
-    i32 115, label %sw.bb18
-    i32 111, label %sw.bb21
-    i32 120, label %sw.bb24
-    i32 88, label %sw.bb27
-    i32 112, label %do.body33
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb18
+    i8 105, label %sw.bb18
+    i8 117, label %sw.bb18
+    i8 115, label %sw.bb18
+    i8 111, label %sw.bb21
+    i8 120, label %sw.bb24
+    i8 88, label %sw.bb27
+    i8 112, label %do.body33
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -27101,16 +27101,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !389
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 105, label %sw.bb16
-    i32 117, label %sw.bb16
-    i32 115, label %sw.bb16
-    i32 111, label %sw.bb19
-    i32 120, label %sw.bb22
-    i32 88, label %sw.bb25
-    i32 112, label %do.body31
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 105, label %sw.bb16
+    i8 117, label %sw.bb16
+    i8 115, label %sw.bb16
+    i8 111, label %sw.bb19
+    i8 120, label %sw.bb22
+    i8 88, label %sw.bb25
+    i8 112, label %do.body31
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -27365,16 +27365,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !422
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -27629,16 +27629,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !455
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 105, label %sw.bb16
-    i32 117, label %sw.bb16
-    i32 115, label %sw.bb16
-    i32 111, label %sw.bb19
-    i32 120, label %sw.bb22
-    i32 88, label %sw.bb25
-    i32 112, label %do.body31
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 105, label %sw.bb16
+    i8 117, label %sw.bb16
+    i8 115, label %sw.bb16
+    i8 111, label %sw.bb19
+    i8 120, label %sw.bb22
+    i8 88, label %sw.bb25
+    i8 112, label %do.body31
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -27893,16 +27893,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !488
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 105, label %sw.bb16
-    i32 117, label %sw.bb16
-    i32 115, label %sw.bb16
-    i32 111, label %sw.bb19
-    i32 120, label %sw.bb22
-    i32 88, label %sw.bb25
-    i32 112, label %do.body31
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 105, label %sw.bb16
+    i8 117, label %sw.bb16
+    i8 115, label %sw.bb16
+    i8 111, label %sw.bb19
+    i8 120, label %sw.bb22
+    i8 88, label %sw.bb25
+    i8 112, label %do.body31
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -28147,16 +28147,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !521
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -28516,16 +28516,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !556
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb22
-    i32 105, label %sw.bb22
-    i32 117, label %sw.bb22
-    i32 115, label %sw.bb22
-    i32 111, label %sw.bb25
-    i32 120, label %sw.bb28
-    i32 88, label %sw.bb31
-    i32 112, label %do.body37
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb22
+    i8 105, label %sw.bb22
+    i8 117, label %sw.bb22
+    i8 115, label %sw.bb22
+    i8 111, label %sw.bb25
+    i8 120, label %sw.bb28
+    i8 88, label %sw.bb31
+    i8 112, label %do.body37
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -28770,16 +28770,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp14.not, label %while.end, label %while.cond, !llvm.loop !589
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb20
-    i32 105, label %sw.bb20
-    i32 117, label %sw.bb20
-    i32 115, label %sw.bb20
-    i32 111, label %sw.bb23
-    i32 120, label %sw.bb26
-    i32 88, label %sw.bb29
-    i32 112, label %do.body35
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb20
+    i8 105, label %sw.bb20
+    i8 117, label %sw.bb20
+    i8 115, label %sw.bb20
+    i8 111, label %sw.bb23
+    i8 120, label %sw.bb26
+    i8 88, label %sw.bb29
+    i8 112, label %do.body35
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -29024,16 +29024,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !622
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb18
-    i32 105, label %sw.bb18
-    i32 117, label %sw.bb18
-    i32 115, label %sw.bb18
-    i32 111, label %sw.bb21
-    i32 120, label %sw.bb24
-    i32 88, label %sw.bb27
-    i32 112, label %do.body33
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb18
+    i8 105, label %sw.bb18
+    i8 117, label %sw.bb18
+    i8 115, label %sw.bb18
+    i8 111, label %sw.bb21
+    i8 120, label %sw.bb24
+    i8 88, label %sw.bb27
+    i8 112, label %do.body33
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -29288,16 +29288,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !655
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb22
-    i32 105, label %sw.bb22
-    i32 117, label %sw.bb22
-    i32 115, label %sw.bb22
-    i32 111, label %sw.bb25
-    i32 120, label %sw.bb28
-    i32 88, label %sw.bb31
-    i32 112, label %do.body37
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb22
+    i8 105, label %sw.bb22
+    i8 117, label %sw.bb22
+    i8 115, label %sw.bb22
+    i8 111, label %sw.bb25
+    i8 120, label %sw.bb28
+    i8 88, label %sw.bb31
+    i8 112, label %do.body37
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -29542,16 +29542,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp14.not, label %while.end, label %while.cond, !llvm.loop !688
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb20
-    i32 105, label %sw.bb20
-    i32 117, label %sw.bb20
-    i32 115, label %sw.bb20
-    i32 111, label %sw.bb23
-    i32 120, label %sw.bb26
-    i32 88, label %sw.bb29
-    i32 112, label %do.body35
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb20
+    i8 105, label %sw.bb20
+    i8 117, label %sw.bb20
+    i8 115, label %sw.bb20
+    i8 111, label %sw.bb23
+    i8 120, label %sw.bb26
+    i8 88, label %sw.bb29
+    i8 112, label %do.body35
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -29796,16 +29796,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !721
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb18
-    i32 105, label %sw.bb18
-    i32 117, label %sw.bb18
-    i32 115, label %sw.bb18
-    i32 111, label %sw.bb21
-    i32 120, label %sw.bb24
-    i32 88, label %sw.bb27
-    i32 112, label %do.body33
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb18
+    i8 105, label %sw.bb18
+    i8 117, label %sw.bb18
+    i8 115, label %sw.bb18
+    i8 111, label %sw.bb21
+    i8 120, label %sw.bb24
+    i8 88, label %sw.bb27
+    i8 112, label %do.body33
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -30060,16 +30060,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp20.not, label %while.end, label %while.cond, !llvm.loop !754
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb26
-    i32 105, label %sw.bb26
-    i32 117, label %sw.bb26
-    i32 115, label %sw.bb26
-    i32 111, label %sw.bb29
-    i32 120, label %sw.bb32
-    i32 88, label %sw.bb35
-    i32 112, label %do.body41
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb26
+    i8 105, label %sw.bb26
+    i8 117, label %sw.bb26
+    i8 115, label %sw.bb26
+    i8 111, label %sw.bb29
+    i8 120, label %sw.bb32
+    i8 88, label %sw.bb35
+    i8 112, label %do.body41
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -30314,16 +30314,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp18.not, label %while.end, label %while.cond, !llvm.loop !787
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb24
-    i32 105, label %sw.bb24
-    i32 117, label %sw.bb24
-    i32 115, label %sw.bb24
-    i32 111, label %sw.bb27
-    i32 120, label %sw.bb30
-    i32 88, label %sw.bb33
-    i32 112, label %do.body39
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb24
+    i8 105, label %sw.bb24
+    i8 117, label %sw.bb24
+    i8 115, label %sw.bb24
+    i8 111, label %sw.bb27
+    i8 120, label %sw.bb30
+    i8 88, label %sw.bb33
+    i8 112, label %do.body39
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -30568,16 +30568,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !820
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb22
-    i32 105, label %sw.bb22
-    i32 117, label %sw.bb22
-    i32 115, label %sw.bb22
-    i32 111, label %sw.bb25
-    i32 120, label %sw.bb28
-    i32 88, label %sw.bb31
-    i32 112, label %do.body37
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb22
+    i8 105, label %sw.bb22
+    i8 117, label %sw.bb22
+    i8 115, label %sw.bb22
+    i8 111, label %sw.bb25
+    i8 120, label %sw.bb28
+    i8 88, label %sw.bb31
+    i8 112, label %do.body37
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -30822,16 +30822,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp14.not, label %while.end, label %while.cond, !llvm.loop !853
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb20
-    i32 105, label %sw.bb20
-    i32 117, label %sw.bb20
-    i32 115, label %sw.bb20
-    i32 111, label %sw.bb23
-    i32 120, label %sw.bb26
-    i32 88, label %sw.bb29
-    i32 112, label %do.body35
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb20
+    i8 105, label %sw.bb20
+    i8 117, label %sw.bb20
+    i8 115, label %sw.bb20
+    i8 111, label %sw.bb23
+    i8 120, label %sw.bb26
+    i8 88, label %sw.bb29
+    i8 112, label %do.body35
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -31076,16 +31076,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !886
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb18
-    i32 105, label %sw.bb18
-    i32 117, label %sw.bb18
-    i32 115, label %sw.bb18
-    i32 111, label %sw.bb21
-    i32 120, label %sw.bb24
-    i32 88, label %sw.bb27
-    i32 112, label %do.body33
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb18
+    i8 105, label %sw.bb18
+    i8 117, label %sw.bb18
+    i8 115, label %sw.bb18
+    i8 111, label %sw.bb21
+    i8 120, label %sw.bb24
+    i8 88, label %sw.bb27
+    i8 112, label %do.body33
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -31330,16 +31330,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !919
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 105, label %sw.bb16
-    i32 117, label %sw.bb16
-    i32 115, label %sw.bb16
-    i32 111, label %sw.bb19
-    i32 120, label %sw.bb22
-    i32 88, label %sw.bb25
-    i32 112, label %do.body31
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 105, label %sw.bb16
+    i8 117, label %sw.bb16
+    i8 115, label %sw.bb16
+    i8 111, label %sw.bb19
+    i8 120, label %sw.bb22
+    i8 88, label %sw.bb25
+    i8 112, label %do.body31
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -31581,16 +31581,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !952
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -31861,16 +31861,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !985
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end

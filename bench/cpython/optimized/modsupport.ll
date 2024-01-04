@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [26 x i8] c"unmatched paren in format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local noundef i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   br i1 %cmp, label %return, label %if.else
@@ -395,30 +395,29 @@ return:                                           ; preds = %if.then15, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @countformat(ptr nocapture noundef readonly %format, i8 noundef signext %endchar) unnamed_addr #0 {
 entry:
-  %.pre15 = load i8, ptr %format, align 1
-  %cmp2.not16 = icmp eq i8 %.pre15, %endchar
+  %.pr15 = load i8, ptr %format, align 1
+  %cmp2.not16 = icmp eq i8 %.pr15, %endchar
   br i1 %cmp2.not16, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %sw.epilog
-  %.pre20 = phi i8 [ %.pre, %sw.epilog ], [ %.pre15, %entry ]
+  %.pr20 = phi i8 [ %.pr, %sw.epilog ], [ %.pr15, %entry ]
   %level.019 = phi i32 [ %level.1, %sw.epilog ], [ 0, %entry ]
   %count.018 = phi i64 [ %count.2, %sw.epilog ], [ 0, %entry ]
   %format.addr.017 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %format, %entry ]
-  %conv4 = sext i8 %.pre20 to i32
-  switch i32 %conv4, label %sw.default [
-    i32 0, label %sw.bb
-    i32 40, label %sw.bb5
-    i32 91, label %sw.bb5
-    i32 123, label %sw.bb5
-    i32 41, label %sw.bb9
-    i32 93, label %sw.bb9
-    i32 125, label %sw.bb9
-    i32 35, label %sw.epilog
-    i32 38, label %sw.epilog
-    i32 44, label %sw.epilog
-    i32 58, label %sw.epilog
-    i32 32, label %sw.epilog
-    i32 9, label %sw.epilog
+  switch i8 %.pr20, label %sw.default [
+    i8 0, label %sw.bb
+    i8 40, label %sw.bb5
+    i8 91, label %sw.bb5
+    i8 123, label %sw.bb5
+    i8 41, label %sw.bb9
+    i8 93, label %sw.bb9
+    i8 125, label %sw.bb9
+    i8 35, label %sw.epilog
+    i8 38, label %sw.epilog
+    i8 44, label %sw.epilog
+    i8 58, label %sw.epilog
+    i8 32, label %sw.epilog
+    i8 9, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
@@ -448,8 +447,8 @@ sw.epilog:                                        ; preds = %sw.default, %while.
   %level.1 = phi i32 [ %level.019, %while.body ], [ %level.019, %while.body ], [ %level.019, %while.body ], [ %level.019, %while.body ], [ %level.019, %while.body ], [ %level.019, %while.body ], [ %dec, %sw.bb9 ], [ %inc8, %sw.bb5 ], [ %level.019, %sw.default ]
   %incdec.ptr = getelementptr i8, ptr %format.addr.017, i64 1
   %cmp = icmp slt i32 %level.1, 1
-  %.pre = load i8, ptr %incdec.ptr, align 1
-  %cmp2.not = icmp eq i8 %.pre, %endchar
+  %.pr = load i8, ptr %incdec.ptr, align 1
+  %cmp2.not = icmp eq i8 %.pr, %endchar
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !9
 
@@ -705,39 +704,38 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %incdec.ptr = getelementptr i8, ptr %incdec.ptr126, i64 1
   store ptr %incdec.ptr, ptr %p_format, align 8
   %0 = load i8, ptr %incdec.ptr126, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 40, label %sw.bb
-    i32 91, label %sw.bb2
-    i32 123, label %sw.bb5
-    i32 98, label %sw.bb8
-    i32 66, label %sw.bb8
-    i32 104, label %sw.bb8
-    i32 105, label %sw.bb8
-    i32 72, label %sw.bb11
-    i32 73, label %sw.bb26
-    i32 110, label %sw.bb41
-    i32 108, label %sw.bb41
-    i32 107, label %sw.bb55
-    i32 76, label %sw.bb70
-    i32 75, label %sw.bb84
-    i32 117, label %sw.bb98
-    i32 102, label %sw.bb139
-    i32 100, label %sw.bb139
-    i32 68, label %sw.bb150
-    i32 99, label %sw.bb164
-    i32 67, label %sw.bb180
-    i32 115, label %sw.bb194
-    i32 122, label %sw.bb194
-    i32 85, label %sw.bb194
-    i32 121, label %sw.bb244
-    i32 78, label %sw.bb296
-    i32 83, label %sw.bb296
-    i32 79, label %sw.bb296
-    i32 58, label %for.cond.backedge
-    i32 44, label %for.cond.backedge
-    i32 32, label %for.cond.backedge
-    i32 9, label %for.cond.backedge
+  switch i8 %0, label %sw.default [
+    i8 40, label %sw.bb
+    i8 91, label %sw.bb2
+    i8 123, label %sw.bb5
+    i8 98, label %sw.bb8
+    i8 66, label %sw.bb8
+    i8 104, label %sw.bb8
+    i8 105, label %sw.bb8
+    i8 72, label %sw.bb11
+    i8 73, label %sw.bb26
+    i8 110, label %sw.bb41
+    i8 108, label %sw.bb41
+    i8 107, label %sw.bb55
+    i8 76, label %sw.bb70
+    i8 75, label %sw.bb84
+    i8 117, label %sw.bb98
+    i8 102, label %sw.bb139
+    i8 100, label %sw.bb139
+    i8 68, label %sw.bb150
+    i8 99, label %sw.bb164
+    i8 67, label %sw.bb180
+    i8 115, label %sw.bb194
+    i8 122, label %sw.bb194
+    i8 85, label %sw.bb194
+    i8 121, label %sw.bb244
+    i8 78, label %sw.bb296
+    i8 83, label %sw.bb296
+    i8 79, label %sw.bb296
+    i8 58, label %for.cond.backedge
+    i8 44, label %for.cond.backedge
+    i8 32, label %for.cond.backedge
+    i8 9, label %for.cond.backedge
   ]
 
 for.cond.backedge:                                ; preds = %for.cond, %for.cond, %for.cond, %for.cond
@@ -1922,7 +1920,7 @@ check_end.exit:                                   ; preds = %if.then.i14, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_end(ptr nocapture noundef %p_format, i8 noundef signext %endchar) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_end(ptr nocapture noundef %p_format, i8 noundef signext %endchar) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_format, align 8
   %1 = load i8, ptr %0, align 1

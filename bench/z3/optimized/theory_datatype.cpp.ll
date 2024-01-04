@@ -6044,10 +6044,9 @@ invoke.cont133:                                   ; preds = %invoke.cont131
   %idxprom.i.i.i.i.i = zext i32 %consequent.sroa.0.0 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %103, i64 %idxprom.i.i.i.i.i
   %104 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %104 to i32
-  switch i32 %conv.i.i.i.i, label %invoke.cont136 [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %104, label %invoke.cont136 [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont133

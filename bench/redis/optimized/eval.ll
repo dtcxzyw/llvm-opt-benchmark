@@ -255,8 +255,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i64 @dictStrCaseHash(ptr noundef %key) #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #17
-  %call1 = tail call i64 @dictGenCaseHashFunction(ptr noundef %key, i64 noundef %call) #18
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #16
+  %call1 = tail call i64 @dictGenCaseHashFunction(ptr noundef %key, i64 noundef %call) #17
   ret i64 %call1
 }
 
@@ -273,8 +273,8 @@ entry:
 if.end:                                           ; preds = %entry
   %body = getelementptr inbounds %struct.luaScript, ptr %val, i64 0, i32 1
   %0 = load ptr, ptr %body, align 8
-  tail call void @decrRefCount(ptr noundef %0) #18
-  tail call void @zfree(ptr noundef nonnull %val) #18
+  tail call void @decrRefCount(ptr noundef %0) #17
+  tail call void @zfree(ptr noundef nonnull %val) #17
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -286,10 +286,10 @@ define dso_local void @sha1hex(ptr nocapture noundef writeonly %digest, ptr noun
 entry:
   %ctx = alloca %struct.SHA1_CTX, align 4
   %hash = alloca [20 x i8], align 16
-  call void @SHA1Init(ptr noundef nonnull %ctx) #18
+  call void @SHA1Init(ptr noundef nonnull %ctx) #17
   %conv = trunc i64 %len to i32
-  call void @SHA1Update(ptr noundef nonnull %ctx, ptr noundef %script, i32 noundef %conv) #18
-  call void @SHA1Final(ptr noundef nonnull %hash, ptr noundef nonnull %ctx) #18
+  call void @SHA1Update(ptr noundef nonnull %ctx, ptr noundef %script, i32 noundef %conv) #17
+  call void @SHA1Final(ptr noundef nonnull %hash, ptr noundef nonnull %ctx) #17
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -327,7 +327,7 @@ declare void @SHA1Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @SHA1Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaRedisBreakpointCommand(ptr noundef %lua) #0 {
+define dso_local noundef i32 @luaRedisBreakpointCommand(ptr noundef %lua) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -339,24 +339,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i32 [ 1, %if.then ], [ 0, %entry ]
-  tail call void @lua_pushboolean(ptr noundef %lua, i32 noundef %.sink) #18
+  tail call void @lua_pushboolean(ptr noundef %lua, i32 noundef %.sink) #17
   ret i32 1
 }
 
 declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaRedisDebugCommand(ptr noundef %lua) #0 {
+define dso_local noundef i32 @luaRedisDebugCommand(ptr noundef %lua) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @lua_gettop(ptr noundef %lua) #18
-  %call1 = tail call ptr @sdsempty() #18
+  %call = tail call i32 @lua_gettop(ptr noundef %lua) #17
+  %call1 = tail call ptr @sdsempty() #17
   %1 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
-  %call2 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.1, i32 noundef %1) #18
+  %call2 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.1, i32 noundef %1) #17
   %tobool3.not8 = icmp eq i32 %call, 0
   br i1 %tobool3.not8, label %while.end, label %while.body.preheader
 
@@ -370,7 +370,7 @@ while.body.preheader:                             ; preds = %if.end
 if.end7:                                          ; preds = %while.body.preheader, %if.end7
   %call.i19 = phi ptr [ %call.i, %if.end7 ], [ %call.i16, %while.body.preheader ]
   %dec1118 = phi i32 [ %dec11, %if.end7 ], [ %dec1114, %while.body.preheader ]
-  %call6 = tail call ptr @sdscatlen(ptr noundef %call.i19, ptr noundef nonnull @.str.2, i64 noundef 2) #18
+  %call6 = tail call ptr @sdscatlen(ptr noundef %call.i19, ptr noundef nonnull @.str.2, i64 noundef 2) #17
   %dec11 = add nsw i32 %dec1118, -1
   %sub = sub nsw i32 0, %dec1118
   %call.i = tail call ptr @ldbCatStackValueRec(ptr noundef %call6, ptr noundef %lua, i32 noundef %sub, i32 noundef 0)
@@ -380,7 +380,7 @@ if.end7:                                          ; preds = %while.body.preheade
 while.end:                                        ; preds = %if.end7, %while.body.preheader, %if.end
   %log.0.lcssa = phi ptr [ %call2, %if.end ], [ %call.i16, %while.body.preheader ], [ %call.i, %if.end7 ]
   %2 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i6 = tail call ptr @listAddNodeTail(ptr noundef %2, ptr noundef %log.0.lcssa) #18
+  %call.i6 = tail call ptr @listAddNodeTail(ptr noundef %2, ptr noundef %log.0.lcssa) #17
   br label %return
 
 return:                                           ; preds = %entry, %while.end
@@ -406,21 +406,21 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 define dso_local void @ldbLog(ptr noundef %entry1) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call = tail call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %entry1) #18
+  %call = tail call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %entry1) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaRedisReplicateCommandsCommand(ptr noundef %lua) #0 {
+define dso_local noundef i32 @luaRedisReplicateCommandsCommand(ptr noundef %lua) #0 {
 entry:
-  tail call void @lua_pushboolean(ptr noundef %lua, i32 noundef 1) #18
+  tail call void @lua_pushboolean(ptr noundef %lua, i32 noundef 1) #17
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scriptingInit(i32 noundef %setup) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @luaL_newstate() #18
+  %call = tail call ptr @luaL_newstate() #17
   %tobool.not = icmp eq i32 %setup, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -429,42 +429,42 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 387), align 4
   store ptr null, ptr @ldb, align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
-  %call.i = tail call ptr @listCreate() #18
+  %call.i = tail call ptr @listCreate() #17
   store ptr %call.i, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %free.i = getelementptr inbounds %struct.list, ptr %call.i, i64 0, i32 3
   store ptr @sdsfree, ptr %free.i, align 8
-  %call1.i = tail call ptr @listCreate() #18
+  %call1.i = tail call ptr @listCreate() #17
   store ptr %call1.i, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
   store ptr null, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
-  %call2.i = tail call ptr @sdsempty() #18
+  %call2.i = tail call ptr @sdsempty() #17
   store ptr %call2.i, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call1 = tail call ptr @dictCreate(ptr noundef nonnull @shaScriptObjectDictType) #18
+  %call1 = tail call ptr @dictCreate(ptr noundef nonnull @shaScriptObjectDictType) #17
   store ptr %call1, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
   store i64 0, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
-  tail call void @luaRegisterRedisAPI(ptr noundef %call) #18
-  tail call void @lua_getfield(ptr noundef %call, i32 noundef -10002, ptr noundef nonnull @.str.3) #18
-  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.4) #18
-  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisBreakpointCommand, i32 noundef 0) #18
-  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #18
-  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.5) #18
-  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisDebugCommand, i32 noundef 0) #18
-  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #18
-  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.6) #18
-  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisReplicateCommandsCommand, i32 noundef 0) #18
-  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #18
-  tail call void @lua_setfield(ptr noundef %call, i32 noundef -10002, ptr noundef nonnull @.str.3) #18
-  %call3 = tail call i32 @luaL_loadbuffer(ptr noundef %call, ptr noundef nonnull @.str.7, i64 noundef 334, ptr noundef nonnull @.str.8) #18
-  %call4 = tail call i32 @lua_pcall(ptr noundef %call, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  tail call void @luaRegisterRedisAPI(ptr noundef %call) #17
+  tail call void @lua_getfield(ptr noundef %call, i32 noundef -10002, ptr noundef nonnull @.str.3) #17
+  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.4) #17
+  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisBreakpointCommand, i32 noundef 0) #17
+  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #17
+  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.5) #17
+  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisDebugCommand, i32 noundef 0) #17
+  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #17
+  tail call void @lua_pushstring(ptr noundef %call, ptr noundef nonnull @.str.6) #17
+  tail call void @lua_pushcclosure(ptr noundef %call, ptr noundef nonnull @luaRedisReplicateCommandsCommand, i32 noundef 0) #17
+  tail call void @lua_settable(ptr noundef %call, i32 noundef -3) #17
+  tail call void @lua_setfield(ptr noundef %call, i32 noundef -10002, ptr noundef nonnull @.str.3) #17
+  %call3 = tail call i32 @luaL_loadbuffer(ptr noundef %call, ptr noundef nonnull @.str.7, i64 noundef 334, ptr noundef nonnull @.str.8) #17
+  %call4 = tail call i32 @lua_pcall(ptr noundef %call, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %0 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 1), align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call ptr @createClient(ptr noundef null) #18
+  %call6 = tail call ptr @createClient(ptr noundef null) #17
   store ptr %call6, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 1), align 8
   %flags = getelementptr inbounds %struct.client, ptr %call6, i64 0, i32 1
   %1 = load i64, ptr %flags, align 8
@@ -478,10 +478,10 @@ if.then5:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end
-  tail call void @lua_pushvalue(ptr noundef %call, i32 noundef -10002) #18
-  tail call void @luaSetErrorMetatable(ptr noundef %call) #18
-  tail call void @luaSetTableProtectionRecursively(ptr noundef %call) #18
-  tail call void @lua_settop(ptr noundef %call, i32 noundef -2) #18
+  tail call void @lua_pushvalue(ptr noundef %call, i32 noundef -10002) #17
+  tail call void @luaSetErrorMetatable(ptr noundef %call) #17
+  tail call void @luaSetTableProtectionRecursively(ptr noundef %call) #17
+  tail call void @lua_settop(ptr noundef %call, i32 noundef -2) #17
   store ptr %call, ptr @lctx, align 8
   ret void
 }
@@ -493,15 +493,15 @@ define dso_local void @ldbInit() local_unnamed_addr #0 {
 entry:
   store ptr null, ptr @ldb, align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
-  %call = tail call ptr @listCreate() #18
+  %call = tail call ptr @listCreate() #17
   store ptr %call, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %free = getelementptr inbounds %struct.list, ptr %call, i64 0, i32 3
   store ptr @sdsfree, ptr %free, align 8
-  %call1 = tail call ptr @listCreate() #18
+  %call1 = tail call ptr @listCreate() #17
   store ptr %call1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
   store ptr null, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
-  %call2 = tail call ptr @sdsempty() #18
+  %call2 = tail call ptr @sdsempty() #17
   store ptr %call2, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   ret void
 }
@@ -545,17 +545,17 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @freeLuaScriptsAsync(ptr noundef %0) #18
+  tail call void @freeLuaScriptsAsync(ptr noundef %0) #17
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @dictRelease(ptr noundef %0) #18
+  tail call void @dictRelease(ptr noundef %0) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   store i64 0, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
   %1 = load ptr, ptr @lctx, align 8
-  tail call void @lua_close(ptr noundef %1) #18
+  tail call void @lua_close(ptr noundef %1) #17
   ret void
 }
 
@@ -573,32 +573,32 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @freeLuaScriptsAsync(ptr noundef %0) #18
+  tail call void @freeLuaScriptsAsync(ptr noundef %0) #17
   br label %scriptingRelease.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @dictRelease(ptr noundef %0) #18
+  tail call void @dictRelease(ptr noundef %0) #17
   br label %scriptingRelease.exit
 
 scriptingRelease.exit:                            ; preds = %if.then.i, %if.else.i
   store i64 0, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
   %1 = load ptr, ptr @lctx, align 8
-  tail call void @lua_close(ptr noundef %1) #18
+  tail call void @lua_close(ptr noundef %1) #17
   tail call void @scriptingInit(i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evalExtractShebangFlags(ptr noundef %body, ptr nocapture noundef writeonly %out_flags, ptr noundef writeonly %out_shebang_len, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local noundef i32 @evalExtractShebangFlags(ptr noundef %body, ptr nocapture noundef writeonly %out_flags, ptr noundef writeonly %out_shebang_len, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %numparts = alloca i32, align 4
   %numflags = alloca i32, align 4
-  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %body, ptr noundef nonnull dereferenceable(3) @.str.9, i64 noundef 2) #17
+  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %body, ptr noundef nonnull dereferenceable(3) @.str.9, i64 noundef 2) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end77
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %body, i32 noundef 10) #17
+  %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %body, i32 noundef 10) #16
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end6
 
@@ -607,7 +607,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %tobool3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %call5 = tail call ptr @sdsnew(ptr noundef nonnull @.str.10) #18
+  %call5 = tail call ptr @sdsnew(ptr noundef nonnull @.str.10) #17
   store ptr %call5, ptr %err, align 8
   br label %return
 
@@ -615,9 +615,9 @@ if.end6:                                          ; preds = %if.then
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %body to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call7 = tail call ptr @sdsnewlen(ptr noundef %body, i64 noundef %sub.ptr.sub) #18
-  %call8 = call ptr @sdssplitargs(ptr noundef %call7, ptr noundef nonnull %numparts) #18
-  call void @sdsfree(ptr noundef %call7) #18
+  %call7 = tail call ptr @sdsnewlen(ptr noundef %body, i64 noundef %sub.ptr.sub) #17
+  %call8 = call ptr @sdssplitargs(ptr noundef %call7, ptr noundef nonnull %numparts) #17
+  call void @sdsfree(ptr noundef %call7) #17
   %tobool9 = icmp eq ptr %call8, null
   %0 = load i32, ptr %numparts, align 4
   %cmp10 = icmp eq i32 %0, 0
@@ -629,19 +629,19 @@ if.then11:                                        ; preds = %if.end6
   br i1 %tobool12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
-  %call14 = call ptr @sdsnew(ptr noundef nonnull @.str.11) #18
+  %call14 = call ptr @sdsnew(ptr noundef nonnull @.str.11) #17
   store ptr %call14, ptr %err, align 8
   %.pre96 = load i32, ptr %numparts, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.then11
   %1 = phi i32 [ %.pre96, %if.then13 ], [ %0, %if.then11 ]
-  call void @sdsfreesplitres(ptr noundef %call8, i32 noundef %1) #18
+  call void @sdsfreesplitres(ptr noundef %call8, i32 noundef %1) #17
   br label %return
 
 if.end16:                                         ; preds = %if.end6
   %2 = load ptr, ptr %call8, align 8
-  %call17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.12) #17
+  %call17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.12) #16
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %for.cond.preheader, label %if.then19
 
@@ -652,7 +652,7 @@ for.cond.preheader:                               ; preds = %if.end16
 for.body.preheader:                               ; preds = %for.cond.preheader
   %arrayidx28134 = getelementptr inbounds ptr, ptr %call8, i64 1
   %3 = load ptr, ptr %arrayidx28134, align 8
-  %call29135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #17
+  %call29135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #16
   %tobool30.not136 = icmp eq i32 %call29135, 0
   br i1 %tobool30.not136, label %if.then31, label %if.else
 
@@ -661,22 +661,22 @@ if.then19:                                        ; preds = %if.end16
   br i1 %tobool20.not, label %if.end25, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
-  %call22 = call ptr @sdsempty() #18
+  %call22 = call ptr @sdsempty() #17
   %4 = load ptr, ptr %call8, align 8
-  %call24 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call22, ptr noundef nonnull @.str.13, ptr noundef %4) #18
+  %call24 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call22, ptr noundef nonnull @.str.13, ptr noundef %4) #17
   store ptr %call24, ptr %err, align 8
   %.pre = load i32, ptr %numparts, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.then19
   %5 = phi i32 [ %.pre, %if.then21 ], [ %0, %if.then19 ]
-  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %5) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %5) #17
   br label %return
 
 for.body:                                         ; preds = %for.end65
   %arrayidx28 = getelementptr inbounds ptr, ptr %call8, i64 %indvars.iv.next92
   %6 = load ptr, ptr %arrayidx28, align 8
-  %call29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #17
+  %call29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #16
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.then31, label %if.else, !llvm.loop !8
 
@@ -685,7 +685,7 @@ if.then31:                                        ; preds = %for.body.preheader,
   %arrayidx28139 = phi ptr [ %arrayidx28, %for.body ], [ %arrayidx28134, %for.body.preheader ]
   %script_flags.078138 = phi i64 [ %script_flags.1.lcssa, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv91137 = phi i64 [ %indvars.iv.next92, %for.body ], [ 1, %for.body.preheader ]
-  call void @sdsrange(ptr noundef %7, i64 noundef 6, i64 noundef -1) #18
+  call void @sdsrange(ptr noundef %7, i64 noundef 6, i64 noundef -1) #17
   %8 = load ptr, ptr %arrayidx28139, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %arrayidx.i, align 1
@@ -729,7 +729,7 @@ sw.bb13.i:                                        ; preds = %if.then31
 
 sdslen.exit:                                      ; preds = %if.then31, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %13, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.then31 ]
-  %call39 = call ptr @sdssplitlen(ptr noundef nonnull %8, i64 noundef %retval.0.i, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef nonnull %numflags) #18
+  %call39 = call ptr @sdssplitlen(ptr noundef nonnull %8, i64 noundef %retval.0.i, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef nonnull %numflags) #17
   %14 = load i32, ptr %numflags, align 4
   %cmp4164 = icmp sgt i32 %14, 0
   br i1 %cmp4164, label %for.cond43.preheader.lr.ph, label %for.end65
@@ -749,7 +749,7 @@ for.cond43.preheader:                             ; preds = %for.cond43.preheade
   %script_flags.165 = phi i64 [ %script_flags.078138, %for.cond43.preheader.preheader ], [ %or, %if.end62 ]
   %arrayidx47 = getelementptr inbounds ptr, ptr %call39, i64 %indvars.iv
   %17 = load ptr, ptr %arrayidx47, align 8
-  %call48131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %16) #17
+  %call48131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %16) #16
   %tobool49.not132 = icmp eq i32 %call48131, 0
   br i1 %tobool49.not132, label %if.end62, label %for.cond43
 
@@ -763,7 +763,7 @@ for.cond43:                                       ; preds = %for.cond43.preheade
 for.body45:                                       ; preds = %for.cond43
   %str = getelementptr inbounds %struct.scriptFlag, ptr %sf.060133, i64 1, i32 1
   %19 = load ptr, ptr %str, align 8
-  %call48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #17
+  %call48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #16
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.end62, label %for.cond43, !llvm.loop !9
 
@@ -777,19 +777,19 @@ if.then54:                                        ; preds = %for.cond43.preheade
   br i1 %tobool55.not, label %if.end61, label %if.then56
 
 if.then56:                                        ; preds = %if.then54
-  %call57 = call ptr @sdsempty() #18
+  %call57 = call ptr @sdsempty() #17
   %arrayidx59 = getelementptr inbounds ptr, ptr %call39, i64 %jj.0.lcssa51
   %21 = load ptr, ptr %arrayidx59, align 8
-  %call60 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call57, ptr noundef nonnull @.str.16, ptr noundef %21) #18
+  %call60 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call57, ptr noundef nonnull @.str.16, ptr noundef %21) #17
   store ptr %call60, ptr %err, align 8
   %.pre95 = load i32, ptr %numflags, align 4
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then56, %if.then54
   %22 = phi i32 [ %.pre95, %if.then56 ], [ %14, %if.then54 ]
-  call void @sdsfreesplitres(ptr noundef %call39, i32 noundef %22) #18
+  call void @sdsfreesplitres(ptr noundef %call39, i32 noundef %22) #17
   %23 = load i32, ptr %numparts, align 4
-  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %23) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %23) #17
   br label %return
 
 if.end62:                                         ; preds = %for.body45, %for.cond43.preheader
@@ -801,7 +801,7 @@ if.end62:                                         ; preds = %for.body45, %for.co
 
 for.end65:                                        ; preds = %if.end62, %sdslen.exit
   %script_flags.1.lcssa = phi i64 [ %script_flags.078138, %sdslen.exit ], [ %or, %if.end62 ]
-  call void @sdsfreesplitres(ptr noundef %call39, i32 noundef %14) #18
+  call void @sdsfreesplitres(ptr noundef %call39, i32 noundef %14) #17
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91137, 1
   %24 = load i32, ptr %numparts, align 4
   %25 = sext i32 %24 to i64
@@ -815,22 +815,22 @@ if.else:                                          ; preds = %for.body, %for.body
   br i1 %tobool66.not, label %if.end72, label %if.then67
 
 if.then67:                                        ; preds = %if.else
-  %call68 = call ptr @sdsempty() #18
+  %call68 = call ptr @sdsempty() #17
   %26 = load ptr, ptr %arrayidx28.lcssa, align 8
-  %call71 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call68, ptr noundef nonnull @.str.17, ptr noundef %26) #18
+  %call71 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call68, ptr noundef nonnull @.str.17, ptr noundef %26) #17
   store ptr %call71, ptr %err, align 8
   %.pre94 = load i32, ptr %numparts, align 4
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then67, %if.else
   %27 = phi i32 [ %.pre94, %if.then67 ], [ %.lcssa120, %if.else ]
-  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %27) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %27) #17
   br label %return
 
 for.end76:                                        ; preds = %for.end65, %for.cond.preheader
   %script_flags.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %script_flags.1.lcssa, %for.end65 ]
   %.lcssa53 = phi i32 [ %0, %for.cond.preheader ], [ %24, %for.end65 ]
-  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %.lcssa53) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %.lcssa53) #17
   br label %if.end77
 
 if.end77:                                         ; preds = %for.end76, %entry
@@ -902,12 +902,11 @@ land.lhs.true:                                    ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -1
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = and i8 %5, 7
-  %and.i = zext nneg i8 %6 to i32
-  switch i32 %and.i, label %return [
-    i32 4, label %sw.bb13.i
-    i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
+  switch i8 %6, label %return [
+    i8 4, label %sw.bb13.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
   ]
 
 sw.bb3.i:                                         ; preds = %land.lhs.true
@@ -943,7 +942,7 @@ if.end:                                           ; preds = %entry, %sdslen.exit
   call fastcc void @evalCalcFunctionName(i32 noundef %lor.ext, ptr noundef %4, ptr noundef nonnull %funcname)
   %add.ptr = getelementptr inbounds i8, ptr %funcname, i64 2
   %11 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
-  %call9 = call ptr @dictFind(ptr noundef %11, ptr noundef nonnull %add.ptr) #18
+  %call9 = call ptr @dictFind(ptr noundef %11, ptr noundef nonnull %add.ptr) #17
   %cur_script = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 31
   store ptr %call9, ptr %cur_script, align 8
   %tobool11.not = icmp eq ptr %call9, null
@@ -963,7 +962,7 @@ if.end15:                                         ; preds = %if.then12
   br i1 %cmp20, label %return, label %if.end25
 
 if.else:                                          ; preds = %if.end
-  %call24 = call ptr @dictGetVal(ptr noundef nonnull %call9) #18
+  %call24 = call ptr @dictGetVal(ptr noundef nonnull %call9) #17
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end15, %if.else
@@ -974,7 +973,7 @@ if.end25:                                         ; preds = %if.end15, %if.else
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %call29 = call i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %15) #18
+  %call29 = call i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %15) #17
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end25, %if.end15, %if.then12, %sdslen.exit, %if.end28
@@ -994,7 +993,7 @@ entry:
   %3 = load ptr, ptr %argv, align 8
   %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
   %4 = load i32, ptr %argc, align 8
-  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #18
+  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #17
   %5 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 1
   %6 = load ptr, ptr %arrayidx, align 8
@@ -1003,12 +1002,11 @@ entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 -1
   %8 = load i8, ptr %arrayidx.i, align 1
   %9 = and i8 %8, 7
-  %and.i = zext nneg i8 %9 to i32
-  switch i32 %and.i, label %if.then [
-    i32 4, label %sw.bb13.i
-    i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
+  switch i8 %9, label %if.then [
+    i8 4, label %sw.bb13.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
   ]
 
 sw.bb3.i:                                         ; preds = %entry
@@ -1041,7 +1039,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
 
 if.then:                                          ; preds = %entry, %sdslen.exit
   %14 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 18), align 8
-  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %14) #18
+  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %14) #17
   br label %if.end3
 
 if.end:                                           ; preds = %sdslen.exit
@@ -1056,7 +1054,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.else:                                          ; preds = %if.end
-  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.27) #18
+  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.27) #17
   br label %if.end3
 
 if.end3:                                          ; preds = %if.else, %if.then2, %if.then
@@ -1127,10 +1125,10 @@ sdslen.exit:                                      ; preds = %if.then, %sw.bb.i, 
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.then ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %hash.i)
-  call void @SHA1Init(ptr noundef nonnull %ctx.i) #18
+  call void @SHA1Init(ptr noundef nonnull %ctx.i) #17
   %conv.i16 = trunc i64 %retval.0.i to i32
-  call void @SHA1Update(ptr noundef nonnull %ctx.i, ptr noundef nonnull %script, i32 noundef %conv.i16) #18
-  call void @SHA1Final(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #18
+  call void @SHA1Update(ptr noundef nonnull %ctx.i, ptr noundef nonnull %script, i32 noundef %conv.i16) #17
+  call void @SHA1Final(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #17
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %sdslen.exit
@@ -1250,10 +1248,10 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %hash.i)
-  call void @SHA1Init(ptr noundef nonnull %ctx.i) #18
+  call void @SHA1Init(ptr noundef nonnull %ctx.i) #17
   %conv.i17 = trunc i64 %retval.0.i to i32
-  call void @SHA1Update(ptr noundef nonnull %ctx.i, ptr noundef nonnull %0, i32 noundef %conv.i17) #18
-  call void @SHA1Final(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #18
+  call void @SHA1Update(ptr noundef nonnull %ctx.i, ptr noundef nonnull %0, i32 noundef %conv.i17) #17
+  call void @SHA1Final(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #17
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %sdslen.exit
@@ -1284,12 +1282,12 @@ sha1hex.exit:                                     ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %hash.i)
   %13 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
-  %call5 = call ptr @dictFind(ptr noundef %13, ptr noundef nonnull %add.ptr) #18
+  %call5 = call ptr @dictFind(ptr noundef %13, ptr noundef nonnull %add.ptr) #17
   %cmp.not = icmp eq ptr %call5, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sha1hex.exit
-  %call6 = call ptr @dictGetKey(ptr noundef nonnull %call5) #18
+  %call6 = call ptr @dictGetKey(ptr noundef nonnull %call5) #17
   br label %return
 
 if.end:                                           ; preds = %sha1hex.exit
@@ -1306,7 +1304,7 @@ if.then10:                                        ; preds = %if.end
 
 if.then12:                                        ; preds = %if.then10
   %15 = load ptr, ptr %err, align 8
-  call void @addReplyErrorSds(ptr noundef nonnull %c, ptr noundef %15) #18
+  call void @addReplyErrorSds(ptr noundef nonnull %c, ptr noundef %15) #17
   br label %return
 
 if.end14:                                         ; preds = %if.end
@@ -1357,7 +1355,7 @@ sw.bb13.i22:                                      ; preds = %if.end14
 sdslen.exit37:                                    ; preds = %if.end14, %sw.bb.i34, %sw.bb3.i31, %sw.bb5.i28, %sw.bb9.i25, %sw.bb13.i22
   %retval.0.i24 = phi i64 [ %23, %sw.bb13.i22 ], [ %conv12.i27, %sw.bb9.i25 ], [ %conv8.i30, %sw.bb5.i28 ], [ %conv4.i33, %sw.bb3.i31 ], [ %conv2.i36, %sw.bb.i34 ], [ 0, %if.end14 ]
   %sub = sub i64 %retval.0.i24, %18
-  %call19 = call i32 @luaL_loadbuffer(ptr noundef %16, ptr noundef nonnull %add.ptr16, i64 noundef %sub, ptr noundef nonnull @.str.18) #18
+  %call19 = call i32 @luaL_loadbuffer(ptr noundef %16, ptr noundef nonnull %add.ptr16, i64 noundef %sub, ptr noundef nonnull @.str.18) #17
   %tobool.not = icmp eq i32 %call19, 0
   br i1 %tobool.not, label %if.end25, label %if.then20
 
@@ -1367,37 +1365,37 @@ if.then20:                                        ; preds = %sdslen.exit37
 
 if.then22:                                        ; preds = %if.then20
   %24 = load ptr, ptr @lctx, align 8
-  %call23 = call ptr @lua_tolstring(ptr noundef %24, i32 noundef -1, ptr noundef null) #18
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.19, ptr noundef %call23) #18
+  %call23 = call ptr @lua_tolstring(ptr noundef %24, i32 noundef -1, ptr noundef null) #17
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.19, ptr noundef %call23) #17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.then20
   %25 = load ptr, ptr @lctx, align 8
-  call void @lua_settop(ptr noundef %25, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %25, i32 noundef -2) #17
   br label %return
 
 if.end25:                                         ; preds = %sdslen.exit37
   %26 = load ptr, ptr @lctx, align 8
-  %call26 = call i32 @lua_type(ptr noundef %26, i32 noundef -1) #18
+  %call26 = call i32 @lua_type(ptr noundef %26, i32 noundef -1) #17
   %cmp27 = icmp eq i32 %call26, 6
   br i1 %cmp27, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end25
-  call void @_serverAssert(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 456) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 456) #17
+  call void @abort() #18
   unreachable
 
 cond.end:                                         ; preds = %if.end25
   %27 = load ptr, ptr @lctx, align 8
-  call void @lua_setfield(ptr noundef %27, i32 noundef -10000, ptr noundef nonnull %funcname) #18
-  %call31 = call noalias dereferenceable_or_null(16) ptr @zcalloc(i64 noundef 16) #20
+  call void @lua_setfield(ptr noundef %27, i32 noundef -10000, ptr noundef nonnull %funcname) #17
+  %call31 = call noalias dereferenceable_or_null(16) ptr @zcalloc(i64 noundef 16) #19
   %body32 = getelementptr inbounds %struct.luaScript, ptr %call31, i64 0, i32 1
   store ptr %body, ptr %body32, align 8
   %28 = load i64, ptr %script_flags, align 8
   store i64 %28, ptr %call31, align 8
-  %call35 = call ptr @sdsnewlen(ptr noundef nonnull %add.ptr, i64 noundef 40) #18
+  %call35 = call ptr @sdsnewlen(ptr noundef nonnull %add.ptr, i64 noundef 40) #17
   %29 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
-  %call37 = call i32 @dictAdd(ptr noundef %29, ptr noundef %call35, ptr noundef nonnull %call31) #18
+  %call37 = call i32 @dictAdd(ptr noundef %29, ptr noundef %call35, ptr noundef nonnull %call31) #17
   %cmp38 = icmp eq i32 %call37, 0
   br i1 %cmp38, label %cond.end52, label %cond.false47
 
@@ -1405,18 +1403,18 @@ cond.false47:                                     ; preds = %cond.end
   %tobool48.not = icmp eq ptr %c, null
   %30 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 1), align 8
   %cond = select i1 %tobool48.not, ptr %30, ptr %c
-  call void @_serverAssertWithInfo(ptr noundef %cond, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i32 noundef 468) #18
-  call void @abort() #19
+  call void @_serverAssertWithInfo(ptr noundef %cond, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i32 noundef 468) #17
+  call void @abort() #18
   unreachable
 
 cond.end52:                                       ; preds = %cond.end
-  %call53 = call i64 @sdsZmallocSize(ptr noundef %call35) #18
-  %call54 = call i64 @getStringObjectSdsUsedMemory(ptr noundef nonnull %body) #18
+  %call53 = call i64 @sdsZmallocSize(ptr noundef %call35) #17
+  %call54 = call i64 @getStringObjectSdsUsedMemory(ptr noundef nonnull %body) #17
   %add = add i64 %call54, %call53
   %31 = load i64, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
   %add55 = add i64 %add, %31
   store i64 %add55, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
-  call void @incrRefCount(ptr noundef nonnull %body) #18
+  call void @incrRefCount(ptr noundef nonnull %body) #17
   br label %return
 
 return:                                           ; preds = %if.then10, %if.then12, %cond.end52, %if.end24, %if.then
@@ -1463,7 +1461,7 @@ entry:
   %1 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 2
   %2 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %2, ptr noundef nonnull %numkeys, ptr noundef null) #18
+  %call = call i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %2, ptr noundef nonnull %numkeys, ptr noundef null) #17
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1477,7 +1475,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.23) #18
+  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.23) #17
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -1485,7 +1483,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.else
-  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.24) #18
+  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.24) #17
   br label %return
 
 if.end8:                                          ; preds = %if.else
@@ -1499,7 +1497,7 @@ if.then9:                                         ; preds = %if.end8
   %arrayidx11 = getelementptr inbounds [43 x i8], ptr %funcname, i64 0, i64 1
   store i8 95, ptr %arrayidx11, align 1
   %add.ptr = getelementptr inbounds i8, ptr %funcname, i64 2
-  %call13 = call ptr @dictGetKey(ptr noundef nonnull %5) #18
+  %call13 = call ptr @dictGetKey(ptr noundef nonnull %5) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %add.ptr, ptr noundef nonnull align 1 dereferenceable(40) %call13, i64 40, i1 false)
   %arrayidx14 = getelementptr inbounds [43 x i8], ptr %funcname, i64 0, i64 42
   store i8 0, ptr %arrayidx14, align 2
@@ -1515,21 +1513,21 @@ if.else15:                                        ; preds = %if.end8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else15, %if.then9
-  call void @lua_getfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.25) #18
-  call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull %funcname) #18
-  %call21 = call i32 @lua_type(ptr noundef %0, i32 noundef -1) #18
+  call void @lua_getfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.25) #17
+  call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull %funcname) #17
+  %call21 = call i32 @lua_type(ptr noundef %0, i32 noundef -1) #17
   %cmp22 = icmp eq i32 %call21, 0
   br i1 %cmp22, label %if.then24, label %if.end43
 
 if.then24:                                        ; preds = %if.end19
-  call void @lua_settop(ptr noundef %0, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %0, i32 noundef -2) #17
   %tobool25.not = icmp eq i32 %evalsha, 0
   br i1 %tobool25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.then24
-  call void @lua_settop(ptr noundef %0, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %0, i32 noundef -2) #17
   %9 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 18), align 8
-  call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %9) #18
+  call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %9) #17
   br label %return
 
 if.end27:                                         ; preds = %if.then24
@@ -1541,18 +1539,18 @@ if.end27:                                         ; preds = %if.then24
   br i1 %cmp31, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end27
-  call void @lua_settop(ptr noundef %0, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %0, i32 noundef -2) #17
   br label %return
 
 if.end34:                                         ; preds = %if.end27
-  call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull %funcname) #18
-  %call36 = call i32 @lua_type(ptr noundef %0, i32 noundef -1) #18
+  call void @lua_getfield(ptr noundef %0, i32 noundef -10000, ptr noundef nonnull %funcname) #17
+  %call36 = call i32 @lua_type(ptr noundef %0, i32 noundef -1) #17
   %cmp37.not = icmp eq i32 %call36, 0
   br i1 %cmp37.not, label %cond.false, label %if.end43
 
 cond.false:                                       ; preds = %if.end34
-  call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.21, i32 noundef 520) #18
-  call void @abort() #19
+  call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.21, i32 noundef 520) #17
+  call void @abort() #18
   unreachable
 
 if.end43:                                         ; preds = %if.end34, %if.end19
@@ -1563,12 +1561,12 @@ if.end43:                                         ; preds = %if.end34, %if.end19
 
 if.then48:                                        ; preds = %if.end43
   %13 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
-  %call49 = call ptr @dictFind(ptr noundef %13, ptr noundef nonnull %add.ptr45) #18
+  %call49 = call ptr @dictFind(ptr noundef %13, ptr noundef nonnull %add.ptr45) #17
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.end43
   %de.0 = phi ptr [ %12, %if.end43 ], [ %call49, %if.then48 ]
-  %call51 = call ptr @dictGetVal(ptr noundef %de.0) #18
+  %call51 = call ptr @dictGetVal(ptr noundef %de.0) #17
   %cmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 17
   %14 = load ptr, ptr %cmd, align 8
   %proc = getelementptr inbounds %struct.redisCommand, ptr %14, i64 0, i32 12
@@ -1579,12 +1577,12 @@ if.end50:                                         ; preds = %if.then48, %if.end4
   %lor.ext = zext i1 %narrow to i32
   %16 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 1), align 8
   %17 = load i64, ptr %call51, align 8
-  %call58 = call i32 @scriptPrepareForRun(ptr noundef nonnull %rctx, ptr noundef %16, ptr noundef nonnull %c, ptr noundef nonnull %add.ptr45, i64 noundef %17, i32 noundef %lor.ext) #18
+  %call58 = call i32 @scriptPrepareForRun(ptr noundef nonnull %rctx, ptr noundef %16, ptr noundef nonnull %c, ptr noundef nonnull %add.ptr45, i64 noundef %17, i32 noundef %lor.ext) #17
   %cmp59.not = icmp eq i32 %call58, 0
   br i1 %cmp59.not, label %if.end62, label %if.then61
 
 if.then61:                                        ; preds = %if.end50
-  call void @lua_settop(ptr noundef %0, i32 noundef -3) #18
+  call void @lua_settop(ptr noundef %0, i32 noundef -3) #17
   br label %return
 
 if.end62:                                         ; preds = %if.end50
@@ -1601,9 +1599,9 @@ if.end62:                                         ; preds = %if.end50
   %conv73 = sext i32 %sub72 to i64
   %sub74 = sub nsw i64 %conv73, %21
   %23 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
-  call void @luaCallFunction(ptr noundef nonnull %rctx, ptr noundef %0, ptr noundef nonnull %add.ptr67, i64 noundef %21, ptr noundef nonnull %add.ptr70, i64 noundef %sub74, i32 noundef %23) #18
-  call void @lua_settop(ptr noundef %0, i32 noundef -2) #18
-  call void @scriptResetRun(ptr noundef nonnull %rctx) #18
+  call void @luaCallFunction(ptr noundef nonnull %rctx, ptr noundef %0, ptr noundef nonnull %add.ptr67, i64 noundef %21, ptr noundef nonnull %add.ptr70, i64 noundef %sub74, i32 noundef %23) #17
+  call void @lua_settop(ptr noundef %0, i32 noundef -2) #17
+  call void @scriptResetRun(ptr noundef nonnull %rctx) #17
   br label %return
 
 return:                                           ; preds = %entry, %if.end62, %if.then61, %if.then33, %if.then26, %if.then6, %if.then3
@@ -1631,7 +1629,7 @@ entry:
   %3 = load ptr, ptr %argv.i, align 8
   %argc.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
   %4 = load i32, ptr %argc.i, align 8
-  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #18
+  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #17
   %flags.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
   %5 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %5, 33554432
@@ -1680,7 +1678,7 @@ entry:
   %3 = load ptr, ptr %argv, align 8
   %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
   %4 = load i32, ptr %argc, align 8
-  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #18
+  tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #17
   %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
   %5 = load i64, ptr %flags, align 8
   %and = and i64 %5, 33554432
@@ -1752,13 +1750,13 @@ land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
   %3 = load ptr, ptr %ptr, align 8
-  %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.28) #17
+  %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.28) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %land.lhs.true3.thread
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %help, ptr noundef nonnull align 16 dereferenceable(120) @__const.scriptCommand.help, i64 120, i1 false)
-  call void @addReplyHelp(ptr noundef nonnull %c, ptr noundef nonnull %help) #18
+  call void @addReplyHelp(ptr noundef nonnull %c, ptr noundef nonnull %help) #17
   br label %if.end133
 
 if.else:                                          ; preds = %entry
@@ -1773,12 +1771,12 @@ land.lhs.true3:                                   ; preds = %if.else
   %ptr6.phi.trans.insert = getelementptr inbounds %struct.redisObject, ptr %.pre67, i64 0, i32 2
   %.pre68 = load ptr, ptr %ptr6.phi.trans.insert, align 8
   %argv4 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
-  %call7 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.43) #17
+  %call7 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.43) #16
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %land.lhs.true40
 
 land.lhs.true3.thread:                            ; preds = %land.lhs.true
-  %call770 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.43) #17
+  %call770 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.43) #16
   %tobool8.not71 = icmp eq i32 %call770, 0
   br i1 %tobool8.not71, label %if.end36, label %land.lhs.true40.thread
 
@@ -1791,7 +1789,7 @@ land.lhs.true12:                                  ; preds = %if.then9
   %4 = load ptr, ptr %arrayidx14, align 8
   %ptr15 = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
   %5 = load ptr, ptr %ptr15, align 8
-  %call16 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.44) #17
+  %call16 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.44) #16
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end36.thread, label %land.lhs.true22
 
@@ -1800,7 +1798,7 @@ if.end36.thread:                                  ; preds = %land.lhs.true12
   br label %if.else.i.i
 
 land.lhs.true22:                                  ; preds = %land.lhs.true12
-  %call26 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.45) #17
+  %call26 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.45) #16
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end36.thread53, label %if.else34
 
@@ -1809,7 +1807,7 @@ if.end36.thread53:                                ; preds = %land.lhs.true22
   br label %if.then.i.i
 
 if.else34:                                        ; preds = %if.then9, %land.lhs.true22
-  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.46) #18
+  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.46) #17
   br label %if.end133
 
 if.end36:                                         ; preds = %land.lhs.true3.thread
@@ -1820,31 +1818,31 @@ if.end36:                                         ; preds = %land.lhs.true3.thre
 
 if.then.i.i:                                      ; preds = %if.end36.thread53, %if.end36
   %10 = phi ptr [ %7, %if.end36.thread53 ], [ %9, %if.end36 ]
-  tail call void @freeLuaScriptsAsync(ptr noundef %10) #18
+  tail call void @freeLuaScriptsAsync(ptr noundef %10) #17
   br label %scriptingReset.exit
 
 if.else.i.i:                                      ; preds = %if.end36.thread, %if.end36
   %11 = phi ptr [ %6, %if.end36.thread ], [ %9, %if.end36 ]
-  tail call void @dictRelease(ptr noundef %11) #18
+  tail call void @dictRelease(ptr noundef %11) #17
   br label %scriptingReset.exit
 
 scriptingReset.exit:                              ; preds = %if.then.i.i, %if.else.i.i
   store i64 0, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
   %12 = load ptr, ptr @lctx, align 8
-  tail call void @lua_close(ptr noundef %12) #18
+  tail call void @lua_close(ptr noundef %12) #17
   tail call void @scriptingInit(i32 noundef 0)
   %13 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %13) #18
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %13) #17
   br label %if.end133
 
 land.lhs.true40:                                  ; preds = %land.lhs.true3
-  %call44 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.47) #17
+  %call44 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.47) #16
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then46, label %if.else59
 
 land.lhs.true40.thread:                           ; preds = %land.lhs.true3.thread
   %argv469 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
-  %call4475 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.47) #17
+  %call4475 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.47) #16
   %tobool45.not76 = icmp eq i32 %call4475, 0
   br i1 %tobool45.not76, label %if.then46, label %land.lhs.true81
 
@@ -1852,7 +1850,7 @@ if.then46:                                        ; preds = %land.lhs.true40.thr
   %argv47277 = phi ptr [ %argv469, %land.lhs.true40.thread ], [ %argv4, %land.lhs.true40 ]
   %sub = add nsw i32 %0, -2
   %conv = zext nneg i32 %sub to i64
-  tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #18
+  tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #17
   %14 = load i32, ptr %argc, align 8
   %cmp4964 = icmp sgt i32 %14, 2
   br i1 %cmp4964, label %for.body, label %if.end133
@@ -1865,12 +1863,12 @@ for.body:                                         ; preds = %if.then46, %for.bod
   %17 = load ptr, ptr %arrayidx52, align 8
   %ptr53 = getelementptr inbounds %struct.redisObject, ptr %17, i64 0, i32 2
   %18 = load ptr, ptr %ptr53, align 8
-  %call54 = tail call ptr @dictFind(ptr noundef %15, ptr noundef %18) #18
+  %call54 = tail call ptr @dictFind(ptr noundef %15, ptr noundef %18) #17
   %tobool55.not = icmp eq ptr %call54, null
   %.val = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
   %.val82 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 4), align 8
   %19 = select i1 %tobool55.not, ptr %.val, ptr %.val82
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %19) #18
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %19) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %argc, align 8
   %21 = sext i32 %20 to i64
@@ -1882,7 +1880,7 @@ if.else59:                                        ; preds = %land.lhs.true40
   br i1 %cmp61, label %land.lhs.true63, label %if.else127
 
 land.lhs.true63:                                  ; preds = %if.else59
-  %call67 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.48) #17
+  %call67 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.48) #16
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then69, label %land.lhs.true92
 
@@ -1894,30 +1892,30 @@ if.then69:                                        ; preds = %land.lhs.true63
   br i1 %cmp73, label %if.end133, label %if.end76
 
 if.end76:                                         ; preds = %if.then69
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %call72, i64 noundef 40) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %call72, i64 noundef 40) #17
   br label %if.end133
 
 land.lhs.true81:                                  ; preds = %land.lhs.true40.thread
-  %call85 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.49) #17
+  %call85 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.49) #16
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.else127
 
 if.then87:                                        ; preds = %land.lhs.true81
-  tail call void @scriptKill(ptr noundef nonnull %c, i32 noundef 1) #18
+  tail call void @scriptKill(ptr noundef nonnull %c, i32 noundef 1) #17
   br label %if.end133
 
 land.lhs.true92:                                  ; preds = %land.lhs.true63
-  %call96 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.5) #17
+  %call96 = tail call i32 @strcasecmp(ptr noundef %.pre68, ptr noundef nonnull @.str.5) #16
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %if.then98, label %if.else127
 
 if.then98:                                        ; preds = %land.lhs.true92
-  %call99 = tail call i32 @clientHasPendingReplies(ptr noundef nonnull %c) #18
+  %call99 = tail call i32 @clientHasPendingReplies(ptr noundef nonnull %c) #17
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.end102, label %if.then101
 
 if.then101:                                       ; preds = %if.then98
-  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.50) #18
+  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.50) #17
   br label %if.end133
 
 if.end102:                                        ; preds = %if.then98
@@ -1926,7 +1924,7 @@ if.end102:                                        ; preds = %if.then98
   %24 = load ptr, ptr %arrayidx104, align 8
   %ptr105 = getelementptr inbounds %struct.redisObject, ptr %24, i64 0, i32 2
   %25 = load ptr, ptr %ptr105, align 8
-  %call106 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.51) #17
+  %call106 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.51) #16
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.then108, label %if.else109
 
@@ -1936,29 +1934,29 @@ if.then108:                                       ; preds = %if.end102
   %and.i = and i64 %26, -100663297
   store i64 %and.i, ptr %flags.i, align 8
   %27 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %27) #18
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %27) #17
   br label %if.end133
 
 if.else109:                                       ; preds = %if.end102
-  %call113 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.52) #17
+  %call113 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.52) #16
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %if.then115, label %if.else116
 
 if.then115:                                       ; preds = %if.else109
   tail call void @ldbEnable(ptr noundef nonnull %c)
   %28 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %28) #18
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %28) #17
   br label %if.end133
 
 if.else116:                                       ; preds = %if.else109
-  %call120 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.44) #17
+  %call120 = tail call i32 @strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.44) #16
   %tobool121.not = icmp eq i32 %call120, 0
   br i1 %tobool121.not, label %if.then122, label %if.else123
 
 if.then122:                                       ; preds = %if.else116
   tail call void @ldbEnable(ptr noundef nonnull %c)
   %29 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %29) #18
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %29) #17
   %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
   %30 = load i64, ptr %flags, align 8
   %or = or i64 %30, 67108864
@@ -1966,11 +1964,11 @@ if.then122:                                       ; preds = %if.else116
   br label %if.end133
 
 if.else123:                                       ; preds = %if.else116
-  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.53) #18
+  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.53) #17
   br label %if.end133
 
 if.else127:                                       ; preds = %if.else59, %land.lhs.true81, %if.else, %land.lhs.true92
-  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %c) #18
+  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %c) #17
   br label %if.end133
 
 if.end133:                                        ; preds = %for.body, %if.then46, %scriptingReset.exit, %if.end76, %if.else127, %if.then115, %if.then122, %if.then108, %if.then87, %if.then69, %if.else123, %if.then101, %if.else34, %if.then
@@ -2016,7 +2014,7 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %3 = phi ptr [ %4, %while.body.i ], [ %2, %entry ]
-  tail call void @listDelNode(ptr noundef nonnull %1, ptr noundef nonnull %3) #18
+  tail call void @listDelNode(ptr noundef nonnull %1, ptr noundef nonnull %3) #17
   %4 = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %ldbFlushLog.exit, label %while.body.i, !llvm.loop !15
@@ -2029,8 +2027,8 @@ ldbFlushLog.exit:                                 ; preds = %while.body.i, %entr
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 9), align 8
   %6 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
-  tail call void @sdsfree(ptr noundef %6) #18
-  %call = tail call ptr @sdsempty() #18
+  tail call void @sdsfree(ptr noundef %6) #17
+  %call = tail call ptr @sdsempty() #17
   store ptr %call, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   store i64 256, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 14), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 15), align 8
@@ -2043,7 +2041,7 @@ declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @evalMemory() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @lctx, align 8
-  %call = tail call i64 @luaMemory(ptr noundef %0) #18
+  %call = tail call i64 @luaMemory(ptr noundef %0) #17
   ret i64 %call
 }
 
@@ -2061,7 +2059,7 @@ define dso_local i64 @evalScriptsMemory() local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 3), align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
-  %call = tail call i64 @dictMemUsage(ptr noundef %1) #18
+  %call = tail call i64 @dictMemUsage(ptr noundef %1) #17
   %add = add i64 %call, %0
   %2 = load ptr, ptr getelementptr inbounds (%struct.luaCtx, ptr @lctx, i64 0, i32 2), align 8
   %ht_used = getelementptr inbounds %struct.dict, ptr %2, i64 0, i32 2
@@ -2087,7 +2085,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %2, %while.body ], [ %0, %entry ]
-  tail call void @listDelNode(ptr noundef nonnull %log, ptr noundef nonnull %1) #18
+  tail call void @listDelNode(ptr noundef nonnull %log, ptr noundef nonnull %1) #17
   %2 = load ptr, ptr %log, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
@@ -2167,15 +2165,15 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
 
 if.then:                                          ; preds = %sdslen.exit
   %sub = add i64 %0, -1
-  tail call void @sdsrange(ptr noundef nonnull %entry1, i64 noundef 0, i64 noundef %sub) #18
-  %call2 = tail call ptr @sdscatlen(ptr noundef nonnull %entry1, ptr noundef nonnull @.str.54, i64 noundef 4) #18
+  tail call void @sdsrange(ptr noundef nonnull %entry1, i64 noundef 0, i64 noundef %sub) #17
+  %call2 = tail call ptr @sdscatlen(ptr noundef nonnull %entry1, ptr noundef nonnull @.str.54, i64 noundef 4) #17
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %if.then, %sdslen.exit, %entry
   %entry.addr.0 = phi ptr [ %call2, %if.then ], [ %entry1, %sdslen.exit ], [ %entry1, %entry ], [ %entry1, %land.lhs.true ]
   %tobool3 = phi i1 [ true, %if.then ], [ false, %sdslen.exit ], [ false, %entry ], [ false, %land.lhs.true ]
   %6 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %entry.addr.0) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %entry.addr.0) #17
   %7 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 15), align 8
   %cmp5 = icmp eq i32 %7, 0
   %or.cond = select i1 %tobool3, i1 %cmp5, i1 false
@@ -2183,9 +2181,9 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 
 if.then6:                                         ; preds = %if.end
   store i32 1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 15), align 8
-  %call7 = tail call ptr @sdsnew(ptr noundef nonnull @.str.55) #18
+  %call7 = tail call ptr @sdsnew(ptr noundef nonnull @.str.55) #17
   %8 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i4 = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %call7) #18
+  %call.i4 = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %call7) #17
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
@@ -2195,12 +2193,12 @@ if.end8:                                          ; preds = %if.then6, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @ldbSendLogs() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @sdsempty() #18
+  %call = tail call ptr @sdsempty() #17
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
   %1 = load i64, ptr %len, align 8
   %conv = trunc i64 %1 to i32
-  %call1 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call, ptr noundef nonnull @.str.56, i32 noundef %conv) #18
+  %call1 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call, ptr noundef nonnull @.str.56, i32 noundef %conv) #17
   %2 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %len29 = getelementptr inbounds %struct.list, ptr %2, i64 0, i32 5
   %3 = load i64, ptr %len29, align 8
@@ -2211,15 +2209,15 @@ while.body:                                       ; preds = %entry, %while.body
   %4 = phi ptr [ %9, %while.body ], [ %2, %entry ]
   %proto.011 = phi ptr [ %call7, %while.body ], [ %call1, %entry ]
   %5 = load ptr, ptr %4, align 8
-  %call3 = tail call ptr @sdscatlen(ptr noundef %proto.011, ptr noundef nonnull @.str.57, i64 noundef 1) #18
+  %call3 = tail call ptr @sdscatlen(ptr noundef %proto.011, ptr noundef nonnull @.str.57, i64 noundef 1) #17
   %value = getelementptr inbounds %struct.listNode, ptr %5, i64 0, i32 2
   %6 = load ptr, ptr %value, align 8
-  %call4 = tail call ptr @sdsmapchars(ptr noundef %6, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i64 noundef 2) #18
+  %call4 = tail call ptr @sdsmapchars(ptr noundef %6, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i64 noundef 2) #17
   %7 = load ptr, ptr %value, align 8
-  %call6 = tail call ptr @sdscatsds(ptr noundef %call3, ptr noundef %7) #18
-  %call7 = tail call ptr @sdscatlen(ptr noundef %call6, ptr noundef nonnull @.str.58, i64 noundef 2) #18
+  %call6 = tail call ptr @sdscatsds(ptr noundef %call3, ptr noundef %7) #17
+  %call7 = tail call ptr @sdscatlen(ptr noundef %call6, ptr noundef nonnull @.str.58, i64 noundef 2) #17
   %8 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  tail call void @listDelNode(ptr noundef %8, ptr noundef %5) #18
+  tail call void @listDelNode(ptr noundef %8, ptr noundef %5) #17
   %9 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
   %len2 = getelementptr inbounds %struct.list, ptr %9, i64 0, i32 5
   %10 = load i64, ptr %len2, align 8
@@ -2274,8 +2272,8 @@ sdslen.exit:                                      ; preds = %while.end, %sw.bb.i
   %17 = load ptr, ptr %11, align 8
   %write.i = getelementptr inbounds %struct.ConnectionType, ptr %17, i64 0, i32 16
   %18 = load ptr, ptr %write.i, align 8
-  %call.i = tail call i32 %18(ptr noundef nonnull %11, ptr noundef nonnull %proto.0.lcssa, i64 noundef %retval.0.i) #18
-  tail call void @sdsfree(ptr noundef nonnull %proto.0.lcssa) #18
+  %call.i = tail call i32 %18(ptr noundef nonnull %11, ptr noundef nonnull %proto.0.lcssa, i64 noundef %retval.0.i) #17
+  tail call void @sdsfree(ptr noundef nonnull %proto.0.lcssa) #17
   ret void
 }
 
@@ -2284,7 +2282,7 @@ declare ptr @sdsmapchars(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loc
 declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ldbStartSession(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local noundef i32 @ldbStartSession(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %act = alloca %struct.sigaction, align 8
   %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
@@ -2296,41 +2294,41 @@ entry:
   br i1 %cmp, label %if.then, label %do.body21
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @redisFork(i32 noundef 3) #18
+  %call = tail call i32 @redisFork(i32 noundef 3) #17
   switch i32 %call, label %if.else15 [
     i32 -1, label %if.then3
     i32 0, label %if.then8
   ]
 
 if.then3:                                         ; preds = %if.then
-  %call4 = tail call ptr @__errno_location() #21
+  %call4 = tail call ptr @__errno_location() #20
   %1 = load i32, ptr %call4, align 4
-  %call5 = tail call ptr @strerror(i32 noundef %1) #18
-  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.60, ptr noundef %call5) #18
+  %call5 = tail call ptr @strerror(i32 noundef %1) #17
+  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.60, ptr noundef %call5) #17
   br label %return
 
 if.then8:                                         ; preds = %if.then
   %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
-  %call9 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #18
+  %call9 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #17
   %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
   store i32 0, ptr %sa_flags, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
-  %call10 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %act, ptr noundef null) #18
-  %call11 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %act, ptr noundef null) #18
+  %call10 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %act, ptr noundef null) #17
+  %call11 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %act, ptr noundef null) #17
   %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp12 = icmp sgt i32 %2, 2
   br i1 %cmp12, label %if.end27, label %if.end
 
 if.end:                                           ; preds = %if.then8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.61) #18
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.61) #17
   br label %if.end27
 
 if.else15:                                        ; preds = %if.then
   %3 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
   %conv16 = sext i32 %call to i64
   %4 = inttoptr i64 %conv16 to ptr
-  %call17 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef nonnull %4) #18
-  tail call void @freeClientAsync(ptr noundef nonnull %c) #18
+  %call17 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef nonnull %4) #17
+  tail call void @freeClientAsync(ptr noundef nonnull %c) #17
   br label %return
 
 do.body21:                                        ; preds = %entry
@@ -2339,14 +2337,14 @@ do.body21:                                        ; preds = %entry
   br i1 %cmp22, label %if.end27, label %if.end25
 
 if.end25:                                         ; preds = %do.body21
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.62) #18
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.62) #17
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end25, %do.body21, %if.end, %if.then8
   %6 = load ptr, ptr @ldb, align 8
-  %call28 = call i32 @connBlock(ptr noundef %6) #18
+  %call28 = call i32 @connBlock(ptr noundef %6) #17
   %7 = load ptr, ptr @ldb, align 8
-  %call29 = call i32 @connSendTimeout(ptr noundef %7, i64 noundef 5000) #18
+  %call29 = call i32 @connSendTimeout(ptr noundef %7, i64 noundef 5000) #17
   store i32 1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
   %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
   %8 = load ptr, ptr %argv, align 8
@@ -2354,7 +2352,7 @@ if.end27:                                         ; preds = %if.end25, %do.body2
   %9 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
   %10 = load ptr, ptr %ptr, align 8
-  %call30 = call ptr @sdsdup(ptr noundef %10) #18
+  %call30 = call ptr @sdsdup(ptr noundef %10) #17
   %arrayidx.i = getelementptr i8, ptr %call30, i64 -1
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %11 to i32
@@ -2397,8 +2395,8 @@ sw.bb13.i:                                        ; preds = %if.end27
 
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %15, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
-  %tobool32.not56 = icmp eq i64 %retval.0.i, 0
-  br i1 %tobool32.not56, label %while.cond.split, label %land.rhs
+  %tobool32.not54 = icmp eq i64 %retval.0.i, 0
+  br i1 %tobool32.not54, label %while.cond.split, label %land.rhs
 
 while.cond.split.loopexit:                        ; preds = %while.body
   %.pre = load i8, ptr %arrayidx.i, align 1
@@ -2407,42 +2405,41 @@ while.cond.split.loopexit:                        ; preds = %while.body
 while.cond.split:                                 ; preds = %if.end27, %while.cond.split.loopexit, %sdslen.exit
   %16 = phi i8 [ %.pre, %while.cond.split.loopexit ], [ %11, %sdslen.exit ], [ %11, %if.end27 ]
   %17 = and i8 %16, 7
-  %and.i18 = zext nneg i8 %17 to i32
-  switch i32 %and.i18, label %while.end [
-    i32 0, label %while.end.thread
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i22
-    i32 3, label %sw.bb9.i21
-    i32 4, label %sw.bb13.i19
+  switch i8 %17, label %while.end [
+    i8 0, label %while.end.thread
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb5.i21
+    i8 3, label %sw.bb9.i20
+    i8 4, label %sw.bb13.i18
   ]
 
 while.end.thread:                                 ; preds = %while.cond.split
   store i8 0, ptr %arrayidx.i, align 1
-  br label %sw.bb.i51
+  br label %sw.bb.i49
 
 sw.bb2.i:                                         ; preds = %while.cond.split
   %add.ptr4.i = getelementptr inbounds i8, ptr %call30, i64 -3
   store i8 0, ptr %add.ptr4.i, align 1
   br label %while.end
 
-sw.bb5.i22:                                       ; preds = %while.cond.split
+sw.bb5.i21:                                       ; preds = %while.cond.split
   %add.ptr7.i = getelementptr inbounds i8, ptr %call30, i64 -5
   store i16 0, ptr %add.ptr7.i, align 1
   br label %while.end
 
-sw.bb9.i21:                                       ; preds = %while.cond.split
+sw.bb9.i20:                                       ; preds = %while.cond.split
   %add.ptr11.i = getelementptr inbounds i8, ptr %call30, i64 -9
   store i32 0, ptr %add.ptr11.i, align 1
   br label %while.end
 
-sw.bb13.i19:                                      ; preds = %while.cond.split
-  %add.ptr14.i20 = getelementptr inbounds i8, ptr %call30, i64 -17
-  store i64 0, ptr %add.ptr14.i20, align 1
+sw.bb13.i18:                                      ; preds = %while.cond.split
+  %add.ptr14.i19 = getelementptr inbounds i8, ptr %call30, i64 -17
+  store i64 0, ptr %add.ptr14.i19, align 1
   br label %while.end
 
 land.rhs:                                         ; preds = %sdslen.exit, %while.body
-  %srclen.057 = phi i64 [ %dec, %while.body ], [ %retval.0.i, %sdslen.exit ]
-  %gep = getelementptr i8, ptr %arrayidx.i, i64 %srclen.057
+  %srclen.055 = phi i64 [ %dec, %while.body ], [ %retval.0.i, %sdslen.exit ]
+  %gep = getelementptr i8, ptr %arrayidx.i, i64 %srclen.055
   %18 = load i8, ptr %gep, align 1
   switch i8 %18, label %lor.rhs.split [
     i8 10, label %while.body
@@ -2452,101 +2449,100 @@ land.rhs:                                         ; preds = %sdslen.exit, %while
 lor.rhs.split:                                    ; preds = %land.rhs
   %19 = load i8, ptr %arrayidx.i, align 1
   %20 = and i8 %19, 7
-  %and.i25 = zext nneg i8 %20 to i32
-  switch i32 %and.i25, label %while.end [
-    i32 0, label %sw.bb.i34
-    i32 1, label %sw.bb2.i32
-    i32 2, label %sw.bb5.i30
-    i32 3, label %sw.bb9.i28
-    i32 4, label %sw.bb13.i26
+  switch i8 %20, label %while.end [
+    i8 0, label %sw.bb.i32
+    i8 1, label %sw.bb2.i30
+    i8 2, label %sw.bb5.i28
+    i8 3, label %sw.bb9.i26
+    i8 4, label %sw.bb13.i24
   ]
 
-sw.bb.i34:                                        ; preds = %lor.rhs.split
-  %newlen.tr.i = trunc i64 %srclen.057 to i8
+sw.bb.i32:                                        ; preds = %lor.rhs.split
+  %newlen.tr.i = trunc i64 %srclen.055 to i8
   %conv1.i = shl i8 %newlen.tr.i, 3
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   br label %while.end
 
-sw.bb2.i32:                                       ; preds = %lor.rhs.split
-  %conv3.i = trunc i64 %srclen.057 to i8
-  %add.ptr4.i33 = getelementptr inbounds i8, ptr %call30, i64 -3
-  store i8 %conv3.i, ptr %add.ptr4.i33, align 1
+sw.bb2.i30:                                       ; preds = %lor.rhs.split
+  %conv3.i = trunc i64 %srclen.055 to i8
+  %add.ptr4.i31 = getelementptr inbounds i8, ptr %call30, i64 -3
+  store i8 %conv3.i, ptr %add.ptr4.i31, align 1
   br label %while.end
 
-sw.bb5.i30:                                       ; preds = %lor.rhs.split
-  %conv6.i = trunc i64 %srclen.057 to i16
-  %add.ptr7.i31 = getelementptr inbounds i8, ptr %call30, i64 -5
-  store i16 %conv6.i, ptr %add.ptr7.i31, align 1
+sw.bb5.i28:                                       ; preds = %lor.rhs.split
+  %conv6.i = trunc i64 %srclen.055 to i16
+  %add.ptr7.i29 = getelementptr inbounds i8, ptr %call30, i64 -5
+  store i16 %conv6.i, ptr %add.ptr7.i29, align 1
   br label %while.end
 
-sw.bb9.i28:                                       ; preds = %lor.rhs.split
-  %conv10.i = trunc i64 %srclen.057 to i32
-  %add.ptr11.i29 = getelementptr inbounds i8, ptr %call30, i64 -9
-  store i32 %conv10.i, ptr %add.ptr11.i29, align 1
+sw.bb9.i26:                                       ; preds = %lor.rhs.split
+  %conv10.i = trunc i64 %srclen.055 to i32
+  %add.ptr11.i27 = getelementptr inbounds i8, ptr %call30, i64 -9
+  store i32 %conv10.i, ptr %add.ptr11.i27, align 1
   br label %while.end
 
-sw.bb13.i26:                                      ; preds = %lor.rhs.split
-  %add.ptr14.i27 = getelementptr inbounds i8, ptr %call30, i64 -17
-  store i64 %srclen.057, ptr %add.ptr14.i27, align 1
+sw.bb13.i24:                                      ; preds = %lor.rhs.split
+  %add.ptr14.i25 = getelementptr inbounds i8, ptr %call30, i64 -17
+  store i64 %srclen.055, ptr %add.ptr14.i25, align 1
   br label %while.end
 
 while.body:                                       ; preds = %land.rhs, %land.rhs
-  %dec = add i64 %srclen.057, -1
+  %dec = add i64 %srclen.055, -1
   %arrayidx42 = getelementptr inbounds i8, ptr %call30, i64 %dec
   store i8 0, ptr %arrayidx42, align 1
   %tobool32.not = icmp eq i64 %dec, 0
   br i1 %tobool32.not, label %while.cond.split.loopexit, label %land.rhs, !llvm.loop !17
 
-while.end:                                        ; preds = %sw.bb13.i26, %sw.bb9.i28, %sw.bb5.i30, %sw.bb2.i32, %sw.bb.i34, %lor.rhs.split, %sw.bb13.i19, %sw.bb9.i21, %sw.bb5.i22, %sw.bb2.i, %while.cond.split
-  %21 = phi i8 [ %19, %sw.bb13.i26 ], [ %19, %sw.bb9.i28 ], [ %19, %sw.bb5.i30 ], [ %19, %sw.bb2.i32 ], [ %conv1.i, %sw.bb.i34 ], [ %19, %lor.rhs.split ], [ %16, %sw.bb13.i19 ], [ %16, %sw.bb9.i21 ], [ %16, %sw.bb5.i22 ], [ %16, %sw.bb2.i ], [ %16, %while.cond.split ]
-  %conv.i37 = zext i8 %21 to i32
-  %and.i38 = and i32 %conv.i37, 7
-  switch i32 %and.i38, label %sdslen.exit54 [
-    i32 0, label %sw.bb.i51
-    i32 1, label %sw.bb3.i48
-    i32 2, label %sw.bb5.i45
-    i32 3, label %sw.bb9.i42
-    i32 4, label %sw.bb13.i39
+while.end:                                        ; preds = %sw.bb13.i24, %sw.bb9.i26, %sw.bb5.i28, %sw.bb2.i30, %sw.bb.i32, %lor.rhs.split, %sw.bb13.i18, %sw.bb9.i20, %sw.bb5.i21, %sw.bb2.i, %while.cond.split
+  %21 = phi i8 [ %19, %sw.bb13.i24 ], [ %19, %sw.bb9.i26 ], [ %19, %sw.bb5.i28 ], [ %19, %sw.bb2.i30 ], [ %conv1.i, %sw.bb.i32 ], [ %19, %lor.rhs.split ], [ %16, %sw.bb13.i18 ], [ %16, %sw.bb9.i20 ], [ %16, %sw.bb5.i21 ], [ %16, %sw.bb2.i ], [ %16, %while.cond.split ]
+  %conv.i35 = zext i8 %21 to i32
+  %and.i36 = and i32 %conv.i35, 7
+  switch i32 %and.i36, label %sdslen.exit52 [
+    i32 0, label %sw.bb.i49
+    i32 1, label %sw.bb3.i46
+    i32 2, label %sw.bb5.i43
+    i32 3, label %sw.bb9.i40
+    i32 4, label %sw.bb13.i37
   ]
 
-sw.bb.i51:                                        ; preds = %while.end.thread, %while.end
-  %conv.i3763 = phi i32 [ 0, %while.end.thread ], [ %conv.i37, %while.end ]
-  %shr.i52 = lshr i32 %conv.i3763, 3
-  %conv2.i53 = zext nneg i32 %shr.i52 to i64
-  br label %sdslen.exit54
+sw.bb.i49:                                        ; preds = %while.end.thread, %while.end
+  %conv.i3561 = phi i32 [ 0, %while.end.thread ], [ %conv.i35, %while.end ]
+  %shr.i50 = lshr i32 %conv.i3561, 3
+  %conv2.i51 = zext nneg i32 %shr.i50 to i64
+  br label %sdslen.exit52
 
-sw.bb3.i48:                                       ; preds = %while.end
-  %add.ptr.i49 = getelementptr inbounds i8, ptr %call30, i64 -3
-  %22 = load i8, ptr %add.ptr.i49, align 1
-  %conv4.i50 = zext i8 %22 to i64
-  br label %sdslen.exit54
+sw.bb3.i46:                                       ; preds = %while.end
+  %add.ptr.i47 = getelementptr inbounds i8, ptr %call30, i64 -3
+  %22 = load i8, ptr %add.ptr.i47, align 1
+  %conv4.i48 = zext i8 %22 to i64
+  br label %sdslen.exit52
 
-sw.bb5.i45:                                       ; preds = %while.end
-  %add.ptr6.i46 = getelementptr inbounds i8, ptr %call30, i64 -5
-  %23 = load i16, ptr %add.ptr6.i46, align 1
-  %conv8.i47 = zext i16 %23 to i64
-  br label %sdslen.exit54
+sw.bb5.i43:                                       ; preds = %while.end
+  %add.ptr6.i44 = getelementptr inbounds i8, ptr %call30, i64 -5
+  %23 = load i16, ptr %add.ptr6.i44, align 1
+  %conv8.i45 = zext i16 %23 to i64
+  br label %sdslen.exit52
 
-sw.bb9.i42:                                       ; preds = %while.end
-  %add.ptr10.i43 = getelementptr inbounds i8, ptr %call30, i64 -9
-  %24 = load i32, ptr %add.ptr10.i43, align 1
-  %conv12.i44 = zext i32 %24 to i64
-  br label %sdslen.exit54
+sw.bb9.i40:                                       ; preds = %while.end
+  %add.ptr10.i41 = getelementptr inbounds i8, ptr %call30, i64 -9
+  %24 = load i32, ptr %add.ptr10.i41, align 1
+  %conv12.i42 = zext i32 %24 to i64
+  br label %sdslen.exit52
 
-sw.bb13.i39:                                      ; preds = %while.end
-  %add.ptr14.i40 = getelementptr inbounds i8, ptr %call30, i64 -17
-  %25 = load i64, ptr %add.ptr14.i40, align 1
-  br label %sdslen.exit54
+sw.bb13.i37:                                      ; preds = %while.end
+  %add.ptr14.i38 = getelementptr inbounds i8, ptr %call30, i64 -17
+  %25 = load i64, ptr %add.ptr14.i38, align 1
+  br label %sdslen.exit52
 
-sdslen.exit54:                                    ; preds = %while.end, %sw.bb.i51, %sw.bb3.i48, %sw.bb5.i45, %sw.bb9.i42, %sw.bb13.i39
-  %retval.0.i41 = phi i64 [ %25, %sw.bb13.i39 ], [ %conv12.i44, %sw.bb9.i42 ], [ %conv8.i47, %sw.bb5.i45 ], [ %conv4.i50, %sw.bb3.i48 ], [ %conv2.i53, %sw.bb.i51 ], [ 0, %while.end ]
-  %call44 = call ptr @sdssplitlen(ptr noundef nonnull %call30, i64 noundef %retval.0.i41, ptr noundef nonnull @.str.63, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11)) #18
+sdslen.exit52:                                    ; preds = %while.end, %sw.bb.i49, %sw.bb3.i46, %sw.bb5.i43, %sw.bb9.i40, %sw.bb13.i37
+  %retval.0.i39 = phi i64 [ %25, %sw.bb13.i37 ], [ %conv12.i42, %sw.bb9.i40 ], [ %conv8.i45, %sw.bb5.i43 ], [ %conv4.i48, %sw.bb3.i46 ], [ %conv2.i51, %sw.bb.i49 ], [ 0, %while.end ]
+  %call44 = call ptr @sdssplitlen(ptr noundef nonnull %call30, i64 noundef %retval.0.i39, ptr noundef nonnull @.str.63, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11)) #17
   store ptr %call44, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
-  call void @sdsfree(ptr noundef nonnull %call30) #18
+  call void @sdsfree(ptr noundef nonnull %call30) #17
   br label %return
 
-return:                                           ; preds = %sdslen.exit54, %if.else15, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %sdslen.exit54 ], [ 0, %if.else15 ]
+return:                                           ; preds = %sdslen.exit52, %if.else15, %if.then3
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %sdslen.exit52 ], [ 0, %if.else15 ]
   ret i32 %retval.0
 }
 
@@ -2577,26 +2573,26 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ldbEndSession(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.64) #18
+  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.64) #17
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %call) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %call) #17
   tail call void @ldbSendLogs()
   %1 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 2), align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %do.body3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @writeToClient(ptr noundef %c, i32 noundef 0) #18
+  %call1 = tail call i32 @writeToClient(ptr noundef %c, i32 noundef 0) #17
   %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp = icmp sgt i32 %2, 2
   br i1 %cmp, label %do.end, label %if.end
 
 if.end:                                           ; preds = %if.then
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.65) #18
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.65) #17
   br label %do.end
 
 do.end:                                           ; preds = %if.then, %if.end
-  tail call void @exitFromChild(i32 noundef 0) #18
+  tail call void @exitFromChild(i32 noundef 0) #17
   br label %if.end8
 
 do.body3:                                         ; preds = %entry
@@ -2605,21 +2601,21 @@ do.body3:                                         ; preds = %entry
   br i1 %cmp4, label %if.end8, label %if.end6
 
 if.end6:                                          ; preds = %do.body3
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.66) #18
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.66) #17
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end6, %do.body3, %do.end
   %4 = load ptr, ptr @ldb, align 8
-  %call9 = tail call i32 @connNonBlock(ptr noundef %4) #18
+  %call9 = tail call i32 @connNonBlock(ptr noundef %4) #17
   %5 = load ptr, ptr @ldb, align 8
-  %call10 = tail call i32 @connSendTimeout(ptr noundef %5, i64 noundef 0) #18
+  %call10 = tail call i32 @connSendTimeout(ptr noundef %5, i64 noundef 0) #17
   %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
   %6 = load i64, ptr %flags, align 8
   %or = or i64 %6, 64
   store i64 %or, ptr %flags, align 8
   %7 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 10), align 8
   %8 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
-  tail call void @sdsfreesplitres(ptr noundef %7, i32 noundef %8) #18
+  tail call void @sdsfreesplitres(ptr noundef %7, i32 noundef %8) #17
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 1), align 8
   ret void
@@ -2632,18 +2628,18 @@ declare void @exitFromChild(i32 noundef) local_unnamed_addr #1
 declare i32 @connNonBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ldbRemoveChild(i32 noundef %pid) local_unnamed_addr #0 {
+define dso_local noundef i32 @ldbRemoveChild(i32 noundef %pid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
   %conv = sext i32 %pid to i64
   %1 = inttoptr i64 %conv to ptr
-  %call = tail call ptr @listSearchKey(ptr noundef %0, ptr noundef %1) #18
+  %call = tail call ptr @listSearchKey(ptr noundef %0, ptr noundef %1) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
-  tail call void @listDelNode(ptr noundef %2, ptr noundef nonnull %call) #18
+  tail call void @listDelNode(ptr noundef %2, ptr noundef nonnull %call) #17
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2668,8 +2664,8 @@ define dso_local void @ldbKillForkedSessions() local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
-  call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #18
-  %call2 = call ptr @listNext(ptr noundef nonnull %li) #18
+  call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #17
+  %call2 = call ptr @listNext(ptr noundef nonnull %li) #17
   %tobool.not3 = icmp eq ptr %call2, null
   br i1 %tobool.not3, label %while.end, label %while.body
 
@@ -2686,19 +2682,19 @@ while.body:                                       ; preds = %entry, %do.end
 if.end:                                           ; preds = %while.body
   %sext = shl i64 %2, 32
   %conv2 = ashr exact i64 %sext, 32
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.67, i64 noundef %conv2) #18
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.67, i64 noundef %conv2) #17
   br label %do.end
 
 do.end:                                           ; preds = %while.body, %if.end
-  %call3 = call i32 @kill(i32 noundef %conv, i32 noundef 9) #18
-  %call = call ptr @listNext(ptr noundef nonnull %li) #18
+  %call3 = call i32 @kill(i32 noundef %conv, i32 noundef 9) #17
+  %call = call ptr @listNext(ptr noundef nonnull %li) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %do.end, %entry
   %4 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
-  call void @listRelease(ptr noundef %4) #18
-  %call4 = call ptr @listCreate() #18
+  call void @listRelease(ptr noundef %4) #17
+  %call4 = call ptr @listCreate() #17
   store ptr %call4, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 5), align 8
   ret void
 }
@@ -2735,7 +2731,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @ldbIsBreakpoint(i32 noundef %line) local_unnamed_addr #12 {
+define dso_local noundef i32 @ldbIsBreakpoint(i32 noundef %line) local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %cmp3 = icmp sgt i32 %0, 0
@@ -2763,7 +2759,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @ldbAddBreakpoint(i32 noundef %line) local_unnamed_addr #13 {
+define dso_local noundef i32 @ldbAddBreakpoint(i32 noundef %line) local_unnamed_addr #13 {
 entry:
   %cmp = icmp slt i32 %line, 1
   %0 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
@@ -2809,8 +2805,8 @@ return:                                           ; preds = %for.body.i, %ldbIsB
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @ldbDelBreakpoint(i32 noundef %line) local_unnamed_addr #14 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @ldbDelBreakpoint(i32 noundef %line) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %cmp8 = icmp sgt i32 %0, 0
@@ -2901,20 +2897,20 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sdslen.exit
-  %call1 = tail call ptr @sdsdup(ptr noundef nonnull %0) #18
-  %call2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call1, i32 noundef 42) #17
+  %call1 = tail call ptr @sdsdup(ptr noundef nonnull %0) #17
+  %call2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call1, i32 noundef 42) #16
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %protoerr, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) @.str.58) #17
+  %call5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) @.str.58) #16
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %keep_reading, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 1
   store i8 0, ptr %call5, align 1
-  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #17
+  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #16
   store i32 %call10, ptr %argcp, align 4
   %6 = add i32 %call10, -1025
   %or.cond37 = icmp ult i32 %6, -1024
@@ -2924,7 +2920,7 @@ if.end14:                                         ; preds = %if.end8
   %add.ptr9 = getelementptr inbounds i8, ptr %call5, i64 2
   %7 = shl nuw nsw i32 %call10, 3
   %mul = zext nneg i32 %7 to i64
-  %call15 = tail call noalias ptr @zmalloc(i64 noundef %mul) #20
+  %call15 = tail call noalias ptr @zmalloc(i64 noundef %mul) #19
   %sub.ptr.rhs.cast = ptrtoint ptr %call1 to i64
   %arrayidx.i38 = getelementptr inbounds i8, ptr %call1, i64 -1
   %add.ptr14.i42 = getelementptr inbounds i8, ptr %call1, i64 -17
@@ -2949,7 +2945,7 @@ while.body:                                       ; preds = %while.cond
   ]
 
 if.end27:                                         ; preds = %while.body
-  %call29 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %p.0, ptr noundef nonnull dereferenceable(1) @.str.58) #17
+  %call29 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %p.0, ptr noundef nonnull dereferenceable(1) @.str.58) #16
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %keep_reading.loopexit, label %if.end32
 
@@ -2957,7 +2953,7 @@ if.end32:                                         ; preds = %if.end27
   %add.ptr28 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 0, ptr %call29, align 1
   %add.ptr33 = getelementptr inbounds i8, ptr %call29, i64 2
-  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr28) #17
+  %call34 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr28) #16
   %11 = add i32 %call34, -1025
   %or.cond = icmp ult i32 %11, -1024
   br i1 %or.cond, label %protoerr.loopexit, label %if.end41
@@ -3009,7 +3005,7 @@ sdslen.exit56:                                    ; preds = %if.end41, %sw.bb.i5
   br i1 %cmp45, label %keep_reading.loopexit, label %if.end48
 
 if.end48:                                         ; preds = %sdslen.exit56
-  %call50 = tail call ptr @sdsnewlen(ptr noundef nonnull %add.ptr33, i64 noundef %idx.ext) #18
+  %call50 = tail call ptr @sdsnewlen(ptr noundef nonnull %add.ptr33, i64 noundef %idx.ext) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %call15, i64 %indvars.iv
   store ptr %call50, ptr %arrayidx, align 8
@@ -3041,12 +3037,12 @@ keep_reading.loopexit:                            ; preds = %if.end27, %sdslen.e
 keep_reading:                                     ; preds = %keep_reading.loopexit, %if.end4, %protoerr
   %argc.2 = phi i32 [ %argc.1, %protoerr ], [ 0, %if.end4 ], [ %20, %keep_reading.loopexit ]
   %argv.1 = phi ptr [ %argv.0, %protoerr ], [ null, %if.end4 ], [ %call15, %keep_reading.loopexit ]
-  tail call void @sdsfreesplitres(ptr noundef %argv.1, i32 noundef %argc.2) #18
+  tail call void @sdsfreesplitres(ptr noundef %argv.1, i32 noundef %argc.2) #17
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %keep_reading
   %retval.0.ph = phi ptr [ null, %keep_reading ], [ %call15, %while.cond ]
-  tail call void @sdsfree(ptr noundef %call1) #18
+  tail call void @sdsfree(ptr noundef %call1) #17
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %sdslen.exit
@@ -3108,10 +3104,10 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %9 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
   %cmp9 = icmp eq i32 %9, %lnum
   %prefix.0 = select i1 %cmp9, ptr %8, ptr %7
-  %call11 = tail call ptr @sdsempty() #18
-  %call12 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0, i32 noundef %lnum, ptr noundef %retval.0.i) #18
+  %call11 = tail call ptr @sdsempty() #17
+  %call12 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0, i32 noundef %lnum, ptr noundef %retval.0.i) #17
   %10 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call12) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call12) #17
   ret void
 }
 
@@ -3160,11 +3156,11 @@ ldbLogSourceLine.exit.us:                         ; preds = %for.body.i.i.us, %f
   %10 = zext i32 %9 to i64
   %cmp9.i.us = icmp eq i64 %indvars.iv16, %10
   %prefix.0.i.us = select i1 %cmp9.i.us, ptr %8, ptr %7
-  %call11.i.us = tail call ptr @sdsempty() #18
+  %call11.i.us = tail call ptr @sdsempty() #17
   %11 = trunc i64 %indvars.iv16 to i32
-  %call12.i.us = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i.us, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i.us, i32 noundef %11, ptr noundef %3) #18
+  %call12.i.us = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i.us, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i.us, i32 noundef %11, ptr noundef %3) #17
   %12 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i.us = tail call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call12.i.us) #18
+  %call.i.i.us = tail call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call12.i.us) #17
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %13 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
   %14 = sext i32 %13 to i64
@@ -3213,11 +3209,11 @@ ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.
   %28 = zext i32 %27 to i64
   %cmp9.i = icmp eq i64 %indvars.iv, %28
   %prefix.0.i = select i1 %cmp9.i, ptr %26, ptr %25
-  %call11.i = tail call ptr @sdsempty() #18
+  %call11.i = tail call ptr @sdsempty() #17
   %29 = trunc i64 %indvars.iv to i32
-  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %29, ptr noundef %21) #18
+  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %29, ptr noundef %21) #17
   %30 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %call12.i) #18
+  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %call12.i) #17
   %.pre = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
   br label %for.inc
 
@@ -3233,19 +3229,19 @@ for.end:                                          ; preds = %for.inc, %ldbLogSou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ldbCatStackValueRec(ptr noundef %s, ptr noundef %lua, i32 noundef %idx, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %strl = alloca i64, align 8
-  %call = tail call i32 @lua_type(ptr noundef %lua, i32 noundef %idx) #18
+  %call = tail call i32 @lua_type(ptr noundef %lua, i32 noundef %idx) #17
   %inc = add nsw i32 %level, 1
   %cmp = icmp eq i32 %level, 10
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull @.str.75) #18
+  %call1 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull @.str.75) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3262,33 +3258,33 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call2 = call ptr @lua_tolstring(ptr noundef %lua, i32 noundef %idx, ptr noundef nonnull %strl) #18
+  %call2 = call ptr @lua_tolstring(ptr noundef %lua, i32 noundef %idx, ptr noundef nonnull %strl) #17
   %0 = load i64, ptr %strl, align 8
-  %call3 = call ptr @sdscatrepr(ptr noundef %s, ptr noundef %call2, i64 noundef %0) #18
+  %call3 = call ptr @sdscatrepr(ptr noundef %s, ptr noundef %call2, i64 noundef %0) #17
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %call5 = tail call i32 @lua_toboolean(ptr noundef %lua, i32 noundef %idx) #18
+  %call5 = tail call i32 @lua_toboolean(ptr noundef %lua, i32 noundef %idx) #17
   %tobool.not = icmp eq i32 %call5, 0
   %cond = select i1 %tobool.not, ptr @.str.77, ptr @.str.76
-  %call6 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull %cond) #18
+  %call6 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull %cond) #17
   br label %return
 
 sw.bb7:                                           ; preds = %if.end
-  %call8 = tail call double @lua_tonumber(ptr noundef %lua, i32 noundef %idx) #18
-  %call9 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s, ptr noundef nonnull @.str.78, double noundef %call8) #18
+  %call8 = tail call double @lua_tonumber(ptr noundef %lua, i32 noundef %idx) #17
+  %call9 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s, ptr noundef nonnull @.str.78, double noundef %call8) #17
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
-  %call11 = tail call ptr @sdscatlen(ptr noundef %s, ptr noundef nonnull @.str.79, i64 noundef 3) #18
+  %call11 = tail call ptr @sdscatlen(ptr noundef %s, ptr noundef nonnull @.str.79, i64 noundef 3) #17
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
-  %call13 = tail call ptr @sdsempty() #18
-  %call14 = tail call ptr @sdsempty() #18
-  tail call void @lua_pushnil(ptr noundef %lua) #18
+  %call13 = tail call ptr @sdsempty() #17
+  %call14 = tail call ptr @sdsempty() #17
+  tail call void @lua_pushnil(ptr noundef %lua) #17
   %sub = add nsw i32 %idx, -1
-  %call1573 = tail call i32 @lua_next(ptr noundef %lua, i32 noundef %sub) #18
+  %call1573 = tail call i32 @lua_next(ptr noundef %lua, i32 noundef %sub) #17
   %tobool16.not74 = icmp eq i32 %call1573, 0
   br i1 %tobool16.not74, label %while.end, label %while.body
 
@@ -3301,12 +3297,12 @@ while.body:                                       ; preds = %sw.bb12, %if.end24
   br i1 %tobool17.not, label %if.end24, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %call18 = tail call i32 @lua_type(ptr noundef %lua, i32 noundef -2) #18
+  %call18 = tail call i32 @lua_type(ptr noundef %lua, i32 noundef -2) #17
   %cmp19.not = icmp eq i32 %call18, 3
   br i1 %cmp19.not, label %lor.lhs.false, label %if.then23
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %call20 = tail call double @lua_tonumber(ptr noundef %lua, i32 noundef -2) #18
+  %call20 = tail call double @lua_tonumber(ptr noundef %lua, i32 noundef -2) #17
   %conv = sitofp i32 %expected_index.075 to double
   %cmp21 = fcmp une double %call20, %conv
   br i1 %cmp21, label %if.then23, label %if.end24
@@ -3318,15 +3314,15 @@ if.end24:                                         ; preds = %if.then23, %lor.lhs
   %1 = phi i1 [ true, %if.then23 ], [ false, %lor.lhs.false ], [ true, %while.body ]
   %is_array.1 = phi i32 [ 0, %if.then23 ], [ 1, %lor.lhs.false ], [ 0, %while.body ]
   %call25 = tail call ptr @ldbCatStackValueRec(ptr noundef %repr1.078, ptr noundef %lua, i32 noundef -1, i32 noundef %inc)
-  %call26 = tail call ptr @sdscatlen(ptr noundef %call25, ptr noundef nonnull @.str.80, i64 noundef 2) #18
-  %call27 = tail call ptr @sdscatlen(ptr noundef %repr2.079, ptr noundef nonnull @.str.81, i64 noundef 1) #18
+  %call26 = tail call ptr @sdscatlen(ptr noundef %call25, ptr noundef nonnull @.str.80, i64 noundef 2) #17
+  %call27 = tail call ptr @sdscatlen(ptr noundef %repr2.079, ptr noundef nonnull @.str.81, i64 noundef 1) #17
   %call28 = tail call ptr @ldbCatStackValueRec(ptr noundef %call27, ptr noundef %lua, i32 noundef -2, i32 noundef %inc)
-  %call29 = tail call ptr @sdscatlen(ptr noundef %call28, ptr noundef nonnull @.str.82, i64 noundef 2) #18
+  %call29 = tail call ptr @sdscatlen(ptr noundef %call28, ptr noundef nonnull @.str.82, i64 noundef 2) #17
   %call30 = tail call ptr @ldbCatStackValueRec(ptr noundef %call29, ptr noundef %lua, i32 noundef -1, i32 noundef %inc)
-  %call31 = tail call ptr @sdscatlen(ptr noundef %call30, ptr noundef nonnull @.str.80, i64 noundef 2) #18
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  %call31 = tail call ptr @sdscatlen(ptr noundef %call30, ptr noundef nonnull @.str.80, i64 noundef 2) #17
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   %inc32 = add nuw nsw i32 %expected_index.075, 1
-  %call15 = tail call i32 @lua_next(ptr noundef %lua, i32 noundef %sub) #18
+  %call15 = tail call i32 @lua_next(ptr noundef %lua, i32 noundef %sub) #17
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %while.end.loopexit, label %while.body, !llvm.loop !23
 
@@ -3384,7 +3380,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %tobool34.not, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %sdslen.exit
-  tail call void @sdsrange(ptr noundef nonnull %repr1.0.lcssa, i64 noundef 0, i64 noundef -3) #18
+  tail call void @sdsrange(ptr noundef nonnull %repr1.0.lcssa, i64 noundef 0, i64 noundef -3) #17
   br label %if.end36
 
 if.end36:                                         ; preds = %while.end, %if.then35, %sdslen.exit
@@ -3434,19 +3430,19 @@ sdslen.exit68:                                    ; preds = %sw.bb.i65, %sw.bb3.
   br i1 %tobool38.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %sdslen.exit68
-  tail call void @sdsrange(ptr noundef nonnull %repr2.0.lcssa, i64 noundef 0, i64 noundef -3) #18
+  tail call void @sdsrange(ptr noundef nonnull %repr2.0.lcssa, i64 noundef 0, i64 noundef -3) #17
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end36, %if.then39, %sdslen.exit68
-  %call41 = tail call ptr @sdscatlen(ptr noundef %s, ptr noundef nonnull @.str.83, i64 noundef 1) #18
-  %call44 = tail call ptr @sdscatsds(ptr noundef %call41, ptr noundef %is_array.0.lcssa) #18
-  %call45 = tail call ptr @sdscatlen(ptr noundef %call44, ptr noundef nonnull @.str.84, i64 noundef 1) #18
-  tail call void @sdsfree(ptr noundef nonnull %repr1.0.lcssa) #18
-  tail call void @sdsfree(ptr noundef nonnull %repr2.0.lcssa) #18
+  %call41 = tail call ptr @sdscatlen(ptr noundef %s, ptr noundef nonnull @.str.83, i64 noundef 1) #17
+  %call44 = tail call ptr @sdscatsds(ptr noundef %call41, ptr noundef %is_array.0.lcssa) #17
+  %call45 = tail call ptr @sdscatlen(ptr noundef %call44, ptr noundef nonnull @.str.84, i64 noundef 1) #17
+  tail call void @sdsfree(ptr noundef nonnull %repr1.0.lcssa) #17
+  tail call void @sdsfree(ptr noundef nonnull %repr2.0.lcssa) #17
   br label %return
 
 sw.bb46:                                          ; preds = %if.end, %if.end, %if.end, %if.end
-  %call47 = tail call ptr @lua_topointer(ptr noundef %lua, i32 noundef %idx) #18
+  %call47 = tail call ptr @lua_topointer(ptr noundef %lua, i32 noundef %idx) #17
   %switch.tableidx = add i32 %call, -2
   %13 = icmp ult i32 %switch.tableidx, 7
   br i1 %13, label %switch.lookup, label %if.end65
@@ -3459,11 +3455,11 @@ switch.lookup:                                    ; preds = %sw.bb46
 
 if.end65:                                         ; preds = %sw.bb46, %switch.lookup
   %typename.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.85, %sw.bb46 ]
-  %call66 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s, ptr noundef nonnull @.str.90, ptr noundef nonnull %typename.0, ptr noundef %call47) #18
+  %call66 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s, ptr noundef nonnull @.str.90, ptr noundef nonnull %typename.0, ptr noundef %call47) #17
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  %call67 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull @.str.91) #18
+  %call67 = tail call ptr @sdscat(ptr noundef %s, ptr noundef nonnull @.str.91) #17
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.bb4, %sw.bb7, %sw.bb10, %if.end40, %if.end65, %sw.default, %if.then
@@ -3488,7 +3484,7 @@ declare ptr @lua_topointer(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ldbLogStackValue(ptr noundef %lua, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @sdsnew(ptr noundef %prefix) #18
+  %call = tail call ptr @sdsnew(ptr noundef %prefix) #17
   %call.i = tail call ptr @ldbCatStackValueRec(ptr noundef %call, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   tail call void @ldbLogWithMaxLen(ptr noundef %call.i)
   ret void
@@ -3499,29 +3495,28 @@ define dso_local ptr @ldbRedisProtocolToHuman(ptr nocapture noundef %o, ptr noun
 entry:
   %bulklen.i = alloca i64, align 8
   %0 = load i8, ptr %reply, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 58, label %sw.bb
-    i32 36, label %sw.bb1
-    i32 43, label %sw.bb3
-    i32 45, label %sw.bb5
-    i32 42, label %sw.bb7
-    i32 126, label %sw.bb9
-    i32 37, label %sw.bb11
-    i32 95, label %sw.bb13
-    i32 35, label %sw.bb15
-    i32 44, label %sw.bb17
+  switch i8 %0, label %sw.epilog [
+    i8 58, label %sw.bb
+    i8 36, label %sw.bb1
+    i8 43, label %sw.bb3
+    i8 45, label %sw.bb5
+    i8 42, label %sw.bb7
+    i8 126, label %sw.bb9
+    i8 37, label %sw.bb11
+    i8 95, label %sw.bb13
+    i8 35, label %sw.bb15
+    i8 44, label %sw.bb17
   ]
 
 sw.bb:                                            ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 13) #17
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 13) #16
   %1 = load ptr, ptr %o, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %reply to i64
   %2 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub.i = add i64 %sub.ptr.lhs.cast.i, %2
-  %call2.i = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #18
+  %call2.i = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #17
   store ptr %call2.i, ptr %o, align 8
   %add.ptr3.i = getelementptr inbounds i8, ptr %call.i, i64 2
   br label %sw.epilog
@@ -3529,24 +3524,24 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bulklen.i)
   %add.ptr.i21 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i21, i32 noundef 13) #17
+  %call.i22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i21, i32 noundef 13) #16
   %sub.ptr.lhs.cast.i23 = ptrtoint ptr %call.i22 to i64
   %sub.ptr.rhs.cast.i24 = ptrtoint ptr %reply to i64
   %3 = xor i64 %sub.ptr.rhs.cast.i24, -1
   %sub.i25 = add i64 %sub.ptr.lhs.cast.i23, %3
-  %call2.i26 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i21, i64 noundef %sub.i25, ptr noundef nonnull %bulklen.i) #18
+  %call2.i26 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i21, i64 noundef %sub.i25, ptr noundef nonnull %bulklen.i) #17
   %4 = load i64, ptr %bulklen.i, align 8
   %cmp.i = icmp eq i64 %4, -1
   %5 = load ptr, ptr %o, align 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb1
-  %call3.i = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.92, i64 noundef 4) #18
+  %call3.i = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.92, i64 noundef 4) #17
   br label %ldbRedisProtocolToHuman_Bulk.exit
 
 if.else.i:                                        ; preds = %sw.bb1
   %add.ptr5.i = getelementptr inbounds i8, ptr %call.i22, i64 2
-  %call6.i = call ptr @sdscatrepr(ptr noundef %5, ptr noundef nonnull %add.ptr5.i, i64 noundef %4) #18
+  %call6.i = call ptr @sdscatrepr(ptr noundef %5, ptr noundef nonnull %add.ptr5.i, i64 noundef %4) #17
   %6 = load i64, ptr %bulklen.i, align 8
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 %6
   br label %ldbRedisProtocolToHuman_Bulk.exit
@@ -3561,24 +3556,24 @@ ldbRedisProtocolToHuman_Bulk.exit:                ; preds = %if.then.i, %if.else
 
 sw.bb3:                                           ; preds = %entry
   %add.ptr.i27 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i27, i32 noundef 13) #17
+  %call.i28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i27, i32 noundef 13) #16
   %7 = load ptr, ptr %o, align 8
   %sub.ptr.lhs.cast.i29 = ptrtoint ptr %call.i28 to i64
   %sub.ptr.rhs.cast.i30 = ptrtoint ptr %reply to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i29, %sub.ptr.rhs.cast.i30
-  %call1.i = tail call ptr @sdscatrepr(ptr noundef %7, ptr noundef nonnull %reply, i64 noundef %sub.ptr.sub.i) #18
+  %call1.i = tail call ptr @sdscatrepr(ptr noundef %7, ptr noundef nonnull %reply, i64 noundef %sub.ptr.sub.i) #17
   store ptr %call1.i, ptr %o, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %call.i28, i64 2
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %add.ptr.i31 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i31, i32 noundef 13) #17
+  %call.i32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i31, i32 noundef 13) #16
   %8 = load ptr, ptr %o, align 8
   %sub.ptr.lhs.cast.i33 = ptrtoint ptr %call.i32 to i64
   %sub.ptr.rhs.cast.i34 = ptrtoint ptr %reply to i64
   %sub.ptr.sub.i35 = sub i64 %sub.ptr.lhs.cast.i33, %sub.ptr.rhs.cast.i34
-  %call1.i36 = tail call ptr @sdscatrepr(ptr noundef %8, ptr noundef nonnull %reply, i64 noundef %sub.ptr.sub.i35) #18
+  %call1.i36 = tail call ptr @sdscatrepr(ptr noundef %8, ptr noundef nonnull %reply, i64 noundef %sub.ptr.sub.i35) #17
   store ptr %call1.i36, ptr %o, align 8
   %add.ptr2.i37 = getelementptr inbounds i8, ptr %call.i32, i64 2
   br label %sw.epilog
@@ -3597,27 +3592,27 @@ sw.bb11:                                          ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry
   %add.ptr.i38 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i38, i32 noundef 13) #17
+  %call.i39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i38, i32 noundef 13) #16
   %9 = load ptr, ptr %o, align 8
-  %call1.i40 = tail call ptr @sdscatlen(ptr noundef %9, ptr noundef nonnull @.str.97, i64 noundef 6) #18
+  %call1.i40 = tail call ptr @sdscatlen(ptr noundef %9, ptr noundef nonnull @.str.97, i64 noundef 6) #17
   store ptr %call1.i40, ptr %o, align 8
   %add.ptr2.i41 = getelementptr inbounds i8, ptr %call.i39, i64 2
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
   %add.ptr.i42 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i42, i32 noundef 13) #17
+  %call.i43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i42, i32 noundef 13) #16
   %10 = load i8, ptr %add.ptr.i42, align 1
   %cmp.i44 = icmp eq i8 %10, 116
   %11 = load ptr, ptr %o, align 8
   br i1 %cmp.i44, label %if.then.i47, label %if.else.i45
 
 if.then.i47:                                      ; preds = %sw.bb15
-  %call2.i48 = tail call ptr @sdscatlen(ptr noundef %11, ptr noundef nonnull @.str.98, i64 noundef 5) #18
+  %call2.i48 = tail call ptr @sdscatlen(ptr noundef %11, ptr noundef nonnull @.str.98, i64 noundef 5) #17
   br label %ldbRedisProtocolToHuman_Bool.exit
 
 if.else.i45:                                      ; preds = %sw.bb15
-  %call3.i46 = tail call ptr @sdscatlen(ptr noundef %11, ptr noundef nonnull @.str.99, i64 noundef 6) #18
+  %call3.i46 = tail call ptr @sdscatlen(ptr noundef %11, ptr noundef nonnull @.str.99, i64 noundef 6) #17
   br label %ldbRedisProtocolToHuman_Bool.exit
 
 ldbRedisProtocolToHuman_Bool.exit:                ; preds = %if.then.i47, %if.else.i45
@@ -3628,15 +3623,15 @@ ldbRedisProtocolToHuman_Bool.exit:                ; preds = %if.then.i47, %if.el
 
 sw.bb17:                                          ; preds = %entry
   %add.ptr.i49 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i49, i32 noundef 13) #17
+  %call.i50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i49, i32 noundef 13) #16
   %12 = load ptr, ptr %o, align 8
-  %call1.i51 = tail call ptr @sdscatlen(ptr noundef %12, ptr noundef nonnull @.str.100, i64 noundef 9) #18
+  %call1.i51 = tail call ptr @sdscatlen(ptr noundef %12, ptr noundef nonnull @.str.100, i64 noundef 9) #17
   store ptr %call1.i51, ptr %o, align 8
   %sub.ptr.lhs.cast.i52 = ptrtoint ptr %call.i50 to i64
   %sub.ptr.rhs.cast.i53 = ptrtoint ptr %reply to i64
   %13 = xor i64 %sub.ptr.rhs.cast.i53, -1
   %sub.i54 = add i64 %sub.ptr.lhs.cast.i52, %13
-  %call3.i55 = tail call ptr @sdscatlen(ptr noundef %call1.i51, ptr noundef nonnull %add.ptr.i49, i64 noundef %sub.i54) #18
+  %call3.i55 = tail call ptr @sdscatlen(ptr noundef %call1.i51, ptr noundef nonnull %add.ptr.i49, i64 noundef %sub.i54) #17
   store ptr %call3.i55, ptr %o, align 8
   %add.ptr4.i56 = getelementptr inbounds i8, ptr %call.i50, i64 2
   br label %sw.epilog
@@ -3650,13 +3645,13 @@ sw.epilog:                                        ; preds = %sw.bb17, %ldbRedisP
 define dso_local nonnull ptr @ldbRedisProtocolToHuman_Int(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %0 = load ptr, ptr %o, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %1 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %1
-  %call2 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull %add.ptr, i64 noundef %sub) #18
+  %call2 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull %add.ptr, i64 noundef %sub) #17
   store ptr %call2, ptr %o, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %call, i64 2
   ret ptr %add.ptr3
@@ -3667,24 +3662,24 @@ define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bulk(ptr nocapture noundef
 entry:
   %bulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %0 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %0
-  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %bulklen) #18
+  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %bulklen) #17
   %1 = load i64, ptr %bulklen, align 8
   %cmp = icmp eq i64 %1, -1
   %2 = load ptr, ptr %o, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call3 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.92, i64 noundef 4) #18
+  %call3 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.92, i64 noundef 4) #17
   br label %return
 
 if.else:                                          ; preds = %entry
   %add.ptr5 = getelementptr inbounds i8, ptr %call, i64 2
-  %call6 = call ptr @sdscatrepr(ptr noundef %2, ptr noundef nonnull %add.ptr5, i64 noundef %1) #18
+  %call6 = call ptr @sdscatrepr(ptr noundef %2, ptr noundef nonnull %add.ptr5, i64 noundef %1) #17
   %3 = load i64, ptr %bulklen, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr5, i64 %3
   br label %return
@@ -3701,12 +3696,12 @@ return:                                           ; preds = %if.else, %if.then
 define dso_local nonnull ptr @ldbRedisProtocolToHuman_Status(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %0 = load ptr, ptr %o, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call1 = tail call ptr @sdscatrepr(ptr noundef %0, ptr noundef %reply, i64 noundef %sub.ptr.sub) #18
+  %call1 = tail call ptr @sdscatrepr(ptr noundef %0, ptr noundef %reply, i64 noundef %sub.ptr.sub) #17
   store ptr %call1, ptr %o, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %call, i64 2
   ret ptr %add.ptr2
@@ -3717,12 +3712,12 @@ define dso_local ptr @ldbRedisProtocolToHuman_MultiBulk(ptr nocapture noundef %o
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %0 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %0
-  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #18
+  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #17
   %add.ptr3 = getelementptr inbounds i8, ptr %call, i64 2
   %1 = load i64, ptr %mbulklen, align 8
   %cmp = icmp eq i64 %1, -1
@@ -3730,11 +3725,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call4 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.92, i64 noundef 4) #18
+  %call4 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.92, i64 noundef 4) #17
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call5 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.81, i64 noundef 1) #18
+  %call5 = call ptr @sdscatlen(ptr noundef %2, ptr noundef nonnull @.str.81, i64 noundef 1) #17
   store ptr %call5, ptr %o, align 8
   %3 = load i64, ptr %mbulklen, align 8
   %cmp617 = icmp sgt i64 %3, 0
@@ -3751,7 +3746,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 if.then13:                                        ; preds = %for.body
   %5 = load ptr, ptr %o, align 8
-  %call14 = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.15, i64 noundef 1) #18
+  %call14 = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.15, i64 noundef 1) #17
   store ptr %call14, ptr %o, align 8
   %.pre = load i64, ptr %mbulklen, align 8
   br label %for.inc
@@ -3769,7 +3764,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %7 = phi ptr [ %call5, %if.end ], [ %.pre22, %for.end.loopexit ]
   %p.0.lcssa = phi ptr [ %add.ptr3, %if.end ], [ %call8, %for.end.loopexit ]
-  %call16 = call ptr @sdscatlen(ptr noundef %7, ptr noundef nonnull @.str.93, i64 noundef 1) #18
+  %call16 = call ptr @sdscatlen(ptr noundef %7, ptr noundef nonnull @.str.93, i64 noundef 1) #17
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -3784,15 +3779,15 @@ define dso_local ptr @ldbRedisProtocolToHuman_Set(ptr nocapture noundef %o, ptr 
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %0 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %0
-  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #18
+  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #17
   %add.ptr3 = getelementptr inbounds i8, ptr %call, i64 2
   %1 = load ptr, ptr %o, align 8
-  %call4 = call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.94, i64 noundef 2) #18
+  %call4 = call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.94, i64 noundef 2) #17
   store ptr %call4, ptr %o, align 8
   %2 = load i64, ptr %mbulklen, align 8
   %cmp14 = icmp sgt i64 %2, 0
@@ -3809,7 +3804,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %4 = load ptr, ptr %o, align 8
-  %call11 = call ptr @sdscatlen(ptr noundef %4, ptr noundef nonnull @.str.15, i64 noundef 1) #18
+  %call11 = call ptr @sdscatlen(ptr noundef %4, ptr noundef nonnull @.str.15, i64 noundef 1) #17
   store ptr %call11, ptr %o, align 8
   %.pre = load i64, ptr %mbulklen, align 8
   br label %for.inc
@@ -3827,7 +3822,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %6 = phi ptr [ %call4, %entry ], [ %.pre19, %for.end.loopexit ]
   %p.0.lcssa = phi ptr [ %add.ptr3, %entry ], [ %call6, %for.end.loopexit ]
-  %call12 = call ptr @sdscatlen(ptr noundef %6, ptr noundef nonnull @.str.95, i64 noundef 1) #18
+  %call12 = call ptr @sdscatlen(ptr noundef %6, ptr noundef nonnull @.str.95, i64 noundef 1) #17
   store ptr %call12, ptr %o, align 8
   ret ptr %p.0.lcssa
 }
@@ -3837,15 +3832,15 @@ define dso_local ptr @ldbRedisProtocolToHuman_Map(ptr nocapture noundef %o, ptr 
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %0 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %0
-  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #18
+  %call2 = call i32 @string2ll(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %mbulklen) #17
   %add.ptr3 = getelementptr inbounds i8, ptr %call, i64 2
   %1 = load ptr, ptr %o, align 8
-  %call4 = call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.83, i64 noundef 1) #18
+  %call4 = call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.83, i64 noundef 1) #17
   store ptr %call4, ptr %o, align 8
   %2 = load i64, ptr %mbulklen, align 8
   %cmp18 = icmp sgt i64 %2, 0
@@ -3856,7 +3851,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %p.019 = phi ptr [ %call8, %for.inc ], [ %add.ptr3, %entry ]
   %call6 = call ptr @ldbRedisProtocolToHuman(ptr noundef nonnull %o, ptr noundef %p.019)
   %3 = load ptr, ptr %o, align 8
-  %call7 = call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull @.str.96, i64 noundef 4) #18
+  %call7 = call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull @.str.96, i64 noundef 4) #17
   store ptr %call7, ptr %o, align 8
   %call8 = call ptr @ldbRedisProtocolToHuman(ptr noundef nonnull %o, ptr noundef %call6)
   %4 = load i64, ptr %mbulklen, align 8
@@ -3866,7 +3861,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %5 = load ptr, ptr %o, align 8
-  %call13 = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.15, i64 noundef 1) #18
+  %call13 = call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull @.str.15, i64 noundef 1) #17
   store ptr %call13, ptr %o, align 8
   %.pre = load i64, ptr %mbulklen, align 8
   br label %for.inc
@@ -3884,7 +3879,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %7 = phi ptr [ %call4, %entry ], [ %.pre23, %for.end.loopexit ]
   %p.0.lcssa = phi ptr [ %add.ptr3, %entry ], [ %call8, %for.end.loopexit ]
-  %call14 = call ptr @sdscatlen(ptr noundef %7, ptr noundef nonnull @.str.84, i64 noundef 1) #18
+  %call14 = call ptr @sdscatlen(ptr noundef %7, ptr noundef nonnull @.str.84, i64 noundef 1) #17
   store ptr %call14, ptr %o, align 8
   ret ptr %p.0.lcssa
 }
@@ -3893,9 +3888,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define dso_local nonnull ptr @ldbRedisProtocolToHuman_Null(ptr nocapture noundef %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %0 = load ptr, ptr %o, align 8
-  %call1 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.97, i64 noundef 6) #18
+  %call1 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.97, i64 noundef 6) #17
   store ptr %call1, ptr %o, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %call, i64 2
   ret ptr %add.ptr2
@@ -3905,18 +3900,18 @@ entry:
 define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bool(ptr nocapture noundef %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %0 = load i8, ptr %add.ptr, align 1
   %cmp = icmp eq i8 %0, 116
   %1 = load ptr, ptr %o, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.98, i64 noundef 5) #18
+  %call2 = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.98, i64 noundef 5) #17
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call3 = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.99, i64 noundef 6) #18
+  %call3 = tail call ptr @sdscatlen(ptr noundef %1, ptr noundef nonnull @.str.99, i64 noundef 6) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3930,15 +3925,15 @@ if.end:                                           ; preds = %if.else, %if.then
 define dso_local nonnull ptr @ldbRedisProtocolToHuman_Double(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %reply, i64 1
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #17
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
   %0 = load ptr, ptr %o, align 8
-  %call1 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.100, i64 noundef 9) #18
+  %call1 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.100, i64 noundef 9) #17
   store ptr %call1, ptr %o, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %reply to i64
   %1 = xor i64 %sub.ptr.rhs.cast, -1
   %sub = add i64 %sub.ptr.lhs.cast, %1
-  %call3 = tail call ptr @sdscatlen(ptr noundef %call1, ptr noundef nonnull %add.ptr, i64 noundef %sub) #18
+  %call3 = tail call ptr @sdscatlen(ptr noundef %call1, ptr noundef nonnull %add.ptr, i64 noundef %sub) #17
   store ptr %call3, ptr %o, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %call, i64 2
   ret ptr %add.ptr4
@@ -3950,7 +3945,7 @@ declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 define dso_local void @ldbLogRedisReply(ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %log = alloca ptr, align 8
-  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.101) #18
+  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.101) #17
   store ptr %call, ptr %log, align 8
   %call1 = call ptr @ldbRedisProtocolToHuman(ptr noundef nonnull %log, ptr noundef %reply)
   %0 = load ptr, ptr %log, align 8
@@ -3962,65 +3957,65 @@ entry:
 define dso_local void @ldbPrint(ptr noundef %lua, ptr noundef %varname) local_unnamed_addr #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
-  %call20 = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #18
+  %call20 = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #17
   %cmp.not21 = icmp eq i32 %call20, 0
   br i1 %cmp.not21, label %while.end8, label %while.body
 
 while.cond.loopexit:                              ; preds = %if.else, %while.body
-  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef %inc, ptr noundef nonnull %ar) #18
+  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef %inc, ptr noundef nonnull %ar) #17
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %while.end8, label %while.body, !llvm.loop !27
 
 while.body:                                       ; preds = %entry, %while.cond.loopexit
   %l.022 = phi i32 [ %inc, %while.cond.loopexit ], [ 0, %entry ]
   %inc = add nuw nsw i32 %l.022, 1
-  %call216 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef 1) #18
+  %call216 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef 1) #17
   %cmp3.not17 = icmp eq ptr %call216, null
   br i1 %cmp3.not17, label %while.cond.loopexit, label %while.body4
 
 while.body4:                                      ; preds = %while.body, %if.else
   %call219 = phi ptr [ %call2, %if.else ], [ %call216, %while.body ]
   %i.018 = phi i32 [ %inc5, %if.else ], [ 1, %while.body ]
-  %call6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(1) %call219) #17
+  %call6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(1) %call219) #16
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body4
-  %call.i = call ptr @sdsnew(ptr noundef nonnull @.str.102) #18
+  %call.i = call ptr @sdsnew(ptr noundef nonnull @.str.102) #17
   %call.i.i = call ptr @ldbCatStackValueRec(ptr noundef %call.i, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   call void @ldbLogWithMaxLen(ptr noundef %call.i.i)
-  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   br label %if.end15
 
 if.else:                                          ; preds = %while.body4
   %inc5 = add nuw nsw i32 %i.018, 1
-  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
-  %call2 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef %inc5) #18
+  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
+  %call2 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef %inc5) #17
   %cmp3.not = icmp eq ptr %call2, null
   br i1 %cmp3.not, label %while.cond.loopexit, label %while.body4, !llvm.loop !28
 
 while.end8:                                       ; preds = %while.cond.loopexit, %entry
-  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(5) @.str.103) #17
+  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(5) @.str.103) #16
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end8
-  %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(5) @.str.104) #17
+  %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %varname, ptr noundef nonnull dereferenceable(5) @.str.104) #16
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %lor.lhs.false, %while.end8
-  call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef %varname) #18
-  %call.i13 = call ptr @sdsnew(ptr noundef nonnull @.str.102) #18
+  call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef %varname) #17
+  %call.i13 = call ptr @sdsnew(ptr noundef nonnull @.str.102) #17
   %call.i.i14 = call ptr @ldbCatStackValueRec(ptr noundef %call.i13, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   call void @ldbLogWithMaxLen(ptr noundef %call.i.i14)
-  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   br label %if.end15
 
 if.else13:                                        ; preds = %lor.lhs.false
-  %call14 = call ptr @sdsnew(ptr noundef nonnull @.str.105) #18
+  %call14 = call ptr @sdsnew(ptr noundef nonnull @.str.105) #17
   %0 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i15 = call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %call14) #18
+  %call.i15 = call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %call14) #17
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else13, %if.then12, %if.then
@@ -4035,12 +4030,12 @@ declare ptr @lua_getlocal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define dso_local void @ldbPrintAll(ptr noundef %lua) local_unnamed_addr #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
-  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #18
+  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #17
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.then10, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %call111 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef 1) #18
+  %call111 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef 1) #17
   %cmp2.not12 = icmp eq ptr %call111, null
   br i1 %cmp2.not12, label %if.then10, label %while.body
 
@@ -4049,24 +4044,24 @@ while.body:                                       ; preds = %while.cond.preheade
   %vars.014 = phi i32 [ %vars.1, %if.end ], [ 0, %while.cond.preheader ]
   %i.013 = phi i32 [ %inc, %if.end ], [ 1, %while.cond.preheader ]
   %inc = add nuw nsw i32 %i.013, 1
-  %call3 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call115, ptr noundef nonnull dereferenceable(1) @.str.106) #17
+  %call3 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call115, ptr noundef nonnull dereferenceable(1) @.str.106) #16
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %while.body
-  %call5 = call ptr @sdsempty() #18
-  %call6 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call5, ptr noundef nonnull @.str.107, ptr noundef nonnull %call115) #18
-  %call.i = call ptr @sdsnew(ptr noundef %call6) #18
+  %call5 = call ptr @sdsempty() #17
+  %call6 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call5, ptr noundef nonnull @.str.107, ptr noundef nonnull %call115) #17
+  %call.i = call ptr @sdsnew(ptr noundef %call6) #17
   %call.i.i = call ptr @ldbCatStackValueRec(ptr noundef %call.i, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   call void @ldbLogWithMaxLen(ptr noundef %call.i.i)
-  call void @sdsfree(ptr noundef %call6) #18
+  call void @sdsfree(ptr noundef %call6) #17
   %inc7 = add nsw i32 %vars.014, 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %while.body
   %vars.1 = phi i32 [ %vars.014, %while.body ], [ %inc7, %if.then4 ]
-  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
-  %call1 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef %inc) #18
+  call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
+  %call1 = call ptr @lua_getlocal(ptr noundef %lua, ptr noundef nonnull %ar, i32 noundef %inc) #17
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %if.end8, label %while.body, !llvm.loop !29
 
@@ -4075,9 +4070,9 @@ if.end8:                                          ; preds = %if.end
   br i1 %0, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %while.cond.preheader, %entry, %if.end8
-  %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.108) #18
+  %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.108) #17
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i8 = call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call11) #18
+  %call.i8 = call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call11) #17
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
@@ -4105,17 +4100,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.109) #18
+  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.109) #17
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call) #17
   br label %if.end56
 
 if.else:                                          ; preds = %if.then
-  %call3 = tail call ptr @sdsempty() #18
+  %call3 = tail call ptr @sdsempty() #17
   %2 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %call4 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call3, ptr noundef nonnull @.str.110, i32 noundef %2) #18
+  %call4 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call3, ptr noundef nonnull @.str.110, i32 noundef %2) #17
   %3 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i8 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef %call4) #18
+  %call.i8 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef %call4) #17
   %4 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %cmp541 = icmp sgt i32 %4, 0
   br i1 %cmp541, label %for.body, label %if.end56
@@ -4166,10 +4161,10 @@ ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.
   %15 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
   %cmp9.i = icmp eq i32 %15, %6
   %prefix.0.i = select i1 %cmp9.i, ptr %14, ptr %13
-  %call11.i = tail call ptr @sdsempty() #18
-  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %6, ptr noundef %retval.0.i.i) #18
+  %call11.i = tail call ptr @sdsempty() #17
+  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %6, ptr noundef %retval.0.i.i) #17
   %16 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %16, ptr noundef %call12.i) #18
+  %call.i.i = tail call ptr @listAddNodeTail(ptr noundef %16, ptr noundef %call12.i) #17
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %17 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
   %18 = sext i32 %17 to i64
@@ -4222,15 +4217,15 @@ sw.bb13.i:                                        ; preds = %for.body10
 
 sdslen.exit:                                      ; preds = %for.body10, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %24, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body10 ]
-  %call14 = call i32 @string2l(ptr noundef nonnull %19, i64 noundef %retval.0.i, ptr noundef nonnull %line) #18
+  %call14 = call i32 @string2l(ptr noundef nonnull %19, i64 noundef %retval.0.i, ptr noundef nonnull %line) #17
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %if.then15, label %if.else18
 
 if.then15:                                        ; preds = %sdslen.exit
-  %call16 = call ptr @sdsempty() #18
-  %call17 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.111, ptr noundef nonnull %19) #18
+  %call16 = call ptr @sdsempty() #17
+  %call17 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.111, ptr noundef nonnull %19) #17
   %25 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i9 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call17) #18
+  %call.i9 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call17) #17
   br label %for.inc53
 
 if.else18:                                        ; preds = %sdslen.exit
@@ -4240,9 +4235,9 @@ if.else18:                                        ; preds = %sdslen.exit
 
 if.then20:                                        ; preds = %if.else18
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 7), align 8
-  %call21 = call ptr @sdsnew(ptr noundef nonnull @.str.112) #18
+  %call21 = call ptr @sdsnew(ptr noundef nonnull @.str.112) #17
   %27 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i10 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call21) #18
+  %call.i10 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call21) #17
   br label %for.inc53
 
 if.else22:                                        ; preds = %if.else18
@@ -4255,9 +4250,9 @@ if.then24:                                        ; preds = %if.else22
   br i1 %cmp25, label %if.then26, label %if.else28
 
 if.then26:                                        ; preds = %if.then24
-  %call27 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #18
+  %call27 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #17
   %29 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i11 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %call27) #18
+  %call.i11 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %call27) #17
   br label %for.inc53
 
 if.else28:                                        ; preds = %if.then24
@@ -4298,9 +4293,9 @@ if.then31:                                        ; preds = %for.cond.i.i21, %if
   br label %for.inc53
 
 if.else33:                                        ; preds = %for.body.i.i17, %if.else28
-  %call34 = call ptr @sdsnew(ptr noundef nonnull @.str.114) #18
+  %call34 = call ptr @sdsnew(ptr noundef nonnull @.str.114) #17
   %32 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i24 = call ptr @listAddNodeTail(ptr noundef %32, ptr noundef %call34) #18
+  %call.i24 = call ptr @listAddNodeTail(ptr noundef %32, ptr noundef %call34) #17
   br label %for.inc53
 
 if.then40:                                        ; preds = %if.else22
@@ -4335,15 +4330,15 @@ if.then44:                                        ; preds = %for.body.i
   %sub.i = sub nsw i32 %dec.i, %36
   %conv.i29 = sext i32 %sub.i to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i28, ptr nonnull align 4 %add.ptr4.i, i64 %conv.i29, i1 false)
-  %call45 = call ptr @sdsnew(ptr noundef nonnull @.str.115) #18
+  %call45 = call ptr @sdsnew(ptr noundef nonnull @.str.115) #17
   %37 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i30 = call ptr @listAddNodeTail(ptr noundef %37, ptr noundef %call45) #18
+  %call.i30 = call ptr @listAddNodeTail(ptr noundef %37, ptr noundef %call45) #17
   br label %for.inc53
 
 if.else46:                                        ; preds = %for.inc.i, %if.then40
-  %call47 = call ptr @sdsnew(ptr noundef nonnull @.str.116) #18
+  %call47 = call ptr @sdsnew(ptr noundef nonnull @.str.116) #17
   %38 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i31 = call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %call47) #18
+  %call.i31 = call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %call47) #17
   br label %for.inc53
 
 for.inc53:                                        ; preds = %if.then15, %if.then31, %if.else33, %if.then26, %if.then44, %if.else46, %if.then20
@@ -4362,9 +4357,9 @@ define dso_local void @ldbEval(ptr noundef %lua, ptr noundef %argv, i32 noundef 
 entry:
   %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
   %sub = add nsw i32 %argc, -1
-  %call = tail call ptr @sdsjoinsds(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef nonnull @.str.117, i64 noundef 1) #18
-  %call1 = tail call ptr @sdsnew(ptr noundef nonnull @.str.118) #18
-  %call2 = tail call ptr @sdscatsds(ptr noundef %call1, ptr noundef %call) #18
+  %call = tail call ptr @sdsjoinsds(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef nonnull @.str.117, i64 noundef 1) #17
+  %call1 = tail call ptr @sdsnew(ptr noundef nonnull @.str.118) #17
+  %call2 = tail call ptr @sdscatsds(ptr noundef %call1, ptr noundef %call) #17
   %arrayidx.i = getelementptr inbounds i8, ptr %call2, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -4407,12 +4402,12 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %call4 = tail call i32 @luaL_loadbuffer(ptr noundef %lua, ptr noundef nonnull %call2, i64 noundef %retval.0.i, ptr noundef nonnull @.str.119) #18
+  %call4 = tail call i32 @luaL_loadbuffer(ptr noundef %lua, ptr noundef nonnull %call2, i64 noundef %retval.0.i, ptr noundef nonnull @.str.119) #17
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %sdslen.exit
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   %arrayidx.i17 = getelementptr inbounds i8, ptr %call, i64 -1
   %5 = load i8, ptr %arrayidx.i17, align 1
   %conv.i18 = zext i8 %5 to i32
@@ -4455,42 +4450,42 @@ sw.bb13.i20:                                      ; preds = %if.then
 
 sdslen.exit35:                                    ; preds = %if.then, %sw.bb.i32, %sw.bb3.i29, %sw.bb5.i26, %sw.bb9.i23, %sw.bb13.i20
   %retval.0.i22 = phi i64 [ %9, %sw.bb13.i20 ], [ %conv12.i25, %sw.bb9.i23 ], [ %conv8.i28, %sw.bb5.i26 ], [ %conv4.i31, %sw.bb3.i29 ], [ %conv2.i34, %sw.bb.i32 ], [ 0, %if.then ]
-  %call6 = tail call i32 @luaL_loadbuffer(ptr noundef %lua, ptr noundef nonnull %call, i64 noundef %retval.0.i22, ptr noundef nonnull @.str.119) #18
+  %call6 = tail call i32 @luaL_loadbuffer(ptr noundef %lua, ptr noundef nonnull %call, i64 noundef %retval.0.i22, ptr noundef nonnull @.str.119) #17
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %sdslen.exit35
-  %call9 = tail call ptr @sdsempty() #18
-  %call10 = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #18
-  %call11 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call9, ptr noundef nonnull @.str.120, ptr noundef %call10) #18
+  %call9 = tail call ptr @sdsempty() #17
+  %call10 = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #17
+  %call11 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call9, ptr noundef nonnull @.str.120, ptr noundef %call10) #17
   %10 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call11) #18
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
-  tail call void @sdsfree(ptr noundef nonnull %call) #18
-  tail call void @sdsfree(ptr noundef nonnull %call2) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call11) #17
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
+  tail call void @sdsfree(ptr noundef nonnull %call) #17
+  tail call void @sdsfree(ptr noundef nonnull %call2) #17
   br label %return
 
 if.end12:                                         ; preds = %sdslen.exit35, %sdslen.exit
-  tail call void @sdsfree(ptr noundef %call) #18
-  tail call void @sdsfree(ptr noundef nonnull %call2) #18
-  %call13 = tail call i32 @lua_pcall(ptr noundef %lua, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
+  tail call void @sdsfree(ptr noundef %call) #17
+  tail call void @sdsfree(ptr noundef nonnull %call2) #17
+  %call13 = tail call i32 @lua_pcall(ptr noundef %lua, i32 noundef 0, i32 noundef 1, i32 noundef 0) #17
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %call16 = tail call ptr @sdsempty() #18
-  %call17 = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #18
-  %call18 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.120, ptr noundef %call17) #18
+  %call16 = tail call ptr @sdsempty() #17
+  %call17 = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #17
+  %call18 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call16, ptr noundef nonnull @.str.120, ptr noundef %call17) #17
   %11 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i36 = tail call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call18) #18
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  %call.i36 = tail call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call18) #17
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   br label %return
 
 if.end19:                                         ; preds = %if.end12
-  %call.i37 = tail call ptr @sdsnew(ptr noundef nonnull @.str.121) #18
+  %call.i37 = tail call ptr @sdsnew(ptr noundef nonnull @.str.121) #17
   %call.i.i = tail call ptr @ldbCatStackValueRec(ptr noundef %call.i37, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   tail call void @ldbLogWithMaxLen(ptr noundef %call.i.i)
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #18
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #17
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then15, %if.then8
@@ -4504,13 +4499,13 @@ define dso_local void @ldbRedis(ptr noundef %lua, ptr nocapture noundef readonly
 entry:
   %log.i = alloca ptr, align 8
   %add = add nsw i32 %argc, 1
-  %call = tail call i32 @lua_checkstack(ptr noundef %lua, i32 noundef %add) #18
+  %call = tail call i32 @lua_checkstack(ptr noundef %lua, i32 noundef %add) #17
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %log.i)
-  %call.i = tail call ptr @sdsnew(ptr noundef nonnull @.str.101) #18
+  %call.i = tail call ptr @sdsnew(ptr noundef nonnull @.str.101) #17
   store ptr %call.i, ptr %log.i, align 8
   %call1.i = call ptr @ldbRedisProtocolToHuman(ptr noundef nonnull %log.i, ptr noundef nonnull @.str.122)
   %0 = load ptr, ptr %log.i, align 8
@@ -4519,9 +4514,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef nonnull @.str.3) #18
-  tail call void @lua_pushstring(ptr noundef %lua, ptr noundef nonnull @.str.123) #18
-  tail call void @lua_gettable(ptr noundef %lua, i32 noundef -2) #18
+  tail call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef nonnull @.str.3) #17
+  tail call void @lua_pushstring(ptr noundef %lua, ptr noundef nonnull @.str.123) #17
+  tail call void @lua_gettable(ptr noundef %lua, i32 noundef -2) #17
   %cmp13 = icmp sgt i32 %argc, 1
   br i1 %cmp13, label %for.body.preheader, label %for.end
 
@@ -4575,7 +4570,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %6, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  tail call void @lua_pushlstring(ptr noundef %lua, ptr noundef nonnull %1, i64 noundef %retval.0.i) #18
+  tail call void @lua_pushlstring(ptr noundef %lua, ptr noundef nonnull %1, i64 noundef %retval.0.i) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
@@ -4583,9 +4578,9 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
 for.end:                                          ; preds = %sdslen.exit, %if.end
   store i32 1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 8), align 4
   %sub = add nsw i32 %argc, -1
-  %call4 = tail call i32 @lua_pcall(ptr noundef %lua, i32 noundef %sub, i32 noundef 1, i32 noundef 0) #18
+  %call4 = tail call i32 @lua_pcall(ptr noundef %lua, i32 noundef %sub, i32 noundef 1, i32 noundef 0) #17
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 8), align 4
-  tail call void @lua_settop(ptr noundef %lua, i32 noundef -3) #18
+  tail call void @lua_settop(ptr noundef %lua, i32 noundef -3) #17
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -4602,7 +4597,7 @@ declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnam
 define dso_local void @ldbTrace(ptr noundef %lua) local_unnamed_addr #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
-  %call7 = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #18
+  %call7 = call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef nonnull %ar) #17
   %tobool.not8 = icmp eq i32 %call7, 0
   br i1 %tobool.not8, label %if.then10, label %while.body.lr.ph
 
@@ -4614,21 +4609,21 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %level.09 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end ]
-  %call1 = call i32 @lua_getinfo(ptr noundef %lua, ptr noundef nonnull @.str.124, ptr noundef nonnull %ar) #18
-  %call2 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %short_src, ptr noundef nonnull dereferenceable(1) @.str.125) #17
+  %call1 = call i32 @lua_getinfo(ptr noundef %lua, ptr noundef nonnull @.str.124, ptr noundef nonnull %ar) #17
+  %call2 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %short_src, ptr noundef nonnull dereferenceable(1) @.str.125) #16
   %cmp.not = icmp eq ptr %call2, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %call3 = call ptr @sdsempty() #18
+  %call3 = call ptr @sdsempty() #17
   %cmp4 = icmp eq i32 %level.09, 0
   %cond = select i1 %cmp4, ptr @.str.127, ptr @.str.128
   %0 = load ptr, ptr %name, align 8
   %tobool5.not = icmp eq ptr %0, null
   %cond7 = select i1 %tobool5.not, ptr @.str.129, ptr %0
-  %call8 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call3, ptr noundef nonnull @.str.126, ptr noundef nonnull %cond, ptr noundef nonnull %cond7) #18
+  %call8 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call3, ptr noundef nonnull @.str.126, ptr noundef nonnull %cond, ptr noundef nonnull %cond7) #17
   %1 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call8) #18
+  %call.i = call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call8) #17
   %2 = load i32, ptr %currentline, align 8
   %cmp.i.i = icmp slt i32 %2, 1
   %3 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
@@ -4672,15 +4667,15 @@ ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.
   %12 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
   %cmp9.i = icmp eq i32 %12, %2
   %prefix.0.i = select i1 %cmp9.i, ptr %11, ptr %10
-  %call11.i = call ptr @sdsempty() #18
-  %call12.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %2, ptr noundef %retval.0.i.i) #18
+  %call11.i = call ptr @sdsempty() #17
+  %call12.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %prefix.0.i, i32 noundef %2, ptr noundef %retval.0.i.i) #17
   %13 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i = call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call12.i) #18
+  %call.i.i = call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call12.i) #17
   br label %if.end
 
 if.end:                                           ; preds = %ldbLogSourceLine.exit, %while.body
   %inc = add nuw nsw i32 %level.09, 1
-  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef %inc, ptr noundef nonnull %ar) #18
+  %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef %inc, ptr noundef nonnull %ar) #17
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
 
@@ -4688,9 +4683,9 @@ while.end:                                        ; preds = %if.end
   br i1 %tobool.not8, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %entry, %while.end
-  %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.130) #18
+  %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.130) #17
   %14 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i5 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call11) #18
+  %call.i5 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call11) #17
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %while.end
@@ -4708,7 +4703,7 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @atoi(ptr nocapture noundef %0) #17
+  %call = tail call i32 @atoi(ptr nocapture noundef %0) #16
   store i32 1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 15), align 8
   %cmp1 = icmp ne i32 %call, 0
   %cmp2 = icmp slt i32 %call, 61
@@ -4725,28 +4720,28 @@ if.end4thread-pre-split:                          ; preds = %entry
 if.end4:                                          ; preds = %if.end4thread-pre-split, %if.then
   %2 = phi i64 [ %.pr, %if.end4thread-pre-split ], [ %conv, %if.then ]
   %tobool.not = icmp eq i64 %2, 0
-  %call9 = tail call ptr @sdsempty() #18
+  %call9 = tail call ptr @sdsempty() #17
   br i1 %tobool.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
   %3 = load i64, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 14), align 8
   %conv7 = trunc i64 %3 to i32
-  %call8 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9, ptr noundef nonnull @.str.131, i32 noundef %conv7) #18
+  %call8 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9, ptr noundef nonnull @.str.131, i32 noundef %conv7) #17
   br label %if.end11
 
 if.else:                                          ; preds = %if.end4
-  %call10 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9, ptr noundef nonnull @.str.132) #18
+  %call10 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9, ptr noundef nonnull @.str.132) #17
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then5
   %call10.sink = phi ptr [ %call10, %if.else ], [ %call8, %if.then5 ]
   %4 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i3 = tail call ptr @listAddNodeTail(ptr noundef %4, ptr noundef %call10.sink) #18
+  %call.i3 = tail call ptr @listAddNodeTail(ptr noundef %4, ptr noundef %call10.sink) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ldbRepl(ptr noundef %lua) local_unnamed_addr #0 {
+define dso_local noundef i32 @ldbRepl(ptr noundef %lua) local_unnamed_addr #0 {
 entry:
   %argc = alloca i32, align 4
   %err = alloca ptr, align 8
@@ -4765,8 +4760,8 @@ while.body2:                                      ; preds = %while.body, %if.end
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body2
-  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull %0) #18
-  %call3 = call i32 @luaError(ptr noundef %lua) #18
+  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull %0) #17
+  %call3 = call i32 @luaError(ptr noundef %lua) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body2
@@ -4774,7 +4769,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %2 = load ptr, ptr %1, align 8
   %read.i = getelementptr inbounds %struct.ConnectionType, ptr %2, i64 0, i32 18
   %3 = load ptr, ptr %read.i, align 8
-  %call.i = call i32 %3(ptr noundef nonnull %1, ptr noundef nonnull %buf, i64 noundef 1024) #18
+  %call.i = call i32 %3(ptr noundef nonnull %1, ptr noundef nonnull %buf, i64 noundef 1024) #17
   %cmp5 = icmp slt i32 %call.i, 1
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -4786,15 +4781,14 @@ if.then6:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %4 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   %conv = zext nneg i32 %call.i to i64
-  %call9 = call ptr @sdscatlen(ptr noundef %4, ptr noundef nonnull %buf, i64 noundef %conv) #18
+  %call9 = call ptr @sdscatlen(ptr noundef %4, ptr noundef nonnull %buf, i64 noundef %conv) #17
   store ptr %call9, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %call9, i64 -1
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = and i8 %5, 7
-  %and.i = zext nneg i8 %6 to i32
-  switch i32 %and.i, label %if.end16 [
-    i32 4, label %sw.bb13.i
-    i32 3, label %sw.bb9.i
+  switch i8 %6, label %if.end16 [
+    i8 4, label %sw.bb13.i
+    i8 3, label %sw.bb9.i
   ]
 
 sw.bb9.i:                                         ; preds = %if.end7
@@ -4814,11 +4808,11 @@ sdslen.exit:                                      ; preds = %sw.bb9.i, %sw.bb13.
   br i1 %cmp11, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %sdslen.exit
-  call void @sdsfree(ptr noundef nonnull %call9) #18
-  %call14 = call ptr @sdsempty() #18
+  call void @sdsfree(ptr noundef nonnull %call9) #17
+  %call14 = call ptr @sdsempty() #17
   store ptr %call14, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
-  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.133) #18
-  %call15 = call i32 @luaError(ptr noundef %lua) #18
+  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.133) #17
+  %call15 = call i32 @luaError(ptr noundef %lua) #17
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end7, %if.then13, %sdslen.exit
@@ -4829,130 +4823,130 @@ if.end16:                                         ; preds = %if.end7, %if.then13
 while.end:                                        ; preds = %if.end16, %while.body
   %call.lcssa = phi ptr [ %call91, %while.body ], [ %call, %if.end16 ]
   %9 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
-  call void @sdsfree(ptr noundef %9) #18
-  %call17 = call ptr @sdsempty() #18
+  call void @sdsfree(ptr noundef %9) #17
+  %call17 = call ptr @sdsempty() #17
   store ptr %call17, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 13), align 8
   %10 = load ptr, ptr %call.lcssa, align 8
-  %call18 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.134) #17
+  %call18 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.134) #16
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end
-  %call21 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.28) #17
+  %call21 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.28) #16
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %lor.lhs.false, %while.end
-  %call24 = call ptr @sdsnew(ptr noundef nonnull @.str.135) #18
+  %call24 = call ptr @sdsnew(ptr noundef nonnull @.str.135) #17
   %11 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i47 = call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call24) #18
-  %call25 = call ptr @sdsnew(ptr noundef nonnull @.str.136) #18
+  %call.i47 = call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call24) #17
+  %call25 = call ptr @sdsnew(ptr noundef nonnull @.str.136) #17
   %12 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i48 = call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call25) #18
-  %call26 = call ptr @sdsnew(ptr noundef nonnull @.str.137) #18
+  %call.i48 = call ptr @listAddNodeTail(ptr noundef %12, ptr noundef %call25) #17
+  %call26 = call ptr @sdsnew(ptr noundef nonnull @.str.137) #17
   %13 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i49 = call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call26) #18
-  %call27 = call ptr @sdsnew(ptr noundef nonnull @.str.138) #18
+  %call.i49 = call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call26) #17
+  %call27 = call ptr @sdsnew(ptr noundef nonnull @.str.138) #17
   %14 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i50 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call27) #18
-  %call28 = call ptr @sdsnew(ptr noundef nonnull @.str.139) #18
+  %call.i50 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call27) #17
+  %call28 = call ptr @sdsnew(ptr noundef nonnull @.str.139) #17
   %15 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i51 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %call28) #18
-  %call29 = call ptr @sdsnew(ptr noundef nonnull @.str.140) #18
+  %call.i51 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %call28) #17
+  %call29 = call ptr @sdsnew(ptr noundef nonnull @.str.140) #17
   %16 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i52 = call ptr @listAddNodeTail(ptr noundef %16, ptr noundef %call29) #18
-  %call30 = call ptr @sdsnew(ptr noundef nonnull @.str.141) #18
+  %call.i52 = call ptr @listAddNodeTail(ptr noundef %16, ptr noundef %call29) #17
+  %call30 = call ptr @sdsnew(ptr noundef nonnull @.str.141) #17
   %17 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i53 = call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %call30) #18
-  %call31 = call ptr @sdsnew(ptr noundef nonnull @.str.142) #18
+  %call.i53 = call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %call30) #17
+  %call31 = call ptr @sdsnew(ptr noundef nonnull @.str.142) #17
   %18 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i54 = call ptr @listAddNodeTail(ptr noundef %18, ptr noundef %call31) #18
-  %call32 = call ptr @sdsnew(ptr noundef nonnull @.str.143) #18
+  %call.i54 = call ptr @listAddNodeTail(ptr noundef %18, ptr noundef %call31) #17
+  %call32 = call ptr @sdsnew(ptr noundef nonnull @.str.143) #17
   %19 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i55 = call ptr @listAddNodeTail(ptr noundef %19, ptr noundef %call32) #18
-  %call33 = call ptr @sdsnew(ptr noundef nonnull @.str.144) #18
+  %call.i55 = call ptr @listAddNodeTail(ptr noundef %19, ptr noundef %call32) #17
+  %call33 = call ptr @sdsnew(ptr noundef nonnull @.str.144) #17
   %20 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i56 = call ptr @listAddNodeTail(ptr noundef %20, ptr noundef %call33) #18
-  %call34 = call ptr @sdsnew(ptr noundef nonnull @.str.145) #18
+  %call.i56 = call ptr @listAddNodeTail(ptr noundef %20, ptr noundef %call33) #17
+  %call34 = call ptr @sdsnew(ptr noundef nonnull @.str.145) #17
   %21 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i57 = call ptr @listAddNodeTail(ptr noundef %21, ptr noundef %call34) #18
-  %call35 = call ptr @sdsnew(ptr noundef nonnull @.str.146) #18
+  %call.i57 = call ptr @listAddNodeTail(ptr noundef %21, ptr noundef %call34) #17
+  %call35 = call ptr @sdsnew(ptr noundef nonnull @.str.146) #17
   %22 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i58 = call ptr @listAddNodeTail(ptr noundef %22, ptr noundef %call35) #18
-  %call36 = call ptr @sdsnew(ptr noundef nonnull @.str.147) #18
+  %call.i58 = call ptr @listAddNodeTail(ptr noundef %22, ptr noundef %call35) #17
+  %call36 = call ptr @sdsnew(ptr noundef nonnull @.str.147) #17
   %23 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i59 = call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call36) #18
-  %call37 = call ptr @sdsnew(ptr noundef nonnull @.str.148) #18
+  %call.i59 = call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call36) #17
+  %call37 = call ptr @sdsnew(ptr noundef nonnull @.str.148) #17
   %24 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i60 = call ptr @listAddNodeTail(ptr noundef %24, ptr noundef %call37) #18
-  %call38 = call ptr @sdsnew(ptr noundef nonnull @.str.149) #18
+  %call.i60 = call ptr @listAddNodeTail(ptr noundef %24, ptr noundef %call37) #17
+  %call38 = call ptr @sdsnew(ptr noundef nonnull @.str.149) #17
   %25 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i61 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call38) #18
-  %call39 = call ptr @sdsnew(ptr noundef nonnull @.str.150) #18
+  %call.i61 = call ptr @listAddNodeTail(ptr noundef %25, ptr noundef %call38) #17
+  %call39 = call ptr @sdsnew(ptr noundef nonnull @.str.150) #17
   %26 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i62 = call ptr @listAddNodeTail(ptr noundef %26, ptr noundef %call39) #18
-  %call40 = call ptr @sdsnew(ptr noundef nonnull @.str.151) #18
+  %call.i62 = call ptr @listAddNodeTail(ptr noundef %26, ptr noundef %call39) #17
+  %call40 = call ptr @sdsnew(ptr noundef nonnull @.str.151) #17
   %27 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i63 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call40) #18
-  %call41 = call ptr @sdsnew(ptr noundef nonnull @.str.152) #18
+  %call.i63 = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef %call40) #17
+  %call41 = call ptr @sdsnew(ptr noundef nonnull @.str.152) #17
   %28 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i64 = call ptr @listAddNodeTail(ptr noundef %28, ptr noundef %call41) #18
-  %call42 = call ptr @sdsnew(ptr noundef nonnull @.str.153) #18
+  %call.i64 = call ptr @listAddNodeTail(ptr noundef %28, ptr noundef %call41) #17
+  %call42 = call ptr @sdsnew(ptr noundef nonnull @.str.153) #17
   %29 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i65 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %call42) #18
-  %call43 = call ptr @sdsnew(ptr noundef nonnull @.str.154) #18
+  %call.i65 = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %call42) #17
+  %call43 = call ptr @sdsnew(ptr noundef nonnull @.str.154) #17
   %30 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i66 = call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %call43) #18
-  %call44 = call ptr @sdsnew(ptr noundef nonnull @.str.155) #18
+  %call.i66 = call ptr @listAddNodeTail(ptr noundef %30, ptr noundef %call43) #17
+  %call44 = call ptr @sdsnew(ptr noundef nonnull @.str.155) #17
   %31 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i67 = call ptr @listAddNodeTail(ptr noundef %31, ptr noundef %call44) #18
-  %call45 = call ptr @sdsnew(ptr noundef nonnull @.str.156) #18
+  %call.i67 = call ptr @listAddNodeTail(ptr noundef %31, ptr noundef %call44) #17
+  %call45 = call ptr @sdsnew(ptr noundef nonnull @.str.156) #17
   %32 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i68 = call ptr @listAddNodeTail(ptr noundef %32, ptr noundef %call45) #18
-  %call46 = call ptr @sdsnew(ptr noundef nonnull @.str.157) #18
+  %call.i68 = call ptr @listAddNodeTail(ptr noundef %32, ptr noundef %call45) #17
+  %call46 = call ptr @sdsnew(ptr noundef nonnull @.str.157) #17
   %33 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i69 = call ptr @listAddNodeTail(ptr noundef %33, ptr noundef %call46) #18
-  %call47 = call ptr @sdsnew(ptr noundef nonnull @.str.158) #18
+  %call.i69 = call ptr @listAddNodeTail(ptr noundef %33, ptr noundef %call46) #17
+  %call47 = call ptr @sdsnew(ptr noundef nonnull @.str.158) #17
   %34 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i70 = call ptr @listAddNodeTail(ptr noundef %34, ptr noundef %call47) #18
-  %call48 = call ptr @sdsnew(ptr noundef nonnull @.str.159) #18
+  %call.i70 = call ptr @listAddNodeTail(ptr noundef %34, ptr noundef %call47) #17
+  %call48 = call ptr @sdsnew(ptr noundef nonnull @.str.159) #17
   %35 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i71 = call ptr @listAddNodeTail(ptr noundef %35, ptr noundef %call48) #18
-  %call49 = call ptr @sdsnew(ptr noundef nonnull @.str.160) #18
+  %call.i71 = call ptr @listAddNodeTail(ptr noundef %35, ptr noundef %call48) #17
+  %call49 = call ptr @sdsnew(ptr noundef nonnull @.str.160) #17
   %36 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i72 = call ptr @listAddNodeTail(ptr noundef %36, ptr noundef %call49) #18
-  %call50 = call ptr @sdsnew(ptr noundef nonnull @.str.161) #18
+  %call.i72 = call ptr @listAddNodeTail(ptr noundef %36, ptr noundef %call49) #17
+  %call50 = call ptr @sdsnew(ptr noundef nonnull @.str.161) #17
   %37 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i73 = call ptr @listAddNodeTail(ptr noundef %37, ptr noundef %call50) #18
-  %call51 = call ptr @sdsnew(ptr noundef nonnull @.str.162) #18
+  %call.i73 = call ptr @listAddNodeTail(ptr noundef %37, ptr noundef %call50) #17
+  %call51 = call ptr @sdsnew(ptr noundef nonnull @.str.162) #17
   %38 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i74 = call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %call51) #18
-  %call52 = call ptr @sdsnew(ptr noundef nonnull @.str.163) #18
+  %call.i74 = call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %call51) #17
+  %call52 = call ptr @sdsnew(ptr noundef nonnull @.str.163) #17
   %39 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i75 = call ptr @listAddNodeTail(ptr noundef %39, ptr noundef %call52) #18
-  %call53 = call ptr @sdsnew(ptr noundef nonnull @.str.164) #18
+  %call.i75 = call ptr @listAddNodeTail(ptr noundef %39, ptr noundef %call52) #17
+  %call53 = call ptr @sdsnew(ptr noundef nonnull @.str.164) #17
   %40 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i76 = call ptr @listAddNodeTail(ptr noundef %40, ptr noundef %call53) #18
+  %call.i76 = call ptr @listAddNodeTail(ptr noundef %40, ptr noundef %call53) #17
   call void @ldbSendLogs()
   br label %if.end198
 
 if.else:                                          ; preds = %lor.lhs.false
-  %call55 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.165) #17
+  %call55 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.165) #16
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %if.then69, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %if.else
-  %call59 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.166) #17
+  %call59 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.166) #16
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.then69, label %lor.lhs.false61
 
 lor.lhs.false61:                                  ; preds = %lor.lhs.false57
-  %call63 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.167) #17
+  %call63 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.167) #16
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.then69, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false61
-  %call67 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.168) #17
+  %call67 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.168) #16
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then69, label %if.else70
 
@@ -4961,22 +4955,22 @@ if.then69:                                        ; preds = %lor.lhs.false65, %l
   br label %while.end199
 
 if.else70:                                        ; preds = %lor.lhs.false65
-  %call72 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.169) #17
+  %call72 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.169) #16
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %while.end199, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %if.else70
-  %call76 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.170) #17
+  %call76 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.170) #16
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %while.end199, label %if.else79
 
 if.else79:                                        ; preds = %lor.lhs.false74
-  %call81 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.171) #17
+  %call81 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.171) #16
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.then87, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %if.else79
-  %call85 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.172) #17
+  %call85 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.172) #16
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.else88
 
@@ -4986,12 +4980,12 @@ if.then87:                                        ; preds = %lor.lhs.false83, %i
   br label %if.end198
 
 if.else88:                                        ; preds = %lor.lhs.false83
-  %call90 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.173) #17
+  %call90 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.173) #16
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %if.then96, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %if.else88
-  %call94 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.174) #17
+  %call94 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.174) #16
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.then96, label %if.else97
 
@@ -5003,7 +4997,7 @@ if.then96:                                        ; preds = %lor.lhs.false92, %i
 if.then.i:                                        ; preds = %if.then96
   %arrayidx.i77 = getelementptr inbounds ptr, ptr %call.lcssa, i64 1
   %42 = load ptr, ptr %arrayidx.i77, align 8
-  %call.i78 = call i32 @atoi(ptr nocapture noundef %42) #17
+  %call.i78 = call i32 @atoi(ptr nocapture noundef %42) #16
   store i32 1, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 15), align 8
   %cmp1.i = icmp ne i32 %call.i78, 0
   %cmp2.i = icmp slt i32 %call.i78, 61
@@ -5020,33 +5014,33 @@ if.end4thread-pre-split.i:                        ; preds = %if.then96
 if.end4.i:                                        ; preds = %if.end4thread-pre-split.i, %if.then.i
   %44 = phi i64 [ %.pr.i, %if.end4thread-pre-split.i ], [ %conv.i79, %if.then.i ]
   %tobool.not.i = icmp eq i64 %44, 0
-  %call9.i = call ptr @sdsempty() #18
+  %call9.i = call ptr @sdsempty() #17
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   %45 = load i64, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 14), align 8
   %conv7.i = trunc i64 %45 to i32
-  %call8.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9.i, ptr noundef nonnull @.str.131, i32 noundef %conv7.i) #18
+  %call8.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9.i, ptr noundef nonnull @.str.131, i32 noundef %conv7.i) #17
   br label %ldbMaxlen.exit
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call10.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9.i, ptr noundef nonnull @.str.132) #18
+  %call10.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call9.i, ptr noundef nonnull @.str.132) #17
   br label %ldbMaxlen.exit
 
 ldbMaxlen.exit:                                   ; preds = %if.then5.i, %if.else.i
   %call10.sink.i = phi ptr [ %call10.i, %if.else.i ], [ %call8.i, %if.then5.i ]
   %46 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i3.i = call ptr @listAddNodeTail(ptr noundef %46, ptr noundef %call10.sink.i) #18
+  %call.i3.i = call ptr @listAddNodeTail(ptr noundef %46, ptr noundef %call10.sink.i) #17
   call void @ldbSendLogs()
   br label %if.end198
 
 if.else97:                                        ; preds = %lor.lhs.false92
-  %call99 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.175) #17
+  %call99 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.175) #16
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.then105, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.else97
-  %call103 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.176) #17
+  %call103 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.176) #16
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %if.then105, label %if.else106
 
@@ -5057,12 +5051,12 @@ if.then105:                                       ; preds = %lor.lhs.false101, %
   br label %if.end198
 
 if.else106:                                       ; preds = %lor.lhs.false101
-  %call108 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.177) #17
+  %call108 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.177) #16
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.then114, label %lor.lhs.false110
 
 lor.lhs.false110:                                 ; preds = %if.else106
-  %call112 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.178) #17
+  %call112 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.178) #16
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %if.then114, label %if.else115
 
@@ -5073,18 +5067,18 @@ if.then114:                                       ; preds = %lor.lhs.false110, %
   br label %if.end198
 
 if.else115:                                       ; preds = %lor.lhs.false110
-  %call117 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.179) #17
+  %call117 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.179) #16
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %if.then123, label %lor.lhs.false119
 
 lor.lhs.false119:                                 ; preds = %if.else115
-  %call121 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.180) #17
+  %call121 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.180) #16
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %if.then123, label %if.else125
 
 if.then123:                                       ; preds = %lor.lhs.false119, %if.else115
-  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.181) #18
-  %call124 = call i32 @luaError(ptr noundef %lua) #18
+  call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.181) #17
+  %call124 = call i32 @luaError(ptr noundef %lua) #17
   br label %if.end198
 
 if.else125:                                       ; preds = %lor.lhs.false119
@@ -5093,12 +5087,12 @@ if.else125:                                       ; preds = %lor.lhs.false119
   br i1 %cmp126, label %land.lhs.true, label %if.else136
 
 land.lhs.true:                                    ; preds = %if.else125
-  %call129 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.182) #17
+  %call129 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.182) #16
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %if.then135, label %lor.lhs.false131
 
 lor.lhs.false131:                                 ; preds = %land.lhs.true
-  %call133 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.3) #17
+  %call133 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.3) #16
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %if.then135, label %if.else136
 
@@ -5108,12 +5102,12 @@ if.then135:                                       ; preds = %lor.lhs.false131, %
   br label %if.end198
 
 if.else136:                                       ; preds = %lor.lhs.false131, %if.else125
-  %call138 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.183) #17
+  %call138 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.183) #16
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %if.then144, label %lor.lhs.false140
 
 lor.lhs.false140:                                 ; preds = %if.else136
-  %call142 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.184) #17
+  %call142 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.184) #16
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.then144, label %if.else151
 
@@ -5136,12 +5130,12 @@ if.end150:                                        ; preds = %if.else149, %if.the
   br label %if.end198
 
 if.else151:                                       ; preds = %lor.lhs.false140
-  %call153 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.185) #17
+  %call153 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.185) #16
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.then159, label %lor.lhs.false155
 
 lor.lhs.false155:                                 ; preds = %if.else151
-  %call157 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.186) #17
+  %call157 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.186) #16
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.then159, label %if.else176
 
@@ -5152,7 +5146,7 @@ if.then159:                                       ; preds = %lor.lhs.false155, %
 if.end169:                                        ; preds = %if.then159
   %arrayidx163 = getelementptr inbounds ptr, ptr %call.lcssa, i64 1
   %52 = load ptr, ptr %arrayidx163, align 8
-  %call164 = call i32 @atoi(ptr nocapture noundef %52) #17
+  %call164 = call i32 @atoi(ptr nocapture noundef %52) #16
   %cmp165 = icmp sgt i32 %call164, 0
   %spec.select = select i1 %cmp165, i32 %call164, i32 %51
   %cmp170.not = icmp eq i32 %49, 2
@@ -5161,7 +5155,7 @@ if.end169:                                        ; preds = %if.then159
 if.then172:                                       ; preds = %if.end169
   %arrayidx173 = getelementptr inbounds ptr, ptr %call.lcssa, i64 2
   %53 = load ptr, ptr %arrayidx173, align 8
-  %call174 = call i32 @atoi(ptr nocapture noundef %53) #17
+  %call174 = call i32 @atoi(ptr nocapture noundef %53) #16
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then159, %if.then172, %if.end169
@@ -5172,12 +5166,12 @@ if.end175:                                        ; preds = %if.then159, %if.the
   br label %if.end198
 
 if.else176:                                       ; preds = %lor.lhs.false155
-  %call178 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.187) #17
+  %call178 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.187) #16
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %if.then184, label %lor.lhs.false180
 
 lor.lhs.false180:                                 ; preds = %if.else176
-  %call182 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.188) #17
+  %call182 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.188) #16
   %tobool183.not = icmp eq i32 %call182, 0
   br i1 %tobool183.not, label %if.then184, label %if.else185
 
@@ -5187,20 +5181,20 @@ if.then184:                                       ; preds = %lor.lhs.false180, %
   br label %if.end198
 
 if.else185:                                       ; preds = %lor.lhs.false180
-  %call186 = call ptr @sdsnew(ptr noundef nonnull @.str.189) #18
+  %call186 = call ptr @sdsnew(ptr noundef nonnull @.str.189) #17
   %54 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i80 = call ptr @listAddNodeTail(ptr noundef %54, ptr noundef %call186) #18
+  %call.i80 = call ptr @listAddNodeTail(ptr noundef %54, ptr noundef %call186) #17
   call void @ldbSendLogs()
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then87, %if.then105, %if.then123, %if.end150, %if.then184, %if.else185, %if.end175, %if.then135, %if.then114, %ldbMaxlen.exit, %if.then23
   %55 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef nonnull %call.lcssa, i32 noundef %55) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call.lcssa, i32 noundef %55) #17
   br label %while.body
 
 while.end199:                                     ; preds = %if.else70, %lor.lhs.false74, %if.then69
   %56 = load i32, ptr %argc, align 4
-  call void @sdsfreesplitres(ptr noundef nonnull %call.lcssa, i32 noundef %56) #18
+  call void @sdsfreesplitres(ptr noundef nonnull %call.lcssa, i32 noundef %56) #17
   br label %return
 
 return:                                           ; preds = %while.end199, %if.then6
@@ -5215,18 +5209,18 @@ declare i32 @luaError(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaLdbLineHook(ptr noundef %lua, ptr noundef %ar) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @luaGetFromRegistry(ptr noundef %lua, ptr noundef nonnull @.str.190) #18
+  %call = tail call ptr @luaGetFromRegistry(ptr noundef %lua, ptr noundef nonnull @.str.190) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.21, i32 noundef 1624) #18
-  tail call void @abort() #19
+  tail call void @_serverAssert(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.21, i32 noundef 1624) #17
+  tail call void @abort() #18
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call3 = tail call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef %ar) #18
-  %call4 = tail call i32 @lua_getinfo(ptr noundef %lua, ptr noundef nonnull @.str.192, ptr noundef %ar) #18
+  %call3 = tail call i32 @lua_getstack(ptr noundef %lua, i32 noundef 0, ptr noundef %ar) #17
+  %call4 = tail call i32 @lua_getinfo(ptr noundef %lua, ptr noundef nonnull @.str.192, ptr noundef %ar) #17
   %currentline = getelementptr inbounds %struct.lua_Debug, ptr %ar, i64 0, i32 5
   %0 = load i32, ptr %currentline, align 8
   store i32 %0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
@@ -5254,7 +5248,7 @@ ldbIsBreakpoint.exit:                             ; preds = %for.body.i, %cond.e
   %tobool7 = icmp ne i32 %3, 0
   %4 = select i1 %tobool6, i1 true, i1 %tobool7
   %short_src = getelementptr inbounds %struct.lua_Debug, ptr %ar, i64 0, i32 9
-  %call8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %short_src, ptr noundef nonnull dereferenceable(1) @.str.125) #17
+  %call8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %short_src, ptr noundef nonnull dereferenceable(1) @.str.125) #16
   %cmp = icmp eq ptr %call8, null
   br i1 %cmp, label %if.end52, label %if.end
 
@@ -5271,7 +5265,7 @@ if.then17:                                        ; preds = %if.end
   %start_time = getelementptr inbounds %struct.scriptRunCtx, ptr %call, i64 0, i32 5
   %8 = load i64, ptr %start_time, align 8
   %9 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i.i = tail call i64 %9() #18
+  %call.i.i = tail call i64 %9() #17
   %sub.i.i = sub i64 %call.i.i, %8
   %div.i = udiv i64 %sub.i.i, 1000
   %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 385), align 8
@@ -5293,11 +5287,11 @@ if.then30:                                        ; preds = %if.then17, %if.end2
   %reason.0 = select i1 %4, ptr %cond34, ptr %spec.select
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 8), align 4
   store i32 0, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 9), align 8
-  %call40 = tail call ptr @sdsempty() #18
+  %call40 = tail call ptr @sdsempty() #17
   %12 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
-  %call41 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call40, ptr noundef nonnull @.str.197, i32 noundef %12, ptr noundef nonnull %reason.0) #18
+  %call41 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call40, ptr noundef nonnull @.str.197, i32 noundef %12, ptr noundef nonnull %reason.0) #17
   %13 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i = tail call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call41) #18
+  %call.i = tail call ptr @listAddNodeTail(ptr noundef %13, ptr noundef %call41) #17
   %14 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 12), align 4
   %cmp.i.i = icmp slt i32 %14, 1
   %15 = load i32, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 11), align 8
@@ -5337,10 +5331,10 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.body.i.i, %ldbGetSourceLine.exit.i
   %22 = phi ptr [ @.str.71, %ldbGetSourceLine.exit.i ], [ @.str.70, %for.body.i.i ], [ @.str.71, %for.cond.i.i ]
-  %call11.i = tail call ptr @sdsempty() #18
-  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %22, i32 noundef %14, ptr noundef %retval.0.i.i) #18
+  %call11.i = tail call ptr @sdsempty() #17
+  %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %22, i32 noundef %14, ptr noundef %retval.0.i.i) #17
   %23 = load ptr, ptr getelementptr inbounds (%struct.ldbState, ptr @ldb, i64 0, i32 3), align 8
-  %call.i.i18 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call12.i) #18
+  %call.i.i18 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %call12.i) #17
   tail call void @ldbSendLogs()
   %call42 = tail call i32 @ldbRepl(ptr noundef %lua), !range !11
   %cmp43 = icmp ne i32 %call42, -1
@@ -5348,13 +5342,13 @@ ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.
   br i1 %or.cond3.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %ldbLogSourceLine.exit
-  tail call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.198) #18
-  %call48 = tail call i32 @luaError(ptr noundef %lua) #18
+  tail call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.198) #17
+  %call48 = tail call i32 @luaError(ptr noundef %lua) #17
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %ldbLogSourceLine.exit
   %24 = load ptr, ptr @getMonotonicUs, align 8
-  %call50 = tail call i64 %24() #18
+  %call50 = tail call i64 %24() #17
   %start_time51 = getelementptr inbounds %struct.scriptRunCtx, ptr %call, i64 0, i32 5
   store i64 %call50, ptr %start_time51, align 8
   br label %if.end52
@@ -5372,10 +5366,10 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5391,14 +5385,13 @@ attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

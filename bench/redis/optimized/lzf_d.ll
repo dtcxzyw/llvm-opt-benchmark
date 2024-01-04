@@ -43,39 +43,39 @@ if.then12:                                        ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  switch i32 %conv, label %if.end193 [
-    i32 31, label %sw.bb
-    i32 30, label %sw.bb17
-    i32 29, label %sw.bb20
-    i32 28, label %sw.bb23
-    i32 27, label %sw.bb26
-    i32 26, label %sw.bb29
-    i32 25, label %sw.bb32
-    i32 24, label %sw.bb35
-    i32 23, label %sw.bb38
-    i32 22, label %sw.bb41
-    i32 21, label %sw.bb44
-    i32 20, label %sw.bb47
-    i32 19, label %sw.bb50
-    i32 18, label %sw.bb53
-    i32 17, label %sw.bb56
-    i32 16, label %sw.bb59
-    i32 15, label %sw.bb62
-    i32 14, label %sw.bb65
-    i32 13, label %sw.bb68
-    i32 12, label %sw.bb71
-    i32 11, label %sw.bb74
-    i32 10, label %sw.bb77
-    i32 9, label %sw.bb80
-    i32 8, label %sw.bb83
-    i32 7, label %sw.bb86
-    i32 6, label %sw.bb89
-    i32 5, label %sw.bb92
-    i32 4, label %sw.bb95
-    i32 3, label %sw.bb98
-    i32 2, label %sw.bb101
-    i32 1, label %sw.bb104
-    i32 0, label %sw.bb107
+  switch i8 %0, label %if.end193 [
+    i8 31, label %sw.bb
+    i8 30, label %sw.bb17
+    i8 29, label %sw.bb20
+    i8 28, label %sw.bb23
+    i8 27, label %sw.bb26
+    i8 26, label %sw.bb29
+    i8 25, label %sw.bb32
+    i8 24, label %sw.bb35
+    i8 23, label %sw.bb38
+    i8 22, label %sw.bb41
+    i8 21, label %sw.bb44
+    i8 20, label %sw.bb47
+    i8 19, label %sw.bb50
+    i8 18, label %sw.bb53
+    i8 17, label %sw.bb56
+    i8 16, label %sw.bb59
+    i8 15, label %sw.bb62
+    i8 14, label %sw.bb65
+    i8 13, label %sw.bb68
+    i8 12, label %sw.bb71
+    i8 11, label %sw.bb74
+    i8 10, label %sw.bb77
+    i8 9, label %sw.bb80
+    i8 8, label %sw.bb83
+    i8 7, label %sw.bb86
+    i8 6, label %sw.bb89
+    i8 5, label %sw.bb92
+    i8 4, label %sw.bb95
+    i8 3, label %sw.bb98
+    i8 2, label %sw.bb101
+    i8 1, label %sw.bb104
+    i8 0, label %sw.bb107
   ]
 
 sw.bb:                                            ; preds = %if.end14

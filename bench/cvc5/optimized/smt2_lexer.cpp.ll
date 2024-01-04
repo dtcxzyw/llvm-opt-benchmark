@@ -1716,13 +1716,12 @@ entry:
   %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %d_token, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 97, label %sw.bb
-    i32 112, label %sw.bb8
-    i32 108, label %sw.bb24
-    i32 109, label %sw.bb40
-    i32 95, label %sw.bb66
+  switch i8 %1, label %sw.epilog [
+    i8 97, label %sw.bb
+    i8 112, label %sw.bb8
+    i8 108, label %sw.bb24
+    i8 109, label %sw.bb40
+    i8 95, label %sw.bb66
   ]
 
 sw.bb:                                            ; preds = %entry

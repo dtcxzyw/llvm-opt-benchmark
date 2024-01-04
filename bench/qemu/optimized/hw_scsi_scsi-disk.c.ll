@@ -2045,7 +2045,7 @@ declare void @scsi_req_unref(ptr noundef) local_unnamed_addr #1
 declare void @scsi_req_cancel_complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @scsi_handle_rw_error(ptr noundef %r, i32 noundef %ret, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scsi_handle_rw_error(ptr noundef %r, i32 noundef %ret, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
 entry:
   %sense = alloca %struct.SCSISense, align 4
   %mode = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 4
@@ -3703,7 +3703,7 @@ if.then56.i:                                      ; preds = %land.lhs.true53.i
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then56.i, %land.lhs.true53.i, %if.then40.i, %if.end32.i
-  %sub63.i = sub i32 %sub.i, %cond27.i
+  %sub63.i = sub nsw i32 %sub.i, %cond27.i
   %idx.ext64.i = zext nneg i32 %cond27.i to i64
   %add.ptr65.i = getelementptr i8, ptr %add.ptr28.i, i64 %idx.ext64.i
   %cmp39.i.i = icmp sgt i32 %sub63.i, 0
@@ -4832,10 +4832,10 @@ trace_scsi_disk_emulate_read_toc.exit:            ; preds = %entry, %land.lhs.tr
   %15 = load i64, ptr %nb_sectors, align 8
   %div13 = udiv i64 %15, %div15
   store i64 %div13, ptr %nb_sectors, align 8
-  switch i32 %and6, label %return [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb15
-    i32 2, label %sw.bb19
+  switch i8 %4, label %return [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb15
+    i8 2, label %sw.bb19
   ]
 
 sw.bb:                                            ; preds = %trace_scsi_disk_emulate_read_toc.exit
@@ -4864,7 +4864,7 @@ return:                                           ; preds = %sw.bb, %sw.bb15, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_disk_emulate_start_stop(ptr noundef %r) unnamed_addr #0 {
+define internal fastcc noundef i32 @scsi_disk_emulate_start_stop(ptr noundef %r) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 1
   %0 = load ptr, ptr %dev, align 8
@@ -4939,7 +4939,7 @@ declare void @blk_lock_medium(ptr noundef, i1 noundef zeroext) #1
 declare i32 @scsi_convert_sense(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_get_configuration(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc noundef i32 @scsi_get_configuration(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %nb_sectors.i23 = alloca i64, align 8
   %nb_sectors.i = alloca i64, align 8
@@ -5040,7 +5040,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_get_event_status_notification(ptr nocapture noundef %s, ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc noundef i32 @scsi_get_event_status_notification(ptr nocapture noundef %s, ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr %struct.SCSIRequest, ptr %r, i64 0, i32 10, i32 0, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -5132,7 +5132,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_read_disc_information(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc noundef i32 @scsi_read_disc_information(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %s.564.val, 5
   br i1 %cmp.not, label %if.end, label %return
@@ -6613,7 +6613,7 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @scsi_block_update_sense(ptr nocapture noundef %req) #13 {
 entry:
   %sb_len_wr = getelementptr inbounds %struct.SCSIBlockReq, ptr %req, i64 0, i32 1, i32 16
@@ -6626,7 +6626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @scsi_block_no_fua(ptr nocapture readnone %cmd) #14 {
+define internal noundef zeroext i1 @scsi_block_no_fua(ptr nocapture readnone %cmd) #14 {
 entry:
   ret i1 false
 }
@@ -6653,12 +6653,11 @@ entry:
   %cmd3 = getelementptr inbounds %struct.SCSIBlockReq, ptr %req, i64 0, i32 2
   store i8 %1, ptr %cmd3, align 8
   %2 = lshr i8 %1, 5
-  %shr = zext nneg i8 %2 to i32
-  switch i32 %shr, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb5
-    i32 4, label %sw.bb14
-    i32 5, label %sw.bb23
+  switch i8 %2, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb5
+    i8 4, label %sw.bb14
+    i8 5, label %sw.bb23
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -7078,7 +7077,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

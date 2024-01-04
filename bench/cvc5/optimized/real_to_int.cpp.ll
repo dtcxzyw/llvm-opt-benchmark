@@ -726,11 +726,10 @@ invoke.cont26.invoke.cont28_crit_edge:            ; preds = %invoke.cont26
 invoke.cont28:                                    ; preds = %invoke.cont26.invoke.cont28_crit_edge, %invoke.cont16
   %bf.clear.i163.pre-phi = phi i16 [ %.pre1543, %invoke.cont26.invoke.cont28_crit_edge ], [ %bf.clear.i, %invoke.cont16 ]
   %30 = phi ptr [ %.pre1535, %invoke.cont26.invoke.cont28_crit_edge ], [ %28, %invoke.cont16 ]
-  %bf.cast.i164 = zext nneg i16 %bf.clear.i163.pre-phi to i32
-  switch i32 %bf.cast.i164, label %invoke.cont39 [
-    i32 73, label %lor.end
-    i32 70, label %lor.end
-    i32 72, label %lor.end
+  switch i16 %bf.clear.i163.pre-phi, label %invoke.cont39 [
+    i16 73, label %lor.end
+    i16 70, label %lor.end
+    i16 72, label %lor.end
   ]
 
 invoke.cont39:                                    ; preds = %invoke.cont28
@@ -3032,8 +3031,8 @@ for.body436:                                      ; preds = %invoke.cont433
 invoke.cont438:                                   ; preds = %for.body436
   %cmp.i.i973 = icmp eq i32 %call2.i.i.i978, 2
   %inc.i.i974 = zext i1 %cmp.i.i973 to i64
-  %spec.select.i.i = add nuw i64 %i.0, %inc.i.i974
-  %sext = shl i64 %spec.select.i.i, 32
+  %spec.select.i.i = add nuw nsw i64 %i.0, %inc.i.i974
+  %sext = shl nuw i64 %spec.select.i.i, 32
   %idxprom.i.i975 = ashr exact i64 %sext, 32
   %arrayidx.i.i976 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %285, i64 0, i32 3, i64 %idxprom.i.i975
   %286 = load ptr, ptr %arrayidx.i.i976, align 8, !noalias !26
@@ -3059,8 +3058,8 @@ if.then443:                                       ; preds = %invoke.cont440
 invoke.cont448:                                   ; preds = %if.then443
   %cmp.i.i986 = icmp eq i32 %call2.i.i.i992, 2
   %inc.i.i987 = zext i1 %cmp.i.i986 to i64
-  %spec.select.i.i988 = add nuw i64 %i.0, %inc.i.i987
-  %sext1479 = shl i64 %spec.select.i.i988, 32
+  %spec.select.i.i988 = add nuw nsw i64 %i.0, %inc.i.i987
+  %sext1479 = shl nuw i64 %spec.select.i.i988, 32
   %idxprom.i.i989 = ashr exact i64 %sext1479, 32
   %arrayidx.i.i990 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %287, i64 0, i32 3, i64 %idxprom.i.i989
   %288 = load ptr, ptr %arrayidx.i.i990, align 8, !noalias !29
@@ -3324,8 +3323,8 @@ lor.rhs485:                                       ; preds = %if.end483
 cleanup.action496:                                ; preds = %lor.rhs485
   %cmp.i.i1073 = icmp eq i32 %call2.i.i.i1079, 2
   %inc.i.i1074 = zext i1 %cmp.i.i1073 to i64
-  %spec.select.i.i1075 = add nuw i64 %i.0, %inc.i.i1074
-  %sext1480 = shl i64 %spec.select.i.i1075, 32
+  %spec.select.i.i1075 = add nuw nsw i64 %i.0, %inc.i.i1074
+  %sext1480 = shl nuw i64 %spec.select.i.i1075, 32
   %idxprom.i.i1076 = ashr exact i64 %sext1480, 32
   %arrayidx.i.i1077 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %317, i64 0, i32 3, i64 %idxprom.i.i1076
   %318 = load ptr, ptr %arrayidx.i.i1077, align 8, !noalias !35
@@ -6611,7 +6610,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -6920,7 +6919,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

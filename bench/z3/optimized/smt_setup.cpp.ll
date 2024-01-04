@@ -7656,10 +7656,9 @@ if.then:                                          ; preds = %_ZNK15ref_vector_co
   %idxprom.i.i.i.i.i = zext i32 %xor.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %9 to i32
-  switch i32 %conv.i.i.i.i, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %9, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then

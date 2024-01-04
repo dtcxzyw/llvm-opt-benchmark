@@ -91,12 +91,12 @@ entry:
 lpad:                                             ; preds = %if.then.i.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #15
   resume { ptr, i32 } %0
 
 if.then.i:                                        ; preds = %entry
   %conv.i3 = zext nneg i32 %newCapacity to i64
-  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #18
+  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #16
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -133,7 +133,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %newCapacity to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #16
   %cmp2.not = icmp eq ptr %call, null
   br i1 %cmp2.not, label %return, label %if.then3
 
@@ -194,7 +194,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #19
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
@@ -217,8 +217,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -325,7 +325,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  tail call void @__clang_call_terminate(ptr %7) #17
   unreachable
 }
 
@@ -425,7 +425,7 @@ if.else3:                                         ; preds = %if.else
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #16
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %do.body
 
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i4 = zext nneg i32 %1 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #18
+  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #16
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
@@ -499,7 +499,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7524ConstrainedFieldPositionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
@@ -512,7 +512,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7524ConstrainedFieldPosition5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
@@ -520,7 +520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category) local_unnamed_addr #6 align 2 {
 entry:
   %fConstraint = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %this, i64 0, i32 5
   store i8 1, ptr %fConstraint, align 8
@@ -530,7 +530,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #6 align 2 {
 entry:
   %fConstraint = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %this, i64 0, i32 5
   store i8 2, ptr %fConstraint, align 8
@@ -542,7 +542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i64 noundef %context) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i64 noundef %context) local_unnamed_addr #6 align 2 {
 entry:
   store i64 %context, ptr %this, align 8
   ret void
@@ -553,11 +553,10 @@ define noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEi
 entry:
   %fConstraint = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %this, i64 0, i32 5
   %0 = load i8, ptr %fConstraint, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %return
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb4
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb4
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -577,7 +576,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #19
+  tail call void @abort() #17
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb2
@@ -587,10 +586,10 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #6 align 2 {
 entry:
   %fCategory = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %this, i64 0, i32 4
   store i32 %category, ptr %fCategory, align 4
@@ -610,19 +609,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7514FormattedValueD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7514FormattedValueD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #17
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucfpos_open_75(ptr nocapture noundef writeonly %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucfpos_open_75(ptr nocapture noundef writeonly %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #17
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #15
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.then, label %new.notnull
 
@@ -637,7 +636,7 @@ lpad.i:                                           ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
   store i32 0, ptr %call, align 4
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #15
   resume { ptr, i32 } %0
 
 if.then:                                          ; preds = %entry
@@ -649,16 +648,16 @@ return:                                           ; preds = %new.notnull, %if.th
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #12
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_reset_75(ptr noundef %ptr, ptr nocapture noundef %ec) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @ucfpos_reset_75(ptr noundef %ptr, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -688,7 +687,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainCategory_75(ptr noundef %ptr, i32 noundef %category, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainCategory_75(ptr noundef %ptr, i32 noundef %category, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -720,7 +719,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainField_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainField_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -754,7 +753,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getCategory_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getCategory_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -785,7 +784,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getField_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getField_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -816,7 +815,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_getIndexes_75(ptr noundef readonly %ptr, ptr nocapture noundef writeonly %pStart, ptr nocapture noundef writeonly %pLimit, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_getIndexes_75(ptr noundef readonly %ptr, ptr nocapture noundef writeonly %pStart, ptr nocapture noundef writeonly %pLimit, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -850,7 +849,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -881,7 +880,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setInt64IterationContext_75(ptr noundef %ptr, i64 noundef %context, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_setInt64IterationContext_75(ptr noundef %ptr, i64 noundef %context, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -934,17 +933,16 @@ return.sink.split.i:                              ; preds = %if.end2.i, %if.end.
 if.end:                                           ; preds = %if.end2.i
   %fConstraint.i = getelementptr inbounds %"struct.icu_75::UConstrainedFieldPositionImpl", ptr %ptr, i64 0, i32 2, i32 5
   %2 = load i8, ptr %fConstraint.i, align 8
-  %conv.i3 = sext i8 %2 to i32
-  switch i32 %conv.i3, label %sw.default.i [
-    i32 0, label %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb4.i
+  switch i8 %2, label %sw.default.i [
+    i8 0, label %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end
   %fCategory.i = getelementptr inbounds %"struct.icu_75::UConstrainedFieldPositionImpl", ptr %ptr, i64 0, i32 2, i32 4
   %3 = load i32, ptr %fCategory.i, align 4
-  %cmp.i5 = icmp eq i32 %3, %category
+  %cmp.i4 = icmp eq i32 %3, %category
   br label %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit
 
 sw.bb4.i:                                         ; preds = %if.end
@@ -958,21 +956,21 @@ sw.bb4.i:                                         ; preds = %if.end
   br label %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit
 
 sw.default.i:                                     ; preds = %if.end
-  tail call void @abort() #19
+  tail call void @abort() #17
   unreachable
 
 _ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit: ; preds = %if.end, %sw.bb2.i, %sw.bb4.i
-  %retval.0.shrunk.i = phi i1 [ %narrow.i, %sw.bb4.i ], [ %cmp.i5, %sw.bb2.i ], [ true, %if.end ]
-  %retval.0.i4 = zext i1 %retval.0.shrunk.i to i8
+  %retval.0.shrunk.i = phi i1 [ %narrow.i, %sw.bb4.i ], [ %cmp.i4, %sw.bb2.i ], [ true, %if.end ]
+  %retval.0.i3 = zext i1 %retval.0.shrunk.i to i8
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %entry, %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit
-  %retval.0 = phi i8 [ %retval.0.i4, %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit ], [ 0, %entry ], [ 0, %return.sink.split.i ]
+  %retval.0 = phi i8 [ %retval.0.i3, %_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii.exit ], [ 0, %entry ], [ 0, %return.sink.split.i ]
   ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setState_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_setState_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr nocapture noundef %ec) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1020,9 +1018,9 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
 
 delete.notnull:                                   ; preds = %if.end2.i.i
   %fImpl.i = getelementptr inbounds %"struct.icu_75::UConstrainedFieldPositionImpl", ptr %ptr, i64 0, i32 2
-  tail call void @_ZN6icu_7524ConstrainedFieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %fImpl.i) #17
+  tail call void @_ZN6icu_7524ConstrainedFieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %fImpl.i) #15
   store i32 0, ptr %ptr, align 4
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %ptr) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %ptr) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %if.end2.i.i, %if.end.i.i, %delete.notnull
@@ -1100,7 +1098,7 @@ if.else9.i:                                       ; preds = %if.else.i
 
 cleanup:                                          ; preds = %if.else9.i, %if.then7.i, %if.end9, %if.end
   %retval.0 = phi ptr [ null, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end9 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %readOnlyAlias) #17
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %readOnlyAlias) #15
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %entry, %cleanup
@@ -1109,10 +1107,10 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #12
+declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ufmtval_nextPosition_75(ptr noundef readonly %ufmtval, ptr noundef %ucfpos, ptr noundef %ec) local_unnamed_addr #1 {
+define noundef signext i8 @ufmtval_nextPosition_75(ptr noundef readonly %ufmtval, ptr noundef %ucfpos, ptr noundef %ec) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1164,7 +1162,7 @@ return:                                           ; preds = %return.sink.split.i
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1172,20 +1170,18 @@ attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { allocsize(0) }
-attributes #19 = { noreturn nounwind }
+attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(0) }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

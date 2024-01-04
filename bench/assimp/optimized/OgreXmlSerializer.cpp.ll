@@ -18427,13 +18427,12 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3ga
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 1
   %0 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 35, label %sw.bb
-    i32 97, label %sw.bb55
-    i32 103, label %sw.bb97
-    i32 108, label %sw.bb112
-    i32 113, label %sw.bb127
+  switch i8 %0, label %return [
+    i8 35, label %sw.bb
+    i8 97, label %sw.bb55
+    i8 103, label %sw.bb97
+    i8 108, label %sw.bb112
+    i8 113, label %sw.bb127
   ]
 
 sw.bb:                                            ; preds = %entry

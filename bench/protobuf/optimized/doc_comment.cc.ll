@@ -302,15 +302,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %prev.014 = phi i8 [ %0, %sw.epilog ], [ 42, %for.cond.preheader ]
   %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %i.015) #21
   %0 = load i8, ptr %call2, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %if.else.invoke [
-    i32 42, label %sw.bb
-    i32 47, label %sw.bb8
-    i32 64, label %if.then.invoke
-    i32 60, label %sw.bb20
-    i32 62, label %sw.bb23
-    i32 38, label %sw.bb26
-    i32 92, label %sw.bb29
+  switch i8 %0, label %if.else.invoke [
+    i8 42, label %sw.bb
+    i8 47, label %sw.bb8
+    i8 64, label %if.then.invoke
+    i8 60, label %sw.bb20
+    i8 62, label %sw.bb23
+    i8 38, label %sw.bb26
+    i8 92, label %sw.bb29
   ]
 
 lpad.loopexit:                                    ; preds = %if.else.invoke, %if.then.invoke
@@ -338,7 +337,8 @@ if.then.invoke:                                   ; preds = %for.body, %sw.bb8, 
           to label %sw.epilog unwind label %lpad.loopexit
 
 if.else.invoke:                                   ; preds = %for.body, %sw.bb8, %sw.bb
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %0)
+  %3 = phi i8 [ 42, %sw.bb ], [ 47, %sw.bb8 ], [ %0, %for.body ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %3)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb8:                                           ; preds = %for.body
@@ -635,10 +635,9 @@ for.body:                                         ; preds = %invoke.cont, %sw.ep
   %prev.014 = phi i8 [ %0, %sw.epilog ], [ 97, %invoke.cont ]
   %__begin3.sroa.0.013 = phi ptr [ %incdec.ptr.i, %sw.epilog ], [ %call1, %invoke.cont ]
   %0 = load i8, ptr %__begin3.sroa.0.013, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %if.else.invoke [
-    i32 42, label %sw.bb
-    i32 47, label %sw.bb10
+  switch i8 %0, label %if.else.invoke [
+    i8 42, label %sw.bb
+    i8 47, label %sw.bb10
   ]
 
 lpad.loopexit:                                    ; preds = %if.else.invoke, %if.then.invoke
@@ -666,7 +665,8 @@ if.then.invoke:                                   ; preds = %sw.bb10, %sw.bb
           to label %sw.epilog unwind label %lpad.loopexit
 
 if.else.invoke:                                   ; preds = %for.body, %sw.bb10, %sw.bb
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %0)
+  %3 = phi i8 [ 42, %sw.bb ], [ 47, %sw.bb10 ], [ %0, %for.body ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %3)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb10:                                          ; preds = %for.body

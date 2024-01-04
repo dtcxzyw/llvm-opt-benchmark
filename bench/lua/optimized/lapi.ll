@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local double @lua_version(ptr nocapture noundef readnone %L) local_unnamed_addr #4 {
+define dso_local noundef double @lua_version(ptr nocapture noundef readnone %L) local_unnamed_addr #4 {
 entry:
   ret double 5.040000e+02
 }
@@ -2330,12 +2330,11 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_ = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_, align 8
   %13 = and i8 %12, 63
-  %and = zext nneg i8 %13 to i32
-  switch i32 %and, label %return [
-    i32 4, label %sw.bb
-    i32 20, label %sw.bb2
-    i32 7, label %sw.bb4
-    i32 5, label %sw.bb6
+  switch i8 %13, label %return [
+    i8 4, label %sw.bb
+    i8 20, label %sw.bb2
+    i8 7, label %sw.bb4
+    i8 5, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %index2value.exit
@@ -2554,10 +2553,9 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_.i1 = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_.i1, align 8
   %13 = and i8 %12, 15
-  %and.i = zext nneg i8 %13 to i32
-  switch i32 %and.i, label %touserdata.exit [
-    i32 7, label %sw.bb.i
-    i32 2, label %sw.bb7.i
+  switch i8 %13, label %touserdata.exit [
+    i8 7, label %sw.bb.i
+    i8 2, label %sw.bb7.i
   ]
 
 sw.bb.i:                                          ; preds = %index2value.exit
@@ -2771,10 +2769,9 @@ sw.bb:                                            ; preds = %index2value.exit
 
 sw.bb1:                                           ; preds = %index2value.exit, %index2value.exit
   %14 = and i8 %12, 15
-  %and.i = zext nneg i8 %14 to i32
-  switch i32 %and.i, label %return [
-    i32 7, label %sw.bb.i
-    i32 2, label %sw.bb7.i
+  switch i8 %14, label %return [
+    i8 7, label %sw.bb.i
+    i8 2, label %sw.bb7.i
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb1
@@ -3965,7 +3962,7 @@ declare hidden ptr @luaH_new(ptr noundef) local_unnamed_addr #1
 declare hidden void @luaH_resize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lua_getmetatable(ptr nocapture noundef %L, i32 noundef %objindex) local_unnamed_addr #3 {
+define dso_local noundef i32 @lua_getmetatable(ptr nocapture noundef %L, i32 noundef %objindex) local_unnamed_addr #3 {
 entry:
   %ci1.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   %0 = load ptr, ptr %ci1.i, align 8
@@ -4047,10 +4044,9 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_ = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_, align 8
   %13 = and i8 %12, 15
-  %and = zext nneg i8 %13 to i32
-  switch i32 %and, label %sw.default [
-    i32 5, label %sw.bb
-    i32 7, label %sw.bb1
+  switch i8 %13, label %sw.default [
+    i8 5, label %sw.bb
+    i8 7, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %index2value.exit
@@ -4996,7 +4992,7 @@ cond.end14:                                       ; preds = %gettable.exit, %con
 declare hidden void @luaH_setint(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_setmetatable(ptr noundef %L, i32 noundef %objindex) local_unnamed_addr #0 {
+define dso_local noundef i32 @lua_setmetatable(ptr noundef %L, i32 noundef %objindex) local_unnamed_addr #0 {
 entry:
   %ci1.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   %0 = load ptr, ptr %ci1.i, align 8
@@ -5093,10 +5089,9 @@ if.end:                                           ; preds = %index2value.exit, %
   %tt_4 = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %16 = load i8, ptr %tt_4, align 8
   %17 = and i8 %16, 15
-  %and6 = zext nneg i8 %17 to i32
-  switch i32 %and6, label %sw.default [
-    i32 5, label %sw.bb
-    i32 7, label %sw.bb20
+  switch i8 %17, label %sw.default [
+    i8 5, label %sw.bb
+    i8 7, label %sw.bb20
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5181,7 +5176,7 @@ sw.epilog:                                        ; preds = %sw.bb20, %cond.end3
 declare hidden void @luaC_checkfinalizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_setiuservalue(ptr noundef %L, i32 noundef %idx, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local noundef i32 @lua_setiuservalue(ptr noundef %L, i32 noundef %idx, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %ci1.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   %0 = load ptr, ptr %ci1.i, align 8
@@ -6026,7 +6021,7 @@ declare hidden void @luaC_fullgc(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden void @luaC_changemode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local i32 @lua_error(ptr noundef %L) local_unnamed_addr #9 {
+define dso_local noundef i32 @lua_error(ptr noundef %L) local_unnamed_addr #9 {
 entry:
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
   %0 = load ptr, ptr %top, align 8
@@ -6510,10 +6505,9 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_.i6 = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_.i6, align 8
   %13 = and i8 %12, 63
-  %and.i = zext nneg i8 %13 to i32
-  switch i32 %and.i, label %if.end [
-    i32 38, label %sw.bb.i
-    i32 6, label %sw.bb6.i
+  switch i8 %13, label %if.end [
+    i8 38, label %sw.bb.i
+    i8 6, label %sw.bb6.i
   ]
 
 sw.bb.i:                                          ; preds = %index2value.exit
@@ -6659,10 +6653,9 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_.i7 = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_.i7, align 8
   %13 = and i8 %12, 63
-  %and.i = zext nneg i8 %13 to i32
-  switch i32 %and.i, label %if.end [
-    i32 38, label %sw.bb.i
-    i32 6, label %sw.bb6.i
+  switch i8 %13, label %if.end [
+    i8 38, label %sw.bb.i
+    i8 6, label %sw.bb6.i
   ]
 
 sw.bb.i:                                          ; preds = %index2value.exit
@@ -6829,10 +6822,9 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
   %tt_ = getelementptr inbounds %struct.TValue, ptr %retval.0.i, i64 0, i32 1
   %12 = load i8, ptr %tt_, align 8
   %13 = and i8 %12, 63
-  %and = zext nneg i8 %13 to i32
-  switch i32 %and, label %return [
-    i32 6, label %sw.bb
-    i32 38, label %sw.bb2
+  switch i8 %13, label %return [
+    i8 6, label %sw.bb
+    i8 38, label %sw.bb2
   ]
 
 sw.bb:                                            ; preds = %index2value.exit

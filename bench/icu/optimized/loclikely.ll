@@ -1275,10 +1275,9 @@ if.then16:                                        ; preds = %if.then12
   %idxprom = zext nneg i32 %call5 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call14, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %if.end19 [
-    i32 45, label %return
-    i32 43, label %sw.bb17
+  switch i8 %2, label %if.end19 [
+    i8 45, label %return
+    i8 43, label %sw.bb17
   ]
 
 sw.bb17:                                          ; preds = %if.then16

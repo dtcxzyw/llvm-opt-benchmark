@@ -1215,12 +1215,11 @@ entry:
   %tt_ = getelementptr inbounds %struct.TValue, ptr %key, i64 0, i32 1
   %0 = load i8, ptr %tt_, align 8
   %1 = and i8 %0, 63
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %sw.default [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb1
-    i32 0, label %return
-    i32 19, label %sw.bb5
+  switch i8 %1, label %sw.default [
+    i8 4, label %sw.bb
+    i8 3, label %sw.bb1
+    i8 0, label %return
+    i8 19, label %sw.bb5
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2525,16 +2524,15 @@ entry:
   %tt_ = getelementptr inbounds %struct.TValue, ptr %key, i64 0, i32 1
   %0 = load i8, ptr %tt_, align 8
   %1 = and i8 %0, 63
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %sw.default [
-    i32 3, label %sw.bb
-    i32 19, label %sw.bb1
-    i32 4, label %sw.bb5
-    i32 20, label %sw.bb15
-    i32 1, label %sw.bb27
-    i32 17, label %sw.bb36
-    i32 2, label %sw.bb45
-    i32 22, label %sw.bb58
+  switch i8 %1, label %sw.default [
+    i8 3, label %sw.bb
+    i8 19, label %sw.bb1
+    i8 4, label %sw.bb5
+    i8 20, label %sw.bb15
+    i8 1, label %sw.bb27
+    i8 17, label %sw.bb36
+    i8 2, label %sw.bb45
+    i8 22, label %sw.bb58
   ]
 
 sw.bb:                                            ; preds = %entry

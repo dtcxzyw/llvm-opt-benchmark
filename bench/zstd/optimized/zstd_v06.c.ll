@@ -2697,13 +2697,13 @@ if.else.i:                                        ; preds = %if.end.i
   %4 = load i8, ptr %add.ptr9, align 1
   %conv16.i = zext i8 %4 to i64
   store i64 %conv16.i, ptr %bitD1, align 8
-  switch i64 %conv2, label %sw.epilog.i [
-    i64 7, label %sw.bb.i
-    i64 6, label %sw.bb21.i
-    i64 5, label %sw.bb27.i
-    i64 4, label %sw.bb33.i
-    i64 3, label %sw.bb39.i
-    i64 2, label %sw.bb45.i
+  switch i16 %cSrc.val, label %sw.epilog.i [
+    i16 7, label %sw.bb.i
+    i16 6, label %sw.bb21.i
+    i16 5, label %sw.bb27.i
+    i16 4, label %sw.bb33.i
+    i16 3, label %sw.bb39.i
+    i16 2, label %sw.bb45.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else.i
@@ -2812,13 +2812,13 @@ if.else.i104:                                     ; preds = %if.end.i101
   %23 = load i8, ptr %add.ptr10, align 1
   %conv16.i106 = zext i8 %23 to i64
   store i64 %conv16.i106, ptr %bitD2, align 8
-  switch i64 %conv5, label %sw.epilog.i112 [
-    i64 7, label %sw.bb.i140
-    i64 6, label %sw.bb21.i135
-    i64 5, label %sw.bb27.i130
-    i64 4, label %sw.bb33.i125
-    i64 3, label %sw.bb39.i120
-    i64 2, label %sw.bb45.i107
+  switch i16 %add.ptr3.val, label %sw.epilog.i112 [
+    i16 7, label %sw.bb.i140
+    i16 6, label %sw.bb21.i135
+    i16 5, label %sw.bb27.i130
+    i16 4, label %sw.bb33.i125
+    i16 3, label %sw.bb39.i120
+    i16 2, label %sw.bb45.i107
   ]
 
 sw.bb.i140:                                       ; preds = %if.else.i104
@@ -2927,13 +2927,13 @@ if.else.i165:                                     ; preds = %if.end.i162
   %42 = load i8, ptr %add.ptr11, align 1
   %conv16.i167 = zext i8 %42 to i64
   store i64 %conv16.i167, ptr %bitD3, align 8
-  switch i64 %conv8, label %sw.epilog.i173 [
-    i64 7, label %sw.bb.i201
-    i64 6, label %sw.bb21.i196
-    i64 5, label %sw.bb27.i191
-    i64 4, label %sw.bb33.i186
-    i64 3, label %sw.bb39.i181
-    i64 2, label %sw.bb45.i168
+  switch i16 %add.ptr6.val, label %sw.epilog.i173 [
+    i16 7, label %sw.bb.i201
+    i16 6, label %sw.bb21.i196
+    i16 5, label %sw.bb27.i191
+    i16 4, label %sw.bb33.i186
+    i16 3, label %sw.bb39.i181
+    i16 2, label %sw.bb45.i168
   ]
 
 sw.bb.i201:                                       ; preds = %if.else.i165
@@ -4618,13 +4618,13 @@ if.else.i:                                        ; preds = %if.end.i
   %4 = load i8, ptr %add.ptr8, align 1
   %conv16.i = zext i8 %4 to i64
   store i64 %conv16.i, ptr %bitD1, align 8
-  switch i64 %conv, label %sw.epilog.i [
-    i64 7, label %sw.bb.i
-    i64 6, label %sw.bb21.i
-    i64 5, label %sw.bb27.i
-    i64 4, label %sw.bb33.i
-    i64 3, label %sw.bb39.i
-    i64 2, label %sw.bb45.i
+  switch i16 %cSrc.val, label %sw.epilog.i [
+    i16 7, label %sw.bb.i
+    i16 6, label %sw.bb21.i
+    i16 5, label %sw.bb27.i
+    i16 4, label %sw.bb33.i
+    i16 3, label %sw.bb39.i
+    i16 2, label %sw.bb45.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else.i
@@ -4733,13 +4733,13 @@ if.else.i120:                                     ; preds = %if.end.i117
   %23 = load i8, ptr %add.ptr9, align 1
   %conv16.i122 = zext i8 %23 to i64
   store i64 %conv16.i122, ptr %bitD2, align 8
-  switch i64 %conv4, label %sw.epilog.i128 [
-    i64 7, label %sw.bb.i156
-    i64 6, label %sw.bb21.i151
-    i64 5, label %sw.bb27.i146
-    i64 4, label %sw.bb33.i141
-    i64 3, label %sw.bb39.i136
-    i64 2, label %sw.bb45.i123
+  switch i16 %add.ptr2.val, label %sw.epilog.i128 [
+    i16 7, label %sw.bb.i156
+    i16 6, label %sw.bb21.i151
+    i16 5, label %sw.bb27.i146
+    i16 4, label %sw.bb33.i141
+    i16 3, label %sw.bb39.i136
+    i16 2, label %sw.bb45.i123
   ]
 
 sw.bb.i156:                                       ; preds = %if.else.i120
@@ -4848,13 +4848,13 @@ if.else.i181:                                     ; preds = %if.end.i178
   %42 = load i8, ptr %add.ptr10, align 1
   %conv16.i183 = zext i8 %42 to i64
   store i64 %conv16.i183, ptr %bitD3, align 8
-  switch i64 %conv7, label %sw.epilog.i189 [
-    i64 7, label %sw.bb.i217
-    i64 6, label %sw.bb21.i212
-    i64 5, label %sw.bb27.i207
-    i64 4, label %sw.bb33.i202
-    i64 3, label %sw.bb39.i197
-    i64 2, label %sw.bb45.i184
+  switch i16 %add.ptr5.val, label %sw.epilog.i189 [
+    i16 7, label %sw.bb.i217
+    i16 6, label %sw.bb21.i212
+    i16 5, label %sw.bb27.i207
+    i16 4, label %sw.bb33.i202
+    i16 3, label %sw.bb39.i197
+    i16 2, label %sw.bb45.i184
   ]
 
 sw.bb.i217:                                       ; preds = %if.else.i181
@@ -7236,10 +7236,10 @@ if.end11:                                         ; preds = %sw.bb25.i.i, %sw.bb
   store i64 %.sink.i.i, ptr %fParams.i, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %src, i64 %add.i
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast75 = ptrtoint ptr %add.ptr12 to i64
-  %sub.ptr.sub76 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast75
-  %cmp.i4077 = icmp ult i64 %sub.ptr.sub76, 3
-  br i1 %cmp.i4077, label %return, label %if.end.i.lr.ph
+  %sub.ptr.rhs.cast76 = ptrtoint ptr %add.ptr12 to i64
+  %sub.ptr.sub77 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast76
+  %cmp.i4078 = icmp ult i64 %sub.ptr.sub77, 3
+  br i1 %cmp.i4078, label %return, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end11
   %sub = sub i64 %srcSize, %add.i
@@ -7247,30 +7247,29 @@ if.end.i.lr.ph:                                   ; preds = %if.end11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end43
-  %ip.080 = phi ptr [ %add.ptr12, %if.end.i.lr.ph ], [ %add.ptr45, %if.end43 ]
-  %remainingSize.079 = phi i64 [ %sub, %if.end.i.lr.ph ], [ %sub46, %if.end43 ]
-  %op.078 = phi ptr [ %dst, %if.end.i.lr.ph ], [ %add.ptr44, %if.end43 ]
-  %5 = load i8, ptr %ip.080, align 1
+  %ip.081 = phi ptr [ %add.ptr12, %if.end.i.lr.ph ], [ %add.ptr45, %if.end43 ]
+  %remainingSize.080 = phi i64 [ %sub, %if.end.i.lr.ph ], [ %sub46, %if.end43 ]
+  %op.079 = phi ptr [ %dst, %if.end.i.lr.ph ], [ %add.ptr44, %if.end43 ]
+  %5 = load i8, ptr %ip.081, align 1
   %6 = lshr i8 %5, 6
-  %shr.i = zext nneg i8 %6 to i32
-  switch i32 %shr.i, label %if.end20.i [
-    i32 3, label %if.end22.thread
-    i32 2, label %if.end17
+  switch i8 %6, label %if.end20.i [
+    i8 3, label %if.end22.thread
+    i8 2, label %if.end17
   ]
 
 if.end22.thread:                                  ; preds = %if.end.i
-  %tobool34.not = icmp eq i64 %remainingSize.079, 3
-  br i1 %tobool34.not, label %while.end, label %return
+  %tobool34.not = icmp eq i64 %remainingSize.080, 3
+  br i1 %tobool34.not, label %sw.epilog, label %return
 
 if.end20.i:                                       ; preds = %if.end.i
   %7 = and i8 %5, 7
   %and.i = zext nneg i8 %7 to i64
   %shl6.i = shl nuw nsw i64 %and.i, 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.080, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.081, i64 1
   %8 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %8 to i64
   %shl.i = shl nuw nsw i64 %conv3.i, 8
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %ip.080, i64 2
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %ip.081, i64 2
   %9 = load i8, ptr %arrayidx.i41, align 1
   %conv1.i = zext i8 %9 to i64
   %add.i42 = or disjoint i64 %shl.i, %conv1.i
@@ -7279,66 +7278,72 @@ if.end20.i:                                       ; preds = %if.end.i
 
 if.end17:                                         ; preds = %if.end.i, %if.end20.i
   %retval.0.i.ph = phi i64 [ %add7.i, %if.end20.i ], [ 1, %if.end.i ]
-  %add.ptr18 = getelementptr inbounds i8, ptr %ip.080, i64 3
-  %sub19 = add i64 %remainingSize.079, -3
+  %add.ptr18 = getelementptr inbounds i8, ptr %ip.081, i64 3
+  %sub19 = add i64 %remainingSize.080, -3
   %cmp20 = icmp ugt i64 %retval.0.i.ph, %sub19
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end17
-  switch i32 %shr.i, label %return [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb27
+  switch i8 %6, label %if.end22.unreachabledefault [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb27
+    i8 2, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end22
-  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.078 to i64
+  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.079 to i64
   %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast24
-  %call26 = tail call fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %dctx, ptr noundef %op.078, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i.ph)
+  %call26 = tail call fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %dctx, ptr noundef %op.079, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i.ph)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end22
-  %sub.ptr.rhs.cast29 = ptrtoint ptr %op.078 to i64
+  %sub.ptr.rhs.cast29 = ptrtoint ptr %op.079 to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
-  %cmp.i45 = icmp eq ptr %op.078, null
+  %cmp.i45 = icmp eq ptr %op.079, null
   %cmp1.i = icmp ugt i64 %retval.0.i.ph, %sub.ptr.sub30
   %or.cond.i = or i1 %cmp.i45, %cmp1.i
-  br i1 %or.cond.i, label %sw.epilog.thread90, label %if.end3.i
+  br i1 %or.cond.i, label %sw.epilog.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.078, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.079, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end3.i, %sw.bb
-  %decodedSize.0 = phi i64 [ %call26, %sw.bb ], [ %retval.0.i.ph, %if.end3.i ]
-  %cmp37 = icmp eq i64 %retval.0.i.ph, 0
+sw.epilog:                                        ; preds = %if.end3.i, %if.end22.thread, %sw.bb
+  %sub196569 = phi i64 [ 0, %if.end22.thread ], [ %sub19, %sw.bb ], [ %sub19, %if.end3.i ]
+  %retval.0.i.ph63 = phi i64 [ 0, %if.end22.thread ], [ %retval.0.i.ph, %sw.bb ], [ %retval.0.i.ph, %if.end3.i ]
+  %decodedSize.0 = phi i64 [ 0, %if.end22.thread ], [ %call26, %sw.bb ], [ %retval.0.i.ph, %if.end3.i ]
+  %cmp37 = icmp eq i64 %retval.0.i.ph63, 0
   br i1 %cmp37, label %while.end, label %if.end39
 
-sw.epilog.thread90:                               ; preds = %sw.bb27
-  %cmp3794 = icmp eq i64 %retval.0.i.ph, 0
-  br i1 %cmp3794, label %while.end, label %return
+sw.epilog.thread:                                 ; preds = %sw.bb27
+  %cmp3792 = icmp eq i64 %retval.0.i.ph, 0
+  br i1 %cmp3792, label %while.end, label %return
 
 if.end39:                                         ; preds = %sw.epilog
   %cmp.i47 = icmp ult i64 %decodedSize.0, -119
   br i1 %cmp.i47, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.end39
-  %10 = getelementptr inbounds i8, ptr %ip.080, i64 3
-  %add.ptr44 = getelementptr inbounds i8, ptr %op.078, i64 %decodedSize.0
-  %add.ptr45 = getelementptr inbounds i8, ptr %10, i64 %retval.0.i.ph
-  %sub46 = sub i64 %sub19, %retval.0.i.ph
+  %10 = getelementptr inbounds i8, ptr %ip.081, i64 3
+  %add.ptr44 = getelementptr inbounds i8, ptr %op.079, i64 %decodedSize.0
+  %add.ptr45 = getelementptr inbounds i8, ptr %10, i64 %retval.0.i.ph63
+  %sub46 = sub i64 %sub196569, %retval.0.i.ph63
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr45 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp.i40 = icmp ult i64 %sub.ptr.sub, 3
   br i1 %cmp.i40, label %return, label %if.end.i
 
-while.end:                                        ; preds = %sw.epilog, %if.end22.thread, %sw.epilog.thread90
-  %sub.ptr.lhs.cast47 = ptrtoint ptr %op.078 to i64
+while.end:                                        ; preds = %sw.epilog, %sw.epilog.thread
+  %sub.ptr.lhs.cast47 = ptrtoint ptr %op.079 to i64
   %sub.ptr.rhs.cast48 = ptrtoint ptr %dst to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
   br label %return
 
-return:                                           ; preds = %if.end17, %if.end22, %if.end39, %if.end43, %sw.epilog.thread90, %if.end22.thread, %if.end11, %if.end7.i.i, %if.end7, %if.end4, %if.end, %entry, %while.end
-  %retval.0 = phi i64 [ %sub.ptr.sub49, %while.end ], [ -72, %entry ], [ %add.i, %if.end ], [ -72, %if.end4 ], [ -20, %if.end7 ], [ -20, %if.end7.i.i ], [ -72, %if.end11 ], [ -72, %if.end22.thread ], [ -70, %sw.epilog.thread90 ], [ -72, %if.end17 ], [ -1, %if.end22 ], [ %decodedSize.0, %if.end39 ], [ -72, %if.end43 ]
+if.end22.unreachabledefault:                      ; preds = %if.end22
+  unreachable
+
+return:                                           ; preds = %if.end22, %if.end17, %if.end22.thread, %if.end39, %if.end43, %sw.epilog.thread, %if.end11, %if.end7.i.i, %if.end7, %if.end4, %if.end, %entry, %while.end
+  %retval.0 = phi i64 [ %sub.ptr.sub49, %while.end ], [ -72, %entry ], [ %add.i, %if.end ], [ -72, %if.end4 ], [ -20, %if.end7 ], [ -20, %if.end7.i.i ], [ -72, %if.end11 ], [ -70, %sw.epilog.thread ], [ -72, %if.end17 ], [ -72, %if.end22.thread ], [ %decodedSize.0, %if.end39 ], [ -1, %if.end22 ], [ -72, %if.end43 ]
   ret i64 %retval.0
 }
 
@@ -7789,10 +7794,9 @@ if.end7.split:                                    ; preds = %if.end4
 if.end.i40:                                       ; preds = %if.end7.split
   %3 = load i8, ptr %add.ptr, align 1
   %4 = lshr i8 %3, 6
-  %shr.i = zext nneg i8 %4 to i32
-  switch i32 %shr.i, label %if.end20.i [
-    i32 3, label %if.end12.preheader
-    i32 2, label %if.then19.i
+  switch i8 %4, label %if.end20.i [
+    i8 3, label %if.end12.preheader
+    i8 2, label %if.then19.i
   ]
 
 if.then19.i:                                      ; preds = %if.end.i40
@@ -7846,10 +7850,9 @@ if.end20.split:                                   ; preds = %if.end17
 if.end.i47:                                       ; preds = %if.end20.split
   %9 = load i8, ptr %add.ptr21, align 1
   %10 = lshr i8 %9, 6
-  %shr.i48 = zext nneg i8 %10 to i32
-  switch i32 %shr.i48, label %if.end20.i63 [
-    i32 3, label %ZSTDv06_getcBlockSize.exit65
-    i32 2, label %if.then19.i61
+  switch i8 %10, label %if.end20.i63 [
+    i8 3, label %ZSTDv06_getcBlockSize.exit65
+    i8 2, label %if.then19.i61
   ]
 
 if.then19.i61:                                    ; preds = %if.end.i47
@@ -8060,12 +8063,12 @@ sw.bb34:                                          ; preds = %if.end2
   %13 = load i8, ptr %src, align 1
   %14 = lshr i8 %13, 6
   %shr.i = zext nneg i8 %14 to i32
-  switch i32 %shr.i, label %if.end20.i [
-    i32 3, label %if.then41
-    i32 2, label %if.else
+  switch i8 %14, label %if.end39 [
+    i8 3, label %if.then41
+    i8 2, label %if.else
   ]
 
-if.end20.i:                                       ; preds = %sw.bb34
+if.end39:                                         ; preds = %sw.bb34
   %15 = and i8 %13, 7
   %and.i = zext nneg i8 %15 to i64
   %shl6.i = shl nuw nsw i64 %and.i, 16
@@ -8084,9 +8087,9 @@ if.then41:                                        ; preds = %sw.bb34
   store i64 0, ptr %expected, align 8
   br label %if.end47
 
-if.else:                                          ; preds = %sw.bb34, %if.end20.i
-  %retval.0.i.ph = phi i64 [ %add7.i, %if.end20.i ], [ 1, %sw.bb34 ]
-  store i64 %retval.0.i.ph, ptr %expected, align 8
+if.else:                                          ; preds = %if.end39, %sw.bb34
+  %retval.0.i72 = phi i64 [ %add7.i, %if.end39 ], [ 1, %sw.bb34 ]
+  store i64 %retval.0.i72, ptr %expected, align 8
   %bType = getelementptr inbounds %struct.ZSTDv06_DCtx_s, ptr %dctx, i64 0, i32 11
   store i32 %shr.i, ptr %bType, align 8
   br label %if.end47
@@ -8118,9 +8121,9 @@ sw.bb52:                                          ; preds = %sw.bb48
   %cmp.i52 = icmp eq ptr %dst, null
   %cmp1.i = icmp ugt i64 %srcSize, %dstCapacity
   %or.cond.i = or i1 %cmp.i52, %cmp1.i
-  br i1 %or.cond.i, label %sw.epilog.thread75, label %if.end3.i
+  br i1 %or.cond.i, label %sw.epilog.thread78, label %if.end3.i
 
-sw.epilog.thread75:                               ; preds = %sw.bb52
+sw.epilog.thread78:                               ; preds = %sw.bb52
   store i32 2, ptr %stage, align 4
   store i64 3, ptr %expected, align 8
   br label %return
@@ -8137,14 +8140,14 @@ sw.epilog:                                        ; preds = %if.end3.i, %sw.bb50
   br i1 %cmp.i54, label %if.end61, label %return
 
 if.end61:                                         ; preds = %sw.epilog.thread, %sw.epilog
-  %rSize.074 = phi i64 [ 0, %sw.epilog.thread ], [ %rSize.0, %sw.epilog ]
-  %add.ptr62 = getelementptr inbounds i8, ptr %dst, i64 %rSize.074
+  %rSize.077 = phi i64 [ 0, %sw.epilog.thread ], [ %rSize.0, %sw.epilog ]
+  %add.ptr62 = getelementptr inbounds i8, ptr %dst, i64 %rSize.077
   %previousDstEnd = getelementptr inbounds %struct.ZSTDv06_DCtx_s, ptr %dctx, i64 0, i32 4
   store ptr %add.ptr62, ptr %previousDstEnd, align 8
   br label %return
 
-return:                                           ; preds = %if.end7.i.i, %if.end.i.i, %sw.epilog.thread75, %if.end5, %if.end2, %sw.epilog, %sw.bb48, %ZSTDv06_decodeFrameHeader.exit, %sw.bb, %entry, %if.end61, %if.end47, %if.end31, %if.then14
-  %retval.0 = phi i64 [ %rSize.074, %if.end61 ], [ 0, %if.end47 ], [ 0, %if.end31 ], [ 0, %if.then14 ], [ -72, %entry ], [ -72, %sw.bb ], [ %add.i.i.i, %ZSTDv06_decodeFrameHeader.exit ], [ -1, %sw.bb48 ], [ %rSize.0, %sw.epilog ], [ -1, %if.end2 ], [ %add.i, %if.end5 ], [ -70, %sw.epilog.thread75 ], [ -14, %if.end7.i.i ], [ -10, %if.end.i.i ]
+return:                                           ; preds = %if.end7.i.i, %if.end.i.i, %sw.epilog.thread78, %if.end5, %if.end2, %sw.epilog, %sw.bb48, %ZSTDv06_decodeFrameHeader.exit, %sw.bb, %entry, %if.end61, %if.end47, %if.end31, %if.then14
+  %retval.0 = phi i64 [ %rSize.077, %if.end61 ], [ 0, %if.end47 ], [ 0, %if.end31 ], [ 0, %if.then14 ], [ -72, %entry ], [ -72, %sw.bb ], [ %add.i.i.i, %ZSTDv06_decodeFrameHeader.exit ], [ -1, %sw.bb48 ], [ %rSize.0, %sw.epilog ], [ -1, %if.end2 ], [ %add.i, %if.end5 ], [ -70, %sw.epilog.thread78 ], [ -14, %if.end7.i.i ], [ -10, %if.end.i.i ]
   ret i64 %retval.0
 }
 

@@ -345,17 +345,29 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %if.then5.i.i.i.i
   %bf.load.i.i = load i8, ptr %label_.i.i, align 1
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 5
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 3
-  %conv.i30.i = zext nneg i8 %bf.clear.i.i to i32
-  %conv.i30.i.off = add nsw i32 %conv.i30.i, -1
-  %switch = icmp ult i32 %conv.i30.i.off, 3
-  br i1 %switch, label %sw.epilog.sink.split.i, label %sw.epilog.i
+  switch i8 %bf.clear.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.unreachabledefault.i [
+    i8 1, label %sw.epilog.sink.split.i
+    i8 3, label %sw.bb2.i
+    i8 2, label %sw.bb3.i
+    i8 0, label %sw.epilog.i
+  ]
 
-sw.epilog.sink.split.i:                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+sw.bb2.i:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+  br label %sw.epilog.sink.split.i
+
+sw.bb3.i:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+  br label %sw.epilog.sink.split.i
+
+_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.unreachabledefault.i: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+  unreachable
+
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+  %.sink.i = phi i32 [ 2, %sw.bb3.i ], [ 3, %sw.bb2.i ], [ 1, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i ]
   %cardinality_.i.i32.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %call2.i.i.i, i64 0, i32 1, i32 0, i32 6
-  store i32 %conv.i30.i, ptr %cardinality_.i.i32.i, align 4
+  store i32 %.sink.i, ptr %cardinality_.i.i32.i, align 4
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %sw.epilog.sink.split.i
+sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
   %number_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %12, i64 %indvars.iv, i32 4
   %19 = load i32, ptr %number_.i.i, align 4
   %number_.i.i.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %call2.i.i.i, i64 0, i32 1, i32 0, i32 7

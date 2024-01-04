@@ -1599,17 +1599,16 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit: ; preds = %entry
-  %conv5 = sext i8 %spec.store.select to i32
-  switch i32 %conv5, label %sw.default [
-    i32 110, label %sw.bb
-    i32 100, label %sw.bb16
-    i32 99, label %sw.bb33
-    i32 111, label %sw.bb47
-    i32 79, label %sw.bb47
-    i32 120, label %sw.bb61
-    i32 88, label %sw.bb78
-    i32 98, label %sw.bb95
-    i32 66, label %sw.bb95
+  switch i8 %spec.store.select, label %sw.default [
+    i8 110, label %sw.bb
+    i8 100, label %sw.bb16
+    i8 99, label %sw.bb33
+    i8 111, label %sw.bb47
+    i8 79, label %sw.bb47
+    i8 120, label %sw.bb61
+    i8 88, label %sw.bb78
+    i8 98, label %sw.bb95
+    i8 66, label %sw.bb95
   ]
 
 sw.bb:                                            ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit
@@ -2533,7 +2532,7 @@ if.then26:                                        ; preds = %if.end8
   %cmp29 = icmp eq i8 %2, 0
   %spec.select = select i1 %cmp29, i8 32, i8 %2
   %3 = trunc i64 %.pre68 to i32
-  %conv34 = sub i32 %0, %3
+  %conv34 = sub nsw i32 %0, %3
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %padBuf, i8 %spec.select, i64 %conv37, i1 false)

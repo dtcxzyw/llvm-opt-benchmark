@@ -5342,7 +5342,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -8470,7 +8470,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
 _ZNKSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %9
@@ -9941,13 +9941,12 @@ if.then4:                                         ; preds = %_ZNK9grpc_core12_GL
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.361", ptr %overridden_host_pick, i64 0, i32 1
   %89 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i.i.i = sext i8 %89 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i
-    i64 1, label %if.then.i.i.i.i
-    i64 2, label %sw.bb3.i.i.i.i.i.i.i.i
-    i64 3, label %sw.bb4.i.i.i.i.i.i.i.i
-    i64 -1, label %if.then.i.i.i.i
+  switch i8 %89, label %sw.default.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i
+    i8 1, label %if.then.i.i.i.i
+    i8 2, label %sw.bb3.i.i.i.i.i.i.i.i
+    i8 3, label %sw.bb4.i.i.i.i.i.i.i.i
+    i8 -1, label %if.then.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.then4
@@ -9959,31 +9958,37 @@ sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.then4
   %91 = load i64, ptr %subchannel_call_tracker3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 %91, ptr %subchannel_call_tracker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %subchannel_call_tracker3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %if.then.i.i.i.i
+  br label %if.then.i.i.i.i.thread
 
 sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %if.then4
   %92 = load i64, ptr %overridden_host_pick, align 8
   store i64 %92, ptr %agg.result, align 8
   store i64 54, ptr %overridden_host_pick, align 8
-  br label %if.then.i.i.i.i
+  br label %if.then.i.i.i.i.thread
 
 sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %if.then4
   %93 = load i64, ptr %overridden_host_pick, align 8
   store i64 %93, ptr %agg.result, align 8
   store i64 54, ptr %overridden_host_pick, align 8
-  br label %if.then.i.i.i.i
+  br label %if.then.i.i.i.i.thread
 
 sw.default.i.i.i.i.i.i.i.i:                       ; preds = %if.then4
   unreachable
 
-if.then.i.i.i.i:                                  ; preds = %if.then4, %if.then4, %sw.bb.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i
+if.then.i.i.i.i.thread:                           ; preds = %sw.bb.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i
+  store i8 %89, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
+  store i8 0, ptr %_M_engaged.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  br label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.then4, %if.then4
   store i8 %89, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   store i8 0, ptr %_M_engaged.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %89, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8optionalIN9grpc_core19LoadBalancingPolicy10PickResultEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.thread, %if.then.i.i.i.i
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core19LoadBalancingPolicy10PickResult8CompleteENS5_5QueueENS5_4FailENS5_4DropEEE8_M_resetEvEUlOT_E_JRSt7variantIJS6_S7_S8_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(17) %overridden_host_pick)
           to label %_ZNSt8optionalIN9grpc_core19LoadBalancingPolicy10PickResultEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -10013,8 +10018,8 @@ if.then8:                                         ; preds = %if.end6
 
 _ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit.thread: ; preds = %if.then8
   store i64 %97, ptr %agg.result, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i16118 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.361", ptr %agg.result, i64 0, i32 1
-  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i16118, align 8
+  %_M_index.i.i.i.i.i.i.i.i.i16119 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.361", ptr %agg.result, i64 0, i32 1
+  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i16119, align 8
   br label %return
 
 _ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit: ; preds = %if.then8
@@ -10284,12 +10289,11 @@ define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_st
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.361", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -11736,7 +11740,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

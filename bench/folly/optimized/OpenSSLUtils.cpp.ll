@@ -1966,9 +1966,9 @@ if.then.i.i42:                                    ; preds = %if.end7
 
 if.end.i.i37:                                     ; preds = %if.then.i.i42, %if.end7
   %4 = phi ptr [ %call2.i8.i43, %if.then.i.i42 ], [ %2, %if.end7 ]
-  switch i64 %conv, label %if.end.i.i.i.i.i41 [
-    i64 1, label %if.then.i.i.i.i40
-    i64 0, label %invoke.cont11
+  switch i32 %call1, label %if.end.i.i.i.i.i41 [
+    i32 1, label %if.then.i.i.i.i40
+    i32 0, label %invoke.cont11
   ]
 
 if.then.i.i.i.i40:                                ; preds = %if.end.i.i37

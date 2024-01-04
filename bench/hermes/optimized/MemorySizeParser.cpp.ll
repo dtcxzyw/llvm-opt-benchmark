@@ -96,18 +96,17 @@ if.end15:                                         ; preds = %if.end15.backedge, 
   %incdec.ptr4244 = phi ptr [ %incdec.ptr4244.ph, %if.end15.outer ], [ %incdec.ptr, %if.end15.backedge ]
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr4244, i64 1
   %1 = load i8, ptr %incdec.ptr4244, align 1
-  %conv16 = sext i8 %1 to i32
-  switch i32 %conv16, label %sw.default [
-    i32 0, label %sw.bb
-    i32 105, label %sw.bb20
-    i32 98, label %sw.bb25
-    i32 66, label %sw.bb25
-    i32 103, label %sw.bb30
-    i32 71, label %sw.bb30
-    i32 109, label %sw.bb30
-    i32 77, label %sw.bb30
-    i32 107, label %sw.bb30
-    i32 75, label %sw.bb30
+  switch i8 %1, label %sw.default [
+    i8 0, label %sw.bb
+    i8 105, label %sw.bb20
+    i8 98, label %sw.bb25
+    i8 66, label %sw.bb25
+    i8 103, label %sw.bb30
+    i8 71, label %sw.bb30
+    i8 109, label %sw.bb30
+    i8 77, label %sw.bb30
+    i8 107, label %sw.bb30
+    i8 75, label %sw.bb30
   ]
 
 sw.bb:                                            ; preds = %if.end15
@@ -129,13 +128,13 @@ sw.bb30:                                          ; preds = %if.end15, %if.end15
   br i1 %cmp31.not, label %if.else33, label %if.then8
 
 if.else33:                                        ; preds = %sw.bb30
-  switch i32 %conv16, label %if.end15.backedge [
-    i32 103, label %sw.epilog50.sink.split.loopexit
-    i32 71, label %sw.epilog50.sink.split.loopexit
-    i32 109, label %sw.epilog50.sink.split
-    i32 77, label %sw.epilog50.sink.split
-    i32 107, label %sw.bb40
-    i32 75, label %sw.bb40
+  switch i8 %1, label %if.end15.backedge [
+    i8 103, label %sw.epilog50.sink.split.loopexit
+    i8 71, label %sw.epilog50.sink.split.loopexit
+    i8 109, label %sw.epilog50.sink.split
+    i8 77, label %sw.epilog50.sink.split
+    i8 107, label %sw.bb40
+    i8 75, label %sw.bb40
   ]
 
 sw.bb40:                                          ; preds = %if.else33, %if.else33

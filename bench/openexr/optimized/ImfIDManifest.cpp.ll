@@ -1068,7 +1068,6 @@ if.end157:                                        ; preds = %invoke.cont149
   br i1 %cmp162454, label %for.body163.lr.ph, label %for.inc249
 
 for.body163.lr.ph:                                ; preds = %if.end157
-  %conv164 = sext i8 %71 to i32
   %_table = getelementptr inbounds %"class.Imf_3_2::IDManifest::ChannelGroupManifest", ptr %43, i64 %indvars.iv494, i32 6
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %_table, i64 16
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %_table, i64 8
@@ -1080,9 +1079,9 @@ for.body163:                                      ; preds = %for.body163.lr.ph, 
   %readPtr.promoted.i = phi ptr [ %add.ptr150, %for.body163.lr.ph ], [ %incdec.ptr.i257.lcssa442.lcssa, %for.inc246 ]
   %entry160.0456 = phi i32 [ 0, %for.body163.lr.ph ], [ %inc247, %for.inc246 ]
   %previousId.0455 = phi i64 [ 0, %for.body163.lr.ph ], [ %add187, %for.inc246 ]
-  switch i32 %conv164, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb174
+  switch i8 %71, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb174
   ]
 
 sw.bb:                                            ; preds = %for.body163
@@ -4294,7 +4293,6 @@ invoke.cont464:                                   ; preds = %while.body.i.i.i770
   br i1 %cmp.i803.not1232, label %for.end519, label %for.body483.lr.ph
 
 for.body483.lr.ph:                                ; preds = %invoke.cont464
-  %conv488 = sext i8 %143 to i32
   %_M_finish.i847 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %_components457, i64 0, i32 1
   br label %for.body483
 
@@ -4305,10 +4303,10 @@ for.body483:                                      ; preds = %for.body483.lr.ph, 
   %_M_storage.i.i804 = getelementptr inbounds %"struct.std::_Rb_tree_node.53", ptr %i473.sroa.0.01233, i64 0, i32 1
   %146 = load i64, ptr %_M_storage.i.i804, align 8
   %sub487 = sub i64 %146, %previousId472.01234
-  switch i32 %conv488, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb490
-    i32 2, label %do.body.i
+  switch i8 %143, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb490
+    i8 2, label %do.body.i
   ]
 
 sw.bb:                                            ; preds = %for.body483

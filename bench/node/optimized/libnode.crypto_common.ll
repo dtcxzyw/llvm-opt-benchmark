@@ -828,16 +828,16 @@ if.end:                                           ; preds = %entry
   %or = or disjoint i64 %shl, %conv2
   %add = add nuw nsw i64 %or, 2
   %cmp4.not = icmp eq i64 %add, %1
-  br i1 %cmp4.not, label %if.end6, label %return
+  br i1 %cmp4.not, label %lor.lhs.false8, label %return
 
-if.end6:                                          ; preds = %if.end
+lor.lhs.false8:                                   ; preds = %if.end
   store i64 %or, ptr %rem, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %2, i64 2
   %5 = load i8, ptr %add.ptr9, align 1
   %cmp11.not = icmp eq i8 %5, 0
   br i1 %cmp11.not, label %if.end13, label %return
 
-if.end13:                                         ; preds = %if.end6
+if.end13:                                         ; preds = %lor.lhs.false8
   %dec = add nsw i64 %or, -1
   store i64 %dec, ptr %rem, align 8
   %cmp14 = icmp ult i64 %or, 4
@@ -858,8 +858,8 @@ if.end16:                                         ; preds = %if.end13
   %spec.select = select i1 %cmp25, ptr null, ptr %add.ptr28
   br label %return
 
-return:                                           ; preds = %if.end16, %if.end13, %if.end6, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end6 ], [ null, %if.end13 ], [ %spec.select, %if.end16 ]
+return:                                           ; preds = %if.end16, %if.end13, %lor.lhs.false8, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %lor.lhs.false8 ], [ null, %if.end13 ], [ %spec.select, %if.end16 ]
   ret ptr %retval.0
 }
 
@@ -1098,7 +1098,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 declare ptr @SSL_get_certificate(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto12X509ToObjectEPNS_11EnvironmentEP7x509_st(ptr noundef %env, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto12X509ToObjectEPNS_11EnvironmentEP7x509_st(ptr noundef %env, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %type_buf.i74 = alloca [80 x i8], align 16
   %value_str.i75 = alloca ptr, align 8
@@ -3252,7 +3252,7 @@ return:                                           ; preds = %_ZN4node6crypto9ToV
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %buf = alloca ptr, align 8
@@ -3584,7 +3584,7 @@ return:                                           ; preds = %if.end5.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %0 = load ptr, ptr %ssl, align 8
@@ -3803,7 +3803,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %raw_key = alloca ptr, align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -5076,12 +5076,11 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %i.09.us.i = phi i64 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr inbounds i8, ptr %name, i64 %i.09.us.i
   %0 = load i8, ptr %arrayidx.us.i, align 1
-  %conv.us.i = sext i8 %0 to i32
-  switch i32 %conv.us.i, label %sw.default.us.i [
-    i32 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+  switch i8 %0, label %sw.default.us.i [
+    i8 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
   ]
 
 sw.default.us.i:                                  ; preds = %for.body.us.i
@@ -5101,12 +5100,11 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %i.09.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %1 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i32 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+  switch i8 %1, label %sw.default.i [
+    i8 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
   ]
 
 sw.default.i:                                     ; preds = %for.body.i

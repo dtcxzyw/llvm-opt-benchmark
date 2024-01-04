@@ -709,18 +709,18 @@ for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6
   %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %i.040.i
   %18 = load ptr, ptr %arrayidx.i, align 8
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  %retval.sroa.9.0.copyload35.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i, align 1
-  %19 = add i64 %retval.sroa.9.0.copyload35.i.i, -1
+  %retval.sroa.9.0.copyload33.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i, align 1
+  %19 = add i64 %retval.sroa.9.0.copyload33.i.i, -1
   %or.cond.i = icmp ult i64 %19, 16
   br i1 %or.cond.i, label %if.then16.i, label %if.end20.i
 
 if.then16.i:                                      ; preds = %for.body.i
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %18, i64 8
-  %retval.sroa.0.0.copyload34.i.i = load ptr, ptr %add.ptr.i.i25.i, align 1
-  %conv.i = trunc i64 %retval.sroa.9.0.copyload35.i.i to i32
+  %retval.sroa.0.0.copyload32.i.i = load ptr, ptr %add.ptr.i.i25.i, align 1
+  %conv.i = trunc i64 %retval.sroa.9.0.copyload33.i.i to i32
   store i32 %conv.i, ptr %call.i.i, align 4
   %ip_addr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ip_addr.i, ptr align 1 %retval.sroa.0.0.copyload34.i.i, i64 %retval.sroa.9.0.copyload35.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ip_addr.i, ptr align 1 %retval.sroa.0.0.copyload32.i.i, i64 %retval.sroa.9.0.copyload33.i.i, i1 false)
   %.pre.i = load ptr, ptr %arrayidx.i, align 8
   br label %if.end20.i
 
@@ -731,23 +731,23 @@ if.end20.i:                                       ; preds = %if.then16.i, %for.b
   store i32 %21, ptr %port.i, align 4
   %22 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i.i26.i = getelementptr inbounds i8, ptr %22, i64 24
-  %retval.sroa.0.0.copyload34.i27.i = load ptr, ptr %add.ptr.i.i26.i, align 1
+  %retval.sroa.0.0.copyload32.i27.i = load ptr, ptr %add.ptr.i.i26.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i = getelementptr inbounds i8, ptr %22, i64 32
-  %retval.sroa.9.0.copyload35.i29.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i, align 1
-  %cmp26.i = icmp eq i64 %retval.sroa.9.0.copyload35.i29.i, 0
+  %retval.sroa.9.0.copyload33.i29.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i, align 1
+  %cmp26.i = icmp eq i64 %retval.sroa.9.0.copyload33.i29.i, 0
   br i1 %cmp26.i, label %if.end38.i, label %if.else28.i
 
 if.else28.i:                                      ; preds = %if.end20.i
-  %cmp30.i = icmp ult i64 %retval.sroa.9.0.copyload35.i29.i, 51
+  %cmp30.i = icmp ult i64 %retval.sroa.9.0.copyload33.i29.i, 51
   br i1 %cmp30.i, label %if.then31.i, label %if.else35.i
 
 if.then31.i:                                      ; preds = %if.else28.i
   %load_balance_token.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %load_balance_token.i, ptr align 1 %retval.sroa.0.0.copyload34.i27.i, i64 %retval.sroa.9.0.copyload35.i29.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %load_balance_token.i, ptr align 1 %retval.sroa.0.0.copyload32.i27.i, i64 %retval.sroa.9.0.copyload33.i29.i, i1 false)
   br label %if.end38.i
 
 if.else35.i:                                      ; preds = %if.else28.i
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 149, i32 noundef 2, ptr noundef nonnull @.str.1, i64 noundef %retval.sroa.9.0.copyload35.i29.i)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 149, i32 noundef 2, ptr noundef nonnull @.str.1, i64 noundef %retval.sroa.9.0.copyload33.i29.i)
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.else35.i, %if.then31.i, %if.end20.i
@@ -857,12 +857,11 @@ if.end.i:                                         ; preds = %if.then
   %data.i = getelementptr inbounds %struct.upb_Message_Extension, ptr %call.i, i64 0, i32 1
   %2 = load i8, ptr %mode.i, align 1
   %3 = lshr i8 %2, 6
-  %shr.i.i.i = zext nneg i8 %3 to i32
-  switch i32 %shr.i.i.i, label %do.body.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 3, label %sw.bb2.i.i
-    i32 2, label %sw.bb3.i.i
+  switch i8 %3, label %do.body.i.i [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb1.i.i
+    i8 3, label %sw.bb2.i.i
+    i8 2, label %sw.bb3.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
@@ -924,38 +923,37 @@ _upb_Message_SetPresence.exit.i:                  ; preds = %if.then1.i.i, %if.e
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i
   %14 = load i8, ptr %mode.i, align 1
   %15 = lshr i8 %14, 6
-  %shr.i.i.i5 = zext nneg i8 %15 to i32
-  switch i32 %shr.i.i.i5, label %do.body.i.i10 [
-    i32 0, label %sw.bb.i.i9
-    i32 1, label %sw.bb1.i.i8
-    i32 3, label %sw.bb2.i.i7
-    i32 2, label %sw.bb3.i.i6
+  switch i8 %15, label %do.body.i.i9 [
+    i8 0, label %sw.bb.i.i8
+    i8 1, label %sw.bb1.i.i7
+    i8 3, label %sw.bb2.i.i6
+    i8 2, label %sw.bb3.i.i5
   ]
 
-sw.bb.i.i9:                                       ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb.i.i8:                                       ; preds = %_upb_Message_SetPresence.exit.i
   %16 = load i8, ptr %val, align 1
   store i8 %16, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb1.i.i8:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb1.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %17 = load i32, ptr %val, align 1
   store i32 %17, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb2.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb2.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %18 = load i64, ptr %val, align 1
   store i64 %18, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb3.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb3.i.i5:                                      ; preds = %_upb_Message_SetPresence.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %return
 
-do.body.i.i10:                                    ; preds = %_upb_Message_SetPresence.exit.i
+do.body.i.i9:                                     ; preds = %_upb_Message_SetPresence.exit.i
   unreachable
 
-return:                                           ; preds = %sw.bb3.i.i6, %sw.bb2.i.i7, %sw.bb1.i.i8, %sw.bb.i.i9, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i9 ], [ true, %sw.bb1.i.i8 ], [ true, %sw.bb2.i.i7 ], [ true, %sw.bb3.i.i6 ]
+return:                                           ; preds = %sw.bb3.i.i5, %sw.bb2.i.i6, %sw.bb1.i.i7, %sw.bb.i.i8, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i8 ], [ true, %sw.bb1.i.i7 ], [ true, %sw.bb2.i.i6 ], [ true, %sw.bb3.i.i5 ]
   ret i1 %retval.0
 }
 
@@ -1043,7 +1041,7 @@ if.then.i.i:                                      ; preds = %if.else22
 _ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else22
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 76
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 121360158379668102)
   %cond.i.i = select i1 %cmp7.i.i, i64 121360158379668102, i64 %5

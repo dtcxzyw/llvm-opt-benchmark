@@ -2979,31 +2979,31 @@ for.body17.i.i:                                   ; preds = %for.inc.i.i, %tcg_t
   %16 = zext i8 %15 to i64
   %cmp22.i.i = icmp uge i64 %indvars.iv.i.i, %16
   %17 = load i8, ptr %14, align 1
-  %conv30.i.i = sext i8 %17 to i32
-  switch i32 %conv30.i.i, label %do.body311.i.i.preheader [
-    i32 48, label %sw.bb.i.i
-    i32 49, label %sw.bb.i.i
-    i32 50, label %sw.bb.i.i
-    i32 51, label %sw.bb.i.i
-    i32 52, label %sw.bb.i.i
-    i32 53, label %sw.bb.i.i
-    i32 54, label %sw.bb.i.i
-    i32 55, label %sw.bb.i.i
-    i32 56, label %sw.bb.i.i
-    i32 57, label %sw.bb.i.i
-    i32 38, label %do.body111.i.i
-    i32 112, label %do.body123.i.i
-    i32 109, label %do.body215.i.i
+  switch i8 %17, label %do.body311.i.i.preheader [
+    i8 48, label %sw.bb.i.i
+    i8 49, label %sw.bb.i.i
+    i8 50, label %sw.bb.i.i
+    i8 51, label %sw.bb.i.i
+    i8 52, label %sw.bb.i.i
+    i8 53, label %sw.bb.i.i
+    i8 54, label %sw.bb.i.i
+    i8 55, label %sw.bb.i.i
+    i8 56, label %sw.bb.i.i
+    i8 57, label %sw.bb.i.i
+    i8 38, label %do.body111.i.i
+    i8 112, label %do.body123.i.i
+    i8 109, label %do.body215.i.i
   ]
 
 do.body311.i.i.preheader:                         ; preds = %do.body111.i.i, %for.body17.i.i
-  %.ph = phi i8 [ %.pre.pre.i.i, %do.body111.i.i ], [ %17, %for.body17.i.i ]
+  %.ph = phi i8 [ %.pr.pre.i.i, %do.body111.i.i ], [ %17, %for.body17.i.i ]
   %ct_str.1.i.i.ph = phi ptr [ %incdec.ptr.i.i, %do.body111.i.i ], [ %14, %for.body17.i.i ]
   br label %do.body311.i.i
 
 sw.bb.i.i:                                        ; preds = %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i, %for.body17.i.i
   %conv21.i.i = zext i8 %15 to i32
-  %sub.i.i = add nsw i32 %conv30.i.i, -48
+  %conv31.i.i = zext nneg i8 %17 to i32
+  %sub.i.i = add nsw i32 %conv31.i.i, -48
   tail call void @llvm.assume(i1 %cmp22.i.i)
   %cmp40.i.i = icmp ult i32 %sub.i.i, %conv21.i.i
   tail call void @llvm.assume(i1 %cmp40.i.i)
@@ -3041,7 +3041,7 @@ sw.bb.i.i:                                        ; preds = %for.body17.i.i, %fo
   %25 = load ptr, ptr %args_ct231.i.i, align 8
   %arrayidx85.i.i = getelementptr %struct.TCGArgConstraint, ptr %25, i64 %indvars.iv.i.i
   %bf.load86.i.i = load i64, ptr %arrayidx85.i.i, align 4
-  %26 = shl nuw nsw i32 %conv30.i.i, 16
+  %26 = shl nuw nsw i32 %conv31.i.i, 16
   %27 = and i32 %26, 983040
   %bf.shl88.i.i = zext nneg i32 %27 to i64
   %bf.clear89.i.i = and i64 %bf.load86.i.i, -983041
@@ -3064,7 +3064,7 @@ do.body111.i.i:                                   ; preds = %for.body17.i.i
   %bf.set121.i.i = or i64 %bf.load119.i.i, 4294967296
   store i64 %bf.set121.i.i, ptr %arrayidx118.i.i, align 4
   %incdec.ptr.i.i = getelementptr i8, ptr %14, i64 1
-  %.pre.pre.i.i = load i8, ptr %incdec.ptr.i.i, align 1
+  %.pr.pre.i.i = load i8, ptr %incdec.ptr.i.i, align 1
   br label %do.body311.i.i.preheader
 
 do.body123.i.i:                                   ; preds = %for.body17.i.i
@@ -3154,24 +3154,23 @@ do.body215.i.i:                                   ; preds = %for.body17.i.i
 do.body311.i.i:                                   ; preds = %do.body311.i.i.preheader, %do.cond.i.i
   %51 = phi i8 [ %79, %do.cond.i.i ], [ %.ph, %do.body311.i.i.preheader ]
   %ct_str.1.i.i = phi ptr [ %incdec.ptr463.i.i, %do.cond.i.i ], [ %ct_str.1.i.i.ph, %do.body311.i.i.preheader ]
-  %conv312.i.i = sext i8 %51 to i32
-  switch i32 %conv312.i.i, label %do.body460.i.i [
-    i32 105, label %sw.bb313.i.i
-    i32 97, label %sw.bb325.i.i
-    i32 98, label %sw.bb331.i.i
-    i32 99, label %sw.bb337.i.i
-    i32 100, label %sw.bb343.i.i
-    i32 83, label %sw.bb349.i.i
-    i32 68, label %sw.bb355.i.i
-    i32 114, label %sw.bb361.i.i
-    i32 120, label %sw.bb367.i.i
-    i32 113, label %sw.bb373.i.i
-    i32 76, label %sw.bb379.i.i
-    i32 115, label %sw.bb392.i.i
-    i32 101, label %sw.bb406.i.i
-    i32 73, label %sw.bb419.i.i
-    i32 87, label %sw.bb432.i.i
-    i32 90, label %sw.bb445.i.i
+  switch i8 %51, label %do.body460.i.i [
+    i8 105, label %sw.bb313.i.i
+    i8 97, label %sw.bb325.i.i
+    i8 98, label %sw.bb331.i.i
+    i8 99, label %sw.bb337.i.i
+    i8 100, label %sw.bb343.i.i
+    i8 83, label %sw.bb349.i.i
+    i8 68, label %sw.bb355.i.i
+    i8 114, label %sw.bb361.i.i
+    i8 120, label %sw.bb367.i.i
+    i8 113, label %sw.bb373.i.i
+    i8 76, label %sw.bb379.i.i
+    i8 115, label %sw.bb392.i.i
+    i8 101, label %sw.bb406.i.i
+    i8 73, label %sw.bb419.i.i
+    i8 87, label %sw.bb432.i.i
+    i8 90, label %sw.bb445.i.i
   ]
 
 sw.bb313.i.i:                                     ; preds = %do.body311.i.i
@@ -3507,8 +3506,8 @@ for.inc732.i.i:                                   ; preds = %for.inc732.sink.spl
   br i1 %exitcond20.not.i.i, label %if.end735.loopexit.i.i, label %for.body487.i.i, !llvm.loop !15
 
 if.end735.loopexit.i.i:                           ; preds = %for.inc732.i.i
-  %.pre25.i.i = load i8, ptr %nb_oargs.i.i, align 8
-  %.pre.i = zext i8 %.pre25.i.i to i32
+  %.pre.i.i = load i8, ptr %nb_oargs.i.i, align 8
+  %.pre.i = zext i8 %.pre.i.i to i32
   br label %if.end735.i.i
 
 if.end735.i.i:                                    ; preds = %if.end735.loopexit.i.i, %do.end479.i.i

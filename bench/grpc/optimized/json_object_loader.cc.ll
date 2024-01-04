@@ -221,9 +221,14 @@ entry:
   %ref.tmp6 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %1, label %land.lhs.true [
+  switch i8 %1, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
+    i8 0, label %land.lhs.true
+    i8 1, label %land.lhs.true
+    i8 2, label %land.lhs.true
     i8 3, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
+    i8 4, label %land.lhs.true
+    i8 5, label %land.lhs.true
   ]
 
 if.then.i.i:                                      ; preds = %entry
@@ -234,7 +239,10 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-land.lhs.true:                                    ; preds = %entry
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
+
+land.lhs.true:                                    ; preds = %entry, %entry, %entry, %entry, %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %2 = load ptr, ptr %vfn, align 8
@@ -243,20 +251,28 @@ land.lhs.true:                                    ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %3 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %3, label %if.then [
-    i8 -1, label %if.then.i.i15
+  switch i8 %3, label %sw.default.i.i.i14 [
+    i8 -1, label %if.then.i.i11
+    i8 0, label %if.then
+    i8 1, label %if.then
     i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %if.then
   ]
 
-if.then.i.i15:                                    ; preds = %lor.lhs.false
-  %exception.i.i.i16 = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i16, align 8
-  %_M_reason.i.i.i.i17 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i16, i64 0, i32 1
-  store ptr @.str.19, ptr %_M_reason.i.i.i.i17, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i16, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
+if.then.i.i11:                                    ; preds = %lor.lhs.false
+  %exception.i.i.i12 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i12, align 8
+  %_M_reason.i.i.i.i13 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i12, i64 0, i32 1
+  store ptr @.str.19, ptr %_M_reason.i.i.i.i13, align 8
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i12, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
+sw.default.i.i.i14:                               ; preds = %lor.lhs.false
+  unreachable
+
+if.then:                                          ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %land.lhs.true
   store i64 9, ptr %ref.tmp5, align 8
   %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp5, i64 0, i32 1
   store ptr @.str, ptr %4, align 8
@@ -494,9 +510,14 @@ define void @_ZNK9grpc_core11json_detail8LoadBool8LoadIntoERKNS_12experimental4J
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %1, label %if.then [
+  switch i8 %1, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
+    i8 0, label %if.then
     i8 1, label %_ZNK9grpc_core12experimental4Json7booleanEv.exit
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %if.then
   ]
 
 if.then.i.i:                                      ; preds = %entry
@@ -507,7 +528,10 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.then:                                          ; preds = %entry
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
+
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 16, ptr nonnull @.str.9)
   br label %return
 
@@ -526,9 +550,14 @@ define void @_ZNK9grpc_core11json_detail25LoadUnprocessedJsonObject8LoadIntoERKN
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %1, label %if.then [
+  switch i8 %1, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
+    i8 5, label %if.then
   ]
 
 if.then.i.i:                                      ; preds = %entry
@@ -539,7 +568,10 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.then:                                          ; preds = %entry
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
+
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 16, ptr nonnull @.str.10)
   br label %return
 
@@ -556,8 +588,15 @@ define void @_ZNK9grpc_core11json_detail24LoadUnprocessedJsonArray8LoadIntoERKNS
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp eq i8 %1, -1
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i, label %if.end.i.i
+  switch i8 %1, label %sw.default.i.i.i [
+    i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit
+  ]
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
@@ -567,27 +606,14 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.end.i.i:                                       ; preds = %entry
-  %switch = icmp ult i8 %1, 5
-  br i1 %switch, label %if.then, label %if.end
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
 
-if.then:                                          ; preds = %if.end.i.i
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 15, ptr nonnull @.str.11)
   br label %return
 
-if.end:                                           ; preds = %if.end.i.i
-  %cmp.not.i.i.i = icmp eq i8 %1, 5
-  br i1 %cmp.not.i.i.i, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit, label %if.else.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %if.end
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
-  store ptr @.str.21, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
-  unreachable
-
-_ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %if.end
+_ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %dst, ptr noundef nonnull align 8 dereferenceable(24) %json)
   br label %return
 
@@ -853,8 +879,15 @@ entry:
   %ref.tmp9 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i, label %if.end.i.i
+  switch i8 %0, label %sw.default.i.i.i [
+    i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit
+  ]
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
@@ -864,27 +897,14 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.end.i.i:                                       ; preds = %entry
-  %switch = icmp ult i8 %0, 5
-  br i1 %switch, label %if.then, label %if.end
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
 
-if.then:                                          ; preds = %if.end.i.i
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 15, ptr nonnull @.str.11)
   br label %for.end
 
-if.end:                                           ; preds = %if.end.i.i
-  %cmp.not.i.i.i = icmp eq i8 %0, 5
-  br i1 %cmp.not.i.i.i, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit, label %if.else.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %if.end
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
-  store ptr @.str.21, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
-  unreachable
-
-_ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %if.end
+_ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %1 = load ptr, ptr %vfn, align 8
@@ -1020,30 +1040,17 @@ entry:
   %elem = alloca i8, align 1
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i, label %if.end.i.i
+  switch i8 %0, label %sw.default.i.i.i [
+    i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %for.cond.preheader
+  ]
 
-if.then.i.i:                                      ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
-  %_M_reason.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i, i64 0, i32 1
-  store ptr @.str.19, ptr %_M_reason.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
-  unreachable
-
-if.end.i.i:                                       ; preds = %entry
-  %switch = icmp ult i8 %0, 5
-  br i1 %switch, label %if.then, label %if.end
-
-if.then:                                          ; preds = %if.end.i.i
-  tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 15, ptr nonnull @.str.11)
-  br label %for.end
-
-if.end:                                           ; preds = %if.end.i.i
-  %cmp.not.i.i.i = icmp eq i8 %0, 5
-  br i1 %cmp.not.i.i.i, label %for.cond.preheader, label %if.else.i.i.i.i
-
-for.cond.preheader:                               ; preds = %if.end
+for.cond.preheader:                               ; preds = %entry
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %json, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %json, align 8
@@ -1061,13 +1068,20 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %dst, i64 0, i32 1, i32 0, i32 1
   br label %for.body
 
-if.else.i.i.i.i:                                  ; preds = %if.end
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i, i64 0, i32 1
-  store ptr @.str.21, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
+if.then.i.i:                                      ; preds = %entry
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  %_M_reason.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i, i64 0, i32 1
+  store ptr @.str.19, ptr %_M_reason.i.i.i.i, align 8
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
+
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
+
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
+  tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 15, ptr nonnull @.str.11)
+  br label %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
   %i.026 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit ]
@@ -1202,9 +1216,14 @@ entry:
   %ref.tmp12 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %0, label %if.then [
+  switch i8 %0, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
     i8 4, label %if.end
+    i8 5, label %if.then
   ]
 
 if.then.i.i:                                      ; preds = %entry
@@ -1215,7 +1234,10 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.then:                                          ; preds = %entry
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
+
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 16, ptr nonnull @.str.10)
   br label %for.end
 
@@ -1376,8 +1398,26 @@ entry:
   %ref.tmp18 = alloca %"class.std::allocator.17", align 1
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %json, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i, label %if.end.i.i
+  switch i8 %0, label %sw.default.i.i.i [
+    i8 -1, label %if.then.i.i
+    i8 0, label %if.then
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %for.cond.preheader
+    i8 5, label %if.then
+  ]
+
+for.cond.preheader:                               ; preds = %entry
+  %cmp188.not = icmp eq i64 %num_elements, 0
+  br i1 %cmp188.not, label %return, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9, i64 0, i32 1
+  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp10, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
+  br label %for.body
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #18
@@ -1387,29 +1427,17 @@ if.then.i.i:                                      ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
   unreachable
 
-if.end.i.i:                                       ; preds = %entry
-  %switch = icmp eq i8 %0, 4
-  br i1 %switch, label %for.cond.preheader, label %if.then
+sw.default.i.i.i:                                 ; preds = %entry
+  unreachable
 
-for.cond.preheader:                               ; preds = %if.end.i.i
-  %cmp189.not = icmp eq i64 %num_elements, 0
-  br i1 %cmp189.not, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9, i64 0, i32 1
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp10, i64 0, i32 1
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
-  br label %for.body
-
-if.then:                                          ; preds = %if.end.i.i
+if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 16, ptr nonnull @.str.10)
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.090 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.090
-  %enable_key = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.090, i32 4
+  %i.089 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.089
+  %enable_key = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.089, i32 4
   %3 = load ptr, ptr %enable_key, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %if.end7, label %land.lhs.true
@@ -1425,7 +1453,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.end7:                                          ; preds = %land.lhs.true, %for.body
   store i64 1, ptr %ref.tmp9, align 8
   store ptr @.str.16, ptr %1, align 8
-  %name = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.090, i32 3
+  %name = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.089, i32 3
   %5 = load ptr, ptr %name, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit, label %cond.true.i.i
@@ -1463,8 +1491,8 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store ptr @.str.20, ptr %_M_reason.i.i.i.i.i.i, align 8
   br label %if.then.i.i.i.i.invoke
 
-if.then.i.i.i.i.invoke:                           ; preds = %if.then.i.i55, %if.else.i.i.i.i38, %if.then.i.i.i.i39, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %9 = phi ptr [ %exception.i.i.i.i.i, %if.then.i.i.i.i ], [ %exception.i.i.i.i.i, %if.else.i.i.i.i ], [ %exception.i.i.i.i.i36, %if.then.i.i.i.i39 ], [ %exception.i.i.i.i.i36, %if.else.i.i.i.i38 ], [ %exception.i.i.i56, %if.then.i.i55 ]
+if.then.i.i.i.i.invoke:                           ; preds = %if.then.i.i51, %if.else.i.i.i.i38, %if.then.i.i.i.i39, %if.else.i.i.i.i, %if.then.i.i.i.i
+  %9 = phi ptr [ %exception.i.i.i.i.i, %if.then.i.i.i.i ], [ %exception.i.i.i.i.i, %if.else.i.i.i.i ], [ %exception.i.i.i.i.i36, %if.then.i.i.i.i39 ], [ %exception.i.i.i.i.i36, %if.else.i.i.i.i38 ], [ %exception.i.i.i52, %if.then.i.i51 ]
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19
           to label %if.then.i.i.i.i.cont unwind label %lpad13.loopexit.split-lp
 
@@ -1597,20 +1625,28 @@ invoke.cont25:                                    ; preds = %invoke.cont22
 lor.rhs:                                          ; preds = %invoke.cont25
   %_M_index.i.i.i.i44 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i31, i64 0, i32 1, i32 0, i64 80
   %17 = load i8, ptr %_M_index.i.i.i.i44, align 8
-  switch i8 %17, label %if.end39 [
-    i8 -1, label %if.then.i.i55
+  switch i8 %17, label %sw.default.i.i.i54 [
+    i8 -1, label %if.then.i.i51
     i8 0, label %if.then34
+    i8 1, label %if.end39
+    i8 2, label %if.end39
+    i8 3, label %if.end39
+    i8 4, label %if.end39
+    i8 5, label %if.end39
   ]
 
-if.then.i.i55:                                    ; preds = %lor.rhs
-  %exception.i.i.i56 = call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i56, align 8
-  %_M_reason.i.i.i.i57 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i56, i64 0, i32 1
-  store ptr @.str.19, ptr %_M_reason.i.i.i.i57, align 8
+if.then.i.i51:                                    ; preds = %lor.rhs
+  %exception.i.i.i52 = call ptr @__cxa_allocate_exception(i64 16) #18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i52, align 8
+  %_M_reason.i.i.i.i53 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i52, i64 0, i32 1
+  store ptr @.str.19, ptr %_M_reason.i.i.i.i53, align 8
   br label %if.then.i.i.i.i.invoke
 
+sw.default.i.i.i54:                               ; preds = %lor.rhs
+  unreachable
+
 if.then34:                                        ; preds = %lor.rhs, %invoke.cont25
-  %optional = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.090, i32 2
+  %optional = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.089, i32 2
   %18 = load i8, ptr %optional, align 2
   %19 = and i8 %18, 1
   %tobool.not = icmp eq i8 %19, 0
@@ -1623,12 +1659,12 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
   br label %eh.resume
 
 lpad13.loopexit:                                  ; preds = %if.end36, %if.end39
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup45
 
 lpad13.loopexit.split-lp:                         ; preds = %if.then.i.i.i.i.invoke
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup45
 
@@ -1646,9 +1682,9 @@ if.end36:                                         ; preds = %if.then34
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 17, ptr nonnull @.str.17)
           to label %cleanup unwind label %lpad13.loopexit
 
-if.end39:                                         ; preds = %lor.rhs
+if.end39:                                         ; preds = %lor.rhs, %lor.rhs, %lor.rhs, %lor.rhs, %lor.rhs
   %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i31, i64 0, i32 1, i32 0, i64 32
-  %member_offset = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.090, i32 1
+  %member_offset = getelementptr inbounds %"struct.grpc_core::json_detail::Element", ptr %elements, i64 %i.089, i32 1
   %22 = load i16, ptr %member_offset, align 8
   %idx.ext = zext i16 %22 to i64
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %idx.ext
@@ -1661,31 +1697,32 @@ if.end39:                                         ; preds = %lor.rhs
 cleanup:                                          ; preds = %if.end39, %if.end36, %if.then34
   %25 = load ptr, ptr %field, align 8
   %cmp.not.i = icmp eq ptr %25, null
-  br i1 %cmp.not.i, label %for.inc, label %if.then.i63
+  br i1 %cmp.not.i, label %for.inc, label %if.then.i60
 
-if.then.i63:                                      ; preds = %cleanup
+if.then.i60:                                      ; preds = %cleanup
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %for.inc unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i63
+terminate.lpad.i:                                 ; preds = %if.then.i60
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
-for.inc:                                          ; preds = %if.then.i63, %cleanup, %land.lhs.true
-  %inc = add nuw i64 %i.090, 1
+for.inc:                                          ; preds = %if.then.i60, %cleanup, %land.lhs.true
+  %inc = add nuw i64 %i.089, 1
   %exitcond.not = icmp eq i64 %inc, %num_elements
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !14
 
 ehcleanup45:                                      ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %ehcleanup
-  %.pn18 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit73, %lpad13.loopexit ], [ %lpad.loopexit.split-lp74, %lpad13.loopexit.split-lp ]
+  %.pn18 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit70, %lpad13.loopexit ], [ %lpad.loopexit.split-lp71, %lpad13.loopexit.split-lp ]
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #18
   br label %eh.resume
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.then
-  ret i1 %switch
+  %cmp.not66 = phi i1 [ false, %if.then ], [ true, %for.cond.preheader ], [ true, %for.inc ]
+  ret i1 %cmp.not66
 
 eh.resume:                                        ; preds = %ehcleanup45, %lpad
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %ehcleanup45 ], [ %20, %lpad ]
@@ -2618,14 +2655,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.36, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -2755,15 +2791,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -3311,15 +3346,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.36, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -3482,15 +3516,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.36, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry

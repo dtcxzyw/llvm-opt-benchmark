@@ -88,7 +88,6 @@ entry:
 do.end10:                                         ; preds = %entry
   %0 = load i8, ptr %src, align 1
   %1 = and i8 %0, 3
-  %and = zext nneg i8 %1 to i32
   %isFrameDecompression.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 28
   %2 = load i32, ptr %isFrameDecompression.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
@@ -102,11 +101,11 @@ cond.true.i:                                      ; preds = %do.end10
 
 ZSTD_blockSizeMax.exit:                           ; preds = %do.end10, %cond.true.i
   %cond.i = phi i64 [ %4, %cond.true.i ], [ 131072, %do.end10 ]
-  switch i32 %and, label %do.end10.unreachabledefault [
-    i32 3, label %do.body13
-    i32 2, label %do.body28
-    i32 0, label %sw.bb233
-    i32 1, label %sw.bb372
+  switch i8 %1, label %do.end10.unreachabledefault [
+    i8 3, label %do.body13
+    i8 2, label %do.body28
+    i8 0, label %sw.bb233
+    i8 1, label %sw.bb372
   ]
 
 do.body13:                                        ; preds = %ZSTD_blockSizeMax.exit
@@ -122,7 +121,6 @@ do.body28:                                        ; preds = %ZSTD_blockSizeMax.e
 do.end41:                                         ; preds = %do.body28
   %6 = lshr i8 %0, 2
   %7 = and i8 %6, 3
-  %and44 = zext nneg i8 %7 to i32
   %src.val180 = load i32, ptr %src, align 1
   %cond = tail call i64 @llvm.umin.i64(i64 %cond.i, i64 %dstCapacity)
   %8 = getelementptr i8, ptr %dctx, i64 30180
@@ -134,9 +132,9 @@ do.end41:                                         ; preds = %do.body28
   %tobool50.not = icmp eq i32 %9, 0
   %cond51 = select i1 %tobool50.not, i32 0, i32 16
   %or52 = or disjoint i32 %cond51, %cond49
-  switch i32 %and44, label %sw.default [
-    i32 3, label %sw.bb67
-    i32 2, label %sw.bb61
+  switch i8 %7, label %sw.default [
+    i8 3, label %sw.bb67
+    i8 2, label %sw.bb61
   ]
 
 sw.default:                                       ; preds = %do.end41

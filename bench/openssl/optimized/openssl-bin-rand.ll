@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [23 x i8] c"../openssl/apps/rand.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rand_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @rand_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
   store i64 -1, ptr %num, align 8
@@ -160,12 +160,11 @@ while.body31:                                     ; preds = %while.body31.lr.ph,
 
 if.then40:                                        ; preds = %while.body31
   %arrayidx29.le = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 75, label %land.lhs.true
-    i32 77, label %sw.bb46
-    i32 71, label %sw.bb47
-    i32 84, label %sw.bb48
+  switch i8 %4, label %sw.default [
+    i8 75, label %land.lhs.true
+    i8 77, label %sw.bb46
+    i8 71, label %sw.bb47
+    i8 84, label %sw.bb48
   ]
 
 sw.bb46:                                          ; preds = %if.then40

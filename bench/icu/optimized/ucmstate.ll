@@ -350,7 +350,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucm_parseHeaderLine(ptr noundef %ucm, ptr noundef %line, ptr nocapture noundef %pKey, ptr nocapture noundef %pValue) local_unnamed_addr #0 {
+define noundef signext i8 @ucm_parseHeaderLine(ptr noundef %ucm, ptr noundef %line, ptr nocapture noundef %pKey, ptr nocapture noundef %pValue) local_unnamed_addr #0 {
 entry:
   %states1 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2
   br label %for.cond
@@ -585,12 +585,11 @@ if.else125:                                       ; preds = %if.else104
 if.then128:                                       ; preds = %if.else125
   %conversionType129 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
   %21 = load i8, ptr %conversionType129, align 4
-  %conv130 = sext i8 %21 to i32
-  switch i32 %conv130, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
-    i32 9, label %sw.bb
-    i32 2, label %sw.epilog
+  switch i8 %21, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb
+    i8 9, label %sw.bb
+    i8 2, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.then128, %if.then128, %if.then128
@@ -660,7 +659,6 @@ define void @ucm_processStates(ptr nocapture noundef %states, i8 noundef signext
 entry:
   %conversionType = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 7
   %0 = load i8, ptr %conversionType, align 4
-  %conv = sext i8 %0 to i32
   %cmp = icmp eq i8 %0, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -677,11 +675,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end32
 
 if.then3:                                         ; preds = %if.end
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 2, label %sw.bb11
-    i32 9, label %sw.bb13
-    i32 1, label %sw.bb21
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 2, label %sw.bb11
+    i8 9, label %sw.bb13
+    i8 1, label %sw.bb21
   ]
 
 sw.bb:                                            ; preds = %if.then3
@@ -995,7 +993,7 @@ if.end175:                                        ; preds = %if.end73, %for.end1
 
 while.body.preheader:                             ; preds = %if.end175
   %53 = zext nneg i32 %state.2 to i64
-  %wide.trip.count127 = zext i32 %30 to i64
+  %wide.trip.count127 = zext nneg i32 %30 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end185

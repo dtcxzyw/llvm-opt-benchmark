@@ -13811,12 +13811,11 @@ define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_st
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.470", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %entry

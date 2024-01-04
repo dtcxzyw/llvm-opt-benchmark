@@ -5681,11 +5681,11 @@ lpad16:                                           ; preds = %if.then13.i.i.i222,
   br label %common.resume
 
 if.else:                                          ; preds = %cond.true23
-  switch i32 %bf.cast.i, label %for.inc [
-    i32 362, label %if.then63
-    i32 361, label %if.then63
-    i32 360, label %if.then63
-    i32 359, label %if.then66
+  switch i16 %bf.clear.i, label %for.inc [
+    i16 362, label %if.then63
+    i16 361, label %if.then63
+    i16 360, label %if.then63
+    i16 359, label %if.then66
   ]
 
 if.then63:                                        ; preds = %if.else, %if.else, %if.else

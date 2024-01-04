@@ -218,14 +218,13 @@ if.then11:                                        ; preds = %if.end9
 
 if.end12:                                         ; preds = %if.end9
   %2 = load i8, ptr %it, align 8
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %return [
-    i32 0, label %sw.bb
-    i32 5, label %sw.bb25
-    i32 4, label %sw.bb50
-    i32 2, label %sw.bb59
-    i32 6, label %sw.bb122
-    i32 1, label %sw.bb122
+  switch i8 %2, label %return [
+    i8 0, label %sw.bb
+    i8 5, label %sw.bb25
+    i8 4, label %sw.bb50
+    i8 2, label %sw.bb59
+    i8 6, label %sw.bb122
+    i8 1, label %sw.bb122
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -847,7 +846,7 @@ return:                                           ; preds = %if.then289, %if.els
 declare void @ASN1_item_ex_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_template_ex_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %inlen, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
+define internal fastcc noundef i32 @asn1_template_ex_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %inlen, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
 entry:
   %len = alloca i64, align 8
   %p = alloca ptr, align 8
@@ -968,7 +967,7 @@ return:                                           ; preds = %if.then23, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_d2i_ex_primitive(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc noundef i32 @asn1_d2i_ex_primitive(ptr noundef %pval, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %cont.addr.i = alloca ptr, align 8
   %inf.addr.i = alloca i8, align 1
@@ -1535,7 +1534,7 @@ return:                                           ; preds = %err, %if.then108, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr nocapture noundef %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc noundef i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr nocapture noundef %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag = alloca i32, align 4
   %pclass = alloca i32, align 4
@@ -1759,7 +1758,7 @@ declare i32 @ossl_asn1_enc_save(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_template_noexp_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
+define internal fastcc noundef i32 @asn1_template_noexp_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
 entry:
   %len.addr = alloca i64, align 8
   %tval = alloca ptr, align 8
@@ -2013,7 +2012,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_collect(ptr noundef %buf, ptr nocapture noundef %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef %depth) unnamed_addr #1 {
+define internal fastcc noundef i32 @asn1_collect(ptr noundef %buf, ptr nocapture noundef %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef %depth) unnamed_addr #1 {
 entry:
   %p = alloca ptr, align 8
   %plen = alloca i64, align 8

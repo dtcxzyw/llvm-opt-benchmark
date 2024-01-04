@@ -5004,52 +5004,51 @@ _ZN3fmt3v106detail12parse_arg_idIcRZNS1_23parse_replacement_fieldIcRNS1_12scan_h
 
 cond.end:                                         ; preds = %_ZN3fmt3v106detail12parse_arg_idIcRZNS1_23parse_replacement_fieldIcRNS1_12scan_handlerEEEPKT_S8_S8_OT0_E10id_adapterEES8_S8_S8_SA_.exit
   %14 = load i8, ptr %retval.i.0, align 1
-  %15 = sext i8 %14 to i32
-  switch i32 %15, label %if.else26 [
-    i32 125, label %if.then12
-    i32 58, label %if.then17
+  switch i8 %14, label %if.else26 [
+    i8 125, label %if.then12
+    i8 58, label %if.then17
   ]
 
 if.then12:                                        ; preds = %cond.end
-  %16 = load i32, ptr %arg_id, align 8
-  call void @_ZN3fmt3v106detail12scan_handler20on_replacement_fieldEiPKc(ptr noundef nonnull align 8 dereferenceable(72) %handler, i32 noundef %16, ptr noundef nonnull %retval.i.0)
+  %15 = load i32, ptr %arg_id, align 8
+  call void @_ZN3fmt3v106detail12scan_handler20on_replacement_fieldEiPKc(ptr noundef nonnull align 8 dereferenceable(72) %handler, i32 noundef %15, ptr noundef nonnull %retval.i.0)
   br label %if.end30
 
 if.then17:                                        ; preds = %cond.end
   %add.ptr19 = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %arg_.i = getelementptr inbounds %"struct.fmt::v10::detail::scan_handler", ptr %handler, i64 0, i32 4
-  %17 = load i32, ptr %arg_.i, align 8
-  %cmp.not.i35 = icmp eq i32 %17, 7
+  %16 = load i32, ptr %arg_.i, align 8
+  %cmp.not.i35 = icmp eq i32 %16, 7
   br i1 %cmp.not.i35, label %if.end.i36, label %_ZN3fmt3v106detail12scan_handler15on_format_specsEiPKcS4_.exit
 
 if.end.i36:                                       ; preds = %if.then17
-  %18 = load ptr, ptr %handler, align 8
+  %17 = load ptr, ptr %handler, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr19 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i, ptr %handler, align 8
   %size_.i.i.i = getelementptr inbounds %"class.fmt::v10::basic_string_view", ptr %handler, i64 0, i32 1
-  %19 = load i64, ptr %size_.i.i.i, align 8
-  %sub.i.i.i = sub i64 %19, %sub.ptr.sub.i.i
+  %18 = load i64, ptr %size_.i.i.i, align 8
+  %sub.i.i.i = sub i64 %18, %sub.ptr.sub.i.i
   store i64 %sub.i.i.i, ptr %size_.i.i.i, align 8
-  %20 = getelementptr inbounds %"struct.fmt::v10::detail::scan_handler", ptr %handler, i64 0, i32 4, i32 1
+  %19 = getelementptr inbounds %"struct.fmt::v10::detail::scan_handler", ptr %handler, i64 0, i32 4, i32 1
   %scan.i = getelementptr inbounds %"struct.fmt::v10::detail::scan_handler", ptr %handler, i64 0, i32 4, i32 1, i32 0, i32 1
-  %21 = load ptr, ptr %scan.i, align 8
-  %22 = load ptr, ptr %20, align 8
+  %20 = load ptr, ptr %scan.i, align 8
+  %21 = load ptr, ptr %19, align 8
   %scan_ctx_.i37 = getelementptr inbounds %"struct.fmt::v10::detail::scan_handler", ptr %handler, i64 0, i32 1
-  call void %21(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %handler, ptr noundef nonnull align 8 dereferenceable(8) %scan_ctx_.i37)
-  %23 = load ptr, ptr %handler, align 8
+  call void %20(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %handler, ptr noundef nonnull align 8 dereferenceable(8) %scan_ctx_.i37)
+  %22 = load ptr, ptr %handler, align 8
   br label %_ZN3fmt3v106detail12scan_handler15on_format_specsEiPKcS4_.exit
 
 _ZN3fmt3v106detail12scan_handler15on_format_specsEiPKcS4_.exit: ; preds = %if.then17, %if.end.i36
-  %retval.0.i = phi ptr [ %23, %if.end.i36 ], [ %add.ptr19, %if.then17 ]
+  %retval.0.i = phi ptr [ %22, %if.end.i36 ], [ %add.ptr19, %if.then17 ]
   %cmp21 = icmp eq ptr %retval.0.i, %end
   br i1 %cmp21, label %if.then24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN3fmt3v106detail12scan_handler15on_format_specsEiPKcS4_.exit
-  %24 = load i8, ptr %retval.0.i, align 1
-  %cmp23.not = icmp eq i8 %24, 125
+  %23 = load i8, ptr %retval.0.i, align 1
+  %cmp23.not = icmp eq i8 %23, 125
   br i1 %cmp23.not, label %if.end30, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false, %_ZN3fmt3v106detail12scan_handler15on_format_specsEiPKcS4_.exit

@@ -2051,15 +2051,14 @@ land.lhs.true:                                    ; preds = %for.body
 if.then:                                          ; preds = %land.lhs.true
   %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %add)
   %1 = load i8, ptr %call4, align 1
-  %conv5 = sext i8 %1 to i32
-  switch i32 %conv5, label %sw.default [
-    i32 110, label %for.inc
-    i32 114, label %sw.bb8
-    i32 116, label %sw.bb11
-    i32 39, label %sw.bb14
-    i32 34, label %sw.bb17
-    i32 92, label %sw.bb20
-    i32 120, label %sw.bb23
+  switch i8 %1, label %sw.default [
+    i8 110, label %for.inc
+    i8 114, label %sw.bb8
+    i8 116, label %sw.bb11
+    i8 39, label %sw.bb14
+    i8 34, label %sw.bb17
+    i8 92, label %sw.bb20
+    i8 120, label %sw.bb23
   ]
 
 sw.bb8:                                           ; preds = %if.then
@@ -2117,7 +2116,7 @@ if.else:                                          ; preds = %land.lhs.true, %for
 for.inc:                                          ; preds = %if.then, %if.else, %sw.default, %if.then35, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8
   %.sink43 = phi i64 [ 1, %if.else ], [ 2, %sw.default ], [ 1, %if.then35 ], [ 1, %sw.bb20 ], [ 1, %sw.bb17 ], [ 1, %sw.bb14 ], [ 1, %sw.bb11 ], [ 1, %sw.bb8 ], [ 1, %if.then ]
   %output_idx.042.sink = phi i64 [ %output_idx.042, %if.else ], [ %inc41, %sw.default ], [ %output_idx.042, %if.then35 ], [ %output_idx.042, %sw.bb20 ], [ %output_idx.042, %sw.bb17 ], [ %output_idx.042, %sw.bb14 ], [ %output_idx.042, %sw.bb11 ], [ %output_idx.042, %sw.bb8 ], [ %output_idx.042, %if.then ]
-  %.sink = phi i8 [ %6, %if.else ], [ %5, %sw.default ], [ %conv37, %if.then35 ], [ 92, %sw.bb20 ], [ 34, %sw.bb17 ], [ 39, %sw.bb14 ], [ 9, %sw.bb11 ], [ 13, %sw.bb8 ], [ 10, %if.then ]
+  %.sink = phi i8 [ %6, %if.else ], [ %5, %sw.default ], [ %conv37, %if.then35 ], [ %1, %sw.bb20 ], [ %1, %sw.bb17 ], [ %1, %sw.bb14 ], [ 9, %sw.bb11 ], [ 13, %sw.bb8 ], [ 10, %if.then ]
   %input_idx.1 = phi i64 [ %input_idx.041, %if.else ], [ %add, %sw.default ], [ %add24, %if.then35 ], [ %add, %sw.bb20 ], [ %add, %sw.bb17 ], [ %add, %sw.bb14 ], [ %add, %sw.bb11 ], [ %add, %sw.bb8 ], [ %add, %if.then ]
   %inc47 = add i64 %output_idx.042, %.sink43
   %call48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %output_idx.042.sink)

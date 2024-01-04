@@ -1032,22 +1032,21 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef i32 @typecode_to_mformat_code(i8 noundef signext %typecode) unnamed_addr #2 {
 entry:
-  %conv = sext i8 %typecode to i32
-  switch i32 %conv, label %sw.default [
-    i32 98, label %return
-    i32 66, label %sw.bb1
-    i32 117, label %sw.bb2
-    i32 119, label %sw.bb3
-    i32 102, label %sw.bb4
-    i32 100, label %sw.bb11
-    i32 104, label %sw.bb30
-    i32 72, label %sw.bb23
-    i32 105, label %sw.bb31
-    i32 73, label %sw.bb25
-    i32 108, label %sw.bb34
-    i32 76, label %sw.bb27
-    i32 113, label %sw.bb34
-    i32 81, label %sw.bb29
+  switch i8 %typecode, label %sw.default [
+    i8 98, label %return
+    i8 66, label %sw.bb1
+    i8 117, label %sw.bb2
+    i8 119, label %sw.bb3
+    i8 102, label %sw.bb4
+    i8 100, label %sw.bb11
+    i8 104, label %sw.bb30
+    i8 72, label %sw.bb23
+    i8 105, label %sw.bb31
+    i8 73, label %sw.bb25
+    i8 108, label %sw.bb34
+    i8 76, label %sw.bb27
+    i8 113, label %sw.bb34
+    i8 81, label %sw.bb29
   ]
 
 sw.bb1:                                           ; preds = %entry

@@ -1760,7 +1760,6 @@ entry:
   %arrayidx = getelementptr i8, ptr %buf, i64 9
   %2 = load i8, ptr %arrayidx, align 1
   %3 = lshr i8 %2, 6
-  %shr1 = zext nneg i8 %3 to i32
   %arrayidx2 = getelementptr i8, ptr %buf, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %5 = lshr i8 %4, 1
@@ -1769,11 +1768,11 @@ entry:
   %arrayidx5 = getelementptr i8, ptr %buf, i64 6
   %7 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %7 to i32
-  switch i32 %shr1, label %entry.unreachabledefault [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb10
-    i32 2, label %sw.bb14
-    i32 3, label %error_cmd
+  switch i8 %3, label %entry.unreachabledefault [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb10
+    i8 2, label %sw.bb14
+    i8 3, label %error_cmd
   ]
 
 sw.bb:                                            ; preds = %entry

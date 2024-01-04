@@ -7470,9 +7470,9 @@ _ZNSt6vectorIN7lodepng13ZlibBlockInfoESaIS1_EE6resizeEm.exit: ; preds = %if.then
   %25 = load ptr, ptr %_M_finish.i.i40, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %25, i64 -1
   store i32 %add55, ptr %add.ptr.i.i, align 8
-  switch i64 %add, label %if.else23 [
-    i64 3, label %while.end.sink.split
-    i64 0, label %if.then20
+  switch i32 %add55, label %if.else23 [
+    i32 3, label %while.end.sink.split
+    i32 0, label %if.then20
   ]
 
 if.then20:                                        ; preds = %_ZNSt6vectorIN7lodepng13ZlibBlockInfoESaIS1_EE6resizeEm.exit

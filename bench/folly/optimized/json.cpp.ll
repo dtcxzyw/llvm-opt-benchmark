@@ -8066,7 +8066,6 @@ _ZZN5folly4json16escapeStringImplILb1EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stri
   br label %cleanup155
 
 if.else108:                                       ; preds = %land.rhs83, %lor.rhs
-  %conv109 = zext i8 %.pre377 to i32
   switch i8 %.pre377, label %if.else116 [
     i8 92, label %if.then114
     i8 34, label %if.then114
@@ -8100,12 +8099,12 @@ if.else116:                                       ; preds = %if.else108
   br i1 %cmp118, label %if.then119, label %if.else150
 
 if.then119:                                       ; preds = %if.else116
-  switch i32 %conv109, label %sw.default [
-    i32 8, label %sw.bb
-    i32 12, label %sw.bb123
-    i32 10, label %sw.bb126
-    i32 13, label %sw.bb129
-    i32 9, label %sw.bb132
+  switch i8 %.pre377, label %sw.default [
+    i8 8, label %sw.bb
+    i8 12, label %sw.bb123
+    i8 10, label %sw.bb126
+    i8 13, label %sw.bb129
+    i8 9, label %sw.bb132
   ]
 
 sw.bb:                                            ; preds = %if.then119
@@ -8730,7 +8729,6 @@ _ZZN5folly4json16escapeStringImplILb0EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stri
   br label %cleanup140
 
 if.else93:                                        ; preds = %if.end73
-  %conv94 = zext i8 %.pre360 to i32
   switch i8 %.pre360, label %if.else101 [
     i8 92, label %if.then99
     i8 34, label %if.then99
@@ -8764,12 +8762,12 @@ if.else101:                                       ; preds = %if.else93
   br i1 %cmp103, label %if.then104, label %if.else135
 
 if.then104:                                       ; preds = %if.else101
-  switch i32 %conv94, label %sw.default [
-    i32 8, label %sw.bb
-    i32 12, label %sw.bb108
-    i32 10, label %sw.bb111
-    i32 13, label %sw.bb114
-    i32 9, label %sw.bb117
+  switch i8 %.pre360, label %sw.default [
+    i8 8, label %sw.bb
+    i8 12, label %sw.bb108
+    i8 10, label %sw.bb111
+    i8 13, label %sw.bb114
+    i8 9, label %sw.bb117
   ]
 
 sw.bb:                                            ; preds = %if.then104
@@ -9818,10 +9816,10 @@ invoke.cont:                                      ; preds = %_ZN5folly5RangeIPKc
   %conv.i.i = sext i8 %6 to i32
   %current_.i.i = getelementptr inbounds %"struct.folly::json::(anonymous namespace)::Input", ptr %in, i64 0, i32 3
   store i32 %conv.i.i, ptr %current_.i.i, align 4, !tbaa !325
-  switch i32 %conv.i.i, label %cond.false16 [
-    i32 91, label %cond.true
-    i32 123, label %cond.true6
-    i32 34, label %cond.true12
+  switch i8 %6, label %cond.false16 [
+    i8 91, label %cond.true
+    i8 123, label %cond.true6
+    i8 34, label %cond.true12
   ]
 
 cond.true:                                        ; preds = %invoke.cont
@@ -11187,16 +11185,16 @@ invoke.cont27.i:                                  ; preds = %if.then26.i
   %95 = load i8, ptr %incdec.ptr.i.i141.i, align 1, !tbaa !7
   %conv.i.i145.i = sext i8 %95 to i32
   store i32 %conv.i.i145.i, ptr %current_.i.i, align 4, !tbaa !325, !noalias !380
-  switch i32 %conv.i.i145.i, label %sw.default.i [
-    i32 34, label %sw.bb.i
-    i32 92, label %sw.bb32.i
-    i32 47, label %sw.bb35.i
-    i32 98, label %sw.bb38.i
-    i32 102, label %sw.bb41.i
-    i32 110, label %sw.bb44.i
-    i32 114, label %sw.bb47.i
-    i32 116, label %sw.bb50.i
-    i32 117, label %sw.bb53.i
+  switch i8 %95, label %sw.default.i [
+    i8 34, label %sw.bb.i
+    i8 92, label %sw.bb32.i
+    i8 47, label %sw.bb35.i
+    i8 98, label %sw.bb38.i
+    i8 102, label %sw.bb41.i
+    i8 110, label %sw.bb44.i
+    i8 114, label %sw.bb47.i
+    i8 116, label %sw.bb50.i
+    i8 117, label %sw.bb53.i
   ]
 
 sw.bb.i:                                          ; preds = %invoke.cont27.i
@@ -12325,9 +12323,9 @@ cond.end.i:                                       ; preds = %_ZN5folly5RangeIPKc
   %.sroa.speculated.i.i.i212.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i.i200.i, i64 %skipped.0.lcssa13.i.i.i)
   %add.ptr.i.i.i.i213.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i183, i64 %.sroa.speculated.i.i.i212.i
   store i32 %conv.i.i.i209.i, ptr %current_.i.i, align 4, !tbaa !325, !noalias !386
-  switch i32 %conv.i.i.i209.i, label %if.end75.i [
-    i32 101, label %if.then65.i
-    i32 69, label %if.then65.i
+  switch i8 %231, label %if.end75.i [
+    i8 101, label %if.then65.i
+    i8 69, label %if.then65.i
   ]
 
 if.then65.i:                                      ; preds = %cond.end.i, %cond.end.i, %if.end54.i, %if.end54.thread.i
@@ -12341,9 +12339,9 @@ _ZN5folly4json12_GLOBAL__N_15InputppEv.exit229.i: ; preds = %if.then65.i
   %233 = load i8, ptr %incdec.ptr.i.i221.i, align 1, !tbaa !7, !noalias !386
   %conv.i.i225.i = sext i8 %233 to i32
   store i32 %conv.i.i225.i, ptr %current_.i.i, align 4, !tbaa !325, !noalias !386
-  switch i32 %conv.i.i225.i, label %if.end72.i [
-    i32 43, label %if.then71.i
-    i32 45, label %if.then71.i
+  switch i8 %233, label %if.end72.i [
+    i8 43, label %if.then71.i
+    i8 45, label %if.then71.i
   ]
 
 if.then71.i:                                      ; preds = %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit229.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit229.i
@@ -13680,11 +13678,11 @@ if.then.i:                                        ; preds = %if.end7
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %add.i4 = add nuw nsw i64 %shr.i.i.i.i, 1
   %shr.i5 = lshr i64 %mul.i11.i, 2
-  %add2.i = add i64 %shr.i5, %mul.i11.i
+  %add2.i = add nuw nsw i64 %shr.i5, %mul.i11.i
   %shr3.i = lshr i64 %mul.i11.i, 3
-  %add4.i = add i64 %add2.i, %shr3.i
+  %add4.i = add nuw nsw i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i11.i, 5
-  %add6.i = add i64 %add4.i, %shr5.i
+  %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %add.i4, i64 %add6.i)
   %cmp.i16.i = icmp ult i64 %.sroa.speculated.i, 15
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
@@ -13699,11 +13697,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
 if.else11.i.i:                                    ; preds = %if.then.i
-  %sub.i.i = add i64 %.sroa.speculated.i, -1
+  %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 12
   %15 = call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !55
   %add.i.i.i = sub nuw nsw i64 64, %15
-  %mul.i47.i.i = shl i64 12, %add.i.i.i
+  %mul.i47.i.i = shl nuw nsw i64 12, %add.i.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i47.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 
@@ -15161,11 +15159,11 @@ if.then.i:                                        ; preds = %if.end9
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %add.i4 = add nuw nsw i64 %shr.i.i.i.i, 1
   %shr.i5 = lshr i64 %mul.i11.i, 2
-  %add2.i = add i64 %shr.i5, %mul.i11.i
+  %add2.i = add nuw nsw i64 %shr.i5, %mul.i11.i
   %shr3.i = lshr i64 %mul.i11.i, 3
-  %add4.i = add i64 %add2.i, %shr3.i
+  %add4.i = add nuw nsw i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i11.i, 5
-  %add6.i = add i64 %add4.i, %shr5.i
+  %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i4, i64 %add6.i)
   %cmp.i16.i = icmp ult i64 %.sroa.speculated.i, 15
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
@@ -15180,11 +15178,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
 if.else11.i.i:                                    ; preds = %if.then.i
-  %sub.i.i = add i64 %.sroa.speculated.i, -1
+  %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 12
   %13 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !55
   %add.i.i.i = sub nuw nsw i64 64, %13
-  %mul.i47.i.i = shl i64 12, %add.i.i.i
+  %mul.i47.i.i = shl nuw nsw i64 12, %add.i.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i47.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 

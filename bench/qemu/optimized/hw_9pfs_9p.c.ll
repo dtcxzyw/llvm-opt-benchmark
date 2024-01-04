@@ -738,7 +738,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @pdu_alloc(ptr noundef %s) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %s, align 8
@@ -932,7 +932,7 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @v9fs_device_realize_common(ptr noundef %s, ptr noundef %t, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @v9fs_device_realize_common(ptr noundef %s, ptr noundef %t, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %stat = alloca %struct.stat, align 8
@@ -2903,7 +2903,7 @@ stat_to_v9stat_dotl.exit:                         ; preds = %if.end9, %if.end.i.
   store i64 %24, ptr %st_ctime_nsec.i, align 8
   store i64 2047, ptr %v9stat_dotl, align 8
   %qid.i = getelementptr inbounds %struct.V9fsStatDotl, ptr %v9stat_dotl, i64 0, i32 1
-  %call16.i = call fastcc i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid.i)
+  %call16.i = call fastcc noundef i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid.i)
   %conv11 = sext i32 %call16.i to i64
   %cmp12 = icmp slt i32 %call16.i, 0
   br i1 %cmp12, label %out, label %if.end15
@@ -2917,10 +2917,9 @@ if.end15:                                         ; preds = %stat_to_v9stat_dotl
 if.then16:                                        ; preds = %if.end15
   %26 = load i32, ptr %st_mode.i, align 8
   %call18 = call i32 @v9fs_co_st_gen(ptr noundef nonnull %opaque, ptr noundef nonnull %path, i32 noundef %26, ptr noundef nonnull %v9stat_dotl) #23
-  %conv19 = sext i32 %call18 to i64
-  switch i64 %conv19, label %if.end21 [
-    i64 0, label %sw.bb
-    i64 -4, label %out
+  switch i32 %call18, label %if.end21 [
+    i32 0, label %sw.bb
+    i32 -4, label %out
   ]
 
 sw.bb:                                            ; preds = %if.then16
@@ -2984,7 +2983,7 @@ trace_v9fs_getattr_return.exit:                   ; preds = %if.end26, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end21, %if.then16, %stat_to_v9stat_dotl.exit, %if.end4, %trace_v9fs_getattr_return.exit
-  %retval.0 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ %conv19, %if.then16 ]
+  %retval.0 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ -4, %if.then16 ]
   %ref.i = getelementptr inbounds %struct.V9fsFidState, ptr %call1, i64 0, i32 8
   %41 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %41, 0
@@ -6696,10 +6695,9 @@ if.then103:                                       ; preds = %if.then98
 
 if.end105:                                        ; preds = %if.then98
   %33 = load i8, ptr %ctype, align 1
-  %conv106 = sext i8 %33 to i32
-  switch i32 %conv106, label %out [
-    i32 99, label %sw.epilog
-    i32 98, label %sw.bb107
+  switch i8 %33, label %out [
+    i8 99, label %sw.epilog
+    i8 98, label %sw.bb107
   ]
 
 sw.bb107:                                         ; preds = %if.end105
@@ -8942,7 +8940,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 declare i32 @v9fs_co_lstat(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @stat_to_qid(ptr nocapture noundef readonly %pdu, ptr nocapture noundef readonly %stbuf, ptr nocapture noundef writeonly %qidp) unnamed_addr #0 {
+define internal fastcc noundef i32 @stat_to_qid(ptr nocapture noundef readonly %pdu, ptr nocapture noundef readonly %stbuf, ptr nocapture noundef writeonly %qidp) unnamed_addr #0 {
 entry:
   %lookup.i24 = alloca %struct.QpfEntry, align 8
   %lookup.i.i = alloca %struct.QpdEntry, align 8
@@ -9016,29 +9014,29 @@ qid_inode_prefix_hash_bits.exit.i:                ; preds = %if.then.i.i, %if.th
   %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
   %mul.i.i.i.i = mul i32 %conv.i.i.i.i, -2048144777
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 606290985
-  %or.i.i.i.i.i = call i32 @llvm.fshl.i32(i32 %add.i.i.i.i, i32 %add.i.i.i.i, i32 13)
+  %or.i.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add.i.i.i.i, i32 %add.i.i.i.i, i32 13)
   %mul8.i.i.i.i = mul i32 %or.i.i.i.i.i, -1640531535
   %mul13.i.i.i.i = mul i32 %conv2.i.i.i17.i, -2048144777
   %add14.i.i.i.i = add i32 %mul13.i.i.i.i, 1
-  %or.i34.i.i.i.i = call i32 @llvm.fshl.i32(i32 %add14.i.i.i.i, i32 %add14.i.i.i.i, i32 13)
+  %or.i34.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add14.i.i.i.i, i32 %add14.i.i.i.i, i32 13)
   %mul16.i.i.i.i = mul i32 %or.i34.i.i.i.i, -1640531535
   %mul17.i.i.i.i = mul i32 %conv4.i.i.i.i, -2048144777
   %add18.i.i.i.i = add i32 %mul17.i.i.i.i, 1640531536
-  %or.i35.i.i.i.i = call i32 @llvm.fshl.i32(i32 %add18.i.i.i.i, i32 %add18.i.i.i.i, i32 13)
+  %or.i35.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add18.i.i.i.i, i32 %add18.i.i.i.i, i32 13)
   %mul20.i.i.i.i = mul i32 %or.i35.i.i.i.i, -1640531535
-  %or.i36.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul8.i.i.i.i, i32 %mul8.i.i.i.i, i32 1)
-  %or.i38.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul16.i.i.i.i, i32 %mul16.i.i.i.i, i32 12)
-  %or.i39.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul20.i.i.i.i, i32 %mul20.i.i.i.i, i32 18)
+  %or.i36.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul8.i.i.i.i, i32 %mul8.i.i.i.i, i32 1)
+  %or.i38.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul16.i.i.i.i, i32 %mul16.i.i.i.i, i32 12)
+  %or.i39.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul20.i.i.i.i, i32 %mul20.i.i.i.i, i32 18)
   %add25.i.i.i.i = add i32 %or.i38.i.i.i.i, -1754016038
   %add27.i.i.i.i = add i32 %add25.i.i.i.i, %or.i39.i.i.i.i
   %add28.i.i.i.i = add i32 %add27.i.i.i.i, %or.i36.i.i.i.i
-  %or.i40.i.i.i.i = call i32 @llvm.fshl.i32(i32 %add28.i.i.i.i, i32 %add28.i.i.i.i, i32 17)
+  %or.i40.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add28.i.i.i.i, i32 %add28.i.i.i.i, i32 17)
   %mul32.i.i.i.i = mul i32 %or.i40.i.i.i.i, 668265263
-  %or.i41.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul32.i.i.i.i, i32 %mul32.i.i.i.i, i32 17)
+  %or.i41.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul32.i.i.i.i, i32 %mul32.i.i.i.i, i32 17)
   %mul36.i.i.i.i = mul i32 %or.i41.i.i.i.i, 668265263
-  %or.i42.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul36.i.i.i.i, i32 %mul36.i.i.i.i, i32 17)
+  %or.i42.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul36.i.i.i.i, i32 %mul36.i.i.i.i, i32 17)
   %mul40.i.i.i.i = mul i32 %or.i42.i.i.i.i, 668265263
-  %or.i43.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul40.i.i.i.i, i32 %mul40.i.i.i.i, i32 17)
+  %or.i43.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul40.i.i.i.i, i32 %mul40.i.i.i.i, i32 17)
   %mul44.i.i.i.i = mul i32 %or.i43.i.i.i.i, 668265263
   %shr45.i.i.i.i = lshr i32 %mul44.i.i.i.i, 15
   %xor.i.i.i.i = xor i32 %shr45.i.i.i.i, %mul44.i.i.i.i
@@ -9138,35 +9136,35 @@ if.then1:                                         ; preds = %if.then.i
   %conv4.i.i.i.i30 = trunc i64 %shr3.i.i.i.i29 to i32
   %mul.i.i.i.i31 = mul i32 %conv.i.i.i.i25, -2048144777
   %add.i.i.i.i32 = add i32 %mul.i.i.i.i31, 606290985
-  %or.i.i.i.i.i33 = call i32 @llvm.fshl.i32(i32 %add.i.i.i.i32, i32 %add.i.i.i.i32, i32 13)
+  %or.i.i.i.i.i33 = call noundef i32 @llvm.fshl.i32(i32 %add.i.i.i.i32, i32 %add.i.i.i.i32, i32 13)
   %mul8.i.i.i.i34 = mul i32 %or.i.i.i.i.i33, -1640531535
   %mul9.i.i.i.i = mul i32 %conv1.i.i.i.i27, -2048144777
   %add10.i.i.i.i = add i32 %mul9.i.i.i.i, -2048144776
-  %or.i33.i.i.i.i = call i32 @llvm.fshl.i32(i32 %add10.i.i.i.i, i32 %add10.i.i.i.i, i32 13)
+  %or.i33.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add10.i.i.i.i, i32 %add10.i.i.i.i, i32 13)
   %mul12.i.i.i.i = mul i32 %or.i33.i.i.i.i, -1640531535
   %mul13.i.i.i.i35 = mul i32 %conv2.i.i.i.i28, -2048144777
   %add14.i.i.i.i36 = add i32 %mul13.i.i.i.i35, 1
-  %or.i34.i.i.i.i37 = call i32 @llvm.fshl.i32(i32 %add14.i.i.i.i36, i32 %add14.i.i.i.i36, i32 13)
+  %or.i34.i.i.i.i37 = call noundef i32 @llvm.fshl.i32(i32 %add14.i.i.i.i36, i32 %add14.i.i.i.i36, i32 13)
   %mul16.i.i.i.i38 = mul i32 %or.i34.i.i.i.i37, -1640531535
   %mul17.i.i.i.i39 = mul i32 %conv4.i.i.i.i30, -2048144777
   %add18.i.i.i.i40 = add i32 %mul17.i.i.i.i39, 1640531536
-  %or.i35.i.i.i.i41 = call i32 @llvm.fshl.i32(i32 %add18.i.i.i.i40, i32 %add18.i.i.i.i40, i32 13)
+  %or.i35.i.i.i.i41 = call noundef i32 @llvm.fshl.i32(i32 %add18.i.i.i.i40, i32 %add18.i.i.i.i40, i32 13)
   %mul20.i.i.i.i42 = mul i32 %or.i35.i.i.i.i41, -1640531535
-  %or.i36.i.i.i.i43 = call i32 @llvm.fshl.i32(i32 %mul8.i.i.i.i34, i32 %mul8.i.i.i.i34, i32 1)
-  %or.i37.i.i.i.i = call i32 @llvm.fshl.i32(i32 %mul12.i.i.i.i, i32 %mul12.i.i.i.i, i32 7)
-  %or.i38.i.i.i.i44 = call i32 @llvm.fshl.i32(i32 %mul16.i.i.i.i38, i32 %mul16.i.i.i.i38, i32 12)
-  %or.i39.i.i.i.i45 = call i32 @llvm.fshl.i32(i32 %mul20.i.i.i.i42, i32 %mul20.i.i.i.i42, i32 18)
+  %or.i36.i.i.i.i43 = call noundef i32 @llvm.fshl.i32(i32 %mul8.i.i.i.i34, i32 %mul8.i.i.i.i34, i32 1)
+  %or.i37.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %mul12.i.i.i.i, i32 %mul12.i.i.i.i, i32 7)
+  %or.i38.i.i.i.i44 = call noundef i32 @llvm.fshl.i32(i32 %mul16.i.i.i.i38, i32 %mul16.i.i.i.i38, i32 12)
+  %or.i39.i.i.i.i45 = call noundef i32 @llvm.fshl.i32(i32 %mul20.i.i.i.i42, i32 %mul20.i.i.i.i42, i32 18)
   %add23.i.i.i.i = add i32 %or.i38.i.i.i.i44, 28
   %add25.i.i.i.i46 = add i32 %add23.i.i.i.i, %or.i36.i.i.i.i43
   %add27.i.i.i.i47 = add i32 %add25.i.i.i.i46, %or.i39.i.i.i.i45
   %add28.i.i.i.i48 = add i32 %add27.i.i.i.i47, %or.i37.i.i.i.i
-  %or.i40.i.i.i.i49 = call i32 @llvm.fshl.i32(i32 %add28.i.i.i.i48, i32 %add28.i.i.i.i48, i32 17)
+  %or.i40.i.i.i.i49 = call noundef i32 @llvm.fshl.i32(i32 %add28.i.i.i.i48, i32 %add28.i.i.i.i48, i32 17)
   %mul32.i.i.i.i50 = mul i32 %or.i40.i.i.i.i49, 668265263
-  %or.i41.i.i.i.i51 = call i32 @llvm.fshl.i32(i32 %mul32.i.i.i.i50, i32 %mul32.i.i.i.i50, i32 17)
+  %or.i41.i.i.i.i51 = call noundef i32 @llvm.fshl.i32(i32 %mul32.i.i.i.i50, i32 %mul32.i.i.i.i50, i32 17)
   %mul36.i.i.i.i52 = mul i32 %or.i41.i.i.i.i51, 668265263
-  %or.i42.i.i.i.i53 = call i32 @llvm.fshl.i32(i32 %mul36.i.i.i.i52, i32 %mul36.i.i.i.i52, i32 17)
+  %or.i42.i.i.i.i53 = call noundef i32 @llvm.fshl.i32(i32 %mul36.i.i.i.i52, i32 %mul36.i.i.i.i52, i32 17)
   %mul40.i.i.i.i54 = mul i32 %or.i42.i.i.i.i53, 668265263
-  %or.i43.i.i.i.i55 = call i32 @llvm.fshl.i32(i32 %mul40.i.i.i.i54, i32 %mul40.i.i.i.i54, i32 17)
+  %or.i43.i.i.i.i55 = call noundef i32 @llvm.fshl.i32(i32 %mul40.i.i.i.i54, i32 %mul40.i.i.i.i54, i32 17)
   %mul44.i.i.i.i56 = mul i32 %or.i43.i.i.i.i55, 668265263
   %shr45.i.i.i.i57 = lshr i32 %mul44.i.i.i.i56, 15
   %xor.i.i.i.i58 = xor i32 %shr45.i.i.i.i57, %mul44.i.i.i.i56
@@ -9789,7 +9787,7 @@ declare i32 @v9fs_co_chown(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #
 declare i32 @v9fs_co_truncate(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @alloc_fid(ptr nocapture noundef readonly %s, i32 noundef %fid) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_fid(ptr nocapture noundef readonly %s, i32 noundef %fid) unnamed_addr #0 {
 entry:
   %fids = getelementptr inbounds %struct.V9fsState, ptr %s, i64 0, i32 2
   %0 = load ptr, ptr %fids, align 8
@@ -11243,7 +11241,7 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

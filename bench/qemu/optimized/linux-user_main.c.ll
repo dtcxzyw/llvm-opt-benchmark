@@ -1401,12 +1401,11 @@ entry:
   %call = call i64 @strtoul(ptr noundef %arg, ptr noundef nonnull %p, i32 noundef 0) #27
   %0 = load ptr, ptr %p, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %if.end7 [
-    i32 107, label %if.then
-    i32 75, label %if.then
-    i32 77, label %sw.bb1
-    i32 71, label %sw.bb2
+  switch i8 %1, label %if.end7 [
+    i8 107, label %if.then
+    i8 75, label %if.then
+    i8 77, label %sw.bb1
+    i8 71, label %sw.bb2
   ]
 
 sw.bb1:                                           ; preds = %entry

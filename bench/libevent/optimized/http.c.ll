@@ -273,21 +273,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %html) #18
-  %cmp132.not = icmp eq i64 %call, 0
-  br i1 %cmp132.not, label %if.end8.thread, label %for.body
+  %cmp131.not = icmp eq i64 %call, 0
+  br i1 %cmp131.not, label %if.end8.thread, label %for.body
 
 for.body:                                         ; preds = %if.end, %if.end5
-  %i.034 = phi i64 [ %inc, %if.end5 ], [ 0, %if.end ]
-  %new_size.033 = phi i64 [ %add, %if.end5 ], [ 0, %if.end ]
-  %arrayidx = getelementptr inbounds i8, ptr %html, i64 %i.034
+  %i.033 = phi i64 [ %inc, %if.end5 ], [ 0, %if.end ]
+  %new_size.032 = phi i64 [ %add, %if.end5 ], [ 0, %if.end ]
+  %arrayidx = getelementptr inbounds i8, ptr %html, i64 %i.033
   %0 = load i8, ptr %arrayidx, align 1
-  %conv.i = sext i8 %0 to i32
-  switch i32 %conv.i, label %html_replace.exit [
-    i32 60, label %return.sink.split.i
-    i32 62, label %return.sink.split.i
-    i32 34, label %sw.bb2.i
-    i32 39, label %sw.bb3.i
-    i32 38, label %sw.bb4.i
+  switch i8 %0, label %html_replace.exit [
+    i8 60, label %return.sink.split.i
+    i8 62, label %return.sink.split.i
+    i8 34, label %sw.bb2.i
+    i8 39, label %sw.bb3.i
+    i8 38, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %for.body
@@ -304,7 +303,7 @@ return.sink.split.i:                              ; preds = %for.body, %for.body
 
 html_replace.exit:                                ; preds = %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %for.body, %return.sink.split.i
   %retval.0.i = phi i64 [ 1, %for.body ], [ 5, %sw.bb4.i ], [ 6, %sw.bb3.i ], [ 6, %sw.bb2.i ], [ 4, %return.sink.split.i ]
-  %sub = xor i64 %new_size.033, -1
+  %sub = xor i64 %new_size.032, -1
   %cmp3 = icmp ugt i64 %retval.0.i, %sub
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -313,8 +312,8 @@ if.then4:                                         ; preds = %html_replace.exit
   br label %return
 
 if.end5:                                          ; preds = %html_replace.exit
-  %add = add i64 %retval.0.i, %new_size.033
-  %inc = add nuw i64 %i.034, 1
+  %add = add i64 %retval.0.i, %new_size.032
+  %inc = add nuw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -329,64 +328,63 @@ if.end8:                                          ; preds = %for.end
   br i1 %cmp11, label %if.then12, label %for.cond15.preheader
 
 if.end8.thread:                                   ; preds = %if.end
-  %call1045 = tail call ptr @event_mm_malloc_(i64 noundef 1) #19
-  %cmp1146 = icmp eq ptr %call1045, null
-  br i1 %cmp1146, label %if.then12, label %for.end24
+  %call1044 = tail call ptr @event_mm_malloc_(i64 noundef 1) #19
+  %cmp1145 = icmp eq ptr %call1044, null
+  br i1 %cmp1145, label %if.then12, label %for.end24
 
 for.cond15.preheader:                             ; preds = %if.end8
-  br i1 %cmp132.not, label %for.end24, label %for.body17
+  br i1 %cmp131.not, label %for.end24, label %for.body17
 
 if.then12:                                        ; preds = %if.end8.thread, %if.end8
-  %add947 = phi i64 [ 1, %if.end8.thread ], [ %add9, %if.end8 ]
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %add947) #19
+  %add946 = phi i64 [ 1, %if.end8.thread ], [ %add9, %if.end8 ]
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %add946) #19
   br label %return
 
-for.body17:                                       ; preds = %for.cond15.preheader, %html_replace.exit30
-  %i.137 = phi i64 [ %inc23, %html_replace.exit30 ], [ 0, %for.cond15.preheader ]
-  %p.036 = phi ptr [ %add.ptr, %html_replace.exit30 ], [ %call10, %for.cond15.preheader ]
-  %arrayidx19 = getelementptr inbounds i8, ptr %html, i64 %i.137
+for.body17:                                       ; preds = %for.cond15.preheader, %html_replace.exit29
+  %i.136 = phi i64 [ %inc23, %html_replace.exit29 ], [ 0, %for.cond15.preheader ]
+  %p.035 = phi ptr [ %add.ptr, %html_replace.exit29 ], [ %call10, %for.cond15.preheader ]
+  %arrayidx19 = getelementptr inbounds i8, ptr %html, i64 %i.136
   %1 = load i8, ptr %arrayidx19, align 1
-  %conv.i21 = sext i8 %1 to i32
-  switch i32 %conv.i21, label %html_replace.exit30 [
-    i32 60, label %return.sink.split.i23
-    i32 62, label %sw.bb1.i29
-    i32 34, label %sw.bb2.i28
-    i32 39, label %sw.bb3.i27
-    i32 38, label %sw.bb4.i22
+  switch i8 %1, label %html_replace.exit29 [
+    i8 60, label %return.sink.split.i22
+    i8 62, label %sw.bb1.i28
+    i8 34, label %sw.bb2.i27
+    i8 39, label %sw.bb3.i26
+    i8 38, label %sw.bb4.i21
   ]
 
-sw.bb1.i29:                                       ; preds = %for.body17
-  br label %html_replace.exit30
+sw.bb1.i28:                                       ; preds = %for.body17
+  br label %html_replace.exit29
 
-sw.bb2.i28:                                       ; preds = %for.body17
-  br label %html_replace.exit30
+sw.bb2.i27:                                       ; preds = %for.body17
+  br label %html_replace.exit29
 
-sw.bb3.i27:                                       ; preds = %for.body17
-  br label %html_replace.exit30
+sw.bb3.i26:                                       ; preds = %for.body17
+  br label %html_replace.exit29
 
-sw.bb4.i22:                                       ; preds = %for.body17
-  br label %html_replace.exit30
+sw.bb4.i21:                                       ; preds = %for.body17
+  br label %html_replace.exit29
 
-return.sink.split.i23:                            ; preds = %for.body17
-  br label %html_replace.exit30
+return.sink.split.i22:                            ; preds = %for.body17
+  br label %html_replace.exit29
 
-html_replace.exit30:                              ; preds = %sw.bb1.i29, %sw.bb2.i28, %sw.bb3.i27, %sw.bb4.i22, %for.body17, %return.sink.split.i23
-  %replaced18.0 = phi ptr [ %arrayidx19, %for.body17 ], [ @.str.51, %sw.bb4.i22 ], [ @.str.50, %sw.bb3.i27 ], [ @.str.49, %sw.bb2.i28 ], [ @.str.48, %sw.bb1.i29 ], [ @.str.47, %return.sink.split.i23 ]
-  %retval.0.i26 = phi i64 [ 1, %for.body17 ], [ 5, %sw.bb4.i22 ], [ 6, %sw.bb3.i27 ], [ 6, %sw.bb2.i28 ], [ 4, %sw.bb1.i29 ], [ 4, %return.sink.split.i23 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.036, ptr noundef nonnull align 1 dereferenceable(1) %replaced18.0, i64 %retval.0.i26, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %p.036, i64 %retval.0.i26
-  %inc23 = add nuw i64 %i.137, 1
-  %exitcond39.not = icmp eq i64 %inc23, %call
-  br i1 %exitcond39.not, label %for.end24, label %for.body17, !llvm.loop !6
+html_replace.exit29:                              ; preds = %sw.bb1.i28, %sw.bb2.i27, %sw.bb3.i26, %sw.bb4.i21, %for.body17, %return.sink.split.i22
+  %replaced18.0 = phi ptr [ %arrayidx19, %for.body17 ], [ @.str.51, %sw.bb4.i21 ], [ @.str.50, %sw.bb3.i26 ], [ @.str.49, %sw.bb2.i27 ], [ @.str.48, %sw.bb1.i28 ], [ @.str.47, %return.sink.split.i22 ]
+  %retval.0.i25 = phi i64 [ 1, %for.body17 ], [ 5, %sw.bb4.i21 ], [ 6, %sw.bb3.i26 ], [ 6, %sw.bb2.i27 ], [ 4, %sw.bb1.i28 ], [ 4, %return.sink.split.i22 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.035, ptr noundef nonnull align 1 dereferenceable(1) %replaced18.0, i64 %retval.0.i25, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %p.035, i64 %retval.0.i25
+  %inc23 = add nuw i64 %i.136, 1
+  %exitcond38.not = icmp eq i64 %inc23, %call
+  br i1 %exitcond38.not, label %for.end24, label %for.body17, !llvm.loop !6
 
-for.end24:                                        ; preds = %html_replace.exit30, %if.end8.thread, %for.cond15.preheader
-  %call104850 = phi ptr [ %call10, %for.cond15.preheader ], [ %call1045, %if.end8.thread ], [ %call10, %html_replace.exit30 ]
-  %p.0.lcssa = phi ptr [ %call10, %for.cond15.preheader ], [ %call1045, %if.end8.thread ], [ %add.ptr, %html_replace.exit30 ]
+for.end24:                                        ; preds = %html_replace.exit29, %if.end8.thread, %for.cond15.preheader
+  %call104749 = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %call10, %html_replace.exit29 ]
+  %p.0.lcssa = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %add.ptr, %html_replace.exit29 ]
   store i8 0, ptr %p.0.lcssa, align 1
   br label %return
 
 return:                                           ; preds = %for.end, %entry, %for.end24, %if.then12, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %if.then12 ], [ %call104850, %for.end24 ], [ null, %entry ], [ null, %for.end ]
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %if.then12 ], [ %call104749, %for.end24 ], [ null, %entry ], [ null, %for.end ]
   ret ptr %retval.0
 }
 
@@ -1340,10 +1338,9 @@ sw.bb.i:                                          ; preds = %if.end14.i
 
 if.end20.i:                                       ; preds = %sw.bb.i
   %9 = load i8, ptr %call.i, align 1
-  %conv21.i = sext i8 %9 to i32
-  switch i32 %conv21.i, label %if.then411.i [
-    i32 71, label %sw.bb22.i
-    i32 80, label %sw.bb29.i
+  switch i8 %9, label %if.then411.i [
+    i8 71, label %sw.bb22.i
+    i8 80, label %sw.bb29.i
   ]
 
 sw.bb22.i:                                        ; preds = %if.end20.i
@@ -1360,13 +1357,12 @@ sw.bb29.i:                                        ; preds = %if.end20.i
 
 sw.bb36.i:                                        ; preds = %if.end14.i
   %12 = load i8, ptr %call.i, align 1
-  %conv37.i = sext i8 %12 to i32
-  switch i32 %conv37.i, label %if.then411.i [
-    i32 80, label %sw.bb38.i
-    i32 72, label %sw.bb54.i
-    i32 76, label %sw.bb71.i
-    i32 67, label %sw.bb88.i
-    i32 77, label %sw.bb105.i
+  switch i8 %12, label %if.then411.i [
+    i8 80, label %sw.bb38.i
+    i8 72, label %sw.bb54.i
+    i8 76, label %sw.bb71.i
+    i8 67, label %sw.bb88.i
+    i8 77, label %sw.bb105.i
   ]
 
 sw.bb38.i:                                        ; preds = %sw.bb36.i
@@ -1461,11 +1457,10 @@ land.lhs.true115.i:                               ; preds = %land.lhs.true110.i
 
 sw.bb124.i:                                       ; preds = %if.end14.i
   %28 = load i8, ptr %call.i, align 1
-  %conv125.i = sext i8 %28 to i32
-  switch i32 %conv125.i, label %if.then411.i [
-    i32 80, label %sw.bb126.i
-    i32 84, label %sw.bb148.i
-    i32 77, label %sw.bb170.i
+  switch i8 %28, label %if.then411.i [
+    i8 80, label %sw.bb126.i
+    i8 84, label %sw.bb148.i
+    i8 77, label %sw.bb170.i
   ]
 
 sw.bb126.i:                                       ; preds = %sw.bb124.i
@@ -1542,10 +1537,9 @@ land.lhs.true185.i:                               ; preds = %land.lhs.true180.i
 
 sw.bb194.i:                                       ; preds = %if.end14.i
   %41 = load i8, ptr %call.i, align 1
-  %conv195.i = sext i8 %41 to i32
-  switch i32 %conv195.i, label %if.then411.i [
-    i32 68, label %sw.bb196.i
-    i32 85, label %sw.bb223.i
+  switch i8 %41, label %if.then411.i [
+    i8 68, label %sw.bb196.i
+    i8 85, label %sw.bb223.i
   ]
 
 sw.bb196.i:                                       ; preds = %sw.bb194.i
@@ -1610,10 +1604,9 @@ land.lhs.true243.i:                               ; preds = %land.lhs.true238.i
 
 sw.bb252.i:                                       ; preds = %if.end14.i
   %52 = load i8, ptr %call.i, align 1
-  %conv253.i = sext i8 %52 to i32
-  switch i32 %conv253.i, label %if.then411.i [
-    i32 79, label %sw.bb254.i
-    i32 67, label %sw.bb286.i
+  switch i8 %52, label %if.then411.i [
+    i8 79, label %sw.bb254.i
+    i8 67, label %sw.bb286.i
   ]
 
 sw.bb254.i:                                       ; preds = %sw.bb252.i
@@ -9608,11 +9601,10 @@ while.body:                                       ; preds = %if.end24, %entry
   %pattern.addr.0 = phi ptr [ %pattern, %entry ], [ %incdec.ptr, %if.end24 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %pattern.addr.0, i64 1
   %0 = load i8, ptr %pattern.addr.0, align 1
-  %conv = sext i8 %0 to i32
   %1 = load i8, ptr %name.addr.0, align 1
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 42, label %while.cond4.preheader
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 42, label %while.cond4.preheader
   ]
 
 while.cond4.preheader:                            ; preds = %while.body

@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [23 x i8] c"%s %d sec %d microsec\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %ac, ptr noundef %av) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %ac, ptr noundef %av) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %start = alloca %struct.rusage, align 8
@@ -71,8 +71,8 @@ while.cond.outer113:                              ; preds = %while.cond.outer, %
   %what.0.ph115 = phi i32 [ %what.0.ph, %while.cond.outer ], [ %what.0, %sw.bb ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer113
-  %what.0 = phi i32 [ %what.0.ph115, %while.cond.outer113 ], [ %conv10, %while.cond.backedge ]
+while.cond:                                       ; preds = %while.cond.outer113, %sw.bb12
+  %what.0 = phi i32 [ %conv13, %sw.bb12 ], [ %what.0.ph115, %while.cond.outer113 ]
   %call = tail call i32 @getopt(i32 noundef %ac, ptr noundef nonnull %av, ptr noundef nonnull @.str) #8
   switch i32 %call, label %sw.default [
     i32 -1, label %while.end
@@ -108,18 +108,18 @@ if.then8:                                         ; preds = %sw.bb4
 
 if.end9:                                          ; preds = %sw.bb4
   %4 = load i8, ptr %2, align 1
-  %conv10 = sext i8 %4 to i32
-  switch i32 %conv10, label %sw.default11 [
-    i32 99, label %while.cond.backedge
-    i32 112, label %while.cond.backedge
+  switch i8 %4, label %sw.default11 [
+    i8 99, label %sw.bb12
+    i8 112, label %sw.bb12
   ]
-
-while.cond.backedge:                              ; preds = %if.end9, %if.end9
-  br label %while.cond, !llvm.loop !5
 
 sw.default11:                                     ; preds = %if.end9
   tail call fastcc void @usage()
   unreachable
+
+sw.bb12:                                          ; preds = %if.end9, %if.end9
+  %conv13 = zext nneg i8 %4 to i32
+  br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
   %5 = load i32, ptr @optind, align 4

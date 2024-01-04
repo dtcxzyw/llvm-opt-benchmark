@@ -4545,14 +4545,13 @@ if.end117:                                        ; preds = %if.end104
   store i32 %addr.0, ptr %dnad195, align 8
   store i32 %addr_high.0, ptr %dnad64, align 4
   %72 = and i8 %60, 7
-  %and120 = zext nneg i8 %72 to i32
-  switch i32 %and120, label %do.body139 [
-    i32 0, label %sw.bb121
-    i32 1, label %sw.bb127
-    i32 2, label %sw.bb134
-    i32 3, label %sw.bb135
-    i32 6, label %sw.bb136
-    i32 7, label %sw.bb137
+  switch i8 %72, label %do.body139 [
+    i8 0, label %sw.bb121
+    i8 1, label %sw.bb127
+    i8 2, label %sw.bb134
+    i8 3, label %sw.bb135
+    i8 6, label %sw.bb136
+    i8 7, label %sw.bb137
   ]
 
 sw.bb121:                                         ; preds = %if.end117
@@ -8387,7 +8386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @lsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @lsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %current = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 17
   %0 = load ptr, ptr %current, align 8

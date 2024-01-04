@@ -17472,11 +17472,10 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   %negb.0 = phi i32 [ %conv, %if.then29 ], [ %conv11, %if.end26 ]
   %size_a.0 = phi i64 [ %shr.i119, %if.then29 ], [ %shr.i, %if.end26 ]
   %size_b.0 = phi i64 [ %shr.i, %if.then29 ], [ %shr.i119, %if.end26 ]
-  %conv31 = zext nneg i8 %op to i32
-  switch i32 %conv31, label %sw.default [
-    i32 94, label %sw.bb
-    i32 38, label %sw.bb32
-    i32 124, label %sw.bb34
+  switch i8 %op, label %sw.default [
+    i8 94, label %sw.bb
+    i8 38, label %sw.bb32
+    i8 124, label %sw.bb34
   ]
 
 sw.bb:                                            ; preds = %if.end30
@@ -17584,20 +17583,20 @@ if.end45:                                         ; preds = %if.end.i.i.i175, %i
   %ob_digit.i177 = getelementptr %struct._longobject, ptr %call.i163, i64 0, i32 1, i32 1
   store i32 0, ptr %ob_digit.i177, align 8
   %cmp48219.not = icmp eq i64 %size_b.0, 0
-  switch i32 %conv31, label %sw.default95 [
-    i32 38, label %for.cond.preheader
-    i32 124, label %for.cond60.preheader
-    i32 94, label %for.cond78.preheader
+  switch i8 %op, label %sw.default95 [
+    i8 38, label %for.cond.preheader
+    i8 124, label %for.cond60.preheader
+    i8 94, label %for.cond78.preheader
   ]
 
 for.cond78.preheader:                             ; preds = %if.end45
   br i1 %cmp48219.not, label %sw.epilog96, label %for.body81
 
 for.cond60.preheader:                             ; preds = %if.end45
-  br i1 %cmp48219.not, label %sw.epilog96, label %for.body63
+  br i1 %cmp48219.not, label %if.else116, label %for.body63
 
 for.cond.preheader:                               ; preds = %if.end45
-  br i1 %cmp48219.not, label %sw.epilog96, label %for.body
+  br i1 %cmp48219.not, label %if.else116, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0220 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
@@ -17641,14 +17640,14 @@ for.body81:                                       ; preds = %for.cond78.preheade
 sw.default95:                                     ; preds = %if.end45
   unreachable
 
-sw.epilog96:                                      ; preds = %for.body81, %for.body63, %for.body, %for.cond78.preheader, %for.cond60.preheader, %for.cond.preheader
+sw.epilog96:                                      ; preds = %for.body81, %for.body63, %for.body, %for.cond78.preheader
   %cmp98 = icmp eq i8 %op, 94
   %tobool100 = icmp ne i32 %negb.0, 0
   %or.cond = and i1 %cmp98, %tobool100
-  %cmp103222 = icmp slt i64 %size_b.0, %size_z.0
   br i1 %or.cond, label %for.cond102.preheader, label %if.else116
 
 for.cond102.preheader:                            ; preds = %sw.epilog96
+  %cmp103222 = icmp slt i64 %size_b.0, %size_z.0
   br i1 %cmp103222, label %for.body105, label %if.end127
 
 for.body105:                                      ; preds = %for.cond102.preheader, %for.body105
@@ -17662,13 +17661,15 @@ for.body105:                                      ; preds = %for.cond102.prehead
   %exitcond229.not = icmp eq i64 %inc114, %size_z.0
   br i1 %exitcond229.not, label %if.end127, label %for.body105, !llvm.loop !125
 
-if.else116:                                       ; preds = %sw.epilog96
-  br i1 %cmp103222, label %if.then119, label %if.end127
+if.else116:                                       ; preds = %for.cond.preheader, %for.cond60.preheader, %sw.epilog96
+  %i.3234 = phi i64 [ %size_b.0, %sw.epilog96 ], [ 0, %for.cond60.preheader ], [ 0, %for.cond.preheader ]
+  %cmp117 = icmp slt i64 %i.3234, %size_z.0
+  br i1 %cmp117, label %if.then119, label %if.end127
 
 if.then119:                                       ; preds = %if.else116
-  %arrayidx122 = getelementptr %struct._longobject, ptr %call.i163, i64 0, i32 1, i32 1, i64 %size_b.0
-  %arrayidx125 = getelementptr %struct._longobject, ptr %a.addr.1, i64 0, i32 1, i32 1, i64 %size_b.0
-  %sub = sub nsw i64 %size_z.0, %size_b.0
+  %arrayidx122 = getelementptr %struct._longobject, ptr %call.i163, i64 0, i32 1, i32 1, i64 %i.3234
+  %arrayidx125 = getelementptr %struct._longobject, ptr %a.addr.1, i64 0, i32 1, i32 1, i64 %i.3234
+  %sub = sub nsw i64 %size_z.0, %i.3234
   %mul = shl nsw i64 %sub, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx122, ptr align 4 %arrayidx125, i64 %mul, i1 false)
   br label %if.end127
@@ -17777,9 +17778,9 @@ land.lhs.true.i:                                  ; preds = %while.end.i, %if.en
   br i1 %cmp.i.i, label %return, label %if.then.i201
 
 if.then.i201:                                     ; preds = %while.end.thread.i, %land.lhs.true.i
-  %v.val.i200232 = phi i64 [ %v.val.i200, %land.lhs.true.i ], [ %v.val.i, %while.end.thread.i ]
+  %v.val.i200237 = phi i64 [ %v.val.i200, %land.lhs.true.i ], [ %v.val.i, %while.end.thread.i ]
   %v.val8.i = load i32, ptr %ob_digit.i177, align 8
-  %and.i.i202 = and i64 %v.val.i200232, 3
+  %and.i.i202 = and i64 %v.val.i200237, 3
   %sub.i.i = sub nsw i64 1, %and.i.i202
   %conv.i9.i = zext i32 %v.val8.i to i64
   %mul.i.i = mul nsw i64 %sub.i.i, %conv.i9.i

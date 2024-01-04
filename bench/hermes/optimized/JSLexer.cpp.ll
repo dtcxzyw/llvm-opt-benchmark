@@ -2487,7 +2487,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i36
 _ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i36
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %14 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %14
@@ -2745,7 +2745,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %19 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %19
@@ -3176,17 +3176,17 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %curCharPtr_, align 8
   %1 = load i8, ptr %incdec.ptr, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %_ZN6hermes22isASCIIIdentifierStartEj.exit [
-    i32 95, label %if.then
-    i32 36, label %if.then
+  switch i8 %1, label %_ZN6hermes22isASCIIIdentifierStartEj.exit [
+    i8 95, label %if.then
+    i8 36, label %if.then
   ]
 
 _ZN6hermes22isASCIIIdentifierStartEj.exit:        ; preds = %entry
-  %or.i = or i32 %conv, 32
-  %2 = add nsw i32 %or.i, -97
-  %3 = icmp ult i32 %2, 26
-  br i1 %3, label %if.then, label %if.else
+  %2 = or i8 %1, 32
+  %or.i = sext i8 %2 to i32
+  %3 = add nsw i32 %or.i, -97
+  %4 = icmp ult i32 %3, 26
+  br i1 %4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %entry, %_ZN6hermes22isASCIIIdentifierStartEj.exit
   tail call void @_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE0EEEvPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull %incdec.ptr)
@@ -3206,19 +3206,19 @@ if.else8:                                         ; preds = %if.else
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.76, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  %4 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %4, i32 noundef 0, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #21
   %5 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %5, i64 0, i32 7
-  %6 = load i8, ptr %errorLimitReached_.i.i, align 4
-  %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef 0, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #21
+  %6 = load ptr, ptr %this, align 8
+  %errorLimitReached_.i.i = getelementptr inbounds %"class.hermes::SourceErrorManager", ptr %6, i64 0, i32 7
+  %7 = load i8, ptr %errorLimitReached_.i.i, align 4
+  %8 = and i8 %7, 1
+  %tobool.i.not.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else8
   %bufferEnd_.i.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %this, i64 0, i32 15
-  %8 = load ptr, ptr %bufferEnd_.i.i, align 8
-  store ptr %8, ptr %curCharPtr_, align 8
+  %9 = load ptr, ptr %bufferEnd_.i.i, align 8
+  store ptr %9, ptr %curCharPtr_, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.then7, %if.then
@@ -5755,11 +5755,10 @@ entry:
   %range_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %this, i64 0, i32 11, i32 2
   store ptr %0, ptr %range_.i, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 123, label %sw.bb
-    i32 60, label %sw.bb7
-    i32 0, label %sw.bb13
+  switch i8 %1, label %sw.default [
+    i8 123, label %sw.bb
+    i8 60, label %sw.bb7
+    i8 0, label %sw.bb13
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -18185,7 +18184,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5

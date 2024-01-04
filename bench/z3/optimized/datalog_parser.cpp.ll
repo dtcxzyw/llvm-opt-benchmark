@@ -2059,19 +2059,18 @@ if.end.lr.ph:                                     ; preds = %entry
 if.end:                                           ; preds = %if.end.lr.ph, %sw.epilog
   %1 = phi i8 [ %0, %if.end.lr.ph ], [ %124, %sw.epilog ]
   store i64 0, ptr %m_pos.i, align 8
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 35, label %sw.bb
-    i32 10, label %sw.bb2
-    i32 92, label %sw.bb3
-    i32 40, label %sw.bb8
-    i32 41, label %sw.bb9
-    i32 44, label %sw.bb12
-    i32 61, label %sw.bb15
-    i32 33, label %sw.bb18
-    i32 58, label %sw.bb25
-    i32 34, label %sw.bb33
-    i32 124, label %sw.bb35
+  switch i8 %1, label %sw.default [
+    i8 35, label %sw.bb
+    i8 10, label %sw.bb2
+    i8 92, label %sw.bb3
+    i8 40, label %sw.bb8
+    i8 41, label %sw.bb9
+    i8 44, label %sw.bb12
+    i8 61, label %sw.bb15
+    i8 33, label %sw.bb18
+    i8 58, label %sw.bb25
+    i8 34, label %sw.bb33
+    i8 124, label %sw.bb35
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -2079,7 +2078,7 @@ sw.bb:                                            ; preds = %if.end
   br label %sw.epilogthread-pre-split
 
 sw.bb2:                                           ; preds = %if.end
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 10, ptr %m_prev_char.i4, align 8
   %2 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2128,7 +2127,7 @@ _ZN6dlexer4nextEv.exit:                           ; preds = %if.then.i.i, %if.en
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 92, ptr %m_prev_char.i4, align 8
   %11 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i6 = icmp eq ptr %11, null
   br i1 %tobool.not.i6, label %if.else.i23, label %if.then.i7
@@ -2224,7 +2223,7 @@ sw.bb8:                                           ; preds = %if.end
   %27 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %27, ptr %m_tok_pos, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 40, ptr %m_prev_char.i4, align 8
   %28 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i30 = icmp eq ptr %28, null
   br i1 %tobool.not.i30, label %if.else.i47, label %if.then.i31
@@ -2275,7 +2274,7 @@ sw.bb9:                                           ; preds = %if.end
   %36 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos11 = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %36, ptr %m_tok_pos11, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 41, ptr %m_prev_char.i4, align 8
   %37 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i54 = icmp eq ptr %37, null
   br i1 %tobool.not.i54, label %if.else.i71, label %if.then.i55
@@ -2326,7 +2325,7 @@ sw.bb12:                                          ; preds = %if.end
   %45 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos14 = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %45, ptr %m_tok_pos14, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 44, ptr %m_prev_char.i4, align 8
   %46 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i78 = icmp eq ptr %46, null
   br i1 %tobool.not.i78, label %if.else.i95, label %if.then.i79
@@ -2377,7 +2376,7 @@ sw.bb15:                                          ; preds = %if.end
   %54 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos17 = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %54, ptr %m_tok_pos17, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 61, ptr %m_prev_char.i4, align 8
   %55 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i102 = icmp eq ptr %55, null
   br i1 %tobool.not.i102, label %if.else.i119, label %if.then.i103
@@ -2428,7 +2427,7 @@ sw.bb18:                                          ; preds = %if.end
   %63 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos20 = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %63, ptr %m_tok_pos20, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 33, ptr %m_prev_char.i4, align 8
   %64 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i126 = icmp eq ptr %64, null
   br i1 %tobool.not.i126, label %if.else.i143, label %if.then.i127
@@ -2539,7 +2538,7 @@ sw.bb25:                                          ; preds = %if.end
   %81 = load i32, ptr %m_pos.i16, align 8
   %m_tok_pos27 = getelementptr inbounds %class.dlexer, ptr %this, i64 0, i32 7
   store i32 %81, ptr %m_tok_pos27, align 4
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 58, ptr %m_prev_char.i4, align 8
   %82 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i174 = icmp eq ptr %82, null
   br i1 %tobool.not.i174, label %if.else.i191, label %if.then.i175
@@ -2651,7 +2650,7 @@ sw.bb33:                                          ; preds = %if.end
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  store i8 %1, ptr %m_prev_char.i4, align 8
+  store i8 124, ptr %m_prev_char.i4, align 8
   %99 = load ptr, ptr %m_reader.i5, align 8
   %tobool.not.i222 = icmp eq ptr %99, null
   br i1 %tobool.not.i222, label %if.else.i239, label %if.then.i223
@@ -2700,6 +2699,7 @@ _ZN6dlexer4nextEv.exit242:                        ; preds = %if.then.i.i234, %if
   br label %return
 
 sw.default:                                       ; preds = %if.end
+  %conv = sext i8 %1 to i32
   %call39 = tail call i32 @iswspace(i32 noundef %conv) #21
   %tobool.not = icmp eq i32 %call39, 0
   %107 = load i8, ptr %m_curr_char.i, align 1

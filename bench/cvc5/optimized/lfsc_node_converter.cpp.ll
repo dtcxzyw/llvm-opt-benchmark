@@ -5151,10 +5151,10 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 cond.true:                                        ; preds = %entry
   call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %tn, ptr noundef nonnull align 8 dereferenceable(8) %n, i1 noundef zeroext false)
-  switch i32 %bf.cast.i, label %if.else410 [
-    i32 8, label %if.then18
-    i32 13, label %if.then140
-    i32 9, label %if.then144
+  switch i16 %bf.clear.i, label %if.else410 [
+    i16 8, label %if.then18
+    i16 13, label %if.then140
+    i16 9, label %if.then144
   ]
 
 if.then18:                                        ; preds = %cond.true
@@ -5759,7 +5759,7 @@ lpad.i643:                                        ; preds = %.noexc646
   br label %ehcleanup89
 
 invoke.cont85:                                    ; preds = %.noexc646
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bvarOp, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 8, ptr noundef nonnull %agg.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bvarOp, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82, i1 noundef zeroext true)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont85
@@ -6428,7 +6428,7 @@ invoke.cont217:                                   ; preds = %invoke.cont214
           to label %invoke.cont221 unwind label %lpad220
 
 invoke.cont221:                                   ; preds = %invoke.cont217
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %skolemOp, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 9, ptr noundef nonnull %agg.tmp215, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %skolemOp, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp215, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218, i1 noundef zeroext true)
           to label %invoke.cont223 unwind label %lpad222
 
 invoke.cont223:                                   ; preds = %invoke.cont221
@@ -7192,9 +7192,9 @@ ehcleanup428:                                     ; preds = %lpad419, %lpad.i941
   br label %ehcleanup2718
 
 if.else429:                                       ; preds = %invoke.cont411
-  switch i32 %bf.cast.i, label %if.else590 [
-    i32 29, label %cond.end446
-    i32 24, label %if.then580
+  switch i16 %bf.clear.i, label %if.else590 [
+    i16 29, label %cond.end446
+    i16 24, label %if.then580
   ]
 
 cond.end446:                                      ; preds = %if.else429
@@ -7583,7 +7583,7 @@ lpad.i1143:                                       ; preds = %.noexc1146
   br label %ehcleanup525
 
 invoke.cont521:                                   ; preds = %.noexc1146
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %fcard, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 29, ptr noundef nonnull %agg.tmp515, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp518, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %fcard, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp515, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp518, i1 noundef zeroext true)
           to label %invoke.cont523 unwind label %lpad522
 
 invoke.cont523:                                   ; preds = %invoke.cont521
@@ -9235,26 +9235,26 @@ ehcleanup1006:                                    ; preds = %ehcleanup1004, %lpa
   br label %ehcleanup2718
 
 if.else1007:                                      ; preds = %if.else736
-  switch i32 %bf.cast.i, label %lor.lhs.false1723 [
-    i32 83, label %if.then1009
-    i32 150, label %invoke.cont1090
-    i32 145, label %if.then1230
-    i32 329, label %if.then1361
-    i32 331, label %if.then1419
-    i32 211, label %if.then1557
-    i32 73, label %if.then1726
-    i32 72, label %if.then1726
-    i32 71, label %if.then1726
-    i32 70, label %if.then1726
-    i32 49, label %if.then1726
-    i32 46, label %if.then1726
-    i32 45, label %if.then1726
-    i32 44, label %if.then1726
-    i32 43, label %if.then1726
-    i32 42, label %if.then1726
-    i32 41, label %if.then1726
-    i32 40, label %if.then1726
-    i32 39, label %if.then1726
+  switch i16 %bf.clear.i, label %lor.lhs.false1723 [
+    i16 83, label %if.then1009
+    i16 150, label %invoke.cont1090
+    i16 145, label %if.then1230
+    i16 329, label %if.then1361
+    i16 331, label %if.then1419
+    i16 211, label %if.then1557
+    i16 73, label %if.then1726
+    i16 72, label %if.then1726
+    i16 71, label %if.then1726
+    i16 70, label %if.then1726
+    i16 49, label %if.then1726
+    i16 46, label %if.then1726
+    i16 45, label %if.then1726
+    i16 44, label %if.then1726
+    i16 43, label %if.then1726
+    i16 42, label %if.then1726
+    i16 41, label %if.then1726
+    i16 40, label %if.then1726
+    i16 39, label %if.then1726
   ]
 
 if.then1009:                                      ; preds = %if.else1007
@@ -9292,7 +9292,7 @@ invoke.cont1022:                                  ; preds = %invoke.cont1019
           to label %invoke.cont1026 unwind label %lpad1025
 
 invoke.cont1026:                                  ; preds = %invoke.cont1022
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 83, ptr noundef nonnull %agg.tmp1020, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp1020, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023, i1 noundef zeroext true)
           to label %invoke.cont1028 unwind label %lpad1027
 
 invoke.cont1028:                                  ; preds = %invoke.cont1026
@@ -9529,7 +9529,7 @@ invoke.cont1157:                                  ; preds = %arraydestroy.done11
           to label %invoke.cont1161 unwind label %lpad1160
 
 invoke.cont1161:                                  ; preds = %invoke.cont1157
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf1154, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 150, ptr noundef nonnull %agg.tmp1155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1158, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf1154, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp1155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1158, i1 noundef zeroext true)
           to label %invoke.cont1163 unwind label %lpad1162
 
 invoke.cont1163:                                  ; preds = %invoke.cont1161
@@ -9918,7 +9918,7 @@ invoke.cont1298:                                  ; preds = %arraydestroy.done12
           to label %invoke.cont1302 unwind label %lpad1301
 
 invoke.cont1302:                                  ; preds = %invoke.cont1298
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ffconstf, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 145, ptr noundef nonnull %agg.tmp1296, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1299, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ffconstf, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp1296, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1299, i1 noundef zeroext true)
           to label %invoke.cont1304 unwind label %lpad1303
 
 invoke.cont1304:                                  ; preds = %invoke.cont1302
@@ -10307,7 +10307,7 @@ invoke.cont1430:                                  ; preds = %invoke.cont1426
           to label %invoke.cont1434 unwind label %lpad1433
 
 invoke.cont1434:                                  ; preds = %invoke.cont1430
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ret1427, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 331, ptr noundef nonnull %agg.tmp1428, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1431, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ret1427, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp1428, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1431, i1 noundef zeroext true)
           to label %invoke.cont1436 unwind label %lpad1435
 
 invoke.cont1436:                                  ; preds = %invoke.cont1434
@@ -10639,7 +10639,7 @@ invoke.cont1579:                                  ; preds = %invoke.cont1575
           to label %invoke.cont1583 unwind label %lpad1582
 
 invoke.cont1583:                                  ; preds = %invoke.cont1579
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf1576, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 211, ptr noundef nonnull %agg.tmp1577, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1580, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bconstf1576, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp1577, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1580, i1 noundef zeroext true)
           to label %invoke.cont1585 unwind label %lpad1584
 
 invoke.cont1585:                                  ; preds = %invoke.cont1583
@@ -10965,10 +10965,10 @@ ehcleanup1757:                                    ; preds = %ehcleanup1755, %lpa
   br label %ehcleanup2718
 
 if.else1758:                                      ; preds = %invoke.cont1724
-  switch i32 %bf.cast.i, label %if.else1844 [
-    i32 273, label %if.then1764
-    i32 254, label %if.then1764
-    i32 243, label %if.then1764
+  switch i16 %bf.clear.i, label %if.else1844 [
+    i16 273, label %if.then1764
+    i16 254, label %if.then1764
+    i16 243, label %if.then1764
   ]
 
 if.then1764:                                      ; preds = %if.else1758, %if.else1758, %if.else1758
@@ -11363,11 +11363,11 @@ ehcleanup1954:                                    ; preds = %ehcleanup1949, %lpa
   br label %ehcleanup2718
 
 if.else1955:                                      ; preds = %invoke.cont1845
-  switch i32 %bf.cast.i, label %if.else2355 [
-    i32 32, label %if.then1957
-    i32 350, label %if.then1973
-    i32 84, label %if.then2141
-    i32 237, label %if.then2280
+  switch i16 %bf.clear.i, label %if.else2355 [
+    i16 32, label %if.then1957
+    i16 350, label %if.then1973
+    i16 84, label %if.then2141
+    i16 237, label %if.then2280
   ]
 
 if.then1957:                                      ; preds = %if.else1955
@@ -11458,11 +11458,11 @@ arraydestroy.done2011:                            ; preds = %arraydestroy.body20
           to label %invoke.cont2021 unwind label %lpad2020
 
 invoke.cont2021:                                  ; preds = %arraydestroy.done2011
-  invoke void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2022, i32 noundef 350)
+  invoke void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2022, i32 noundef %bf.cast.i)
           to label %invoke.cont2024 unwind label %lpad2023
 
 invoke.cont2024:                                  ; preds = %invoke.cont2021
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %rop, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 350, ptr noundef nonnull %agg.tmp2019, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2022, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %rop, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp2019, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2022, i1 noundef zeroext true)
           to label %invoke.cont2026 unwind label %lpad2025
 
 invoke.cont2026:                                  ; preds = %invoke.cont2024
@@ -11853,7 +11853,7 @@ invoke.cont2204:                                  ; preds = %arraydestroy.done21
           to label %invoke.cont2208 unwind label %lpad2207
 
 invoke.cont2208:                                  ; preds = %invoke.cont2204
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bbt, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 84, ptr noundef nonnull %agg.tmp2202, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2205, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %bbt, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp2202, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2205, i1 noundef zeroext true)
           to label %invoke.cont2210 unwind label %lpad2209
 
 invoke.cont2210:                                  ; preds = %invoke.cont2208
@@ -12087,7 +12087,7 @@ invoke.cont2298:                                  ; preds = %invoke.cont2294
           to label %invoke.cont2302 unwind label %lpad2301
 
 invoke.cont2302:                                  ; preds = %invoke.cont2298
-  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %s2295, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef 237, ptr noundef nonnull %agg.tmp2296, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2299, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal5proof17LfscNodeConverter17getSymbolInternalENS0_4kind6Kind_tENS0_8TypeNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %s2295, ptr noundef nonnull align 8 dereferenceable(760) %this, i32 noundef %bf.cast.i, ptr noundef nonnull %agg.tmp2296, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2299, i1 noundef zeroext true)
           to label %invoke.cont2304 unwind label %lpad2303
 
 invoke.cont2304:                                  ; preds = %invoke.cont2302
@@ -17434,19 +17434,19 @@ if.then144:                                       ; preds = %if.end140
           to label %if.end148 unwind label %lpad124.loopexit.split-lp
 
 if.end148:                                        ; preds = %if.then144, %if.end140
-  %switch.tableidx = add nsw i32 %bf.cast.i, -181
-  %108 = icmp ult i32 %switch.tableidx, 7
+  %switch.tableidx = add nsw i16 %bf.clear.i, -181
+  %108 = icmp ult i16 %switch.tableidx, 7
   br i1 %108, label %switch.hole_check, label %if.else172
 
 switch.hole_check:                                ; preds = %if.end148
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 85, %switch.maskindex
   %109 = and i8 %switch.shifted, 1
   %switch.lobit.not = icmp eq i8 %109, 0
   br i1 %switch.lobit.not, label %if.else172, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %110 = zext nneg i32 %switch.tableidx to i64
+  %110 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4cvc58internal5proof17LfscNodeConverter17getOperatorOfTermENS0_12NodeTemplateILb1EEEb, i64 0, i64 %110
   %switch.load = load ptr, ptr %switch.gep, align 8
   %add.ptr169 = getelementptr inbounds i8, ptr %opName, i64 16
@@ -17530,12 +17530,12 @@ ehcleanup184:                                     ; preds = %lpad124.loopexit, %
   br label %ehcleanup366
 
 if.else185:                                       ; preds = %invoke.cont112
-  switch i32 %bf.cast.i, label %if.else291 [
-    i32 217, label %if.then187
-    i32 218, label %if.then216
-    i32 332, label %if.then277
-    i32 284, label %if.then277
-    i32 250, label %if.then277
+  switch i16 %bf.clear.i, label %if.else291 [
+    i16 217, label %if.then187
+    i16 218, label %if.then216
+    i16 332, label %if.then277
+    i16 284, label %if.then277
+    i16 250, label %if.then277
   ]
 
 if.then187:                                       ; preds = %if.else185
@@ -18894,23 +18894,23 @@ lpad411:                                          ; preds = %if.then13.i.i1214, 
   br label %ehcleanup484
 
 if.end414:                                        ; preds = %if.then409, %invoke.cont407
-  switch i32 %bf.cast.i, label %if.end456 [
-    i32 73, label %if.then446
-    i32 72, label %if.then446
-    i32 71, label %if.then446
-    i32 70, label %if.then446
-    i32 49, label %if.then446
-    i32 46, label %if.then446
-    i32 45, label %if.then446
-    i32 44, label %if.then446
-    i32 43, label %if.then446
-    i32 42, label %if.then446
-    i32 41, label %if.then446
-    i32 40, label %if.then446
-    i32 39, label %if.then446
-    i32 38, label %if.then446
-    i32 37, label %if.then446
-    i32 36, label %if.then446
+  switch i16 %bf.clear.i, label %if.end456 [
+    i16 73, label %if.then446
+    i16 72, label %if.then446
+    i16 71, label %if.then446
+    i16 70, label %if.then446
+    i16 49, label %if.then446
+    i16 46, label %if.then446
+    i16 45, label %if.then446
+    i16 44, label %if.then446
+    i16 43, label %if.then446
+    i16 42, label %if.then446
+    i16 41, label %if.then446
+    i16 40, label %if.then446
+    i16 39, label %if.then446
+    i16 38, label %if.then446
+    i16 37, label %if.then446
+    i16 36, label %if.then446
   ]
 
 if.then446:                                       ; preds = %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414, %if.end414
@@ -18937,10 +18937,10 @@ invoke.cont459:                                   ; preds = %if.end456
 
 invoke.cont461:                                   ; preds = %invoke.cont459
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp458) #21
-  switch i32 %bf.cast.i, label %if.end473 [
-    i32 46, label %if.then469
-    i32 44, label %if.then469
-    i32 42, label %if.then469
+  switch i16 %bf.clear.i, label %if.end473 [
+    i16 46, label %if.then469
+    i16 44, label %if.then469
+    i16 42, label %if.then469
   ]
 
 if.then469:                                       ; preds = %invoke.cont461, %invoke.cont461, %invoke.cont461
@@ -22284,14 +22284,13 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %lor.rhs [
-    i32 26, label %lor.end
-    i32 352, label %lor.end
-    i32 353, label %lor.end
-    i32 11, label %lor.end
-    i32 255, label %lor.end
-    i32 233, label %lor.end
+  switch i16 %bf.clear.i, label %lor.rhs [
+    i16 26, label %lor.end
+    i16 352, label %lor.end
+    i16 353, label %lor.end
+    i16 11, label %lor.end
+    i16 255, label %lor.end
+    i16 233, label %lor.end
   ]
 
 lor.rhs:                                          ; preds = %entry
@@ -23955,11 +23954,11 @@ cond.true:                                        ; preds = %_ZN4cvc58internal8T
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   store i32 %bf.cast.i, ptr %k, align 4
-  switch i32 %bf.cast.i, label %if.else340 [
-    i32 25, label %if.then
-    i32 82, label %if.then111
-    i32 152, label %if.then172
-    i32 223, label %if.then245
+  switch i16 %bf.clear.i, label %if.else340 [
+    i16 25, label %if.then
+    i16 82, label %if.then111
+    i16 152, label %if.then172
+    i16 223, label %if.then245
   ]
 
 if.then:                                          ; preds = %cond.true
@@ -25077,7 +25076,7 @@ while.body.i.i.i.i632:                            ; preds = %if.then111, %while.
   %__y.addr.06.i.i.i.i634 = phi ptr [ %__y.addr.1.i.i.i.i639, %while.body.i.i.i.i632 ], [ %add.ptr.i.i.i.i629, %if.then111 ]
   %_M_storage.i.i.i.i.i.i635 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i633, i64 0, i32 1
   %119 = load i32, ptr %_M_storage.i.i.i.i.i.i635, align 4
-  %cmp.i.i.i.i.i636 = icmp slt i32 %119, 82
+  %cmp.i.i.i.i.i636 = icmp slt i32 %119, %bf.cast.i
   %_M_right.i.i.i.i.i637 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i633, i64 0, i32 3
   %_M_left.i.i.i.i.i638 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i633, i64 0, i32 2
   %__y.addr.1.i.i.i.i639 = select i1 %cmp.i.i.i.i.i636, ptr %__y.addr.06.i.i.i.i634, ptr %__x.addr.07.i.i.i.i633
@@ -25093,7 +25092,7 @@ _ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt
 lor.rhs.i644:                                     ; preds = %_ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i
   %_M_storage.i.i.i645 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i639, i64 0, i32 1
   %120 = load i32, ptr %_M_storage.i.i.i645, align 4
-  %cmp.i3.i = icmp sgt i32 %120, 82
+  %cmp.i3.i = icmp sgt i32 %120, %bf.cast.i
   br i1 %cmp.i3.i, label %if.then.i649, label %invoke.cont112
 
 if.then.i649:                                     ; preds = %lor.rhs.i644, %_ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %if.then111
@@ -25541,7 +25540,7 @@ while.body.i.i.i.i834:                            ; preds = %if.then172, %while.
   %__y.addr.06.i.i.i.i836 = phi ptr [ %__y.addr.1.i.i.i.i841, %while.body.i.i.i.i834 ], [ %add.ptr.i.i.i.i831, %if.then172 ]
   %_M_storage.i.i.i.i.i.i837 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i835, i64 0, i32 1
   %167 = load i32, ptr %_M_storage.i.i.i.i.i.i837, align 4
-  %cmp.i.i.i.i.i838 = icmp slt i32 %167, 152
+  %cmp.i.i.i.i.i838 = icmp slt i32 %167, %bf.cast.i
   %_M_right.i.i.i.i.i839 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i835, i64 0, i32 3
   %_M_left.i.i.i.i.i840 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i835, i64 0, i32 2
   %__y.addr.1.i.i.i.i841 = select i1 %cmp.i.i.i.i.i838, ptr %__y.addr.06.i.i.i.i836, ptr %__x.addr.07.i.i.i.i835
@@ -25557,7 +25556,7 @@ _ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt
 lor.rhs.i847:                                     ; preds = %_ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i845
   %_M_storage.i.i.i848 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i841, i64 0, i32 1
   %168 = load i32, ptr %_M_storage.i.i.i848, align 4
-  %cmp.i3.i849 = icmp sgt i32 %168, 152
+  %cmp.i3.i849 = icmp sgt i32 %168, %bf.cast.i
   br i1 %cmp.i3.i849, label %if.then.i853, label %invoke.cont174
 
 if.then.i853:                                     ; preds = %lor.rhs.i847, %_ZNSt3mapIN4cvc58internal4kind6Kind_tENS1_12NodeTemplateILb1EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i845, %if.then172
@@ -26114,9 +26113,7 @@ ehcleanup242:                                     ; preds = %lpad190, %ehcleanup
   br label %ehcleanup676
 
 if.then245:                                       ; preds = %cond.true
-  %cmp.i.i.i.i.i1071 = icmp eq i16 %bf.clear.i, 1023
-  %cond.i.i.i.i.i1072 = select i1 %cmp.i.i.i.i.i1071, i32 -1, i32 223
-  %call2.i.i.i1080 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i1072)
+  %call2.i.i.i1080 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 223)
           to label %invoke.cont246 unwind label %lpad2
 
 invoke.cont246:                                   ; preds = %if.then245

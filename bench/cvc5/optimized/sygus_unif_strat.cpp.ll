@@ -3346,10 +3346,9 @@ cond.true264:                                     ; preds = %if.then13.i.i1256, 
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %180, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else331 [
-    i32 23, label %if.then307
-    i32 303, label %if.then316
+  switch i16 %bf.clear.i, label %if.else331 [
+    i16 23, label %if.then307
+    i16 303, label %if.then316
   ]
 
 if.then307:                                       ; preds = %cond.true264

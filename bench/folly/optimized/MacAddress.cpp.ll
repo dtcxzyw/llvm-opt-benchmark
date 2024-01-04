@@ -1256,7 +1256,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
 entry:
   %cmp3.i = icmp eq ptr %value.coerce0, %value.coerce1
   br i1 %cmp3.i, label %"_ZN5folly10MacAddress13setFromStringIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit", label %if.end18.i
@@ -3209,17 +3209,16 @@ if.end11:                                         ; preds = %sw.default, %sw.bb9
   %uval.0 = phi i8 [ %sub, %if.then3 ], [ %1, %sw.default ], [ %1, %sw.bb9 ], [ %1, %if.else ]
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %valBuf) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valBufEnd) #24
-  %conv12 = sext i8 %spec.store.select to i32
-  switch i32 %conv12, label %sw.default119 [
-    i32 110, label %sw.bb13
-    i32 100, label %sw.bb23
-    i32 99, label %sw.bb40
-    i32 111, label %sw.bb54
-    i32 79, label %sw.bb54
-    i32 120, label %sw.bb68
-    i32 88, label %sw.bb85
-    i32 98, label %sw.bb102
-    i32 66, label %sw.bb102
+  switch i8 %spec.store.select, label %sw.default119 [
+    i8 110, label %sw.bb13
+    i8 100, label %sw.bb23
+    i8 99, label %sw.bb40
+    i8 111, label %sw.bb54
+    i8 79, label %sw.bb54
+    i8 120, label %sw.bb68
+    i8 88, label %sw.bb85
+    i8 98, label %sw.bb102
+    i8 66, label %sw.bb102
   ]
 
 sw.bb13:                                          ; preds = %if.end11
@@ -4408,17 +4407,16 @@ if.then.i:                                        ; preds = %entry
 _ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %valBuf) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valBufEnd) #24
-  %conv5 = sext i8 %spec.store.select to i32
-  switch i32 %conv5, label %sw.default [
-    i32 110, label %sw.bb
-    i32 100, label %sw.bb15
-    i32 99, label %sw.bb31
-    i32 111, label %sw.bb46
-    i32 79, label %sw.bb46
-    i32 120, label %sw.bb60
-    i32 88, label %sw.bb77
-    i32 98, label %sw.bb94
-    i32 66, label %sw.bb94
+  switch i8 %spec.store.select, label %sw.default [
+    i8 110, label %sw.bb
+    i8 100, label %sw.bb15
+    i8 99, label %sw.bb31
+    i8 111, label %sw.bb46
+    i8 79, label %sw.bb46
+    i8 120, label %sw.bb60
+    i8 88, label %sw.bb77
+    i8 98, label %sw.bb94
+    i8 66, label %sw.bb94
   ]
 
 sw.bb:                                            ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit
@@ -4854,8 +4852,8 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #19 align 2 {
 entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %value.coerce1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %value.coerce0 to i64
@@ -4932,7 +4930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_MacAddress.cpp() #20 section ".text.startup" {
 entry:
   store i64 -65536, ptr @_ZN5folly10MacAddress9BROADCASTE, align 1
@@ -4976,8 +4974,8 @@ attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #16 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

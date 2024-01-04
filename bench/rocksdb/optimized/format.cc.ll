@@ -992,12 +992,11 @@ if.end40:                                         ; preds = %if.then15
   store i32 %conv33, ptr %add.ptr31, align 1
   %add.ptr41 = getelementptr inbounds %"class.rocksdb::FooterBuilder", ptr %this, i64 0, i32 1, i32 0, i64 17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr41, i8 0, i64 24, i1 false)
-  %conv.i = sext i8 %checksum_type to i32
-  switch i32 %conv.i, label %_ZN7rocksdb22ComputeBuiltinChecksumENS_12ChecksumTypeEPKcm.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb4.i
-    i32 4, label %sw.bb7.i
+  switch i8 %checksum_type, label %_ZN7rocksdb22ComputeBuiltinChecksumENS_12ChecksumTypeEPKcm.exit [
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb2.i
+    i8 3, label %sw.bb4.i
+    i8 4, label %sw.bb7.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end40
@@ -1147,12 +1146,11 @@ return:                                           ; preds = %if.end53, %if.then3
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7rocksdb22ComputeBuiltinChecksumENS_12ChecksumTypeEPKcm(i8 noundef signext %type, ptr noundef %data, i64 noundef %data_size) local_unnamed_addr #3 {
 entry:
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb4
-    i32 4, label %sw.bb7
+  switch i8 %type, label %return [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb2
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb7
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -3659,12 +3657,11 @@ define noundef i32 @_ZN7rocksdb34ComputeBuiltinChecksumWithLastByteENS_12Checksu
 entry:
   %last_byte.addr = alloca i8, align 1
   store i8 %last_byte, ptr %last_byte.addr, align 1
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb10
-    i32 4, label %sw.bb20
+  switch i8 %type, label %return [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb10
+    i8 4, label %sw.bb20
   ]
 
 sw.bb:                                            ; preds = %entry

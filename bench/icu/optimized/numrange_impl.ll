@@ -1631,25 +1631,24 @@ if.else43:                                        ; preds = %invoke.cont39
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then41, %if.else43, %if.then34
-  %16 = phi i32 [ 268435456, %if.then41 ], [ 536870912, %if.else43 ], [ 0, %if.then34 ]
+  %16 = phi i32 [ 16, %if.then41 ], [ 32, %if.else43 ], [ 0, %if.then34 ]
   %fIdentityFallback = getelementptr inbounds %"class.icu_75::number::impl::NumberRangeFormatterImpl", ptr %this, i64 0, i32 5
   %17 = load i32, ptr %fIdentityFallback, align 8
-  %18 = shl i32 %17, 24
-  %sext = or i32 %16, %18
-  %conv = ashr exact i32 %sext, 24
-  switch i32 %conv, label %sw.default [
-    i32 35, label %sw.bb
-    i32 19, label %sw.bb
-    i32 3, label %sw.bb
-    i32 34, label %sw.bb
-    i32 33, label %sw.bb
-    i32 32, label %sw.bb
-    i32 18, label %sw.bb51
-    i32 2, label %sw.bb51
-    i32 17, label %sw.bb51
-    i32 1, label %sw.bb53
-    i32 16, label %sw.bb53
-    i32 0, label %sw.bb53
+  %or.i = or i32 %16, %17
+  %conv4.i = trunc i32 %or.i to i8
+  switch i8 %conv4.i, label %sw.default [
+    i8 35, label %sw.bb
+    i8 19, label %sw.bb
+    i8 3, label %sw.bb
+    i8 34, label %sw.bb
+    i8 33, label %sw.bb
+    i8 32, label %sw.bb
+    i8 18, label %sw.bb51
+    i8 2, label %sw.bb51
+    i8 17, label %sw.bb51
+    i8 1, label %sw.bb53
+    i8 16, label %sw.bb53
+    i8 0, label %sw.bb53
   ]
 
 sw.bb:                                            ; preds = %if.end46, %if.end46, %if.end46, %if.end46, %if.end46, %if.end46

@@ -331,9 +331,12 @@ while.cond.i:                                     ; preds = %while.cond.i.backed
   %p.0.i = phi ptr [ %p.0.i.ph, %while.cond.i.outer ], [ %incdec.ptr.i, %while.cond.i.backedge ]
   %incdec.ptr.i = getelementptr i8, ptr %p.0.i, i64 1
   %2 = load i8, ptr %p.0.i, align 1
-  switch i8 %2, label %if.else.i [
+  switch i8 %2, label %sw.default.i.i [
     i8 0, label %while.end.i
     i8 44, label %if.then.i
+    i8 85, label %char_to_mode.exit.i
+    i8 83, label %sw.bb1.i.i
+    i8 77, label %sw.bb2.i.i
   ]
 
 if.then.i:                                        ; preds = %while.cond.i
@@ -348,27 +351,20 @@ if.then3.i:                                       ; preds = %if.then.i
   %inc.i = add i32 %hartid.0.i.ph, 1
   br label %while.cond.i.outer, !llvm.loop !10
 
-if.else.i:                                        ; preds = %while.cond.i
+sw.bb1.i.i:                                       ; preds = %while.cond.i
+  br label %char_to_mode.exit.i
+
+sw.bb2.i.i:                                       ; preds = %while.cond.i
+  br label %char_to_mode.exit.i
+
+sw.default.i.i:                                   ; preds = %while.cond.i
   %conv.i.i = sext i8 %2 to i32
-  switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 85, label %char_to_mode.exit.i
-    i32 83, label %sw.bb1.i.i
-    i32 77, label %sw.bb2.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.else.i
-  br label %char_to_mode.exit.i
-
-sw.bb2.i.i:                                       ; preds = %if.else.i
-  br label %char_to_mode.exit.i
-
-sw.default.i.i:                                   ; preds = %if.else.i
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i.i) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-char_to_mode.exit.i:                              ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %if.else.i
-  %retval.0.i.i = phi i32 [ 2, %sw.bb2.i.i ], [ 1, %sw.bb1.i.i ], [ 0, %if.else.i ]
+char_to_mode.exit.i:                              ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %while.cond.i
+  %retval.0.i.i = phi i32 [ 2, %sw.bb2.i.i ], [ 1, %sw.bb1.i.i ], [ 0, %while.cond.i ]
   %shl.i = shl nuw nsw i32 1, %retval.0.i.i
   %or.i = or i32 %shl.i, %modes.0.i
   %cmp6.i = icmp eq i32 %modes.0.i, %or.i
@@ -379,7 +375,8 @@ while.cond.i.backedge:                            ; preds = %char_to_mode.exit.i
   br label %while.cond.i, !llvm.loop !10
 
 if.then8.i:                                       ; preds = %char_to_mode.exit.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, i32 noundef %conv.i.i, ptr noundef %1) #8
+  %conv.i = zext nneg i8 %2 to i32
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, i32 noundef %conv.i, ptr noundef %1) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
@@ -424,9 +421,12 @@ while.cond25.i:                                   ; preds = %while.cond25.i.oute
   %p.1.i = phi ptr [ %incdec.ptr26.i, %if.then32.i ], [ %p.1.i.ph, %while.cond25.i.outer ]
   %incdec.ptr26.i = getelementptr i8, ptr %p.1.i, i64 1
   %9 = load i8, ptr %p.1.i, align 1
-  switch i8 %9, label %if.else37.i [
+  switch i8 %9, label %sw.default.i42.i [
     i8 0, label %parse_hart_config.exit
     i8 44, label %if.then32.i
+    i8 85, label %char_to_mode.exit44.i.loopexit
+    i8 83, label %char_to_mode.exit44.i
+    i8 77, label %sw.bb2.i39.i
   ]
 
 if.then32.i:                                      ; preds = %while.cond25.i
@@ -435,27 +435,20 @@ if.then32.i:                                      ; preds = %while.cond25.i
   %spec.select.i = add i32 %hartid.3.i, %inc35.i
   br label %while.cond25.i, !llvm.loop !11
 
-if.else37.i:                                      ; preds = %while.cond25.i
-  %conv.i39.i = sext i8 %9 to i32
-  switch i32 %conv.i39.i, label %sw.default.i43.i [
-    i32 85, label %char_to_mode.exit44.i
-    i32 83, label %sw.bb1.i42.i
-    i32 77, label %sw.bb2.i40.i
-  ]
-
-sw.bb1.i42.i:                                     ; preds = %if.else37.i
+sw.bb2.i39.i:                                     ; preds = %while.cond25.i
   br label %char_to_mode.exit44.i
 
-sw.bb2.i40.i:                                     ; preds = %if.else37.i
-  br label %char_to_mode.exit44.i
-
-sw.default.i43.i:                                 ; preds = %if.else37.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i39.i) #8
+sw.default.i42.i:                                 ; preds = %while.cond25.i
+  %conv.i43.i = sext i8 %9 to i32
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i43.i) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-char_to_mode.exit44.i:                            ; preds = %sw.bb2.i40.i, %sw.bb1.i42.i, %if.else37.i
-  %retval.0.i41.i = phi i32 [ 2, %sw.bb2.i40.i ], [ 1, %sw.bb1.i42.i ], [ 0, %if.else37.i ]
+char_to_mode.exit44.i.loopexit:                   ; preds = %while.cond25.i
+  br label %char_to_mode.exit44.i
+
+char_to_mode.exit44.i:                            ; preds = %while.cond25.i, %char_to_mode.exit44.i.loopexit, %sw.bb2.i39.i
+  %retval.0.i40.i = phi i32 [ 2, %sw.bb2.i39.i ], [ 0, %char_to_mode.exit44.i.loopexit ], [ 1, %while.cond25.i ]
   %10 = load ptr, ptr %addr_config.i, align 16
   %idxprom.i = sext i32 %addrid.3.i.ph to i64
   %arrayidx.i = getelementptr %struct.PLICAddr, ptr %10, i64 %idxprom.i
@@ -465,8 +458,8 @@ char_to_mode.exit44.i:                            ; preds = %sw.bb2.i40.i, %sw.b
   store i32 %hartid.3.i, ptr %hartid44.i, align 4
   %12 = load ptr, ptr %addr_config.i, align 16
   %mode.i = getelementptr %struct.PLICAddr, ptr %12, i64 %idxprom.i, i32 2
-  store i32 %retval.0.i41.i, ptr %mode.i, align 4
-  %shl48.i = shl nuw nsw i32 1, %retval.0.i41.i
+  store i32 %retval.0.i40.i, ptr %mode.i, align 4
+  %shl48.i = shl nuw nsw i32 1, %retval.0.i40.i
   %or49.i = or i32 %shl48.i, %modes.3.i
   %inc50.i = add i32 %addrid.3.i.ph, 1
   br label %while.cond25.i.outer, !llvm.loop !11
@@ -533,19 +526,19 @@ if.end:                                           ; preds = %parse_hart_config.e
   %23 = load i32, ptr %num_harts.i, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call29, i32 noundef %23) #8
   %24 = load i32, ptr %num_harts.i, align 4
-  %cmp49.not = icmp eq i32 %24, 0
-  br i1 %cmp49.not, label %for.end, label %for.body
+  %cmp52.not = icmp eq i32 %24, 0
+  br i1 %cmp52.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw i32 %i.050, 1
+  %inc = add nuw i32 %i.053, 1
   %25 = load i32, ptr %num_harts.i, align 4
   %cmp = icmp ult i32 %inc, %25
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %if.end, %for.cond
-  %i.050 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
+  %i.053 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
   %26 = load i32, ptr %hartid_base.i, align 8
-  %add34 = add i32 %26, %i.050
+  %add34 = add i32 %26, %i.053
   %call35 = tail call ptr @qemu_get_cpu(i32 noundef %add34) #8
   %call.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call35, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %call37 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i41, i64 noundef 512) #8

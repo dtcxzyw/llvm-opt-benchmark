@@ -497,21 +497,21 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 12, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb3
-    i32 25, label %sw.bb7
-    i32 82, label %sw.bb11
-    i32 144, label %sw.bb17
-    i32 152, label %sw.bb26
-    i32 207, label %sw.bb35
-    i32 221, label %sw.bb40
-    i32 222, label %sw.bb46
-    i32 223, label %sw.bb52
-    i32 244, label %sw.bb58
-    i32 274, label %sw.bb63
-    i32 330, label %sw.bb68
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 12, label %sw.bb
+    i16 1, label %sw.bb2
+    i16 2, label %sw.bb3
+    i16 25, label %sw.bb7
+    i16 82, label %sw.bb11
+    i16 144, label %sw.bb17
+    i16 152, label %sw.bb26
+    i16 207, label %sw.bb35
+    i16 221, label %sw.bb40
+    i16 222, label %sw.bb46
+    i16 223, label %sw.bb52
+    i16 244, label %sw.bb58
+    i16 274, label %sw.bb63
+    i16 330, label %sw.bb68
   ]
 
 sw.bb:                                            ; preds = %entry

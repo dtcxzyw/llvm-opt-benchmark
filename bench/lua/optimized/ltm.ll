@@ -125,10 +125,9 @@ entry:
   %tt_ = getelementptr inbounds %struct.TValue, ptr %o, i64 0, i32 1
   %0 = load i8, ptr %tt_, align 8
   %1 = and i8 %0, 15
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %sw.default [
-    i32 5, label %sw.bb
-    i32 7, label %sw.bb1
+  switch i8 %1, label %sw.default [
+    i8 5, label %sw.bb
+    i8 7, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -399,15 +398,14 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @callbinTM(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc noundef i32 @callbinTM(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
 entry:
   %tt_.i = getelementptr inbounds %struct.TValue, ptr %p1, i64 0, i32 1
   %0 = load i8, ptr %tt_.i, align 8
   %1 = and i8 %0, 15
-  %and.i = zext nneg i8 %1 to i32
-  switch i32 %and.i, label %sw.default.i [
-    i32 5, label %sw.bb.i
-    i32 7, label %sw.bb1.i
+  switch i8 %1, label %sw.default.i [
+    i8 5, label %sw.bb.i
+    i8 7, label %sw.bb1.i
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -458,48 +456,47 @@ if.then:                                          ; preds = %luaT_gettmbyobj.exi
   %tt_.i8 = getelementptr inbounds %struct.TValue, ptr %p2, i64 0, i32 1
   %9 = load i8, ptr %tt_.i8, align 8
   %10 = and i8 %9, 15
-  %and.i9 = zext nneg i8 %10 to i32
-  switch i32 %and.i9, label %sw.default.i26 [
-    i32 5, label %sw.bb.i24
-    i32 7, label %sw.bb1.i10
+  switch i8 %10, label %sw.default.i25 [
+    i8 5, label %sw.bb.i23
+    i8 7, label %sw.bb1.i9
   ]
 
-sw.bb.i24:                                        ; preds = %if.then
+sw.bb.i23:                                        ; preds = %if.then
   %11 = load ptr, ptr %p2, align 8
-  %metatable.i25 = getelementptr inbounds %struct.Table, ptr %11, i64 0, i32 9
-  br label %sw.epilog.i12
+  %metatable.i24 = getelementptr inbounds %struct.Table, ptr %11, i64 0, i32 9
+  br label %sw.epilog.i11
 
-sw.bb1.i10:                                       ; preds = %if.then
+sw.bb1.i9:                                        ; preds = %if.then
   %12 = load ptr, ptr %p2, align 8
-  %metatable3.i11 = getelementptr inbounds %struct.Udata, ptr %12, i64 0, i32 5
-  br label %sw.epilog.i12
+  %metatable3.i10 = getelementptr inbounds %struct.Udata, ptr %12, i64 0, i32 5
+  br label %sw.epilog.i11
 
-sw.default.i26:                                   ; preds = %if.then
+sw.default.i25:                                   ; preds = %if.then
   %13 = load ptr, ptr %l_G11.i, align 8
-  %idxprom.i28 = zext nneg i8 %10 to i64
-  %arrayidx.i29 = getelementptr inbounds %struct.global_State, ptr %13, i64 0, i32 43, i64 %idxprom.i28
-  br label %sw.epilog.i12
+  %idxprom.i27 = zext nneg i8 %10 to i64
+  %arrayidx.i28 = getelementptr inbounds %struct.global_State, ptr %13, i64 0, i32 43, i64 %idxprom.i27
+  br label %sw.epilog.i11
 
-sw.epilog.i12:                                    ; preds = %sw.default.i26, %sw.bb1.i10, %sw.bb.i24
-  %mt.0.in.i13 = phi ptr [ %arrayidx.i29, %sw.default.i26 ], [ %metatable3.i11, %sw.bb1.i10 ], [ %metatable.i25, %sw.bb.i24 ]
-  %mt.0.i14 = load ptr, ptr %mt.0.in.i13, align 8
-  %tobool.not.i15 = icmp eq ptr %mt.0.i14, null
+sw.epilog.i11:                                    ; preds = %sw.default.i25, %sw.bb1.i9, %sw.bb.i23
+  %mt.0.in.i12 = phi ptr [ %arrayidx.i28, %sw.default.i25 ], [ %metatable3.i10, %sw.bb1.i9 ], [ %metatable.i24, %sw.bb.i23 ]
+  %mt.0.i13 = load ptr, ptr %mt.0.in.i12, align 8
+  %tobool.not.i14 = icmp eq ptr %mt.0.i13, null
   %14 = load ptr, ptr %l_G11.i, align 8
-  br i1 %tobool.not.i15, label %cond.false.i22, label %cond.true.i17
+  br i1 %tobool.not.i14, label %cond.false.i21, label %cond.true.i16
 
-cond.true.i17:                                    ; preds = %sw.epilog.i12
-  %idxprom9.i18 = zext i32 %event to i64
-  %arrayidx10.i19 = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 42, i64 %idxprom9.i18
-  %15 = load ptr, ptr %arrayidx10.i19, align 8
-  %call.i20 = tail call ptr @luaH_getshortstr(ptr noundef nonnull %mt.0.i14, ptr noundef %15) #4
+cond.true.i16:                                    ; preds = %sw.epilog.i11
+  %idxprom9.i17 = zext i32 %event to i64
+  %arrayidx10.i18 = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 42, i64 %idxprom9.i17
+  %15 = load ptr, ptr %arrayidx10.i18, align 8
+  %call.i19 = tail call ptr @luaH_getshortstr(ptr noundef nonnull %mt.0.i13, ptr noundef %15) #4
   br label %if.end
 
-cond.false.i22:                                   ; preds = %sw.epilog.i12
-  %nilvalue.i23 = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 8
+cond.false.i21:                                   ; preds = %sw.epilog.i11
+  %nilvalue.i22 = getelementptr inbounds %struct.global_State, ptr %14, i64 0, i32 8
   br label %if.end
 
-if.end:                                           ; preds = %cond.false.i22, %cond.true.i17, %luaT_gettmbyobj.exit
-  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %call.i20, %cond.true.i17 ], [ %nilvalue.i23, %cond.false.i22 ]
+if.end:                                           ; preds = %cond.false.i21, %cond.true.i16, %luaT_gettmbyobj.exit
+  %tm.0 = phi ptr [ %cond.i, %luaT_gettmbyobj.exit ], [ %call.i19, %cond.true.i16 ], [ %nilvalue.i22, %cond.false.i21 ]
   %tt_3 = getelementptr inbounds %struct.TValue, ptr %tm.0, i64 0, i32 1
   %16 = load i8, ptr %tt_3, align 8
   %17 = and i8 %16, 15
@@ -537,8 +534,8 @@ if.end9:                                          ; preds = %if.end
   %callstatus.i = getelementptr inbounds %struct.CallInfo, ptr %27, i64 0, i32 7
   %28 = load i16, ptr %callstatus.i, align 2
   %29 = and i16 %28, 10
-  %tobool.not.i32 = icmp eq i16 %29, 0
-  br i1 %tobool.not.i32, label %if.then.i, label %if.else.i
+  %tobool.not.i31 = icmp eq i16 %29, 0
+  br i1 %tobool.not.i31, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end9
   tail call void @luaD_call(ptr noundef nonnull %L, ptr noundef nonnull %19, i32 noundef 1) #4

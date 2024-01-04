@@ -14766,11 +14766,10 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 19, label %sw.bb
-    i32 21, label %sw.bb1
-    i32 20, label %sw.bb5
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 19, label %sw.bb
+    i16 21, label %sw.bb1
+    i16 20, label %sw.bb5
   ]
 
 sw.bb:                                            ; preds = %entry

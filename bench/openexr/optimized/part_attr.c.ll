@@ -1658,16 +1658,15 @@ if.then32:                                        ; preds = %for.body
   %type1.i = getelementptr inbounds %struct.exr_attribute_t, ptr %11, i64 0, i32 5
   %14 = load i32, ptr %type1.i, align 4
   %15 = load i8, ptr %13, align 1
-  %conv.i = sext i8 %15 to i32
-  switch i32 %conv.i, label %sw.epilog.i [
-    i32 99, label %sw.bb.i
-    i32 100, label %sw.bb27.i
-    i32 108, label %sw.bb53.i
-    i32 110, label %sw.bb67.i
-    i32 112, label %sw.bb77.i
-    i32 115, label %sw.bb86.i
-    i32 116, label %sw.bb104.i
-    i32 118, label %sw.bb123.i
+  switch i8 %15, label %sw.epilog.i [
+    i8 99, label %sw.bb.i
+    i8 100, label %sw.bb27.i
+    i8 108, label %sw.bb53.i
+    i8 110, label %sw.bb67.i
+    i8 112, label %sw.bb77.i
+    i8 115, label %sw.bb86.i
+    i8 116, label %sw.bb104.i
+    i8 118, label %sw.bb123.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then32

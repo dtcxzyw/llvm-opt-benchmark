@@ -149,7 +149,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @opt_progname(ptr noundef readonly %argv0) local_unnamed_addr #2 {
+define noundef nonnull ptr @opt_progname(ptr noundef readonly %argv0) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %argv0) #20
   %add.ptr.i = getelementptr inbounds i8, ptr %argv0, i64 %call.i
@@ -184,7 +184,7 @@ if.end:                                           ; preds = %if.then, %opt_path_
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @opt_appname(ptr noundef %argv0) local_unnamed_addr #4 {
+define noundef nonnull ptr @opt_appname(ptr noundef %argv0) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %argv0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -203,13 +203,13 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @opt_getprog() local_unnamed_addr #6 {
+define noundef nonnull ptr @opt_getprog() local_unnamed_addr #6 {
 entry:
   ret ptr @prog
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @opt_init(i32 noundef %ac, ptr noundef %av, ptr noundef %o) local_unnamed_addr #4 {
+define noundef nonnull ptr @opt_init(i32 noundef %ac, ptr noundef %av, ptr noundef %o) local_unnamed_addr #4 {
 entry:
   store ptr %av, ptr @argv, align 8
   store i32 1, ptr @opt_index, align 4
@@ -353,30 +353,29 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_format(ptr noundef %s, i64 noundef %flags, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_format(ptr noundef %s, i64 noundef %flags, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %s, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 66, label %sw.bb
-    i32 98, label %sw.bb
-    i32 68, label %sw.bb23
-    i32 100, label %sw.bb23
-    i32 84, label %sw.bb30
-    i32 116, label %sw.bb30
-    i32 78, label %sw.bb37
-    i32 110, label %sw.bb37
-    i32 83, label %sw.bb53
-    i32 115, label %sw.bb53
-    i32 77, label %sw.bb60
-    i32 109, label %sw.bb60
-    i32 69, label %sw.bb67
-    i32 101, label %sw.bb67
-    i32 72, label %sw.bb74
-    i32 104, label %sw.bb74
-    i32 49, label %sw.bb81
-    i32 80, label %sw.bb88
-    i32 112, label %sw.bb88
+  switch i8 %0, label %sw.default [
+    i8 66, label %sw.bb
+    i8 98, label %sw.bb
+    i8 68, label %sw.bb23
+    i8 100, label %sw.bb23
+    i8 84, label %sw.bb30
+    i8 116, label %sw.bb30
+    i8 78, label %sw.bb37
+    i8 110, label %sw.bb37
+    i8 83, label %sw.bb53
+    i8 115, label %sw.bb53
+    i8 77, label %sw.bb60
+    i8 109, label %sw.bb60
+    i8 69, label %sw.bb67
+    i8 101, label %sw.bb67
+    i8 72, label %sw.bb74
+    i8 104, label %sw.bb74
+    i8 49, label %sw.bb81
+    i8 80, label %sw.bb88
+    i8 112, label %sw.bb88
   ]
 
 sw.default:                                       ; preds = %entry
@@ -987,7 +986,7 @@ opt_format_error.exit:                            ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_cipher_silent(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
+define noundef i32 @opt_cipher_silent(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #21
   %call1 = tail call ptr @app_get0_libctx() #21
@@ -1050,7 +1049,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #5
 declare i32 @ERR_clear_last_mark() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_cipher_any(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
+define noundef i32 @opt_cipher_any(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end
@@ -1070,7 +1069,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_cipher(ptr noundef %name, ptr noundef writeonly %cipherp) local_unnamed_addr #4 {
+define noundef i32 @opt_cipher(ptr noundef %name, ptr noundef writeonly %cipherp) local_unnamed_addr #4 {
 entry:
   %c = alloca ptr, align 8
   store ptr null, ptr %c, align 8
@@ -1126,7 +1125,7 @@ declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #5
 declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_md_silent(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
+define noundef i32 @opt_md_silent(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #21
   %call1 = tail call ptr @app_get0_libctx() #21
@@ -1177,7 +1176,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #5
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_md(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
+define noundef i32 @opt_md(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end
@@ -1197,7 +1196,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_check_md(ptr noundef %name) local_unnamed_addr #4 {
+define noundef i32 @opt_check_md(ptr noundef %name) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %name, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1220,7 +1219,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 declare void @ERR_clear_error() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_pair(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %pairs, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_pair(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %pairs, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pairs, align 8
   %tobool.not10 = icmp eq ptr %0, null
@@ -1266,7 +1265,7 @@ return:                                           ; preds = %for.body8, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_string(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %options) local_unnamed_addr #4 {
+define noundef i32 @opt_string(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %options) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %options, align 8
   %cmp.not9 = icmp eq ptr %0, null
@@ -1306,7 +1305,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_int(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_int(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %l = alloca i64, align 8
   %call = call i32 @opt_long(ptr noundef %value, ptr noundef nonnull %l), !range !8
@@ -1331,7 +1330,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_long(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_long(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %endp = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #23
@@ -1435,7 +1434,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_intmax(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_intmax(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %endp = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #23
@@ -1509,7 +1508,7 @@ return:                                           ; preds = %for.end.i, %if.then
 declare i64 @strtoimax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_uintmax(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_uintmax(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %endp = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #23
@@ -1580,7 +1579,7 @@ return:                                           ; preds = %for.end.i, %if.then
 declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_ulong(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define noundef i32 @opt_ulong(ptr noundef %value, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #23
@@ -1651,7 +1650,7 @@ return:                                           ; preds = %for.end.i, %if.then
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_verify(i32 noundef %opt, ptr noundef %vpm) local_unnamed_addr #4 {
+define noundef i32 @opt_verify(i32 noundef %opt, ptr noundef %vpm) local_unnamed_addr #4 {
 entry:
   %t = alloca i64, align 8
   store i64 0, ptr %t, align 8
@@ -2306,7 +2305,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opt_check_rest_arg(ptr noundef %expected) local_unnamed_addr #4 {
+define noundef i32 @opt_check_rest_arg(ptr noundef %expected) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @argv, align 8
   %1 = load i32, ptr @opt_index, align 4
@@ -2549,7 +2548,7 @@ for.end47:                                        ; preds = %opt_print.exit, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc nonnull ptr @valtype2param(i32 %o.12.val) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @valtype2param(i32 %o.12.val) unnamed_addr #6 {
 entry:
   switch i32 %o.12.val, label %sw.epilog [
     i32 0, label %return

@@ -1029,10 +1029,9 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else28 [
-    i32 5, label %if.then10
-    i32 289, label %if.then21
+  switch i16 %bf.clear.i, label %if.else28 [
+    i16 5, label %if.then10
+    i16 289, label %if.then21
   ]
 
 if.then10:                                        ; preds = %invoke.cont8
@@ -1470,26 +1469,25 @@ invoke.cont54:                                    ; preds = %invoke.cont32
   %d_kind.i225 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %58, i64 0, i32 1
   %bf.load.i226 = load i16, ptr %d_kind.i225, align 8
   %bf.clear.i227 = and i16 %bf.load.i226, 1023
-  %bf.cast.i228 = zext nneg i16 %bf.clear.i227 to i32
-  switch i32 %bf.cast.i228, label %sw.default [
-    i32 284, label %sw.bb
-    i32 281, label %sw.bb62
-    i32 283, label %sw.bb69
-    i32 275, label %sw.bb76
-    i32 276, label %sw.bb83
-    i32 277, label %sw.bb90
-    i32 278, label %sw.bb97
-    i32 279, label %sw.bb104
-    i32 286, label %sw.bb111
-    i32 285, label %sw.bb118
-    i32 287, label %sw.bb125
-    i32 288, label %sw.bb132
-    i32 290, label %sw.bb139
-    i32 291, label %sw.bb146
-    i32 292, label %sw.bb153
-    i32 293, label %sw.bb160
-    i32 294, label %sw.bb167
-    i32 298, label %sw.bb174
+  switch i16 %bf.clear.i227, label %sw.default [
+    i16 284, label %sw.bb
+    i16 281, label %sw.bb62
+    i16 283, label %sw.bb69
+    i16 275, label %sw.bb76
+    i16 276, label %sw.bb83
+    i16 277, label %sw.bb90
+    i16 278, label %sw.bb97
+    i16 279, label %sw.bb104
+    i16 286, label %sw.bb111
+    i16 285, label %sw.bb118
+    i16 287, label %sw.bb125
+    i16 288, label %sw.bb132
+    i16 290, label %sw.bb139
+    i16 291, label %sw.bb146
+    i16 292, label %sw.bb153
+    i16 293, label %sw.bb160
+    i16 294, label %sw.bb167
+    i16 298, label %sw.bb174
   ]
 
 sw.bb:                                            ; preds = %invoke.cont54
@@ -11622,10 +11620,9 @@ invoke.cont58:                                    ; preds = %entry
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %68, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 284, label %sw.bb
-    i32 276, label %sw.bb99
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 284, label %sw.bb
+    i16 276, label %sw.bb99
   ]
 
 sw.bb:                                            ; preds = %invoke.cont58
@@ -12802,10 +12799,9 @@ if.end:                                           ; preds = %invoke.cont10
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %24, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 284, label %sw.bb
-    i32 276, label %sw.bb66
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 284, label %sw.bb
+    i16 276, label %sw.bb66
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -14169,14 +14165,14 @@ if.end:                                           ; preds = %invoke.cont13
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 284, label %sw.bb
-    i32 276, label %sw.bb67
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 284, label %sw.bb
+    i16 276, label %sw.bb67
   ]
 
 sw.bb:                                            ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !650)
-  %call2.i.i.i123142 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 284)
+  %call2.i.i.i123142 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %call2.i.i.i123.noexc unwind label %lpad12
 
 call2.i.i.i123.noexc:                             ; preds = %sw.bb
@@ -14501,7 +14497,7 @@ ehcleanup65:                                      ; preds = %lpad62, %lpad60
 
 sw.bb67:                                          ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %call2.i.i.i256274 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 276)
+  %call2.i.i.i256274 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %call2.i.i.i256.noexc unwind label %lpad12
 
 call2.i.i.i256.noexc:                             ; preds = %sw.bb67
@@ -16498,11 +16494,10 @@ invoke.cont:                                      ; preds = %if.then13.i.i.i.i, 
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 5, label %sw.bb
-    i32 280, label %sw.bb6
-    i32 282, label %sw.bb12
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 5, label %sw.bb
+    i16 280, label %sw.bb6
+    i16 282, label %sw.bb12
   ]
 
 lpad:                                             ; preds = %if.then13.i.i423, %if.then13.i.i384, %if.then.i.i.i375, %if.then3.i.i, %if.then13.i.i, %sw.bb12, %sw.bb6, %sw.bb

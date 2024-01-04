@@ -740,10 +740,9 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp.not, label %while.end, label %if.else
 
 if.then:                                          ; preds = %land.rhs
-  %conv7 = sext i8 %3 to i32
-  switch i32 %conv7, label %sw.default [
-    i32 34, label %sw.bb
-    i32 92, label %sw.bb
+  switch i8 %3, label %sw.default [
+    i8 34, label %sw.bb
+    i8 92, label %sw.bb
   ]
 
 sw.bb:                                            ; preds = %if.then, %if.then

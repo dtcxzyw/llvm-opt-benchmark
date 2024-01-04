@@ -549,16 +549,16 @@ for.body.i:                                       ; preds = %sw.bb6, %sw.epilog.
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.037.i
   %6 = load i8, ptr %arrayidx.i, align 1, !tbaa !11
   %conv.i = sext i8 %6 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 34, label %sw.bb.i
-    i32 92, label %sw.bb2.i
-    i32 7, label %sw.bb4.i
-    i32 8, label %sw.bb6.i
-    i32 12, label %sw.bb8.i
-    i32 10, label %sw.bb10.i
-    i32 13, label %sw.bb12.i
-    i32 9, label %sw.bb14.i
-    i32 11, label %sw.bb16.i
+  switch i8 %6, label %sw.default.i [
+    i8 34, label %sw.bb.i
+    i8 92, label %sw.bb2.i
+    i8 7, label %sw.bb4.i
+    i8 8, label %sw.bb6.i
+    i8 12, label %sw.bb8.i
+    i8 10, label %sw.bb10.i
+    i8 13, label %sw.bb12.i
+    i8 9, label %sw.bb14.i
+    i8 11, label %sw.bb16.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i

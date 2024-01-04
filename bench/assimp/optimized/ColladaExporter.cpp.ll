@@ -679,13 +679,12 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %data, i64 noundef %i.010) #22
   %0 = load i8, ptr %call1, align 1
   store i8 %0, ptr %c, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 38, label %sw.bb.invoke
-    i32 34, label %sw.bb4
-    i32 39, label %sw.bb7
-    i32 60, label %sw.bb10
-    i32 62, label %sw.bb13
+  switch i8 %0, label %sw.default [
+    i8 38, label %sw.bb.invoke
+    i8 34, label %sw.bb4
+    i8 39, label %sw.bb7
+    i8 60, label %sw.bb10
+    i8 62, label %sw.bb13
   ]
 
 lpad.loopexit:                                    ; preds = %sw.bb.invoke, %sw.default

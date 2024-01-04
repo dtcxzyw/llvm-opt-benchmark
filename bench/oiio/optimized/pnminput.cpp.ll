@@ -837,16 +837,15 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %m_remaining, align 8
   %2 = load i8, ptr %1, align 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %return [
-    i32 49, label %sw.epilog
-    i32 50, label %sw.bb6
-    i32 51, label %sw.bb8
-    i32 52, label %sw.bb10
-    i32 53, label %sw.bb12
-    i32 54, label %sw.bb14
-    i32 102, label %sw.bb16
-    i32 70, label %sw.bb18
+  switch i8 %2, label %return [
+    i8 49, label %sw.epilog
+    i8 50, label %sw.bb6
+    i8 51, label %sw.bb8
+    i8 52, label %sw.bb10
+    i8 53, label %sw.bb12
+    i8 54, label %sw.bb14
+    i8 102, label %sw.bb16
+    i8 70, label %sw.bb18
   ]
 
 sw.bb6:                                           ; preds = %if.end

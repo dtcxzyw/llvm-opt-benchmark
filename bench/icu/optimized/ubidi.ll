@@ -4435,13 +4435,12 @@ if.end140:                                        ; preds = %for.end, %if.end137
 if.then157:                                       ; preds = %if.end140
   %arrayidx160 = getelementptr inbounds [24 x [16 x i8]], ptr @_ZL11impTabProps, i64 0, i64 %idxprom141, i64 15
   %53 = load i8, ptr %arrayidx160, align 1
-  %conv161 = zext nneg i16 %spec.store.select to i32
   %54 = trunc i64 %indvars.iv205 to i32
-  switch i32 %conv161, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %for.inc166
-    i32 3, label %sw.bb163
-    i32 4, label %sw.bb164
+  switch i16 %spec.store.select, label %sw.default [
+    i16 1, label %sw.bb
+    i16 2, label %for.inc166
+    i16 3, label %sw.bb163
+    i16 4, label %sw.bb164
   ]
 
 sw.bb:                                            ; preds = %if.then157

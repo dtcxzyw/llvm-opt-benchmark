@@ -313,12 +313,11 @@ if.end46:                                         ; preds = %if.else36, %if.else
   br i1 %cmp48, label %while.end, label %if.end53
 
 if.end53:                                         ; preds = %if.end46
-  %conv47 = zext nneg i16 %bytesToWrite.0 to i32
-  switch i32 %conv47, label %sw.epilog [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb57
-    i32 2, label %sw.bb63
-    i32 1, label %sw.bb69
+  switch i16 %bytesToWrite.0, label %sw.epilog [
+    i16 4, label %sw.bb
+    i16 3, label %sw.bb57
+    i16 2, label %sw.bb63
+    i16 1, label %sw.bb69
   ]
 
 sw.bb:                                            ; preds = %if.end53
@@ -424,12 +423,11 @@ if.end21.us:                                      ; preds = %if.else14.us, %if.e
   br i1 %cmp22.us, label %while.end, label %if.end28.us
 
 if.end28.us:                                      ; preds = %if.end21.us
-  %conv.us = zext nneg i16 %bytesToWrite.0.us to i32
-  switch i32 %conv.us, label %sw.epilog.us [
-    i32 4, label %sw.bb.us
-    i32 3, label %sw.bb32.us
-    i32 2, label %sw.bb38.us
-    i32 1, label %sw.bb44.us
+  switch i16 %bytesToWrite.0.us, label %sw.epilog.us [
+    i16 4, label %sw.bb.us
+    i16 3, label %sw.bb32.us
+    i16 2, label %sw.bb38.us
+    i16 1, label %sw.bb44.us
   ]
 
 sw.bb.us:                                         ; preds = %if.end28.us
@@ -519,12 +517,11 @@ if.end21:                                         ; preds = %if.else14, %if.else
   br i1 %cmp22, label %while.end, label %if.end28
 
 if.end28:                                         ; preds = %if.end21
-  %conv = zext nneg i16 %bytesToWrite.0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb32
-    i32 2, label %sw.bb38
-    i32 1, label %sw.bb44
+  switch i16 %bytesToWrite.0, label %sw.epilog [
+    i16 4, label %sw.bb
+    i16 3, label %sw.bb32
+    i16 2, label %sw.bb38
+    i16 1, label %sw.bb44
   ]
 
 sw.bb:                                            ; preds = %if.end28
@@ -773,13 +770,13 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool.not, label %while.end, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  switch i16 %conv, label %sw.epilog [
-    i16 5, label %sw.bb
-    i16 4, label %sw.bb9
-    i16 3, label %sw.bb14
-    i16 2, label %sw.bb19
-    i16 1, label %sw.bb24
-    i16 0, label %sw.bb29
+  switch i8 %3, label %sw.epilog [
+    i8 5, label %sw.bb
+    i8 4, label %sw.bb9
+    i8 3, label %sw.bb14
+    i8 2, label %sw.bb19
+    i8 1, label %sw.bb24
+    i8 0, label %sw.bb29
   ]
 
 sw.bb:                                            ; preds = %if.end5
@@ -1222,13 +1219,13 @@ _ZN4llvhL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit97: ; preds = %i
   br label %while.cond.backedge
 
 if.end19:                                         ; preds = %if.end7
-  switch i16 %conv, label %sw.epilog [
-    i16 5, label %sw.bb
-    i16 4, label %sw.bb24
-    i16 3, label %sw.bb29
-    i16 2, label %sw.bb34
-    i16 1, label %sw.bb39
-    i16 0, label %sw.bb44
+  switch i8 %3, label %sw.epilog [
+    i8 5, label %sw.bb
+    i8 4, label %sw.bb24
+    i8 3, label %sw.bb29
+    i8 2, label %sw.bb34
+    i8 1, label %sw.bb39
+    i8 0, label %sw.bb44
   ]
 
 sw.bb:                                            ; preds = %if.end19

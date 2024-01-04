@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [17 x i8] c"siv->list == obj\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @string_input_visitor_new(ptr noundef %str) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @string_input_visitor_new(ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -95,7 +95,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %start.i = alloca i64, align 8
@@ -150,11 +150,10 @@ if.end.i:                                         ; preds = %sw.bb3
   store i64 %4, ptr %end.i, align 8
   %5 = load ptr, ptr %endptr.i, align 8
   %6 = load i8, ptr %5, align 1
-  %conv.i = sext i8 %6 to i32
-  switch i32 %conv.i, label %if.then6 [
-    i32 0, label %if.end12
-    i32 44, label %sw.bb2.i
-    i32 45, label %sw.bb4.i
+  switch i8 %6, label %if.then6 [
+    i8 0, label %if.end12
+    i8 44, label %sw.bb2.i
+    i8 45, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
@@ -179,10 +178,9 @@ if.end9.i:                                        ; preds = %sw.bb4.i
 if.end14.i:                                       ; preds = %if.end9.i
   %9 = load ptr, ptr %endptr.i, align 8
   %10 = load i8, ptr %9, align 1
-  %conv16.i = sext i8 %10 to i32
-  switch i32 %conv16.i, label %if.then6 [
-    i32 0, label %if.end12
-    i32 44, label %sw.bb19.i
+  switch i8 %10, label %if.then6 [
+    i8 0, label %if.end12
+    i8 44, label %sw.bb19.i
   ]
 
 sw.bb19.i:                                        ; preds = %if.end14.i
@@ -259,7 +257,7 @@ return:                                           ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %start.i = alloca i64, align 8
@@ -314,11 +312,10 @@ if.end.i:                                         ; preds = %sw.bb3
   store i64 %4, ptr %end.i, align 8
   %5 = load ptr, ptr %endptr.i, align 8
   %6 = load i8, ptr %5, align 1
-  %conv.i = sext i8 %6 to i32
-  switch i32 %conv.i, label %if.then6 [
-    i32 0, label %if.end12
-    i32 44, label %sw.bb2.i
-    i32 45, label %sw.bb4.i
+  switch i8 %6, label %if.then6 [
+    i8 0, label %if.end12
+    i8 44, label %sw.bb2.i
+    i8 45, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
@@ -343,10 +340,9 @@ if.end9.i:                                        ; preds = %sw.bb4.i
 if.end14.i:                                       ; preds = %if.end9.i
   %9 = load ptr, ptr %endptr.i, align 8
   %10 = load i8, ptr %9, align 1
-  %conv16.i = sext i8 %10 to i32
-  switch i32 %conv16.i, label %if.then6 [
-    i32 0, label %if.end12
-    i32 44, label %sw.bb19.i
+  switch i8 %10, label %if.then6 [
+    i8 0, label %if.end12
+    i8 44, label %sw.bb19.i
   ]
 
 sw.bb19.i:                                        ; preds = %if.end14.i
@@ -423,7 +419,7 @@ return:                                           ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca i64, align 8
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
@@ -472,7 +468,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_str(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef writeonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @parse_type_str(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef writeonly %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
   %0 = load i32, ptr %lm, align 8
@@ -492,7 +488,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_number(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_number(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca double, align 8
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
@@ -527,7 +523,7 @@ return:                                           ; preds = %if.end4, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_null(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_null(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
   %0 = load i32, ptr %lm, align 8
@@ -564,7 +560,7 @@ return:                                           ; preds = %if.end3, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @start_list(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr noundef %list, i64 noundef %size, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @start_list(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr noundef %list, i64 noundef %size, ptr nocapture readnone %errp) #0 {
 entry:
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
   %0 = load i32, ptr %lm, align 8
@@ -636,7 +632,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @check_list(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @check_list(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
 entry:
   %lm = getelementptr inbounds %struct.StringInputVisitor, ptr %v, i64 0, i32 1
   %0 = load i32, ptr %lm, align 8

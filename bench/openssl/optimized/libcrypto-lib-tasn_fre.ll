@@ -55,14 +55,13 @@ if.else:                                          ; preds = %land.lhs.true7, %if
 
 if.end12:                                         ; preds = %land.lhs.true7, %if.else
   %asn1_cb.0 = phi ptr [ null, %if.else ], [ %3, %land.lhs.true7 ]
-  %conv14 = sext i8 %1 to i32
-  switch i32 %conv14, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 5, label %sw.bb20
-    i32 2, label %sw.bb21
-    i32 4, label %sw.bb48
-    i32 6, label %sw.bb56
-    i32 1, label %sw.bb56
+  switch i8 %1, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 5, label %sw.bb20
+    i8 2, label %sw.bb21
+    i8 4, label %sw.bb48
+    i8 6, label %sw.bb56
+    i8 1, label %sw.bb56
   ]
 
 sw.bb:                                            ; preds = %if.end12

@@ -10071,11 +10071,10 @@ if.then165:                                       ; preds = %if.end163
 if.end173:                                        ; preds = %if.end163
   %33 = load ptr, ptr %13, align 8
   %34 = load i8, ptr %33, align 1
-  %conv175 = sext i8 %34 to i32
-  switch i32 %conv175, label %sw.default [
-    i32 45, label %sw.bb
-    i32 43, label %sw.bb176
-    i32 90, label %sw.bb222
+  switch i8 %34, label %sw.default [
+    i8 45, label %sw.bb
+    i8 43, label %sw.bb176
+    i8 90, label %sw.bb222
   ]
 
 sw.bb:                                            ; preds = %if.end173
@@ -24281,11 +24280,10 @@ if.then165:                                       ; preds = %if.end163
 if.end173:                                        ; preds = %if.end163
   %33 = load ptr, ptr %13, align 8
   %34 = load i8, ptr %33, align 1
-  %conv175 = sext i8 %34 to i32
-  switch i32 %conv175, label %sw.default [
-    i32 45, label %sw.bb
-    i32 43, label %sw.bb176
-    i32 90, label %sw.bb222
+  switch i8 %34, label %sw.default [
+    i8 45, label %sw.bb
+    i8 43, label %sw.bb176
+    i8 90, label %sw.bb222
   ]
 
 sw.bb:                                            ; preds = %if.end173

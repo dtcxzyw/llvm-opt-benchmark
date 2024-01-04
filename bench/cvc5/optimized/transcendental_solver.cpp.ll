@@ -1141,7 +1141,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %5, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   store ptr %5, ptr %agg.tmp, align 8
   invoke void @_ZN4cvc58internal6theory5arith2nl14transcendental19TranscendentalState15getPurifiedFormENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %new_a, ptr noundef nonnull align 8 dereferenceable(696) %d_tstate, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont21 unwind label %lpad20
@@ -1177,9 +1176,9 @@ lpad28:                                           ; preds = %invoke.cont21
   br label %ehcleanup71
 
 if.end32:                                         ; preds = %invoke.cont29
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 52, label %sw.bb
-    i32 51, label %sw.bb43
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 52, label %sw.bb
+    i16 51, label %sw.bb43
   ]
 
 sw.bb:                                            ; preds = %if.end32
@@ -1209,6 +1208,7 @@ lpad49:                                           ; preds = %sw.bb43
   br label %ehcleanup71
 
 sw.default:                                       ; preds = %if.end32
+  %bf.cast.i.le = zext nneg i16 %bf.clear.i to i32
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolver12initLastCallERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE, ptr noundef nonnull @.str, i32 noundef 91)
           to label %invoke.cont55 unwind label %lpad23
 
@@ -1233,7 +1233,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont65 unwind label %lpad56
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  %call68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4kindlsERSoNS1_6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8) %call66, i32 noundef %bf.cast.i)
+  %call68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4kindlsERSoNS1_6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8) %call66, i32 noundef %bf.cast.i.le)
           to label %invoke.cont67 unwind label %lpad56
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -4027,9 +4027,9 @@ lpad52:                                           ; preds = %if.end15.i.i
   br label %ehcleanup596
 
 if.end137:                                        ; preds = %cond.true120
-  switch i32 %bf.cast.i, label %cleanup595 [
-    i32 51, label %if.then.i641
-    i32 52, label %if.then5.i640
+  switch i16 %bf.clear.i, label %cleanup595 [
+    i16 51, label %if.then.i641
+    i16 52, label %if.then5.i640
   ]
 
 if.then.i641:                                     ; preds = %if.end137
@@ -4937,9 +4937,9 @@ cond.true486:                                     ; preds = %for.end
   br i1 %tobool.not, label %if.then503, label %if.else539
 
 if.then503:                                       ; preds = %cond.true486
-  switch i32 %bf.cast.i, label %cleanup589 [
-    i32 51, label %if.then505
-    i32 52, label %if.then522
+  switch i16 %bf.clear.i, label %cleanup589 [
+    i16 51, label %if.then505
+    i16 52, label %if.then522
   ]
 
 if.then505:                                       ; preds = %if.then503
@@ -4979,9 +4979,9 @@ if.else539:                                       ; preds = %cond.true486
   br i1 %tobool540.not, label %cleanup589, label %if.then541
 
 if.then541:                                       ; preds = %if.else539
-  switch i32 %bf.cast.i, label %cleanup589 [
-    i32 51, label %if.then543
-    i32 52, label %if.then565
+  switch i16 %bf.clear.i, label %cleanup589 [
+    i16 51, label %if.then543
+    i16 52, label %if.then565
   ]
 
 if.then543:                                       ; preds = %if.then541
@@ -9203,7 +9203,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

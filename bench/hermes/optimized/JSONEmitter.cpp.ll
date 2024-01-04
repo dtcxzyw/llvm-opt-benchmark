@@ -604,11 +604,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit.i.i:              ; preds = %if.else68.i.i
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit": ; preds = %while.body
   %incdec.ptr.i17 = getelementptr inbounds i8, ptr %begin8.0159, i64 1
-  %conv2.i = zext nneg i8 %3 to i32
-  switch i32 %conv2.i, label %if.end21 [
-    i32 92, label %if.then18
-    i32 47, label %if.then18
-    i32 34, label %if.then18
+  switch i8 %3, label %if.end21 [
+    i8 92, label %if.then18
+    i8 47, label %if.then18
+    i8 34, label %if.then18
   ]
 
 if.then.i20:                                      ; preds = %if.end.i.i, %if.end44.i.i
@@ -754,12 +753,12 @@ if.end27:                                         ; preds = %if.end21
   %sub.ptr.rhs.cast.i8.i123 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i9.i124 = sub i64 %sub.ptr.lhs.cast.i7.i122, %sub.ptr.rhs.cast.i8.i123
   %cmp.i.i125 = icmp ult i64 %sub.ptr.sub.i9.i124, 2
-  switch i32 %conv2.i, label %sw.default [
-    i32 8, label %sw.bb
-    i32 12, label %sw.bb30
-    i32 10, label %sw.bb33
-    i32 13, label %sw.bb36
-    i32 9, label %sw.bb39
+  switch i8 %3, label %sw.default [
+    i8 8, label %sw.bb
+    i8 12, label %sw.bb30
+    i8 10, label %sw.bb33
+    i8 13, label %sw.bb36
+    i8 9, label %sw.bb39
   ]
 
 sw.bb:                                            ; preds = %if.end27

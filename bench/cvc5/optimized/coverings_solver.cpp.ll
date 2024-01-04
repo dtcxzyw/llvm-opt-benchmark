@@ -847,10 +847,9 @@ invoke.cont6:                                     ; preds = %_ZN4cvc58internal8T
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %6, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %cond.true [
-    i32 78, label %if.then8
-    i32 66, label %if.then17
+  switch i16 %bf.clear.i, label %cond.true [
+    i16 78, label %if.then8
+    i16 66, label %if.then17
   ]
 
 if.then8:                                         ; preds = %invoke.cont6

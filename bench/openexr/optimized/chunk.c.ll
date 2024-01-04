@@ -1301,11 +1301,10 @@ if.end17:                                         ; preds = %if.end
   %level_and_round = getelementptr inbounds %struct.exr_attr_tiledesc_t, ptr %11, i64 0, i32 2
   %12 = load i8, ptr %level_and_round, align 1
   %13 = and i8 %12, 15
-  %and = zext nneg i8 %13 to i32
-  switch i32 %and, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb60
+  switch i8 %13, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb60
   ]
 
 sw.bb:                                            ; preds = %if.end17, %if.end17

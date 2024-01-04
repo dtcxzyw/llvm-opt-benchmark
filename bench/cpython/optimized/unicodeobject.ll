@@ -5112,10 +5112,9 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %flags.0.i = phi i32 [ %or.i, %while.bodythread-pre-split.i ], [ 0, %if.then ]
   %f.addr.0.i = phi ptr [ %incdec.ptr7.i, %while.bodythread-pre-split.i ], [ %incdec.ptr.i, %if.then ]
   %incdec.ptr7.i = getelementptr i8, ptr %f.addr.0.i, i64 1
-  %conv8.i = sext i8 %10 to i32
-  switch i32 %conv8.i, label %sw.epilog.i [
-    i32 45, label %while.bodythread-pre-split.i
-    i32 48, label %sw.bb9.i
+  switch i8 %10, label %sw.epilog.i [
+    i8 45, label %while.bodythread-pre-split.i
+    i8 48, label %sw.bb9.i
   ]
 
 sw.bb9.i:                                         ; preds = %while.body.i
@@ -5318,9 +5317,9 @@ if.then150.i:                                     ; preds = %if.end121.i
   br label %if.end155thread-pre-split.i
 
 if.end155thread-pre-split.i:                      ; preds = %if.then150.i, %if.then144.i, %if.then125.i, %if.end121.i
-  %.sink278.i = phi i64 [ 1, %if.then144.i ], [ 1, %if.then150.i ], [ 2, %if.then125.i ], [ 1, %if.end121.i ]
+  %.sink275.i = phi i64 [ 1, %if.then144.i ], [ 1, %if.then150.i ], [ 2, %if.then125.i ], [ 1, %if.end121.i ]
   %sizemod.0.ph.i = phi i32 [ 4, %if.then144.i ], [ 5, %if.then150.i ], [ 2, %if.then125.i ], [ 3, %if.end121.i ]
-  %add.ptr.i = getelementptr i8, ptr %f.addr.4.i, i64 %.sink278.i
+  %add.ptr.i = getelementptr i8, ptr %f.addr.4.i, i64 %.sink275.i
   %.pr238.i = load i8, ptr %add.ptr.i, align 1
   br label %if.end155.i
 
@@ -5347,18 +5346,17 @@ if.then164.i:                                     ; preds = %land.lhs.true.i
 
 if.end165.i:                                      ; preds = %if.then164.i, %land.lhs.true.i
   %43 = phi i8 [ %.pre271.i, %if.then164.i ], [ %41, %land.lhs.true.i ]
-  %conv166.i = sext i8 %43 to i32
-  switch i32 %conv166.i, label %sw.default.i [
-    i32 100, label %sw.epilog187.i
-    i32 105, label %sw.epilog187.i
-    i32 111, label %sw.epilog187.i
-    i32 117, label %sw.epilog187.i
-    i32 120, label %sw.epilog187.i
-    i32 88, label %sw.epilog187.i
-    i32 99, label %sw.bb168.i
-    i32 112, label %sw.bb168.i
-    i32 115, label %sw.bb177.i
-    i32 86, label %sw.bb177.i
+  switch i8 %43, label %sw.default.i [
+    i8 100, label %sw.epilog187.i
+    i8 105, label %sw.epilog187.i
+    i8 111, label %sw.epilog187.i
+    i8 117, label %sw.epilog187.i
+    i8 120, label %sw.epilog187.i
+    i8 88, label %sw.epilog187.i
+    i8 99, label %sw.bb168.i
+    i8 112, label %sw.bb168.i
+    i8 115, label %sw.bb177.i
+    i8 86, label %sw.bb177.i
   ]
 
 sw.bb168.i:                                       ; preds = %if.end165.i, %if.end165.i
@@ -5373,28 +5371,26 @@ sw.bb177.i:                                       ; preds = %if.end165.i, %if.en
   br i1 %or.cond2.i, label %invalid_format.i, label %sw.epilog187.i
 
 sw.default.i:                                     ; preds = %if.end165.i, %if.end155.i
-  %conv166275.i = phi i32 [ %conv166.i, %if.end165.i ], [ 0, %if.end155.i ]
   %44 = phi i8 [ %43, %if.end165.i ], [ 0, %if.end155.i ]
   br i1 %tobool184.not.i, label %sw.epilog187.i, label %invalid_format.i
 
 sw.epilog187.i:                                   ; preds = %sw.default.i, %sw.bb177.i, %sw.bb168.i, %if.end165.i, %if.end165.i, %if.end165.i, %if.end165.i, %if.end165.i, %if.end165.i
-  %conv166274.i = phi i32 [ %conv166275.i, %sw.default.i ], [ %conv166.i, %sw.bb177.i ], [ %conv166.i, %sw.bb168.i ], [ %conv166.i, %if.end165.i ], [ %conv166.i, %if.end165.i ], [ %conv166.i, %if.end165.i ], [ %conv166.i, %if.end165.i ], [ %conv166.i, %if.end165.i ], [ %conv166.i, %if.end165.i ]
   %45 = phi i8 [ %44, %sw.default.i ], [ %43, %sw.bb177.i ], [ %43, %sw.bb168.i ], [ %43, %if.end165.i ], [ %43, %if.end165.i ], [ %43, %if.end165.i ], [ %43, %if.end165.i ], [ %43, %if.end165.i ], [ %43, %if.end165.i ]
-  switch i32 %conv166274.i, label %invalid_format.i [
-    i32 99, label %sw.bb189.i
-    i32 100, label %sw.bb214.i
-    i32 105, label %sw.bb214.i
-    i32 111, label %sw.bb214.i
-    i32 117, label %sw.bb214.i
-    i32 120, label %sw.bb214.i
-    i32 88, label %sw.bb214.i
-    i32 112, label %sw.bb555.i
-    i32 115, label %sw.bb600.i
-    i32 85, label %sw.bb640.i
-    i32 86, label %sw.bb658.i
-    i32 83, label %sw.bb723.i
-    i32 82, label %sw.bb747.i
-    i32 65, label %sw.bb770.i
+  switch i8 %45, label %invalid_format.i [
+    i8 99, label %sw.bb189.i
+    i8 100, label %sw.bb214.i
+    i8 105, label %sw.bb214.i
+    i8 111, label %sw.bb214.i
+    i8 117, label %sw.bb214.i
+    i8 120, label %sw.bb214.i
+    i8 88, label %sw.bb214.i
+    i8 112, label %sw.bb555.i
+    i8 115, label %sw.bb600.i
+    i8 85, label %sw.bb640.i
+    i8 86, label %sw.bb658.i
+    i8 83, label %sw.bb723.i
+    i8 82, label %sw.bb747.i
+    i8 65, label %sw.bb770.i
   ]
 
 sw.bb189.i:                                       ; preds = %sw.epilog187.i
@@ -5481,11 +5477,11 @@ _PyUnicodeWriter_WriteCharInline.exit:            ; preds = %if.then.i.i, %if.th
 
 sw.bb214.i:                                       ; preds = %sw.epilog187.i, %sw.epilog187.i, %sw.epilog187.i, %sw.epilog187.i, %sw.epilog187.i, %sw.epilog187.i
   %idxprom229.i = zext nneg i32 %sizemod.0.i to i64
-  switch i32 %conv166274.i, label %sw.default228.i [
-    i32 111, label %sw.epilog231.i
-    i32 117, label %sw.bb219.i
-    i32 120, label %sw.bb222.i
-    i32 88, label %sw.bb225.i
+  switch i8 %45, label %sw.default228.i [
+    i8 111, label %sw.epilog231.i
+    i8 117, label %sw.bb219.i
+    i8 120, label %sw.bb222.i
+    i8 88, label %sw.bb225.i
   ]
 
 sw.bb219.i:                                       ; preds = %sw.bb214.i
@@ -26632,10 +26628,9 @@ while.cond:                                       ; preds = %while.body, %if.end
   %min_width.addr.0 = phi i64 [ %cond, %if.end8 ], [ %sub86, %while.body ]
   %arrayidx.i = getelementptr i8, ptr %grouping, i64 %groupgen.sroa.5.0
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %GroupGenerator_next.exit
-    i32 127, label %if.then88
+  switch i8 %2, label %sw.default.i [
+    i8 0, label %GroupGenerator_next.exit
+    i8 127, label %if.then88
   ]
 
 sw.default.i:                                     ; preds = %while.cond

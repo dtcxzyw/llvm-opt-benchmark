@@ -6917,20 +6917,19 @@ invoke.cont31:                                    ; preds = %invoke.cont31.lr.ph
   %lastunary.sroa.6.0486 = phi i64 [ 0, %invoke.cont31.lr.ph ], [ %isunary.sroa.4.1, %Break2 ]
   %12 = load ptr, ptr %t, align 8
   %13 = load i8, ptr %12, align 1
-  %conv = sext i8 %13 to i32
-  switch i32 %conv, label %sw.default [
-    i32 40, label %sw.bb
-    i32 124, label %sw.bb78
-    i32 41, label %sw.bb84
-    i32 94, label %sw.bb90
-    i32 36, label %sw.bb96
-    i32 46, label %sw.bb102
-    i32 91, label %sw.bb108
-    i32 42, label %invoke.cont120
-    i32 43, label %sw.bb118
-    i32 63, label %sw.bb119
-    i32 123, label %sw.bb161
-    i32 92, label %sw.bb216
+  switch i8 %13, label %sw.default [
+    i8 40, label %sw.bb
+    i8 124, label %sw.bb78
+    i8 41, label %sw.bb84
+    i8 94, label %sw.bb90
+    i8 36, label %sw.bb96
+    i8 46, label %sw.bb102
+    i8 91, label %sw.bb108
+    i8 42, label %invoke.cont120
+    i8 43, label %sw.bb118
+    i8 63, label %sw.bb119
+    i8 123, label %sw.bb161
+    i8 92, label %sw.bb216
   ]
 
 sw.default:                                       ; preds = %invoke.cont31

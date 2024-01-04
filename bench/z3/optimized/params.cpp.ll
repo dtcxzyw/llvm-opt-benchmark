@@ -2575,10 +2575,9 @@ lpad130.body:                                     ; preds = %lpad.i, %lpad130
 for.body137:                                      ; preds = %invoke.cont131, %for.inc147
   %__begin3.sroa.0.0107 = phi ptr [ %incdec.ptr.i68, %for.inc147 ], [ %call132, %invoke.cont131 ]
   %41 = load i8, ptr %__begin3.sroa.0.0107, align 1
-  %conv139 = sext i8 %41 to i32
-  switch i32 %conv139, label %sw.default [
-    i32 60, label %sw.bb
-    i32 62, label %sw.bb143.invoke
+  switch i8 %41, label %sw.default [
+    i8 60, label %sw.bb
+    i8 62, label %sw.bb143.invoke
   ]
 
 sw.bb:                                            ; preds = %for.body137
@@ -10098,7 +10097,7 @@ if.then2.i38:                                     ; preds = %for.body.i22
   %sub.ptr.div.i.i.i.i.i.i43 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i42, 3
   %.pre.i.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i43
   %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds %class.symbol, ptr %add.ptr3.i40, i64 %.pre.i.i.i.i.i.i44
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i45, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i42, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i42, i1 false)
   store ptr %__val.sroa.0.0.copyload.i39, ptr %__first, align 8
   br label %for.inc.i30
 
@@ -10187,7 +10186,7 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end16.i.i
 
 if.then9.i.i:                                     ; preds = %land.lhs.true.i.i
-  %add10.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i, 1
+  %add10.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
   %add.ptr13.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %sub12.i.i
   %add.ptr14.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
@@ -10284,7 +10283,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %sub12.i
   %add.ptr14.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i

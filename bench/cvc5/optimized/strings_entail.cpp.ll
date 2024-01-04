@@ -11059,15 +11059,15 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else53 [
-    i32 306, label %if.then
-    i32 314, label %if.then4
-    i32 303, label %if.then22
+  switch i16 %bf.clear.i, label %if.else53 [
+    i16 306, label %if.then
+    i16 314, label %if.then4
+    i16 303, label %if.then22
   ]
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 306), !noalias !95
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !95
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %idxprom.i.i = zext i1 %cmp.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i
@@ -11100,7 +11100,7 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
 
 if.then4:                                         ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %call2.i.i.i19 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 314), !noalias !98
+  %call2.i.i.i19 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !98
   %cmp.i.i20 = icmp eq i32 %call2.i.i.i19, 2
   %idxprom.i.i22 = zext i1 %cmp.i.i20 to i64
   %arrayidx.i.i23 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i22
@@ -12504,9 +12504,9 @@ while.body:                                       ; preds = %invoke.cont
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 314, label %sw.bb
-    i32 306, label %sw.bb52
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 314, label %sw.bb
+    i16 306, label %sw.bb52
   ]
 
 lpad:                                             ; preds = %if.then13.i4.i384.invoke, %if.then13.i.i391, %if.then13.i.i363, %if.then13.i.i.i289, %if.then59, %if.then13.i.i.i251, %sw.bb52, %if.then13.i.i231, %if.then13.i.i.i157, %if.then42, %if.then13.i.i.i80, %if.end, %if.then13.i.i.i30, %if.then, %if.then13.i.i.i, %sw.bb
@@ -12516,7 +12516,7 @@ lpad:                                             ; preds = %if.then13.i4.i384.i
 
 sw.bb:                                            ; preds = %while.body
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %call2.i.i.i13 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 314)
+  %call2.i.i.i13 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %call2.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.noexc:                                ; preds = %sw.bb
@@ -13053,7 +13053,7 @@ if.else.i.i222:                                   ; preds = %_ZN4cvc58internal4e
 
 sw.bb52:                                          ; preds = %while.body
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %call2.i.i.i259 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 306)
+  %call2.i.i.i259 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %call2.i.i.i.noexc258 unwind label %lpad
 
 call2.i.i.i.noexc258:                             ; preds = %sw.bb52
@@ -15278,7 +15278,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -16248,7 +16248,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

@@ -135,13 +135,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.test_rpk.2 = private unnamed_addr constant [4 x ptr] [ptr @cert2, ptr @cert, ptr @cert, ptr @cert], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -433,9 +433,9 @@ if.end29:                                         ; preds = %switch.lookup
 
 if.end35:                                         ; preds = %if.end29
   %call36 = tail call ptr @X509_get0_pubkey(ptr noundef %call31) #4
-  switch i32 %div9.sext, label %end [
-    i32 0, label %sw.epilog40
-    i32 1, label %sw.bb38
+  switch i8 %div9139, label %end [
+    i8 0, label %sw.epilog40
+    i8 1, label %sw.bb38
   ]
 
 sw.bb38:                                          ; preds = %if.end35
@@ -611,23 +611,23 @@ if.end155:                                        ; preds = %if.else
   br i1 %tobool158.not, label %end, label %if.end161
 
 if.end161:                                        ; preds = %if.end155
-  switch i32 %rem10.sext, label %sw.default162 [
-    i32 0, label %sw.bb171
-    i32 1, label %sw.bb179
-    i32 2, label %sw.bb187
-    i32 3, label %sw.bb217
-    i32 4, label %sw.bb232
-    i32 5, label %sw.bb247
-    i32 6, label %sw.bb262
-    i32 7, label %sw.bb277
-    i32 8, label %sw.bb291
-    i32 9, label %sw.bb299
-    i32 10, label %sw.bb334
-    i32 11, label %sw.bb359
-    i32 12, label %sw.bb373
-    i32 13, label %sw.bb389
-    i32 14, label %sw.bb431
-    i32 15, label %sw.bb475
+  switch i8 %rem10140, label %sw.default162 [
+    i8 0, label %sw.bb171
+    i8 1, label %sw.bb179
+    i8 2, label %sw.bb187
+    i8 3, label %sw.bb217
+    i8 4, label %sw.bb232
+    i8 5, label %sw.bb247
+    i8 6, label %sw.bb262
+    i8 7, label %sw.bb277
+    i8 8, label %sw.bb291
+    i8 9, label %sw.bb299
+    i8 10, label %sw.bb334
+    i8 11, label %sw.bb359
+    i8 12, label %sw.bb373
+    i8 13, label %sw.bb389
+    i8 14, label %sw.bb431
+    i8 15, label %sw.bb475
   ]
 
 sw.default162:                                    ; preds = %if.end161
@@ -645,7 +645,7 @@ sw.bb171:                                         ; preds = %if.end161
   br i1 %tobool176.not, label %end, label %sw.epilog483
 
 sw.bb179:                                         ; preds = %if.end161.thread, %if.end161
-  %expected.0130 = phi i32 [ %spec.select, %if.end161.thread ], [ %rem10.sext, %if.end161 ]
+  %expected.0130 = phi i32 [ %spec.select, %if.end161.thread ], [ 1, %if.end161 ]
   %26 = load ptr, ptr %clientssl, align 8
   %call180 = call i32 @SSL_add_expected_rpk(ptr noundef %26, ptr noundef %call30) #4
   %cmp181 = icmp ne i32 %call180, 0
@@ -1316,11 +1316,11 @@ if.end666:                                        ; preds = %if.end661
   br i1 %tobool669.not, label %end, label %if.end671
 
 if.end671:                                        ; preds = %if.end666
-  switch i32 %rem10.sext, label %sw.epilog753 [
-    i32 11, label %sw.bb673
-    i32 12, label %sw.bb681
-    i32 13, label %sw.bb691
-    i32 14, label %sw.bb721
+  switch i8 %rem10140, label %sw.epilog753 [
+    i8 11, label %sw.bb673
+    i8 12, label %sw.bb681
+    i8 13, label %sw.bb691
+    i8 14, label %sw.bb721
   ]
 
 sw.bb673:                                         ; preds = %if.end671
@@ -1613,7 +1613,7 @@ declare i32 @SSL_CTX_dane_enable(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rpk_verify_client_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
+define internal noundef i32 @rpk_verify_client_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #4
   %call1 = tail call ptr @X509_STORE_CTX_get0_rpk(ptr noundef %ctx) #4
@@ -1648,7 +1648,7 @@ declare i32 @SSL_add_expected_rpk(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @SSL_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rpk_verify_server_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
+define internal noundef i32 @rpk_verify_server_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #4
   %call1 = tail call ptr @X509_STORE_CTX_get0_rpk(ptr noundef %ctx) #4

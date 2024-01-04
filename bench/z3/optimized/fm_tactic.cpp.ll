@@ -25448,11 +25448,10 @@ for.body187:                                      ; preds = %for.body187.lr.ph, 
   %idxprom.i253 = zext nneg i32 %cond.i252 to i64
   %arrayidx.i254 = getelementptr inbounds i8, ptr %138, i64 %idxprom.i253
   %139 = load i8, ptr %arrayidx.i254, align 1
-  %conv196 = sext i8 %139 to i32
-  switch i32 %conv196, label %sw.default [
-    i32 0, label %sw.bb
-    i32 -1, label %sw.bb200
-    i32 1, label %sw.bb204
+  switch i8 %139, label %sw.default [
+    i8 0, label %sw.bb
+    i8 -1, label %sw.bb200
+    i8 1, label %sw.bb204
   ]
 
 sw.bb:                                            ; preds = %for.body187

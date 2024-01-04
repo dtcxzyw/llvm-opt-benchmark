@@ -2879,10 +2879,9 @@ invoke.cont13:                                    ; preds = %if.then
   %idxprom.i.i.i = zext i32 %call11 to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %7 to i32
-  switch i32 %conv.i.i, label %sw.default [
-    i32 1, label %sw.bb
-    i32 -1, label %sw.bb24
+  switch i8 %7, label %sw.default [
+    i8 1, label %sw.bb
+    i8 -1, label %sw.bb24
   ]
 
 lpad.loopexit:                                    ; preds = %for.body78, %if.then.i.i
@@ -6137,10 +6136,9 @@ invoke.cont317:                                   ; preds = %invoke.cont313
   %191 = load ptr, ptr %m_assignment.i.i, align 8
   %arrayidx.i.i.i.i421 = getelementptr inbounds i8, ptr %191, i64 %idxprom.i.i.i
   %192 = load i8, ptr %arrayidx.i.i.i.i421, align 1
-  %conv.i.i.i = sext i8 %192 to i32
-  switch i32 %conv.i.i.i, label %while.cond322.preheader [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb9.i
+  switch i8 %192, label %while.cond322.preheader [
+    i8 -1, label %sw.bb.i
+    i8 0, label %sw.bb9.i
   ]
 
 sw.bb.i:                                          ; preds = %invoke.cont317
@@ -8295,10 +8293,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %8 = load ptr, ptr %m_assignment.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %9 to i32
-  switch i32 %conv.i.i.i, label %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb9.i
+  switch i8 %9, label %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit [
+    i8 -1, label %sw.bb.i
+    i8 0, label %sw.bb9.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end
@@ -19701,7 +19698,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds i32, ptr %__first, i64 %sub13.i
   %5 = load i32, ptr %add.ptr14.i, align 4
@@ -20238,7 +20235,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %add11.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds i32, ptr %__first, i64 %sub13.i
   %6 = load i32, ptr %add.ptr14.i, align 4

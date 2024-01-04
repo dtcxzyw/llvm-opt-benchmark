@@ -2153,10 +2153,9 @@ cond.end:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else865 [
-    i32 199, label %if.then
-    i32 185, label %if.then462
+  switch i16 %bf.clear.i, label %if.else865 [
+    i16 199, label %if.then
+    i16 185, label %if.then462
   ]
 
 if.then:                                          ; preds = %cond.end
@@ -8838,7 +8837,6 @@ cond.end:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %cmp = icmp eq i16 %bf.clear.i, 5
   br i1 %cmp, label %if.then, label %if.else
 
@@ -8927,12 +8925,12 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i140
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont18, %if.then.i.i134, %if.then13.i.i140
-  switch i32 %bf.cast.i, label %if.end435 [
-    i32 177, label %if.then24
-    i32 176, label %if.then24
-    i32 175, label %if.then24
-    i32 199, label %if.then203
-    i32 185, label %if.then326
+  switch i16 %bf.clear.i, label %if.end435 [
+    i16 177, label %if.then24
+    i16 176, label %if.then24
+    i16 175, label %if.then24
+    i16 199, label %if.then203
+    i16 185, label %if.then326
   ]
 
 if.then24:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -9017,10 +9015,10 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  switch i32 %bf.cast.i, label %if.else173 [
-    i32 177, label %if.then35
-    i32 175, label %if.then61
-    i32 176, label %if.then118
+  switch i16 %bf.clear.i, label %if.else173 [
+    i16 177, label %if.then35
+    i16 175, label %if.then61
+    i16 176, label %if.then118
   ]
 
 if.then35:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
@@ -13716,7 +13714,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %21 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %21
@@ -14214,11 +14212,11 @@ invoke.cont56:                                    ; preds = %invoke.cont.i.i150,
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %lor.rhs [
-    i32 189, label %if.then72
-    i32 187, label %if.then72
-    i32 185, label %if.then72
-    i32 181, label %if.then72
+  switch i16 %bf.clear.i, label %lor.rhs [
+    i16 189, label %if.then72
+    i16 187, label %if.then72
+    i16 185, label %if.then72
+    i16 181, label %if.then72
   ]
 
 lor.rhs:                                          ; preds = %invoke.cont56
@@ -14764,7 +14762,7 @@ if.then.i.i.i370:                                 ; preds = %if.else.i339
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i344: ; preds = %if.else.i339
   %sub.ptr.div.i.i.i.i345 = ashr exact i64 %sub.ptr.sub.i.i.i.i342, 3
   %.sroa.speculated.i.i.i346 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i345, i64 1)
-  %add.i.i.i347 = add i64 %.sroa.speculated.i.i.i346, %sub.ptr.div.i.i.i.i345
+  %add.i.i.i347 = add nsw i64 %.sroa.speculated.i.i.i346, %sub.ptr.div.i.i.i.i345
   %cmp7.i.i.i348 = icmp ult i64 %add.i.i.i347, %sub.ptr.div.i.i.i.i345
   %146 = call i64 @llvm.umin.i64(i64 %add.i.i.i347, i64 1152921504606846975)
   %cond.i.i.i349 = select i1 %cmp7.i.i.i348, i64 1152921504606846975, i64 %146

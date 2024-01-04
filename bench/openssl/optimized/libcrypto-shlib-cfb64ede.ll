@@ -268,15 +268,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %v1.0251, ptr %arrayidx31, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.0254, i64 %conv
-  switch i64 %conv, label %sw.epilog [
-    i64 8, label %sw.bb
-    i64 7, label %sw.bb35
-    i64 6, label %sw.bb40
-    i64 5, label %sw.bb45
-    i64 4, label %sw.bb49
-    i64 3, label %sw.bb53
-    i64 2, label %sw.bb58
-    i64 1, label %sw.bb63
+  switch i32 %div246, label %sw.epilog [
+    i32 8, label %sw.bb
+    i32 7, label %sw.bb35
+    i32 6, label %sw.bb40
+    i32 5, label %sw.bb45
+    i32 4, label %sw.bb49
+    i32 3, label %sw.bb53
+    i32 2, label %sw.bb58
+    i32 1, label %sw.bb63
   ]
 
 sw.bb:                                            ; preds = %while.body
@@ -366,15 +366,15 @@ sw.epilog:                                        ; preds = %sw.bb63, %while.bod
   %17 = load i32, ptr %arrayidx31, align 4
   %xor70 = xor i32 %17, %d1.7
   %add.ptr71 = getelementptr inbounds i8, ptr %out.addr.0253, i64 %conv
-  switch i64 %conv, label %sw.epilog108 [
-    i64 8, label %sw.bb72
-    i64 7, label %sw.bb75
-    i64 6, label %sw.bb80
-    i64 5, label %sw.bb85
-    i64 4, label %sw.bb89
-    i64 3, label %sw.bb94
-    i64 2, label %sw.bb99
-    i64 1, label %sw.bb104
+  switch i32 %div246, label %sw.epilog108 [
+    i32 8, label %sw.bb72
+    i32 7, label %sw.bb75
+    i32 6, label %sw.bb80
+    i32 5, label %sw.bb85
+    i32 4, label %sw.bb89
+    i32 3, label %sw.bb94
+    i32 2, label %sw.bb99
+    i32 1, label %sw.bb104
   ]
 
 sw.bb72:                                          ; preds = %sw.epilog
@@ -540,15 +540,15 @@ while.body244:                                    ; preds = %while.body244.lr.ph
   store i32 %v1.2259, ptr %arrayidx247, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3
   %add.ptr249 = getelementptr inbounds i8, ptr %in.addr.9262, i64 %conv
-  switch i64 %conv, label %sw.epilog286 [
-    i64 8, label %sw.bb250
-    i64 7, label %sw.bb254
-    i64 6, label %sw.bb259
-    i64 5, label %sw.bb264
-    i64 4, label %sw.bb268
-    i64 3, label %sw.bb272
-    i64 2, label %sw.bb277
-    i64 1, label %sw.bb282
+  switch i32 %div246, label %sw.epilog286 [
+    i32 8, label %sw.bb250
+    i32 7, label %sw.bb254
+    i32 6, label %sw.bb259
+    i32 5, label %sw.bb264
+    i32 4, label %sw.bb268
+    i32 3, label %sw.bb272
+    i32 2, label %sw.bb277
+    i32 1, label %sw.bb282
   ]
 
 sw.bb250:                                         ; preds = %while.body244
@@ -723,15 +723,15 @@ if.end427:                                        ; preds = %sw.epilog286, %if.t
   %35 = load i32, ptr %arrayidx247, align 4
   %xor431 = xor i32 %35, %d1.15
   %add.ptr432 = getelementptr inbounds i8, ptr %out.addr.9261, i64 %conv
-  switch i64 %conv, label %sw.epilog471 [
-    i64 8, label %sw.bb433
-    i64 7, label %sw.bb438
-    i64 6, label %sw.bb443
-    i64 5, label %sw.bb448
-    i64 4, label %sw.bb452
-    i64 3, label %sw.bb457
-    i64 2, label %sw.bb462
-    i64 1, label %sw.bb467
+  switch i32 %div246, label %sw.epilog471 [
+    i32 8, label %sw.bb433
+    i32 7, label %sw.bb438
+    i32 6, label %sw.bb443
+    i32 5, label %sw.bb448
+    i32 4, label %sw.bb452
+    i32 3, label %sw.bb457
+    i32 2, label %sw.bb462
+    i32 1, label %sw.bb467
   ]
 
 sw.bb433:                                         ; preds = %if.end427

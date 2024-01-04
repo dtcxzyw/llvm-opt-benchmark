@@ -641,9 +641,9 @@ ehcleanup58:                                      ; preds = %lpad13.split, %lpad
 
 for.end:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us.us, %invoke.cont3
   %isInteger.3 = phi i8 [ 1, %invoke.cont3 ], [ %isInteger.0.mux.us.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us.us ], [ %isInteger.0.mux.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us ], [ %.mux, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 78, label %sw.bb
-    i32 77, label %sw.bb62
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 78, label %sw.bb
+    i16 77, label %sw.bb62
   ]
 
 sw.bb:                                            ; preds = %for.end

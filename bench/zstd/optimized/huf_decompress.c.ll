@@ -2309,13 +2309,13 @@ cond.end.i.i:                                     ; preds = %if.then3.i.i
 if.else.i.i:                                      ; preds = %if.end.i.i
   %2 = load i8, ptr %add.ptr14.i.i, align 1
   %conv18.i.i = zext i8 %2 to i64
-  switch i64 %conv.i.i, label %sw.epilog.i.i [
-    i64 7, label %sw.bb.i.i
-    i64 6, label %sw.bb23.i.i
-    i64 5, label %sw.bb29.i.i
-    i64 4, label %sw.bb35.i.i
-    i64 3, label %sw.bb41.i.i
-    i64 2, label %sw.bb47.i.i
+  switch i16 %memPtr.val.i.i, label %sw.epilog.i.i [
+    i16 7, label %sw.bb.i.i
+    i16 6, label %sw.bb23.i.i
+    i16 5, label %sw.bb29.i.i
+    i16 4, label %sw.bb35.i.i
+    i16 3, label %sw.bb41.i.i
+    i16 2, label %sw.bb47.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else.i.i
@@ -2417,13 +2417,13 @@ cond.end.i1169.i:                                 ; preds = %if.then3.i1162.i
 if.else.i1119.i:                                  ; preds = %if.end.i1114.i
   %20 = load i8, ptr %add.ptr15.i.i, align 1
   %conv18.i1121.i = zext i8 %20 to i64
-  switch i64 %conv8.i.i, label %sw.epilog.i1127.i [
-    i64 7, label %sw.bb.i1157.i
-    i64 6, label %sw.bb23.i1152.i
-    i64 5, label %sw.bb29.i1147.i
-    i64 4, label %sw.bb35.i1142.i
-    i64 3, label %sw.bb41.i1137.i
-    i64 2, label %sw.bb47.i1122.i
+  switch i16 %memPtr.val.i1102.i, label %sw.epilog.i1127.i [
+    i16 7, label %sw.bb.i1157.i
+    i16 6, label %sw.bb23.i1152.i
+    i16 5, label %sw.bb29.i1147.i
+    i16 4, label %sw.bb35.i1142.i
+    i16 3, label %sw.bb41.i1137.i
+    i16 2, label %sw.bb47.i1122.i
   ]
 
 sw.bb.i1157.i:                                    ; preds = %if.else.i1119.i
@@ -2525,13 +2525,13 @@ cond.end.i1236.i:                                 ; preds = %if.then3.i1229.i
 if.else.i1186.i:                                  ; preds = %if.end.i1181.i
   %38 = load i8, ptr %add.ptr16.i.i, align 1
   %conv18.i1188.i = zext i8 %38 to i64
-  switch i64 %conv11.i.i, label %sw.epilog.i1194.i [
-    i64 7, label %sw.bb.i1224.i
-    i64 6, label %sw.bb23.i1219.i
-    i64 5, label %sw.bb29.i1214.i
-    i64 4, label %sw.bb35.i1209.i
-    i64 3, label %sw.bb41.i1204.i
-    i64 2, label %sw.bb47.i1189.i
+  switch i16 %memPtr.val.i1103.i, label %sw.epilog.i1194.i [
+    i16 7, label %sw.bb.i1224.i
+    i16 6, label %sw.bb23.i1219.i
+    i16 5, label %sw.bb29.i1214.i
+    i16 4, label %sw.bb35.i1209.i
+    i16 3, label %sw.bb41.i1204.i
+    i16 2, label %sw.bb47.i1189.i
   ]
 
 sw.bb.i1224.i:                                    ; preds = %if.else.i1186.i
@@ -5055,13 +5055,13 @@ cond.end.i.i:                                     ; preds = %if.then3.i.i
 if.else.i.i:                                      ; preds = %if.end.i.i
   %2 = load i8, ptr %add.ptr14.i.i, align 1
   %conv18.i.i = zext i8 %2 to i64
-  switch i64 %conv.i.i, label %sw.epilog.i.i [
-    i64 7, label %sw.bb.i.i
-    i64 6, label %sw.bb23.i.i
-    i64 5, label %sw.bb29.i.i
-    i64 4, label %sw.bb35.i.i
-    i64 3, label %sw.bb41.i.i
-    i64 2, label %sw.bb47.i.i
+  switch i16 %memPtr.val.i.i, label %sw.epilog.i.i [
+    i16 7, label %sw.bb.i.i
+    i16 6, label %sw.bb23.i.i
+    i16 5, label %sw.bb29.i.i
+    i16 4, label %sw.bb35.i.i
+    i16 3, label %sw.bb41.i.i
+    i16 2, label %sw.bb47.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else.i.i
@@ -5163,13 +5163,13 @@ cond.end.i661.i:                                  ; preds = %if.then3.i654.i
 if.else.i611.i:                                   ; preds = %if.end.i606.i
   %20 = load i8, ptr %add.ptr15.i.i, align 1
   %conv18.i613.i = zext i8 %20 to i64
-  switch i64 %conv8.i.i, label %sw.epilog.i619.i [
-    i64 7, label %sw.bb.i649.i
-    i64 6, label %sw.bb23.i644.i
-    i64 5, label %sw.bb29.i639.i
-    i64 4, label %sw.bb35.i634.i
-    i64 3, label %sw.bb41.i629.i
-    i64 2, label %sw.bb47.i614.i
+  switch i16 %memPtr.val.i595.i, label %sw.epilog.i619.i [
+    i16 7, label %sw.bb.i649.i
+    i16 6, label %sw.bb23.i644.i
+    i16 5, label %sw.bb29.i639.i
+    i16 4, label %sw.bb35.i634.i
+    i16 3, label %sw.bb41.i629.i
+    i16 2, label %sw.bb47.i614.i
   ]
 
 sw.bb.i649.i:                                     ; preds = %if.else.i611.i
@@ -5271,13 +5271,13 @@ cond.end.i728.i:                                  ; preds = %if.then3.i721.i
 if.else.i678.i:                                   ; preds = %if.end.i673.i
   %38 = load i8, ptr %add.ptr16.i.i, align 1
   %conv18.i680.i = zext i8 %38 to i64
-  switch i64 %conv11.i.i, label %sw.epilog.i686.i [
-    i64 7, label %sw.bb.i716.i
-    i64 6, label %sw.bb23.i711.i
-    i64 5, label %sw.bb29.i706.i
-    i64 4, label %sw.bb35.i701.i
-    i64 3, label %sw.bb41.i696.i
-    i64 2, label %sw.bb47.i681.i
+  switch i16 %memPtr.val.i596.i, label %sw.epilog.i686.i [
+    i16 7, label %sw.bb.i716.i
+    i16 6, label %sw.bb23.i711.i
+    i16 5, label %sw.bb29.i706.i
+    i16 4, label %sw.bb35.i701.i
+    i16 3, label %sw.bb41.i696.i
+    i16 2, label %sw.bb47.i681.i
   ]
 
 sw.bb.i716.i:                                     ; preds = %if.else.i678.i
@@ -8185,13 +8185,13 @@ cond.end.i:                                       ; preds = %if.then3.i
 if.else.i:                                        ; preds = %if.end.i
   %2 = load i8, ptr %add.ptr14.i, align 1
   %conv18.i = zext i8 %2 to i64
-  switch i64 %conv.i, label %sw.epilog.i [
-    i64 7, label %sw.bb.i
-    i64 6, label %sw.bb23.i
-    i64 5, label %sw.bb29.i
-    i64 4, label %sw.bb35.i
-    i64 3, label %sw.bb41.i
-    i64 2, label %sw.bb47.i
+  switch i16 %memPtr.val.i, label %sw.epilog.i [
+    i16 7, label %sw.bb.i
+    i16 6, label %sw.bb23.i
+    i16 5, label %sw.bb29.i
+    i16 4, label %sw.bb35.i
+    i16 3, label %sw.bb41.i
+    i16 2, label %sw.bb47.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else.i
@@ -8293,13 +8293,13 @@ cond.end.i1169:                                   ; preds = %if.then3.i1162
 if.else.i1119:                                    ; preds = %if.end.i1114
   %20 = load i8, ptr %add.ptr15.i, align 1
   %conv18.i1121 = zext i8 %20 to i64
-  switch i64 %conv8.i, label %sw.epilog.i1127 [
-    i64 7, label %sw.bb.i1157
-    i64 6, label %sw.bb23.i1152
-    i64 5, label %sw.bb29.i1147
-    i64 4, label %sw.bb35.i1142
-    i64 3, label %sw.bb41.i1137
-    i64 2, label %sw.bb47.i1122
+  switch i16 %memPtr.val.i1102, label %sw.epilog.i1127 [
+    i16 7, label %sw.bb.i1157
+    i16 6, label %sw.bb23.i1152
+    i16 5, label %sw.bb29.i1147
+    i16 4, label %sw.bb35.i1142
+    i16 3, label %sw.bb41.i1137
+    i16 2, label %sw.bb47.i1122
   ]
 
 sw.bb.i1157:                                      ; preds = %if.else.i1119
@@ -8401,13 +8401,13 @@ cond.end.i1236:                                   ; preds = %if.then3.i1229
 if.else.i1186:                                    ; preds = %if.end.i1181
   %38 = load i8, ptr %add.ptr16.i, align 1
   %conv18.i1188 = zext i8 %38 to i64
-  switch i64 %conv11.i, label %sw.epilog.i1194 [
-    i64 7, label %sw.bb.i1224
-    i64 6, label %sw.bb23.i1219
-    i64 5, label %sw.bb29.i1214
-    i64 4, label %sw.bb35.i1209
-    i64 3, label %sw.bb41.i1204
-    i64 2, label %sw.bb47.i1189
+  switch i16 %memPtr.val.i1103, label %sw.epilog.i1194 [
+    i16 7, label %sw.bb.i1224
+    i16 6, label %sw.bb23.i1219
+    i16 5, label %sw.bb29.i1214
+    i16 4, label %sw.bb35.i1209
+    i16 3, label %sw.bb41.i1204
+    i16 2, label %sw.bb47.i1189
   ]
 
 sw.bb.i1224:                                      ; preds = %if.else.i1186
@@ -11804,13 +11804,13 @@ cond.end.i:                                       ; preds = %if.then3.i
 if.else.i:                                        ; preds = %if.end.i
   %2 = load i8, ptr %add.ptr14.i, align 1
   %conv18.i = zext i8 %2 to i64
-  switch i64 %conv.i, label %sw.epilog.i [
-    i64 7, label %sw.bb.i
-    i64 6, label %sw.bb23.i
-    i64 5, label %sw.bb29.i
-    i64 4, label %sw.bb35.i
-    i64 3, label %sw.bb41.i
-    i64 2, label %sw.bb47.i
+  switch i16 %memPtr.val.i, label %sw.epilog.i [
+    i16 7, label %sw.bb.i
+    i16 6, label %sw.bb23.i
+    i16 5, label %sw.bb29.i
+    i16 4, label %sw.bb35.i
+    i16 3, label %sw.bb41.i
+    i16 2, label %sw.bb47.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else.i
@@ -11912,13 +11912,13 @@ cond.end.i661:                                    ; preds = %if.then3.i654
 if.else.i611:                                     ; preds = %if.end.i606
   %20 = load i8, ptr %add.ptr15.i, align 1
   %conv18.i613 = zext i8 %20 to i64
-  switch i64 %conv8.i, label %sw.epilog.i619 [
-    i64 7, label %sw.bb.i649
-    i64 6, label %sw.bb23.i644
-    i64 5, label %sw.bb29.i639
-    i64 4, label %sw.bb35.i634
-    i64 3, label %sw.bb41.i629
-    i64 2, label %sw.bb47.i614
+  switch i16 %memPtr.val.i595, label %sw.epilog.i619 [
+    i16 7, label %sw.bb.i649
+    i16 6, label %sw.bb23.i644
+    i16 5, label %sw.bb29.i639
+    i16 4, label %sw.bb35.i634
+    i16 3, label %sw.bb41.i629
+    i16 2, label %sw.bb47.i614
   ]
 
 sw.bb.i649:                                       ; preds = %if.else.i611
@@ -12020,13 +12020,13 @@ cond.end.i728:                                    ; preds = %if.then3.i721
 if.else.i678:                                     ; preds = %if.end.i673
   %38 = load i8, ptr %add.ptr16.i, align 1
   %conv18.i680 = zext i8 %38 to i64
-  switch i64 %conv11.i, label %sw.epilog.i686 [
-    i64 7, label %sw.bb.i716
-    i64 6, label %sw.bb23.i711
-    i64 5, label %sw.bb29.i706
-    i64 4, label %sw.bb35.i701
-    i64 3, label %sw.bb41.i696
-    i64 2, label %sw.bb47.i681
+  switch i16 %memPtr.val.i596, label %sw.epilog.i686 [
+    i16 7, label %sw.bb.i716
+    i16 6, label %sw.bb23.i711
+    i16 5, label %sw.bb29.i706
+    i16 4, label %sw.bb35.i701
+    i16 3, label %sw.bb41.i696
+    i16 2, label %sw.bb47.i681
   ]
 
 sw.bb.i716:                                       ; preds = %if.else.i678

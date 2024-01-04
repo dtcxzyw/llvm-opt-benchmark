@@ -1785,7 +1785,7 @@ if.then.i.i28:                                    ; preds = %if.else.i.i
 _ZNKSt6vectorIN4absl12lts_202308026StatusESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %15 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
   %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %15
@@ -2671,14 +2671,14 @@ entry:
   %agg.tmp21 = alloca %"class.absl::lts_20230802::Cord", align 8
   %0 = load i32, ptr %msg, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   store ptr inttoptr (i64 1 to ptr), ptr %message_percent_slice, align 8, !alias.scope !39
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %message_percent_slice, i64 8
-  store i64 %retval.sroa.9.0.copyload35.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !39
+  store i64 %retval.sroa.9.0.copyload33.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !39
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %message_percent_slice, i64 16
-  store ptr %retval.sroa.0.0.copyload34.i, ptr %slice.sroa.3.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !39
+  store ptr %retval.sroa.0.0.copyload32.i, ptr %slice.sroa.3.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %message_percent_slice, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %message_percent_slice, i8 0, i64 32, i1 false), !noalias !46
   invoke void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr nonnull sret(%"class.grpc_core::Slice") align 8 %message_slice, ptr noundef nonnull %agg.tmp2)
@@ -2741,18 +2741,18 @@ invoke.cont16:                                    ; preds = %google_rpc_Status_d
   %i.044 = phi i64 [ %inc, %_ZN4absl12lts_202308024CordD2Ev.exit ], [ 0, %google_rpc_Status_details.exit ]
   %arrayidx = getelementptr inbounds ptr, ptr %13, i64 %i.044
   %14 = load ptr, ptr %arrayidx, align 8
-  %retval.sroa.0.0.copyload34.i14 = load ptr, ptr %14, align 1
+  %retval.sroa.0.0.copyload32.i14 = load ptr, ptr %14, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i15 = getelementptr inbounds i8, ptr %14, i64 8
-  %retval.sroa.9.0.copyload35.i16 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i15, align 1
+  %retval.sroa.9.0.copyload33.i16 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i15, align 1
   %add.ptr.i.i19 = getelementptr inbounds i8, ptr %14, i64 16
-  %retval.sroa.0.0.copyload34.i20 = load ptr, ptr %add.ptr.i.i19, align 1
+  %retval.sroa.0.0.copyload32.i20 = load ptr, ptr %add.ptr.i.i19, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i21 = getelementptr inbounds i8, ptr %14, i64 24
-  %retval.sroa.9.0.copyload35.i22 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i21, align 1
-  invoke void @_ZN4absl12lts_202308024CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, i64 %retval.sroa.9.0.copyload35.i22, ptr %retval.sroa.0.0.copyload34.i20, i32 noundef 9)
+  %retval.sroa.9.0.copyload33.i22 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i21, align 1
+  invoke void @_ZN4absl12lts_202308024CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, i64 %retval.sroa.9.0.copyload33.i22, ptr %retval.sroa.0.0.copyload32.i20, i32 noundef 9)
           to label %invoke.cont25 unwind label %lpad10
 
 invoke.cont25:                                    ; preds = %invoke.cont16
-  invoke void @_ZN4absl12lts_202308026Status10SetPayloadESt17basic_string_viewIcSt11char_traitsIcEENS0_4CordE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i64 %retval.sroa.9.0.copyload35.i16, ptr %retval.sroa.0.0.copyload34.i14, ptr noundef nonnull %agg.tmp21)
+  invoke void @_ZN4absl12lts_202308026Status10SetPayloadESt17basic_string_viewIcSt11char_traitsIcEENS0_4CordE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i64 %retval.sroa.9.0.copyload33.i16, ptr %retval.sroa.0.0.copyload32.i14, ptr noundef nonnull %agg.tmp21)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -3187,7 +3187,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -4569,12 +4569,11 @@ if.end.i:                                         ; preds = %if.then
   %data.i = getelementptr inbounds %struct.upb_Message_Extension, ptr %call.i, i64 0, i32 1
   %2 = load i8, ptr %mode.i, align 1
   %3 = lshr i8 %2, 6
-  %shr.i.i.i = zext nneg i8 %3 to i32
-  switch i32 %shr.i.i.i, label %do.body.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 3, label %sw.bb2.i.i
-    i32 2, label %sw.bb3.i.i
+  switch i8 %3, label %do.body.i.i [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb1.i.i
+    i8 3, label %sw.bb2.i.i
+    i8 2, label %sw.bb3.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
@@ -4636,38 +4635,37 @@ _upb_Message_SetPresence.exit.i:                  ; preds = %if.then1.i.i, %if.e
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i
   %14 = load i8, ptr %mode.i, align 1
   %15 = lshr i8 %14, 6
-  %shr.i.i.i5 = zext nneg i8 %15 to i32
-  switch i32 %shr.i.i.i5, label %do.body.i.i10 [
-    i32 0, label %sw.bb.i.i9
-    i32 1, label %sw.bb1.i.i8
-    i32 3, label %sw.bb2.i.i7
-    i32 2, label %sw.bb3.i.i6
+  switch i8 %15, label %do.body.i.i9 [
+    i8 0, label %sw.bb.i.i8
+    i8 1, label %sw.bb1.i.i7
+    i8 3, label %sw.bb2.i.i6
+    i8 2, label %sw.bb3.i.i5
   ]
 
-sw.bb.i.i9:                                       ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb.i.i8:                                       ; preds = %_upb_Message_SetPresence.exit.i
   %16 = load i8, ptr %val, align 1
   store i8 %16, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb1.i.i8:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb1.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %17 = load i32, ptr %val, align 1
   store i32 %17, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb2.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb2.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %18 = load i64, ptr %val, align 1
   store i64 %18, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb3.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb3.i.i5:                                      ; preds = %_upb_Message_SetPresence.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %return
 
-do.body.i.i10:                                    ; preds = %_upb_Message_SetPresence.exit.i
+do.body.i.i9:                                     ; preds = %_upb_Message_SetPresence.exit.i
   unreachable
 
-return:                                           ; preds = %sw.bb3.i.i6, %sw.bb2.i.i7, %sw.bb1.i.i8, %sw.bb.i.i9, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i9 ], [ true, %sw.bb1.i.i8 ], [ true, %sw.bb2.i.i7 ], [ true, %sw.bb3.i.i6 ]
+return:                                           ; preds = %sw.bb3.i.i5, %sw.bb2.i.i6, %sw.bb1.i.i7, %sw.bb.i.i8, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i8 ], [ true, %sw.bb1.i.i7 ], [ true, %sw.bb2.i.i6 ], [ true, %sw.bb3.i.i5 ]
   ret i1 %retval.0
 }
 

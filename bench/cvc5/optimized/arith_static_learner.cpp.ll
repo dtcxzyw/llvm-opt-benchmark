@@ -673,7 +673,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %21 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %21
@@ -1153,11 +1153,10 @@ cond.end:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 23, label %sw.bb
-    i32 66, label %sw.bb149
-    i32 67, label %sw.bb149
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 23, label %sw.bb
+    i16 66, label %sw.bb149
+    i16 67, label %sw.bb149
   ]
 
 sw.bb:                                            ; preds = %cond.end
@@ -1200,13 +1199,12 @@ land.rhs:                                         ; preds = %invoke.cont20
   %d_kind.i111 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %4, i64 0, i32 1
   %bf.load.i112 = load i16, ptr %d_kind.i111, align 8
   %bf.clear.i113 = and i16 %bf.load.i112, 1023
-  %bf.cast.i114 = zext nneg i16 %bf.clear.i113 to i32
-  switch i32 %bf.cast.i114, label %if.end37 [
-    i32 70, label %if.then32
-    i32 71, label %if.then32
-    i32 5, label %if.then32
-    i32 73, label %if.then32
-    i32 72, label %if.then32
+  switch i16 %bf.clear.i113, label %if.end37 [
+    i16 70, label %if.then32
+    i16 71, label %if.then32
+    i16 5, label %if.then32
+    i16 73, label %if.then32
+    i16 72, label %if.then32
   ]
 
 if.then32:                                        ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
@@ -5103,17 +5101,17 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default15 [
-    i32 70, label %return
-    i32 72, label %return
-    i32 71, label %return
-    i32 73, label %return
-    i32 5, label %return
-    i32 18, label %invoke.cont
+  switch i16 %bf.clear.i, label %sw.default15 [
+    i16 70, label %return
+    i16 72, label %return
+    i16 71, label %return
+    i16 73, label %return
+    i16 5, label %return
+    i16 18, label %invoke.cont
   ]
 
 invoke.cont:                                      ; preds = %entry
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 18), !noalias !126
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !126
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %idxprom.i.i = zext i1 %cmp.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i
@@ -5121,13 +5119,12 @@ invoke.cont:                                      ; preds = %entry
   %d_kind.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i6 = load i16, ptr %d_kind.i5, align 8
   %bf.clear.i7 = and i16 %bf.load.i6, 1023
-  %bf.cast.i8 = zext nneg i16 %bf.clear.i7 to i32
-  switch i32 %bf.cast.i8, label %sw.default [
-    i32 71, label %return
-    i32 73, label %sw.bb5
-    i32 70, label %sw.bb6
-    i32 72, label %sw.bb7
-    i32 5, label %sw.bb8
+  switch i16 %bf.clear.i7, label %sw.default [
+    i16 71, label %return
+    i16 73, label %sw.bb5
+    i16 70, label %sw.bb6
+    i16 72, label %sw.bb7
+    i16 5, label %sw.bb8
   ]
 
 sw.bb5:                                           ; preds = %invoke.cont
@@ -6226,11 +6223,11 @@ invoke.cont21:                                    ; preds = %invoke.cont16
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 70, label %sw.bb
-    i32 71, label %invoke.cont36
-    i32 72, label %sw.bb66
-    i32 73, label %invoke.cont80
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 70, label %sw.bb
+    i16 71, label %invoke.cont36
+    i16 72, label %sw.bb66
+    i16 73, label %invoke.cont80
   ]
 
 lpad3:                                            ; preds = %if.end15.i.i.i

@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [38 x i8] c"Unknown target audit message type %d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @packet_target_to_host_sockaddr(ptr nocapture noundef writeonly %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
+define internal noundef i64 @packet_target_to_host_sockaddr(ptr nocapture noundef writeonly %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
 entry:
   %conv = zext i32 %len to i64
   %call = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef %conv, i1 noundef zeroext true) #5
@@ -69,7 +69,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @netlink_route_host_to_target(ptr noundef %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_route_host_to_target(ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %cmp19.i.i = icmp ugt i64 %len, 16
   br i1 %cmp19.i.i, label %while.body.i.i, label %host_to_target_nlmsg_route.exit
@@ -1011,7 +1011,7 @@ host_to_target_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @netlink_route_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_route_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
 entry:
   %cmp16.i.i = icmp ugt i64 %len, 16
   br i1 %cmp16.i.i, label %while.body.i.i, label %target_to_host_nlmsg_route.exit
@@ -1073,12 +1073,11 @@ if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
   %rta_type.i.i.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i.i.i, i64 0, i32 1
   %3 = load i16, ptr %rta_type.i.i.i.i, align 2
   %4 = and i16 %3, 16383
-  %and.i1.i.i.i = zext nneg i16 %4 to i32
-  switch i32 %and.i1.i.i.i, label %do.body.i.i.i.i [
-    i32 4, label %if.end17.i.i.i.i
-    i32 13, label %if.end17.i.i.i.i
-    i32 29, label %if.end17.i.i.i.i
-    i32 26, label %sw.bb1.i.i.i.i
+  switch i16 %4, label %do.body.i.i.i.i [
+    i16 4, label %if.end17.i.i.i.i
+    i16 13, label %if.end17.i.i.i.i
+    i16 29, label %if.end17.i.i.i.i
+    i16 26, label %sw.bb1.i.i.i.i
   ]
 
 sw.bb1.i.i.i.i:                                   ; preds = %if.end.i.i.i.i
@@ -1340,7 +1339,7 @@ target_to_host_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @netlink_audit_host_to_target(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_audit_host_to_target(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
 entry:
   %cmp19.i.i = icmp ugt i64 %len, 16
   br i1 %cmp19.i.i, label %while.body.i.i, label %host_to_target_nlmsg_audit.exit
@@ -1392,7 +1391,7 @@ host_to_target_nlmsg_audit.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @netlink_audit_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_audit_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
 entry:
   %cmp16.i.i = icmp ugt i64 %len, 16
   br i1 %cmp16.i.i, label %while.body.i.i, label %target_to_host_nlmsg_audit.exit
@@ -1453,7 +1452,7 @@ target_to_host_nlmsg_audit.exit:                  ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @host_to_target_data_signalfd(ptr nocapture noundef %buf, i64 noundef returned %len) #0 {
+define internal noundef i64 @host_to_target_data_signalfd(ptr nocapture noundef %buf, i64 noundef returned %len) #0 {
 entry:
   %cmp6.not = icmp eq i64 %len, 0
   br i1 %cmp6.not, label %for.end, label %for.body
@@ -1475,7 +1474,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i64 @swap_data_u64(ptr nocapture readnone %buf, i64 noundef %len) #1 {
+define internal noundef i64 @swap_data_u64(ptr nocapture readnone %buf, i64 noundef %len) #1 {
 entry:
   %cmp = icmp ult i64 %len, 8
   %spec.select = select i1 %cmp, i64 -22, i64 %len
@@ -1483,7 +1482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i64 @host_to_target_data_inotify(ptr nocapture readnone %buf, i64 noundef returned %len) #1 {
+define internal noundef i64 @host_to_target_data_inotify(ptr nocapture readnone %buf, i64 noundef returned %len) #1 {
 entry:
   ret i64 %len
 }

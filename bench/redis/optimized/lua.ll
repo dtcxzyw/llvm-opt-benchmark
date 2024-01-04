@@ -94,7 +94,7 @@ declare ptr @luaL_newstate() local_unnamed_addr #2
 declare i32 @lua_cpcall(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmain(ptr noundef %L) #0 {
+define internal noundef i32 @pmain(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1) #8
   %argv1 = getelementptr inbounds %struct.Smain, ptr %call, i64 0, i32 1
@@ -178,14 +178,13 @@ for.body.i:                                       ; preds = %if.end12, %for.inc.
 if.end.i:                                         ; preds = %for.body.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %6, i64 1
   %8 = load i8, ptr %arrayidx8.i, align 1, !tbaa !12
-  %conv9.i = sext i8 %8 to i32
-  switch i32 %conv9.i, label %if.then16 [
-    i32 45, label %sw.bb.i
-    i32 0, label %collectargs.exit
-    i32 105, label %sw.bb24.i
-    i32 118, label %sw.bb33.i
-    i32 101, label %sw.bb42.i
-    i32 108, label %sw.bb43.i
+  switch i8 %8, label %if.then16 [
+    i8 45, label %sw.bb.i
+    i8 0, label %collectargs.exit
+    i8 105, label %sw.bb24.i
+    i8 118, label %sw.bb33.i
+    i8 101, label %sw.bb42.i
+    i8 108, label %sw.bb43.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -304,10 +303,9 @@ for.body.i88:                                     ; preds = %cond.end, %for.inc.
 if.end.i92:                                       ; preds = %for.body.i88
   %arrayidx4.i = getelementptr inbounds i8, ptr %21, i64 1
   %22 = load i8, ptr %arrayidx4.i, align 1, !tbaa !12
-  %conv.i = sext i8 %22 to i32
-  switch i32 %conv.i, label %for.inc.i93 [
-    i32 101, label %sw.bb.i95
-    i32 108, label %sw.bb18.i
+  switch i8 %22, label %for.inc.i93 [
+    i8 101, label %sw.bb.i95
+    i8 108, label %sw.bb18.i
   ]
 
 sw.bb.i95:                                        ; preds = %if.end.i92
@@ -499,7 +497,7 @@ cleanup:                                          ; preds = %if.then49, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @report(ptr noundef %L, i32 noundef returned %status) unnamed_addr #0 {
+define internal fastcc noundef i32 @report(ptr noundef %L, i32 noundef returned %status) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %status, 0
   br i1 %tobool.not, label %if.end4, label %land.lhs.true
@@ -703,7 +701,7 @@ declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #2
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @traceback(ptr noundef %L) #0 {
+define internal noundef i32 @traceback(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isstring(ptr noundef %L, i32 noundef 1) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -809,7 +807,7 @@ declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pushline(ptr noundef %L, i32 noundef %firstline) unnamed_addr #0 {
+define internal fastcc noundef i32 @pushline(ptr noundef %L, i32 noundef %firstline) unnamed_addr #0 {
 entry:
   %buffer = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buffer) #8

@@ -3245,18 +3245,17 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %src, i64 1
   %1 = load i8, ptr %arrayidx, align 1
-  %conv1 = sext i8 %1 to i32
-  switch i32 %conv1, label %sw.default [
-    i32 120, label %sw.bb
-    i32 117, label %sw.bb2
-    i32 85, label %sw.bb5
-    i32 116, label %sw.bb8
-    i32 114, label %sw.bb13
-    i32 110, label %sw.bb19
-    i32 92, label %sw.bb25
-    i32 34, label %sw.bb25
-    i32 91, label %sw.bb25
-    i32 93, label %sw.bb25
+  switch i8 %1, label %sw.default [
+    i8 120, label %sw.bb
+    i8 117, label %sw.bb2
+    i8 85, label %sw.bb5
+    i8 116, label %sw.bb8
+    i8 114, label %sw.bb13
+    i8 110, label %sw.bb19
+    i8 92, label %sw.bb25
+    i8 34, label %sw.bb25
+    i8 91, label %sw.bb25
+    i8 93, label %sw.bb25
   ]
 
 sw.bb:                                            ; preds = %if.then
@@ -3294,6 +3293,7 @@ sw.bb19:                                          ; preds = %if.then
 
 sw.bb25:                                          ; preds = %if.then, %if.then, %if.then, %if.then
   %add.ptr29 = getelementptr inbounds i8, ptr %src, i64 2
+  %conv.i28 = zext nneg i8 %1 to i32
   br label %return
 
 sw.default:                                       ; preds = %if.then
@@ -3394,7 +3394,7 @@ lpad44:                                           ; preds = %if.end42
   br label %eh.resume
 
 return:                                           ; preds = %for.body.i, %land.rhs.i, %if.then40, %sw.bb25, %sw.bb19, %sw.bb13, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.sroa.0.0 = phi i32 [ %conv1, %sw.bb25 ], [ 10, %sw.bb19 ], [ 13, %sw.bb13 ], [ 9, %sw.bb8 ], [ %6, %sw.bb5 ], [ %4, %sw.bb2 ], [ %2, %sw.bb ], [ %and.i, %if.then40 ], [ %value.010.i, %land.rhs.i ], [ %add.i, %for.body.i ]
+  %retval.sroa.0.0 = phi i32 [ %conv.i28, %sw.bb25 ], [ 10, %sw.bb19 ], [ 13, %sw.bb13 ], [ 9, %sw.bb8 ], [ %6, %sw.bb5 ], [ %4, %sw.bb2 ], [ %2, %sw.bb ], [ %and.i, %if.then40 ], [ %value.010.i, %land.rhs.i ], [ %add.i, %for.body.i ]
   %retval.sroa.9.0 = phi ptr [ %add.ptr29, %sw.bb25 ], [ %add.ptr23, %sw.bb19 ], [ %add.ptr17, %sw.bb13 ], [ %add.ptr11, %sw.bb8 ], [ %7, %sw.bb5 ], [ %5, %sw.bb2 ], [ %3, %sw.bb ], [ %storemerge8.i, %if.then40 ], [ %storemerge11.i, %land.rhs.i ], [ %storemerge.i, %for.body.i ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.9.0, 1

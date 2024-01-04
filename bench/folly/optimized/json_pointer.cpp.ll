@@ -179,10 +179,9 @@ if.end.i:                                         ; preds = %while.body.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %11 = load i8, ptr %add.ptr4.i, align 1, !tbaa !12
-  %conv8.i = sext i8 %11 to i32
-  switch i32 %conv8.i, label %cleanup43 [
-    i32 49, label %sw.epilog.i
-    i32 48, label %sw.bb10.i
+  switch i8 %11, label %cleanup43 [
+    i8 49, label %sw.epilog.i
+    i8 48, label %sw.bb10.i
   ]
 
 sw.bb10.i:                                        ; preds = %if.end7.i
@@ -533,10 +532,9 @@ if.end:                                           ; preds = %while.body
 
 if.end7:                                          ; preds = %if.end
   %3 = load i8, ptr %add.ptr4, align 1, !tbaa !12
-  %conv8 = sext i8 %3 to i32
-  switch i32 %conv8, label %cleanup [
-    i32 49, label %sw.epilog
-    i32 48, label %sw.bb10
+  switch i8 %3, label %cleanup [
+    i8 49, label %sw.epilog
+    i8 48, label %sw.bb10
   ]
 
 sw.bb10:                                          ; preds = %if.end7
