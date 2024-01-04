@@ -38378,7 +38378,7 @@ if.else85:                                        ; preds = %if.else71
   br label %if.end123
 
 if.else96:                                        ; preds = %if.else59
-  %3 = or i32 %spec.select, %spec.select63
+  %3 = or i32 %v_max, %v_min
   %or.cond36.not = icmp sgt i32 %3, -1
   br i1 %or.cond36.not, label %if.else113, label %if.then101
 
@@ -38943,7 +38943,7 @@ if.else94:                                        ; preds = %if.else77
   br label %if.end137
 
 if.else108:                                       ; preds = %if.else65
-  %3 = or i64 %spec.select, %spec.select63
+  %3 = or i64 %v_max, %v_min
   %or.cond36.not = icmp sgt i64 %3, -1
   br i1 %or.cond36.not, label %if.else126, label %if.then113
 
