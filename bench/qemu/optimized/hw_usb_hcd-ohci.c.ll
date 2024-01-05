@@ -5523,9 +5523,8 @@ if.end:                                           ; preds = %entry
   %sof_time = getelementptr inbounds %struct.OHCIState, ptr %ohci, i64 0, i32 7
   %2 = load i64, ptr %sof_time, align 16
   %sub = sub i64 %call, %2
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %.b9 = load i1, ptr @usb_frame_time, align 8
-  %cmp5.not10 = icmp ult i64 %spec.store.select, 1000000
+  %cmp5.not10 = icmp slt i64 %sub, 1000000
   %cmp5.not = select i1 %.b9, i1 %cmp5.not10, i1 false
   br i1 %cmp5.not, label %if.end11, label %if.then7
 
@@ -5537,6 +5536,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %div.lhs.trunc = trunc i64 %spec.store.select to i32
   %div11 = udiv i32 %div.lhs.trunc, 83
   %fi = getelementptr inbounds %struct.OHCIState, ptr %ohci, i64 0, i32 22

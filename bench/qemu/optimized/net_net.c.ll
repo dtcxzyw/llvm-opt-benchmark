@@ -165,7 +165,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"Available NIC models:\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @convert_host_port(ptr noundef %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @convert_host_port(ptr noundef %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %p = alloca i64, align 8
@@ -257,7 +257,7 @@ declare i32 @qemu_strtol(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @parse_host_port(ptr noundef %saddr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @parse_host_port(ptr noundef %saddr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_strsplit(ptr noundef %str, ptr noundef nonnull @.str.4, i32 noundef 2) #26
   %tobool.not = icmp eq ptr %call, null
@@ -450,7 +450,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_new_net_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_new_net_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds %struct.NetClientInfo, ptr %info, i64 0, i32 1
   %0 = load i64, ptr %size, align 8
@@ -573,7 +573,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_new_net_control_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_new_net_control_client(ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds %struct.NetClientInfo, ptr %info, i64 0, i32 1
   %0 = load i64, ptr %size, align 8
@@ -591,7 +591,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_new_nic(ptr noundef %info, ptr noundef %conf, ptr noundef %model, ptr noundef %name, ptr noundef %reentrancy_guard, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_new_nic(ptr noundef %info, ptr noundef %conf, ptr noundef %model, ptr noundef %name, ptr noundef %reentrancy_guard, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %peers1 = getelementptr inbounds %struct.NICConf, ptr %conf, i64 0, i32 1
   %queues3 = getelementptr inbounds %struct.NICConf, ptr %conf, i64 0, i32 1, i32 1
@@ -1116,7 +1116,6 @@ entry:
   %0 = load ptr, ptr %conf, align 8
   %queues1 = getelementptr inbounds %struct.NICConf, ptr %0, i64 0, i32 1, i32 1
   %1 = load i32, ptr %queues1, align 8
-  %cond = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @qemu_macaddr_set_free.base, i64 5)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %qemu_macaddr_set_free.exit
@@ -1146,7 +1145,8 @@ for.inc.i:                                        ; preds = %if.then5.i, %for.bo
 
 qemu_macaddr_set_free.exit:                       ; preds = %for.inc.i, %entry
   %peer_deleted = getelementptr inbounds %struct.NICState, ptr %nic, i64 0, i32 4
-  %wide.trip.count = zext nneg i32 %cond to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %for.body
 
 for.body:                                         ; preds = %qemu_macaddr_set_free.exit, %for.inc
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_set_vnet_le(ptr nocapture noundef readnone %nc, i1 noundef zeroext %is_le) local_unnamed_addr #15 {
+define dso_local noundef i32 @qemu_set_vnet_le(ptr nocapture noundef readnone %nc, i1 noundef zeroext %is_le) local_unnamed_addr #15 {
 entry:
   ret i32 0
 }
@@ -1584,7 +1584,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
 entry:
   %receive_disabled = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 8
   %bf.load = load i8, ptr %receive_disabled, align 8
@@ -1612,7 +1612,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @runstate_is_running() #26
   br i1 %call, label %if.end, label %return
@@ -2056,7 +2056,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_find_netdev(ptr nocapture noundef readonly %id) local_unnamed_addr #16 {
+define dso_local noundef ptr @qemu_find_netdev(ptr nocapture noundef readonly %id) local_unnamed_addr #16 {
 entry:
   %nc.05 = load ptr, ptr @net_clients, align 8
   %tobool.not6 = icmp eq ptr %nc.05, null
@@ -2162,7 +2162,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #4
 declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr nocapture noundef readonly %models) local_unnamed_addr #6 {
+define dso_local noundef i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr nocapture noundef readonly %models) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2361,7 +2361,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %object = alloca ptr, align 8
   %prefix_len = alloca i64, align 8
@@ -2467,7 +2467,7 @@ return:                                           ; preds = %if.end, %if.then
 declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @net_client_init1(ptr noundef %netdev, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef i32 @net_client_init1(ptr noundef %netdev, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
   %0 = load i32, ptr %type, align 8
@@ -3408,7 +3408,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal noundef i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #26
   %tobool.not = icmp eq ptr %call, null
@@ -3675,7 +3675,7 @@ return:                                           ; preds = %if.then, %out, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @net_init_client(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal noundef i32 @net_init_client(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext false, ptr noundef %errp), !range !5
   ret i32 %call
@@ -3847,7 +3847,7 @@ for.end11:                                        ; preds = %for.inc9, %entry
   ret i32 %crc.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
 entry:
   %frombool = zext i1 %vnet_hdr to i8
@@ -3862,7 +3862,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_fill_rstate(ptr noundef %rs, ptr nocapture noundef readonly %buf, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local noundef i32 @net_fill_rstate(ptr noundef %rs, ptr nocapture noundef readonly %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp72 = icmp sgt i32 %size, 0
   br i1 %cmp72, label %while.body.lr.ph, label %while.end
@@ -4527,7 +4527,7 @@ attributes #16 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none)
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nofree nounwind }

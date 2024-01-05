@@ -8289,7 +8289,7 @@ entry:
   store volatile i32 1, ptr %severity, align 4
   %severity.0.severity.0.severity.0.severity.0. = load volatile i32, ptr %severity, align 4
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %severity.0.severity.0.severity.0.severity.0., i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %severity.0.severity.0.severity.0.severity.0., 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.3, i32 noundef 374, i32 noundef %spec.store.select1.i) #31
           to label %invoke.cont6 unwind label %lpad

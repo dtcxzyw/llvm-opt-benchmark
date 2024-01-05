@@ -19425,7 +19425,7 @@ if.end2.i24.i:                                    ; preds = %if.end.i21.i2100
   br i1 %cmp4.i26.i, label %while.end, label %if.end7.i27.i
 
 if.end7.i27.i:                                    ; preds = %if.end2.i24.i
-  %cmp8.i28.i = icmp ult i64 %call3.i25.i, %.x.0.i.i2093
+  %cmp8.i28.i = icmp ugt i64 %or.i.i2089, %call3.i25.i
   br i1 %cmp8.i28.i, label %if.then10.i32.i, label %load_frame.exit
 
 if.then10.i32.i:                                  ; preds = %if.end7.i27.i
@@ -20221,19 +20221,20 @@ if.then12:                                        ; preds = %calc_binsize.exit
   br label %return
 
 if.end14:                                         ; preds = %if.end, %calc_binsize.exit
-  %.x.0.i65 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %.x.0.i66 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %x.0.lcssa.i65 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
   %12 = load i64, ptr %input_len, align 8
   %sub17 = sub i64 %12, %9
-  %cmp18.not = icmp sgt i64 %.x.0.i65, %sub17
+  %cmp18.not = icmp sgt i64 %.x.0.i66, %sub17
   br i1 %cmp18.not, label %cond.false26, label %cond.true20
 
 cond.true20:                                      ; preds = %if.end14
   %add.ptr23 = getelementptr i8, ptr %8, i64 %9
-  %add25 = add i64 %9, %.x.0.i65
+  %add25 = add i64 %9, %.x.0.i66
   br label %if.end33
 
 cond.false26:                                     ; preds = %if.end14
-  %sub.i30 = xor i64 %.x.0.i65, 9223372036854775807
+  %sub.i30 = xor i64 %.x.0.i66, 9223372036854775807
   %cmp.i31 = icmp sgt i64 %9, %sub.i30
   br i1 %cmp.i31, label %if.then.i47, label %if.end.i32
 
@@ -20256,12 +20257,12 @@ if.then1.i45:                                     ; preds = %if.end.i32
   br label %return
 
 if.end2.i35:                                      ; preds = %if.end.i32
-  %call3.i36 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i65)
+  %call3.i36 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i66)
   %cmp4.i37 = icmp slt i64 %call3.i36, 0
   br i1 %cmp4.i37, label %return, label %if.end7.i38
 
 if.end7.i38:                                      ; preds = %if.end2.i35
-  %cmp8.i39 = icmp ult i64 %call3.i36, %.x.0.i65
+  %cmp8.i39 = icmp ugt i64 %x.0.lcssa.i65, %call3.i36
   br i1 %cmp8.i39, label %if.then10.i43, label %_Unpickler_ReadImpl.exit49
 
 if.then10.i43:                                    ; preds = %if.end7.i38
@@ -20276,7 +20277,7 @@ _Unpickler_ReadImpl.exit49:                       ; preds = %if.end7.i38
   br label %if.end33
 
 if.end33:                                         ; preds = %_Unpickler_ReadImpl.exit49, %cond.true20
-  %storemerge61 = phi i64 [ %add25, %cond.true20 ], [ %.x.0.i65, %_Unpickler_ReadImpl.exit49 ]
+  %storemerge61 = phi i64 [ %add25, %cond.true20 ], [ %.x.0.i66, %_Unpickler_ReadImpl.exit49 ]
   %s.3 = phi ptr [ %add.ptr23, %cond.true20 ], [ %17, %_Unpickler_ReadImpl.exit49 ]
   store i64 %storemerge61, ptr %next_read_idx, align 8
   %encoding = getelementptr inbounds %struct.UnpicklerObject, ptr %self, i64 0, i32 18
@@ -20286,13 +20287,13 @@ if.end33:                                         ; preds = %_Unpickler_ReadImpl
   br i1 %cmp35, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end33
-  %call38 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %s.3, i64 noundef %.x.0.i65) #11
+  %call38 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %s.3, i64 noundef %.x.0.i66) #11
   br label %if.end41
 
 if.else:                                          ; preds = %if.end33
   %errors = getelementptr inbounds %struct.UnpicklerObject, ptr %self, i64 0, i32 19
   %19 = load ptr, ptr %errors, align 8
-  %call40 = tail call ptr @PyUnicode_Decode(ptr noundef %s.3, i64 noundef %.x.0.i65, ptr noundef %18, ptr noundef %19) #11
+  %call40 = tail call ptr @PyUnicode_Decode(ptr noundef %s.3, i64 noundef %.x.0.i66, ptr noundef %18, ptr noundef %19) #11
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.then37
@@ -20450,19 +20451,20 @@ if.then12:                                        ; preds = %calc_binsize.exit
   br label %return
 
 if.end14:                                         ; preds = %if.end, %calc_binsize.exit
-  %.x.0.i59 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %.x.0.i60 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %x.0.lcssa.i59 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
   %12 = load i64, ptr %input_len, align 8
   %sub17 = sub i64 %12, %9
-  %cmp18.not = icmp sgt i64 %.x.0.i59, %sub17
+  %cmp18.not = icmp sgt i64 %.x.0.i60, %sub17
   br i1 %cmp18.not, label %cond.false26, label %cond.true20
 
 cond.true20:                                      ; preds = %if.end14
   %add.ptr23 = getelementptr i8, ptr %8, i64 %9
-  %add25 = add i64 %9, %.x.0.i59
+  %add25 = add i64 %9, %.x.0.i60
   br label %if.end33
 
 cond.false26:                                     ; preds = %if.end14
-  %sub.i25 = xor i64 %.x.0.i59, 9223372036854775807
+  %sub.i25 = xor i64 %.x.0.i60, 9223372036854775807
   %cmp.i26 = icmp sgt i64 %9, %sub.i25
   br i1 %cmp.i26, label %if.then.i42, label %if.end.i27
 
@@ -20485,12 +20487,12 @@ if.then1.i40:                                     ; preds = %if.end.i27
   br label %return
 
 if.end2.i30:                                      ; preds = %if.end.i27
-  %call3.i31 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i59)
+  %call3.i31 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i60)
   %cmp4.i32 = icmp slt i64 %call3.i31, 0
   br i1 %cmp4.i32, label %return, label %if.end7.i33
 
 if.end7.i33:                                      ; preds = %if.end2.i30
-  %cmp8.i34 = icmp ult i64 %call3.i31, %.x.0.i59
+  %cmp8.i34 = icmp ugt i64 %x.0.lcssa.i59, %call3.i31
   br i1 %cmp8.i34, label %if.then10.i38, label %_Unpickler_ReadImpl.exit44
 
 if.then10.i38:                                    ; preds = %if.end7.i33
@@ -20505,10 +20507,10 @@ _Unpickler_ReadImpl.exit44:                       ; preds = %if.end7.i33
   br label %if.end33
 
 if.end33:                                         ; preds = %_Unpickler_ReadImpl.exit44, %cond.true20
-  %storemerge55 = phi i64 [ %add25, %cond.true20 ], [ %.x.0.i59, %_Unpickler_ReadImpl.exit44 ]
+  %storemerge55 = phi i64 [ %add25, %cond.true20 ], [ %.x.0.i60, %_Unpickler_ReadImpl.exit44 ]
   %s.3 = phi ptr [ %add.ptr23, %cond.true20 ], [ %17, %_Unpickler_ReadImpl.exit44 ]
   store i64 %storemerge55, ptr %next_read_idx, align 8
-  %call34 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %s.3, i64 noundef %.x.0.i59, ptr noundef nonnull @.str.31) #11
+  %call34 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %s.3, i64 noundef %.x.0.i60, ptr noundef nonnull @.str.31) #11
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %return, label %do.body
 

@@ -3417,7 +3417,7 @@ for.body.i:                                       ; preds = %if.end36.i, %for.bo
   br i1 %cmp12.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %add.i = add i32 %sub.i, %sub7.i
+  %add.i = add i32 %sub7.i, %sub.i
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %add.i, i32 1)
   %idxprom17.i = zext nneg i32 %spec.store.select.i to i64
   %arrayidx18.i = getelementptr inbounds i32, ptr %rankStart0, i64 %idxprom17.i
@@ -3431,7 +3431,7 @@ if.then.i:                                        ; preds = %for.body.i
   %sub25.i = sub i32 %nextRankStart.0.lcssa, %17
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
-  %cmp.i.i43 = icmp ugt i32 %spec.store.select.i, 1
+  %cmp.i.i43 = icmp sgt i32 %add.i, 1
   br i1 %cmp.i.i43, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i

@@ -209,7 +209,6 @@ for.body54.lr.ph:                                 ; preds = %if.end38
   %spec.select = select i1 %tobool.i69.not130, i32 %kind, i32 2
   %cmp70 = icmp eq i32 %spec.select, 2
   %cmp92138 = icmp sgt i32 %nmatch, 1
-  %cmp4.i = icmp ugt i32 %spec.store.select, 2
   %arrayidx107 = getelementptr inbounds [10 x ptr], ptr %matchcap, i64 0, i64 1
   %cmp108 = icmp eq i32 %spec.select, 0
   %scevgep = getelementptr inbounds i8, ptr %matchcap, i64 16
@@ -284,9 +283,8 @@ if.then88:                                        ; preds = %lor.lhs.false85, %i
 for.end100:                                       ; preds = %if.then88
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr nonnull align 16 %scevgep154, i64 %13, i1 false)
   %and103 = and i32 %nextmatchcond.0141, 32640
-  %tobool.not = icmp ne i32 %and103, 0
-  %or.cond127 = and i1 %cmp4.i, %tobool.not
-  br i1 %or.cond127, label %for.body.i, label %if.end106
+  %tobool.not.not = icmp eq i32 %and103, 0
+  br i1 %tobool.not.not, label %if.end106, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end100, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 2, %for.end100 ]
@@ -326,8 +324,7 @@ if.end117:                                        ; preds = %land.lhs.true109, %
   %and118 = and i32 %16, 32640
   %tobool119 = icmp ne i32 %and118, 0
   %or.cond1 = and i1 %cmp92138, %tobool119
-  %or.cond128 = and i1 %cmp4.i, %or.cond1
-  br i1 %or.cond128, label %for.body.i84, label %for.inc125
+  br i1 %or.cond1, label %for.body.i84, label %for.inc125
 
 for.body.i84:                                     ; preds = %if.end117, %for.inc.i91
   %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i92, %for.inc.i91 ], [ 2, %if.end117 ]
@@ -377,9 +374,7 @@ if.then136:                                       ; preds = %lor.lhs.false133, %
   %and139 = and i32 %20, 32640
   %tobool140.not = icmp ne i32 %and139, 0
   %or.cond67.not131 = and i1 %cmp137, %tobool140.not
-  %cmp4.i100 = icmp ugt i32 %spec.store.select, 2
-  %or.cond129 = and i1 %cmp4.i100, %or.cond67.not131
-  br i1 %or.cond129, label %for.body.i103, label %if.end143
+  br i1 %or.cond67.not131, label %for.body.i103, label %if.end143
 
 for.body.i103:                                    ; preds = %if.then136, %for.inc.i110
   %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i111, %for.inc.i110 ], [ 2, %if.then136 ]
@@ -400,12 +395,13 @@ for.inc.i110:                                     ; preds = %if.then.i108, %for.
   br i1 %exitcond.not.i112, label %if.end143, label %for.body.i103, !llvm.loop !4
 
 if.end143:                                        ; preds = %for.inc.i110, %if.then136
-  br i1 %cmp4.i100, label %for.body147.preheader, label %for.end154
+  br i1 %cmp137, label %for.body147.preheader, label %for.end154
 
 for.body147.preheader:                            ; preds = %if.end143
   %scevgep156 = getelementptr inbounds i8, ptr %matchcap, i64 16
   %scevgep157 = getelementptr inbounds i8, ptr %cap, i64 16
-  %22 = add nsw i32 %spec.store.select, -2
+  %umax = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 3)
+  %22 = add nsw i32 %umax, -2
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep156, ptr nonnull align 16 %scevgep157, i64 %24, i1 false)
@@ -1859,6 +1855,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

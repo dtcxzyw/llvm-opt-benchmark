@@ -708,7 +708,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @speed_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @speed_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %cipher.i = alloca ptr, align 8
   %md.i1255 = alloca ptr, align 8
@@ -2113,8 +2113,7 @@ if.end561:                                        ; preds = %if.else542, %if.the
   %98 = getelementptr i32, ptr %96, i64 %97
   %arrayidx569 = getelementptr i32, ptr %98, i64 -1
   %99 = load i32, ptr %arrayidx569, align 4
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %99, i32 36)
-  %cmp574 = icmp ugt i32 %spec.store.select, 2147483583
+  %cmp574 = icmp sgt i32 %99, 2147483583
   br i1 %cmp574, label %if.then576, label %if.end578
 
 if.then576:                                       ; preds = %if.end561
@@ -2123,6 +2122,7 @@ if.then576:                                       ; preds = %if.end561
   br label %for.body4416.preheader
 
 if.end578:                                        ; preds = %if.end561
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %99, i32 36)
   %add579 = add nuw nsw i32 %spec.store.select, 64
   %conv599 = zext nneg i32 %add579 to i64
   %idx.ext = sext i32 %misalign.0 to i64
@@ -7451,7 +7451,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ASYNC_WAIT_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_multi(i32 noundef %multi, i32 noundef %size_num) unnamed_addr #0 {
+define internal fastcc noundef i32 @do_multi(i32 noundef %multi, i32 noundef %size_num) unnamed_addr #0 {
 entry:
   %isdelim.i1193 = alloca [256 x i8], align 16
   %isdelim.i1168 = alloca [256 x i8], align 16
@@ -10565,7 +10565,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mac_setup(ptr noundef %name, ptr nocapture noundef %mac, ptr noundef %params, ptr nocapture noundef writeonly %loopargs, i32 noundef %loopargs_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @mac_setup(ptr noundef %name, ptr nocapture noundef %mac, ptr noundef %params, ptr nocapture noundef writeonly %loopargs, i32 noundef %loopargs_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #15
   %call1 = tail call ptr @app_get0_propq() #15

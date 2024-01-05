@@ -856,7 +856,6 @@ cond.end27:
   %agg.tmp870 = alloca %"class.cvc5::internal::TypeNode", align 8
   %call28 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %cmp = icmp sgt i32 %dir, -1
-  %cond = tail call i32 @llvm.smax.i32(i32 %dir, i32 0)
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %children, i64 0, i32 1
   %_M_finish.i.i243 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %mchildren, i64 0, i32 1
   %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %s287, i64 0, i32 1
@@ -878,7 +877,7 @@ cond.end27:
 for.body:                                         ; preds = %cond.end27, %for.inc986
   %cmp595.not = phi i1 [ true, %cond.end27 ], [ false, %for.inc986 ]
   %storemerge3001 = phi i32 [ 0, %cond.end27 ], [ 1, %for.inc986 ]
-  %cmp38.not = icmp ugt i32 %cond, %storemerge3001
+  %cmp38.not = icmp slt i32 %storemerge3001, %dir
   %cmp39.not3040 = icmp ugt i32 %storemerge3001, %dir
   %cmp39.not = and i1 %cmp, %cmp39.not3040
   %or.cond = or i1 %cmp38.not, %cmp39.not
@@ -1999,7 +1998,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i1390
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i1390
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %124 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %124
@@ -4407,7 +4406,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i43
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i43
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %30 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %30
@@ -12382,7 +12381,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -12721,7 +12720,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -15984,9 +15983,6 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

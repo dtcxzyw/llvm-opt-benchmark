@@ -894,7 +894,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %cmp5 = icmp ult i32 %spec.store.select66, 100
+  %cmp5 = icmp slt i32 %percentage, 100
   br i1 %cmp5, label %if.then6, label %if.then7.i.i
 
 if.then6:                                         ; preds = %invoke.cont
@@ -912,7 +912,7 @@ lpad:                                             ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup61
 
 if.end9:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %cmp10 = icmp ult i32 %spec.store.select66, 10
+  %cmp10 = icmp slt i32 %percentage, 10
   br i1 %cmp10, label %if.then11, label %if.then4.i.i
 
 if.then11:                                        ; preds = %if.end9
@@ -950,7 +950,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %if.then7.i.i, %if.t
 
 invoke.cont6.i:                                   ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %5 = load ptr, ptr %ref.tmp15, align 8, !tbaa !22, !alias.scope !75
-  %cmp34.i.i = icmp ugt i32 %spec.store.select66, 99
+  %cmp34.i.i = icmp sgt i32 %percentage, 99
   br i1 %cmp34.i.i, label %while.end.i.i.thread, label %while.end.i.i
 
 while.end.i.i.thread:                             ; preds = %invoke.cont6.i
@@ -964,7 +964,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont6.i
   br label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %invoke.cont6.i
-  %cmp9.i.i = icmp ugt i32 %spec.store.select66, 9
+  %cmp9.i.i = icmp sgt i32 %percentage, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i

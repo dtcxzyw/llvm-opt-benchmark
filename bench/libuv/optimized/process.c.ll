@@ -249,7 +249,7 @@ entry:
   %stdio_count3 = getelementptr inbounds %struct.uv_process_options_s, ptr %options, i64 0, i32 6
   %1 = load i32, ptr %stdio_count3, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
-  %cmp4 = icmp ugt i32 %spec.store.select, 8
+  %cmp4 = icmp sgt i32 %1, 8
   br i1 %cmp4, label %if.end6, label %for.body.preheader
 
 if.end6:                                          ; preds = %entry

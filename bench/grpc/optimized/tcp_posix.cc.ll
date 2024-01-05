@@ -1829,20 +1829,16 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %if.end.i.i
   %allocate_length.0.i = select i1 %cmp7.i, i64 %spec.select.i, i64 %conv.i
   %sub.i = sub i64 %allocate_length.0.i, %.pre51.i
   %conv16.i = trunc i64 %sub.i to i32
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %conv16.i, i32 1)
-  %cmp19.not.i = icmp ult i32 %.sroa.speculated.i, %cond.i
-  br i1 %cmp19.not.i, label %while.cond28.preheader.i, label %while.cond.preheader.i
+  %cmp19.not.i = icmp sgt i32 %cond.i, %conv16.i
+  br i1 %cmp19.not.i, label %while.cond28.preheader.i, label %while.body.lr.ph.i
 
-while.cond.preheader.i:                           ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i
-  %cmp2146.i = icmp sgt i32 %conv16.i, 0
-  br i1 %cmp2146.i, label %while.body.lr.ph.i, label %if.end39.i
-
-while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
+while.body.lr.ph.i:                               ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i
   %10 = call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %uses_until_refresh.i.i.i.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %10, i64 0, i32 1
   br label %while.body.i
 
 while.cond28.preheader.i:                         ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %conv16.i, i32 1)
   %11 = call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %uses_until_refresh.i.i.i24.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %11, i64 0, i32 1
   br label %while.body30.i
@@ -1995,7 +1991,7 @@ _ZN9grpc_core20GlobalStatsCollector23IncrementTcpReadAlloc8kEv.exit.i: ; preds =
   %cmp29.i = icmp ugt i32 %extra_wanted.148.i, 8192
   br i1 %cmp29.i, label %while.body30.i, label %if.end39.i, !llvm.loop !26
 
-if.end39.i:                                       ; preds = %_ZN9grpc_core20GlobalStatsCollector24IncrementTcpReadAlloc64kEv.exit.i, %_ZN9grpc_core20GlobalStatsCollector23IncrementTcpReadAlloc8kEv.exit.i, %while.cond.preheader.i
+if.end39.i:                                       ; preds = %_ZN9grpc_core20GlobalStatsCollector24IncrementTcpReadAlloc64kEv.exit.i, %_ZN9grpc_core20GlobalStatsCollector23IncrementTcpReadAlloc8kEv.exit.i
   %has_posted_reclaimer.i.i = getelementptr inbounds %"struct.(anonymous namespace)::grpc_tcp", ptr %arg, i64 0, i32 35
   %36 = load i8, ptr %has_posted_reclaimer.i.i, align 1
   %37 = and i8 %36, 1

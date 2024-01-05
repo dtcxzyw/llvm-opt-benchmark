@@ -1127,7 +1127,7 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #11
 define void @_ZN6icu_759UVector3214setMaxCapacityEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %limit) local_unnamed_addr #1 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %limit, i32 0)
-  %cmp2 = icmp ugt i32 %spec.store.select, 536870911
+  %cmp2 = icmp sgt i32 %limit, 536870911
   br i1 %cmp2, label %if.end23, label %if.end4
 
 if.end4:                                          ; preds = %entry
@@ -1143,23 +1143,23 @@ if.end4:                                          ; preds = %entry
 if.end10:                                         ; preds = %if.end4
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
   %1 = load ptr, ptr %elements, align 8
-  %2 = shl nuw nsw i32 %spec.store.select, 2
-  %mul = zext nneg i32 %2 to i64
+  %conv = zext nneg i32 %spec.store.select to i64
+  %mul = shl nuw nsw i64 %conv, 2
   %call = tail call ptr @uprv_realloc_75(ptr noundef %1, i64 noundef %mul) #16
   %cmp12 = icmp eq ptr %call, null
   br i1 %cmp12, label %if.end23, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
   store ptr %call, ptr %elements, align 8
-  %3 = load i32, ptr %maxCapacity, align 8
-  store i32 %3, ptr %capacity, align 4
+  %2 = load i32, ptr %maxCapacity, align 8
+  store i32 %2, ptr %capacity, align 4
   %count = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 1
-  %4 = load i32, ptr %count, align 8
-  %cmp19 = icmp sgt i32 %4, %3
+  %3 = load i32, ptr %count, align 8
+  %cmp19 = icmp sgt i32 %3, %2
   br i1 %cmp19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end14
-  store i32 %3, ptr %count, align 8
+  store i32 %2, ptr %count, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end10, %if.end4, %entry, %if.then20, %if.end14

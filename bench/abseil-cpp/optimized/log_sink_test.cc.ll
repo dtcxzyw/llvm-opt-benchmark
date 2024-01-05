@@ -4329,7 +4329,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -11774,7 +11774,7 @@ define internal fastcc { i64, ptr } @_ZN12_GLOBAL__N_114ReentrancyTest12LogAndRe
 entry:
   %ref.tmp4 = alloca %"class.absl::log_internal::LogMessage", align 8
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %severity, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %severity, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str.4, i32 noundef 220, i32 noundef %spec.store.select1.i) #28
   %call6 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i64 %to_log.coerce0, ptr %to_log.coerce1)
@@ -12160,7 +12160,7 @@ for.body:                                         ; preds = %entry
   %severity_ = getelementptr inbounds %"class.(anonymous namespace)::ReentrancyTest::ReentrantSendLogSink", ptr %this, i64 0, i32 1
   %2 = load i32, ptr %severity_, align 8
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
+  %cmp1.i = icmp sgt i32 %2, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.4, i32 noundef 196, i32 noundef %spec.store.select1.i) #28
   invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, i64 41, ptr nonnull @.str.114)
@@ -12175,7 +12175,7 @@ for.body14:                                       ; preds = %entry
   %severity_16 = getelementptr inbounds %"class.(anonymous namespace)::ReentrancyTest::ReentrantSendLogSink", ptr %this, i64 0, i32 1
   %4 = load i32, ptr %severity_16, align 8
   %spec.store.select.i5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %cmp1.i6 = icmp ugt i32 %spec.store.select.i5, 3
+  %cmp1.i6 = icmp sgt i32 %4, 3
   %spec.store.select1.i7 = select i1 %cmp1.i6, i32 2, i32 %spec.store.select.i5
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef nonnull @.str.4, i32 noundef 199, i32 noundef %spec.store.select1.i7) #28
   %sink_ = getelementptr inbounds %"class.(anonymous namespace)::ReentrancyTest::ReentrantSendLogSink", ptr %this, i64 0, i32 3
@@ -12196,7 +12196,7 @@ for.body37:                                       ; preds = %entry
   %severity_39 = getelementptr inbounds %"class.(anonymous namespace)::ReentrancyTest::ReentrantSendLogSink", ptr %this, i64 0, i32 1
   %7 = load i32, ptr %severity_39, align 8
   %spec.store.select.i10 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %cmp1.i11 = icmp ugt i32 %spec.store.select.i10, 3
+  %cmp1.i11 = icmp sgt i32 %7, 3
   %spec.store.select1.i12 = select i1 %cmp1.i11, i32 2, i32 %spec.store.select.i10
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, ptr noundef nonnull @.str.4, i32 noundef 203, i32 noundef %spec.store.select1.i12) #28
   %sink_47 = getelementptr inbounds %"class.(anonymous namespace)::ReentrancyTest::ReentrantSendLogSink", ptr %this, i64 0, i32 3
@@ -15686,7 +15686,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPKvSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %11 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %11

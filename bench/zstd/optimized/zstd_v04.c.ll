@@ -3595,7 +3595,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %sub25.i.i = sub i32 %nextRankStart.0.lcssa.i, %17
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx21.i.i, i64 68, i1 false)
-  %cmp.i.i44.i = icmp ugt i32 %spec.store.select.i.i, 1
+  %cmp.i.i44.i = icmp sgt i32 %add.i.i, 1
   br i1 %cmp.i.i44.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i

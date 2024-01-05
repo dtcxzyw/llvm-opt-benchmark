@@ -12095,7 +12095,7 @@ if.then152:                                       ; preds = %for.body150
   %38 = getelementptr i8, ptr %pResult, i64 %37
   %arrayidx161 = getelementptr i8, ptr %38, i64 -1
   store i8 0, ptr %arrayidx161, align 1
-  %cmp164137 = icmp ugt i32 %36, 2
+  %cmp164137 = icmp sgt i32 %35, 2
   br i1 %cmp164137, label %land.rhs165.preheader, label %return
 
 land.rhs165.preheader:                            ; preds = %if.then152
@@ -12518,7 +12518,7 @@ if.then153:                                       ; preds = %for.body151
   %43 = getelementptr i16, ptr %pResult, i64 %42
   %arrayidx162 = getelementptr i16, ptr %43, i64 -1
   store i16 0, ptr %arrayidx162, align 2
-  %cmp165128 = icmp ugt i32 %41, 2
+  %cmp165128 = icmp sgt i32 %40, 2
   br i1 %cmp165128, label %land.rhs166.preheader, label %return
 
 land.rhs166.preheader:                            ; preds = %if.then153
@@ -12889,7 +12889,7 @@ if.then153:                                       ; preds = %for.body151
   %37 = getelementptr i32, ptr %pResult, i64 %36
   %arrayidx162 = getelementptr i32, ptr %37, i64 -1
   store i32 0, ptr %arrayidx162, align 4
-  %cmp165126 = icmp ugt i32 %35, 2
+  %cmp165126 = icmp sgt i32 %34, 2
   br i1 %cmp165126, label %land.rhs166.preheader, label %return
 
 land.rhs166.preheader:                            ; preds = %if.then153

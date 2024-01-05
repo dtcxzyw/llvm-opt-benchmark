@@ -1964,16 +1964,15 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %if.then
   %11 = phi i64 [ %spec.select28, %.thread ], [ %spec.select, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %conv, %7 ]
   %sub = sub i64 %11, %10
   %conv17 = trunc i64 %sub to i32
+  %cmp20.not = icmp sgt i32 %9, %conv17
+  br i1 %cmp20.not, label %while.body31.preheader, label %while.body
+
+while.body31.preheader:                           ; preds = %8
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %conv17, i32 1)
-  %cmp20.not = icmp ult i32 %.sroa.speculated, %9
-  br i1 %cmp20.not, label %while.body31, label %while.cond.preheader
+  br label %while.body31
 
-while.cond.preheader:                             ; preds = %8
-  %cmp2221 = icmp sgt i32 %conv17, 0
-  br i1 %cmp2221, label %while.body, label %if.end42
-
-while.body:                                       ; preds = %while.cond.preheader, %invoke.cont
-  %extra_wanted.022 = phi i32 [ %sub23, %invoke.cont ], [ %conv17, %while.cond.preheader ]
+while.body:                                       ; preds = %8, %invoke.cont
+  %extra_wanted.022 = phi i32 [ %sub23, %invoke.cont ], [ %conv17, %8 ]
   %12 = load ptr, ptr %incoming_buffer_, align 8
   %13 = load ptr, ptr %memory_owner_, align 8, !noalias !32
   %vtable.i = load ptr, ptr %13, align 8, !noalias !32
@@ -1995,8 +1994,8 @@ lpad:                                             ; preds = %while.body
           cleanup
   br label %eh.resume
 
-while.body31:                                     ; preds = %8, %invoke.cont39
-  %extra_wanted.123 = phi i32 [ %sub32, %invoke.cont39 ], [ %.sroa.speculated, %8 ]
+while.body31:                                     ; preds = %while.body31.preheader, %invoke.cont39
+  %extra_wanted.123 = phi i32 [ %sub32, %invoke.cont39 ], [ %.sroa.speculated, %while.body31.preheader ]
   %16 = load ptr, ptr %incoming_buffer_, align 8
   %17 = load ptr, ptr %memory_owner_, align 8, !noalias !36
   %vtable.i13 = load ptr, ptr %17, align 8, !noalias !36
@@ -2018,7 +2017,7 @@ lpad38:                                           ; preds = %while.body31
           cleanup
   br label %eh.resume
 
-if.end42:                                         ; preds = %invoke.cont, %invoke.cont39, %while.cond.preheader
+if.end42:                                         ; preds = %invoke.cont, %invoke.cont39
   call void @_ZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEv(ptr noundef nonnull align 16 dereferenceable(936) %this)
   br label %if.end43
 

@@ -2629,7 +2629,7 @@ declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prev_item(ptr noundef readnone %opt, ptr noundef %end) unnamed_addr #0 {
+define internal fastcc noundef ptr @prev_item(ptr noundef readnone %opt, ptr noundef %end) unnamed_addr #0 {
 entry:
   %end24 = ptrtoint ptr %end to i64
   %opt23 = ptrtoint ptr %opt to i64
@@ -3344,7 +3344,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_client_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
+define internal fastcc noundef i32 @setup_client_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
 entry:
   %host = alloca ptr, align 8
   %port = alloca ptr, align 8
@@ -4649,7 +4649,7 @@ cond.false:                                       ; preds = %if.end4
 
 if.end9:                                          ; preds = %cond.false, %if.end4
   %2 = phi i32 [ %.pre, %cond.false ], [ %0, %if.end4 ]
-  %cmp10 = icmp ult i32 %spec.store.select, 2
+  %cmp10 = icmp slt i32 %call1, 2
   %3 = load i32, ptr @opt_certform, align 4
   %cmp11 = icmp eq i32 %3, 32773
   %or.cond.not21 = select i1 %cmp10, i1 true, i1 %cmp11
@@ -4675,8 +4675,8 @@ lor.lhs.false:                                    ; preds = %if.end19
   br i1 %tobool.not, label %if.then24, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %cmp3625.not = icmp slt i32 %call1, 1
-  br i1 %cmp3625.not, label %end, label %for.body
+  %cmp3625 = icmp sgt i32 %call1, 0
+  br i1 %cmp3625, label %for.body, label %end
 
 if.then24:                                        ; preds = %lor.lhs.false, %if.end19
   %6 = load i32, ptr @opt_verbosity, align 4
@@ -4744,7 +4744,7 @@ cond.false46:                                     ; preds = %if.then42
 
 for.inc:                                          ; preds = %land.lhs.true2.i, %land.lhs.true.i
   %inc = add nuw nsw i32 %i.026, 1
-  %exitcond.not = icmp eq i32 %call1, %inc
+  %exitcond.not = icmp eq i32 %inc, %call1
   br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !20
 
 end:                                              ; preds = %for.inc, %for.cond.preheader, %cond.false46, %if.then42, %cond.false28, %if.then24, %entry
@@ -4824,7 +4824,7 @@ declare ptr @app_conf_try_string(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @opt_int_arg() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opt_str() unnamed_addr #0 {
+define internal fastcc noundef ptr @opt_str() unnamed_addr #0 {
 entry:
   %call = tail call ptr @opt_arg() #13
   %0 = load i8, ptr %call, align 1
@@ -5598,7 +5598,7 @@ declare i32 @OSSL_CMP_CTX_set_http_cb(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @app_http_tls_cb(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_protection_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
+define internal fastcc noundef i32 @setup_protection_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
 entry:
   %cert = alloca ptr, align 8
   %certs = alloca ptr, align 8
@@ -5922,7 +5922,7 @@ return:                                           ; preds = %if.end.i, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_request_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
+define internal fastcc noundef i32 @setup_request_ctx(ptr noundef %ctx, ptr noundef %engine) unnamed_addr #0 {
 entry:
   %exts = alloca ptr, align 8
   %ext_ctx = alloca %struct.v3_ext_ctx, align 8
@@ -6967,7 +6967,7 @@ declare i32 @OSSL_CMP_CTX_set1_recipient(ptr noundef, ptr noundef) local_unnamed
 declare i32 @OSSL_CMP_CTX_set1_expected_sender(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_opt_geninfo(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @handle_opt_geninfo(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %endstr = alloca ptr, align 8
   %0 = load ptr, ptr @opt_geninfo, align 8
@@ -7101,7 +7101,7 @@ declare i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef, i64 noundef) local_unnam
 declare i32 @OSSL_CMP_CTX_set_certConf_cb_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_PKIMESSAGE(ptr noundef %msg, ptr noundef %filenames) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_PKIMESSAGE(ptr noundef %msg, ptr noundef %filenames) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %filenames, null
@@ -7312,7 +7312,7 @@ declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_gennames(ptr noundef %ctx, ptr noundef %names) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_gennames(ptr noundef %ctx, ptr noundef %names) unnamed_addr #0 {
 entry:
   %cmp.not7 = icmp eq ptr %names, null
   br i1 %cmp.not7, label %return, label %for.body

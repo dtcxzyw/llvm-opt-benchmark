@@ -1074,7 +1074,7 @@ if.then.i:                                        ; preds = %if.end4
   br label %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
 
 if.else.i:                                        ; preds = %if.end4
-  %cmp1.i = icmp ult i32 %spec.store.select, 2501
+  %cmp1.i = icmp ult i32 %newLen, 2501
   br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -7207,7 +7207,7 @@ if.then.i:                                        ; preds = %if.end4
   br label %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
 
 if.else.i:                                        ; preds = %if.end4
-  %cmp1.i = icmp ult i32 %spec.store.select, 2501
+  %cmp1.i = icmp ult i32 %newLen, 2501
   br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i

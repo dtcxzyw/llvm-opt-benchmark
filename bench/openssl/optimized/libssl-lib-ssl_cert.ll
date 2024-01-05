@@ -198,28 +198,26 @@ if.end9:                                          ; preds = %if.end7
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end9
-  %3 = icmp ne i32 %level.0.i, 4
-  %4 = icmp ult i32 %spec.store.select.i, 5
-  %cmp14 = and i1 %3, %4
+  %cmp14 = icmp ult i32 %level.0.i, 4
   %and17 = and i32 %2, 2
   %tobool18.not = icmp eq i32 %and17, 0
   %or.cond21 = or i1 %cmp14, %tobool18.not
   br i1 %or.cond21, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end13
-  %cmp21 = icmp ugt i32 %level.1.i, 2
+  %cmp21 = icmp ugt i32 %level.0.i, 2
   br i1 %cmp21, label %land.lhs.true22, label %sw.epilog
 
 land.lhs.true22:                                  ; preds = %if.end20
   %min_tls = getelementptr inbounds %struct.ssl_cipher_st, ptr %other, i64 0, i32 8
-  %5 = load i32, ptr %min_tls, align 4
-  %cmp23.not = icmp eq i32 %5, 772
+  %3 = load i32, ptr %min_tls, align 4
+  %cmp23.not = icmp eq i32 %3, 772
   br i1 %cmp23.not, label %sw.epilog, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true22
   %algorithm_mkey = getelementptr inbounds %struct.ssl_cipher_st, ptr %other, i64 0, i32 4
-  %6 = load i32, ptr %algorithm_mkey, align 4
-  %and25 = and i32 %6, 390
+  %4 = load i32, ptr %algorithm_mkey, align 4
+  %and25 = and i32 %4, 390
   %tobool26.not = icmp eq i32 %and25, 0
   br i1 %tobool26.not, label %return, label %sw.epilog
 
@@ -228,27 +226,27 @@ sw.bb29:                                          ; preds = %if.end4
   br i1 %cmp30, label %return, label %cond.false
 
 cond.false:                                       ; preds = %sw.bb29
-  %7 = load i32, ptr %s, align 8
-  switch i32 %7, label %return [
+  %5 = load i32, ptr %s, align 8
+  switch i32 %5, label %return [
     i32 0, label %if.end44
     i32 1, label %cond.end40
   ]
 
 cond.end40:                                       ; preds = %cond.false
   %tls = getelementptr inbounds %struct.quic_conn_st, ptr %s, i64 0, i32 1
-  %8 = load ptr, ptr %tls, align 8
-  %cmp42 = icmp eq ptr %8, null
+  %6 = load ptr, ptr %tls, align 8
+  %cmp42 = icmp eq ptr %6, null
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %cond.false, %cond.end40
-  %cond4130 = phi ptr [ %8, %cond.end40 ], [ %s, %cond.false ]
+  %cond4130 = phi ptr [ %6, %cond.end40 ], [ %s, %cond.false ]
   %method = getelementptr inbounds %struct.ssl_st, ptr %cond4130, i64 0, i32 3
-  %9 = load ptr, ptr %method, align 8
-  %ssl3_enc = getelementptr inbounds %struct.ssl_method_st, ptr %9, i64 0, i32 28
-  %10 = load ptr, ptr %ssl3_enc, align 8
-  %enc_flags = getelementptr inbounds %struct.ssl3_enc_method, ptr %10, i64 0, i32 10
-  %11 = load i32, ptr %enc_flags, align 8
-  %and45 = and i32 %11, 8
+  %7 = load ptr, ptr %method, align 8
+  %ssl3_enc = getelementptr inbounds %struct.ssl_method_st, ptr %7, i64 0, i32 28
+  %8 = load ptr, ptr %ssl3_enc, align 8
+  %enc_flags = getelementptr inbounds %struct.ssl3_enc_method, ptr %8, i64 0, i32 10
+  %9 = load i32, ptr %enc_flags, align 8
+  %and45 = and i32 %9, 8
   %tobool46.not = icmp eq i32 %and45, 0
   br i1 %tobool46.not, label %if.then47, label %if.else
 
@@ -263,11 +261,11 @@ if.else:                                          ; preds = %if.end44
   br i1 %cmp58, label %return, label %sw.epilog
 
 sw.bb64:                                          ; preds = %if.end4
-  %cmp65 = icmp ugt i32 %level.1.i, 1
-  br i1 %cmp65, label %return, label %sw.epilog
+  %cmp65.not = icmp eq i32 %level.0.i, 1
+  br i1 %cmp65.not, label %sw.epilog, label %return
 
 sw.bb68:                                          ; preds = %if.end4
-  %cmp69 = icmp ugt i32 %level.1.i, 2
+  %cmp69 = icmp ugt i32 %level.0.i, 2
   br i1 %cmp69, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4

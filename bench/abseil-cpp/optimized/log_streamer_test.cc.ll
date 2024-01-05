@@ -3262,8 +3262,8 @@ entry:
 
 cond.false:                                       ; preds = %entry
   %2 = load i32, ptr %this, align 8
+  %cmp1.i = icmp sgt i32 %2, 3
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull @.str.66, i32 noundef 117, i32 noundef %spec.store.select1.i) #28
           to label %invoke.cont7 unwind label %terminate.lpad
@@ -5295,7 +5295,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7testing7MatcherIRKN4absl8LogEntryEEESaIS6_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
@@ -7519,7 +7519,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -14420,7 +14420,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPKvSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %11 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %11
@@ -30642,8 +30642,8 @@ entry:
 
 cond.false:                                       ; preds = %entry
   %2 = load i32, ptr %this, align 8
+  %cmp1.i = icmp sgt i32 %2, 3
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %cmp1.i = icmp ugt i32 %spec.store.select.i, 3
   %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull @.str.66, i32 noundef 102, i32 noundef %spec.store.select1.i) #28
   %file_ = getelementptr inbounds %"class.absl::LogStreamer", ptr %this, i64 0, i32 2

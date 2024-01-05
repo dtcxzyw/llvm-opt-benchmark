@@ -35583,8 +35583,12 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %prod.0 = phi i64 [ %add9.i, %if.else.i ], [ %add.i110, %if.then.i107 ]
   %digits.0.in = phi i64 [ %shr10.i, %if.else.i ], [ %shr2.i, %if.then.i107 ]
   %number_of_digits_printed.0.i = phi i32 [ 2, %if.else.i ], [ 1, %if.then.i107 ]
-  %cmp1410.i = icmp ult i32 %number_of_digits_printed.0.i, %cond
-  br i1 %cmp1410.i, label %while.body.lr.ph.i, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit
+  %cmp1410.i = icmp ugt i32 %precision.addr.0, %number_of_digits_printed.0.i
+  br i1 %cmp1410.i, label %while.body.lr.ph.i, label %if.then125.thread
+
+if.then125.thread:                                ; preds = %if.end.i
+  %digits.1298 = trunc i64 %digits.0.in to i32
+  br label %if.then127
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
   %31 = zext nneg i32 %number_of_digits_printed.0.i to i64
@@ -35606,10 +35610,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp14.i = icmp ult i64 %indvars.iv.next.i, %32
   br i1 %cmp14.i, label %while.body.i, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit, !llvm.loop !1034
 
-_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit: ; preds = %while.body.i, %if.end.i
-  %prod.2 = phi i64 [ %prod.0, %if.end.i ], [ %mul17.i, %while.body.i ]
-  %digits.1.in = phi i64 [ %digits.0.in, %if.end.i ], [ %shr18.i, %while.body.i ]
-  %digits.1 = trunc i64 %digits.1.in to i32
+_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit: ; preds = %while.body.i
+  %digits.1 = trunc i64 %shr18.i to i32
   %cmp124 = icmp slt i32 %precision.addr.0, 10
   br i1 %cmp124, label %if.then125, label %if.else155
 
@@ -35617,8 +35619,10 @@ if.then125:                                       ; preds = %_ZZN3fmt3v106detail
   %cmp126.not = icmp eq i32 %precision.addr.0, 9
   br i1 %cmp126.not, label %if.else143, label %if.then127
 
-if.then127:                                       ; preds = %if.then125
-  %conv128 = trunc i64 %prod.2 to i32
+if.then127:                                       ; preds = %if.then125.thread, %if.then125
+  %prod.2300306 = phi i64 [ %prod.0, %if.then125.thread ], [ %mul17.i, %if.then125 ]
+  %digits.1301305 = phi i32 [ %digits.1298, %if.then125.thread ], [ %digits.1, %if.then125 ]
+  %conv128 = trunc i64 %prod.2300306 to i32
   %sub129 = sub nsw i32 8, %cond
   %idxprom.i = sext i32 %sub129 to i64
   %arrayidx.i113 = getelementptr inbounds [9 x i32], ptr @.str.332, i64 0, i64 %idxprom.i
@@ -35631,7 +35635,7 @@ lor.rhs:                                          ; preds = %if.then127
   %35 = or i64 %sub121, %20
   %36 = icmp ne i64 %35, 0
   %37 = zext i1 %36 to i32
-  %or139 = or i32 %digits.1, %37
+  %or139 = or i32 %digits.1301305, %37
   %and140 = and i32 %or139, %shr132
   %.not284 = icmp eq i32 %and140, 0
   br i1 %.not284, label %if.end227, label %if.then199
@@ -35760,10 +35764,10 @@ if.then199.thread:                                ; preds = %land.rhs, %if.else1
   %48 = load ptr, ptr %ptr_.i106, align 8
   %49 = zext nneg i32 %precision.addr.0 to i64
   %50 = getelementptr i8, ptr %48, i64 %49
-  %arrayidx.i159296 = getelementptr i8, ptr %50, i64 -1
-  %51 = load i8, ptr %arrayidx.i159296, align 1
-  %inc297 = add i8 %51, 1
-  store i8 %inc297, ptr %arrayidx.i159296, align 1
+  %arrayidx.i159307 = getelementptr i8, ptr %50, i64 -1
+  %51 = load i8, ptr %arrayidx.i159307, align 1
+  %inc308 = add i8 %51, 1
+  store i8 %inc308, ptr %arrayidx.i159307, align 1
   br label %land.rhs204.preheader
 
 if.then199:                                       ; preds = %lor.rhs170, %lor.rhs, %if.then127, %if.then164
@@ -35932,8 +35936,8 @@ while.body:                                       ; preds = %land.rhs272
   br i1 %cmp271.not, label %while.end.thread, label %land.rhs272, !llvm.loop !1036
 
 while.end.thread:                                 ; preds = %while.body, %if.then269
-  %capacity_.i.i199300 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %buf, i64 0, i32 3
-  %80 = load i64, ptr %capacity_.i.i199300, align 8
+  %capacity_.i.i199311 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %buf, i64 0, i32 3
+  %80 = load i64, ptr %capacity_.i.i199311, align 8
   br label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit206
 
 while.end:                                        ; preds = %land.rhs272
@@ -35950,9 +35954,9 @@ if.then.i.i203:                                   ; preds = %while.end
   br label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit206
 
 _ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit206: ; preds = %while.end.thread, %while.end, %if.then.i.i203
-  %num_digits.0.lcssa302 = phi i64 [ %num_digits.0292, %while.end ], [ %num_digits.0292, %if.then.i.i203 ], [ 0, %while.end.thread ]
+  %num_digits.0.lcssa313 = phi i64 [ %num_digits.0292, %while.end ], [ %num_digits.0292, %if.then.i.i203 ], [ 0, %while.end.thread ]
   %83 = phi i64 [ %81, %while.end ], [ %.pre.i205, %if.then.i.i203 ], [ %80, %while.end.thread ]
-  %.count.i201 = call i64 @llvm.umin.i64(i64 %83, i64 %num_digits.0.lcssa302)
+  %.count.i201 = call i64 @llvm.umin.i64(i64 %83, i64 %num_digits.0.lcssa313)
   store i64 %.count.i201, ptr %size_.i196, align 8
   br label %if.end280
 

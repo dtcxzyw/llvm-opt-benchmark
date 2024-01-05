@@ -343,11 +343,11 @@ if.end8.i:                                        ; preds = %if.end.i
 _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit: ; preds = %if.then4.i, %if.end8.i
   %call5.i.sink = phi i64 [ %call5.i, %if.then4.i ], [ %call.i.i, %if.end8.i ]
   %sub.i = sub nsw i64 %shr.i.i, %call5.i.sink
-  %.sroa.speculated8.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
-  %cmp = icmp ugt i64 %.sroa.speculated8.i, 9223372036853775807
+  %cmp = icmp sgt i64 %sub.i, 9223372036853775807
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit
+  %.sroa.speculated8.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %sub = add nuw nsw i64 %.sroa.speculated8.i, 999999
   %div = udiv i64 %sub, 1000000
   br label %return

@@ -5726,7 +5726,7 @@ _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %for.i
   %retval.0.i.i = phi i64 [ %conv.i, %entry ], [ %shl1.i.i, %for.end.i.i ], [ %index.1.i.i, %for.inc25.i.i ]
   %sobolIndex.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %pixelSampler, i64 0, i32 6
   store i64 %retval.0.i.i, ptr %sobolIndex.i, align 8
-  %cmp.i = icmp ugt i32 %.sroa.speculated.i, 1023
+  %cmp.i = icmp sgt i32 %dimension.0, 1023
   %spec.select.i = select i1 %cmp.i, i32 2, i32 %.sroa.speculated.i
   %inc.i = add nuw nsw i32 %spec.select.i, 1
   store i32 %inc.i, ptr %dimension.i, align 8
@@ -6664,7 +6664,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %5 = zext nneg i32 %and.i to i64
   br label %for.body.i
 
@@ -6954,7 +6954,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %5 = zext nneg i32 %and.i to i64
   br label %for.body.i
 
