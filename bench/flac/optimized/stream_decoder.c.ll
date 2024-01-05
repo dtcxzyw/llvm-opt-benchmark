@@ -144,45 +144,45 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.read_callback_proxy_ = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noalias ptr @FLAC__stream_decoder_new() local_unnamed_addr #0 {
+define noalias noundef ptr @FLAC__stream_decoder_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #21
+  %call = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #20
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(600) ptr @calloc(i64 noundef 1, i64 noundef 600) #21
+  %call1 = tail call noalias dereferenceable_or_null(600) ptr @calloc(i64 noundef 1, i64 noundef 600) #20
   store ptr %call1, ptr %call, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #22
+  tail call void @free(ptr noundef nonnull %call) #21
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call noalias dereferenceable_or_null(8936) ptr @calloc(i64 noundef 1, i64 noundef 8936) #21
+  %call6 = tail call noalias dereferenceable_or_null(8936) ptr @calloc(i64 noundef 1, i64 noundef 8936) #20
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %call, i64 0, i32 1
   store ptr %call6, ptr %private_, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end5
-  tail call void @free(ptr noundef nonnull %call1) #22
-  tail call void @free(ptr noundef nonnull %call) #22
+  tail call void @free(ptr noundef nonnull %call1) #21
+  tail call void @free(ptr noundef nonnull %call) #21
   br label %return
 
 if.end11:                                         ; preds = %if.end5
-  %call12 = tail call ptr @FLAC__bitreader_new() #22
+  %call12 = tail call ptr @FLAC__bitreader_new() #21
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %call6, i64 0, i32 11
   store ptr %call12, ptr %input, align 8
   %cmp16 = icmp eq ptr %call12, null
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.end11
-  tail call void @free(ptr noundef nonnull %call6) #22
-  tail call void @free(ptr noundef nonnull %call1) #22
-  tail call void @free(ptr noundef nonnull %call) #22
+  tail call void @free(ptr noundef nonnull %call6) #21
+  tail call void @free(ptr noundef nonnull %call1) #21
+  tail call void @free(ptr noundef nonnull %call) #21
   br label %return
 
 if.end20:                                         ; preds = %if.end11
@@ -192,7 +192,7 @@ if.end20:                                         ; preds = %if.end11
   %div39 = lshr i32 %0, 3
   %conv = zext nneg i32 %div39 to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call24 = tail call noalias ptr @malloc(i64 noundef %mul) #23
+  %call24 = tail call noalias ptr @malloc(i64 noundef %mul) #22
   %metadata_filter_ids = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %call6, i64 0, i32 27
   store ptr %call24, ptr %metadata_filter_ids, align 8
   %cmp26 = icmp eq ptr %call24, null
@@ -212,16 +212,16 @@ for.body.preheader:                               ; preds = %if.end20
   br label %for.body50
 
 if.then28:                                        ; preds = %if.end20
-  tail call void @FLAC__bitreader_delete(ptr noundef nonnull %call12) #22
-  tail call void @free(ptr noundef nonnull %call6) #22
-  tail call void @free(ptr noundef nonnull %call1) #22
-  tail call void @free(ptr noundef nonnull %call) #22
+  tail call void @FLAC__bitreader_delete(ptr noundef nonnull %call12) #21
+  tail call void @free(ptr noundef nonnull %call6) #21
+  tail call void @free(ptr noundef nonnull %call1) #21
+  tail call void @free(ptr noundef nonnull %call) #21
   br label %return
 
 for.body50:                                       ; preds = %for.body.preheader, %for.body50
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body50 ]
   %arrayidx53 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %call6, i64 0, i32 16, i64 %indvars.iv
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx53) #22
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx53) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end56, label %for.body50, !llvm.loop !4
@@ -238,7 +238,7 @@ for.end56:                                        ; preds = %for.body50
   %md5_checking.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %call1, i64 0, i32 7
   store i32 0, ptr %md5_checking.i, align 4
   %ogg_decoder_aspect.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %call1, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef nonnull %ogg_decoder_aspect.i) #22
+  tail call void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef nonnull %ogg_decoder_aspect.i) #21
   store i32 9, ptr %call1, align 8
   br label %return
 
@@ -278,7 +278,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %1) #22
+  tail call void @free(ptr noundef nonnull %1) #21
   %.pre = load ptr, ptr %private_, align 8
   br label %if.end5
 
@@ -286,24 +286,24 @@ if.end5:                                          ; preds = %if.then2, %if.end
   %2 = phi ptr [ %.pre, %if.then2 ], [ %0, %if.end ]
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %2, i64 0, i32 11
   %3 = load ptr, ptr %input, align 8
-  tail call void @FLAC__bitreader_delete(ptr noundef %3) #22
+  tail call void @FLAC__bitreader_delete(ptr noundef %3) #21
   br label %for.body
 
 for.body:                                         ; preds = %if.end5, %for.body
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.body ]
   %4 = load ptr, ptr %private_, align 8
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 16, i64 %indvars.iv
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx) #22
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %5 = load ptr, ptr %private_, align 8
-  tail call void @free(ptr noundef %5) #22
+  tail call void @free(ptr noundef %5) #21
   %6 = load ptr, ptr %decoder, align 8
-  tail call void @free(ptr noundef %6) #22
-  tail call void @free(ptr noundef nonnull %decoder) #22
+  tail call void @free(ptr noundef %6) #21
+  tail call void @free(ptr noundef nonnull %decoder) #21
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -323,11 +323,11 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %private_, align 8
   %computed_md5sum = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %2, i64 0, i32 40
   %md5context = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %2, i64 0, i32 39
-  tail call void @FLAC__MD5Final(ptr noundef nonnull %computed_md5sum, ptr noundef nonnull %md5context) #22
+  tail call void @FLAC__MD5Final(ptr noundef nonnull %computed_md5sum, ptr noundef nonnull %md5context) #21
   %3 = load ptr, ptr %private_, align 8
   %points = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %3, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   %4 = load ptr, ptr %points, align 8
-  tail call void @free(ptr noundef %4) #22
+  tail call void @free(ptr noundef %4) #21
   %5 = load ptr, ptr %private_, align 8
   %points6 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %5, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   store ptr null, ptr %points6, align 8
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %7, i64 0, i32 11
   %8 = load ptr, ptr %input, align 8
-  tail call void @FLAC__bitreader_free(ptr noundef %8) #22
+  tail call void @FLAC__bitreader_free(ptr noundef %8) #21
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -350,7 +350,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 if.then12:                                        ; preds = %for.body
   %add.ptr = getelementptr inbounds i32, ptr %10, i64 -4
-  tail call void @free(ptr noundef nonnull %add.ptr) #22
+  tail call void @free(ptr noundef nonnull %add.ptr) #21
   %11 = load ptr, ptr %private_, align 8
   %arrayidx20 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %11, i64 0, i32 12, i64 %indvars.iv
   store ptr null, ptr %arrayidx20, align 8
@@ -365,7 +365,7 @@ if.end21:                                         ; preds = %if.then12, %for.bod
   br i1 %cmp25.not, label %for.inc, label %if.then26
 
 if.then26:                                        ; preds = %if.end21
-  tail call void @free(ptr noundef nonnull %13) #22
+  tail call void @free(ptr noundef nonnull %13) #21
   %14 = load ptr, ptr %private_, align 8
   %arrayidx33 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %14, i64 0, i32 13, i64 %indvars.iv
   store ptr null, ptr %arrayidx33, align 8
@@ -387,7 +387,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp40.not, label %if.end46, label %if.then41
 
 if.then41:                                        ; preds = %for.end
-  tail call void @free(ptr noundef nonnull %17) #22
+  tail call void @free(ptr noundef nonnull %17) #21
   %18 = load ptr, ptr %private_, align 8
   %side_subframe45 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %18, i64 0, i32 14
   store ptr null, ptr %side_subframe45, align 8
@@ -409,7 +409,7 @@ if.end46:                                         ; preds = %if.then41, %for.end
 if.then50:                                        ; preds = %if.end46
   %23 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %23, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_finish(ptr noundef nonnull %ogg_decoder_aspect) #22
+  tail call void @FLAC__ogg_decoder_aspect_finish(ptr noundef nonnull %ogg_decoder_aspect) #21
   %.pre45 = load ptr, ptr %private_, align 8
   br label %if.end52
 
@@ -499,7 +499,7 @@ if.end79:                                         ; preds = %if.then68, %if.end6
   store i32 0, ptr %md5_checking.i, align 4
   %44 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %44, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef nonnull %ogg_decoder_aspect.i) #22
+  tail call void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef nonnull %ogg_decoder_aspect.i) #21
   %45 = load ptr, ptr %decoder, align 8
   store i32 9, ptr %45, align 8
   br label %return
@@ -512,14 +512,14 @@ return:                                           ; preds = %entry, %if.end79
 declare void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_stream(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_stream(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_stream_internal_(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data, i32 noundef 0), !range !9
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @init_stream_internal_(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc noundef i32 @init_stream_internal_(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -556,7 +556,7 @@ if.end12:                                         ; preds = %land.lhs.true, %lor
 land.lhs.true15:                                  ; preds = %if.end12
   %3 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %3, i64 0, i32 8
-  %call = tail call i32 @FLAC__ogg_decoder_aspect_init(ptr noundef nonnull %ogg_decoder_aspect) #22
+  %call = tail call i32 @FLAC__ogg_decoder_aspect_init(ptr noundef nonnull %ogg_decoder_aspect) #21
   %tobool17.not = icmp eq i32 %call, 0
   br i1 %tobool17.not, label %if.then18, label %if.end20
 
@@ -569,7 +569,7 @@ if.then18:                                        ; preds = %land.lhs.true15
 if.end20:                                         ; preds = %land.lhs.true15, %if.end12
   %5 = load ptr, ptr %private_, align 8
   %cpuinfo = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %5, i64 0, i32 32
-  tail call void @FLAC__cpu_info(ptr noundef nonnull %cpuinfo) #22
+  tail call void @FLAC__cpu_info(ptr noundef nonnull %cpuinfo) #21
   %6 = load ptr, ptr %private_, align 8
   %local_bitreader_read_rice_signed_block = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %6, i64 0, i32 48
   store ptr @FLAC__bitreader_read_rice_signed_block, ptr %local_bitreader_read_rice_signed_block, align 8
@@ -589,7 +589,7 @@ if.end29:                                         ; preds = %if.then26, %if.end2
   %9 = phi ptr [ %.pre, %if.then26 ], [ %7, %if.end20 ]
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %9, i64 0, i32 11
   %10 = load ptr, ptr %input, align 8
-  %call31 = tail call i32 @FLAC__bitreader_init(ptr noundef %10, ptr noundef nonnull @read_callback_, ptr noundef nonnull %decoder) #22
+  %call31 = tail call i32 @FLAC__bitreader_init(ptr noundef %10, ptr noundef nonnull @read_callback_, ptr noundef nonnull %decoder) #21
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end36
 
@@ -664,14 +664,14 @@ return:                                           ; preds = %if.end36, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_ogg_stream(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_ogg_stream(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_stream_internal_(ptr noundef %decoder, ptr noundef %read_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %length_callback, ptr noundef %eof_callback, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data, i32 noundef 1), !range !9
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_FILE(ptr noundef %decoder, ptr noundef %file, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_FILE(ptr noundef %decoder, ptr noundef %file, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -716,7 +716,7 @@ init_FILE_internal_.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_ogg_FILE(ptr noundef %decoder, ptr noundef %file, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_ogg_FILE(ptr noundef %decoder, ptr noundef %file, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -761,7 +761,7 @@ init_FILE_internal_.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_file(ptr noundef %decoder, ptr noundef readonly %filename, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_file(ptr noundef %decoder, ptr noundef readonly %filename, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -834,7 +834,7 @@ init_file_internal_.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_init_ogg_file(ptr noundef %decoder, ptr noundef readonly %filename, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_init_ogg_file(ptr noundef %decoder, ptr noundef readonly %filename, ptr noundef %write_callback, ptr noundef %metadata_callback, ptr noundef %error_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -916,7 +916,7 @@ declare void @FLAC__ogg_decoder_aspect_finish(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_set_ogg_serial_number(ptr nocapture noundef readonly %decoder, i64 noundef %value) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_set_ogg_serial_number(ptr nocapture noundef readonly %decoder, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -925,7 +925,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %ogg_decoder_aspect = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_set_serial_number(ptr noundef nonnull %ogg_decoder_aspect, i64 noundef %value) #22
+  tail call void @FLAC__ogg_decoder_aspect_set_serial_number(ptr noundef nonnull %ogg_decoder_aspect, i64 noundef %value) #21
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -936,7 +936,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @FLAC__ogg_decoder_aspect_set_serial_number(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_set_md5_checking(ptr nocapture noundef readonly %decoder, i32 noundef %value) local_unnamed_addr #6 {
+define noundef i32 @FLAC__stream_decoder_set_md5_checking(ptr nocapture noundef readonly %decoder, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -954,7 +954,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_set_metadata_respond(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
+define noundef i32 @FLAC__stream_decoder_set_metadata_respond(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i32 %type, 126
   br i1 %cmp, label %return, label %if.end
@@ -986,7 +986,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define i32 @FLAC__stream_decoder_set_metadata_respond_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define noundef i32 @FLAC__stream_decoder_set_metadata_respond_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1021,7 +1021,7 @@ if.end.i:                                         ; preds = %if.then6
 
 if.end3.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw i64 %4, 1
-  %call.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i) #24
+  %call.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i) #23
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %safe_realloc_mul_2op_.exit.thread, label %safe_realloc_mul_2op_.exit.thread17
 
@@ -1032,14 +1032,14 @@ safe_realloc_mul_2op_.exit.thread17:              ; preds = %if.end3.i
   br label %if.end16
 
 safe_realloc_mul_2op_.exit.thread:                ; preds = %if.end3.i, %if.end.i
-  tail call void @free(ptr noundef %6) #22
+  tail call void @free(ptr noundef %6) #21
   %8 = load ptr, ptr %private_, align 8
   %metadata_filter_ids1114 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %8, i64 0, i32 27
   store ptr null, ptr %metadata_filter_ids1114, align 8
   br label %if.then13
 
 safe_realloc_mul_2op_.exit:                       ; preds = %if.then6
-  %call.i = tail call ptr @realloc(ptr noundef %6, i64 noundef 0) #24
+  %call.i = tail call ptr @realloc(ptr noundef %6, i64 noundef 0) #23
   %9 = load ptr, ptr %private_, align 8
   %metadata_filter_ids11 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %9, i64 0, i32 27
   store ptr %call.i, ptr %metadata_filter_ids11, align 8
@@ -1089,7 +1089,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #9 {
+define noundef i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1121,7 +1121,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_set_metadata_ignore(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
+define noundef i32 @FLAC__stream_decoder_set_metadata_ignore(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i32 %type, 126
   br i1 %cmp, label %return, label %if.end
@@ -1153,7 +1153,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define i32 @FLAC__stream_decoder_set_metadata_ignore_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define noundef i32 @FLAC__stream_decoder_set_metadata_ignore_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1188,7 +1188,7 @@ if.end.i:                                         ; preds = %if.then6
 
 if.end3.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw i64 %4, 1
-  %call.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i) #24
+  %call.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i) #23
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %safe_realloc_mul_2op_.exit.thread, label %safe_realloc_mul_2op_.exit.thread17
 
@@ -1199,14 +1199,14 @@ safe_realloc_mul_2op_.exit.thread17:              ; preds = %if.end3.i
   br label %if.end16
 
 safe_realloc_mul_2op_.exit.thread:                ; preds = %if.end3.i, %if.end.i
-  tail call void @free(ptr noundef %6) #22
+  tail call void @free(ptr noundef %6) #21
   %8 = load ptr, ptr %private_, align 8
   %metadata_filter_ids1114 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %8, i64 0, i32 27
   store ptr null, ptr %metadata_filter_ids1114, align 8
   br label %if.then13
 
 safe_realloc_mul_2op_.exit:                       ; preds = %if.then6
-  %call.i = tail call ptr @realloc(ptr noundef %6, i64 noundef 0) #24
+  %call.i = tail call ptr @realloc(ptr noundef %6, i64 noundef 0) #23
   %9 = load ptr, ptr %private_, align 8
   %metadata_filter_ids11 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %9, i64 0, i32 27
   store ptr %call.i, ptr %metadata_filter_ids11, align 8
@@ -1252,8 +1252,8 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1276,10 +1276,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_state(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_state(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1287,7 +1287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @FLAC__stream_decoder_get_resolved_state_string(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define ptr @FLAC__stream_decoder_get_resolved_state_string(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_md5_checking(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_md5_checking(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %md5_checking = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 7
@@ -1307,7 +1307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @FLAC__stream_decoder_get_total_samples(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i64 @FLAC__stream_decoder_get_total_samples(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -1327,7 +1327,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_channels(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_channels(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %channels = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 2
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_channel_assignment(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_channel_assignment(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %channel_assignment = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 3
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_bits_per_sample(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_bits_per_sample(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 4
@@ -1354,7 +1354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_sample_rate(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_sample_rate(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %sample_rate = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 5
@@ -1363,7 +1363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_blocksize(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define i32 @FLAC__stream_decoder_get_blocksize(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %blocksize = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %0, i64 0, i32 6
@@ -1372,7 +1372,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %decoder, ptr noundef %position) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %decoder, ptr noundef %position) local_unnamed_addr #0 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -1389,7 +1389,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 9
   %3 = load ptr, ptr %client_data, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %decoder, ptr noundef %position, ptr noundef %3) #22
+  %call = tail call i32 %2(ptr noundef nonnull %decoder, ptr noundef %position, ptr noundef %3) #21
   %cmp7.not = icmp eq i32 %call, 0
   br i1 %cmp7.not, label %if.end9, label %return
 
@@ -1397,7 +1397,7 @@ if.end9:                                          ; preds = %if.end3
   %4 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 11
   %5 = load ptr, ptr %input, align 8
-  %call11 = tail call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %5) #22
+  %call11 = tail call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %5) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 
@@ -1405,7 +1405,7 @@ if.end14:                                         ; preds = %if.end9
   %6 = load ptr, ptr %private_, align 8
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %6, i64 0, i32 11
   %7 = load ptr, ptr %input.i, align 8
-  %call.i = tail call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %7) #22
+  %call.i = tail call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %7) #21
   %div1.i = lshr i32 %call.i, 3
   %conv = zext nneg i32 %div1.i to i64
   %8 = load i64, ptr %position, align 8
@@ -1427,13 +1427,13 @@ entry:
   %0 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %1 = load ptr, ptr %input, align 8
-  %call = tail call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %1) #22
+  %call = tail call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %1) #21
   %div1 = lshr i32 %call, 3
   ret i32 %div1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @FLAC__stream_decoder_get_client_data(ptr nocapture noundef readonly %decoder) local_unnamed_addr #12 {
+define ptr @FLAC__stream_decoder_get_client_data(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -1478,7 +1478,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.then7:                                         ; preds = %if.end
   %9 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %9, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect) #22
+  tail call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect) #21
   %.pre = load ptr, ptr %private_, align 8
   br label %if.end9
 
@@ -1486,7 +1486,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %10 = phi ptr [ %.pre, %if.then7 ], [ %7, %if.end ]
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input, align 8
-  %call = tail call i32 @FLAC__bitreader_clear(ptr noundef %11) #22
+  %call = tail call i32 @FLAC__bitreader_clear(ptr noundef %11) #21
   %tobool11.not = icmp ne i32 %call, 0
   %12 = load ptr, ptr %decoder, align 8
   %. = select i1 %tobool11.not, i32 2, i32 8
@@ -1504,7 +1504,7 @@ declare void @FLAC__ogg_decoder_aspect_flush(ptr noundef) local_unnamed_addr #3
 declare i32 @FLAC__bitreader_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_reset(ptr noundef %decoder) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_reset(ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   %private_.i = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_.i, align 8
@@ -1539,7 +1539,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
 if.then7.i:                                       ; preds = %if.end.i
   %9 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %9, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i) #22
+  tail call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i) #21
   %.pre.i = load ptr, ptr %private_.i, align 8
   br label %FLAC__stream_decoder_flush.exit
 
@@ -1547,7 +1547,7 @@ FLAC__stream_decoder_flush.exit:                  ; preds = %if.end.i, %if.then7
   %10 = phi ptr [ %.pre.i, %if.then7.i ], [ %7, %if.end.i ]
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input.i, align 8
-  %call.i = tail call i32 @FLAC__bitreader_clear(ptr noundef %11) #22
+  %call.i = tail call i32 @FLAC__bitreader_clear(ptr noundef %11) #21
   %tobool11.not.i.not = icmp eq i32 %call.i, 0
   %12 = load ptr, ptr %decoder, align 8
   %..i = select i1 %tobool11.not.i.not, i32 8, i32 2
@@ -1563,7 +1563,7 @@ if.end:                                           ; preds = %FLAC__stream_decode
 if.then2:                                         ; preds = %if.end
   %15 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %15, i64 0, i32 8
-  tail call void @FLAC__ogg_decoder_aspect_reset(ptr noundef nonnull %ogg_decoder_aspect) #22
+  tail call void @FLAC__ogg_decoder_aspect_reset(ptr noundef nonnull %ogg_decoder_aspect) #21
   %.pre = load ptr, ptr %private_.i, align 8
   br label %if.end3
 
@@ -1590,7 +1590,7 @@ if.end9:                                          ; preds = %if.then6
 land.lhs.true:                                    ; preds = %if.end9
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %16, i64 0, i32 9
   %21 = load ptr, ptr %client_data, align 8
-  %call15 = tail call i32 %20(ptr noundef nonnull %decoder, i64 noundef 0, ptr noundef %21) #22
+  %call15 = tail call i32 %20(ptr noundef nonnull %decoder, i64 noundef 0, ptr noundef %21) #21
   %cmp16 = icmp eq i32 %call15, 1
   br i1 %cmp16, label %return, label %if.end19
 
@@ -1603,7 +1603,7 @@ if.end19:                                         ; preds = %if.end9, %land.lhs.
   %24 = load ptr, ptr %private_.i, align 8
   %points = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %24, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   %25 = load ptr, ptr %points, align 8
-  tail call void @free(ptr noundef %25) #22
+  tail call void @free(ptr noundef %25) #21
   %26 = load ptr, ptr %private_.i, align 8
   %points26 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %26, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   store ptr null, ptr %points26, align 8
@@ -1631,7 +1631,7 @@ if.end19:                                         ; preds = %if.end9, %land.lhs.
 if.then35:                                        ; preds = %if.end19
   %computed_md5sum = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %33, i64 0, i32 40
   %md5context = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %33, i64 0, i32 39
-  tail call void @FLAC__MD5Final(ptr noundef nonnull %computed_md5sum, ptr noundef nonnull %md5context) #22
+  tail call void @FLAC__MD5Final(ptr noundef nonnull %computed_md5sum, ptr noundef nonnull %md5context) #21
   br label %if.end40
 
 if.else:                                          ; preds = %if.end19
@@ -1641,7 +1641,7 @@ if.else:                                          ; preds = %if.end19
 if.end40:                                         ; preds = %if.else, %if.then35
   %35 = load ptr, ptr %private_.i, align 8
   %md5context42 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %35, i64 0, i32 39
-  tail call void @FLAC__MD5Init(ptr noundef nonnull %md5context42) #22
+  tail call void @FLAC__MD5Init(ptr noundef nonnull %md5context42) #21
   %36 = load ptr, ptr %private_.i, align 8
   %first_frame_offset = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %36, i64 0, i32 43
   store i64 0, ptr %first_frame_offset, align 8
@@ -1719,7 +1719,7 @@ return:                                           ; preds = %if.end14, %sw.bb10,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @find_metadata_(ptr noundef %decoder) unnamed_addr #0 {
+define internal fastcc noundef i32 @find_metadata_(ptr noundef %decoder) unnamed_addr #0 {
 entry:
   %x.i = alloca i32, align 4
   %x = alloca i32, align 4
@@ -1751,7 +1751,7 @@ if.then:                                          ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %3 = load ptr, ptr %input, align 8
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %3, ptr noundef nonnull %x, i32 noundef 8) #22
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %3, ptr noundef nonnull %x, i32 noundef 8) #21
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %if.end7thread-pre-split
 
@@ -1799,7 +1799,7 @@ if.then26:                                        ; preds = %if.then22
   %7 = load ptr, ptr %private_, align 8
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %7, i64 0, i32 11
   %8 = load ptr, ptr %input.i, align 8
-  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %8, ptr noundef nonnull %x.i, i32 noundef 24) #22
+  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %8, ptr noundef nonnull %x.i, i32 noundef 24) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %skip_id3v2_tag_.exit.thread, label %for.body.i
 
@@ -1809,7 +1809,7 @@ for.body.i:                                       ; preds = %if.then26, %if.end6
   %9 = load ptr, ptr %private_, align 8
   %input2.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %9, i64 0, i32 11
   %10 = load ptr, ptr %input2.i, align 8
-  %call3.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %10, ptr noundef nonnull %x.i, i32 noundef 8) #22
+  %call3.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %10, ptr noundef nonnull %x.i, i32 noundef 8) #21
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %skip_id3v2_tag_.exit.thread, label %if.end6.i
 
@@ -1830,7 +1830,7 @@ skip_id3v2_tag_.exit:                             ; preds = %if.end6.i
   %12 = load ptr, ptr %private_, align 8
   %input8.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %12, i64 0, i32 11
   %13 = load ptr, ptr %input8.i, align 8
-  %call9.i = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %13, i32 noundef %or.i) #22
+  %call9.i = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %13, i32 noundef %or.i) #21
   %tobool10.not.i.not = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %x.i)
   br i1 %tobool10.not.i.not, label %return, label %for.body.backedge
@@ -1849,7 +1849,7 @@ if.then35:                                        ; preds = %if.end32
   %15 = load ptr, ptr %private_, align 8
   %input40 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %15, i64 0, i32 11
   %16 = load ptr, ptr %input40, align 8
-  %call41 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %16, ptr noundef nonnull %x, i32 noundef 8) #22
+  %call41 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %16, ptr noundef nonnull %x, i32 noundef 8) #21
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %return, label %if.end44
 
@@ -1897,7 +1897,7 @@ if.then.i:                                        ; preds = %if.then65
   %24 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %22, i64 0, i32 9
   %25 = load ptr, ptr %client_data.i, align 8
-  call void %24(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %25) #22
+  call void %24(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %25) #21
   br label %for.cond.outer.backedge
 
 for.end:                                          ; preds = %for.cond.outer.backedge
@@ -1925,7 +1925,7 @@ entry:
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %1 = load ptr, ptr %input, align 8
   %2 = load i32, ptr @FLAC__STREAM_METADATA_IS_LAST_LEN, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %1, ptr noundef nonnull %x, i32 noundef %2) #22
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %1, ptr noundef nonnull %x, i32 noundef %2) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1937,7 +1937,7 @@ if.end:                                           ; preds = %entry
   %input3 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 11
   %5 = load ptr, ptr %input3, align 8
   %6 = load i32, ptr @FLAC__STREAM_METADATA_TYPE_LEN, align 4
-  %call4 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %5, ptr noundef nonnull %type, i32 noundef %6) #22
+  %call4 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %5, ptr noundef nonnull %type, i32 noundef %6) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -1946,7 +1946,7 @@ if.end7:                                          ; preds = %if.end
   %input9 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %7, i64 0, i32 11
   %8 = load ptr, ptr %input9, align 8
   %9 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
-  %call10 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %8, ptr noundef nonnull %length, i32 noundef %9) #22
+  %call10 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %8, ptr noundef nonnull %length, i32 noundef %9) #21
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
@@ -1973,7 +1973,7 @@ if.then14:                                        ; preds = %if.end13
   %16 = load ptr, ptr %private_, align 8
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %16, i64 0, i32 11
   %17 = load ptr, ptr %input.i, align 8
-  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %17, ptr noundef nonnull %x.i, i32 noundef %15) #22
+  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %17, ptr noundef nonnull %x.i, i32 noundef %15) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end.i
 
@@ -1986,7 +1986,7 @@ if.end.i:                                         ; preds = %if.then14
   %21 = load ptr, ptr %private_, align 8
   %input11.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %21, i64 0, i32 11
   %22 = load ptr, ptr %input11.i, align 8
-  %call12.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %22, ptr noundef nonnull %x.i, i32 noundef %20) #22
+  %call12.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %22, ptr noundef nonnull %x.i, i32 noundef %20) #21
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end15.i
 
@@ -1999,7 +1999,7 @@ if.end15.i:                                       ; preds = %if.end.i
   %26 = load ptr, ptr %private_, align 8
   %input21.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %26, i64 0, i32 11
   %27 = load ptr, ptr %input21.i, align 8
-  %call22.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %27, ptr noundef nonnull %x.i, i32 noundef %25) #22
+  %call22.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %27, ptr noundef nonnull %x.i, i32 noundef %25) #21
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end25.i
 
@@ -2012,7 +2012,7 @@ if.end25.i:                                       ; preds = %if.end15.i
   %31 = load ptr, ptr %private_, align 8
   %input31.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %31, i64 0, i32 11
   %32 = load ptr, ptr %input31.i, align 8
-  %call32.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %32, ptr noundef nonnull %x.i, i32 noundef %30) #22
+  %call32.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %32, ptr noundef nonnull %x.i, i32 noundef %30) #21
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end35.i
 
@@ -2025,7 +2025,7 @@ if.end35.i:                                       ; preds = %if.end25.i
   %36 = load ptr, ptr %private_, align 8
   %input41.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %36, i64 0, i32 11
   %37 = load ptr, ptr %input41.i, align 8
-  %call42.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %x.i, i32 noundef %35) #22
+  %call42.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %x.i, i32 noundef %35) #21
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end45.i
 
@@ -2038,7 +2038,7 @@ if.end45.i:                                       ; preds = %if.end35.i
   %41 = load ptr, ptr %private_, align 8
   %input51.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %41, i64 0, i32 11
   %42 = load ptr, ptr %input51.i, align 8
-  %call52.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %42, ptr noundef nonnull %x.i, i32 noundef %40) #22
+  %call52.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %42, ptr noundef nonnull %x.i, i32 noundef %40) #21
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end55.i
 
@@ -2052,7 +2052,7 @@ if.end55.i:                                       ; preds = %if.end45.i
   %46 = load ptr, ptr %private_, align 8
   %input62.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %46, i64 0, i32 11
   %47 = load ptr, ptr %input62.i, align 8
-  %call63.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %47, ptr noundef nonnull %x.i, i32 noundef %45) #22
+  %call63.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %47, ptr noundef nonnull %x.i, i32 noundef %45) #21
   %tobool64.not.i = icmp eq i32 %call63.i, 0
   br i1 %tobool64.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end66.i
 
@@ -2067,7 +2067,7 @@ if.end66.i:                                       ; preds = %if.end55.i
   %input73.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %51, i64 0, i32 11
   %52 = load ptr, ptr %input73.i, align 8
   %total_samples.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %51, i64 0, i32 24, i32 3, i32 0, i32 0, i64 32
-  %call77.i = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %52, ptr noundef nonnull %total_samples.i, i32 noundef %50) #22
+  %call77.i = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %52, ptr noundef nonnull %total_samples.i, i32 noundef %50) #21
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end80.i
 
@@ -2076,7 +2076,7 @@ if.end80.i:                                       ; preds = %if.end66.i
   %input83.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %53, i64 0, i32 11
   %54 = load ptr, ptr %input83.i, align 8
   %md5sum.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %53, i64 0, i32 24, i32 3, i32 0, i32 0, i64 40
-  %call87.i = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %54, ptr noundef nonnull %md5sum.i, i32 noundef 16) #22
+  %call87.i = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %54, ptr noundef nonnull %md5sum.i, i32 noundef 16) #21
   %tobool88.not.i = icmp eq i32 %call87.i, 0
   br i1 %tobool88.not.i, label %read_metadata_streaminfo_.exit.thread, label %if.end90.i
 
@@ -2102,7 +2102,7 @@ read_metadata_streaminfo_.exit:                   ; preds = %if.end90.i
   %55 = load ptr, ptr %private_, align 8
   %input96.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %55, i64 0, i32 11
   %56 = load ptr, ptr %input96.i, align 8
-  %call97.i = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %56, i32 noundef %sub.i) #22
+  %call97.i = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %56, i32 noundef %sub.i) #21
   %tobool98.not.i.not = icmp eq i32 %call97.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %x.i)
   br i1 %tobool98.not.i.not, label %return, label %if.end18
@@ -2146,7 +2146,7 @@ if.then33:                                        ; preds = %land.lhs.true30
   %stream_info37 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %59, i64 0, i32 24
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %59, i64 0, i32 9
   %63 = load ptr, ptr %client_data, align 8
-  call void %62(ptr noundef nonnull %decoder, ptr noundef nonnull %stream_info37, ptr noundef %63) #22
+  call void %62(ptr noundef nonnull %decoder, ptr noundef nonnull %stream_info37, ptr noundef %63) #21
   br label %if.end356
 
 if.then41:                                        ; preds = %if.end13
@@ -2178,7 +2178,7 @@ if.then.i:                                        ; preds = %if.then44
   %69 = load ptr, ptr %private_, align 8
   %input.i107 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %69, i64 0, i32 11
   %70 = load ptr, ptr %input.i107, align 8
-  call void @FLAC__bitreader_limit_invalidate(ptr noundef %70) #22
+  call void @FLAC__bitreader_limit_invalidate(ptr noundef %70) #21
   br label %read_metadata_seektable_.exit.thread
 
 if.end.i109:                                      ; preds = %if.then44
@@ -2196,7 +2196,7 @@ if.end.i109:                                      ; preds = %if.then44
 if.end3.i.i:                                      ; preds = %if.end.i109
   %conv.i = zext i32 %74 to i64
   %mul.i.i = mul nuw nsw i64 %conv.i, 24
-  %call.i.i.i = call ptr @realloc(ptr noundef %73, i64 noundef %mul.i.i) #24
+  %call.i.i.i = call ptr @realloc(ptr noundef %73, i64 noundef %mul.i.i) #23
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp1.i.i.i, label %if.then.i.i.i, label %safe_realloc_mul_2op_.exit.thread.i
 
@@ -2207,14 +2207,14 @@ safe_realloc_mul_2op_.exit.thread.i:              ; preds = %if.end3.i.i
   br label %for.cond.preheader.i
 
 if.then.i.i.i:                                    ; preds = %if.end3.i.i
-  call void @free(ptr noundef %73) #22
+  call void @free(ptr noundef %73) #21
   %76 = load ptr, ptr %private_, align 8
   %points2025.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %76, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   store ptr null, ptr %points2025.i, align 8
   br label %if.then22.i
 
 safe_realloc_mul_2op_.exit.i:                     ; preds = %if.end.i109
-  %call.i.i = call ptr @realloc(ptr noundef %73, i64 noundef 0) #24
+  %call.i.i = call ptr @realloc(ptr noundef %73, i64 noundef 0) #23
   %77 = load ptr, ptr %private_, align 8
   %points20.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %77, i64 0, i32 25, i32 3, i32 0, i32 0, i64 8
   store ptr %call.i.i, ptr %points20.i, align 8
@@ -2244,7 +2244,7 @@ for.body.i:                                       ; preds = %if.end57.i, %for.bo
   %84 = phi ptr [ %78, %for.body.lr.ph.i ], [ %99, %if.end57.i ]
   %input31.i111 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %84, i64 0, i32 11
   %85 = load ptr, ptr %input31.i111, align 8
-  %call32.i112 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %85, ptr noundef nonnull %xx.i, i32 noundef %80) #22
+  %call32.i112 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %85, ptr noundef nonnull %xx.i, i32 noundef %80) #21
   %tobool33.not.i113 = icmp eq i32 %call32.i112, 0
   br i1 %tobool33.not.i113, label %read_metadata_seektable_.exit.thread, label %if.end35.i114
 
@@ -2258,7 +2258,7 @@ if.end35.i114:                                    ; preds = %for.body.i
   %89 = load ptr, ptr %private_, align 8
   %input41.i115 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %89, i64 0, i32 11
   %90 = load ptr, ptr %input41.i115, align 8
-  %call42.i116 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %90, ptr noundef nonnull %xx.i, i32 noundef %81) #22
+  %call42.i116 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %90, ptr noundef nonnull %xx.i, i32 noundef %81) #21
   %tobool43.not.i117 = icmp eq i32 %call42.i116, 0
   br i1 %tobool43.not.i117, label %read_metadata_seektable_.exit.thread, label %if.end45.i118
 
@@ -2272,7 +2272,7 @@ if.end45.i118:                                    ; preds = %if.end35.i114
   %94 = load ptr, ptr %private_, align 8
   %input53.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %94, i64 0, i32 11
   %95 = load ptr, ptr %input53.i, align 8
-  %call54.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %95, ptr noundef nonnull %x.i102, i32 noundef %82) #22
+  %call54.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %95, ptr noundef nonnull %x.i102, i32 noundef %82) #21
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %read_metadata_seektable_.exit.thread, label %if.end57.i
 
@@ -2324,7 +2324,7 @@ if.then63:                                        ; preds = %land.lhs.true59
   %seek_table = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %103, i64 0, i32 25
   %client_data68 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %103, i64 0, i32 9
   %107 = load ptr, ptr %client_data68, align 8
-  call void %106(ptr noundef nonnull %decoder, ptr noundef nonnull %seek_table, ptr noundef %107) #22
+  call void %106(ptr noundef nonnull %decoder, ptr noundef nonnull %seek_table, ptr noundef %107) #21
   br label %if.end356
 
 if.else71:                                        ; preds = %if.end13
@@ -2350,7 +2350,7 @@ if.then80:                                        ; preds = %if.else71
   %data83 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
   %113 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div91 = lshr i32 %113, 3
-  %call85 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %112, ptr noundef nonnull %data83, i32 noundef %div91) #22
+  %call85 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %112, ptr noundef nonnull %data83, i32 noundef %div91) #21
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %return, label %if.end88
 
@@ -2387,7 +2387,7 @@ if.then109:                                       ; preds = %land.lhs.true96, %i
   %real_length.0138 = phi i32 [ %sub, %land.lhs.true96 ], [ %real_length.0, %if.end107 ]
   %input111 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %118, i64 0, i32 11
   %119 = load ptr, ptr %input111, align 8
-  %call112 = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %119, i32 noundef %real_length.0138) #22
+  %call112 = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %119, i32 noundef %real_length.0138) #21
   %tobool113.not = icmp ne i32 %call112, 0
   %brmerge100.not = select i1 %tobool113.not, i1 %tobool1.not, i1 false
   br i1 %brmerge100.not, label %if.then358, label %return
@@ -2398,7 +2398,7 @@ if.else116:                                       ; preds = %land.lhs.true96, %i
   %input118 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %120, i64 0, i32 11
   %121 = load ptr, ptr %input118, align 8
   %mul = shl i32 %real_length.0139, 3
-  call void @FLAC__bitreader_set_limit(ptr noundef %121, i32 noundef %mul) #22
+  call void @FLAC__bitreader_set_limit(ptr noundef %121, i32 noundef %mul) #21
   %122 = load i32, ptr %type, align 4
   switch i32 %122, label %sw.default [
     i32 1, label %sw.bb
@@ -2414,7 +2414,7 @@ sw.bb:                                            ; preds = %if.else116
   %123 = load ptr, ptr %private_, align 8
   %input120 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %123, i64 0, i32 11
   %124 = load ptr, ptr %input120, align 8
-  %call121 = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %124, i32 noundef %real_length.0139) #22
+  %call121 = call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef %124, i32 noundef %real_length.0139) #21
   %tobool122.not = icmp ne i32 %call121, 0
   %spec.select93 = zext i1 %tobool122.not to i32
   br label %sw.epilog
@@ -2425,7 +2425,7 @@ sw.bb125:                                         ; preds = %if.else116
 
 if.then127:                                       ; preds = %sw.bb125
   %conv = zext i32 %real_length.0139 to i64
-  %call128 = call noalias ptr @malloc(i64 noundef %conv) #23
+  %call128 = call noalias ptr @malloc(i64 noundef %conv) #22
   %data130 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 8
   store ptr %call128, ptr %data130, align 8
   %cmp131 = icmp eq ptr %call128, null
@@ -2440,7 +2440,7 @@ if.else136:                                       ; preds = %if.then127
   %126 = load ptr, ptr %private_, align 8
   %input138 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %126, i64 0, i32 11
   %127 = load ptr, ptr %input138, align 8
-  %call141 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %127, ptr noundef nonnull %call128, i32 noundef %real_length.0139) #22
+  %call141 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %127, ptr noundef nonnull %call128, i32 noundef %real_length.0139) #21
   %tobool142.not = icmp ne i32 %call141, 0
   %spec.select94 = zext i1 %tobool142.not to i32
   br label %sw.epilog
@@ -2471,7 +2471,7 @@ sw.default:                                       ; preds = %if.else116
 
 if.then171:                                       ; preds = %sw.default
   %conv172 = zext i32 %real_length.0139 to i64
-  %call173 = call noalias ptr @malloc(i64 noundef %conv172) #23
+  %call173 = call noalias ptr @malloc(i64 noundef %conv172) #22
   %data174 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
   store ptr %call173, ptr %data174, align 8
   %cmp176 = icmp eq ptr %call173, null
@@ -2486,7 +2486,7 @@ if.else181:                                       ; preds = %if.then171
   %129 = load ptr, ptr %private_, align 8
   %input183 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %129, i64 0, i32 11
   %130 = load ptr, ptr %input183, align 8
-  %call186 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %130, ptr noundef nonnull %call173, i32 noundef %real_length.0139) #22
+  %call186 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %130, ptr noundef nonnull %call173, i32 noundef %real_length.0139) #21
   %tobool187.not = icmp ne i32 %call186, 0
   %spec.select98 = zext i1 %tobool187.not to i32
   br label %sw.epilog
@@ -2501,7 +2501,7 @@ sw.epilog:                                        ; preds = %if.else181, %sw.bb1
   %131 = load ptr, ptr %private_, align 8
   %input196 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %131, i64 0, i32 11
   %132 = load ptr, ptr %input196, align 8
-  %call197 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %132) #22
+  %call197 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %132) #21
   %cmp198.not = icmp eq i32 %call197, 0
   br i1 %cmp198.not, label %if.end209, label %if.then200
 
@@ -2517,7 +2517,7 @@ if.then.i122:                                     ; preds = %if.then200
   %135 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %133, i64 0, i32 9
   %136 = load ptr, ptr %client_data.i, align 8
-  call void %135(ptr noundef nonnull %decoder, i32 noundef 4, ptr noundef %136) #22
+  call void %135(ptr noundef nonnull %decoder, i32 noundef 4, ptr noundef %136) #21
   br label %send_error_to_client_.exit
 
 send_error_to_client_.exit:                       ; preds = %if.then200, %if.then.i122
@@ -2535,7 +2535,7 @@ if.end209:                                        ; preds = %send_error_to_clien
   %139 = load ptr, ptr %private_, align 8
   %input211 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %139, i64 0, i32 11
   %140 = load ptr, ptr %input211, align 8
-  call void @FLAC__bitreader_remove_limit(ptr noundef %140) #22
+  call void @FLAC__bitreader_remove_limit(ptr noundef %140) #21
   %tobool212.not = icmp ne i32 %ok.1, 0
   br i1 %tobool212.not, label %land.lhs.true213, label %if.end226
 
@@ -2555,7 +2555,7 @@ land.lhs.true217:                                 ; preds = %land.lhs.true213
 if.then221:                                       ; preds = %land.lhs.true217
   %client_data225 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %141, i64 0, i32 9
   %144 = load ptr, ptr %client_data225, align 8
-  call void %143(ptr noundef nonnull %decoder, ptr noundef nonnull %block, ptr noundef %144) #22
+  call void %143(ptr noundef nonnull %decoder, ptr noundef nonnull %block, ptr noundef %144) #21
   br label %if.end226
 
 if.end226:                                        ; preds = %if.then221, %land.lhs.true217, %land.lhs.true213, %if.end209
@@ -2581,7 +2581,7 @@ sw.bb237:                                         ; preds = %if.end226
   br i1 %cmp240.not, label %if.end246, label %if.then242
 
 if.then242:                                       ; preds = %sw.bb237
-  call void @free(ptr noundef nonnull %147) #22
+  call void @free(ptr noundef nonnull %147) #21
   br label %if.end246
 
 if.end246:                                        ; preds = %if.then242, %sw.bb237
@@ -2604,7 +2604,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp259.not, label %for.inc, label %if.then261
 
 if.then261:                                       ; preds = %for.body
-  call void @free(ptr noundef nonnull %151) #22
+  call void @free(ptr noundef nonnull %151) #21
   %.pre153 = load i32, ptr %num_comments, align 8
   br label %for.inc
 
@@ -2641,7 +2641,7 @@ for.body291:                                      ; preds = %sw.bb277, %for.inc3
   br i1 %cmp296.not, label %for.inc305, label %if.then298
 
 if.then298:                                       ; preds = %for.body291
-  call void @free(ptr noundef nonnull %159) #22
+  call void @free(ptr noundef nonnull %159) #21
   %.pre151 = load i32, ptr %num_tracks, align 4
   br label %for.inc305
 
@@ -2668,7 +2668,7 @@ sw.bb317:                                         ; preds = %if.end226
   br i1 %cmp319.not, label %if.end324, label %if.then321
 
 if.then321:                                       ; preds = %sw.bb317
-  call void @free(ptr noundef nonnull %163) #22
+  call void @free(ptr noundef nonnull %163) #21
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then321, %sw.bb317
@@ -2678,7 +2678,7 @@ if.end324:                                        ; preds = %if.then321, %sw.bb3
   br i1 %cmp326.not, label %if.end331, label %if.then328
 
 if.then328:                                       ; preds = %if.end324
-  call void @free(ptr noundef nonnull %164) #22
+  call void @free(ptr noundef nonnull %164) #21
   br label %if.end331
 
 if.end331:                                        ; preds = %if.then328, %if.end324
@@ -2695,7 +2695,7 @@ sw.default341:                                    ; preds = %if.end226
 
 sw.epilog350.sink.split:                          ; preds = %sw.default341, %if.end331, %if.end308, %if.end268, %sw.bb228
   %.sink = phi ptr [ %146, %sw.bb228 ], [ %154, %if.end268 ], [ %162, %if.end308 ], [ %165, %if.end331 ], [ %166, %sw.default341 ]
-  call void @free(ptr noundef nonnull %.sink) #22
+  call void @free(ptr noundef nonnull %.sink) #21
   br label %sw.epilog350
 
 sw.epilog350:                                     ; preds = %sw.epilog350.sink.split, %sw.default341, %if.end331, %if.end308, %if.end268, %sw.bb228, %if.end226
@@ -2721,7 +2721,7 @@ if.end.i126:                                      ; preds = %if.then358
 if.end3.i:                                        ; preds = %if.end.i126
   %client_data.i128 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %167, i64 0, i32 9
   %170 = load ptr, ptr %client_data.i128, align 8
-  %call.i129 = call i32 %169(ptr noundef nonnull %decoder, ptr noundef nonnull %first_frame_offset, ptr noundef %170) #22
+  %call.i129 = call i32 %169(ptr noundef nonnull %decoder, ptr noundef nonnull %first_frame_offset, ptr noundef %170) #21
   %cmp7.not.i = icmp eq i32 %call.i129, 0
   %.pre154 = load ptr, ptr %private_, align 8
   br i1 %cmp7.not.i, label %if.end9.i, label %if.then362
@@ -2729,7 +2729,7 @@ if.end3.i:                                        ; preds = %if.end.i126
 if.end9.i:                                        ; preds = %if.end3.i
   %input.i130 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre154, i64 0, i32 11
   %171 = load ptr, ptr %input.i130, align 8
-  %call11.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %171) #22
+  %call11.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %171) #21
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   %.pre155 = load ptr, ptr %private_, align 8
   br i1 %tobool12.not.i, label %if.then362, label %FLAC__stream_decoder_get_decode_position.exit
@@ -2737,7 +2737,7 @@ if.end9.i:                                        ; preds = %if.end3.i
 FLAC__stream_decoder_get_decode_position.exit:    ; preds = %if.end9.i
   %input.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre155, i64 0, i32 11
   %172 = load ptr, ptr %input.i.i, align 8
-  %call.i.i131 = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %172) #22
+  %call.i.i131 = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %172) #21
   %div1.i.i = lshr i32 %call.i.i131, 3
   %conv.i132 = zext nneg i32 %div1.i.i to i64
   %173 = load i64, ptr %first_frame_offset, align 8
@@ -2763,14 +2763,14 @@ return:                                           ; preds = %read_metadata_seekt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @frame_sync_(ptr noundef %decoder) unnamed_addr #0 {
+define internal fastcc noundef i32 @frame_sync_(ptr noundef %decoder) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %1 = load ptr, ptr %input, align 8
-  %call = tail call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %1) #22
+  %call = tail call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %1) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %while.body.preheader
 
@@ -2778,8 +2778,8 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %private_, align 8
   %input2 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %2, i64 0, i32 11
   %3 = load ptr, ptr %input2, align 8
-  %call5 = tail call i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef %3) #22
-  %call6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %3, ptr noundef nonnull %x, i32 noundef %call5) #22
+  %call5 = tail call i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef %3) #21
+  %call6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %3, ptr noundef nonnull %x, i32 noundef %call5) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %while.body.preheader
 
@@ -2805,7 +2805,7 @@ if.then12:                                        ; preds = %while.body
 if.else:                                          ; preds = %while.body
   %input17 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 11
   %7 = load ptr, ptr %input17, align 8
-  %call18 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %x, i32 noundef 8) #22
+  %call18 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %x, i32 noundef 8) #21
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end22thread-pre-split
 
@@ -2825,7 +2825,7 @@ if.then24:                                        ; preds = %if.end22
   %10 = load ptr, ptr %private_, align 8
   %input28 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input28, align 8
-  %call29 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %11, ptr noundef nonnull %x, i32 noundef 8) #22
+  %call29 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %11, ptr noundef nonnull %x, i32 noundef 8) #21
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.end32
 
@@ -2858,7 +2858,7 @@ if.then44:                                        ; preds = %if.else41
   %17 = load ptr, ptr %private_, align 8
   %input50 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %17, i64 0, i32 11
   %18 = load ptr, ptr %input50, align 8
-  call void @FLAC__bitreader_set_framesync_location(ptr noundef %18) #22
+  call void @FLAC__bitreader_set_framesync_location(ptr noundef %18) #21
   %19 = load ptr, ptr %private_, align 8
   %last_seen_framesync = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 44
   %20 = load i32, ptr %19, align 8
@@ -2874,7 +2874,7 @@ if.end.i:                                         ; preds = %if.then44
 if.end3.i:                                        ; preds = %if.end.i
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 9
   %22 = load ptr, ptr %client_data.i, align 8
-  %call.i = call i32 %21(ptr noundef nonnull %decoder, ptr noundef nonnull %last_seen_framesync, ptr noundef %22) #22
+  %call.i = call i32 %21(ptr noundef nonnull %decoder, ptr noundef nonnull %last_seen_framesync, ptr noundef %22) #21
   %cmp7.not.i = icmp eq i32 %call.i, 0
   %.pre = load ptr, ptr %private_, align 8
   br i1 %cmp7.not.i, label %if.end9.i, label %if.then54
@@ -2882,7 +2882,7 @@ if.end3.i:                                        ; preds = %if.end.i
 if.end9.i:                                        ; preds = %if.end3.i
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre, i64 0, i32 11
   %23 = load ptr, ptr %input.i, align 8
-  %call11.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %23) #22
+  %call11.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %23) #21
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   %.pre24 = load ptr, ptr %private_, align 8
   br i1 %tobool12.not.i, label %if.then54, label %FLAC__stream_decoder_get_decode_position.exit
@@ -2890,7 +2890,7 @@ if.end9.i:                                        ; preds = %if.end3.i
 FLAC__stream_decoder_get_decode_position.exit:    ; preds = %if.end9.i
   %input.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre24, i64 0, i32 11
   %24 = load ptr, ptr %input.i.i, align 8
-  %call.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %24) #22
+  %call.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %24) #21
   %div1.i.i = lshr i32 %call.i.i, 3
   %conv.i = zext nneg i32 %div1.i.i to i64
   %25 = load i64, ptr %last_seen_framesync, align 8
@@ -2919,7 +2919,7 @@ if.then.i:                                        ; preds = %if.then62
   %29 = load ptr, ptr %error_callback.i, align 8
   %client_data.i21 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %27, i64 0, i32 9
   %30 = load ptr, ptr %client_data.i21, align 8
-  call void %29(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %30) #22
+  call void %29(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %30) #21
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.then.i, %if.then62, %if.end60
@@ -2931,7 +2931,7 @@ return:                                           ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_frame_(ptr noundef %decoder, ptr nocapture noundef writeonly %got_a_frame, i32 noundef %do_full_decode) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_frame_(ptr noundef %decoder, ptr nocapture noundef writeonly %got_a_frame, i32 noundef %do_full_decode) unnamed_addr #0 {
 entry:
   %zero.i = alloca i32, align 4
   %x.i77.i = alloca i32, align 4
@@ -2971,7 +2971,7 @@ entry:
   %xor16 = xor i16 %shl5, %8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %1, i64 0, i32 11
   %9 = load ptr, ptr %input, align 8
-  tail call void @FLAC__bitreader_reset_read_crc16(ptr noundef %9, i16 noundef zeroext %xor16) #22
+  tail call void @FLAC__bitreader_reset_read_crc16(ptr noundef %9, i16 noundef zeroext %xor16) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xx.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %raw_header.i)
@@ -2996,7 +2996,7 @@ for.body.i:                                       ; preds = %if.end18.i, %entry
   %14 = load ptr, ptr %private_, align 8
   %input.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %14, i64 0, i32 11
   %15 = load ptr, ptr %input.i, align 8
-  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %15, ptr noundef nonnull %x.i, i32 noundef 8) #22
+  %call.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %15, ptr noundef nonnull %x.i, i32 noundef 8) #21
   %tobool9.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool9.not.i, label %read_frame_header_.exit.thread, label %if.end11.i
 
@@ -3023,7 +3023,7 @@ if.then.i.i:                                      ; preds = %if.then14.i
   %21 = load ptr, ptr %error_callback.i.i, align 8
   %client_data.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 9
   %22 = load ptr, ptr %client_data.i.i, align 8
-  call void %21(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %22) #22
+  call void %21(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %22) #21
   br label %return.sink.split.i
 
 if.end18.i:                                       ; preds = %if.end11.i
@@ -3041,23 +3041,23 @@ for.end.i:                                        ; preds = %if.end18.i
   %24 = load i8, ptr %arrayidx22.i, align 2
   %25 = lshr i8 %24, 4
   %shr.i = zext nneg i8 %25 to i32
-  switch i32 %shr.i, label %for.end.unreachabledefault.i [
-    i32 0, label %sw.epilog.i
-    i32 1, label %sw.bb24.i
-    i32 2, label %sw.bb26.i
-    i32 3, label %sw.bb26.i
-    i32 4, label %sw.bb26.i
-    i32 5, label %sw.bb26.i
-    i32 6, label %sw.bb31.i
-    i32 7, label %sw.bb31.i
-    i32 8, label %sw.bb32.i
-    i32 9, label %sw.bb32.i
-    i32 10, label %sw.bb32.i
-    i32 11, label %sw.bb32.i
-    i32 12, label %sw.bb32.i
-    i32 13, label %sw.bb32.i
-    i32 14, label %sw.bb32.i
-    i32 15, label %sw.bb32.i
+  switch i8 %25, label %for.end.unreachabledefault.i [
+    i8 0, label %sw.epilog.i
+    i8 1, label %sw.bb24.i
+    i8 2, label %sw.bb26.i
+    i8 3, label %sw.bb26.i
+    i8 4, label %sw.bb26.i
+    i8 5, label %sw.bb26.i
+    i8 6, label %sw.bb31.i
+    i8 7, label %sw.bb31.i
+    i8 8, label %sw.bb32.i
+    i8 9, label %sw.bb32.i
+    i8 10, label %sw.bb32.i
+    i8 11, label %sw.bb32.i
+    i8 12, label %sw.bb32.i
+    i8 13, label %sw.bb32.i
+    i8 14, label %sw.bb32.i
+    i8 15, label %sw.bb32.i
   ]
 
 sw.bb24.i:                                        ; preds = %for.end.i
@@ -3087,28 +3087,28 @@ for.end.unreachabledefault.i:                     ; preds = %for.end.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb32.i, %sw.bb31.i, %sw.bb26.i, %sw.bb24.i, %for.end.i
-  %blocksize_hint.0.i = phi i32 [ 0, %sw.bb32.i ], [ %shr.i, %sw.bb31.i ], [ 0, %sw.bb26.i ], [ 0, %sw.bb24.i ], [ %shr.i, %for.end.i ]
+  %blocksize_hint.0.i = phi i32 [ 0, %sw.bb32.i ], [ %shr.i, %sw.bb31.i ], [ 0, %sw.bb26.i ], [ 0, %sw.bb24.i ], [ 0, %for.end.i ]
   %is_unparseable.1.shrunk.i = phi i8 [ %.lobit.i, %sw.bb32.i ], [ %.lobit.i, %sw.bb31.i ], [ %.lobit.i, %sw.bb26.i ], [ %.lobit.i, %sw.bb24.i ], [ 1, %for.end.i ]
   %29 = and i8 %24, 15
   %and41.i = zext nneg i8 %29 to i32
   store i32 %and41.i, ptr %x.i, align 4
-  switch i32 %and41.i, label %sw.epilog.unreachabledefault.i [
-    i32 0, label %sw.bb42.i
-    i32 1, label %sw.bb52.i
-    i32 2, label %sw.bb57.i
-    i32 3, label %sw.bb62.i
-    i32 4, label %sw.bb67.i
-    i32 5, label %sw.bb72.i
-    i32 6, label %sw.bb77.i
-    i32 7, label %sw.bb82.i
-    i32 8, label %sw.bb87.i
-    i32 9, label %sw.bb92.i
-    i32 10, label %sw.bb97.i
-    i32 11, label %sw.bb102.i
-    i32 12, label %sw.epilog112.i
-    i32 13, label %sw.epilog112.i
-    i32 14, label %sw.epilog112.i
-    i32 15, label %sw.bb108.i
+  switch i8 %29, label %sw.epilog.unreachabledefault.i [
+    i8 0, label %sw.bb42.i
+    i8 1, label %sw.bb52.i
+    i8 2, label %sw.bb57.i
+    i8 3, label %sw.bb62.i
+    i8 4, label %sw.bb67.i
+    i8 5, label %sw.bb72.i
+    i8 6, label %sw.bb77.i
+    i8 7, label %sw.bb82.i
+    i8 8, label %sw.bb87.i
+    i8 9, label %sw.bb92.i
+    i8 10, label %sw.bb97.i
+    i8 11, label %sw.bb102.i
+    i8 12, label %sw.epilog112.i
+    i8 13, label %sw.epilog112.i
+    i8 14, label %sw.epilog112.i
+    i8 15, label %sw.bb108.i
   ]
 
 sw.bb42.i:                                        ; preds = %sw.epilog.i
@@ -3179,7 +3179,7 @@ if.then.i108.i:                                   ; preds = %sw.bb108.i
   %46 = load ptr, ptr %error_callback.i109.i, align 8
   %client_data.i110.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %44, i64 0, i32 9
   %47 = load ptr, ptr %client_data.i110.i, align 8
-  call void %46(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %47) #22
+  call void %46(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %47) #21
   br label %return.sink.split.i
 
 sw.epilog.unreachabledefault.i:                   ; preds = %sw.epilog.i
@@ -3234,15 +3234,15 @@ if.end148.i:                                      ; preds = %if.then118.i, %if.e
   %55 = and i8 %54, 7
   %shr152.i = zext nneg i8 %55 to i32
   store i32 %shr152.i, ptr %x.i, align 4
-  switch i32 %shr152.i, label %if.end148.unreachabledefault.i [
-    i32 0, label %sw.bb153.i
-    i32 1, label %sw.bb167.i
-    i32 2, label %sw.bb172.i
-    i32 3, label %sw.epilog199.i
-    i32 4, label %sw.bb178.i
-    i32 5, label %sw.bb183.i
-    i32 6, label %sw.bb188.i
-    i32 7, label %sw.bb193.i
+  switch i8 %55, label %if.end148.unreachabledefault.i [
+    i8 0, label %sw.bb153.i
+    i8 1, label %sw.bb167.i
+    i8 2, label %sw.bb172.i
+    i8 3, label %sw.epilog199.i
+    i8 4, label %sw.bb178.i
+    i8 5, label %sw.bb183.i
+    i8 6, label %sw.bb188.i
+    i8 7, label %sw.bb193.i
   ]
 
 sw.bb153.i:                                       ; preds = %if.end148.i
@@ -3318,7 +3318,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
 if.then221.i:                                     ; preds = %land.lhs.true.i, %sw.epilog199.i
   %input223.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre.i, i64 0, i32 11
   %71 = load ptr, ptr %input223.i, align 8
-  %call224.i = call i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef %71, ptr noundef nonnull %xx.i, ptr noundef nonnull %raw_header.i, ptr noundef nonnull %raw_header_len.i) #22
+  %call224.i = call i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef %71, ptr noundef nonnull %xx.i, ptr noundef nonnull %raw_header.i, ptr noundef nonnull %raw_header_len.i) #21
   %tobool225.not.i = icmp eq i32 %call224.i, 0
   br i1 %tobool225.not.i, label %read_frame_header_.exit.thread, label %if.end227.i
 
@@ -3350,7 +3350,7 @@ if.then.i116.i:                                   ; preds = %if.then230.i
   %79 = load ptr, ptr %error_callback.i117.i, align 8
   %client_data.i118.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %77, i64 0, i32 9
   %80 = load ptr, ptr %client_data.i118.i, align 8
-  call void %79(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %80) #22
+  call void %79(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %80) #21
   br label %return.sink.split.i
 
 if.end240.i:                                      ; preds = %if.end227.i
@@ -3365,7 +3365,7 @@ if.end240.i:                                      ; preds = %if.end227.i
 if.else247.i:                                     ; preds = %land.lhs.true.i, %lor.lhs.false.i
   %input249.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre.i, i64 0, i32 11
   %83 = load ptr, ptr %input249.i, align 8
-  %call251.i = call i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef %83, ptr noundef nonnull %x.i, ptr noundef nonnull %raw_header.i, ptr noundef nonnull %raw_header_len.i) #22
+  %call251.i = call i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef %83, ptr noundef nonnull %x.i, ptr noundef nonnull %raw_header.i, ptr noundef nonnull %raw_header_len.i) #21
   %tobool252.not.i = icmp eq i32 %call251.i, 0
   br i1 %tobool252.not.i, label %read_frame_header_.exit.thread, label %if.end254.i
 
@@ -3397,7 +3397,7 @@ if.then.i124.i:                                   ; preds = %if.then257.i
   %91 = load ptr, ptr %error_callback.i125.i, align 8
   %client_data.i126.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %89, i64 0, i32 9
   %92 = load ptr, ptr %client_data.i126.i, align 8
-  call void %91(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %92) #22
+  call void %91(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %92) #21
   br label %return.sink.split.i
 
 if.end267.i:                                      ; preds = %if.end254.i
@@ -3417,7 +3417,7 @@ if.end276.i:                                      ; preds = %if.end267.i, %if.en
 if.then278.i:                                     ; preds = %if.end276.i
   %input280.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre309.pre, i64 0, i32 11
   %95 = load ptr, ptr %input280.i, align 8
-  %call281.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %95, ptr noundef nonnull %x.i, i32 noundef 8) #22
+  %call281.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %95, ptr noundef nonnull %x.i, i32 noundef 8) #21
   %tobool282.not.i = icmp eq i32 %call281.i, 0
   br i1 %tobool282.not.i, label %read_frame_header_.exit.thread, label %if.end284.i
 
@@ -3437,7 +3437,7 @@ if.then291.i:                                     ; preds = %if.end284.i
   %98 = load ptr, ptr %private_, align 8
   %input293.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %98, i64 0, i32 11
   %99 = load ptr, ptr %input293.i, align 8
-  %call294.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %99, ptr noundef nonnull %_x.i, i32 noundef 8) #22
+  %call294.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %99, ptr noundef nonnull %_x.i, i32 noundef 8) #21
   %tobool295.not.i = icmp eq i32 %call294.i, 0
   br i1 %tobool295.not.i, label %read_frame_header_.exit.thread, label %if.end297.i
 
@@ -3489,7 +3489,7 @@ if.then.i132.i:                                   ; preds = %if.then315.i
   %111 = load ptr, ptr %error_callback.i133.i, align 8
   %client_data.i134.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %109, i64 0, i32 9
   %112 = load ptr, ptr %client_data.i134.i, align 8
-  call void %111(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %112) #22
+  call void %111(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %112) #21
   br label %return.sink.split.i
 
 if.end326.i:                                      ; preds = %if.end303.i, %if.end276.i
@@ -3500,7 +3500,7 @@ if.end326.i:                                      ; preds = %if.end303.i, %if.en
 if.then328.i:                                     ; preds = %if.end326.i
   %input330.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre309, i64 0, i32 11
   %113 = load ptr, ptr %input330.i, align 8
-  %call331.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %113, ptr noundef nonnull %x.i, i32 noundef 8) #22
+  %call331.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %113, ptr noundef nonnull %x.i, i32 noundef 8) #21
   %tobool332.not.i = icmp eq i32 %call331.i, 0
   br i1 %tobool332.not.i, label %read_frame_header_.exit.thread, label %if.end334.i
 
@@ -3520,7 +3520,7 @@ if.then341.i:                                     ; preds = %if.end334.i
   %116 = load ptr, ptr %private_, align 8
   %input344.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %116, i64 0, i32 11
   %117 = load ptr, ptr %input344.i, align 8
-  %call345.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %117, ptr noundef nonnull %_x342.i, i32 noundef 8) #22
+  %call345.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %117, ptr noundef nonnull %_x342.i, i32 noundef 8) #21
   %tobool346.not.i = icmp eq i32 %call345.i, 0
   br i1 %tobool346.not.i, label %read_frame_header_.exit.thread, label %if.end348.i
 
@@ -3563,14 +3563,14 @@ if.end379.i:                                      ; preds = %if.end379.sink.spli
   %123 = phi ptr [ %.pre, %if.end379.sink.split.i ], [ %.pre309, %if.end326.i ]
   %input381.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %123, i64 0, i32 11
   %124 = load ptr, ptr %input381.i, align 8
-  %call382.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %124, ptr noundef nonnull %x.i, i32 noundef 8) #22
+  %call382.i = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %124, ptr noundef nonnull %x.i, i32 noundef 8) #21
   %tobool383.not.i = icmp eq i32 %call382.i, 0
   br i1 %tobool383.not.i, label %read_frame_header_.exit.thread, label %if.end385.i
 
 if.end385.i:                                      ; preds = %if.end379.i
   %125 = load i32, ptr %x.i, align 4
   %126 = load i32, ptr %raw_header_len.i, align 4
-  %call388.i = call zeroext i8 @FLAC__crc8(ptr noundef nonnull %raw_header.i, i32 noundef %126) #22
+  %call388.i = call zeroext i8 @FLAC__crc8(ptr noundef nonnull %raw_header.i, i32 noundef %126) #21
   %127 = trunc i32 %125 to i8
   %cmp391.not.i = icmp eq i8 %call388.i, %127
   %128 = load ptr, ptr %private_, align 8
@@ -3587,7 +3587,7 @@ if.then.i140.i:                                   ; preds = %if.then393.i
   %130 = load ptr, ptr %error_callback.i141.i, align 8
   %client_data.i142.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %128, i64 0, i32 9
   %131 = load ptr, ptr %client_data.i142.i, align 8
-  call void %130(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %131) #22
+  call void %130(ptr noundef nonnull %decoder, i32 noundef 1, ptr noundef %131) #21
   br label %return.sink.split.i
 
 if.end396.i:                                      ; preds = %if.end385.i
@@ -3690,7 +3690,7 @@ if.then.i148.i:                                   ; preds = %if.then491.i
   %147 = load ptr, ptr %error_callback.i149.i, align 8
   %client_data.i150.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %145, i64 0, i32 9
   %148 = load ptr, ptr %client_data.i150.i, align 8
-  call void %147(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %148) #22
+  call void %147(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %148) #21
   br label %return.sink.split.i
 
 if.else.i147.i:                                   ; preds = %if.then491.i
@@ -3768,7 +3768,7 @@ for.body.i158:                                    ; preds = %for.body.i158.prehe
 
 if.then10.i:                                      ; preds = %for.body.i158
   %add.ptr.i = getelementptr inbounds i32, ptr %161, i64 -4
-  call void @free(ptr noundef nonnull %add.ptr.i) #22
+  call void @free(ptr noundef nonnull %add.ptr.i) #21
   %162 = load ptr, ptr %private_, align 8
   %arrayidx18.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %162, i64 0, i32 12, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx18.i, align 8
@@ -3783,7 +3783,7 @@ if.end19.i:                                       ; preds = %if.then10.i, %for.b
   br i1 %cmp23.not.i, label %for.inc.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end19.i
-  call void @free(ptr noundef nonnull %164) #22
+  call void @free(ptr noundef nonnull %164) #21
   %165 = load ptr, ptr %private_, align 8
   %arrayidx31.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %165, i64 0, i32 13, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx31.i, align 8
@@ -3805,7 +3805,7 @@ for.end.i161:                                     ; preds = %for.inc.i
   br i1 %cmp39.not.i, label %if.end45.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %for.end.i161
-  call void @free(ptr noundef nonnull %168) #22
+  call void @free(ptr noundef nonnull %168) #21
   %169 = load ptr, ptr %private_, align 8
   %side_subframe44.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %169, i64 0, i32 14
   store ptr null, ptr %side_subframe44.i, align 8
@@ -3829,7 +3829,7 @@ for.cond46.i:                                     ; preds = %if.end52.i
 
 for.body48.i:                                     ; preds = %for.cond46.i, %for.body48.lr.ph.i
   %indvars.iv51.i = phi i64 [ 0, %for.body48.lr.ph.i ], [ %indvars.iv.next52.i, %for.cond46.i ]
-  %call8.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i) #23
+  %call8.i.i = call noalias noundef ptr @malloc(i64 noundef %mul.i.i) #22
   %cmp49.i = icmp eq ptr %call8.i.i, null
   br i1 %cmp49.i, label %if.then51.i, label %if.end52.i
 
@@ -3847,7 +3847,7 @@ if.end52.i:                                       ; preds = %for.body48.i
   %172 = load ptr, ptr %private_, align 8
   %arrayidx62.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %172, i64 0, i32 35, i64 %indvars.iv51.i
   %arrayidx66.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %172, i64 0, i32 13, i64 %indvars.iv51.i
-  %call67.i = call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv.i, ptr noundef nonnull %arrayidx62.i, ptr noundef nonnull %arrayidx66.i) #22
+  %call67.i = call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv.i, ptr noundef nonnull %arrayidx62.i, ptr noundef nonnull %arrayidx66.i) #21
   %tobool.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool.not.i, label %if.then68.i, label %for.cond46.i
 
@@ -3866,7 +3866,7 @@ for.end74.if.end90_crit_edge.i:                   ; preds = %for.end74.i
 
 if.then77.i:                                      ; preds = %for.end74.i
   %conv78.i = zext i32 %154 to i64
-  %call79.i = call ptr @safe_malloc_mul_2op_p(i64 noundef 8, i64 noundef %conv78.i) #22
+  %call79.i = call ptr @safe_malloc_mul_2op_p(i64 noundef 8, i64 noundef %conv78.i) #21
   %174 = load ptr, ptr %private_, align 8
   %side_subframe81.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %174, i64 0, i32 14
   store ptr %call79.i, ptr %side_subframe81.i, align 8
@@ -3955,7 +3955,7 @@ sw.epilog:                                        ; preds = %sw.bb57, %sw.bb51, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u.i)
   %input.i164 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %185, i64 0, i32 11
   %188 = load ptr, ptr %input.i164, align 8
-  %call.i165 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %188, ptr noundef nonnull %x.i162, i32 noundef 8) #22
+  %call.i165 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %188, ptr noundef nonnull %x.i162, i32 noundef 8) #21
   %tobool.not.i166 = icmp eq i32 %call.i165, 0
   br i1 %tobool.not.i166, label %if.then65, label %if.end.i167
 
@@ -3971,7 +3971,7 @@ if.end.i167:                                      ; preds = %sw.epilog
 if.then3.i:                                       ; preds = %if.end.i167
   %input5.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %190, i64 0, i32 11
   %191 = load ptr, ptr %input5.i, align 8
-  %call6.i = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %191, ptr noundef nonnull %u.i) #22
+  %call6.i = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef %191, ptr noundef nonnull %u.i) #21
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.then65, label %if.end9.i
 
@@ -3998,7 +3998,7 @@ if.then.i.i185:                                   ; preds = %if.then18.i
   %197 = load ptr, ptr %error_callback.i.i186, align 8
   %client_data.i.i187 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %194, i64 0, i32 9
   %198 = load ptr, ptr %client_data.i.i187, align 8
-  call void %197(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %198) #22
+  call void %197(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %198) #21
   br label %if.end71.sink.split
 
 if.end19.i188:                                    ; preds = %if.end9.i
@@ -4029,7 +4029,7 @@ if.then.i70.i:                                    ; preds = %if.then35.i
   %202 = load ptr, ptr %error_callback.i71.i, align 8
   %client_data.i72.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %200, i64 0, i32 9
   %203 = load ptr, ptr %client_data.i72.i, align 8
-  call void %202(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %203) #22
+  call void %202(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %203) #21
   br label %if.end71.sink.split
 
 if.else38.i:                                      ; preds = %if.end32.i
@@ -4046,7 +4046,7 @@ if.then40.i176:                                   ; preds = %if.else38.i
   %205 = load ptr, ptr %private_, align 8
   %input.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %205, i64 0, i32 11
   %206 = load ptr, ptr %input.i.i, align 8
-  %call.i.i = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %206, ptr noundef nonnull %x.i.i, i32 noundef %bps.addr.0.i) #22
+  %call.i.i = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %206, ptr noundef nonnull %x.i.i, i32 noundef %bps.addr.0.i) #21
   %tobool.not.i75.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i75.i, label %read_subframe_constant_.exit.i, label %if.end.i.i
 
@@ -4142,7 +4142,7 @@ for.body.i90.i:                                   ; preds = %if.then.i89.i, %if.
   %226 = phi ptr [ %229, %if.end.i94.i ], [ %224, %if.then.i89.i ]
   %input.i91.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %226, i64 0, i32 11
   %227 = load ptr, ptr %input.i91.i, align 8
-  %call.i92.i = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %227, ptr noundef nonnull %x.i77.i, i32 noundef %bps.addr.0.i) #22
+  %call.i92.i = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %227, ptr noundef nonnull %x.i77.i, i32 noundef %bps.addr.0.i) #21
   %tobool.not.i93.i = icmp eq i32 %call.i92.i, 0
   br i1 %tobool.not.i93.i, label %read_subframe_verbatim_.exit.i, label %if.end.i94.i
 
@@ -4193,7 +4193,7 @@ for.body41.i.i:                                   ; preds = %if.else.i83.i, %if.
   %239 = phi ptr [ %242, %if.end47.i.i ], [ %237, %if.else.i83.i ]
   %input43.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %239, i64 0, i32 11
   %240 = load ptr, ptr %input43.i.i, align 8
-  %call44.i.i = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %240, ptr noundef nonnull %x29.i.i, i32 noundef %bps.addr.0.i) #22
+  %call44.i.i = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %240, ptr noundef nonnull %x29.i.i, i32 noundef %bps.addr.0.i) #21
   %tobool45.not.i.i = icmp eq i32 %call44.i.i, 0
   br i1 %tobool45.not.i.i, label %read_subframe_verbatim_.exit.i, label %if.end47.i.i
 
@@ -4235,7 +4235,7 @@ if.then.i99.i:                                    ; preds = %if.then54.i
   %247 = load ptr, ptr %error_callback.i100.i, align 8
   %client_data.i101.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %245, i64 0, i32 9
   %248 = load ptr, ptr %client_data.i101.i, align 8
-  call void %247(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %248) #22
+  call void %247(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %248) #21
   br label %if.end71.sink.split
 
 if.else.i98.i:                                    ; preds = %if.then54.i
@@ -4269,7 +4269,7 @@ if.then.i107.i:                                   ; preds = %if.then64.i
   %253 = load ptr, ptr %error_callback.i108.i, align 8
   %client_data.i109.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %250, i64 0, i32 9
   %254 = load ptr, ptr %client_data.i109.i, align 8
-  call void %253(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %254) #22
+  call void %253(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %254) #21
   br label %if.end71.sink.split
 
 if.end67.i:                                       ; preds = %if.then59.i
@@ -4302,7 +4302,7 @@ if.then.i117.i:                                   ; preds = %if.then79.i
   %261 = load ptr, ptr %error_callback.i118.i, align 8
   %client_data.i119.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %259, i64 0, i32 9
   %262 = load ptr, ptr %client_data.i119.i, align 8
-  call void %261(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %262) #22
+  call void %261(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %262) #21
   br label %if.end71.sink.split
 
 if.else.i114.i:                                   ; preds = %if.then79.i
@@ -4333,7 +4333,7 @@ if.then.i125.i:                                   ; preds = %if.then92.i
   %267 = load ptr, ptr %error_callback.i126.i, align 8
   %client_data.i127.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %264, i64 0, i32 9
   %268 = load ptr, ptr %client_data.i127.i, align 8
-  call void %267(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %268) #22
+  call void %267(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %268) #21
   br label %if.end71.sink.split
 
 if.end95.i:                                       ; preds = %if.else82.i
@@ -4452,7 +4452,7 @@ if.then83:                                        ; preds = %for.cond, %for.end
   %298 = load ptr, ptr %private_, align 8
   %input.i190 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %298, i64 0, i32 11
   %299 = load ptr, ptr %input.i190, align 8
-  %call.i191 = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %299) #22
+  %call.i191 = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %299) #21
   %tobool.not.i192 = icmp eq i32 %call.i191, 0
   br i1 %tobool.not.i192, label %if.then.i, label %if.end88
 
@@ -4461,8 +4461,8 @@ if.then.i:                                        ; preds = %if.then83
   %300 = load ptr, ptr %private_, align 8
   %input2.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %300, i64 0, i32 11
   %301 = load ptr, ptr %input2.i, align 8
-  %call5.i = call i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef %301) #22
-  %call6.i194 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %301, ptr noundef nonnull %zero.i, i32 noundef %call5.i) #22
+  %call5.i = call i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr noundef %301) #21
+  %call6.i194 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %301, ptr noundef nonnull %zero.i, i32 noundef %call5.i) #21
   %tobool7.not.i195 = icmp eq i32 %call6.i194, 0
   br i1 %tobool7.not.i195, label %read_zero_padding_.exit, label %if.end.i196
 
@@ -4483,7 +4483,7 @@ if.then.i.i201:                                   ; preds = %if.then9.i
   %305 = load ptr, ptr %error_callback.i.i202, align 8
   %client_data.i.i203 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %303, i64 0, i32 9
   %306 = load ptr, ptr %client_data.i.i203, align 8
-  call void %305(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %306) #22
+  call void %305(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %306) #21
   br label %send_error_to_client_.exit.i200
 
 send_error_to_client_.exit.i200:                  ; preds = %if.then.i.i201, %if.then9.i
@@ -4506,12 +4506,12 @@ if.then93:                                        ; preds = %if.end88
   %308 = load ptr, ptr %private_, align 8
   %input95 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %308, i64 0, i32 11
   %309 = load ptr, ptr %input95, align 8
-  %call96 = call zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef %309) #22
+  %call96 = call zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef %309) #21
   %310 = load ptr, ptr %private_, align 8
   %input99 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %310, i64 0, i32 11
   %311 = load ptr, ptr %input99, align 8
   %312 = load i32, ptr @FLAC__FRAME_FOOTER_CRC_LEN, align 4
-  %call100 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %311, ptr noundef nonnull %x, i32 noundef %312) #22
+  %call100 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %311, ptr noundef nonnull %x, i32 noundef %312) #21
   %tobool101.not = icmp eq i32 %call100, 0
   %.pre316 = load ptr, ptr %decoder, align 8
   %313 = load i32, ptr %.pre316, align 8
@@ -4763,7 +4763,7 @@ if.then.i231:                                     ; preds = %if.then157
   %369 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %363, i64 0, i32 9
   %370 = load ptr, ptr %client_data.i, align 8
-  call void %369(ptr noundef nonnull %decoder, i32 noundef 2, ptr noundef %370) #22
+  call void %369(ptr noundef nonnull %decoder, i32 noundef 2, ptr noundef %370) #21
   br label %send_error_to_client_.exit
 
 send_error_to_client_.exit:                       ; preds = %if.then157, %if.then.i231
@@ -4796,7 +4796,7 @@ if.then.i236:                                     ; preds = %if.then173
   %376 = load ptr, ptr %error_callback.i237, align 8
   %client_data.i238 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %.pre321, i64 0, i32 9
   %377 = load ptr, ptr %client_data.i238, align 8
-  call void %376(ptr noundef nonnull %decoder, i32 noundef 2, ptr noundef %377) #22
+  call void %376(ptr noundef nonnull %decoder, i32 noundef 2, ptr noundef %377) #21
   %.pre318 = load ptr, ptr %decoder, align 8
   br label %send_error_to_client_.exit239
 
@@ -4908,7 +4908,7 @@ for.body286:                                      ; preds = %for.body269, %for.i
   br i1 %cmp289.not, label %for.inc295, label %if.then291
 
 if.then291:                                       ; preds = %for.body286
-  call void @free(ptr noundef nonnull %395) #22
+  call void @free(ptr noundef nonnull %395) #21
   %.pre323 = load i32, ptr %channels266, align 8
   br label %for.inc295
 
@@ -5011,7 +5011,7 @@ for.body380:                                      ; preds = %if.then372, %for.in
   br i1 %cmp383.not, label %for.inc389, label %if.then385
 
 if.then385:                                       ; preds = %for.body380
-  call void @free(ptr noundef nonnull %410) #22
+  call void @free(ptr noundef nonnull %410) #21
   %.pre326 = load i32, ptr %channels266, align 8
   br label %for.inc389
 
@@ -5031,7 +5031,7 @@ for.body398:                                      ; preds = %for.cond393.prehead
   br i1 %cmp401.not, label %for.inc407, label %if.then403
 
 if.then403:                                       ; preds = %for.body398
-  call void @free(ptr noundef nonnull %414) #22
+  call void @free(ptr noundef nonnull %414) #21
   %.pre327 = load i32, ptr %channels266, align 8
   br label %for.inc407
 
@@ -5054,7 +5054,7 @@ if.then422:                                       ; preds = %if.end412, %if.end4
   %419 = load ptr, ptr %private_, align 8
   %input424 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %419, i64 0, i32 11
   %420 = load ptr, ptr %input424, align 8
-  %call425 = call i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr noundef %420) #22
+  %call425 = call i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr noundef %420) #21
   %tobool426.not = icmp eq i32 %call425, 0
   br i1 %tobool426.not, label %if.then427, label %if.end521
 
@@ -5074,7 +5074,7 @@ land.lhs.true430:                                 ; preds = %if.then427
 if.then433:                                       ; preds = %land.lhs.true430
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %421, i64 0, i32 9
   %424 = load ptr, ptr %client_data, align 8
-  %call439 = call i32 %422(ptr noundef nonnull %decoder, i64 noundef %423, ptr noundef %424) #22
+  %call439 = call i32 %422(ptr noundef nonnull %decoder, i64 noundef %423, ptr noundef %424) #21
   %cmp440 = icmp eq i32 %call439, 1
   br i1 %cmp440, label %if.then442, label %if.end445
 
@@ -5087,7 +5087,7 @@ if.end445:                                        ; preds = %if.then433
   %426 = load ptr, ptr %private_, align 8
   %input447 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %426, i64 0, i32 11
   %427 = load ptr, ptr %input447, align 8
-  %call448 = call i32 @FLAC__bitreader_clear(ptr noundef %427) #22
+  %call448 = call i32 @FLAC__bitreader_clear(ptr noundef %427) #21
   %tobool449.not = icmp eq i32 %call448, 0
   br i1 %tobool449.not, label %if.then450, label %if.end521
 
@@ -5177,7 +5177,7 @@ return:                                           ; preds = %for.inc389, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef %decoder) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   br label %while.body
 
@@ -5215,7 +5215,7 @@ return:                                           ; preds = %sw.bb1, %sw.bb, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef %decoder) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   %dummy = alloca i32, align 4
   br label %while.body
@@ -5264,7 +5264,7 @@ return:                                           ; preds = %sw.bb11, %sw.bb6, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_skip_single_frame(ptr noundef %decoder) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_skip_single_frame(ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   %got_a_frame = alloca i32, align 4
   br label %while.body
@@ -5306,7 +5306,7 @@ return:                                           ; preds = %if.end6, %sw.bb2, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_decoder_seek_absolute(ptr noundef %decoder, i64 noundef %sample) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_decoder_seek_absolute(ptr noundef %decoder, i64 noundef %sample) local_unnamed_addr #0 {
 entry:
   %got_a_frame.i.i53 = alloca i32, align 4
   %lower_bound.i = alloca i64, align 8
@@ -5350,7 +5350,7 @@ if.end24:                                         ; preds = %if.end18, %FLAC__st
   %9 = load ptr, ptr %length_callback, align 8
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %8, i64 0, i32 9
   %10 = load ptr, ptr %client_data, align 8
-  %call29 = call i32 %9(ptr noundef nonnull %decoder, ptr noundef nonnull %length, ptr noundef %10) #22
+  %call29 = call i32 %9(ptr noundef nonnull %decoder, ptr noundef nonnull %length, ptr noundef %10) #21
   %cmp30.not = icmp eq i32 %call29, 0
   br i1 %cmp30.not, label %if.end34, label %return.sink.split.sink.split
 
@@ -5486,7 +5486,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %27 = load ptr, ptr %seek_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %26, i64 0, i32 9
   %28 = load ptr, ptr %client_data.i, align 8
-  %call25.i = call i32 %27(ptr noundef nonnull %decoder, i64 noundef %pos.1.i, ptr noundef %28) #22
+  %call25.i = call i32 %27(ptr noundef nonnull %decoder, i64 noundef %pos.1.i, ptr noundef %28) #21
   %cmp26.not.i = icmp eq i32 %call25.i, 0
   br i1 %cmp26.not.i, label %if.end31.i, label %return.sink.split.sink.split.i
 
@@ -5523,7 +5523,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 if.then7.i.i:                                     ; preds = %if.end.i.i
   %38 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %38, i64 0, i32 8
-  call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i.i) #22
+  call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i.i) #21
   %.pre.i.i = load ptr, ptr %private_, align 8
   br label %FLAC__stream_decoder_flush.exit.i
 
@@ -5531,7 +5531,7 @@ FLAC__stream_decoder_flush.exit.i:                ; preds = %if.then7.i.i, %if.e
   %39 = phi ptr [ %.pre.i.i, %if.then7.i.i ], [ %36, %if.end.i.i ]
   %input.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %39, i64 0, i32 11
   %40 = load ptr, ptr %input.i.i, align 8
-  %call.i.i = call i32 @FLAC__bitreader_clear(ptr noundef %40) #22
+  %call.i.i = call i32 @FLAC__bitreader_clear(ptr noundef %40) #21
   %tobool11.not.i.not.i = icmp eq i32 %call.i.i, 0
   %41 = load ptr, ptr %decoder, align 8
   %..i.i = select i1 %tobool11.not.i.not.i, i32 8, i32 2
@@ -5771,7 +5771,7 @@ if.end.i.i73:                                     ; preds = %if.then61.i
 if.end3.i.i:                                      ; preds = %if.end.i.i73
   %client_data.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %20, i64 0, i32 9
   %69 = load ptr, ptr %client_data.i.i, align 8
-  %call.i.i75 = call i32 %68(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %69) #22
+  %call.i.i75 = call i32 %68(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %69) #21
   %cmp7.not.i.i = icmp eq i32 %call.i.i75, 0
   br i1 %cmp7.not.i.i, label %if.end9.i.i, label %if.end76.i
 
@@ -5779,7 +5779,7 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   %70 = load ptr, ptr %private_, align 8
   %input.i.i76 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %70, i64 0, i32 11
   %71 = load ptr, ptr %input.i.i76, align 8
-  %call11.i.i77 = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %71) #22
+  %call11.i.i77 = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %71) #21
   %tobool12.not.i.i78 = icmp eq i32 %call11.i.i77, 0
   br i1 %tobool12.not.i.i78, label %if.end76.i, label %if.then64.i
 
@@ -5787,7 +5787,7 @@ if.then64.i:                                      ; preds = %if.end9.i.i
   %72 = load ptr, ptr %private_, align 8
   %input.i.i.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %72, i64 0, i32 11
   %73 = load ptr, ptr %input.i.i.i, align 8
-  %call.i.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %73) #22
+  %call.i.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %73) #21
   %div1.i.i.i = lshr i32 %call.i.i.i, 3
   %conv.i.i = zext nneg i32 %div1.i.i.i to i64
   %74 = load i64, ptr %upper_bound.i, align 8
@@ -5810,7 +5810,7 @@ if.end.i149.i:                                    ; preds = %if.else68.i
 if.end3.i152.i:                                   ; preds = %if.end.i149.i
   %client_data.i153.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %20, i64 0, i32 9
   %78 = load ptr, ptr %client_data.i153.i, align 8
-  %call.i154.i = call i32 %77(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %78) #22
+  %call.i154.i = call i32 %77(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %78) #21
   %cmp7.not.i155.i = icmp eq i32 %call.i154.i, 0
   br i1 %cmp7.not.i155.i, label %if.end9.i156.i, label %if.end76.i
 
@@ -5818,7 +5818,7 @@ if.end9.i156.i:                                   ; preds = %if.end3.i152.i
   %79 = load ptr, ptr %private_, align 8
   %input.i157.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %79, i64 0, i32 11
   %80 = load ptr, ptr %input.i157.i, align 8
-  %call11.i158.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %80) #22
+  %call11.i158.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %80) #21
   %tobool12.not.i159.i = icmp eq i32 %call11.i158.i, 0
   br i1 %tobool12.not.i159.i, label %if.end76.i, label %if.then71.i
 
@@ -5826,7 +5826,7 @@ if.then71.i:                                      ; preds = %if.end9.i156.i
   %81 = load ptr, ptr %private_, align 8
   %input.i.i161.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %81, i64 0, i32 11
   %82 = load ptr, ptr %input.i.i161.i, align 8
-  %call.i.i162.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %82) #22
+  %call.i.i162.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %82) #21
   %div1.i.i163.i = lshr i32 %call.i.i162.i, 3
   %conv.i164.i = zext nneg i32 %div1.i.i163.i to i64
   %83 = load i64, ptr %lower_bound.i, align 8
@@ -6011,7 +6011,7 @@ if.end200.us.i:                                   ; preds = %if.else188.us.i, %i
   %110 = load ptr, ptr %seek_callback.us.i, align 8
   %client_data.us.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %109, i64 0, i32 9
   %111 = load ptr, ptr %client_data.us.i, align 8
-  %call212.us.i = call i32 %110(ptr noundef nonnull %decoder, i64 noundef %pos.2.us.i, ptr noundef %111) #22
+  %call212.us.i = call i32 %110(ptr noundef nonnull %decoder, i64 noundef %pos.2.us.i, ptr noundef %111) #21
   %cmp213.not.us.i = icmp eq i32 %call212.us.i, 0
   br i1 %cmp213.not.us.i, label %if.end218.us.i, label %return.sink.split.sink.split.i69
 
@@ -6048,7 +6048,7 @@ if.end.i169.us.i:                                 ; preds = %land.lhs.true.i.us.
 if.then7.i.us.i:                                  ; preds = %if.end.i169.us.i
   %121 = load ptr, ptr %decoder, align 8
   %ogg_decoder_aspect.i.us.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %121, i64 0, i32 8
-  call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i.us.i) #22
+  call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i.us.i) #21
   %.pre.i.us.i = load ptr, ptr %private_, align 8
   br label %FLAC__stream_decoder_flush.exit.us.i
 
@@ -6056,7 +6056,7 @@ FLAC__stream_decoder_flush.exit.us.i:             ; preds = %if.then7.i.us.i, %i
   %122 = phi ptr [ %.pre.i.us.i, %if.then7.i.us.i ], [ %119, %if.end.i169.us.i ]
   %input.i171.us.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %122, i64 0, i32 11
   %123 = load ptr, ptr %input.i171.us.i, align 8
-  %call.i172.us.i = call i32 @FLAC__bitreader_clear(ptr noundef %123) #22
+  %call.i172.us.i = call i32 @FLAC__bitreader_clear(ptr noundef %123) #21
   %tobool11.not.i.not.us.i = icmp eq i32 %call.i172.us.i, 0
   %124 = load ptr, ptr %decoder, align 8
   %..i.us.i = select i1 %tobool11.not.i.not.us.i, i32 8, i32 2
@@ -6144,7 +6144,7 @@ land.lhs.true241.us.i:                            ; preds = %if.then236.us.i
   %136 = load ptr, ptr %eof_callback.us.i, align 8
   %client_data244.us.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %135, i64 0, i32 9
   %137 = load ptr, ptr %client_data244.us.i, align 8
-  %call245.us.i = call i32 %136(ptr noundef nonnull %decoder, ptr noundef %137) #22
+  %call245.us.i = call i32 %136(ptr noundef nonnull %decoder, ptr noundef %137) #21
   %tobool246.us.i = icmp eq i32 %call245.us.i, 0
   %or.cond2.us.i = or i1 %tobool186.us.i, %tobool246.us.i
   br i1 %or.cond2.us.i, label %return.sink.split.sink.split.i69, label %while.body.us.i
@@ -6207,7 +6207,7 @@ if.end.i184.i:                                    ; preds = %if.then290.i
 if.end3.i187.i:                                   ; preds = %if.end.i184.i
   %client_data.i188.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %131, i64 0, i32 9
   %146 = load ptr, ptr %client_data.i188.i, align 8
-  %call.i189.i = call i32 %145(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %146) #22
+  %call.i189.i = call i32 %145(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %146) #21
   %cmp7.not.i190.i = icmp eq i32 %call.i189.i, 0
   br i1 %cmp7.not.i190.i, label %if.end9.i191.i, label %return.sink.split.sink.split.i69
 
@@ -6215,7 +6215,7 @@ if.end9.i191.i:                                   ; preds = %if.end3.i187.i
   %147 = load ptr, ptr %private_, align 8
   %input.i192.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %147, i64 0, i32 11
   %148 = load ptr, ptr %input.i192.i, align 8
-  %call11.i193.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %148) #22
+  %call11.i193.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %148) #21
   %tobool12.not.i194.i = icmp eq i32 %call11.i193.i, 0
   br i1 %tobool12.not.i194.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit201.i
 
@@ -6223,7 +6223,7 @@ FLAC__stream_decoder_get_decode_position.exit201.i: ; preds = %if.end9.i191.i
   %149 = load ptr, ptr %private_, align 8
   %input.i.i196.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %149, i64 0, i32 11
   %150 = load ptr, ptr %input.i.i196.i, align 8
-  %call.i.i197.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %150) #22
+  %call.i.i197.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %150) #21
   %div1.i.i198.i = lshr i32 %call.i.i197.i, 3
   %conv.i199.i = zext nneg i32 %div1.i.i198.i to i64
   %151 = load i64, ptr %upper_bound.i, align 8
@@ -6243,7 +6243,7 @@ if.end.i205.i:                                    ; preds = %if.else308.i
 if.end3.i208.i:                                   ; preds = %if.end.i205.i
   %client_data.i209.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %131, i64 0, i32 9
   %153 = load ptr, ptr %client_data.i209.i, align 8
-  %call.i210.i = call i32 %152(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %153) #22
+  %call.i210.i = call i32 %152(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %153) #21
   %cmp7.not.i211.i = icmp eq i32 %call.i210.i, 0
   br i1 %cmp7.not.i211.i, label %if.end9.i212.i, label %return.sink.split.sink.split.i69
 
@@ -6251,7 +6251,7 @@ if.end9.i212.i:                                   ; preds = %if.end3.i208.i
   %154 = load ptr, ptr %private_, align 8
   %input.i213.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %154, i64 0, i32 11
   %155 = load ptr, ptr %input.i213.i, align 8
-  %call11.i214.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %155) #22
+  %call11.i214.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %155) #21
   %tobool12.not.i215.i = icmp eq i32 %call11.i214.i, 0
   br i1 %tobool12.not.i215.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit222.i
 
@@ -6259,7 +6259,7 @@ FLAC__stream_decoder_get_decode_position.exit222.i: ; preds = %if.end9.i212.i
   %156 = load ptr, ptr %private_, align 8
   %input.i.i217.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %156, i64 0, i32 11
   %157 = load ptr, ptr %input.i.i217.i, align 8
-  %call.i.i218.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %157) #22
+  %call.i.i218.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %157) #21
   %div1.i.i219.i = lshr i32 %call.i.i218.i, 3
   %conv.i220.i = zext nneg i32 %div1.i.i219.i to i64
   %158 = load i64, ptr %lower_bound.i, align 8
@@ -6326,7 +6326,7 @@ declare i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr noundef, ptr nounde
 declare i32 @FLAC__bitreader_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @read_callback_(ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 {
+define internal noundef i32 @read_callback_(ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %client_data, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -6343,7 +6343,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %client_data7 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 9
   %3 = load ptr, ptr %client_data7, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %client_data, ptr noundef %3) #22
+  %call = tail call i32 %2(ptr noundef nonnull %client_data, ptr noundef %3) #21
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %if.else, label %if.then
 
@@ -6379,7 +6379,7 @@ if.else18:                                        ; preds = %land.lhs.true12, %i
 cond.true:                                        ; preds = %if.else18
   %10 = load ptr, ptr %client_data, align 8
   %ogg_decoder_aspect.i = getelementptr inbounds %struct.FLAC__StreamDecoderProtected, ptr %10, i64 0, i32 8
-  %call.i = tail call i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef nonnull %ogg_decoder_aspect.i, ptr noundef %buffer, ptr noundef nonnull %bytes, ptr noundef nonnull @read_callback_proxy_, ptr noundef nonnull %client_data, ptr noundef %9) #22
+  %call.i = tail call i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef nonnull %ogg_decoder_aspect.i, ptr noundef %buffer, ptr noundef nonnull %bytes, ptr noundef nonnull @read_callback_proxy_, ptr noundef nonnull %client_data, ptr noundef %9) #21
   switch i32 %call.i, label %return.sink.split [
     i32 0, label %if.else31
     i32 2, label %if.else31
@@ -6389,7 +6389,7 @@ cond.true:                                        ; preds = %if.else18
 cond.end:                                         ; preds = %if.else18
   %read_callback = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %5, i64 0, i32 1
   %11 = load ptr, ptr %read_callback, align 8
-  %call26 = tail call i32 %11(ptr noundef nonnull %client_data, ptr noundef %buffer, ptr noundef nonnull %bytes, ptr noundef %9) #22
+  %call26 = tail call i32 %11(ptr noundef nonnull %client_data, ptr noundef %buffer, ptr noundef nonnull %bytes, ptr noundef %9) #21
   %cmp27 = icmp eq i32 %call26, 2
   br i1 %cmp27, label %return.sink.split, label %if.else31
 
@@ -6423,7 +6423,7 @@ land.lhs.true38:                                  ; preds = %lor.lhs.false
 land.lhs.true42:                                  ; preds = %land.lhs.true38
   %client_data46 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %14, i64 0, i32 9
   %17 = load ptr, ptr %client_data46, align 8
-  %call47 = tail call i32 %16(ptr noundef nonnull %client_data, ptr noundef %17) #22
+  %call47 = tail call i32 %16(ptr noundef nonnull %client_data, ptr noundef %17) #21
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %return, label %return.sink.split
 
@@ -6441,13 +6441,13 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @read_callback_proxy_(ptr noundef %void_decoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 {
+define internal noundef i32 @read_callback_proxy_(ptr noundef %void_decoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %void_decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
   %read_callback = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 1
   %1 = load ptr, ptr %read_callback, align 8
-  %call = tail call i32 %1(ptr noundef %void_decoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #22
+  %call = tail call i32 %1(ptr noundef %void_decoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #21
   %2 = icmp ult i32 %call, 3
   br i1 %2, label %switch.lookup, label %return
 
@@ -6463,7 +6463,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_read_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef %buffer, ptr nocapture noundef %bytes, ptr nocapture readnone %client_data) #13 {
+define internal noundef i32 @file_read_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef %buffer, ptr nocapture noundef %bytes, ptr nocapture readnone %client_data) #12 {
 entry:
   %0 = load i64, ptr %bytes, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -6479,7 +6479,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %private_, align 8
   %file2 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %3, i64 0, i32 10
   %4 = load ptr, ptr %file2, align 8
-  %call3 = tail call i32 @ferror(ptr noundef %4) #22
+  %call3 = tail call i32 @ferror(ptr noundef %4) #21
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.else, label %return
 
@@ -6494,7 +6494,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_seek_callback_(ptr nocapture noundef readonly %decoder, i64 noundef %absolute_byte_offset, ptr nocapture readnone %client_data) #13 {
+define internal noundef i32 @file_seek_callback_(ptr nocapture noundef readonly %decoder, i64 noundef %absolute_byte_offset, ptr nocapture readnone %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -6515,7 +6515,7 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_tell_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %absolute_byte_offset, ptr nocapture readnone %client_data) #13 {
+define internal noundef i32 @file_tell_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %absolute_byte_offset, ptr nocapture readnone %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -6540,7 +6540,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_length_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %stream_length, ptr nocapture readnone %client_data) #13 {
+define internal noundef i32 @file_length_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %stream_length, ptr nocapture readnone %client_data) #12 {
 entry:
   %filestats = alloca %struct.stat, align 8
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
@@ -6552,8 +6552,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @fileno(ptr noundef %1) #22
-  %call3 = call i32 @fstat64(i32 noundef %call, ptr noundef nonnull %filestats) #22
+  %call = tail call i32 @fileno(ptr noundef %1) #21
+  %call3 = call i32 @fstat64(i32 noundef %call, ptr noundef nonnull %filestats) #21
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %if.else, label %return
 
@@ -6569,13 +6569,13 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_eof_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture readnone %client_data) #13 {
+define internal noundef i32 @file_eof_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture readnone %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
   %file = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 10
   %1 = load ptr, ptr %file, align 8
-  %call = tail call i32 @feof(ptr noundef %1) #22
+  %call = tail call i32 @feof(ptr noundef %1) #21
   %tobool.not = icmp ne i32 %call, 0
   %cond = zext i1 %tobool.not to i32
   ret i32 %cond
@@ -6585,7 +6585,7 @@ entry:
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
@@ -6606,7 +6606,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
 declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 declare void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef) local_unnamed_addr #3
 
@@ -6617,7 +6617,7 @@ declare i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef, i32 nou
 declare i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @has_id_filtered_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) unnamed_addr #16 {
+define internal fastcc noundef i32 @has_id_filtered_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) unnamed_addr #15 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -6655,7 +6655,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare void @FLAC__bitreader_set_limit(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_vorbiscomment_(ptr nocapture noundef readonly %decoder, ptr noundef %obj, i32 noundef %length) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_vorbiscomment_(ptr nocapture noundef readonly %decoder, ptr noundef %obj, i32 noundef %length) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %length, 7
   br i1 %cmp, label %if.then, label %if.else170
@@ -6666,7 +6666,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %1 = load ptr, ptr %input, align 8
-  %call = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %1, ptr noundef %obj) #22
+  %call = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %1, ptr noundef %obj) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -6685,7 +6685,7 @@ if.else:                                          ; preds = %if.end
   %sub13 = sub i32 %sub, %2
   %conv = zext i32 %2 to i64
   %add.i = add nuw nsw i64 %conv, 1
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %add.i) #23
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #22
   %entry19 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %obj, i64 0, i32 1
   store ptr %call.i.i, ptr %entry19, align 8
   %cmp20 = icmp eq ptr %call.i.i, null
@@ -6700,7 +6700,7 @@ if.end23:                                         ; preds = %if.else
   %4 = load ptr, ptr %private_, align 8
   %input25 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 11
   %5 = load ptr, ptr %input25, align 8
-  %call30 = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %5, ptr noundef nonnull %call.i.i, i32 noundef %2) #22
+  %call30 = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %5, ptr noundef nonnull %call.i.i, i32 noundef %2) #21
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %return, label %if.end33
 
@@ -6714,7 +6714,7 @@ if.end33:                                         ; preds = %if.end23
   %input39 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %8, i64 0, i32 11
   %9 = load ptr, ptr %input39, align 8
   %num_comments = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %obj, i64 0, i32 1
-  %call40 = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %9, ptr noundef nonnull %num_comments) #22
+  %call40 = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %9, ptr noundef nonnull %num_comments) #21
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %if.end43
 
@@ -6733,7 +6733,7 @@ if.end49:                                         ; preds = %if.end43
 
 if.then53:                                        ; preds = %if.end49
   %conv55 = zext nneg i32 %10 to i64
-  %call56 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv55, i64 noundef 16) #22
+  %call56 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv55, i64 noundef 16) #21
   %comments = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %obj, i64 0, i32 2
   store ptr %call56, ptr %comments, align 8
   %cmp57 = icmp eq ptr %call56, null
@@ -6774,7 +6774,7 @@ if.else79:                                        ; preds = %for.body
   %17 = load ptr, ptr %input83, align 8
   %18 = load ptr, ptr %comments, align 8
   %arrayidx86 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %18, i64 %indvars.iv
-  %call88 = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %17, ptr noundef %arrayidx86) #22
+  %call88 = tail call i32 @FLAC__bitreader_read_uint32_little_endian(ptr noundef %17, ptr noundef %arrayidx86) #21
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %if.end92
 
@@ -6796,14 +6796,14 @@ if.then99:                                        ; preds = %if.end92
   %23 = load ptr, ptr %private_, align 8
   %input102 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %23, i64 0, i32 11
   %24 = load ptr, ptr %input102, align 8
-  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %24) #22
+  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %24) #21
   br label %return
 
 if.else103:                                       ; preds = %if.end92
   %sub108 = sub i32 %sub80, %21
   %conv114 = zext i32 %21 to i64
   %add.i83 = add nuw nsw i64 %conv114, 1
-  %call.i.i84 = tail call noalias ptr @malloc(i64 noundef %add.i83) #23
+  %call.i.i84 = tail call noalias noundef ptr @malloc(i64 noundef %add.i83) #22
   %entry119 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %20, i64 %indvars.iv, i32 1
   store ptr %call.i.i84, ptr %entry119, align 8
   %cmp120 = icmp eq ptr %call.i.i84, null
@@ -6832,7 +6832,7 @@ if.end126:                                        ; preds = %if.else103
   %entry141 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %32, i64 %indvars.iv, i32 1
   %33 = load ptr, ptr %entry141, align 8
   %34 = load i32, ptr %arrayidx140, align 8
-  %call146 = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %31, ptr noundef %33, i32 noundef %34) #22
+  %call146 = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %31, ptr noundef %33, i32 noundef %34) #21
   %tobool147.not = icmp eq i32 %call146, 0
   br i1 %tobool147.not, label %if.then148, label %if.end158
 
@@ -6841,7 +6841,7 @@ if.then148:                                       ; preds = %if.end126
   %36 = load ptr, ptr %comments, align 8
   %entry152 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %36, i64 %indvars.iv, i32 1
   %37 = load ptr, ptr %entry152, align 8
-  tail call void @free(ptr noundef %37) #22
+  tail call void @free(ptr noundef %37) #21
   %38 = load ptr, ptr %comments, align 8
   %entry156 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %38, i64 %indvars.iv, i32 1
   store ptr null, ptr %entry156, align 8
@@ -6868,7 +6868,7 @@ if.else170:                                       ; preds = %entry
   %44 = load ptr, ptr %private_171, align 8
   %input172 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %44, i64 0, i32 11
   %45 = load ptr, ptr %input172, align 8
-  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %45) #22
+  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %45) #21
   br label %return
 
 skip:                                             ; preds = %if.end158, %for.cond.preheader, %if.end49, %if.then148, %if.then77, %if.then6
@@ -6885,7 +6885,7 @@ if.then176:                                       ; preds = %skip
 if.then180:                                       ; preds = %if.then176
   %comments181 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment, ptr %obj, i64 0, i32 2
   %47 = load ptr, ptr %comments181, align 8
-  tail call void @free(ptr noundef %47) #22
+  tail call void @free(ptr noundef %47) #21
   store ptr null, ptr %comments181, align 8
   br label %if.end183
 
@@ -6893,7 +6893,7 @@ if.end183:                                        ; preds = %if.then180, %if.the
   %48 = load ptr, ptr %private_, align 8
   %input185 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %48, i64 0, i32 11
   %49 = load ptr, ptr %input185, align 8
-  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %49) #22
+  tail call void @FLAC__bitreader_limit_invalidate(ptr noundef %49) #21
   br label %return
 
 return:                                           ; preds = %skip, %if.end33, %if.end23, %if.then, %if.end183, %if.else170, %if.then122, %if.then99, %if.then90, %if.then59, %if.then47, %if.then22
@@ -6902,7 +6902,7 @@ return:                                           ; preds = %skip, %if.end33, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_cuesheet_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_cuesheet_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %obj, i8 0, i64 160, i1 false)
@@ -6912,7 +6912,7 @@ entry:
   %1 = load ptr, ptr %input, align 8
   %2 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
   %div42 = lshr i32 %2, 3
-  %call = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %1, ptr noundef %obj, i32 noundef %div42) #22
+  %call = tail call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %1, ptr noundef %obj, i32 noundef %div42) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -6922,7 +6922,7 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %input2, align 8
   %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %obj, i64 0, i32 1
   %5 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
-  %call3 = tail call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %4, ptr noundef nonnull %lead_in, i32 noundef %5) #22
+  %call3 = tail call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %4, ptr noundef nonnull %lead_in, i32 noundef %5) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.end6
 
@@ -6931,7 +6931,7 @@ if.end6:                                          ; preds = %if.end
   %input8 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %6, i64 0, i32 11
   %7 = load ptr, ptr %input8, align 8
   %8 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
-  %call9 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %x, i32 noundef %8) #22
+  %call9 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %x, i32 noundef %8) #21
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end12
 
@@ -6945,7 +6945,7 @@ if.end12:                                         ; preds = %if.end6
   %input15 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input15, align 8
   %12 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
-  %call16 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %11, i32 noundef %12) #22
+  %call16 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %11, i32 noundef %12) #21
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -6954,7 +6954,7 @@ if.end19:                                         ; preds = %if.end12
   %input21 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %13, i64 0, i32 11
   %14 = load ptr, ptr %input21, align 8
   %15 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
-  %call22 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %14, ptr noundef nonnull %x, i32 noundef %15) #22
+  %call22 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %14, ptr noundef nonnull %x, i32 noundef %15) #21
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return, label %if.end25
 
@@ -6967,7 +6967,7 @@ if.end25:                                         ; preds = %if.end19
 
 safe_calloc_.exit:                                ; preds = %if.end25
   %conv = zext i32 %16 to i64
-  %call2.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #21
+  %call2.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #20
   %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %obj, i64 0, i32 4
   store ptr %call2.i, ptr %tracks, align 8
   %cmp30 = icmp eq ptr %call2.i, null
@@ -6999,7 +6999,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %29 = load ptr, ptr %private_, align 8
   %input39 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %29, i64 0, i32 11
   %30 = load ptr, ptr %input39, align 8
-  %call40 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %30, ptr noundef %arrayidx, i32 noundef %17) #22
+  %call40 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %30, ptr noundef %arrayidx, i32 noundef %17) #21
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %if.end43
 
@@ -7007,7 +7007,7 @@ if.end43:                                         ; preds = %for.body
   %31 = load ptr, ptr %private_, align 8
   %input45 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %31, i64 0, i32 11
   %32 = load ptr, ptr %input45, align 8
-  %call46 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %32, ptr noundef nonnull %x, i32 noundef %18) #22
+  %call46 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %32, ptr noundef nonnull %x, i32 noundef %18) #21
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %return, label %if.end49
 
@@ -7020,7 +7020,7 @@ if.end49:                                         ; preds = %if.end43
   %input52 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %34, i64 0, i32 11
   %35 = load ptr, ptr %input52, align 8
   %isrc = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %28, i64 %indvars.iv66, i32 2
-  %call55 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %35, ptr noundef nonnull %isrc, i32 noundef %div5443) #22
+  %call55 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %35, ptr noundef nonnull %isrc, i32 noundef %div5443) #21
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %return, label %if.end58
 
@@ -7028,7 +7028,7 @@ if.end58:                                         ; preds = %if.end49
   %36 = load ptr, ptr %private_, align 8
   %input60 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %36, i64 0, i32 11
   %37 = load ptr, ptr %input60, align 8
-  %call61 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %x, i32 noundef %20) #22
+  %call61 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %x, i32 noundef %20) #21
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %return, label %if.end64
 
@@ -7044,7 +7044,7 @@ if.end64:                                         ; preds = %if.end58
   %40 = load ptr, ptr %private_, align 8
   %input66 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %40, i64 0, i32 11
   %41 = load ptr, ptr %input66, align 8
-  %call67 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %41, ptr noundef nonnull %x, i32 noundef %21) #22
+  %call67 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %41, ptr noundef nonnull %x, i32 noundef %21) #21
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %return, label %if.end70
 
@@ -7060,7 +7060,7 @@ if.end70:                                         ; preds = %if.end64
   %44 = load ptr, ptr %private_, align 8
   %input77 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %44, i64 0, i32 11
   %45 = load ptr, ptr %input77, align 8
-  %call78 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %45, i32 noundef %22) #22
+  %call78 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %45, i32 noundef %22) #21
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %return, label %if.end81
 
@@ -7068,7 +7068,7 @@ if.end81:                                         ; preds = %if.end70
   %46 = load ptr, ptr %private_, align 8
   %input83 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %46, i64 0, i32 11
   %47 = load ptr, ptr %input83, align 8
-  %call84 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %47, ptr noundef nonnull %x, i32 noundef %23) #22
+  %call84 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %47, ptr noundef nonnull %x, i32 noundef %23) #21
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %return, label %if.end87
 
@@ -7083,7 +7083,7 @@ if.end87:                                         ; preds = %if.end81
 
 safe_calloc_.exit50:                              ; preds = %if.end87
   %conv95 = zext nneg i32 %conv90 to i64
-  %call2.i46 = call noalias ptr @calloc(i64 noundef %conv95, i64 noundef 16) #21
+  %call2.i46 = call noalias ptr @calloc(i64 noundef %conv95, i64 noundef 16) #20
   %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %28, i64 %indvars.iv66, i32 5
   store ptr %call2.i46, ptr %indices, align 8
   %cmp97 = icmp eq ptr %call2.i46, null
@@ -7112,7 +7112,7 @@ for.body108:                                      ; preds = %for.cond103.prehead
   %53 = load ptr, ptr %private_, align 8
   %input113 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %53, i64 0, i32 11
   %54 = load ptr, ptr %input113, align 8
-  %call115 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %54, ptr noundef %arrayidx111, i32 noundef %24) #22
+  %call115 = call i32 @FLAC__bitreader_read_raw_uint64(ptr noundef %54, ptr noundef %arrayidx111, i32 noundef %24) #21
   %tobool116.not = icmp eq i32 %call115, 0
   br i1 %tobool116.not, label %return, label %if.end118
 
@@ -7120,7 +7120,7 @@ if.end118:                                        ; preds = %for.body108
   %55 = load ptr, ptr %private_, align 8
   %input120 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %55, i64 0, i32 11
   %56 = load ptr, ptr %input120, align 8
-  %call121 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %56, ptr noundef nonnull %x, i32 noundef %25) #22
+  %call121 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %56, ptr noundef nonnull %x, i32 noundef %25) #21
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %return, label %if.end124
 
@@ -7132,7 +7132,7 @@ if.end124:                                        ; preds = %if.end118
   %58 = load ptr, ptr %private_, align 8
   %input128 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %58, i64 0, i32 11
   %59 = load ptr, ptr %input128, align 8
-  %call129 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %59, i32 noundef %26) #22
+  %call129 = call i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef %59, i32 noundef %26) #21
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %return, label %for.cond103
 
@@ -7147,7 +7147,7 @@ if.else:                                          ; preds = %if.end25
   %62 = load ptr, ptr %private_, align 8
   %input138 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %62, i64 0, i32 11
   %63 = load ptr, ptr %input138, align 8
-  call void @FLAC__bitreader_limit_invalidate(ptr noundef %63) #22
+  call void @FLAC__bitreader_limit_invalidate(ptr noundef %63) #21
   br label %return
 
 return:                                           ; preds = %for.body, %if.end43, %if.end49, %if.end58, %if.end64, %if.end70, %if.end81, %for.inc134, %if.end124, %if.end118, %for.body108, %if.end19, %if.end12, %if.end6, %if.end, %entry, %if.else, %if.then99, %if.then32
@@ -7156,7 +7156,7 @@ return:                                           ; preds = %for.body, %if.end43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_picture_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_picture_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   %private_ = getelementptr inbounds %struct.FLAC__StreamDecoder, ptr %decoder, i64 0, i32 1
@@ -7164,7 +7164,7 @@ entry:
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %0, i64 0, i32 11
   %1 = load ptr, ptr %input, align 8
   %2 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
-  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %1, ptr noundef nonnull %x, i32 noundef %2) #22
+  %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %1, ptr noundef nonnull %x, i32 noundef %2) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7177,7 +7177,7 @@ if.end:                                           ; preds = %entry
   %input5 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %4, i64 0, i32 11
   %5 = load ptr, ptr %input5, align 8
   %6 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
-  %call6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %5, ptr noundef nonnull %x, i32 noundef %6) #22
+  %call6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %5, ptr noundef nonnull %x, i32 noundef %6) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -7185,7 +7185,7 @@ if.end9:                                          ; preds = %if.end
   %7 = load ptr, ptr %private_, align 8
   %input11 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %7, i64 0, i32 11
   %8 = load ptr, ptr %input11, align 8
-  %call12 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %8) #22
+  %call12 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %8) #21
   %9 = load i32, ptr %x, align 4
   %cmp13 = icmp ult i32 %call12, %9
   br i1 %cmp13, label %if.then14, label %if.end17
@@ -7194,13 +7194,13 @@ if.then14:                                        ; preds = %if.end9
   %10 = load ptr, ptr %private_, align 8
   %input16 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input16, align 8
-  call void @FLAC__bitreader_limit_invalidate(ptr noundef %11) #22
+  call void @FLAC__bitreader_limit_invalidate(ptr noundef %11) #21
   br label %return
 
 if.end17:                                         ; preds = %if.end9
   %conv = zext i32 %9 to i64
   %add.i = add nuw nsw i64 %conv, 1
-  %call.i.i = call noalias ptr @malloc(i64 noundef %add.i) #23
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i) #22
   %mime_type = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 1
   store ptr %call.i.i, ptr %mime_type, align 8
   %cmp19 = icmp eq ptr %call.i.i, null
@@ -7219,7 +7219,7 @@ if.then25:                                        ; preds = %if.end22
   %13 = load ptr, ptr %private_, align 8
   %input27 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %13, i64 0, i32 11
   %14 = load ptr, ptr %input27, align 8
-  %call29 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %14, ptr noundef nonnull %call.i.i, i32 noundef %9) #22
+  %call29 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %14, ptr noundef nonnull %call.i.i, i32 noundef %9) #21
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.then25.if.end33_crit_edge
 
@@ -7238,7 +7238,7 @@ if.end33:                                         ; preds = %if.then25.if.end33_
   %input36 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %17, i64 0, i32 11
   %18 = load ptr, ptr %input36, align 8
   %19 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
-  %call37 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %18, ptr noundef nonnull %x, i32 noundef %19) #22
+  %call37 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %18, ptr noundef nonnull %x, i32 noundef %19) #21
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %return, label %if.end40
 
@@ -7246,7 +7246,7 @@ if.end40:                                         ; preds = %if.end33
   %20 = load ptr, ptr %private_, align 8
   %input42 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %20, i64 0, i32 11
   %21 = load ptr, ptr %input42, align 8
-  %call43 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %21) #22
+  %call43 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %21) #21
   %22 = load i32, ptr %x, align 4
   %cmp44 = icmp ult i32 %call43, %22
   br i1 %cmp44, label %if.then46, label %if.end49
@@ -7255,13 +7255,13 @@ if.then46:                                        ; preds = %if.end40
   %23 = load ptr, ptr %private_, align 8
   %input48 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %23, i64 0, i32 11
   %24 = load ptr, ptr %input48, align 8
-  call void @FLAC__bitreader_limit_invalidate(ptr noundef %24) #22
+  call void @FLAC__bitreader_limit_invalidate(ptr noundef %24) #21
   br label %return
 
 if.end49:                                         ; preds = %if.end40
   %conv50 = zext i32 %22 to i64
   %add.i44 = add nuw nsw i64 %conv50, 1
-  %call.i.i45 = call noalias ptr @malloc(i64 noundef %add.i44) #23
+  %call.i.i45 = call noalias noundef ptr @malloc(i64 noundef %add.i44) #22
   %description = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 2
   store ptr %call.i.i45, ptr %description, align 8
   %cmp52 = icmp eq ptr %call.i.i45, null
@@ -7280,7 +7280,7 @@ if.then60:                                        ; preds = %if.end57
   %26 = load ptr, ptr %private_, align 8
   %input62 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %26, i64 0, i32 11
   %27 = load ptr, ptr %input62, align 8
-  %call64 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %27, ptr noundef nonnull %call.i.i45, i32 noundef %22) #22
+  %call64 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %27, ptr noundef nonnull %call.i.i45, i32 noundef %22) #21
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %return, label %if.then60.if.end68_crit_edge
 
@@ -7300,7 +7300,7 @@ if.end68:                                         ; preds = %if.then60.if.end68_
   %31 = load ptr, ptr %input73, align 8
   %width = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 3
   %32 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
-  %call74 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %31, ptr noundef nonnull %width, i32 noundef %32) #22
+  %call74 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %31, ptr noundef nonnull %width, i32 noundef %32) #21
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %return, label %if.end77
 
@@ -7310,7 +7310,7 @@ if.end77:                                         ; preds = %if.end68
   %34 = load ptr, ptr %input79, align 8
   %height = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 4
   %35 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
-  %call80 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %34, ptr noundef nonnull %height, i32 noundef %35) #22
+  %call80 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %34, ptr noundef nonnull %height, i32 noundef %35) #21
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %return, label %if.end83
 
@@ -7320,7 +7320,7 @@ if.end83:                                         ; preds = %if.end77
   %37 = load ptr, ptr %input85, align 8
   %depth = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 5
   %38 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
-  %call86 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %depth, i32 noundef %38) #22
+  %call86 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %37, ptr noundef nonnull %depth, i32 noundef %38) #21
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %return, label %if.end89
 
@@ -7330,7 +7330,7 @@ if.end89:                                         ; preds = %if.end83
   %40 = load ptr, ptr %input91, align 8
   %colors = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 6
   %41 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
-  %call92 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %40, ptr noundef nonnull %colors, i32 noundef %41) #22
+  %call92 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %40, ptr noundef nonnull %colors, i32 noundef %41) #21
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %return, label %if.end95
 
@@ -7340,7 +7340,7 @@ if.end95:                                         ; preds = %if.end89
   %43 = load ptr, ptr %input97, align 8
   %data_length = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 7
   %44 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
-  %call98 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %43, ptr noundef nonnull %data_length, i32 noundef %44) #22
+  %call98 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %43, ptr noundef nonnull %data_length, i32 noundef %44) #21
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %return, label %if.end101
 
@@ -7348,7 +7348,7 @@ if.end101:                                        ; preds = %if.end95
   %45 = load ptr, ptr %private_, align 8
   %input103 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %45, i64 0, i32 11
   %46 = load ptr, ptr %input103, align 8
-  %call104 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %46) #22
+  %call104 = call i32 @FLAC__bitreader_limit_remaining(ptr noundef %46) #21
   %47 = load i32, ptr %data_length, align 8
   %cmp106 = icmp ult i32 %call104, %47
   br i1 %cmp106, label %if.then108, label %if.end111
@@ -7357,13 +7357,13 @@ if.then108:                                       ; preds = %if.end101
   %48 = load ptr, ptr %private_, align 8
   %input110 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %48, i64 0, i32 11
   %49 = load ptr, ptr %input110, align 8
-  call void @FLAC__bitreader_limit_invalidate(ptr noundef %49) #22
+  call void @FLAC__bitreader_limit_invalidate(ptr noundef %49) #21
   br label %return
 
 if.end111:                                        ; preds = %if.end101
   %50 = call i32 @llvm.umax.i32(i32 %47, i32 1)
   %spec.select.i = zext i32 %50 to i64
-  %call.i = call noalias ptr @malloc(i64 noundef %spec.select.i) #23
+  %call.i = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #22
   %data = getelementptr inbounds %struct.FLAC__StreamMetadata_Picture, ptr %obj, i64 0, i32 8
   store ptr %call.i, ptr %data, align 8
   %cmp115 = icmp eq ptr %call.i, null
@@ -7382,7 +7382,7 @@ if.then124:                                       ; preds = %if.end120
   %52 = load ptr, ptr %private_, align 8
   %input126 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %52, i64 0, i32 11
   %53 = load ptr, ptr %input126, align 8
-  %call129 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %53, ptr noundef nonnull %call.i, i32 noundef %47) #22
+  %call129 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %53, ptr noundef nonnull %call.i, i32 noundef %47) #21
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %return, label %if.end133
 
@@ -7409,17 +7409,17 @@ declare ptr @safe_malloc_mul_2op_p(i64 noundef, i64 noundef) local_unnamed_addr 
 declare i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias ptr @safe_calloc_(i64 noundef %nmemb, i64 noundef %size) unnamed_addr #17 {
+define internal fastcc noalias noundef ptr @safe_calloc_(i64 noundef %nmemb, i64 noundef %size) unnamed_addr #16 {
 entry:
   %tobool.not = icmp eq i64 %nmemb, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #23
+  %call = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #22
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noalias ptr @calloc(i64 noundef %nmemb, i64 noundef %size) #21
+  %call2 = tail call noalias ptr @calloc(i64 noundef %nmemb, i64 noundef %size) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -7522,7 +7522,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %last_frame53 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 41
   %client_data = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 9
   %21 = load ptr, ptr %client_data, align 8
-  %call = call i32 %20(ptr noundef nonnull %decoder, ptr noundef nonnull %last_frame53, ptr noundef nonnull %newbuffer, ptr noundef %21) #22
+  %call = call i32 %20(ptr noundef nonnull %decoder, ptr noundef nonnull %last_frame53, ptr noundef nonnull %newbuffer, ptr noundef %21) #21
   br label %return
 
 if.else:                                          ; preds = %if.then10
@@ -7531,7 +7531,7 @@ if.else:                                          ; preds = %if.then10
   %23 = load ptr, ptr %write_callback56, align 8
   %client_data58 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %22, i64 0, i32 9
   %24 = load ptr, ptr %client_data58, align 8
-  %call59 = tail call i32 %23(ptr noundef nonnull %decoder, ptr noundef nonnull %frame, ptr noundef %buffer, ptr noundef %24) #22
+  %call59 = tail call i32 %23(ptr noundef nonnull %decoder, ptr noundef nonnull %frame, ptr noundef %buffer, ptr noundef %24) #21
   br label %return
 
 if.else61:                                        ; preds = %entry
@@ -7562,7 +7562,7 @@ if.then69:                                        ; preds = %if.end
   %30 = load i32, ptr %bits_per_sample, align 8
   %add76 = add i32 %30, 7
   %div51 = lshr i32 %add76, 3
-  %call77 = tail call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef %buffer, i32 noundef %28, i32 noundef %29, i32 noundef %div51) #22
+  %call77 = tail call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef %buffer, i32 noundef %28, i32 noundef %29, i32 noundef %div51) #21
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %return, label %if.then69.if.end81_crit_edge
 
@@ -7576,7 +7576,7 @@ if.end81:                                         ; preds = %if.then69.if.end81_
   %32 = load ptr, ptr %write_callback83, align 8
   %client_data85 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %31, i64 0, i32 9
   %33 = load ptr, ptr %client_data85, align 8
-  %call86 = tail call i32 %32(ptr noundef nonnull %decoder, ptr noundef nonnull %frame, ptr noundef %buffer, ptr noundef %33) #22
+  %call86 = tail call i32 %32(ptr noundef nonnull %decoder, ptr noundef nonnull %frame, ptr noundef %buffer, ptr noundef %33) #21
   br label %return
 
 return:                                           ; preds = %if.then69, %if.then, %if.end81, %if.else, %for.end
@@ -7597,7 +7597,7 @@ declare i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef, ptr noundef, pt
 declare i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_subframe_fixed_(ptr noundef %decoder, i32 noundef %channel, i32 noundef %bps, i32 noundef %order, i32 noundef %do_full_decode) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_subframe_fixed_(ptr noundef %decoder, i32 noundef %channel, i32 noundef %bps, i32 noundef %order, i32 noundef %do_full_decode) unnamed_addr #0 {
 entry:
   %i64 = alloca i64, align 8
   %u32 = alloca i32, align 4
@@ -7626,7 +7626,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %3, i64 0, i32 11
   %4 = load ptr, ptr %input, align 8
-  %call = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %4, ptr noundef nonnull %i64, i32 noundef %bps) #22
+  %call = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %4, ptr noundef nonnull %i64, i32 noundef %bps) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7643,7 +7643,7 @@ for.end:                                          ; preds = %if.end, %entry
   %input15 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %6, i64 0, i32 11
   %7 = load ptr, ptr %input15, align 8
   %8 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4
-  %call16 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %u32, i32 noundef %8) #22
+  %call16 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %u32, i32 noundef %8) #21
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -7658,7 +7658,7 @@ sw.bb:                                            ; preds = %if.end19
   %input24 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 11
   %11 = load ptr, ptr %input24, align 8
   %12 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4
-  %call25 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %11, ptr noundef nonnull %u32, i32 noundef %12) #22
+  %call25 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %11, ptr noundef nonnull %u32, i32 noundef %12) #21
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %return, label %if.end28
 
@@ -7689,7 +7689,7 @@ if.then.i:                                        ; preds = %if.then37
   %18 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %13, i64 0, i32 9
   %19 = load ptr, ptr %client_data.i, align 8
-  call void %18(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %19) #22
+  call void %18(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %19) #21
   br label %send_error_to_client_.exit
 
 send_error_to_client_.exit:                       ; preds = %if.then37, %if.then.i
@@ -7719,7 +7719,7 @@ if.then.i77:                                      ; preds = %sw.default
   %24 = load ptr, ptr %error_callback.i78, align 8
   %client_data.i79 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %10, i64 0, i32 9
   %25 = load ptr, ptr %client_data.i79, align 8
-  call void %24(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %25) #22
+  call void %24(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %25) #21
   br label %send_error_to_client_.exit80
 
 if.else.i76:                                      ; preds = %sw.default
@@ -7790,11 +7790,11 @@ for.end92:                                        ; preds = %for.body80, %for.co
   br i1 %cmp93, label %if.then95, label %if.else
 
 if.then95:                                        ; preds = %for.end92
-  call void @FLAC__fixed_restore_signal(ptr noundef %34, i32 noundef %sub, i32 noundef %order, ptr noundef %add.ptr) #22
+  call void @FLAC__fixed_restore_signal(ptr noundef %34, i32 noundef %sub, i32 noundef %order, ptr noundef %add.ptr) #21
   br label %return
 
 if.else:                                          ; preds = %for.end92
-  call void @FLAC__fixed_restore_signal_wide(ptr noundef %34, i32 noundef %sub, i32 noundef %order, ptr noundef %add.ptr) #22
+  call void @FLAC__fixed_restore_signal_wide(ptr noundef %34, i32 noundef %sub, i32 noundef %order, ptr noundef %add.ptr) #21
   br label %return
 
 if.else124:                                       ; preds = %if.then73
@@ -7817,7 +7817,7 @@ if.else124:                                       ; preds = %if.then73
   %side_subframe139 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %40, i64 0, i32 14
   %43 = load ptr, ptr %side_subframe139, align 8
   %add.ptr141 = getelementptr inbounds i64, ptr %43, i64 %conv128
-  call void @FLAC__fixed_restore_signal_wide_33bit(ptr noundef %41, i32 noundef %sub137, i32 noundef %order, ptr noundef %add.ptr141) #22
+  call void @FLAC__fixed_restore_signal_wide_33bit(ptr noundef %41, i32 noundef %sub137, i32 noundef %order, ptr noundef %add.ptr141) #21
   br label %return
 
 return:                                           ; preds = %for.body, %sw.epilog71, %if.then95, %if.else, %if.else124, %sw.bb51, %sw.bb, %for.end, %send_error_to_client_.exit80, %send_error_to_client_.exit
@@ -7826,7 +7826,7 @@ return:                                           ; preds = %for.body, %sw.epilo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_subframe_lpc_(ptr noundef %decoder, i32 noundef %channel, i32 noundef %bps, i32 noundef %order, i32 noundef %do_full_decode) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_subframe_lpc_(ptr noundef %decoder, i32 noundef %channel, i32 noundef %bps, i32 noundef %order, i32 noundef %do_full_decode) unnamed_addr #0 {
 entry:
   %i32 = alloca i32, align 4
   %i64 = alloca i64, align 8
@@ -7856,7 +7856,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %3, i64 0, i32 11
   %4 = load ptr, ptr %input, align 8
-  %call = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %4, ptr noundef nonnull %i64, i32 noundef %bps) #22
+  %call = call i32 @FLAC__bitreader_read_raw_int64(ptr noundef %4, ptr noundef nonnull %i64, i32 noundef %bps) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -7873,7 +7873,7 @@ for.end:                                          ; preds = %if.end, %entry
   %input15 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %6, i64 0, i32 11
   %7 = load ptr, ptr %input15, align 8
   %8 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN, align 4
-  %call16 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %u32, i32 noundef %8) #22
+  %call16 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %7, ptr noundef nonnull %u32, i32 noundef %8) #21
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -7896,7 +7896,7 @@ if.then.i:                                        ; preds = %if.then21
   %13 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %11, i64 0, i32 9
   %14 = load ptr, ptr %client_data.i, align 8
-  call void %13(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %14) #22
+  call void %13(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %14) #21
   br label %send_error_to_client_.exit
 
 send_error_to_client_.exit:                       ; preds = %if.then21, %if.then.i
@@ -7912,7 +7912,7 @@ if.end22:                                         ; preds = %if.end19
   %input24 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %16, i64 0, i32 11
   %17 = load ptr, ptr %input24, align 8
   %18 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4
-  %call25 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %17, ptr noundef nonnull %i32, i32 noundef %18) #22
+  %call25 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %17, ptr noundef nonnull %i32, i32 noundef %18) #21
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %return, label %if.end28
 
@@ -7933,7 +7933,7 @@ if.then.i105:                                     ; preds = %if.then30
   %22 = load ptr, ptr %error_callback.i106, align 8
   %client_data.i107 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %20, i64 0, i32 9
   %23 = load ptr, ptr %client_data.i107, align 8
-  call void %22(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %23) #22
+  call void %22(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %23) #21
   br label %send_error_to_client_.exit108
 
 send_error_to_client_.exit108:                    ; preds = %if.then30, %if.then.i105
@@ -7956,7 +7956,7 @@ for.body36:                                       ; preds = %for.body36.preheade
   %input38 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %25, i64 0, i32 11
   %26 = load ptr, ptr %input38, align 8
   %27 = load i32, ptr %qlp_coeff_precision, align 4
-  %call40 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %26, ptr noundef nonnull %i32, i32 noundef %27) #22
+  %call40 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %26, ptr noundef nonnull %i32, i32 noundef %27) #21
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %if.end43
 
@@ -7973,7 +7973,7 @@ for.end48:                                        ; preds = %if.end43, %if.end33
   %input50 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %29, i64 0, i32 11
   %30 = load ptr, ptr %input50, align 8
   %31 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4
-  %call51 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %30, ptr noundef nonnull %u32, i32 noundef %31) #22
+  %call51 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %30, ptr noundef nonnull %u32, i32 noundef %31) #21
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %return, label %if.end54
 
@@ -7988,7 +7988,7 @@ sw.bb:                                            ; preds = %if.end54
   %input59 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %33, i64 0, i32 11
   %34 = load ptr, ptr %input59, align 8
   %35 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4
-  %call60 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %34, ptr noundef nonnull %u32, i32 noundef %35) #22
+  %call60 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %34, ptr noundef nonnull %u32, i32 noundef %35) #21
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %return, label %if.end63
 
@@ -8019,7 +8019,7 @@ if.then.i113:                                     ; preds = %if.then73
   %41 = load ptr, ptr %error_callback.i114, align 8
   %client_data.i115 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %36, i64 0, i32 9
   %42 = load ptr, ptr %client_data.i115, align 8
-  call void %41(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %42) #22
+  call void %41(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %42) #21
   br label %send_error_to_client_.exit116
 
 send_error_to_client_.exit116:                    ; preds = %if.then73, %if.then.i113
@@ -8049,7 +8049,7 @@ if.then.i121:                                     ; preds = %sw.default
   %47 = load ptr, ptr %error_callback.i122, align 8
   %client_data.i123 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %33, i64 0, i32 9
   %48 = load ptr, ptr %client_data.i123, align 8
-  call void %47(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %48) #22
+  call void %47(ptr noundef nonnull %decoder, i32 noundef 3, ptr noundef %48) #21
   br label %send_error_to_client_.exit124
 
 if.else.i120:                                     ; preds = %sw.default
@@ -8107,12 +8107,12 @@ for.body118:                                      ; preds = %for.body118.prehead
 for.end130:                                       ; preds = %for.body118, %for.cond115.preheader
   %qlp_coeff131 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 4
   %56 = load i32, ptr %quantization_level, align 8
-  %call133 = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %bps, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %56) #22
+  %call133 = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %bps, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %56) #21
   %cmp134 = icmp ult i32 %call133, 33
   br i1 %cmp134, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.end130
-  %call138 = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %bps, ptr noundef nonnull %qlp_coeff131, i32 noundef %order) #22
+  %call138 = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %bps, ptr noundef nonnull %qlp_coeff131, i32 noundef %order) #21
   %cmp139 = icmp ult i32 %call138, 33
   br i1 %cmp139, label %if.then141, label %if.else
 
@@ -8128,7 +8128,7 @@ if.then141:                                       ; preds = %land.lhs.true
   %61 = load ptr, ptr %arrayidx157, align 8
   %idx.ext = zext nneg i32 %order to i64
   %add.ptr = getelementptr inbounds i32, ptr %61, i64 %idx.ext
-  call void @FLAC__lpc_restore_signal(ptr noundef %58, i32 noundef %sub150, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %60, ptr noundef %add.ptr) #22
+  call void @FLAC__lpc_restore_signal(ptr noundef %58, i32 noundef %sub150, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %60, ptr noundef %add.ptr) #21
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %for.end130
@@ -8143,7 +8143,7 @@ if.else:                                          ; preds = %land.lhs.true, %for
   %66 = load ptr, ptr %arrayidx173, align 8
   %idx.ext174 = zext nneg i32 %order to i64
   %add.ptr175 = getelementptr inbounds i32, ptr %66, i64 %idx.ext174
-  call void @FLAC__lpc_restore_signal_wide(ptr noundef %63, i32 noundef %sub166, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %65, ptr noundef %add.ptr175) #22
+  call void @FLAC__lpc_restore_signal_wide(ptr noundef %63, i32 noundef %sub166, ptr noundef nonnull %qlp_coeff131, i32 noundef %order, i32 noundef %65, ptr noundef %add.ptr175) #21
   br label %return
 
 if.else177:                                       ; preds = %if.then111
@@ -8168,7 +8168,7 @@ if.else177:                                       ; preds = %if.then111
   %side_subframe196 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %70, i64 0, i32 14
   %74 = load ptr, ptr %side_subframe196, align 8
   %add.ptr198 = getelementptr inbounds i64, ptr %74, i64 %conv182
-  call void @FLAC__lpc_restore_signal_wide_33bit(ptr noundef %71, i32 noundef %sub191, ptr noundef nonnull %qlp_coeff192, i32 noundef %order, i32 noundef %73, ptr noundef %add.ptr198) #22
+  call void @FLAC__lpc_restore_signal_wide_33bit(ptr noundef %71, i32 noundef %sub191, ptr noundef nonnull %qlp_coeff192, i32 noundef %order, i32 noundef %73, ptr noundef %add.ptr198) #21
   br label %return
 
 return:                                           ; preds = %for.body, %for.body36, %sw.epilog109, %if.then141, %if.else, %if.else177, %sw.bb89, %sw.bb, %for.end48, %if.end22, %for.end, %send_error_to_client_.exit124, %send_error_to_client_.exit116, %send_error_to_client_.exit108, %send_error_to_client_.exit
@@ -8181,7 +8181,7 @@ declare i32 @FLAC__bitreader_read_raw_int64(ptr noundef, ptr noundef, i32 nounde
 declare i32 @FLAC__bitreader_read_raw_int32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_residual_partitioned_rice_(ptr noundef %decoder, i32 noundef %predictor_order, i32 noundef %partition_order, ptr noundef %partitioned_rice_contents, ptr noundef %residual, i32 noundef %is_extended) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_residual_partitioned_rice_(ptr noundef %decoder, i32 noundef %predictor_order, i32 noundef %partition_order, ptr noundef %partitioned_rice_contents, ptr noundef %residual, i32 noundef %is_extended) unnamed_addr #0 {
 entry:
   %rice_parameter = alloca i32, align 4
   %i = alloca i32, align 4
@@ -8198,7 +8198,7 @@ entry:
   %5 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER, align 4
   %cond5 = select i1 %tobool.not, i32 %5, i32 %4
   %cond9 = tail call i32 @llvm.umax.i32(i32 %partition_order, i32 6)
-  %call = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef %partitioned_rice_contents, i32 noundef %cond9) #22
+  %call = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef %partitioned_rice_contents, i32 noundef %cond9) #21
   %tobool10.not = icmp eq i32 %call, 0
   br i1 %tobool10.not, label %if.then, label %for.cond.preheader
 
@@ -8218,7 +8218,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %8 = load ptr, ptr %private_, align 8
   %input = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %8, i64 0, i32 11
   %9 = load ptr, ptr %input, align 8
-  %call13 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %9, ptr noundef nonnull %rice_parameter, i32 noundef %cond) #22
+  %call13 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %9, ptr noundef nonnull %rice_parameter, i32 noundef %cond) #21
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.end16
 
@@ -8246,7 +8246,7 @@ if.then18:                                        ; preds = %if.end16
   %idx.ext = zext i32 %sample.051 to i64
   %add.ptr = getelementptr inbounds i32, ptr %residual, i64 %idx.ext
   %16 = load i32, ptr %rice_parameter, align 4
-  %call29 = call i32 %14(ptr noundef %15, ptr noundef %add.ptr, i32 noundef %cond25, i32 noundef %16) #22
+  %call29 = call i32 %14(ptr noundef %15, ptr noundef %add.ptr, i32 noundef %cond25, i32 noundef %16) #21
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.then31, label %if.end38
 
@@ -8268,7 +8268,7 @@ if.then.i:                                        ; preds = %if.then35
   %21 = load ptr, ptr %error_callback.i, align 8
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %19, i64 0, i32 9
   %22 = load ptr, ptr %client_data.i, align 8
-  call void %21(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %22) #22
+  call void %21(ptr noundef nonnull %decoder, i32 noundef 0, ptr noundef %22) #21
   %.pre = load ptr, ptr %decoder, align 8
   br label %send_error_to_client_.exit
 
@@ -8285,7 +8285,7 @@ if.else39:                                        ; preds = %if.end16
   %24 = load ptr, ptr %private_, align 8
   %input41 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %24, i64 0, i32 11
   %25 = load ptr, ptr %input41, align 8
-  %call42 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %25, ptr noundef nonnull %rice_parameter, i32 noundef %6) #22
+  %call42 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %25, ptr noundef nonnull %rice_parameter, i32 noundef %6) #21
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return, label %if.end45
 
@@ -8324,7 +8324,7 @@ for.body70:                                       ; preds = %if.else62, %if.end7
   %input72 = getelementptr inbounds %struct.FLAC__StreamDecoderPrivate, ptr %28, i64 0, i32 11
   %29 = load ptr, ptr %input72, align 8
   %30 = load i32, ptr %rice_parameter, align 4
-  %call73 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %29, ptr noundef nonnull %i, i32 noundef %30) #22
+  %call73 = call i32 @FLAC__bitreader_read_raw_int32(ptr noundef %29, ptr noundef nonnull %i, i32 noundef %30) #21
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
 
@@ -8371,22 +8371,22 @@ declare void @FLAC__lpc_restore_signal_wide_33bit(ptr noundef, i32 noundef, ptr 
 declare i32 @FLAC__MD5Accumulate(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #19
+declare i64 @llvm.smax.i64(i64, i64) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8398,21 +8398,20 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #7 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind allocsize(0,1) }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind allocsize(1) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

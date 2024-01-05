@@ -49,10 +49,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; pre
 
 if.end5:                                          ; preds = %if.end
   %3 = load i8, ptr %pattern.sroa.12.091, align 1
-  %conv = sext i8 %3 to i32
-  switch i32 %conv, label %sw.default [
-    i32 42, label %sw.bb
-    i32 63, label %sw.bb7
+  switch i8 %3, label %sw.default [
+    i8 42, label %sw.bb
+    i8 63, label %sw.bb7
   ]
 
 sw.bb:                                            ; preds = %if.end5
@@ -105,6 +104,7 @@ if.end6.i.i:                                      ; preds = %if.end14
 
 while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %str.sroa.10.093, i64 %str.sroa.0.094
+  %conv.i.i.i18 = sext i8 %3 to i32
   %sub.ptr.lhs.cast20.i.i = ptrtoint ptr %add.ptr9.i.i to i64
   br label %while.body.i.i
 
@@ -117,7 +117,7 @@ while.body.i.i:                                   ; preds = %if.end19.i.i, %whil
   br i1 %cmp.i.i.i, label %return, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i19
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i19:   ; preds = %while.body.i.i
-  %call.i.i.i20 = tail call ptr @memchr(ptr noundef %__first.021.i.i, i32 noundef %conv, i64 noundef %add.i.i) #4
+  %call.i.i.i20 = tail call ptr @memchr(ptr noundef %__first.021.i.i, i32 noundef %conv.i.i.i18, i64 noundef %add.i.i) #4
   %tobool.not.i.i21 = icmp eq ptr %call.i.i.i20, null
   br i1 %tobool.not.i.i21, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 

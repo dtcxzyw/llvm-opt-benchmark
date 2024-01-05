@@ -1214,7 +1214,7 @@ return:                                           ; preds = %if.then151, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iomodule_clear(ptr nocapture noundef readonly %mod) #0 {
+define internal noundef i32 @iomodule_clear(ptr nocapture noundef readonly %mod) #0 {
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
@@ -1923,14 +1923,14 @@ for.body.i:                                       ; preds = %if.end15.i, %for.co
   %arrayidx.i = getelementptr i8, ptr %mode.1, i64 %conv179.i
   %37 = load i8, ptr %arrayidx.i, align 1
   %conv19.i = sext i8 %37 to i32
-  switch i32 %conv19.i, label %invalid_mode.i [
-    i32 120, label %sw.epilog.i
-    i32 114, label %sw.bb20.i
-    i32 119, label %sw.bb21.i
-    i32 97, label %sw.bb22.i
-    i32 43, label %sw.bb23.i
-    i32 116, label %sw.bb24.i
-    i32 98, label %sw.bb25.i
+  switch i8 %37, label %invalid_mode.i [
+    i8 120, label %sw.epilog.i
+    i8 114, label %sw.bb20.i
+    i8 119, label %sw.bb21.i
+    i8 97, label %sw.bb22.i
+    i8 43, label %sw.bb23.i
+    i8 116, label %sw.bb24.i
+    i8 98, label %sw.bb25.i
   ]
 
 sw.bb20.i:                                        ; preds = %for.body.i
@@ -2428,7 +2428,7 @@ exit:                                             ; preds = %if.then145, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_text_encoding(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_io_text_encoding(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2

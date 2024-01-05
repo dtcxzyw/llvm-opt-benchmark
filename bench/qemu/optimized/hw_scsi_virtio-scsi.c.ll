@@ -2011,7 +2011,7 @@ declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @virtio_scsi_parse_req(ptr noundef %req, i32 noundef %req_size, i32 noundef %resp_size) unnamed_addr #0 {
+define internal fastcc noundef i32 @virtio_scsi_parse_req(ptr noundef %req, i32 noundef %req_size, i32 noundef %resp_size) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds %struct.VirtIOSCSIReq, ptr %req, i64 0, i32 1
   %0 = load ptr, ptr %dev, align 8
@@ -2988,8 +2988,8 @@ declare i32 @scsi_req_enqueue(ptr noundef) local_unnamed_addr #1
 
 declare void @scsi_req_continue(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i32 @virtio_scsi_parse_cdb(ptr nocapture readnone %dev, ptr nocapture noundef %cmd, ptr nocapture noundef readonly %buf, i64 %buf_len, ptr nocapture noundef readonly %hba_private) #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @virtio_scsi_parse_cdb(ptr nocapture readnone %dev, ptr nocapture noundef %cmd, ptr nocapture noundef readonly %buf, i64 %buf_len, ptr nocapture noundef readonly %hba_private) #8 {
 entry:
   %len = getelementptr inbounds %struct.SCSICommand, ptr %cmd, i64 0, i32 1
   %0 = load i32, ptr %len, align 8
@@ -3029,13 +3029,12 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %status, align 2
   %host_status = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 7
   %3 = load i16, ptr %host_status, align 2
-  %conv = sext i16 %3 to i32
-  %switch.tableidx = add nsw i32 %conv, -1
-  %4 = icmp ult i32 %switch.tableidx, 17
+  %switch.tableidx = add i16 %3, -1
+  %4 = icmp ult i16 %switch.tableidx, 17
   br i1 %4, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %if.end
-  %5 = zext nneg i32 %switch.tableidx to i64
+  %5 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [17 x i8], ptr @switch.table.virtio_scsi_command_failed, i64 0, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %sw.epilog
@@ -3508,7 +3507,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

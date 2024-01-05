@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @mz_free(ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
-  tail call void @free(ptr noundef %p) #31
+  tail call void @free(ptr noundef %p) #30
   ret void
 }
 
@@ -290,20 +290,20 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @mz_version() local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @mz_version() local_unnamed_addr #3 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_deflateInit(ptr noundef %pStream, i32 noundef %level) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_deflateInit(ptr noundef %pStream, i32 noundef %level) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_deflateInit2(ptr noundef %pStream, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0), !range !9
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_deflateInit2(ptr noundef %pStream, i32 noundef %level, i32 noundef %method, i32 noundef %window_bits, i32 noundef %mem_level, i32 noundef %strategy) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_deflateInit2(ptr noundef %pStream, i32 noundef %level, i32 noundef %method, i32 noundef %window_bits, i32 noundef %mem_level, i32 noundef %strategy) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp sgt i32 %level, -1
   %cond.i = tail call i32 @llvm.smin.i32(i32 %level, i32 10)
@@ -401,7 +401,7 @@ if.then14:                                        ; preds = %if.end12
 if.end16:                                         ; preds = %if.then14, %if.end12
   %opaque = getelementptr inbounds %struct.mz_stream_s, ptr %pStream, i64 0, i32 10
   %6 = load ptr, ptr %opaque, align 8
-  %call18 = tail call ptr %4(ptr noundef %6, i64 noundef 1, i64 noundef 319352) #31
+  %call18 = tail call ptr %4(ptr noundef %6, i64 noundef 1, i64 noundef 319352) #30
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %return, label %if.end21
 
@@ -481,8 +481,8 @@ return:                                           ; preds = %if.end16, %if.end, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @tdefl_create_comp_flags_from_zip_params(i32 noundef %level, i32 noundef %window_bits, i32 noundef %strategy) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden i32 @tdefl_create_comp_flags_from_zip_params(i32 noundef %level, i32 noundef %window_bits, i32 noundef %strategy) local_unnamed_addr #3 {
 entry:
   %cmp = icmp sgt i32 %level, -1
   %cond = tail call i32 @llvm.smin.i32(i32 %level, i32 10)
@@ -533,22 +533,22 @@ if.end30:                                         ; preds = %if.else, %if.then13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @def_alloc_func(ptr nocapture readnone %opaque, i64 noundef %items, i64 noundef %size) #6 {
+define internal noalias noundef ptr @def_alloc_func(ptr nocapture readnone %opaque, i64 noundef %items, i64 noundef %size) #5 {
 entry:
   %mul = mul i64 %size, %items
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #32
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #31
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @def_free_func(ptr nocapture readnone %opaque, ptr nocapture noundef %address) #1 {
 entry:
-  tail call void @free(ptr noundef %address) #31
+  tail call void @free(ptr noundef %address) #30
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden i32 @tdefl_init(ptr noundef %d, ptr noundef %pPut_buf_func, ptr noundef %pPut_buf_user, i32 noundef %flags) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden noundef i32 @tdefl_init(ptr noundef %d, ptr noundef %pPut_buf_func, ptr noundef %pPut_buf_user, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   store ptr %pPut_buf_func, ptr %d, align 8
   %m_pPut_buf_user = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 1
@@ -622,7 +622,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_deflateEnd(ptr noundef %pStream) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_deflateEnd(ptr noundef %pStream) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pStream, null
   br i1 %tobool.not, label %return, label %if.end
@@ -638,7 +638,7 @@ if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %zfree, align 8
   %opaque = getelementptr inbounds %struct.mz_stream_s, ptr %pStream, i64 0, i32 10
   %2 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #31
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #30
   store ptr null, ptr %state, align 8
   br label %return
 
@@ -647,8 +647,8 @@ return:                                           ; preds = %if.end, %if.then2, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mz_deflateReset(ptr noundef %pStream) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef i32 @mz_deflateReset(ptr noundef %pStream) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pStream, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1205,15 +1205,15 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @tdefl_get_adler32(ptr nocapture noundef readonly %d) local_unnamed_addr #9 {
+define hidden i32 @tdefl_get_adler32(ptr nocapture noundef readonly %d) local_unnamed_addr #8 {
 entry:
   %m_adler32 = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 5
   %0 = load i32, ptr %m_adler32, align 8
   ret i32 %0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mz_deflateBound(ptr nocapture noundef readnone %pStream, i64 noundef %source_len) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden i64 @mz_deflateBound(ptr nocapture noundef readnone %pStream, i64 noundef %source_len) local_unnamed_addr #3 {
 entry:
   %mul = mul i64 %source_len, 110
   %div = udiv i64 %mul, 100
@@ -1247,7 +1247,7 @@ if.end:                                           ; preds = %entry
   %conv1 = trunc i64 %1 to i32
   %avail_out = getelementptr inbounds %struct.mz_stream_s, ptr %stream, i64 0, i32 4
   store i32 %conv1, ptr %avail_out, align 8
-  %call.i = call i32 @mz_deflateInit2(ptr noundef nonnull %stream, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0), !range !9
+  %call.i = call noundef i32 @mz_deflateInit2(ptr noundef nonnull %stream, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0), !range !9
   %cmp2.not = icmp eq i32 %call.i, 0
   br i1 %cmp2.not, label %if.end5, label %return
 
@@ -1267,7 +1267,7 @@ if.then2.i:                                       ; preds = %if.then9
   %3 = load ptr, ptr %zfree.i, align 8
   %opaque.i = getelementptr inbounds %struct.mz_stream_s, ptr %stream, i64 0, i32 10
   %4 = load ptr, ptr %opaque.i, align 8
-  call void %3(ptr noundef %4, ptr noundef nonnull %2) #31
+  call void %3(ptr noundef %4, ptr noundef nonnull %2) #30
   br label %mz_deflateEnd.exit
 
 mz_deflateEnd.exit:                               ; preds = %if.then9, %if.then2.i
@@ -1289,7 +1289,7 @@ if.then2.i10:                                     ; preds = %if.end13
   %7 = load ptr, ptr %zfree.i11, align 8
   %opaque.i12 = getelementptr inbounds %struct.mz_stream_s, ptr %stream, i64 0, i32 10
   %8 = load ptr, ptr %opaque.i12, align 8
-  call void %7(ptr noundef %8, ptr noundef nonnull %6) #31
+  call void %7(ptr noundef %8, ptr noundef nonnull %6) #30
   br label %return
 
 return:                                           ; preds = %if.then2.i10, %if.end13, %if.end, %entry, %mz_deflateEnd.exit
@@ -1298,7 +1298,7 @@ return:                                           ; preds = %if.then2.i10, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mz_compress(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
@@ -1332,7 +1332,7 @@ if.end16.i:                                       ; preds = %entry
   %zfree.i = getelementptr inbounds %struct.mz_stream_s, ptr %stream.i, i64 0, i32 9
   store ptr @def_free_func, ptr %zfree.i, align 8
   %opaque.i = getelementptr inbounds %struct.mz_stream_s, ptr %stream.i, i64 0, i32 10
-  %call.i = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
+  %call.i = tail call noalias noundef dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
   %tobool19.not.i = icmp eq ptr %call.i, null
   br i1 %tobool19.not.i, label %mz_compress2.exit, label %if.end5.i
 
@@ -1389,7 +1389,7 @@ if.then9.i:                                       ; preds = %if.end5.i
 if.then2.i.i:                                     ; preds = %if.then9.i
   %3 = load ptr, ptr %zfree.i, align 8
   %4 = load ptr, ptr %opaque.i, align 8
-  call void %3(ptr noundef %4, ptr noundef nonnull %2) #31
+  call void %3(ptr noundef %4, ptr noundef nonnull %2) #30
   br label %mz_deflateEnd.exit.i
 
 mz_deflateEnd.exit.i:                             ; preds = %if.then2.i.i, %if.then9.i
@@ -1407,7 +1407,7 @@ if.end13.i:                                       ; preds = %if.end5.i
 if.then2.i10.i:                                   ; preds = %if.end13.i
   %7 = load ptr, ptr %zfree.i, align 8
   %8 = load ptr, ptr %opaque.i, align 8
-  call void %7(ptr noundef %8, ptr noundef nonnull %6) #31
+  call void %7(ptr noundef %8, ptr noundef nonnull %6) #30
   br label %mz_compress2.exit
 
 mz_compress2.exit:                                ; preds = %if.end16.i, %entry, %mz_deflateEnd.exit.i, %if.end13.i, %if.then2.i10.i
@@ -1416,8 +1416,8 @@ mz_compress2.exit:                                ; preds = %if.end16.i, %entry,
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @mz_compressBound(i64 noundef %source_len) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden i64 @mz_compressBound(i64 noundef %source_len) local_unnamed_addr #3 {
 entry:
   %mul.i = mul i64 %source_len, 110
   %div.i = udiv i64 %mul.i, 100
@@ -1431,7 +1431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_inflateInit2(ptr noundef %pStream, i32 noundef %window_bits) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_inflateInit2(ptr noundef %pStream, i32 noundef %window_bits) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pStream, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1474,7 +1474,7 @@ if.then9:                                         ; preds = %if.end7
 if.end11:                                         ; preds = %if.then9, %if.end7
   %opaque = getelementptr inbounds %struct.mz_stream_s, ptr %pStream, i64 0, i32 10
   %3 = load ptr, ptr %opaque, align 8
-  %call = tail call ptr %1(ptr noundef %3, i64 noundef 1, i64 noundef 43792) #31
+  %call = tail call ptr %1(ptr noundef %3, i64 noundef 1, i64 noundef 43792) #30
   %tobool13.not = icmp eq ptr %call, null
   br i1 %tobool13.not, label %return, label %if.end15
 
@@ -1496,7 +1496,7 @@ return:                                           ; preds = %if.end11, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_inflateInit(ptr noundef %pStream) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_inflateInit(ptr noundef %pStream) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %pStream, null
   br i1 %tobool.not.i, label %mz_inflateInit2.exit, label %if.end.i
@@ -1533,7 +1533,7 @@ if.then9.i:                                       ; preds = %if.end7.i
 if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
   %opaque.i = getelementptr inbounds %struct.mz_stream_s, ptr %pStream, i64 0, i32 10
   %3 = load ptr, ptr %opaque.i, align 8
-  %call.i = tail call ptr %1(ptr noundef %3, i64 noundef 1, i64 noundef 43792) #31
+  %call.i = tail call ptr %1(ptr noundef %3, i64 noundef 1, i64 noundef 43792) #30
   %tobool13.not.i = icmp eq ptr %call.i, null
   br i1 %tobool13.not.i, label %mz_inflateInit2.exit, label %if.end15.i
 
@@ -1554,8 +1554,8 @@ mz_inflateInit2.exit:                             ; preds = %entry, %if.end11.i,
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mz_inflate(ptr noundef %pStream, i32 noundef %flush) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden i32 @mz_inflate(ptr noundef %pStream, i32 noundef %flush) local_unnamed_addr #10 {
 entry:
   %in_bytes = alloca i64, align 8
   %out_bytes = alloca i64, align 8
@@ -1833,8 +1833,8 @@ return:                                           ; preds = %lor.lhs.false200, %
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @tinfl_decompress(ptr noundef %r, ptr noundef %pIn_buf_next, ptr nocapture noundef %pIn_buf_size, ptr noundef %pOut_buf_start, ptr noundef %pOut_buf_next, ptr nocapture noundef %pOut_buf_size, i32 noundef %decomp_flags) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden i32 @tinfl_decompress(ptr noundef %r, ptr noundef %pIn_buf_next, ptr nocapture noundef %pIn_buf_size, ptr noundef %pOut_buf_start, ptr noundef %pOut_buf_next, ptr nocapture noundef %pOut_buf_size, i32 noundef %decomp_flags) local_unnamed_addr #10 {
 entry:
   %next_code = alloca [17 x i32], align 16
   %total_syms = alloca [16 x i32], align 16
@@ -4606,10 +4606,10 @@ return:                                           ; preds = %land.lhs.true2111, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_inflateEnd(ptr noundef %pStream) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_inflateEnd(ptr noundef %pStream) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pStream, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4625,7 +4625,7 @@ if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr %zfree, align 8
   %opaque = getelementptr inbounds %struct.mz_stream_s, ptr %pStream, i64 0, i32 10
   %2 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #31
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %0) #30
   store ptr null, ptr %state, align 8
   br label %return
 
@@ -4663,7 +4663,7 @@ if.end11.i.i:                                     ; preds = %entry
   %zfree.i.i = getelementptr inbounds %struct.mz_stream_s, ptr %stream, i64 0, i32 9
   store ptr @def_free_func, ptr %zfree.i.i, align 8
   %opaque.i.i = getelementptr inbounds %struct.mz_stream_s, ptr %stream, i64 0, i32 10
-  %call.i = tail call noalias dereferenceable_or_null(43792) ptr @malloc(i64 noundef 43792) #32
+  %call.i = tail call noalias noundef dereferenceable_or_null(43792) ptr @malloc(i64 noundef 43792) #31
   %tobool13.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool13.not.i.i, label %return, label %if.end5
 
@@ -4689,7 +4689,7 @@ if.then9:                                         ; preds = %if.end5
 if.then2.i:                                       ; preds = %if.then9
   %3 = load ptr, ptr %zfree.i.i, align 8
   %4 = load ptr, ptr %opaque.i.i, align 8
-  call void %3(ptr noundef %4, ptr noundef nonnull %2) #31
+  call void %3(ptr noundef %4, ptr noundef nonnull %2) #30
   br label %mz_inflateEnd.exit
 
 mz_inflateEnd.exit:                               ; preds = %if.then9, %if.then2.i
@@ -4710,7 +4710,7 @@ if.end14:                                         ; preds = %if.end5
 if.then2.i10:                                     ; preds = %if.end14
   %8 = load ptr, ptr %zfree.i.i, align 8
   %9 = load ptr, ptr %opaque.i.i, align 8
-  call void %8(ptr noundef %9, ptr noundef nonnull %7) #31
+  call void %8(ptr noundef %9, ptr noundef nonnull %7) #30
   br label %return
 
 return:                                           ; preds = %if.then2.i10, %if.end14, %if.end11.i.i, %entry, %mz_inflateEnd.exit
@@ -4719,7 +4719,7 @@ return:                                           ; preds = %if.then2.i10, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden ptr @mz_error(i32 noundef %err) local_unnamed_addr #13 {
+define hidden ptr @mz_error(i32 noundef %err) local_unnamed_addr #12 {
 entry:
   br label %for.body
 
@@ -4746,7 +4746,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tinfl_decompress_mem_to_heap(ptr noundef %pSrc_buf, i64 noundef %src_buf_len, ptr nocapture noundef %pOut_len, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %pSrc_buf, i64 noundef %src_buf_len, ptr nocapture noundef %pOut_len, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %decomp = alloca %struct.tinfl_decompressor_tag, align 8
   %src_buf_size = alloca i64, align 8
@@ -4799,12 +4799,12 @@ if.end7:                                          ; preds = %if.end
   %add = add i64 %1, %src_buf_ofs.0
   %mul = shl i64 %out_buf_capacity.0, 1
   %spec.store.select = call i64 @llvm.umax.i64(i64 %mul, i64 128)
-  %call11 = call ptr @realloc(ptr noundef %pBuf.0, i64 noundef %spec.store.select) #33
+  %call11 = call ptr @realloc(ptr noundef %pBuf.0, i64 noundef %spec.store.select) #32
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return.sink.split, label %for.cond
 
 return.sink.split:                                ; preds = %if.end7, %cond.end
-  call void @free(ptr noundef %pBuf.0) #31
+  call void @free(ptr noundef %pBuf.0) #30
   store i64 0, ptr %pOut_len, align 8
   br label %return
 
@@ -4814,10 +4814,10 @@ return:                                           ; preds = %if.end, %return.sin
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @tinfl_decompress_mem_to_mem(ptr noundef %pOut_buf, i64 noundef %out_buf_len, ptr noundef %pSrc_buf, i64 noundef %src_buf_len, i32 noundef %flags) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden i64 @tinfl_decompress_mem_to_mem(ptr noundef %pOut_buf, i64 noundef %out_buf_len, ptr noundef %pSrc_buf, i64 noundef %src_buf_len, i32 noundef %flags) local_unnamed_addr #10 {
 entry:
   %out_buf_len.addr = alloca i64, align 8
   %src_buf_len.addr = alloca i64, align 8
@@ -4840,7 +4840,7 @@ entry:
   %decomp = alloca %struct.tinfl_decompressor_tag, align 8
   %in_buf_size = alloca i64, align 8
   %dst_buf_size = alloca i64, align 8
-  %call = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #32
+  %call = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #31
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %do.body
 
@@ -4868,7 +4868,7 @@ for.cond:                                         ; preds = %if.end14, %do.body
 
 land.lhs.true:                                    ; preds = %for.cond
   %conv = trunc i64 %2 to i32
-  %call6 = call i32 %pPut_buf_func(ptr noundef nonnull %add.ptr2, i32 noundef %conv, ptr noundef %pPut_buf_user) #31
+  %call6 = call i32 %pPut_buf_func(ptr noundef nonnull %add.ptr2, i32 noundef %conv, ptr noundef %pPut_buf_user) #30
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %for.end, label %if.end9
 
@@ -4888,7 +4888,7 @@ if.end14:                                         ; preds = %if.end9
 
 for.end:                                          ; preds = %land.lhs.true, %if.then11
   %result.0 = phi i32 [ %conv13, %if.then11 ], [ 0, %land.lhs.true ]
-  call void @free(ptr noundef %call) #31
+  call void @free(ptr noundef %call) #30
   store i64 %add, ptr %pIn_buf_size, align 8
   br label %return
 
@@ -4898,10 +4898,10 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @tdefl_flush_output_buffer(ptr nocapture noundef %d) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc i32 @tdefl_flush_output_buffer(ptr nocapture noundef %d) unnamed_addr #7 {
 entry:
   %m_pIn_buf_size = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 29
   %0 = load ptr, ptr %m_pIn_buf_size, align 8
@@ -7157,7 +7157,7 @@ if.then502:                                       ; preds = %if.then499
   %m_output_buf507 = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 42
   %m_pPut_buf_user = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 1
   %151 = load ptr, ptr %m_pPut_buf_user, align 8
-  %call509 = tail call i32 %150(ptr noundef nonnull %m_output_buf507, i32 noundef %conv496, ptr noundef %151) #31
+  %call509 = tail call i32 %150(ptr noundef nonnull %m_output_buf507, i32 noundef %conv496, ptr noundef %151) #30
   %tobool510.not = icmp eq i32 %call509, 0
   br i1 %tobool510.not, label %if.then511, label %if.end556
 
@@ -7226,7 +7226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @tdefl_get_prev_return_status(ptr nocapture noundef readonly %d) local_unnamed_addr #9 {
+define hidden i32 @tdefl_get_prev_return_status(ptr nocapture noundef readonly %d) local_unnamed_addr #8 {
 entry:
   %m_prev_return_status = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 26
   %0 = load i32, ptr %m_prev_return_status, align 4
@@ -7245,7 +7245,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
+  %call = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
   %tobool3.not = icmp eq ptr %call, null
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -7324,7 +7324,7 @@ tdefl_init.exit:                                  ; preds = %if.end5, %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
   %cmp9 = icmp eq i32 %call.i, 1
   %land.ext = zext i1 %cmp9 to i32
-  call void @free(ptr noundef nonnull %call) #31
+  call void @free(ptr noundef nonnull %call) #30
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %tdefl_init.exit
@@ -7361,7 +7361,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tdefl_output_buffer_putter(ptr nocapture noundef readonly %pBuf, i32 noundef %len, ptr nocapture noundef %pUser) #4 {
+define internal noundef i32 @tdefl_output_buffer_putter(ptr nocapture noundef readonly %pBuf, i32 noundef %len, ptr nocapture noundef %pUser) #4 {
 entry:
   %0 = load i64, ptr %pUser, align 8
   %conv = sext i32 %len to i64
@@ -7392,7 +7392,7 @@ do.body:                                          ; preds = %if.then, %do.body
 do.end:                                           ; preds = %do.body
   %m_pBuf = getelementptr inbounds %struct.tdefl_output_buffer, ptr %pUser, i64 0, i32 2
   %3 = load ptr, ptr %m_pBuf, align 8
-  %call = tail call ptr @realloc(ptr noundef %3, i64 noundef %cond) #33
+  %call = tail call ptr @realloc(ptr noundef %3, i64 noundef %cond) #32
   %tobool9.not = icmp eq ptr %call, null
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -7448,7 +7448,7 @@ entry:
   %out_buf = alloca %struct.tdefl_output_buffer, align 8
   %z = alloca i32, align 4
   %pnghdr = alloca [41 x i8], align 16
-  %call = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
+  %call = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
   %mul = mul nsw i32 %num_chans, %w
   store i64 0, ptr %pLen_out, align 8
   %tobool.not = icmp eq ptr %call, null
@@ -7465,7 +7465,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %add4 to i64
   %m_capacity = getelementptr inbounds %struct.tdefl_output_buffer, ptr %out_buf, i64 0, i32 1
   store i64 %conv, ptr %m_capacity, align 8
-  %call6 = tail call noalias ptr @malloc(i64 noundef %conv) #32
+  %call6 = tail call noalias ptr @malloc(i64 noundef %conv) #31
   %m_pBuf = getelementptr inbounds %struct.tdefl_output_buffer, ptr %out_buf, i64 0, i32 2
   store ptr %call6, ptr %m_pBuf, align 8
   %cmp7 = icmp eq ptr %call6, null
@@ -7476,7 +7476,7 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.body
 
 if.then9:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #31
+  tail call void @free(ptr noundef nonnull %call) #30
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %tdefl_output_buffer_putter.exit
@@ -7503,7 +7503,7 @@ do.body.i:                                        ; preds = %if.then.i, %do.body
   br i1 %cmp7.i, label %do.body.i, label %do.end.i, !llvm.loop !91
 
 do.end.i:                                         ; preds = %do.body.i
-  %call.i = tail call ptr @realloc(ptr noundef %2, i64 noundef %cond.i) #33
+  %call.i = tail call ptr @realloc(ptr noundef %2, i64 noundef %cond.i) #32
   %tobool9.not.i = icmp eq ptr %call.i, null
   br i1 %tobool9.not.i, label %tdefl_output_buffer_putter.exit, label %if.end11.i
 
@@ -7637,9 +7637,9 @@ for.end35:                                        ; preds = %for.body23, %for.en
   br i1 %cmp37.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %for.end35
-  call void @free(ptr noundef %call) #31
+  call void @free(ptr noundef %call) #30
   %16 = load ptr, ptr %m_pBuf, align 8
-  call void @free(ptr noundef %16) #31
+  call void @free(ptr noundef %16) #30
   br label %return
 
 if.end41:                                         ; preds = %for.end35
@@ -7762,7 +7762,7 @@ do.body.i62:                                      ; preds = %if.then.i59, %do.bo
   br i1 %cmp7.i66, label %do.body.i62, label %do.end.i67, !llvm.loop !91
 
 do.end.i67:                                       ; preds = %do.body.i62
-  %call.i69 = call ptr @realloc(ptr noundef %23, i64 noundef %cond.i65) #33
+  %call.i69 = call ptr @realloc(ptr noundef %23, i64 noundef %cond.i65) #32
   %tobool9.not.i70 = icmp eq ptr %call.i69, null
   br i1 %tobool9.not.i70, label %do.end.i67.if.then116_crit_edge, label %if.end11.i71
 
@@ -7779,8 +7779,8 @@ if.end11.i71:                                     ; preds = %do.end.i67
 if.then116:                                       ; preds = %do.end.i67.if.then116_crit_edge, %if.then.i59
   %26 = phi ptr [ %.pre115, %do.end.i67.if.then116_crit_edge ], [ %23, %if.then.i59 ]
   store i64 0, ptr %pLen_out, align 8
-  call void @free(ptr noundef %call) #31
-  call void @free(ptr noundef %26) #31
+  call void @free(ptr noundef %call) #30
+  call void @free(ptr noundef %26) #30
   br label %return
 
 if.end118:                                        ; preds = %for.end111, %if.end11.i71
@@ -7853,7 +7853,7 @@ for.end140:                                       ; preds = %for.body128
   %37 = load i64, ptr %pLen_out, align 8
   %add141 = add i64 %37, 57
   store i64 %add141, ptr %pLen_out, align 8
-  call void @free(ptr noundef %call) #31
+  call void @free(ptr noundef %call) #30
   %38 = load ptr, ptr %m_pBuf, align 8
   br label %return
 
@@ -7870,7 +7870,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_init(ptr noundef %pZip, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_init(ptr noundef %pZip, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -7929,7 +7929,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pZip, i8 0, i64 20, i1 false)
   %7 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call.i = tail call ptr %4(ptr noundef %7, i64 noundef 1, i64 noundef 152) #31
+  %call.i = tail call ptr %4(ptr noundef %7, i64 noundef 1, i64 noundef 152) #30
   store ptr %call.i, ptr %m_pState.i, align 8
   %cmp18.i = icmp eq ptr %call.i, null
   br i1 %cmp18.i, label %return, label %if.end4
@@ -7974,19 +7974,19 @@ if.end.i18:                                       ; preds = %lor.lhs.false6.i
   store ptr null, ptr %m_pState.i, align 8
   %15 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %16 = load ptr, ptr %11, align 8
-  tail call void %13(ptr noundef %15, ptr noundef %16) #31
+  tail call void %13(ptr noundef %15, ptr noundef %16) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 1
   %17 = load ptr, ptr %m_pFree.i, align 8
   %18 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %19 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  tail call void %17(ptr noundef %18, ptr noundef %19) #31
+  tail call void %17(ptr noundef %18, ptr noundef %19) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 2
   %20 = load ptr, ptr %m_pFree.i, align 8
   %21 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %22 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  tail call void %20(ptr noundef %21, ptr noundef %22) #31
+  tail call void %20(ptr noundef %21, ptr noundef %22) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 6
   %23 = load ptr, ptr %m_pFile.i, align 8
@@ -8001,7 +8001,7 @@ if.then10.i:                                      ; preds = %if.end.i18
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i18
   %24 = load ptr, ptr %m_pFree.i, align 8
   %25 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  tail call void %24(ptr noundef %25, ptr noundef nonnull %11) #31
+  tail call void %24(ptr noundef %25, ptr noundef nonnull %11) #30
   store i32 0, ptr %m_zip_mode.i, align 4
   br label %return
 
@@ -8011,7 +8011,7 @@ return:                                           ; preds = %if.end14.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mz_zip_reader_read_central_dir(ptr noundef %pZip, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc noundef i32 @mz_zip_reader_read_central_dir(ptr noundef %pZip, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %buf_u32.i = alloca [1024 x i32], align 16
   %buf_u32 = alloca [1024 x i32], align 16
@@ -8039,7 +8039,7 @@ if.end.i:                                         ; preds = %entry
   %spec.select2832.i = tail call i64 @llvm.umin.i64(i64 %sub831.i, i64 4096)
   %1 = load ptr, ptr %m_pRead.i, align 8
   %2 = load ptr, ptr %m_pIO_opaque.i, align 8
-  %call33.i = call i64 %1(ptr noundef %2, i64 noundef %spec.select.i, ptr noundef nonnull %buf_u32.i, i64 noundef %spec.select2832.i) #31
+  %call33.i = call i64 %1(ptr noundef %2, i64 noundef %spec.select.i, ptr noundef nonnull %buf_u32.i, i64 noundef %spec.select2832.i) #30
   %cmp20.not34.i = icmp eq i64 %call33.i, %spec.select2832.i
   br i1 %cmp20.not34.i, label %if.end23.i, label %if.then.i618
 
@@ -8049,7 +8049,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i
   %spec.select28.i = call i64 @llvm.umin.i64(i64 %sub8.i, i64 4096)
   %3 = load ptr, ptr %m_pRead.i, align 8
   %4 = load ptr, ptr %m_pIO_opaque.i, align 8
-  %call.i218 = call i64 %3(ptr noundef %4, i64 noundef %sub54.i, ptr noundef nonnull %buf_u32.i, i64 noundef %spec.select28.i) #31
+  %call.i218 = call i64 %3(ptr noundef %4, i64 noundef %sub54.i, ptr noundef nonnull %buf_u32.i, i64 noundef %spec.select28.i) #30
   %cmp20.not.i = icmp eq i64 %call.i218, %spec.select28.i
   br i1 %cmp20.not.i, label %if.end23.i, label %if.then.i618
 
@@ -8103,7 +8103,7 @@ if.end8:                                          ; preds = %if.then30.i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf_u32.i)
   %9 = load ptr, ptr %m_pRead.i, align 8
   %10 = load ptr, ptr %m_pIO_opaque.i, align 8
-  %call9 = call i64 %9(ptr noundef %10, i64 noundef %add.i, ptr noundef nonnull %buf_u32, i64 noundef 22) #31
+  %call9 = call i64 %9(ptr noundef %10, i64 noundef %add.i, ptr noundef nonnull %buf_u32, i64 noundef 22) #30
   %cmp10.not = icmp eq i64 %call9, 22
   br i1 %cmp10.not, label %if.end14, label %if.then.i611
 
@@ -8130,7 +8130,7 @@ if.then22:                                        ; preds = %if.end19
   %12 = load ptr, ptr %m_pRead.i, align 8
   %13 = load ptr, ptr %m_pIO_opaque.i, align 8
   %sub = add nsw i64 %add.i, -20
-  %call25 = call i64 %12(ptr noundef %13, i64 noundef %sub, ptr noundef nonnull %zip64_end_of_central_dir_locator_u32, i64 noundef 20) #31
+  %call25 = call i64 %12(ptr noundef %13, i64 noundef %sub, ptr noundef nonnull %zip64_end_of_central_dir_locator_u32, i64 noundef 20) #30
   %cmp26 = icmp eq i64 %call25, 20
   %14 = load i32, ptr %zip64_end_of_central_dir_locator_u32, align 16
   %cmp30 = icmp eq i32 %14, 117853008
@@ -8159,7 +8159,7 @@ if.then.i597:                                     ; preds = %if.then32
 if.end44:                                         ; preds = %if.then32
   %18 = load ptr, ptr %m_pRead.i, align 8
   %19 = load ptr, ptr %m_pIO_opaque.i, align 8
-  %call47 = call i64 %18(ptr noundef %19, i64 noundef %or, ptr noundef nonnull %zip64_end_of_central_dir_header_u32, i64 noundef 56) #31
+  %call47 = call i64 %18(ptr noundef %19, i64 noundef %or, ptr noundef nonnull %zip64_end_of_central_dir_header_u32, i64 noundef 56) #30
   %cmp48 = icmp eq i64 %call47, 56
   %20 = load i32, ptr %zip64_end_of_central_dir_header_u32, align 16
   %cmp52 = icmp eq i32 %20, 101075792
@@ -8345,7 +8345,7 @@ if.end.i221:                                      ; preds = %if.then174
   %m_element_size.i = getelementptr inbounds %struct.mz_zip_array, ptr %28, i64 0, i32 3
   %47 = load i32, ptr %m_element_size.i, align 8
   %conv.i = zext i32 %47 to i64
-  %call.i222 = call ptr %44(ptr noundef %45, ptr noundef %46, i64 noundef %conv.i, i64 noundef %conv165) #31
+  %call.i222 = call ptr %44(ptr noundef %45, ptr noundef %46, i64 noundef %conv.i, i64 noundef %conv165) #30
   %cmp7.i = icmp eq ptr %call.i222, null
   br i1 %cmp7.i, label %if.then.i527, label %mz_zip_array_ensure_capacity.exit
 
@@ -8375,7 +8375,7 @@ if.end.i226:                                      ; preds = %if.end2.i434
   %m_element_size.i229 = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %48, i64 0, i32 1, i32 3
   %54 = load i32, ptr %m_element_size.i229, align 8
   %conv.i230 = zext i32 %54 to i64
-  %call.i231 = call ptr %51(ptr noundef %52, ptr noundef %53, i64 noundef %conv.i230, i64 noundef %conv182) #31
+  %call.i231 = call ptr %51(ptr noundef %52, ptr noundef %53, i64 noundef %conv.i230, i64 noundef %conv182) #30
   %cmp7.i232 = icmp eq ptr %call.i231, null
   br i1 %cmp7.i232, label %if.then.i527, label %if.end10.i233
 
@@ -8413,7 +8413,7 @@ if.end.i238:                                      ; preds = %if.then189
   %m_element_size.i241 = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %55, i64 0, i32 2, i32 3
   %61 = load i32, ptr %m_element_size.i241, align 8
   %conv.i242 = zext i32 %61 to i64
-  %call.i243 = call ptr %58(ptr noundef %59, ptr noundef %60, i64 noundef %conv.i242, i64 noundef %conv192) #31
+  %call.i243 = call ptr %58(ptr noundef %59, ptr noundef %60, i64 noundef %conv.i242, i64 noundef %conv192) #30
   %cmp7.i244 = icmp eq ptr %call.i243, null
   br i1 %cmp7.i244, label %if.then.i520, label %if.end10.i245
 
@@ -8437,7 +8437,7 @@ if.end198:                                        ; preds = %if.end2.i, %if.end2
   %63 = load ptr, ptr %m_pIO_opaque.i, align 8
   %64 = load ptr, ptr %m_pState71, align 8
   %65 = load ptr, ptr %64, align 8
-  %call204 = call i64 %62(ptr noundef %63, i64 noundef %cdir_ofs.0, ptr noundef %65, i64 noundef %conv165) #31
+  %call204 = call i64 %62(ptr noundef %63, i64 noundef %cdir_ofs.0, ptr noundef %65, i64 noundef %conv165) #30
   %cmp206.not = icmp eq i64 %call204, %conv165
   br i1 %cmp206.not, label %if.end210, label %if.then.i513
 
@@ -8532,7 +8532,7 @@ if.then273:                                       ; preds = %land.lhs.true254
 
 if.then278:                                       ; preds = %if.then273
   %conv279 = zext i16 %79 to i64
-  %call280 = call noalias ptr @malloc(i64 noundef %conv279) #32
+  %call280 = call noalias ptr @malloc(i64 noundef %conv279) #31
   %cmp281 = icmp eq ptr %call280, null
   br i1 %cmp281, label %if.then.i499, label %if.end285
 
@@ -8546,12 +8546,12 @@ if.end285:                                        ; preds = %if.then278
   %85 = load ptr, ptr %m_pIO_opaque.i, align 8
   %conv289 = zext i16 %78 to i64
   %add290 = add i64 %add288, %conv289
-  %call292 = call i64 %84(ptr noundef %85, i64 noundef %add290, ptr noundef nonnull %call280, i64 noundef %conv279) #31
+  %call292 = call i64 %84(ptr noundef %85, i64 noundef %add290, ptr noundef nonnull %call280, i64 noundef %conv279) #30
   %cmp294.not = icmp eq i64 %call292, %conv279
   br i1 %cmp294.not, label %if.end301, label %if.then296
 
 if.then296:                                       ; preds = %if.end285
-  call void @free(ptr noundef nonnull %call280) #31
+  call void @free(ptr noundef nonnull %call280) #30
   %m_last_error.i493 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 5
   store i32 20, ptr %m_last_error.i493, align 4
   br label %return
@@ -8575,7 +8575,7 @@ do.body:                                          ; preds = %if.end326, %if.end3
   br i1 %cmp303, label %if.then305, label %if.end307
 
 if.then305:                                       ; preds = %do.body
-  call void @free(ptr noundef %buf.0) #31
+  call void @free(ptr noundef %buf.0) #30
   %m_last_error.i486 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 5
   store i32 9, ptr %m_last_error.i486, align 4
   br label %return
@@ -8589,7 +8589,7 @@ if.end307:                                        ; preds = %do.body
   br i1 %cmp314, label %if.then316, label %if.end318
 
 if.then316:                                       ; preds = %if.end307
-  call void @free(ptr noundef %buf.0) #31
+  call void @free(ptr noundef %buf.0) #30
   %m_last_error.i479 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 5
   store i32 9, ptr %m_last_error.i479, align 4
   br label %return
@@ -8617,7 +8617,7 @@ if.end326:                                        ; preds = %if.end318
   br i1 %tobool335.not, label %do.end, label %do.body, !llvm.loop !97
 
 do.end:                                           ; preds = %if.end326, %if.then321
-  call void @free(ptr noundef %buf.0) #31
+  call void @free(ptr noundef %buf.0) #30
   br label %if.end337
 
 if.end337:                                        ; preds = %do.end, %land.lhs.true254, %if.end239
@@ -8736,7 +8736,7 @@ return:                                           ; preds = %if.end408, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_end(ptr noundef %pZip) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_end(ptr noundef %pZip) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -8770,19 +8770,19 @@ if.end:                                           ; preds = %lor.lhs.false6
   %m_pAlloc_opaque.i23 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %4 = load ptr, ptr %m_pAlloc_opaque.i23, align 8
   %5 = load ptr, ptr %0, align 8
-  tail call void %2(ptr noundef %4, ptr noundef %5) #31
+  tail call void %2(ptr noundef %4, ptr noundef %5) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %m_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 1
   %6 = load ptr, ptr %m_pFree, align 8
   %7 = load ptr, ptr %m_pAlloc_opaque.i23, align 8
   %8 = load ptr, ptr %m_central_dir_offsets, align 8
-  tail call void %6(ptr noundef %7, ptr noundef %8) #31
+  tail call void %6(ptr noundef %7, ptr noundef %8) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 2
   %9 = load ptr, ptr %m_pFree, align 8
   %10 = load ptr, ptr %m_pAlloc_opaque.i23, align 8
   %11 = load ptr, ptr %m_sorted_central_dir_offsets, align 8
-  tail call void %9(ptr noundef %10, ptr noundef %11) #31
+  tail call void %9(ptr noundef %10, ptr noundef %11) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets, i8 0, i64 32, i1 false)
   %m_pFile = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 6
   %12 = load ptr, ptr %m_pFile, align 8
@@ -8797,7 +8797,7 @@ if.then10:                                        ; preds = %if.end
 if.end13:                                         ; preds = %if.then10, %if.end
   %13 = load ptr, ptr %m_pFree, align 8
   %14 = load ptr, ptr %m_pAlloc_opaque.i23, align 8
-  tail call void %13(ptr noundef %14, ptr noundef nonnull %0) #31
+  tail call void %13(ptr noundef %14, ptr noundef nonnull %0) #30
   store i32 0, ptr %m_zip_mode, align 4
   br label %return
 
@@ -8807,7 +8807,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_init_mem(ptr noundef %pZip, ptr noundef %pMem, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_init_mem(ptr noundef %pZip, ptr noundef %pMem, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %pZip, null
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
@@ -8860,7 +8860,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pZip, i8 0, i64 20, i1 false)
   %6 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call.i = tail call ptr %3(ptr noundef %6, i64 noundef 1, i64 noundef 152) #31
+  %call.i = tail call ptr %3(ptr noundef %6, i64 noundef 1, i64 noundef 152) #30
   store ptr %call.i, ptr %m_pState.i, align 8
   %cmp18.i = icmp eq ptr %call.i, null
   br i1 %cmp18.i, label %return, label %if.end
@@ -8915,19 +8915,19 @@ if.end.i22:                                       ; preds = %lor.lhs.false6.i
   store ptr null, ptr %m_pState.i, align 8
   %16 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %17 = load ptr, ptr %12, align 8
-  tail call void %14(ptr noundef %16, ptr noundef %17) #31
+  tail call void %14(ptr noundef %16, ptr noundef %17) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 1
   %18 = load ptr, ptr %m_pFree.i, align 8
   %19 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %20 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  tail call void %18(ptr noundef %19, ptr noundef %20) #31
+  tail call void %18(ptr noundef %19, ptr noundef %20) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 2
   %21 = load ptr, ptr %m_pFree.i, align 8
   %22 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %23 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  tail call void %21(ptr noundef %22, ptr noundef %23) #31
+  tail call void %21(ptr noundef %22, ptr noundef %23) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 6
   %24 = load ptr, ptr %m_pFile.i, align 8
@@ -8942,7 +8942,7 @@ if.then10.i:                                      ; preds = %if.end.i22
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i22
   %25 = load ptr, ptr %m_pFree.i, align 8
   %26 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  tail call void %25(ptr noundef %26, ptr noundef nonnull %12) #31
+  tail call void %25(ptr noundef %26, ptr noundef nonnull %12) #30
   store i32 0, ptr %m_zip_mode.i, align 4
   br label %return
 
@@ -8951,8 +8951,8 @@ return:                                           ; preds = %if.end14.i, %entry,
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @mz_zip_mem_read_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef writeonly %pBuf, i64 noundef %n) #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal i64 @mz_zip_mem_read_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef writeonly %pBuf, i64 noundef %n) #7 {
 entry:
   %0 = load i64, ptr %pOpaque, align 8
   %cmp.not = icmp ugt i64 %0, %file_ofs
@@ -8969,7 +8969,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_init_file(ptr noundef %pZip, ptr nocapture noundef readonly %pFilename, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_init_file(ptr noundef %pZip, ptr nocapture noundef readonly %pFilename, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %pFilename, ptr noundef nonnull @.str.15)
   %tobool.not = icmp eq ptr %call, null
@@ -9037,7 +9037,7 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pZip, i8 0, i64 20, i1 false)
   %6 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call.i = tail call ptr %3(ptr noundef %6, i64 noundef 1, i64 noundef 152) #31
+  %call.i = tail call ptr %3(ptr noundef %6, i64 noundef 1, i64 noundef 152) #30
   store ptr %call.i, ptr %m_pState.i, align 8
   %cmp18.i = icmp eq ptr %call.i, null
   br i1 %cmp18.i, label %if.then9, label %if.end11
@@ -9093,19 +9093,19 @@ if.end.i25:                                       ; preds = %lor.lhs.false6.i
   store ptr null, ptr %m_pState.i, align 8
   %15 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %16 = load ptr, ptr %11, align 8
-  tail call void %13(ptr noundef %15, ptr noundef %16) #31
+  tail call void %13(ptr noundef %15, ptr noundef %16) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 1
   %17 = load ptr, ptr %m_pFree.i, align 8
   %18 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %19 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  tail call void %17(ptr noundef %18, ptr noundef %19) #31
+  tail call void %17(ptr noundef %18, ptr noundef %19) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 2
   %20 = load ptr, ptr %m_pFree.i, align 8
   %21 = load ptr, ptr %m_pAlloc_opaque.i, align 8
   %22 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  tail call void %20(ptr noundef %21, ptr noundef %22) #31
+  tail call void %20(ptr noundef %21, ptr noundef %22) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %11, i64 0, i32 6
   %23 = load ptr, ptr %m_pFile.i, align 8
@@ -9120,7 +9120,7 @@ if.then10.i:                                      ; preds = %if.end.i25
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i25
   %24 = load ptr, ptr %m_pFree.i, align 8
   %25 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  tail call void %24(ptr noundef %25, ptr noundef nonnull %11) #31
+  tail call void %24(ptr noundef %25, ptr noundef nonnull %11) #30
   store i32 0, ptr %m_zip_mode.i, align 4
   br label %return
 
@@ -9130,19 +9130,19 @@ return:                                           ; preds = %if.end13.i, %lor.lh
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
+declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i64 @mz_zip_file_read_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #17 {
+define internal noundef i64 @mz_zip_file_read_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #16 {
 entry:
   %m_pState = getelementptr inbounds %struct.mz_zip_archive, ptr %pOpaque, i64 0, i32 15
   %0 = load ptr, ptr %m_pState, align 8
@@ -9177,7 +9177,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mz_zip_reader_get_num_files(ptr noundef readonly %pZip) local_unnamed_addr #9 {
+define hidden i32 @mz_zip_reader_get_num_files(ptr noundef readonly %pZip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -9193,7 +9193,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mz_zip_reader_is_file_encrypted(ptr noundef readonly %pZip, i32 noundef %file_index) local_unnamed_addr #18 {
+define hidden i32 @mz_zip_reader_is_file_encrypted(ptr noundef readonly %pZip, i32 noundef %file_index) local_unnamed_addr #17 {
 entry:
   %tobool.i.not = icmp eq ptr %pZip, null
   br i1 %tobool.i.not, label %return, label %lor.lhs.false.i
@@ -9241,7 +9241,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mz_zip_reader_is_file_a_directory(ptr noundef readonly %pZip, i32 noundef %file_index) local_unnamed_addr #18 {
+define hidden i32 @mz_zip_reader_is_file_a_directory(ptr noundef readonly %pZip, i32 noundef %file_index) local_unnamed_addr #17 {
 entry:
   %tobool.i.not = icmp eq ptr %pZip, null
   br i1 %tobool.i.not, label %return, label %lor.lhs.false.i
@@ -9304,7 +9304,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden i32 @mz_zip_reader_file_stat(ptr noundef readonly %pZip, i32 noundef %file_index, ptr noundef writeonly %pStat) local_unnamed_addr #19 {
+define hidden noundef i32 @mz_zip_reader_file_stat(ptr noundef readonly %pZip, i32 noundef %file_index, ptr noundef writeonly %pStat) local_unnamed_addr #18 {
 entry:
   %tm.i = alloca %struct.tm, align 8
   %tobool.i.not = icmp eq ptr %pZip, null
@@ -9400,7 +9400,7 @@ if.end:                                           ; preds = %mz_zip_reader_get_c
   %shl.i = shl nuw nsw i32 %conv, 1
   %and9.i = and i32 %shl.i, 62
   store i32 %and9.i, ptr %tm.i, align 8
-  %call.i = call i64 @mktime(ptr noundef nonnull %tm.i) #31
+  %call.i = call noundef i64 @mktime(ptr noundef nonnull %tm.i) #30
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
   %m_time = getelementptr inbounds %struct.mz_zip_archive_file_stat, ptr %pStat, i64 0, i32 6
   store i64 %call.i, ptr %m_time, align 8
@@ -9465,8 +9465,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mz_zip_reader_get_filename(ptr noundef readonly %pZip, i32 noundef %file_index, ptr nocapture noundef writeonly %pFilename, i32 noundef %filename_buf_size) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define hidden i32 @mz_zip_reader_get_filename(ptr noundef readonly %pZip, i32 noundef %file_index, ptr nocapture noundef writeonly %pFilename, i32 noundef %filename_buf_size) local_unnamed_addr #7 {
 entry:
   %tobool.i.not = icmp eq ptr %pZip, null
   br i1 %tobool.i.not, label %if.then, label %lor.lhs.false.i
@@ -9537,7 +9537,7 @@ return:                                           ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mz_zip_reader_locate_file(ptr noundef readonly %pZip, ptr noundef readonly %pName, ptr noundef readonly %pComment, i32 noundef %flags) local_unnamed_addr #20 {
+define hidden i32 @mz_zip_reader_locate_file(ptr noundef readonly %pZip, ptr noundef readonly %pName, ptr noundef readonly %pComment, i32 noundef %flags) local_unnamed_addr #19 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -9574,7 +9574,7 @@ if.then10:                                        ; preds = %land.lhs.true7
   %pZip.val = load i32, ptr %3, align 8
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 2
   %4 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  %call.i94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pName) #34
+  %call.i94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pName) #33
   %conv.i = trunc i64 %call.i94 to i32
   %cmp.not9.i = icmp slt i32 %pZip.val, 1
   br i1 %cmp.not9.i, label %return, label %while.body.lr.ph.i
@@ -9655,7 +9655,7 @@ if.else.i:                                        ; preds = %while.end.i.i
   br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !100
 
 if.end11:                                         ; preds = %land.lhs.true7, %if.end
-  %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pName) #34
+  %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pName) #33
   %cmp13 = icmp ugt i64 %call12, 65535
   br i1 %cmp13, label %return, label %if.end15
 
@@ -9663,7 +9663,7 @@ if.end15:                                         ; preds = %if.end11
   br i1 %tobool6, label %cond.end, label %for.cond.preheader
 
 cond.end:                                         ; preds = %if.end15
-  %call17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pComment) #34
+  %call17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pComment) #33
   %cond.fr = freeze i64 %call17
   %cmp18 = icmp ugt i64 %cond.fr, 65535
   br i1 %cmp18, label %return, label %for.cond.preheader
@@ -10047,7 +10047,7 @@ return:                                           ; preds = %if.else.i, %while.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef %pUser_read_buf, i64 noundef %user_read_buf_size) local_unnamed_addr #4 {
@@ -10163,7 +10163,7 @@ if.end33:                                         ; preds = %if.end26
   %16 = load ptr, ptr %m_pRead, align 8
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %17 = load ptr, ptr %m_pIO_opaque, align 8
-  %call34 = call i64 %16(ptr noundef %17, i64 noundef %15, ptr noundef nonnull %local_header_u32, i64 noundef 30) #31
+  %call34 = call i64 %16(ptr noundef %17, i64 noundef %15, ptr noundef nonnull %local_header_u32, i64 noundef 30) #30
   %cmp35.not = icmp eq i64 %call34, 30
   %18 = load i32, ptr %local_header_u32, align 16
   %cmp39.not = icmp eq i32 %18, 67324752
@@ -10195,7 +10195,7 @@ if.end54:                                         ; preds = %if.end42
 if.then59:                                        ; preds = %if.end54
   %24 = load ptr, ptr %m_pRead, align 8
   %25 = load ptr, ptr %m_pIO_opaque, align 8
-  %call62 = call i64 %24(ptr noundef %25, i64 noundef %add48, ptr noundef %pBuf, i64 noundef %cond) #31
+  %call62 = call i64 %24(ptr noundef %25, i64 noundef %add48, ptr noundef %pBuf, i64 noundef %cond) #30
   %cmp63.not = icmp eq i64 %call62, %cond
   %brmerge.not = and i1 %tobool16, %cmp63.not
   %.mux = zext i1 %cmp63.not to i32
@@ -10238,7 +10238,7 @@ if.else88:                                        ; preds = %if.else
   %31 = load ptr, ptr %m_pAlloc, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %32 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call97 = call ptr %31(ptr noundef %32, i64 noundef 1, i64 noundef %cond96) #31
+  %call97 = call ptr %31(ptr noundef %32, i64 noundef 1, i64 noundef %cond96) #30
   %cmp98 = icmp eq ptr %call97, null
   br i1 %cmp98, label %return, label %if.end101
 
@@ -10276,7 +10276,7 @@ if.then112:                                       ; preds = %land.lhs.true108
   %cond118 = call i64 @llvm.umin.i64(i64 %read_buf_size.0, i64 %comp_remaining.1)
   %37 = load ptr, ptr %m_pRead, align 8
   %38 = load ptr, ptr %m_pIO_opaque, align 8
-  %call121 = call i64 %37(ptr noundef %38, i64 noundef %cur_file_ofs.0, ptr noundef %pRead_buf.0, i64 noundef %cond118) #31
+  %call121 = call i64 %37(ptr noundef %38, i64 noundef %cur_file_ofs.0, ptr noundef %pRead_buf.0, i64 noundef %cond118) #30
   %cmp122.not = icmp eq i64 %call121, %cond118
   br i1 %cmp122.not, label %if.end125, label %if.end155
 
@@ -10337,7 +10337,7 @@ if.then161:                                       ; preds = %if.end155
   %45 = load ptr, ptr %m_pFree, align 8
   %m_pAlloc_opaque162 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %46 = load ptr, ptr %m_pAlloc_opaque162, align 8
-  call void %45(ptr noundef %46, ptr noundef %pRead_buf.0) #31
+  call void %45(ptr noundef %46, ptr noundef %pRead_buf.0) #30
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.then59, %if.end155, %if.then161, %if.else88, %if.then83, %lor.rhs, %if.end42, %if.end33, %if.end26, %switch.early.test, %if.end11, %mz_zip_reader_is_file_a_directory.exit, %if.end4, %if.end, %entry
@@ -10445,7 +10445,7 @@ if.end3:                                          ; preds = %if.end
   %8 = load ptr, ptr %m_pAlloc, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %9 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call7 = tail call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond) #31
+  %call7 = tail call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond) #30
   %cmp = icmp eq ptr %call7, null
   br i1 %cmp, label %return, label %if.end10
 
@@ -10458,7 +10458,7 @@ if.then13:                                        ; preds = %if.end10
   %m_pFree = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %10 = load ptr, ptr %m_pFree, align 8
   %11 = load ptr, ptr %m_pAlloc_opaque, align 8
-  tail call void %10(ptr noundef %11, ptr noundef nonnull %call7) #31
+  tail call void %10(ptr noundef %11, ptr noundef nonnull %call7) #30
   br label %return
 
 if.end15:                                         ; preds = %if.end10
@@ -10547,7 +10547,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %8 = load ptr, ptr %m_pAlloc.i, align 8
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %9 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call7.i = tail call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond.i) #31
+  %call7.i = tail call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond.i) #30
   %cmp.i = icmp eq ptr %call7.i, null
   br i1 %cmp.i, label %return, label %if.end10.i
 
@@ -10560,7 +10560,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   %m_pFree.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %10 = load ptr, ptr %m_pFree.i, align 8
   %11 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  tail call void %10(ptr noundef %11, ptr noundef nonnull %call7.i) #31
+  tail call void %10(ptr noundef %11, ptr noundef nonnull %call7.i) #30
   br label %return
 
 if.end15.i:                                       ; preds = %if.end10.i
@@ -10676,7 +10676,7 @@ if.end21:                                         ; preds = %switch.early.test, 
   %15 = load ptr, ptr %m_pRead, align 8
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %16 = load ptr, ptr %m_pIO_opaque, align 8
-  %call22 = call i64 %15(ptr noundef %16, i64 noundef %14, ptr noundef nonnull %local_header_u32, i64 noundef 30) #31
+  %call22 = call i64 %15(ptr noundef %16, i64 noundef %14, ptr noundef nonnull %local_header_u32, i64 noundef 30) #30
   %cmp23.not = icmp eq i64 %call22, 30
   %17 = load i32, ptr %local_header_u32, align 16
   %cmp27.not = icmp eq i32 %17, 67324752
@@ -10717,7 +10717,7 @@ if.else:                                          ; preds = %if.end42
   %24 = load ptr, ptr %m_pAlloc, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %25 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call53 = call ptr %24(ptr noundef %25, i64 noundef 1, i64 noundef %cond) #31
+  %call53 = call ptr %24(ptr noundef %25, i64 noundef 1, i64 noundef %cond) #30
   %cmp54 = icmp eq ptr %call53, null
   br i1 %cmp54, label %return, label %if.end57
 
@@ -10758,13 +10758,13 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %cond94.us = call i64 @llvm.umin.i64(i64 %read_buf_size.0, i64 %comp_remaining.1139.us)
   %31 = load ptr, ptr %m_pRead, align 8
   %32 = load ptr, ptr %m_pIO_opaque, align 8
-  %call97.us = call i64 %31(ptr noundef %32, i64 noundef %cur_file_ofs.0141.us, ptr noundef %pRead_buf.0, i64 noundef %cond94.us) #31
+  %call97.us = call i64 %31(ptr noundef %32, i64 noundef %cur_file_ofs.0141.us, ptr noundef %pRead_buf.0, i64 noundef %cond94.us) #30
   %cmp98.not.us = icmp eq i64 %call97.us, %cond94.us
   br i1 %cmp98.not.us, label %if.end101.us, label %if.end195
 
 if.end101.us:                                     ; preds = %while.body.us
   %call106.us = call i64 @mz_crc32(i64 noundef %file_crc32.1138.us, ptr noundef %pRead_buf.0, i64 noundef %cond94.us), !range !11
-  %call109.us = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.0140.us, ptr noundef %pRead_buf.0, i64 noundef %cond94.us) #31
+  %call109.us = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.0140.us, ptr noundef %pRead_buf.0, i64 noundef %cond94.us) #30
   %cmp110.not.us = icmp eq i64 %call109.us, %cond94.us
   br i1 %cmp110.not.us, label %if.end113.us, label %if.end195
 
@@ -10776,7 +10776,7 @@ if.end113.us:                                     ; preds = %if.end101.us
   br i1 %tobool88.not.us, label %land.lhs.true183.loopexit, label %while.body.us, !llvm.loop !104
 
 if.then68:                                        ; preds = %if.then64
-  %call70 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef 0, ptr noundef %pRead_buf.0, i64 noundef %27) #31
+  %call70 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef 0, ptr noundef %pRead_buf.0, i64 noundef %27) #30
   %33 = load i64, ptr %m_comp_size, align 8
   %cmp72.not = icmp eq i64 %call70, %33
   %brmerge.not = and i1 %tobool12, %cmp72.not
@@ -10794,12 +10794,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond94 = call i64 @llvm.umin.i64(i64 %read_buf_size.0, i64 %comp_remaining.1139)
   %34 = load ptr, ptr %m_pRead, align 8
   %35 = load ptr, ptr %m_pIO_opaque, align 8
-  %call97 = call i64 %34(ptr noundef %35, i64 noundef %cur_file_ofs.0141, ptr noundef %pRead_buf.0, i64 noundef %cond94) #31
+  %call97 = call i64 %34(ptr noundef %35, i64 noundef %cur_file_ofs.0141, ptr noundef %pRead_buf.0, i64 noundef %cond94) #30
   %cmp98.not = icmp eq i64 %call97, %cond94
   br i1 %cmp98.not, label %if.end101, label %if.end195
 
 if.end101:                                        ; preds = %while.body
-  %call109 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.0140, ptr noundef %pRead_buf.0, i64 noundef %cond94) #31
+  %call109 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.0140, ptr noundef %pRead_buf.0, i64 noundef %cond94) #30
   %cmp110.not = icmp eq i64 %call109, %cond94
   br i1 %cmp110.not, label %if.end113, label %if.end195
 
@@ -10816,7 +10816,7 @@ do.body:                                          ; preds = %if.end59
   %36 = load ptr, ptr %m_pAlloc118, align 8
   %m_pAlloc_opaque119 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %37 = load ptr, ptr %m_pAlloc_opaque119, align 8
-  %call120 = call ptr %36(ptr noundef %37, i64 noundef 1, i64 noundef 32768) #31
+  %call120 = call ptr %36(ptr noundef %37, i64 noundef 1, i64 noundef 32768) #30
   %cmp121 = icmp eq ptr %call120, null
   br i1 %cmp121, label %if.end195, label %do.body125.preheader
 
@@ -10849,7 +10849,7 @@ if.then135:                                       ; preds = %land.lhs.true131
   %cond141 = call i64 @llvm.umin.i64(i64 %read_buf_size.0, i64 %comp_remaining.2)
   %40 = load ptr, ptr %m_pRead, align 8
   %41 = load ptr, ptr %m_pIO_opaque, align 8
-  %call144 = call i64 %40(ptr noundef %41, i64 noundef %cur_file_ofs.1, ptr noundef %pRead_buf.0, i64 noundef %cond141) #31
+  %call144 = call i64 %40(ptr noundef %41, i64 noundef %cur_file_ofs.1, ptr noundef %pRead_buf.0, i64 noundef %cond141) #30
   %cmp145.not = icmp eq i64 %call144, %cond141
   br i1 %cmp145.not, label %if.end148, label %if.end195
 
@@ -10876,7 +10876,7 @@ if.end151:                                        ; preds = %if.end148, %land.lh
   br i1 %tobool158.not, label %do.cond, label %if.then159
 
 if.then159:                                       ; preds = %if.end151
-  %call160 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.1, ptr noundef nonnull %add.ptr127, i64 noundef %43) #31
+  %call160 = call i64 %pCallback(ptr noundef %pOpaque, i64 noundef %out_buf_ofs.1, ptr noundef nonnull %add.ptr127, i64 noundef %43) #30
   %cmp161.not = icmp eq i64 %call160, %43
   br i1 %cmp161.not, label %while.body.preheader.i, label %if.end195
 
@@ -10965,7 +10965,7 @@ if.then199:                                       ; preds = %if.end195
   %55 = load ptr, ptr %m_pFree, align 8
   %m_pAlloc_opaque200 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %56 = load ptr, ptr %m_pAlloc_opaque200, align 8
-  call void %55(ptr noundef %56, ptr noundef %pRead_buf.0) #31
+  call void %55(ptr noundef %56, ptr noundef %pRead_buf.0) #30
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then199, %if.end195
@@ -10977,7 +10977,7 @@ if.then203:                                       ; preds = %if.end201
   %57 = load ptr, ptr %m_pFree204, align 8
   %m_pAlloc_opaque205 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %58 = load ptr, ptr %m_pAlloc_opaque205, align 8
-  call void %57(ptr noundef %58, ptr noundef nonnull %pWrite_buf.0113) #31
+  call void %57(ptr noundef %58, ptr noundef nonnull %pWrite_buf.0113) #30
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end201, %if.then203, %if.else, %if.end30, %if.end21, %switch.early.test, %if.end7, %mz_zip_reader_is_file_a_directory.exit, %if.end, %entry
@@ -11003,7 +11003,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_extract_to_file(ptr noundef %pZip, i32 noundef %file_index, ptr nocapture noundef readonly %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_extract_to_file(ptr noundef %pZip, i32 noundef %file_index, ptr nocapture noundef readonly %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %t.i = alloca %struct.utimbuf, align 8
   %file_stat = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -11031,7 +11031,7 @@ if.then10:                                        ; preds = %if.end4
   store i64 %0, ptr %t.i, align 8
   %modtime.i = getelementptr inbounds %struct.utimbuf, ptr %t.i, i64 0, i32 1
   store i64 %0, ptr %modtime.i, align 8
-  %call.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i) #31
+  %call.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   br label %return
 
@@ -11041,14 +11041,14 @@ return:                                           ; preds = %if.then10, %if.end4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i64 @mz_zip_file_write_callback(ptr nocapture noundef %pOpaque, i64 %ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #17 {
+define internal noundef i64 @mz_zip_file_write_callback(ptr nocapture noundef %pOpaque, i64 %ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #16 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pBuf, i64 noundef 1, i64 noundef %n, ptr noundef %pOpaque)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_reader_extract_file_to_file(ptr noundef %pZip, ptr noundef %pArchive_filename, ptr nocapture noundef readonly %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_reader_extract_file_to_file(ptr noundef %pZip, ptr noundef %pArchive_filename, ptr nocapture noundef readonly %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.utimbuf, align 8
   %file_stat.i = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -11082,7 +11082,7 @@ if.then10.i:                                      ; preds = %if.end4.i
   store i64 %0, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds %struct.utimbuf, ptr %t.i.i, i64 0, i32 1
   store i64 %0, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i.i) #31
+  %call.i.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   br label %mz_zip_reader_extract_to_file.exit
 
@@ -11097,7 +11097,7 @@ return:                                           ; preds = %entry, %mz_zip_read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_init(ptr noundef %pZip, i64 noundef %existing_size) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_init(ptr noundef %pZip, i64 noundef %existing_size) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -11167,7 +11167,7 @@ if.end24:                                         ; preds = %if.then22, %if.end2
   store i32 0, ptr %m_total_files, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %9 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call = tail call ptr %6(ptr noundef %9, i64 noundef 1, i64 noundef 152) #31
+  %call = tail call ptr %6(ptr noundef %9, i64 noundef 1, i64 noundef 152) #30
   store ptr %call, ptr %m_pState, align 8
   %cmp28 = icmp eq ptr %call, null
   br i1 %cmp28, label %return, label %if.end30
@@ -11191,15 +11191,15 @@ return:                                           ; preds = %if.end24, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @def_realloc_func(ptr nocapture readnone %opaque, ptr nocapture noundef %address, i64 noundef %items, i64 noundef %size) #1 {
+define internal noalias noundef ptr @def_realloc_func(ptr nocapture readnone %opaque, ptr nocapture noundef %address, i64 noundef %items, i64 noundef %size) #1 {
 entry:
   %mul = mul i64 %size, %items
-  %call = tail call ptr @realloc(ptr noundef %address, i64 noundef %mul) #33
+  %call = tail call ptr @realloc(ptr noundef %address, i64 noundef %mul) #32
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_init_heap(ptr noundef %pZip, i64 noundef %size_to_reserve_at_beginning, i64 noundef %initial_allocation_size) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_init_heap(ptr noundef %pZip, i64 noundef %size_to_reserve_at_beginning, i64 noundef %initial_allocation_size) local_unnamed_addr #4 {
 lor.lhs.false.i:
   %m_pWrite = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 12
   store ptr @mz_zip_heap_write_func, ptr %m_pWrite, align 8
@@ -11263,7 +11263,7 @@ if.end24.i:                                       ; preds = %if.then22.i, %if.en
   store i32 0, ptr %m_total_files.i, align 8
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %8 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call.i = tail call ptr %5(ptr noundef %8, i64 noundef 1, i64 noundef 152) #31
+  %call.i = tail call ptr %5(ptr noundef %8, i64 noundef 1, i64 noundef 152) #30
   store ptr %call.i, ptr %m_pState.i, align 8
   %cmp28.i = icmp eq ptr %call.i, null
   br i1 %cmp28.i, label %return, label %if.end
@@ -11286,7 +11286,7 @@ if.end:                                           ; preds = %if.end24.i
 if.then2:                                         ; preds = %if.end
   %12 = load ptr, ptr %m_pAlloc.i, align 8
   %13 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call3 = tail call ptr %12(ptr noundef %13, i64 noundef 1, i64 noundef %cond) #31
+  %call3 = tail call ptr %12(ptr noundef %13, i64 noundef 1, i64 noundef %cond) #30
   %14 = load ptr, ptr %m_pState.i, align 8
   %m_pMem = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %14, i64 0, i32 8
   store ptr %call3, ptr %m_pMem, align 8
@@ -11309,7 +11309,7 @@ return:                                           ; preds = %if.end24.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mz_zip_heap_write_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef readonly %pBuf, i64 noundef %n) #4 {
+define internal noundef i64 @mz_zip_heap_write_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef readonly %pBuf, i64 noundef %n) #4 {
 entry:
   %m_pState = getelementptr inbounds %struct.mz_zip_archive, ptr %pOpaque, i64 0, i32 15
   %0 = load ptr, ptr %m_pState, align 8
@@ -11348,7 +11348,7 @@ while.end:                                        ; preds = %while.cond
   %4 = load ptr, ptr %m_pAlloc_opaque, align 8
   %m_pMem = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 8
   %5 = load ptr, ptr %m_pMem, align 8
-  %call = tail call ptr %3(ptr noundef %4, ptr noundef %5, i64 noundef 1, i64 noundef %new_capacity.0) #31
+  %call = tail call ptr %3(ptr noundef %4, ptr noundef %5, i64 noundef 1, i64 noundef %new_capacity.0) #30
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %return, label %if.end15
 
@@ -11370,7 +11370,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_end(ptr noundef %pZip) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_end(ptr noundef %pZip) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -11405,19 +11405,19 @@ if.end:                                           ; preds = %lor.lhs.false6
   %m_pAlloc_opaque.i34 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %5 = load ptr, ptr %m_pAlloc_opaque.i34, align 8
   %6 = load ptr, ptr %0, align 8
-  tail call void %2(ptr noundef %5, ptr noundef %6) #31
+  tail call void %2(ptr noundef %5, ptr noundef %6) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %m_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 1
   %7 = load ptr, ptr %m_pFree, align 8
   %8 = load ptr, ptr %m_pAlloc_opaque.i34, align 8
   %9 = load ptr, ptr %m_central_dir_offsets, align 8
-  tail call void %7(ptr noundef %8, ptr noundef %9) #31
+  tail call void %7(ptr noundef %8, ptr noundef %9) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 2
   %10 = load ptr, ptr %m_pFree, align 8
   %11 = load ptr, ptr %m_pAlloc_opaque.i34, align 8
   %12 = load ptr, ptr %m_sorted_central_dir_offsets, align 8
-  tail call void %10(ptr noundef %11, ptr noundef %12) #31
+  tail call void %10(ptr noundef %11, ptr noundef %12) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets, i8 0, i64 32, i1 false)
   %m_pFile = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 6
   %13 = load ptr, ptr %m_pFile, align 8
@@ -11444,14 +11444,14 @@ land.lhs.true17:                                  ; preds = %if.end15
 if.then19:                                        ; preds = %land.lhs.true17
   %16 = load ptr, ptr %m_pFree, align 8
   %17 = load ptr, ptr %m_pAlloc_opaque.i34, align 8
-  tail call void %16(ptr noundef %17, ptr noundef nonnull %15) #31
+  tail call void %16(ptr noundef %17, ptr noundef nonnull %15) #30
   store ptr null, ptr %m_pMem, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then19, %land.lhs.true17, %if.end15
   %18 = load ptr, ptr %m_pFree, align 8
   %19 = load ptr, ptr %m_pAlloc_opaque.i34, align 8
-  tail call void %18(ptr noundef %19, ptr noundef nonnull %0) #31
+  tail call void %18(ptr noundef %19, ptr noundef nonnull %0) #30
   store i32 0, ptr %m_zip_mode, align 4
   br label %return
 
@@ -11461,7 +11461,7 @@ return:                                           ; preds = %lor.lhs.false6, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_init_file(ptr noundef %pZip, ptr nocapture noundef readonly %pFilename, i64 noundef %size_to_reserve_at_beginning) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_init_file(ptr noundef %pZip, ptr nocapture noundef readonly %pFilename, i64 noundef %size_to_reserve_at_beginning) local_unnamed_addr #4 {
 lor.lhs.false.i:
   %buf = alloca [4096 x i8], align 16
   %m_pWrite = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 12
@@ -11526,7 +11526,7 @@ if.end24.i:                                       ; preds = %if.then22.i, %if.en
   store i32 0, ptr %m_total_files.i, align 8
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %8 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call.i = tail call ptr %5(ptr noundef %8, i64 noundef 1, i64 noundef 152) #31
+  %call.i = tail call ptr %5(ptr noundef %8, i64 noundef 1, i64 noundef 152) #30
   store ptr %call.i, ptr %m_pState.i, align 8
   %cmp28.i = icmp eq ptr %call.i, null
   br i1 %cmp28.i, label %return, label %if.end
@@ -11567,7 +11567,7 @@ do.body:                                          ; preds = %if.end14, %if.then6
   %cond = call i64 @llvm.umin.i64(i64 %size_to_reserve_at_beginning.addr.0, i64 4096)
   %13 = load ptr, ptr %m_pWrite, align 8
   %14 = load ptr, ptr %m_pIO_opaque, align 8
-  %call10 = call i64 %13(ptr noundef %14, i64 noundef %cur_ofs.0, ptr noundef nonnull %buf, i64 noundef %cond) #31
+  %call10 = call i64 %13(ptr noundef %14, i64 noundef %cur_ofs.0, ptr noundef nonnull %buf, i64 noundef %cond) #30
   %cmp11.not = icmp eq i64 %call10, %cond
   br i1 %cmp11.not, label %if.end14, label %if.then12
 
@@ -11587,7 +11587,7 @@ return:                                           ; preds = %if.end14, %if.end24
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i64 @mz_zip_file_write_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #17 {
+define internal noundef i64 @mz_zip_file_write_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef %pBuf, i64 noundef %n) #16 {
 entry:
   %m_pState = getelementptr inbounds %struct.mz_zip_archive, ptr %pOpaque, i64 0, i32 15
   %0 = load ptr, ptr %m_pState, align 8
@@ -11622,7 +11622,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_init_from_reader(ptr noundef %pZip, ptr noundef %pFilename) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_init_from_reader(ptr noundef %pZip, ptr noundef %pFilename) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -11669,7 +11669,7 @@ if.end17:                                         ; preds = %if.then11
   %m_pWrite = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 12
   store ptr @mz_zip_file_write_func, ptr %m_pWrite, align 8
   %7 = load ptr, ptr %m_pFile, align 8
-  %call = tail call ptr @freopen(ptr noundef nonnull %pFilename, ptr noundef nonnull @.str.17, ptr noundef %7) #31
+  %call = tail call ptr @freopen(ptr noundef nonnull %pFilename, ptr noundef nonnull @.str.17, ptr noundef %7) #30
   store ptr %call, ptr %m_pFile, align 8
   %cmp20 = icmp eq ptr %call, null
   br i1 %cmp20, label %if.then21, label %if.end37
@@ -11718,17 +11718,17 @@ return:                                           ; preds = %if.else31, %if.then
   ret i32 %retval.0
 }
 
-declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #22
+declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_add_mem(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_add_mem(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_zip_writer_add_mem_ex(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef null, i16 noundef zeroext 0, i32 noundef %level_and_flags, i64 noundef 0, i32 noundef 0), !range !10
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_add_mem_ex(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i64 noundef %uncomp_size, i32 noundef %uncomp_crc32) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_add_mem_ex(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i64 noundef %uncomp_size, i32 noundef %uncomp_crc32) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i = alloca i64, align 8
   %dos_time = alloca i16, align 2
@@ -11785,10 +11785,10 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false12
 if.end23:                                         ; preds = %lor.lhs.false16
   %4 = load i64, ptr %pZip, align 8
   %tobool28 = icmp eq i64 %uncomp_size, 0
-  %or.cond4.not138 = or i1 %tobool28, %tobool2
+  %or.cond4.not137 = or i1 %tobool28, %tobool2
   %5 = or i64 %uncomp_size, %buf_size
   %or.cond5.not = icmp ult i64 %5, 4294967296
-  %or.cond122 = and i1 %or.cond5.not, %or.cond4.not138
+  %or.cond122 = and i1 %or.cond5.not, %or.cond4.not137
   br i1 %or.cond122, label %if.end37, label %return
 
 if.end37:                                         ; preds = %if.end23
@@ -11811,10 +11811,10 @@ if.end9.i:                                        ; preds = %while.cond.i
   br label %while.cond.i, !llvm.loop !109
 
 if.end40:                                         ; preds = %while.cond.i
-  %call41 = call i64 @time(ptr noundef nonnull %cur_time) #31
+  %call41 = call i64 @time(ptr noundef nonnull %cur_time) #30
   %8 = load i64, ptr %cur_time, align 8
   call fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %8, ptr noundef nonnull %dos_time, ptr noundef nonnull %dos_date)
-  %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pArchive_name) #34
+  %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pArchive_name) #33
   %cmp43 = icmp ugt i64 %call42, 65535
   br i1 %cmp43, label %return, label %if.end46
 
@@ -11905,7 +11905,7 @@ if.then88:                                        ; preds = %if.end2.i208
   %20 = load ptr, ptr %m_pAlloc, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %21 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call89 = call ptr %20(ptr noundef %21, i64 noundef 1, i64 noundef 319352) #31
+  %call89 = call ptr %20(ptr noundef %21, i64 noundef 1, i64 noundef 319352) #30
   %cmp90 = icmp eq ptr %call89, null
   br i1 %cmp90, label %return, label %if.end94
 
@@ -11922,7 +11922,7 @@ if.then100:                                       ; preds = %if.end94
   %22 = load ptr, ptr %m_pFree, align 8
   %m_pAlloc_opaque101 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %23 = load ptr, ptr %m_pAlloc_opaque101, align 8
-  call void %22(ptr noundef %23, ptr noundef %pComp.0) #31
+  call void %22(ptr noundef %23, ptr noundef %pComp.0) #30
   br label %return
 
 if.end102:                                        ; preds = %if.end94
@@ -11932,7 +11932,7 @@ if.end102:                                        ; preds = %if.end94
   %24 = load ptr, ptr %m_pWrite, align 8
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %25 = load ptr, ptr %m_pIO_opaque, align 8
-  %call111 = call i64 %24(ptr noundef %25, i64 noundef %add110, ptr noundef nonnull %pArchive_name, i64 noundef %call42) #31
+  %call111 = call i64 %24(ptr noundef %25, i64 noundef %add110, ptr noundef nonnull %pArchive_name, i64 noundef %call42) #30
   %cmp112.not = icmp eq i64 %call111, %call42
   br i1 %cmp112.not, label %if.end117, label %if.then114
 
@@ -11941,7 +11941,7 @@ if.then114:                                       ; preds = %if.end102
   %26 = load ptr, ptr %m_pFree115, align 8
   %m_pAlloc_opaque116 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %27 = load ptr, ptr %m_pAlloc_opaque116, align 8
-  call void %26(ptr noundef %27, ptr noundef %pComp.0) #31
+  call void %26(ptr noundef %27, ptr noundef %pComp.0) #30
   br label %return
 
 if.end117:                                        ; preds = %if.end102
@@ -11960,7 +11960,7 @@ if.then130:                                       ; preds = %if.end117, %if.end1
   %uncomp_size.addr.0134 = phi i64 [ %buf_size, %if.end128 ], [ %uncomp_size, %if.end117 ]
   %28 = load ptr, ptr %m_pWrite, align 8
   %29 = load ptr, ptr %m_pIO_opaque, align 8
-  %call133 = call i64 %28(ptr noundef %29, i64 noundef %add118, ptr noundef %pBuf, i64 noundef %buf_size) #31
+  %call133 = call i64 %28(ptr noundef %29, i64 noundef %add118, ptr noundef %pBuf, i64 noundef %buf_size) #30
   %cmp134.not = icmp eq i64 %call133, %buf_size
   br i1 %cmp134.not, label %if.end139, label %if.then136
 
@@ -11969,7 +11969,7 @@ if.then136:                                       ; preds = %if.then130
   %30 = load ptr, ptr %m_pFree137, align 8
   %m_pAlloc_opaque138 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %31 = load ptr, ptr %m_pAlloc_opaque138, align 8
-  call void %30(ptr noundef %31, ptr noundef %pComp.0) #31
+  call void %30(ptr noundef %31, ptr noundef %pComp.0) #30
   br label %return
 
 if.end139:                                        ; preds = %if.then130
@@ -12004,7 +12004,7 @@ if.then155:                                       ; preds = %if.then146
   %34 = load ptr, ptr %m_pFree156, align 8
   %m_pAlloc_opaque157 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %35 = load ptr, ptr %m_pAlloc_opaque157, align 8
-  call void %34(ptr noundef %35, ptr noundef %pComp.0) #31
+  call void %34(ptr noundef %35, ptr noundef %pComp.0) #30
   br label %return
 
 if.end158:                                        ; preds = %if.then146
@@ -12022,7 +12022,7 @@ if.end162:                                        ; preds = %if.end139, %if.end1
   %38 = load ptr, ptr %m_pFree163, align 8
   %m_pAlloc_opaque164 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %39 = load ptr, ptr %m_pAlloc_opaque164, align 8
-  call void %38(ptr noundef %39, ptr noundef %pComp.0) #31
+  call void %38(ptr noundef %39, ptr noundef %pComp.0) #30
   %cmp165 = icmp ugt i64 %comp_size.0, 4294967295
   %cmp168 = icmp ugt i64 %cur_archive_file_ofs.0, 4294967295
   %or.cond8 = select i1 %cmp165, i1 true, i1 %cmp168
@@ -12119,7 +12119,7 @@ if.end171:                                        ; preds = %if.end162
   store i8 0, ptr %arrayidx3.i49.i, align 1
   %45 = load ptr, ptr %m_pWrite, align 8
   %46 = load ptr, ptr %m_pIO_opaque, align 8
-  %call180 = call i64 %45(ptr noundef %46, i64 noundef %add104, ptr noundef nonnull %local_dir_header, i64 noundef 30) #31
+  %call180 = call i64 %45(ptr noundef %46, i64 noundef %add104, ptr noundef nonnull %local_dir_header, i64 noundef 30) #30
   %cmp181.not = icmp eq i64 %call180, 30
   br i1 %cmp181.not, label %if.end184, label %return
 
@@ -12142,14 +12142,14 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #23
+declare i64 @time(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %time, ptr nocapture noundef writeonly %pDOS_time, ptr nocapture noundef writeonly %pDOS_date) unnamed_addr #4 {
 entry:
   %time.addr = alloca i64, align 8
   store i64 %time, ptr %time.addr, align 8
-  %call = call ptr @localtime(ptr noundef nonnull %time.addr) #31
+  %call = call ptr @localtime(ptr noundef nonnull %time.addr) #30
   %tm_hour = getelementptr inbounds %struct.tm, ptr %call, i64 0, i32 2
   %0 = load i32, ptr %tm_hour, align 8
   %shl = shl i32 %0, 11
@@ -12179,7 +12179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mz_zip_writer_write_zeros(ptr nocapture noundef readonly %pZip, i64 noundef %cur_file_ofs, i32 noundef %n) unnamed_addr #4 {
+define internal fastcc noundef i32 @mz_zip_writer_write_zeros(ptr nocapture noundef readonly %pZip, i64 noundef %cur_file_ofs, i32 noundef %n) unnamed_addr #4 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %0 = tail call i32 @llvm.umin.i32(i32 %n, i32 4096)
@@ -12200,7 +12200,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = load ptr, ptr %m_pWrite, align 8
   %3 = load ptr, ptr %m_pIO_opaque, align 8
   %conv13 = zext nneg i32 %1 to i64
-  %call = call i64 %2(ptr noundef %3, i64 noundef %cur_file_ofs.addr.012, ptr noundef nonnull %buf, i64 noundef %conv13) #31
+  %call = call i64 %2(ptr noundef %3, i64 noundef %cur_file_ofs.addr.012, ptr noundef nonnull %buf, i64 noundef %conv13) #30
   %cmp15.not = icmp eq i64 %call, %conv13
   br i1 %cmp15.not, label %if.end, label %return
 
@@ -12216,7 +12216,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mz_zip_writer_add_put_buf_callback(ptr noundef %pBuf, i32 noundef %len, ptr nocapture noundef %pUser) #4 {
+define internal noundef i32 @mz_zip_writer_add_put_buf_callback(ptr noundef %pBuf, i32 noundef %len, ptr nocapture noundef %pUser) #4 {
 entry:
   %0 = load ptr, ptr %pUser, align 8
   %m_pWrite = getelementptr inbounds %struct.mz_zip_archive, ptr %0, i64 0, i32 12
@@ -12226,7 +12226,7 @@ entry:
   %m_cur_archive_file_ofs = getelementptr inbounds %struct.mz_zip_writer_add_state, ptr %pUser, i64 0, i32 1
   %3 = load i64, ptr %m_cur_archive_file_ofs, align 8
   %conv = sext i32 %len to i64
-  %call = tail call i64 %1(ptr noundef %2, i64 noundef %3, ptr noundef %pBuf, i64 noundef %conv) #31
+  %call = tail call i64 %1(ptr noundef %2, i64 noundef %3, ptr noundef %pBuf, i64 noundef %conv) #30
   %conv2 = trunc i64 %call to i32
   %cmp.not = icmp eq i32 %conv2, %len
   br i1 %cmp.not, label %if.end, label %return
@@ -12245,7 +12245,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mz_zip_writer_add_to_central_dir(ptr nocapture noundef readonly %pZip, ptr noundef readonly %pFilename, i16 noundef zeroext %filename_size, ptr noundef readonly %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size, i64 noundef %comp_size, i32 noundef %uncomp_crc32, i16 noundef zeroext %method, i16 noundef zeroext %dos_time, i16 noundef zeroext %dos_date, i64 noundef %local_header_ofs, i32 noundef %ext_attributes) unnamed_addr #4 {
+define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocapture noundef readonly %pZip, ptr noundef readonly %pFilename, i16 noundef zeroext %filename_size, ptr noundef readonly %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size, i64 noundef %comp_size, i32 noundef %uncomp_crc32, i16 noundef zeroext %method, i16 noundef zeroext %dos_time, i16 noundef zeroext %dos_date, i64 noundef %local_header_ofs, i32 noundef %ext_attributes) unnamed_addr #4 {
 entry:
   %central_dir_ofs = alloca i32, align 4
   %central_dir_header = alloca [46 x i8], align 16
@@ -12427,7 +12427,7 @@ if.end6.i:                                        ; preds = %while.cond.i
   %m_element_size.i90 = getelementptr inbounds %struct.mz_zip_array, ptr %0, i64 0, i32 3
   %11 = load i32, ptr %m_element_size.i90, align 8
   %conv.i91 = zext i32 %11 to i64
-  %call.i92 = tail call ptr %8(ptr noundef %9, ptr noundef %10, i64 noundef %conv.i91, i64 noundef %new_capacity.0.i) #31
+  %call.i92 = tail call ptr %8(ptr noundef %9, ptr noundef %10, i64 noundef %conv.i91, i64 noundef %new_capacity.0.i) #30
   %cmp7.i = icmp eq ptr %call.i92, null
   br i1 %cmp7.i, label %if.then38, label %mz_zip_array_ensure_capacity.exit
 
@@ -12482,7 +12482,7 @@ if.end6.i102:                                     ; preds = %while.cond.i98
   %18 = load ptr, ptr %0, align 8
   %19 = load i32, ptr %m_element_size.i137, align 8
   %conv.i106 = zext i32 %19 to i64
-  %call.i107 = tail call ptr %16(ptr noundef %17, ptr noundef %18, i64 noundef %conv.i106, i64 noundef %new_capacity.0.i99) #31
+  %call.i107 = tail call ptr %16(ptr noundef %17, ptr noundef %18, i64 noundef %conv.i106, i64 noundef %new_capacity.0.i99) #30
   %cmp7.i108 = icmp eq ptr %call.i107, null
   br i1 %cmp7.i108, label %if.then38, label %mz_zip_array_ensure_capacity.exit110
 
@@ -12539,7 +12539,7 @@ if.end6.i120:                                     ; preds = %while.cond.i116
   %26 = load ptr, ptr %0, align 8
   %27 = load i32, ptr %m_element_size.i137, align 8
   %conv.i124 = zext i32 %27 to i64
-  %call.i125 = tail call ptr %24(ptr noundef %25, ptr noundef %26, i64 noundef %conv.i124, i64 noundef %new_capacity.0.i117) #31
+  %call.i125 = tail call ptr %24(ptr noundef %25, ptr noundef %26, i64 noundef %conv.i124, i64 noundef %new_capacity.0.i117) #30
   %cmp7.i126 = icmp eq ptr %call.i125, null
   br i1 %cmp7.i126, label %if.then38, label %mz_zip_array_ensure_capacity.exit128
 
@@ -12588,7 +12588,7 @@ if.end6.i138:                                     ; preds = %while.cond.i134
   %m_element_size.i141 = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 1, i32 3
   %35 = load i32, ptr %m_element_size.i141, align 8
   %conv.i142 = zext i32 %35 to i64
-  %call.i143 = tail call ptr %32(ptr noundef %33, ptr noundef %34, i64 noundef %conv.i142, i64 noundef %new_capacity.0.i135) #31
+  %call.i143 = tail call ptr %32(ptr noundef %33, ptr noundef %34, i64 noundef %conv.i142, i64 noundef %new_capacity.0.i135) #30
   %cmp7.i144 = icmp eq ptr %call.i143, null
   br i1 %cmp7.i144, label %if.then38, label %if.end10.i145
 
@@ -12622,7 +12622,7 @@ if.end.i150:                                      ; preds = %if.then38
   %m_element_size.i154 = getelementptr inbounds %struct.mz_zip_array, ptr %0, i64 0, i32 3
   %42 = load i32, ptr %m_element_size.i154, align 8
   %conv.i155 = zext i32 %42 to i64
-  %call.i156 = tail call ptr %39(ptr noundef %40, ptr noundef %41, i64 noundef %conv.i155, i64 noundef %1) #31
+  %call.i156 = tail call ptr %39(ptr noundef %40, ptr noundef %41, i64 noundef %conv.i155, i64 noundef %1) #30
   %cmp7.i157 = icmp eq ptr %call.i156, null
   br i1 %cmp7.i157, label %return, label %mz_zip_array_ensure_capacity.exit159
 
@@ -12641,7 +12641,7 @@ return:                                           ; preds = %if.end.i150, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_add_file(ptr noundef %pZip, ptr noundef %pArchive_name, ptr nocapture noundef readonly %pSrc_filename, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i32 noundef %ext_attributes) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_add_file(ptr noundef %pZip, ptr noundef %pArchive_name, ptr nocapture noundef readonly %pSrc_filename, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i32 noundef %ext_attributes) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i = alloca i64, align 8
   %file_stat.i = alloca %struct.stat, align 8
@@ -12705,7 +12705,7 @@ if.end9.i:                                        ; preds = %while.cond.i
   br label %while.cond.i, !llvm.loop !109
 
 if.end20:                                         ; preds = %while.cond.i
-  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pArchive_name) #34
+  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pArchive_name) #33
   %cmp22 = icmp ugt i64 %call21, 65535
   br i1 %cmp22, label %return, label %if.end25
 
@@ -12735,7 +12735,7 @@ lor.lhs.false29:                                  ; preds = %if.end25
 
 if.end40:                                         ; preds = %lor.lhs.false29
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_stat.i)
-  %call.i = call i32 @stat(ptr noundef %pSrc_filename, ptr noundef nonnull %file_stat.i) #31
+  %call.i = call i32 @stat(ptr noundef %pSrc_filename, ptr noundef nonnull %file_stat.i) #30
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end44, label %mz_zip_get_file_modified_time.exit.thread
 
@@ -12782,7 +12782,7 @@ if.end68:                                         ; preds = %if.end56
   %9 = load ptr, ptr %m_pWrite, align 8
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %10 = load ptr, ptr %m_pIO_opaque, align 8
-  %call77 = tail call i64 %9(ptr noundef %10, i64 noundef %add76, ptr noundef nonnull %pArchive_name, i64 noundef %call21) #31
+  %call77 = tail call i64 %9(ptr noundef %10, i64 noundef %add76, ptr noundef nonnull %pArchive_name, i64 noundef %call21) #30
   %cmp78.not = icmp eq i64 %call77, %call21
   br i1 %cmp78.not, label %if.end82, label %if.then80
 
@@ -12800,7 +12800,7 @@ if.then85:                                        ; preds = %if.end82
   %11 = load ptr, ptr %m_pAlloc, align 8
   %m_pAlloc_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 10
   %12 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call86 = tail call ptr %11(ptr noundef %12, i64 noundef 1, i64 noundef 65536) #31
+  %call86 = tail call ptr %11(ptr noundef %12, i64 noundef 1, i64 noundef 65536) #30
   %tobool87.not = icmp eq ptr %call86, null
   br i1 %tobool87.not, label %if.then88, label %if.end90
 
@@ -12824,7 +12824,7 @@ while.body:                                       ; preds = %if.end90, %if.end11
 lor.lhs.false102:                                 ; preds = %while.body
   %13 = load ptr, ptr %m_pWrite, align 8
   %14 = load ptr, ptr %m_pIO_opaque, align 8
-  %call106 = tail call i64 %13(ptr noundef %14, i64 noundef %cur_archive_file_ofs.0149, ptr noundef nonnull %call86, i64 noundef %cond) #31
+  %call106 = tail call i64 %13(ptr noundef %14, i64 noundef %cur_archive_file_ofs.0149, ptr noundef nonnull %call86, i64 noundef %cond) #30
   %cmp108.not = icmp eq i64 %call106, %cond
   br i1 %cmp108.not, label %if.end113, label %if.then110
 
@@ -12832,7 +12832,7 @@ if.then110:                                       ; preds = %lor.lhs.false102, %
   %m_pFree = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %15 = load ptr, ptr %m_pFree, align 8
   %16 = load ptr, ptr %m_pAlloc_opaque, align 8
-  tail call void %15(ptr noundef %16, ptr noundef nonnull %call86) #31
+  tail call void %15(ptr noundef %16, ptr noundef nonnull %call86) #30
   %call112 = tail call i32 @fclose(ptr noundef nonnull %call45)
   br label %return
 
@@ -12846,7 +12846,7 @@ if.end113:                                        ; preds = %lor.lhs.false102
 if.else:                                          ; preds = %if.end90
   %17 = load ptr, ptr %m_pAlloc, align 8
   %18 = load ptr, ptr %m_pAlloc_opaque, align 8
-  %call123 = tail call ptr %17(ptr noundef %18, i64 noundef 1, i64 noundef 319352) #31
+  %call123 = tail call ptr %17(ptr noundef %18, i64 noundef 1, i64 noundef 319352) #30
   %tobool124.not = icmp eq ptr %call123, null
   br i1 %tobool124.not, label %if.then125, label %tdefl_create_comp_flags_from_zip_params.exit
 
@@ -12854,7 +12854,7 @@ if.then125:                                       ; preds = %if.else
   %m_pFree126 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %19 = load ptr, ptr %m_pFree126, align 8
   %20 = load ptr, ptr %m_pAlloc_opaque, align 8
-  tail call void %19(ptr noundef %20, ptr noundef nonnull %call86) #31
+  tail call void %19(ptr noundef %20, ptr noundef nonnull %call86) #30
   %call128 = tail call i32 @fclose(ptr noundef nonnull %call45)
   br label %return
 
@@ -12900,10 +12900,10 @@ if.then173:                                       ; preds = %if.end153, %for.con
   %m_pFree170145 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %22 = load ptr, ptr %m_pFree170145, align 8
   %23 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %22(ptr noundef %23, ptr noundef nonnull %call123) #31
+  call void %22(ptr noundef %23, ptr noundef nonnull %call123) #30
   %24 = load ptr, ptr %m_pFree170145, align 8
   %25 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %24(ptr noundef %25, ptr noundef nonnull %call86) #31
+  call void %24(ptr noundef %25, ptr noundef nonnull %call86) #30
   %call176 = call i32 @fclose(ptr noundef nonnull %call45)
   br label %return
 
@@ -12911,7 +12911,7 @@ if.end177:                                        ; preds = %if.end153
   %m_pFree170 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %26 = load ptr, ptr %m_pFree170, align 8
   %27 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %26(ptr noundef %27, ptr noundef nonnull %call123) #31
+  call void %26(ptr noundef %27, ptr noundef nonnull %call123) #30
   %28 = load i64, ptr %m_comp_size, align 8
   %29 = load i64, ptr %m_cur_archive_file_ofs, align 8
   br label %if.end180
@@ -12925,7 +12925,7 @@ if.end180:                                        ; preds = %if.end113, %if.end1
   %m_pFree181 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %30 = load ptr, ptr %m_pFree181, align 8
   %31 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %30(ptr noundef %31, ptr noundef nonnull %call86) #31
+  call void %30(ptr noundef %31, ptr noundef nonnull %call86) #30
   br label %if.end183
 
 if.end183:                                        ; preds = %if.end180, %if.end82
@@ -13030,7 +13030,7 @@ if.end191:                                        ; preds = %if.end183
   store i8 0, ptr %arrayidx3.i49.i, align 1
   %37 = load ptr, ptr %m_pWrite, align 8
   %38 = load ptr, ptr %m_pIO_opaque, align 8
-  %call200 = call i64 %37(ptr noundef %38, i64 noundef %add, ptr noundef nonnull %local_dir_header, i64 noundef 30) #31
+  %call200 = call i64 %37(ptr noundef %38, i64 noundef %add, ptr noundef nonnull %local_dir_header, i64 noundef 30) #30
   %cmp201.not = icmp eq i64 %call200, 30
   br i1 %cmp201.not, label %if.end204, label %return
 
@@ -13053,10 +13053,10 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_add_from_zip_reader(ptr noundef %pZip, ptr noundef readonly %pSource_zip, i32 noundef %file_index) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_add_from_zip_reader(ptr noundef %pZip, ptr noundef readonly %pSource_zip, i32 noundef %file_index) local_unnamed_addr #4 {
 entry:
   %n = alloca i32, align 4
   %local_header_u32 = alloca [8 x i32], align 16
@@ -13147,7 +13147,7 @@ if.end15:                                         ; preds = %lor.lhs.false9
   %14 = load ptr, ptr %m_pRead, align 8
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pSource_zip, i64 0, i32 14
   %15 = load ptr, ptr %m_pIO_opaque, align 8
-  %call18 = call i64 %14(ptr noundef %15, i64 noundef %conv16, ptr noundef nonnull %local_header_u32, i64 noundef 30) #31
+  %call18 = call i64 %14(ptr noundef %15, i64 noundef %conv16, ptr noundef nonnull %local_header_u32, i64 noundef 30) #30
   %cmp19.not = icmp eq i64 %call18, 30
   %16 = load i32, ptr %local_header_u32, align 16
   %cmp23.not = icmp eq i32 %16, 67324752
@@ -13165,7 +13165,7 @@ if.end31:                                         ; preds = %if.end26
   %17 = load ptr, ptr %m_pWrite, align 8
   %m_pIO_opaque37 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %18 = load ptr, ptr %m_pIO_opaque37, align 8
-  %call38 = call i64 %17(ptr noundef %18, i64 noundef %add, ptr noundef nonnull %local_header_u32, i64 noundef 30) #31
+  %call38 = call i64 %17(ptr noundef %18, i64 noundef %add, ptr noundef nonnull %local_header_u32, i64 noundef 30) #30
   %cmp39.not = icmp eq i64 %call38, 30
   br i1 %cmp39.not, label %if.end42, label %return
 
@@ -13187,7 +13187,7 @@ if.end42:                                         ; preds = %if.end31
   %23 = load ptr, ptr %m_pAlloc_opaque, align 8
   %cond = call i64 @llvm.umin.i64(i64 %conv51, i64 65536)
   %cond65 = call i64 @llvm.umax.i64(i64 %cond, i64 16)
-  %call66 = call ptr %22(ptr noundef %23, i64 noundef 1, i64 noundef %cond65) #31
+  %call66 = call ptr %22(ptr noundef %23, i64 noundef 1, i64 noundef %cond65) #30
   %cmp67 = icmp eq ptr %call66, null
   br i1 %cmp67, label %return, label %while.cond.preheader
 
@@ -13202,7 +13202,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %cond77 = call i64 @llvm.umin.i64(i64 %comp_bytes_remaining.0180, i64 65536)
   %24 = load ptr, ptr %m_pRead, align 8
   %25 = load ptr, ptr %m_pIO_opaque, align 8
-  %call82 = call i64 %24(ptr noundef %25, i64 noundef %cur_src_file_ofs.0181, ptr noundef nonnull %call66, i64 noundef %cond77) #31
+  %call82 = call i64 %24(ptr noundef %25, i64 noundef %cur_src_file_ofs.0181, ptr noundef nonnull %call66, i64 noundef %cond77) #30
   %cmp84.not = icmp eq i64 %call82, %cond77
   br i1 %cmp84.not, label %if.end88, label %if.then86
 
@@ -13210,13 +13210,13 @@ if.then86:                                        ; preds = %while.body
   %m_pFree = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %26 = load ptr, ptr %m_pFree, align 8
   %27 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %26(ptr noundef %27, ptr noundef nonnull %call66) #31
+  call void %26(ptr noundef %27, ptr noundef nonnull %call66) #30
   br label %return
 
 if.end88:                                         ; preds = %while.body
   %28 = load ptr, ptr %m_pWrite, align 8
   %29 = load ptr, ptr %m_pIO_opaque37, align 8
-  %call94 = call i64 %28(ptr noundef %29, i64 noundef %cur_dst_file_ofs.0182, ptr noundef nonnull %call66, i64 noundef %cond77) #31
+  %call94 = call i64 %28(ptr noundef %29, i64 noundef %cur_dst_file_ofs.0182, ptr noundef nonnull %call66, i64 noundef %cond77) #30
   %cmp96.not = icmp eq i64 %call94, %cond77
   br i1 %cmp96.not, label %if.end101, label %if.then98
 
@@ -13224,7 +13224,7 @@ if.then98:                                        ; preds = %if.end88
   %m_pFree99 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %30 = load ptr, ptr %m_pFree99, align 8
   %31 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %30(ptr noundef %31, ptr noundef nonnull %call66) #31
+  call void %30(ptr noundef %31, ptr noundef nonnull %call66) #30
   br label %return
 
 if.end101:                                        ; preds = %if.end88
@@ -13246,7 +13246,7 @@ while.end:                                        ; preds = %if.end101, %while.c
 if.then108:                                       ; preds = %while.end
   %34 = load ptr, ptr %m_pRead, align 8
   %35 = load ptr, ptr %m_pIO_opaque, align 8
-  %call111 = call i64 %34(ptr noundef %35, i64 noundef %cur_src_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef 16) #31
+  %call111 = call i64 %34(ptr noundef %35, i64 noundef %cur_src_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef 16) #30
   %cmp112.not = icmp eq i64 %call111, 16
   br i1 %cmp112.not, label %if.end117, label %if.then114
 
@@ -13254,7 +13254,7 @@ if.then114:                                       ; preds = %if.then108
   %m_pFree115 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %36 = load ptr, ptr %m_pFree115, align 8
   %37 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %36(ptr noundef %37, ptr noundef nonnull %call66) #31
+  call void %36(ptr noundef %37, ptr noundef nonnull %call66) #30
   br label %return
 
 if.end117:                                        ; preds = %if.then108
@@ -13265,7 +13265,7 @@ if.end117:                                        ; preds = %if.then108
   %39 = load ptr, ptr %m_pWrite, align 8
   %40 = load ptr, ptr %m_pIO_opaque37, align 8
   %conv125 = zext nneg i32 %conv122 to i64
-  %call126 = call i64 %39(ptr noundef %40, i64 noundef %cur_dst_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef %conv125) #31
+  %call126 = call i64 %39(ptr noundef %40, i64 noundef %cur_dst_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef %conv125) #30
   %cmp128.not = icmp eq i64 %call126, %conv125
   br i1 %cmp128.not, label %if.end133, label %if.then130
 
@@ -13273,7 +13273,7 @@ if.then130:                                       ; preds = %if.end117
   %m_pFree131 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %41 = load ptr, ptr %m_pFree131, align 8
   %42 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %41(ptr noundef %42, ptr noundef nonnull %call66) #31
+  call void %41(ptr noundef %42, ptr noundef nonnull %call66) #30
   br label %return
 
 if.end133:                                        ; preds = %if.end117
@@ -13285,7 +13285,7 @@ if.end136:                                        ; preds = %if.end133, %while.e
   %m_pFree137 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 8
   %43 = load ptr, ptr %m_pFree137, align 8
   %44 = load ptr, ptr %m_pAlloc_opaque, align 8
-  call void %43(ptr noundef %44, ptr noundef nonnull %call66) #31
+  call void %43(ptr noundef %44, ptr noundef nonnull %call66) #30
   %cmp139 = icmp ugt i64 %cur_dst_file_ofs.1, 4294967295
   br i1 %cmp139, label %return, label %if.end142
 
@@ -13380,7 +13380,7 @@ if.end.i147:                                      ; preds = %if.then166
   %59 = load ptr, ptr %0, align 8
   %60 = load i32, ptr %m_element_size.i234, align 8
   %conv.i149 = zext i32 %60 to i64
-  %call.i150 = call ptr %57(ptr noundef %58, ptr noundef %59, i64 noundef %conv.i149, i64 noundef %45) #31
+  %call.i150 = call ptr %57(ptr noundef %58, ptr noundef %59, i64 noundef %conv.i149, i64 noundef %45) #30
   %cmp7.i = icmp eq ptr %call.i150, null
   br i1 %cmp7.i, label %return, label %mz_zip_array_ensure_capacity.exit
 
@@ -13442,7 +13442,7 @@ if.end.i154:                                      ; preds = %if.then179
   %70 = load ptr, ptr %0, align 8
   %71 = load i32, ptr %m_element_size.i234, align 8
   %conv.i158 = zext i32 %71 to i64
-  %call.i159 = call ptr %68(ptr noundef %69, ptr noundef %70, i64 noundef %conv.i158, i64 noundef %45) #31
+  %call.i159 = call ptr %68(ptr noundef %69, ptr noundef %70, i64 noundef %conv.i158, i64 noundef %45) #30
   %cmp7.i160 = icmp eq ptr %call.i159, null
   br i1 %cmp7.i160, label %return, label %mz_zip_array_ensure_capacity.exit162
 
@@ -13461,7 +13461,7 @@ return:                                           ; preds = %if.end.i154, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_finalize_archive(ptr noundef %pZip) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %pZip) local_unnamed_addr #4 {
 entry:
   %hdr = alloca [22 x i8], align 16
   %tobool.not = icmp eq ptr %pZip, null
@@ -13506,7 +13506,7 @@ if.then12:                                        ; preds = %if.end9
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %7 = load ptr, ptr %m_pIO_opaque, align 8
   %8 = load ptr, ptr %0, align 8
-  %call = tail call i64 %6(ptr noundef %7, i64 noundef %3, ptr noundef %8, i64 noundef %4) #31
+  %call = tail call i64 %6(ptr noundef %7, i64 noundef %3, ptr noundef %8, i64 noundef %4) #30
   %cmp17.not = icmp eq i64 %call, %4
   br i1 %cmp17.not, label %if.end19, label %return
 
@@ -13571,7 +13571,7 @@ if.end22:                                         ; preds = %if.end19, %if.end9
   %15 = load ptr, ptr %m_pWrite36, align 8
   %m_pIO_opaque37 = getelementptr inbounds %struct.mz_zip_archive, ptr %pZip, i64 0, i32 14
   %16 = load ptr, ptr %m_pIO_opaque37, align 8
-  %call40 = call i64 %15(ptr noundef %16, i64 noundef %12, ptr noundef nonnull %hdr, i64 noundef 22) #31
+  %call40 = call i64 %15(ptr noundef %16, i64 noundef %12, ptr noundef nonnull %hdr, i64 noundef 22) #30
   %cmp41.not = icmp eq i64 %call40, 22
   br i1 %cmp41.not, label %if.end44, label %return
 
@@ -13599,10 +13599,10 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_writer_finalize_heap_archive(ptr noundef %pZip, ptr noundef writeonly %pBuf, ptr noundef writeonly %pSize) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_writer_finalize_heap_archive(ptr noundef %pZip, ptr noundef writeonly %pBuf, ptr noundef writeonly %pSize) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %pZip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -13654,7 +13654,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %pZip_filename, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
+define hidden noundef i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %pZip_filename, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %file_stat = alloca %struct.stat, align 8
@@ -13701,7 +13701,7 @@ if.end9.i:                                        ; preds = %while.cond.i
   br label %while.cond.i, !llvm.loop !109
 
 if.end16:                                         ; preds = %while.cond.i
-  %call17 = call i32 @stat(ptr noundef nonnull %pZip_filename, ptr noundef nonnull %file_stat) #31
+  %call17 = call i32 @stat(ptr noundef nonnull %pZip_filename, ptr noundef nonnull %file_stat) #30
   %cmp18.not = icmp ne i32 %call17, 0
   br i1 %cmp18.not, label %if.then20, label %if.else
 
@@ -13757,19 +13757,19 @@ if.end.i:                                         ; preds = %lor.lhs.false6.i
   %m_pAlloc_opaque.i34.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 10
   %7 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %8 = load ptr, ptr %2, align 8
-  call void %4(ptr noundef %7, ptr noundef %8) #31
+  call void %4(ptr noundef %7, ptr noundef %8) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %2, i64 0, i32 1
   %9 = load ptr, ptr %m_pFree.i, align 8
   %10 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %11 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  call void %9(ptr noundef %10, ptr noundef %11) #31
+  call void %9(ptr noundef %10, ptr noundef %11) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %2, i64 0, i32 2
   %12 = load ptr, ptr %m_pFree.i, align 8
   %13 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %14 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  call void %12(ptr noundef %13, ptr noundef %14) #31
+  call void %12(ptr noundef %13, ptr noundef %14) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %2, i64 0, i32 6
   %15 = load ptr, ptr %m_pFile.i, align 8
@@ -13796,14 +13796,14 @@ land.lhs.true17.i:                                ; preds = %if.end15.i
 if.then19.i:                                      ; preds = %land.lhs.true17.i
   %18 = load ptr, ptr %m_pFree.i, align 8
   %19 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
-  call void %18(ptr noundef %19, ptr noundef nonnull %17) #31
+  call void %18(ptr noundef %19, ptr noundef nonnull %17) #30
   store ptr null, ptr %m_pMem.i, align 8
   br label %mz_zip_writer_end.exit
 
 mz_zip_writer_end.exit:                           ; preds = %if.end15.i, %land.lhs.true17.i, %if.then19.i
   %20 = load ptr, ptr %m_pFree.i, align 8
   %21 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
-  call void %20(ptr noundef %21, ptr noundef nonnull %2) #31
+  call void %20(ptr noundef %21, ptr noundef nonnull %2) #30
   store i32 0, ptr %m_zip_mode.i, align 4
   br label %22
 
@@ -13814,7 +13814,7 @@ mz_zip_writer_end.exit:                           ; preds = %if.end15.i, %land.l
   br i1 %or.cond3, label %if.then47, label %return
 
 if.then47:                                        ; preds = %22
-  %call48 = call i32 @remove(ptr noundef nonnull %pZip_filename) #31
+  %call48 = call i32 @remove(ptr noundef nonnull %pZip_filename) #30
   br label %return
 
 return:                                           ; preds = %while.cond.i, %while.cond.i, %if.end13, %22, %if.then47, %if.else, %if.then20, %entry, %lor.lhs.false2, %lor.lhs.false5, %if.then31
@@ -13823,10 +13823,10 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mz_zip_extract_archive_file_to_heap(ptr noundef readonly %pZip_filename, ptr noundef %pArchive_name, ptr noundef writeonly %pSize, i32 noundef %flags) local_unnamed_addr #4 {
@@ -13907,7 +13907,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %8 = load ptr, ptr %m_pAlloc.i, align 8
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 10
   %9 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call7.i = call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond.i) #31
+  %call7.i = call ptr %8(ptr noundef %9, i64 noundef 1, i64 noundef %cond.i) #30
   %cmp.i = icmp eq ptr %call7.i, null
   br i1 %cmp.i, label %if.end11, label %if.end10.i
 
@@ -13920,7 +13920,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   %m_pFree.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 8
   %10 = load ptr, ptr %m_pFree.i, align 8
   %11 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  call void %10(ptr noundef %11, ptr noundef nonnull %call7.i) #31
+  call void %10(ptr noundef %11, ptr noundef nonnull %call7.i) #30
   br label %if.end11
 
 if.end15.i:                                       ; preds = %if.end10.i
@@ -13956,19 +13956,19 @@ if.end.i11:                                       ; preds = %lor.lhs.false4.i
   %m_pAlloc_opaque.i23.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 10
   %16 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %17 = load ptr, ptr %12, align 8
-  call void %14(ptr noundef %16, ptr noundef %17) #31
+  call void %14(ptr noundef %16, ptr noundef %17) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 1
   %18 = load ptr, ptr %m_pFree.i9, align 8
   %19 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %20 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  call void %18(ptr noundef %19, ptr noundef %20) #31
+  call void %18(ptr noundef %19, ptr noundef %20) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 2
   %21 = load ptr, ptr %m_pFree.i9, align 8
   %22 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %23 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  call void %21(ptr noundef %22, ptr noundef %23) #31
+  call void %21(ptr noundef %22, ptr noundef %23) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %12, i64 0, i32 6
   %24 = load ptr, ptr %m_pFile.i, align 8
@@ -13983,7 +13983,7 @@ if.then10.i:                                      ; preds = %if.end.i11
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i11
   %25 = load ptr, ptr %m_pFree.i9, align 8
   %26 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
-  call void %25(ptr noundef %26, ptr noundef nonnull %12) #31
+  call void %25(ptr noundef %26, ptr noundef nonnull %12) #30
   br label %return
 
 return:                                           ; preds = %if.end13.i, %lor.lhs.false4.i, %if.end11, %if.end4, %if.end
@@ -14010,7 +14010,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zip_open(ptr noundef %zipname, i32 noundef %level, i8 noundef signext %mode) local_unnamed_addr #4 {
+define hidden noundef ptr @zip_open(ptr noundef %zipname, i32 noundef %level, i8 noundef signext %mode) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %zipname, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -14028,19 +14028,18 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call noalias dereferenceable_or_null(319608) ptr @calloc(i64 noundef 1, i64 noundef 319608) #35
+  %call7 = tail call noalias dereferenceable_or_null(319608) ptr @calloc(i64 noundef 1, i64 noundef 319608) #34
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
   %level11 = getelementptr inbounds %struct.zip_t, ptr %call7, i64 0, i32 1
   store i32 %spec.store.select, ptr %level11, align 8
-  %conv = sext i8 %mode to i32
-  switch i32 %conv, label %if.then38 [
-    i32 119, label %sw.bb
-    i32 114, label %sw.bb16
-    i32 97, label %sw.bb16
-    i32 100, label %sw.bb16
+  switch i8 %mode, label %if.then38 [
+    i8 119, label %sw.bb
+    i8 114, label %sw.bb16
+    i8 97, label %sw.bb16
+    i8 100, label %sw.bb16
   ]
 
 sw.bb:                                            ; preds = %if.end10
@@ -14100,7 +14099,7 @@ if.end17.i:                                       ; preds = %if.then11.i
   %m_pWrite.i = getelementptr inbounds %struct.mz_zip_archive, ptr %call7, i64 0, i32 12
   store ptr @mz_zip_file_write_func, ptr %m_pWrite.i, align 8
   %7 = load ptr, ptr %m_pFile.i, align 8
-  %call.i = tail call ptr @freopen(ptr noundef nonnull %zipname, ptr noundef nonnull @.str.17, ptr noundef %7) #31
+  %call.i = tail call ptr @freopen(ptr noundef nonnull %zipname, ptr noundef nonnull @.str.17, ptr noundef %7) #30
   store ptr %call.i, ptr %m_pFile.i, align 8
   %cmp20.i = icmp eq ptr %call.i, null
   br i1 %cmp20.i, label %if.then21.i, label %mz_zip_writer_init_from_reader.exit
@@ -14149,7 +14148,7 @@ if.then33:                                        ; preds = %if.then21.i, %lor.l
   br label %if.then38
 
 if.then38:                                        ; preds = %if.end10, %sw.bb16, %sw.bb, %if.then33
-  tail call void @free(ptr noundef nonnull %call7) #31
+  tail call void @free(ptr noundef nonnull %call7) #30
   br label %return
 
 return:                                           ; preds = %entry, %if.end6, %if.end, %lor.lhs.false, %mz_zip_writer_init_from_reader.exit, %if.then38, %sw.bb, %if.end22
@@ -14158,7 +14157,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zip_close(ptr noundef %zip) local_unnamed_addr #4 {
@@ -14195,8 +14194,8 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %tobool3.not.i, label %lor.lhs.false.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %call.i = tail call i32 @fileno(ptr noundef nonnull %5) #31
-  %call6.i = tail call i32 @ftruncate(i32 noundef %call.i, i64 noundef %1) #31
+  %call.i = tail call i32 @fileno(ptr noundef nonnull %5) #30
+  %call6.i = tail call i32 @ftruncate(i32 noundef %call.i, i64 noundef %1) #30
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then4.i, %if.then2.i, %if.end.i, %land.lhs.true.i
@@ -14228,19 +14227,19 @@ if.end.i12:                                       ; preds = %lor.lhs.false6.i
   %m_pAlloc_opaque.i23.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 10
   %10 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %11 = load ptr, ptr %6, align 8
-  tail call void %8(ptr noundef %10, ptr noundef %11) #31
+  tail call void %8(ptr noundef %10, ptr noundef %11) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %6, i64 0, i32 1
   %12 = load ptr, ptr %m_pFree.i, align 8
   %13 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %14 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  tail call void %12(ptr noundef %13, ptr noundef %14) #31
+  tail call void %12(ptr noundef %13, ptr noundef %14) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %6, i64 0, i32 2
   %15 = load ptr, ptr %m_pFree.i, align 8
   %16 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %17 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  tail call void %15(ptr noundef %16, ptr noundef %17) #31
+  tail call void %15(ptr noundef %16, ptr noundef %17) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i13 = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %6, i64 0, i32 6
   %18 = load ptr, ptr %m_pFile.i13, align 8
@@ -14255,11 +14254,11 @@ if.then10.i:                                      ; preds = %if.end.i12
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i12
   %19 = load ptr, ptr %m_pFree.i, align 8
   %20 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
-  tail call void %19(ptr noundef %20, ptr noundef nonnull %6) #31
+  tail call void %19(ptr noundef %20, ptr noundef nonnull %6) #30
   br label %mz_zip_reader_end.exit
 
 mz_zip_reader_end.exit:                           ; preds = %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false4.i, %lor.lhs.false6.i, %if.end13.i
-  tail call void @free(ptr noundef nonnull %zip) #31
+  tail call void @free(ptr noundef nonnull %zip) #30
   br label %if.end9
 
 if.end9:                                          ; preds = %mz_zip_reader_end.exit, %entry
@@ -14267,7 +14266,7 @@ if.end9:                                          ; preds = %mz_zip_reader_end.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @zip_is64(ptr noundef readonly %zip) local_unnamed_addr #18 {
+define hidden i32 @zip_is64(ptr noundef readonly %zip) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -14289,7 +14288,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_open(ptr noundef %zip, ptr noundef readonly %entryname) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_open(ptr noundef %zip, ptr noundef readonly %entryname) local_unnamed_addr #4 {
 entry:
   %stats = alloca %struct.mz_zip_archive_file_stat, align 8
   %tobool.not = icmp eq ptr %zip, null
@@ -14300,7 +14299,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %entryname) #34
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %entryname) #33
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %return, label %if.end5
 
@@ -14312,13 +14311,13 @@ if.end5:                                          ; preds = %if.end3
   br i1 %tobool7.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %if.end5
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #30
   store ptr null, ptr %name, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %if.end5
   %add.i = add i64 %call, 1
-  %call.i = tail call noalias ptr @calloc(i64 noundef %add.i, i64 noundef 1) #35
+  %call.i = tail call noalias ptr @calloc(i64 noundef %add.i, i64 noundef 1) #34
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %zip_strrpl.exit.thread, label %land.rhs.i
 
@@ -14469,7 +14468,7 @@ if.end107:                                        ; preds = %if.end98
   %m_pIO_opaque = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 14
   %20 = load ptr, ptr %m_pIO_opaque, align 8
   %21 = load ptr, ptr %name, align 8
-  %call124 = tail call i64 %19(ptr noundef %20, i64 noundef %add119, ptr noundef %21, i64 noundef %call) #31
+  %call124 = tail call i64 %19(ptr noundef %20, i64 noundef %add119, ptr noundef %21, i64 noundef %call) #30
   %cmp125.not = icmp eq i64 %call124, %call
   br i1 %cmp125.not, label %if.end128, label %do.body157
 
@@ -14501,7 +14500,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %if.end128
   br label %if.end153
 
 if.end153:                                        ; preds = %tdefl_create_comp_flags_from_zip_params.exit, %if.end128
-  %call154 = tail call i64 @time(ptr noundef null) #31
+  %call154 = tail call i64 @time(ptr noundef null) #30
   %m_time156 = getelementptr inbounds %struct.zip_t, ptr %zip, i64 0, i32 2, i32 12
   store i64 %call154, ptr %m_time156, align 8
   br label %return
@@ -14513,7 +14512,7 @@ do.body157:                                       ; preds = %if.end107, %if.end9
   br i1 %tobool160.not, label %return, label %if.then161
 
 if.then161:                                       ; preds = %do.body157
-  call void @free(ptr noundef nonnull %25) #31
+  call void @free(ptr noundef nonnull %25) #30
   store ptr null, ptr %name, align 8
   br label %return
 
@@ -14523,7 +14522,7 @@ return:                                           ; preds = %zip_strrpl.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_openbyindex(ptr noundef %zip, i32 noundef %index) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_openbyindex(ptr noundef %zip, i32 noundef %index) local_unnamed_addr #4 {
 entry:
   %stats = alloca %struct.mz_zip_archive_file_stat, align 8
   %tobool.not = icmp eq ptr %zip, null
@@ -14570,14 +14569,14 @@ if.end13:                                         ; preds = %if.end6
   br i1 %tobool16.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end13
-  tail call void @free(ptr noundef nonnull %7) #31
+  tail call void @free(ptr noundef nonnull %7) #30
   store ptr null, ptr %name, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.end13
   %conv28 = zext i16 %6 to i64
   %add.i = add nuw nsw i64 %conv28, 1
-  %call.i = tail call noalias ptr @calloc(i64 noundef %add.i, i64 noundef 1) #35
+  %call.i = tail call noalias ptr @calloc(i64 noundef %add.i, i64 noundef 1) #34
   %tobool.not.i = icmp ne ptr %call.i, null
   %cmp6.i = icmp ne i16 %6, 0
   %or.cond.i = and i1 %cmp6.i, %tobool.not.i
@@ -14655,7 +14654,7 @@ return:                                           ; preds = %if.end35, %zip_strr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_close(ptr noundef %zip) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_close(ptr noundef %zip) local_unnamed_addr #4 {
 entry:
   %time.addr.i = alloca i64, align 8
   %in_buf_size.addr.i = alloca i64, align 8
@@ -14706,7 +14705,7 @@ if.end17:                                         ; preds = %if.end2.if.end17_cr
   %4 = phi i64 [ %.pre, %if.end2.if.end17_crit_edge ], [ %2, %if.end10 ]
   %name = getelementptr inbounds %struct.zip_t, ptr %zip, i64 0, i32 2, i32 1
   %5 = load ptr, ptr %name, align 8
-  %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #34
+  %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #33
   %conv = trunc i64 %call19 to i16
   %comp_size21 = getelementptr inbounds %struct.zip_t, ptr %zip, i64 0, i32 2, i32 3
   %cmp22 = icmp ugt i64 %4, 4294967295
@@ -14723,7 +14722,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %7 = load i64, ptr %m_time, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i)
   store i64 %7, ptr %time.addr.i, align 8
-  %call.i41 = call ptr @localtime(ptr noundef nonnull %time.addr.i) #31
+  %call.i41 = call ptr @localtime(ptr noundef nonnull %time.addr.i) #30
   %tm_hour.i = getelementptr inbounds %struct.tm, ptr %call.i41, i64 0, i32 2
   %8 = load i32, ptr %tm_hour.i, align 8
   %shl.i = shl i32 %8, 11
@@ -14848,7 +14847,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %23 = load ptr, ptr %m_pIO_opaque, align 8
   %header_offset = getelementptr inbounds %struct.zip_t, ptr %zip, i64 0, i32 2, i32 7
   %24 = load i64, ptr %header_offset, align 8
-  %call46 = call i64 %22(ptr noundef %23, i64 noundef %24, ptr noundef nonnull %header, i64 noundef 30) #31
+  %call46 = call i64 %22(ptr noundef %23, i64 noundef %24, ptr noundef nonnull %header, i64 noundef 30) #30
   %cmp47.not = icmp eq i64 %call46, 30
   br i1 %cmp47.not, label %if.end50, label %if.then71
 
@@ -14886,7 +14885,7 @@ if.then71:                                        ; preds = %if.end50, %if.end29
   br i1 %tobool76.not, label %if.end83, label %if.then77
 
 if.then77:                                        ; preds = %if.then71
-  call void @free(ptr noundef nonnull %34) #31
+  call void @free(ptr noundef nonnull %34) #30
   store ptr null, ptr %name75, align 8
   br label %if.end83
 
@@ -14896,7 +14895,7 @@ if.end83:                                         ; preds = %entry, %if.then77, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @zip_entry_name(ptr noundef readonly %zip) local_unnamed_addr #9 {
+define hidden ptr @zip_entry_name(ptr noundef readonly %zip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -14912,7 +14911,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @zip_entry_index(ptr noundef readonly %zip) local_unnamed_addr #9 {
+define hidden i32 @zip_entry_index(ptr noundef readonly %zip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -14928,7 +14927,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @zip_entry_isdir(ptr noundef readonly %zip) local_unnamed_addr #18 {
+define hidden i32 @zip_entry_isdir(ptr noundef readonly %zip) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -14997,7 +14996,7 @@ return:                                           ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @zip_entry_size(ptr noundef readonly %zip) local_unnamed_addr #9 {
+define hidden i64 @zip_entry_size(ptr noundef readonly %zip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -15013,7 +15012,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @zip_entry_crc32(ptr noundef readonly %zip) local_unnamed_addr #9 {
+define hidden i32 @zip_entry_crc32(ptr noundef readonly %zip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -15029,7 +15028,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_write(ptr noundef %zip, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_write(ptr noundef %zip, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i = alloca i64, align 8
   %tobool.not = icmp eq ptr %zip, null
@@ -15093,7 +15092,7 @@ if.then10:                                        ; preds = %mz_crc32.exit
   %8 = load ptr, ptr %m_pIO_opaque, align 8
   %offset = getelementptr inbounds %struct.zip_t, ptr %zip, i64 0, i32 2, i32 5
   %9 = load i64, ptr %offset, align 8
-  %call12 = tail call i64 %7(ptr noundef %8, i64 noundef %9, ptr noundef nonnull %buf, i64 noundef %bufsize) #31
+  %call12 = tail call i64 %7(ptr noundef %8, i64 noundef %9, ptr noundef nonnull %buf, i64 noundef %bufsize) #30
   %cmp13.not = icmp eq i64 %call12, %bufsize
   br i1 %cmp13.not, label %if.end16, label %return
 
@@ -15125,7 +15124,7 @@ return:                                           ; preds = %if.else, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_fwrite(ptr noundef %zip, ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_fwrite(ptr noundef %zip, ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
 entry:
   %buf = alloca [65536 x i8], align 16
   %file_stat = alloca %struct.stat, align 8
@@ -15135,7 +15134,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65536) %buf, i8 0, i64 65536, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %file_stat, i8 0, i64 144, i1 false)
-  %call = call i32 @stat(ptr noundef %filename, ptr noundef nonnull %file_stat) #31
+  %call = call i32 @stat(ptr noundef %filename, ptr noundef nonnull %file_stat) #30
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end2, label %return
 
@@ -15181,7 +15180,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @zip_entry_read(ptr noundef %zip, ptr nocapture noundef writeonly %buf, ptr noundef writeonly %bufsize) local_unnamed_addr #4 {
+define hidden noundef i64 @zip_entry_read(ptr noundef %zip, ptr nocapture noundef writeonly %buf, ptr noundef writeonly %bufsize) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15270,7 +15269,7 @@ if.end3.i:                                        ; preds = %mz_zip_reader_get_c
   %16 = load ptr, ptr %m_pAlloc.i, align 8
   %m_pAlloc_opaque.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 10
   %17 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  %call7.i = tail call ptr %16(ptr noundef %17, i64 noundef 1, i64 noundef %cond.i) #31
+  %call7.i = tail call ptr %16(ptr noundef %17, i64 noundef 1, i64 noundef %cond.i) #30
   %cmp.i21 = icmp eq ptr %call7.i, null
   br i1 %cmp.i21, label %mz_zip_reader_extract_to_heap.exit.thread, label %if.end10.i22
 
@@ -15283,7 +15282,7 @@ if.then13.i:                                      ; preds = %if.end10.i22
   %m_pFree.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 8
   %18 = load ptr, ptr %m_pFree.i, align 8
   %19 = load ptr, ptr %m_pAlloc_opaque.i, align 8
-  tail call void %18(ptr noundef %19, ptr noundef nonnull %call7.i) #31
+  tail call void %18(ptr noundef %19, ptr noundef nonnull %call7.i) #30
   br label %mz_zip_reader_extract_to_heap.exit.thread
 
 mz_zip_reader_extract_to_heap.exit.thread:        ; preds = %lor.lhs.false.i.i, %if.then13.i, %mz_zip_reader_get_cdh.exit.i16, %if.end3.i, %lor.lhs.false2.i.i13
@@ -15338,7 +15337,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_entry_fread(ptr noundef %zip, ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_entry_fread(ptr noundef %zip, ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.utimbuf, align 8
   %file_stat.i = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -15435,7 +15434,7 @@ if.end13:                                         ; preds = %if.end4.i
   store i64 %11, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds %struct.utimbuf, ptr %t.i.i, i64 0, i32 1
   store i64 %11, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef %filename, ptr noundef nonnull %t.i.i) #31
+  %call.i.i = call i32 @utime(ptr noundef %filename, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
   %call14 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %info), !range !10
@@ -15450,7 +15449,7 @@ if.end17:                                         ; preds = %if.end13
 
 if.then19:                                        ; preds = %if.end17
   %shr = lshr i32 %12, 16
-  %call20 = call i32 @chmod(ptr noundef %filename, i32 noundef %shr) #31
+  %call20 = call i32 @chmod(ptr noundef %filename, i32 noundef %shr) #30
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %return, label %if.end24
 
@@ -15463,7 +15462,7 @@ return:                                           ; preds = %if.then2.i, %mz_zip
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #16
+declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zip_entry_extract(ptr noundef %zip, ptr nocapture noundef readonly %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
@@ -15495,7 +15494,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @zip_entries_total(ptr noundef readonly %zip) local_unnamed_addr #9 {
+define hidden i32 @zip_entries_total(ptr noundef readonly %zip) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15532,7 +15531,7 @@ zip_entries_total.exit:                           ; preds = %if.end
   %m_total_files.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 2
   %0 = load i32, ptr %m_total_files.i, align 8
   %conv = sext i32 %0 to i64
-  %call8 = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 24) #35
+  %call8 = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 24) #34
   %tobool.not = icmp eq ptr %call8, null
   br i1 %tobool.not, label %return, label %if.end10
 
@@ -15570,11 +15569,11 @@ for.body10.us.i.i:                                ; preds = %for.cond7.preheader
   %indvars.iv55.i.i = phi i64 [ 0, %for.cond7.preheader.us.i.i ], [ %indvars.iv.next56.i.i, %for.inc.us.i.i ]
   %arrayidx.us.i.i = getelementptr inbounds ptr, ptr %entries, i64 %indvars.iv55.i.i
   %2 = load ptr, ptr %arrayidx.us.i.i, align 8
-  %call.i.us.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #34
+  %call.i.us.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
   %sext.i.us.i.i = shl i64 %call.i.us.i.i, 32
   %conv1.i.us.i.i = ashr exact i64 %sext.i.us.i.i, 32
   %add.i.i.us.i.i = add nsw i64 %conv1.i.us.i.i, 1
-  %call.i.i.us.i.i = call noalias ptr @calloc(i64 noundef %add.i.i.us.i.i, i64 noundef 1) #35
+  %call.i.i.us.i.i = call noalias ptr @calloc(i64 noundef %add.i.i.us.i.i, i64 noundef 1) #34
   %tobool.not.i.i.us.i.i = icmp ne ptr %call.i.i.us.i.i, null
   %cmp6.i.i.us.i.i = icmp ne i64 %sext.i.us.i.i, 0
   %or.cond.i.i.us.i.i = and i1 %tobool.not.i.i.us.i.i, %cmp6.i.i.us.i.i
@@ -15607,9 +15606,9 @@ zip_strrpl.exit.i.us.i.i:                         ; preds = %if.end7.i.i.us.i.i,
   br i1 %tobool.not.i.us.i.i, label %for.inc.us.i.i, label %zip_name_match.exit.us.i.i
 
 zip_name_match.exit.us.i.i:                       ; preds = %zip_strrpl.exit.i.us.i.i
-  %call3.i.us.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %call.i.i.us.i.i) #34
+  %call3.i.us.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %call.i.i.us.i.i) #33
   %cmp.i.not.us.i.i = icmp eq i32 %call3.i.us.i.i, 0
-  call void @free(ptr noundef nonnull %call.i.i.us.i.i) #31
+  call void @free(ptr noundef nonnull %call.i.i.us.i.i) #30
   br i1 %cmp.i.not.us.i.i, label %if.end23.us.i.i, label %for.inc.us.i.i
 
 if.end23.us.i.i:                                  ; preds = %for.inc.us.i.i, %zip_name_match.exit.us.i.i
@@ -15705,13 +15704,13 @@ zip_entry_mark.exit.thread.i:                     ; preds = %for.cond7.preheader
 
 if.end.i21:                                       ; preds = %for.inc75.i.i
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
-  %call.i6.i = call noalias ptr @calloc(i64 noundef %wide.trip.count63.i.i, i64 noundef 8) #35
+  %call.i6.i = call noalias ptr @calloc(i64 noundef %wide.trip.count63.i.i, i64 noundef 8) #34
   %tobool.not.i.i = icmp eq ptr %call.i6.i, null
   br i1 %tobool.not.i.i, label %if.then16, label %for.body.i10.i
 
 if.end.thread.i:                                  ; preds = %for.cond.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
-  %call.i632.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #35
+  %call.i632.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #34
   %tobool.not.i33.i = icmp eq ptr %call.i632.i, null
   br i1 %tobool.not.i33.i, label %if.then16, label %for.end.i.i
 
@@ -15795,12 +15794,12 @@ if.end9.i.i:                                      ; preds = %zip_index_update.ex
 for.end.i.i:                                      ; preds = %if.end9.i.i, %if.end.thread.i
   %conv.i53439.i = phi i64 [ %conv, %if.end.thread.i ], [ %wide.trip.count63.i.i, %if.end9.i.i ]
   %call.i63538.i = phi ptr [ %call.i632.i, %if.end.thread.i ], [ %call.i6.i, %if.end9.i.i ]
-  %call13.i.i = call noalias ptr @calloc(i64 noundef %conv.i53439.i, i64 noundef 8) #35
+  %call13.i.i = call noalias ptr @calloc(i64 noundef %conv.i53439.i, i64 noundef 8) #34
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %zip_entry_finalize.exit.thread20.i, label %for.cond21.preheader.i.i
 
 zip_entry_finalize.exit.thread20.i:               ; preds = %for.end.i.i
-  call void @free(ptr noundef %call.i63538.i) #31
+  call void @free(ptr noundef %call.i63538.i) #30
   br label %if.then16
 
 for.cond21.preheader.i.i:                         ; preds = %for.end.i.i
@@ -15854,13 +15853,13 @@ for.body46.i.i:                                   ; preds = %for.body46.i.i, %fo
 
 if.then16:                                        ; preds = %zip_entry_mark.exit.thread.i, %zip_entry_finalize.exit.thread20.i, %if.end.i21, %if.end.thread.i
   %retval.0.i20.ph = phi i32 [ -21, %if.end.thread.i ], [ -21, %if.end.i21 ], [ -21, %zip_entry_finalize.exit.thread20.i ], [ %retval.0.i.ph.i, %zip_entry_mark.exit.thread.i ]
-  call void @free(ptr noundef nonnull %call8) #31
+  call void @free(ptr noundef nonnull %call8) #30
   br label %return
 
 if.end18:                                         ; preds = %for.body46.i.i, %for.end34.i.i
-  call void @free(ptr noundef nonnull %call13.i.i) #31
-  call void @free(ptr noundef %call.i63538.i) #31
-  %call.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 4) #35
+  call void @free(ptr noundef nonnull %call13.i.i) #30
+  call void @free(ptr noundef %call.i63538.i) #30
+  %call.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 4) #34
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %zip_entries_delete_mark.exit, label %if.end.i22
 
@@ -15882,7 +15881,7 @@ while.cond11.preheader.lr.ph.i:                   ; preds = %while.cond.preheade
   br label %while.cond11.preheader.i
 
 if.then6.i:                                       ; preds = %if.end.i22
-  call void @free(ptr noundef nonnull %call.i) #31
+  call void @free(ptr noundef nonnull %call.i) #30
   br label %zip_entries_delete_mark.exit
 
 while.cond11.preheader.i:                         ; preds = %if.end87.i, %while.cond11.preheader.lr.ph.i
@@ -15983,7 +15982,7 @@ while.body53.i:                                   ; preds = %if.end70.i, %while.
   br i1 %tobool63.not.i, label %if.then67.i, label %if.end70.i
 
 if.then67.i:                                      ; preds = %while.body53.i
-  call void @free(ptr noundef %call.i) #31
+  call void @free(ptr noundef %call.i) #30
   br label %zip_entries_delete_mark.exit
 
 if.end70.i:                                       ; preds = %while.body53.i
@@ -16028,7 +16027,7 @@ while.end74.i:                                    ; preds = %while.end74.loopexi
   %move_length.1.lcssa.i = phi i64 [ %move_length.0100.i, %while.cond43.preheader.i ], [ %add57.i, %while.end74.loopexit.i ]
   %i.3.lcssa.i = phi i32 [ %i.2.lcssa.i, %while.cond43.preheader.i ], [ %47, %while.end74.loopexit.i ]
   %48 = load ptr, ptr %m_pFile.i, align 8
-  %call.i.i26 = call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 1, i64 noundef 4096) #35
+  %call.i.i26 = call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 1, i64 noundef 4096) #34
   %cmp.i.i = icmp eq ptr %call.i.i26, null
   br i1 %cmp.i.i, label %zip_files_move.exit.i, label %while.cond.preheader.i.i
 
@@ -16086,7 +16085,7 @@ if.end13.i.i:                                     ; preds = %if.end8.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i, %if.end8.i.i, %zip_file_move.exit.i.i, %while.cond.preheader.i.i
   %moved_length.1.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %retval.0.i.i.i, %zip_file_move.exit.i.i ], [ %add15.i.i, %if.end13.i.i ], [ %moved_length.022.i.i, %if.end8.i.i ]
-  call void @free(ptr noundef %call.i.i26) #31
+  call void @free(ptr noundef %call.i.i26) #30
   br label %zip_files_move.exit.i
 
 zip_files_move.exit.i:                            ; preds = %if.then16.i.i, %while.end74.i
@@ -16098,7 +16097,7 @@ zip_files_move.exit.i:                            ; preds = %if.then16.i.i, %whi
 
 if.then84.i:                                      ; preds = %zip_files_move.exit.i
   %conv77.i = trunc i64 %retval.0.i.i to i32
-  call void @free(ptr noundef %call.i) #31
+  call void @free(ptr noundef %call.i) #30
   br label %zip_entries_delete_mark.exit
 
 if.end87.i:                                       ; preds = %zip_files_move.exit.i
@@ -16116,12 +16115,12 @@ while.end90.i:                                    ; preds = %if.end87.i, %while.
   %sub93.i = sub nsw i32 %0, %deleted_entry_num.0.lcssa.i
   store i32 %sub93.i, ptr %m_total_files.i, align 8
   call fastcc void @zip_central_dir_delete(ptr noundef %25, ptr noundef nonnull %call.i, i32 noundef %0)
-  call void @free(ptr noundef %call.i) #31
+  call void @free(ptr noundef %call.i) #30
   br label %zip_entries_delete_mark.exit
 
 zip_entries_delete_mark.exit:                     ; preds = %if.end18, %if.then6.i, %if.then67.i, %if.then84.i, %while.end90.i
   %retval.0.i24 = phi i32 [ -3, %if.then6.i ], [ -3, %if.then67.i ], [ %conv77.i, %if.then84.i ], [ %deleted_entry_num.0.lcssa.i, %while.end90.i ], [ -21, %if.end18 ]
-  call void @free(ptr noundef %call8) #31
+  call void @free(ptr noundef %call8) #30
   br label %return
 
 return:                                           ; preds = %zip_entries_total.exit, %if.end, %entry, %lor.lhs.false, %zip_entries_delete_mark.exit, %if.then16
@@ -16130,7 +16129,7 @@ return:                                           ; preds = %zip_entries_total.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_stream_extract(ptr noundef %stream, i64 noundef %size, ptr noundef readonly %dir, ptr noundef %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_stream_extract(ptr noundef %stream, i64 noundef %size, ptr noundef readonly %dir, ptr noundef %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %tobool = icmp ne ptr %stream, null
@@ -16154,7 +16153,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zip_archive_extract(ptr noundef %zip_archive, ptr nocapture noundef readonly %dir, ptr noundef readonly %on_extract, ptr noundef %arg) unnamed_addr #4 {
+define internal fastcc noundef i32 @zip_archive_extract(ptr noundef %zip_archive, ptr nocapture noundef readonly %dir, ptr noundef readonly %on_extract, ptr noundef %arg) unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.utimbuf, align 8
   %file_stat.i = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -16164,14 +16163,14 @@ entry:
   %info = alloca %struct.mz_zip_archive_file_stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32768) %path, i8 0, i64 32768, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32768) %symlink_to, i8 0, i64 32768, i1 false)
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #34
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #33
   %add = add i64 %call, 1
   %cmp = icmp ugt i64 %add, 32767
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %info, i8 0, i64 584, i1 false)
-  %call3 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %dir) #31
+  %call3 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %dir) #30
   %sub = add nsw i64 %call, -1
   %arrayidx = getelementptr inbounds [32768 x i8], ptr %path, i64 0, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
@@ -16215,7 +16214,7 @@ for.body.lr.ph:                                   ; preds = %mz_zip_reader_get_n
 
 if.end19:                                         ; preds = %for.body.lr.ph, %for.body.backedge
   %i.05673 = phi i32 [ %i.056.be, %for.body.backedge ], [ 0, %for.body.lr.ph ]
-  %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %m_filename) #34
+  %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %m_filename) #33
   %cmp3.i = icmp eq i64 %call25, 0
   br i1 %cmp3.i, label %out, label %while.cond.i
 
@@ -16248,12 +16247,12 @@ if.then19.i:                                      ; preds = %for.body.i, %for.bo
 
 land.lhs.true.i:                                  ; preds = %if.then19.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %m_filename, i64 %offnn.036.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx22.i, ptr noundef nonnull dereferenceable(2) @.str.44) #34
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx22.i, ptr noundef nonnull dereferenceable(2) @.str.44) #33
   %tobool.not.i21 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i21, label %for.inc.i, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %land.lhs.true.i
-  %call25.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx22.i, ptr noundef nonnull dereferenceable(3) @.str.45) #34
+  %call25.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx22.i, ptr noundef nonnull dereferenceable(3) @.str.45) #33
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %for.inc.i, label %if.then27.i
 
@@ -16284,12 +16283,12 @@ for.end.i:                                        ; preds = %for.inc.i
 
 lor.lhs.false39.i:                                ; preds = %for.end.i
   %arrayidx40.i = getelementptr inbounds i8, ptr %m_filename, i64 %offnn.2.i
-  %call41.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx40.i, ptr noundef nonnull dereferenceable(2) @.str.44) #34
+  %call41.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx40.i, ptr noundef nonnull dereferenceable(2) @.str.44) #33
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %if.then47.i, label %lor.lhs.false43.i
 
 lor.lhs.false43.i:                                ; preds = %lor.lhs.false39.i
-  %call45.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx40.i, ptr noundef nonnull dereferenceable(3) @.str.45) #34
+  %call45.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx40.i, ptr noundef nonnull dereferenceable(3) @.str.45) #33
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %if.then47.i, label %if.end29
 
@@ -16299,7 +16298,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false43.i, 
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then47.i, %lor.lhs.false43.i
-  %call34 = call ptr @strncpy(ptr noundef nonnull %arrayidx30, ptr noundef nonnull %m_filename, i64 noundef %sub33) #31
+  %call34 = call ptr @strncpy(ptr noundef nonnull %arrayidx30, ptr noundef nonnull %m_filename, i64 noundef %sub33) #30
   call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %npath.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32768) %npath.i, i8 0, i64 32768, i1 false)
   %5 = load i8, ptr %path, align 16
@@ -16328,12 +16327,12 @@ if.then25.i:                                      ; preds = %if.then21.i
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then25.i, %if.then21.i
-  %call.i24 = call i32 @mkdir(ptr noundef nonnull %npath.i, i32 noundef 493) #31
+  %call.i24 = call i32 @mkdir(ptr noundef nonnull %npath.i, i32 noundef 493) #30
   %cmp28.i = icmp eq i32 %call.i24, -1
   br i1 %cmp28.i, label %if.then30.i, label %if.end37.i
 
 if.then30.i:                                      ; preds = %if.end26.i
-  %call31.i = tail call ptr @__errno_location() #36
+  %call31.i = tail call ptr @__errno_location() #35
   %7 = load i32, ptr %call31.i, align 4
   %cmp32.not.i = icmp eq i32 %7, 17
   br i1 %cmp32.not.i, label %if.end37.i, label %zip_mkpath.exit
@@ -16384,7 +16383,7 @@ if.end59:                                         ; preds = %lor.lhs.false54
   %15 = load i64, ptr %m_uncomp_size, align 8
   %arrayidx61 = getelementptr inbounds [32768 x i8], ptr %symlink_to, i64 0, i64 %15
   store i8 0, ptr %arrayidx61, align 1
-  %call64 = call i32 @symlink(ptr noundef nonnull %symlink_to, ptr noundef nonnull %path) #31
+  %call64 = call i32 @symlink(ptr noundef nonnull %symlink_to, ptr noundef nonnull %path) #30
   %cmp65.not = icmp eq i32 %call64, 0
   br i1 %cmp65.not, label %if.end91, label %out
 
@@ -16468,7 +16467,7 @@ mz_zip_reader_extract_to_file.exit:               ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
   store i64 %26, ptr %t.i.i, align 8
   store i64 %26, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef nonnull %path, ptr noundef nonnull %t.i.i) #31
+  %call.i.i = call i32 @utime(ptr noundef nonnull %path, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
   br label %if.end77
@@ -16480,7 +16479,7 @@ if.end77:                                         ; preds = %if.then2.i, %mz_zip
 
 if.then83:                                        ; preds = %if.end77
   %shr79 = lshr i32 %27, 16
-  %call85 = call i32 @chmod(ptr noundef nonnull %path, i32 noundef %shr79) #31
+  %call85 = call i32 @chmod(ptr noundef nonnull %path, i32 noundef %shr79) #30
   %cmp86 = icmp slt i32 %call85, 0
   br i1 %cmp86, label %out, label %if.end91
 
@@ -16488,7 +16487,7 @@ if.end91:                                         ; preds = %if.end77, %if.then8
   br i1 %tobool92.not, label %for.inc, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  %call95 = call i32 %on_extract(ptr noundef nonnull %path, ptr noundef %arg) #31
+  %call95 = call i32 %on_extract(ptr noundef nonnull %path, ptr noundef %arg) #30
   %cmp96 = icmp sgt i32 %call95, -1
   %inc101 = add i32 %i.05673, 1
   %cmp15 = icmp ult i32 %inc101, %1
@@ -16540,19 +16539,19 @@ if.end.i38:                                       ; preds = %lor.lhs.false6.i
   %m_pAlloc_opaque.i23.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 10
   %32 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %33 = load ptr, ptr %28, align 8
-  call void %30(ptr noundef %32, ptr noundef %33) #31
+  call void %30(ptr noundef %32, ptr noundef %33) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %28, i64 0, i32 1
   %34 = load ptr, ptr %m_pFree.i, align 8
   %35 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %36 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  call void %34(ptr noundef %35, ptr noundef %36) #31
+  call void %34(ptr noundef %35, ptr noundef %36) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %28, i64 0, i32 2
   %37 = load ptr, ptr %m_pFree.i, align 8
   %38 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %39 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  call void %37(ptr noundef %38, ptr noundef %39) #31
+  call void %37(ptr noundef %38, ptr noundef %39) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %28, i64 0, i32 6
   %40 = load ptr, ptr %m_pFile.i, align 8
@@ -16567,7 +16566,7 @@ if.then10.i40:                                    ; preds = %if.end.i38
 mz_zip_reader_end.exit:                           ; preds = %if.end.i38, %if.then10.i40
   %41 = load ptr, ptr %m_pFree.i, align 8
   %42 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
-  call void %41(ptr noundef %42, ptr noundef nonnull %28) #31
+  call void %41(ptr noundef %42, ptr noundef nonnull %28) #30
   store i32 0, ptr %m_zip_mode.i, align 4
   br label %return
 
@@ -16577,9 +16576,9 @@ return:                                           ; preds = %if.end13, %mz_zip_r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zip_stream_open(ptr noundef %stream, i64 noundef %size, i32 noundef %level, i8 noundef signext %mode) local_unnamed_addr #4 {
+define hidden noundef ptr @zip_stream_open(ptr noundef %stream, i64 noundef %size, i32 noundef %level, i8 noundef signext %mode) local_unnamed_addr #4 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(319608) ptr @calloc(i64 noundef 1, i64 noundef 319608) #35
+  %call = tail call noalias dereferenceable_or_null(319608) ptr @calloc(i64 noundef 1, i64 noundef 319608) #34
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -16619,7 +16618,7 @@ if.then26:                                        ; preds = %if.else
   br i1 %tobool29.not, label %if.then36, label %return
 
 if.then36:                                        ; preds = %if.else, %if.then26, %if.then12, %if.end
-  tail call void @free(ptr noundef nonnull %call) #31
+  tail call void @free(ptr noundef nonnull %call) #30
   br label %return
 
 return:                                           ; preds = %if.then12, %if.then26, %entry, %if.then36
@@ -16662,8 +16661,8 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %tobool3.not.i.i, label %zip_archive_finalize.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i.i
-  %call.i.i = tail call i32 @fileno(ptr noundef nonnull %5) #31
-  %call6.i.i = tail call i32 @ftruncate(i32 noundef %call.i.i, i64 noundef %1) #31
+  %call.i.i = tail call i32 @fileno(ptr noundef nonnull %5) #30
+  %call6.i.i = tail call i32 @ftruncate(i32 noundef %call.i.i, i64 noundef %1) #30
   %.pre.pre = load i64, ptr %zip, align 8
   br label %zip_archive_finalize.exit
 
@@ -16677,7 +16676,7 @@ if.then1:                                         ; preds = %zip_archive_finaliz
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %zip_archive_finalize.exit
-  %call = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %.pre) #35
+  %call = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %.pre) #34
   store ptr %call, ptr %buf, align 8
   %6 = load ptr, ptr %m_pState.i.i, align 8
   %m_pMem = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %6, i64 0, i32 8
@@ -16727,19 +16726,19 @@ if.end.i:                                         ; preds = %lor.lhs.false6.i
   %m_pAlloc_opaque.i23.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip, i64 0, i32 10
   %4 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %5 = load ptr, ptr %0, align 8
-  tail call void %2(ptr noundef %4, ptr noundef %5) #31
+  tail call void %2(ptr noundef %4, ptr noundef %5) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 1
   %6 = load ptr, ptr %m_pFree.i, align 8
   %7 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %8 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  tail call void %6(ptr noundef %7, ptr noundef %8) #31
+  tail call void %6(ptr noundef %7, ptr noundef %8) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 2
   %9 = load ptr, ptr %m_pFree.i, align 8
   %10 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
   %11 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  tail call void %9(ptr noundef %10, ptr noundef %11) #31
+  tail call void %9(ptr noundef %10, ptr noundef %11) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %0, i64 0, i32 6
   %12 = load ptr, ptr %m_pFile.i, align 8
@@ -16754,11 +16753,11 @@ if.then10.i:                                      ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.then10.i, %if.end.i
   %13 = load ptr, ptr %m_pFree.i, align 8
   %14 = load ptr, ptr %m_pAlloc_opaque.i23.i, align 8
-  tail call void %13(ptr noundef %14, ptr noundef nonnull %0) #31
+  tail call void %13(ptr noundef %14, ptr noundef nonnull %0) #30
   br label %mz_zip_reader_end.exit
 
 mz_zip_reader_end.exit:                           ; preds = %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false4.i, %lor.lhs.false6.i, %if.end13.i
-  tail call void @free(ptr noundef nonnull %zip) #31
+  tail call void @free(ptr noundef nonnull %zip) #30
   br label %if.end5
 
 if.end5:                                          ; preds = %mz_zip_reader_end.exit, %entry
@@ -16766,7 +16765,7 @@ if.end5:                                          ; preds = %mz_zip_reader_end.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_create(ptr noundef readonly %zipname, ptr nocapture noundef readonly %filenames, i64 noundef %len) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_create(ptr noundef readonly %zipname, ptr nocapture noundef readonly %filenames, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %file_stat = alloca %struct.stat, align 8
@@ -16807,7 +16806,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool12.not, label %for.end, label %if.end14
 
 if.end14:                                         ; preds = %for.body
-  %call15 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %file_stat) #31
+  %call15 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %file_stat) #30
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end18, label %for.end
 
@@ -16902,19 +16901,19 @@ if.end.i:                                         ; preds = %lor.lhs.false6.i
   %m_pAlloc_opaque.i34.i = getelementptr inbounds %struct.mz_zip_archive, ptr %zip_archive, i64 0, i32 10
   %12 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %13 = load ptr, ptr %7, align 8
-  call void %9(ptr noundef %12, ptr noundef %13) #31
+  call void %9(ptr noundef %12, ptr noundef %13) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %m_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %7, i64 0, i32 1
   %14 = load ptr, ptr %m_pFree.i, align 8
   %15 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %16 = load ptr, ptr %m_central_dir_offsets.i, align 8
-  call void %14(ptr noundef %15, ptr noundef %16) #31
+  call void %14(ptr noundef %15, ptr noundef %16) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_sorted_central_dir_offsets.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %7, i64 0, i32 2
   %17 = load ptr, ptr %m_pFree.i, align 8
   %18 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
   %19 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  call void %17(ptr noundef %18, ptr noundef %19) #31
+  call void %17(ptr noundef %18, ptr noundef %19) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sorted_central_dir_offsets.i, i8 0, i64 32, i1 false)
   %m_pFile.i = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %7, i64 0, i32 6
   %20 = load ptr, ptr %m_pFile.i, align 8
@@ -16941,14 +16940,14 @@ land.lhs.true17.i:                                ; preds = %if.end15.i
 if.then19.i:                                      ; preds = %land.lhs.true17.i
   %23 = load ptr, ptr %m_pFree.i, align 8
   %24 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
-  call void %23(ptr noundef %24, ptr noundef nonnull %22) #31
+  call void %23(ptr noundef %24, ptr noundef nonnull %22) #30
   store ptr null, ptr %m_pMem.i, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then19.i, %land.lhs.true17.i, %if.end15.i
   %25 = load ptr, ptr %m_pFree.i, align 8
   %26 = load ptr, ptr %m_pAlloc_opaque.i34.i, align 8
-  call void %25(ptr noundef %26, ptr noundef nonnull %7) #31
+  call void %25(ptr noundef %26, ptr noundef nonnull %7) #30
   br label %return
 
 return:                                           ; preds = %if.end23.i, %lor.lhs.false6.i, %lor.lhs.false4.i, %for.end, %if.end, %entry, %lor.lhs.false
@@ -16957,7 +16956,7 @@ return:                                           ; preds = %if.end23.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zip_extract(ptr noundef readonly %zipname, ptr noundef readonly %dir, ptr noundef %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
+define hidden noundef i32 @zip_extract(ptr noundef readonly %zipname, ptr noundef readonly %dir, ptr noundef %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %tobool = icmp ne ptr %zipname, null
@@ -16980,8 +16979,8 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @tdefl_compress_block(ptr noundef %d, i32 noundef %static_block) unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc i32 @tdefl_compress_block(ptr noundef %d, i32 noundef %static_block) unnamed_addr #10 {
 entry:
   %code_sizes_to_pack.i = alloca [320 x i8], align 16
   %packed_code_sizes.i = alloca [320 x i8], align 16
@@ -18383,8 +18382,8 @@ tdefl_compress_lz_codes.exit:                     ; preds = %if.end144.i, %do.en
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tdefl_optimize_huffman_table(ptr nocapture noundef %d, i32 noundef %table_num, i32 noundef %table_len, i32 noundef %code_size_limit, i32 noundef %static_table) unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @tdefl_optimize_huffman_table(ptr nocapture noundef %d, i32 noundef %table_num, i32 noundef %table_len, i32 noundef %code_size_limit, i32 noundef %static_table) unnamed_addr #10 {
 entry:
   %hist.i = alloca [512 x i32], align 16
   %offsets.i = alloca [256 x i32], align 16
@@ -19036,8 +19035,8 @@ for.end117:                                       ; preds = %for.inc115, %for.co
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %pZip.16.val, ptr nocapture readonly %pZip.104.val) unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %pZip.16.val, ptr nocapture readonly %pZip.104.val) unnamed_addr #10 {
 entry:
   %m_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %pZip.104.val, i64 0, i32 1
   %m_sorted_central_dir_offsets = getelementptr inbounds %struct.mz_zip_internal_state_tag, ptr %pZip.104.val, i64 0, i32 2
@@ -19391,19 +19390,19 @@ while.end80:                                      ; preds = %while.body28, %for.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #23
+declare ptr @localtime(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mz_zip_array_ensure_capacity(ptr nocapture noundef readonly %pZip, ptr nocapture noundef %pArray, i64 noundef %min_new_capacity, i32 noundef %growing) unnamed_addr #4 {
+define internal fastcc noundef i32 @mz_zip_array_ensure_capacity(ptr nocapture noundef readonly %pZip, ptr nocapture noundef %pArray, i64 noundef %min_new_capacity, i32 noundef %growing) unnamed_addr #4 {
 entry:
   %m_capacity = getelementptr inbounds %struct.mz_zip_array, ptr %pArray, i64 0, i32 2
   %0 = load i64, ptr %m_capacity, align 8
@@ -19434,7 +19433,7 @@ if.end6:                                          ; preds = %while.cond, %if.end
   %m_element_size = getelementptr inbounds %struct.mz_zip_array, ptr %pArray, i64 0, i32 3
   %4 = load i32, ptr %m_element_size, align 8
   %conv = zext i32 %4 to i64
-  %call = tail call ptr %1(ptr noundef %2, ptr noundef %3, i64 noundef %conv, i64 noundef %new_capacity.1) #31
+  %call = tail call ptr %1(ptr noundef %2, ptr noundef %3, i64 noundef %conv, i64 noundef %new_capacity.1) #30
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %if.end10
 
@@ -19449,13 +19448,13 @@ return:                                           ; preds = %if.end6, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #23
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zip_central_dir_delete(ptr nocapture noundef %pState, ptr nocapture noundef readonly %deleted_entry_index_array, i32 noundef %entry_num) unnamed_addr #4 {
@@ -19543,7 +19542,7 @@ if.end29.i:                                       ; preds = %if.else.i, %if.end.
 if.then32.i:                                      ; preds = %if.end29.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %next.0.i, i64 %r_size.0.i, i1 false)
   %15 = load ptr, ptr %pState, align 8
-  %call.i = tail call ptr @realloc(ptr noundef %15, i64 noundef %r_size.0.i) #33
+  %call.i = tail call ptr @realloc(ptr noundef %15, i64 noundef %r_size.0.i) #32
   store ptr %call.i, ptr %pState, align 8
   br i1 %cmp9, label %for.body.i, label %if.end67.i
 
@@ -19664,96 +19663,95 @@ while.end49:                                      ; preds = %for.end, %while.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #26
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #26
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind
-declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #23
+declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #16
+declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #27
+declare ptr @__errno_location() local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #28
+declare i32 @llvm.smin.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #28
+declare i32 @llvm.umin.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #28
+declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #28
+declare i32 @llvm.umax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #28
+declare i16 @llvm.umin.i16(i16, i16) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #28
+declare i64 @llvm.ctpop.i64(i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #28
+declare i64 @llvm.smin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #31 = { nounwind }
-attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { nounwind allocsize(1) }
-attributes #34 = { nounwind willreturn memory(read) }
-attributes #35 = { nounwind allocsize(0,1) }
-attributes #36 = { nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #29 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #30 = { nounwind }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { nounwind willreturn memory(read) }
+attributes #34 = { nounwind allocsize(0,1) }
+attributes #35 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

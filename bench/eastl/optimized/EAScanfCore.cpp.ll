@@ -3491,15 +3491,14 @@ if.end15.loopexit:                                ; preds = %do.body
 if.end15:                                         ; preds = %if.end15.loopexit, %if.else, %if.then12
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr13, %if.then12 ], [ %incdec.ptr, %if.else ], [ %incdec.ptr7, %if.end15.loopexit ]
   %c.1 = phi i8 [ %6, %if.then12 ], [ %0, %if.else ], [ %3, %if.end15.loopexit ]
-  %conv16 = sext i8 %c.1 to i32
-  switch i32 %conv16, label %if.end106 [
-    i32 104, label %sw.bb
-    i32 108, label %sw.bb24
-    i32 106, label %if.then104
-    i32 122, label %sw.bb36
-    i32 116, label %sw.bb38
-    i32 76, label %sw.bb40
-    i32 73, label %sw.bb42
+  switch i8 %c.1, label %if.end106 [
+    i8 104, label %sw.bb
+    i8 108, label %sw.bb24
+    i8 106, label %if.then104
+    i8 122, label %sw.bb36
+    i8 116, label %sw.bb38
+    i8 76, label %sw.bb40
+    i8 73, label %sw.bb42
   ]
 
 sw.bb:                                            ; preds = %if.end15
@@ -3584,29 +3583,29 @@ if.end106:                                        ; preds = %if.end15, %if.then1
   %conv107 = sext i8 %c.3 to i32
   %mnType108 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
   store i32 %conv107, ptr %mnType108, align 4
-  switch i32 %conv107, label %sw.default273 [
-    i32 98, label %sw.bb110
-    i32 100, label %sw.bb110
-    i32 117, label %sw.bb110
-    i32 105, label %sw.bb110
-    i32 120, label %sw.bb110
-    i32 88, label %sw.bb110
-    i32 111, label %sw.bb110
-    i32 99, label %sw.bb116
-    i32 67, label %sw.bb116
-    i32 115, label %sw.bb116
-    i32 83, label %sw.bb116
-    i32 101, label %sw.bb180
-    i32 69, label %sw.bb180
-    i32 102, label %sw.bb180
-    i32 70, label %sw.bb180
-    i32 103, label %sw.bb180
-    i32 71, label %sw.bb180
-    i32 97, label %sw.bb180
-    i32 65, label %sw.bb180
-    i32 112, label %sw.bb195
-    i32 91, label %sw.bb198
-    i32 110, label %sw.epilog275
+  switch i8 %c.3, label %sw.default273 [
+    i8 98, label %sw.bb110
+    i8 100, label %sw.bb110
+    i8 117, label %sw.bb110
+    i8 105, label %sw.bb110
+    i8 120, label %sw.bb110
+    i8 88, label %sw.bb110
+    i8 111, label %sw.bb110
+    i8 99, label %sw.bb116
+    i8 67, label %sw.bb116
+    i8 115, label %sw.bb116
+    i8 83, label %sw.bb116
+    i8 101, label %sw.bb180
+    i8 69, label %sw.bb180
+    i8 102, label %sw.bb180
+    i8 70, label %sw.bb180
+    i8 103, label %sw.bb180
+    i8 71, label %sw.bb180
+    i8 97, label %sw.bb180
+    i8 65, label %sw.bb180
+    i8 112, label %sw.bb195
+    i8 91, label %sw.bb198
+    i8 110, label %sw.epilog275
   ]
 
 sw.bb110:                                         ; preds = %if.end106, %if.end106, %if.end106, %if.end106, %if.end106, %if.end106, %if.end106

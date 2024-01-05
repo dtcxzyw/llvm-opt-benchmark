@@ -101,12 +101,11 @@ if.end:                                           ; preds = %if.then, %entry
   %prev_addr.0 = phi i64 [ %3, %if.then ], [ 0, %entry ]
   %4 = lshr i8 %0, 3
   %5 = and i8 %4, 3
-  %conv = zext nneg i8 %5 to i32
-  switch i32 %conv, label %if.end.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb10
-    i32 2, label %sw.bb17
-    i32 3, label %sw.bb20
+  switch i8 %5, label %if.end.unreachabledefault [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb10
+    i8 2, label %sw.bb17
+    i8 3, label %sw.bb20
   ]
 
 sw.bb10:                                          ; preds = %if.end
@@ -309,6 +308,16 @@ if.end28:                                         ; preds = %pmp_is_in_range.exi
   br i1 %or.cond, label %if.then68, label %for.cond
 
 if.then68:                                        ; preds = %if.end28
+  %and.le = lshr i8 %12, 4
+  %shr.le = and i8 %and.le, 8
+  %and58.le = lshr i8 %12, 2
+  %shr59.le = and i8 %and58.le, 1
+  %trunc = trunc i8 %12 to i3
+  %rev = tail call i3 @llvm.bitreverse.i3(i3 %trunc)
+  %mask = and i3 %rev, -2
+  %or43.le = zext i3 %mask to i8
+  %or51.le = or disjoint i8 %shr.le, %or43.le
+  %or60.le = or disjoint i8 %or51.le, %shr59.le
   %mseccfg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
   %14 = load i64, ptr %mseccfg, align 8
   %and69 = and i64 %14, 1
@@ -342,16 +351,6 @@ if.then76:                                        ; preds = %if.then71.if.then76
   br label %if.end109.sink.split
 
 if.else85:                                        ; preds = %if.then68
-  %and.le = lshr i8 %12, 4
-  %shr.le = and i8 %and.le, 8
-  %trunc = trunc i8 %12 to i3
-  %rev = tail call i3 @llvm.bitreverse.i3(i3 %trunc)
-  %mask = and i3 %rev, -2
-  %or43.le = zext i3 %mask to i8
-  %or51.le = or disjoint i8 %shr.le, %or43.le
-  %and58.le = lshr i8 %12, 2
-  %shr59.le = and i8 %and58.le, 1
-  %or60.le = or disjoint i8 %or51.le, %shr59.le
   %cmp86 = icmp eq i64 %mode, 3
   br i1 %cmp86, label %switch.lookup, label %switch.lookup100
 
@@ -579,12 +578,11 @@ if.end.i43.i:                                     ; preds = %if.then.i.i12, %if.
   %prev_addr.0.i.i = phi i64 [ %24, %if.then.i.i12 ], [ 0, %if.then57.i ]
   %25 = lshr i8 %val.addr.0.i, 3
   %26 = and i8 %25, 3
-  %conv.i.i = zext nneg i8 %26 to i32
-  switch i32 %conv.i.i, label %if.end.unreachabledefault.i.i [
-    i32 0, label %pmp_update_rule_addr.exit.i
-    i32 1, label %sw.bb10.i.i
-    i32 2, label %sw.bb17.i.i
-    i32 3, label %sw.bb20.i.i
+  switch i8 %26, label %if.end.unreachabledefault.i.i [
+    i8 0, label %pmp_update_rule_addr.exit.i
+    i8 1, label %sw.bb10.i.i
+    i8 2, label %sw.bb17.i.i
+    i8 3, label %sw.bb20.i.i
   ]
 
 sw.bb10.i.i:                                      ; preds = %if.end.i43.i
@@ -876,12 +874,11 @@ if.end.i23:                                       ; preds = %if.then.i, %if.then
   %prev_addr.0.i = phi i64 [ %18, %if.then.i ], [ 0, %if.then26 ]
   %19 = lshr i8 %16, 3
   %20 = and i8 %19, 3
-  %conv.i = zext nneg i8 %20 to i32
-  switch i32 %conv.i, label %if.end.unreachabledefault.i [
-    i32 0, label %pmp_update_rule_addr.exit
-    i32 1, label %sw.bb10.i
-    i32 2, label %sw.bb17.i
-    i32 3, label %sw.bb20.i
+  switch i8 %20, label %if.end.unreachabledefault.i [
+    i8 0, label %pmp_update_rule_addr.exit
+    i8 1, label %sw.bb10.i
+    i8 2, label %sw.bb17.i
+    i8 3, label %sw.bb20.i
   ]
 
 sw.bb10.i:                                        ; preds = %if.end.i23
@@ -925,58 +922,57 @@ if.then33:                                        ; preds = %pmp_update_rule_add
   %22 = load i64, ptr %arrayidx.i27, align 16
   %23 = lshr i8 %21, 3
   %24 = and i8 %23, 3
-  %conv.i34 = zext nneg i8 %24 to i32
-  switch i32 %conv.i34, label %if.end.unreachabledefault.i54 [
-    i32 0, label %pmp_update_rule_addr.exit55
-    i32 1, label %sw.bb10.i48
-    i32 2, label %sw.bb17.i45
-    i32 3, label %sw.bb20.i35
+  switch i8 %24, label %if.end.unreachabledefault.i53 [
+    i8 0, label %pmp_update_rule_addr.exit54
+    i8 1, label %sw.bb10.i47
+    i8 2, label %sw.bb17.i44
+    i8 3, label %sw.bb20.i34
   ]
 
-sw.bb10.i48:                                      ; preds = %if.then33
+sw.bb10.i47:                                      ; preds = %if.then33
   %25 = shl i64 %val, 2
-  %shl11.i49 = shl i64 %22, 2
-  %sub12.i50 = add i64 %shl11.i49, -1
-  %cmp13.i51 = icmp ugt i64 %25, %sub12.i50
-  %spec.select.i52 = select i1 %cmp13.i51, i64 0, i64 %25
-  %spec.select12.i53 = select i1 %cmp13.i51, i64 0, i64 %sub12.i50
-  br label %pmp_update_rule_addr.exit55
+  %shl11.i48 = shl i64 %22, 2
+  %sub12.i49 = add i64 %shl11.i48, -1
+  %cmp13.i50 = icmp ugt i64 %25, %sub12.i49
+  %spec.select.i51 = select i1 %cmp13.i50, i64 0, i64 %25
+  %spec.select12.i52 = select i1 %cmp13.i50, i64 0, i64 %sub12.i49
+  br label %pmp_update_rule_addr.exit54
 
-sw.bb17.i45:                                      ; preds = %if.then33
-  %shl18.i46 = shl i64 %22, 2
-  %sub19.i47 = or disjoint i64 %shl18.i46, 3
-  br label %pmp_update_rule_addr.exit55
+sw.bb17.i44:                                      ; preds = %if.then33
+  %shl18.i45 = shl i64 %22, 2
+  %sub19.i46 = or disjoint i64 %shl18.i45, 3
+  br label %pmp_update_rule_addr.exit54
 
-sw.bb20.i35:                                      ; preds = %if.then33
-  %shl.i.i36 = shl i64 %22, 2
-  %add.i.i37 = add i64 %shl.i.i36, 4
-  %and.i.i38 = and i64 %add.i.i37, %shl.i.i36
-  %or.i.i39 = or i64 %shl.i.i36, %add.i.i37
-  %or2.i.i40 = or disjoint i64 %or.i.i39, 3
-  br label %pmp_update_rule_addr.exit55
+sw.bb20.i34:                                      ; preds = %if.then33
+  %shl.i.i35 = shl i64 %22, 2
+  %add.i.i36 = add i64 %shl.i.i35, 4
+  %and.i.i37 = and i64 %add.i.i36, %shl.i.i35
+  %or.i.i38 = or i64 %shl.i.i35, %add.i.i36
+  %or2.i.i39 = or disjoint i64 %or.i.i38, 3
+  br label %pmp_update_rule_addr.exit54
 
-if.end.unreachabledefault.i54:                    ; preds = %if.then33
+if.end.unreachabledefault.i53:                    ; preds = %if.then33
   unreachable
 
-pmp_update_rule_addr.exit55:                      ; preds = %if.then33, %sw.bb10.i48, %sw.bb17.i45, %sw.bb20.i35
-  %sa.0.i41 = phi i64 [ %and.i.i38, %sw.bb20.i35 ], [ %shl18.i46, %sw.bb17.i45 ], [ 0, %if.then33 ], [ %spec.select.i52, %sw.bb10.i48 ]
-  %ea.0.i42 = phi i64 [ %or2.i.i40, %sw.bb20.i35 ], [ %sub19.i47, %sw.bb17.i45 ], [ -1, %if.then33 ], [ %spec.select12.i53, %sw.bb10.i48 ]
-  %arrayidx23.i43 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26
-  store i64 %sa.0.i41, ptr %arrayidx23.i43, align 16
-  %ea29.i44 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26, i32 1
-  store i64 %ea.0.i42, ptr %ea29.i44, align 8
+pmp_update_rule_addr.exit54:                      ; preds = %if.then33, %sw.bb10.i47, %sw.bb17.i44, %sw.bb20.i34
+  %sa.0.i40 = phi i64 [ %and.i.i37, %sw.bb20.i34 ], [ %shl18.i45, %sw.bb17.i44 ], [ 0, %if.then33 ], [ %spec.select.i51, %sw.bb10.i47 ]
+  %ea.0.i41 = phi i64 [ %or2.i.i39, %sw.bb20.i34 ], [ %sub19.i46, %sw.bb17.i44 ], [ -1, %if.then33 ], [ %spec.select12.i52, %sw.bb10.i47 ]
+  %arrayidx23.i42 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26
+  store i64 %sa.0.i40, ptr %arrayidx23.i42, align 16
+  %ea29.i43 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 103, i32 1, i64 %idxprom.i26, i32 1
+  store i64 %ea.0.i41, ptr %ea29.i43, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %pmp_update_rule_addr.exit55, %pmp_update_rule_addr.exit
+if.end35:                                         ; preds = %pmp_update_rule_addr.exit54, %pmp_update_rule_addr.exit
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call void @tlb_flush(ptr noundef %add.ptr.i) #10
   br label %if.end62
 
 do.body38:                                        ; preds = %pmp_is_locked.exit
   %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i56 = and i32 %26, 2048
-  %cmp.i57.not = icmp eq i32 %and.i56, 0
-  br i1 %cmp.i57.not, label %if.end62, label %if.then46
+  %and.i55 = and i32 %26, 2048
+  %cmp.i56.not = icmp eq i32 %and.i55, 0
+  br i1 %cmp.i56.not, label %if.end62, label %if.then46
 
 if.then46:                                        ; preds = %do.body38
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #10
@@ -984,9 +980,9 @@ if.then46:                                        ; preds = %do.body38
 
 do.body51:                                        ; preds = %trace_pmpaddr_csr_write.exit
   %27 = load i32, ptr @qemu_loglevel, align 4
-  %and.i58 = and i32 %27, 2048
-  %cmp.i59.not = icmp eq i32 %and.i58, 0
-  br i1 %cmp.i59.not, label %if.end62, label %if.then59
+  %and.i57 = and i32 %27, 2048
+  %cmp.i58.not = icmp eq i32 %and.i57, 0
+  br i1 %cmp.i58.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %do.body51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #10
@@ -1208,7 +1204,7 @@ trace_mseccfg_csr_read.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @pmp_get_tlb_size(ptr nocapture noundef readonly %env, i64 noundef %addr) local_unnamed_addr #5 {
+define dso_local noundef i64 @pmp_get_tlb_size(ptr nocapture noundef readonly %env, i64 noundef %addr) local_unnamed_addr #5 {
 entry:
   %and = and i64 %addr, -4096
   %sub = or i64 %addr, 4095
@@ -1269,7 +1265,7 @@ return:                                           ; preds = %for.inc, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @pmp_priv_to_page_prot(i32 noundef %pmp_priv) local_unnamed_addr #6 {
+define dso_local noundef i32 @pmp_priv_to_page_prot(i32 noundef %pmp_priv) local_unnamed_addr #6 {
 entry:
   %prot.2 = and i32 %pmp_priv, 7
   ret i32 %prot.2

@@ -2868,10 +2868,9 @@ if.then:                                          ; preds = %sw.bb
 
 if.end:                                           ; preds = %sw.bb
   %2 = load i8, ptr %byte, align 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %cleanup
-    i32 1, label %cleanup20
+  switch i8 %2, label %sw.default [
+    i8 0, label %cleanup
+    i8 1, label %cleanup20
   ]
 
 cleanup:                                          ; preds = %if.end

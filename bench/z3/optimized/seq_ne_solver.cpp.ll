@@ -636,10 +636,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idxprom.i.i.i.i = zext i32 %lit.sroa.0.0.copyload.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %8 to i32
-  switch i32 %conv.i.i.i, label %for.inc.i [
-    i32 -1, label %lor.end
-    i32 0, label %sw.bb7.i
+  switch i8 %8, label %for.inc.i [
+    i8 -1, label %lor.end
+    i8 0, label %sw.bb7.i
   ]
 
 sw.bb7.i:                                         ; preds = %for.body.i
@@ -839,10 +838,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i.i.i = zext i32 %lit.sroa.0.0.copyload to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %8 to i32
-  switch i32 %conv.i.i, label %for.inc [
-    i32 -1, label %return
-    i32 0, label %sw.bb7
+  switch i8 %8, label %for.inc [
+    i8 -1, label %return
+    i8 0, label %sw.bb7
   ]
 
 sw.bb7:                                           ; preds = %for.body
@@ -917,11 +915,10 @@ invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph,
   %idxprom.i.i.i = zext i32 %9 to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %12 to i32
-  switch i32 %conv.i.i, label %for.inc [
-    i32 1, label %sw.bb
-    i32 -1, label %cleanup
-    i32 0, label %sw.bb14
+  switch i8 %12, label %for.inc [
+    i8 1, label %sw.bb
+    i8 -1, label %cleanup
+    i8 0, label %sw.bb14
   ]
 
 lpad.loopexit:                                    ; preds = %if.then.i
@@ -2470,10 +2467,9 @@ invoke.cont95:                                    ; preds = %lor.lhs.false.i247,
   %idxprom.i.i.i = zext i32 %call87 to i64
   %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %187, i64 %idxprom.i.i.i
   %188 = load i8, ptr %arrayidx.i.i.i261, align 1
-  %conv.i.i = sext i8 %188 to i32
-  switch i32 %conv.i.i, label %for.inc101 [
-    i32 -1, label %cleanup
-    i32 0, label %sw.bb98
+  switch i8 %188, label %for.inc101 [
+    i8 -1, label %cleanup
+    i8 0, label %sw.bb98
   ]
 
 sw.bb98:                                          ; preds = %invoke.cont95
@@ -4134,10 +4130,9 @@ invoke.cont29:                                    ; preds = %.noexc
   %idxprom.i.i.i = zext i32 %call23 to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %22, i64 %idxprom.i.i.i
   %23 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %23 to i32
-  switch i32 %conv.i.i, label %sw.epilog [
-    i32 -1, label %cleanup185
-    i32 0, label %sw.bb31
+  switch i8 %23, label %sw.epilog [
+    i8 -1, label %cleanup185
+    i8 0, label %sw.bb31
   ]
 
 lpad6:                                            ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -4236,10 +4231,9 @@ invoke.cont67:                                    ; preds = %.noexc59
   %idxprom.i.i.i63 = zext i32 %call58 to i64
   %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %44, i64 %idxprom.i.i.i63
   %45 = load i8, ptr %arrayidx.i.i.i64, align 1
-  %conv.i.i65 = sext i8 %45 to i32
-  switch i32 %conv.i.i65, label %sw.epilog88 [
-    i32 -1, label %sw.bb69
-    i32 0, label %cleanup185
+  switch i8 %45, label %sw.epilog88 [
+    i8 -1, label %sw.bb69
+    i8 0, label %cleanup185
   ]
 
 lpad49:                                           ; preds = %invoke.cont53, %invoke.cont55, %invoke.cont48
@@ -4315,10 +4309,9 @@ invoke.cont125:                                   ; preds = %.noexc80
   %idxprom.i.i.i84 = zext i32 %call116 to i64
   %arrayidx.i.i.i85 = getelementptr inbounds i8, ptr %60, i64 %idxprom.i.i.i84
   %61 = load i8, ptr %arrayidx.i.i.i85, align 1
-  %conv.i.i86 = sext i8 %61 to i32
-  switch i32 %conv.i.i86, label %sw.epilog130 [
-    i32 -1, label %cleanup
-    i32 0, label %sw.bb128
+  switch i8 %61, label %sw.epilog130 [
+    i8 -1, label %cleanup
+    i8 0, label %sw.bb128
   ]
 
 lpad100:                                          ; preds = %.noexc80, %invoke.cont115, %invoke.cont166, %invoke.cont146, %sw.epilog130, %invoke.cont110, %invoke.cont105, %sw.epilog88
@@ -4456,7 +4449,7 @@ terminate.lpad.i125:                              ; preds = %if.then2.i.i.i124
   unreachable
 
 cleanup185:                                       ; preds = %if.then2.i.i.i124, %if.then.i.i.i119, %_ZN7obj_refI4expr11ast_managerED2Ev.exit117, %invoke.cont67, %sw.bb69, %invoke.cont29, %sw.bb31
-  %retval.1 = phi i32 [ 0, %sw.bb31 ], [ 1, %invoke.cont29 ], [ -1, %sw.bb69 ], [ %conv.i.i65, %invoke.cont67 ], [ %retval.0, %_ZN7obj_refI4expr11ast_managerED2Ev.exit117 ], [ %retval.0, %if.then.i.i.i119 ], [ %retval.0, %if.then2.i.i.i124 ]
+  %retval.1 = phi i32 [ 0, %sw.bb31 ], [ 1, %invoke.cont29 ], [ -1, %sw.bb69 ], [ 0, %invoke.cont67 ], [ %retval.0, %_ZN7obj_refI4expr11ast_managerED2Ev.exit117 ], [ %retval.0, %if.then.i.i.i119 ], [ %retval.0, %if.then2.i.i.i124 ]
   br i1 %tobool.not.i.i24, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit135, label %if.then.i.i.i128
 
 if.then.i.i.i128:                                 ; preds = %cleanup185

@@ -1233,15 +1233,14 @@ entry:
   br i1 %cmp2, label %for.body.lr.ph, label %nrvo.skipdtor
 
 for.body.lr.ph:                                   ; preds = %entry
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %for.body [
-    i32 0, label %for.body.us
-    i32 1, label %for.body.us5
-    i32 3, label %for.body.us16
+  switch i8 %type, label %for.body [
+    i8 0, label %for.body.us
+    i8 1, label %for.body.us5
+    i8 3, label %for.body.us16
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.03.us = phi i32 [ %inc.us, %for.inc.us ], [ %conv, %for.body.lr.ph ]
+  %i.03.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %0 = load i32, ptr %rnd, align 4
   %conv.i.i.us = zext i32 %0 to i64
   %mul.i.i.us = mul nuw nsw i64 %conv.i.i.us, 16807

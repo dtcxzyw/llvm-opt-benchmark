@@ -2750,18 +2750,18 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
   br i1 %cmp146.not, label %if.end236, label %if.then147
 
 if.then147:                                       ; preds = %for.end
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb148
-    i32 38, label %sw.bb148
-    i32 39, label %sw.bb149
-    i32 40, label %sw.bb151
-    i32 70, label %sw.bb153
-    i32 71, label %sw.bb154
-    i32 72, label %sw.bb155
-    i32 73, label %sw.bb156
-    i32 5, label %sw.epilog
-    i32 23, label %sw.epilog
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 36, label %sw.bb
+    i16 37, label %sw.bb148
+    i16 38, label %sw.bb148
+    i16 39, label %sw.bb149
+    i16 40, label %sw.bb151
+    i16 70, label %sw.bb153
+    i16 71, label %sw.bb154
+    i16 72, label %sw.bb155
+    i16 73, label %sw.bb156
+    i16 5, label %sw.epilog
+    i16 23, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.then147
@@ -8055,7 +8055,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

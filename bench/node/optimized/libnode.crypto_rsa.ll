@@ -1190,7 +1190,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #0
 declare i32 @EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto15RsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef i16 @_ZN4node6crypto15RsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %digest = alloca %"class.node::Utf8Value", align 8
   %ref.tmp158 = alloca ptr, align 8
@@ -1896,7 +1896,7 @@ declare noundef zeroext i1 @_ZNK2v85Value7IsInt32Ev(ptr noundef nonnull align 1 
 declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto18RSAKeyExportTraits16AdditionalConfigERKN2v820FunctionCallbackInfoINS2_5ValueEEEjPNS0_18RSAKeyExportConfigE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef writeonly %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef i16 @_ZN4node6crypto18RSAKeyExportTraits16AdditionalConfigERKN2v820FunctionCallbackInfoINS2_5ValueEEEjPNS0_18RSAKeyExportConfigE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef writeonly %params) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i28 = icmp sgt i32 %offset, -1
   %length_.i30 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
@@ -2144,7 +2144,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto15RSACipherTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjNS0_19WebCryptoCipherModeEPNS0_15RSACipherConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, i32 %cipher_mode, ptr noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef i16 @_ZN4node6crypto15RSACipherTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjNS0_19WebCryptoCipherModeEPNS0_15RSACipherConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, i32 %cipher_mode, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %digest = alloca %"class.node::Utf8Value", align 8
   %ref.tmp53 = alloca ptr, align 8
@@ -3043,7 +3043,7 @@ return:                                           ; preds = %entry, %_ZN4node6cr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto15ExportJWKRsaKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local noundef i16 @_ZN4node6crypto15ExportJWKRsaKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %m_pkey = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %n = alloca ptr, align 8
@@ -3867,7 +3867,7 @@ declare void @_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS
 declare void @_ZN4node6crypto14ManagedEVPPKeyC1EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto15GetRsaKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local noundef i16 @_ZN4node6crypto15GetRsaKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %e = alloca ptr, align 8
   %n = alloca ptr, align 8
@@ -5023,16 +5023,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -9082,7 +9082,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -12560,7 +12560,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %5
@@ -12628,7 +12628,7 @@ if.then.i.i.i.i.i.i35:                            ; preds = %if.else.i.i.i.i8
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i13: ; preds = %if.else.i.i.i.i8
   %sub.ptr.div.i.i.i.i.i.i.i14 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i11, 3
   %.sroa.speculated.i.i.i.i.i.i15 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i14, i64 1)
-  %add.i.i.i.i.i.i16 = add i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
+  %add.i.i.i.i.i.i16 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
   %cmp7.i.i.i.i.i.i17 = icmp ult i64 %add.i.i.i.i.i.i16, %sub.ptr.div.i.i.i.i.i.i.i14
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i16, i64 1152921504606846975)
   %cond.i.i.i.i.i.i18 = select i1 %cmp7.i.i.i.i.i.i17, i64 1152921504606846975, i64 %10
@@ -12707,7 +12707,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %5
@@ -12775,7 +12775,7 @@ if.then.i.i.i.i.i.i35:                            ; preds = %if.else.i.i.i.i8
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i13: ; preds = %if.else.i.i.i.i8
   %sub.ptr.div.i.i.i.i.i.i.i14 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i11, 3
   %.sroa.speculated.i.i.i.i.i.i15 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i14, i64 1)
-  %add.i.i.i.i.i.i16 = add i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
+  %add.i.i.i.i.i.i16 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
   %cmp7.i.i.i.i.i.i17 = icmp ult i64 %add.i.i.i.i.i.i16, %sub.ptr.div.i.i.i.i.i.i.i14
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i16, i64 1152921504606846975)
   %cond.i.i.i.i.i.i18 = select i1 %cmp7.i.i.i.i.i.i17, i64 1152921504606846975, i64 %10
@@ -12854,7 +12854,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %5
@@ -12922,7 +12922,7 @@ if.then.i.i.i.i.i.i35:                            ; preds = %if.else.i.i.i.i8
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i13: ; preds = %if.else.i.i.i.i8
   %sub.ptr.div.i.i.i.i.i.i.i14 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i11, 3
   %.sroa.speculated.i.i.i.i.i.i15 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i14, i64 1)
-  %add.i.i.i.i.i.i16 = add i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
+  %add.i.i.i.i.i.i16 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i15, %sub.ptr.div.i.i.i.i.i.i.i14
   %cmp7.i.i.i.i.i.i17 = icmp ult i64 %add.i.i.i.i.i.i16, %sub.ptr.div.i.i.i.i.i.i.i14
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i16, i64 1152921504606846975)
   %cond.i.i.i.i.i.i18 = select i1 %cmp7.i.i.i.i.i.i17, i64 1152921504606846975, i64 %10

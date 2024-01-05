@@ -23602,14 +23602,13 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 
 if.end:                                           ; preds = %entry
   %17 = load i8, ptr %incdec.ptr, align 1, !tbaa !15
-  %conv10 = sext i8 %17 to i32
-  switch i32 %conv10, label %sw.epilog [
-    i32 70, label %sw.bb
-    i32 65, label %sw.bb73
-    i32 67, label %sw.bb131
-    i32 80, label %sw.bb189
-    i32 83, label %sw.bb250
-    i32 84, label %sw.bb311
+  switch i8 %17, label %sw.epilog [
+    i8 70, label %sw.bb
+    i8 65, label %sw.bb73
+    i8 67, label %sw.bb131
+    i8 80, label %sw.bb189
+    i8 83, label %sw.bb250
+    i8 84, label %sw.bb311
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -25226,12 +25225,12 @@ do.body:                                          ; preds = %sw.epilog, %entry
   %3 = phi ptr [ %m_position.promoted, %entry ], [ %incdec.ptr, %sw.epilog ]
   %f.0 = phi i32 [ %1, %entry ], [ %f.1, %sw.epilog ]
   %4 = load i8, ptr %3, align 1, !tbaa !15
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %do.end [
-    i32 115, label %sw.bb
-    i32 109, label %sw.bb2
-    i32 105, label %sw.bb4
-    i32 120, label %sw.bb6
+  switch i8 %4, label %cleanup [
+    i8 115, label %sw.bb
+    i8 109, label %sw.bb2
+    i8 105, label %sw.bb4
+    i8 120, label %sw.bb6
+    i8 45, label %if.then21
   ]
 
 sw.bb:                                            ; preds = %do.body
@@ -25337,11 +25336,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %message.i) #26
   br label %cleanup
 
-do.end:                                           ; preds = %do.body
-  %cmp20 = icmp eq i8 %4, 45
-  br i1 %cmp20, label %if.then21, label %cleanup
-
-if.then21:                                        ; preds = %do.end
+if.then21:                                        ; preds = %do.body
   %incdec.ptr23 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %incdec.ptr23, ptr %m_position, align 8, !tbaa !298
   %cmp25 = icmp eq ptr %incdec.ptr23, %2
@@ -25426,12 +25421,11 @@ do.body45:                                        ; preds = %if.then21, %sw.epil
   %33 = phi ptr [ %incdec.ptr60, %sw.epilog58 ], [ %incdec.ptr23, %if.then21 ]
   %f.3 = phi i32 [ %f.4, %sw.epilog58 ], [ %f.0, %if.then21 ]
   %34 = load i8, ptr %33, align 1, !tbaa !15
-  %conv47 = sext i8 %34 to i32
-  switch i32 %conv47, label %cleanup [
-    i32 115, label %sw.bb48
-    i32 109, label %sw.bb51
-    i32 105, label %sw.bb53
-    i32 120, label %sw.bb55
+  switch i8 %34, label %cleanup [
+    i8 115, label %sw.bb48
+    i8 109, label %sw.bb51
+    i8 105, label %sw.bb53
+    i8 120, label %sw.bb55
   ]
 
 sw.bb48:                                          ; preds = %do.body45
@@ -25533,8 +25527,8 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %message.i121) #26
   br label %cleanup
 
-cleanup:                                          ; preds = %do.body45, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit136, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit118, %do.end, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %retval.0 = phi i32 [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit118 ], [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit136 ], [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ %f.0, %do.end ], [ %f.3, %do.body45 ]
+cleanup:                                          ; preds = %do.body, %do.body45, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit136, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit118, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
+  %retval.0 = phi i32 [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit118 ], [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit136 ], [ 0, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ %f.3, %do.body45 ], [ %f.0, %do.body ]
   ret i32 %retval.0
 }
 
@@ -34709,19 +34703,18 @@ if.then9:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then9, %if.end
   %19 = load i8, ptr %incdec.ptr, align 1, !tbaa !15
-  %conv12 = sext i8 %19 to i32
-  switch i32 %conv12, label %sw.default [
-    i32 115, label %sw.bb
-    i32 32, label %sw.bb
-    i32 119, label %sw.bb13
-    i32 95, label %invoke.cont
-    i32 46, label %sw.bb44
-    i32 40, label %invoke.cont52
-    i32 41, label %invoke.cont65
-    i32 34, label %invoke.cont78
-    i32 39, label %invoke.cont91
-    i32 60, label %invoke.cont104
-    i32 62, label %invoke.cont109
+  switch i8 %19, label %sw.default [
+    i8 115, label %sw.bb
+    i8 32, label %sw.bb
+    i8 119, label %sw.bb13
+    i8 95, label %invoke.cont
+    i8 46, label %sw.bb44
+    i8 40, label %invoke.cont52
+    i8 41, label %invoke.cont65
+    i8 34, label %invoke.cont78
+    i8 39, label %invoke.cont91
+    i8 60, label %invoke.cont104
+    i8 62, label %invoke.cont109
   ]
 
 sw.bb:                                            ; preds = %if.end10, %if.end10

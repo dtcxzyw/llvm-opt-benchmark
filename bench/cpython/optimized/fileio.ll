@@ -1258,7 +1258,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fileio_clear(ptr nocapture noundef %self) #1 {
+define internal noundef i32 @fileio_clear(ptr nocapture noundef %self) #1 {
 entry:
   %dict = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 6
   %0 = load ptr, ptr %dict, align 8
@@ -1287,7 +1287,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_io_FileIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #1 {
+define internal noundef i32 @_io_FileIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #1 {
 entry:
   %stringobj.i = alloca ptr, align 8
   %fdfstat.i = alloca %struct.stat, align 8
@@ -1301,9 +1301,9 @@ entry:
 cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
-  %add30 = add i64 %kwargs.val, %args.val
-  %sub31 = add i64 %add30, -1
-  %ob_item36 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %add29 = add i64 %kwargs.val, %args.val
+  %sub30 = add i64 %add29, -1
+  %ob_item35 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
@@ -1313,23 +1313,23 @@ cond.end:                                         ; preds = %entry
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item41 = phi ptr [ %ob_item36, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %sub39 = phi i64 [ %sub31, %cond.end.thread ], [ %sub, %cond.end ]
-  %add37 = phi i64 [ %add30, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item41, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @_io_FileIO___init__._parser, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %argsbuf) #10
+  %ob_item40 = phi ptr [ %ob_item35, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %sub38 = phi i64 [ %sub30, %cond.end.thread ], [ %sub, %cond.end ]
+  %add36 = phi i64 [ %add29, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item40, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @_io_FileIO___init__._parser, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %argsbuf) #10
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1648 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add3847 = phi i64 [ %add37, %cond.end15 ], [ %args.val, %cond.end ]
-  %sub4046 = phi i64 [ %sub39, %cond.end15 ], [ %sub, %cond.end ]
-  %2 = load ptr, ptr %cond1648, align 8
-  %tobool18.not = icmp eq i64 %sub4046, 0
+  %cond1647 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add3746 = phi i64 [ %add36, %cond.end15 ], [ %args.val, %cond.end ]
+  %sub3945 = phi i64 [ %sub38, %cond.end15 ], [ %sub, %cond.end ]
+  %2 = load ptr, ptr %cond1647, align 8
+  %tobool18.not = icmp eq i64 %sub3945, 0
   br i1 %tobool18.not, label %skip_optional_pos, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %arrayidx21 = getelementptr ptr, ptr %cond1648, i64 1
+  %arrayidx21 = getelementptr ptr, ptr %cond1647, i64 1
   %3 = load ptr, ptr %arrayidx21, align 8
   %tobool22.not = icmp eq ptr %3, null
   br i1 %tobool22.not, label %if.end43, label %if.then23
@@ -1364,14 +1364,14 @@ if.then38:                                        ; preds = %if.end35
   br label %exit
 
 if.end39:                                         ; preds = %if.end35
-  %dec = add i64 %add3847, -2
+  %dec = add i64 %add3746, -2
   %tobool40.not = icmp eq i64 %dec, 0
   br i1 %tobool40.not, label %skip_optional_pos, label %if.end43
 
 if.end43:                                         ; preds = %if.end39, %if.end20
-  %noptargs.0 = phi i64 [ %dec, %if.end39 ], [ %sub4046, %if.end20 ]
+  %noptargs.0 = phi i64 [ %dec, %if.end39 ], [ %sub3945, %if.end20 ]
   %mode.0 = phi ptr [ %call32, %if.end39 ], [ @.str.53, %if.end20 ]
-  %arrayidx44 = getelementptr ptr, ptr %cond1648, i64 2
+  %arrayidx44 = getelementptr ptr, ptr %cond1647, i64 2
   %9 = load ptr, ptr %arrayidx44, align 8
   %tobool45.not = icmp eq ptr %9, null
   br i1 %tobool45.not, label %if.end56, label %if.then46
@@ -1387,7 +1387,7 @@ if.end51:                                         ; preds = %if.then46
 
 if.end56:                                         ; preds = %if.end51, %if.end43
   %closefd.0 = phi i32 [ %call48, %if.end51 ], [ 1, %if.end43 ]
-  %arrayidx57 = getelementptr ptr, ptr %cond1648, i64 3
+  %arrayidx57 = getelementptr ptr, ptr %cond1647, i64 3
   %10 = load ptr, ptr %arrayidx57, align 8
   br label %skip_optional_pos
 
@@ -1473,14 +1473,13 @@ while.body.i:                                     ; preds = %sw.epilog.i, %while
   %plus.0110.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %plus.1.i, %sw.epilog.i ]
   %flags.0109.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %flags.1.i, %sw.epilog.i ]
   %incdec.ptr.i = getelementptr i8, ptr %s.0112.i, i64 1
-  %conv.i27 = sext i8 %18 to i32
-  switch i32 %conv.i27, label %sw.default.i [
-    i32 120, label %sw.bb.i
-    i32 114, label %sw.bb34.i
-    i32 119, label %sw.bb41.i
-    i32 97, label %sw.bb50.i
-    i32 98, label %sw.epilog.i
-    i32 43, label %sw.bb63.i
+  switch i8 %18, label %sw.default.i [
+    i8 120, label %sw.bb.i
+    i8 114, label %sw.bb34.i
+    i8 119, label %sw.bb41.i
+    i8 97, label %sw.bb50.i
+    i8 98, label %sw.epilog.i
+    i8 43, label %sw.bb63.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i
@@ -1733,8 +1732,8 @@ if.then195.i:                                     ; preds = %if.then191.i
 if.else198.i:                                     ; preds = %if.end184.i
   %st_mode.i = getelementptr inbounds %struct.stat, ptr %fdfstat.i, i64 0, i32 3
   %44 = load i32, ptr %st_mode.i, align 8
-  %and.i28 = and i32 %44, 61440
-  %cmp199.i = icmp eq i32 %and.i28, 16384
+  %and.i27 = and i32 %44, 61440
+  %cmp199.i = icmp eq i32 %and.i27, 16384
   br i1 %cmp199.i, label %if.then201.i, label %if.end204.i
 
 if.then201.i:                                     ; preds = %if.else198.i
@@ -2863,7 +2862,7 @@ _io_FileIO_isatty_impl.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @fileio_dealloc_warn(ptr noundef %self, ptr noundef %source) #1 {
+define internal noundef nonnull ptr @fileio_dealloc_warn(ptr noundef %self, ptr noundef %source) #1 {
 entry:
   %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
   %0 = load i32, ptr %fd, align 8

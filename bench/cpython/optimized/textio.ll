@@ -1805,10 +1805,9 @@ while.end191.split.us.us:                         ; preds = %while.body189.us.us
   %.us-phi537 = phi i64 [ %in.0.us, %for.cond182.split.us.us.split.us ], [ %inc185.us.us.us574, %while.body189.us.us.us ]
   %.us-phi538 = phi i64 [ %out173.0.us, %for.cond182.split.us.us.split.us ], [ %inc190.us.us.us, %while.body189.us.us.us ]
   %.us-phi539 = phi i64 [ %inc185.us.us.us569, %for.cond182.split.us.us.split.us ], [ %inc185.us.us.us, %while.body189.us.us.us ]
-  %trunc655 = zext nneg i8 %.us-phi536.in to i16
-  switch i16 %trunc655, label %if.end211.us [
-    i16 10, label %if.then194
-    i16 13, label %if.then200
+  switch i8 %.us-phi536.in, label %if.end211.us [
+    i8 10, label %if.then194
+    i8 13, label %if.then200
   ]
 
 if.end211.us499:                                  ; preds = %while.end191.split.split.us.us
@@ -5116,16 +5115,15 @@ if.end:                                           ; preds = %entry
   %bf.load = load i8, ptr %seennl, align 8
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 7
-  %bf.cast = zext nneg i8 %bf.clear to i32
-  switch i32 %bf.cast, label %if.end.unreachabledefault [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
-    i32 4, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 5, label %sw.bb7
-    i32 6, label %sw.bb9
-    i32 7, label %sw.bb11
-    i32 0, label %return
+  switch i8 %bf.clear, label %if.end.unreachabledefault [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb1
+    i8 4, label %sw.bb3
+    i8 3, label %sw.bb5
+    i8 5, label %sw.bb7
+    i8 6, label %sw.bb9
+    i8 7, label %sw.bb11
+    i8 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end

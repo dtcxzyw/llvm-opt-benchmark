@@ -732,7 +732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node20GetCurrentStackTraceEPN2v87IsolateEi(ptr noundef %isolate, i32 noundef %frame_count) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node20GetCurrentStackTraceEPN2v87IsolateEi(ptr noundef %isolate, i32 noundef %frame_count) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %cmp = icmp eq ptr %isolate, null
@@ -3874,7 +3874,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %4
@@ -3943,7 +3943,7 @@ if.then.i.i.i.i.i.i40:                            ; preds = %if.else.i.i.i.i13
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18: ; preds = %if.else.i.i.i.i13
   %sub.ptr.div.i.i.i.i.i.i.i19 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i16, 3
   %.sroa.speculated.i.i.i.i.i.i20 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i19, i64 1)
-  %add.i.i.i.i.i.i21 = add i64 %.sroa.speculated.i.i.i.i.i.i20, %sub.ptr.div.i.i.i.i.i.i.i19
+  %add.i.i.i.i.i.i21 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i20, %sub.ptr.div.i.i.i.i.i.i.i19
   %cmp7.i.i.i.i.i.i22 = icmp ult i64 %add.i.i.i.i.i.i21, %sub.ptr.div.i.i.i.i.i.i.i19
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i21, i64 1152921504606846975)
   %cond.i.i.i.i.i.i23 = select i1 %cmp7.i.i.i.i.i.i22, i64 1152921504606846975, i64 %9
@@ -4012,7 +4012,7 @@ if.then.i.i.i.i.i.i75:                            ; preds = %if.else.i.i.i.i48
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i53: ; preds = %if.else.i.i.i.i48
   %sub.ptr.div.i.i.i.i.i.i.i54 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i51, 3
   %.sroa.speculated.i.i.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i54, i64 1)
-  %add.i.i.i.i.i.i56 = add i64 %.sroa.speculated.i.i.i.i.i.i55, %sub.ptr.div.i.i.i.i.i.i.i54
+  %add.i.i.i.i.i.i56 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i55, %sub.ptr.div.i.i.i.i.i.i.i54
   %cmp7.i.i.i.i.i.i57 = icmp ult i64 %add.i.i.i.i.i.i56, %sub.ptr.div.i.i.i.i.i.i.i54
   %14 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i56, i64 1152921504606846975)
   %cond.i.i.i.i.i.i58 = select i1 %cmp7.i.i.i.i.i.i57, i64 1152921504606846975, i64 %14
@@ -4081,7 +4081,7 @@ if.then.i.i.i.i.i.i110:                           ; preds = %if.else.i.i.i.i83
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i88: ; preds = %if.else.i.i.i.i83
   %sub.ptr.div.i.i.i.i.i.i.i89 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i86, 3
   %.sroa.speculated.i.i.i.i.i.i90 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i89, i64 1)
-  %add.i.i.i.i.i.i91 = add i64 %.sroa.speculated.i.i.i.i.i.i90, %sub.ptr.div.i.i.i.i.i.i.i89
+  %add.i.i.i.i.i.i91 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i90, %sub.ptr.div.i.i.i.i.i.i.i89
   %cmp7.i.i.i.i.i.i92 = icmp ult i64 %add.i.i.i.i.i.i91, %sub.ptr.div.i.i.i.i.i.i.i89
   %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i91, i64 1152921504606846975)
   %cond.i.i.i.i.i.i93 = select i1 %cmp7.i.i.i.i.i.i92, i64 1152921504606846975, i64 %19
@@ -4150,7 +4150,7 @@ if.then.i.i.i.i.i.i145:                           ; preds = %if.else.i.i.i.i118
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i123: ; preds = %if.else.i.i.i.i118
   %sub.ptr.div.i.i.i.i.i.i.i124 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i121, 3
   %.sroa.speculated.i.i.i.i.i.i125 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i124, i64 1)
-  %add.i.i.i.i.i.i126 = add i64 %.sroa.speculated.i.i.i.i.i.i125, %sub.ptr.div.i.i.i.i.i.i.i124
+  %add.i.i.i.i.i.i126 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i125, %sub.ptr.div.i.i.i.i.i.i.i124
   %cmp7.i.i.i.i.i.i127 = icmp ult i64 %add.i.i.i.i.i.i126, %sub.ptr.div.i.i.i.i.i.i.i124
   %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i126, i64 1152921504606846975)
   %cond.i.i.i.i.i.i128 = select i1 %cmp7.i.i.i.i.i.i127, i64 1152921504606846975, i64 %24
@@ -4219,7 +4219,7 @@ if.then.i.i.i.i.i.i180:                           ; preds = %if.else.i.i.i.i153
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i158: ; preds = %if.else.i.i.i.i153
   %sub.ptr.div.i.i.i.i.i.i.i159 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i156, 3
   %.sroa.speculated.i.i.i.i.i.i160 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i159, i64 1)
-  %add.i.i.i.i.i.i161 = add i64 %.sroa.speculated.i.i.i.i.i.i160, %sub.ptr.div.i.i.i.i.i.i.i159
+  %add.i.i.i.i.i.i161 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i160, %sub.ptr.div.i.i.i.i.i.i.i159
   %cmp7.i.i.i.i.i.i162 = icmp ult i64 %add.i.i.i.i.i.i161, %sub.ptr.div.i.i.i.i.i.i.i159
   %29 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i161, i64 1152921504606846975)
   %cond.i.i.i.i.i.i163 = select i1 %cmp7.i.i.i.i.i.i162, i64 1152921504606846975, i64 %29
@@ -4287,7 +4287,7 @@ if.then.i.i.i.i.i.i215:                           ; preds = %if.else.i.i.i.i188
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i193: ; preds = %if.else.i.i.i.i188
   %sub.ptr.div.i.i.i.i.i.i.i194 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i191, 3
   %.sroa.speculated.i.i.i.i.i.i195 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i194, i64 1)
-  %add.i.i.i.i.i.i196 = add i64 %.sroa.speculated.i.i.i.i.i.i195, %sub.ptr.div.i.i.i.i.i.i.i194
+  %add.i.i.i.i.i.i196 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i195, %sub.ptr.div.i.i.i.i.i.i.i194
   %cmp7.i.i.i.i.i.i197 = icmp ult i64 %add.i.i.i.i.i.i196, %sub.ptr.div.i.i.i.i.i.i.i194
   %34 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i196, i64 1152921504606846975)
   %cond.i.i.i.i.i.i198 = select i1 %cmp7.i.i.i.i.i.i197, i64 1152921504606846975, i64 %34
@@ -5567,16 +5567,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !42
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -6047,16 +6047,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !61
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -6223,16 +6223,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !80
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -6475,16 +6475,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !115
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -6722,16 +6722,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !142
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.end29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.end29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -6942,16 +6942,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !189
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -7193,16 +7193,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !222
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -7461,16 +7461,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !263
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -7631,16 +7631,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !300
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -7849,16 +7849,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !343
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8039,16 +8039,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp8.not, label %while.end, label %while.cond, !llvm.loop !380
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb14
-    i32 105, label %sw.bb14
-    i32 117, label %sw.bb14
-    i32 115, label %sw.bb14
-    i32 111, label %sw.bb17
-    i32 120, label %sw.bb20
-    i32 88, label %sw.bb23
-    i32 112, label %do.body29
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb14
+    i8 105, label %sw.bb14
+    i8 117, label %sw.bb14
+    i8 115, label %sw.bb14
+    i8 111, label %sw.bb17
+    i8 120, label %sw.bb20
+    i8 88, label %sw.bb23
+    i8 112, label %do.body29
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8252,16 +8252,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !423
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8382,16 +8382,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !436
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8548,16 +8548,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !470
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8733,16 +8733,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !511
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -8864,16 +8864,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !524
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end

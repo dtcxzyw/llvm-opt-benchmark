@@ -4060,11 +4060,10 @@ define linkonce_odr hidden void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Var
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
   ]
 
 sw.bb2:                                           ; preds = %entry

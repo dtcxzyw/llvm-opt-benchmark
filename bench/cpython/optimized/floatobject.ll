@@ -1004,13 +1004,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.hex_from_char = private unnamed_addr constant [55 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local double @PyFloat_GetMax() local_unnamed_addr #0 {
+define dso_local noundef double @PyFloat_GetMax() local_unnamed_addr #0 {
 entry:
   ret double 0x7FEFFFFFFFFFFFFF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local double @PyFloat_GetMin() local_unnamed_addr #0 {
+define dso_local noundef double @PyFloat_GetMin() local_unnamed_addr #0 {
 entry:
   ret double 0x10000000000000
 }
@@ -2350,7 +2350,7 @@ entry:
 declare void @_PyDebugAllocatorStats(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyFloat_Pack2(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
+define dso_local noundef i32 @PyFloat_Pack2(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
 entry:
   %e = alloca i32, align 4
   %cmp = fcmp oeq double %x, 0.000000e+00
@@ -2492,7 +2492,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyFloat_Pack4(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
+define dso_local noundef i32 @PyFloat_Pack4(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
 entry:
   %e = alloca i32, align 4
   %s = alloca [4 x i8], align 4
@@ -2633,7 +2633,7 @@ return:                                           ; preds = %for.body, %Overflow
 declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyFloat_Pack8(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
+define dso_local noundef i32 @PyFloat_Pack8(double noundef %x, ptr nocapture noundef writeonly %data, i32 noundef %le) local_unnamed_addr #1 {
 entry:
   %x.addr = alloca double, align 8
   %e = alloca i32, align 4
@@ -6242,7 +6242,7 @@ float_hex_impl.exit:                              ; preds = %land.lhs.true.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_is_integer(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #1 {
+define internal noundef ptr @float_is_integer(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %self)
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -6437,15 +6437,14 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #2
 declare double @_Py_parse_inf_or_nan(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @hex_from_char(i8 noundef signext %c) unnamed_addr #0 {
+define internal fastcc noundef i32 @hex_from_char(i8 noundef signext %c) unnamed_addr #0 {
 entry:
-  %conv = sext i8 %c to i32
-  %switch.tableidx = add nsw i32 %conv, -48
-  %0 = icmp ult i32 %switch.tableidx, 55
+  %switch.tableidx = add i8 %c, -48
+  %0 = icmp ult i8 %switch.tableidx, 55
   br i1 %0, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.hex_from_char, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog

@@ -568,7 +568,7 @@ if.then.i.i.i95.cont:                             ; preds = %if.then.i.i.i95.inv
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i69: ; preds = %if.else.i64
   %sub.ptr.div.i.i.i.i70 = ashr exact i64 %sub.ptr.sub.i.i.i.i67, 3
   %.sroa.speculated.i.i.i71 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i70, i64 1)
-  %add.i.i.i72 = add i64 %.sroa.speculated.i.i.i71, %sub.ptr.div.i.i.i.i70
+  %add.i.i.i72 = add nsw i64 %.sroa.speculated.i.i.i71, %sub.ptr.div.i.i.i.i70
   %cmp7.i.i.i73 = icmp ult i64 %add.i.i.i72, %sub.ptr.div.i.i.i.i70
   %44 = call i64 @llvm.umin.i64(i64 %add.i.i.i72, i64 1152921504606846975)
   %cond.i.i.i74 = select i1 %cmp7.i.i.i73, i64 1152921504606846975, i64 %44
@@ -630,7 +630,7 @@ if.else.i105:                                     ; preds = %if.else42
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i110: ; preds = %if.else.i105
   %sub.ptr.div.i.i.i.i111 = ashr exact i64 %sub.ptr.sub.i.i.i.i108, 3
   %.sroa.speculated.i.i.i112 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i111, i64 1)
-  %add.i.i.i113 = add i64 %.sroa.speculated.i.i.i112, %sub.ptr.div.i.i.i.i111
+  %add.i.i.i113 = add nsw i64 %.sroa.speculated.i.i.i112, %sub.ptr.div.i.i.i.i111
   %cmp7.i.i.i114 = icmp ult i64 %add.i.i.i113, %sub.ptr.div.i.i.i.i111
   %46 = call i64 @llvm.umin.i64(i64 %add.i.i.i113, i64 1152921504606846975)
   %cond.i.i.i115 = select i1 %cmp7.i.i.i114, i64 1152921504606846975, i64 %46
@@ -1801,14 +1801,14 @@ invoke.cont:                                      ; preds = %entry
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 18, label %sw.bb
-    i32 21, label %sw.bb43
-    i32 19, label %sw.bb130
-    i32 20, label %sw.bb248
-    i32 5, label %sw.bb331
-    i32 22, label %sw.bb805
-    i32 23, label %sw.bb999
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 18, label %sw.bb
+    i16 21, label %sw.bb43
+    i16 19, label %sw.bb130
+    i16 20, label %sw.bb248
+    i16 5, label %sw.bb331
+    i16 22, label %sw.bb805
+    i16 23, label %sw.bb999
   ]
 
 lpad:                                             ; preds = %entry
@@ -1832,7 +1832,7 @@ lpad3.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then13.i.i2125, 
   br label %ehcleanup2053
 
 sw.bb:                                            ; preds = %invoke.cont
-  %call2.i.i.i175 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 18)
+  %call2.i.i.i175 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont9 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %sw.bb
@@ -2128,7 +2128,7 @@ lpad39:                                           ; preds = %invoke.cont38
   br label %ehcleanup2053
 
 sw.bb43:                                          ; preds = %invoke.cont
-  %call2.i.i.i288 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 21)
+  %call2.i.i.i288 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont46 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont46:                                    ; preds = %sw.bb43
@@ -2389,7 +2389,7 @@ lpad125:                                          ; preds = %invoke.cont124
   br label %ehcleanup2053
 
 sw.bb130:                                         ; preds = %invoke.cont
-  %call2.i.i.i400 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 19)
+  %call2.i.i.i400 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont137 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont137:                                   ; preds = %sw.bb130
@@ -2650,7 +2650,7 @@ lpad243:                                          ; preds = %invoke.cont242
   br label %ehcleanup2053
 
 sw.bb248:                                         ; preds = %invoke.cont
-  %call2.i.i.i525 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 20)
+  %call2.i.i.i525 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont252 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont252:                                   ; preds = %sw.bb248
@@ -3011,7 +3011,7 @@ lpad326:                                          ; preds = %invoke.cont325
   br label %ehcleanup2053
 
 sw.bb331:                                         ; preds = %invoke.cont
-  %call2.i.i.i689 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 5)
+  %call2.i.i.i689 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont335 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont335:                                   ; preds = %sw.bb331
@@ -4304,7 +4304,7 @@ lpad802:                                          ; preds = %invoke.cont801
   br label %ehcleanup2053
 
 sw.bb805:                                         ; preds = %invoke.cont
-  %call2.i.i.i1230 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 22)
+  %call2.i.i.i1230 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont809 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont809:                                   ; preds = %sw.bb805
@@ -4816,7 +4816,7 @@ lpad989:                                          ; preds = %invoke.cont988
 
 sw.bb999:                                         ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  %call2.i.i.i1445 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 23)
+  %call2.i.i.i1445 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont1001 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1001:                                  ; preds = %sw.bb999

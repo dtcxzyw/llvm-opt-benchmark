@@ -173,10 +173,9 @@ invoke.cont:                                      ; preds = %if.then13.i.i, %if.
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.else26 [
-    i32 310, label %if.then
-    i32 311, label %if.then15
+  switch i16 %bf.clear.i, label %if.else26 [
+    i16 310, label %if.then
+    i16 311, label %if.then15
   ]
 
 if.then:                                          ; preds = %invoke.cont
@@ -500,8 +499,8 @@ ehcleanup25:                                      ; preds = %lpad21, %lpad19
   br label %ehcleanup184
 
 if.else26:                                        ; preds = %invoke.cont
-  %35 = and i32 %bf.cast.i, 1022
-  %or.cond = icmp eq i32 %35, 326
+  %35 = and i16 %bf.load.i, 1022
+  %or.cond = icmp eq i16 %35, 326
   br i1 %or.cond, label %if.then29, label %if.else40
 
 if.then29:                                        ; preds = %if.else26
@@ -662,13 +661,13 @@ ehcleanup39:                                      ; preds = %lpad35, %lpad33
   br label %ehcleanup184
 
 if.else40:                                        ; preds = %if.else26
-  switch i32 %bf.cast.i, label %if.else118 [
-    i32 320, label %if.then42
-    i32 321, label %if.then55
-    i32 322, label %if.then68
-    i32 323, label %if.then81
-    i32 324, label %if.then94
-    i32 325, label %if.then107
+  switch i16 %bf.clear.i, label %if.else118 [
+    i16 320, label %if.then42
+    i16 321, label %if.then55
+    i16 322, label %if.then68
+    i16 323, label %if.then81
+    i16 324, label %if.then94
+    i16 325, label %if.then107
   ]
 
 if.then42:                                        ; preds = %if.else40
@@ -4915,9 +4914,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit74: ; preds = %invoke.cont10, %if.
   br i1 %cmp707.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit74
-  switch i32 %bf.cast.i, label %for.end [
-    i32 327, label %for.body.us.preheader
-    i32 326, label %for.body.us710.preheader
+  switch i16 %bf.clear.i, label %for.end [
+    i16 327, label %for.body.us.preheader
+    i16 326, label %for.body.us710.preheader
   ]
 
 for.body.us710.preheader:                         ; preds = %for.body.lr.ph

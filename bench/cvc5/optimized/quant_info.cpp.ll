@@ -716,7 +716,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i215
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i215
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %19 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %19
@@ -1553,14 +1553,13 @@ entry:
   %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
-  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
-  switch i32 %bf.cast.i.i, label %lor.rhs.i [
-    i32 26, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
-    i32 352, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
-    i32 353, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
-    i32 11, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
-    i32 255, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
-    i32 233, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+  switch i16 %bf.clear.i.i, label %lor.rhs.i [
+    i16 26, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+    i16 352, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+    i16 353, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+    i16 11, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+    i16 255, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
+    i16 233, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit
   ]
 
 lor.rhs.i:                                        ; preds = %entry

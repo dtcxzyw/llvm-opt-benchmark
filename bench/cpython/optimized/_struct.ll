@@ -193,7 +193,7 @@ return:                                           ; preds = %if.then32, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_structmodule_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @_structmodule_clear(ptr nocapture noundef readonly %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -303,7 +303,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @_clearcache(ptr nocapture noundef readonly %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_clearcache(ptr nocapture noundef readonly %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -471,7 +471,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pack_into(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @pack_into(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %s_object = alloca ptr, align 8
   store ptr null, ptr %s_object, align 8
@@ -746,7 +746,7 @@ if.end39:                                         ; preds = %if.then38, %Py_XDEC
 declare void @PyDict_Clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cache_struct_converter(ptr nocapture readonly %module.32.val, ptr noundef %fmt, ptr nocapture noundef %ptr) unnamed_addr #0 {
+define internal fastcc noundef i32 @cache_struct_converter(ptr nocapture readonly %module.32.val, ptr noundef %fmt, ptr nocapture noundef %ptr) unnamed_addr #0 {
 entry:
   %s_object = alloca ptr, align 8
   %cmp = icmp eq ptr %fmt, null
@@ -1009,7 +1009,7 @@ declare ptr @_PyBytesWriter_Alloc(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @_PyBytesWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s_pack_internal(ptr nocapture noundef readonly %soself, ptr nocapture noundef readonly %args, i32 noundef %offset, ptr noundef %buf, ptr noundef %state) unnamed_addr #0 {
+define internal fastcc noundef i32 @s_pack_internal(ptr nocapture noundef readonly %soself, ptr nocapture noundef readonly %args, i32 noundef %offset, ptr noundef %buf, ptr noundef %state) unnamed_addr #0 {
 entry:
   %s_size = getelementptr inbounds %struct.PyStructObject, ptr %soself, i64 0, i32 1
   %0 = load i64, ptr %s_size, align 8
@@ -1216,7 +1216,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @s_pack_into(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @s_pack_into(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   %0 = getelementptr i8, ptr %self, i64 8
@@ -1792,7 +1792,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @s_clear(ptr nocapture noundef %s) #0 {
+define internal noundef i32 @s_clear(ptr nocapture noundef %s) #0 {
 entry:
   %s_format = getelementptr inbounds %struct.PyStructObject, ptr %s, i64 0, i32 4
   %0 = load ptr, ptr %s_format, align 8
@@ -1821,7 +1821,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Struct___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @Struct___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 16
@@ -1946,13 +1946,12 @@ if.then.i.i:                                      ; preds = %do.end.i
 if.end.i22.i:                                     ; preds = %do.end.i
   %incdec.ptr.i.i.i = getelementptr %struct.PyBytesObject, ptr %17, i64 0, i32 2, i64 1
   %20 = load i8, ptr %ob_sval.i.i.i, align 1
-  %conv.i.i.i = sext i8 %20 to i32
-  switch i32 %conv.i.i.i, label %sw.default.i.i.i [
-    i32 60, label %whichtable.exit.i.i
-    i32 62, label %sw.bb1.i.i.i
-    i32 33, label %sw.bb1.i.i.i
-    i32 61, label %whichtable.exit.i.i
-    i32 64, label %sw.bb4.i.i.i
+  switch i8 %20, label %sw.default.i.i.i [
+    i8 60, label %whichtable.exit.i.i
+    i8 62, label %sw.bb1.i.i.i
+    i8 33, label %sw.bb1.i.i.i
+    i8 61, label %whichtable.exit.i.i
+    i8 64, label %sw.bb4.i.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.end.i22.i, %if.end.i22.i
@@ -1998,43 +1997,43 @@ if.end14.i.i:                                     ; preds = %while.body.i.i
 
 if.then21.i.i:                                    ; preds = %if.end14.i.i
   %conv23.i.i = zext nneg i8 %23 to i64
-  %incdec.ptr25159.i.i = getelementptr i8, ptr %s.0.i.i, i64 2
+  %incdec.ptr25158.i.i = getelementptr i8, ptr %s.0.i.i, i64 2
   %24 = load i8, ptr %incdec.ptr.i.i, align 1
   %25 = add i8 %24, -48
   %26 = icmp ult i8 %25, 10
   br i1 %26, label %while.body32.i.i, label %while.end.i.i
 
 while.body32.i.i:                                 ; preds = %if.then21.i.i, %if.end44.i.i
-  %conv26163.in.i.i = phi i8 [ %28, %if.end44.i.i ], [ %24, %if.then21.i.i ]
-  %incdec.ptr25162.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end44.i.i ], [ %incdec.ptr25159.i.i, %if.then21.i.i ]
-  %num.0161.i.i = phi i64 [ %add.i23.i, %if.end44.i.i ], [ %conv23.i.i, %if.then21.i.i ]
-  %conv26163.i.i = zext nneg i8 %conv26163.in.i.i to i32
-  %cmp33.i.i = icmp sgt i64 %num.0161.i.i, 922337203685477579
+  %conv26162.in.i.i = phi i8 [ %28, %if.end44.i.i ], [ %24, %if.then21.i.i ]
+  %incdec.ptr25161.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end44.i.i ], [ %incdec.ptr25158.i.i, %if.then21.i.i ]
+  %num.0160.i.i = phi i64 [ %add.i23.i, %if.end44.i.i ], [ %conv23.i.i, %if.then21.i.i ]
+  %conv26162.i.i = zext nneg i8 %conv26162.in.i.i to i32
+  %cmp33.i.i = icmp sgt i64 %num.0160.i.i, 922337203685477579
   br i1 %cmp33.i.i, label %land.lhs.true35.i.i, label %if.end44.i.i
 
 land.lhs.true35.i.i:                              ; preds = %while.body32.i.i
-  %cmp36.not.i.i = icmp eq i64 %num.0161.i.i, 922337203685477580
-  %27 = and i32 %conv26163.i.i, 56
+  %cmp36.not.i.i = icmp eq i64 %num.0160.i.i, 922337203685477580
+  %27 = and i32 %conv26162.i.i, 56
   %cmp41.not.i.i = icmp eq i32 %27, 48
   %or.cond92.i.i = and i1 %cmp36.not.i.i, %cmp41.not.i.i
   br i1 %or.cond92.i.i, label %if.end44.i.i, label %overflow.i.i
 
 if.end44.i.i:                                     ; preds = %land.lhs.true35.i.i, %while.body32.i.i
-  %mul.i.i = mul i64 %num.0161.i.i, 10
-  %sub46.i.i = add nsw i32 %conv26163.i.i, -48
+  %mul.i.i = mul i64 %num.0160.i.i, 10
+  %sub46.i.i = add nsw i32 %conv26162.i.i, -48
   %conv47.i.i = zext nneg i32 %sub46.i.i to i64
   %add.i23.i = add i64 %mul.i.i, %conv47.i.i
-  %incdec.ptr25.i.i = getelementptr i8, ptr %incdec.ptr25162.i.i, i64 1
-  %28 = load i8, ptr %incdec.ptr25162.i.i, align 1
+  %incdec.ptr25.i.i = getelementptr i8, ptr %incdec.ptr25161.i.i, i64 1
+  %28 = load i8, ptr %incdec.ptr25161.i.i, align 1
   %29 = add i8 %28, -48
   %30 = icmp ult i8 %29, 10
   br i1 %30, label %while.body32.i.i, label %while.end.i.i, !llvm.loop !13
 
 while.end.i.i:                                    ; preds = %if.end44.i.i, %if.then21.i.i
   %num.0.lcssa.i.i = phi i64 [ %conv23.i.i, %if.then21.i.i ], [ %add.i23.i, %if.end44.i.i ]
-  %incdec.ptr25.lcssa.i.i = phi ptr [ %incdec.ptr25159.i.i, %if.then21.i.i ], [ %incdec.ptr25.i.i, %if.end44.i.i ]
-  %.lcssa139.i.i = phi i8 [ %24, %if.then21.i.i ], [ %28, %if.end44.i.i ]
-  %cmp49.i.i = icmp eq i8 %.lcssa139.i.i, 0
+  %incdec.ptr25.lcssa.i.i = phi ptr [ %incdec.ptr25158.i.i, %if.then21.i.i ], [ %incdec.ptr25.i.i, %if.end44.i.i ]
+  %.lcssa138.i.i = phi i8 [ %24, %if.then21.i.i ], [ %28, %if.end44.i.i ]
+  %cmp49.i.i = icmp eq i8 %.lcssa138.i.i, 0
   br i1 %cmp49.i.i, label %if.then51.i.i, label %if.end54.i.i
 
 if.then51.i.i:                                    ; preds = %while.end.i.i
@@ -2045,22 +2044,21 @@ if.then51.i.i:                                    ; preds = %while.end.i.i
 
 if.end54.i.i:                                     ; preds = %while.end.i.i, %if.end14.i.i
   %s.2.i.i = phi ptr [ %incdec.ptr25.lcssa.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %if.end14.i.i ]
-  %c.0.i.i = phi i8 [ %.lcssa139.i.i, %while.end.i.i ], [ %21, %if.end14.i.i ]
+  %c.0.i.i = phi i8 [ %.lcssa138.i.i, %while.end.i.i ], [ %21, %if.end14.i.i ]
   %num.1.i.i = phi i64 [ %num.0.lcssa.i.i, %while.end.i.i ], [ 1, %if.end14.i.i ]
-  %conv55.i.i = sext i8 %c.0.i.i to i32
   %32 = load i8, ptr %retval.0.i.i.i, align 16
   %cmp.not5.i.i.i = icmp eq i8 %32, 0
   br i1 %cmp.not5.i.i.i, label %getentry.exit.thread.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end54.i.i, %for.inc.i.i.i
   %33 = phi i8 [ %34, %for.inc.i.i.i ], [ %32, %if.end54.i.i ]
-  %f.addr.06.i.i.i = phi ptr [ %incdec.ptr.i94.i.i, %for.inc.i.i.i ], [ %retval.0.i.i.i, %if.end54.i.i ]
+  %f.addr.06.i.i.i = phi ptr [ %incdec.ptr.i93.i.i, %for.inc.i.i.i ], [ %retval.0.i.i.i, %if.end54.i.i ]
   %cmp4.i.i.i = icmp eq i8 %33, %c.0.i.i
   br i1 %cmp4.i.i.i, label %if.end60.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %incdec.ptr.i94.i.i = getelementptr %struct._formatdef, ptr %f.addr.06.i.i.i, i64 1
-  %34 = load i8, ptr %incdec.ptr.i94.i.i, align 8
+  %incdec.ptr.i93.i.i = getelementptr %struct._formatdef, ptr %f.addr.06.i.i.i, i64 1
+  %34 = load i8, ptr %incdec.ptr.i93.i.i, align 8
   %cmp.not.i.i.i = icmp eq i8 %34, 0
   br i1 %cmp.not.i.i.i, label %getentry.exit.thread.i.i, label %for.body.i.i.i, !llvm.loop !14
 
@@ -2071,10 +2069,10 @@ getentry.exit.thread.i.i:                         ; preds = %if.end54.i.i, %for.
   br label %exit
 
 if.end60.i.i:                                     ; preds = %for.body.i.i.i
-  switch i32 %conv55.i.i, label %sw.default.i.i [
-    i32 115, label %sw.bb.i.i
-    i32 112, label %sw.bb.i.i
-    i32 120, label %if.then.i.i.i
+  switch i8 %c.0.i.i, label %sw.default.i.i [
+    i8 115, label %sw.bb.i.i
+    i8 112, label %sw.bb.i.i
+    i8 120, label %if.then.i.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end60.i.i, %if.end60.i.i
@@ -2112,19 +2110,19 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br i1 %cmp11.i.i.i, label %overflow.i.i, label %align.exit.i.i
 
 align.exit.i.i:                                   ; preds = %if.then5.i.i.i, %if.then.i.i.i
-  %retval.0.i96.i.i = phi i64 [ %size.0.ph.i.i, %if.then.i.i.i ], [ %add.i.i.i, %if.then5.i.i.i ]
-  %cmp71.i.i = icmp eq i64 %retval.0.i96.i.i, -1
+  %retval.0.i95.i.i = phi i64 [ %size.0.ph.i.i, %if.then.i.i.i ], [ %add.i.i.i, %if.then5.i.i.i ]
+  %cmp71.i.i = icmp eq i64 %retval.0.i95.i.i, -1
   br i1 %cmp71.i.i, label %overflow.i.i, label %if.end74.i.i
 
 if.end74.i.i:                                     ; preds = %align.exit.i.i
-  %sub75.i.i = sub i64 9223372036854775807, %retval.0.i96.i.i
+  %sub75.i.i = sub i64 9223372036854775807, %retval.0.i95.i.i
   %div.i.i = sdiv i64 %sub75.i.i, %36
   %cmp76.i.i = icmp sgt i64 %num.1.i.i, %div.i.i
   br i1 %cmp76.i.i, label %overflow.i.i, label %if.end79.i.i
 
 if.end79.i.i:                                     ; preds = %if.end74.i.i
   %mul80.i.i = mul i64 %36, %num.1.i.i
-  %add81.i.i = add i64 %retval.0.i96.i.i, %mul80.i.i
+  %add81.i.i = add i64 %retval.0.i95.i.i, %mul80.i.i
   br label %while.cond.outer.i.i, !llvm.loop !12
 
 while.end82.i.i:                                  ; preds = %while.cond.i.i
@@ -2197,7 +2195,7 @@ if.end117.i.i:                                    ; preds = %while.body108.i.i
 
 if.then125.i.i:                                   ; preds = %if.end117.i.i
   %conv128.i.i = zext nneg i8 %42 to i64
-  %incdec.ptr130166.i.i = getelementptr i8, ptr %s.3.i.i, i64 2
+  %incdec.ptr130165.i.i = getelementptr i8, ptr %s.3.i.i, i64 2
   %43 = load i8, ptr %incdec.ptr104.i.i, align 1
   %44 = add i8 %43, -48
   %45 = icmp ult i8 %44, 10
@@ -2205,80 +2203,80 @@ if.then125.i.i:                                   ; preds = %if.end117.i.i
 
 while.body139.i.i:                                ; preds = %if.then125.i.i, %while.body139.i.i
   %46 = phi i8 [ %48, %while.body139.i.i ], [ %43, %if.then125.i.i ]
-  %incdec.ptr130168.i.i = phi ptr [ %incdec.ptr130.i.i, %while.body139.i.i ], [ %incdec.ptr130166.i.i, %if.then125.i.i ]
-  %num.2167.i.i = phi i64 [ %add144.i.i, %while.body139.i.i ], [ %conv128.i.i, %if.then125.i.i ]
-  %mul140.i.i = mul i64 %num.2167.i.i, 10
+  %incdec.ptr130167.i.i = phi ptr [ %incdec.ptr130.i.i, %while.body139.i.i ], [ %incdec.ptr130165.i.i, %if.then125.i.i ]
+  %num.2166.i.i = phi i64 [ %add144.i.i, %while.body139.i.i ], [ %conv128.i.i, %if.then125.i.i ]
+  %mul140.i.i = mul i64 %num.2166.i.i, 10
   %47 = and i8 %46, 15
   %conv143.i.i = zext nneg i8 %47 to i64
   %add144.i.i = add i64 %mul140.i.i, %conv143.i.i
-  %incdec.ptr130.i.i = getelementptr i8, ptr %incdec.ptr130168.i.i, i64 1
-  %48 = load i8, ptr %incdec.ptr130168.i.i, align 1
+  %incdec.ptr130.i.i = getelementptr i8, ptr %incdec.ptr130167.i.i, i64 1
+  %48 = load i8, ptr %incdec.ptr130167.i.i, align 1
   %49 = add i8 %48, -48
   %50 = icmp ult i8 %49, 10
   br i1 %50, label %while.body139.i.i, label %if.end147.i.i, !llvm.loop !16
 
 if.end147.i.i:                                    ; preds = %while.body139.i.i, %if.then125.i.i, %if.end117.i.i
-  %s.5.i.i = phi ptr [ %incdec.ptr104.i.i, %if.end117.i.i ], [ %incdec.ptr130166.i.i, %if.then125.i.i ], [ %incdec.ptr130.i.i, %while.body139.i.i ]
+  %s.5.i.i = phi ptr [ %incdec.ptr104.i.i, %if.end117.i.i ], [ %incdec.ptr130165.i.i, %if.then125.i.i ], [ %incdec.ptr130.i.i, %while.body139.i.i ]
   %c.1.i.i = phi i8 [ %40, %if.end117.i.i ], [ %43, %if.then125.i.i ], [ %48, %while.body139.i.i ]
   %num.3.i.i = phi i64 [ 1, %if.end117.i.i ], [ %conv128.i.i, %if.then125.i.i ], [ %add144.i.i, %while.body139.i.i ]
   %51 = load i8, ptr %retval.0.i.i.i, align 16
-  %cmp.not5.i97.i.i = icmp eq i8 %51, 0
-  br i1 %cmp.not5.i97.i.i, label %for.end.i105.i.i, label %for.body.i98.i.i
+  %cmp.not5.i96.i.i = icmp eq i8 %51, 0
+  br i1 %cmp.not5.i96.i.i, label %for.end.i104.i.i, label %for.body.i97.i.i
 
-for.body.i98.i.i:                                 ; preds = %if.end147.i.i, %for.inc.i102.i.i
-  %52 = phi i8 [ %53, %for.inc.i102.i.i ], [ %51, %if.end147.i.i ]
-  %f.addr.06.i99.i.i = phi ptr [ %incdec.ptr.i103.i.i, %for.inc.i102.i.i ], [ %retval.0.i.i.i, %if.end147.i.i ]
-  %cmp4.i101.i.i = icmp eq i8 %52, %c.1.i.i
-  br i1 %cmp4.i101.i.i, label %if.then.i111.i.i, label %for.inc.i102.i.i
+for.body.i97.i.i:                                 ; preds = %if.end147.i.i, %for.inc.i101.i.i
+  %52 = phi i8 [ %53, %for.inc.i101.i.i ], [ %51, %if.end147.i.i ]
+  %f.addr.06.i98.i.i = phi ptr [ %incdec.ptr.i102.i.i, %for.inc.i101.i.i ], [ %retval.0.i.i.i, %if.end147.i.i ]
+  %cmp4.i100.i.i = icmp eq i8 %52, %c.1.i.i
+  br i1 %cmp4.i100.i.i, label %if.then.i110.i.i, label %for.inc.i101.i.i
 
-for.inc.i102.i.i:                                 ; preds = %for.body.i98.i.i
-  %incdec.ptr.i103.i.i = getelementptr %struct._formatdef, ptr %f.addr.06.i99.i.i, i64 1
-  %53 = load i8, ptr %incdec.ptr.i103.i.i, align 8
-  %cmp.not.i104.i.i = icmp eq i8 %53, 0
-  br i1 %cmp.not.i104.i.i, label %for.end.i105.i.i, label %for.body.i98.i.i, !llvm.loop !14
+for.inc.i101.i.i:                                 ; preds = %for.body.i97.i.i
+  %incdec.ptr.i102.i.i = getelementptr %struct._formatdef, ptr %f.addr.06.i98.i.i, i64 1
+  %53 = load i8, ptr %incdec.ptr.i102.i.i, align 8
+  %cmp.not.i103.i.i = icmp eq i8 %53, 0
+  br i1 %cmp.not.i103.i.i, label %for.end.i104.i.i, label %for.body.i97.i.i, !llvm.loop !14
 
-for.end.i105.i.i:                                 ; preds = %if.end147.i.i, %for.inc.i102.i.i
-  %StructError.i106.i.i = getelementptr inbounds %struct._structmodulestate, ptr %call1.val.i.i, i64 0, i32 3
-  %54 = load ptr, ptr %StructError.i106.i.i, align 8
+for.end.i104.i.i:                                 ; preds = %if.end147.i.i, %for.inc.i101.i.i
+  %StructError.i105.i.i = getelementptr inbounds %struct._structmodulestate, ptr %call1.val.i.i, i64 0, i32 3
+  %54 = load ptr, ptr %StructError.i105.i.i, align 8
   call void @PyErr_SetString(ptr noundef %54, ptr noundef nonnull @.str.50) #6
   unreachable
 
-if.then.i111.i.i:                                 ; preds = %for.body.i98.i.i
-  %alignment.i112.i.i = getelementptr inbounds %struct._formatdef, ptr %f.addr.06.i99.i.i, i64 0, i32 2
-  %55 = load i64, ptr %alignment.i112.i.i, align 8
-  %tobool.i113.i.i = icmp ne i64 %55, 0
-  %cmp3.i114.i.i = icmp sgt i64 %size.1.ph.i.i, 0
-  %or.cond.i115.i.i = and i1 %cmp3.i114.i.i, %tobool.i113.i.i
-  br i1 %or.cond.i115.i.i, label %if.then5.i116.i.i, label %align.exit124.i.i
+if.then.i110.i.i:                                 ; preds = %for.body.i97.i.i
+  %alignment.i111.i.i = getelementptr inbounds %struct._formatdef, ptr %f.addr.06.i98.i.i, i64 0, i32 2
+  %55 = load i64, ptr %alignment.i111.i.i, align 8
+  %tobool.i112.i.i = icmp ne i64 %55, 0
+  %cmp3.i113.i.i = icmp sgt i64 %size.1.ph.i.i, 0
+  %or.cond.i114.i.i = and i1 %cmp3.i113.i.i, %tobool.i112.i.i
+  br i1 %or.cond.i114.i.i, label %if.then5.i115.i.i, label %align.exit123.i.i
 
-if.then5.i116.i.i:                                ; preds = %if.then.i111.i.i
-  %sub7.i117.i.i = add nsw i64 %size.1.ph.i.i, -1
-  %rem.i118.i.i = srem i64 %sub7.i117.i.i, %55
-  %56 = xor i64 %rem.i118.i.i, -1
-  %sub9.i119.i.i = add i64 %55, %56
-  %sub10.i120.i.i = sub nuw nsw i64 9223372036854775807, %size.1.ph.i.i
-  %cmp11.i121.i.i = icmp sgt i64 %sub9.i119.i.i, %sub10.i120.i.i
-  %add.i122.i.i = add i64 %sub9.i119.i.i, %size.1.ph.i.i
-  %spec.select.i123.i.i = select i1 %cmp11.i121.i.i, i64 -1, i64 %add.i122.i.i
-  br label %align.exit124.i.i
+if.then5.i115.i.i:                                ; preds = %if.then.i110.i.i
+  %sub7.i116.i.i = add nsw i64 %size.1.ph.i.i, -1
+  %rem.i117.i.i = srem i64 %sub7.i116.i.i, %55
+  %56 = xor i64 %rem.i117.i.i, -1
+  %sub9.i118.i.i = add i64 %55, %56
+  %sub10.i119.i.i = sub nuw nsw i64 9223372036854775807, %size.1.ph.i.i
+  %cmp11.i120.i.i = icmp sgt i64 %sub9.i118.i.i, %sub10.i119.i.i
+  %add.i121.i.i = add i64 %sub9.i118.i.i, %size.1.ph.i.i
+  %spec.select.i122.i.i = select i1 %cmp11.i120.i.i, i64 -1, i64 %add.i121.i.i
+  br label %align.exit123.i.i
 
-align.exit124.i.i:                                ; preds = %if.then5.i116.i.i, %if.then.i111.i.i
-  %retval.0.i110.i.i = phi i64 [ %size.1.ph.i.i, %if.then.i111.i.i ], [ %spec.select.i123.i.i, %if.then5.i116.i.i ]
+align.exit123.i.i:                                ; preds = %if.then5.i115.i.i, %if.then.i110.i.i
+  %retval.0.i109.i.i = phi i64 [ %size.1.ph.i.i, %if.then.i110.i.i ], [ %spec.select.i122.i.i, %if.then5.i115.i.i ]
   switch i8 %c.1.i.i, label %if.else168.i.i [
     i8 115, label %if.then158.i.i
     i8 112, label %if.then158.i.i
     i8 120, label %if.then166.i.i
   ]
 
-if.then158.i.i:                                   ; preds = %align.exit124.i.i, %align.exit124.i.i
+if.then158.i.i:                                   ; preds = %align.exit123.i.i, %align.exit123.i.i
   %offset.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 1
-  store i64 %retval.0.i110.i.i, ptr %offset.i.i, align 8
+  store i64 %retval.0.i109.i.i, ptr %offset.i.i, align 8
   %size159.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 2
   store i64 %num.3.i.i, ptr %size159.i.i, align 8
-  store ptr %f.addr.06.i99.i.i, ptr %codes.0.ph.i.i.ph, align 8
+  store ptr %f.addr.06.i98.i.i, ptr %codes.0.ph.i.i.ph, align 8
   %repeat.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 3
   store i64 1, ptr %repeat.i.i, align 8
-  %add161.i.i = add i64 %retval.0.i110.i.i, %num.3.i.i
+  %add161.i.i = add i64 %retval.0.i109.i.i, %num.3.i.i
   br label %while.cond103.outer.i.i.outer.backedge
 
 while.cond103.outer.i.i.outer.backedge:           ; preds = %if.then158.i.i, %if.then170.i.i
@@ -2286,31 +2284,31 @@ while.cond103.outer.i.i.outer.backedge:           ; preds = %if.then158.i.i, %if
   %codes.0.ph.i.i.ph.be = getelementptr %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 1
   br label %while.cond103.outer.i.i.outer, !llvm.loop !15
 
-if.then166.i.i:                                   ; preds = %align.exit124.i.i
-  %add167.i.i = add i64 %retval.0.i110.i.i, %num.3.i.i
+if.then166.i.i:                                   ; preds = %align.exit123.i.i
+  %add167.i.i = add i64 %retval.0.i109.i.i, %num.3.i.i
   br label %while.cond103.outer.i.i.backedge
 
-if.else168.i.i:                                   ; preds = %align.exit124.i.i
+if.else168.i.i:                                   ; preds = %align.exit123.i.i
   %tobool169.not.i.i = icmp eq i64 %num.3.i.i, 0
   br i1 %tobool169.not.i.i, label %while.cond103.outer.i.i.backedge, label %if.then170.i.i
 
 while.cond103.outer.i.i.backedge:                 ; preds = %if.else168.i.i, %if.then166.i.i
-  %size.1.ph.i.i.be = phi i64 [ %add167.i.i, %if.then166.i.i ], [ %retval.0.i110.i.i, %if.else168.i.i ]
+  %size.1.ph.i.i.be = phi i64 [ %add167.i.i, %if.then166.i.i ], [ %retval.0.i109.i.i, %if.else168.i.i ]
   br label %while.cond103.outer.i.i, !llvm.loop !15
 
 if.then170.i.i:                                   ; preds = %if.else168.i.i
   %offset171.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 1
-  store i64 %retval.0.i110.i.i, ptr %offset171.i.i, align 8
-  %size172.i.i = getelementptr inbounds %struct._formatdef, ptr %f.addr.06.i99.i.i, i64 0, i32 1
+  store i64 %retval.0.i109.i.i, ptr %offset171.i.i, align 8
+  %size172.i.i = getelementptr inbounds %struct._formatdef, ptr %f.addr.06.i98.i.i, i64 0, i32 1
   %57 = load i64, ptr %size172.i.i, align 8
   %size173.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 2
   store i64 %57, ptr %size173.i.i, align 8
-  store ptr %f.addr.06.i99.i.i, ptr %codes.0.ph.i.i.ph, align 8
+  store ptr %f.addr.06.i98.i.i, ptr %codes.0.ph.i.i.ph, align 8
   %repeat175.i.i = getelementptr inbounds %struct._formatcode, ptr %codes.0.ph.i.i.ph, i64 0, i32 3
   store i64 %num.3.i.i, ptr %repeat175.i.i, align 8
   %58 = load i64, ptr %size172.i.i, align 8
   %mul178.i.i = mul i64 %58, %num.3.i.i
-  %add179.i.i = add i64 %mul178.i.i, %retval.0.i110.i.i
+  %add179.i.i = add i64 %mul178.i.i, %retval.0.i109.i.i
   br label %while.cond103.outer.i.i.outer.backedge
 
 while.end183.i.i:                                 ; preds = %while.cond103.i.i
@@ -2587,7 +2585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_byte(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_byte(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -2654,7 +2652,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_ubyte(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_ubyte(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -2716,7 +2714,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_char(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @np_char(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2774,7 +2772,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bp_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @bp_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -2881,7 +2879,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bp_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @bp_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_ulong(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -3181,7 +3179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bp_bool(ptr nocapture readnone %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @bp_bool(ptr nocapture readnone %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %v) #6
   %cmp = icmp slt i32 %call, 0
@@ -3344,7 +3342,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_long(ptr nocapture noundef readonly %state, ptr noundef %v, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_long(ptr nocapture noundef readonly %state, ptr noundef %v, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i = load ptr, ptr %0, align 8
@@ -3425,7 +3423,7 @@ declare i64 @PyBytes_Size(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_ulong(ptr nocapture noundef readonly %state, ptr noundef %v, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_ulong(ptr nocapture noundef readonly %state, ptr noundef %v, ptr nocapture noundef writeonly %p) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i = load ptr, ptr %0, align 8
@@ -3717,7 +3715,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_short(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_short(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -3784,7 +3782,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_ushort(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_ushort(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -3848,7 +3846,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -3915,7 +3913,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_ulong(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -3978,7 +3976,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_long(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_long(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -4024,7 +4022,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_ulong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_ulong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_ulong(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -4069,7 +4067,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_ssize_t(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_ssize_t(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i.i = load ptr, ptr %0, align 8
@@ -4170,7 +4168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_size_t(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_size_t(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i.i = load ptr, ptr %0, align 8
@@ -4270,7 +4268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_longlong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_longlong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i.i = load ptr, ptr %0, align 8
@@ -4365,7 +4363,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_ulonglong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @np_ulonglong(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i.i = load ptr, ptr %0, align 8
@@ -4462,7 +4460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_bool(ptr nocapture readnone %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @np_bool(ptr nocapture readnone %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %v) #6
   %cmp = icmp slt i32 %call, 0
@@ -4537,7 +4535,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_float(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @np_float(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %v) #6
   %conv = fptrunc double %call to float
@@ -4573,7 +4571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_double(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @np_double(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %v) #6
   %cmp = fcmp oeq double %call, -1.000000e+00
@@ -4608,7 +4606,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @np_void_p(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
+define internal noundef i32 @np_void_p(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture readnone %f) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val.i = load ptr, ptr %0, align 8
@@ -4715,7 +4713,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lp_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @lp_int(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_long(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4
@@ -4822,7 +4820,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lp_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
+define internal noundef i32 @lp_uint(ptr nocapture noundef readonly %state, ptr nocapture noundef writeonly %p, ptr noundef %v, ptr nocapture noundef readonly %f) #0 {
 entry:
   %x = alloca i64, align 8
   %call = call fastcc i32 @get_ulong(ptr noundef %state, ptr noundef %v, ptr noundef nonnull %x), !range !4

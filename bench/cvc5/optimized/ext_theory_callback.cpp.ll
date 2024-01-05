@@ -655,18 +655,18 @@ if.then4:                                         ; preds = %if.end
   %d_kind.i36 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i37 = load i16, ptr %d_kind.i36, align 8
   %bf.clear.i38 = and i16 %bf.load.i37, 1023
-  %bf.cast.i39 = zext nneg i16 %bf.clear.i38 to i32
   %cmp.not = icmp eq i16 %bf.clear.i38, 38
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then4
+  %bf.cast.i39 = zext nneg i16 %bf.clear.i38 to i32
   %call6 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith20isTranscendentalKindENS0_4kind6Kind_tE(i32 noundef %bf.cast.i39)
   br i1 %call6, label %return, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true
-  switch i32 %bf.cast.i39, label %if.then11 [
-    i32 81, label %return
-    i32 50, label %return
+  switch i16 %bf.clear.i38, label %if.then11 [
+    i16 81, label %return
+    i16 50, label %return
   ]
 
 if.then11:                                        ; preds = %switch.early.test
@@ -2313,7 +2313,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -3089,7 +3089,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

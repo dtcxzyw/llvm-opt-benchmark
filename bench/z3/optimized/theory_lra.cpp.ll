@@ -4828,12 +4828,8 @@ if.then24:                                        ; preds = %lor.lhs.false, %if.
   br i1 %call4.i, label %sw.bb, label %if.end26
 
 if.end26:                                         ; preds = %if.then24
-  %cmp.i = icmp eq i32 %call2.i, 1
-  %..i = sext i1 %cmp.i to i32
-  switch i32 %..i, label %sw.default63 [
-    i32 0, label %sw.bb61
-    i32 -1, label %sw.bb60
-  ]
+  %cmp.i.not = icmp eq i32 %call2.i, 1
+  br i1 %cmp.i.not, label %sw.bb60, label %sw.bb61
 
 sw.bb:                                            ; preds = %if.then24, %lor.lhs.false
   %call27 = tail call noundef i32 @_ZN3smt10theory_lra3imp9check_liaEv(ptr noundef nonnull align 8 dereferenceable(960) %this)
@@ -4909,13 +4905,13 @@ _ZN6vectorIP4exprLb0EjE3endEv.exit:               ; preds = %if.end42
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %16 = zext i32 %15 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %14, i64 %16
-  %cmp45.not37 = icmp eq i32 %15, 0
-  br i1 %cmp45.not37, label %return, label %for.body
+  %cmp45.not38 = icmp eq i32 %15, 0
+  br i1 %cmp45.not38, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIP4exprLb0EjE3endEv.exit, %for.inc
-  %__begin3.039 = phi ptr [ %incdec.ptr, %for.inc ], [ %14, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
-  %st.238 = phi i32 [ %st.4, %for.inc ], [ %st.1, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
-  %17 = load ptr, ptr %__begin3.039, align 8
+  %__begin3.040 = phi ptr [ %incdec.ptr, %for.inc ], [ %14, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
+  %st.239 = phi i32 [ %st.4, %for.inc ], [ %st.1, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
+  %17 = load ptr, ptr %__begin3.040, align 8
   %18 = load ptr, ptr %this, align 8
   %ctx.i.i14 = getelementptr inbounds %"class.smt::theory", ptr %18, i64 0, i32 3
   %19 = load ptr, ptr %ctx.i.i14, align 8
@@ -4970,16 +4966,16 @@ _ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit: ; preds = %_ZNK17arith_re
   ]
 
 sw.bb52:                                          ; preds = %land.rhs.i.i.i, %_ZNK17arith_recognizers9is_power0EPK4expr.exit.i, %if.end49, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit
-  %cmp53.not = icmp eq i32 %st.238, 1
+  %cmp53.not = icmp eq i32 %st.239, 1
   br i1 %cmp53.not, label %return, label %for.inc
 
 sw.epilog56:                                      ; preds = %_ZNK17arith_recognizers9is_power0EPK4expr.exit.i, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit
-  %cmp57 = icmp eq i32 %st.238, 1
+  %cmp57 = icmp eq i32 %st.239, 1
   br i1 %cmp57, label %return, label %for.inc
 
 for.inc:                                          ; preds = %sw.bb52, %sw.epilog56, %_ZNK3smt7context11is_relevantEP4expr.exit
-  %st.4 = phi i32 [ %st.238, %sw.epilog56 ], [ %st.238, %_ZNK3smt7context11is_relevantEP4expr.exit ], [ 2, %sw.bb52 ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin3.039, i64 1
+  %st.4 = phi i32 [ %st.239, %sw.epilog56 ], [ %st.239, %_ZNK3smt7context11is_relevantEP4expr.exit ], [ 2, %sw.bb52 ]
+  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin3.040, i64 1
   %cmp45.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp45.not, label %return, label %for.body
 
@@ -5026,11 +5022,6 @@ sw.bb61:                                          ; preds = %if.end26
   %call2.i21 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %33)
   %cond = select i1 %call2.i21, i32 1, i32 2
   br label %return
-
-sw.default63:                                     ; preds = %if.end26
-  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 1667, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #24
-  unreachable
 
 return:                                           ; preds = %sw.epilog56, %for.inc, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit, %sw.bb52, %if.end42, %_ZN6vectorIP4exprLb0EjE3endEv.exit, %_ZN3smt10theory_lra3imp9check_nlaEv.exit, %sw.bb, %entry, %sw.bb61, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit, %if.then41
   %retval.0 = phi i32 [ %cond, %sw.bb61 ], [ 1, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit ], [ 1, %if.then41 ], [ 1, %entry ], [ %call27, %sw.bb ], [ 1, %_ZN3smt10theory_lra3imp9check_nlaEv.exit ], [ %st.1, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %st.1, %if.end42 ], [ 1, %sw.epilog56 ], [ %st.4, %for.inc ], [ %call2.i18, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit ], [ 1, %sw.bb52 ]
@@ -28522,10 +28513,9 @@ if.then52:                                        ; preds = %if.end51
   %idxprom.i.i.i.i.i = zext i32 %call53 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 %idxprom.i.i.i.i.i
   %65 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %65 to i32
-  switch i32 %conv.i.i.i.i, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %65, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then52
@@ -31349,10 +31339,9 @@ invoke.cont56:                                    ; preds = %.noexc20
   %idxprom.i.i.i.i.i23 = zext i32 %call49 to i64
   %arrayidx.i.i.i.i.i24 = getelementptr inbounds i8, ptr %33, i64 %idxprom.i.i.i.i.i23
   %34 = load i8, ptr %arrayidx.i.i.i.i.i24, align 1
-  %conv.i.i.i.i = sext i8 %34 to i32
-  switch i32 %conv.i.i.i.i, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %34, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont56
@@ -40839,7 +40828,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %land.lhs.true
-  %add10 = shl i64 %__secondChild.0.lcssa, 1
+  %add10 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub12 = or disjoint i64 %add10, 1
   %add.ptr13 = getelementptr inbounds ptr, ptr %__first, i64 %sub12
   %10 = load ptr, ptr %add.ptr13, align 8
@@ -50756,10 +50745,9 @@ invoke.cont:                                      ; preds = %_ZNK6vectorI9parame
   %idxprom.i.i.i.i.i = zext i32 %lit.coerce to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 %idxprom.i.i.i.i.i
   %48 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %48 to i32
-  switch i32 %conv.i.i.i.i, label %invoke.cont47 [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %48, label %invoke.cont47 [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont
@@ -61073,7 +61061,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 128102389400760775)
   %cond.i = select i1 %cmp7.i, i64 128102389400760775, i64 %2

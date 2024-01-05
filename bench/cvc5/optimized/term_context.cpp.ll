@@ -93,14 +93,13 @@ entry:
   %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
-  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
-  switch i32 %bf.cast.i.i, label %if.else [
-    i32 26, label %if.then
-    i32 352, label %if.then
-    i32 353, label %if.then
-    i32 11, label %if.then
-    i32 255, label %if.then
-    i32 233, label %if.then
+  switch i16 %bf.clear.i.i, label %if.else [
+    i16 26, label %if.then
+    i16 352, label %if.then
+    i16 353, label %if.then
+    i16 11, label %if.then
+    i16 255, label %if.then
+    i16 233, label %if.then
   ]
 
 if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry
@@ -108,8 +107,9 @@ if.then:                                          ; preds = %entry, %entry, %ent
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1.i10 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %bf.cast.i.i)
-  %cmp.i = icmp ne i32 %call1.i10, 1
+  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
+  %call1.i9 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %bf.cast.i.i)
+  %cmp.i = icmp ne i32 %call1.i9, 1
   %cmp2.i = icmp ne i16 %bf.clear.i.i, 5
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   %1 = add nsw i32 %bf.cast.i.i, -243
@@ -186,14 +186,13 @@ entry:
   %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
-  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
-  switch i32 %bf.cast.i.i, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit [
-    i32 26, label %1
-    i32 352, label %1
-    i32 353, label %1
-    i32 11, label %1
-    i32 255, label %1
-    i32 233, label %1
+  switch i16 %bf.clear.i.i, label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit [
+    i16 26, label %1
+    i16 352, label %1
+    i16 353, label %1
+    i16 11, label %1
+    i16 255, label %1
+    i16 233, label %1
   ]
 
 1:                                                ; preds = %entry, %entry, %entry, %entry, %entry, %entry
@@ -231,15 +230,14 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 19, label %return
-    i32 21, label %return
-    i32 240, label %return
-    i32 20, label %sw.bb2
-    i32 18, label %sw.bb8
-    i32 23, label %sw.bb15
-    i32 352, label %sw.bb21
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 19, label %return
+    i16 21, label %return
+    i16 240, label %return
+    i16 20, label %sw.bb2
+    i16 18, label %sw.bb8
+    i16 23, label %sw.bb15
+    i16 352, label %sw.bb21
   ]
 
 sw.bb2:                                           ; preds = %entry

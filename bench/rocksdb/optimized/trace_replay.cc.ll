@@ -856,13 +856,12 @@ _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i: ; preds = %if.t
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i, %if.then, %entry
   %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
   %2 = load i8, ptr %type, align 8
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.default206 [
-    i32 3, label %sw.bb
-    i32 4, label %sw.bb28
-    i32 5, label %sw.bb70
-    i32 6, label %sw.bb70
-    i32 13, label %sw.bb127
+  switch i8 %2, label %sw.default206 [
+    i8 3, label %sw.bb
+    i8 4, label %sw.bb28
+    i8 5, label %sw.bb70
+    i8 6, label %sw.bb70
+    i8 13, label %sw.bb127
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -2705,21 +2704,21 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %rep_.i = getelementptr inbounds %"class.rocksdb::WriteBatch", ptr %write_batch, i64 0, i32 10
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #18
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #18
-  %conv.i2 = trunc i64 %call2.i to i32
+  %conv.i = trunc i64 %call2.i to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
-  %call.i.i3 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i2)
+  %call.i.i2 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i3 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
-  %call3.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i, i64 noundef %call2.i)
+  %call3.i4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i, i64 noundef %call2.i)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %call3.i.i.noexc
@@ -2756,20 +2755,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load i8, ptr %trace_type, align 1
-  %conv = sext i8 %3 to i32
-  %switch.tableidx = add nsw i32 %conv, -3
-  %4 = icmp ult i32 %switch.tableidx, 11
+  %switch.tableidx = add i8 %3, -3
+  %4 = icmp ult i8 %switch.tableidx, 11
   br i1 %4, label %switch.hole_check, label %if.end10
 
 switch.hole_check:                                ; preds = %if.end
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 1039, %switch.maskindex
   %5 = and i16 %switch.shifted, 1
   %switch.lobit.not = icmp eq i16 %5, 0
   br i1 %switch.lobit.not, label %if.end10, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %6 = zext nneg i32 %switch.tableidx to i64
+  %6 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %filter = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
@@ -3057,23 +3055,23 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i4)
   %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
   %10 = load i64, ptr %size_.i.i, align 8
-  %conv.i6 = trunc i64 %10 to i32
+  %conv.i = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
-  %call.i.i7 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i6)
+  %call.i.i6 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont13
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i7 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %11 = load ptr, ptr %key, align 8
   %12 = load i64, ptr %size_.i.i, align 8
-  %call3.i9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %11, i64 noundef %12)
+  %call3.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %11, i64 noundef %12)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %call3.i.i.noexc
@@ -3097,8 +3095,8 @@ return:                                           ; preds = %invoke.cont16, %if.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb6Tracer12IteratorSeekERKjRKNS_5SliceES5_S3_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %cf_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lower_bound, ptr nocapture noundef readonly byval(%"class.rocksdb::Slice") align 8 %upper_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buf.i.i32 = alloca [5 x i8], align 1
-  %buf.i.i19 = alloca [5 x i8], align 1
+  %buf.i.i31 = alloca [5 x i8], align 1
+  %buf.i.i18 = alloca [5 x i8], align 1
   %buf.i.i = alloca [5 x i8], align 1
   %value.addr.i12 = alloca i32, align 4
   %value.addr.i = alloca i64, align 8
@@ -3167,7 +3165,7 @@ if.then8:                                         ; preds = %invoke.cont
   store i64 %or.i5, ptr %payload_map.i, align 8
   br label %if.end11
 
-lpad:                                             ; preds = %call3.i.i.noexc40, %call.i.i.noexc38, %if.then35, %call3.i.i.noexc27, %call.i.i.noexc25, %if.then28, %call3.i.i.noexc, %call.i.i.noexc, %invoke.cont22, %invoke.cont20, %if.end18, %if.end38, %if.end
+lpad:                                             ; preds = %call3.i.i.noexc39, %call.i.i.noexc37, %if.then35, %call3.i.i.noexc26, %call.i.i.noexc24, %if.then28, %call3.i.i.noexc, %call.i.i.noexc, %invoke.cont22, %invoke.cont20, %if.end18, %if.end38, %if.end
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #18
@@ -3204,23 +3202,23 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i12)
   %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
   %15 = load i64, ptr %size_.i.i, align 8
-  %conv.i14 = trunc i64 %15 to i32
+  %conv.i = trunc i64 %15 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
-  %call.i.i15 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i14)
+  %call.i.i14 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont22
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i15 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i14 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %16 = load ptr, ptr %key, align 8
   %17 = load i64, ptr %size_.i.i, align 8
-  %call3.i17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %16, i64 noundef %17)
+  %call3.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %16, i64 noundef %17)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %call3.i.i.noexc
@@ -3229,48 +3227,48 @@ invoke.cont24:                                    ; preds = %call3.i.i.noexc
   br i1 %cmp27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %invoke.cont24
-  %conv.i21 = trunc i64 %18 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i19)
-  %call.i.i26 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i19, i32 noundef %conv.i21)
-          to label %call.i.i.noexc25 unwind label %lpad
+  %conv.i20 = trunc i64 %18 to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i18)
+  %call.i.i25 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i18, i32 noundef %conv.i20)
+          to label %call.i.i.noexc24 unwind label %lpad
 
-call.i.i.noexc25:                                 ; preds = %if.then28
-  %sub.ptr.lhs.cast.i.i22 = ptrtoint ptr %call.i.i26 to i64
-  %sub.ptr.rhs.cast.i.i23 = ptrtoint ptr %buf.i.i19 to i64
-  %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i23
-  %call3.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i19, i64 noundef %sub.ptr.sub.i.i24)
-          to label %call3.i.i.noexc27 unwind label %lpad
+call.i.i.noexc24:                                 ; preds = %if.then28
+  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %call.i.i25 to i64
+  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %buf.i.i18 to i64
+  %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
+  %call3.i.i27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i18, i64 noundef %sub.ptr.sub.i.i23)
+          to label %call3.i.i.noexc26 unwind label %lpad
 
-call3.i.i.noexc27:                                ; preds = %call.i.i.noexc25
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i19)
+call3.i.i.noexc26:                                ; preds = %call.i.i.noexc24
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i18)
   %19 = load ptr, ptr %lower_bound, align 8
   %20 = load i64, ptr %size_.i, align 8
-  %call3.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %19, i64 noundef %20)
+  %call3.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %19, i64 noundef %20)
           to label %if.end31 unwind label %lpad
 
-if.end31:                                         ; preds = %call3.i.i.noexc27, %invoke.cont24
+if.end31:                                         ; preds = %call3.i.i.noexc26, %invoke.cont24
   br i1 %cmp14.not, label %if.end38, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
-  %conv.i34 = trunc i64 %12 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i32)
-  %call.i.i39 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i32, i32 noundef %conv.i34)
-          to label %call.i.i.noexc38 unwind label %lpad
+  %conv.i33 = trunc i64 %12 to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i31)
+  %call.i.i38 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i31, i32 noundef %conv.i33)
+          to label %call.i.i.noexc37 unwind label %lpad
 
-call.i.i.noexc38:                                 ; preds = %if.then35
-  %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %call.i.i39 to i64
-  %sub.ptr.rhs.cast.i.i36 = ptrtoint ptr %buf.i.i32 to i64
-  %sub.ptr.sub.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i35, %sub.ptr.rhs.cast.i.i36
-  %call3.i.i41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i32, i64 noundef %sub.ptr.sub.i.i37)
-          to label %call3.i.i.noexc40 unwind label %lpad
+call.i.i.noexc37:                                 ; preds = %if.then35
+  %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %call.i.i38 to i64
+  %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %buf.i.i31 to i64
+  %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
+  %call3.i.i40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i31, i64 noundef %sub.ptr.sub.i.i36)
+          to label %call3.i.i.noexc39 unwind label %lpad
 
-call3.i.i.noexc40:                                ; preds = %call.i.i.noexc38
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i32)
+call3.i.i.noexc39:                                ; preds = %call.i.i.noexc37
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i31)
   %21 = load ptr, ptr %upper_bound, align 8
-  %call3.i42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %21, i64 noundef %12)
+  %call3.i41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %21, i64 noundef %12)
           to label %if.end38 unwind label %lpad
 
-if.end38:                                         ; preds = %call3.i.i.noexc40, %if.end31
+if.end38:                                         ; preds = %call3.i.i.noexc39, %if.end31
   invoke void @_ZN7rocksdb6Tracer10WriteTraceERKNS_5TraceE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %trace)
           to label %invoke.cont39 unwind label %lpad
 
@@ -3285,8 +3283,8 @@ return:                                           ; preds = %invoke.cont39, %if.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb6Tracer19IteratorSeekForPrevERKjRKNS_5SliceES5_S3_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %cf_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lower_bound, ptr nocapture noundef readonly byval(%"class.rocksdb::Slice") align 8 %upper_bound) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buf.i.i32 = alloca [5 x i8], align 1
-  %buf.i.i19 = alloca [5 x i8], align 1
+  %buf.i.i31 = alloca [5 x i8], align 1
+  %buf.i.i18 = alloca [5 x i8], align 1
   %buf.i.i = alloca [5 x i8], align 1
   %value.addr.i12 = alloca i32, align 4
   %value.addr.i = alloca i64, align 8
@@ -3355,7 +3353,7 @@ if.then8:                                         ; preds = %invoke.cont
   store i64 %or.i5, ptr %payload_map.i, align 8
   br label %if.end11
 
-lpad:                                             ; preds = %call3.i.i.noexc40, %call.i.i.noexc38, %if.then35, %call3.i.i.noexc27, %call.i.i.noexc25, %if.then28, %call3.i.i.noexc, %call.i.i.noexc, %invoke.cont22, %invoke.cont20, %if.end18, %if.end38, %if.end
+lpad:                                             ; preds = %call3.i.i.noexc39, %call.i.i.noexc37, %if.then35, %call3.i.i.noexc26, %call.i.i.noexc24, %if.then28, %call3.i.i.noexc, %call.i.i.noexc, %invoke.cont22, %invoke.cont20, %if.end18, %if.end38, %if.end
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #18
@@ -3392,23 +3390,23 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i12)
   %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
   %15 = load i64, ptr %size_.i.i, align 8
-  %conv.i14 = trunc i64 %15 to i32
+  %conv.i = trunc i64 %15 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
-  %call.i.i15 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i14)
+  %call.i.i14 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont22
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i15 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i14 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %16 = load ptr, ptr %key, align 8
   %17 = load i64, ptr %size_.i.i, align 8
-  %call3.i17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %16, i64 noundef %17)
+  %call3.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %16, i64 noundef %17)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %call3.i.i.noexc
@@ -3417,48 +3415,48 @@ invoke.cont24:                                    ; preds = %call3.i.i.noexc
   br i1 %cmp27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %invoke.cont24
-  %conv.i21 = trunc i64 %18 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i19)
-  %call.i.i26 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i19, i32 noundef %conv.i21)
-          to label %call.i.i.noexc25 unwind label %lpad
+  %conv.i20 = trunc i64 %18 to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i18)
+  %call.i.i25 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i18, i32 noundef %conv.i20)
+          to label %call.i.i.noexc24 unwind label %lpad
 
-call.i.i.noexc25:                                 ; preds = %if.then28
-  %sub.ptr.lhs.cast.i.i22 = ptrtoint ptr %call.i.i26 to i64
-  %sub.ptr.rhs.cast.i.i23 = ptrtoint ptr %buf.i.i19 to i64
-  %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i23
-  %call3.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i19, i64 noundef %sub.ptr.sub.i.i24)
-          to label %call3.i.i.noexc27 unwind label %lpad
+call.i.i.noexc24:                                 ; preds = %if.then28
+  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %call.i.i25 to i64
+  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %buf.i.i18 to i64
+  %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
+  %call3.i.i27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i18, i64 noundef %sub.ptr.sub.i.i23)
+          to label %call3.i.i.noexc26 unwind label %lpad
 
-call3.i.i.noexc27:                                ; preds = %call.i.i.noexc25
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i19)
+call3.i.i.noexc26:                                ; preds = %call.i.i.noexc24
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i18)
   %19 = load ptr, ptr %lower_bound, align 8
   %20 = load i64, ptr %size_.i, align 8
-  %call3.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %19, i64 noundef %20)
+  %call3.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %19, i64 noundef %20)
           to label %if.end31 unwind label %lpad
 
-if.end31:                                         ; preds = %call3.i.i.noexc27, %invoke.cont24
+if.end31:                                         ; preds = %call3.i.i.noexc26, %invoke.cont24
   br i1 %cmp14.not, label %if.end38, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
-  %conv.i34 = trunc i64 %12 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i32)
-  %call.i.i39 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i32, i32 noundef %conv.i34)
-          to label %call.i.i.noexc38 unwind label %lpad
+  %conv.i33 = trunc i64 %12 to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i31)
+  %call.i.i38 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i31, i32 noundef %conv.i33)
+          to label %call.i.i.noexc37 unwind label %lpad
 
-call.i.i.noexc38:                                 ; preds = %if.then35
-  %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %call.i.i39 to i64
-  %sub.ptr.rhs.cast.i.i36 = ptrtoint ptr %buf.i.i32 to i64
-  %sub.ptr.sub.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i35, %sub.ptr.rhs.cast.i.i36
-  %call3.i.i41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i32, i64 noundef %sub.ptr.sub.i.i37)
-          to label %call3.i.i.noexc40 unwind label %lpad
+call.i.i.noexc37:                                 ; preds = %if.then35
+  %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %call.i.i38 to i64
+  %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %buf.i.i31 to i64
+  %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
+  %call3.i.i40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i31, i64 noundef %sub.ptr.sub.i.i36)
+          to label %call3.i.i.noexc39 unwind label %lpad
 
-call3.i.i.noexc40:                                ; preds = %call.i.i.noexc38
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i32)
+call3.i.i.noexc39:                                ; preds = %call.i.i.noexc37
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i31)
   %21 = load ptr, ptr %upper_bound, align 8
-  %call3.i42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %21, i64 noundef %12)
+  %call3.i41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %21, i64 noundef %12)
           to label %if.end38 unwind label %lpad
 
-if.end38:                                         ; preds = %call3.i.i.noexc40, %if.end31
+if.end38:                                         ; preds = %call3.i.i.noexc39, %if.end31
   invoke void @_ZN7rocksdb6Tracer10WriteTraceERKNS_5TraceE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %trace)
           to label %invoke.cont39 unwind label %lpad
 
@@ -3604,10 +3602,10 @@ return:                                           ; preds = %if.then.i.i.i32, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb6Tracer8MultiGetERKSt6vectorIPNS_18ColumnFamilyHandleESaIS3_EERKS1_INS_5SliceESaIS8_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_families, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %keys) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buf.i.i55 = alloca [5 x i8], align 1
-  %buf.i.i40 = alloca [5 x i8], align 1
-  %value.addr.i34 = alloca i32, align 4
-  %value.addr.i31 = alloca i64, align 8
+  %buf.i.i54 = alloca [5 x i8], align 1
+  %buf.i.i39 = alloca [5 x i8], align 1
+  %value.addr.i33 = alloca i32, align 4
+  %value.addr.i30 = alloca i64, align 8
   %buf.i.i = alloca [5 x i8], align 1
   %value.addr.i = alloca i32, align 4
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
@@ -3706,8 +3704,8 @@ invoke.cont:                                      ; preds = %if.end6
   store i64 %or.i22, ptr %payload_map.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cfids_payload) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload) #18
-  %cmp1473.not = icmp eq i32 %conv, 0
-  br i1 %cmp1473.not, label %for.end, label %for.body.lr.ph
+  %cmp1472.not = icmp eq i32 %conv, 0
+  br i1 %cmp1472.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.i.i to i64
@@ -3737,22 +3735,22 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   %add.ptr.i26 = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %indvars.iv
   %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %indvars.iv, i32 1
   %19 = load i64, ptr %size_.i.i, align 8
-  %conv.i27 = trunc i64 %19 to i32
+  %conv.i = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
-  %call.i.i28 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i27)
+  %call.i.i27 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv.i)
           to label %call.i.i.noexc unwind label %lpad19.loopexit
 
 call.i.i.noexc:                                   ; preds = %invoke.cont22
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i28 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i27 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
+  %call3.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload, ptr noundef nonnull %buf.i.i, i64 noundef %sub.ptr.sub.i.i)
           to label %call3.i.i.noexc unwind label %lpad19.loopexit
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %20 = load ptr, ptr %add.ptr.i26, align 8
   %21 = load i64, ptr %size_.i.i, align 8
-  %call3.i30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload, ptr noundef %20, i64 noundef %21)
+  %call3.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload, ptr noundef %20, i64 noundef %21)
           to label %for.inc unwind label %lpad19.loopexit
 
 for.inc:                                          ; preds = %call3.i.i.noexc
@@ -3770,7 +3768,7 @@ lpad19.loopexit:                                  ; preds = %for.body, %invoke.c
           cleanup
   br label %lpad19
 
-lpad19.loopexit.split-lp:                         ; preds = %invoke.cont37, %for.end, %invoke.cont27, %invoke.cont29, %call.i.i.noexc46, %call3.i.i.noexc48, %invoke.cont33, %call.i.i.noexc61, %call3.i.i.noexc63
+lpad19.loopexit.split-lp:                         ; preds = %invoke.cont37, %for.end, %invoke.cont27, %invoke.cont29, %call.i.i.noexc45, %call3.i.i.noexc47, %invoke.cont33, %call.i.i.noexc60, %call3.i.i.noexc62
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad19
@@ -3783,60 +3781,60 @@ lpad19:                                           ; preds = %lpad19.loopexit.spl
 
 for.end:                                          ; preds = %for.inc, %invoke.cont
   %23 = load i64, ptr %payload_map.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i31)
-  store i64 %23, ptr %value.addr.i31, align 8
-  %call.i3233 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %value.addr.i31, i64 noundef 8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i30)
+  store i64 %23, ptr %value.addr.i30, align 8
+  %call.i3132 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %value.addr.i30, i64 noundef 8)
           to label %invoke.cont27 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont27:                                    ; preds = %for.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i31)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i34)
-  store i32 %conv, ptr %value.addr.i34, align 4
-  %call.i3536 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %value.addr.i34, i64 noundef 4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i30)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i33)
+  store i32 %conv, ptr %value.addr.i33, align 4
+  %call.i3435 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %value.addr.i33, i64 noundef 4)
           to label %invoke.cont29 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont29:                                    ; preds = %invoke.cont27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i34)
-  %call.i38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %cfids_payload) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i33)
+  %call.i37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %cfids_payload) #18
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %cfids_payload) #18
-  %conv.i42 = trunc i64 %call2.i to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i40)
-  %call.i.i47 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i40, i32 noundef %conv.i42)
-          to label %call.i.i.noexc46 unwind label %lpad19.loopexit.split-lp
+  %conv.i41 = trunc i64 %call2.i to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i39)
+  %call.i.i46 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i39, i32 noundef %conv.i41)
+          to label %call.i.i.noexc45 unwind label %lpad19.loopexit.split-lp
 
-call.i.i.noexc46:                                 ; preds = %invoke.cont29
-  %sub.ptr.lhs.cast.i.i43 = ptrtoint ptr %call.i.i47 to i64
-  %sub.ptr.rhs.cast.i.i44 = ptrtoint ptr %buf.i.i40 to i64
-  %sub.ptr.sub.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i43, %sub.ptr.rhs.cast.i.i44
-  %call3.i.i49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i40, i64 noundef %sub.ptr.sub.i.i45)
-          to label %call3.i.i.noexc48 unwind label %lpad19.loopexit.split-lp
+call.i.i.noexc45:                                 ; preds = %invoke.cont29
+  %sub.ptr.lhs.cast.i.i42 = ptrtoint ptr %call.i.i46 to i64
+  %sub.ptr.rhs.cast.i.i43 = ptrtoint ptr %buf.i.i39 to i64
+  %sub.ptr.sub.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i42, %sub.ptr.rhs.cast.i.i43
+  %call3.i.i48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i39, i64 noundef %sub.ptr.sub.i.i44)
+          to label %call3.i.i.noexc47 unwind label %lpad19.loopexit.split-lp
 
-call3.i.i.noexc48:                                ; preds = %call.i.i.noexc46
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i40)
-  %call3.i50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i38, i64 noundef %call2.i)
+call3.i.i.noexc47:                                ; preds = %call.i.i.noexc45
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i39)
+  %call3.i49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i37, i64 noundef %call2.i)
           to label %invoke.cont33 unwind label %lpad19.loopexit.split-lp
 
-invoke.cont33:                                    ; preds = %call3.i.i.noexc48
-  %call.i52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload) #18
-  %call2.i54 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload) #18
-  %conv.i57 = trunc i64 %call2.i54 to i32
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i55)
-  %call.i.i62 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i55, i32 noundef %conv.i57)
-          to label %call.i.i.noexc61 unwind label %lpad19.loopexit.split-lp
+invoke.cont33:                                    ; preds = %call3.i.i.noexc47
+  %call.i51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload) #18
+  %call2.i53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %keys_payload) #18
+  %conv.i56 = trunc i64 %call2.i53 to i32
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i54)
+  %call.i.i61 = invoke noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i54, i32 noundef %conv.i56)
+          to label %call.i.i.noexc60 unwind label %lpad19.loopexit.split-lp
 
-call.i.i.noexc61:                                 ; preds = %invoke.cont33
-  %sub.ptr.lhs.cast.i.i58 = ptrtoint ptr %call.i.i62 to i64
-  %sub.ptr.rhs.cast.i.i59 = ptrtoint ptr %buf.i.i55 to i64
-  %sub.ptr.sub.i.i60 = sub i64 %sub.ptr.lhs.cast.i.i58, %sub.ptr.rhs.cast.i.i59
-  %call3.i.i64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i55, i64 noundef %sub.ptr.sub.i.i60)
-          to label %call3.i.i.noexc63 unwind label %lpad19.loopexit.split-lp
+call.i.i.noexc60:                                 ; preds = %invoke.cont33
+  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %call.i.i61 to i64
+  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %buf.i.i54 to i64
+  %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
+  %call3.i.i63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull %buf.i.i54, i64 noundef %sub.ptr.sub.i.i59)
+          to label %call3.i.i.noexc62 unwind label %lpad19.loopexit.split-lp
 
-call3.i.i.noexc63:                                ; preds = %call.i.i.noexc61
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i55)
-  %call3.i65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i52, i64 noundef %call2.i54)
+call3.i.i.noexc62:                                ; preds = %call.i.i.noexc60
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i54)
+  %call3.i64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef %call.i51, i64 noundef %call2.i53)
           to label %invoke.cont37 unwind label %lpad19.loopexit.split-lp
 
-invoke.cont37:                                    ; preds = %call3.i.i.noexc63
+invoke.cont37:                                    ; preds = %call3.i.i.noexc62
   invoke void @_ZN7rocksdb6Tracer10WriteTraceERKNS_5TraceE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %trace)
           to label %invoke.cont38 unwind label %lpad19.loopexit.split-lp
 

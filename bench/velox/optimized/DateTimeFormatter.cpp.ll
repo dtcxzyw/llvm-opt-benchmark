@@ -4428,34 +4428,33 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 
 if.end13:                                         ; preds = %if.then10
   %12 = load i8, ptr %incdec.ptr, align 1
-  %conv14 = sext i8 %12 to i32
-  switch i32 %conv14, label %sw.default [
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb18.invoke
-    i32 99, label %sw.bb21.invoke
-    i32 100, label %sw.bb24.invoke
-    i32 101, label %sw.bb27
-    i32 102, label %sw.bb30
-    i32 72, label %sw.bb33.invoke
-    i32 104, label %sw.bb36.invoke
-    i32 73, label %sw.bb36.invoke
-    i32 105, label %sw.bb39
-    i32 106, label %sw.bb42
-    i32 107, label %sw.bb45
-    i32 108, label %sw.bb48
-    i32 77, label %sw.bb51
-    i32 109, label %sw.bb54
-    i32 112, label %sw.bb57.invoke
-    i32 114, label %sw.bb60
-    i32 83, label %sw.bb78.invoke
-    i32 115, label %sw.bb78.invoke
-    i32 84, label %sw.bb81
-    i32 118, label %sw.bb94
-    i32 87, label %sw.bb.invoke
-    i32 120, label %sw.bb100
-    i32 89, label %sw.bb103.invoke
-    i32 121, label %sw.bb106
-    i32 37, label %sw.bb109
+  switch i8 %12, label %sw.default [
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb18.invoke
+    i8 99, label %sw.bb21.invoke
+    i8 100, label %sw.bb24.invoke
+    i8 101, label %sw.bb27
+    i8 102, label %sw.bb30
+    i8 72, label %sw.bb33.invoke
+    i8 104, label %sw.bb36.invoke
+    i8 73, label %sw.bb36.invoke
+    i8 105, label %sw.bb39
+    i8 106, label %sw.bb42
+    i8 107, label %sw.bb45
+    i8 108, label %sw.bb48
+    i8 77, label %sw.bb51
+    i8 109, label %sw.bb54
+    i8 112, label %sw.bb57.invoke
+    i8 114, label %sw.bb60
+    i8 83, label %sw.bb78.invoke
+    i8 115, label %sw.bb78.invoke
+    i8 84, label %sw.bb81
+    i8 118, label %sw.bb94
+    i8 87, label %sw.bb.invoke
+    i8 120, label %sw.bb100
+    i8 89, label %sw.bb103.invoke
+    i8 121, label %sw.bb106
+    i8 37, label %sw.bb109
   ]
 
 sw.bb:                                            ; preds = %if.end13
@@ -4907,29 +4906,28 @@ while.body40:                                     ; preds = %land.rhs
 while.end:                                        ; preds = %land.rhs, %while.body40, %while.cond35.preheader
   %count34.0.lcssa = phi i32 [ 1, %while.cond35.preheader ], [ %inc41, %while.body40 ], [ %count34.065, %land.rhs ]
   %cur.1.lcssa = phi ptr [ %add.ptr6, %while.cond35.preheader ], [ %cur.1, %while.body40 ], [ %cur.166, %land.rhs ]
-  %conv43 = sext i8 %3 to i32
-  switch i32 %conv43, label %sw.default [
-    i32 71, label %sw.bb
-    i32 67, label %sw.bb46
-    i32 89, label %sw.bb50
-    i32 120, label %sw.bb54
-    i32 119, label %sw.bb58
-    i32 101, label %sw.bb62
-    i32 69, label %sw.bb66
-    i32 121, label %sw.bb70
-    i32 68, label %sw.bb74
-    i32 77, label %sw.bb78
-    i32 100, label %sw.bb89
-    i32 97, label %sw.bb93
-    i32 75, label %sw.bb96
-    i32 104, label %sw.bb100
-    i32 72, label %sw.bb104
-    i32 107, label %sw.bb108
-    i32 109, label %sw.bb112
-    i32 115, label %sw.bb116
-    i32 83, label %sw.bb120
-    i32 122, label %sw.bb124
-    i32 90, label %sw.bb128
+  switch i8 %3, label %sw.default [
+    i8 71, label %sw.bb
+    i8 67, label %sw.bb46
+    i8 89, label %sw.bb50
+    i8 120, label %sw.bb54
+    i8 119, label %sw.bb58
+    i8 101, label %sw.bb62
+    i8 69, label %sw.bb66
+    i8 121, label %sw.bb70
+    i8 68, label %sw.bb74
+    i8 77, label %sw.bb78
+    i8 100, label %sw.bb89
+    i8 97, label %sw.bb93
+    i8 75, label %sw.bb96
+    i8 104, label %sw.bb100
+    i8 72, label %sw.bb104
+    i8 107, label %sw.bb108
+    i8 109, label %sw.bb112
+    i8 115, label %sw.bb116
+    i8 83, label %sw.bb120
+    i8 122, label %sw.bb124
+    i8 90, label %sw.bb128
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -5044,6 +5042,7 @@ sw.bb128:                                         ; preds = %while.end
           to label %if.end139 unwind label %lpad.loopexit.split-lp.loopexit
 
 sw.default:                                       ; preds = %while.end
+  %conv43 = sext i8 %3 to i32
   %call133 = call i32 @isalpha(i32 noundef %conv43) #26
   %tobool.not = icmp eq i32 %call133, 0
   call void @llvm.assume(i1 %tobool.not)
@@ -5198,7 +5197,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %5

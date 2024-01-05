@@ -215,12 +215,11 @@ _ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5va
   %not.i.i = xor i8 %.fr52.i, -1
   %conv.i.i.i.i = zext i8 %not.i.i to i16
   %1 = call i16 @llvm.ctlz.i16(i16 %conv.i.i.i.i, i1 true), !range !9
-  %cast.i.i.i.i = zext nneg i16 %1 to i32
-  switch i32 %cast.i.i.i.i, label %if.then4 [
-    i32 8, label %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-    i32 10, label %for.body.preheader.i
-    i32 11, label %sw.bb6.i
-    i32 12, label %sw.bb8.i
+  switch i16 %1, label %if.then4 [
+    i16 8, label %_ZN6google8protobuf13json_internalL17ConsumeUtf8ScalarERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+    i16 10, label %for.body.preheader.i
+    i16 11, label %sw.bb6.i
+    i16 12, label %sw.bb8.i
   ]
 
 sw.bb6.i:                                         ; preds = %_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit.i

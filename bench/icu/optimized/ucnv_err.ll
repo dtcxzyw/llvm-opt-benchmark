@@ -367,14 +367,13 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.else70:                                        ; preds = %if.end59
   %8 = load i8, ptr %context, align 1
-  %conv71 = sext i8 %8 to i32
-  switch i32 %conv71, label %while.cond223.preheader [
-    i32 74, label %while.cond72.preheader
-    i32 67, label %sw.bb92
-    i32 68, label %sw.bb120
-    i32 88, label %sw.bb148
-    i32 85, label %sw.bb179
-    i32 83, label %sw.bb210
+  switch i8 %8, label %while.cond223.preheader [
+    i8 74, label %while.cond72.preheader
+    i8 67, label %sw.bb92
+    i8 68, label %sw.bb120
+    i8 88, label %sw.bb148
+    i8 85, label %sw.bb179
+    i8 83, label %sw.bb210
   ]
 
 while.cond72.preheader:                           ; preds = %if.else70
@@ -671,12 +670,11 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.else:                                          ; preds = %if.end
   %1 = load i8, ptr %context, align 1
-  %conv10 = sext i8 %1 to i32
   %cmp8363 = icmp sgt i32 %length, 0
-  switch i32 %conv10, label %while.cond82.preheader [
-    i32 68, label %while.cond11.preheader
-    i32 88, label %while.cond35.preheader
-    i32 67, label %while.cond62.preheader
+  switch i8 %1, label %while.cond82.preheader [
+    i8 68, label %while.cond11.preheader
+    i8 88, label %while.cond35.preheader
+    i8 67, label %while.cond62.preheader
   ]
 
 while.cond62.preheader:                           ; preds = %if.else

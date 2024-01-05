@@ -2251,7 +2251,7 @@ if.then.i.i.i578:                                 ; preds = %if.else.i547
 
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i552: ; preds = %if.else.i547
   %.sroa.speculated.i.i.i554 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i7454, i64 1)
-  %add.i.i.i555 = add i64 %.sroa.speculated.i.i.i554, %sub.ptr.div.i7454
+  %add.i.i.i555 = add nsw i64 %.sroa.speculated.i.i.i554, %sub.ptr.div.i7454
   %cmp7.i.i.i556 = icmp ult i64 %add.i.i.i555, %sub.ptr.div.i7454
   %115 = call i64 @llvm.umin.i64(i64 %add.i.i.i555, i64 1152921504606846975)
   %cond.i.i.i557 = select i1 %cmp7.i.i.i556, i64 1152921504606846975, i64 %115
@@ -2443,7 +2443,7 @@ if.then.i.i.i664:                                 ; preds = %if.else.i634
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i639: ; preds = %if.else.i634
   %sub.ptr.div.i.i.i.i640 = ashr exact i64 %sub.ptr.sub.i.i.i.i637, 3
   %.sroa.speculated.i.i.i641 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i640, i64 1)
-  %add.i.i.i642 = add i64 %.sroa.speculated.i.i.i641, %sub.ptr.div.i.i.i.i640
+  %add.i.i.i642 = add nsw i64 %.sroa.speculated.i.i.i641, %sub.ptr.div.i.i.i.i640
   %cmp7.i.i.i643 = icmp ult i64 %add.i.i.i642, %sub.ptr.div.i.i.i.i640
   %137 = call i64 @llvm.umin.i64(i64 %add.i.i.i642, i64 1152921504606846975)
   %cond.i.i.i644 = select i1 %cmp7.i.i.i643, i64 1152921504606846975, i64 %137
@@ -3133,81 +3133,80 @@ cond.true229:                                     ; preds = %invoke.cont107, %in
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %203, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %cond.true2993 [
-    i32 24, label %cond.true248
-    i32 17, label %sw.bb489
-    i32 18, label %sw.bb501
-    i32 19, label %sw.bb517
-    i32 21, label %sw.bb557
-    i32 22, label %sw.bb603
-    i32 66, label %sw.bb645
-    i32 67, label %sw.bb645
-    i32 3, label %sw.bb656
-    i32 36, label %sw.bb667
-    i32 39, label %sw.bb710
-    i32 40, label %sw.bb735
-    i32 37, label %sw.bb755
-    i32 38, label %sw.bb755
-    i32 41, label %sw.bb798
-    i32 42, label %sw.bb798
-    i32 43, label %sw.bb798
-    i32 44, label %sw.bb798
-    i32 45, label %sw.bb798
-    i32 46, label %sw.bb798
-    i32 73, label %sw.bb945
-    i32 71, label %sw.bb970
-    i32 72, label %sw.bb995
-    i32 70, label %sw.bb1020
-    i32 47, label %sw.bb1045
-    i32 78, label %sw.bb1065
-    i32 77, label %sw.bb1081
-    i32 76, label %sw.bb1106
-    i32 50, label %sw.bb1124
-    i32 329, label %sw.bb1182
-    i32 303, label %sw.bb1193
-    i32 305, label %sw.bb1236
-    i32 306, label %sw.bb1257
-    i32 333, label %sw.bb1361
-    i32 307, label %sw.bb1425
-    i32 308, label %sw.bb1488
-    i32 309, label %sw.bb1549
-    i32 312, label %sw.bb1575
-    i32 314, label %sw.bb1659
-    i32 318, label %sw.bb1693
-    i32 319, label %sw.bb1740
-    i32 321, label %sw.bb1787
-    i32 322, label %sw.bb1832
-    i32 324, label %sw.bb1869
-    i32 323, label %sw.bb1939
-    i32 83, label %sw.bb1980
-    i32 90, label %sw.bb1991
-    i32 95, label %sw.bb2010
-    i32 133, label %sw.bb2029
-    i32 85, label %sw.bb2060
-    i32 96, label %sw.bb2103
-    i32 94, label %sw.bb2146
-    i32 86, label %sw.bb2189
-    i32 88, label %sw.bb2232
-    i32 89, label %sw.bb2275
-    i32 98, label %sw.bb2318
-    i32 99, label %sw.bb2350
-    i32 105, label %sw.bb2382
-    i32 103, label %sw.bb2414
-    i32 107, label %sw.bb2446
-    i32 111, label %sw.bb2477
-    i32 110, label %sw.bb2508
-    i32 106, label %sw.bb2539
-    i32 109, label %sw.bb2570
-    i32 113, label %sw.bb2601
-    i32 112, label %sw.bb2632
-    i32 108, label %sw.bb2663
-    i32 141, label %sw.bb2694
-    i32 143, label %sw.bb2724
-    i32 5, label %sw.bb2755
-    i32 23, label %sw.bb2900
-    i32 33, label %sw.bb2931
-    i32 35, label %sw.bb2959
+  switch i16 %bf.clear.i, label %cond.true2993 [
+    i16 24, label %cond.true248
+    i16 17, label %sw.bb489
+    i16 18, label %sw.bb501
+    i16 19, label %sw.bb517
+    i16 21, label %sw.bb557
+    i16 22, label %sw.bb603
+    i16 66, label %sw.bb645
+    i16 67, label %sw.bb645
+    i16 3, label %sw.bb656
+    i16 36, label %sw.bb667
+    i16 39, label %sw.bb710
+    i16 40, label %sw.bb735
+    i16 37, label %sw.bb755
+    i16 38, label %sw.bb755
+    i16 41, label %sw.bb798
+    i16 42, label %sw.bb798
+    i16 43, label %sw.bb798
+    i16 44, label %sw.bb798
+    i16 45, label %sw.bb798
+    i16 46, label %sw.bb798
+    i16 73, label %sw.bb945
+    i16 71, label %sw.bb970
+    i16 72, label %sw.bb995
+    i16 70, label %sw.bb1020
+    i16 47, label %sw.bb1045
+    i16 78, label %sw.bb1065
+    i16 77, label %sw.bb1081
+    i16 76, label %sw.bb1106
+    i16 50, label %sw.bb1124
+    i16 329, label %sw.bb1182
+    i16 303, label %sw.bb1193
+    i16 305, label %sw.bb1236
+    i16 306, label %sw.bb1257
+    i16 333, label %sw.bb1361
+    i16 307, label %sw.bb1425
+    i16 308, label %sw.bb1488
+    i16 309, label %sw.bb1549
+    i16 312, label %sw.bb1575
+    i16 314, label %sw.bb1659
+    i16 318, label %sw.bb1693
+    i16 319, label %sw.bb1740
+    i16 321, label %sw.bb1787
+    i16 322, label %sw.bb1832
+    i16 324, label %sw.bb1869
+    i16 323, label %sw.bb1939
+    i16 83, label %sw.bb1980
+    i16 90, label %sw.bb1991
+    i16 95, label %sw.bb2010
+    i16 133, label %sw.bb2029
+    i16 85, label %sw.bb2060
+    i16 96, label %sw.bb2103
+    i16 94, label %sw.bb2146
+    i16 86, label %sw.bb2189
+    i16 88, label %sw.bb2232
+    i16 89, label %sw.bb2275
+    i16 98, label %sw.bb2318
+    i16 99, label %sw.bb2350
+    i16 105, label %sw.bb2382
+    i16 103, label %sw.bb2414
+    i16 107, label %sw.bb2446
+    i16 111, label %sw.bb2477
+    i16 110, label %sw.bb2508
+    i16 106, label %sw.bb2539
+    i16 109, label %sw.bb2570
+    i16 113, label %sw.bb2601
+    i16 112, label %sw.bb2632
+    i16 108, label %sw.bb2663
+    i16 141, label %sw.bb2694
+    i16 143, label %sw.bb2724
+    i16 5, label %sw.bb2755
+    i16 23, label %sw.bb2900
+    i16 33, label %sw.bb2931
+    i16 35, label %sw.bb2959
   ]
 
 cond.true248:                                     ; preds = %cond.true229
@@ -5489,10 +5488,10 @@ invoke.cont833:                                   ; preds = %invoke.cont829
   br i1 %cmp6.i.not.i, label %if.then836, label %if.end872
 
 if.then836:                                       ; preds = %invoke.cont833
-  switch i32 %bf.cast.i2291, label %cond.true852 [
-    i32 46, label %if.then841
-    i32 44, label %if.then841
-    i32 42, label %if.then841
+  switch i16 %bf.clear.i2290, label %cond.true852 [
+    i16 46, label %if.then841
+    i16 44, label %if.then841
+    i16 42, label %if.then841
   ]
 
 if.then841:                                       ; preds = %if.then836, %if.then836, %if.then836
@@ -18949,7 +18948,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -19244,7 +19243,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

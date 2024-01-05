@@ -1258,45 +1258,44 @@ declare void @llvm.va_copy(ptr, ptr) #4
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
 define internal fastcc i64 @vfill(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %ap) unnamed_addr #5 {
 entry:
-  %0 = load i8, ptr %fmt, align 1
-  %tobool.not35 = icmp eq i8 %0, 0
-  br i1 %tobool.not35, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
   %overflow_arg_area_p22 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
   %tobool52.not = icmp eq ptr %data, null
-  br label %while.body
+  br label %while.cond.outer
 
-while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog65
-  %2 = phi i8 [ %0, %while.body.lr.ph ], [ %18, %sw.epilog65 ]
-  %ofs.037 = phi i64 [ 0, %while.body.lr.ph ], [ %ofs.1, %sw.epilog65 ]
-  %p.036 = phi ptr [ %fmt, %while.body.lr.ph ], [ %incdec.ptr27, %sw.epilog65 ]
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 42, label %sw.bb
-    i32 98, label %sw.bb1
-    i32 119, label %sw.bb1
-    i32 108, label %sw.bb1
-    i32 113, label %sw.bb3
-    i32 115, label %sw.bb15
+while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
+  %p.0.ph = phi ptr [ %fmt, %entry ], [ %incdec.ptr27, %while.cond.outer.backedge ]
+  %ofs.0.ph = phi i64 [ 0, %entry ], [ %ofs.0.ph.be, %while.cond.outer.backedge ]
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.cond.outer, %sw.epilog
+  %p.0 = phi ptr [ %incdec.ptr27, %sw.epilog ], [ %p.0.ph, %while.cond.outer ]
+  %1 = load i8, ptr %p.0, align 1
+  switch i8 %1, label %sw.epilog [
+    i8 0, label %while.end
+    i8 42, label %sw.bb
+    i8 98, label %sw.bb1
+    i8 119, label %sw.bb1
+    i8 108, label %sw.bb1
+    i8 113, label %sw.bb3
+    i8 115, label %sw.bb15
   ]
 
-sw.bb:                                            ; preds = %while.body
-  %incdec.ptr = getelementptr i8, ptr %p.036, i64 1
-  br label %sw.epilog
+sw.bb:                                            ; preds = %while.cond
+  %incdec.ptr = getelementptr i8, ptr %p.0, i64 1
+  br label %sw.epilogthread-pre-split
 
-sw.bb1:                                           ; preds = %while.body, %while.body, %while.body
+sw.bb1:                                           ; preds = %while.cond, %while.cond, %while.cond
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %sw.bb1
-  %reg_save_area = load ptr, ptr %1, align 8
-  %3 = zext nneg i32 %gp_offset to i64
-  %4 = getelementptr i8, ptr %reg_save_area, i64 %3
-  %5 = add nuw nsw i32 %gp_offset, 8
-  store i32 %5, ptr %ap, align 8
+  %reg_save_area = load ptr, ptr %0, align 8
+  %2 = zext nneg i32 %gp_offset to i64
+  %3 = getelementptr i8, ptr %reg_save_area, i64 %2
+  %4 = add nuw nsw i32 %gp_offset, 8
+  store i32 %4, ptr %ap, align 8
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %sw.bb1
@@ -1306,22 +1305,22 @@ vaarg.in_mem:                                     ; preds = %sw.bb1
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %4, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %6 = load i32, ptr %vaarg.addr, align 4
-  %conv2 = sext i32 %6 to i64
-  br label %sw.epilog
+  %vaarg.addr = phi ptr [ %3, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %5 = load i32, ptr %vaarg.addr, align 4
+  %conv2 = sext i32 %5 to i64
+  br label %sw.epilogthread-pre-split
 
-sw.bb3:                                           ; preds = %while.body
+sw.bb3:                                           ; preds = %while.cond
   %gp_offset5 = load i32, ptr %ap, align 8
   %fits_in_gp6 = icmp ult i32 %gp_offset5, 41
   br i1 %fits_in_gp6, label %vaarg.in_reg7, label %vaarg.in_mem9
 
 vaarg.in_reg7:                                    ; preds = %sw.bb3
-  %reg_save_area8 = load ptr, ptr %1, align 8
-  %7 = zext nneg i32 %gp_offset5 to i64
-  %8 = getelementptr i8, ptr %reg_save_area8, i64 %7
-  %9 = add nuw nsw i32 %gp_offset5, 8
-  store i32 %9, ptr %ap, align 8
+  %reg_save_area8 = load ptr, ptr %0, align 8
+  %6 = zext nneg i32 %gp_offset5 to i64
+  %7 = getelementptr i8, ptr %reg_save_area8, i64 %6
+  %8 = add nuw nsw i32 %gp_offset5, 8
+  store i32 %8, ptr %ap, align 8
   br label %vaarg.end13
 
 vaarg.in_mem9:                                    ; preds = %sw.bb3
@@ -1331,21 +1330,21 @@ vaarg.in_mem9:                                    ; preds = %sw.bb3
   br label %vaarg.end13
 
 vaarg.end13:                                      ; preds = %vaarg.in_mem9, %vaarg.in_reg7
-  %vaarg.addr14 = phi ptr [ %8, %vaarg.in_reg7 ], [ %overflow_arg_area11, %vaarg.in_mem9 ]
-  %10 = load i64, ptr %vaarg.addr14, align 8
-  br label %sw.epilog
+  %vaarg.addr14 = phi ptr [ %7, %vaarg.in_reg7 ], [ %overflow_arg_area11, %vaarg.in_mem9 ]
+  %9 = load i64, ptr %vaarg.addr14, align 8
+  br label %sw.epilogthread-pre-split
 
-sw.bb15:                                          ; preds = %while.body
+sw.bb15:                                          ; preds = %while.cond
   %gp_offset17 = load i32, ptr %ap, align 8
   %fits_in_gp18 = icmp ult i32 %gp_offset17, 41
   br i1 %fits_in_gp18, label %vaarg.in_reg19, label %vaarg.in_mem21
 
 vaarg.in_reg19:                                   ; preds = %sw.bb15
-  %reg_save_area20 = load ptr, ptr %1, align 8
-  %11 = zext nneg i32 %gp_offset17 to i64
-  %12 = getelementptr i8, ptr %reg_save_area20, i64 %11
-  %13 = add nuw nsw i32 %gp_offset17, 8
-  store i32 %13, ptr %ap, align 8
+  %reg_save_area20 = load ptr, ptr %0, align 8
+  %10 = zext nneg i32 %gp_offset17 to i64
+  %11 = getelementptr i8, ptr %reg_save_area20, i64 %10
+  %12 = add nuw nsw i32 %gp_offset17, 8
+  store i32 %12, ptr %ap, align 8
   br label %vaarg.end25
 
 vaarg.in_mem21:                                   ; preds = %sw.bb15
@@ -1355,75 +1354,80 @@ vaarg.in_mem21:                                   ; preds = %sw.bb15
   br label %vaarg.end25
 
 vaarg.end25:                                      ; preds = %vaarg.in_mem21, %vaarg.in_reg19
-  %vaarg.addr26 = phi ptr [ %12, %vaarg.in_reg19 ], [ %overflow_arg_area23, %vaarg.in_mem21 ]
-  %14 = load ptr, ptr %vaarg.addr26, align 8
-  %15 = ptrtoint ptr %14 to i64
+  %vaarg.addr26 = phi ptr [ %11, %vaarg.in_reg19 ], [ %overflow_arg_area23, %vaarg.in_mem21 ]
+  %13 = load ptr, ptr %vaarg.addr26, align 8
+  %14 = ptrtoint ptr %13 to i64
+  br label %sw.epilogthread-pre-split
+
+sw.epilogthread-pre-split:                        ; preds = %sw.bb, %vaarg.end, %vaarg.end13, %vaarg.end25
+  %val.sroa.0.1.ph = phi i64 [ 0, %sw.bb ], [ %conv2, %vaarg.end ], [ %9, %vaarg.end13 ], [ %14, %vaarg.end25 ]
+  %p.1.ph = phi ptr [ %incdec.ptr, %sw.bb ], [ %p.0, %vaarg.end ], [ %p.0, %vaarg.end13 ], [ %p.0, %vaarg.end25 ]
+  %.pr = load i8, ptr %p.1.ph, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %vaarg.end25, %vaarg.end13, %vaarg.end, %sw.bb, %while.body
-  %val.sroa.0.1 = phi i64 [ 0, %while.body ], [ %15, %vaarg.end25 ], [ %10, %vaarg.end13 ], [ %conv2, %vaarg.end ], [ 0, %sw.bb ]
-  %p.1 = phi ptr [ %p.036, %while.body ], [ %p.036, %vaarg.end25 ], [ %p.036, %vaarg.end13 ], [ %p.036, %vaarg.end ], [ %incdec.ptr, %sw.bb ]
+sw.epilog:                                        ; preds = %sw.epilogthread-pre-split, %while.cond
+  %15 = phi i8 [ %.pr, %sw.epilogthread-pre-split ], [ %1, %while.cond ]
+  %val.sroa.0.1 = phi i64 [ %val.sroa.0.1.ph, %sw.epilogthread-pre-split ], [ 0, %while.cond ]
+  %p.1 = phi ptr [ %p.1.ph, %sw.epilogthread-pre-split ], [ %p.0, %while.cond ]
   %incdec.ptr27 = getelementptr i8, ptr %p.1, i64 1
-  %16 = load i8, ptr %p.1, align 1
-  %conv28 = sext i8 %16 to i32
-  switch i32 %conv28, label %sw.epilog65 [
-    i32 98, label %sw.bb29
-    i32 119, label %sw.bb32
-    i32 108, label %sw.bb38
-    i32 113, label %sw.bb45
-    i32 115, label %sw.bb51
-  ]
+  switch i8 %15, label %while.cond [
+    i8 98, label %sw.bb29
+    i8 119, label %sw.bb32
+    i8 108, label %sw.bb38
+    i8 113, label %sw.bb45
+    i8 115, label %sw.bb51
+  ], !llvm.loop !11
 
 sw.bb29:                                          ; preds = %sw.epilog
   br i1 %tobool52.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb29
-  %add.ptr = getelementptr i8, ptr %data, i64 %ofs.037
+  %add.ptr = getelementptr i8, ptr %data, i64 %ofs.0.ph
   %conv31 = trunc i64 %val.sroa.0.1 to i8
   store i8 %conv31, ptr %add.ptr, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb29
-  %inc = add i64 %ofs.037, 1
-  br label %sw.epilog65
+  %inc = add i64 %ofs.0.ph, 1
+  br label %while.cond.outer.backedge
 
 sw.bb32:                                          ; preds = %sw.epilog
   br i1 %tobool52.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %sw.bb32
-  %add.ptr35 = getelementptr i8, ptr %data, i64 %ofs.037
+  %add.ptr35 = getelementptr i8, ptr %data, i64 %ofs.0.ph
   %conv36 = trunc i64 %val.sroa.0.1 to i16
   store i16 %conv36, ptr %add.ptr35, align 1
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %sw.bb32
-  %add = add i64 %ofs.037, 2
-  br label %sw.epilog65
+  %add = add i64 %ofs.0.ph, 2
+  br label %while.cond.outer.backedge
 
 sw.bb38:                                          ; preds = %sw.epilog
   br i1 %tobool52.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %sw.bb38
-  %add.ptr41 = getelementptr i8, ptr %data, i64 %ofs.037
+  %add.ptr41 = getelementptr i8, ptr %data, i64 %ofs.0.ph
   %conv42 = trunc i64 %val.sroa.0.1 to i32
   store i32 %conv42, ptr %add.ptr41, align 1
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then40, %sw.bb38
-  %add44 = add i64 %ofs.037, 4
-  br label %sw.epilog65
+  %add44 = add i64 %ofs.0.ph, 4
+  br label %while.cond.outer.backedge
 
 sw.bb45:                                          ; preds = %sw.epilog
   br i1 %tobool52.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %sw.bb45
-  %add.ptr48 = getelementptr i8, ptr %data, i64 %ofs.037
+  %add.ptr48 = getelementptr i8, ptr %data, i64 %ofs.0.ph
   store i64 %val.sroa.0.1, ptr %add.ptr48, align 1
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %sw.bb45
-  %add50 = add i64 %ofs.037, 8
-  br label %sw.epilog65
+  %add50 = add i64 %ofs.0.ph, 8
+  br label %while.cond.outer.backedge
 
 sw.bb51:                                          ; preds = %sw.epilog
   %call = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr27) #16
@@ -1438,32 +1442,29 @@ if.then53:                                        ; preds = %sw.bb51
   br i1 %tobool54.not, label %if.else, label %if.then55
 
 if.then55:                                        ; preds = %if.then53
-  %17 = inttoptr i64 %val.sroa.0.1 to ptr
-  %add.ptr56 = getelementptr i8, ptr %data, i64 %ofs.037
+  %16 = inttoptr i64 %val.sroa.0.1 to ptr
+  %add.ptr56 = getelementptr i8, ptr %data, i64 %ofs.0.ph
   %conv57 = sext i32 %call to i64
-  %call58 = tail call ptr @strncpy(ptr noundef %add.ptr56, ptr noundef nonnull %17, i64 noundef %conv57) #13
+  %call58 = tail call ptr @strncpy(ptr noundef %add.ptr56, ptr noundef nonnull %16, i64 noundef %conv57) #13
   br label %if.end62
 
 if.else:                                          ; preds = %if.then53
-  %add.ptr59 = getelementptr i8, ptr %data, i64 %ofs.037
+  %add.ptr59 = getelementptr i8, ptr %data, i64 %ofs.0.ph
   %conv60 = sext i32 %call to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr59, i8 0, i64 %conv60, i1 false)
   br label %if.end62
 
 if.end62:                                         ; preds = %sw.bb51.if.end62_crit_edge, %if.then55, %if.else
   %conv63.pre-phi = phi i64 [ %.pre, %sw.bb51.if.end62_crit_edge ], [ %conv57, %if.then55 ], [ %conv60, %if.else ]
-  %add64 = add i64 %ofs.037, %conv63.pre-phi
-  br label %sw.epilog65
+  %add64 = add i64 %ofs.0.ph, %conv63.pre-phi
+  br label %while.cond.outer.backedge
 
-sw.epilog65:                                      ; preds = %if.end62, %if.end49, %if.end43, %if.end37, %if.end, %sw.epilog
-  %ofs.1 = phi i64 [ %ofs.037, %sw.epilog ], [ %add64, %if.end62 ], [ %add50, %if.end49 ], [ %add44, %if.end43 ], [ %add, %if.end37 ], [ %inc, %if.end ]
-  %18 = load i8, ptr %incdec.ptr27, align 1
-  %tobool.not = icmp eq i8 %18, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
+while.cond.outer.backedge:                        ; preds = %if.end62, %if.end49, %if.end43, %if.end37, %if.end
+  %ofs.0.ph.be = phi i64 [ %inc, %if.end ], [ %add, %if.end37 ], [ %add44, %if.end43 ], [ %add50, %if.end49 ], [ %add64, %if.end62 ]
+  br label %while.cond.outer, !llvm.loop !11
 
-while.end:                                        ; preds = %sw.epilog65, %entry
-  %ofs.0.lcssa = phi i64 [ 0, %entry ], [ %ofs.1, %sw.epilog65 ]
-  ret i64 %ofs.0.lcssa
+while.end:                                        ; preds = %while.cond
+  ret i64 %ofs.0.ph
 }
 
 ; Function Attrs: allocsize(0)

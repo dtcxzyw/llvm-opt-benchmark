@@ -521,110 +521,103 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %entry
   %cmp4.not = icmp eq ptr %opts, null
-  br i1 %cmp4.not, label %if.else.i, label %for.cond.preheader
+  br i1 %cmp4.not, label %if.else.i, label %for.cond
 
-for.cond.preheader:                               ; preds = %if.end3
-  %0 = load i8, ptr %opts, align 1
-  %cmp6.not19 = icmp eq i8 %0, 0
-  br i1 %cmp6.not19, label %if.else.i, label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %1 = phi i8 [ %2, %for.inc ], [ %0, %for.cond.preheader ]
-  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %hpa.029 = phi i8 [ %hpa.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %extents.028 = phi i8 [ %extents.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %mutex.027 = phi i8 [ %mutex.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %large.026 = phi i8 [ %large.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %bins.025 = phi i8 [ %bins.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %unmerged.024 = phi i8 [ %unmerged.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %destroyed.023 = phi i8 [ %destroyed.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %merged.022 = phi i8 [ %merged.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %general.021 = phi i8 [ %general.1, %for.inc ], [ 1, %for.cond.preheader ]
-  %json.020 = phi i8 [ %json.1, %for.inc ], [ 0, %for.cond.preheader ]
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %for.inc [
-    i32 74, label %sw.bb
-    i32 103, label %sw.bb11
-    i32 109, label %sw.bb12
-    i32 100, label %sw.bb13
-    i32 97, label %sw.bb14
-    i32 98, label %sw.bb15
-    i32 108, label %sw.bb16
-    i32 120, label %sw.bb17
-    i32 101, label %sw.bb18
-    i32 104, label %sw.bb19
+for.cond:                                         ; preds = %if.end3, %for.inc
+  %json.0 = phi i8 [ %json.1, %for.inc ], [ 0, %if.end3 ]
+  %general.0 = phi i8 [ %general.1, %for.inc ], [ 1, %if.end3 ]
+  %merged.0 = phi i8 [ %merged.1, %for.inc ], [ 1, %if.end3 ]
+  %destroyed.0 = phi i8 [ %destroyed.1, %for.inc ], [ 1, %if.end3 ]
+  %unmerged.0 = phi i8 [ %unmerged.1, %for.inc ], [ 1, %if.end3 ]
+  %bins.0 = phi i8 [ %bins.1, %for.inc ], [ 1, %if.end3 ]
+  %large.0 = phi i8 [ %large.1, %for.inc ], [ 1, %if.end3 ]
+  %mutex.0 = phi i8 [ %mutex.1, %for.inc ], [ 1, %if.end3 ]
+  %extents.0 = phi i8 [ %extents.1, %for.inc ], [ 1, %if.end3 ]
+  %hpa.0 = phi i8 [ %hpa.1, %for.inc ], [ 1, %if.end3 ]
+  %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %if.end3 ]
+  %idxprom = zext i32 %i.0 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %opts, i64 %idxprom
+  %0 = load i8, ptr %arrayidx, align 1
+  switch i8 %0, label %for.inc [
+    i8 0, label %if.end20
+    i8 74, label %sw.bb
+    i8 103, label %sw.bb11
+    i8 109, label %sw.bb12
+    i8 100, label %sw.bb13
+    i8 97, label %sw.bb14
+    i8 98, label %sw.bb15
+    i8 108, label %sw.bb16
+    i8 120, label %sw.bb17
+    i8 101, label %sw.bb18
+    i8 104, label %sw.bb19
   ]
 
-sw.bb:                                            ; preds = %for.body
+sw.bb:                                            ; preds = %for.cond
   br label %for.inc
 
-sw.bb11:                                          ; preds = %for.body
+sw.bb11:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb12:                                          ; preds = %for.body
+sw.bb12:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb13:                                          ; preds = %for.body
+sw.bb13:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb14:                                          ; preds = %for.body
+sw.bb14:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb15:                                          ; preds = %for.body
+sw.bb15:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb16:                                          ; preds = %for.body
+sw.bb16:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb17:                                          ; preds = %for.body
+sw.bb17:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb18:                                          ; preds = %for.body
+sw.bb18:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb19:                                          ; preds = %for.body
+sw.bb19:                                          ; preds = %for.cond
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19, %for.body
-  %json.1 = phi i8 [ %json.020, %for.body ], [ %json.020, %sw.bb19 ], [ %json.020, %sw.bb18 ], [ %json.020, %sw.bb17 ], [ %json.020, %sw.bb16 ], [ %json.020, %sw.bb15 ], [ %json.020, %sw.bb14 ], [ %json.020, %sw.bb13 ], [ %json.020, %sw.bb12 ], [ %json.020, %sw.bb11 ], [ 1, %sw.bb ]
-  %general.1 = phi i8 [ %general.021, %for.body ], [ %general.021, %sw.bb19 ], [ %general.021, %sw.bb18 ], [ %general.021, %sw.bb17 ], [ %general.021, %sw.bb16 ], [ %general.021, %sw.bb15 ], [ %general.021, %sw.bb14 ], [ %general.021, %sw.bb13 ], [ %general.021, %sw.bb12 ], [ 0, %sw.bb11 ], [ %general.021, %sw.bb ]
-  %merged.1 = phi i8 [ %merged.022, %for.body ], [ %merged.022, %sw.bb19 ], [ %merged.022, %sw.bb18 ], [ %merged.022, %sw.bb17 ], [ %merged.022, %sw.bb16 ], [ %merged.022, %sw.bb15 ], [ %merged.022, %sw.bb14 ], [ %merged.022, %sw.bb13 ], [ 0, %sw.bb12 ], [ %merged.022, %sw.bb11 ], [ %merged.022, %sw.bb ]
-  %destroyed.1 = phi i8 [ %destroyed.023, %for.body ], [ %destroyed.023, %sw.bb19 ], [ %destroyed.023, %sw.bb18 ], [ %destroyed.023, %sw.bb17 ], [ %destroyed.023, %sw.bb16 ], [ %destroyed.023, %sw.bb15 ], [ %destroyed.023, %sw.bb14 ], [ 0, %sw.bb13 ], [ %destroyed.023, %sw.bb12 ], [ %destroyed.023, %sw.bb11 ], [ %destroyed.023, %sw.bb ]
-  %unmerged.1 = phi i8 [ %unmerged.024, %for.body ], [ %unmerged.024, %sw.bb19 ], [ %unmerged.024, %sw.bb18 ], [ %unmerged.024, %sw.bb17 ], [ %unmerged.024, %sw.bb16 ], [ %unmerged.024, %sw.bb15 ], [ 0, %sw.bb14 ], [ %unmerged.024, %sw.bb13 ], [ %unmerged.024, %sw.bb12 ], [ %unmerged.024, %sw.bb11 ], [ %unmerged.024, %sw.bb ]
-  %bins.1 = phi i8 [ %bins.025, %for.body ], [ %bins.025, %sw.bb19 ], [ %bins.025, %sw.bb18 ], [ %bins.025, %sw.bb17 ], [ %bins.025, %sw.bb16 ], [ 0, %sw.bb15 ], [ %bins.025, %sw.bb14 ], [ %bins.025, %sw.bb13 ], [ %bins.025, %sw.bb12 ], [ %bins.025, %sw.bb11 ], [ %bins.025, %sw.bb ]
-  %large.1 = phi i8 [ %large.026, %for.body ], [ %large.026, %sw.bb19 ], [ %large.026, %sw.bb18 ], [ %large.026, %sw.bb17 ], [ 0, %sw.bb16 ], [ %large.026, %sw.bb15 ], [ %large.026, %sw.bb14 ], [ %large.026, %sw.bb13 ], [ %large.026, %sw.bb12 ], [ %large.026, %sw.bb11 ], [ %large.026, %sw.bb ]
-  %mutex.1 = phi i8 [ %mutex.027, %for.body ], [ %mutex.027, %sw.bb19 ], [ %mutex.027, %sw.bb18 ], [ 0, %sw.bb17 ], [ %mutex.027, %sw.bb16 ], [ %mutex.027, %sw.bb15 ], [ %mutex.027, %sw.bb14 ], [ %mutex.027, %sw.bb13 ], [ %mutex.027, %sw.bb12 ], [ %mutex.027, %sw.bb11 ], [ %mutex.027, %sw.bb ]
-  %extents.1 = phi i8 [ %extents.028, %for.body ], [ %extents.028, %sw.bb19 ], [ 0, %sw.bb18 ], [ %extents.028, %sw.bb17 ], [ %extents.028, %sw.bb16 ], [ %extents.028, %sw.bb15 ], [ %extents.028, %sw.bb14 ], [ %extents.028, %sw.bb13 ], [ %extents.028, %sw.bb12 ], [ %extents.028, %sw.bb11 ], [ %extents.028, %sw.bb ]
-  %hpa.1 = phi i8 [ %hpa.029, %for.body ], [ 0, %sw.bb19 ], [ %hpa.029, %sw.bb18 ], [ %hpa.029, %sw.bb17 ], [ %hpa.029, %sw.bb16 ], [ %hpa.029, %sw.bb15 ], [ %hpa.029, %sw.bb14 ], [ %hpa.029, %sw.bb13 ], [ %hpa.029, %sw.bb12 ], [ %hpa.029, %sw.bb11 ], [ %hpa.029, %sw.bb ]
-  %inc = add i32 %i.030, 1
-  %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds i8, ptr %opts, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %cmp6.not = icmp eq i8 %2, 0
-  br i1 %cmp6.not, label %if.end20, label %for.body, !llvm.loop !5
+for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19
+  %json.1 = phi i8 [ %json.0, %sw.bb19 ], [ %json.0, %sw.bb18 ], [ %json.0, %sw.bb17 ], [ %json.0, %sw.bb16 ], [ %json.0, %sw.bb15 ], [ %json.0, %sw.bb14 ], [ %json.0, %sw.bb13 ], [ %json.0, %sw.bb12 ], [ %json.0, %sw.bb11 ], [ 1, %sw.bb ], [ %json.0, %for.cond ]
+  %general.1 = phi i8 [ %general.0, %sw.bb19 ], [ %general.0, %sw.bb18 ], [ %general.0, %sw.bb17 ], [ %general.0, %sw.bb16 ], [ %general.0, %sw.bb15 ], [ %general.0, %sw.bb14 ], [ %general.0, %sw.bb13 ], [ %general.0, %sw.bb12 ], [ 0, %sw.bb11 ], [ %general.0, %sw.bb ], [ %general.0, %for.cond ]
+  %merged.1 = phi i8 [ %merged.0, %sw.bb19 ], [ %merged.0, %sw.bb18 ], [ %merged.0, %sw.bb17 ], [ %merged.0, %sw.bb16 ], [ %merged.0, %sw.bb15 ], [ %merged.0, %sw.bb14 ], [ %merged.0, %sw.bb13 ], [ 0, %sw.bb12 ], [ %merged.0, %sw.bb11 ], [ %merged.0, %sw.bb ], [ %merged.0, %for.cond ]
+  %destroyed.1 = phi i8 [ %destroyed.0, %sw.bb19 ], [ %destroyed.0, %sw.bb18 ], [ %destroyed.0, %sw.bb17 ], [ %destroyed.0, %sw.bb16 ], [ %destroyed.0, %sw.bb15 ], [ %destroyed.0, %sw.bb14 ], [ 0, %sw.bb13 ], [ %destroyed.0, %sw.bb12 ], [ %destroyed.0, %sw.bb11 ], [ %destroyed.0, %sw.bb ], [ %destroyed.0, %for.cond ]
+  %unmerged.1 = phi i8 [ %unmerged.0, %sw.bb19 ], [ %unmerged.0, %sw.bb18 ], [ %unmerged.0, %sw.bb17 ], [ %unmerged.0, %sw.bb16 ], [ %unmerged.0, %sw.bb15 ], [ 0, %sw.bb14 ], [ %unmerged.0, %sw.bb13 ], [ %unmerged.0, %sw.bb12 ], [ %unmerged.0, %sw.bb11 ], [ %unmerged.0, %sw.bb ], [ %unmerged.0, %for.cond ]
+  %bins.1 = phi i8 [ %bins.0, %sw.bb19 ], [ %bins.0, %sw.bb18 ], [ %bins.0, %sw.bb17 ], [ %bins.0, %sw.bb16 ], [ 0, %sw.bb15 ], [ %bins.0, %sw.bb14 ], [ %bins.0, %sw.bb13 ], [ %bins.0, %sw.bb12 ], [ %bins.0, %sw.bb11 ], [ %bins.0, %sw.bb ], [ %bins.0, %for.cond ]
+  %large.1 = phi i8 [ %large.0, %sw.bb19 ], [ %large.0, %sw.bb18 ], [ %large.0, %sw.bb17 ], [ 0, %sw.bb16 ], [ %large.0, %sw.bb15 ], [ %large.0, %sw.bb14 ], [ %large.0, %sw.bb13 ], [ %large.0, %sw.bb12 ], [ %large.0, %sw.bb11 ], [ %large.0, %sw.bb ], [ %large.0, %for.cond ]
+  %mutex.1 = phi i8 [ %mutex.0, %sw.bb19 ], [ %mutex.0, %sw.bb18 ], [ 0, %sw.bb17 ], [ %mutex.0, %sw.bb16 ], [ %mutex.0, %sw.bb15 ], [ %mutex.0, %sw.bb14 ], [ %mutex.0, %sw.bb13 ], [ %mutex.0, %sw.bb12 ], [ %mutex.0, %sw.bb11 ], [ %mutex.0, %sw.bb ], [ %mutex.0, %for.cond ]
+  %extents.1 = phi i8 [ %extents.0, %sw.bb19 ], [ 0, %sw.bb18 ], [ %extents.0, %sw.bb17 ], [ %extents.0, %sw.bb16 ], [ %extents.0, %sw.bb15 ], [ %extents.0, %sw.bb14 ], [ %extents.0, %sw.bb13 ], [ %extents.0, %sw.bb12 ], [ %extents.0, %sw.bb11 ], [ %extents.0, %sw.bb ], [ %extents.0, %for.cond ]
+  %hpa.1 = phi i8 [ 0, %sw.bb19 ], [ %hpa.0, %sw.bb18 ], [ %hpa.0, %sw.bb17 ], [ %hpa.0, %sw.bb16 ], [ %hpa.0, %sw.bb15 ], [ %hpa.0, %sw.bb14 ], [ %hpa.0, %sw.bb13 ], [ %hpa.0, %sw.bb12 ], [ %hpa.0, %sw.bb11 ], [ %hpa.0, %sw.bb ], [ %hpa.0, %for.cond ]
+  %inc = add i32 %i.0, 1
+  br label %for.cond, !llvm.loop !5
 
-if.end20:                                         ; preds = %for.inc
-  %3 = and i8 %json.1, 1
+if.end20:                                         ; preds = %for.cond
+  %1 = and i8 %json.0, 1
+  %2 = icmp eq i8 %1, 0
+  %3 = and i8 %general.0, 1
   %4 = icmp eq i8 %3, 0
-  %5 = and i8 %general.1, 1
-  %6 = icmp eq i8 %5, 0
-  %7 = and i8 %merged.1, 1
+  %5 = and i8 %merged.0, 1
+  %6 = icmp ne i8 %5, 0
+  %7 = and i8 %destroyed.0, 1
   %8 = icmp ne i8 %7, 0
-  %9 = and i8 %destroyed.1, 1
+  %9 = and i8 %unmerged.0, 1
   %10 = icmp ne i8 %9, 0
-  %11 = and i8 %unmerged.1, 1
+  %11 = and i8 %bins.0, 1
   %12 = icmp ne i8 %11, 0
-  %13 = and i8 %bins.1, 1
+  %13 = and i8 %large.0, 1
   %14 = icmp ne i8 %13, 0
-  %15 = and i8 %large.1, 1
+  %15 = and i8 %mutex.0, 1
   %16 = icmp ne i8 %15, 0
-  %17 = and i8 %mutex.1, 1
+  %17 = and i8 %extents.0, 1
   %18 = icmp ne i8 %17, 0
-  %19 = and i8 %extents.1, 1
+  %19 = and i8 %hpa.0, 1
   %20 = icmp ne i8 %19, 0
-  %21 = and i8 %hpa.1, 1
-  %22 = icmp ne i8 %21, 0
-  br i1 %4, label %if.else.i, label %do.end.i
+  br i1 %2, label %if.else.i, label %do.end.i
 
 do.end.i:                                         ; preds = %if.end20
   store i32 1, ptr %emitter, align 8
@@ -643,77 +636,77 @@ do.end.i:                                         ; preds = %if.end20
   store i8 0, ptr %item_at_depth.i, align 4
   br label %emitter_begin.exit
 
-if.else.i:                                        ; preds = %if.end20, %for.cond.preheader, %if.end3
-  %hpa.268.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %22, %if.end20 ]
-  %extents.266.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %20, %if.end20 ]
-  %mutex.264.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %18, %if.end20 ]
-  %large.262.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %16, %if.end20 ]
-  %bins.260.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %14, %if.end20 ]
-  %unmerged.258.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %12, %if.end20 ]
-  %destroyed.256.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %10, %if.end20 ]
-  %merged.254.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %8, %if.end20 ]
-  %general.252.ph = phi i1 [ false, %if.end3 ], [ false, %for.cond.preheader ], [ %6, %if.end20 ]
+if.else.i:                                        ; preds = %if.end20, %if.end3
+  %hpa.247.ph = phi i1 [ true, %if.end3 ], [ %20, %if.end20 ]
+  %extents.245.ph = phi i1 [ true, %if.end3 ], [ %18, %if.end20 ]
+  %mutex.243.ph = phi i1 [ true, %if.end3 ], [ %16, %if.end20 ]
+  %large.241.ph = phi i1 [ true, %if.end3 ], [ %14, %if.end20 ]
+  %bins.239.ph = phi i1 [ true, %if.end3 ], [ %12, %if.end20 ]
+  %unmerged.237.ph = phi i1 [ true, %if.end3 ], [ %10, %if.end20 ]
+  %destroyed.235.ph = phi i1 [ true, %if.end3 ], [ %8, %if.end20 ]
+  %merged.233.ph = phi i1 [ true, %if.end3 ], [ %6, %if.end20 ]
+  %general.231.ph = phi i1 [ false, %if.end3 ], [ %4, %if.end20 ]
   store i32 2, ptr %emitter, align 8
-  %write_cb1.i80 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
-  store ptr %write_cb, ptr %write_cb1.i80, align 8
-  %cbopaque2.i81 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
-  store ptr %cbopaque, ptr %cbopaque2.i81, align 8
-  %item_at_depth.i82 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
-  store i8 0, ptr %item_at_depth.i82, align 4
-  %emitted_key.i83 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
-  store i8 0, ptr %emitted_key.i83, align 1
-  %nesting_depth.i84 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  store i32 0, ptr %nesting_depth.i84, align 8
+  %write_cb1.i59 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
+  store ptr %write_cb, ptr %write_cb1.i59, align 8
+  %cbopaque2.i60 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
+  store ptr %cbopaque, ptr %cbopaque2.i60, align 8
+  %item_at_depth.i61 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  store i8 0, ptr %item_at_depth.i61, align 4
+  %emitted_key.i62 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  store i8 0, ptr %emitted_key.i62, align 1
+  %nesting_depth.i63 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  store i32 0, ptr %nesting_depth.i63, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   br label %emitter_begin.exit
 
 emitter_begin.exit:                               ; preds = %do.end.i, %if.else.i
-  %nesting_depth.i105 = phi ptr [ %nesting_depth.i, %do.end.i ], [ %nesting_depth.i84, %if.else.i ]
-  %item_at_depth.i103 = phi ptr [ %item_at_depth.i, %do.end.i ], [ %item_at_depth.i82, %if.else.i ]
-  %general.252101 = phi i1 [ %6, %do.end.i ], [ %general.252.ph, %if.else.i ]
-  %merged.25499 = phi i1 [ %8, %do.end.i ], [ %merged.254.ph, %if.else.i ]
-  %destroyed.25697 = phi i1 [ %10, %do.end.i ], [ %destroyed.256.ph, %if.else.i ]
-  %unmerged.25895 = phi i1 [ %12, %do.end.i ], [ %unmerged.258.ph, %if.else.i ]
-  %bins.26093 = phi i1 [ %14, %do.end.i ], [ %bins.260.ph, %if.else.i ]
-  %large.26291 = phi i1 [ %16, %do.end.i ], [ %large.262.ph, %if.else.i ]
-  %mutex.26489 = phi i1 [ %18, %do.end.i ], [ %mutex.264.ph, %if.else.i ]
-  %extents.26687 = phi i1 [ %20, %do.end.i ], [ %extents.266.ph, %if.else.i ]
-  %hpa.26885 = phi i1 [ %22, %do.end.i ], [ %hpa.268.ph, %if.else.i ]
+  %nesting_depth.i84 = phi ptr [ %nesting_depth.i, %do.end.i ], [ %nesting_depth.i63, %if.else.i ]
+  %item_at_depth.i82 = phi ptr [ %item_at_depth.i, %do.end.i ], [ %item_at_depth.i61, %if.else.i ]
+  %general.23180 = phi i1 [ %4, %do.end.i ], [ %general.231.ph, %if.else.i ]
+  %merged.23378 = phi i1 [ %6, %do.end.i ], [ %merged.233.ph, %if.else.i ]
+  %destroyed.23576 = phi i1 [ %8, %do.end.i ], [ %destroyed.235.ph, %if.else.i ]
+  %unmerged.23774 = phi i1 [ %10, %do.end.i ], [ %unmerged.237.ph, %if.else.i ]
+  %bins.23972 = phi i1 [ %12, %do.end.i ], [ %bins.239.ph, %if.else.i ]
+  %large.24170 = phi i1 [ %14, %do.end.i ], [ %large.241.ph, %if.else.i ]
+  %mutex.24368 = phi i1 [ %16, %do.end.i ], [ %mutex.243.ph, %if.else.i ]
+  %extents.24566 = phi i1 [ %18, %do.end.i ], [ %extents.245.ph, %if.else.i ]
+  %hpa.24764 = phi i1 [ %20, %do.end.i ], [ %hpa.247.ph, %if.else.i ]
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.3)
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.4)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
-  br i1 %general.252101, label %if.end24, label %if.then23
+  br i1 %general.23180, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %emitter_begin.exit
   call fastcc void @stats_general_print(ptr noundef nonnull %emitter) #15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %emitter_begin.exit
-  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.25499, i1 noundef zeroext %destroyed.25697, i1 noundef zeroext %unmerged.25895, i1 noundef zeroext %bins.26093, i1 noundef zeroext %large.26291, i1 noundef zeroext %mutex.26489, i1 noundef zeroext %extents.26687, i1 noundef zeroext %hpa.26885) #15
+  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.23378, i1 noundef zeroext %destroyed.23576, i1 noundef zeroext %unmerged.23774, i1 noundef zeroext %bins.23972, i1 noundef zeroext %large.24170, i1 noundef zeroext %mutex.24368, i1 noundef zeroext %extents.24566, i1 noundef zeroext %hpa.24764) #15
   %emitter.val.i6 = load i32, ptr %emitter, align 8
   %spec.select.i.i7 = icmp ult i32 %emitter.val.i6, 2
   br i1 %spec.select.i.i7, label %do.end.i8, label %emitter_json_object_end.exit
 
 do.end.i8:                                        ; preds = %if.end24
-  %23 = load i32, ptr %nesting_depth.i105, align 8
-  %dec.i.i = add nsw i32 %23, -1
-  store i32 %dec.i.i, ptr %nesting_depth.i105, align 8
-  store i8 1, ptr %item_at_depth.i103, align 4
+  %21 = load i32, ptr %nesting_depth.i84, align 8
+  %dec.i.i = add nsw i32 %21, -1
+  store i32 %dec.i.i, ptr %nesting_depth.i84, align 8
+  store i8 1, ptr %item_at_depth.i82, align 4
   %cmp.not.i = icmp eq i32 %emitter.val.i6, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %do.end.i8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %24 = load i32, ptr %nesting_depth.i105, align 8
-  %25 = load i32, ptr %emitter, align 8
-  %cmp.i.i = icmp ne i32 %25, 0
+  %22 = load i32, ptr %nesting_depth.i84, align 8
+  %23 = load i32, ptr %emitter, align 8
+  %cmp.i.i = icmp ne i32 %23, 0
   %indent_str.0.i.i = select i1 %cmp.i.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i = icmp sgt i32 %24, 0
+  %cmp15.i.i = icmp sgt i32 %22, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %if.end.i
 
 for.body.preheader.i.i:                           ; preds = %if.then1.i
   %mul.i.i = zext i1 %cmp.i.i to i32
-  %amount.0.i.i = shl nuw nsw i32 %24, %mul.i.i
+  %amount.0.i.i = shl nuw nsw i32 %22, %mul.i.i
   %smax.i.i = call i32 @llvm.smax.i32(i32 %amount.0.i.i, i32 1)
   br label %for.body.i.i
 
@@ -735,10 +728,10 @@ emitter_json_object_end.exit:                     ; preds = %if.end24, %if.end.i
   br i1 %spec.select.i.i13, label %do.end.i15, label %return
 
 do.end.i15:                                       ; preds = %emitter_json_object_end.exit
-  %26 = load i32, ptr %nesting_depth.i105, align 8
-  %dec.i.i17 = add nsw i32 %26, -1
-  store i32 %dec.i.i17, ptr %nesting_depth.i105, align 8
-  store i8 1, ptr %item_at_depth.i103, align 4
+  %24 = load i32, ptr %nesting_depth.i84, align 8
+  %dec.i.i17 = add nsw i32 %24, -1
+  store i32 %dec.i.i17, ptr %nesting_depth.i84, align 8
+  store i8 1, ptr %item_at_depth.i82, align 4
   %cmp.i = icmp eq i32 %emitter.val.i12, 1
   %cond.i = select i1 %cmp.i, ptr @.str.463, ptr @.str.464
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.7, ptr noundef nonnull %cond.i)
@@ -3480,7 +3473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @stats_interval_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #6 {
+define hidden noundef i64 @stats_interval_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #6 {
 entry:
   ret i64 1
 }

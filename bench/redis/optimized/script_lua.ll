@@ -377,12 +377,11 @@ land.lhs.true9:                                   ; preds = %land.lhs.true3, %la
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = and i8 %3, 7
-  %and.i = zext nneg i8 %4 to i32
-  switch i32 %and.i, label %if.then [
-    i32 4, label %sw.bb13.i
-    i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
+  switch i8 %4, label %if.then [
+    i8 4, label %sw.bb13.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
   ]
 
 sw.bb3.i:                                         ; preds = %land.lhs.true9
@@ -588,7 +587,7 @@ entry:
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaProtectedTableError(ptr noundef %lua) #0 {
+define internal noundef i32 @luaProtectedTableError(ptr noundef %lua) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %lua) #11
   %cmp.not = icmp eq i32 %call, 2
@@ -642,7 +641,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaNewIndexAllowList(ptr noundef %lua) #0 {
+define internal noundef i32 @luaNewIndexAllowList(ptr noundef %lua) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %lua) #11
   %cmp.not = icmp eq i32 %call, 3
@@ -1141,7 +1140,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaRedisErrorReplyCommand(ptr noundef %lua) #0 {
+define internal noundef i32 @luaRedisErrorReplyCommand(ptr noundef %lua) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %lua) #11
   %cmp.not = icmp eq i32 %call, 1
@@ -1178,7 +1177,7 @@ return:                                           ; preds = %if.then6, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaRedisStatusReplyCommand(ptr noundef %lua) #0 {
+define internal noundef i32 @luaRedisStatusReplyCommand(ptr noundef %lua) #0 {
 entry:
   %call.i = tail call i32 @lua_gettop(ptr noundef %lua) #11
   %cmp.not.i = icmp eq i32 %call.i, 1
@@ -1376,7 +1375,7 @@ return:                                           ; preds = %sw.bb, %lor.end, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @redis_math_randomseed(ptr noundef %L) #0 {
+define internal noundef i32 @redis_math_randomseed(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1) #11
   %conv = trunc i64 %call to i32
@@ -2605,13 +2604,12 @@ if.then31:                                        ; preds = %land.lhs.true26
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -1
   %12 = load i8, ptr %arrayidx.i, align 1
   %13 = and i8 %12, 7
-  %and.i = zext nneg i8 %13 to i32
-  switch i32 %and.i, label %for.inc [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
-    i32 4, label %sw.bb13.i
+  switch i8 %13, label %for.inc [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
+    i8 4, label %sw.bb13.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then31

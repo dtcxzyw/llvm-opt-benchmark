@@ -380,10 +380,9 @@ sw.bb7:                                           ; preds = %if.then
   %1 = getelementptr i8, ptr %s1, i64 70587
   %s1.val = load i8, ptr %1, align 1
   %2 = and i8 %s1.val, 15
-  %and.i = zext nneg i8 %2 to i32
-  switch i32 %and.i, label %do.body.i [
-    i32 0, label %if.end
-    i32 1, label %sw.bb1.i
+  switch i8 %2, label %do.body.i [
+    i8 0, label %if.end
+    i8 1, label %sw.bb1.i
   ]
 
 sw.bb1.i:                                         ; preds = %sw.bb7
@@ -396,7 +395,8 @@ do.body.i:                                        ; preds = %sw.bb7
   br i1 %cmp.i.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i) #13
+  %and6.i = zext nneg i8 %2 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and6.i) #13
   br label %if.end
 
 sw.bb8:                                           ; preds = %if.then
@@ -406,30 +406,30 @@ sw.bb9:                                           ; preds = %if.then
   %4 = getelementptr i8, ptr %s1, i64 70587
   %s1.val4 = load i8, ptr %4, align 1
   %5 = and i8 %s1.val4, 15
-  %and.i5 = zext nneg i8 %5 to i32
-  switch i32 %and.i5, label %do.body.i8 [
-    i32 0, label %if.end
-    i32 1, label %sw.bb1.i6
+  switch i8 %5, label %do.body.i7 [
+    i8 0, label %if.end
+    i8 1, label %sw.bb1.i5
   ]
 
-sw.bb1.i6:                                        ; preds = %sw.bb9
+sw.bb1.i5:                                        ; preds = %sw.bb9
   br label %if.end
 
-do.body.i8:                                       ; preds = %sw.bb9
+do.body.i7:                                       ; preds = %sw.bb9
   %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i9 = and i32 %6, 2048
-  %cmp.i.not.i10 = icmp eq i32 %and.i.i9, 0
-  br i1 %cmp.i.not.i10, label %if.end, label %if.then.i11
+  %and.i.i8 = and i32 %6, 2048
+  %cmp.i.not.i9 = icmp eq i32 %and.i.i8, 0
+  br i1 %cmp.i.not.i9, label %if.end, label %if.then.i10
 
-if.then.i11:                                      ; preds = %do.body.i8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and.i5) #13
+if.then.i10:                                      ; preds = %do.body.i7
+  %and6.i11 = zext nneg i8 %5 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and6.i11) #13
   br label %if.end
 
 sw.bb11:                                          ; preds = %if.then
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i11, %do.body.i8, %sw.bb1.i6, %sw.bb9, %if.then.i, %do.body.i, %sw.bb1.i, %sw.bb7, %entry, %if.then, %sw.bb8, %sw.bb11
-  %ret.0 = phi i32 [ 32, %sw.bb11 ], [ 24, %sw.bb8 ], [ 8, %if.then ], [ 0, %entry ], [ 16, %sw.bb1.i ], [ 15, %sw.bb7 ], [ 15, %do.body.i ], [ 15, %if.then.i ], [ 16, %sw.bb1.i6 ], [ 15, %sw.bb9 ], [ 15, %do.body.i8 ], [ 15, %if.then.i11 ]
+if.end:                                           ; preds = %if.then.i10, %do.body.i7, %sw.bb1.i5, %sw.bb9, %if.then.i, %do.body.i, %sw.bb1.i, %sw.bb7, %entry, %if.then, %sw.bb8, %sw.bb11
+  %ret.0 = phi i32 [ 32, %sw.bb11 ], [ 24, %sw.bb8 ], [ 8, %if.then ], [ 0, %entry ], [ 16, %sw.bb1.i ], [ 15, %sw.bb7 ], [ 15, %do.body.i ], [ 15, %if.then.i ], [ 16, %sw.bb1.i5 ], [ 15, %sw.bb9 ], [ 15, %do.body.i7 ], [ 15, %if.then.i10 ]
   ret i32 %ret.0
 }
 
@@ -1482,29 +1482,28 @@ if.else:                                          ; preds = %sw.bb
   %ar_index6 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
   %10 = load i8, ptr %ar_index6, align 2
   %11 = and i8 %10, 31
-  %and8 = zext nneg i8 %11 to i32
-  switch i32 %and8, label %if.end41 [
-    i32 0, label %sw.bb9
-    i32 1, label %sw.bb9
-    i32 2, label %sw.bb9
-    i32 3, label %sw.bb9
-    i32 4, label %sw.bb9
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb9
-    i32 7, label %sw.bb9
-    i32 8, label %sw.bb9
-    i32 9, label %sw.bb9
-    i32 10, label %sw.bb9
-    i32 11, label %sw.bb9
-    i32 12, label %sw.bb9
-    i32 13, label %sw.bb9
-    i32 14, label %sw.bb9
-    i32 15, label %sw.bb9
-    i32 16, label %sw.bb12
-    i32 17, label %sw.bb18
-    i32 18, label %sw.bb23
-    i32 19, label %sw.bb29
-    i32 20, label %sw.bb35
+  switch i8 %11, label %if.end41 [
+    i8 0, label %sw.bb9
+    i8 1, label %sw.bb9
+    i8 2, label %sw.bb9
+    i8 3, label %sw.bb9
+    i8 4, label %sw.bb9
+    i8 5, label %sw.bb9
+    i8 6, label %sw.bb9
+    i8 7, label %sw.bb9
+    i8 8, label %sw.bb9
+    i8 9, label %sw.bb9
+    i8 10, label %sw.bb9
+    i8 11, label %sw.bb9
+    i8 12, label %sw.bb9
+    i8 13, label %sw.bb9
+    i8 14, label %sw.bb9
+    i8 15, label %sw.bb9
+    i8 16, label %sw.bb12
+    i8 17, label %sw.bb18
+    i8 18, label %sw.bb23
+    i8 19, label %sw.bb29
+    i8 20, label %sw.bb35
   ]
 
 sw.bb9:                                           ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
@@ -2622,13 +2621,12 @@ trace_vga_cirrus_bitblt_start.exit:               ; preds = %if.end, %land.lhs.t
   %30 = load i8, ptr %cirrus_blt_mode, align 4
   %31 = lshr i8 %30, 4
   %32 = and i8 %31, 3
-  %33 = zext nneg i8 %32 to i32
   %cirrus_blt_pixelwidth = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 20
-  switch i32 %33, label %if.end.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb101
-    i32 2, label %sw.bb103
-    i32 3, label %sw.bb105
+  switch i8 %32, label %if.end.unreachabledefault [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb101
+    i8 2, label %sw.bb103
+    i8 3, label %sw.bb105
   ]
 
 sw.bb101:                                         ; preds = %trace_vga_cirrus_bitblt_start.exit
@@ -2647,23 +2645,23 @@ sw.epilog:                                        ; preds = %trace_vga_cirrus_bi
   %.sink = phi i32 [ 4, %sw.bb105 ], [ 3, %sw.bb103 ], [ 2, %sw.bb101 ], [ 1, %trace_vga_cirrus_bitblt_start.exit ]
   %cmp241 = phi i1 [ true, %sw.bb105 ], [ true, %sw.bb103 ], [ false, %sw.bb101 ], [ false, %trace_vga_cirrus_bitblt_start.exit ]
   store i32 %.sink, ptr %cirrus_blt_pixelwidth, align 16
-  %34 = and i8 %30, -49
-  store i8 %34, ptr %cirrus_blt_mode, align 4
-  %conv117 = zext i8 %34 to i32
+  %33 = and i8 %30, -49
+  store i8 %33, ptr %cirrus_blt_mode, align 4
+  %conv117 = zext i8 %33 to i32
   %and118 = and i32 %conv117, 6
   %cmp = icmp eq i32 %and118, 6
   br i1 %cmp, label %do.body121, label %if.end132
 
 do.body121:                                       ; preds = %sw.epilog
-  %35 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %35, 1024
+  %34 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %34, 1024
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %bitblt_ignore, label %bitblt_ignore.sink.split
 
 if.end132:                                        ; preds = %sw.epilog
-  %36 = load i8, ptr %cirrus_blt_modeext, align 1
-  %37 = and i8 %36, 4
-  %tobool136.not = icmp ne i8 %37, 0
+  %35 = load i8, ptr %cirrus_blt_modeext, align 1
+  %36 = and i8 %35, 4
+  %tobool136.not = icmp ne i8 %36, 0
   %and139 = and i32 %conv117, 202
   %cmp140 = icmp eq i32 %and139, 192
   %or.cond = and i1 %cmp140, %tobool136.not
@@ -2671,8 +2669,8 @@ if.end132:                                        ; preds = %sw.epilog
 
 if.then142:                                       ; preds = %if.end132
   %cirrus_shadow_gr125.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 13
-  %38 = load i8, ptr %cirrus_shadow_gr125.i, align 1
-  %conv26.i = zext i8 %38 to i32
+  %37 = load i8, ptr %cirrus_shadow_gr125.i, align 1
+  %conv26.i = zext i8 %37 to i32
   switch i32 %.sink, label %sw.bb24.i [
     i32 1, label %cirrus_bitblt_fgcol.exit
     i32 2, label %sw.bb1.i
@@ -2681,37 +2679,37 @@ if.then142:                                       ; preds = %if.end132
 
 sw.bb1.i:                                         ; preds = %if.then142
   %arrayidx.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %39 = load i8, ptr %arrayidx.i, align 1
-  %conv4.i = zext i8 %39 to i32
+  %38 = load i8, ptr %arrayidx.i, align 1
+  %conv4.i = zext i8 %38 to i32
   %shl.i = shl nuw nsw i32 %conv4.i, 8
   br label %sw.epilog.sink.split.i
 
 sw.bb8.i:                                         ; preds = %if.then142
   %arrayidx13.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %40 = load i8, ptr %arrayidx13.i, align 1
-  %conv14.i = zext i8 %40 to i32
+  %39 = load i8, ptr %arrayidx13.i, align 1
+  %conv14.i = zext i8 %39 to i32
   %shl15.i = shl nuw nsw i32 %conv14.i, 8
   %or16.i = or disjoint i32 %shl15.i, %conv26.i
   %arrayidx19.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 19
-  %41 = load i8, ptr %arrayidx19.i, align 1
-  %conv20.i = zext i8 %41 to i32
+  %40 = load i8, ptr %arrayidx19.i, align 1
+  %conv20.i = zext i8 %40 to i32
   %shl21.i = shl nuw nsw i32 %conv20.i, 16
   br label %sw.epilog.sink.split.i
 
 sw.bb24.i:                                        ; preds = %if.then142
   %arrayidx29.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %42 = load i8, ptr %arrayidx29.i, align 1
-  %conv30.i = zext i8 %42 to i32
+  %41 = load i8, ptr %arrayidx29.i, align 1
+  %conv30.i = zext i8 %41 to i32
   %shl31.i = shl nuw nsw i32 %conv30.i, 8
   %arrayidx35.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 19
-  %43 = load i8, ptr %arrayidx35.i, align 1
-  %conv36.i = zext i8 %43 to i32
+  %42 = load i8, ptr %arrayidx35.i, align 1
+  %conv36.i = zext i8 %42 to i32
   %shl37.i = shl nuw nsw i32 %conv36.i, 16
-  %44 = or disjoint i32 %shl31.i, %shl37.i
-  %or38.i = or disjoint i32 %44, %conv26.i
+  %43 = or disjoint i32 %shl31.i, %shl37.i
+  %or38.i = or disjoint i32 %43, %conv26.i
   %arrayidx41.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 21
-  %45 = load i8, ptr %arrayidx41.i, align 1
-  %conv42.i = zext i8 %45 to i32
+  %44 = load i8, ptr %arrayidx41.i, align 1
+  %conv42.i = zext i8 %44 to i32
   %shl43.i = shl nuw i32 %conv42.i, 24
   br label %sw.epilog.sink.split.i
 
@@ -2725,8 +2723,8 @@ cirrus_bitblt_fgcol.exit:                         ; preds = %if.then142, %sw.epi
   %or44.sink.i = phi i32 [ %conv26.i, %if.then142 ], [ %or44.i, %sw.epilog.sink.split.i ]
   %cirrus_blt_fgcol46.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   store i32 %or44.sink.i, ptr %cirrus_blt_fgcol46.i, align 4
-  %46 = load i32, ptr %cirrus_blt_width, align 4
-  %cmp.i.i = icmp sgt i32 %46, 0
+  %45 = load i32, ptr %cirrus_blt_width, align 4
+  %cmp.i.i = icmp sgt i32 %45, 0
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i110
 
 if.else.i.i110:                                   ; preds = %cirrus_bitblt_fgcol.exit
@@ -2734,8 +2732,8 @@ if.else.i.i110:                                   ; preds = %cirrus_bitblt_fgcol
   unreachable
 
 if.end.i.i:                                       ; preds = %cirrus_bitblt_fgcol.exit
-  %47 = load i32, ptr %cirrus_blt_height, align 8
-  %cmp1.i.i = icmp sgt i32 %47, 0
+  %46 = load i32, ptr %cirrus_blt_height, align 8
+  %cmp1.i.i = icmp sgt i32 %46, 0
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.end.i.i
@@ -2743,25 +2741,25 @@ if.else3.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %cmp6.i.i = icmp ugt i32 %46, 8192
+  %cmp6.i.i = icmp ugt i32 %45, 8192
   br i1 %cmp6.i.i, label %return, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
-  %48 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %49 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %tobool.not.i.i.i = icmp eq i32 %48, 0
+  %47 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %48 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %tobool.not.i.i.i = icmp eq i32 %47, 0
   br i1 %tobool.not.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i.i
-  %cmp.i.i.i = icmp slt i32 %48, 0
-  %conv.i.i.i = sext i32 %49 to i64
-  %conv2.i.i.i = zext nneg i32 %47 to i64
+  %cmp.i.i.i = icmp slt i32 %47, 0
+  %conv.i.i.i = sext i32 %48 to i64
+  %conv2.i.i.i = zext nneg i32 %46 to i64
   %sub.i.i.i = add nsw i64 %conv2.i.i.i, -1
-  %conv4.i.i.i = zext nneg i32 %46 to i64
+  %conv4.i.i.i = zext nneg i32 %45 to i64
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %blit_is_unsafe.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv3.i.i.i = sext i32 %48 to i64
+  %conv3.i.i.i = sext i32 %47 to i64
   %mul.i.i.i = mul nsw i64 %sub.i.i.i, %conv3.i.i.i
   %add.i.i.i = sub nsw i64 %conv.i.i.i, %conv4.i.i.i
   %sub5.i.i.i = add nsw i64 %add.i.i.i, %mul.i.i.i
@@ -2770,53 +2768,53 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then1.i.i.i
   %vram_size.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %50 = load i32, ptr %vram_size.i.i.i, align 16
-  %cmp8.not.i.i.not.i = icmp ugt i32 %50, %49
+  %49 = load i32, ptr %vram_size.i.i.i, align 16
+  %cmp8.not.i.i.not.i = icmp ugt i32 %49, %48
   br i1 %cmp8.not.i.i.not.i, label %if.end.i, label %return
 
 blit_is_unsafe.exit.i:                            ; preds = %if.end.i.i.i
-  %conv16.i.i.i = zext nneg i32 %48 to i64
+  %conv16.i.i.i = zext nneg i32 %47 to i64
   %mul17.i.i.i = mul nuw nsw i64 %sub.i.i.i, %conv16.i.i.i
   %add18.i.i.i = add nsw i64 %conv.i.i.i, %conv4.i.i.i
   %add21.i.i.i = add nsw i64 %add18.i.i.i, %mul17.i.i.i
   %vram_size23.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %51 = load i32, ptr %vram_size23.i.i.i, align 16
-  %conv24.i.i.i = zext i32 %51 to i64
+  %50 = load i32, ptr %vram_size23.i.i.i, align 16
+  %conv24.i.i.i = zext i32 %50 to i64
   %cmp25.i.i.i = icmp sgt i64 %add21.i.i.i, %conv24.i.i.i
   br i1 %cmp25.i.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %blit_is_unsafe.exit.i, %lor.lhs.false.i.i.i
   %idxprom.i = zext i8 %20 to i64
   %arrayidx.i111 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom.i
-  %52 = load i8, ptr %arrayidx.i111, align 1
-  %idxprom1.i = zext i8 %52 to i64
+  %51 = load i8, ptr %arrayidx.i111, align 1
+  %idxprom1.i = zext i8 %51 to i64
   %sub.i = add nsw i32 %.sink, -1
   %idxprom3.i = zext nneg i32 %sub.i to i64
   %arrayidx4.i = getelementptr [16 x [4 x ptr]], ptr @cirrus_fill, i64 0, i64 %idxprom1.i, i64 %idxprom3.i
-  %53 = load ptr, ptr %arrayidx4.i, align 8
-  tail call void %53(ptr noundef nonnull %s, i32 noundef %49, i32 noundef %48, i32 noundef %46, i32 noundef %47) #13
-  %54 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %55 = load i32, ptr %cirrus_blt_height, align 8
-  %cmp218.i.i = icmp sgt i32 %55, 0
+  %52 = load ptr, ptr %arrayidx4.i, align 8
+  tail call void %52(ptr noundef nonnull %s, i32 noundef %48, i32 noundef %47, i32 noundef %45, i32 noundef %46) #13
+  %53 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %54 = load i32, ptr %cirrus_blt_height, align 8
+  %cmp218.i.i = icmp sgt i32 %54, 0
   br i1 %cmp218.i.i, label %for.body.lr.ph.i.i, label %cirrus_invalidate_region.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i
-  %56 = load i32, ptr %cirrus_blt_width, align 4
-  %57 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %cmp.i13.i = icmp slt i32 %54, 0
-  %sub.i.i = add i32 %56, -1
+  %55 = load i32, ptr %cirrus_blt_width, align 4
+  %56 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %cmp.i13.i = icmp slt i32 %53, 0
+  %sub.i.i = add i32 %55, -1
   %sub1.i.i = select i1 %cmp.i13.i, i32 %sub.i.i, i32 0
-  %off_begin.addr.0.i.i = sub i32 %57, %sub1.i.i
+  %off_begin.addr.0.i.i = sub i32 %56, %sub1.i.i
   %vram.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end21.i.i, %for.body.lr.ph.i.i
   %off_begin.addr.120.i.i = phi i32 [ %off_begin.addr.0.i.i, %for.body.lr.ph.i.i ], [ %add22.i.i, %if.end21.i.i ]
   %y.019.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end21.i.i ]
-  %58 = load i32, ptr %cirrus_addr_mask, align 16
-  %and.i.i = and i32 %58, %off_begin.addr.120.i.i
+  %57 = load i32, ptr %cirrus_addr_mask, align 16
+  %and.i.i = and i32 %57, %off_begin.addr.120.i.i
   %sub3.i.i = add i32 %and.i.i, %sub.i.i
-  %and5.i.i = and i32 %sub3.i.i, %58
+  %and5.i.i = and i32 %sub3.i.i, %57
   %add6.i.i = add i32 %and5.i.i, 1
   %cmp7.not.i.i = icmp slt i32 %add6.i.i, %and.i.i
   %conv13.i.i113 = sext i32 %and.i.i to i64
@@ -2827,7 +2825,7 @@ if.then8.i.i114:                                  ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.else.i14.i:                                    ; preds = %for.body.i.i
-  %add15.i.i = add i32 %58, 1
+  %add15.i.i = add i32 %57, 1
   %sub16.i.i = sub i32 %add15.i.i, %and.i.i
   %conv17.i.i115 = zext i32 %sub16.i.i to i64
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %conv13.i.i113, i64 noundef %conv17.i.i115) #13
@@ -2838,25 +2836,25 @@ if.end21.i.i:                                     ; preds = %if.else.i14.i, %if.
   %.sink.i.i = phi i64 [ 0, %if.else.i14.i ], [ %conv13.i.i113, %if.then8.i.i114 ]
   %conv20.i.i = sext i32 %add6.sink.i.i to i64
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i, i64 noundef %.sink.i.i, i64 noundef %conv20.i.i) #13
-  %add22.i.i = add i32 %off_begin.addr.120.i.i, %54
+  %add22.i.i = add i32 %off_begin.addr.120.i.i, %53
   %inc.i.i = add nuw nsw i32 %y.019.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %55
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %54
   br i1 %exitcond.not.i.i, label %cirrus_invalidate_region.exit.i, label %for.body.i.i, !llvm.loop !10
 
 cirrus_invalidate_region.exit.i:                  ; preds = %if.end21.i.i, %if.end.i
-  %59 = load i8, ptr %arrayidx, align 1
-  %60 = and i8 %59, -20
-  store i8 %60, ptr %arrayidx, align 1
+  %58 = load i8, ptr %arrayidx, align 1
+  %59 = and i8 %58, -20
+  store i8 %59, ptr %arrayidx, align 1
   %cirrus_srcptr.i.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 33
-  %61 = load ptr, ptr %cirrus_srcptr.i.i, align 16
+  %60 = load ptr, ptr %cirrus_srcptr.i.i, align 16
   %cirrus_bltbuf.i.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 32
-  %cmp.not.i.i = icmp eq ptr %61, %cirrus_bltbuf.i.i
+  %cmp.not.i.i = icmp eq ptr %60, %cirrus_bltbuf.i.i
   br i1 %cmp.not.i.i, label %lor.rhs.i.i, label %if.end.critedge.i.i
 
 lor.rhs.i.i:                                      ; preds = %cirrus_invalidate_region.exit.i
   %cirrus_srcptr_end.i.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 34
-  %62 = load ptr, ptr %cirrus_srcptr_end.i.i, align 8
-  %cmp6.not.i.i = icmp eq ptr %62, %cirrus_bltbuf.i.i
+  %61 = load ptr, ptr %cirrus_srcptr_end.i.i, align 8
+  %cmp6.not.i.i = icmp eq ptr %61, %cirrus_bltbuf.i.i
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end.i.i, align 8
   %cirrus_srccounter.i.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 35
   store i32 0, ptr %cirrus_srccounter.i.i, align 16
@@ -2885,8 +2883,8 @@ if.then150:                                       ; preds = %if.else
   br i1 %tobool154.not, label %if.else169, label %if.then155
 
 if.then155:                                       ; preds = %if.then150
-  %63 = and i8 %36, 2
-  %tobool159.not = icmp eq i8 %63, 0
+  %62 = and i8 %35, 2
+  %tobool159.not = icmp eq i8 %62, 0
   br i1 %tobool159.not, label %if.else161, label %if.then160
 
 if.then160:                                       ; preds = %if.then155
@@ -2900,19 +2898,19 @@ if.else161:                                       ; preds = %if.then155
 if.end162:                                        ; preds = %if.else161, %if.then160
   %idxprom = zext i8 %20 to i64
   %arrayidx163 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom
-  %64 = load i8, ptr %arrayidx163, align 1
-  %idxprom164 = zext i8 %64 to i64
+  %63 = load i8, ptr %arrayidx163, align 1
+  %idxprom164 = zext i8 %63 to i64
   %cirrus_blt_pixelwidth166 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 20
-  %65 = load i32, ptr %cirrus_blt_pixelwidth166, align 16
-  %sub = add i32 %65, -1
+  %64 = load i32, ptr %cirrus_blt_pixelwidth166, align 16
+  %sub = add i32 %64, -1
   %idxprom167 = sext i32 %sub to i64
   %arrayidx168 = getelementptr [16 x [4 x ptr]], ptr @cirrus_colorexpand_transp, i64 0, i64 %idxprom164, i64 %idxprom167
   br label %if.end313
 
 if.else169:                                       ; preds = %if.then150
   %cirrus_shadow_gr125.i117 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 13
-  %66 = load i8, ptr %cirrus_shadow_gr125.i117, align 1
-  %conv26.i118 = zext i8 %66 to i32
+  %65 = load i8, ptr %cirrus_shadow_gr125.i117, align 1
+  %conv26.i118 = zext i8 %65 to i32
   switch i32 %.sink, label %cirrus_bitblt_fgcol.exit148 [
     i32 1, label %cirrus_bitblt_fgcol.exit148.thread
     i32 2, label %cirrus_bitblt_fgcol.exit148.thread255
@@ -2923,88 +2921,88 @@ cirrus_bitblt_fgcol.exit148.thread:               ; preds = %if.else169
   %cirrus_blt_fgcol46.i132252 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   store i32 %conv26.i118, ptr %cirrus_blt_fgcol46.i132252, align 4
   %cirrus_shadow_gr025.i253 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 12
-  %67 = load i8, ptr %cirrus_shadow_gr025.i253, align 8
-  %conv26.i150254 = zext i8 %67 to i32
+  %66 = load i8, ptr %cirrus_shadow_gr025.i253, align 8
+  %conv26.i150254 = zext i8 %66 to i32
   br label %cirrus_bitblt_bgcol.exit
 
 cirrus_bitblt_fgcol.exit148.thread255:            ; preds = %if.else169
   %arrayidx.i134 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %68 = load i8, ptr %arrayidx.i134, align 1
-  %conv4.i135 = zext i8 %68 to i32
+  %67 = load i8, ptr %arrayidx.i134, align 1
+  %conv4.i135 = zext i8 %67 to i32
   %shl.i136 = shl nuw nsw i32 %conv4.i135, 8
   %or44.i130258 = or disjoint i32 %shl.i136, %conv26.i118
   %cirrus_blt_fgcol46.i132259 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   store i32 %or44.i130258, ptr %cirrus_blt_fgcol46.i132259, align 4
   %cirrus_shadow_gr025.i260 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 12
-  %69 = load i8, ptr %cirrus_shadow_gr025.i260, align 8
-  %conv26.i150261 = zext i8 %69 to i32
+  %68 = load i8, ptr %cirrus_shadow_gr025.i260, align 8
+  %conv26.i150261 = zext i8 %68 to i32
   %arrayidx.i165 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 16
-  %70 = load i8, ptr %arrayidx.i165, align 2
-  %conv4.i166 = zext i8 %70 to i32
+  %69 = load i8, ptr %arrayidx.i165, align 2
+  %conv4.i166 = zext i8 %69 to i32
   %shl.i167 = shl nuw nsw i32 %conv4.i166, 8
   br label %sw.epilog.sink.split.i159
 
 cirrus_bitblt_fgcol.exit148.thread263:            ; preds = %if.else169
   %arrayidx13.i120 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %71 = load i8, ptr %arrayidx13.i120, align 1
-  %conv14.i121 = zext i8 %71 to i32
+  %70 = load i8, ptr %arrayidx13.i120, align 1
+  %conv14.i121 = zext i8 %70 to i32
   %shl15.i122 = shl nuw nsw i32 %conv14.i121, 8
   %arrayidx19.i124 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 19
-  %72 = load i8, ptr %arrayidx19.i124, align 1
-  %conv20.i125 = zext i8 %72 to i32
+  %71 = load i8, ptr %arrayidx19.i124, align 1
+  %conv20.i125 = zext i8 %71 to i32
   %shl21.i126 = shl nuw nsw i32 %conv20.i125, 16
-  %73 = or disjoint i32 %shl15.i122, %shl21.i126
-  %or44.i130266 = or disjoint i32 %73, %conv26.i118
+  %72 = or disjoint i32 %shl15.i122, %shl21.i126
+  %or44.i130266 = or disjoint i32 %72, %conv26.i118
   %cirrus_blt_fgcol46.i132267 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   store i32 %or44.i130266, ptr %cirrus_blt_fgcol46.i132267, align 4
   %cirrus_shadow_gr025.i268 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 12
-  %74 = load i8, ptr %cirrus_shadow_gr025.i268, align 8
-  %conv26.i150269 = zext i8 %74 to i32
+  %73 = load i8, ptr %cirrus_shadow_gr025.i268, align 8
+  %conv26.i150269 = zext i8 %73 to i32
   %arrayidx13.i152 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 16
-  %75 = load i8, ptr %arrayidx13.i152, align 2
-  %conv14.i153 = zext i8 %75 to i32
+  %74 = load i8, ptr %arrayidx13.i152, align 2
+  %conv14.i153 = zext i8 %74 to i32
   %shl15.i154 = shl nuw nsw i32 %conv14.i153, 8
   %or16.i155 = or disjoint i32 %shl15.i154, %conv26.i150269
   %arrayidx19.i156 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 18
-  %76 = load i8, ptr %arrayidx19.i156, align 2
-  %conv20.i157 = zext i8 %76 to i32
+  %75 = load i8, ptr %arrayidx19.i156, align 2
+  %conv20.i157 = zext i8 %75 to i32
   %shl21.i158 = shl nuw nsw i32 %conv20.i157, 16
   br label %sw.epilog.sink.split.i159
 
 cirrus_bitblt_fgcol.exit148:                      ; preds = %if.else169
   %arrayidx29.i138 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 17
-  %77 = load i8, ptr %arrayidx29.i138, align 1
-  %conv30.i139 = zext i8 %77 to i32
+  %76 = load i8, ptr %arrayidx29.i138, align 1
+  %conv30.i139 = zext i8 %76 to i32
   %shl31.i140 = shl nuw nsw i32 %conv30.i139, 8
   %arrayidx35.i141 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 19
-  %78 = load i8, ptr %arrayidx35.i141, align 1
-  %conv36.i142 = zext i8 %78 to i32
+  %77 = load i8, ptr %arrayidx35.i141, align 1
+  %conv36.i142 = zext i8 %77 to i32
   %shl37.i143 = shl nuw nsw i32 %conv36.i142, 16
   %arrayidx41.i145 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 21
-  %79 = load i8, ptr %arrayidx41.i145, align 1
-  %conv42.i146 = zext i8 %79 to i32
+  %78 = load i8, ptr %arrayidx41.i145, align 1
+  %conv42.i146 = zext i8 %78 to i32
   %shl43.i147 = shl nuw i32 %conv42.i146, 24
-  %80 = or disjoint i32 %shl31.i140, %shl37.i143
-  %81 = or disjoint i32 %80, %shl43.i147
-  %or44.i130 = or disjoint i32 %81, %conv26.i118
+  %79 = or disjoint i32 %shl31.i140, %shl37.i143
+  %80 = or disjoint i32 %79, %shl43.i147
+  %or44.i130 = or disjoint i32 %80, %conv26.i118
   %cirrus_blt_fgcol46.i132 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 25
   store i32 %or44.i130, ptr %cirrus_blt_fgcol46.i132, align 4
   %cirrus_shadow_gr025.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 12
-  %82 = load i8, ptr %cirrus_shadow_gr025.i, align 8
-  %conv26.i150 = zext i8 %82 to i32
+  %81 = load i8, ptr %cirrus_shadow_gr025.i, align 8
+  %conv26.i150 = zext i8 %81 to i32
   %arrayidx29.i169 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 16
-  %83 = load i8, ptr %arrayidx29.i169, align 2
-  %conv30.i170 = zext i8 %83 to i32
+  %82 = load i8, ptr %arrayidx29.i169, align 2
+  %conv30.i170 = zext i8 %82 to i32
   %shl31.i171 = shl nuw nsw i32 %conv30.i170, 8
   %arrayidx35.i172 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 18
-  %84 = load i8, ptr %arrayidx35.i172, align 2
-  %conv36.i173 = zext i8 %84 to i32
+  %83 = load i8, ptr %arrayidx35.i172, align 2
+  %conv36.i173 = zext i8 %83 to i32
   %shl37.i174 = shl nuw nsw i32 %conv36.i173, 16
-  %85 = or disjoint i32 %shl31.i171, %conv26.i150
-  %or38.i175 = or disjoint i32 %85, %shl37.i174
+  %84 = or disjoint i32 %shl31.i171, %conv26.i150
+  %or38.i175 = or disjoint i32 %84, %shl37.i174
   %arrayidx41.i176 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 20
-  %86 = load i8, ptr %arrayidx41.i176, align 2
-  %conv42.i177 = zext i8 %86 to i32
+  %85 = load i8, ptr %arrayidx41.i176, align 2
+  %conv42.i177 = zext i8 %85 to i32
   %shl43.i178 = shl nuw i32 %conv42.i177, 24
   br label %sw.epilog.sink.split.i159
 
@@ -3020,8 +3018,8 @@ cirrus_bitblt_bgcol.exit:                         ; preds = %cirrus_bitblt_fgcol
   store i32 %or44.sink.i163, ptr %cirrus_blt_bgcol46.i, align 8
   %idxprom170 = zext i8 %20 to i64
   %arrayidx171 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom170
-  %87 = load i8, ptr %arrayidx171, align 1
-  %idxprom172 = zext i8 %87 to i64
+  %86 = load i8, ptr %arrayidx171, align 1
+  %idxprom172 = zext i8 %86 to i64
   %sub175 = add nsw i32 %.sink, -1
   %idxprom176 = zext nneg i32 %sub175 to i64
   %arrayidx177 = getelementptr [16 x [4 x ptr]], ptr @cirrus_colorexpand, i64 0, i64 %idxprom172, i64 %idxprom176
@@ -3033,7 +3031,7 @@ if.else180:                                       ; preds = %if.else
   br i1 %tobool184.not, label %if.else234, label %if.then185
 
 if.then185:                                       ; preds = %if.else180
-  %tobool189.not = icmp sgt i8 %34, -1
+  %tobool189.not = icmp sgt i8 %33, -1
   br i1 %tobool189.not, label %if.else223, label %if.then190
 
 if.then190:                                       ; preds = %if.then185
@@ -3042,8 +3040,8 @@ if.then190:                                       ; preds = %if.then185
   br i1 %tobool194.not, label %if.else212, label %if.then195
 
 if.then195:                                       ; preds = %if.then190
-  %88 = and i8 %36, 2
-  %tobool199.not = icmp eq i8 %88, 0
+  %87 = and i8 %35, 2
+  %tobool199.not = icmp eq i8 %87, 0
   br i1 %tobool199.not, label %if.else201, label %if.then200
 
 if.then200:                                       ; preds = %if.then195
@@ -3057,11 +3055,11 @@ if.else201:                                       ; preds = %if.then195
 if.end202:                                        ; preds = %if.else201, %if.then200
   %idxprom203 = zext i8 %20 to i64
   %arrayidx204 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom203
-  %89 = load i8, ptr %arrayidx204, align 1
-  %idxprom205 = zext i8 %89 to i64
+  %88 = load i8, ptr %arrayidx204, align 1
+  %idxprom205 = zext i8 %88 to i64
   %cirrus_blt_pixelwidth207 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 20
-  %90 = load i32, ptr %cirrus_blt_pixelwidth207, align 16
-  %sub208 = add i32 %90, -1
+  %89 = load i32, ptr %cirrus_blt_pixelwidth207, align 16
+  %sub208 = add i32 %89, -1
   %idxprom209 = sext i32 %sub208 to i64
   %arrayidx210 = getelementptr [16 x [4 x ptr]], ptr @cirrus_colorexpand_pattern_transp, i64 0, i64 %idxprom205, i64 %idxprom209
   br label %if.end313
@@ -3071,11 +3069,11 @@ if.else212:                                       ; preds = %if.then190
   tail call fastcc void @cirrus_bitblt_bgcol(ptr noundef nonnull %s)
   %idxprom213 = zext i8 %20 to i64
   %arrayidx214 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom213
-  %91 = load i8, ptr %arrayidx214, align 1
-  %idxprom215 = zext i8 %91 to i64
+  %90 = load i8, ptr %arrayidx214, align 1
+  %idxprom215 = zext i8 %90 to i64
   %cirrus_blt_pixelwidth217 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 20
-  %92 = load i32, ptr %cirrus_blt_pixelwidth217, align 16
-  %sub218 = add i32 %92, -1
+  %91 = load i32, ptr %cirrus_blt_pixelwidth217, align 16
+  %sub218 = add i32 %91, -1
   %idxprom219 = sext i32 %sub218 to i64
   %arrayidx220 = getelementptr [16 x [4 x ptr]], ptr @cirrus_colorexpand_pattern, i64 0, i64 %idxprom215, i64 %idxprom219
   br label %if.end313
@@ -3083,8 +3081,8 @@ if.else212:                                       ; preds = %if.then190
 if.else223:                                       ; preds = %if.then185
   %idxprom224 = zext i8 %20 to i64
   %arrayidx225 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom224
-  %93 = load i8, ptr %arrayidx225, align 1
-  %idxprom226 = zext i8 %93 to i64
+  %92 = load i8, ptr %arrayidx225, align 1
+  %idxprom226 = zext i8 %92 to i64
   %sub229 = add nsw i32 %.sink, -1
   %idxprom230 = zext nneg i32 %sub229 to i64
   %arrayidx231 = getelementptr [16 x [4 x ptr]], ptr @cirrus_patternfill, i64 0, i64 %idxprom226, i64 %idxprom230
@@ -3099,8 +3097,8 @@ if.then239:                                       ; preds = %if.else234
   br i1 %cmp241, label %do.body244, label %if.end255
 
 do.body244:                                       ; preds = %if.then239
-  %94 = load i32, ptr @qemu_loglevel, align 4
-  %and.i179 = and i32 %94, 2048
+  %93 = load i32, ptr @qemu_loglevel, align 4
+  %and.i179 = and i32 %93, 2048
   %cmp.i180.not = icmp eq i32 %and.i179, 0
   br i1 %cmp.i180.not, label %bitblt_ignore, label %bitblt_ignore.sink.split
 
@@ -3110,13 +3108,13 @@ if.end255:                                        ; preds = %if.then239
   br i1 %tobool259.not, label %if.else276, label %if.then260
 
 if.then260:                                       ; preds = %if.end255
-  %95 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
-  %96 = sub <2 x i32> zeroinitializer, %95
-  store <2 x i32> %96, ptr %cirrus_blt_dstpitch, align 4
+  %94 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
+  %95 = sub <2 x i32> zeroinitializer, %94
+  store <2 x i32> %95, ptr %cirrus_blt_dstpitch, align 4
   %idxprom267 = zext i8 %20 to i64
   %arrayidx268 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom267
-  %97 = load i8, ptr %arrayidx268, align 1
-  %idxprom269 = zext i8 %97 to i64
+  %96 = load i8, ptr %arrayidx268, align 1
+  %idxprom269 = zext i8 %96 to i64
   %sub272 = add nsw i32 %.sink, -1
   %idxprom273 = zext nneg i32 %sub272 to i64
   %arrayidx274 = getelementptr [16 x [2 x ptr]], ptr @cirrus_bkwd_transp_rop, i64 0, i64 %idxprom269, i64 %idxprom273
@@ -3125,8 +3123,8 @@ if.then260:                                       ; preds = %if.end255
 if.else276:                                       ; preds = %if.end255
   %idxprom277 = zext i8 %20 to i64
   %arrayidx278 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom277
-  %98 = load i8, ptr %arrayidx278, align 1
-  %idxprom279 = zext i8 %98 to i64
+  %97 = load i8, ptr %arrayidx278, align 1
+  %idxprom279 = zext i8 %97 to i64
   %sub282 = add nsw i32 %.sink, -1
   %idxprom283 = zext nneg i32 %sub282 to i64
   %arrayidx284 = getelementptr [16 x [2 x ptr]], ptr @cirrus_fwd_transp_rop, i64 0, i64 %idxprom279, i64 %idxprom283
@@ -3138,39 +3136,39 @@ if.else287:                                       ; preds = %if.else234
   br i1 %tobool291.not, label %if.else304, label %if.then292
 
 if.then292:                                       ; preds = %if.else287
-  %99 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
-  %100 = sub <2 x i32> zeroinitializer, %99
-  store <2 x i32> %100, ptr %cirrus_blt_dstpitch, align 4
+  %98 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
+  %99 = sub <2 x i32> zeroinitializer, %98
+  store <2 x i32> %99, ptr %cirrus_blt_dstpitch, align 4
   %idxprom299 = zext i8 %20 to i64
   %arrayidx300 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom299
-  %101 = load i8, ptr %arrayidx300, align 1
-  %idxprom301 = zext i8 %101 to i64
+  %100 = load i8, ptr %arrayidx300, align 1
+  %idxprom301 = zext i8 %100 to i64
   %arrayidx302 = getelementptr [16 x ptr], ptr @cirrus_bkwd_rop, i64 0, i64 %idxprom301
   br label %if.end313
 
 if.else304:                                       ; preds = %if.else287
   %idxprom305 = zext i8 %20 to i64
   %arrayidx306 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom305
-  %102 = load i8, ptr %arrayidx306, align 1
-  %idxprom307 = zext i8 %102 to i64
+  %101 = load i8, ptr %arrayidx306, align 1
+  %idxprom307 = zext i8 %101 to i64
   %arrayidx308 = getelementptr [16 x ptr], ptr @cirrus_fwd_rop, i64 0, i64 %idxprom307
   br label %if.end313
 
 if.end313:                                        ; preds = %if.end202, %if.else212, %if.else223, %if.then292, %if.else304, %if.then260, %if.else276, %if.end162, %cirrus_bitblt_bgcol.exit
   %arrayidx210.sink = phi ptr [ %arrayidx210, %if.end202 ], [ %arrayidx220, %if.else212 ], [ %arrayidx231, %if.else223 ], [ %arrayidx302, %if.then292 ], [ %arrayidx308, %if.else304 ], [ %arrayidx274, %if.then260 ], [ %arrayidx284, %if.else276 ], [ %arrayidx168, %if.end162 ], [ %arrayidx177, %cirrus_bitblt_bgcol.exit ]
-  %103 = phi i32 [ %90, %if.end202 ], [ %92, %if.else212 ], [ %.sink, %if.else223 ], [ %.sink, %if.then292 ], [ %.sink, %if.else304 ], [ %.sink, %if.then260 ], [ %.sink, %if.else276 ], [ %65, %if.end162 ], [ %.sink, %cirrus_bitblt_bgcol.exit ]
-  %104 = load ptr, ptr %arrayidx210.sink, align 8
+  %102 = phi i32 [ %89, %if.end202 ], [ %91, %if.else212 ], [ %.sink, %if.else223 ], [ %.sink, %if.then292 ], [ %.sink, %if.else304 ], [ %.sink, %if.then260 ], [ %.sink, %if.else276 ], [ %64, %if.end162 ], [ %.sink, %cirrus_bitblt_bgcol.exit ]
+  %103 = load ptr, ptr %arrayidx210.sink, align 8
   %cirrus_rop211 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 31
-  store ptr %104, ptr %cirrus_rop211, align 8
-  %105 = load i8, ptr %cirrus_blt_mode, align 4
-  %conv315 = zext i8 %105 to i32
+  store ptr %103, ptr %cirrus_rop211, align 8
+  %104 = load i8, ptr %cirrus_blt_mode, align 4
+  %conv315 = zext i8 %104 to i32
   %and316 = and i32 %conv315, 4
   %tobool317.not = icmp eq i32 %and316, 0
   br i1 %tobool317.not, label %if.else323, label %if.then318
 
 if.then318:                                       ; preds = %if.end313
-  %106 = load i32, ptr %cirrus_blt_width, align 4
-  %cmp.i.i182 = icmp sgt i32 %106, 0
+  %105 = load i32, ptr %cirrus_blt_width, align 4
+  %cmp.i.i182 = icmp sgt i32 %105, 0
   br i1 %cmp.i.i182, label %if.end.i.i184, label %if.else.i.i183
 
 if.else.i.i183:                                   ; preds = %if.then318
@@ -3178,8 +3176,8 @@ if.else.i.i183:                                   ; preds = %if.then318
   unreachable
 
 if.end.i.i184:                                    ; preds = %if.then318
-  %107 = load i32, ptr %cirrus_blt_height, align 8
-  %cmp1.i.i186 = icmp sgt i32 %107, 0
+  %106 = load i32, ptr %cirrus_blt_height, align 8
+  %cmp1.i.i186 = icmp sgt i32 %106, 0
   br i1 %cmp1.i.i186, label %if.end4.i.i188, label %if.else3.i.i187
 
 if.else3.i.i187:                                  ; preds = %if.end.i.i184
@@ -3187,25 +3185,25 @@ if.else3.i.i187:                                  ; preds = %if.end.i.i184
   unreachable
 
 if.end4.i.i188:                                   ; preds = %if.end.i.i184
-  %cmp6.i.i189 = icmp ugt i32 %106, 8192
+  %cmp6.i.i189 = icmp ugt i32 %105, 8192
   br i1 %cmp6.i.i189, label %bitblt_ignore, label %if.end8.i.i190
 
 if.end8.i.i190:                                   ; preds = %if.end4.i.i188
-  %108 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %109 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %tobool.not.i.i.i193 = icmp eq i32 %108, 0
+  %107 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %108 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %tobool.not.i.i.i193 = icmp eq i32 %107, 0
   br i1 %tobool.not.i.i.i193, label %bitblt_ignore, label %if.end.i.i.i194
 
 if.end.i.i.i194:                                  ; preds = %if.end8.i.i190
-  %cmp.i.i.i195 = icmp slt i32 %108, 0
-  %conv.i.i.i196 = sext i32 %109 to i64
-  %conv2.i.i.i197 = zext nneg i32 %107 to i64
+  %cmp.i.i.i195 = icmp slt i32 %107, 0
+  %conv.i.i.i196 = sext i32 %108 to i64
+  %conv2.i.i.i197 = zext nneg i32 %106 to i64
   %sub.i.i.i198 = add nsw i64 %conv2.i.i.i197, -1
-  %conv4.i.i.i199 = zext nneg i32 %106 to i64
+  %conv4.i.i.i199 = zext nneg i32 %105 to i64
   br i1 %cmp.i.i.i195, label %if.then1.i.i.i212, label %blit_is_unsafe.exit.i200
 
 if.then1.i.i.i212:                                ; preds = %if.end.i.i.i194
-  %conv3.i.i.i213 = sext i32 %108 to i64
+  %conv3.i.i.i213 = sext i32 %107 to i64
   %mul.i.i.i214 = mul nsw i64 %sub.i.i.i198, %conv3.i.i.i213
   %add.i.i.i215 = sub nsw i64 %conv.i.i.i196, %conv4.i.i.i199
   %sub5.i.i.i216 = add nsw i64 %add.i.i.i215, %mul.i.i.i214
@@ -3214,36 +3212,36 @@ if.then1.i.i.i212:                                ; preds = %if.end.i.i.i194
 
 lor.lhs.false.i.i.i218:                           ; preds = %if.then1.i.i.i212
   %vram_size.i.i.i219 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %110 = load i32, ptr %vram_size.i.i.i219, align 16
-  %cmp8.not.i.i.not.i220 = icmp ugt i32 %110, %109
+  %109 = load i32, ptr %vram_size.i.i.i219, align 16
+  %cmp8.not.i.i.not.i220 = icmp ugt i32 %109, %108
   br i1 %cmp8.not.i.i.not.i220, label %if.end.i208, label %bitblt_ignore
 
 blit_is_unsafe.exit.i200:                         ; preds = %if.end.i.i.i194
-  %conv16.i.i.i201 = zext nneg i32 %108 to i64
+  %conv16.i.i.i201 = zext nneg i32 %107 to i64
   %mul17.i.i.i202 = mul nuw nsw i64 %sub.i.i.i198, %conv16.i.i.i201
   %add18.i.i.i203 = add nsw i64 %conv.i.i.i196, %conv4.i.i.i199
   %add21.i.i.i204 = add nsw i64 %add18.i.i.i203, %mul17.i.i.i202
   %vram_size23.i.i.i205 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %111 = load i32, ptr %vram_size23.i.i.i205, align 16
-  %conv24.i.i.i206 = zext i32 %111 to i64
+  %110 = load i32, ptr %vram_size23.i.i.i205, align 16
+  %conv24.i.i.i206 = zext i32 %110 to i64
   %cmp25.i.i.i207 = icmp sgt i64 %add21.i.i.i204, %conv24.i.i.i206
   br i1 %cmp25.i.i.i207, label %bitblt_ignore, label %if.end.i208
 
 if.end.i208:                                      ; preds = %blit_is_unsafe.exit.i200, %lor.lhs.false.i.i.i218
-  %112 = and i8 %105, -5
-  store i8 %112, ptr %cirrus_blt_mode, align 4
+  %111 = and i8 %104, -5
+  store i8 %111, ptr %cirrus_blt_mode, align 4
   %cirrus_bltbuf.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 32
   %cirrus_srcptr.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 33
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr.i, align 16
   %cirrus_srcptr_end.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 34
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr_end.i, align 8
-  %113 = and i8 %105, 64
-  %tobool.not.i = icmp eq i8 %113, 0
-  %tobool20.not.i = icmp sgt i8 %112, -1
+  %112 = and i8 %104, 64
+  %tobool.not.i = icmp eq i8 %112, 0
+  %tobool20.not.i = icmp sgt i8 %111, -1
   br i1 %tobool.not.i, label %if.else16.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i208
-  %mul.i = shl i32 %103, 6
+  %mul.i = shl i32 %102, 6
   %spec.select = select i1 %tobool20.not.i, i32 %mul.i, i32 8
   store i32 %spec.select, ptr %cirrus_blt_srcpitch, align 16
   br label %if.end42.i
@@ -3252,10 +3250,10 @@ if.else16.i:                                      ; preds = %if.end.i208
   br i1 %tobool20.not.i, label %if.else33.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.else16.i
-  %div.i = sdiv i32 %106, %103
-  %114 = load i8, ptr %cirrus_blt_modeext, align 1
-  %115 = and i8 %114, 1
-  %tobool25.not.i = icmp eq i8 %115, 0
+  %div.i = sdiv i32 %105, %102
+  %113 = load i8, ptr %cirrus_blt_modeext, align 1
+  %114 = and i8 %113, 1
+  %tobool25.not.i = icmp eq i8 %114, 0
   br i1 %tobool25.not.i, label %if.else28.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then21.i
@@ -3269,22 +3267,22 @@ if.else28.i:                                      ; preds = %if.then21.i
   br label %if.end38.i
 
 if.else33.i:                                      ; preds = %if.else16.i
-  %add35.i = add nuw nsw i32 %106, 3
+  %add35.i = add nuw nsw i32 %105, 3
   %and36.i = and i32 %add35.i, 32764
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.else33.i, %if.else28.i, %if.then26.i
   %and36.i.sink = phi i32 [ %and36.i, %if.else33.i ], [ %shr30.i, %if.else28.i ], [ %shr.i, %if.then26.i ]
   store i32 %and36.i.sink, ptr %cirrus_blt_srcpitch, align 16
-  %mul40.i = mul i32 %and36.i.sink, %107
+  %mul40.i = mul i32 %and36.i.sink, %106
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end38.i, %if.then7.i
   %mul40.sink.i = phi i32 [ %mul40.i, %if.end38.i ], [ %spec.select, %if.then7.i ]
-  %116 = phi i32 [ %and36.i.sink, %if.end38.i ], [ %spec.select, %if.then7.i ]
+  %115 = phi i32 [ %and36.i.sink, %if.end38.i ], [ %spec.select, %if.then7.i ]
   %cirrus_srccounter41.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 35
   store i32 %mul40.sink.i, ptr %cirrus_srccounter41.i, align 16
-  %cmp.i209 = icmp slt i32 %116, 8193
+  %cmp.i209 = icmp slt i32 %115, 8193
   br i1 %cmp.i209, label %cirrus_bitblt_cputovideo.exit, label %if.else46.i
 
 if.else46.i:                                      ; preds = %if.end42.i
@@ -3293,7 +3291,7 @@ if.else46.i:                                      ; preds = %if.end42.i
 
 cirrus_bitblt_cputovideo.exit:                    ; preds = %if.end42.i
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr.i, align 16
-  %idx.ext.i = sext i32 %116 to i64
+  %idx.ext.i = sext i32 %115 to i64
   %add.ptr.i = getelementptr i8, ptr %cirrus_bltbuf.i, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %cirrus_srcptr_end.i, align 8
   tail call fastcc void @cirrus_update_memory_access(ptr noundef nonnull %s)
@@ -3305,14 +3303,14 @@ if.else323:                                       ; preds = %if.end313
   br i1 %tobool327.not, label %if.else333, label %if.then328
 
 if.then328:                                       ; preds = %if.else323
-  %117 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i221 = and i32 %117, 1024
+  %116 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i221 = and i32 %116, 1024
   %cmp.i.not.i = icmp eq i32 %and.i.i221, 0
   br i1 %cmp.i.not.i, label %bitblt_ignore, label %bitblt_ignore.sink.split
 
 if.else333:                                       ; preds = %if.else323
-  %118 = and i8 %105, 64
-  %tobool.not.i223 = icmp eq i8 %118, 0
+  %117 = and i8 %104, 64
+  %tobool.not.i223 = icmp eq i8 %117, 0
   br i1 %tobool.not.i223, label %if.else.i237, label %if.then.i224
 
 if.then.i224:                                     ; preds = %if.else333
@@ -3320,8 +3318,8 @@ if.then.i224:                                     ; preds = %if.else333
   br label %if.end.i225
 
 if.else.i237:                                     ; preds = %if.else333
-  %119 = load i32, ptr %cirrus_blt_width, align 4
-  %cmp.i.i.i238 = icmp sgt i32 %119, 0
+  %118 = load i32, ptr %cirrus_blt_width, align 4
+  %cmp.i.i.i238 = icmp sgt i32 %118, 0
   br i1 %cmp.i.i.i238, label %if.end.i.i.i239, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i237
@@ -3329,8 +3327,8 @@ if.else.i.i.i:                                    ; preds = %if.else.i237
   unreachable
 
 if.end.i.i.i239:                                  ; preds = %if.else.i237
-  %120 = load i32, ptr %cirrus_blt_height, align 8
-  %cmp1.i.i.i = icmp sgt i32 %120, 0
+  %119 = load i32, ptr %cirrus_blt_height, align 8
+  %cmp1.i.i.i = icmp sgt i32 %119, 0
   br i1 %cmp1.i.i.i, label %if.end4.i.i.i, label %if.else3.i.i.i
 
 if.else3.i.i.i:                                   ; preds = %if.end.i.i.i239
@@ -3338,25 +3336,25 @@ if.else3.i.i.i:                                   ; preds = %if.end.i.i.i239
   unreachable
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i239
-  %cmp6.i.i.i240 = icmp ugt i32 %119, 8192
+  %cmp6.i.i.i240 = icmp ugt i32 %118, 8192
   br i1 %cmp6.i.i.i240, label %bitblt_ignore, label %if.end8.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i.i
-  %121 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %122 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %tobool.not.i.i.i.i = icmp eq i32 %121, 0
+  %120 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %121 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %tobool.not.i.i.i.i = icmp eq i32 %120, 0
   br i1 %tobool.not.i.i.i.i, label %bitblt_ignore, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end8.i.i.i
-  %cmp.i.i.i.i = icmp slt i32 %121, 0
-  %conv.i.i.i.i = sext i32 %122 to i64
-  %conv2.i.i.i.i = zext nneg i32 %120 to i64
+  %cmp.i.i.i.i = icmp slt i32 %120, 0
+  %conv.i.i.i.i = sext i32 %121 to i64
+  %conv2.i.i.i.i = zext nneg i32 %119 to i64
   %sub.i.i.i.i = add nsw i64 %conv2.i.i.i.i, -1
-  %conv4.i.i.i.i = zext nneg i32 %119 to i64
+  %conv4.i.i.i.i = zext nneg i32 %118 to i64
   br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %if.else.i.i.i.i
 
 if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %conv3.i.i.i.i = sext i32 %121 to i64
+  %conv3.i.i.i.i = sext i32 %120 to i64
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, %conv3.i.i.i.i
   %add.i.i.i.i = sub nsw i64 %conv.i.i.i.i, %conv4.i.i.i.i
   %sub5.i.i.i.i = add nsw i64 %add.i.i.i.i, %mul.i.i.i.i
@@ -3365,69 +3363,69 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then1.i.i.i.i
   %vram_size.i.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %123 = load i32, ptr %vram_size.i.i.i.i, align 16
-  %cmp8.not.i.i.not.i.i = icmp ugt i32 %123, %122
+  %122 = load i32, ptr %vram_size.i.i.i.i, align 16
+  %cmp8.not.i.i.not.i.i = icmp ugt i32 %122, %121
   br i1 %cmp8.not.i.i.not.i.i, label %if.end12.i.i.i, label %bitblt_ignore
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %conv16.i.i.i.i = zext nneg i32 %121 to i64
+  %conv16.i.i.i.i = zext nneg i32 %120 to i64
   %mul17.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i, %conv16.i.i.i.i
   %add18.i.i.i.i = add nsw i64 %conv.i.i.i.i, %conv4.i.i.i.i
   %add21.i.i.i.i = add nsw i64 %add18.i.i.i.i, %mul17.i.i.i.i
   %vram_size23.i.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
-  %124 = load i32, ptr %vram_size23.i.i.i.i, align 16
-  %conv24.i.i.i.i = zext i32 %124 to i64
+  %123 = load i32, ptr %vram_size23.i.i.i.i, align 16
+  %conv24.i.i.i.i = zext i32 %123 to i64
   %cmp25.i.i.i.i = icmp sgt i64 %add21.i.i.i.i, %conv24.i.i.i.i
   br i1 %cmp25.i.i.i.i, label %bitblt_ignore, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i.i, %lor.lhs.false.i.i.i.i
-  %125 = phi i32 [ %124, %if.else.i.i.i.i ], [ %123, %lor.lhs.false.i.i.i.i ]
-  %126 = load i32, ptr %cirrus_blt_srcpitch, align 16
-  %127 = load i32, ptr %cirrus_blt_srcaddr, align 16
-  %tobool.not.i9.i.i.i = icmp eq i32 %126, 0
+  %124 = phi i32 [ %123, %if.else.i.i.i.i ], [ %122, %lor.lhs.false.i.i.i.i ]
+  %125 = load i32, ptr %cirrus_blt_srcpitch, align 16
+  %126 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %tobool.not.i9.i.i.i = icmp eq i32 %125, 0
   br i1 %tobool.not.i9.i.i.i, label %bitblt_ignore, label %if.end.i10.i.i.i
 
 if.end.i10.i.i.i:                                 ; preds = %if.end12.i.i.i
-  %cmp.i11.i.i.i = icmp slt i32 %126, 0
-  %conv.i12.i.i.i = sext i32 %127 to i64
+  %cmp.i11.i.i.i = icmp slt i32 %125, 0
+  %conv.i12.i.i.i = sext i32 %126 to i64
   br i1 %cmp.i11.i.i.i, label %if.then1.i28.i.i.i, label %if.else.i18.i.i.i
 
 if.then1.i28.i.i.i:                               ; preds = %if.end.i10.i.i.i
-  %conv3.i29.i.i.i = sext i32 %126 to i64
+  %conv3.i29.i.i.i = sext i32 %125 to i64
   %mul.i30.i.i.i = mul nsw i64 %sub.i.i.i.i, %conv3.i29.i.i.i
   %add.i31.i.i.i = sub nsw i64 %conv.i12.i.i.i, %conv4.i.i.i.i
   %sub5.i32.i.i.i = add nsw i64 %add.i31.i.i.i, %mul.i30.i.i.i
   %cmp6.i33.i.i.i = icmp sgt i64 %sub5.i32.i.i.i, -2
-  %cmp8.not.i36.i.i.i = icmp ugt i32 %125, %127
+  %cmp8.not.i36.i.i.i = icmp ugt i32 %124, %126
   %or.cond.i.i.i = select i1 %cmp6.i33.i.i.i, i1 %cmp8.not.i36.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.end.i.i241, label %bitblt_ignore
 
 if.else.i18.i.i.i:                                ; preds = %if.end.i10.i.i.i
-  %conv16.i19.i.i.i = zext nneg i32 %126 to i64
+  %conv16.i19.i.i.i = zext nneg i32 %125 to i64
   %mul17.i20.i.i.i = mul nuw nsw i64 %sub.i.i.i.i, %conv16.i19.i.i.i
   %add18.i21.i.i.i = add nsw i64 %conv.i12.i.i.i, %conv4.i.i.i.i
   %add21.i22.i.i.i = add nsw i64 %add18.i21.i.i.i, %mul17.i20.i.i.i
-  %conv24.i24.i.i.i = zext i32 %125 to i64
+  %conv24.i24.i.i.i = zext i32 %124 to i64
   %cmp25.i25.i.i.i = icmp sgt i64 %add21.i22.i.i.i, %conv24.i24.i.i.i
   br i1 %cmp25.i25.i.i.i, label %bitblt_ignore, label %if.end.i.i241
 
 if.end.i.i241:                                    ; preds = %if.else.i18.i.i.i, %if.then1.i28.i.i.i
   %start_addr.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 49
-  %128 = load i32, ptr %start_addr.i.i, align 16
-  %sub.i.i242 = sub i32 %122, %128
-  %sub3.i.i243 = sub i32 %127, %128
+  %127 = load i32, ptr %start_addr.i.i, align 16
+  %sub.i.i242 = sub i32 %121, %127
+  %sub3.i.i243 = sub i32 %126, %127
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %height.i.i.i)
   %cirrus_rop.i.i.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 31
-  %cmp.i8.i.i = icmp eq ptr %104, @cirrus_bitblt_rop_fwd_src
-  %cmp2.i.i.i = icmp eq ptr %104, @cirrus_bitblt_rop_bkwd_src
+  %cmp.i8.i.i = icmp eq ptr %103, @cirrus_bitblt_rop_fwd_src
+  %cmp2.i.i.i = icmp eq ptr %103, @cirrus_bitblt_rop_bkwd_src
   %or.cond71.i.i.i = or i1 %cmp.i8.i.i, %cmp2.i.i.i
   br i1 %or.cond71.i.i.i, label %if.then.i.i.i, label %if.end77.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i241
   %get_bpp.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 32
-  %129 = load ptr, ptr %get_bpp.i.i.i, align 16
-  %call.i.i.i = tail call i32 %129(ptr noundef nonnull %s) #13
+  %128 = load ptr, ptr %get_bpp.i.i.i, align 16
+  %call.i.i.i = tail call i32 %128(ptr noundef nonnull %s) #13
   %div.i.i.i = sdiv i32 %call.i.i.i, 8
   %call.off.i.i.i = add i32 %call.i.i.i, 7
   %tobool.not.i.i.i244 = icmp ult i32 %call.off.i.i.i, 15
@@ -3435,30 +3433,30 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i241
 
 if.end.i15.i.i:                                   ; preds = %if.then.i.i.i
   %get_resolution.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 34
-  %130 = load ptr, ptr %get_resolution.i.i.i, align 16
-  call void %130(ptr noundef nonnull %s, ptr noundef nonnull %width.i.i.i, ptr noundef nonnull %height.i.i.i) #13
-  %131 = load i32, ptr %cirrus_blt_srcpitch, align 16
-  %cond.i.i.i = call i32 @llvm.abs.i32(i32 %131, i1 false)
+  %129 = load ptr, ptr %get_resolution.i.i.i, align 16
+  call void %129(ptr noundef nonnull %s, ptr noundef nonnull %width.i.i.i, ptr noundef nonnull %height.i.i.i) #13
+  %130 = load i32, ptr %cirrus_blt_srcpitch, align 16
+  %cond.i.i.i = call i32 @llvm.abs.i32(i32 %130, i1 false)
   %rem.i.i.i = srem i32 %sub3.i.i243, %cond.i.i.i
   %div10.i.i.i = sdiv i32 %rem.i.i.i, %div.i.i.i
   %div20.i.i.i = sdiv i32 %sub3.i.i243, %cond.i.i.i
-  %132 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %cmp21.i.i.i = icmp slt i32 %132, 0
-  %cond28.i.i.i = call i32 @llvm.abs.i32(i32 %132, i1 false)
+  %131 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %cmp21.i.i.i = icmp slt i32 %131, 0
+  %cond28.i.i.i = call i32 @llvm.abs.i32(i32 %131, i1 false)
   %rem29.i.i.i = srem i32 %sub.i.i242, %cond28.i.i.i
   %div30.i.i.i = sdiv i32 %rem29.i.i.i, %div.i.i.i
   %div40.i.i.i = sdiv i32 %sub.i.i242, %cond28.i.i.i
-  %div41.i.i.i = sdiv i32 %119, %div.i.i.i
+  %div41.i.i.i = sdiv i32 %118, %div.i.i.i
   br i1 %cmp21.i.i.i, label %if.then44.i.i.i, label %if.end57.i.i.i
 
 if.then44.i.i.i:                                  ; preds = %if.end.i15.i.i
-  %133 = load i32, ptr %cirrus_blt_width, align 4
-  %div45.i.i.i = sdiv i32 %133, %div.i.i.i
+  %132 = load i32, ptr %cirrus_blt_width, align 4
+  %div45.i.i.i = sdiv i32 %132, %div.i.i.i
   %sub46.i.i.i = add i32 %div45.i.i.i, -1
   %sub47.i.i.i = sub i32 %div10.i.i.i, %sub46.i.i.i
   %sub51.i.i.i = sub i32 %div30.i.i.i, %sub46.i.i.i
-  %134 = load i32, ptr %cirrus_blt_height, align 8
-  %sub52.i.i.i = add i32 %134, -1
+  %133 = load i32, ptr %cirrus_blt_height, align 8
+  %sub52.i.i.i = add i32 %133, -1
   %sub53.i.i.i = sub i32 %div20.i.i.i, %sub52.i.i.i
   %sub56.i.i.i = sub i32 %div40.i.i.i, %sub52.i.i.i
   br label %if.end57.i.i.i
@@ -3479,69 +3477,69 @@ if.end57.i.i.i:                                   ; preds = %if.then44.i.i.i, %i
 
 land.lhs.true64.i.i.i:                            ; preds = %if.end57.i.i.i
   %add.i.i.i245 = add i32 %sx.0.i.i.i, %div41.i.i.i
-  %135 = load i32, ptr %width.i.i.i, align 4
-  %cmp65.not.i.i.i = icmp sgt i32 %add.i.i.i245, %135
+  %134 = load i32, ptr %width.i.i.i, align 4
+  %cmp65.not.i.i.i = icmp sgt i32 %add.i.i.i245, %134
   br i1 %cmp65.not.i.i.i, label %if.end77.i.i.i, label %land.lhs.true66.i.i.i
 
 land.lhs.true66.i.i.i:                            ; preds = %land.lhs.true64.i.i.i
-  %add67.i.i.i = add nuw i32 %sy.0.i.i.i, %120
-  %136 = load i32, ptr %height.i.i.i, align 4
-  %cmp68.not.i.i.i = icmp sgt i32 %add67.i.i.i, %136
+  %add67.i.i.i = add nuw i32 %sy.0.i.i.i, %119
+  %135 = load i32, ptr %height.i.i.i, align 4
+  %cmp68.not.i.i.i = icmp sgt i32 %add67.i.i.i, %135
   %add70.i.i.i = add i32 %dx.0.i.i.i, %div41.i.i.i
-  %cmp71.not.i.i.i = icmp sgt i32 %add70.i.i.i, %135
+  %cmp71.not.i.i.i = icmp sgt i32 %add70.i.i.i, %134
   %or.cond72.i.i.i = select i1 %cmp68.not.i.i.i, i1 true, i1 %cmp71.not.i.i.i
-  %add73.i.i.i = add nuw i32 %dy.0.i.i.i, %120
-  %cmp74.not.i.i.i = icmp sgt i32 %add73.i.i.i, %136
+  %add73.i.i.i = add nuw i32 %dy.0.i.i.i, %119
+  %cmp74.not.i.i.i = icmp sgt i32 %add73.i.i.i, %135
   %or.cond73.i.i.i = select i1 %or.cond72.i.i.i, i1 true, i1 %cmp74.not.i.i.i
   br label %if.end77.i.i.i
 
 if.end77.i.i.i:                                   ; preds = %land.lhs.true66.i.i.i, %land.lhs.true64.i.i.i, %if.end57.i.i.i, %if.end.i.i241
-  %137 = phi i32 [ %131, %land.lhs.true64.i.i.i ], [ %131, %if.end57.i.i.i ], [ %131, %land.lhs.true66.i.i.i ], [ %126, %if.end.i.i241 ]
-  %138 = phi i32 [ %132, %land.lhs.true64.i.i.i ], [ %132, %if.end57.i.i.i ], [ %132, %land.lhs.true66.i.i.i ], [ %121, %if.end.i.i241 ]
+  %136 = phi i32 [ %130, %land.lhs.true64.i.i.i ], [ %130, %if.end57.i.i.i ], [ %130, %land.lhs.true66.i.i.i ], [ %125, %if.end.i.i241 ]
+  %137 = phi i32 [ %131, %land.lhs.true64.i.i.i ], [ %131, %if.end57.i.i.i ], [ %131, %land.lhs.true66.i.i.i ], [ %120, %if.end.i.i241 ]
   %dx.1.i.i.i = phi i32 [ %dx.0.i.i.i, %land.lhs.true64.i.i.i ], [ %dx.0.i.i.i, %if.end57.i.i.i ], [ %dx.0.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i241 ]
   %dy.1.i.i.i = phi i32 [ %dy.0.i.i.i, %land.lhs.true64.i.i.i ], [ %dy.0.i.i.i, %if.end57.i.i.i ], [ %dy.0.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i241 ]
   %depth.0.i.i.i = phi i32 [ %div.i.i.i, %land.lhs.true64.i.i.i ], [ %div.i.i.i, %if.end57.i.i.i ], [ %div.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i241 ]
   %tobool83.not.i.i.i = phi i1 [ true, %land.lhs.true64.i.i.i ], [ true, %if.end57.i.i.i ], [ %or.cond73.i.i.i, %land.lhs.true66.i.i.i ], [ true, %if.end.i.i241 ]
-  %139 = load ptr, ptr %cirrus_rop.i.i.i, align 8
-  %140 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %141 = load i32, ptr %cirrus_blt_srcaddr, align 16
-  %142 = load i32, ptr %cirrus_blt_width, align 4
-  %143 = load i32, ptr %cirrus_blt_height, align 8
-  call void %139(ptr noundef nonnull %s, i32 noundef %140, i32 noundef %141, i32 noundef %138, i32 noundef %137, i32 noundef %142, i32 noundef %143) #13
+  %138 = load ptr, ptr %cirrus_rop.i.i.i, align 8
+  %139 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %140 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %141 = load i32, ptr %cirrus_blt_width, align 4
+  %142 = load i32, ptr %cirrus_blt_height, align 8
+  call void %138(ptr noundef nonnull %s, i32 noundef %139, i32 noundef %140, i32 noundef %137, i32 noundef %136, i32 noundef %141, i32 noundef %142) #13
   br i1 %tobool83.not.i.i.i, label %if.end89.i.i.i, label %if.then84.i.i.i
 
 if.then84.i.i.i:                                  ; preds = %if.end77.i.i.i
   %con.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 42
-  %144 = load ptr, ptr %con.i.i.i, align 16
-  %145 = load i32, ptr %cirrus_blt_width, align 4
-  %div87.i.i.i = sdiv i32 %145, %depth.0.i.i.i
-  %146 = load i32, ptr %cirrus_blt_height, align 8
-  call void @dpy_gfx_update(ptr noundef %144, i32 noundef %dx.1.i.i.i, i32 noundef %dy.1.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %146) #13
+  %143 = load ptr, ptr %con.i.i.i, align 16
+  %144 = load i32, ptr %cirrus_blt_width, align 4
+  %div87.i.i.i = sdiv i32 %144, %depth.0.i.i.i
+  %145 = load i32, ptr %cirrus_blt_height, align 8
+  call void @dpy_gfx_update(ptr noundef %143, i32 noundef %dx.1.i.i.i, i32 noundef %dy.1.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %145) #13
   br label %if.end89.i.i.i
 
 if.end89.i.i.i:                                   ; preds = %if.then84.i.i.i, %if.end77.i.i.i
-  %147 = load i32, ptr %cirrus_blt_dstpitch, align 4
-  %148 = load i32, ptr %cirrus_blt_height, align 8
-  %cmp218.i.i.i.i = icmp sgt i32 %148, 0
+  %146 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %147 = load i32, ptr %cirrus_blt_height, align 8
+  %cmp218.i.i.i.i = icmp sgt i32 %147, 0
   br i1 %cmp218.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %cirrus_do_copy.exit.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end89.i.i.i
-  %149 = load i32, ptr %cirrus_blt_width, align 4
-  %150 = load i32, ptr %cirrus_blt_dstaddr, align 4
-  %cmp.i.i12.i.i = icmp slt i32 %147, 0
-  %sub.i.i13.i.i = add i32 %149, -1
+  %148 = load i32, ptr %cirrus_blt_width, align 4
+  %149 = load i32, ptr %cirrus_blt_dstaddr, align 4
+  %cmp.i.i12.i.i = icmp slt i32 %146, 0
+  %sub.i.i13.i.i = add i32 %148, -1
   %sub1.i.i.i.i = select i1 %cmp.i.i12.i.i, i32 %sub.i.i13.i.i, i32 0
-  %off_begin.addr.0.i.i.i.i = sub i32 %150, %sub1.i.i.i.i
+  %off_begin.addr.0.i.i.i.i = sub i32 %149, %sub1.i.i.i.i
   %vram.i.i.i.i = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end21.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %off_begin.addr.120.i.i.i.i = phi i32 [ %off_begin.addr.0.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add22.i.i.i.i, %if.end21.i.i.i.i ]
   %y.019.i.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %if.end21.i.i.i.i ]
-  %151 = load i32, ptr %cirrus_addr_mask, align 16
-  %and.i.i.i.i = and i32 %151, %off_begin.addr.120.i.i.i.i
+  %150 = load i32, ptr %cirrus_addr_mask, align 16
+  %and.i.i.i.i = and i32 %150, %off_begin.addr.120.i.i.i.i
   %sub3.i.i.i.i = add i32 %and.i.i.i.i, %sub.i.i13.i.i
-  %and5.i.i.i.i = and i32 %sub3.i.i.i.i, %151
+  %and5.i.i.i.i = and i32 %sub3.i.i.i.i, %150
   %add6.i.i.i.i = add i32 %and5.i.i.i.i, 1
   %cmp7.not.i.i.i.i = icmp slt i32 %add6.i.i.i.i, %and.i.i.i.i
   %conv13.i.i.i.i = sext i32 %and.i.i.i.i to i64
@@ -3552,7 +3550,7 @@ if.then8.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   br label %if.end21.i.i.i.i
 
 if.else.i.i14.i.i:                                ; preds = %for.body.i.i.i.i
-  %add15.i.i.i.i = add i32 %151, 1
+  %add15.i.i.i.i = add i32 %150, 1
   %sub16.i.i.i.i = sub i32 %add15.i.i.i.i, %and.i.i.i.i
   %conv17.i.i.i.i = zext i32 %sub16.i.i.i.i to i64
   call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %conv13.i.i.i.i, i64 noundef %conv17.i.i.i.i) #13
@@ -3563,9 +3561,9 @@ if.end21.i.i.i.i:                                 ; preds = %if.else.i.i14.i.i, 
   %.sink.i.i.i.i = phi i64 [ 0, %if.else.i.i14.i.i ], [ %conv13.i.i.i.i, %if.then8.i.i.i.i ]
   %conv20.i.i.i.i = sext i32 %add6.sink.i.i.i.i to i64
   call void @memory_region_set_dirty(ptr noundef nonnull %vram.i.i.i.i, i64 noundef %.sink.i.i.i.i, i64 noundef %conv20.i.i.i.i) #13
-  %add22.i.i.i.i = add i32 %off_begin.addr.120.i.i.i.i, %147
+  %add22.i.i.i.i = add i32 %off_begin.addr.120.i.i.i.i, %146
   %inc.i.i.i.i = add nuw nsw i32 %y.019.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %148
+  %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %147
   br i1 %exitcond.not.i.i.i.i, label %cirrus_do_copy.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 cirrus_do_copy.exit.i.i:                          ; preds = %if.end21.i.i.i.i, %if.end89.i.i.i, %if.then.i.i.i
@@ -3580,19 +3578,19 @@ if.end.i225:                                      ; preds = %cirrus_do_copy.exit
   br i1 %tobool2.not.i, label %bitblt_ignore, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i225
-  %152 = load i8, ptr %arrayidx, align 1
-  %153 = and i8 %152, -20
-  store i8 %153, ptr %arrayidx, align 1
+  %151 = load i8, ptr %arrayidx, align 1
+  %152 = and i8 %151, -20
+  store i8 %152, ptr %arrayidx, align 1
   %cirrus_srcptr.i.i227 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 33
-  %154 = load ptr, ptr %cirrus_srcptr.i.i227, align 16
+  %153 = load ptr, ptr %cirrus_srcptr.i.i227, align 16
   %cirrus_bltbuf.i.i228 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 32
-  %cmp.not.i.i229 = icmp eq ptr %154, %cirrus_bltbuf.i.i228
+  %cmp.not.i.i229 = icmp eq ptr %153, %cirrus_bltbuf.i.i228
   br i1 %cmp.not.i.i229, label %lor.rhs.i.i233, label %if.end.critedge.i.i230
 
 lor.rhs.i.i233:                                   ; preds = %if.then3.i
   %cirrus_srcptr_end.i.i234 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 34
-  %155 = load ptr, ptr %cirrus_srcptr_end.i.i234, align 8
-  %cmp6.not.i.i235 = icmp eq ptr %155, %cirrus_bltbuf.i.i228
+  %154 = load ptr, ptr %cirrus_srcptr_end.i.i234, align 8
+  %cmp6.not.i.i235 = icmp eq ptr %154, %cirrus_bltbuf.i.i228
   store ptr %cirrus_bltbuf.i.i228, ptr %cirrus_srcptr_end.i.i234, align 8
   %cirrus_srccounter.i.i236 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 35
   store i32 0, ptr %cirrus_srccounter.i.i236, align 16
@@ -3617,19 +3615,19 @@ bitblt_ignore.sink.split:                         ; preds = %if.then328, %do.bod
 
 bitblt_ignore:                                    ; preds = %bitblt_ignore.sink.split, %if.else.i.i.i.i, %if.then1.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end8.i.i.i, %if.else.i18.i.i.i, %if.then1.i28.i.i.i, %if.end12.i.i.i, %if.end4.i.i.i, %if.end.i225, %if.then1.i.i.i212, %if.end8.i.i190, %if.end4.i.i188, %lor.lhs.false.i.i.i218, %blit_is_unsafe.exit.i200, %if.then328, %do.body244, %do.body121, %entry
   %arrayidx.i246 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 49
-  %156 = load i8, ptr %arrayidx.i246, align 1
-  %157 = and i8 %156, -20
-  store i8 %157, ptr %arrayidx.i246, align 1
+  %155 = load i8, ptr %arrayidx.i246, align 1
+  %156 = and i8 %155, -20
+  store i8 %156, ptr %arrayidx.i246, align 1
   %cirrus_srcptr.i247 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 33
-  %158 = load ptr, ptr %cirrus_srcptr.i247, align 16
+  %157 = load ptr, ptr %cirrus_srcptr.i247, align 16
   %cirrus_bltbuf.i248 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 32
-  %cmp.not.i = icmp eq ptr %158, %cirrus_bltbuf.i248
+  %cmp.not.i = icmp eq ptr %157, %cirrus_bltbuf.i248
   br i1 %cmp.not.i, label %lor.rhs.i, label %if.end.critedge.i
 
 lor.rhs.i:                                        ; preds = %bitblt_ignore
   %cirrus_srcptr_end.i250 = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 34
-  %159 = load ptr, ptr %cirrus_srcptr_end.i250, align 8
-  %cmp6.not.i = icmp eq ptr %159, %cirrus_bltbuf.i248
+  %158 = load ptr, ptr %cirrus_srcptr_end.i250, align 8
+  %cmp6.not.i = icmp eq ptr %158, %cirrus_bltbuf.i248
   store ptr %cirrus_bltbuf.i248, ptr %cirrus_srcptr_end.i250, align 8
   %cirrus_srccounter.i = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 35
   store i32 0, ptr %cirrus_srccounter.i, align 16

@@ -680,7 +680,7 @@ declare ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto10HKDFTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HKDFConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef i16 @_ZN4node6crypto10HKDFTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HKDFConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %hash = alloca %"class.node::Utf8Value", align 8
   %ref.tmp94 = alloca ptr, align 8
@@ -2547,16 +2547,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !27
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.end27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.end27
   ]
 
 sw.bb:                                            ; preds = %while.end

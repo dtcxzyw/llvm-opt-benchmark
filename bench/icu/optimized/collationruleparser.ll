@@ -2765,7 +2765,7 @@ ehcleanup572:                                     ; preds = %ehcleanup565, %ehcl
   resume { ptr, i32 } %.pn130
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7519CollationRuleParser11skipCommentEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %i) local_unnamed_addr #10 align 2 {
 entry:
   %rules = getelementptr inbounds %"class.icu_75::CollationRuleParser", ptr %this, i64 0, i32 2
@@ -4779,31 +4779,29 @@ land.rhs.i:                                       ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp2.i, label %if.then8, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %land.rhs.i
-  switch i32 %conv, label %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit [
-    i32 96, label %if.then8
-    i32 95, label %if.then8
-    i32 94, label %if.then8
-    i32 93, label %if.then8
-    i32 92, label %if.then8
-    i32 91, label %if.then8
-    i32 64, label %if.then8
-    i32 63, label %if.then8
-    i32 62, label %if.then8
-    i32 61, label %if.then8
-    i32 60, label %if.then8
-    i32 59, label %if.then8
-    i32 58, label %if.then8
+  switch i16 %12, label %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit [
+    i16 92, label %if.then49
+    i16 58, label %while.end.loopexit
+    i16 59, label %while.end.loopexit
+    i16 60, label %while.end.loopexit
+    i16 61, label %while.end.loopexit
+    i16 62, label %while.end.loopexit
+    i16 63, label %while.end.loopexit
+    i16 64, label %while.end.loopexit
+    i16 91, label %while.end.loopexit
+    i16 93, label %while.end.loopexit
+    i16 94, label %while.end.loopexit
+    i16 95, label %while.end.loopexit
+    i16 96, label %while.end.loopexit
   ]
 
 _ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit: ; preds = %switch.early.test.i
   %cmp10.i = icmp ult i16 %12, 123
   br i1 %cmp10.i, label %if.else62, label %if.then8
 
-if.then8:                                         ; preds = %land.rhs.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit
-  switch i16 %12, label %while.end.loopexit [
-    i16 39, label %if.then10
-    i16 92, label %if.then49
-  ]
+if.then8:                                         ; preds = %land.rhs.i, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit
+  %cond227 = icmp eq i16 %12, 39
+  br i1 %cond227, label %if.then10, label %while.end.loopexit
 
 if.then10:                                        ; preds = %if.then8
   %cmp13 = icmp slt i32 %inc, %cond.i190
@@ -4921,7 +4919,7 @@ if.end44:                                         ; preds = %if.end26, %if.then4
   %cmp24 = icmp eq i32 %i.addr.2, %cond.i71
   br i1 %cmp24, label %if.then25, label %if.end26, !llvm.loop !16
 
-if.then49:                                        ; preds = %if.then8
+if.then49:                                        ; preds = %switch.early.test.i
   %cmp52 = icmp eq i32 %inc, %cond.i190
   br i1 %cmp52, label %if.then53, label %if.end54
 
@@ -4961,8 +4959,8 @@ if.else67:                                        ; preds = %if.else62
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i122)
   br label %while.cond.backedge
 
-while.end.loopexit:                               ; preds = %if.else62, %if.then8, %while.cond.backedge
-  %i.addr.0.lcssa.ph = phi i32 [ %i.addr.0.be, %while.cond.backedge ], [ %i.addr.0189, %if.then8 ], [ %i.addr.0189, %if.else62 ]
+while.end.loopexit:                               ; preds = %if.then8, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %if.else62, %while.cond.backedge
+  %i.addr.0.lcssa.ph = phi i32 [ %i.addr.0.be, %while.cond.backedge ], [ %i.addr.0189, %if.then8 ], [ %i.addr.0189, %if.else62 ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ], [ %i.addr.0189, %switch.early.test.i ]
   %.pre = load i16, ptr %fUnion.i.i, align 8
   br label %while.end
 
@@ -4970,17 +4968,17 @@ while.end:                                        ; preds = %while.end.loopexit,
   %34 = phi i16 [ %storemerge.i, %if.end ], [ %.pre, %while.end.loopexit ]
   %i.addr.0.lcssa = phi i32 [ %i, %if.end ], [ %i.addr.0.lcssa.ph, %while.end.loopexit ]
   %fLength.i127 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %raw, i64 0, i32 1, i32 0, i32 1
-  %cmp.i.i125194 = icmp slt i16 %34, 0
+  %cmp.i.i125217 = icmp slt i16 %34, 0
   %35 = ashr i16 %34, 5
-  %shr.i.i126195 = sext i16 %35 to i32
+  %shr.i.i126218 = sext i16 %35 to i32
   %36 = load i32, ptr %fLength.i127, align 4
-  %cond.i128196 = select i1 %cmp.i.i125194, i32 %36, i32 %shr.i.i126195
-  %cmp74197 = icmp sgt i32 %cond.i128196, 0
-  br i1 %cmp74197, label %for.body, label %return
+  %cond.i128219 = select i1 %cmp.i.i125217, i32 %36, i32 %shr.i.i126218
+  %cmp74220 = icmp sgt i32 %cond.i128219, 0
+  br i1 %cmp74220, label %for.body, label %return
 
 for.body:                                         ; preds = %while.end, %if.end84
-  %j.0198 = phi i32 [ %add87, %if.end84 ], [ 0, %while.end ]
-  %call76 = call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %raw, i32 noundef %j.0198)
+  %j.0221 = phi i32 [ %add87, %if.end84 ], [ 0, %while.end ]
+  %call76 = call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %raw, i32 noundef %j.0221)
   %and = and i32 %call76, -2048
   %cmp77 = icmp eq i32 %and, 55296
   br i1 %cmp77, label %if.then78, label %if.end79
@@ -5021,7 +5019,7 @@ if.end.i137:                                      ; preds = %if.then83
 if.end84:                                         ; preds = %if.end79
   %cmp85 = icmp ult i32 %call76, 65536
   %cond86 = select i1 %cmp85, i32 1, i32 2
-  %add87 = add nuw nsw i32 %cond86, %j.0198
+  %add87 = add nuw nsw i32 %cond86, %j.0221
   %42 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i125 = icmp slt i16 %42, 0
   %43 = ashr i16 %42, 5
@@ -5194,44 +5192,41 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end
   %idxprom.i.i = sext i32 %i.addr.0108 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %24 = load i16, ptr %arrayidx.i.i, align 2
-  %.fr = freeze i16 %24
-  %conv = zext i16 %.fr to i32
+  %conv = zext i16 %24 to i32
   %25 = add nsw i32 %conv, -33
   %or.cond.i = icmp ult i32 %25, 94
   br i1 %or.cond.i, label %land.rhs.i22, label %if.end23
 
 land.rhs.i22:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp2.i = icmp ult i16 %.fr, 48
+  %cmp2.i = icmp ult i16 %24, 48
   br i1 %cmp2.i, label %switch.early.test, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %land.rhs.i22
-  switch i32 %conv, label %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit [
-    i32 96, label %switch.early.test
-    i32 95, label %switch.early.test
-    i32 94, label %switch.early.test
-    i32 93, label %switch.early.test
-    i32 92, label %switch.early.test
-    i32 91, label %switch.early.test
-    i32 64, label %switch.early.test
-    i32 63, label %switch.early.test
-    i32 62, label %switch.early.test
-    i32 61, label %switch.early.test
-    i32 60, label %switch.early.test
-    i32 59, label %switch.early.test
-    i32 58, label %switch.early.test
+  switch i16 %24, label %lor.rhs.i [
+    i16 95, label %if.end23
+    i16 58, label %if.then12
+    i16 59, label %if.then12
+    i16 60, label %if.then12
+    i16 61, label %if.then12
+    i16 62, label %if.then12
+    i16 63, label %if.then12
+    i16 64, label %if.then12
+    i16 91, label %if.then12
+    i16 92, label %if.then12
+    i16 93, label %if.then12
+    i16 94, label %if.then12
+    i16 96, label %if.then12
   ]
 
-_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit: ; preds = %switch.early.test.i
-  %cmp10.i23 = icmp ugt i16 %.fr, 122
+lor.rhs.i:                                        ; preds = %switch.early.test.i
+  %cmp10.i23 = icmp ugt i16 %24, 122
   br i1 %cmp10.i23, label %switch.early.test, label %if.end23
 
-switch.early.test:                                ; preds = %land.rhs.i22, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit
-  switch i16 %.fr, label %if.then12 [
-    i16 95, label %if.end23
-    i16 45, label %if.end23
-  ]
+switch.early.test:                                ; preds = %land.rhs.i22, %lor.rhs.i
+  %cond = icmp eq i16 %24, 45
+  br i1 %cond, label %if.end23, label %if.then12
 
-if.then12:                                        ; preds = %switch.early.test
+if.then12:                                        ; preds = %switch.early.test, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
   %26 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i24 = icmp ugt i16 %26, 31
   br i1 %cmp.i24, label %if.end16, label %return
@@ -5298,9 +5293,9 @@ lpad:                                             ; preds = %if.end16
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZZNK6icu_7519CollationRuleParser9readWordsEiRNS_13UnicodeStringEE2sp) #14, !srcloc !8
   resume { ptr, i32 } %34
 
-if.end23:                                         ; preds = %switch.early.test, %switch.early.test, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit, %if.end, %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %retval.0.i.i87100 = phi i16 [ %.fr, %switch.early.test ], [ %.fr, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ -1, %if.end ], [ %.fr, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit ], [ %.fr, %switch.early.test ]
-  %conv8999 = phi i32 [ %conv, %switch.early.test ], [ %conv, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 65535, %if.end ], [ %conv, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit ], [ %conv, %switch.early.test ]
+if.end23:                                         ; preds = %switch.early.test, %switch.early.test.i, %lor.rhs.i, %if.end, %_ZNK6icu_7513UnicodeString6charAtEi.exit
+  %retval.0.i.i87100 = phi i16 [ %24, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ -1, %if.end ], [ %24, %lor.rhs.i ], [ 45, %switch.early.test ], [ %24, %switch.early.test.i ]
+  %conv8999 = phi i32 [ %conv, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 65535, %if.end ], [ %conv, %lor.rhs.i ], [ 45, %switch.early.test ], [ 95, %switch.early.test.i ]
   %call25 = call noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %conv8999)
   %tobool26.not = icmp eq i8 %call25, 0
   %inc = add nsw i32 %i.addr.0108, 1
@@ -6291,7 +6286,7 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

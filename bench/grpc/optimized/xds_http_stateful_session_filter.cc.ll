@@ -581,12 +581,12 @@ invoke.cont46:                                    ; preds = %invoke.cont38
   %_M_node_count.i.i.i.i.i79 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i79, align 8
   %add.ptr.i.i80 = getelementptr inbounds i8, ptr %20, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i80, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i80, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %cookie_name, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %cookie_name, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont48 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont46
@@ -915,12 +915,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 invoke.cont100:                                   ; preds = %if.then.i
   %add.ptr.i.i138 = getelementptr inbounds i8, ptr %20, i64 32
-  %retval.sroa.0.0.copyload34.i139 = load ptr, ptr %add.ptr.i.i138, align 1
+  %retval.sroa.0.0.copyload32.i139 = load ptr, ptr %add.ptr.i.i138, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i140 = getelementptr inbounds i8, ptr %20, i64 40
-  %retval.sroa.9.0.copyload35.i141 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i140, align 1
+  %retval.sroa.9.0.copyload33.i141 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i140, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i144)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i144) #19, !noalias !16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef %retval.sroa.0.0.copyload34.i139, i64 noundef %retval.sroa.9.0.copyload35.i141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i144)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef %retval.sroa.0.0.copyload32.i139, i64 noundef %retval.sroa.9.0.copyload33.i141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i144)
           to label %invoke.cont102 unwind label %lpad.i146
 
 lpad.i146:                                        ; preds = %invoke.cont100
@@ -1770,14 +1770,13 @@ entry:
   %ref.tmp.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -2501,15 +2500,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2964,15 +2962,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry

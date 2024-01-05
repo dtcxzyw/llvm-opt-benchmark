@@ -1155,7 +1155,7 @@ sw.bb139:                                         ; preds = %if.end131
 while.cond.backedge:                              ; preds = %if.end299, %sw.bb301, %invoke.cont312, %invoke.cont316, %sw.bb320, %if.end131, %sw.bb133, %sw.bb136, %sw.bb139, %if.else63, %if.then178, %sw.bb204, %_ZN6icu_7513UnicodeString6appendEDs.exit203
   %scratch.sroa.0.0.be = phi ptr [ %scratch.sroa.0.0343, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %scratch.sroa.0.0343, %sw.bb204 ], [ %scratch.sroa.0.0343, %if.then178 ], [ %scratch.sroa.0.0343, %if.else63 ], [ %scratch.sroa.0.4, %sw.bb139 ], [ %scratch.sroa.0.4, %sw.bb136 ], [ %scratch.sroa.0.4, %sw.bb133 ], [ %scratch.sroa.0.4, %if.end131 ], [ %scratch.sroa.0.0343, %sw.bb320 ], [ %scratch.sroa.0.0343, %invoke.cont316 ], [ %scratch.sroa.0.0343, %invoke.cont312 ], [ %scratch.sroa.0.0343, %sw.bb301 ], [ %scratch.sroa.0.0343, %if.end299 ]
   %usePat.0.be = phi i8 [ %usePat.0344, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %usePat.0344, %sw.bb204 ], [ %usePat.0344, %if.then178 ], [ %usePat.0344, %if.else63 ], [ 1, %sw.bb139 ], [ 1, %sw.bb136 ], [ 1, %sw.bb133 ], [ 1, %if.end131 ], [ %usePat.0344, %sw.bb320 ], [ %usePat.0344, %invoke.cont316 ], [ %usePat.0344, %invoke.cont312 ], [ %usePat.0344, %sw.bb301 ], [ %usePat.0344, %if.end299 ]
-  %lastItem.0.be = phi i8 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 2, %sw.bb204 ], [ %lastItem.0345, %if.then178 ], [ %lastItem.0345, %if.else63 ], [ 2, %sw.bb139 ], [ 2, %sw.bb136 ], [ 2, %sw.bb133 ], [ 2, %if.end131 ], [ 1, %sw.bb320 ], [ %lastItem.0345, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ 1, %sw.bb301 ], [ %lastItem.0345, %if.end299 ]
+  %lastItem.0.be = phi i8 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 2, %sw.bb204 ], [ %lastItem.0345, %if.then178 ], [ %lastItem.0345, %if.else63 ], [ 2, %sw.bb139 ], [ 2, %sw.bb136 ], [ 2, %sw.bb133 ], [ 2, %if.end131 ], [ 1, %sw.bb320 ], [ 1, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ 1, %sw.bb301 ], [ %lastItem.0345, %if.end299 ]
   %mode.0.be = phi i8 [ %mode.0346, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %mode.0346, %sw.bb204 ], [ %mode.0346, %if.then178 ], [ 1, %if.else63 ], [ %mode.0346, %sw.bb139 ], [ %mode.0346, %sw.bb136 ], [ %mode.0346, %sw.bb133 ], [ %mode.0346, %if.end131 ], [ %mode.1.ph248256, %sw.bb320 ], [ %mode.1.ph248256, %invoke.cont316 ], [ %mode.1.ph248256, %invoke.cont312 ], [ %mode.1.ph248256, %sw.bb301 ], [ %mode.1.ph248256, %if.end299 ]
   %lastChar.0.be = phi i32 [ %lastChar.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %lastChar.0347, %sw.bb204 ], [ %lastChar.0347, %if.then178 ], [ %lastChar.0347, %if.else63 ], [ %lastChar.0347, %sw.bb139 ], [ %lastChar.0347, %sw.bb136 ], [ %lastChar.0347, %sw.bb133 ], [ %lastChar.0347, %if.end131 ], [ %c.2, %sw.bb320 ], [ %c.2, %invoke.cont316 ], [ %lastChar.0347, %invoke.cont312 ], [ %c.2, %sw.bb301 ], [ %lastChar.0347, %if.end299 ]
   %op.0.be = phi i16 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 38, %sw.bb204 ], [ 45, %if.then178 ], [ %op.0348, %if.else63 ], [ 0, %sw.bb139 ], [ 0, %sw.bb136 ], [ 0, %sw.bb133 ], [ 0, %if.end131 ], [ 0, %sw.bb320 ], [ %op.0348, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ %op.0348, %sw.bb301 ], [ %op.0348, %if.end299 ]
@@ -1435,11 +1435,10 @@ if.end299:                                        ; preds = %if.end147.thread, %
   %mode.1.ph248256 = phi i8 [ %mode.0346, %if.end147 ], [ %mode.0346, %if.then149 ], [ %mode.0346, %if.then276 ], [ 1, %if.end147.thread ]
   %invert.2.ph249255 = phi i8 [ %invert.0349, %if.end147 ], [ %invert.0349, %if.then149 ], [ %invert.0349, %if.then276 ], [ %invert.1, %if.end147.thread ]
   %c.2 = phi i32 [ %call22, %if.end147 ], [ %call22, %if.then149 ], [ 36, %if.then276 ], [ 45, %if.end147.thread ]
-  %conv300 = zext nneg i8 %lastItem.0345 to i32
-  switch i32 %conv300, label %while.cond.backedge [
-    i32 0, label %sw.bb301
-    i32 1, label %sw.bb302
-    i32 2, label %sw.bb320
+  switch i8 %lastItem.0345, label %while.cond.backedge [
+    i8 0, label %sw.bb301
+    i8 1, label %sw.bb302
+    i8 2, label %sw.bb320
   ]
 
 sw.bb301:                                         ; preds = %if.end299

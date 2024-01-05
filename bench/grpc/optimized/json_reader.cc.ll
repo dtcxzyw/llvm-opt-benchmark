@@ -580,11 +580,10 @@ do.end.i.i.i:                                     ; preds = %land.lhs.true123.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %scope.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #17, !noalias !4
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %stack_92.val75.i.i, i64 -1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %25 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %25 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
-    i64 -1, label %_ZN9grpc_core12_GLOBAL__N_110JsonReader5ScopeC2EOS2_.exit.i.i.i
+  switch i8 %25, label %sw.default.i.i.i.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
+    i8 -1, label %_ZN9grpc_core12_GLOBAL__N_110JsonReader5ScopeC2EOS2_.exit.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i:                      ; preds = %do.end.i.i.i
@@ -623,7 +622,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb.i.i.i.i.i.
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i = phi i8 [ %.pre.pre.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.pre.i.i.i = phi i8 [ %.pre.pre.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_node_count.i.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonReader5ScopeC2EOS2_.exit.i.i.i
@@ -645,7 +644,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %do.end.i.i.i
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_110JsonReader5ScopeC2EOS2_.exit.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i, %do.end.i.i.i
-  %34 = phi i8 [ %25, %do.end.i.i.i ], [ %.pre.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %25, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
+  %34 = phi i8 [ %25, %do.end.i.i.i ], [ %.pre.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %34, ptr %_M_index.i.i.i.i.i.i.i.i.i.i12.i, align 8, !noalias !4
   %35 = load ptr, ptr %1, align 8, !noalias !4
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %35, i64 -1
@@ -2944,11 +2943,10 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt12_Vector_base
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %__cur.06.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %__first.addr.04.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %15 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !46
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %15 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-    i64 -1, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i
+  switch i8 %15, label %sw.default.i.i.i.i.i.i.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+    i8 -1, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i20
@@ -2993,7 +2991,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb.i.i.
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i = phi i8 [ %.pre.pre.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.pre.i.i.i.i = phi i8 [ %.pre.pre.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_node_count.i.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !51
   br label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i
@@ -3014,7 +3012,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %for.body.i.i.i20
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110JsonReader5ScopeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i20
-  %23 = phi i8 [ %15, %for.body.i.i.i20 ], [ %.pre.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %23 = phi i8 [ %15, %for.body.i.i.i20 ], [ %.pre.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessISB_ESaISt4pairIKSB_SE_EEESt6vectorISE_SaISE_EEEEC1EOSP_EUlOT_T0_E_OSt7variantIJSL_SO_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESV_SY_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %23, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !49
   %data.i.i.i3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::JsonReader::Scope", ptr %__first.addr.04.i.i.i, i64 0, i32 1
   invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SB_EEESt6vectorISB_SaISB_EEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(49) %data.i.i.i3.i.i.i.i)
@@ -3818,7 +3816,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
   %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
@@ -3957,15 +3955,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -4063,14 +4060,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.72, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -4211,15 +4207,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.72, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -5169,7 +5164,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

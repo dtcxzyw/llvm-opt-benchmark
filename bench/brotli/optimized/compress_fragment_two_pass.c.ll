@@ -17,18 +17,17 @@ entry:
   %conv.i = trunc i64 %table_size to i32
   %1 = tail call i32 @llvm.ctlz.i32(i32 %conv.i, i1 true), !range !4
   %xor.i = xor i32 %1, 31
-  %conv = zext nneg i32 %xor.i to i64
-  switch i64 %conv, label %sw.epilog [
-    i64 8, label %sw.bb
-    i64 9, label %sw.bb1
-    i64 10, label %sw.bb2
-    i64 11, label %sw.bb3
-    i64 12, label %sw.bb4
-    i64 13, label %sw.bb5
-    i64 14, label %sw.bb6
-    i64 15, label %sw.bb7
-    i64 16, label %sw.bb8
-    i64 17, label %sw.bb9
+  switch i32 %xor.i, label %sw.epilog [
+    i32 8, label %sw.bb
+    i32 9, label %sw.bb1
+    i32 10, label %sw.bb2
+    i32 11, label %sw.bb3
+    i32 12, label %sw.bb4
+    i32 13, label %sw.bb5
+    i32 14, label %sw.bb6
+    i32 15, label %sw.bb7
+    i32 16, label %sw.bb8
+    i32 17, label %sw.bb9
   ]
 
 sw.bb:                                            ; preds = %entry

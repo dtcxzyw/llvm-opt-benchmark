@@ -537,16 +537,16 @@ ehcleanup75:                                      ; preds = %lpad72, %lpad70
 
 invoke.cont77:                                    ; preds = %invoke.cont63
   %add.ptr.i.i108 = getelementptr inbounds i8, ptr %call47, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i108, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i108, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %call47, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
-  %cmp79.not = icmp eq i64 %retval.sroa.9.0.copyload35.i, 0
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %cmp79.not = icmp eq i64 %retval.sroa.9.0.copyload33.i, 0
   br i1 %cmp79.not, label %invoke.cont91, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %invoke.cont77
   %buffer_size = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 17
   %26 = load i64, ptr %buffer_size, align 8
-  %cmp82128 = icmp ugt i64 %retval.sroa.9.0.copyload35.i, %26
+  %cmp82128 = icmp ugt i64 %retval.sroa.9.0.copyload33.i, %26
   %buffer = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 16
   %.pre = load ptr, ptr %buffer, align 8
   br i1 %cmp82128, label %while.body, label %while.end
@@ -562,13 +562,13 @@ while.body:                                       ; preds = %while.cond.preheade
 invoke.cont85:                                    ; preds = %while.body
   store ptr %call86, ptr %buffer, align 8
   %29 = load i64, ptr %buffer_size, align 8
-  %cmp82 = icmp ugt i64 %retval.sroa.9.0.copyload35.i, %29
+  %cmp82 = icmp ugt i64 %retval.sroa.9.0.copyload33.i, %29
   br i1 %cmp82, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %invoke.cont85, %while.cond.preheader
   %30 = phi ptr [ %.pre, %while.cond.preheader ], [ %call86, %invoke.cont85 ]
   %buffer88 = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %retval.sroa.0.0.copyload34.i, i64 %retval.sroa.9.0.copyload35.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %retval.sroa.0.0.copyload32.i, i64 %retval.sroa.9.0.copyload33.i, i1 false)
   %31 = load ptr, ptr %buffer88, align 8
   br label %invoke.cont91
 
@@ -643,10 +643,10 @@ invoke.cont113:                                   ; preds = %invoke.cont91, %inv
 
 invoke.cont118:                                   ; preds = %invoke.cont113
   %add.ptr.i.i110 = getelementptr inbounds i8, ptr %23, i64 8
-  %retval.sroa.0.0.copyload34.i111 = load ptr, ptr %add.ptr.i.i110, align 1
+  %retval.sroa.0.0.copyload32.i111 = load ptr, ptr %add.ptr.i.i110, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i112 = getelementptr inbounds i8, ptr %23, i64 16
-  %retval.sroa.9.0.copyload35.i113 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i112, align 1
-  %cmp121.not = icmp eq i64 %retval.sroa.9.0.copyload35.i113, 0
+  %retval.sroa.9.0.copyload33.i113 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i112, align 1
+  %cmp121.not = icmp eq i64 %retval.sroa.9.0.copyload33.i113, 0
   br i1 %cmp121.not, label %if.end140, label %invoke.cont125
 
 invoke.cont125:                                   ; preds = %invoke.cont118
@@ -667,9 +667,9 @@ invoke.cont129:                                   ; preds = %invoke.cont125
   store i64 26, ptr %ref.tmp128, align 8
   %41 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp128, i64 0, i32 1
   store ptr @.str.11, ptr %41, align 8
-  store i64 %retval.sroa.9.0.copyload35.i113, ptr %ref.tmp130, align 8
+  store i64 %retval.sroa.9.0.copyload33.i113, ptr %ref.tmp130, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
-  store ptr %retval.sroa.0.0.copyload34.i111, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
+  store ptr %retval.sroa.0.0.copyload32.i111, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp128, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp130)
           to label %invoke.cont135 unwind label %lpad117
 
@@ -692,7 +692,7 @@ if.end140:                                        ; preds = %invoke.cont118, %in
 invoke.cont141:                                   ; preds = %if.end140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %error) #18
   %43 = load ptr, ptr %result, align 8
-  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call142, ptr noundef nonnull %agg.tmp143, ptr noundef %bytes_to_send.0, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef %43)
+  invoke fastcc void @_ZL20handle_response_doneP27alts_grpc_handshaker_client10tsi_resultNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmP21tsi_handshaker_result(ptr noundef nonnull %c, i32 noundef %call142, ptr noundef nonnull %agg.tmp143, ptr noundef %bytes_to_send.0, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef %43)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont141
@@ -3369,12 +3369,11 @@ if.end.i:                                         ; preds = %if.then
   %data.i = getelementptr inbounds %struct.upb_Message_Extension, ptr %call.i, i64 0, i32 1
   %2 = load i8, ptr %mode.i, align 1
   %3 = lshr i8 %2, 6
-  %shr.i.i.i = zext nneg i8 %3 to i32
-  switch i32 %shr.i.i.i, label %do.body.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 3, label %sw.bb2.i.i
-    i32 2, label %sw.bb3.i.i
+  switch i8 %3, label %do.body.i.i [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb1.i.i
+    i8 3, label %sw.bb2.i.i
+    i8 2, label %sw.bb3.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
@@ -3436,38 +3435,37 @@ _upb_Message_SetPresence.exit.i:                  ; preds = %if.then1.i.i, %if.e
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i
   %14 = load i8, ptr %mode.i, align 1
   %15 = lshr i8 %14, 6
-  %shr.i.i.i5 = zext nneg i8 %15 to i32
-  switch i32 %shr.i.i.i5, label %do.body.i.i10 [
-    i32 0, label %sw.bb.i.i9
-    i32 1, label %sw.bb1.i.i8
-    i32 3, label %sw.bb2.i.i7
-    i32 2, label %sw.bb3.i.i6
+  switch i8 %15, label %do.body.i.i9 [
+    i8 0, label %sw.bb.i.i8
+    i8 1, label %sw.bb1.i.i7
+    i8 3, label %sw.bb2.i.i6
+    i8 2, label %sw.bb3.i.i5
   ]
 
-sw.bb.i.i9:                                       ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb.i.i8:                                       ; preds = %_upb_Message_SetPresence.exit.i
   %16 = load i8, ptr %val, align 1
   store i8 %16, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb1.i.i8:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb1.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %17 = load i32, ptr %val, align 1
   store i32 %17, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb2.i.i7:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb2.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
   %18 = load i64, ptr %val, align 1
   store i64 %18, ptr %add.ptr.i.i, align 1
   br label %return
 
-sw.bb3.i.i6:                                      ; preds = %_upb_Message_SetPresence.exit.i
+sw.bb3.i.i5:                                      ; preds = %_upb_Message_SetPresence.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %return
 
-do.body.i.i10:                                    ; preds = %_upb_Message_SetPresence.exit.i
+do.body.i.i9:                                     ; preds = %_upb_Message_SetPresence.exit.i
   unreachable
 
-return:                                           ; preds = %sw.bb3.i.i6, %sw.bb2.i.i7, %sw.bb1.i.i8, %sw.bb.i.i9, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i9 ], [ true, %sw.bb1.i.i8 ], [ true, %sw.bb2.i.i7 ], [ true, %sw.bb3.i.i6 ]
+return:                                           ; preds = %sw.bb3.i.i5, %sw.bb2.i.i6, %sw.bb1.i.i7, %sw.bb.i.i8, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %sw.bb.i.i ], [ true, %sw.bb1.i.i ], [ true, %sw.bb2.i.i ], [ true, %sw.bb3.i.i ], [ true, %sw.bb.i.i8 ], [ true, %sw.bb1.i.i7 ], [ true, %sw.bb2.i.i6 ], [ true, %sw.bb3.i.i5 ]
   ret i1 %retval.0
 }
 

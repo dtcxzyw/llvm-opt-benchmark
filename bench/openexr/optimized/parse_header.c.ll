@@ -231,11 +231,10 @@ if.end41:                                         ; preds = %lor.lhs.false35
   %level_and_round = getelementptr inbounds %struct.exr_attr_tiledesc_t, ptr %9, i64 0, i32 2
   %13 = load i8, ptr %level_and_round, align 1
   %14 = and i8 %13, 15
-  %and = zext nneg i8 %14 to i32
-  switch i32 %and, label %sw.default [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb43
-    i32 2, label %sw.bb63
+  switch i8 %14, label %sw.default [
+    i8 0, label %sw.epilog
+    i8 1, label %sw.bb43
+    i8 2, label %sw.bb63
   ]
 
 sw.bb43:                                          ; preds = %if.end41
@@ -533,11 +532,10 @@ if.then:                                          ; preds = %entry
   %level_and_round = getelementptr inbounds %struct.exr_attr_tiledesc_t, ptr %5, i64 0, i32 2
   %6 = load i8, ptr %level_and_round, align 1
   %7 = and i8 %6, 15
-  %and = zext nneg i8 %7 to i32
-  switch i32 %and, label %return [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb
-    i32 2, label %for.cond18.preheader
+  switch i8 %7, label %return [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb
+    i8 2, label %for.cond18.preheader
   ]
 
 for.cond18.preheader:                             ; preds = %if.then
@@ -1389,16 +1387,15 @@ if.then22.i:                                      ; preds = %if.end18.i
 if.end27.i:                                       ; preds = %if.end18.i
   %55 = load i32, ptr %attrsz.i, align 4
   %56 = load i8, ptr %name.i, align 16
-  %conv.i.i = sext i8 %56 to i32
-  switch i32 %conv.i.i, label %if.end35.i [
-    i32 99, label %sw.bb.i.i
-    i32 100, label %sw.bb15.i.i
-    i32 108, label %sw.bb28.i.i
-    i32 110, label %sw.bb35.i.i
-    i32 112, label %sw.bb42.i.i
-    i32 115, label %sw.bb49.i.i
-    i32 116, label %sw.bb62.i.i
-    i32 118, label %sw.bb75.i.i
+  switch i8 %56, label %if.end35.i [
+    i8 99, label %sw.bb.i.i
+    i8 100, label %sw.bb15.i.i
+    i8 108, label %sw.bb28.i.i
+    i8 110, label %sw.bb35.i.i
+    i8 112, label %sw.bb42.i.i
+    i8 115, label %sw.bb49.i.i
+    i8 116, label %sw.bb62.i.i
+    i8 118, label %sw.bb75.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end27.i

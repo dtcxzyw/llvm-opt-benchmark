@@ -21960,25 +21960,24 @@ tailrecurse.outer:                                ; preds = %sw.bb66, %entry
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
   %this.tr = phi ptr [ %this.tr.ph, %tailrecurse.outer ], [ %this.tr.be, %tailrecurse.backedge ]
   %0 = load i8, ptr %this.tr, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog.loopexit [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb8
-    i32 4, label %sw.bb12
-    i32 5, label %sw.bb17
-    i32 6, label %sw.bb22
-    i32 7, label %sw.bb27
-    i32 8, label %sw.bb32
-    i32 34, label %sw.bb37
-    i32 35, label %sw.bb47
-    i32 45, label %sw.bb63
-    i32 46, label %sw.bb66
-    i32 47, label %return
-    i32 48, label %return.loopexit1148
-    i32 49, label %sw.bb71
-    i32 59, label %sw.bb122
-    i32 20, label %sw.bb148
+  switch i8 %0, label %sw.epilog.loopexit [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb8
+    i8 4, label %sw.bb12
+    i8 5, label %sw.bb17
+    i8 6, label %sw.bb22
+    i8 7, label %sw.bb27
+    i8 8, label %sw.bb32
+    i8 34, label %sw.bb37
+    i8 35, label %sw.bb47
+    i8 45, label %sw.bb63
+    i8 46, label %sw.bb66
+    i8 47, label %return
+    i8 48, label %return.loopexit1148
+    i8 49, label %sw.bb71
+    i8 59, label %sw.bb122
+    i8 20, label %sw.bb148
   ]
 
 sw.bb:                                            ; preds = %tailrecurse
@@ -22230,13 +22229,12 @@ cleanup70.i:                                      ; preds = %for.inc67.i, %_ZN4p
 
 if.else71.i:                                      ; preds = %if.else30.i
   %lt.i.0.v = select i1 %cmp31.i, i8 %.val.i, i8 %lhs.val.i
-  %lt.i.0 = sext i8 %lt.i.0.v to i32
   %rhs.addr.i.0 = select i1 %cmp31.i, ptr %3, ptr %4
   %lhs.addr.i.0 = select i1 %cmp31.i, ptr %4, ptr %3
-  switch i32 %lt.i.0, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit [
-    i32 4, label %if.then76.i
-    i32 2, label %if.then86.i
-    i32 3, label %if.then129.i
+  switch i8 %lt.i.0.v, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit [
+    i8 4, label %if.then76.i
+    i8 2, label %if.then86.i
+    i8 3, label %if.then129.i
   ]
 
 if.then76.i:                                      ; preds = %if.else71.i
@@ -22769,13 +22767,12 @@ cleanup70.i176:                                   ; preds = %for.inc67.i199, %_Z
 
 if.else71.i95:                                    ; preds = %if.else30.i91
   %lt.i56.0.v = select i1 %cmp31.i92, i8 %.val.i86, i8 %lhs.val.i84
-  %lt.i56.0 = sext i8 %lt.i56.0.v to i32
   %rhs.addr.i55.0 = select i1 %cmp31.i92, ptr %71, ptr %72
   %lhs.addr.i54.0 = select i1 %cmp31.i92, ptr %72, ptr %71
-  switch i32 %lt.i56.0, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit [
-    i32 4, label %if.then76.i154
-    i32 2, label %if.then86.i125
-    i32 3, label %if.then129.i97
+  switch i8 %lt.i56.0.v, label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit [
+    i8 4, label %if.then76.i154
+    i8 2, label %if.then86.i125
+    i8 3, label %if.then129.i97
   ]
 
 if.then76.i154:                                   ; preds = %if.else71.i95
@@ -23602,11 +23599,10 @@ sw.epilog.loopexit:                               ; preds = %tailrecurse
 
 sw.epilog:                                        ; preds = %sw.epilog.loopexit, %sw.bb148
   %221 = phi i8 [ %.pre, %sw.epilog.loopexit ], [ %216, %sw.bb148 ]
-  %conv156 = sext i8 %221 to i32
-  switch i32 %conv156, label %return [
-    i32 2, label %sw.bb157
-    i32 3, label %sw.bb160
-    i32 1, label %sw.bb170
+  switch i8 %221, label %return [
+    i8 2, label %sw.bb157
+    i8 3, label %sw.bb160
+    i8 1, label %sw.bb170
   ]
 
 sw.bb157:                                         ; preds = %sw.epilog
@@ -23938,27 +23934,26 @@ entry:
 tailrecurse:                                      ; preds = %sw.bb69, %entry
   %this.tr = phi ptr [ %this, %entry ], [ %79, %sw.bb69 ]
   %0 = load i8, ptr %this.tr, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog.loopexit [
-    i32 9, label %sw.bb
-    i32 10, label %sw.bb3
-    i32 11, label %sw.bb8
-    i32 12, label %sw.bb13
-    i32 13, label %sw.bb18
-    i32 14, label %sw.bb24
-    i32 19, label %sw.bb27
-    i32 21, label %sw.bb28
-    i32 22, label %sw.bb30
-    i32 23, label %sw.bb32
-    i32 40, label %sw.bb37
-    i32 41, label %sw.bb47
-    i32 50, label %sw.bb57
-    i32 51, label %sw.bb69
-    i32 52, label %sw.bb72
-    i32 53, label %sw.bb93
-    i32 54, label %sw.bb98
-    i32 55, label %sw.bb107
-    i32 20, label %sw.bb111
+  switch i8 %0, label %sw.epilog.loopexit [
+    i8 9, label %sw.bb
+    i8 10, label %sw.bb3
+    i8 11, label %sw.bb8
+    i8 12, label %sw.bb13
+    i8 13, label %sw.bb18
+    i8 14, label %sw.bb24
+    i8 19, label %sw.bb27
+    i8 21, label %sw.bb28
+    i8 22, label %sw.bb30
+    i8 23, label %sw.bb32
+    i8 40, label %sw.bb37
+    i8 41, label %sw.bb47
+    i8 50, label %sw.bb57
+    i8 51, label %sw.bb69
+    i8 52, label %sw.bb72
+    i8 53, label %sw.bb93
+    i8 54, label %sw.bb98
+    i8 55, label %sw.bb107
+    i8 20, label %sw.bb111
   ]
 
 common.ret369:                                    ; preds = %cond.true.i195, %if.then, %cond.false.i190, %cond.true.i192, %sw.epilog, %invoke.cont138, %invoke.cont127, %sw.bb118, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit189, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit118, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit106, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit86, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %sw.bb30, %sw.bb28, %sw.bb27, %sw.bb98, %sw.bb93, %sw.bb24, %sw.bb18, %sw.bb13, %sw.bb8, %sw.bb3, %sw.bb
@@ -24642,11 +24637,10 @@ sw.epilog.loopexit:                               ; preds = %tailrecurse
 
 sw.epilog:                                        ; preds = %sw.epilog.loopexit, %sw.bb111
   %127 = phi i8 [ %.pre, %sw.epilog.loopexit ], [ %123, %sw.bb111 ]
-  %conv117 = sext i8 %127 to i32
-  switch i32 %conv117, label %common.ret369 [
-    i32 4, label %sw.bb118
-    i32 3, label %sw.bb122
-    i32 1, label %sw.bb133
+  switch i8 %127, label %common.ret369 [
+    i8 4, label %sw.bb118
+    i8 3, label %sw.bb122
+    i8 1, label %sw.bb133
   ]
 
 sw.bb118:                                         ; preds = %sw.epilog
@@ -24911,27 +24905,26 @@ entry:
 tailrecurse:                                      ; preds = %sw.bb47, %entry
   %this.tr = phi ptr [ %this, %entry ], [ %51, %sw.bb47 ]
   %0 = load i8, ptr %this.tr, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog.loopexit [
-    i32 18, label %sw.bb
-    i32 25, label %sw.bb2
-    i32 26, label %sw.bb3
-    i32 29, label %sw.bb10
-    i32 30, label %sw.bb14
-    i32 27, label %sw.bb27
-    i32 28, label %sw.bb31
-    i32 31, label %sw.bb44
-    i32 32, label %sw.bb47
-    i32 33, label %sw.bb49
-    i32 36, label %sw.bb50
-    i32 37, label %sw.bb70
-    i32 38, label %sw.bb108
-    i32 39, label %sw.bb160
-    i32 42, label %sw.bb246
-    i32 43, label %sw.bb257
-    i32 44, label %sw.bb268
-    i32 58, label %sw.bb304
-    i32 20, label %sw.bb316
+  switch i8 %0, label %sw.epilog.loopexit [
+    i8 18, label %sw.bb
+    i8 25, label %sw.bb2
+    i8 26, label %sw.bb3
+    i8 29, label %sw.bb10
+    i8 30, label %sw.bb14
+    i8 27, label %sw.bb27
+    i8 28, label %sw.bb31
+    i8 31, label %sw.bb44
+    i8 32, label %sw.bb47
+    i8 33, label %sw.bb49
+    i8 36, label %sw.bb50
+    i8 37, label %sw.bb70
+    i8 38, label %sw.bb108
+    i8 39, label %sw.bb160
+    i8 42, label %sw.bb246
+    i8 43, label %sw.bb257
+    i8 44, label %sw.bb268
+    i8 58, label %sw.bb304
+    i8 20, label %sw.bb316
   ]
 
 sw.bb:                                            ; preds = %tailrecurse
@@ -26960,11 +26953,10 @@ sw.epilog.loopexit:                               ; preds = %tailrecurse
 
 sw.epilog:                                        ; preds = %sw.epilog.loopexit, %sw.bb316
   %281 = phi i8 [ %.pre817, %sw.epilog.loopexit ], [ %277, %sw.bb316 ]
-  %conv324 = sext i8 %281 to i32
-  switch i32 %conv324, label %sw.default352 [
-    i32 4, label %sw.bb325
-    i32 2, label %sw.bb328
-    i32 1, label %sw.bb331
+  switch i8 %281, label %sw.default352 [
+    i8 4, label %sw.bb325
+    i8 2, label %sw.bb328
+    i8 1, label %sw.bb331
   ]
 
 sw.bb325:                                         ; preds = %sw.epilog
@@ -27397,14 +27389,13 @@ entry:
   %ref.tmp70 = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp71 = alloca %"class.pugi::xml_node", align 8
   %0 = load i8, ptr %this, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 15, label %sw.bb
-    i32 17, label %sw.bb14
-    i32 24, label %sw.bb22
-    i32 56, label %sw.bb23
-    i32 57, label %sw.bb49
-    i32 20, label %sw.bb81
+  switch i8 %0, label %sw.epilog [
+    i8 15, label %sw.bb
+    i8 17, label %sw.bb14
+    i8 24, label %sw.bb22
+    i8 56, label %sw.bb23
+    i8 57, label %sw.bb49
+    i8 20, label %sw.bb81
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -27584,21 +27575,20 @@ sw.bb22:                                          ; preds = %entry
 sw.bb23:                                          ; preds = %entry
   %_axis = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %this, i64 0, i32 2
   %25 = load i8, ptr %_axis, align 2
-  %conv24 = sext i8 %25 to i32
-  switch i32 %conv24, label %sw.default [
-    i32 0, label %sw.bb25
-    i32 1, label %sw.bb26
-    i32 2, label %sw.bb28
-    i32 3, label %sw.bb30
-    i32 4, label %sw.bb32
-    i32 5, label %sw.bb34
-    i32 6, label %sw.bb36
-    i32 7, label %sw.bb38
-    i32 8, label %sw.bb40
-    i32 9, label %sw.bb41
-    i32 10, label %sw.bb43
-    i32 11, label %sw.bb45
-    i32 12, label %sw.bb47
+  switch i8 %25, label %sw.default [
+    i8 0, label %sw.bb25
+    i8 1, label %sw.bb26
+    i8 2, label %sw.bb28
+    i8 3, label %sw.bb30
+    i8 4, label %sw.bb32
+    i8 5, label %sw.bb34
+    i8 6, label %sw.bb36
+    i8 7, label %sw.bb38
+    i8 8, label %sw.bb40
+    i8 9, label %sw.bb41
+    i8 10, label %sw.bb43
+    i8 11, label %sw.bb45
+    i8 12, label %sw.bb47
   ]
 
 sw.bb25:                                          ; preds = %sw.bb23
@@ -30597,13 +30587,12 @@ define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 1
   %0 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 35, label %sw.bb
-    i32 97, label %sw.bb55
-    i32 103, label %sw.bb97
-    i32 108, label %sw.bb112
-    i32 113, label %sw.bb127
+  switch i8 %0, label %return [
+    i8 35, label %sw.bb
+    i8 97, label %sw.bb55
+    i8 103, label %sw.bb97
+    i8 108, label %sw.bb112
+    i8 113, label %sw.bb127
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -33358,8 +33347,8 @@ for.cond.preheader.lr.ph.i:                       ; preds = %if.else
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.epilog.i, %for.cond.preheader.lr.ph.i
-  %1 = phi i8 [ %0, %for.cond.preheader.lr.ph.i ], [ %27, %sw.epilog.i ]
-  %s.addr.0136.i = phi ptr [ %s, %for.cond.preheader.lr.ph.i ], [ %s.addr.3.i, %sw.epilog.i ]
+  %1 = phi i8 [ %0, %for.cond.preheader.lr.ph.i ], [ %.pr.i, %sw.epilog.i ]
+  %s.addr.0136.i = phi ptr [ %s, %for.cond.preheader.lr.ph.i ], [ %s.addr.3.ph.i, %sw.epilog.i ]
   %idxprom129.i = zext i8 %1 to i64
   %arrayidx1130.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_115chartypex_tableE, i64 0, i64 %idxprom129.i
   %2 = load i8, ptr %arrayidx1130.i, align 1
@@ -33503,13 +33492,13 @@ if.end7.i.i.i:                                    ; preds = %while.end.i.i.i, %i
 _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i: ; preds = %if.end7.i.i.i, %if.then4.i.i.i, %if.then.i.i
   %18 = load i8, ptr %s.addr.2.i, align 1
   %conv41.i = sext i8 %18 to i32
-  switch i32 %conv41.i, label %sw.default.i [
-    i32 0, label %sw.epilog.i
-    i32 38, label %sw.bb42.i
-    i32 60, label %sw.bb43.i
-    i32 62, label %sw.bb45.i
-    i32 34, label %sw.bb47.i
-    i32 39, label %sw.bb53.i
+  switch i8 %18, label %sw.default.i [
+    i8 0, label %if.end
+    i8 38, label %sw.bb42.i
+    i8 60, label %sw.bb43.i
+    i8 62, label %sw.bb45.i
+    i8 34, label %sw.bb47.i
+    i8 39, label %sw.bb53.i
   ]
 
 sw.bb42.i:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
@@ -33529,7 +33518,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i: ; preds = %
   %arrayidx13.i.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %add12.i.i
   store i8 59, ptr %arrayidx13.i.i, align 1
   %add14.i.i = add nuw nsw i64 %offset.0.i.i, 5
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 sw.bb43.i:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
   %20 = load i64, ptr %bufsize.i.i, align 8
@@ -33545,7 +33534,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i: ; preds = %i
   %arrayidx.i42.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i41.i
   store <4 x i8> <i8 38, i8 108, i8 116, i8 59>, ptr %arrayidx.i42.i, align 1
   %add11.i.i = add nuw nsw i64 %offset.0.i41.i, 4
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 sw.bb45.i:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
   %21 = load i64, ptr %bufsize.i.i, align 8
@@ -33561,7 +33550,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i: ; preds = 
   %arrayidx.i53.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i52.i
   store <4 x i8> <i8 38, i8 103, i8 116, i8 59>, ptr %arrayidx.i53.i, align 1
   %add11.i60.i = add nuw nsw i64 %offset.0.i52.i, 4
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 sw.bb47.i:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
   %22 = load i64, ptr %bufsize.i.i, align 8
@@ -33580,7 +33569,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i: ; preds = %if.t
   %arrayidx.i66.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i65.i
   store i8 34, ptr %arrayidx.i66.i, align 1
   %add2.i.i = add nuw nsw i64 %offset.0.i65.i, 1
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 if.else.i:                                        ; preds = %sw.bb47.i
   %cmp.i69.i = icmp ugt i64 %22, 2042
@@ -33601,7 +33590,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i: ; preds = 
   %arrayidx16.i.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %add15.i.i
   store i8 59, ptr %arrayidx16.i.i, align 1
   %add17.i.i = add nuw nsw i64 %offset.0.i70.i, 6
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 sw.bb53.i:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
   %23 = load i64, ptr %bufsize.i.i, align 8
@@ -33626,7 +33615,7 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i: ; preds 
   %arrayidx16.i94.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %add15.i93.i
   store i8 59, ptr %arrayidx16.i94.i, align 1
   %add17.i95.i = add nuw nsw i64 %offset.0.i83.i, 6
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 if.else57.i:                                      ; preds = %sw.bb53.i
   %cmp.i99.i = icmp ugt i64 %23, 2047
@@ -33641,10 +33630,10 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i: ; preds = %i
   %arrayidx.i101.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i100.i
   store i8 39, ptr %arrayidx.i101.i, align 1
   %add2.i102.i = add nuw nsw i64 %offset.0.i100.i, 1
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
 sw.default.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
-  br i1 %tobool63.not.i, label %if.then64.i, label %sw.epilogthread-pre-split.i
+  br i1 %tobool63.not.i, label %if.then64.i, label %sw.epilog.i
 
 if.then64.i:                                      ; preds = %sw.default.i
   %div.i = udiv i32 %conv41.i, 10
@@ -33678,25 +33667,20 @@ _ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i: ; preds 
   %arrayidx13.i116.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %add12.i115.i
   store i8 59, ptr %arrayidx13.i116.i, align 1
   %add14.i117.i = add nuw nsw i64 %offset.0.i107.i, 5
-  br label %sw.epilogthread-pre-split.i.sink.split
+  br label %sw.epilog.i.sink.split
 
-sw.epilogthread-pre-split.i.sink.split:           ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i
+sw.epilog.i.sink.split:                           ; preds = %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i
   %add14.i117.i.sink = phi i64 [ %add14.i117.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit119.i ], [ %add11.i60.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit62.i ], [ %add11.i.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccc.exit.i ], [ %add14.i.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEccccc.exit.i ], [ %add2.i.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit.i ], [ %add17.i.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit.i ], [ %add17.i95.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEcccccc.exit97.i ], [ %add2.i102.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5writeEc.exit104.i ]
   store i64 %add14.i117.i.sink, ptr %bufsize.i.i, align 8
-  br label %sw.epilogthread-pre-split.i
-
-sw.epilogthread-pre-split.i:                      ; preds = %sw.epilogthread-pre-split.i.sink.split, %sw.default.i
-  %s.addr.3.ph.i = getelementptr inbounds i8, ptr %s.addr.2.i, i64 1
-  %.pr.i = load i8, ptr %s.addr.3.ph.i, align 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.epilogthread-pre-split.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i
-  %27 = phi i8 [ %.pr.i, %sw.epilogthread-pre-split.i ], [ %18, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i ]
-  %s.addr.3.i = phi ptr [ %s.addr.3.ph.i, %sw.epilogthread-pre-split.i ], [ %s.addr.2.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i ]
-  %tobool.not.i = icmp eq i8 %27, 0
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %sw.default.i
+  %s.addr.3.ph.i = getelementptr inbounds i8, ptr %s.addr.2.i, i64 1
+  %.pr.i = load i8, ptr %s.addr.3.ph.i, align 1
+  %tobool.not.i = icmp eq i8 %.pr.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.preheader.i, !llvm.loop !324
 
-if.end:                                           ; preds = %sw.epilog.i, %if.else, %if.then
+if.end:                                           ; preds = %sw.epilog.i, %_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer12write_bufferEPKcm.exit.i, %if.else, %if.then
   ret void
 }
 
@@ -35157,29 +35141,28 @@ while.end:                                        ; preds = %while.cond
   %_cur_lexeme_pos = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_lexer", ptr %this, i64 0, i32 1
   store ptr %cur.0, ptr %_cur_lexeme_pos, align 8
   %4 = load i8, ptr %cur.0, align 1
-  %conv2 = sext i8 %4 to i32
-  switch i32 %conv2, label %sw.default [
-    i32 0, label %sw.bb
-    i32 62, label %sw.bb3
-    i32 60, label %sw.bb9
-    i32 33, label %sw.bb20
-    i32 61, label %sw.bb30
-    i32 43, label %sw.bb33
-    i32 45, label %sw.bb36
-    i32 42, label %sw.bb39
-    i32 124, label %sw.bb42
-    i32 36, label %sw.bb45
-    i32 40, label %sw.bb88
-    i32 41, label %sw.bb91
-    i32 91, label %sw.bb94
-    i32 93, label %sw.bb97
-    i32 44, label %sw.bb100
-    i32 47, label %sw.bb103
-    i32 46, label %sw.bb114
-    i32 64, label %sw.bb149
-    i32 34, label %sw.bb152
-    i32 39, label %sw.bb152
-    i32 58, label %sw.bb173
+  switch i8 %4, label %sw.default [
+    i8 0, label %sw.bb
+    i8 62, label %sw.bb3
+    i8 60, label %sw.bb9
+    i8 33, label %sw.bb20
+    i8 61, label %sw.bb30
+    i8 43, label %sw.bb33
+    i8 45, label %sw.bb36
+    i8 42, label %sw.bb39
+    i8 124, label %sw.bb42
+    i8 36, label %sw.bb45
+    i8 40, label %sw.bb88
+    i8 41, label %sw.bb91
+    i8 91, label %sw.bb94
+    i8 93, label %sw.bb97
+    i8 44, label %sw.bb100
+    i8 47, label %sw.bb103
+    i8 46, label %sw.bb114
+    i8 64, label %sw.bb149
+    i8 34, label %sw.bb152
+    i8 39, label %sw.bb152
+    i8 58, label %sw.bb173
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -36353,18 +36336,17 @@ while.end.i81:                                    ; preds = %while.end.i81.loope
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
   store i64 %89, ptr %_depth.i68, align 8
   %103 = load i8, ptr %call28.val, align 1
-  %conv.i.i = sext i8 %103 to i32
-  switch i32 %conv.i.i, label %sw.epilog.i.i [
-    i32 98, label %sw.bb.i.i
-    i32 99, label %sw.bb4.i.i
-    i32 102, label %sw.bb43.i.i
-    i32 105, label %sw.bb58.i.i
-    i32 108, label %sw.bb66.i.i
-    i32 110, label %sw.bb98.i.i
-    i32 112, label %sw.bb163.i.i
-    i32 114, label %sw.bb170.i.i
-    i32 115, label %sw.bb178.i.i
-    i32 116, label %sw.bb251.i.i
+  switch i8 %103, label %sw.epilog.i.i [
+    i8 98, label %sw.bb.i.i
+    i8 99, label %sw.bb4.i.i
+    i8 102, label %sw.bb43.i.i
+    i8 105, label %sw.bb58.i.i
+    i8 108, label %sw.bb66.i.i
+    i8 110, label %sw.bb98.i.i
+    i8 112, label %sw.bb163.i.i
+    i8 114, label %sw.bb170.i.i
+    i8 115, label %sw.bb178.i.i
+    i8 116, label %sw.bb251.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %while.end.i81
@@ -38906,12 +38888,11 @@ return:                                           ; preds = %if.then10.i.i.i61, 
 define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_node_test_typeERKNS1_18xpath_lexer_stringE(ptr %name.0.val, ptr %name.8.val) unnamed_addr #8 align 2 {
 entry:
   %0 = load i8, ptr %name.0.val, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 99, label %sw.bb
-    i32 110, label %sw.bb2
-    i32 112, label %sw.bb6
-    i32 116, label %sw.bb10
+  switch i8 %0, label %sw.epilog [
+    i8 99, label %sw.bb
+    i8 110, label %sw.bb2
+    i8 112, label %sw.bb6
+    i8 116, label %sw.bb10
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -39544,15 +39525,14 @@ if.then47:                                        ; preds = %if.then45
 
 if.end49:                                         ; preds = %if.then45
   %34 = load i8, ptr %nt_name.sroa.0.0.copyload, align 1
-  %conv.i83 = sext i8 %34 to i32
-  switch i32 %conv.i83, label %if.then52 [
-    i32 97, label %sw.bb.i
-    i32 99, label %sw.bb9.i
-    i32 100, label %sw.bb13.i
-    i32 102, label %sw.bb21.i
-    i32 110, label %sw.bb29.i
-    i32 112, label %sw.bb33.i
-    i32 115, label %sw.bb45.i
+  switch i8 %34, label %if.then52 [
+    i8 97, label %sw.bb.i
+    i8 99, label %sw.bb9.i
+    i8 100, label %sw.bb13.i
+    i8 102, label %sw.bb21.i
+    i8 110, label %sw.bb29.i
+    i8 112, label %sw.bb33.i
+    i8 115, label %sw.bb45.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end49
@@ -39883,19 +39863,19 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i: ; preds = %for
   br i1 %cmp6.i.i242.i, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %for.body.i.i231.i, %for.body.i.i214.i, %for.body.i.i163.i, %for.body.i.i146.i, %for.body.i.i112.i, %for.body.i.i78.i, %for.body.i.i61.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit226.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit175.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit158.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit124.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit90.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit73.i, %if.end49
-  %_result.i84 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %74 = load ptr, ptr %_result.i84, align 8
+  %_result.i83 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %74 = load ptr, ptr %_result.i83, align 8
   store ptr @.str.76, ptr %74, align 8
   %75 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i85 = load ptr, ptr %75, align 8
-  %_query.i86 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %76 = load ptr, ptr %_query.i86, align 8
-  %sub.ptr.lhs.cast.i87 = ptrtoint ptr %_lexer.val.i85 to i64
-  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %76 to i64
-  %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i87, %sub.ptr.rhs.cast.i88
-  %77 = load ptr, ptr %_result.i84, align 8
-  %offset.i90 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %77, i64 0, i32 1
-  store i64 %sub.ptr.sub.i89, ptr %offset.i90, align 8
+  %_lexer.val.i84 = load ptr, ptr %75, align 8
+  %_query.i85 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %76 = load ptr, ptr %_query.i85, align 8
+  %sub.ptr.lhs.cast.i86 = ptrtoint ptr %_lexer.val.i84 to i64
+  %sub.ptr.rhs.cast.i87 = ptrtoint ptr %76 to i64
+  %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i86, %sub.ptr.rhs.cast.i87
+  %77 = load ptr, ptr %_result.i83, align 8
+  %offset.i89 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %77, i64 0, i32 1
+  store i64 %sub.ptr.sub.i88, ptr %offset.i89, align 8
   br label %return
 
 if.end54:                                         ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit192.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit209.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit226.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit175.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit141.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit158.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit107.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit124.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit90.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit56.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit73.i
@@ -39908,26 +39888,26 @@ if.end54:                                         ; preds = %_ZNK4pugi4impl12_GL
   ]
 
 if.then65:                                        ; preds = %if.end54
-  %nt_name.sroa.0.0.copyload209 = load ptr, ptr %_cur_lexeme_contents.i, align 8
-  %nt_name.sroa.12.0.copyload213 = load ptr, ptr %nt_name.sroa.12.0._cur_lexeme_contents.i.sroa_idx, align 8
+  %nt_name.sroa.0.0.copyload208 = load ptr, ptr %_cur_lexeme_contents.i, align 8
+  %nt_name.sroa.12.0.copyload212 = load ptr, ptr %nt_name.sroa.12.0._cur_lexeme_contents.i.sroa_idx, align 8
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
   %_lexer.val20.pr = load i32, ptr %5, align 8
   br label %if.then75
 
 if.else69:                                        ; preds = %if.end54
-  %_result.i92 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %78 = load ptr, ptr %_result.i92, align 8
+  %_result.i91 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %78 = load ptr, ptr %_result.i91, align 8
   store ptr @.str.77, ptr %78, align 8
   %79 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i93 = load ptr, ptr %79, align 8
-  %_query.i94 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %80 = load ptr, ptr %_query.i94, align 8
-  %sub.ptr.lhs.cast.i95 = ptrtoint ptr %_lexer.val.i93 to i64
-  %sub.ptr.rhs.cast.i96 = ptrtoint ptr %80 to i64
-  %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i96
-  %81 = load ptr, ptr %_result.i92, align 8
-  %offset.i98 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %81, i64 0, i32 1
-  store i64 %sub.ptr.sub.i97, ptr %offset.i98, align 8
+  %_lexer.val.i92 = load ptr, ptr %79, align 8
+  %_query.i93 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %80 = load ptr, ptr %_query.i93, align 8
+  %sub.ptr.lhs.cast.i94 = ptrtoint ptr %_lexer.val.i92 to i64
+  %sub.ptr.rhs.cast.i95 = ptrtoint ptr %80 to i64
+  %sub.ptr.sub.i96 = sub i64 %sub.ptr.lhs.cast.i94, %sub.ptr.rhs.cast.i95
+  %81 = load ptr, ptr %_result.i91, align 8
+  %offset.i97 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %81, i64 0, i32 1
+  store i64 %sub.ptr.sub.i96, ptr %offset.i97, align 8
   br label %return
 
 if.end73:                                         ; preds = %if.end54
@@ -39936,8 +39916,8 @@ if.end73:                                         ; preds = %if.end54
 
 if.then75:                                        ; preds = %if.then65, %if.then38
   %_lexer.val20 = phi i32 [ %_lexer.val20.pr, %if.then65 ], [ %_lexer.val23, %if.then38 ]
-  %nt_name.sroa.0.0.ph = phi ptr [ %nt_name.sroa.0.0.copyload209, %if.then65 ], [ %nt_name.sroa.0.0.copyload, %if.then38 ]
-  %nt_name.sroa.12.0.ph = phi ptr [ %nt_name.sroa.12.0.copyload213, %if.then65 ], [ %nt_name.sroa.12.0.copyload, %if.then38 ]
+  %nt_name.sroa.0.0.ph = phi ptr [ %nt_name.sroa.0.0.copyload208, %if.then65 ], [ %nt_name.sroa.0.0.copyload, %if.then38 ]
+  %nt_name.sroa.12.0.ph = phi ptr [ %nt_name.sroa.12.0.copyload212, %if.then65 ], [ %nt_name.sroa.12.0.copyload, %if.then38 ]
   %axis.1.ph = phi i8 [ %retval.0.i.ph, %if.then65 ], [ %axis.0, %if.then38 ]
   %cmp78 = icmp eq i32 %_lexer.val20, 12
   br i1 %cmp78, label %if.then79, label %if.else115
@@ -39955,31 +39935,31 @@ if.then84:                                        ; preds = %if.then79
   br i1 %cmp87, label %if.then88, label %if.end144
 
 if.then88:                                        ; preds = %if.then84
-  %_result.i99 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %82 = load ptr, ptr %_result.i99, align 8
+  %_result.i98 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %82 = load ptr, ptr %_result.i98, align 8
   store ptr @.str.78, ptr %82, align 8
   %83 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i100 = load ptr, ptr %83, align 8
-  %_query.i101 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %84 = load ptr, ptr %_query.i101, align 8
-  %sub.ptr.lhs.cast.i102 = ptrtoint ptr %_lexer.val.i100 to i64
-  %sub.ptr.rhs.cast.i103 = ptrtoint ptr %84 to i64
-  %sub.ptr.sub.i104 = sub i64 %sub.ptr.lhs.cast.i102, %sub.ptr.rhs.cast.i103
-  %85 = load ptr, ptr %_result.i99, align 8
-  %offset.i105 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %85, i64 0, i32 1
-  store i64 %sub.ptr.sub.i104, ptr %offset.i105, align 8
+  %_lexer.val.i99 = load ptr, ptr %83, align 8
+  %_query.i100 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %84 = load ptr, ptr %_query.i100, align 8
+  %sub.ptr.lhs.cast.i101 = ptrtoint ptr %_lexer.val.i99 to i64
+  %sub.ptr.rhs.cast.i102 = ptrtoint ptr %84 to i64
+  %sub.ptr.sub.i103 = sub i64 %sub.ptr.lhs.cast.i101, %sub.ptr.rhs.cast.i102
+  %85 = load ptr, ptr %_result.i98, align 8
+  %offset.i104 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %85, i64 0, i32 1
+  store i64 %sub.ptr.sub.i103, ptr %offset.i104, align 8
   br label %return
 
 if.else92:                                        ; preds = %if.then79
-  %sub.ptr.lhs.cast.i106 = ptrtoint ptr %nt_name.sroa.12.0.ph to i64
-  %sub.ptr.rhs.cast.i107 = ptrtoint ptr %nt_name.sroa.0.0.ph to i64
-  %sub.ptr.sub.i108 = sub i64 %sub.ptr.lhs.cast.i106, %sub.ptr.rhs.cast.i107
+  %sub.ptr.lhs.cast.i105 = ptrtoint ptr %nt_name.sroa.12.0.ph to i64
+  %sub.ptr.rhs.cast.i106 = ptrtoint ptr %nt_name.sroa.0.0.ph to i64
+  %sub.ptr.sub.i107 = sub i64 %sub.ptr.lhs.cast.i105, %sub.ptr.rhs.cast.i106
   %cmp7.not.i.i = icmp eq ptr %nt_name.sroa.12.0.ph, %nt_name.sroa.0.0.ph
   br i1 %cmp7.not.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw i64 %i.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.ptr.sub.i108
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.ptr.sub.i107
   br i1 %exitcond.not.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, label %for.body.i.i, !llvm.loop !99
 
 for.body.i.i:                                     ; preds = %if.else92, %for.cond.i.i
@@ -39992,7 +39972,7 @@ for.body.i.i:                                     ; preds = %if.else92, %for.con
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %if.else111
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %if.else92
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i108
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i107
   %88 = load i8, ptr %arrayidx4.i.i, align 1
   %cmp6.i.i = icmp eq i8 %88, 0
   br i1 %cmp6.i.i, label %if.then94, label %if.else111
@@ -40002,43 +39982,43 @@ if.then94:                                        ; preds = %_ZNK4pugi4impl12_GL
   br i1 %cmp97.not, label %if.end100, label %if.then98
 
 if.then98:                                        ; preds = %if.then94
-  %_result.i109 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %89 = load ptr, ptr %_result.i109, align 8
+  %_result.i108 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %89 = load ptr, ptr %_result.i108, align 8
   store ptr @.str.79, ptr %89, align 8
   %90 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i110 = load ptr, ptr %90, align 8
-  %_query.i111 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %91 = load ptr, ptr %_query.i111, align 8
-  %sub.ptr.lhs.cast.i112 = ptrtoint ptr %_lexer.val.i110 to i64
-  %sub.ptr.rhs.cast.i113 = ptrtoint ptr %91 to i64
-  %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
-  %92 = load ptr, ptr %_result.i109, align 8
-  %offset.i115 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %92, i64 0, i32 1
-  store i64 %sub.ptr.sub.i114, ptr %offset.i115, align 8
+  %_lexer.val.i109 = load ptr, ptr %90, align 8
+  %_query.i110 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %91 = load ptr, ptr %_query.i110, align 8
+  %sub.ptr.lhs.cast.i111 = ptrtoint ptr %_lexer.val.i109 to i64
+  %sub.ptr.rhs.cast.i112 = ptrtoint ptr %91 to i64
+  %sub.ptr.sub.i113 = sub i64 %sub.ptr.lhs.cast.i111, %sub.ptr.rhs.cast.i112
+  %92 = load ptr, ptr %_result.i108, align 8
+  %offset.i114 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %92, i64 0, i32 1
+  store i64 %sub.ptr.sub.i113, ptr %offset.i114, align 8
   br label %return
 
 if.end100:                                        ; preds = %if.then94
-  %nt_name.sroa.0.0.copyload211 = load ptr, ptr %_cur_lexeme_contents.i, align 8
-  %nt_name.sroa.12.0.copyload215 = load ptr, ptr %nt_name.sroa.12.0._cur_lexeme_contents.i.sroa_idx, align 8
+  %nt_name.sroa.0.0.copyload210 = load ptr, ptr %_cur_lexeme_contents.i, align 8
+  %nt_name.sroa.12.0.copyload214 = load ptr, ptr %nt_name.sroa.12.0._cur_lexeme_contents.i.sroa_idx, align 8
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
   %_lexer.val17 = load i32, ptr %5, align 8
   %cmp106.not = icmp eq i32 %_lexer.val17, 13
   br i1 %cmp106.not, label %if.end109, label %if.then107
 
 if.then107:                                       ; preds = %if.end100
-  %_result.i117 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %93 = load ptr, ptr %_result.i117, align 8
+  %_result.i116 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %93 = load ptr, ptr %_result.i116, align 8
   store ptr @.str.80, ptr %93, align 8
   %94 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i118 = load ptr, ptr %94, align 8
-  %_query.i119 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %95 = load ptr, ptr %_query.i119, align 8
-  %sub.ptr.lhs.cast.i120 = ptrtoint ptr %_lexer.val.i118 to i64
-  %sub.ptr.rhs.cast.i121 = ptrtoint ptr %95 to i64
-  %sub.ptr.sub.i122 = sub i64 %sub.ptr.lhs.cast.i120, %sub.ptr.rhs.cast.i121
-  %96 = load ptr, ptr %_result.i117, align 8
-  %offset.i123 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %96, i64 0, i32 1
-  store i64 %sub.ptr.sub.i122, ptr %offset.i123, align 8
+  %_lexer.val.i117 = load ptr, ptr %94, align 8
+  %_query.i118 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %95 = load ptr, ptr %_query.i118, align 8
+  %sub.ptr.lhs.cast.i119 = ptrtoint ptr %_lexer.val.i117 to i64
+  %sub.ptr.rhs.cast.i120 = ptrtoint ptr %95 to i64
+  %sub.ptr.sub.i121 = sub i64 %sub.ptr.lhs.cast.i119, %sub.ptr.rhs.cast.i120
+  %96 = load ptr, ptr %_result.i116, align 8
+  %offset.i122 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %96, i64 0, i32 1
+  store i64 %sub.ptr.sub.i121, ptr %offset.i122, align 8
   br label %return
 
 if.end109:                                        ; preds = %if.end100
@@ -40046,19 +40026,19 @@ if.end109:                                        ; preds = %if.end100
   br label %if.end140
 
 if.else111:                                       ; preds = %for.body.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
-  %_result.i124 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %97 = load ptr, ptr %_result.i124, align 8
+  %_result.i123 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %97 = load ptr, ptr %_result.i123, align 8
   store ptr @.str.81, ptr %97, align 8
   %98 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i125 = load ptr, ptr %98, align 8
-  %_query.i126 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %99 = load ptr, ptr %_query.i126, align 8
-  %sub.ptr.lhs.cast.i127 = ptrtoint ptr %_lexer.val.i125 to i64
-  %sub.ptr.rhs.cast.i128 = ptrtoint ptr %99 to i64
-  %sub.ptr.sub.i129 = sub i64 %sub.ptr.lhs.cast.i127, %sub.ptr.rhs.cast.i128
-  %100 = load ptr, ptr %_result.i124, align 8
-  %offset.i130 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %100, i64 0, i32 1
-  store i64 %sub.ptr.sub.i129, ptr %offset.i130, align 8
+  %_lexer.val.i124 = load ptr, ptr %98, align 8
+  %_query.i125 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %99 = load ptr, ptr %_query.i125, align 8
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %_lexer.val.i124 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %99 to i64
+  %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
+  %100 = load ptr, ptr %_result.i123, align 8
+  %offset.i129 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %100, i64 0, i32 1
+  store i64 %sub.ptr.sub.i128, ptr %offset.i129, align 8
   br label %return
 
 if.else115:                                       ; preds = %if.then75
@@ -40079,7 +40059,7 @@ land.lhs.true120:                                 ; preds = %land.lhs.true117
   %102 = load i8, ptr %arrayidx122, align 1
   %cmp124 = icmp eq i8 %102, 42
   %spec.select = select i1 %cmp124, ptr %arrayidx122, ptr %nt_name.sroa.12.0.ph
-  %spec.select252 = select i1 %cmp124, i32 8, i32 1
+  %spec.select251 = select i1 %cmp124, i32 8, i32 1
   br label %if.end140
 
 if.then135:                                       ; preds = %if.end34
@@ -40087,34 +40067,34 @@ if.then135:                                       ; preds = %if.end34
   br label %if.end144
 
 if.else137:                                       ; preds = %if.end34
-  %_result.i131 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %103 = load ptr, ptr %_result.i131, align 8
+  %_result.i130 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %103 = load ptr, ptr %_result.i130, align 8
   store ptr @.str.77, ptr %103, align 8
   %104 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i132 = load ptr, ptr %104, align 8
-  %_query.i133 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %105 = load ptr, ptr %_query.i133, align 8
-  %sub.ptr.lhs.cast.i134 = ptrtoint ptr %_lexer.val.i132 to i64
-  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %105 to i64
-  %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
-  %106 = load ptr, ptr %_result.i131, align 8
-  %offset.i137 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %106, i64 0, i32 1
-  store i64 %sub.ptr.sub.i136, ptr %offset.i137, align 8
+  %_lexer.val.i131 = load ptr, ptr %104, align 8
+  %_query.i132 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %105 = load ptr, ptr %_query.i132, align 8
+  %sub.ptr.lhs.cast.i133 = ptrtoint ptr %_lexer.val.i131 to i64
+  %sub.ptr.rhs.cast.i134 = ptrtoint ptr %105 to i64
+  %sub.ptr.sub.i135 = sub i64 %sub.ptr.lhs.cast.i133, %sub.ptr.rhs.cast.i134
+  %106 = load ptr, ptr %_result.i130, align 8
+  %offset.i136 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %106, i64 0, i32 1
+  store i64 %sub.ptr.sub.i135, ptr %offset.i136, align 8
   br label %return
 
 if.end140:                                        ; preds = %land.lhs.true120, %if.else115, %land.lhs.true117, %if.end109
-  %nt_name.sroa.0.1 = phi ptr [ %nt_name.sroa.0.0.copyload211, %if.end109 ], [ %nt_name.sroa.0.0.ph, %land.lhs.true117 ], [ %nt_name.sroa.0.0.ph, %if.else115 ], [ %nt_name.sroa.0.0.ph, %land.lhs.true120 ]
-  %nt_name.sroa.12.1 = phi ptr [ %nt_name.sroa.12.0.copyload215, %if.end109 ], [ %nt_name.sroa.12.0.ph, %land.lhs.true117 ], [ %nt_name.sroa.12.0.ph, %if.else115 ], [ %spec.select, %land.lhs.true120 ]
-  %nt_type.1 = phi i32 [ 6, %if.end109 ], [ 1, %land.lhs.true117 ], [ 1, %if.else115 ], [ %spec.select252, %land.lhs.true120 ]
+  %nt_name.sroa.0.1 = phi ptr [ %nt_name.sroa.0.0.copyload210, %if.end109 ], [ %nt_name.sroa.0.0.ph, %land.lhs.true117 ], [ %nt_name.sroa.0.0.ph, %if.else115 ], [ %nt_name.sroa.0.0.ph, %land.lhs.true120 ]
+  %nt_name.sroa.12.1 = phi ptr [ %nt_name.sroa.12.0.copyload214, %if.end109 ], [ %nt_name.sroa.12.0.ph, %land.lhs.true117 ], [ %nt_name.sroa.12.0.ph, %if.else115 ], [ %spec.select, %land.lhs.true120 ]
+  %nt_type.1 = phi i32 [ 6, %if.end109 ], [ 1, %land.lhs.true117 ], [ 1, %if.else115 ], [ %spec.select251, %land.lhs.true120 ]
   %this.val35 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %nt_name.sroa.0.1, null
   br i1 %tobool.not.i, label %if.end144, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end140
-  %sub.ptr.lhs.cast.i138 = ptrtoint ptr %nt_name.sroa.12.1 to i64
-  %sub.ptr.rhs.cast.i139 = ptrtoint ptr %nt_name.sroa.0.1 to i64
-  %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i138, %sub.ptr.rhs.cast.i139
-  %107 = and i64 %sub.ptr.sub.i140, -8
+  %sub.ptr.lhs.cast.i137 = ptrtoint ptr %nt_name.sroa.12.1 to i64
+  %sub.ptr.rhs.cast.i138 = ptrtoint ptr %nt_name.sroa.0.1 to i64
+  %sub.ptr.sub.i139 = sub i64 %sub.ptr.lhs.cast.i137, %sub.ptr.rhs.cast.i138
+  %107 = and i64 %sub.ptr.sub.i139, -8
   %and.i.i = add i64 %107, 8
   %_root_size.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val35, i64 0, i32 1
   %108 = load i64, ptr %_root_size.i.i, align 8
@@ -40161,82 +40141,82 @@ if.end14.i.i:                                     ; preds = %if.else.i.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end14.i.i, %if.then.i.i
-  %retval.0.i.i141 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %115, %if.end14.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i141, ptr nonnull align 1 %nt_name.sroa.0.1, i64 %sub.ptr.sub.i140, i1 false)
-  %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i141, i64 %sub.ptr.sub.i140
+  %retval.0.i.i140 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %115, %if.end14.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i140, ptr nonnull align 1 %nt_name.sroa.0.1, i64 %sub.ptr.sub.i139, i1 false)
+  %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i140, i64 %sub.ptr.sub.i139
   store i8 0, ptr %arrayidx.i, align 1
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then84, %if.then135, %if.end73, %if.end5.i, %if.end140
-  %axis.2238.ph = phi i8 [ %axis.1.ph, %if.end140 ], [ %axis.1.ph, %if.end5.i ], [ %axis.1.ph, %if.then84 ], [ %axis.0, %if.then135 ], [ %retval.0.i.ph, %if.end73 ]
-  %nt_type.1237.ph = phi i32 [ %nt_type.1, %if.end140 ], [ %nt_type.1, %if.end5.i ], [ %call86, %if.then84 ], [ 7, %if.then135 ], [ 7, %if.end73 ]
-  %retval.0.i142.ph = phi ptr [ @.str, %if.end140 ], [ %retval.0.i.i141, %if.end5.i ], [ @.str, %if.then84 ], [ @.str, %if.then135 ], [ @.str, %if.end73 ]
+  %axis.2237.ph = phi i8 [ %axis.1.ph, %if.end140 ], [ %axis.1.ph, %if.end5.i ], [ %axis.1.ph, %if.then84 ], [ %axis.0, %if.then135 ], [ %retval.0.i.ph, %if.end73 ]
+  %nt_type.1236.ph = phi i32 [ %nt_type.1, %if.end140 ], [ %nt_type.1, %if.end5.i ], [ %call86, %if.then84 ], [ 7, %if.then135 ], [ 7, %if.end73 ]
+  %retval.0.i141.ph = phi ptr [ @.str, %if.end140 ], [ %retval.0.i.i140, %if.end5.i ], [ @.str, %if.then84 ], [ @.str, %if.then135 ], [ @.str, %if.end73 ]
   %this.val = load ptr, ptr %this, align 8
-  %_root_size.i.i.i143 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 1
-  %116 = load i64, ptr %_root_size.i.i.i143, align 8
-  %add2.i.i.i144 = add i64 %116, 40
+  %_root_size.i.i.i142 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 1
+  %116 = load i64, ptr %_root_size.i.i.i142, align 8
+  %add2.i.i.i143 = add i64 %116, 40
   %117 = load ptr, ptr %this.val, align 8
-  %capacity.i.i.i145 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %117, i64 0, i32 1
-  %118 = load i64, ptr %capacity.i.i.i145, align 8
-  %cmp.not.i.i.i146 = icmp ugt i64 %add2.i.i.i144, %118
-  br i1 %cmp.not.i.i.i146, label %if.else.i.i.i158, label %if.then.i.i.i147
+  %capacity.i.i.i144 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %117, i64 0, i32 1
+  %118 = load i64, ptr %capacity.i.i.i144, align 8
+  %cmp.not.i.i.i145 = icmp ugt i64 %add2.i.i.i143, %118
+  br i1 %cmp.not.i.i.i145, label %if.else.i.i.i157, label %if.then.i.i.i146
 
-if.then.i.i.i147:                                 ; preds = %if.end144
+if.then.i.i.i146:                                 ; preds = %if.end144
   %119 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %117, i64 0, i32 2
-  %add.ptr.i.i.i148 = getelementptr inbounds i8, ptr %119, i64 %116
-  store i64 %add2.i.i.i144, ptr %_root_size.i.i.i143, align 8
+  %add.ptr.i.i.i147 = getelementptr inbounds i8, ptr %119, i64 %116
+  store i64 %add2.i.i.i143, ptr %_root_size.i.i.i142, align 8
   br label %if.end148
 
-if.else.i.i.i158:                                 ; preds = %if.end144
+if.else.i.i.i157:                                 ; preds = %if.end144
   %120 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i159 = tail call noundef ptr %120(i64 noundef 4112)
-  %tobool.not.i.i.i160 = icmp eq ptr %call.i.i.i159, null
-  br i1 %tobool.not.i.i.i160, label %if.then10.i.i.i163, label %if.end14.i.i.i161
+  %call.i.i.i158 = tail call noundef ptr %120(i64 noundef 4112)
+  %tobool.not.i.i.i159 = icmp eq ptr %call.i.i.i158, null
+  br i1 %tobool.not.i.i.i159, label %if.then10.i.i.i162, label %if.end14.i.i.i160
 
-if.then10.i.i.i163:                               ; preds = %if.else.i.i.i158
-  %_error.i.i.i164 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 2
-  %121 = load ptr, ptr %_error.i.i.i164, align 8
-  %tobool11.not.i.i.i165 = icmp eq ptr %121, null
-  br i1 %tobool11.not.i.i.i165, label %return, label %if.then12.i.i.i166
+if.then10.i.i.i162:                               ; preds = %if.else.i.i.i157
+  %_error.i.i.i163 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 2
+  %121 = load ptr, ptr %_error.i.i.i163, align 8
+  %tobool11.not.i.i.i164 = icmp eq ptr %121, null
+  br i1 %tobool11.not.i.i.i164, label %return, label %if.then12.i.i.i165
 
-if.then12.i.i.i166:                               ; preds = %if.then10.i.i.i163
+if.then12.i.i.i165:                               ; preds = %if.then10.i.i.i162
   store i8 1, ptr %121, align 1
   br label %return
 
-if.end14.i.i.i161:                                ; preds = %if.else.i.i.i158
+if.end14.i.i.i160:                                ; preds = %if.else.i.i.i157
   %122 = load ptr, ptr %this.val, align 8
-  store ptr %122, ptr %call.i.i.i159, align 8
-  %capacity16.i.i.i162 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i159, i64 0, i32 1
-  store i64 4096, ptr %capacity16.i.i.i162, align 8
-  store ptr %call.i.i.i159, ptr %this.val, align 8
-  store i64 40, ptr %_root_size.i.i.i143, align 8
-  %123 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i159, i64 0, i32 2
+  store ptr %122, ptr %call.i.i.i158, align 8
+  %capacity16.i.i.i161 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i158, i64 0, i32 1
+  store i64 4096, ptr %capacity16.i.i.i161, align 8
+  store ptr %call.i.i.i158, ptr %this.val, align 8
+  store i64 40, ptr %_root_size.i.i.i142, align 8
+  %123 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i158, i64 0, i32 2
   br label %if.end148
 
-if.end148:                                        ; preds = %if.end14.i.i.i161, %if.then.i.i.i147
-  %retval.0.i.i.i150 = phi ptr [ %add.ptr.i.i.i148, %if.then.i.i.i147 ], [ %123, %if.end14.i.i.i161 ]
-  store i8 56, ptr %retval.0.i.i.i150, align 8
-  %_rettype.i.i151 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 1
-  store i8 1, ptr %_rettype.i.i151, align 1
-  %_axis.i.i152 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 2
-  store i8 %axis.2238.ph, ptr %_axis.i.i152, align 2
-  %_test.i.i153 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 3
-  %conv3.i.i = trunc i32 %nt_type.1237.ph to i8
-  store i8 %conv3.i.i, ptr %_test.i.i153, align 1
-  %_left.i.i154 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 4
-  store ptr %set, ptr %_left.i.i154, align 8
-  %_right.i.i155 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 5
-  %_data4.i.i156 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_right.i.i155, i8 0, i64 16, i1 false)
-  store ptr %retval.0.i142.ph, ptr %_data4.i.i156, align 8
+if.end148:                                        ; preds = %if.end14.i.i.i160, %if.then.i.i.i146
+  %retval.0.i.i.i149 = phi ptr [ %add.ptr.i.i.i147, %if.then.i.i.i146 ], [ %123, %if.end14.i.i.i160 ]
+  store i8 56, ptr %retval.0.i.i.i149, align 8
+  %_rettype.i.i150 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 1
+  store i8 1, ptr %_rettype.i.i150, align 1
+  %_axis.i.i151 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 2
+  store i8 %axis.2237.ph, ptr %_axis.i.i151, align 2
+  %_test.i.i152 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 3
+  %conv3.i.i = trunc i32 %nt_type.1236.ph to i8
+  store i8 %conv3.i.i, ptr %_test.i.i152, align 1
+  %_left.i.i153 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 4
+  store ptr %set, ptr %_left.i.i153, align 8
+  %_right.i.i154 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 5
+  %_data4.i.i155 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i149, i64 0, i32 7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_right.i.i154, i8 0, i64 16, i1 false)
+  store ptr %retval.0.i141.ph, ptr %_data4.i.i155, align 8
   %_depth = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 6
   %124 = load i64, ptr %_depth, align 8
-  %_lexer.val15260 = load i32, ptr %5, align 8
-  %cmp151261 = icmp eq i32 %_lexer.val15260, 18
-  br i1 %cmp151261, label %while.body, label %while.end
+  %_lexer.val15259 = load i32, ptr %5, align 8
+  %cmp151260 = icmp eq i32 %_lexer.val15259, 18
+  br i1 %cmp151260, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end148, %if.end171
-  %last.0262 = phi ptr [ %retval.0.i.i.i182, %if.end171 ], [ null, %if.end148 ]
+  %last.0261 = phi ptr [ %retval.0.i.i.i181, %if.end171 ], [ null, %if.end148 ]
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
   %125 = load i64, ptr %_depth, align 8
   %inc = add i64 %125, 1
@@ -40252,19 +40232,19 @@ if.then155:                                       ; preds = %while.body
   %_lexer.val.i.i = load ptr, ptr %127, align 8
   %_query.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
   %128 = load ptr, ptr %_query.i.i, align 8
-  %sub.ptr.lhs.cast.i.i168 = ptrtoint ptr %_lexer.val.i.i to i64
-  %sub.ptr.rhs.cast.i.i169 = ptrtoint ptr %128 to i64
-  %sub.ptr.sub.i.i170 = sub i64 %sub.ptr.lhs.cast.i.i168, %sub.ptr.rhs.cast.i.i169
+  %sub.ptr.lhs.cast.i.i167 = ptrtoint ptr %_lexer.val.i.i to i64
+  %sub.ptr.rhs.cast.i.i168 = ptrtoint ptr %128 to i64
+  %sub.ptr.sub.i.i169 = sub i64 %sub.ptr.lhs.cast.i.i167, %sub.ptr.rhs.cast.i.i168
   %129 = load ptr, ptr %_result.i.i, align 8
   %offset.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %129, i64 0, i32 1
-  store i64 %sub.ptr.sub.i.i170, ptr %offset.i.i, align 8
+  store i64 %sub.ptr.sub.i.i169, ptr %offset.i.i, align 8
   br label %return
 
 if.end157:                                        ; preds = %while.body
   %inc.i = add nsw i64 %125, 2
   store i64 %inc.i, ptr %_depth, align 8
   %cmp.i = icmp ugt i64 %inc.i, 1024
-  br i1 %cmp.i, label %if.then.i, label %if.end.i171
+  br i1 %cmp.i, label %if.then.i, label %if.end.i170
 
 if.then.i:                                        ; preds = %if.end157
   %_result.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
@@ -40282,12 +40262,12 @@ if.then.i:                                        ; preds = %if.end157
   store i64 %sub.ptr.sub.i.i.i, ptr %offset.i.i.i, align 8
   br label %return
 
-if.end.i171:                                      ; preds = %if.end157
+if.end.i170:                                      ; preds = %if.end157
   %call3.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %tobool.not.i172 = icmp eq ptr %call3.i, null
-  br i1 %tobool.not.i172, label %return, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
+  %tobool.not.i171 = icmp eq ptr %call3.i, null
+  br i1 %tobool.not.i171, label %return, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
 
-_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %if.end.i171
+_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %if.end.i170
   %call6.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i, i32 noundef 0)
   store i64 %inc, ptr %_depth, align 8
   %tobool159.not = icmp eq ptr %call6.i, null
@@ -40295,82 +40275,82 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %i
 
 if.end161:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
   %this.val36 = load ptr, ptr %this, align 8
-  %_root_size.i.i.i175 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 1
-  %134 = load i64, ptr %_root_size.i.i.i175, align 8
-  %add2.i.i.i176 = add i64 %134, 40
+  %_root_size.i.i.i174 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 1
+  %134 = load i64, ptr %_root_size.i.i.i174, align 8
+  %add2.i.i.i175 = add i64 %134, 40
   %135 = load ptr, ptr %this.val36, align 8
-  %capacity.i.i.i177 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 1
-  %136 = load i64, ptr %capacity.i.i.i177, align 8
-  %cmp.not.i.i.i178 = icmp ugt i64 %add2.i.i.i176, %136
-  br i1 %cmp.not.i.i.i178, label %if.else.i.i.i189, label %if.then.i.i.i179
+  %capacity.i.i.i176 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 1
+  %136 = load i64, ptr %capacity.i.i.i176, align 8
+  %cmp.not.i.i.i177 = icmp ugt i64 %add2.i.i.i175, %136
+  br i1 %cmp.not.i.i.i177, label %if.else.i.i.i188, label %if.then.i.i.i178
 
-if.then.i.i.i179:                                 ; preds = %if.end161
+if.then.i.i.i178:                                 ; preds = %if.end161
   %137 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 2
-  %add.ptr.i.i.i180 = getelementptr inbounds i8, ptr %137, i64 %134
-  store i64 %add2.i.i.i176, ptr %_root_size.i.i.i175, align 8
+  %add.ptr.i.i.i179 = getelementptr inbounds i8, ptr %137, i64 %134
+  store i64 %add2.i.i.i175, ptr %_root_size.i.i.i174, align 8
   br label %if.end165
 
-if.else.i.i.i189:                                 ; preds = %if.end161
+if.else.i.i.i188:                                 ; preds = %if.end161
   %138 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i190 = tail call noundef ptr %138(i64 noundef 4112)
-  %tobool.not.i.i.i191 = icmp eq ptr %call.i.i.i190, null
-  br i1 %tobool.not.i.i.i191, label %if.then10.i.i.i194, label %if.end14.i.i.i192
+  %call.i.i.i189 = tail call noundef ptr %138(i64 noundef 4112)
+  %tobool.not.i.i.i190 = icmp eq ptr %call.i.i.i189, null
+  br i1 %tobool.not.i.i.i190, label %if.then10.i.i.i193, label %if.end14.i.i.i191
 
-if.then10.i.i.i194:                               ; preds = %if.else.i.i.i189
-  %_error.i.i.i195 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 2
-  %139 = load ptr, ptr %_error.i.i.i195, align 8
-  %tobool11.not.i.i.i196 = icmp eq ptr %139, null
-  br i1 %tobool11.not.i.i.i196, label %return, label %if.then12.i.i.i197
+if.then10.i.i.i193:                               ; preds = %if.else.i.i.i188
+  %_error.i.i.i194 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 2
+  %139 = load ptr, ptr %_error.i.i.i194, align 8
+  %tobool11.not.i.i.i195 = icmp eq ptr %139, null
+  br i1 %tobool11.not.i.i.i195, label %return, label %if.then12.i.i.i196
 
-if.then12.i.i.i197:                               ; preds = %if.then10.i.i.i194
+if.then12.i.i.i196:                               ; preds = %if.then10.i.i.i193
   store i8 1, ptr %139, align 1
   br label %return
 
-if.end14.i.i.i192:                                ; preds = %if.else.i.i.i189
+if.end14.i.i.i191:                                ; preds = %if.else.i.i.i188
   %140 = load ptr, ptr %this.val36, align 8
-  store ptr %140, ptr %call.i.i.i190, align 8
-  %capacity16.i.i.i193 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i190, i64 0, i32 1
-  store i64 4096, ptr %capacity16.i.i.i193, align 8
-  store ptr %call.i.i.i190, ptr %this.val36, align 8
-  store i64 40, ptr %_root_size.i.i.i175, align 8
-  %141 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i190, i64 0, i32 2
+  store ptr %140, ptr %call.i.i.i189, align 8
+  %capacity16.i.i.i192 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i189, i64 0, i32 1
+  store i64 4096, ptr %capacity16.i.i.i192, align 8
+  store ptr %call.i.i.i189, ptr %this.val36, align 8
+  store i64 40, ptr %_root_size.i.i.i174, align 8
+  %141 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i189, i64 0, i32 2
   br label %if.end165
 
-if.end165:                                        ; preds = %if.end14.i.i.i192, %if.then.i.i.i179
-  %retval.0.i.i.i182 = phi ptr [ %add.ptr.i.i.i180, %if.then.i.i.i179 ], [ %141, %if.end14.i.i.i192 ]
-  store <4 x i8> <i8 16, i8 1, i8 0, i8 0>, ptr %retval.0.i.i.i182, align 8
-  %_left.i.i186 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i182, i64 0, i32 4
-  store ptr null, ptr %_left.i.i186, align 8
-  %_right.i.i187 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i182, i64 0, i32 5
-  store ptr %call6.i, ptr %_right.i.i187, align 8
-  %_next.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i182, i64 0, i32 6
+if.end165:                                        ; preds = %if.end14.i.i.i191, %if.then.i.i.i178
+  %retval.0.i.i.i181 = phi ptr [ %add.ptr.i.i.i179, %if.then.i.i.i178 ], [ %141, %if.end14.i.i.i191 ]
+  store <4 x i8> <i8 16, i8 1, i8 0, i8 0>, ptr %retval.0.i.i.i181, align 8
+  %_left.i.i185 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i181, i64 0, i32 4
+  store ptr null, ptr %_left.i.i185, align 8
+  %_right.i.i186 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i181, i64 0, i32 5
+  store ptr %call6.i, ptr %_right.i.i186, align 8
+  %_next.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i181, i64 0, i32 6
   store ptr null, ptr %_next.i.i, align 8
   %_lexer.val = load i32, ptr %5, align 8
   %cmp168.not = icmp eq i32 %_lexer.val, 19
   br i1 %cmp168.not, label %if.end171, label %if.then169
 
 if.then169:                                       ; preds = %if.end165
-  %_result.i198 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %142 = load ptr, ptr %_result.i198, align 8
+  %_result.i197 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
+  %142 = load ptr, ptr %_result.i197, align 8
   store ptr @.str.38, ptr %142, align 8
   %143 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i199 = load ptr, ptr %143, align 8
-  %_query.i200 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %144 = load ptr, ptr %_query.i200, align 8
-  %sub.ptr.lhs.cast.i201 = ptrtoint ptr %_lexer.val.i199 to i64
-  %sub.ptr.rhs.cast.i202 = ptrtoint ptr %144 to i64
-  %sub.ptr.sub.i203 = sub i64 %sub.ptr.lhs.cast.i201, %sub.ptr.rhs.cast.i202
-  %145 = load ptr, ptr %_result.i198, align 8
-  %offset.i204 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %145, i64 0, i32 1
-  store i64 %sub.ptr.sub.i203, ptr %offset.i204, align 8
+  %_lexer.val.i198 = load ptr, ptr %143, align 8
+  %_query.i199 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
+  %144 = load ptr, ptr %_query.i199, align 8
+  %sub.ptr.lhs.cast.i200 = ptrtoint ptr %_lexer.val.i198 to i64
+  %sub.ptr.rhs.cast.i201 = ptrtoint ptr %144 to i64
+  %sub.ptr.sub.i202 = sub i64 %sub.ptr.lhs.cast.i200, %sub.ptr.rhs.cast.i201
+  %145 = load ptr, ptr %_result.i197, align 8
+  %offset.i203 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %145, i64 0, i32 1
+  store i64 %sub.ptr.sub.i202, ptr %offset.i203, align 8
   br label %return
 
 if.end171:                                        ; preds = %if.end165
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
-  %tobool173.not = icmp eq ptr %last.0262, null
-  %_next.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %last.0262, i64 0, i32 6
-  %_right.i.i155.sink = select i1 %tobool173.not, ptr %_right.i.i155, ptr %_next.i
-  store ptr %retval.0.i.i.i182, ptr %_right.i.i155.sink, align 8
+  %tobool173.not = icmp eq ptr %last.0261, null
+  %_next.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %last.0261, i64 0, i32 6
+  %_right.i.i154.sink = select i1 %tobool173.not, ptr %_right.i.i154, ptr %_next.i
+  store ptr %retval.0.i.i.i181, ptr %_right.i.i154.sink, align 8
   %_lexer.val15 = load i32, ptr %5, align 8
   %cmp151 = icmp eq i32 %_lexer.val15, 18
   br i1 %cmp151, label %while.body, label %while.end, !llvm.loop !357
@@ -40379,8 +40359,8 @@ while.end:                                        ; preds = %if.end171, %if.end1
   store i64 %124, ptr %_depth, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i171, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit, %if.then10.i.i.i194, %if.then12.i.i.i197, %if.then.i, %if.then10.i.i.i163, %if.then12.i.i.i166, %if.then12.i.i, %if.then10.i.i, %cond.true.i57, %if.then12.i.i.i74, %if.then10.i.i.i71, %cond.true.i, %if.then12.i.i.i, %if.then10.i.i.i, %while.end, %if.then169, %if.then155, %if.else137, %if.else111, %if.then107, %if.then98, %if.then88, %if.else69, %if.then52, %if.then47, %if.then28, %if.then15, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then47 ], [ null, %if.then88 ], [ null, %if.then155 ], [ null, %if.then169 ], [ %retval.0.i.i.i150, %while.end ], [ null, %if.then98 ], [ null, %if.then107 ], [ null, %if.else111 ], [ null, %if.else69 ], [ null, %if.then52 ], [ null, %if.else137 ], [ null, %if.then15 ], [ null, %if.then28 ], [ %retval.0.i.i.i, %cond.true.i ], [ null, %if.then12.i.i.i ], [ null, %if.then10.i.i.i ], [ %retval.0.i.i.i58, %cond.true.i57 ], [ null, %if.then12.i.i.i74 ], [ null, %if.then10.i.i.i71 ], [ null, %if.then10.i.i ], [ null, %if.then12.i.i ], [ null, %if.then12.i.i.i166 ], [ null, %if.then10.i.i.i163 ], [ null, %if.then.i ], [ null, %if.then12.i.i.i197 ], [ null, %if.then10.i.i.i194 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %if.end.i171 ]
+return:                                           ; preds = %if.end.i170, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit, %if.then10.i.i.i193, %if.then12.i.i.i196, %if.then.i, %if.then10.i.i.i162, %if.then12.i.i.i165, %if.then12.i.i, %if.then10.i.i, %cond.true.i57, %if.then12.i.i.i74, %if.then10.i.i.i71, %cond.true.i, %if.then12.i.i.i, %if.then10.i.i.i, %while.end, %if.then169, %if.then155, %if.else137, %if.else111, %if.then107, %if.then98, %if.then88, %if.else69, %if.then52, %if.then47, %if.then28, %if.then15, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then47 ], [ null, %if.then88 ], [ null, %if.then155 ], [ null, %if.then169 ], [ %retval.0.i.i.i149, %while.end ], [ null, %if.then98 ], [ null, %if.then107 ], [ null, %if.else111 ], [ null, %if.else69 ], [ null, %if.then52 ], [ null, %if.else137 ], [ null, %if.then15 ], [ null, %if.then28 ], [ %retval.0.i.i.i, %cond.true.i ], [ null, %if.then12.i.i.i ], [ null, %if.then10.i.i.i ], [ %retval.0.i.i.i58, %cond.true.i57 ], [ null, %if.then12.i.i.i74 ], [ null, %if.then10.i.i.i71 ], [ null, %if.then10.i.i ], [ null, %if.then12.i.i ], [ null, %if.then12.i.i.i165 ], [ null, %if.then10.i.i.i162 ], [ null, %if.then.i ], [ null, %if.then12.i.i.i196 ], [ null, %if.then10.i.i.i193 ], [ null, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit ], [ null, %if.end.i170 ]
   ret ptr %retval.0
 }
 
@@ -40550,9 +40530,8 @@ return:                                           ; preds = %entry, %_ZNK4pugi4i
 define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_114xpath_ast_node14is_posinv_exprEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #28 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %conv = sext i8 %0 to i32
-  %switch.tableidx = add nsw i32 %conv, -16
-  %1 = icmp ult i32 %switch.tableidx, 42
+  %switch.tableidx = add i8 %0, -16
+  %1 = icmp ult i8 %switch.tableidx, 42
   br i1 %1, label %switch.hole_check, label %sw.default
 
 sw.default:                                       ; preds = %switch.hole_check, %entry
@@ -40583,14 +40562,14 @@ for.body:                                         ; preds = %if.end, %for.cond
   br i1 %call7, label %for.cond, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 3298534883455, %switch.maskindex
   %3 = and i64 %switch.shifted, 1
   %switch.lobit.not = icmp eq i64 %3, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.cast = zext nneg i32 %switch.tableidx to i42
+  %switch.cast = zext nneg i8 %switch.tableidx to i42
   %switch.downshift = lshr i42 -1099511627745, %switch.cast
   %4 = and i42 %switch.downshift, 1
   %switch.masked = icmp ne i42 %4, 0
@@ -46968,16 +46947,15 @@ entry:
   %0 = load i64, ptr %n, align 8
   %1 = trunc i64 %0 to i32
   %conv = and i32 %1, 15
-  %conv2 = sext i8 %this.3.val to i32
-  switch i32 %conv2, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb9
-    i32 5, label %sw.bb15
-    i32 4, label %sw.bb22
-    i32 6, label %sw.bb28
-    i32 7, label %sw.bb41
-    i32 8, label %sw.bb47
+  switch i8 %this.3.val, label %return [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb6
+    i8 3, label %sw.bb9
+    i8 5, label %sw.bb15
+    i8 4, label %sw.bb22
+    i8 6, label %sw.bb28
+    i8 7, label %sw.bb41
+    i8 8, label %sw.bb47
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -47308,12 +47286,11 @@ entry:
   %0 = load ptr, ptr %name2, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, ptr @.str, ptr %0
-  %conv = sext i8 %this.3.val to i32
-  switch i32 %conv, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %land.rhs.i.i16.preheader
-    i32 7, label %land.rhs.i.i16.preheader
-    i32 8, label %sw.bb14
+  switch i8 %this.3.val, label %return [
+    i8 1, label %sw.bb
+    i8 2, label %land.rhs.i.i16.preheader
+    i8 7, label %land.rhs.i.i16.preheader
+    i8 8, label %sw.bb14
   ]
 
 land.rhs.i.i16.preheader:                         ; preds = %entry, %entry

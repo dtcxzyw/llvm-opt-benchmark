@@ -831,17 +831,16 @@ if.then.i:                                        ; preds = %entry
 _ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %valBuf) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valBufEnd) #19
-  %conv5 = sext i8 %spec.store.select to i32
-  switch i32 %conv5, label %sw.default [
-    i32 110, label %sw.bb
-    i32 100, label %sw.bb15
-    i32 99, label %sw.bb31
-    i32 111, label %sw.bb46
-    i32 79, label %sw.bb46
-    i32 120, label %sw.bb60
-    i32 88, label %sw.bb77
-    i32 98, label %sw.bb94
-    i32 66, label %sw.bb94
+  switch i8 %spec.store.select, label %sw.default [
+    i8 110, label %sw.bb
+    i8 100, label %sw.bb15
+    i8 99, label %sw.bb31
+    i8 111, label %sw.bb46
+    i8 79, label %sw.bb46
+    i8 120, label %sw.bb60
+    i8 88, label %sw.bb77
+    i8 98, label %sw.bb94
+    i8 66, label %sw.bb94
   ]
 
 sw.bb:                                            ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit

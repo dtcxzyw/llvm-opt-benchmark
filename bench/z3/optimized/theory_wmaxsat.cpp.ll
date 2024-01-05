@@ -6535,10 +6535,9 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   %idxprom.i.i.i.i.i = zext i32 %add.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %idxprom.i.i.i.i.i
   %22 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %22 to i32
-  switch i32 %conv.i.i.i.i, label %invoke.cont27 [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %22, label %invoke.cont27 [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont24
@@ -8618,7 +8617,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i.i.i
   %6 = load i32, ptr %add.ptr13.i.i.i.i, align 4
@@ -8805,7 +8804,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i
   %5 = load i32, ptr %add.ptr13.i, align 4
@@ -9874,7 +9873,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds i32, ptr %__first, i64 %sub13
   %6 = load i32, ptr %add.ptr14, align 4

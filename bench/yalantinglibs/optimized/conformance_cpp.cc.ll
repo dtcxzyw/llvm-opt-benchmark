@@ -558,9 +558,9 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  switch i64 %conv3, label %if.end.i.i.i.i [
-    i64 0, label %invoke.cont
-    i64 1, label %if.then.i2.i.i
+  switch i32 %add2, label %if.end.i.i.i.i [
+    i32 0, label %invoke.cont
+    i32 1, label %if.then.i2.i.i
   ]
 
 if.then.i2.i.i:                                   ; preds = %if.end.i.i
@@ -1233,8 +1233,8 @@ if.end.i:                                         ; preds = %.noexc
   br i1 %cmp.i.i.i8, label %if.then.i.i.i21, label %if.else.i.i.i
 
 if.then.i.i.i21:                                  ; preds = %if.end.i
-  %sub.i.i.i = sub i64 %conv.i, %52
-  %sub3.i.i.i.i.i.i = sub i64 9223372036854775807, %52
+  %sub.i.i.i = sub nsw i64 %conv.i, %52
+  %sub3.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %52
   %cmp.i.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i.i, %sub.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i.i
 
@@ -3069,7 +3069,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %mul.i = shl i64 %cond.i, 1
+  %mul.i = shl nuw i64 %cond.i, 1
   %cmp3.i = icmp ult i64 %sub4, %mul.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end11.i
 
@@ -4341,7 +4341,7 @@ if.then.i:                                        ; preds = %if.then4
   unreachable
 
 land.lhs.true.i:                                  ; preds = %if.then4
-  %mul.i = shl i64 %cond.i, 1
+  %mul.i = shl nuw i64 %cond.i, 1
   %cmp3.i = icmp ult i64 %0, %mul.i
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %mul.i, i64 9223372036854775807)
   %__new_capacity.0 = select i1 %cmp3.i, i64 %spec.store.select.i, i64 %0

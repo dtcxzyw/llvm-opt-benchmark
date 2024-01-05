@@ -1883,15 +1883,15 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end144 [
-    i32 271, label %if.then
-    i32 255, label %if.then
-    i32 254, label %if.then
-    i32 253, label %if.then
-    i32 266, label %if.then48
-    i32 264, label %if.then48
-    i32 260, label %if.then48
-    i32 258, label %if.then48
+  switch i16 %bf.clear.i, label %if.end144 [
+    i16 271, label %if.then
+    i16 255, label %if.then
+    i16 254, label %if.then
+    i16 253, label %if.then
+    i16 266, label %if.then48
+    i16 264, label %if.then48
+    i16 260, label %if.then48
+    i16 258, label %if.then48
   ]
 
 if.then:                                          ; preds = %entry, %entry, %entry, %entry
@@ -1955,12 +1955,12 @@ ehcleanup14:                                      ; preds = %ehcleanup, %cleanup
   br label %eh.resume
 
 if.end15:                                         ; preds = %if.then
-  switch i32 %bf.cast.i, label %if.end144 [
-    i32 255, label %if.then17
-    i32 266, label %if.then48
-    i32 264, label %if.then48
-    i32 260, label %if.then48
-    i32 258, label %if.then48
+  switch i16 %bf.clear.i, label %if.end144 [
+    i16 255, label %if.then17
+    i16 266, label %if.then48
+    i16 264, label %if.then48
+    i16 260, label %if.then48
+    i16 258, label %if.then48
   ]
 
 if.then17:                                        ; preds = %if.end15
@@ -2084,10 +2084,10 @@ ehcleanup73:                                      ; preds = %ehcleanup69, %clean
   br label %eh.resume
 
 if.end75:                                         ; preds = %if.then48
-  switch i32 %bf.cast.i, label %if.end144 [
-    i32 260, label %if.then77
-    i32 264, label %if.then108
-    i32 266, label %if.then127
+  switch i16 %bf.clear.i, label %if.end144 [
+    i16 260, label %if.then77
+    i16 264, label %if.then108
+    i16 266, label %if.then127
   ]
 
 if.then77:                                        ; preds = %if.end75

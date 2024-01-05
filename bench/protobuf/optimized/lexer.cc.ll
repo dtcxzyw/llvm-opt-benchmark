@@ -563,26 +563,25 @@ if.then.i.i.i.i.i:                                ; preds = %while.end10.i.i.i
 _ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit: ; preds = %while.end10.i.i.i
   %add.ptr.i.pn.i.i.i = getelementptr inbounds i8, ptr %view.sroa.4.0.i.i.i, i64 %start.addr.0.i.i.i
   %13 = load i8, ptr %add.ptr.i.pn.i.i.i, align 1
-  %conv = sext i8 %13 to i32
-  switch i32 %conv, label %sw.default [
-    i32 123, label %sw.bb
-    i32 91, label %sw.bb4
-    i32 34, label %sw.bb6
-    i32 39, label %sw.bb6
-    i32 45, label %sw.bb8
-    i32 48, label %sw.bb8
-    i32 49, label %sw.bb8
-    i32 50, label %sw.bb8
-    i32 51, label %sw.bb8
-    i32 52, label %sw.bb8
-    i32 53, label %sw.bb8
-    i32 54, label %sw.bb8
-    i32 55, label %sw.bb8
-    i32 56, label %sw.bb8
-    i32 57, label %sw.bb8
-    i32 116, label %sw.bb10
-    i32 102, label %sw.bb12
-    i32 110, label %sw.bb14
+  switch i8 %13, label %sw.default [
+    i8 123, label %sw.bb
+    i8 91, label %sw.bb4
+    i8 34, label %sw.bb6
+    i8 39, label %sw.bb6
+    i8 45, label %sw.bb8
+    i8 48, label %sw.bb8
+    i8 49, label %sw.bb8
+    i8 50, label %sw.bb8
+    i8 51, label %sw.bb8
+    i8 52, label %sw.bb8
+    i8 53, label %sw.bb8
+    i8 54, label %sw.bb8
+    i8 55, label %sw.bb8
+    i8 56, label %sw.bb8
+    i8 57, label %sw.bb8
+    i8 116, label %sw.bb10
+    i8 102, label %sw.bb12
+    i8 110, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
@@ -779,12 +778,11 @@ if.then.i.i.i.i.i:                                ; preds = %while.end10.i.i.i
 _ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit: ; preds = %while.end10.i.i.i
   %add.ptr.i.pn.i.i.i = getelementptr inbounds i8, ptr %view.sroa.4.0.i.i.i, i64 %start.addr.0.i.i.i
   %11 = load i8, ptr %add.ptr.i.pn.i.i.i, align 1
-  %conv = sext i8 %11 to i32
-  switch i32 %conv, label %return.sink.split [
-    i32 10, label %do.body6
-    i32 13, label %do.body24
-    i32 9, label %do.body24
-    i32 32, label %do.body24
+  switch i8 %11, label %return.sink.split [
+    i8 10, label %do.body6
+    i8 13, label %do.body24
+    i8 9, label %do.body24
+    i8 32, label %do.body24
   ]
 
 do.body6:                                         ; preds = %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
@@ -2077,16 +2075,16 @@ do.end68:                                         ; preds = %.noexc121
   %add6.i = add i64 %60, 1
   store i64 %add6.i, ptr %col.i, align 8, !noalias !65
   store i64 0, ptr %_status54, align 8, !alias.scope !68
-  %conv69 = sext i8 %51 to i32
-  switch i32 %conv69, label %sw.default [
-    i32 34, label %sw.bb
-    i32 39, label %sw.bb
-    i32 92, label %sw.bb94
+  switch i8 %51, label %sw.default [
+    i8 34, label %sw.bb
+    i8 39, label %sw.bb
+    i8 92, label %sw.bb94
   ]
 
 sw.bb:                                            ; preds = %do.end68, %do.end68
+  %conv69 = zext nneg i8 %51 to i32
   %cmp73.not = icmp eq i32 %cond, %conv69
-  br i1 %cmp73.not, label %if.end75, label %sw.default
+  br i1 %cmp73.not, label %if.end75, label %_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit
 
 if.end75:                                         ; preds = %sw.bb
   %call76 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #18
@@ -2435,9 +2433,18 @@ do.end156:                                        ; preds = %.noexc228
   %add6.i227 = add i64 %108, 1
   store i64 %add6.i227, ptr %col.i, align 8, !noalias !77
   store i64 0, ptr %_status141, align 8, !alias.scope !80
-  switch i8 %99, label %if.else [
+  switch i8 %99, label %invoke.cont214 [
     i8 117, label %if.then165
     i8 85, label %land.lhs.true161
+    i8 34, label %if.end226
+    i8 92, label %if.end226
+    i8 47, label %if.end226
+    i8 98, label %sw.bb3.i
+    i8 102, label %sw.bb4.i
+    i8 110, label %sw.bb5.i
+    i8 114, label %sw.bb6.i
+    i8 116, label %sw.bb7.i
+    i8 39, label %sw.bb8.i
   ]
 
 land.lhs.true161:                                 ; preds = %do.end156
@@ -2544,48 +2551,28 @@ ehcleanup201:                                     ; preds = %lpad174.loopexit, %
   call void @_ZN4absl12lts_202308028StatusOrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %written) #18
   br label %ehcleanup342
 
-if.else:                                          ; preds = %do.end156
-  %conv.i = sext i8 %99 to i32
-  switch i32 %conv.i, label %invoke.cont214 [
-    i32 34, label %if.end226
-    i32 92, label %sw.bb1.i
-    i32 47, label %sw.bb2.i
-    i32 98, label %sw.bb3.i
-    i32 102, label %sw.bb4.i
-    i32 110, label %sw.bb5.i
-    i32 114, label %sw.bb6.i
-    i32 116, label %sw.bb7.i
-    i32 39, label %sw.bb8.i
-  ]
-
-sw.bb1.i:                                         ; preds = %if.else
+sw.bb3.i:                                         ; preds = %do.end156
   br label %if.end226
 
-sw.bb2.i:                                         ; preds = %if.else
+sw.bb4.i:                                         ; preds = %do.end156
   br label %if.end226
 
-sw.bb3.i:                                         ; preds = %if.else
+sw.bb5.i:                                         ; preds = %do.end156
   br label %if.end226
 
-sw.bb4.i:                                         ; preds = %if.else
+sw.bb6.i:                                         ; preds = %do.end156
   br label %if.end226
 
-sw.bb5.i:                                         ; preds = %if.else
+sw.bb7.i:                                         ; preds = %do.end156
   br label %if.end226
 
-sw.bb6.i:                                         ; preds = %if.else
-  br label %if.end226
-
-sw.bb7.i:                                         ; preds = %if.else
-  br label %if.end226
-
-sw.bb8.i:                                         ; preds = %if.else
+sw.bb8.i:                                         ; preds = %do.end156
   %121 = load i8, ptr %allow_legacy_syntax, align 8
   %122 = and i8 %121, 1
   %tobool204.not = icmp eq i8 %122, 0
   br i1 %tobool204.not, label %invoke.cont214, label %if.end226
 
-invoke.cont214:                                   ; preds = %land.lhs.true161, %if.else, %sw.bb8.i
+invoke.cont214:                                   ; preds = %do.end156, %land.lhs.true161, %sw.bb8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %99 to i64
   %123 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
@@ -2628,12 +2615,12 @@ ehcleanup225:                                     ; preds = %lpad222, %lpad218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212) #18
   br label %ehcleanup342
 
-if.end226:                                        ; preds = %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %if.else, %sw.bb8.i
-  %retval.0.i.ph = phi i8 [ 39, %sw.bb8.i ], [ 34, %if.else ], [ 92, %sw.bb1.i ], [ 47, %sw.bb2.i ], [ 8, %sw.bb3.i ], [ 12, %sw.bb4.i ], [ 10, %sw.bb5.i ], [ 13, %sw.bb6.i ], [ 9, %sw.bb7.i ]
+if.end226:                                        ; preds = %do.end156, %do.end156, %do.end156, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb8.i
+  %retval.0.i.ph = phi i8 [ 39, %sw.bb8.i ], [ 8, %sw.bb3.i ], [ 12, %sw.bb4.i ], [ 10, %sw.bb5.i ], [ 13, %sw.bb6.i ], [ 9, %sw.bb7.i ], [ %99, %do.end156 ], [ %99, %do.end156 ], [ %99, %do.end156 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %on_heap, i8 noundef signext %retval.0.i.ph)
           to label %sw.epilog340 unwind label %lpad34.loopexit.split-lp.loopexit
 
-sw.default:                                       ; preds = %sw.bb, %do.end68
+sw.default:                                       ; preds = %do.end68
   %128 = add i8 %51, 1
   %or.cond = icmp ult i8 %128, 33
   br i1 %or.cond, label %land.lhs.true234, label %_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit
@@ -2691,16 +2678,15 @@ if.end255:                                        ; preds = %land.lhs.true234
   %cmp.i.i.i276 = icmp eq i8 %51, -1
   br i1 %cmp.i.i.i276, label %sw.default261, label %_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit
 
-_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit: ; preds = %sw.default, %if.end255
+_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit: ; preds = %sw.bb, %sw.default, %if.end255
   %not.i = xor i8 %51, -1
   %conv.i.i.i = zext i8 %not.i to i16
   %136 = call i16 @llvm.ctlz.i16(i16 %conv.i.i.i, i1 true), !range !89
-  %cast.i.i.i = zext nneg i16 %136 to i32
-  switch i32 %cast.i.i.i, label %sw.default261 [
-    i32 8, label %sw.epilog
-    i32 10, label %sw.bb258
-    i32 11, label %sw.bb259
-    i32 12, label %sw.bb260
+  switch i16 %136, label %sw.default261 [
+    i16 8, label %sw.epilog
+    i16 10, label %sw.bb258
+    i16 11, label %sw.bb259
+    i16 12, label %sw.bb260
   ]
 
 sw.bb258:                                         ; preds = %_ZN4absl12lts_2023080210countl_oneIhEENSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4typeES3_.exit
@@ -5207,11 +5193,10 @@ do.end123:                                        ; preds = %invoke.cont111
           to label %invoke.cont125 unwind label %lpad5
 
 invoke.cont125:                                   ; preds = %do.end123
-  %conv127 = sext i8 %call126 to i32
-  switch i32 %conv127, label %invoke.cont132 [
-    i32 44, label %if.end148
-    i32 93, label %if.end148
-    i32 125, label %if.end148
+  switch i8 %call126, label %invoke.cont132 [
+    i8 44, label %if.end148
+    i8 93, label %if.end148
+    i8 125, label %if.end148
   ]
 
 invoke.cont132:                                   ; preds = %invoke.cont125

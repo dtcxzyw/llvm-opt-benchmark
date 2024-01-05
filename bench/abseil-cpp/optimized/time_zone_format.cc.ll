@@ -404,23 +404,22 @@ ehcleanup:                                        ; preds = %lpad56, %lpad.i, %l
 
 if.end60:                                         ; preds = %invoke.cont59, %if.then50
   %27 = phi i8 [ %.pre, %invoke.cont59 ], [ %23, %if.then50 ]
-  %conv61 = sext i8 %27 to i32
-  switch i32 %conv61, label %sw.epilog [
-    i32 89, label %sw.bb
-    i32 109, label %sw.bb70
-    i32 100, label %sw.bb80
-    i32 101, label %sw.bb80
-    i32 85, label %sw.bb97
-    i32 117, label %sw.bb109
-    i32 87, label %sw.bb120
-    i32 119, label %sw.bb132
-    i32 72, label %sw.bb142
-    i32 77, label %sw.bb152
-    i32 83, label %sw.bb162
-    i32 122, label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit
-    i32 90, label %sw.bb180
-    i32 115, label %invoke.cont184
-    i32 37, label %sw.bb193
+  switch i8 %27, label %sw.epilog [
+    i8 89, label %sw.bb
+    i8 109, label %sw.bb70
+    i8 100, label %sw.bb80
+    i8 101, label %sw.bb80
+    i8 85, label %sw.bb97
+    i8 117, label %sw.bb109
+    i8 87, label %sw.bb120
+    i8 119, label %sw.bb132
+    i8 72, label %sw.bb142
+    i8 77, label %sw.bb152
+    i8 83, label %sw.bb162
+    i8 122, label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit
+    i8 90, label %sw.bb180
+    i8 115, label %invoke.cont184
+    i8 37, label %sw.bb193
   ]
 
 sw.bb:                                            ; preds = %if.end60
@@ -1650,10 +1649,9 @@ land.rhs419:                                      ; preds = %while.cond417
 while.end425:                                     ; preds = %while.cond417, %land.rhs419
   %cp.0.lcssa = phi ptr [ %scevgep1001, %while.cond417 ], [ %cp.0, %land.rhs419 ]
   %172 = load i8, ptr %add.ptr356, align 1
-  %conv427 = sext i8 %172 to i32
-  switch i32 %conv427, label %sw.epilog442 [
-    i32 83, label %sw.bb428
-    i32 102, label %sw.bb437
+  switch i8 %172, label %sw.epilog442 [
+    i8 83, label %sw.bb428
+    i8 102, label %sw.bb437
   ]
 
 sw.bb428:                                         ; preds = %while.end425
@@ -2678,34 +2676,33 @@ if.end34:                                         ; preds = %if.end
   br i1 %cmp37, label %while.end346, label %if.end39
 
 if.end39:                                         ; preds = %if.end34
-  %conv36 = sext i8 %8 to i32
   %incdec.ptr40 = getelementptr inbounds i8, ptr %fmt.0857, i64 2
-  switch i32 %conv36, label %sw.epilog [
-    i32 89, label %sw.bb
-    i32 109, label %if.then.i
-    i32 100, label %if.then.i191
-    i32 101, label %if.then.i191
-    i32 85, label %if.then.i250
-    i32 87, label %if.then.i309
-    i32 117, label %if.then.i368
-    i32 119, label %if.then.i427
-    i32 72, label %if.then.i486
-    i32 77, label %if.then.i545
-    i32 83, label %if.then.i604
-    i32 73, label %sw.bb90
-    i32 108, label %sw.bb90
-    i32 114, label %sw.bb90
-    i32 82, label %sw.bb91
-    i32 84, label %sw.bb91
-    i32 99, label %sw.bb91
-    i32 88, label %sw.bb91
-    i32 122, label %sw.bb92
-    i32 90, label %sw.bb98
-    i32 115, label %sw.bb101
-    i32 58, label %sw.bb109
-    i32 37, label %sw.bb140
-    i32 69, label %sw.bb148
-    i32 79, label %sw.bb302
+  switch i8 %8, label %sw.epilog [
+    i8 89, label %sw.bb
+    i8 109, label %if.then.i
+    i8 100, label %if.then.i191
+    i8 101, label %if.then.i191
+    i8 85, label %if.then.i250
+    i8 87, label %if.then.i309
+    i8 117, label %if.then.i368
+    i8 119, label %if.then.i427
+    i8 72, label %if.then.i486
+    i8 77, label %if.then.i545
+    i8 83, label %if.then.i604
+    i8 73, label %sw.bb90
+    i8 108, label %sw.bb90
+    i8 114, label %sw.bb90
+    i8 82, label %sw.bb91
+    i8 84, label %sw.bb91
+    i8 99, label %sw.bb91
+    i8 88, label %sw.bb91
+    i8 122, label %sw.bb92
+    i8 90, label %sw.bb98
+    i8 115, label %sw.bb101
+    i8 58, label %sw.bb109
+    i8 37, label %sw.bb140
+    i8 69, label %sw.bb148
+    i8 79, label %sw.bb302
   ]
 
 sw.bb:                                            ; preds = %if.end39

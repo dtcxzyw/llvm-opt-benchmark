@@ -73,7 +73,7 @@ return:                                           ; preds = %if.then2, %if.else,
 declare void @llvm.va_end(ptr) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_dopr(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %maxlen, ptr nocapture noundef writeonly %retlen, ptr nocapture noundef writeonly %truncated, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc noundef i32 @_dopr(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %maxlen, ptr nocapture noundef writeonly %retlen, ptr nocapture noundef writeonly %truncated, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
 entry:
   %currlen = alloca i64, align 8
   store i64 0, ptr %currlen, align 8
@@ -210,12 +210,12 @@ return.sink.split.i:                              ; preds = %if.else60.i, %if.th
   br label %sw.epilog442.sink.split
 
 sw.bb16:                                          ; preds = %if.end
-  switch i32 %conv, label %sw.epilog442 [
-    i32 45, label %sw.bb18
-    i32 43, label %sw.bb20
-    i32 32, label %sw.bb23
-    i32 35, label %sw.bb26
-    i32 48, label %sw.bb29
+  switch i8 %ch.0519, label %sw.epilog442 [
+    i8 45, label %sw.bb18
+    i8 43, label %sw.bb20
+    i8 32, label %sw.bb23
+    i8 35, label %sw.bb26
+    i8 48, label %sw.bb29
   ]
 
 sw.bb18:                                          ; preds = %sw.bb16
@@ -322,13 +322,13 @@ vaarg.end84:                                      ; preds = %vaarg.in_mem80, %va
   br label %sw.epilog442.sink.split
 
 sw.bb90:                                          ; preds = %if.end
-  switch i32 %conv, label %sw.epilog442 [
-    i32 104, label %sw.epilog442.sink.split
-    i32 108, label %sw.bb94
-    i32 113, label %sw.bb103
-    i32 106, label %sw.bb103
-    i32 76, label %sw.bb105
-    i32 122, label %sw.bb107
+  switch i8 %ch.0519, label %sw.epilog442 [
+    i8 104, label %sw.epilog442.sink.split
+    i8 108, label %sw.bb94
+    i8 113, label %sw.bb103
+    i8 106, label %sw.bb103
+    i8 76, label %sw.bb105
+    i8 122, label %sw.bb107
   ]
 
 sw.bb94:                                          ; preds = %sw.bb90
@@ -349,24 +349,24 @@ sw.bb107:                                         ; preds = %sw.bb90
   br label %sw.epilog442.sink.split
 
 sw.bb111:                                         ; preds = %if.end
-  switch i32 %conv, label %sw.epilog442.sink.split [
-    i32 100, label %sw.bb113
-    i32 105, label %sw.bb113
-    i32 88, label %sw.bb182
-    i32 120, label %sw.bb184
-    i32 111, label %sw.bb184
-    i32 117, label %sw.bb184
-    i32 102, label %sw.bb261
-    i32 69, label %sw.bb290
-    i32 101, label %sw.bb292
-    i32 71, label %sw.bb324
-    i32 103, label %sw.bb326
-    i32 99, label %sw.bb358
-    i32 115, label %sw.bb374
-    i32 112, label %sw.bb399
-    i32 110, label %sw.bb416
-    i32 37, label %sw.bb429
-    i32 119, label %sw.bb435
+  switch i8 %ch.0519, label %sw.epilog442.sink.split [
+    i8 100, label %sw.bb113
+    i8 105, label %sw.bb113
+    i8 88, label %sw.bb182
+    i8 120, label %sw.bb184
+    i8 111, label %sw.bb184
+    i8 117, label %sw.bb184
+    i8 102, label %sw.bb261
+    i8 69, label %sw.bb290
+    i8 101, label %sw.bb292
+    i8 71, label %sw.bb324
+    i8 103, label %sw.bb326
+    i8 99, label %sw.bb358
+    i8 115, label %sw.bb374
+    i8 112, label %sw.bb399
+    i8 110, label %sw.bb416
+    i8 37, label %sw.bb429
+    i8 119, label %sw.bb435
   ]
 
 sw.bb113:                                         ; preds = %sw.bb111, %sw.bb111
@@ -1922,7 +1922,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @doapr_outch(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc noundef i32 @doapr_outch(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i32 noundef %c) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sbuffer, align 8
   %cmp = icmp ne ptr %0, null
@@ -2017,7 +2017,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fmtint(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i64 noundef %value, i32 noundef %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc noundef i32 @fmtint(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i64 noundef %value, i32 noundef %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %convert = alloca [26 x i8], align 16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %max, i32 0)
@@ -2200,7 +2200,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fmtfp(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef %style) unnamed_addr #0 {
+define internal fastcc noundef i32 @fmtfp(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef %style) unnamed_addr #0 {
 entry:
   %iconvert = alloca [20 x i8], align 16
   %fconvert = alloca [20 x i8], align 16

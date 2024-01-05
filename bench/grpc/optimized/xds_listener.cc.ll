@@ -2879,7 +2879,7 @@ if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invok
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 136
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 67818912035696880)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 67818912035696880, i64 %22
@@ -2960,7 +2960,7 @@ if.else.i30:                                      ; preds = %if.then31
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeESaIS3_EE12_M_check_lenEmPKc.exit.i.i35: ; preds = %if.else.i30
   %sub.ptr.div.i.i.i.i36 = sdiv exact i64 %sub.ptr.sub.i.i.i.i33, 136
   %.sroa.speculated.i.i.i37 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i36, i64 1)
-  %add.i.i.i38 = add i64 %.sroa.speculated.i.i.i37, %sub.ptr.div.i.i.i.i36
+  %add.i.i.i38 = add nsw i64 %.sroa.speculated.i.i.i37, %sub.ptr.div.i.i.i.i36
   %cmp7.i.i.i39 = icmp ult i64 %add.i.i.i38, %sub.ptr.div.i.i.i.i36
   %29 = call i64 @llvm.umin.i64(i64 %add.i.i.i38, i64 67818912035696880)
   %cond.i.i.i40 = select i1 %cmp7.i.i.i39, i64 67818912035696880, i64 %29
@@ -3030,7 +3030,7 @@ if.else.i.i:                                      ; preds = %if.then38
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %35 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %35
@@ -3200,7 +3200,7 @@ if.then.i.i115:                                   ; preds = %if.else.i.i74
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i74
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %50 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
   %cond.i.i107 = select i1 %cmp7.i.i, i64 288230376151711743, i64 %50
@@ -4114,12 +4114,12 @@ call3.i.noexc:                                    ; preds = %call1.i.i.noexc
 invoke.cont12:                                    ; preds = %call3.i.noexc, %if.end, %call1.i.noexc18
   call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %buf.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !142
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont14 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %invoke.cont12
@@ -4276,11 +4276,10 @@ if.then.i.i30:                                    ; preds = %invoke.cont3.i.i
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !155
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsExtension", ptr %extension.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %33 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !155
-  %conv.i.i.i.i.i.i.i.i.i.i.i = sext i8 %33 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
-    i64 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit.i.i
+  switch i8 %33, label %sw.default.i.i.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
+    i8 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i30
@@ -4810,10 +4809,10 @@ lpad22.i.i.i:                                     ; preds = %invoke.cont33.i.i.i
 invoke.cont33.i.i.i:                              ; preds = %invoke.cont23.i.i.i, %invoke.cont21.i.i.i
   %ret.sroa.0.0.insert.insert.i47.i.i.i = phi i32 [ %94, %invoke.cont23.i.i.i ], [ 0, %invoke.cont21.i.i.i ]
   %add.ptr.i.i31.i.i.i = getelementptr inbounds i8, ptr %87, i64 32
-  %retval.sroa.0.0.copyload34.i.i.i.i = load ptr, ptr %add.ptr.i.i31.i.i.i, align 1, !noalias !164
+  %retval.sroa.0.0.copyload32.i.i.i.i = load ptr, ptr %add.ptr.i.i31.i.i.i, align 1, !noalias !164
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 40
-  %retval.sroa.9.0.copyload35.i.i.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i.i.i, align 1, !noalias !164
-  invoke void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, i64 %retval.sroa.9.0.copyload35.i.i.i.i, ptr %retval.sroa.0.0.copyload34.i.i.i.i, i32 noundef %ret.sroa.0.0.insert.insert.i47.i.i.i)
+  %retval.sroa.9.0.copyload33.i.i.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i.i.i, align 1, !noalias !164
+  invoke void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, i64 %retval.sroa.9.0.copyload33.i.i.i.i, ptr %retval.sroa.0.0.copyload32.i.i.i.i, i32 noundef %ret.sroa.0.0.insert.insert.i47.i.i.i)
           to label %invoke.cont36.i.i.i unwind label %lpad22.i.i.i, !noalias !164
 
 invoke.cont36.i.i.i:                              ; preds = %invoke.cont33.i.i.i
@@ -7381,13 +7380,12 @@ entry:
   %listener2.i = getelementptr inbounds %"struct.grpc_core::XdsListenerResource", ptr %r2, i64 0, i32 1
   %_M_index.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsListenerResource", ptr %r2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i = sext i8 %0 to i64
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsListenerResource", ptr %r1, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  switch i64 %conv.i.i.i.i.i, label %sw.default.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i
-    i64 -1, label %sw.bb12.i.i.i.i
+  switch i8 %0, label %sw.default.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i
+    i8 -1, label %sw.bb12.i.i.i.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %entry
@@ -7927,11 +7925,11 @@ invoke.cont87:                                    ; preds = %invoke.cont81
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i134, i64 %i.0312
   %48 = load ptr, ptr %arrayidx, align 8
   %add.ptr.i.i139 = getelementptr inbounds i8, ptr %48, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i139, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i139, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
-  store i64 %retval.sroa.9.0.copyload35.i, ptr %name, align 8
-  store ptr %retval.sroa.0.0.copyload34.i, ptr %41, align 8
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  store i64 %retval.sroa.9.0.copyload33.i, ptr %name, align 8
+  store ptr %retval.sroa.0.0.copyload32.i, ptr %41, align 8
   store ptr %errors, ptr %field91, align 8
   invoke void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 5, ptr nonnull @.str.53)
           to label %invoke.cont93 unwind label %lpad86
@@ -8106,16 +8104,16 @@ invoke.cont123:                                   ; preds = %_ZN9grpc_core16Vali
 invoke.cont128:                                   ; preds = %invoke.cont123
   %61 = load i32, ptr %48, align 4
   %cmp.i13.i = icmp eq i32 %61, 4
-  br i1 %cmp.i13.i, label %_upb_MiniTable_CopyFieldData.exit26.i, label %invoke.cont130
+  br i1 %cmp.i13.i, label %_upb_MiniTable_CopyFieldData.exit24.i, label %invoke.cont130
 
-_upb_MiniTable_CopyFieldData.exit26.i:            ; preds = %invoke.cont128
+_upb_MiniTable_CopyFieldData.exit24.i:            ; preds = %invoke.cont128
   %add.ptr.i.i166 = getelementptr inbounds i8, ptr %48, i64 24
   %62 = load i64, ptr %add.ptr.i.i166, align 1
   %63 = inttoptr i64 %62 to ptr
   br label %invoke.cont130
 
-invoke.cont130:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit26.i, %invoke.cont128
-  %ret.2.in.i = phi ptr [ %63, %_upb_MiniTable_CopyFieldData.exit26.i ], [ null, %invoke.cont128 ]
+invoke.cont130:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i, %invoke.cont128
+  %ret.2.in.i = phi ptr [ %63, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont128 ]
   invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension132, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i, ptr noundef nonnull %errors)
           to label %invoke.cont133 unwind label %lpad129
 
@@ -8211,11 +8209,10 @@ if.end175:                                        ; preds = %invoke.cont151, %in
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp176, ptr noundef nonnull align 8 dereferenceable(16) %extension132, i64 16, i1 false)
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i173, align 8
   %73 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i174, align 8
-  %conv.i.i.i.i.i.i.i.i.i = sext i8 %73 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i
-    i64 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
+  switch i8 %73, label %sw.default.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i
+    i8 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
   ]
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.end175
@@ -8805,12 +8802,12 @@ if.then307:                                       ; preds = %invoke.cont288, %in
 
 invoke.cont313:                                   ; preds = %invoke.cont304
   %add.ptr.i.i254 = getelementptr inbounds i8, ptr %157, i64 16
-  %retval.sroa.0.0.copyload34.i255 = load ptr, ptr %add.ptr.i.i254, align 1
+  %retval.sroa.0.0.copyload32.i255 = load ptr, ptr %add.ptr.i.i254, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i256 = getelementptr inbounds i8, ptr %157, i64 24
-  %retval.sroa.9.0.copyload35.i257 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i256, align 1
+  %retval.sroa.9.0.copyload33.i257 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i256, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !190
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp311, ptr noundef %retval.sroa.0.0.copyload34.i255, i64 noundef %retval.sroa.9.0.copyload35.i257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp311, ptr noundef %retval.sroa.0.0.copyload32.i255, i64 noundef %retval.sroa.9.0.copyload33.i257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont318 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont313
@@ -10405,7 +10402,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource21HttpConnectionManager10HttpFilterESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 88686269585142075)
   %cond.i = select i1 %cmp7.i, i64 88686269585142075, i64 %2
@@ -10611,15 +10608,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.20", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -10747,14 +10743,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.380, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.20", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -11612,7 +11607,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i34.i
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i34.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 136
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %27 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 67818912035696880)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 67818912035696880, i64 %27
@@ -11841,7 +11836,7 @@ if.then.i.i.i121.i:                               ; preds = %if.else.i95.i
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeESaIS3_EE12_M_check_lenEmPKc.exit.i.i100.i: ; preds = %if.else.i95.i
   %sub.ptr.div.i.i.i.i101.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i98.i, 136
   %.sroa.speculated.i.i.i102.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i101.i, i64 1)
-  %add.i.i.i103.i = add i64 %.sroa.speculated.i.i.i102.i, %sub.ptr.div.i.i.i.i101.i
+  %add.i.i.i103.i = add nsw i64 %.sroa.speculated.i.i.i102.i, %sub.ptr.div.i.i.i.i101.i
   %cmp7.i.i.i104.i = icmp ult i64 %add.i.i.i103.i, %sub.ptr.div.i.i.i.i101.i
   %52 = call i64 @llvm.umin.i64(i64 %add.i.i.i103.i, i64 67818912035696880)
   %cond.i.i.i105.i = select i1 %cmp7.i.i.i104.i, i64 67818912035696880, i64 %52
@@ -12029,7 +12024,7 @@ if.else.i167.i:                                   ; preds = %for.body71.i
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i167.i
   %sub.ptr.div.i.i.i.i172.i = ashr exact i64 %sub.ptr.sub.i.i.i.i170.i, 2
   %.sroa.speculated.i.i.i173.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i172.i, i64 1)
-  %add.i.i.i174.i = add i64 %.sroa.speculated.i.i.i173.i, %sub.ptr.div.i.i.i.i172.i
+  %add.i.i.i174.i = add nsw i64 %.sroa.speculated.i.i.i173.i, %sub.ptr.div.i.i.i.i172.i
   %cmp7.i.i.i175.i = icmp ult i64 %add.i.i.i174.i, %sub.ptr.div.i.i.i.i172.i
   %70 = call i64 @llvm.umin.i64(i64 %add.i.i.i174.i, i64 2305843009213693951)
   %cond.i.i.i176.i = select i1 %cmp7.i.i.i175.i, i64 2305843009213693951, i64 %70
@@ -12149,12 +12144,12 @@ lpad88.i:                                         ; preds = %if.else.i.i.i
 
 invoke.cont95.i:                                  ; preds = %invoke.cont89.i, %envoy_config_listener_v3_FilterChainMatch_server_names.exit.i, %for.end77.i
   %add.ptr.i.i206.i = getelementptr inbounds i8, ptr %2, i64 64
-  %retval.sroa.0.0.copyload34.i.i = load ptr, ptr %add.ptr.i.i206.i, align 1, !noalias !203
+  %retval.sroa.0.0.copyload32.i.i = load ptr, ptr %add.ptr.i.i206.i, align 1, !noalias !203
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %retval.sroa.9.0.copyload35.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i, align 1, !noalias !203
+  %retval.sroa.9.0.copyload33.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i, align 1, !noalias !203
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i207.i), !noalias !203
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i207.i) #19, !noalias !213
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93.i, ptr noundef %retval.sroa.0.0.copyload34.i.i, i64 noundef %retval.sroa.9.0.copyload35.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i207.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93.i, ptr noundef %retval.sroa.0.0.copyload32.i.i, i64 noundef %retval.sroa.9.0.copyload33.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i207.i)
           to label %invoke.cont97.i unwind label %lpad.i209.i, !noalias !203
 
 lpad.i209.i:                                      ; preds = %invoke.cont95.i
@@ -12555,16 +12550,16 @@ invoke.cont37:                                    ; preds = %invoke.cont34
   %138 = load ptr, ptr %arrayidx, align 8
   %139 = load i32, ptr %138, align 4
   %cmp.i13.i = icmp eq i32 %139, 4
-  br i1 %cmp.i13.i, label %_upb_MiniTable_CopyFieldData.exit26.i, label %invoke.cont39
+  br i1 %cmp.i13.i, label %_upb_MiniTable_CopyFieldData.exit24.i, label %invoke.cont39
 
-_upb_MiniTable_CopyFieldData.exit26.i:            ; preds = %invoke.cont37
+_upb_MiniTable_CopyFieldData.exit24.i:            ; preds = %invoke.cont37
   %add.ptr.i.i54 = getelementptr inbounds i8, ptr %138, i64 24
   %140 = load i64, ptr %add.ptr.i.i54, align 1
   %141 = inttoptr i64 %140 to ptr
   br label %invoke.cont39
 
-invoke.cont39:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit26.i, %invoke.cont37
-  %ret.2.in.i = phi ptr [ %141, %_upb_MiniTable_CopyFieldData.exit26.i ], [ null, %invoke.cont37 ]
+invoke.cont39:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i, %invoke.cont37
+  %ret.2.in.i = phi ptr [ %141, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont37 ]
   invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i, ptr noundef nonnull %errors)
           to label %invoke.cont41 unwind label %lpad38
 
@@ -12578,11 +12573,10 @@ if.then43:                                        ; preds = %invoke.cont41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %extension, i64 16, i1 false)
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %144 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i.i.i = sext i8 %144 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i
-    i64 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
+  switch i8 %144, label %sw.default.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i
+    i8 -1, label %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
   ]
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.then43
@@ -12757,16 +12751,16 @@ invoke.cont60:                                    ; preds = %if.then57
 .noexc:                                           ; preds = %invoke.cont60
   %167 = load i32, ptr %166, align 4, !noalias !224
   %cmp.i13.i.i = icmp eq i32 %167, 3
-  br i1 %cmp.i13.i.i, label %_upb_MiniTable_CopyFieldData.exit26.i.i, label %invoke.cont.i
+  br i1 %cmp.i13.i.i, label %_upb_MiniTable_CopyFieldData.exit24.i.i, label %invoke.cont.i
 
-_upb_MiniTable_CopyFieldData.exit26.i.i:          ; preds = %.noexc
+_upb_MiniTable_CopyFieldData.exit24.i.i:          ; preds = %.noexc
   %add.ptr.i.i.i97 = getelementptr inbounds i8, ptr %166, i64 24
   %168 = load i64, ptr %add.ptr.i.i.i97, align 1, !noalias !224
   %169 = inttoptr i64 %168 to ptr
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit26.i.i, %.noexc
-  %ret.2.in.i.i = phi ptr [ %169, %_upb_MiniTable_CopyFieldData.exit26.i.i ], [ null, %.noexc ]
+invoke.cont.i:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i.i, %.noexc
+  %ret.2.in.i.i = phi ptr [ %169, %_upb_MiniTable_CopyFieldData.exit24.i.i ], [ null, %.noexc ]
   invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i.i, ptr noundef nonnull %errors)
           to label %invoke.cont1.i unwind label %lpad.i
 
@@ -13935,12 +13929,12 @@ invoke.cont:
   store ptr %errors, ptr %field, align 8
   tail call void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 15, ptr nonnull @.str.94)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cidr_range_proto, i64 8
-  %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
+  %retval.sroa.0.0.copyload32.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %cidr_range_proto, i64 16
-  %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
+  %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !234
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %address_prefix, ptr noundef %retval.sroa.0.0.copyload34.i, i64 noundef %retval.sroa.9.0.copyload35.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %address_prefix, ptr noundef %retval.sroa.0.0.copyload32.i, i64 noundef %retval.sroa.9.0.copyload33.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont1 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont
@@ -14366,7 +14360,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core11FilterChainESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 184
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 50127021939428129)
   %cond.i = select i1 %cmp7.i, i64 50127021939428129, i64 %2
@@ -16472,7 +16466,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 192
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 48038396025285290)
   %cond.i = select i1 %cmp7.i, i64 48038396025285290, i64 %2
@@ -16683,7 +16677,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap13DestinationIpESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 216
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 42700796466920258)
   %cond.i = select i1 %cmp7.i, i64 42700796466920258, i64 %2
@@ -17493,7 +17487,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -18483,14 +18477,13 @@ land.lhs.true:                                    ; preds = %lor.rhs.i.i, %_ZNK9
   %action3 = getelementptr inbounds %"struct.grpc_core::XdsRouteConfigResource::Route", ptr %other, i64 0, i32 1
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsRouteConfigResource::Route", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %12 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %conv.i.i.i.i = sext i8 %12 to i64
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsRouteConfigResource::Route", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %13 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  switch i64 %conv.i.i.i.i, label %sw.default.i.i.i [
-    i64 0, label %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
-    i64 1, label %sw.bb2.i.i.i
-    i64 2, label %sw.bb3.i.i.i
-    i64 -1, label %sw.bb12.i.i.i
+  switch i8 %12, label %sw.default.i.i.i [
+    i8 0, label %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb3.i.i.i
+    i8 -1, label %sw.bb12.i.i.i
   ]
 
 sw.bb2.i.i.i:                                     ; preds = %land.lhs.true
@@ -18588,13 +18581,12 @@ for.body.i.i.i.i.i:                               ; preds = %land.rhs.i, %for.in
   %__first1.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %land.rhs.i ]
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.651", ptr %__first2.addr.07.i.i.i.i.i, i64 0, i32 1
   %4 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i.i.i.i = sext i8 %4 to i64
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.651", ptr %__first1.addr.06.i.i.i.i.i, i64 0, i32 1
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i [
-    i64 0, label %sw.bb.i.i.i.i.i.i.i.i.i
-    i64 1, label %sw.bb2.i.i.i.i.i.i.i.i.i
-    i64 -1, label %sw.bb12.i.i.i.i.i.i.i.i.i
+  switch i8 %4, label %sw.default.i.i.i.i.i.i.i.i.i [
+    i8 0, label %sw.bb.i.i.i.i.i.i.i.i.i
+    i8 1, label %sw.bb2.i.i.i.i.i.i.i.i.i
+    i8 -1, label %sw.bb12.i.i.i.i.i.i.i.i.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
@@ -18730,16 +18722,15 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.616", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
   %1 = getelementptr inbounds %class.anon.670, ptr %__visitor, i64 0, i32 1
   %2 = load ptr, ptr %1, align 8
   %_M_index.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.616", ptr %2, i64 0, i32 1
   %3 = load i8, ptr %_M_index.i.i.i.i.i, align 8
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -18995,15 +18986,14 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.682, align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.20", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry

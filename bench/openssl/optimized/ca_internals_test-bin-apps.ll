@@ -256,7 +256,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.219 = private unnamed_addr constant [18 x i8] c"(doing something)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @chopup_args(ptr nocapture noundef %arg, ptr noundef %buf) local_unnamed_addr #0 {
+define dso_local noundef i32 @chopup_args(ptr nocapture noundef %arg, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds %struct.args_st, ptr %arg, i64 0, i32 1
   store i32 0, ptr %argc, align 4
@@ -441,13 +441,13 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @app_init(i64 noundef %mesgwin) local_unnamed_addr #3 {
+define dso_local noundef i32 @app_init(i64 noundef %mesgwin) local_unnamed_addr #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ctx_set_verify_locations(ptr noundef %ctx, ptr noundef %CAfile, i32 noundef %noCAfile, ptr noundef %CApath, i32 noundef %noCApath, ptr noundef %CAstore, i32 noundef %noCAstore) local_unnamed_addr #0 {
+define dso_local noundef i32 @ctx_set_verify_locations(ptr noundef %ctx, ptr noundef %CAfile, i32 noundef %noCAfile, ptr noundef %CApath, i32 noundef %noCApath, ptr noundef %CAstore, i32 noundef %noCAstore) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %CAfile, null
   %cmp1 = icmp eq ptr %CApath, null
@@ -554,7 +554,7 @@ declare i32 @SSL_CTX_set_default_ctlog_list_file(ptr noundef) local_unnamed_addr
 declare i32 @SSL_CTX_set_ctlog_list_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_nameopt(ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local noundef i32 @set_nameopt(ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc i32 @set_multi_opts(ptr noundef nonnull @nmflag, ptr noundef %arg, ptr noundef nonnull @set_name_ex.ex_tbl), !range !9
   %cmp.i = icmp eq i32 %call.i, 0
@@ -583,7 +583,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_name_ex(ptr nocapture noundef %flags, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local noundef i32 @set_name_ex(ptr nocapture noundef %flags, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @set_multi_opts(ptr noundef %flags, ptr noundef %arg, ptr noundef nonnull @set_name_ex.ex_tbl), !range !9
   %cmp = icmp eq i32 %call, 0
@@ -719,7 +719,7 @@ if.end13:                                         ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly %pass1, ptr noundef writeonly %pass2) local_unnamed_addr #0 {
+define dso_local noundef i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly %pass1, ptr noundef writeonly %pass2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %arg1, null
   %cmp1 = icmp ne ptr %arg2, null
@@ -1018,7 +1018,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @NCONF_get_number_e(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @app_load_config_bio(ptr noundef %in, ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local noundef ptr @app_load_config_bio(ptr noundef %in, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %errorline = alloca i64, align 8
   store i64 -1, ptr %errorline, align 8
@@ -1235,44 +1235,36 @@ if.end10:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
   switch i8 %mode, label %cond.false.i [
-    i8 119, label %cond.end.i
-    i8 114, label %cond.end.i
-    i8 97, label %cond.end.i
+    i8 97, label %sw.bb.i
+    i8 114, label %sw.bb11.i
+    i8 119, label %sw.bb15.i
   ]
 
 cond.false.i:                                     ; preds = %if.else
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.1, i32 noundef 3068) #31
   unreachable
 
-cond.end.i:                                       ; preds = %if.else, %if.else, %if.else
-  %conv.i = zext nneg i8 %mode to i32
-  switch i32 %conv.i, label %modestr.exit [
-    i32 97, label %sw.bb.i
-    i32 114, label %sw.bb11.i
-    i32 119, label %sw.bb15.i
-  ]
-
-sw.bb.i:                                          ; preds = %cond.end.i
+sw.bb.i:                                          ; preds = %if.else
   %call.i15 = tail call i32 @FMT_istext(i32 noundef %format) #28
   %tobool.not.i16 = icmp eq i32 %call.i15, 0
   %cond10.i = select i1 %tobool.not.i16, ptr @.str.210, ptr @.str.209
   br label %modestr.exit
 
-sw.bb11.i:                                        ; preds = %cond.end.i
+sw.bb11.i:                                        ; preds = %if.else
   %call12.i = tail call i32 @FMT_istext(i32 noundef %format) #28
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   %cond14.i = select i1 %tobool13.not.i, ptr @.str.211, ptr @.str.116
   br label %modestr.exit
 
-sw.bb15.i:                                        ; preds = %cond.end.i
+sw.bb15.i:                                        ; preds = %if.else
   %call16.i = tail call i32 @FMT_istext(i32 noundef %format) #28
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   %cond18.i = select i1 %tobool17.not.i, ptr @.str.212, ptr @.str.123
   br label %modestr.exit
 
-modestr.exit:                                     ; preds = %cond.end.i, %sw.bb.i, %sw.bb11.i, %sw.bb15.i
-  %retval.0.i = phi ptr [ %cond18.i, %sw.bb15.i ], [ %cond14.i, %sw.bb11.i ], [ %cond10.i, %sw.bb.i ], [ null, %cond.end.i ]
-  %call19 = tail call ptr @BIO_new_file(ptr noundef nonnull %filename, ptr noundef %retval.0.i) #28
+modestr.exit:                                     ; preds = %sw.bb.i, %sw.bb11.i, %sw.bb15.i
+  %retval.0.i = phi ptr [ %cond18.i, %sw.bb15.i ], [ %cond14.i, %sw.bb11.i ], [ %cond10.i, %sw.bb.i ]
+  %call19 = tail call ptr @BIO_new_file(ptr noundef nonnull %filename, ptr noundef nonnull %retval.0.i) #28
   %tobool20.not = icmp eq i32 %quiet, 0
   br i1 %tobool20.not, label %if.end22, label %if.then21
 
@@ -1286,10 +1278,10 @@ if.end22:                                         ; preds = %modestr.exit
 
 if.end26:                                         ; preds = %if.end22
   %3 = load ptr, ptr @bio_err, align 8
-  switch i32 %conv.i, label %sw.epilog.i [
-    i32 97, label %modeverb.exit
-    i32 114, label %sw.bb1.i
-    i32 119, label %sw.bb2.i
+  switch i8 %mode, label %sw.epilog.i [
+    i8 97, label %modeverb.exit
+    i8 114, label %sw.bb1.i
+    i8 119, label %sw.bb2.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end26
@@ -1302,11 +1294,11 @@ sw.epilog.i:                                      ; preds = %if.end26
   br label %modeverb.exit
 
 modeverb.exit:                                    ; preds = %if.end26, %sw.bb1.i, %sw.bb2.i, %sw.epilog.i
-  %retval.0.i18 = phi ptr [ @.str.219, %sw.epilog.i ], [ @.str.218, %sw.bb2.i ], [ @.str.217, %sw.bb1.i ], [ @.str.216, %if.end26 ]
+  %retval.0.i17 = phi ptr [ @.str.219, %sw.epilog.i ], [ @.str.218, %sw.bb2.i ], [ @.str.217, %sw.bb1.i ], [ @.str.216, %if.end26 ]
   %call28 = tail call ptr @__errno_location() #29
   %4 = load i32, ptr %call28, align 4
   %call29 = tail call ptr @strerror(i32 noundef %4) #28
-  %call30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.215, ptr noundef nonnull %filename, ptr noundef nonnull %retval.0.i18, ptr noundef %call29) #28
+  %call30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.215, ptr noundef nonnull %filename, ptr noundef nonnull %retval.0.i17, ptr noundef %call29) #28
   br label %if.end31
 
 if.end31:                                         ; preds = %modeverb.exit, %if.end10
@@ -1322,7 +1314,7 @@ return:                                           ; preds = %if.end22, %if.end, 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @app_load_modules(ptr noundef %config) local_unnamed_addr #0 {
+define dso_local noundef i32 @app_load_modules(ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %config, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -1415,7 +1407,7 @@ declare i32 @CONF_modules_load(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @add_oid_section(ptr noundef %conf) local_unnamed_addr #0 {
+define dso_local noundef i32 @add_oid_section(ptr noundef %conf) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @ERR_set_mark() #28
   %call1.i = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef null, ptr noundef nonnull @.str.15) #28
@@ -2265,7 +2257,7 @@ declare ptr @PEM_read_bio_X509_REQ(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @print_format_error(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_csr_autofmt(ptr noundef %infile, i32 noundef %format, ptr noundef %vfyopts, ptr noundef %desc) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_csr_autofmt(ptr noundef %infile, i32 noundef %format, ptr noundef %vfyopts, ptr noundef %desc) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %format, 0
   br i1 %cmp.not, label %if.else, label %if.end9
@@ -3182,7 +3174,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_dateopt(ptr nocapture noundef writeonly %dateopt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local noundef i32 @set_dateopt(ptr nocapture noundef writeonly %dateopt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %arg, ptr noundef nonnull @.str.97) #28
   %cmp = icmp eq i32 %call, 0
@@ -3206,7 +3198,7 @@ return:                                           ; preds = %if.else, %if.end5
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_ext_copy(ptr nocapture noundef writeonly %copy_type, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local noundef i32 @set_ext_copy(ptr nocapture noundef writeonly %copy_type, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %arg, ptr noundef nonnull @.str.99) #28
   %cmp = icmp eq i32 %call, 0
@@ -3233,7 +3225,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @copy_extensions(ptr noundef %x, ptr noundef %req, i32 noundef %copy_type) local_unnamed_addr #0 {
+define dso_local noundef i32 @copy_extensions(ptr noundef %x, ptr noundef %req, i32 noundef %copy_type) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   %cmp1 = icmp eq ptr %req, null
@@ -3665,7 +3657,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #14
 declare ptr @BN_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rand_serial(ptr noundef %b, ptr noundef %ai) local_unnamed_addr #0 {
+define dso_local noundef i32 @rand_serial(ptr noundef %b, ptr noundef %ai) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %b, null
   br i1 %cmp, label %cond.end, label %if.end
@@ -3716,7 +3708,7 @@ declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @save_serial(ptr noundef %serialfile, ptr noundef %suffix, ptr noundef %serial, ptr noundef writeonly %retai) local_unnamed_addr #0 {
+define dso_local noundef i32 @save_serial(ptr noundef %serialfile, ptr noundef %suffix, ptr noundef %serial, ptr noundef writeonly %retai) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1 x [256 x i8]], align 16
   %cmp = icmp eq ptr %suffix, null
@@ -3800,7 +3792,7 @@ declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rotate_serial(ptr noundef %serialfile, ptr noundef %new_suffix, ptr noundef %old_suffix) local_unnamed_addr #0 {
+define dso_local noundef i32 @rotate_serial(ptr noundef %serialfile, ptr noundef %new_suffix, ptr noundef %old_suffix) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x [256 x i8]], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %serialfile) #30
@@ -4023,25 +4015,24 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @TXT_DB_read(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @parse_yesno(ptr noundef readonly %str, i32 noundef %def) local_unnamed_addr #15 {
+define dso_local noundef i32 @parse_yesno(ptr noundef readonly %str, i32 noundef %def) local_unnamed_addr #15 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %str, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %if.end [
-    i32 102, label %return
-    i32 70, label %return
-    i32 110, label %return
-    i32 78, label %return
-    i32 48, label %return
-    i32 116, label %sw.bb1
-    i32 84, label %sw.bb1
-    i32 121, label %sw.bb1
-    i32 89, label %sw.bb1
-    i32 49, label %sw.bb1
+  switch i8 %0, label %if.end [
+    i8 102, label %return
+    i8 70, label %return
+    i8 110, label %return
+    i8 78, label %return
+    i8 48, label %return
+    i8 116, label %sw.bb1
+    i8 84, label %sw.bb1
+    i8 121, label %sw.bb1
+    i8 89, label %sw.bb1
+    i8 49, label %sw.bb1
   ]
 
 sw.bb1:                                           ; preds = %if.then, %if.then, %if.then, %if.then, %if.then
@@ -4058,7 +4049,7 @@ return:                                           ; preds = %if.then, %if.then, 
 declare void @TXT_DB_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @index_index(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
+define dso_local noundef i32 @index_index(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
 entry:
   %db1 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
   %0 = load ptr, ptr %db1, align 8
@@ -4194,7 +4185,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @save_index(ptr noundef %dbfile, ptr noundef %suffix, ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
+define dso_local noundef i32 @save_index(ptr noundef %dbfile, ptr noundef %suffix, ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
 entry:
   %buf = alloca [3 x [256 x i8]], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dbfile) #30
@@ -4266,7 +4257,7 @@ return:                                           ; preds = %err, %if.end39
 declare i64 @TXT_DB_write(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rotate_index(ptr noundef %dbfile, ptr noundef %new_suffix, ptr noundef %old_suffix) local_unnamed_addr #0 {
+define dso_local noundef i32 @rotate_index(ptr noundef %dbfile, ptr noundef %new_suffix, ptr noundef %old_suffix) local_unnamed_addr #0 {
 entry:
   %buf = alloca [5 x [256 x i8]], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dbfile) #30
@@ -5048,7 +5039,7 @@ return:                                           ; preds = %entry, %if.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_sign_init(ptr noundef %ctx, ptr noundef %pkey, ptr noundef %md, ptr noundef %sigopts) unnamed_addr #0 {
+define internal fastcc noundef i32 @do_sign_init(ptr noundef %ctx, ptr noundef %pkey, ptr noundef %md, ptr noundef %sigopts) unnamed_addr #0 {
 entry:
   %pkctx = alloca ptr, align 8
   %def_md = alloca [80 x i8], align 16
@@ -5601,7 +5592,7 @@ declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #14
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @app_access(ptr nocapture noundef readonly %name, i32 noundef %flag) local_unnamed_addr #11 {
+define dso_local noundef i32 @app_access(ptr nocapture noundef readonly %name, i32 noundef %flag) local_unnamed_addr #11 {
 entry:
   %call = tail call i32 @access(ptr noundef %name, i32 noundef %flag) #28
   ret i32 %call
@@ -5620,7 +5611,7 @@ entry:
 declare i32 @opt_isdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @fileno_stdin() local_unnamed_addr #11 {
+define dso_local noundef i32 @fileno_stdin() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @stdin, align 8
   %call = tail call i32 @fileno(ptr noundef %0) #28
@@ -5628,7 +5619,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @fileno_stdout() local_unnamed_addr #11 {
+define dso_local noundef i32 @fileno_stdout() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fileno(ptr noundef %0) #28
@@ -5636,10 +5627,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @raw_read_stdin(ptr nocapture noundef %buf, i32 noundef %siz) local_unnamed_addr #11 {
+define dso_local noundef i32 @raw_read_stdin(ptr nocapture noundef %buf, i32 noundef %siz) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @stdin, align 8
-  %call.i = tail call i32 @fileno(ptr noundef %0) #28
+  %call.i = tail call noundef i32 @fileno(ptr noundef %0) #28
   %conv = sext i32 %siz to i64
   %call1 = tail call i64 @read(i32 noundef %call.i, ptr noundef %buf, i64 noundef %conv) #28
   %conv2 = trunc i64 %call1 to i32
@@ -5650,10 +5641,10 @@ entry:
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @raw_write_stdout(ptr nocapture noundef readonly %buf, i32 noundef %siz) local_unnamed_addr #11 {
+define dso_local noundef i32 @raw_write_stdout(ptr nocapture noundef readonly %buf, i32 noundef %siz) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
-  %call.i = tail call i32 @fileno(ptr noundef %0) #28
+  %call.i = tail call noundef i32 @fileno(ptr noundef %0) #28
   %conv = sext i32 %siz to i64
   %call1 = tail call i64 @write(i32 noundef %call.i, ptr noundef %buf, i64 noundef %conv) #28
   %conv2 = trunc i64 %call1 to i32
@@ -5903,7 +5894,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_cert_times(ptr noundef %x, ptr noundef %startdate, ptr noundef %enddate, i32 noundef %days) local_unnamed_addr #0 {
+define dso_local noundef i32 @set_cert_times(ptr noundef %x, ptr noundef %startdate, ptr noundef %enddate, i32 noundef %days) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %startdate, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

@@ -20073,9 +20073,9 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  switch i64 %conv3, label %if.end.i.i.i.i [
-    i64 0, label %invoke.cont
-    i64 1, label %if.then.i2.i.i
+  switch i32 %add2, label %if.end.i.i.i.i [
+    i32 0, label %invoke.cont
+    i32 1, label %if.then.i2.i.i
   ]
 
 if.then.i2.i.i:                                   ; preds = %if.end.i.i
@@ -26177,9 +26177,9 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  switch i64 %conv, label %if.end.i.i.i.i [
-    i64 0, label %invoke.cont
-    i64 1, label %if.then.i2.i.i
+  switch i32 %retval.0.i, label %if.end.i.i.i.i [
+    i32 0, label %invoke.cont
+    i32 1, label %if.then.i2.i.i
   ]
 
 if.then.i2.i.i:                                   ; preds = %if.end.i.i

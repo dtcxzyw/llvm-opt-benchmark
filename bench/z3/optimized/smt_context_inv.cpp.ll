@@ -559,10 +559,9 @@ invoke.cont20:                                    ; preds = %invoke.cont14
   %idxprom.i.i.i = zext i32 %lit.sroa.0.0.copyload to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i
   %14 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %14 to i32
-  switch i32 %conv.i.i, label %cleanupthread-pre-split [
-    i32 -1, label %sw.bb39
-    i32 1, label %sw.bb22
+  switch i8 %14, label %cleanupthread-pre-split [
+    i8 -1, label %sw.bb39
+    i8 1, label %sw.bb22
   ]
 
 sw.bb22:                                          ; preds = %invoke.cont20

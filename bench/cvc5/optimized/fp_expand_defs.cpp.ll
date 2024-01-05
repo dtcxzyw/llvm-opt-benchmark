@@ -6251,13 +6251,12 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end228 [
-    i32 165, label %if.then
-    i32 166, label %if.then41
-    i32 191, label %if.then80
-    i32 195, label %if.then137
-    i32 198, label %if.then196
+  switch i16 %bf.clear.i, label %if.end228 [
+    i16 165, label %if.then
+    i16 166, label %if.then41
+    i16 191, label %if.then80
+    i16 195, label %if.then137
+    i16 198, label %if.then196
   ]
 
 if.then:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit

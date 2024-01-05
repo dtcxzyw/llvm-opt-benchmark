@@ -227,14 +227,13 @@ if.end26:                                         ; preds = %if.end20, %if.then1
   br label %return
 
 if.end27:                                         ; preds = %land.lhs.true
-  %conv29 = sext i8 %2 to i32
-  switch i32 %conv29, label %sw.default [
-    i32 0, label %sw.bb
-    i32 5, label %sw.bb38
-    i32 4, label %sw.bb43
-    i32 2, label %sw.bb76
-    i32 1, label %sw.bb97
-    i32 6, label %sw.bb97
+  switch i8 %2, label %sw.default [
+    i8 0, label %sw.bb
+    i8 5, label %sw.bb38
+    i8 4, label %sw.bb43
+    i8 2, label %sw.bb76
+    i8 1, label %sw.bb97
+    i8 6, label %sw.bb97
   ]
 
 sw.bb:                                            ; preds = %lor.lhs.false, %if.end27
@@ -565,8 +564,8 @@ if.then134:                                       ; preds = %if.then126
 if.end136:                                        ; preds = %if.then126, %if.end124
   %tcount139 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
   %28 = load i64, ptr %tcount139, align 8
-  %cmp140106 = icmp sgt i64 %28, 0
-  br i1 %cmp140106, label %for.body.lr.ph, label %for.end
+  %cmp140105 = icmp sgt i64 %28, 0
+  br i1 %cmp140105, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end136
   %templates137 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
@@ -576,9 +575,9 @@ for.body.lr.ph:                                   ; preds = %if.end136
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %tt.0107 = phi ptr [ %29, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %tt.0106 = phi ptr [ %29, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %30 = load ptr, ptr %fld, align 8
-  %call142 = call ptr @ossl_asn1_do_adb(ptr noundef %30, ptr noundef %tt.0107, i32 noundef 1) #4
+  %call142 = call ptr @ossl_asn1_do_adb(ptr noundef %30, ptr noundef %tt.0106, i32 noundef 1) #4
   %tobool143.not = icmp eq ptr %call142, null
   br i1 %tobool143.not, label %return, label %if.end145
 
@@ -590,7 +589,7 @@ if.end145:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %if.end145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.0107, i64 1
+  %incdec.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.0106, i64 1
   %31 = load i64, ptr %tcount139, align 8
   %cmp140 = icmp sgt i64 %31, %indvars.iv.next
   br i1 %cmp140, label %for.body, label %for.end, !llvm.loop !5
@@ -615,6 +614,7 @@ if.then162:                                       ; preds = %if.end160
   br i1 %cmp164, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end27
+  %conv29 = sext i8 %2 to i32
   %call171 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8, i32 noundef %conv29) #4
   br label %return
 
@@ -900,7 +900,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_print_obstring(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc noundef i32 @asn1_print_obstring(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 1
   %0 = load i32, ptr %type, align 4

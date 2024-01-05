@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.UCPTrieData = type { ptr }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @ucptrie_openFromBinary_75(i32 noundef %type, i32 noundef %valueWidth, ptr noundef %data, i32 noundef %length, ptr noundef writeonly %pActualLength, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noalias noundef ptr @ucptrie_openFromBinary_75(i32 noundef %type, i32 noundef %valueWidth, ptr noundef %data, i32 noundef %length, ptr noundef writeonly %pActualLength, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -656,11 +656,10 @@ if.end:                                           ; preds = %cond.true, %cond.tr
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %data, align 8
   %valueWidth = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 7
   %12 = load i8, ptr %valueWidth, align 1
-  %conv17 = sext i8 %12 to i32
-  switch i32 %conv17, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb4.i
+  switch i8 %12, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb1.i
+    i8 2, label %sw.bb4.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end
@@ -809,7 +808,6 @@ entry:
 if.end:                                           ; preds = %entry
   %valueWidth1 = getelementptr inbounds %struct.UCPTrie, ptr %t, i64 0, i32 7
   %0 = load i8, ptr %valueWidth1, align 1
-  %conv = sext i8 %0 to i32
   %highStart = getelementptr inbounds %struct.UCPTrie, ptr %t, i64 0, i32 4
   %1 = load i32, ptr %highStart, align 8
   %cmp2.not = icmp sgt i32 %1, %start
@@ -825,10 +823,10 @@ if.then5:                                         ; preds = %if.then3
   %sub = add nsw i32 %2, -2
   %data = getelementptr inbounds %struct.UCPTrie, ptr %t, i64 0, i32 1
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %data, align 8
-  switch i32 %conv, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb4.i
+  switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb1.i
+    i8 2, label %sw.bb4.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then5
@@ -1076,10 +1074,10 @@ if.else120:                                       ; preds = %if.else101
   %and122 = and i32 %c.1, %sub102
   %add123 = add nuw nsw i32 %block.0, %and122
   %agg.tmp124.sroa.0.0.copyload = load ptr, ptr %data125, align 8
-  switch i32 %conv, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138 [
-    i32 0, label %sw.bb.i134
-    i32 1, label %sw.bb1.i131
-    i32 2, label %sw.bb4.i126
+  switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit138 [
+    i8 0, label %sw.bb.i134
+    i8 1, label %sw.bb1.i131
+    i8 2, label %sw.bb4.i126
   ]
 
 sw.bb.i134:                                       ; preds = %if.else120
@@ -1180,10 +1178,10 @@ while.body.preheader:                             ; preds = %if.end147.thread, %
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %agg.tmp151.sroa.0.0.copyload.us = load ptr, ptr %data125, align 8
-  switch i32 %conv, label %while.body.lr.ph.split.us.split [
-    i32 0, label %while.body.lr.ph.split.us.split.us
-    i32 1, label %while.body.lr.ph.split.us.split.us212
-    i32 2, label %while.body.lr.ph.split.us.split.us231
+  switch i8 %0, label %while.body.lr.ph.split.us.split [
+    i8 0, label %while.body.lr.ph.split.us.split.us
+    i8 1, label %while.body.lr.ph.split.us.split.us212
+    i8 2, label %while.body.lr.ph.split.us.split.us231
   ]
 
 while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.split.us
@@ -1277,10 +1275,10 @@ while.body:                                       ; preds = %while.body.preheade
   %trieValue.5201 = phi i32 [ %trieValue.4345352, %while.body.preheader ], [ %trieValue.6, %if.end166 ]
   %agg.tmp151.sroa.0.0.copyload = load ptr, ptr %data125, align 8
   %indvars.iv.next = add i64 %indvars.iv, 1
-  switch i32 %conv, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158 [
-    i32 0, label %sw.bb.i154
-    i32 1, label %sw.bb1.i151
-    i32 2, label %sw.bb4.i146
+  switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit158 [
+    i8 0, label %sw.bb.i154
+    i8 1, label %sw.bb1.i151
+    i8 2, label %sw.bb4.i146
   ]
 
 sw.bb.i154:                                       ; preds = %while.body
@@ -1352,10 +1350,10 @@ do.end174:                                        ; preds = %do.cond171
   %43 = load i32, ptr %dataLength176, align 4
   %sub177 = add nsw i32 %43, -2
   %agg.tmp178.sroa.0.0.copyload = load ptr, ptr %data125, align 8
-  switch i32 %conv, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178 [
-    i32 0, label %sw.bb.i174
-    i32 1, label %sw.bb1.i171
-    i32 2, label %sw.bb4.i166
+  switch i8 %0, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit178 [
+    i8 0, label %sw.bb.i174
+    i8 1, label %sw.bb1.i171
+    i8 2, label %sw.bb4.i166
   ]
 
 sw.bb.i174:                                       ; preds = %do.end174
@@ -1402,7 +1400,7 @@ return:                                           ; preds = %while.body.lr.ph.sp
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @ucptrie_toBinary_75(ptr nocapture noundef readonly %trie, ptr noundef %data, i32 noundef %capacity, ptr nocapture noundef %pErrorCode) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
@@ -1445,10 +1443,10 @@ if.end17:                                         ; preds = %land.lhs.true, %lor
   %4 = load i32, ptr %indexLength, align 8
   %mul = shl nsw i32 %4, 1
   %add = add nsw i32 %mul, 16
-  switch i32 %conv3, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb20
-    i32 2, label %sw.bb24
+  switch i8 %2, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb20
+    i8 2, label %sw.bb24
   ]
 
 sw.bb:                                            ; preds = %if.end17
@@ -1494,74 +1492,74 @@ if.end29:                                         ; preds = %sw.epilog
   %12 = load i8, ptr %type1, align 2
   %conv35 = sext i8 %12 to i32
   %shl = shl nsw i32 %conv35, 6
-  %13 = or disjoint i32 %shr, %shr33
-  %14 = or i32 %13, %shl
-  %or37 = or i32 %14, %conv3
+  %or = or i32 %shr, %conv3
+  %or36 = or i32 %or, %shr33
+  %or37 = or i32 %or36, %shl
   %conv38 = trunc i32 %or37 to i16
   %options = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 1
   store i16 %conv38, ptr %options, align 4
-  %15 = load i32, ptr %indexLength, align 8
-  %conv40 = trunc i32 %15 to i16
+  %13 = load i32, ptr %indexLength, align 8
+  %conv40 = trunc i32 %13 to i16
   %indexLength41 = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 2
   store i16 %conv40, ptr %indexLength41, align 2
-  %16 = load i32, ptr %dataLength30, align 4
-  %conv43 = trunc i32 %16 to i16
+  %14 = load i32, ptr %dataLength30, align 4
+  %conv43 = trunc i32 %14 to i16
   %dataLength44 = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 3
   store i16 %conv43, ptr %dataLength44, align 4
   %index3NullOffset = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 10
-  %17 = load i16, ptr %index3NullOffset, align 2
+  %15 = load i16, ptr %index3NullOffset, align 2
   %index3NullOffset45 = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 4
-  store i16 %17, ptr %index3NullOffset45, align 2
-  %18 = load i32, ptr %dataNullOffset, align 8
-  %conv47 = trunc i32 %18 to i16
+  store i16 %15, ptr %index3NullOffset45, align 2
+  %16 = load i32, ptr %dataNullOffset, align 8
+  %conv47 = trunc i32 %16 to i16
   %dataNullOffset48 = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 5
   store i16 %conv47, ptr %dataNullOffset48, align 4
   %highStart = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 4
-  %19 = load i32, ptr %highStart, align 8
-  %shr49 = lshr i32 %19, 9
+  %17 = load i32, ptr %highStart, align 8
+  %shr49 = lshr i32 %17, 9
   %conv50 = trunc i32 %shr49 to i16
   %shiftedHighStart = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 0, i32 6
   store i16 %conv50, ptr %shiftedHighStart, align 2
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 16
-  %20 = load ptr, ptr %trie, align 8
-  %21 = load i32, ptr %indexLength, align 8
-  %mul52 = shl nsw i32 %21, 1
+  %18 = load ptr, ptr %trie, align 8
+  %19 = load i32, ptr %indexLength, align 8
+  %mul52 = shl nsw i32 %19, 1
   %conv53 = sext i32 %mul52 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 2 %20, i64 %conv53, i1 false)
-  %22 = load i32, ptr %indexLength, align 8
-  %mul55 = shl nsw i32 %22, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 2 %18, i64 %conv53, i1 false)
+  %20 = load i32, ptr %indexLength, align 8
+  %mul55 = shl nsw i32 %20, 1
   %idx.ext = sext i32 %mul55 to i64
   %add.ptr56 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  switch i32 %conv3, label %return [
-    i32 0, label %do.body58
-    i32 1, label %do.body65
-    i32 2, label %do.body72
+  switch i8 %2, label %return [
+    i8 0, label %do.body58
+    i8 1, label %do.body65
+    i8 2, label %do.body72
   ]
 
 do.body58:                                        ; preds = %if.end29
   %data59 = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 1
-  %23 = load ptr, ptr %data59, align 8
-  %24 = load i32, ptr %dataLength30, align 4
-  %mul61 = shl nsw i32 %24, 1
+  %21 = load ptr, ptr %data59, align 8
+  %22 = load i32, ptr %dataLength30, align 4
+  %mul61 = shl nsw i32 %22, 1
   %conv62 = sext i32 %mul61 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 2 %23, i64 %conv62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 2 %21, i64 %conv62, i1 false)
   br label %return
 
 do.body65:                                        ; preds = %if.end29
   %data66 = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 1
-  %25 = load ptr, ptr %data66, align 8
-  %26 = load i32, ptr %dataLength30, align 4
-  %mul68 = shl nsw i32 %26, 2
+  %23 = load ptr, ptr %data66, align 8
+  %24 = load i32, ptr %dataLength30, align 4
+  %mul68 = shl nsw i32 %24, 2
   %conv69 = sext i32 %mul68 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 4 %25, i64 %conv69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 4 %23, i64 %conv69, i1 false)
   br label %return
 
 do.body72:                                        ; preds = %if.end29
   %data73 = getelementptr inbounds %struct.UCPTrie, ptr %trie, i64 0, i32 1
-  %27 = load ptr, ptr %data73, align 8
-  %28 = load i32, ptr %dataLength30, align 4
-  %conv75 = sext i32 %28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 1 %27, i64 %conv75, i1 false)
+  %25 = load ptr, ptr %data73, align 8
+  %26 = load i32, ptr %dataLength30, align 4
+  %conv75 = sext i32 %26 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 1 %25, i64 %conv75, i1 false)
   br label %return
 
 return:                                           ; preds = %do.body58, %do.body65, %do.body72, %if.end29, %entry, %if.then28, %if.then16
@@ -1647,7 +1645,7 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { allocsize(0) }
 

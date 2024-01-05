@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [8 x i8] c"__index\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_string(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_string(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @strlib) #10
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.1) #10
@@ -138,7 +138,7 @@ cleanup:                                          ; preds = %for.body, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_char(ptr noundef %L) #0 {
+define internal noundef i32 @str_char(ptr noundef %L) #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   %call = tail call i32 @lua_gettop(ptr noundef %L) #10
@@ -189,7 +189,7 @@ for.end:                                          ; preds = %lor.end12, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_dump(ptr noundef %L) #0 {
+define internal noundef i32 @str_dump(ptr noundef %L) #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %b) #10
@@ -410,22 +410,21 @@ scanformat.exit:                                  ; preds = %if.then57.i, %if.en
   store i8 0, ptr %add.ptr.i, align 1, !tbaa !8
   %incdec.ptr36 = getelementptr inbounds i8, ptr %p.4.i, i64 1
   %32 = load i8, ptr %p.4.i, align 1, !tbaa !8
-  %conv37 = sext i8 %32 to i32
-  switch i32 %conv37, label %cleanup82.thread [
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb43
-    i32 105, label %sw.bb43
-    i32 111, label %sw.bb50
-    i32 117, label %sw.bb50
-    i32 120, label %sw.bb50
-    i32 88, label %sw.bb50
-    i32 101, label %sw.bb57
-    i32 69, label %sw.bb57
-    i32 102, label %sw.bb57
-    i32 103, label %sw.bb57
-    i32 71, label %sw.bb57
-    i32 113, label %sw.bb62
-    i32 115, label %sw.bb63
+  switch i8 %32, label %cleanup82.thread [
+    i8 99, label %sw.bb
+    i8 100, label %sw.bb43
+    i8 105, label %sw.bb43
+    i8 111, label %sw.bb50
+    i8 117, label %sw.bb50
+    i8 120, label %sw.bb50
+    i8 88, label %sw.bb50
+    i8 101, label %sw.bb57
+    i8 69, label %sw.bb57
+    i8 102, label %sw.bb57
+    i8 103, label %sw.bb57
+    i8 71, label %sw.bb57
+    i8 113, label %sw.bb62
+    i8 115, label %sw.bb63
   ]
 
 sw.bb:                                            ; preds = %scanformat.exit
@@ -493,13 +492,12 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %sw.bb62
 while.body.i131:                                  ; preds = %lor.end.i, %sw.epilog.i
   %s.085.i = phi ptr [ %incdec.ptr45.i, %sw.epilog.i ], [ %call.i127, %lor.end.i ]
   %40 = load i8, ptr %s.085.i, align 1, !tbaa !8
-  %conv.i132 = sext i8 %40 to i32
-  switch i32 %conv.i132, label %sw.default.i [
-    i32 34, label %sw.bb.i
-    i32 92, label %sw.bb.i
-    i32 10, label %sw.bb.i
-    i32 13, label %sw.bb30.i
-    i32 0, label %sw.bb31.i
+  switch i8 %40, label %sw.default.i [
+    i8 34, label %sw.bb.i
+    i8 92, label %sw.bb.i
+    i8 10, label %sw.bb.i
+    i8 13, label %sw.bb30.i
+    i8 0, label %sw.bb31.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i131, %while.body.i131, %while.body.i131
@@ -609,6 +607,7 @@ cleanup:                                          ; preds = %sw.bb63
   br label %cleanup82
 
 cleanup82.thread:                                 ; preds = %scanformat.exit
+  %conv37 = sext i8 %32 to i32
   %call78 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.29, i32 noundef %conv37) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %buff) #10
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %form) #10
@@ -651,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gmatch(ptr noundef %L) #0 {
+define internal noundef i32 @gmatch(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #10
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #10
@@ -662,7 +661,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_gsub(ptr noundef %L) #0 {
+define internal noundef i32 @str_gsub(ptr noundef %L) #0 {
 entry:
   %l.i.i = alloca i64, align 8
   %srcl = alloca i64, align 8
@@ -975,7 +974,7 @@ while.end:                                        ; preds = %if.end44, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_len(ptr noundef %L) #0 {
+define internal noundef i32 @str_len(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l) #10
@@ -987,7 +986,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_lower(ptr noundef %L) #0 {
+define internal noundef i32 @str_lower(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   %b = alloca %struct.luaL_Buffer, align 8
@@ -1047,7 +1046,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_rep(ptr noundef %L) #0 {
+define internal noundef i32 @str_rep(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   %b = alloca %struct.luaL_Buffer, align 8
@@ -1076,7 +1075,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_reverse(ptr noundef %L) #0 {
+define internal noundef i32 @str_reverse(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   %b = alloca %struct.luaL_Buffer, align 8
@@ -1128,7 +1127,7 @@ while.end:                                        ; preds = %lor.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_sub(ptr noundef %L) #0 {
+define internal noundef i32 @str_sub(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l) #10
@@ -1154,8 +1153,8 @@ entry:
 if.then9:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %spec.store.select
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %reass.sub1 = sub i64 %spec.select, %spec.store.select
-  %add = add i64 %reass.sub1, 1
+  %reass.sub1 = sub nsw i64 %spec.select, %spec.store.select
+  %add = add nsw i64 %reass.sub1, 1
   call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %add.ptr10, i64 noundef %add) #10
   br label %if.end11
 
@@ -1169,7 +1168,7 @@ if.end11:                                         ; preds = %if.else, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @str_upper(ptr noundef %L) #0 {
+define internal noundef i32 @str_upper(ptr noundef %L) #0 {
 entry:
   %l = alloca i64, align 8
   %b = alloca %struct.luaL_Buffer, align 8
@@ -1256,7 +1255,7 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lua_dump(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @writer(ptr nocapture readnone %L, ptr noundef %b, i64 noundef %size, ptr noundef %B) #0 {
+define internal noundef i32 @writer(ptr nocapture readnone %L, ptr noundef %b, i64 noundef %size, ptr noundef %B) #0 {
 entry:
   tail call void @luaL_addlstring(ptr noundef %B, ptr noundef %b, i64 noundef %size) #10
   ret i32 0
@@ -1492,13 +1491,12 @@ init.outer.outer:                                 ; preds = %init.outer.outer.ba
 init:                                             ; preds = %init.backedge, %init.outer.outer
   %p.addr.0 = phi ptr [ %p.addr.0.ph.ph, %init.outer.outer ], [ %p.addr.0.be, %init.backedge ]
   %0 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %dflt [
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb6
-    i32 37, label %sw.bb9
-    i32 0, label %return
-    i32 36, label %sw.bb59
+  switch i8 %0, label %dflt [
+    i8 40, label %sw.bb
+    i8 41, label %sw.bb6
+    i8 37, label %sw.bb9
+    i8 0, label %return
+    i8 36, label %sw.bb59
   ]
 
 sw.bb:                                            ; preds = %init
@@ -1613,10 +1611,9 @@ if.then.i200:                                     ; preds = %capture_to_close.ex
 sw.bb9:                                           ; preds = %init
   %add.ptr10 = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   %16 = load i8, ptr %add.ptr10, align 1, !tbaa !8
-  %conv11 = sext i8 %16 to i32
-  switch i32 %conv11, label %sw.default [
-    i32 98, label %sw.bb12
-    i32 102, label %sw.bb19
+  switch i8 %16, label %sw.default [
+    i8 98, label %sw.bb12
+    i8 102, label %sw.bb19
   ]
 
 sw.bb12:                                          ; preds = %sw.bb9
@@ -1702,10 +1699,9 @@ if.end26:                                         ; preds = %sw.bb19
   %call25 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %28, ptr noundef nonnull @.str.20) #10
   %.pre = load i8, ptr %add.ptr20, align 1, !tbaa !8
   %incdec.ptr.i207 = getelementptr inbounds i8, ptr %p.addr.0, i64 3
-  %conv.i = sext i8 %.pre to i32
-  switch i32 %conv.i, label %classend.exit [
-    i32 37, label %sw.bb.i
-    i32 91, label %sw.bb3.i
+  switch i8 %.pre, label %classend.exit [
+    i8 37, label %sw.bb.i
+    i8 91, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end26
@@ -2036,11 +2032,10 @@ land.rhs:                                         ; preds = %classend.exit309
   %66 = load i8, ptr %s.addr.0.ph.ph, align 1, !tbaa !8
   %conv78 = zext i8 %66 to i32
   %67 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  %conv.i310 = sext i8 %67 to i32
-  switch i32 %conv.i310, label %sw.default.i [
-    i32 46, label %singlematch.exit
-    i32 37, label %sw.bb1.i
-    i32 91, label %sw.bb3.i311
+  switch i8 %67, label %sw.default.i [
+    i8 46, label %singlematch.exit
+    i8 37, label %sw.bb1.i
+    i8 91, label %sw.bb3.i311
   ]
 
 sw.bb1.i:                                         ; preds = %land.rhs
@@ -2120,12 +2115,11 @@ singlematch.exit:                                 ; preds = %sw.default.i, %matc
 land.end:                                         ; preds = %singlematch.exit, %classend.exit309
   %73 = phi i1 [ false, %classend.exit309 ], [ %tobool80, %singlematch.exit ]
   %74 = load i8, ptr %retval.0.i294, align 1, !tbaa !8
-  %conv81 = sext i8 %74 to i32
-  switch i32 %conv81, label %sw.default105 [
-    i32 63, label %sw.bb82
-    i32 42, label %while.cond.i.preheader
-    i32 43, label %sw.bb95
-    i32 45, label %for.cond.i.preheader
+  switch i8 %74, label %sw.default105 [
+    i8 63, label %sw.bb82
+    i8 42, label %while.cond.i.preheader
+    i8 43, label %sw.bb95
+    i8 45, label %for.cond.i.preheader
   ]
 
 for.cond.i.preheader:                             ; preds = %land.end
@@ -2145,7 +2139,6 @@ land.rhs.i.lr.ph:                                 ; preds = %while.cond.i.prehea
   %s.addr.0.ph.lcssa667674 = ptrtoint ptr %s.addr.0.ph.ph to i64
   %.lcssa652673 = ptrtoint ptr %65 to i64
   %75 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  %conv.i377 = sext i8 %75 to i32
   %add.ptr4.i379 = getelementptr inbounds i8, ptr %retval.0.i294, i64 -1
   %76 = sub i64 %.lcssa652673, %s.addr.0.ph.lcssa667674
   br label %land.rhs.i
@@ -2168,10 +2161,10 @@ land.rhs.i:                                       ; preds = %while.body.i330, %l
   %i.0.i620 = phi i64 [ 0, %land.rhs.i.lr.ph ], [ %inc.i331, %while.body.i330 ]
   %77 = load i8, ptr %add.ptr.i320621, align 1, !tbaa !8
   %conv.i327 = zext i8 %77 to i32
-  switch i32 %conv.i377, label %sw.default.i421 [
-    i32 46, label %while.body.i330
-    i32 37, label %sw.bb1.i417
-    i32 91, label %sw.bb3.i378
+  switch i8 %75, label %sw.default.i421 [
+    i8 46, label %while.body.i330
+    i8 37, label %sw.bb1.i417
+    i8 91, label %sw.bb3.i378
   ]
 
 sw.bb1.i417:                                      ; preds = %land.rhs.i
@@ -2281,7 +2274,6 @@ cond.true97:                                      ; preds = %sw.bb95
 
 land.rhs.i351.lr.ph:                              ; preds = %cond.true97
   %83 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  %conv.i426 = sext i8 %83 to i32
   %add.ptr4.i428 = getelementptr inbounds i8, ptr %retval.0.i294, i64 -1
   %84 = xor i64 %s.addr.0.ph.lcssa668672, -1
   %85 = add i64 %.lcssa653671, %84
@@ -2292,10 +2284,10 @@ land.rhs.i351:                                    ; preds = %while.body.i355, %l
   %i.0.i333615 = phi i64 [ 0, %land.rhs.i351.lr.ph ], [ %inc.i356, %while.body.i355 ]
   %86 = load i8, ptr %add.ptr.i334616, align 1, !tbaa !8
   %conv.i352 = zext i8 %86 to i32
-  switch i32 %conv.i426, label %sw.default.i470 [
-    i32 46, label %while.body.i355
-    i32 37, label %sw.bb1.i466
-    i32 91, label %sw.bb3.i427
+  switch i8 %83, label %sw.default.i470 [
+    i8 46, label %while.body.i355
+    i8 37, label %sw.bb1.i466
+    i8 91, label %sw.bb3.i427
   ]
 
 sw.bb1.i466:                                      ; preds = %land.rhs.i351
@@ -2404,11 +2396,10 @@ land.lhs.true.i365:                               ; preds = %if.else.i363
   %93 = load i8, ptr %s.addr.0.i611, align 1, !tbaa !8
   %conv.i366 = zext i8 %93 to i32
   %94 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  %conv.i475 = sext i8 %94 to i32
-  switch i32 %conv.i475, label %sw.default.i519 [
-    i32 46, label %cleanup.i
-    i32 37, label %sw.bb1.i515
-    i32 91, label %sw.bb3.i476
+  switch i8 %94, label %sw.default.i519 [
+    i8 46, label %cleanup.i
+    i8 37, label %sw.bb1.i515
+    i8 91, label %sw.bb3.i476
   ]
 
 sw.bb1.i515:                                      ; preds = %land.lhs.true.i365

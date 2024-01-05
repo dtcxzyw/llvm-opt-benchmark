@@ -367,13 +367,12 @@ if.then.i.i165:                                   ; preds = %for.body12.i
 
 LoadChar.exit170:                                 ; preds = %if.then.i.i165, %for.body12.i
   %44 = load i8, ptr %x.i161, align 1, !tbaa !4
-  %conv.i169 = sext i8 %44 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i161) #5
-  switch i32 %conv.i169, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb18.i
-    i32 3, label %sw.bb23.i
-    i32 4, label %sw.bb28.i
+  switch i8 %44, label %sw.default.i [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb18.i
+    i8 3, label %sw.bb23.i
+    i8 4, label %sw.bb28.i
   ]
 
 sw.bb.i:                                          ; preds = %LoadChar.exit170

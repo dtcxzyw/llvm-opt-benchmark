@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [23 x i8] c"Error: couldn't load '\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @stb_include_load_file(ptr nocapture noundef readonly %filename, ptr noundef writeonly %plen) local_unnamed_addr #0 {
+define noalias noundef ptr @stb_include_load_file(ptr nocapture noundef readonly %filename, ptr noundef writeonly %plen) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -67,7 +67,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias ptr @stb_include_append_include(ptr nocapture noundef %array, i32 noundef %len, i32 noundef %offset, i32 noundef %end, ptr noundef %filename, i32 noundef %next_line) local_unnamed_addr #3 {
+define noalias noundef ptr @stb_include_append_include(ptr nocapture noundef %array, i32 noundef %len, i32 noundef %offset, i32 noundef %end, ptr noundef %filename, i32 noundef %next_line) local_unnamed_addr #3 {
 entry:
   %add = add nsw i32 %len, 1
   %conv = sext i32 %add to i64
@@ -116,7 +116,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_include_isspace(i32 noundef %ch) local_unnamed_addr #7 {
+define noundef i32 @stb_include_isspace(i32 noundef %ch) local_unnamed_addr #7 {
 entry:
   switch i32 %ch, label %lor.rhs [
     i32 32, label %lor.end
@@ -187,18 +187,14 @@ while.end22:                                      ; preds = %while.cond11
 land.lhs.true:                                    ; preds = %while.end22
   %arrayidx = getelementptr inbounds i8, ptr %s.1.pn, i64 8
   %4 = load i8, ptr %arrayidx, align 1
-  %conv25 = sext i8 %4 to i32
-  switch i32 %conv25, label %stb_include_isspace.exit [
-    i32 32, label %while.cond29.preheader
-    i32 13, label %while.cond29.preheader
-    i32 9, label %while.cond29.preheader
+  switch i8 %4, label %if.else [
+    i8 32, label %while.cond29.preheader
+    i8 13, label %while.cond29.preheader
+    i8 9, label %while.cond29.preheader
+    i8 10, label %while.cond29.preheader
   ]
 
-stb_include_isspace.exit:                         ; preds = %land.lhs.true
-  %cmp4.i.not = icmp eq i8 %4, 10
-  br i1 %cmp4.i.not, label %while.cond29.preheader, label %if.else
-
-while.cond29.preheader:                           ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %stb_include_isspace.exit
+while.cond29.preheader:                           ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true
   br label %while.cond29
 
 while.cond29:                                     ; preds = %while.cond29.preheader, %while.body38
@@ -280,7 +276,7 @@ while.end91:                                      ; preds = %while.cond76, %whil
   store i32 %add100, ptr %next_line_after.i, align 8
   br label %if.end145
 
-if.else:                                          ; preds = %stb_include_isspace.exit, %while.end22
+if.else:                                          ; preds = %land.lhs.true, %while.end22
   %call103 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %s.2, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #17
   %cmp104 = icmp eq i32 %call103, 0
   br i1 %cmp104, label %land.lhs.true106, label %if.end145
@@ -288,20 +284,15 @@ if.else:                                          ; preds = %stb_include_isspace
 land.lhs.true106:                                 ; preds = %if.else
   %arrayidx107 = getelementptr inbounds i8, ptr %s.1.pn, i64 7
   %8 = load i8, ptr %arrayidx107, align 1
-  %conv108 = sext i8 %8 to i32
-  switch i32 %conv108, label %stb_include_isspace.exit69 [
-    i32 32, label %while.cond116.preheader
-    i32 13, label %while.cond116.preheader
-    i32 9, label %while.cond116.preheader
-  ]
-
-stb_include_isspace.exit69:                       ; preds = %land.lhs.true106
   switch i8 %8, label %if.end145 [
+    i8 32, label %while.cond116.preheader
+    i8 13, label %while.cond116.preheader
+    i8 9, label %while.cond116.preheader
     i8 10, label %while.cond116.preheader
     i8 0, label %while.cond116.preheader
   ]
 
-while.cond116.preheader:                          ; preds = %stb_include_isspace.exit69, %stb_include_isspace.exit69, %land.lhs.true106, %land.lhs.true106, %land.lhs.true106
+while.cond116.preheader:                          ; preds = %land.lhs.true106, %land.lhs.true106, %land.lhs.true106, %land.lhs.true106, %land.lhs.true106
   br label %while.cond116
 
 while.cond116:                                    ; preds = %while.cond116.preheader, %while.body129
@@ -341,10 +332,10 @@ while.end131:                                     ; preds = %while.cond116, %whi
   store i32 %add141, ptr %next_line_after.i78, align 8
   br label %if.end145
 
-if.end145:                                        ; preds = %while.cond1, %while.cond29, %while.cond46, %while.cond46, %while.cond46, %stb_include_isspace.exit69, %while.end91, %while.end131, %if.else
-  %s.6 = phi ptr [ %s.4, %while.end91 ], [ %s.5, %while.end131 ], [ %s.2, %if.else ], [ %s.2, %stb_include_isspace.exit69 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %s.3, %while.cond29 ], [ %s.1, %while.cond1 ]
-  %inc_count.1 = phi i32 [ %inc, %while.end91 ], [ %inc132, %while.end131 ], [ %inc_count.090, %if.else ], [ %inc_count.090, %stb_include_isspace.exit69 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond29 ], [ %inc_count.090, %while.cond1 ]
-  %list.1 = phi ptr [ %call.i, %while.end91 ], [ %call.i73, %while.end131 ], [ %list.091, %if.else ], [ %list.091, %stb_include_isspace.exit69 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond29 ], [ %list.091, %while.cond1 ]
+if.end145:                                        ; preds = %while.cond1, %while.cond29, %while.cond46, %while.cond46, %while.cond46, %land.lhs.true106, %while.end91, %while.end131, %if.else
+  %s.6 = phi ptr [ %s.4, %while.end91 ], [ %s.5, %while.end131 ], [ %s.2, %if.else ], [ %s.2, %land.lhs.true106 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %s.3, %while.cond29 ], [ %s.1, %while.cond1 ]
+  %inc_count.1 = phi i32 [ %inc, %while.end91 ], [ %inc132, %while.end131 ], [ %inc_count.090, %if.else ], [ %inc_count.090, %land.lhs.true106 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond29 ], [ %inc_count.090, %while.cond1 ]
+  %list.1 = phi ptr [ %call.i, %while.end91 ], [ %call.i73, %while.end131 ], [ %list.091, %if.else ], [ %list.091, %land.lhs.true106 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond29 ], [ %list.091, %while.cond1 ]
   br label %while.cond146
 
 while.cond146:                                    ; preds = %while.body159, %if.end145
@@ -418,7 +409,7 @@ for.end12:                                        ; preds = %for.body5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias ptr @stb_include_append(ptr nocapture noundef %str, ptr nocapture noundef %curlen, ptr nocapture noundef readonly %addstr, i64 noundef %addlen) local_unnamed_addr #11 {
+define noalias noundef ptr @stb_include_append(ptr nocapture noundef %str, ptr nocapture noundef %curlen, ptr nocapture noundef readonly %addstr, i64 noundef %addlen) local_unnamed_addr #11 {
 entry:
   %0 = load i64, ptr %curlen, align 8
   %add = add i64 %0, %addlen
@@ -432,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stb_include_string(ptr noundef %str, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef readonly %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_string(ptr noundef %str, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef readonly %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len.i = alloca i64, align 8
   %temp = alloca [4096 x i8], align 16
@@ -651,7 +642,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stb_include_file(ptr noundef %filename, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_file(ptr noundef %filename, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len = alloca i64, align 8
   %call = call ptr @stb_include_load_file(ptr noundef %filename, ptr noundef nonnull %len)
@@ -677,7 +668,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stb_include_strings(ptr nocapture noundef readonly %strs, i32 noundef %count, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_strings(ptr nocapture noundef readonly %strs, i32 noundef %count, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %cmp15 = icmp sgt i32 %count, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end.thread

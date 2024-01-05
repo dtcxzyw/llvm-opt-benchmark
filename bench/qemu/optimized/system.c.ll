@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #1 {
 entry:
   ret i1 true
 }
@@ -186,7 +186,7 @@ declare i32 @vm_stop(i32 noundef) local_unnamed_addr #3
 declare void @qemu_cpu_kick(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdbserver_start(ptr noundef %device) local_unnamed_addr #2 {
+define dso_local noundef i32 @gdbserver_start(ptr noundef %device) local_unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %act = alloca %struct.sigaction, align 8
@@ -551,7 +551,7 @@ declare zeroext i1 @qemu_chr_fe_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @gdb_chr_can_receive(ptr nocapture readnone %opaque) #1 {
+define internal noundef i32 @gdb_chr_can_receive(ptr nocapture readnone %opaque) #1 {
 entry:
   ret i32 4096
 }
@@ -1005,12 +1005,11 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %idxprom24 = sext i32 %5 to i64
   %arrayidx25 = getelementptr i8, ptr %newstates, i64 %idxprom24
   %6 = load i8, ptr %arrayidx25, align 1
-  %conv26 = sext i8 %6 to i32
-  switch i32 %conv26, label %sw.default [
-    i32 0, label %while.end36
-    i32 1, label %while.end36
-    i32 115, label %sw.bb27
-    i32 99, label %sw.bb29
+  switch i8 %6, label %sw.default [
+    i8 0, label %while.end36
+    i8 1, label %while.end36
+    i8 115, label %sw.bb27
+    i8 99, label %sw.bb29
   ]
 
 sw.bb27:                                          ; preds = %for.body22
@@ -1125,7 +1124,7 @@ declare void @cpu_resume(ptr noundef) local_unnamed_addr #3
 declare void @qemu_clock_enable(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @gdb_signal_to_target(i32 noundef %sig) local_unnamed_addr #1 {
+define dso_local noundef i32 @gdb_signal_to_target(i32 noundef %sig) local_unnamed_addr #1 {
 entry:
   %switch.selectcmp = icmp eq i32 %sig, 5
   %switch.select = select i1 %switch.selectcmp, i32 5, i32 -1
@@ -1654,7 +1653,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @gdb_monitor_write(ptr nocapture readnone %chr, ptr noundef %buf, i32 noundef returned %len) #2 {
+define internal noundef i32 @gdb_monitor_write(ptr nocapture readnone %chr, ptr noundef %buf, i32 noundef returned %len) #2 {
 glib_autoptr_cleanup_GString.exit:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.44) #14
   tail call void @gdb_memtohex(ptr noundef %call, ptr noundef %buf, i32 noundef %len) #14

@@ -9892,8 +9892,12 @@ if.end362:                                        ; preds = %invoke.cont355, %_Z
   %type365 = getelementptr inbounds %"struct.grpc_core::XdsClusterResource", ptr %116, i64 0, i32 1
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.grpc_core::XdsClusterResource", ptr %116, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %117 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp eq i8 %117, -1
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i173, label %if.end.i.i
+  switch i8 %117, label %sw.default.i.i.i [
+    i8 -1, label %if.then.i.i173
+    i8 0, label %sw.bb.i.i.i
+    i8 1, label %sw.bb2.i.i.i
+    i8 2, label %sw.bb3.i.i.i
+  ]
 
 if.then.i.i173:                                   ; preds = %if.end362
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #22
@@ -9906,15 +9910,7 @@ if.then.i.i173:                                   ; preds = %if.end362
 .noexc174:                                        ; preds = %if.then.i.i173
   unreachable
 
-if.end.i.i:                                       ; preds = %if.end362
-  %conv.i.i.i.i = sext i8 %117 to i64
-  switch i64 %conv.i.i.i.i, label %sw.default.i.i.i [
-    i64 0, label %sw.bb.i.i.i
-    i64 1, label %sw.bb2.i.i.i
-    i64 2, label %sw.bb3.i.i.i
-  ]
-
-sw.bb.i.i.i:                                      ; preds = %if.end.i.i
+sw.bb.i.i.i:                                      ; preds = %if.end362
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i.i.i.i.i.i.i)
@@ -10202,7 +10198,7 @@ ehcleanup20.i.i.i.i.i.i.i:                        ; preds = %lpad15.i.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
   br label %invoke.cont371
 
-sw.bb2.i.i.i:                                     ; preds = %if.end.i.i
+sw.bb2.i.i.i:                                     ; preds = %if.end362
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i.i.i.i10.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i11.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i.i.i.i12.i.i.i)
@@ -10477,14 +10473,14 @@ ehcleanup18.i.i.i.i.i.i.i:                        ; preds = %lpad13.i.i.i.i55.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i.i.i.i.i.i)
   br label %invoke.cont371
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i.i
+sw.bb3.i.i.i:                                     ; preds = %if.end362
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.8, i32 noundef 422, ptr noundef nonnull @.str.62) #26
           to label %.noexc178 unwind label %lpad102
 
 .noexc178:                                        ; preds = %sw.bb3.i.i.i
   unreachable
 
-sw.default.i.i.i:                                 ; preds = %if.end.i.i
+sw.default.i.i.i:                                 ; preds = %if.end362
   unreachable
 
 invoke.cont371:                                   ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS5_12experimental4JsonESaISJ_EEPSt3setISE_St4lessISE_ESaISE_EEE3$_0ZNS8_36GenerateDiscoveryMechanismForClusterESG_iSM_SS_E3$_1ZNS8_36GenerateDiscoveryMechanismForClusterESG_iSM_SS_E3$_2EEERKSt7variantIJNS5_18XdsClusterResource3EdsENSZ_10LogicalDnsENSZ_9AggregateEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESX_S15_.exit.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS5_12experimental4JsonESaISJ_EEPSt3setISE_St4lessISE_ESaISE_EEE3$_0ZNS8_36GenerateDiscoveryMechanismForClusterESG_iSM_SS_E3$_1ZNS8_36GenerateDiscoveryMechanismForClusterESG_iSM_SS_E3$_2EEERKSt7variantIJNS5_18XdsClusterResource3EdsENSZ_10LogicalDnsENSZ_9AggregateEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESX_S15_.exit.i.i.i"
@@ -12703,14 +12699,13 @@ entry:
   %ref.tmp.i.i.i = alloca %class.anon.468, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -12802,15 +12797,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -13371,15 +13365,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.468, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -13812,7 +13805,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
   %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
@@ -14375,15 +14368,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -14509,15 +14501,14 @@ entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry

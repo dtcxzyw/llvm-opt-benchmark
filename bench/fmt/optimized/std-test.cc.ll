@@ -12557,11 +12557,10 @@ if.end:                                           ; preds = %entry
 for.cond.i:                                       ; preds = %if.else24.i, %if.end
   %p.1.i = phi ptr [ %spec.select.i, %if.end ], [ %0, %if.else24.i ]
   %6 = load i8, ptr %p.1.i, align 1
-  %conv.i = sext i8 %6 to i32
-  switch i32 %conv.i, label %if.else24.i [
-    i32 60, label %if.then7.i.loopexit
-    i32 62, label %if.then7.i.loopexit41
-    i32 94, label %if.then7.i
+  switch i8 %6, label %if.else24.i [
+    i8 60, label %if.then7.i.loopexit
+    i8 62, label %if.then7.i.loopexit41
+    i8 94, label %if.then7.i
   ]
 
 if.then7.i.loopexit:                              ; preds = %for.cond.i
@@ -17152,11 +17151,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -17174,54 +17172,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %align.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
   %fill144.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i297 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i294 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %10, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.end.i80
-    i32 111, label %if.end.i90
-    i32 120, label %if.end.i102
-    i32 88, label %if.end.i114
-    i32 98, label %if.end.i126
-    i32 66, label %if.end.i138
-    i32 97, label %if.end.i150
-    i32 65, label %if.end.i162
-    i32 101, label %if.end.i174
-    i32 69, label %if.end.i186
-    i32 102, label %if.end.i198
-    i32 70, label %if.end.i210
-    i32 103, label %if.end.i222
-    i32 71, label %if.end.i234
-    i32 99, label %if.end.i246
-    i32 115, label %if.end.sink.split
-    i32 112, label %if.end.i270
-    i32 63, label %if.end.sink.split.loopexit666
-    i32 125, label %if.end
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.end.i79
+    i8 111, label %if.end.i89
+    i8 120, label %if.end.i101
+    i8 88, label %if.end.i113
+    i8 98, label %if.end.i125
+    i8 66, label %if.end.i137
+    i8 97, label %if.end.i149
+    i8 65, label %if.end.i161
+    i8 101, label %if.end.i173
+    i8 69, label %if.end.i185
+    i8 102, label %if.end.i197
+    i8 70, label %if.end.i209
+    i8 103, label %if.end.i221
+    i8 71, label %if.end.i233
+    i8 99, label %if.end.i245
+    i8 115, label %if.end.sink.split
+    i8 112, label %if.end.i269
+    i8 63, label %if.end.sink.split.loopexit663
+    i8 125, label %if.end
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -17233,26 +17230,26 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %align.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %align.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
@@ -17266,10 +17263,10 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i57, label %if.end48.i, label %if.then.i58
+  %cmp.not.i56 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i56, label %if.end48.i, label %if.then.i57
 
-if.then.i58:                                      ; preds = %sw.bb43.i
+if.then.i57:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -17278,108 +17275,108 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i61 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i61, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, label %if.then.i62
+  %cmp.not.i60 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i60, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, label %if.then.i61
 
-if.then.i62:                                      ; preds = %sw.bb63.i
+if.then.i61:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i65 = icmp ult i32 %enter_state.i.sroa.0.0, 6
-  br i1 %cmp.not.i65, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68, label %if.then.i66
+  %cmp.not.i64 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  br i1 %cmp.not.i64, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67, label %if.then.i65
 
-if.then.i66:                                      ; preds = %if.end68.i
+if.then.i65:                                      ; preds = %if.end68.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68: ; preds = %if.end68.i
-  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
-  %cmp.i70 = icmp eq ptr %incdec.ptr.i69, %add.ptr.i.i
-  br i1 %cmp.i70, label %if.then.i72, label %lor.lhs.false.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67: ; preds = %if.end68.i
+  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  %cmp.i69 = icmp eq ptr %incdec.ptr.i68, %add.ptr.i.i
+  br i1 %cmp.i69, label %if.then.i71, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68
-  %4 = load i8, ptr %incdec.ptr.i69, align 1
+lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67
+  %4 = load i8, ptr %incdec.ptr.i68, align 1
   %cmp1.i = icmp eq i8 %4, 125
-  br i1 %cmp1.i, label %if.then.i72, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
+  br i1 %cmp1.i, label %if.then.i71, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
 
-if.then.i72:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68
+if.then.i71:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.216) #24
   unreachable
 
 _ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit: ; preds = %lor.lhs.false.i
-  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i69, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
+  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i68, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end74.i:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i80:                                       ; preds = %for.cond.i
+if.end.i79:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i90:                                       ; preds = %for.cond.i
+if.end.i89:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i102:                                      ; preds = %for.cond.i
+if.end.i101:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i114:                                      ; preds = %for.cond.i
+if.end.i113:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i126:                                      ; preds = %for.cond.i
+if.end.i125:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i138:                                      ; preds = %for.cond.i
+if.end.i137:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i150:                                      ; preds = %for.cond.i
+if.end.i149:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i162:                                      ; preds = %for.cond.i
+if.end.i161:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i174:                                      ; preds = %for.cond.i
+if.end.i173:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i186:                                      ; preds = %for.cond.i
+if.end.i185:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i198:                                      ; preds = %for.cond.i
+if.end.i197:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i210:                                      ; preds = %for.cond.i
+if.end.i209:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i222:                                      ; preds = %for.cond.i
+if.end.i221:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i234:                                      ; preds = %for.cond.i
+if.end.i233:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i246:                                      ; preds = %for.cond.i
+if.end.i245:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i270:                                      ; preds = %for.cond.i
+if.end.i269:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -17415,51 +17412,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %8 = load i8, ptr %add.ptr.i, align 1
-  %conv.i285 = sext i8 %8 to i32
-  switch i32 %conv.i285, label %if.then.i292 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit290
-    i32 62, label %sw.bb1.i288
-    i32 94, label %sw.bb2.i286
+  switch i8 %8, label %if.then.i290 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit288
+    i8 62, label %sw.bb1.i286
+    i8 94, label %sw.bb2.i284
   ]
 
-sw.bb1.i288:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
+sw.bb1.i286:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit288
 
-sw.bb2.i286:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
+sw.bb2.i284:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit288
 
-_ZN3fmt3v106detail11parse_alignEc.exit290:        ; preds = %if.end134.i, %sw.bb1.i288, %sw.bb2.i286
-  %retval.0.i287 = phi i16 [ 3, %sw.bb2.i286 ], [ 2, %sw.bb1.i288 ], [ 1, %if.end134.i ]
-  %cmp.not.i291 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i291, label %for.body.i, label %if.then.i292
+_ZN3fmt3v106detail11parse_alignEc.exit288:        ; preds = %if.end134.i, %sw.bb1.i286, %sw.bb2.i284
+  %retval.0.i285 = phi i16 [ 3, %sw.bb2.i284 ], [ 2, %sw.bb1.i286 ], [ 1, %if.end134.i ]
+  %cmp.not.i289 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i289, label %for.body.i, label %if.then.i290
 
-if.then.i292:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit290
+if.then.i290:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit288
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit290, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit290 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit288, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit288 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i295 = getelementptr inbounds [4 x i8], ptr %fill144.i, i64 0, i64 %i.07.i
-  store i8 %9, ptr %arrayidx.i295, align 1
+  %arrayidx.i293 = getelementptr inbounds [4 x i8], ptr %fill144.i, i64 0, i64 %i.07.i
+  store i8 %9, ptr %arrayidx.i293, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i296 = trunc i64 %add.i to i8
-  store i8 %conv.i296, ptr %size_.i297, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i294, align 1
   %bf.load146.i = load i16, ptr %align.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i287
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i285
   store i16 %bf.set149.i, ptr %align.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -17467,18 +17463,18 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
   %10 = load i8, ptr %begin.addr.i.1, align 1
   br label %for.cond.i, !llvm.loop !562
 
-if.end.sink.split.loopexit666:                    ; preds = %for.cond.i
+if.end.sink.split.loopexit663:                    ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit666
-  %.sink = phi i8 [ 18, %if.end.sink.split.loopexit666 ], [ 16, %for.cond.i ]
-  %type.i253 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
-  store i8 %.sink, ptr %type.i253, align 8
-  %add.ptr.i254 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit663
+  %.sink = phi i8 [ 18, %if.end.sink.split.loopexit663 ], [ 16, %for.cond.i ]
+  %type.i252 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
+  store i8 %.sink, ptr %type.i252, align 8
+  %add.ptr.i253 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.end.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i254, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i253, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
   ret ptr %retval.i.0
 }
 
@@ -19319,11 +19315,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -19339,54 +19334,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %localized.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %fill.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i299 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i296 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %10, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.end.sink.split.loopexit
-    i32 111, label %if.end.sink.split.loopexit549
-    i32 120, label %if.end.sink.split
-    i32 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit118
-    i32 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit130
-    i32 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit142
-    i32 97, label %if.end.i152
-    i32 65, label %if.end.i164
-    i32 101, label %if.end.i176
-    i32 69, label %if.end.i188
-    i32 102, label %if.end.i200
-    i32 70, label %if.end.i212
-    i32 103, label %if.end.i224
-    i32 71, label %if.end.i236
-    i32 99, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit250
-    i32 115, label %if.end.i260
-    i32 112, label %if.end.i272
-    i32 63, label %if.end.i284
-    i32 125, label %if.end
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.end.sink.split.loopexit
+    i8 111, label %if.end.sink.split.loopexit546
+    i8 120, label %if.end.sink.split
+    i8 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
+    i8 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129
+    i8 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141
+    i8 97, label %if.end.i151
+    i8 65, label %if.end.i163
+    i8 101, label %if.end.i175
+    i8 69, label %if.end.i187
+    i8 102, label %if.end.i199
+    i8 70, label %if.end.i211
+    i8 103, label %if.end.i223
+    i8 71, label %if.end.i235
+    i8 99, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249
+    i8 115, label %if.end.i259
+    i8 112, label %if.end.i271
+    i8 63, label %if.end.i283
+    i8 125, label %if.end
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -19398,72 +19392,72 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %localized.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %localized.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i51 = icmp ult i32 %enter_state.i.sroa.0.0, 2
-  br i1 %cmp.not.i51, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54, label %if.then.i52
+  %cmp.not.i50 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  br i1 %cmp.not.i50, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, label %if.then.i51
 
-if.then.i52:                                      ; preds = %if.end16.i
+if.then.i51:                                      ; preds = %if.end16.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54: ; preds = %if.end16.i
-  switch i32 %conv11.i, label %sw.epilog.i [
-    i32 43, label %sw.epilog.i.sink.split
-    i32 45, label %sw.bb23.i
-    i32 32, label %sw.bb28.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53: ; preds = %if.end16.i
+  switch i8 %c.i.1, label %sw.epilog.i [
+    i8 43, label %sw.epilog.i.sink.split
+    i8 45, label %sw.bb23.i
+    i8 32, label %sw.bb28.i
   ]
 
-sw.bb23.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.bb23.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   br label %sw.epilog.i.sink.split
 
-sw.bb28.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.bb28.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   br label %sw.epilog.i.sink.split
 
-sw.epilog.i.sink.split:                           ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54, %sw.bb23.i, %sw.bb28.i
-  %.sink = phi i16 [ 48, %sw.bb28.i ], [ 16, %sw.bb23.i ], [ 32, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54 ]
+sw.epilog.i.sink.split:                           ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, %sw.bb23.i, %sw.bb28.i
+  %.sink = phi i16 [ 48, %sw.bb28.i ], [ 16, %sw.bb23.i ], [ 32, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53 ]
   %bf.load30.i = load i16, ptr %localized.i, align 1
   %bf.clear31.i = and i16 %bf.load30.i, -113
   %bf.set32.i = or disjoint i16 %bf.clear31.i, %.sink
   store i16 %bf.set32.i, ptr %localized.i, align 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   %incdec.ptr33.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i55 = icmp ult i32 %enter_state.i.sroa.0.0, 3
-  br i1 %cmp.not.i55, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, label %if.then.i56
+  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
-if.then.i56:                                      ; preds = %if.end37.i
+if.then.i55:                                      ; preds = %if.end37.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58: ; preds = %if.end37.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57: ; preds = %if.end37.i
   %bf.load39.i = load i16, ptr %localized.i, align 1
   %bf.set41.i = or i16 %bf.load39.i, 128
   store i16 %bf.set41.i, ptr %localized.i, align 1
@@ -19471,10 +19465,10 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i59 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i59, label %if.end49.i, label %if.then.i60
+  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
-if.then.i60:                                      ; preds = %sw.bb43.i
+if.then.i59:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -19495,14 +19489,14 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
+  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
 
-if.then.i64:                                      ; preds = %sw.bb63.i
+if.then.i63:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
@@ -19511,73 +19505,73 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i74 = icmp ult i32 %enter_state.i.sroa.0.0, 7
-  br i1 %cmp.not.i74, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77, label %if.then.i75
+  %cmp.not.i73 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  br i1 %cmp.not.i73, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, label %if.then.i74
 
-if.then.i75:                                      ; preds = %if.end74.i
+if.then.i74:                                      ; preds = %if.end74.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77: ; preds = %if.end74.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76: ; preds = %if.end74.i
   %bf.load76.i = load i16, ptr %localized.i, align 1
   %bf.set78.i = or i16 %bf.load76.i, 256
   store i16 %bf.set78.i, ptr %localized.i, align 1
   %incdec.ptr79.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit118: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit130: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit142: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.i152:                                      ; preds = %for.cond.i
+if.end.i151:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i164:                                      ; preds = %for.cond.i
+if.end.i163:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i176:                                      ; preds = %for.cond.i
+if.end.i175:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i188:                                      ; preds = %for.cond.i
+if.end.i187:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i200:                                      ; preds = %for.cond.i
+if.end.i199:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i212:                                      ; preds = %for.cond.i
+if.end.i211:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i224:                                      ; preds = %for.cond.i
+if.end.i223:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i236:                                      ; preds = %for.cond.i
+if.end.i235:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit250: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.i260:                                      ; preds = %for.cond.i
+if.end.i259:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i272:                                      ; preds = %for.cond.i
+if.end.i271:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i284:                                      ; preds = %for.cond.i
+if.end.i283:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -19613,51 +19607,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %8 = load i8, ptr %add.ptr.i, align 1
-  %conv.i287 = sext i8 %8 to i32
-  switch i32 %conv.i287, label %if.then.i294 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit292
-    i32 62, label %sw.bb1.i290
-    i32 94, label %sw.bb2.i288
+  switch i8 %8, label %if.then.i292 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit290
+    i8 62, label %sw.bb1.i288
+    i8 94, label %sw.bb2.i286
   ]
 
-sw.bb1.i290:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit292
+sw.bb1.i288:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
 
-sw.bb2.i288:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit292
+sw.bb2.i286:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
 
-_ZN3fmt3v106detail11parse_alignEc.exit292:        ; preds = %if.end134.i, %sw.bb1.i290, %sw.bb2.i288
-  %retval.0.i289 = phi i16 [ 3, %sw.bb2.i288 ], [ 2, %sw.bb1.i290 ], [ 1, %if.end134.i ]
-  %cmp.not.i293 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i293, label %for.body.i, label %if.then.i294
+_ZN3fmt3v106detail11parse_alignEc.exit290:        ; preds = %if.end134.i, %sw.bb1.i288, %sw.bb2.i286
+  %retval.0.i287 = phi i16 [ 3, %sw.bb2.i286 ], [ 2, %sw.bb1.i288 ], [ 1, %if.end134.i ]
+  %cmp.not.i291 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i291, label %for.body.i, label %if.then.i292
 
-if.then.i294:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit292
+if.then.i292:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit290
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit292, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit292 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit290, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit290 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i297 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
-  store i8 %9, ptr %arrayidx.i297, align 1
+  %arrayidx.i295 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
+  store i8 %9, ptr %arrayidx.i295, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i298 = trunc i64 %add.i to i8
-  store i8 %conv.i298, ptr %size_.i299, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i296, align 1
   %bf.load146.i = load i16, ptr %localized.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i289
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i287
   store i16 %bf.set149.i, ptr %localized.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -19668,18 +19661,18 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
 if.end.sink.split.loopexit:                       ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split.loopexit549:                    ; preds = %for.cond.i
+if.end.sink.split.loopexit546:                    ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit549, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit250, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit142, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit130, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit118
-  %.sink519 = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit118 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit130 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit142 ], [ 15, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit250 ], [ 1, %if.end.sink.split.loopexit ], [ 2, %if.end.sink.split.loopexit549 ], [ 3, %for.cond.i ]
+if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit546, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
+  %.sink516 = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141 ], [ 15, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249 ], [ 1, %if.end.sink.split.loopexit ], [ 2, %if.end.sink.split.loopexit546 ], [ 3, %for.cond.i ]
   %type.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
-  store i8 %.sink519, ptr %type.i, align 8
-  %add.ptr.i78 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  store i8 %.sink516, ptr %type.i, align 8
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.end.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i78, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i77, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
   ret ptr %retval.i.0
 }
 
@@ -22667,10 +22660,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %e
   br i1 %cmp.i, label %_ZN3fmt3v106detail12needs_escapeEj.exit, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
-  switch i32 %conv, label %lor.rhs.i [
-    i32 127, label %_ZN3fmt3v106detail12needs_escapeEj.exit
-    i32 92, label %_ZN3fmt3v106detail12needs_escapeEj.exit
-    i32 34, label %_ZN3fmt3v106detail12needs_escapeEj.exit
+  switch i8 %v, label %lor.rhs.i [
+    i8 127, label %_ZN3fmt3v106detail12needs_escapeEj.exit
+    i8 92, label %_ZN3fmt3v106detail12needs_escapeEj.exit
+    i8 34, label %_ZN3fmt3v106detail12needs_escapeEj.exit
   ]
 
 lor.rhs.i:                                        ; preds = %switch.early.test.i
@@ -23052,11 +23045,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -23074,54 +23066,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %align.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
   %fill144.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i297 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i294 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %10, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.end.i80
-    i32 111, label %if.end.i90
-    i32 120, label %if.end.i102
-    i32 88, label %if.end.i114
-    i32 98, label %if.end.i126
-    i32 66, label %if.end.i138
-    i32 97, label %if.end.i150
-    i32 65, label %if.end.i162
-    i32 101, label %if.end.i174
-    i32 69, label %if.end.i186
-    i32 102, label %if.end.i198
-    i32 70, label %if.end.i210
-    i32 103, label %if.end.i222
-    i32 71, label %if.end.i234
-    i32 99, label %if.end.i246
-    i32 115, label %if.end.sink.split.loopexit
-    i32 112, label %if.end.sink.split.loopexit666
-    i32 63, label %if.end.sink.split
-    i32 125, label %if.end
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.end.i79
+    i8 111, label %if.end.i89
+    i8 120, label %if.end.i101
+    i8 88, label %if.end.i113
+    i8 98, label %if.end.i125
+    i8 66, label %if.end.i137
+    i8 97, label %if.end.i149
+    i8 65, label %if.end.i161
+    i8 101, label %if.end.i173
+    i8 69, label %if.end.i185
+    i8 102, label %if.end.i197
+    i8 70, label %if.end.i209
+    i8 103, label %if.end.i221
+    i8 71, label %if.end.i233
+    i8 99, label %if.end.i245
+    i8 115, label %if.end.sink.split.loopexit
+    i8 112, label %if.end.sink.split.loopexit663
+    i8 63, label %if.end.sink.split
+    i8 125, label %if.end
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -23133,26 +23124,26 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %align.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %align.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
@@ -23166,10 +23157,10 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i57, label %if.end48.i, label %if.then.i58
+  %cmp.not.i56 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i56, label %if.end48.i, label %if.then.i57
 
-if.then.i58:                                      ; preds = %sw.bb43.i
+if.then.i57:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -23178,104 +23169,104 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i61 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i61, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, label %if.then.i62
+  %cmp.not.i60 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i60, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, label %if.then.i61
 
-if.then.i62:                                      ; preds = %sw.bb63.i
+if.then.i61:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i65 = icmp ult i32 %enter_state.i.sroa.0.0, 6
-  br i1 %cmp.not.i65, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68, label %if.then.i66
+  %cmp.not.i64 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  br i1 %cmp.not.i64, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67, label %if.then.i65
 
-if.then.i66:                                      ; preds = %if.end68.i
+if.then.i65:                                      ; preds = %if.end68.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68: ; preds = %if.end68.i
-  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
-  %cmp.i70 = icmp eq ptr %incdec.ptr.i69, %add.ptr.i.i
-  br i1 %cmp.i70, label %if.then.i72, label %lor.lhs.false.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67: ; preds = %if.end68.i
+  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  %cmp.i69 = icmp eq ptr %incdec.ptr.i68, %add.ptr.i.i
+  br i1 %cmp.i69, label %if.then.i71, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68
-  %4 = load i8, ptr %incdec.ptr.i69, align 1
+lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67
+  %4 = load i8, ptr %incdec.ptr.i68, align 1
   %cmp1.i = icmp eq i8 %4, 125
-  br i1 %cmp1.i, label %if.then.i72, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
+  br i1 %cmp1.i, label %if.then.i71, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
 
-if.then.i72:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit68
+if.then.i71:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit67
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.216) #24
   unreachable
 
 _ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit: ; preds = %lor.lhs.false.i
-  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i69, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
+  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i68, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end74.i:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i80:                                       ; preds = %for.cond.i
+if.end.i79:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i90:                                       ; preds = %for.cond.i
+if.end.i89:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i102:                                      ; preds = %for.cond.i
+if.end.i101:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i114:                                      ; preds = %for.cond.i
+if.end.i113:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i126:                                      ; preds = %for.cond.i
+if.end.i125:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i138:                                      ; preds = %for.cond.i
+if.end.i137:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i150:                                      ; preds = %for.cond.i
+if.end.i149:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i162:                                      ; preds = %for.cond.i
+if.end.i161:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i174:                                      ; preds = %for.cond.i
+if.end.i173:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i186:                                      ; preds = %for.cond.i
+if.end.i185:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i198:                                      ; preds = %for.cond.i
+if.end.i197:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i210:                                      ; preds = %for.cond.i
+if.end.i209:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i222:                                      ; preds = %for.cond.i
+if.end.i221:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i234:                                      ; preds = %for.cond.i
+if.end.i233:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i246:                                      ; preds = %for.cond.i
+if.end.i245:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -23311,51 +23302,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %8 = load i8, ptr %add.ptr.i, align 1
-  %conv.i285 = sext i8 %8 to i32
-  switch i32 %conv.i285, label %if.then.i292 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit290
-    i32 62, label %sw.bb1.i288
-    i32 94, label %sw.bb2.i286
+  switch i8 %8, label %if.then.i290 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit288
+    i8 62, label %sw.bb1.i286
+    i8 94, label %sw.bb2.i284
   ]
 
-sw.bb1.i288:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
+sw.bb1.i286:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit288
 
-sw.bb2.i286:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit290
+sw.bb2.i284:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit288
 
-_ZN3fmt3v106detail11parse_alignEc.exit290:        ; preds = %if.end134.i, %sw.bb1.i288, %sw.bb2.i286
-  %retval.0.i287 = phi i16 [ 3, %sw.bb2.i286 ], [ 2, %sw.bb1.i288 ], [ 1, %if.end134.i ]
-  %cmp.not.i291 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i291, label %for.body.i, label %if.then.i292
+_ZN3fmt3v106detail11parse_alignEc.exit288:        ; preds = %if.end134.i, %sw.bb1.i286, %sw.bb2.i284
+  %retval.0.i285 = phi i16 [ 3, %sw.bb2.i284 ], [ 2, %sw.bb1.i286 ], [ 1, %if.end134.i ]
+  %cmp.not.i289 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i289, label %for.body.i, label %if.then.i290
 
-if.then.i292:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit290
+if.then.i290:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit288
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit290, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit290 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit288, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit288 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i295 = getelementptr inbounds [4 x i8], ptr %fill144.i, i64 0, i64 %i.07.i
-  store i8 %9, ptr %arrayidx.i295, align 1
+  %arrayidx.i293 = getelementptr inbounds [4 x i8], ptr %fill144.i, i64 0, i64 %i.07.i
+  store i8 %9, ptr %arrayidx.i293, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i296 = trunc i64 %add.i to i8
-  store i8 %conv.i296, ptr %size_.i297, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i294, align 1
   %bf.load146.i = load i16, ptr %align.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i287
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i285
   store i16 %bf.set149.i, ptr %align.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -23366,18 +23356,18 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
 if.end.sink.split.loopexit:                       ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split.loopexit666:                    ; preds = %for.cond.i
+if.end.sink.split.loopexit663:                    ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit666, %if.end.sink.split.loopexit
-  %.sink = phi i8 [ 16, %if.end.sink.split.loopexit ], [ 17, %if.end.sink.split.loopexit666 ], [ 18, %for.cond.i ]
-  %type.i253 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
-  store i8 %.sink, ptr %type.i253, align 8
-  %add.ptr.i254 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit663, %if.end.sink.split.loopexit
+  %.sink = phi i8 [ 16, %if.end.sink.split.loopexit ], [ 17, %if.end.sink.split.loopexit663 ], [ 18, %for.cond.i ]
+  %type.i252 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
+  store i8 %.sink, ptr %type.i252, align 8
+  %add.ptr.i253 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.end.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i254, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i253, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
   ret ptr %retval.i.0
 }
 
@@ -25651,11 +25641,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -25671,54 +25660,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %localized.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %fill.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i298 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i295 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %10, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.then.sink.split.loopexit
-    i32 111, label %if.then.sink.split.loopexit552
-    i32 120, label %if.then.sink.split
-    i32 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
-    i32 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129
-    i32 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141
-    i32 97, label %if.end.i151
-    i32 65, label %if.end.i163
-    i32 101, label %if.end.i175
-    i32 69, label %if.end.i187
-    i32 102, label %if.end.i199
-    i32 70, label %if.end.i211
-    i32 103, label %if.end.i223
-    i32 71, label %if.end.i235
-    i32 99, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249
-    i32 115, label %if.end.i259
-    i32 112, label %if.end.i271
-    i32 63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit285
-    i32 125, label %if.then
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.then.sink.split.loopexit
+    i8 111, label %if.then.sink.split.loopexit549
+    i8 120, label %if.then.sink.split
+    i8 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116
+    i8 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128
+    i8 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140
+    i8 97, label %if.end.i150
+    i8 65, label %if.end.i162
+    i8 101, label %if.end.i174
+    i8 69, label %if.end.i186
+    i8 102, label %if.end.i198
+    i8 70, label %if.end.i210
+    i8 103, label %if.end.i222
+    i8 71, label %if.end.i234
+    i8 99, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248
+    i8 115, label %if.end.i258
+    i8 112, label %if.end.i270
+    i8 63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit284
+    i8 125, label %if.then
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -25730,26 +25718,26 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %localized.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %localized.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
@@ -25759,14 +25747,14 @@ if.end16.i:                                       ; preds = %for.cond.i, %for.co
   unreachable
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
-  br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
+  %cmp.not.i53 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  br i1 %cmp.not.i53, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56, label %if.then.i54
 
-if.then.i55:                                      ; preds = %if.end37.i
+if.then.i54:                                      ; preds = %if.end37.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57: ; preds = %if.end37.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56: ; preds = %if.end37.i
   %bf.load39.i = load i16, ptr %localized.i, align 1
   %bf.set41.i = or i16 %bf.load39.i, 128
   store i16 %bf.set41.i, ptr %localized.i, align 1
@@ -25774,10 +25762,10 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
+  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i57, label %if.end49.i, label %if.then.i58
 
-if.then.i59:                                      ; preds = %sw.bb43.i
+if.then.i58:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -25798,14 +25786,14 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
+  %cmp.not.i61 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i61, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, label %if.then.i62
 
-if.then.i63:                                      ; preds = %sw.bb63.i
+if.then.i62:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
@@ -25814,73 +25802,73 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i73 = icmp ult i32 %enter_state.i.sroa.0.0, 7
-  br i1 %cmp.not.i73, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, label %if.then.i74
+  %cmp.not.i72 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  br i1 %cmp.not.i72, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75, label %if.then.i73
 
-if.then.i74:                                      ; preds = %if.end74.i
+if.then.i73:                                      ; preds = %if.end74.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76: ; preds = %if.end74.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75: ; preds = %if.end74.i
   %bf.load76.i = load i16, ptr %localized.i, align 1
   %bf.set78.i = or i16 %bf.load76.i, 256
   store i16 %bf.set78.i, ptr %localized.i, align 1
   %incdec.ptr79.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116: ; preds = %for.cond.i
   br label %if.then.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128: ; preds = %for.cond.i
   br label %if.then.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140: ; preds = %for.cond.i
   br label %if.then.sink.split
 
-if.end.i151:                                      ; preds = %for.cond.i
+if.end.i150:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i163:                                      ; preds = %for.cond.i
+if.end.i162:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i175:                                      ; preds = %for.cond.i
+if.end.i174:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i187:                                      ; preds = %for.cond.i
+if.end.i186:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i199:                                      ; preds = %for.cond.i
+if.end.i198:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i211:                                      ; preds = %for.cond.i
+if.end.i210:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i223:                                      ; preds = %for.cond.i
+if.end.i222:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i235:                                      ; preds = %for.cond.i
+if.end.i234:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248: ; preds = %for.cond.i
   br label %if.then.sink.split
 
-if.end.i259:                                      ; preds = %for.cond.i
+if.end.i258:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i271:                                      ; preds = %for.cond.i
+if.end.i270:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit285: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit284: ; preds = %for.cond.i
   br label %if.then.sink.split
 
 sw.default.i:                                     ; preds = %for.cond.i
@@ -25915,51 +25903,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %8 = load i8, ptr %add.ptr.i, align 1
-  %conv.i286 = sext i8 %8 to i32
-  switch i32 %conv.i286, label %if.then.i293 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit291
-    i32 62, label %sw.bb1.i289
-    i32 94, label %sw.bb2.i287
+  switch i8 %8, label %if.then.i291 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit289
+    i8 62, label %sw.bb1.i287
+    i8 94, label %sw.bb2.i285
   ]
 
-sw.bb1.i289:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit291
+sw.bb1.i287:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit289
 
-sw.bb2.i287:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit291
+sw.bb2.i285:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit289
 
-_ZN3fmt3v106detail11parse_alignEc.exit291:        ; preds = %if.end134.i, %sw.bb1.i289, %sw.bb2.i287
-  %retval.0.i288 = phi i16 [ 3, %sw.bb2.i287 ], [ 2, %sw.bb1.i289 ], [ 1, %if.end134.i ]
-  %cmp.not.i292 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i292, label %for.body.i, label %if.then.i293
+_ZN3fmt3v106detail11parse_alignEc.exit289:        ; preds = %if.end134.i, %sw.bb1.i287, %sw.bb2.i285
+  %retval.0.i286 = phi i16 [ 3, %sw.bb2.i285 ], [ 2, %sw.bb1.i287 ], [ 1, %if.end134.i ]
+  %cmp.not.i290 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i290, label %for.body.i, label %if.then.i291
 
-if.then.i293:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit291
+if.then.i291:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit289
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit291, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit291 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit289, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit289 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i296 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
-  store i8 %9, ptr %arrayidx.i296, align 1
+  %arrayidx.i294 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
+  store i8 %9, ptr %arrayidx.i294, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i297 = trunc i64 %add.i to i8
-  store i8 %conv.i297, ptr %size_.i298, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i295, align 1
   %bf.load146.i = load i16, ptr %localized.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i288
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i286
   store i16 %bf.set149.i, ptr %localized.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.then, label %if.end154.i
 
@@ -25970,41 +25957,41 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
 if.then.sink.split.loopexit:                      ; preds = %for.cond.i
   br label %if.then.sink.split
 
-if.then.sink.split.loopexit552:                   ; preds = %for.cond.i
+if.then.sink.split.loopexit549:                   ; preds = %for.cond.i
   br label %if.then.sink.split
 
-if.then.sink.split:                               ; preds = %for.cond.i, %if.then.sink.split.loopexit552, %if.then.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit285, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
-  %.sink = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141 ], [ 15, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249 ], [ 18, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit285 ], [ 1, %if.then.sink.split.loopexit ], [ 2, %if.then.sink.split.loopexit552 ], [ 3, %for.cond.i ]
+if.then.sink.split:                               ; preds = %for.cond.i, %if.then.sink.split.loopexit549, %if.then.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit284, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116
+  %.sink = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140 ], [ 15, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248 ], [ 18, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit284 ], [ 1, %if.then.sink.split.loopexit ], [ 2, %if.then.sink.split.loopexit549 ], [ 3, %for.cond.i ]
   %type.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
   store i8 %.sink, ptr %type.i, align 8
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  %add.ptr.i76 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.then
 
 if.then:                                          ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.then.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i77, %if.then.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
-  %type.i299 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
-  %11 = load i8, ptr %type.i299, align 8
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i76, %if.then.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %type.i296 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
+  %11 = load i8, ptr %type.i296, align 8
   switch i8 %11, label %_ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit [
-    i8 0, label %if.end.i300
-    i8 15, label %if.end.i300
-    i8 18, label %if.end.i300
+    i8 0, label %if.end.i297
+    i8 15, label %if.end.i297
+    i8 18, label %if.end.i297
   ]
 
-if.end.i300:                                      ; preds = %if.then, %if.then, %if.then
-  %align.i301 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
-  %bf.load.i302 = load i16, ptr %align.i301, align 1
-  %12 = and i16 %bf.load.i302, 15
+if.end.i297:                                      ; preds = %if.then, %if.then, %if.then
+  %align.i298 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
+  %bf.load.i299 = load i16, ptr %align.i298, align 1
+  %12 = and i16 %bf.load.i299, 15
   %cmp6.i = icmp ne i16 %12, 4
-  %13 = and i16 %bf.load.i302, 240
+  %13 = and i16 %bf.load.i299, 240
   %14 = icmp eq i16 %13, 0
   %or.cond6.i = and i1 %cmp6.i, %14
   br i1 %or.cond6.i, label %_ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit, label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.end.i300
+if.then17.i:                                      ; preds = %if.end.i297
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.217) #24
   unreachable
 
-_ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit: ; preds = %if.then, %if.end.i300
+_ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit: ; preds = %if.then, %if.end.i297
   ret ptr %retval.i.0
 }
 
@@ -26960,11 +26947,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -26982,54 +26968,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %precision_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 2
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %fill.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i300 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i297 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %11, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.end.i83
-    i32 111, label %if.end.i93
-    i32 120, label %if.end.i105
-    i32 88, label %if.end.i117
-    i32 98, label %if.end.i129
-    i32 66, label %if.end.i141
-    i32 97, label %if.end.sink.split.loopexit
-    i32 65, label %if.end.sink.split.loopexit549
-    i32 101, label %if.end.sink.split
-    i32 69, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit191
-    i32 102, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit203
-    i32 70, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit215
-    i32 103, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit227
-    i32 71, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit239
-    i32 99, label %if.end.i249
-    i32 115, label %if.end.i261
-    i32 112, label %if.end.i273
-    i32 63, label %if.end.i285
-    i32 125, label %if.end
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.end.i82
+    i8 111, label %if.end.i92
+    i8 120, label %if.end.i104
+    i8 88, label %if.end.i116
+    i8 98, label %if.end.i128
+    i8 66, label %if.end.i140
+    i8 97, label %if.end.sink.split.loopexit
+    i8 65, label %if.end.sink.split.loopexit546
+    i8 101, label %if.end.sink.split
+    i8 69, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit190
+    i8 102, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit202
+    i8 70, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit214
+    i8 103, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit226
+    i8 71, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit238
+    i8 99, label %if.end.i248
+    i8 115, label %if.end.i260
+    i8 112, label %if.end.i272
+    i8 63, label %if.end.i284
+    i8 125, label %if.end
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -27041,72 +27026,72 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %localized.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %localized.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i51 = icmp ult i32 %enter_state.i.sroa.0.0, 2
-  br i1 %cmp.not.i51, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54, label %if.then.i52
+  %cmp.not.i50 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  br i1 %cmp.not.i50, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, label %if.then.i51
 
-if.then.i52:                                      ; preds = %if.end16.i
+if.then.i51:                                      ; preds = %if.end16.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54: ; preds = %if.end16.i
-  switch i32 %conv11.i, label %sw.epilog.i [
-    i32 43, label %sw.epilog.i.sink.split
-    i32 45, label %sw.bb23.i
-    i32 32, label %sw.bb28.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53: ; preds = %if.end16.i
+  switch i8 %c.i.1, label %sw.epilog.i [
+    i8 43, label %sw.epilog.i.sink.split
+    i8 45, label %sw.bb23.i
+    i8 32, label %sw.bb28.i
   ]
 
-sw.bb23.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.bb23.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   br label %sw.epilog.i.sink.split
 
-sw.bb28.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.bb28.i:                                        ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   br label %sw.epilog.i.sink.split
 
-sw.epilog.i.sink.split:                           ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54, %sw.bb23.i, %sw.bb28.i
-  %.sink = phi i16 [ 48, %sw.bb28.i ], [ 16, %sw.bb23.i ], [ 32, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54 ]
+sw.epilog.i.sink.split:                           ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, %sw.bb23.i, %sw.bb28.i
+  %.sink = phi i16 [ 48, %sw.bb28.i ], [ 16, %sw.bb23.i ], [ 32, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53 ]
   %bf.load30.i = load i16, ptr %localized.i, align 1
   %bf.clear31.i = and i16 %bf.load30.i, -113
   %bf.set32.i = or disjoint i16 %bf.clear31.i, %.sink
   store i16 %bf.set32.i, ptr %localized.i, align 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit54
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53
   %incdec.ptr33.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i55 = icmp ult i32 %enter_state.i.sroa.0.0, 3
-  br i1 %cmp.not.i55, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, label %if.then.i56
+  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
-if.then.i56:                                      ; preds = %if.end37.i
+if.then.i55:                                      ; preds = %if.end37.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58: ; preds = %if.end37.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57: ; preds = %if.end37.i
   %bf.load39.i = load i16, ptr %localized.i, align 1
   %bf.set41.i = or i16 %bf.load39.i, 128
   store i16 %bf.set41.i, ptr %localized.i, align 1
@@ -27114,10 +27099,10 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i59 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i59, label %if.end49.i, label %if.then.i60
+  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
-if.then.i60:                                      ; preds = %sw.bb43.i
+if.then.i59:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -27138,110 +27123,110 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
+  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
 
-if.then.i64:                                      ; preds = %sw.bb63.i
+if.then.i63:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
-  br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
+  %cmp.not.i66 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  br i1 %cmp.not.i66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit69, label %if.then.i67
 
-if.then.i68:                                      ; preds = %if.end68.i
+if.then.i67:                                      ; preds = %if.end68.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70: ; preds = %if.end68.i
-  %incdec.ptr.i71 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
-  %cmp.i72 = icmp eq ptr %incdec.ptr.i71, %add.ptr.i.i
-  br i1 %cmp.i72, label %if.then.i74, label %lor.lhs.false.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit69: ; preds = %if.end68.i
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  %cmp.i71 = icmp eq ptr %incdec.ptr.i70, %add.ptr.i.i
+  br i1 %cmp.i71, label %if.then.i73, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70
-  %5 = load i8, ptr %incdec.ptr.i71, align 1
+lor.lhs.false.i:                                  ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit69
+  %5 = load i8, ptr %incdec.ptr.i70, align 1
   %cmp1.i = icmp eq i8 %5, 125
-  br i1 %cmp1.i, label %if.then.i74, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
+  br i1 %cmp1.i, label %if.then.i73, label %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit
 
-if.then.i74:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70
+if.then.i73:                                      ; preds = %lor.lhs.false.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit69
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.216) #24
   unreachable
 
 _ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit: ; preds = %lor.lhs.false.i
-  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i71, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
+  %call.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %incdec.ptr.i70, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull align 8 dereferenceable(24) %precision_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i75 = icmp ult i32 %enter_state.i.sroa.0.0, 7
-  br i1 %cmp.not.i75, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, label %if.then.i76
+  %cmp.not.i74 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  br i1 %cmp.not.i74, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77, label %if.then.i75
 
-if.then.i76:                                      ; preds = %if.end74.i
+if.then.i75:                                      ; preds = %if.end74.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78: ; preds = %if.end74.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77: ; preds = %if.end74.i
   %bf.load76.i = load i16, ptr %localized.i, align 1
   %bf.set78.i = or i16 %bf.load76.i, 256
   store i16 %bf.set78.i, ptr %localized.i, align 1
   %incdec.ptr79.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
-if.end.i83:                                       ; preds = %for.cond.i
+if.end.i82:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i93:                                       ; preds = %for.cond.i
+if.end.i92:                                       ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i105:                                      ; preds = %for.cond.i
+if.end.i104:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i117:                                      ; preds = %for.cond.i
+if.end.i116:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i129:                                      ; preds = %for.cond.i
+if.end.i128:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i141:                                      ; preds = %for.cond.i
+if.end.i140:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit191: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit190: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit203: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit202: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit215: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit214: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit227: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit226: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit239: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit238: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.i249:                                      ; preds = %for.cond.i
+if.end.i248:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i261:                                      ; preds = %for.cond.i
+if.end.i260:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i273:                                      ; preds = %for.cond.i
+if.end.i272:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i285:                                      ; preds = %for.cond.i
+if.end.i284:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -27277,51 +27262,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %9 = load i8, ptr %add.ptr.i, align 1
-  %conv.i288 = sext i8 %9 to i32
-  switch i32 %conv.i288, label %if.then.i295 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit293
-    i32 62, label %sw.bb1.i291
-    i32 94, label %sw.bb2.i289
+  switch i8 %9, label %if.then.i293 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit291
+    i8 62, label %sw.bb1.i289
+    i8 94, label %sw.bb2.i287
   ]
 
-sw.bb1.i291:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit293
+sw.bb1.i289:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit291
 
-sw.bb2.i289:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit293
+sw.bb2.i287:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit291
 
-_ZN3fmt3v106detail11parse_alignEc.exit293:        ; preds = %if.end134.i, %sw.bb1.i291, %sw.bb2.i289
-  %retval.0.i290 = phi i16 [ 3, %sw.bb2.i289 ], [ 2, %sw.bb1.i291 ], [ 1, %if.end134.i ]
-  %cmp.not.i294 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i294, label %for.body.i, label %if.then.i295
+_ZN3fmt3v106detail11parse_alignEc.exit291:        ; preds = %if.end134.i, %sw.bb1.i289, %sw.bb2.i287
+  %retval.0.i288 = phi i16 [ 3, %sw.bb2.i287 ], [ 2, %sw.bb1.i289 ], [ 1, %if.end134.i ]
+  %cmp.not.i292 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i292, label %for.body.i, label %if.then.i293
 
-if.then.i295:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit293
+if.then.i293:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit291
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit293, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit293 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit291, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit291 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i298 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
-  store i8 %10, ptr %arrayidx.i298, align 1
+  %arrayidx.i296 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
+  store i8 %10, ptr %arrayidx.i296, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i299 = trunc i64 %add.i to i8
-  store i8 %conv.i299, ptr %size_.i300, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i297, align 1
   %bf.load146.i = load i16, ptr %localized.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i290
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i288
   store i16 %bf.set149.i, ptr %localized.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78 ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78 ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77 ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77 ], [ 6, %_ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -27332,18 +27316,18 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
 if.end.sink.split.loopexit:                       ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split.loopexit549:                    ; preds = %for.cond.i
+if.end.sink.split.loopexit546:                    ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit549, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit239, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit227, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit215, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit203, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit191
-  %.sink518 = phi i8 [ 10, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit191 ], [ 11, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit203 ], [ 12, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit215 ], [ 13, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit227 ], [ 14, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit239 ], [ 7, %if.end.sink.split.loopexit ], [ 8, %if.end.sink.split.loopexit549 ], [ 9, %for.cond.i ]
-  %type.i148 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
-  store i8 %.sink518, ptr %type.i148, align 8
-  %add.ptr.i149 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit546, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit238, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit226, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit214, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit202, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit190
+  %.sink515 = phi i8 [ 10, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit190 ], [ 11, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit202 ], [ 12, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit214 ], [ 13, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit226 ], [ 14, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit238 ], [ 7, %if.end.sink.split.loopexit ], [ 8, %if.end.sink.split.loopexit546 ], [ 9, %for.cond.i ]
+  %type.i147 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
+  store i8 %.sink515, ptr %type.i147, align 8
+  %add.ptr.i148 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.end.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i149, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i148, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
   ret ptr %retval.i.0
 }
 
@@ -43522,11 +43506,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %if.end7.i.sink.split [
-    i32 60, label %if.end7.i
-    i32 62, label %if.end7.i
-    i32 94, label %if.end7.i
+  switch i8 %2, label %if.end7.i.sink.split [
+    i8 60, label %if.end7.i
+    i8 62, label %if.end7.i
+    i8 94, label %if.end7.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -43542,54 +43525,53 @@ if.end7.i:                                        ; preds = %if.end7.i.sink.spli
   %localized.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 3
   %width_ref.i = getelementptr inbounds %"struct.fmt::v10::detail::dynamic_format_specs", ptr %this, i64 0, i32 1
   %fill.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4
-  %size_.i286 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
+  %size_.i283 = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 4, i32 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end154.i, %if.end7.i
   %begin.addr.i.0 = phi ptr [ %0, %if.end7.i ], [ %begin.addr.i.1, %if.end154.i ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.end7.i ], [ %enter_state.i.sroa.0.1, %if.end154.i ]
   %c.i.1 = phi i8 [ %c.i.0, %if.end7.i ], [ %10, %if.end154.i ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %if.end16.i
-    i32 45, label %if.end16.i
-    i32 32, label %if.end16.i
-    i32 35, label %if.end37.i
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %if.end68.i
-    i32 76, label %if.end74.i
-    i32 100, label %if.end.sink.split.loopexit
-    i32 111, label %if.end.sink.split.loopexit529
-    i32 120, label %if.end.sink.split
-    i32 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
-    i32 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129
-    i32 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141
-    i32 97, label %if.end.i151
-    i32 65, label %if.end.i163
-    i32 101, label %if.end.i175
-    i32 69, label %if.end.i187
-    i32 102, label %if.end.i199
-    i32 70, label %if.end.i211
-    i32 103, label %if.end.i223
-    i32 71, label %if.end.i235
-    i32 99, label %if.then110.i
-    i32 115, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249
-    i32 112, label %if.end.i259
-    i32 63, label %if.end.i271
-    i32 125, label %if.end
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %if.end16.i
+    i8 45, label %if.end16.i
+    i8 32, label %if.end16.i
+    i8 35, label %if.end37.i
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %if.end68.i
+    i8 76, label %if.end74.i
+    i8 100, label %if.end.sink.split.loopexit
+    i8 111, label %if.end.sink.split.loopexit526
+    i8 120, label %if.end.sink.split
+    i8 88, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116
+    i8 98, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128
+    i8 66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140
+    i8 97, label %if.end.i150
+    i8 65, label %if.end.i162
+    i8 101, label %if.end.i174
+    i8 69, label %if.end.i186
+    i8 102, label %if.end.i198
+    i8 70, label %if.end.i210
+    i8 103, label %if.end.i222
+    i8 71, label %if.end.i234
+    i8 99, label %if.then110.i
+    i8 115, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248
+    i8 112, label %if.end.i258
+    i8 63, label %if.end.i270
+    i8 125, label %if.end
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -43601,26 +43583,26 @@ if.then.i43:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i49 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
-    i32 62, label %sw.bb1.i48
-    i32 94, label %sw.bb2.i46
+  switch i8 %c.i.1, label %sw.epilog.i48 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit49
+    i8 62, label %sw.bb1.i47
+    i8 94, label %sw.bb2.i45
   ]
 
-sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb1.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.bb2.i45:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
+sw.epilog.i48:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit49
 
-_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
-  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i47, %sw.bb2.i45, %sw.epilog.i48
+  %retval.0.i46 = phi i16 [ 0, %sw.epilog.i48 ], [ 3, %sw.bb2.i45 ], [ 2, %sw.bb1.i47 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %localized.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i46
   store i16 %bf.set.i, ptr %localized.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
@@ -43630,14 +43612,14 @@ if.end16.i:                                       ; preds = %for.cond.i, %for.co
   unreachable
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
-  br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
+  %cmp.not.i53 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  br i1 %cmp.not.i53, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56, label %if.then.i54
 
-if.then.i55:                                      ; preds = %if.end37.i
+if.then.i54:                                      ; preds = %if.end37.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57: ; preds = %if.end37.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56: ; preds = %if.end37.i
   %bf.load39.i = load i16, ptr %localized.i, align 1
   %bf.set41.i = or i16 %bf.load39.i, 128
   store i16 %bf.set41.i, ptr %localized.i, align 1
@@ -43645,10 +43627,10 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
+  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i57, label %if.end49.i, label %if.then.i58
 
-if.then.i59:                                      ; preds = %sw.bb43.i
+if.then.i58:                                      ; preds = %sw.bb43.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -43669,14 +43651,14 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
+  %cmp.not.i61 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i61, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, label %if.then.i62
 
-if.then.i63:                                      ; preds = %sw.bb63.i
+if.then.i62:                                      ; preds = %sw.bb63.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64: ; preds = %sw.bb63.i
   %call64.i = tail call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
@@ -43685,58 +43667,58 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i73 = icmp ult i32 %enter_state.i.sroa.0.0, 7
-  br i1 %cmp.not.i73, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, label %if.then.i74
+  %cmp.not.i72 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  br i1 %cmp.not.i72, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75, label %if.then.i73
 
-if.then.i74:                                      ; preds = %if.end74.i
+if.then.i73:                                      ; preds = %if.end74.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76: ; preds = %if.end74.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75: ; preds = %if.end74.i
   %bf.load76.i = load i16, ptr %localized.i, align 1
   %bf.set78.i = or i16 %bf.load76.i, 256
   store i16 %bf.set78.i, ptr %localized.i, align 1
   %incdec.ptr79.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.i151:                                      ; preds = %for.cond.i
+if.end.i150:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i163:                                      ; preds = %for.cond.i
+if.end.i162:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i175:                                      ; preds = %for.cond.i
+if.end.i174:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i187:                                      ; preds = %for.cond.i
+if.end.i186:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i199:                                      ; preds = %for.cond.i
+if.end.i198:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i211:                                      ; preds = %for.cond.i
+if.end.i210:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i223:                                      ; preds = %for.cond.i
+if.end.i222:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i235:                                      ; preds = %for.cond.i
+if.end.i234:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -43744,14 +43726,14 @@ if.then110.i:                                     ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249: ; preds = %for.cond.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248: ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.i259:                                      ; preds = %for.cond.i
+if.end.i258:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-if.end.i271:                                      ; preds = %for.cond.i
+if.end.i270:                                      ; preds = %for.cond.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
@@ -43787,51 +43769,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %8 = load i8, ptr %add.ptr.i, align 1
-  %conv.i274 = sext i8 %8 to i32
-  switch i32 %conv.i274, label %if.then.i281 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit279
-    i32 62, label %sw.bb1.i277
-    i32 94, label %sw.bb2.i275
+  switch i8 %8, label %if.then.i279 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit277
+    i8 62, label %sw.bb1.i275
+    i8 94, label %sw.bb2.i273
   ]
 
-sw.bb1.i277:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit279
+sw.bb1.i275:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit277
 
-sw.bb2.i275:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit279
+sw.bb2.i273:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit277
 
-_ZN3fmt3v106detail11parse_alignEc.exit279:        ; preds = %if.end134.i, %sw.bb1.i277, %sw.bb2.i275
-  %retval.0.i276 = phi i16 [ 3, %sw.bb2.i275 ], [ 2, %sw.bb1.i277 ], [ 1, %if.end134.i ]
-  %cmp.not.i280 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i280, label %for.body.i, label %if.then.i281
+_ZN3fmt3v106detail11parse_alignEc.exit277:        ; preds = %if.end134.i, %sw.bb1.i275, %sw.bb2.i273
+  %retval.0.i274 = phi i16 [ 3, %sw.bb2.i273 ], [ 2, %sw.bb1.i275 ], [ 1, %if.end134.i ]
+  %cmp.not.i278 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i278, label %for.body.i, label %if.then.i279
 
-if.then.i281:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit279
+if.then.i279:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit277
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit279, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit279 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit277, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit277 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i284 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
-  store i8 %9, ptr %arrayidx.i284, align 1
+  %arrayidx.i282 = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i
+  store i8 %9, ptr %arrayidx.i282, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i285 = trunc i64 %add.i to i8
-  store i8 %conv.i285, ptr %size_.i286, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i283, align 1
   %bf.load146.i = load i16, ptr %localized.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i276
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i274
   store i16 %bf.set149.i, ptr %localized.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, %_ZN3fmt3v106detail11parse_alignEc.exit50
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit76 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56, %_ZN3fmt3v106detail11parse_alignEc.exit49
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit75 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit64 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit49 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -43842,18 +43823,18 @@ if.end154.i:                                      ; preds = %sw.epilog151.i
 if.end.sink.split.loopexit:                       ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split.loopexit529:                    ; preds = %for.cond.i
+if.end.sink.split.loopexit526:                    ; preds = %for.cond.i
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit529, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117
-  %.sink = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit117 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit129 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit141 ], [ 16, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit249 ], [ 1, %if.end.sink.split.loopexit ], [ 2, %if.end.sink.split.loopexit529 ], [ 3, %for.cond.i ]
+if.end.sink.split:                                ; preds = %for.cond.i, %if.end.sink.split.loopexit526, %if.end.sink.split.loopexit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116
+  %.sink = phi i8 [ 4, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit116 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit128 ], [ 6, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit140 ], [ 16, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt0_clENS0_17presentation_typeEi.exit248 ], [ 1, %if.end.sink.split.loopexit ], [ 2, %if.end.sink.split.loopexit526 ], [ 3, %for.cond.i ]
   %type.i = getelementptr inbounds %"struct.fmt::v10::format_specs", ptr %this, i64 0, i32 2
   store i8 %.sink, ptr %type.i, align 8
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
+  %add.ptr.i76 = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %sw.default.i, %sw.epilog151.i, %if.end.sink.split, %if.else.i
-  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i77, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
+  %retval.i.0 = phi ptr [ %0, %if.else.i ], [ %add.ptr.i76, %if.end.sink.split ], [ %begin.addr.i.0, %for.cond.i ], [ %add.ptr.i.i, %sw.epilog151.i ], [ %begin.addr.i.0, %sw.default.i ]
   ret ptr %retval.i.0
 }
 
@@ -44288,11 +44269,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = sext i8 %2 to i32
-  switch i32 %conv.i, label %for.cond.i.sink.split [
-    i32 60, label %for.cond.i
-    i32 62, label %for.cond.i
-    i32 94, label %for.cond.i
+  switch i8 %2, label %for.cond.i.sink.split [
+    i8 60, label %for.cond.i
+    i8 62, label %for.cond.i
+    i8 94, label %for.cond.i
   ]
 
 if.else.i:                                        ; preds = %entry
@@ -44309,47 +44289,46 @@ for.cond.i:                                       ; preds = %for.cond.i.sink.spl
   %begin.addr.i.0 = phi ptr [ %0, %if.then.i ], [ %0, %if.then.i ], [ %0, %if.then.i ], [ %.sink, %for.cond.i.sink.split ]
   %enter_state.i.sroa.0.0 = phi i32 [ 0, %if.then.i ], [ 0, %if.then.i ], [ 0, %if.then.i ], [ %enter_state.i.sroa.0.0.ph, %for.cond.i.sink.split ]
   %c.i.1 = phi i8 [ 0, %if.then.i ], [ 0, %if.then.i ], [ 0, %if.then.i ], [ %3, %for.cond.i.sink.split ]
-  %conv11.i = sext i8 %c.i.1 to i32
-  switch i32 %conv11.i, label %sw.default.i [
-    i32 60, label %sw.bb.i
-    i32 62, label %sw.bb.i
-    i32 94, label %sw.bb.i
-    i32 43, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 45, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 32, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 35, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 48, label %sw.bb43.i
-    i32 49, label %sw.bb63.i
-    i32 50, label %sw.bb63.i
-    i32 51, label %sw.bb63.i
-    i32 52, label %sw.bb63.i
-    i32 53, label %sw.bb63.i
-    i32 54, label %sw.bb63.i
-    i32 55, label %sw.bb63.i
-    i32 56, label %sw.bb63.i
-    i32 57, label %sw.bb63.i
-    i32 123, label %sw.bb63.i
-    i32 46, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 76, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 100, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 111, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 120, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 88, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 98, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 66, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 97, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 65, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 101, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 69, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 102, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 70, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 103, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 71, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 99, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 115, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 112, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 63, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
-    i32 125, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+  switch i8 %c.i.1, label %sw.default.i [
+    i8 60, label %sw.bb.i
+    i8 62, label %sw.bb.i
+    i8 94, label %sw.bb.i
+    i8 43, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 45, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 32, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 35, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 48, label %sw.bb43.i
+    i8 49, label %sw.bb63.i
+    i8 50, label %sw.bb63.i
+    i8 51, label %sw.bb63.i
+    i8 52, label %sw.bb63.i
+    i8 53, label %sw.bb63.i
+    i8 54, label %sw.bb63.i
+    i8 55, label %sw.bb63.i
+    i8 56, label %sw.bb63.i
+    i8 57, label %sw.bb63.i
+    i8 123, label %sw.bb63.i
+    i8 46, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 76, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 100, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 111, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 120, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 88, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 98, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 66, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 97, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 65, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 101, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 69, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 102, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 70, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 103, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 71, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 99, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 115, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 112, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 63, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
+    i8 125, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.cond.i, %for.cond.i, %for.cond.i
@@ -44361,47 +44340,47 @@ if.then.i44:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit: ; preds = %sw.bb.i
-  switch i32 %conv11.i, label %sw.epilog.i50 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit51
-    i32 62, label %sw.bb1.i49
-    i32 94, label %sw.bb2.i47
+  switch i8 %c.i.1, label %sw.epilog.i49 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit50
+    i8 62, label %sw.bb1.i48
+    i8 94, label %sw.bb2.i46
   ]
 
-sw.bb1.i49:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit51
+sw.bb1.i48:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
 
-sw.bb2.i47:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit51
+sw.bb2.i46:                                       ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
 
-sw.epilog.i50:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit51
+sw.epilog.i49:                                    ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit50
 
-_ZN3fmt3v106detail11parse_alignEc.exit51:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i49, %sw.bb2.i47, %sw.epilog.i50
-  %retval.0.i48 = phi i16 [ 0, %sw.epilog.i50 ], [ 3, %sw.bb2.i47 ], [ 2, %sw.bb1.i49 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+_ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %sw.bb1.i48, %sw.bb2.i46, %sw.epilog.i49
+  %retval.0.i47 = phi i16 [ 0, %sw.epilog.i49 ], [ 3, %sw.bb2.i46 ], [ 2, %sw.bb1.i48 ], [ 1, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %bf.load.i = load i16, ptr %align.i.i, align 1
   %bf.clear.i = and i16 %bf.load.i, -16
-  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i48
+  %bf.set.i = or disjoint i16 %bf.clear.i, %retval.0.i47
   store i16 %bf.set.i, ptr %align.i.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 1
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i52 = icmp ult i32 %enter_state.i.sroa.0.0, 4
-  br i1 %cmp.not.i52, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit, label %if.then.i53
+  %cmp.not.i51 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  br i1 %cmp.not.i51, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit, label %if.then.i52
 
-if.then.i53:                                      ; preds = %sw.bb43.i
+if.then.i52:                                      ; preds = %sw.bb43.i
   call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i56 = icmp ult i32 %enter_state.i.sroa.0.0, 5
-  br i1 %cmp.not.i56, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, label %if.then.i57
+  %cmp.not.i55 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  br i1 %cmp.not.i55, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, label %if.then.i56
 
-if.then.i57:                                      ; preds = %sw.bb63.i
+if.then.i56:                                      ; preds = %sw.bb63.i
   call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59: ; preds = %sw.bb63.i
+_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58: ; preds = %sw.bb63.i
   %call64.i = call noundef ptr @_ZN3fmt3v106detail18parse_dynamic_specIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE(ptr noundef nonnull %begin.addr.i.0, ptr noundef %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %specs, ptr noundef nonnull align 8 dereferenceable(24) %width_ref.i43, ptr noundef nonnull align 8 dereferenceable(20) %ctx)
   br label %sw.epilog151.i
 
@@ -44437,51 +44416,50 @@ if.then133.i:                                     ; preds = %if.end130.i
 
 if.end134.i:                                      ; preds = %if.end130.i
   %7 = load i8, ptr %add.ptr.i, align 1
-  %conv.i269 = sext i8 %7 to i32
-  switch i32 %conv.i269, label %if.then.i276 [
-    i32 60, label %_ZN3fmt3v106detail11parse_alignEc.exit274
-    i32 62, label %sw.bb1.i272
-    i32 94, label %sw.bb2.i270
+  switch i8 %7, label %if.then.i274 [
+    i8 60, label %_ZN3fmt3v106detail11parse_alignEc.exit272
+    i8 62, label %sw.bb1.i270
+    i8 94, label %sw.bb2.i268
   ]
 
-sw.bb1.i272:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit274
+sw.bb1.i270:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit272
 
-sw.bb2.i270:                                      ; preds = %if.end134.i
-  br label %_ZN3fmt3v106detail11parse_alignEc.exit274
+sw.bb2.i268:                                      ; preds = %if.end134.i
+  br label %_ZN3fmt3v106detail11parse_alignEc.exit272
 
-_ZN3fmt3v106detail11parse_alignEc.exit274:        ; preds = %if.end134.i, %sw.bb1.i272, %sw.bb2.i270
-  %retval.0.i271 = phi i16 [ 3, %sw.bb2.i270 ], [ 2, %sw.bb1.i272 ], [ 1, %if.end134.i ]
-  %cmp.not.i275 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i275, label %for.body.i, label %if.then.i276
+_ZN3fmt3v106detail11parse_alignEc.exit272:        ; preds = %if.end134.i, %sw.bb1.i270, %sw.bb2.i268
+  %retval.0.i269 = phi i16 [ 3, %sw.bb2.i268 ], [ 2, %sw.bb1.i270 ], [ 1, %if.end134.i ]
+  %cmp.not.i273 = icmp eq i32 %enter_state.i.sroa.0.0, 0
+  br i1 %cmp.not.i273, label %for.body.i, label %if.then.i274
 
-if.then.i276:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit274
+if.then.i274:                                     ; preds = %if.end134.i, %_ZN3fmt3v106detail11parse_alignEc.exit272
   call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.214) #24
   unreachable
 
-for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit274, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit274 ]
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit272, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN3fmt3v106detail11parse_alignEc.exit272 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 %i.07.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx.i279 = getelementptr inbounds [4 x i8], ptr %fill.i.i, i64 0, i64 %i.07.i
-  store i8 %8, ptr %arrayidx.i279, align 1
+  %arrayidx.i277 = getelementptr inbounds [4 x i8], ptr %fill.i.i, i64 0, i64 %i.07.i
+  store i8 %8, ptr %arrayidx.i277, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %i.07.i, %conv2.i
   br i1 %exitcond.not.i, label %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, label %for.body.i, !llvm.loop !448
 
 _ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i
-  %conv.i280 = trunc i64 %add.i to i8
-  store i8 %conv.i280, ptr %size_.i.i.i, align 1
+  %conv.i = trunc i64 %add.i to i8
+  store i8 %conv.i, ptr %size_.i.i.i, align 1
   %bf.load146.i = load i16, ptr %align.i.i, align 1
   %bf.clear148.i = and i16 %bf.load146.i, -16
-  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i271
+  %bf.set149.i = or disjoint i16 %bf.clear148.i, %retval.0.i269
   store i16 %bf.set149.i, ptr %align.i.i, align 1
   %add.ptr150.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   br label %sw.epilog151.i
 
-sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, %_ZN3fmt3v106detail11parse_alignEc.exit51
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit51 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit51 ]
+sw.epilog151.i:                                   ; preds = %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58, %_ZN3fmt3v106detail11parse_alignEc.exit50
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %_ZN3fmt3v106detail6fill_tIcEaSENS0_17basic_string_viewIcEE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit58 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit50 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit, label %for.cond.i.sink.split, !llvm.loop !562
 
@@ -44500,13 +44478,13 @@ _ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsI
   %bf.set = or disjoint i8 %bf.clear5, %bf.cast
   store i8 %bf.set, ptr %align_, align 1
   %11 = load ptr, ptr %ctx, align 8
-  %sub.ptr.lhs.cast.i282 = ptrtoint ptr %retval.i.0 to i64
-  %sub.ptr.rhs.cast.i283 = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i284 = sub i64 %sub.ptr.lhs.cast.i282, %sub.ptr.rhs.cast.i283
-  %add.ptr.i.i285 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i284
-  store ptr %add.ptr.i.i285, ptr %ctx, align 8
+  %sub.ptr.lhs.cast.i279 = ptrtoint ptr %retval.i.0 to i64
+  %sub.ptr.rhs.cast.i280 = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i281 = sub i64 %sub.ptr.lhs.cast.i279, %sub.ptr.rhs.cast.i280
+  %add.ptr.i.i282 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i281
+  store ptr %add.ptr.i.i282, ptr %ctx, align 8
   %12 = load i64, ptr %size_.i.i, align 8
-  %sub.i.i = sub i64 %12, %sub.ptr.sub.i284
+  %sub.i.i = sub i64 %12, %sub.ptr.sub.i281
   store i64 %sub.i.i, ptr %size_.i.i, align 8
   %formatter_ = getelementptr inbounds %"struct.fmt::v10::nested_formatter", ptr %this, i64 0, i32 3
   %call6 = call noundef ptr @_ZN3fmt3v109formatterINS0_17basic_string_viewIcEEcvE5parseINS0_26basic_format_parse_contextIcEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(64) %formatter_, ptr noundef nonnull align 8 dereferenceable(20) %ctx)

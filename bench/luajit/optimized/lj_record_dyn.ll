@@ -3451,10 +3451,9 @@ sw.epilog157:                                     ; preds = %rec_profile_ins.exi
   %and160 = and i32 %shr159, 255
   %80 = lshr i16 %69, 3
   %81 = and i16 %80, 15
-  %and165 = zext nneg i16 %81 to i32
-  switch i32 %and165, label %sw.epilog185 [
-    i32 0, label %sw.bb166
-    i32 3, label %sw.bb168
+  switch i16 %81, label %sw.epilog185 [
+    i16 0, label %sw.bb166
+    i16 3, label %sw.bb168
   ]
 
 sw.bb166:                                         ; preds = %sw.epilog157
@@ -3516,12 +3515,11 @@ sw.epilog185:                                     ; preds = %sw.epilog157, %cond
   %rb.0 = phi i32 [ %shr158, %sw.epilog157 ], [ %cond183, %cond.end182 ], [ 0, %sw.bb166 ]
   %92 = lshr i16 %69, 7
   %93 = and i16 %92, 15
-  %and190 = zext nneg i16 %93 to i32
-  switch i32 %and190, label %sw.epilog247 [
-    i32 3, label %sw.bb191
-    i32 8, label %sw.bb207
-    i32 9, label %sw.bb218
-    i32 10, label %sw.bb234
+  switch i16 %93, label %sw.epilog247 [
+    i16 3, label %sw.bb191
+    i16 8, label %sw.bb207
+    i16 9, label %sw.bb218
+    i16 10, label %sw.bb234
   ]
 
 sw.bb191:                                         ; preds = %sw.epilog185

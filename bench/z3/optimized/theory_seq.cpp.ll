@@ -13543,10 +13543,9 @@ _ZN3smt36ext_theory_propagation_justificationD2Ev.exit: ; preds = %invoke.cont33
   %35 = load ptr, ptr %m_assignment.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %idxprom.i.i.i
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %36 to i32
-  switch i32 %conv.i.i.i.i, label %invoke.cont38 [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %36, label %invoke.cont38 [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %_ZN3smt36ext_theory_propagation_justificationD2Ev.exit
@@ -14751,11 +14750,10 @@ invoke.cont14:                                    ; preds = %land.lhs.true.i
   %idxprom.i.i.i = zext i32 %retval.sroa.0.0.copyload.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i.i
   %17 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %17 to i32
-  switch i32 %conv.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit [
-    i32 1, label %sw.bb
-    i32 0, label %sw.bb20
-    i32 -1, label %sw.bb25
+  switch i8 %17, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit [
+    i8 1, label %sw.bb
+    i8 0, label %sw.bb20
+    i8 -1, label %sw.bb25
   ]
 
 sw.bb:                                            ; preds = %invoke.cont14
@@ -20595,10 +20593,9 @@ invoke.cont295:                                   ; preds = %if.then2.i.i.i454, 
   %idxprom.i.i.i458 = zext i32 %call2.i.i446 to i64
   %arrayidx.i.i.i459 = getelementptr inbounds i8, ptr %217, i64 %idxprom.i.i.i458
   %218 = load i8, ptr %arrayidx.i.i.i459, align 1
-  %conv.i.i460 = sext i8 %218 to i32
-  switch i32 %conv.i.i460, label %cleanup327 [
-    i32 1, label %sw.bb
-    i32 -1, label %sw.bb313
+  switch i8 %218, label %cleanup327 [
+    i8 1, label %sw.bb
+    i8 -1, label %sw.bb313
   ]
 
 lpad281:                                          ; preds = %invoke.cont278, %invoke.cont317, %invoke.cont315, %sw.bb313, %invoke.cont308, %sw.bb
@@ -27922,10 +27919,9 @@ invoke.cont31:                                    ; preds = %invoke.cont23
   %idxprom.i.i.i = zext i32 %call28 to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %39, i64 %idxprom.i.i.i
   %40 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %40 to i32
-  switch i32 %conv.i.i, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb37
+  switch i8 %40, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb37
   ]
 
 lpad19.loopexit:                                  ; preds = %while.cond, %while.body
@@ -28771,10 +28767,9 @@ invoke.cont45:                                    ; preds = %invoke.cont39
   %idxprom.i.i.i = zext i32 %call42 to i64
   %arrayidx.i.i.i24 = getelementptr inbounds i8, ptr %28, i64 %idxprom.i.i.i
   %29 = load i8, ptr %arrayidx.i.i.i24, align 1
-  %conv.i.i = sext i8 %29 to i32
-  switch i32 %conv.i.i, label %invoke.cont80 [
-    i32 1, label %cleanup
-    i32 -1, label %if.then55
+  switch i8 %29, label %invoke.cont80 [
+    i8 1, label %cleanup
+    i8 -1, label %if.then55
   ]
 
 lpad36:                                           ; preds = %invoke.cont35
@@ -39662,11 +39657,10 @@ invoke.cont351:                                   ; preds = %if.then346
   %idxprom.i.i.i291 = zext i32 %call348 to i64
   %arrayidx.i.i.i292 = getelementptr inbounds i8, ptr %163, i64 %idxprom.i.i.i291
   %164 = load i8, ptr %arrayidx.i.i.i292, align 1
-  %conv.i.i = sext i8 %164 to i32
-  switch i32 %conv.i.i, label %if.end413 [
-    i32 1, label %sw.bb
-    i32 -1, label %sw.bb369
-    i32 0, label %sw.bb392
+  switch i8 %164, label %if.end413 [
+    i8 1, label %sw.bb
+    i8 -1, label %sw.bb369
+    i8 0, label %sw.bb392
   ]
 
 sw.bb:                                            ; preds = %invoke.cont351

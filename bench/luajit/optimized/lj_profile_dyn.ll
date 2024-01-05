@@ -80,11 +80,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mode.addr.029 = phi ptr [ %mode, %while.body.lr.ph ], [ %mode.addr.2, %sw.epilog ]
   %interval.028 = phi i32 [ 10, %while.body.lr.ph ], [ %interval.2, %sw.epilog ]
   %incdec.ptr = getelementptr inbounds i8, ptr %mode.addr.029, i64 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 105, label %while.cond1.preheader
-    i32 108, label %sw.bb12
-    i32 102, label %sw.bb12
+  switch i8 %1, label %sw.epilog [
+    i8 105, label %while.cond1.preheader
+    i8 108, label %sw.bb12
+    i8 102, label %sw.bb12
   ]
 
 while.cond1.preheader:                            ; preds = %while.body
@@ -114,6 +113,7 @@ while.end:                                        ; preds = %while.body7, %while
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %while.body, %while.body
+  %conv = zext nneg i8 %1 to i32
   %7 = load i64, ptr %glref, align 8
   %8 = inttoptr i64 %7 to ptr
   %prof_mode = getelementptr inbounds i8, ptr %8, i64 3836

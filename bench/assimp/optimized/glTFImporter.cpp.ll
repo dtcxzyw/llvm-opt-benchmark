@@ -29395,14 +29395,13 @@ define linkonce_odr hidden void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_
 entry:
   %0 = load ptr, ptr %is, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 110, label %sw.bb
-    i32 116, label %sw.bb2
-    i32 102, label %sw.bb3
-    i32 34, label %sw.bb4
-    i32 123, label %sw.bb5
-    i32 91, label %sw.bb6
+  switch i8 %1, label %sw.default [
+    i8 110, label %sw.bb
+    i8 116, label %sw.bb2
+    i8 102, label %sw.bb3
+    i8 34, label %sw.bb4
+    i8 123, label %sw.bb5
+    i8 91, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -30563,10 +30562,9 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE25SkipWhitespaceA
 do.end121:                                        ; preds = %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE25SkipWhitespaceAndCommentsILj1ENS_25GenericInsituStringStreamIS2_EEEEvRT0_.exit85
   %inc = add i32 %memberCount.0147, 1
   %25 = load i8, ptr %copy.sroa.0.0.i.i82, align 1
-  %conv123 = sext i8 %25 to i32
-  switch i32 %conv123, label %do.body156 [
-    i32 44, label %sw.bb
-    i32 125, label %sw.bb133
+  switch i8 %25, label %do.body156 [
+    i8 44, label %sw.bb
+    i8 125, label %sw.bb133
   ]
 
 sw.bb:                                            ; preds = %do.end121
@@ -53111,14 +53109,13 @@ for.end146:                                       ; preds = %invoke.cont118, %if
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5o3dgc12CubeToSphereEffcRfS0_S0_(float noundef %a, float noundef %b, i8 noundef signext %index, ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 4 dereferenceable(4) %y, ptr noundef nonnull align 4 dereferenceable(4) %z) local_unnamed_addr #4 comdat {
 entry:
-  %conv = sext i8 %index to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb8
-    i32 2, label %sw.bb22
-    i32 3, label %sw.bb34
-    i32 4, label %sw.bb49
-    i32 5, label %sw.bb61
+  switch i8 %index, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb8
+    i8 2, label %sw.bb22
+    i8 3, label %sw.bb34
+    i8 4, label %sw.bb49
+    i8 5, label %sw.bb61
   ]
 
 sw.bb:                                            ; preds = %entry

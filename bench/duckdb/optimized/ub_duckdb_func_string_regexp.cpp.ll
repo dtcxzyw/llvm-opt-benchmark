@@ -390,19 +390,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %i.065.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %arrayidx.i.us = getelementptr inbounds i8, ptr %1, i64 %i.065.us
   %2 = load i8, ptr %arrayidx.i.us, align 1, !tbaa !26
-  %conv.us = sext i8 %2 to i32
-  switch i32 %conv.us, label %sw.default [
-    i32 99, label %sw.bb.us
-    i32 105, label %sw.bb2.us
-    i32 108, label %sw.bb3.us
-    i32 109, label %sw.bb4.us
-    i32 110, label %sw.bb4.us
-    i32 112, label %sw.bb4.us
-    i32 115, label %sw.bb5.us
-    i32 103, label %if.else
-    i32 32, label %for.inc.us
-    i32 9, label %for.inc.us
-    i32 10, label %for.inc.us
+  switch i8 %2, label %sw.default [
+    i8 99, label %sw.bb.us
+    i8 105, label %sw.bb2.us
+    i8 108, label %sw.bb3.us
+    i8 109, label %sw.bb4.us
+    i8 110, label %sw.bb4.us
+    i8 112, label %sw.bb4.us
+    i8 115, label %sw.bb5.us
+    i8 103, label %if.else
+    i8 32, label %for.inc.us
+    i8 9, label %for.inc.us
+    i8 10, label %for.inc.us
   ]
 
 sw.bb5.us:                                        ; preds = %for.body.us
@@ -437,19 +436,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.065 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %i.065
   %3 = load i8, ptr %arrayidx.i, align 1, !tbaa !26
-  %conv = sext i8 %3 to i32
-  switch i32 %conv, label %sw.default [
-    i32 99, label %sw.bb
-    i32 105, label %sw.bb2
-    i32 108, label %sw.bb3
-    i32 109, label %sw.bb4
-    i32 110, label %sw.bb4
-    i32 112, label %sw.bb4
-    i32 115, label %sw.bb5
-    i32 103, label %sw.bb6
-    i32 32, label %for.inc
-    i32 9, label %for.inc
-    i32 10, label %for.inc
+  switch i8 %3, label %sw.default [
+    i8 99, label %sw.bb
+    i8 105, label %sw.bb2
+    i8 108, label %sw.bb3
+    i8 109, label %sw.bb4
+    i8 110, label %sw.bb4
+    i8 112, label %sw.bb4
+    i8 115, label %sw.bb5
+    i8 103, label %sw.bb6
+    i8 32, label %for.inc
+    i8 9, label %for.inc
+    i8 10, label %for.inc
   ]
 
 sw.bb:                                            ; preds = %for.body

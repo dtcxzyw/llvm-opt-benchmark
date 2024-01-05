@@ -521,7 +521,7 @@ declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #1
 declare void @policies_print(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @set_cert_stuff(ptr noundef %ctx, ptr noundef %cert_file, ptr noundef %key_file) local_unnamed_addr #0 {
+define noundef i32 @set_cert_stuff(ptr noundef %ctx, ptr noundef %cert_file, ptr noundef %key_file) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cert_file, null
   br i1 %cmp.not, label %return, label %if.then
@@ -576,7 +576,7 @@ declare i32 @SSL_CTX_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @SSL_CTX_check_private_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @set_cert_key_stuff(ptr noundef %ctx, ptr noundef %cert, ptr noundef %key, ptr noundef %chain, i32 noundef %build_chain) local_unnamed_addr #0 {
+define noundef i32 @set_cert_key_stuff(ptr noundef %ctx, ptr noundef %cert, ptr noundef %key, ptr noundef %chain, i32 noundef %build_chain) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %chain, null
   %cmp = icmp eq ptr %cert, null
@@ -660,7 +660,7 @@ declare i32 @SSL_CTX_use_PrivateKey(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_print_sigalgs(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
+define noundef i32 @ssl_print_sigalgs(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %p.i = alloca ptr, align 8
   %nid = alloca i32, align 4
@@ -1040,7 +1040,7 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 declare i32 @SSL_get_peer_signature_type_nid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_print_point_formats(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
+define noundef i32 @ssl_print_point_formats(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %pformats = alloca ptr, align 8
   %call = call i64 @SSL_ctrl(ptr noundef %s, i32 noundef 111, i64 noundef 0, ptr noundef nonnull %pformats) #6
@@ -1064,11 +1064,10 @@ if.then5:                                         ; preds = %for.body
 if.end7:                                          ; preds = %if.then5, %for.body
   %0 = load ptr, ptr %pformats, align 8
   %1 = load i8, ptr %0, align 1
-  %conv8 = sext i8 %1 to i32
-  switch i32 %conv8, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb10
-    i32 2, label %sw.bb12
+  switch i8 %1, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb10
+    i8 2, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %if.end7
@@ -1084,6 +1083,7 @@ sw.bb12:                                          ; preds = %if.end7
   br label %for.inc
 
 sw.default:                                       ; preds = %if.end7
+  %conv8 = sext i8 %1 to i32
   %call15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.22, i32 noundef %conv8) #6
   br label %for.inc
 
@@ -1104,7 +1104,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_print_groups(ptr noundef %out, ptr noundef %s, i32 noundef %noshared) local_unnamed_addr #0 {
+define noundef i32 @ssl_print_groups(ptr noundef %out, ptr noundef %s, i32 noundef %noshared) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @SSL_ctrl(ptr noundef %s, i32 noundef 90, i64 noundef 0, ptr noundef null) #6
   %conv = trunc i64 %call to i32
@@ -1195,7 +1195,7 @@ declare ptr @SSL_group_to_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_print_tmp_key(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
+define noundef i32 @ssl_print_tmp_key(ptr noundef %out, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %name = alloca [80 x i8], align 16
@@ -1266,7 +1266,7 @@ declare i32 @EVP_PKEY_get_utf8_string_param(ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @bio_dump_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) local_unnamed_addr #0 {
+define noundef i64 @bio_dump_callback(ptr noundef %bio, i32 noundef %cmd, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_get_callback_arg(ptr noundef %bio) #6
   %cmp = icmp eq ptr %call, null
@@ -1692,7 +1692,7 @@ lookup.exit:                                      ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   store i64 0, ptr %length, align 8
@@ -1809,7 +1809,7 @@ declare zeroext i16 @BIO_ADDR_rawport(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result = alloca [64 x i8], align 16
   %resultlength = alloca i64, align 8
@@ -1838,7 +1838,7 @@ return:                                           ; preds = %land.lhs.true3, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr nocapture noundef writeonly %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr nocapture noundef writeonly %cookie_len) local_unnamed_addr #0 {
 entry:
   %temp = alloca i64, align 8
   store i64 0, ptr %temp, align 8
@@ -1857,7 +1857,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result.i = alloca [64 x i8], align 16
   %resultlength.i = alloca i64, align 8
@@ -1900,7 +1900,7 @@ entry:
 declare void @SSL_CTX_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cert_cb(ptr noundef %ssl, ptr noundef readonly %arg) #0 {
+define internal noundef i32 @set_cert_cb(ptr noundef %ssl, ptr noundef readonly %arg) #0 {
 entry:
   tail call void @SSL_certs_clear(ptr noundef %ssl) #6
   %cmp = icmp eq ptr %arg, null
@@ -2051,7 +2051,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @load_excert(ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define noundef i32 @load_excert(ptr nocapture noundef %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -2168,7 +2168,7 @@ declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr no
 declare i32 @load_certs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @args_excert(i32 noundef %opt, ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define noundef i32 @args_excert(i32 noundef %opt, ptr nocapture noundef %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -2742,7 +2742,7 @@ declare ptr @SSL_get_current_cipher(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @config_ctx(ptr noundef %cctx, ptr noundef %str, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @config_ctx(ptr noundef %cctx, ptr noundef %str, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef %cctx, ptr noundef %ctx) #6
   %call111 = tail call i32 @OPENSSL_sk_num(ptr noundef %str) #6
@@ -2802,7 +2802,7 @@ declare i32 @SSL_CONF_cmd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @SSL_CONF_CTX_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_ctx_add_crls(ptr noundef %ctx, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
+define noundef i32 @ssl_ctx_add_crls(ptr noundef %ctx, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %ctx) #6
   %call14.i = tail call i32 @OPENSSL_sk_num(ptr noundef %crls) #6
@@ -2835,7 +2835,7 @@ declare ptr @SSL_CTX_get_cert_store(ptr noundef) local_unnamed_addr #1
 declare void @store_setup_crl_download(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_load_stores(ptr noundef %ctx, ptr noundef %vfyCApath, ptr noundef %vfyCAfile, ptr noundef %vfyCAstore, ptr noundef %chCApath, ptr noundef %chCAfile, ptr noundef %chCAstore, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
+define noundef i32 @ssl_load_stores(ptr noundef %ctx, ptr noundef %vfyCApath, ptr noundef %vfyCAfile, ptr noundef %vfyCAstore, ptr noundef %chCApath, ptr noundef %chCAfile, ptr noundef %chCAstore, ptr noundef %crls, i32 noundef %crl_download) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %vfyCApath, null
   %cmp1 = icmp ne ptr %vfyCAfile, null
@@ -3244,7 +3244,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare void @SSL_CTX_set0_security_ex_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @set_keylog_file(ptr noundef %ctx, ptr noundef %keylog_file) local_unnamed_addr #0 {
+define noundef i32 @set_keylog_file(ptr noundef %ctx, ptr noundef %keylog_file) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @bio_keylog, align 8
   tail call void @BIO_free_all(ptr noundef %0) #6
@@ -3394,7 +3394,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @SSL_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @progress_cb(ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @progress_cb(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %c = alloca i8, align 1
   %call = tail call ptr @EVP_PKEY_CTX_get_app_data(ptr noundef %ctx) #6

@@ -5171,10 +5171,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
   %idxprom.i.i.i = zext i32 %b.sroa.0.0.copyload to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %7 to i32
-  switch i32 %conv.i.i, label %sw.epilog [
-    i32 1, label %sw.bb6
-    i32 0, label %return
+  switch i8 %7, label %sw.epilog [
+    i8 1, label %sw.bb6
+    i8 0, label %return
   ]
 
 sw.bb6:                                           ; preds = %for.body
@@ -22724,10 +22723,9 @@ if.else:                                          ; preds = %entry
   %idxprom.i.i.i.i.i = zext i32 %consequent.coerce to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i.i.i.i
   %18 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %18 to i32
-  switch i32 %conv.i.i.i.i, label %if.then.i [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %18, label %if.then.i [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else

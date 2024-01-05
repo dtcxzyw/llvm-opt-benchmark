@@ -280,7 +280,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node4quic16PreferredAddress9GetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readonly %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN4node4quic16PreferredAddress9GetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readonly %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %val = alloca i32, align 4
   %call3 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #17
@@ -558,7 +558,7 @@ sw.epilog:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node4quic16PreferredAddress12tryGetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readnone %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN4node4quic16PreferredAddress12tryGetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readnone %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call3 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #17
   br i1 %call3, label %if.then, label %return
@@ -925,16 +925,16 @@ while.cond:                                       ; preds = %while.cond, %do.end
   br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
-  switch i32 %conv, label %sw.default [
-    i32 37, label %sw.bb
-    i32 100, label %sw.bb12
-    i32 105, label %sw.bb12
-    i32 117, label %sw.bb12
-    i32 115, label %sw.bb12
-    i32 111, label %sw.bb15
-    i32 120, label %sw.bb18
-    i32 88, label %sw.bb21
-    i32 112, label %do.body27
+  switch i8 %0, label %sw.default [
+    i8 37, label %sw.bb
+    i8 100, label %sw.bb12
+    i8 105, label %sw.bb12
+    i8 117, label %sw.bb12
+    i8 115, label %sw.bb12
+    i8 111, label %sw.bb15
+    i8 120, label %sw.bb18
+    i8 88, label %sw.bb21
+    i8 112, label %do.body27
   ]
 
 sw.bb:                                            ; preds = %while.end

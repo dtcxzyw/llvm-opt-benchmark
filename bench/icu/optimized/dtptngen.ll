@@ -4235,10 +4235,9 @@ if.end88:                                         ; preds = %if.then56, %land.lh
 if.then92:                                        ; preds = %if.end88
   %arrayidx.i81 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 11
   %34 = load i8, ptr %arrayidx.i81, align 1
-  %conv.i82 = sext i8 %34 to i16
-  switch i16 %conv.i82, label %if.else [
-    i16 104, label %if.then101
-    i16 75, label %if.then101
+  switch i8 %34, label %if.else [
+    i8 104, label %if.then101
+    i8 75, label %if.then101
   ]
 
 if.then101:                                       ; preds = %if.then92, %if.then92
@@ -5989,10 +5988,9 @@ invoke.cont66:                                    ; preds = %invoke.cont61
   %36 = load ptr, ptr %dtMatcher, align 8
   %arrayidx.i58 = getelementptr inbounds %"class.icu_75::DateTimeMatcher", ptr %36, i64 0, i32 1, i32 3, i32 1, i64 3
   %37 = load i8, ptr %arrayidx.i58, align 1
-  %conv.i59 = sext i8 %37 to i32
-  switch i32 %conv.i59, label %if.end86 [
-    i32 4, label %if.then74
-    i32 3, label %if.then84
+  switch i8 %37, label %if.end86 [
+    i8 4, label %if.then74
+    i8 3, label %if.then84
   ]
 
 if.then74:                                        ; preds = %invoke.cont66

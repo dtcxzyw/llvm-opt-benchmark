@@ -257,7 +257,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_reopen_prepare(ptr noundef %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @vmdk_reopen_prepare(ptr noundef %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call, label %do.end, label %if.else
@@ -946,7 +946,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal noundef i32 @vmdk_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -996,14 +996,14 @@ return:                                           ; preds = %if.then, %for.inc, 
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal i32 @vmdk_probe(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal noundef i32 @vmdk_probe(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %cmp = icmp slt i32 %buf_size, 4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %buf, align 4
-  %1 = tail call i32 @llvm.bswap.i32(i32 %0)
+  %1 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   switch i32 %1, label %if.else [
     i32 1262767446, label %return
     i32 1129273156, label %return
@@ -1310,7 +1310,6 @@ if.end:                                           ; preds = %while.body.i
   %end_sector.i.le = getelementptr inbounds %struct.VmdkExtent, ptr %extent.18.i, i64 0, i32 11
   tail call void @qemu_co_mutex_lock(ptr noundef %0) #15
   %call1 = call i32 @get_cluster_offset(ptr noundef %bs, ptr noundef nonnull %extent.18.i, ptr noundef null, i64 noundef %offset, i1 noundef zeroext false, ptr noundef nonnull %cluster_offset, i64 noundef 0, i64 noundef 0), !range !15
-  %conv = sext i32 %call1 to i64
   tail call void @qemu_co_mutex_unlock(ptr noundef %0) #15
   %cluster_sectors.i = getelementptr inbounds %struct.VmdkExtent, ptr %extent.18.i, i64 0, i32 23
   %4 = load i64, ptr %cluster_sectors.i, align 8
@@ -1322,11 +1321,11 @@ if.end:                                           ; preds = %while.body.i
   %mul1.neg.i = shl i64 %sub.neg.i, 9
   %sub2.i = add i64 %mul1.neg.i, %offset
   %rem.i = urem i64 %sub2.i, %mul.i
-  switch i64 %conv, label %sw.epilog [
-    i64 -1, label %sw.bb
-    i64 -2, label %sw.bb4
-    i64 -3, label %sw.bb5
-    i64 0, label %sw.bb6
+  switch i32 %call1, label %sw.epilog [
+    i32 -1, label %sw.bb
+    i32 -2, label %sw.bb4
+    i32 -3, label %sw.bb5
+    i32 0, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -1496,7 +1495,7 @@ return:                                           ; preds = %if.end, %for.cond, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #0 {
+define internal noundef i32 @vmdk_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1591,7 +1590,7 @@ return:                                           ; preds = %for.body, %lor.rhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @vmdk_get_specific_info(ptr nocapture noundef readonly %bs, ptr nocapture readnone %errp) #0 {
+define internal noalias noundef ptr @vmdk_get_specific_info(ptr nocapture noundef readonly %bs, ptr nocapture readnone %errp) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1801,7 +1800,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vmdk_read_desc(ptr noundef %file, i64 noundef %desc_offset, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @vmdk_read_desc(ptr noundef %file, i64 noundef %desc_offset, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %file, align 8
   %call = tail call i64 @bdrv_getlength(ptr noundef %0) #15
@@ -4344,7 +4343,7 @@ return:                                           ; preds = %if.end17, %if.end18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_is_cid_valid(ptr nocapture noundef readonly %bs) #0 {
+define internal noundef i32 @vmdk_is_cid_valid(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %cid.i = alloca i32, align 4
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -4572,7 +4571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_whole_cluster(ptr noundef %bs, ptr nocapture noundef readonly %extent, i64 noundef %cluster_offset, i64 noundef %offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes, i1 noundef zeroext %zeroed) #0 {
+define internal noundef i32 @get_whole_cluster(ptr noundef %bs, ptr nocapture noundef readonly %extent, i64 noundef %cluster_offset, i64 noundef %offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes, i1 noundef zeroext %zeroed) #0 {
 entry:
   %qiov.i63 = alloca %struct.QEMUIOVector, align 8
   %qiov.i58 = alloca %struct.QEMUIOVector, align 8
@@ -4980,7 +4979,7 @@ return:                                           ; preds = %if.end5, %if.end26,
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_L2update(ptr nocapture noundef readonly %extent, ptr nocapture noundef %m_data, i32 noundef %offset) #0 {
+define internal noundef i32 @vmdk_L2update(ptr nocapture noundef readonly %extent, ptr nocapture noundef %m_data, i32 noundef %offset) #0 {
 entry:
   %qiov.i15 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8

@@ -646,12 +646,11 @@ land.rhs.preheader.i:                             ; preds = %if.end.i
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
   %ref.tmp.sroa.0.0 = phi ptr [ %src.coerce0, %land.rhs.preheader.i ], [ %incdec.ptr11.i, %while.body.i ]
   %2 = load i8, ptr %ref.tmp.sroa.0.0, align 1
-  %conv9.i = sext i8 %2 to i16
-  switch i16 %conv9.i, label %while.end.i.loopexit [
-    i16 9, label %while.body.i
-    i16 11, label %while.body.i
-    i16 12, label %while.body.i
-    i16 32, label %while.body.i
+  switch i8 %2, label %while.end.i.loopexit [
+    i8 9, label %while.body.i
+    i8 11, label %while.body.i
+    i8 12, label %while.body.i
+    i8 32, label %while.body.i
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i
@@ -679,12 +678,11 @@ land.rhs16.i:                                     ; preds = %land.rhs16.i.prehea
   %ref.tmp.sroa.33.1 = phi ptr [ %add.ptr18.i, %while.body22.i ], [ %ref.tmp.sroa.33.0, %land.rhs16.i.preheader ]
   %add.ptr18.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.33.1, i64 -1
   %4 = load i8, ptr %add.ptr18.i, align 1
-  %conv19.i = sext i8 %4 to i16
-  switch i16 %conv19.i, label %_ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit [
-    i16 9, label %while.body22.i
-    i16 11, label %while.body22.i
-    i16 12, label %while.body22.i
-    i16 32, label %while.body22.i
+  switch i8 %4, label %_ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit [
+    i8 9, label %while.body22.i
+    i8 11, label %while.body22.i
+    i8 12, label %while.body22.i
+    i8 32, label %while.body22.i
   ]
 
 while.body22.i:                                   ; preds = %land.rhs16.i, %land.rhs16.i, %land.rhs16.i, %land.rhs16.i
@@ -7172,7 +7170,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN6hermes6bigint16BigIntTableEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %14 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %14

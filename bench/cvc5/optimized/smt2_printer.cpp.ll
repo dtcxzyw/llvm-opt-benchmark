@@ -1367,8 +1367,8 @@ if.end53:                                         ; preds = %if.then50, %if.then
 invoke.cont55:                                    ; preds = %if.end53
   %cmp.i.i53 = icmp eq i32 %call2.i.i.i54, 2
   %inc.i.i = zext i1 %cmp.i.i53 to i64
-  %spec.select.i.i = add nuw i64 %7, %inc.i.i
-  %sext = shl i64 %spec.select.i.i, 32
+  %spec.select.i.i = add nuw nsw i64 %7, %inc.i.i
+  %sext = shl nuw i64 %spec.select.i.i, 32
   %idxprom.i.i = ashr exact i64 %sext, 32
   %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %6, i64 0, i32 3, i64 %idxprom.i.i
   %18 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !8
@@ -1404,7 +1404,7 @@ if.then.i.i128:                                   ; preds = %if.else.i62
 _ZNKSt6vectorISt5tupleIJN4cvc58internal12NodeTemplateILb0EEEmiEESaIS5_EE12_M_check_lenEmPKc.exit.i87: ; preds = %if.else.i62
   %sub.ptr.div.i.i.i88 = sdiv exact i64 %sub.ptr.sub.i.i.i85, 24
   %.sroa.speculated.i.i89 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i88, i64 1)
-  %add.i.i90 = add i64 %.sroa.speculated.i.i89, %sub.ptr.div.i.i.i88
+  %add.i.i90 = add nsw i64 %.sroa.speculated.i.i89, %sub.ptr.div.i.i.i88
   %cmp7.i.i91 = icmp ult i64 %add.i.i90, %sub.ptr.div.i.i.i88
   %21 = call i64 @llvm.umin.i64(i64 %add.i.i90, i64 384307168202282325)
   %cond.i.i92 = select i1 %cmp7.i.i91, i64 384307168202282325, i64 %21
@@ -6117,59 +6117,58 @@ if.end:                                           ; preds = %entry
   %d_kind.i317 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i318 = load i16, ptr %d_kind.i317, align 8
   %bf.clear.i319 = and i16 %bf.load.i318, 1023
-  %bf.cast.i320 = zext nneg i16 %bf.clear.i319 to i32
   br i1 %cmp5, label %if.then6, label %if.end448
 
 if.then6:                                         ; preds = %if.end
-  switch i32 %bf.cast.i320, label %sw.default446 [
-    i32 12, label %sw.bb
-    i32 14, label %sw.bb21
-    i32 15, label %sw.bb29
-    i32 82, label %sw.bb36
-    i32 144, label %sw.bb41
-    i32 152, label %sw.bb46
-    i32 83, label %sw.bb56
-    i32 145, label %sw.bb73
-    i32 150, label %sw.bb81
-    i32 151, label %sw.bb92
-    i32 17, label %sw.bb120
-    i32 4, label %sw.bb123
-    i32 66, label %sw.bb129
-    i32 67, label %sw.bb131
-    i32 329, label %sw.bb135
-    i32 331, label %sw.bb154
-    i32 211, label %sw.bb173
-    i32 32, label %sw.bb199
-    i32 3, label %sw.bb211
-    i32 65, label %sw.bb236
-    i32 243, label %sw.bb241
-    i32 273, label %sw.bb250
-    i32 132, label %sw.bb259
-    i32 134, label %sw.bb266
-    i32 142, label %sw.bb271
-    i32 140, label %sw.bb276
-    i32 136, label %sw.bb281
-    i32 138, label %sw.bb286
-    i32 34, label %sw.bb291
-    i32 180, label %sw.bb297
-    i32 182, label %sw.bb309
-    i32 184, label %sw.bb321
-    i32 186, label %sw.bb333
-    i32 188, label %sw.bb345
-    i32 190, label %sw.bb357
-    i32 194, label %sw.bb363
-    i32 192, label %sw.bb370
-    i32 196, label %sw.bb377
-    i32 347, label %sw.bb384
-    i32 349, label %sw.bb390
-    i32 234, label %sw.bb398
-    i32 295, label %sw.bb398
-    i32 297, label %sw.bb398
-    i32 299, label %sw.bb398
-    i32 301, label %sw.bb398
-    i32 261, label %sw.bb398
-    i32 263, label %sw.bb398
-    i32 265, label %sw.bb398
+  switch i16 %bf.clear.i319, label %sw.default446 [
+    i16 12, label %sw.bb
+    i16 14, label %sw.bb21
+    i16 15, label %sw.bb29
+    i16 82, label %sw.bb36
+    i16 144, label %sw.bb41
+    i16 152, label %sw.bb46
+    i16 83, label %sw.bb56
+    i16 145, label %sw.bb73
+    i16 150, label %sw.bb81
+    i16 151, label %sw.bb92
+    i16 17, label %sw.bb120
+    i16 4, label %sw.bb123
+    i16 66, label %sw.bb129
+    i16 67, label %sw.bb131
+    i16 329, label %sw.bb135
+    i16 331, label %sw.bb154
+    i16 211, label %sw.bb173
+    i16 32, label %sw.bb199
+    i16 3, label %sw.bb211
+    i16 65, label %sw.bb236
+    i16 243, label %sw.bb241
+    i16 273, label %sw.bb250
+    i16 132, label %sw.bb259
+    i16 134, label %sw.bb266
+    i16 142, label %sw.bb271
+    i16 140, label %sw.bb276
+    i16 136, label %sw.bb281
+    i16 138, label %sw.bb286
+    i16 34, label %sw.bb291
+    i16 180, label %sw.bb297
+    i16 182, label %sw.bb309
+    i16 184, label %sw.bb321
+    i16 186, label %sw.bb333
+    i16 188, label %sw.bb345
+    i16 190, label %sw.bb357
+    i16 194, label %sw.bb363
+    i16 192, label %sw.bb370
+    i16 196, label %sw.bb377
+    i16 347, label %sw.bb384
+    i16 349, label %sw.bb390
+    i16 234, label %sw.bb398
+    i16 295, label %sw.bb398
+    i16 297, label %sw.bb398
+    i16 299, label %sw.bb398
+    i16 301, label %sw.bb398
+    i16 261, label %sw.bb398
+    i16 263, label %sw.bb398
+    i16 265, label %sw.bb398
   ]
 
 sw.bb:                                            ; preds = %if.then6
@@ -7131,7 +7130,8 @@ sw.default446:                                    ; preds = %if.then6
   br label %return
 
 if.end448:                                        ; preds = %if.end
-  %104 = and i32 %bf.cast.i320, 1021
+  %bf.cast.i384 = zext nneg i16 %bf.clear.i319 to i32
+  %104 = and i32 %bf.cast.i384, 1021
   %or.cond = icmp eq i32 %104, 221
   br i1 %or.cond, label %if.then453, label %if.else498
 
@@ -7488,7 +7488,7 @@ ehcleanup527:                                     ; preds = %lpad507, %lpad.i.i4
   br label %eh.resume
 
 if.else528:                                       ; preds = %if.else498
-  %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i320)
+  %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i384)
   %cmp.i447 = icmp eq i32 %call2.i.i, 0
   br i1 %cmp.i447, label %if.then530, label %if.else593
 
@@ -7626,7 +7626,7 @@ if.then583:                                       ; preds = %if.else581
   br label %if.end588
 
 if.else585:                                       ; preds = %if.else563.thread, %if.else581
-  %call586 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4kindlsERSoNS1_6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %bf.cast.i320)
+  %call586 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4kindlsERSoNS1_6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %bf.cast.i384)
   %call587 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call586, i8 noundef signext 95)
   br label %if.end588
 
@@ -7638,11 +7638,11 @@ if.end588:                                        ; preds = %if.else585, %if.the
   br label %return
 
 if.else593:                                       ; preds = %if.else528
-  switch i32 %bf.cast.i320, label %if.else722 [
-    i32 24, label %if.then595
-    i32 213, label %if.then616
-    i32 27, label %land.lhs.true
-    i32 231, label %if.then690
+  switch i16 %bf.clear.i319, label %if.else722 [
+    i16 24, label %if.then595
+    i16 213, label %if.then616
+    i16 27, label %land.lhs.true
+    i16 231, label %if.then690
   ]
 
 if.then595:                                       ; preds = %if.else593
@@ -8147,7 +8147,7 @@ for.end720:                                       ; preds = %if.end712, %invoke.
   br label %return
 
 if.else722:                                       ; preds = %if.else593
-  %193 = and i32 %bf.cast.i320, 1022
+  %193 = and i32 %bf.cast.i384, 1022
   %or.cond1 = icmp eq i32 %193, 232
   br i1 %or.cond1, label %if.then726, label %if.else842
 
@@ -8398,14 +8398,14 @@ if.end834:                                        ; preds = %if.else828, %if.end
   br label %return
 
 if.else842:                                       ; preds = %if.else722
-  switch i32 %bf.cast.i320, label %if.end1144 [
-    i32 356, label %if.then844
-    i32 254, label %if.then886
-    i32 237, label %if.then897
-    i32 353, label %if.then914
-    i32 352, label %if.then914
-    i32 26, label %if.then914
-    i32 11, label %if.then914
+  switch i16 %bf.clear.i319, label %if.end1144 [
+    i16 356, label %if.then844
+    i16 254, label %if.then886
+    i16 237, label %if.then897
+    i16 353, label %if.then914
+    i16 352, label %if.then914
+    i16 26, label %if.then914
+    i16 11, label %if.then914
   ]
 
 if.then844:                                       ; preds = %if.else842
@@ -8519,7 +8519,7 @@ lpad900:                                          ; preds = %invoke.cont901, %if
 
 if.then914:                                       ; preds = %if.else842, %if.else842, %if.else842, %if.else842
   %call915 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %out, i8 noundef signext 40)
-  call void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp916, i32 noundef %bf.cast.i320)
+  call void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp916, i32 noundef %bf.cast.i384)
   %call919 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call915, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp916)
           to label %invoke.cont918 unwind label %lpad917
 
@@ -8643,14 +8643,13 @@ invoke.cont952:                                   ; preds = %if.else.i.i678, %if
   %d_kind.i689 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %230, i64 0, i32 1
   %bf.load.i690 = load i16, ptr %d_kind.i689, align 8
   %bf.clear.i691 = and i16 %bf.load.i690, 1023
-  %bf.cast.i692 = zext nneg i16 %bf.clear.i691 to i32
-  switch i32 %bf.cast.i692, label %if.end1091 [
-    i32 357, label %if.then958
-    i32 358, label %if.then970
-    i32 360, label %sw.bb999.invoke
-    i32 361, label %sw.bb995
-    i32 362, label %sw.bb999
-    i32 359, label %if.then1040
+  switch i16 %bf.clear.i691, label %if.end1091 [
+    i16 357, label %if.then958
+    i16 358, label %if.then970
+    i16 360, label %sw.bb999.invoke
+    i16 361, label %sw.bb995
+    i16 362, label %sw.bb999
+    i16 359, label %if.then1040
   ]
 
 if.then958:                                       ; preds = %invoke.cont952
@@ -9098,21 +9097,21 @@ if.then1147:                                      ; preds = %if.end1144
   br label %if.end1149
 
 if.end1149:                                       ; preds = %if.then1147, %if.end1144
-  switch i32 %bf.cast.i320, label %sw.default1324 [
-    i32 69, label %sw.bb1150
-    i32 74, label %sw.bb1159
-    i32 131, label %sw.bb1164
-    i32 217, label %sw.bb1175
-    i32 218, label %sw.bb1193
-    i32 219, label %sw.bb1220
-    i32 220, label %sw.bb1258
-    i32 16, label %sw.epilog1334
-    i32 10, label %sw.epilog1334
-    i32 2, label %sw.epilog1334
-    i32 222, label %sw.epilog1334
-    i32 357, label %sw.epilog1334
-    i32 358, label %sw.epilog1334
-    i32 364, label %sw.epilog1334
+  switch i16 %bf.clear.i319, label %sw.default1324 [
+    i16 69, label %sw.bb1150
+    i16 74, label %sw.bb1159
+    i16 131, label %sw.bb1164
+    i16 217, label %sw.bb1175
+    i16 218, label %sw.bb1193
+    i16 219, label %sw.bb1220
+    i16 220, label %sw.bb1258
+    i16 16, label %sw.epilog1334
+    i16 10, label %sw.epilog1334
+    i16 2, label %sw.epilog1334
+    i16 222, label %sw.epilog1334
+    i16 357, label %sw.epilog1334
+    i16 358, label %sw.epilog1334
+    i16 364, label %sw.epilog1334
   ]
 
 sw.bb1150:                                        ; preds = %if.end1149
@@ -9487,7 +9486,7 @@ sw.default1324:                                   ; preds = %if.end1149
   br i1 %cmp1326.not, label %sw.epilog1334, label %if.then1327
 
 if.then1327:                                      ; preds = %sw.default1324
-  call void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1328, i32 noundef %bf.cast.i320)
+  call void @_ZN4cvc58internal7printer4smt211Smt2Printer13smtKindStringB5cxx11ENS0_4kind6Kind_tE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1328, i32 noundef %bf.cast.i384)
   %call1331 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1328)
           to label %invoke.cont1330 unwind label %lpad1329
 
@@ -10616,19 +10615,19 @@ cleanup.done12:                                   ; preds = %if.then13.i.i26, %i
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done12
-  switch i32 %bf.cast.i, label %if.end [
-    i32 303, label %sw.bb
-    i32 305, label %sw.bb20
-    i32 306, label %sw.bb25
-    i32 307, label %sw.bb30
-    i32 308, label %sw.bb35
-    i32 309, label %sw.bb40
-    i32 312, label %sw.bb45
-    i32 314, label %sw.bb50
-    i32 315, label %sw.bb55
-    i32 328, label %sw.bb60
-    i32 318, label %sw.bb65
-    i32 319, label %sw.bb70
+  switch i16 %bf.clear.i, label %if.end [
+    i16 303, label %sw.bb
+    i16 305, label %sw.bb20
+    i16 306, label %sw.bb25
+    i16 307, label %sw.bb30
+    i16 308, label %sw.bb35
+    i16 309, label %sw.bb40
+    i16 312, label %sw.bb45
+    i16 314, label %sw.bb50
+    i16 315, label %sw.bb55
+    i16 328, label %sw.bb60
+    i16 318, label %sw.bb65
+    i16 319, label %sw.bb70
   ]
 
 lpad:                                             ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
@@ -17721,7 +17720,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -18285,7 +18284,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

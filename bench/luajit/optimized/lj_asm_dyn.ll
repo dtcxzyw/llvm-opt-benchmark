@@ -27565,14 +27565,13 @@ if.else:                                          ; preds = %ra_dest.exit
 if.end:                                           ; preds = %if.else, %asm_fusefref.exit
   %28 = load i8, ptr %t, align 4
   %29 = and i8 %28, 31
-  %and15 = zext nneg i8 %29 to i32
-  switch i32 %and15, label %sw.default [
-    i32 15, label %sw.epilog
-    i32 16, label %sw.bb16
-    i32 17, label %sw.bb17
-    i32 18, label %sw.bb18
-    i32 14, label %sw.bb19
-    i32 13, label %sw.bb20
+  switch i8 %29, label %sw.default [
+    i8 15, label %sw.epilog
+    i8 16, label %sw.bb16
+    i8 17, label %sw.bb17
+    i8 18, label %sw.bb18
+    i8 14, label %sw.bb19
+    i8 13, label %sw.bb20
   ]
 
 sw.bb16:                                          ; preds = %if.end
@@ -27591,6 +27590,7 @@ sw.bb20:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
+  %and15 = zext nneg i8 %29 to i32
   %shr = lshr i32 6315993, %and15
   %and25 = and i32 %shr, 1
   %tobool.not = icmp eq i32 %and25, 0
@@ -27820,14 +27820,13 @@ if.end66:                                         ; preds = %if.else, %asm_fusef
   br i1 %tobool68.not, label %if.then69, label %if.else87
 
 if.then69:                                        ; preds = %if.end66
-  %and73 = zext nneg i8 %31 to i32
-  switch i32 %and73, label %sw.default [
-    i32 15, label %sw.bb
-    i32 16, label %sw.bb
-    i32 17, label %sw.epilog
-    i32 18, label %sw.epilog
-    i32 14, label %sw.bb75
-    i32 13, label %sw.bb76
+  switch i8 %31, label %sw.default [
+    i8 15, label %sw.bb
+    i8 16, label %sw.bb
+    i8 17, label %sw.epilog
+    i8 18, label %sw.epilog
+    i8 14, label %sw.bb75
+    i8 13, label %sw.bb76
   ]
 
 sw.bb:                                            ; preds = %if.then69, %if.then69
@@ -27841,6 +27840,7 @@ sw.bb76:                                          ; preds = %if.then69
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then69
+  %and73 = zext nneg i8 %31 to i32
   %shr = lshr i32 6315993, %and73
   %and81 = and i32 %shr, 1
   %tobool82.not = icmp eq i32 %and81, 0

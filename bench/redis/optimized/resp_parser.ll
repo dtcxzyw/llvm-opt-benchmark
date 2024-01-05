@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ReplyParserCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parseReply(ptr noundef %parser, ptr noundef %p_ctx) local_unnamed_addr #0 {
+define dso_local noundef i32 @parseReply(ptr noundef %parser, ptr noundef %p_ctx) local_unnamed_addr #0 {
 entry:
   %len.i114 = alloca i64, align 8
   %bulklen.i106 = alloca i64, align 8
@@ -19,21 +19,20 @@ entry:
   %bulklen.i = alloca i64, align 8
   %0 = load ptr, ptr %parser, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 36, label %sw.bb
-    i32 43, label %sw.bb1
-    i32 45, label %sw.bb3
-    i32 58, label %sw.bb5
-    i32 42, label %sw.bb7
-    i32 126, label %sw.bb9
-    i32 37, label %sw.bb11
-    i32 35, label %sw.bb13
-    i32 44, label %sw.bb15
-    i32 95, label %sw.bb17
-    i32 40, label %sw.bb19
-    i32 61, label %sw.bb21
-    i32 124, label %sw.bb23
+  switch i8 %1, label %sw.default [
+    i8 36, label %sw.bb
+    i8 43, label %sw.bb1
+    i8 45, label %sw.bb3
+    i8 58, label %sw.bb5
+    i8 42, label %sw.bb7
+    i8 126, label %sw.bb9
+    i8 37, label %sw.bb11
+    i8 35, label %sw.bb13
+    i8 44, label %sw.bb15
+    i8 95, label %sw.bb17
+    i8 40, label %sw.bb19
+    i8 61, label %sw.bb21
+    i8 124, label %sw.bb23
   ]
 
 sw.bb:                                            ; preds = %entry

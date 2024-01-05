@@ -2778,9 +2778,14 @@ if.end:                                           ; preds = %_ZN9grpc_core12expe
 invoke.cont83:                                    ; preds = %if.end
   %_M_index.i.i.i.i64 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %trace_json, i64 0, i32 1
   %47 = load i8, ptr %_M_index.i.i.i.i64, align 8
-  switch i8 %47, label %if.then88 [
+  switch i8 %47, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
     i8 0, label %if.end99
+    i8 1, label %if.then88
+    i8 2, label %if.then88
+    i8 3, label %if.then88
+    i8 4, label %if.then88
+    i8 5, label %if.then88
   ]
 
 if.then.i.i:                                      ; preds = %invoke.cont83
@@ -2794,7 +2799,10 @@ if.then.i.i:                                      ; preds = %invoke.cont83
 .noexc65:                                         ; preds = %if.then.i.i
   unreachable
 
-if.then88:                                        ; preds = %invoke.cont83
+sw.default.i.i.i:                                 ; preds = %invoke.cont83
+  unreachable
+
+if.then88:                                        ; preds = %invoke.cont83, %invoke.cont83, %invoke.cont83, %invoke.cont83, %invoke.cont83
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90) #22
   %call.i6670 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89)
           to label %call.i66.noexc unwind label %lpad91
@@ -4002,8 +4010,8 @@ if.then:                                          ; preds = %entry
   %_M_left.i.i = getelementptr inbounds %"class.grpc_core::channelz::ChannelNode", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
   %1 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.grpc_core::channelz::ChannelNode", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
-  %cmp.i.not405 = icmp eq ptr %1, %add.ptr.i.i
-  br i1 %cmp.i.not405, label %for.end, label %for.body.lr.ph
+  %cmp.i.not404 = icmp eq ptr %1, %add.ptr.i.i
+  br i1 %cmp.i.not404, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
   %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp12, i64 0, i32 1
@@ -4025,8 +4033,8 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core12experimental4JsonD2Ev.exit30
-  %__begin3.sroa.0.0406 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i31, %_ZN9grpc_core12experimental4JsonD2Ev.exit30 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.144", ptr %__begin3.sroa.0.0406, i64 0, i32 1
+  %__begin3.sroa.0.0405 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i31, %_ZN9grpc_core12experimental4JsonD2Ev.exit30 ]
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.144", ptr %__begin3.sroa.0.0405, i64 0, i32 1
   %3 = load i64, ptr %_M_storage.i.i, align 8
   %call.i19 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %digits_.i)
           to label %invoke.cont unwind label %lpad
@@ -4090,15 +4098,14 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZNSt8_Rb_treeINSt7
   %_M_index.i.i.i.i200 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i202, i64 0, i32 1, i32 0, i64 80
   store i8 -1, ptr %_M_index.i.i.i.i200, align 8
   %7 = load i8, ptr %_M_index.i.i, align 8
-  %conv.i.i = sext i8 %7 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %invoke.cont21
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %invoke.cont21
+  switch i8 %7, label %sw.default.i [
+    i8 0, label %invoke.cont21
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %invoke.cont21
   ]
 
 sw.bb2.i:                                         ; preds = %.noexc.i
@@ -4304,7 +4311,7 @@ terminate.lpad.i.i.i.i28:                         ; preds = %if.end.i.i.i27
 _ZN9grpc_core12experimental4JsonD2Ev.exit30:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i.i29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i24)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #22
-  %call.i31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0406) #28
+  %call.i31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0405) #28
   %cmp.i.not = icmp eq ptr %call.i31, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -4503,8 +4510,8 @@ if.then61:                                        ; preds = %if.end
   %_M_left.i.i55 = getelementptr inbounds %"class.grpc_core::channelz::ChannelNode", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
   %58 = load ptr, ptr %_M_left.i.i55, align 8
   %add.ptr.i.i56 = getelementptr inbounds %"class.grpc_core::channelz::ChannelNode", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
-  %cmp.i57.not407 = icmp eq ptr %58, %add.ptr.i.i56
-  br i1 %cmp.i57.not407, label %for.end134, label %for.body73.lr.ph
+  %cmp.i57.not406 = icmp eq ptr %58, %add.ptr.i.i56
+  br i1 %cmp.i57.not406, label %for.end134, label %for.body73.lr.ph
 
 for.body73.lr.ph:                                 ; preds = %if.then61
   %digits_.i59 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp83, i64 0, i32 1
@@ -4519,15 +4526,15 @@ for.body73.lr.ph:                                 ; preds = %if.then61
   %_M_index.i.i.i.i.i.i.i.i.i.i87 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp75, i64 0, i32 1
   %second3.i.i.i220 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1
   %_M_index.i.i288 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_parent.i2.i.i296 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
-  %_M_node_count.i.i.i.i309 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 40
+  %_M_parent.i2.i.i295 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 16
+  %_M_node_count.i.i.i.i308 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 40
   %_M_index.i.i.i.i.i100 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %second.i103 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp78, i64 0, i32 1
   br label %for.body73
 
 for.body73:                                       ; preds = %for.body73.lr.ph, %_ZN9grpc_core12experimental4JsonD2Ev.exit113
-  %__begin365.sroa.0.0408 = phi ptr [ %58, %for.body73.lr.ph ], [ %call.i114, %_ZN9grpc_core12experimental4JsonD2Ev.exit113 ]
-  %_M_storage.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node.144", ptr %__begin365.sroa.0.0408, i64 0, i32 1
+  %__begin365.sroa.0.0407 = phi ptr [ %58, %for.body73.lr.ph ], [ %call.i114, %_ZN9grpc_core12experimental4JsonD2Ev.exit113 ]
+  %_M_storage.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node.144", ptr %__begin365.sroa.0.0407, i64 0, i32 1
   %60 = load i64, ptr %_M_storage.i.i58, align 8
   %call.i6065 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %60, ptr noundef nonnull %digits_.i59)
           to label %invoke.cont85 unwind label %lpad84
@@ -4591,82 +4598,81 @@ call5.i.i.i.i.noexc224:                           ; preds = %_ZNSt8_Rb_treeINSt7
   %_M_index.i.i.i.i221 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 80
   store i8 -1, ptr %_M_index.i.i.i.i221, align 8
   %64 = load i8, ptr %_M_index.i.i288, align 8
-  %conv.i.i289 = sext i8 %64 to i64
-  switch i64 %conv.i.i289, label %sw.default.i313 [
-    i64 0, label %invoke.cont98
-    i64 1, label %sw.bb2.i312
-    i64 2, label %sw.bb4.i310.invoke
-    i64 3, label %sw.bb4.i310.invoke
-    i64 4, label %sw.bb5.i291
-    i64 5, label %sw.bb6.i290
-    i64 -1, label %invoke.cont98
+  switch i8 %64, label %sw.default.i312 [
+    i8 0, label %invoke.cont98
+    i8 1, label %sw.bb2.i311
+    i8 2, label %sw.bb4.i309.invoke
+    i8 3, label %sw.bb4.i309.invoke
+    i8 4, label %sw.bb5.i290
+    i8 5, label %sw.bb6.i289
+    i8 -1, label %invoke.cont98
   ]
 
-sw.bb2.i312:                                      ; preds = %.noexc.i218
+sw.bb2.i311:                                      ; preds = %.noexc.i218
   %65 = load i8, ptr %second3.i.i.i220, align 8
   %66 = and i8 %65, 1
   store i8 %66, ptr %second.i.i.i219, align 1
   br label %invoke.cont98
 
-sw.bb4.i310.invoke:                               ; preds = %.noexc.i218, %.noexc.i218
+sw.bb4.i309.invoke:                               ; preds = %.noexc.i218, %.noexc.i218
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i219, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i220)
           to label %invoke.cont98 unwind label %lpad.i1.i.i222
 
-sw.bb5.i291:                                      ; preds = %.noexc.i218
+sw.bb5.i290:                                      ; preds = %.noexc.i218
   %67 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 40
   store i32 0, ptr %67, align 8
-  %_M_parent.i.i.i.i.i292 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 48
-  store ptr null, ptr %_M_parent.i.i.i.i.i292, align 8
-  %_M_left.i.i.i.i.i293 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 56
-  store ptr %67, ptr %_M_left.i.i.i.i.i293, align 8
-  %_M_right.i.i.i.i.i294 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 64
-  store ptr %67, ptr %_M_right.i.i.i.i.i294, align 8
-  %_M_node_count.i.i.i.i.i295 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 72
-  store i64 0, ptr %_M_node_count.i.i.i.i.i295, align 8
-  %68 = load ptr, ptr %_M_parent.i2.i.i296, align 8
-  %cmp.not.i.i.i297 = icmp eq ptr %68, null
-  br i1 %cmp.not.i.i.i297, label %invoke.cont98, label %if.then.i.i.i298
+  %_M_parent.i.i.i.i.i291 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 48
+  store ptr null, ptr %_M_parent.i.i.i.i.i291, align 8
+  %_M_left.i.i.i.i.i292 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 56
+  store ptr %67, ptr %_M_left.i.i.i.i.i292, align 8
+  %_M_right.i.i.i.i.i293 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 64
+  store ptr %67, ptr %_M_right.i.i.i.i.i293, align 8
+  %_M_node_count.i.i.i.i.i294 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i225, i64 0, i32 1, i32 0, i64 72
+  store i64 0, ptr %_M_node_count.i.i.i.i.i294, align 8
+  %68 = load ptr, ptr %_M_parent.i2.i.i295, align 8
+  %cmp.not.i.i.i296 = icmp eq ptr %68, null
+  br i1 %cmp.not.i.i.i296, label %invoke.cont98, label %if.then.i.i.i297
 
-if.then.i.i.i298:                                 ; preds = %sw.bb5.i291
+if.then.i.i.i297:                                 ; preds = %sw.bb5.i290
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i287)
   store ptr %second.i.i.i219, ptr %__an.i.i.i287, align 8
-  %call3.i.i1.i.i317 = invoke noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE7_M_copyILb0ENSH_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESM_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i219, ptr noundef nonnull %68, ptr noundef nonnull %67, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i287) #26
-          to label %while.cond.i.i3.i.i299 unwind label %lpad.i1.i.i222
+  %call3.i.i1.i.i316 = invoke noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE7_M_copyILb0ENSH_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESM_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i219, ptr noundef nonnull %68, ptr noundef nonnull %67, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i287) #26
+          to label %while.cond.i.i3.i.i298 unwind label %lpad.i1.i.i222
 
-while.cond.i.i3.i.i299:                           ; preds = %if.then.i.i.i298, %while.cond.i.i3.i.i299
-  %__x.addr.0.i.i4.i.i300 = phi ptr [ %69, %while.cond.i.i3.i.i299 ], [ %call3.i.i1.i.i317, %if.then.i.i.i298 ]
-  %_M_left.i.i.i.i301 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i4.i.i300, i64 0, i32 2
-  %69 = load ptr, ptr %_M_left.i.i.i.i301, align 8
-  %cmp.not.i.i5.i.i302 = icmp eq ptr %69, null
-  br i1 %cmp.not.i.i5.i.i302, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i303, label %while.cond.i.i3.i.i299, !llvm.loop !79
+while.cond.i.i3.i.i298:                           ; preds = %if.then.i.i.i297, %while.cond.i.i3.i.i298
+  %__x.addr.0.i.i4.i.i299 = phi ptr [ %69, %while.cond.i.i3.i.i298 ], [ %call3.i.i1.i.i316, %if.then.i.i.i297 ]
+  %_M_left.i.i.i.i300 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i4.i.i299, i64 0, i32 2
+  %69 = load ptr, ptr %_M_left.i.i.i.i300, align 8
+  %cmp.not.i.i5.i.i301 = icmp eq ptr %69, null
+  br i1 %cmp.not.i.i5.i.i301, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i302, label %while.cond.i.i3.i.i298, !llvm.loop !79
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i303: ; preds = %while.cond.i.i3.i.i299
-  store ptr %__x.addr.0.i.i4.i.i300, ptr %_M_left.i.i.i.i.i293, align 8
-  br label %while.cond.i.i.i.i304
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i302: ; preds = %while.cond.i.i3.i.i298
+  store ptr %__x.addr.0.i.i4.i.i299, ptr %_M_left.i.i.i.i.i292, align 8
+  br label %while.cond.i.i.i.i303
 
-while.cond.i.i.i.i304:                            ; preds = %while.cond.i.i.i.i304, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i303
-  %__x.addr.0.i.i.i.i305 = phi ptr [ %call3.i.i1.i.i317, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i303 ], [ %70, %while.cond.i.i.i.i304 ]
-  %_M_right.i.i.i.i306 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i305, i64 0, i32 3
-  %70 = load ptr, ptr %_M_right.i.i.i.i306, align 8
-  %cmp.not.i.i.i.i307 = icmp eq ptr %70, null
-  br i1 %cmp.not.i.i.i.i307, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i308, label %while.cond.i.i.i.i304, !llvm.loop !80
+while.cond.i.i.i.i303:                            ; preds = %while.cond.i.i.i.i303, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i302
+  %__x.addr.0.i.i.i.i304 = phi ptr [ %call3.i.i1.i.i316, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i302 ], [ %70, %while.cond.i.i.i.i303 ]
+  %_M_right.i.i.i.i305 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i304, i64 0, i32 3
+  %70 = load ptr, ptr %_M_right.i.i.i.i305, align 8
+  %cmp.not.i.i.i.i306 = icmp eq ptr %70, null
+  br i1 %cmp.not.i.i.i.i306, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i307, label %while.cond.i.i.i.i303, !llvm.loop !80
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i308: ; preds = %while.cond.i.i.i.i304
-  store ptr %__x.addr.0.i.i.i.i305, ptr %_M_right.i.i.i.i.i294, align 8
-  %71 = load i64, ptr %_M_node_count.i.i.i.i309, align 8
-  store i64 %71, ptr %_M_node_count.i.i.i.i.i295, align 8
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i307: ; preds = %while.cond.i.i.i.i303
+  store ptr %__x.addr.0.i.i.i.i304, ptr %_M_right.i.i.i.i.i293, align 8
+  %71 = load i64, ptr %_M_node_count.i.i.i.i308, align 8
+  store i64 %71, ptr %_M_node_count.i.i.i.i.i294, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i287)
-  store ptr %call3.i.i1.i.i317, ptr %_M_parent.i.i.i.i.i292, align 8
+  store ptr %call3.i.i1.i.i316, ptr %_M_parent.i.i.i.i.i291, align 8
   br label %invoke.cont98
 
-sw.bb6.i290:                                      ; preds = %.noexc.i218
+sw.bb6.i289:                                      ; preds = %.noexc.i218
   invoke void @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i219, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i220) #26
           to label %invoke.cont98 unwind label %lpad.i1.i.i222
 
-sw.default.i313:                                  ; preds = %.noexc.i218
+sw.default.i312:                                  ; preds = %.noexc.i218
   unreachable
 
-lpad.i1.i.i222:                                   ; preds = %sw.bb4.i310.invoke, %sw.bb6.i290, %if.then.i.i.i298
+lpad.i1.i.i222:                                   ; preds = %sw.bb4.i309.invoke, %sw.bb6.i289, %if.then.i.i.i297
   %72 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %second.i.i.i219) #22
@@ -4712,7 +4718,7 @@ lpad4.i84.body:                                   ; preds = %lpad3.i.i214, %lpad
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp76) #22
   br label %ehcleanup106
 
-invoke.cont98:                                    ; preds = %sw.bb4.i310.invoke, %sw.bb6.i290, %.noexc.i218, %.noexc.i218, %sw.bb2.i312, %sw.bb5.i291, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i308
+invoke.cont98:                                    ; preds = %sw.bb4.i309.invoke, %sw.bb6.i289, %.noexc.i218, %.noexc.i218, %sw.bb2.i311, %sw.bb5.i290, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_maximumEPSt18_Rb_tree_node_base.exit.i.i307
   %80 = load i8, ptr %_M_index.i.i288, align 8
   store i8 %80, ptr %_M_index.i.i.i.i221, align 8
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext true, ptr noundef nonnull %call5.i.i.i.i225, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(32) %59) #22
@@ -4805,7 +4811,7 @@ terminate.lpad.i.i.i.i111:                        ; preds = %if.end.i.i.i110
 _ZN9grpc_core12experimental4JsonD2Ev.exit113:     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit106, %.noexc.i.i112
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i107)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #22
-  %call.i114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin365.sroa.0.0408) #28
+  %call.i114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin365.sroa.0.0407) #28
   %cmp.i57.not = icmp eq ptr %call.i114, %add.ptr.i.i56
   br i1 %cmp.i57.not, label %for.end134, label %for.body73
 
@@ -6558,15 +6564,14 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZNSt8_Rb_treeINSt7
   store i8 -1, ptr %_M_index.i.i.i.i120, align 8
   %_M_index.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.ptr, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %23 = load i8, ptr %_M_index.i.i, align 8
-  %conv.i.i = sext i8 %23 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %call6.i.i.i.noexc
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %call6.i.i.i.noexc
+  switch i8 %23, label %sw.default.i [
+    i8 0, label %call6.i.i.i.noexc
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %call6.i.i.i.noexc
   ]
 
 sw.bb2.i:                                         ; preds = %.noexc.i
@@ -7402,9 +7407,14 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %trace_json, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %1, label %if.then [
+  switch i8 %1, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
     i8 0, label %if.end
+    i8 1, label %if.then
+    i8 2, label %if.then
+    i8 3, label %if.then
+    i8 4, label %if.then
+    i8 5, label %if.then
   ]
 
 if.then.i.i:                                      ; preds = %invoke.cont
@@ -7418,7 +7428,10 @@ if.then.i.i:                                      ; preds = %invoke.cont
 .noexc:                                           ; preds = %if.then.i.i
   unreachable
 
-if.then:                                          ; preds = %invoke.cont
+sw.default.i.i.i:                                 ; preds = %invoke.cont
+  unreachable
+
+if.then:                                          ; preds = %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #22
   %call.i23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad5
@@ -8094,15 +8107,14 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZNSt8_Rb_treeINSt7
   store i8 -1, ptr %_M_index.i.i.i.i253, align 8
   %_M_index.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i229.ptr, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %72 = load i8, ptr %_M_index.i.i, align 8
-  %conv.i.i = sext i8 %72 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %call6.i.i.i.noexc248
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %call6.i.i.i.noexc248
+  switch i8 %72, label %sw.default.i [
+    i8 0, label %call6.i.i.i.noexc248
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %call6.i.i.i.noexc248
   ]
 
 sw.bb2.i:                                         ; preds = %.noexc.i
@@ -14496,14 +14508,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -14630,15 +14641,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -15100,15 +15110,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -15560,15 +15569,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -16296,15 +16304,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -16400,15 +16407,14 @@ entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -18407,7 +18413,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
   %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2

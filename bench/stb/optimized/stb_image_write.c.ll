@@ -128,12 +128,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = phi i8 [ %0, %while.body.lr.ph ], [ %21, %sw.epilog ]
   %fmt.addr.014 = phi ptr [ %fmt, %while.body.lr.ph ], [ %incdec.ptr, %sw.epilog ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fmt.addr.014, i64 1
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %while.end [
-    i32 32, label %sw.epilog
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb3
-    i32 52, label %sw.bb23
+  switch i8 %2, label %while.end [
+    i8 32, label %sw.epilog
+    i8 49, label %sw.bb1
+    i8 50, label %sw.bb3
+    i8 52, label %sw.bb23
   ]
 
 sw.bb1:                                           ; preds = %while.body

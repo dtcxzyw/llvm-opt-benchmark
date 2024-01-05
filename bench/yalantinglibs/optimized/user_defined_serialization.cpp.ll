@@ -256,11 +256,10 @@ sw.bb1.i:                                         ; preds = %.noexc34
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %13, i64 5
   %19 = lshr exact i8 %retval.i.sroa.10.1, 3
-  %shr.i.i = zext nneg i8 %19 to i32
-  switch i32 %shr.i.i, label %sw.default.i.i [
-    i32 1, label %sw.bb.i.i
-    i32 2, label %sw.bb5.i.i
-    i32 3, label %sw.bb7.i.i
+  switch i8 %19, label %entry.unreachabledefault.i.i [
+    i8 1, label %sw.bb.i.i
+    i8 2, label %sw.bb5.i.i
+    i8 3, label %sw.bb7.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.bb1.i
@@ -277,7 +276,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %sub.ptr.div.i.i, ptr %add.ptr.i.i24.i, align 1
   br label %sw.epilog.i.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+entry.unreachabledefault.i.i:                     ; preds = %sw.bb1.i
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
@@ -589,7 +588,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -756,11 +755,14 @@ if.end15.i:                                       ; preds = %if.end9.i
   %add.ptr.i32 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %add.ptr.i32, ptr %3, align 8
   %6 = and i8 %metainfo.i.0.copyload, 3
-  %tobool.i.not = icmp eq i8 %6, 0
-  br i1 %tobool.i.not, label %if.end23.i, label %if.then16.i
+  switch i8 %6, label %if.then16.i.unreachabledefault [
+    i8 0, label %if.end23.i
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb2.i
+    i8 3, label %sw.bb8.i
+  ]
 
-if.then16.i:                                      ; preds = %if.end15.i
-  %and.i = zext nneg i8 %6 to i32
+sw.bb.i:                                          ; preds = %if.end15.i
   %7 = load ptr, ptr %reader_.i, align 8
   %end.i37 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %end.i37, align 8
@@ -768,67 +770,83 @@ if.then16.i:                                      ; preds = %if.end15.i
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i39
-  switch i32 %and.i, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb8.i
-  ]
-
-sw.bb.i:                                          ; preds = %if.then16.i
   %cmp.i41 = icmp ugt i64 %sub.ptr.sub.i40, 1
-  br i1 %cmp.i41, label %if.end23.i.sink.split, label %return
+  br i1 %cmp.i41, label %if.then.i35, label %return
 
-sw.bb2.i:                                         ; preds = %if.then16.i
-  %cmp.i50 = icmp ugt i64 %sub.ptr.sub.i40, 3
-  br i1 %cmp.i50, label %if.end23.i.sink.split, label %return
-
-sw.bb8.i:                                         ; preds = %if.then16.i
-  %cmp.i59 = icmp ugt i64 %sub.ptr.sub.i40, 7
-  br i1 %cmp.i59, label %if.end23.i.sink.split, label %return
-
-sw.default.i:                                     ; preds = %if.then16.i
-  unreachable
-
-if.end23.i.sink.split:                            ; preds = %sw.bb8.i, %sw.bb2.i, %sw.bb.i
-  %.sink = phi i64 [ 2, %sw.bb.i ], [ 4, %sw.bb2.i ], [ 8, %sw.bb8.i ]
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %9, i64 %.sink
+if.then.i35:                                      ; preds = %sw.bb.i
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %9, i64 2
   store ptr %add.ptr.i43, ptr %7, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
-  %10 = and i8 %metainfo.i.0.copyload, 4
-  %tobool26.i.not = icmp eq i8 %10, 0
+sw.bb2.i:                                         ; preds = %if.end15.i
+  %10 = load ptr, ptr %reader_.i, align 8
+  %end.i46 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %10, i64 0, i32 1
+  %11 = load ptr, ptr %end.i46, align 8
+  %12 = load ptr, ptr %10, align 8
+  %sub.ptr.lhs.cast.i47 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i48 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
+  %cmp.i50 = icmp ugt i64 %sub.ptr.sub.i49, 3
+  br i1 %cmp.i50, label %if.then5.i, label %return
+
+if.then5.i:                                       ; preds = %sw.bb2.i
+  %add.ptr.i52 = getelementptr inbounds i8, ptr %12, i64 4
+  store ptr %add.ptr.i52, ptr %10, align 8
+  br label %if.end23.i
+
+sw.bb8.i:                                         ; preds = %if.end15.i
+  %13 = load ptr, ptr %reader_.i, align 8
+  %end.i55 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %13, i64 0, i32 1
+  %14 = load ptr, ptr %end.i55, align 8
+  %15 = load ptr, ptr %13, align 8
+  %sub.ptr.lhs.cast.i56 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i57 = ptrtoint ptr %15 to i64
+  %sub.ptr.sub.i58 = sub i64 %sub.ptr.lhs.cast.i56, %sub.ptr.rhs.cast.i57
+  %cmp.i59 = icmp ugt i64 %sub.ptr.sub.i58, 7
+  br i1 %cmp.i59, label %if.then11.i, label %return
+
+if.then11.i:                                      ; preds = %sw.bb8.i
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %add.ptr.i61, ptr %13, align 8
+  br label %if.end23.i
+
+if.then16.i.unreachabledefault:                   ; preds = %if.end15.i
+  unreachable
+
+if.end23.i:                                       ; preds = %if.end15.i, %if.then.i35, %if.then5.i, %if.then11.i
+  %16 = and i8 %metainfo.i.0.copyload, 4
+  %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end23.i
-  %11 = load ptr, ptr %reader_.i, align 8
-  %end.i67 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
-  %12 = load ptr, ptr %end.i67, align 8
-  %13 = load ptr, ptr %11, align 8
-  %sub.ptr.lhs.cast.i68 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i69 = ptrtoint ptr %13 to i64
+  %17 = load ptr, ptr %reader_.i, align 8
+  %end.i67 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %17, i64 0, i32 1
+  %18 = load ptr, ptr %end.i67, align 8
+  %19 = load ptr, ptr %17, align 8
+  %sub.ptr.lhs.cast.i68 = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i69 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
   %cmp.i71 = icmp ult i64 %sub.ptr.sub.i70, 26
   br i1 %cmp.i71, label %return, label %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit
 
 _ZN11struct_pack6detail13memory_reader9read_viewEm.exit: ; preds = %if.then27.i
-  %add.ptr.i73 = getelementptr inbounds i8, ptr %13, i64 26
-  store ptr %add.ptr.i73, ptr %11, align 8
-  %tobool.i41.not = icmp eq ptr %13, null
+  %add.ptr.i73 = getelementptr inbounds i8, ptr %19, i64 26
+  store ptr %add.ptr.i73, ptr %17, align 8
+  %tobool.i41.not = icmp eq ptr %19, null
   br i1 %tobool.i41.not, label %return, label %if.end.i43
 
 if.end.i43:                                       ; preds = %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %13, ptr noundef nonnull dereferenceable(26) @__const._ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE24deserialize_type_literalISt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcEv.literal, i64 26)
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %19, ptr noundef nonnull dereferenceable(26) @__const._ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE24deserialize_type_literalISt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcEv.literal, i64 26)
   %tobool7.i.not = icmp eq i32 %bcmp, 0
   br i1 %tobool7.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end23.i, %if.end.i43
-  %14 = lshr i8 %metainfo.i.0.copyload, 3
-  %15 = and i8 %14, 3
+  %20 = lshr i8 %metainfo.i.0.copyload, 3
+  %21 = and i8 %20, 3
   %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
-  store i8 %15, ptr %size_type_37.i, align 8
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %sw.bb, label %sw.bb6
+  store i8 %21, ptr %size_type_37.i, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
   %call.i11 = tail call noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t)
@@ -1094,7 +1112,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2

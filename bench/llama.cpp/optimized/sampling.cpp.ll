@@ -1190,14 +1190,13 @@ if.then:                                          ; preds = %invoke.cont
 for.body:                                         ; preds = %if.then, %for.inc
   %__begin2.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call, %if.then ]
   %1 = load i8, ptr %__begin2.sroa.0.07, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %for.inc [
-    i32 107, label %sw.bb
-    i32 102, label %sw.bb.invoke
-    i32 121, label %sw.bb11
-    i32 112, label %sw.bb14
-    i32 109, label %sw.bb17
-    i32 116, label %sw.bb20
+  switch i8 %1, label %for.inc [
+    i8 107, label %sw.bb
+    i8 102, label %sw.bb.invoke
+    i8 121, label %sw.bb11
+    i8 112, label %sw.bb14
+    i8 109, label %sw.bb17
+    i8 116, label %sw.bb20
   ]
 
 lpad:                                             ; preds = %entry
@@ -1582,14 +1581,13 @@ if.else95:                                        ; preds = %if.else86
 for.body.i:                                       ; preds = %if.else95, %for.inc.i
   %__begin1.sroa.0.027.i = phi ptr [ %incdec.ptr.i.i72, %for.inc.i ], [ %call10.i, %if.else95 ]
   %48 = load i8, ptr %__begin1.sroa.0.027.i, align 1
-  %conv.i = sext i8 %48 to i32
-  switch i32 %conv.i, label %for.inc.i [
-    i32 107, label %sw.bb.i
-    i32 102, label %sw.bb15.i
-    i32 121, label %sw.bb16.i
-    i32 112, label %sw.bb17.i
-    i32 109, label %sw.bb18.i
-    i32 116, label %sw.bb19.i
+  switch i8 %48, label %for.inc.i [
+    i8 107, label %sw.bb.i
+    i8 102, label %sw.bb15.i
+    i8 121, label %sw.bb16.i
+    i8 112, label %sw.bb17.i
+    i8 109, label %sw.bb18.i
+    i8 116, label %sw.bb19.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i

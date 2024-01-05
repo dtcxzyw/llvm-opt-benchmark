@@ -608,48 +608,20 @@ uriRemoveDotSegmentsA.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @uriHexdigToIntA(i8 noundef signext %hexdig) local_unnamed_addr #6 {
+define zeroext i8 @uriHexdigToIntA(i8 noundef signext %hexdig) local_unnamed_addr #6 {
 entry:
-  %conv = sext i8 %hexdig to i32
-  switch i32 %conv, label %return [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 97, label %sw.bb3
-    i32 98, label %sw.bb3
-    i32 99, label %sw.bb3
-    i32 100, label %sw.bb3
-    i32 101, label %sw.bb3
-    i32 102, label %sw.bb3
-    i32 65, label %sw.bb8
-    i32 66, label %sw.bb8
-    i32 67, label %sw.bb8
-    i32 68, label %sw.bb8
-    i32 69, label %sw.bb8
-    i32 70, label %sw.bb8
-  ]
+  %switch.tableidx = add i8 %hexdig, -48
+  %0 = icmp ult i8 %switch.tableidx, 55
+  br i1 %0, label %switch.lookup, label %return
 
-sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %sub = add i8 %hexdig, -48
+switch.lookup:                                    ; preds = %entry
+  %1 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x i8], ptr @switch.table.uriHexdigToIntW, i64 0, i64 %1
+  %switch.load = load i8, ptr %switch.gep, align 1
   br label %return
 
-sw.bb3:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %sub6 = add i8 %hexdig, -87
-  br label %return
-
-sw.bb8:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %sub11 = add i8 %hexdig, -55
-  br label %return
-
-return:                                           ; preds = %entry, %sw.bb8, %sw.bb3, %sw.bb
-  %retval.0 = phi i8 [ %sub11, %sw.bb8 ], [ %sub6, %sw.bb3 ], [ %sub, %sw.bb ], [ 0, %entry ]
+return:                                           ; preds = %switch.lookup, %entry
+  %retval.0 = phi i8 [ 0, %entry ], [ %switch.load, %switch.lookup ]
   ret i8 %retval.0
 }
 

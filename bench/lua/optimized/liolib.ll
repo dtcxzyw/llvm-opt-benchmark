@@ -73,7 +73,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [27 x i8] c"cannot close standard file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #10
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 11) #10
@@ -181,14 +181,14 @@ getiofile.exit:                                   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_input(ptr noundef %L) #0 {
+define internal noundef i32 @io_input(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @g_iofile(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_lines(ptr noundef %L) #0 {
+define internal noundef i32 @io_lines(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #10
   %cmp = icmp eq i32 %call, -1
@@ -307,7 +307,7 @@ cond.end:                                         ; preds = %lor.end, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_output(ptr noundef %L) #0 {
+define internal noundef i32 @io_output(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @g_iofile(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.34)
   ret i32 1
@@ -390,7 +390,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_type(ptr noundef %L) #0 {
+define internal noundef i32 @io_type(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #10
   %call = tail call ptr @luaL_testudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.16) #10
@@ -757,12 +757,11 @@ if.else11:                                        ; preds = %for.body
   %spec.select.idx = zext i1 %cmp13 to i64
   %spec.select = getelementptr inbounds i8, ptr %call12, i64 %spec.select.idx
   %2 = load i8, ptr %spec.select, align 1
-  %conv16 = sext i8 %2 to i32
-  switch i32 %conv16, label %sw.default [
-    i32 110, label %sw.bb
-    i32 108, label %sw.bb18
-    i32 76, label %sw.bb20
-    i32 97, label %sw.bb22
+  switch i8 %2, label %sw.default [
+    i8 110, label %sw.bb
+    i8 108, label %sw.bb18
+    i8 76, label %sw.bb20
+    i8 97, label %sw.bb22
   ]
 
 sw.bb:                                            ; preds = %if.else11
@@ -1376,7 +1375,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare i32 @luaL_newmetatable(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_gc(ptr noundef %L) #0 {
+define internal noundef i32 @f_gc(ptr noundef %L) #0 {
 entry:
   %cf.i = alloca ptr, align 8
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.16) #10
@@ -1407,7 +1406,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_tostring(ptr noundef %L) #0 {
+define internal noundef i32 @f_tostring(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.16) #10
   %closef = getelementptr inbounds %struct.luaL_Stream, ptr %call, i64 0, i32 1
@@ -1470,7 +1469,7 @@ tofile.exit:                                      ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_lines(ptr noundef %L) #0 {
+define internal noundef i32 @f_lines(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.16) #10
   %closef.i = getelementptr inbounds %struct.luaL_Stream, ptr %call.i, i64 0, i32 1
@@ -1588,7 +1587,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_noclose(ptr noundef %L) #0 {
+define internal noundef i32 @io_noclose(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.16) #10
   %closef = getelementptr inbounds %struct.luaL_Stream, ptr %call, i64 0, i32 1

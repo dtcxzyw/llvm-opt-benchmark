@@ -2445,17 +2445,16 @@ if.end11:                                         ; preds = %sw.default, %sw.bb9
   %uval.0 = phi i8 [ %sub, %if.then3 ], [ %1, %sw.default ], [ %1, %sw.bb9 ], [ %1, %if.else ]
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %valBuf) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valBufEnd) #27
-  %conv12 = sext i8 %spec.store.select to i32
-  switch i32 %conv12, label %sw.default119 [
-    i32 110, label %sw.bb13
-    i32 100, label %sw.bb23
-    i32 99, label %sw.bb40
-    i32 111, label %sw.bb54
-    i32 79, label %sw.bb54
-    i32 120, label %sw.bb68
-    i32 88, label %sw.bb85
-    i32 98, label %sw.bb102
-    i32 66, label %sw.bb102
+  switch i8 %spec.store.select, label %sw.default119 [
+    i8 110, label %sw.bb13
+    i8 100, label %sw.bb23
+    i8 99, label %sw.bb40
+    i8 111, label %sw.bb54
+    i8 79, label %sw.bb54
+    i8 120, label %sw.bb68
+    i8 88, label %sw.bb85
+    i8 98, label %sw.bb102
+    i8 66, label %sw.bb102
   ]
 
 sw.bb13:                                          ; preds = %if.end11
@@ -12364,11 +12363,11 @@ if.then.i:                                        ; preds = %if.end7
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %add.i4 = add nuw nsw i64 %shr.i.i.i.i, 1
   %shr.i5 = lshr i64 %mul.i11.i, 2
-  %add2.i = add i64 %shr.i5, %mul.i11.i
+  %add2.i = add nuw nsw i64 %shr.i5, %mul.i11.i
   %shr3.i = lshr i64 %mul.i11.i, 3
-  %add4.i = add i64 %add2.i, %shr3.i
+  %add4.i = add nuw nsw i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i11.i, 5
-  %add6.i = add i64 %add4.i, %shr5.i
+  %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i4, i64 %add6.i)
   %cmp.i16.i = icmp ult i64 %.sroa.speculated.i, 15
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
@@ -12383,11 +12382,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
 if.else11.i.i:                                    ; preds = %if.then.i
-  %sub.i.i = add i64 %.sroa.speculated.i, -1
+  %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 12
   %13 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !236
   %add.i.i.i = sub nuw nsw i64 64, %13
-  %mul.i47.i.i = shl i64 12, %add.i.i.i
+  %mul.i47.i.i = shl nuw nsw i64 12, %add.i.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i47.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 

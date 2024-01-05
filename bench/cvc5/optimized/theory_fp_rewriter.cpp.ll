@@ -17943,11 +17943,11 @@ entry:
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !539
   %call.i5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN4cvc58internal13FloatingPointC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %arg0, ptr noundef nonnull align 8 dereferenceable(8) %call.i5)
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 200, label %sw.bb
-    i32 201, label %sw.bb7
-    i32 202, label %sw.bb11
-    i32 203, label %sw.bb15
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 200, label %sw.bb
+    i16 201, label %sw.bb7
+    i16 202, label %sw.bb11
+    i16 203, label %sw.bb15
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -20165,13 +20165,12 @@ if.else:                                          ; preds = %_ZN4cvc58internal12
   %d_kind.i284 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %27, i64 0, i32 1
   %bf.load.i285 = load i16, ptr %d_kind.i284, align 8
   %bf.clear.i286 = and i16 %bf.load.i285, 1023
-  %bf.cast.i287 = zext nneg i16 %bf.clear.i286 to i32
-  switch i32 %bf.cast.i287, label %if.end444.loopexit [
-    i32 167, label %land.lhs.true
-    i32 168, label %land.lhs.true
-    i32 193, label %land.lhs.true
-    i32 197, label %land.lhs.true
-    i32 199, label %land.lhs.true
+  switch i16 %bf.clear.i286, label %if.end444.loopexit [
+    i16 167, label %land.lhs.true
+    i16 168, label %land.lhs.true
+    i16 193, label %land.lhs.true
+    i16 197, label %land.lhs.true
+    i16 199, label %land.lhs.true
   ]
 
 land.lhs.true:                                    ; preds = %if.else, %if.else, %if.else, %if.else, %if.else
@@ -20464,10 +20463,9 @@ invoke.cont154:                                   ; preds = %if.else.i.i, %if.th
   br i1 %tobool155.not, label %if.else373, label %if.then156
 
 if.then156:                                       ; preds = %invoke.cont154
-  %bf.cast.i392 = zext nneg i16 %bf.clear.i698 to i32
-  switch i32 %bf.cast.i392, label %if.then167 [
-    i32 5, label %if.end392
-    i32 206, label %if.end392
+  switch i16 %bf.clear.i698, label %if.then167 [
+    i16 5, label %if.end392
+    i16 206, label %if.end392
   ]
 
 if.then167:                                       ; preds = %if.then156

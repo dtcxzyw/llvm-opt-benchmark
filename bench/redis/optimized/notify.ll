@@ -38,85 +38,84 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @keyspaceEventsStringToFlags(ptr nocapture noundef readonly %classes) local_unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr %classes, align 1
-  %cmp.not17 = icmp eq i8 %0, 0
-  br i1 %cmp.not17, label %return, label %while.body
+  br label %while.cond
 
-while.body:                                       ; preds = %entry, %sw.epilog
-  %1 = phi i8 [ %2, %sw.epilog ], [ %0, %entry ]
-  %incdec.ptr19.pn = phi ptr [ %incdec.ptr19, %sw.epilog ], [ %classes, %entry ]
-  %flags.018 = phi i32 [ %or29, %sw.epilog ], [ 0, %entry ]
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %incdec.ptr19.pn, i64 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %return [
-    i32 65, label %sw.epilog
-    i32 103, label %sw.bb2
-    i32 36, label %sw.bb4
-    i32 108, label %sw.bb6
-    i32 115, label %sw.bb8
-    i32 104, label %sw.bb10
-    i32 122, label %sw.bb12
-    i32 120, label %sw.bb14
-    i32 101, label %sw.bb16
-    i32 75, label %sw.bb18
-    i32 69, label %sw.bb20
-    i32 116, label %sw.bb22
-    i32 109, label %sw.bb24
-    i32 100, label %sw.bb26
-    i32 110, label %sw.bb28
+while.cond:                                       ; preds = %sw.epilog, %entry
+  %p.0 = phi ptr [ %classes, %entry ], [ %incdec.ptr, %sw.epilog ]
+  %flags.0 = phi i32 [ 0, %entry ], [ %or29, %sw.epilog ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %0 = load i8, ptr %p.0, align 1
+  switch i8 %0, label %return.loopexit [
+    i8 0, label %return
+    i8 65, label %sw.epilog
+    i8 103, label %sw.bb2
+    i8 36, label %sw.bb4
+    i8 108, label %sw.bb6
+    i8 115, label %sw.bb8
+    i8 104, label %sw.bb10
+    i8 122, label %sw.bb12
+    i8 120, label %sw.bb14
+    i8 101, label %sw.bb16
+    i8 75, label %sw.bb18
+    i8 69, label %sw.bb20
+    i8 116, label %sw.bb22
+    i8 109, label %sw.bb24
+    i8 100, label %sw.bb26
+    i8 110, label %sw.bb28
   ]
 
-sw.bb2:                                           ; preds = %while.body
+sw.bb2:                                           ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb4:                                           ; preds = %while.body
+sw.bb4:                                           ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb6:                                           ; preds = %while.body
+sw.bb6:                                           ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb8:                                           ; preds = %while.body
+sw.bb8:                                           ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb10:                                          ; preds = %while.body
+sw.bb10:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb12:                                          ; preds = %while.body
+sw.bb12:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb14:                                          ; preds = %while.body
+sw.bb14:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb16:                                          ; preds = %while.body
+sw.bb16:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb18:                                          ; preds = %while.body
+sw.bb18:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb20:                                          ; preds = %while.body
+sw.bb20:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb22:                                          ; preds = %while.body
+sw.bb22:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb24:                                          ; preds = %while.body
+sw.bb24:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb26:                                          ; preds = %while.body
+sw.bb26:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.bb28:                                          ; preds = %while.body
+sw.bb28:                                          ; preds = %while.cond
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %while.body, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb2
-  %.sink = phi i32 [ 16384, %sw.bb28 ], [ 8192, %sw.bb26 ], [ 2048, %sw.bb24 ], [ 1024, %sw.bb22 ], [ 2, %sw.bb20 ], [ 1, %sw.bb18 ], [ 512, %sw.bb16 ], [ 256, %sw.bb14 ], [ 128, %sw.bb12 ], [ 64, %sw.bb10 ], [ 32, %sw.bb8 ], [ 16, %sw.bb6 ], [ 8, %sw.bb4 ], [ 4, %sw.bb2 ], [ 10236, %while.body ]
-  %or29 = or i32 %flags.018, %.sink
-  %2 = load i8, ptr %incdec.ptr19, align 1
-  %cmp.not = icmp eq i8 %2, 0
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !5
+sw.epilog:                                        ; preds = %while.cond, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb2
+  %.sink = phi i32 [ 16384, %sw.bb28 ], [ 8192, %sw.bb26 ], [ 2048, %sw.bb24 ], [ 1024, %sw.bb22 ], [ 2, %sw.bb20 ], [ 1, %sw.bb18 ], [ 512, %sw.bb16 ], [ 256, %sw.bb14 ], [ 128, %sw.bb12 ], [ 64, %sw.bb10 ], [ 32, %sw.bb8 ], [ 16, %sw.bb6 ], [ 8, %sw.bb4 ], [ 4, %sw.bb2 ], [ 10236, %while.cond ]
+  %or29 = or i32 %flags.0, %.sink
+  br label %while.cond, !llvm.loop !5
 
-return:                                           ; preds = %while.body, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %or29, %sw.epilog ], [ -1, %while.body ]
+return.loopexit:                                  ; preds = %while.cond
+  br label %return
+
+return:                                           ; preds = %while.cond, %return.loopexit
+  %retval.0 = phi i32 [ -1, %return.loopexit ], [ %flags.0, %while.cond ]
   ret i32 %retval.0
 }
 

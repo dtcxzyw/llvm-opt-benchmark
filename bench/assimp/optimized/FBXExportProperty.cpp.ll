@@ -723,18 +723,17 @@ for.end13:                                        ; preds = %for.inc11
 define hidden noundef i64 @_ZN6Assimp3FBX17FBXExportProperty4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 67, label %return
-    i32 89, label %return
-    i32 73, label %return
-    i32 70, label %return
-    i32 68, label %return
-    i32 76, label %return
-    i32 83, label %sw.bb2
-    i32 82, label %sw.bb2
-    i32 105, label %sw.bb6
-    i32 100, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 67, label %return
+    i8 89, label %return
+    i8 73, label %return
+    i8 70, label %return
+    i8 68, label %return
+    i8 76, label %return
+    i8 83, label %sw.bb2
+    i8 82, label %sw.bb2
+    i8 105, label %sw.bb6
+    i8 100, label %sw.bb6
   ]
 
 sw.bb2:                                           ; preds = %entry, %entry
@@ -840,20 +839,19 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit:  ; preds = %entry, %if.then.i.i
   %data = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1
   %7 = load ptr, ptr %data, align 8
   %8 = load i8, ptr %this, align 8
-  %conv = sext i8 %8 to i32
-  switch i32 %conv, label %sw.default [
-    i32 67, label %sw.bb
-    i32 89, label %sw.bb3
-    i32 73, label %sw.bb4
-    i32 70, label %sw.bb5
-    i32 68, label %sw.bb6
-    i32 76, label %sw.bb7
-    i32 83, label %sw.bb8
-    i32 82, label %sw.bb8
-    i32 105, label %sw.bb16
-    i32 108, label %sw.bb30
-    i32 102, label %sw.bb46
-    i32 100, label %sw.bb62
+  switch i8 %8, label %sw.default [
+    i8 67, label %sw.bb
+    i8 89, label %sw.bb3
+    i8 73, label %sw.bb4
+    i8 70, label %sw.bb5
+    i8 68, label %sw.bb6
+    i8 76, label %sw.bb7
+    i8 83, label %sw.bb8
+    i8 82, label %sw.bb8
+    i8 105, label %sw.bb16
+    i8 108, label %sw.bb30
+    i8 102, label %sw.bb46
+    i8 100, label %sw.bb62
   ]
 
 sw.bb:                                            ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1744,20 +1742,19 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %2 = load i8, ptr %this, align 8
-  %conv = sext i8 %2 to i32
-  switch i32 %conv, label %sw.default [
-    i32 67, label %sw.bb
-    i32 89, label %sw.bb6
-    i32 73, label %sw.bb8
-    i32 70, label %sw.bb10
-    i32 68, label %sw.bb12
-    i32 76, label %sw.bb14
-    i32 83, label %for.cond.preheader
-    i32 82, label %sw.bb25
-    i32 105, label %sw.bb73
-    i32 108, label %sw.bb116
-    i32 102, label %sw.bb161
-    i32 100, label %sw.bb206
+  switch i8 %2, label %sw.default [
+    i8 67, label %sw.bb
+    i8 89, label %sw.bb6
+    i8 73, label %sw.bb8
+    i8 70, label %sw.bb10
+    i8 68, label %sw.bb12
+    i8 76, label %sw.bb14
+    i8 83, label %for.cond.preheader
+    i8 82, label %sw.bb25
+    i8 105, label %sw.bb73
+    i8 108, label %sw.bb116
+    i8 102, label %sw.bb161
+    i8 100, label %sw.bb206
   ]
 
 for.cond.preheader:                               ; preds = %entry

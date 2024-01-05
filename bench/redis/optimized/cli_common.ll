@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [35 x i8] c"Illegal character in URI encoding\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @cliSecureConnection(ptr nocapture noundef readnone %c, ptr nocapture noundef readnone byval(%struct.cliSSLconfig) align 8 %config, ptr nocapture noundef readnone %err) local_unnamed_addr #0 {
+define dso_local noundef i32 @cliSecureConnection(ptr nocapture noundef readnone %c, ptr nocapture noundef readnone byval(%struct.cliSSLconfig) align 8 %config, ptr nocapture noundef readnone %err) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -236,7 +236,7 @@ declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare void @hi_sdsclear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @cliSecureInit() local_unnamed_addr #0 {
+define dso_local noundef i32 @cliSecureInit() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -736,19 +736,19 @@ while.body:                                       ; preds = %entry, %sw.epilog
   %s.addr.015 = phi ptr [ %s.addr.1, %sw.epilog ], [ %call, %entry ]
   %dec17 = add i64 %dec17.in, -1
   %0 = load i8, ptr %p.addr.016, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 92, label %sw.bb
-    i32 34, label %sw.bb
-    i32 10, label %sw.bb3
-    i32 12, label %sw.bb5
-    i32 13, label %sw.bb7
-    i32 9, label %sw.bb9
-    i32 8, label %sw.bb11
+  switch i8 %0, label %sw.default [
+    i8 92, label %sw.bb
+    i8 34, label %sw.bb
+    i8 10, label %sw.bb3
+    i8 12, label %sw.bb5
+    i8 13, label %sw.bb7
+    i8 9, label %sw.bb9
+    i8 8, label %sw.bb11
   ]
 
 sw.bb:                                            ; preds = %while.body, %while.body
-  %call2 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %s.addr.015, ptr noundef nonnull @.str.6, i32 noundef %conv) #11
+  %conv1 = zext nneg i8 %0 to i32
+  %call2 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %s.addr.015, ptr noundef nonnull @.str.6, i32 noundef %conv1) #11
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %while.body
@@ -772,6 +772,7 @@ sw.bb11:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.default:                                       ; preds = %while.body
+  %conv = sext i8 %0 to i32
   %cmp = icmp ult i8 %0, 32
   %cond = select i1 %cmp, ptr @.str.12, ptr @.str.13
   %call16 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %s.addr.015, ptr noundef nonnull %cond, i32 noundef %conv) #11

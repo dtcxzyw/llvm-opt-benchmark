@@ -827,19 +827,19 @@ if.end49.us:                                      ; preds = %if.else38.us, %if.t
   br i1 %10, label %if.end54.us, label %switch.early.test.us
 
 switch.early.test.us:                             ; preds = %if.end49.us
-  switch i32 %conv50.us, label %if.then105 [
-    i32 102, label %if.end54.us
-    i32 101, label %if.end54.us
-    i32 100, label %if.end54.us
-    i32 99, label %if.end54.us
-    i32 98, label %if.end54.us
-    i32 97, label %if.end54.us
-    i32 70, label %if.end54.us
-    i32 69, label %if.end54.us
-    i32 68, label %if.end54.us
-    i32 67, label %if.end54.us
-    i32 66, label %if.end54.us
-    i32 65, label %if.end54.us
+  switch i8 %.fr.us, label %if.then105 [
+    i8 102, label %if.end54.us
+    i8 101, label %if.end54.us
+    i8 100, label %if.end54.us
+    i8 99, label %if.end54.us
+    i8 98, label %if.end54.us
+    i8 97, label %if.end54.us
+    i8 70, label %if.end54.us
+    i8 69, label %if.end54.us
+    i8 68, label %if.end54.us
+    i8 67, label %if.end54.us
+    i8 66, label %if.end54.us
+    i8 65, label %if.end54.us
   ]
 
 if.end54.us:                                      ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %if.end49.us
@@ -949,19 +949,19 @@ if.end49:                                         ; preds = %if.else38, %if.then
   br i1 %14, label %if.end54, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.end49
-  switch i32 %conv50, label %if.then105 [
-    i32 102, label %if.end54
-    i32 101, label %if.end54
-    i32 100, label %if.end54
-    i32 99, label %if.end54
-    i32 98, label %if.end54
-    i32 97, label %if.end54
-    i32 70, label %if.end54
-    i32 69, label %if.end54
-    i32 68, label %if.end54
-    i32 67, label %if.end54
-    i32 66, label %if.end54
-    i32 65, label %if.end54
+  switch i8 %.fr, label %if.then105 [
+    i8 102, label %if.end54
+    i8 101, label %if.end54
+    i8 100, label %if.end54
+    i8 99, label %if.end54
+    i8 98, label %if.end54
+    i8 97, label %if.end54
+    i8 70, label %if.end54
+    i8 69, label %if.end54
+    i8 68, label %if.end54
+    i8 67, label %if.end54
+    i8 66, label %if.end54
+    i8 65, label %if.end54
   ]
 
 if.end54:                                         ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.end49

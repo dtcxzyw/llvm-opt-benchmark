@@ -406,22 +406,20 @@ entry:
   %digits_end.i = alloca ptr, align 8
   %decpt_as_int.i = alloca i32, align 4
   %sign.i = alloca i32, align 4
-  %conv = sext i8 %format_code to i32
-  switch i32 %conv, label %sw.default [
-    i32 69, label %sw.bb
-    i32 101, label %sw.bb1
-    i32 70, label %sw.bb2
-    i32 102, label %sw.epilog
-    i32 71, label %sw.bb4
-    i32 103, label %sw.bb5
-    i32 114, label %sw.bb7
+  switch i8 %format_code, label %sw.default [
+    i8 69, label %sw.bb
+    i8 101, label %sw.bb1
+    i8 70, label %sw.bb2
+    i8 102, label %sw.epilog
+    i8 71, label %sw.bb4
+    i8 103, label %sw.bb5
+    i8 114, label %sw.bb7
   ]
 
 sw.bb:                                            ; preds = %entry
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %entry
-  %format_code.addr.0 = phi i8 [ %format_code, %entry ], [ 101, %sw.bb ]
   %float_strings.0 = phi ptr [ @lc_float_strings, %entry ], [ @uc_float_strings, %sw.bb ]
   %inc = add i32 %precision, 1
   br label %sw.epilog
@@ -433,7 +431,6 @@ sw.bb4:                                           ; preds = %entry
   br label %sw.bb5
 
 sw.bb5:                                           ; preds = %sw.bb4, %entry
-  %format_code.addr.2 = phi i8 [ %format_code, %entry ], [ 103, %sw.bb4 ]
   %float_strings.2 = phi ptr [ @lc_float_strings, %entry ], [ @uc_float_strings, %sw.bb4 ]
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %precision, i32 1)
   br label %sw.epilog
@@ -452,7 +449,7 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw.bb7, %sw.bb5, %sw.bb1
   %precision.addr.0 = phi i32 [ 0, %sw.bb7 ], [ %spec.store.select, %sw.bb5 ], [ %inc, %sw.bb1 ], [ %precision, %sw.bb2 ], [ %precision, %entry ]
-  %format_code.addr.3 = phi i8 [ %format_code, %sw.bb7 ], [ %format_code.addr.2, %sw.bb5 ], [ %format_code.addr.0, %sw.bb1 ], [ 102, %sw.bb2 ], [ %format_code, %entry ]
+  %format_code.addr.3 = phi i8 [ 114, %sw.bb7 ], [ 103, %sw.bb5 ], [ 101, %sw.bb1 ], [ 102, %sw.bb2 ], [ %format_code, %entry ]
   %float_strings.3 = phi ptr [ @lc_float_strings, %sw.bb7 ], [ %float_strings.2, %sw.bb5 ], [ %float_strings.0, %sw.bb1 ], [ @uc_float_strings, %sw.bb2 ], [ @lc_float_strings, %entry ]
   %mode.0 = phi i32 [ 0, %sw.bb7 ], [ 2, %sw.bb5 ], [ 2, %sw.bb1 ], [ 3, %sw.bb2 ], [ 3, %entry ]
   %and = and i32 %flags, 1
@@ -608,12 +605,11 @@ if.then105.i:                                     ; preds = %if.end103.i
   br label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.then105.i, %if.end103.i
-  %conv107.i = sext i8 %format_code.addr.3 to i32
-  switch i32 %conv107.i, label %sw.default.i [
-    i32 101, label %sw.bb.i
-    i32 102, label %sw.bb109.i
-    i32 103, label %sw.bb111.i
-    i32 114, label %sw.bb125.i
+  switch i8 %format_code.addr.3, label %sw.default.i [
+    i8 101, label %sw.bb.i
+    i8 102, label %sw.bb109.i
+    i8 103, label %sw.bb111.i
+    i8 114, label %sw.bb125.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end106.i

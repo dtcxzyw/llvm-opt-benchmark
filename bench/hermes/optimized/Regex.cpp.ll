@@ -463,20 +463,19 @@ if.end24:                                         ; preds = %_ZNK4llvh9StringRef
   store ptr %add.ptr.i.i.i, ptr %Repl, align 8
   store i64 %sub.i.i.i, ptr %0, align 8
   %8 = load i8, ptr %add.ptr.i.i.i, align 1
-  %conv = sext i8 %8 to i32
-  switch i32 %conv, label %sw.default [
-    i32 116, label %sw.bb
-    i32 110, label %sw.bb34
-    i32 48, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 49, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 50, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 51, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 52, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 53, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 54, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 55, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 56, label %_ZN4llvh9StringRefC2EPKc.exit
-    i32 57, label %_ZN4llvh9StringRefC2EPKc.exit
+  switch i8 %8, label %sw.default [
+    i8 116, label %sw.bb
+    i8 110, label %sw.bb34
+    i8 48, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 49, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 50, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 51, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 52, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 53, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 54, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 55, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 56, label %_ZN4llvh9StringRefC2EPKc.exit
+    i8 57, label %_ZN4llvh9StringRefC2EPKc.exit
   ]
 
 sw.default:                                       ; preds = %if.end24

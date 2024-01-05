@@ -13692,11 +13692,17 @@ while.body.i.i53:                                 ; preds = %while.cond.i.i51, %
 while.end.i.i55:                                  ; preds = %while.cond.i.i51
   store ptr %in.addr.0.i.i52, ptr %this, align 8
   %20 = load i8, ptr %in.addr.0.i.i52, align 1
-  switch i8 %20, label %if.end20 [
+  switch i8 %20, label %sw.default [
     i8 13, label %if.then18
     i8 10, label %if.then18
     i8 0, label %if.then18
     i8 12, label %if.then18
+    i8 65, label %sw.epilog
+    i8 97, label %sw.epilog
+    i8 66, label %sw.bb23
+    i8 98, label %sw.bb23
+    i8 67, label %sw.bb24
+    i8 99, label %sw.bb24
   ]
 
 if.then18:                                        ; preds = %while.end.i.i55, %while.end.i.i55, %while.end.i.i55, %while.end.i.i55
@@ -13751,30 +13757,19 @@ if.end14.i81:                                     ; preds = %if.end.i73
   store ptr %incdec.ptr.i82, ptr %this, align 8
   br label %while.body.i68, !llvm.loop !4
 
-if.end20:                                         ; preds = %while.end.i.i55
-  %conv22 = sext i8 %20 to i32
-  switch i32 %conv22, label %sw.default [
-    i32 65, label %sw.epilog
-    i32 97, label %sw.epilog
-    i32 66, label %sw.bb23
-    i32 98, label %sw.bb23
-    i32 67, label %sw.bb24
-    i32 99, label %sw.bb24
-  ]
-
-sw.bb23:                                          ; preds = %if.end20, %if.end20
+sw.bb23:                                          ; preds = %while.end.i.i55, %while.end.i.i55
   br label %sw.epilog
 
-sw.bb24:                                          ; preds = %if.end20, %if.end20
+sw.bb24:                                          ; preds = %while.end.i.i55, %while.end.i.i55
   br label %sw.epilog
 
-sw.default:                                       ; preds = %if.end20
+sw.default:                                       ; preds = %while.end.i.i55
   tail call void @_ZN6Assimp3ASE6Parser10LogWarningEPKc(ptr noundef nonnull align 8 dereferenceable(180) %this, ptr noundef nonnull @.str.196)
   %call25 = tail call noundef zeroext i1 @_ZN6Assimp3ASE6Parser15SkipToNextTokenEv(ptr noundef nonnull align 8 dereferenceable(180) %this)
   br label %return
 
-sw.epilog:                                        ; preds = %if.end20, %if.end20, %sw.bb24, %sw.bb23
-  %iIndex.0 = phi i64 [ 2, %sw.bb24 ], [ 1, %sw.bb23 ], [ 0, %if.end20 ], [ 0, %if.end20 ]
+sw.epilog:                                        ; preds = %while.end.i.i55, %while.end.i.i55, %sw.bb24, %sw.bb23
+  %iIndex.0 = phi i64 [ 2, %sw.bb24 ], [ 1, %sw.bb23 ], [ 0, %while.end.i.i55 ], [ 0, %while.end.i.i55 ]
   %incdec.ptr27 = getelementptr inbounds i8, ptr %in.addr.0.i.i52, i64 1
   store ptr %incdec.ptr27, ptr %this, align 8
   br label %while.cond.i.i86
@@ -14394,7 +14389,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit292:             ; preds = %if.end.i281, %if.en
   store i32 %value.0.lcssa.i291, ptr %iMaterial, align 4
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i38, %if.end.i38, %if.end.i38, %if.end.i38, %if.end.i73, %if.end.i73, %if.end.i73, %if.end.i73, %if.end.i108, %if.end.i108, %if.end.i108, %if.end.i108, %if.end.i143, %if.end.i143, %if.end.i143, %if.end.i143, %while.body, %while.body, %while.body, %while.body, %while.body117, %while.body117, %while.body117, %while.body117, %while.end129, %_ZN6Assimp9strtoul10EPKcPS1_.exit292, %if.then135, %if.then62, %sw.default
+return:                                           ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i38, %if.end.i38, %if.end.i38, %if.end.i38, %if.end.i108, %if.end.i108, %if.end.i108, %if.end.i108, %if.end.i143, %if.end.i143, %if.end.i143, %if.end.i143, %while.body, %while.body, %while.body, %while.body, %while.body117, %while.body117, %while.body117, %while.body117, %if.end.i73, %if.end.i73, %if.end.i73, %if.end.i73, %while.end129, %_ZN6Assimp9strtoul10EPKcPS1_.exit292, %if.then135, %if.then62, %sw.default
   ret void
 
 eh.resume:                                        ; preds = %lpad99, %ehcleanup97

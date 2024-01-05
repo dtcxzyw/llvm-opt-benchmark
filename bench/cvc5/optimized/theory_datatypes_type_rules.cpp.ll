@@ -7075,15 +7075,14 @@ invoke.cont23:                                    ; preds = %if.else.i.i, %if.th
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %16, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   store ptr %_M_single_bucket.i.i70, ptr %bvs, align 8
   store i64 1, ptr %_M_bucket_count.i.i71, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i72, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i73, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i74, i8 0, i64 16, i1 false)
-  switch i32 %bf.cast.i, label %if.then53 [
-    i32 233, label %if.then29
-    i32 232, label %if.end73
+  switch i16 %bf.clear.i, label %if.then53 [
+    i16 233, label %if.then29
+    i16 232, label %if.end73
   ]
 
 if.then29:                                        ; preds = %invoke.cont23
@@ -7655,7 +7654,6 @@ invoke.cont104:                                   ; preds = %if.then13.i.i.i191.
   %d_kind.i202 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %71, i64 0, i32 1
   %bf.load.i203 = load i16, ptr %d_kind.i202, align 8
   %bf.clear.i204 = and i16 %bf.load.i203, 1023
-  %bf.cast.i205 = zext nneg i16 %bf.clear.i204 to i32
   %73 = and i64 %bf.load.i.i206, 1152920405095219200
   %cmp.not.i.i207 = icmp eq i64 %73, 1152920405095219200
   br i1 %cmp.not.i.i207, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit216, label %if.then.i.i208
@@ -7681,9 +7679,9 @@ terminate.lpad.i215:                              ; preds = %if.then13.i.i214
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit216: ; preds = %invoke.cont104, %if.then.i.i208, %if.then13.i.i214
-  switch i32 %bf.cast.i205, label %if.else187 [
-    i32 217, label %if.then110
-    i32 8, label %if.end207
+  switch i16 %bf.clear.i204, label %if.else187 [
+    i16 217, label %if.then110
+    i16 8, label %if.end207
   ]
 
 if.then110:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit216

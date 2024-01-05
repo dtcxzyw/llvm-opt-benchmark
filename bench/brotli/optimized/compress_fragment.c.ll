@@ -20,12 +20,11 @@ if.end:                                           ; preds = %entry
   %conv.i = trunc i64 %table_size to i32
   %1 = tail call i32 @llvm.ctlz.i32(i32 %conv.i, i1 true), !range !4
   %xor.i = xor i32 %1, 31
-  %conv = zext nneg i32 %xor.i to i64
-  switch i64 %conv, label %sw.epilog [
-    i64 9, label %sw.bb
-    i64 11, label %sw.bb2
-    i64 13, label %sw.bb3
-    i64 15, label %sw.bb4
+  switch i32 %xor.i, label %sw.epilog [
+    i32 9, label %sw.bb
+    i32 11, label %sw.bb2
+    i32 13, label %sw.bb3
+    i32 15, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -7876,7 +7875,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @EmitUncompressedMetaBlock(ptr noundef %begin, ptr noundef %end, i64 noundef %storage_ix_start, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #1 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -8205,7 +8204,7 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

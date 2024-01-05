@@ -69,12 +69,11 @@ while.cond:                                       ; preds = %sw.epilog, %entry
 
 while.body:                                       ; preds = %while.cond
   %1 = load i8, ptr %pattern.addr.0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 42, label %while.cond2.preheader
-    i32 63, label %sw.epilog
-    i32 91, label %sw.bb27
-    i32 92, label %sw.bb141
+  switch i8 %1, label %sw.default [
+    i8 42, label %while.cond2.preheader
+    i8 63, label %sw.epilog
+    i8 91, label %sw.bb27
+    i8 92, label %sw.bb141
   ]
 
 while.cond2.preheader:                            ; preds = %while.body
@@ -2985,7 +2984,7 @@ entry:
   %buff = alloca [22 x i8], align 16
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 %size
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %overflow_arg_area_p100 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p56 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
   %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
   %arrayidx74 = getelementptr inbounds [22 x i8], ptr %buff, i64 0, i64 21
   %incdec.ptr.i39 = getelementptr inbounds [22 x i8], ptr %buff, i64 0, i64 20
@@ -3028,25 +3027,20 @@ if.then.i:                                        ; preds = %if.end6
 check_longlong_async_signal_safe.exit:            ; preds = %if.end6, %if.then.i
   %4 = phi i8 [ %2, %if.end6 ], [ %.pr, %if.then.i ]
   %fmt.addr.0.i = phi ptr [ %incdec.ptr7, %if.end6 ], [ %fmt.addr.0.ph.i, %if.then.i ]
-  %conv8 = sext i8 %4 to i32
-  switch i32 %conv8, label %for.inc [
-    i32 100, label %sw.bb
-    i32 105, label %sw.bb
-    i32 117, label %sw.bb
-    i32 120, label %sw.bb
-    i32 112, label %sw.bb
-    i32 115, label %sw.bb93
+  switch i8 %4, label %for.inc [
+    i8 115, label %sw.bb93
+    i8 112, label %check_longlong_async_signal_safe.exit.if.else_crit_edge
+    i8 100, label %if.end13
+    i8 105, label %if.end13
+    i8 117, label %if.end13
+    i8 120, label %if.end13
   ]
 
-sw.bb:                                            ; preds = %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit
-  %cmp10 = icmp eq i8 %4, 112
-  br i1 %cmp10, label %sw.bb.if.else_crit_edge, label %if.end13
-
-sw.bb.if.else_crit_edge:                          ; preds = %sw.bb
+check_longlong_async_signal_safe.exit.if.else_crit_edge: ; preds = %check_longlong_async_signal_safe.exit
   %gp_offset21.pre = load i32, ptr %ap, align 8
   br label %if.else
 
-if.end13:                                         ; preds = %sw.bb
+if.end13:                                         ; preds = %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit
   %cmp17 = icmp eq i8 %4, 117
   %gp_offset21.pre63 = load i32, ptr %ap, align 8
   br i1 %cmp.i.not, label %if.then15, label %if.else32
@@ -3067,9 +3061,9 @@ vaarg.in_reg:                                     ; preds = %if.then19
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then19
-  %overflow_arg_area = load ptr, ptr %overflow_arg_area_p100, align 8
+  %overflow_arg_area = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
-  store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p100, align 8
+  store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p56, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
@@ -3077,8 +3071,8 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %8 = load i64, ptr %vaarg.addr, align 8
   br label %if.end63
 
-if.else:                                          ; preds = %sw.bb.if.else_crit_edge, %if.then15
-  %gp_offset21 = phi i32 [ %gp_offset21.pre, %sw.bb.if.else_crit_edge ], [ %gp_offset21.pre63, %if.then15 ]
+if.else:                                          ; preds = %check_longlong_async_signal_safe.exit.if.else_crit_edge, %if.then15
+  %gp_offset21 = phi i32 [ %gp_offset21.pre, %check_longlong_async_signal_safe.exit.if.else_crit_edge ], [ %gp_offset21.pre63, %if.then15 ]
   %fits_in_gp22 = icmp ult i32 %gp_offset21, 41
   br i1 %fits_in_gp22, label %vaarg.in_reg23, label %vaarg.in_mem25
 
@@ -3091,9 +3085,9 @@ vaarg.in_reg23:                                   ; preds = %if.else
   br label %vaarg.end29
 
 vaarg.in_mem25:                                   ; preds = %if.else
-  %overflow_arg_area27 = load ptr, ptr %overflow_arg_area_p100, align 8
+  %overflow_arg_area27 = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next28 = getelementptr i8, ptr %overflow_arg_area27, i64 8
-  store ptr %overflow_arg_area.next28, ptr %overflow_arg_area_p100, align 8
+  store ptr %overflow_arg_area.next28, ptr %overflow_arg_area_p56, align 8
   br label %vaarg.end29
 
 vaarg.end29:                                      ; preds = %vaarg.in_mem25, %vaarg.in_reg23
@@ -3117,9 +3111,9 @@ vaarg.in_reg40:                                   ; preds = %if.then36
   br label %vaarg.end46
 
 vaarg.in_mem42:                                   ; preds = %if.then36
-  %overflow_arg_area44 = load ptr, ptr %overflow_arg_area_p100, align 8
+  %overflow_arg_area44 = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next45 = getelementptr i8, ptr %overflow_arg_area44, i64 8
-  store ptr %overflow_arg_area.next45, ptr %overflow_arg_area_p100, align 8
+  store ptr %overflow_arg_area.next45, ptr %overflow_arg_area_p56, align 8
   br label %vaarg.end46
 
 vaarg.end46:                                      ; preds = %vaarg.in_mem42, %vaarg.in_reg40
@@ -3140,9 +3134,9 @@ vaarg.in_reg53:                                   ; preds = %if.else49
   br label %vaarg.end59
 
 vaarg.in_mem55:                                   ; preds = %if.else49
-  %overflow_arg_area57 = load ptr, ptr %overflow_arg_area_p100, align 8
+  %overflow_arg_area57 = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next58 = getelementptr i8, ptr %overflow_arg_area57, i64 8
-  store ptr %overflow_arg_area.next58, ptr %overflow_arg_area_p100, align 8
+  store ptr %overflow_arg_area.next58, ptr %overflow_arg_area_p56, align 8
   br label %vaarg.end59
 
 vaarg.end59:                                      ; preds = %vaarg.in_mem55, %vaarg.in_reg53
@@ -3224,24 +3218,23 @@ for.body32.i:                                     ; preds = %if.end22.i, %for.in
   %ix28.042.i = phi i32 [ %inc50.i, %for.inc49.i ], [ 0, %if.end22.i ]
   %buf.addr.241.i = phi ptr [ %incdec.ptr51.i, %for.inc49.i ], [ %incdec.ptr.i39, %if.end22.i ]
   %25 = load i8, ptr %buf.addr.241.i, align 1
-  %conv33.i = sext i8 %25 to i32
-  switch i32 %conv33.i, label %for.inc49.i [
-    i32 48, label %for.inc49.sink.split.i
-    i32 49, label %sw.bb34.i
-    i32 50, label %sw.bb35.i
-    i32 51, label %sw.bb36.i
-    i32 52, label %sw.bb37.i
-    i32 53, label %sw.bb38.i
-    i32 54, label %sw.bb39.i
-    i32 55, label %sw.bb40.i
-    i32 56, label %sw.bb41.i
-    i32 57, label %sw.bb42.i
-    i32 97, label %sw.bb43.i
-    i32 98, label %sw.bb44.i
-    i32 99, label %sw.bb45.i
-    i32 100, label %sw.bb46.i
-    i32 101, label %sw.bb47.i
-    i32 102, label %sw.bb48.i
+  switch i8 %25, label %for.inc49.i [
+    i8 48, label %for.inc49.sink.split.i
+    i8 49, label %sw.bb34.i
+    i8 50, label %sw.bb35.i
+    i8 51, label %sw.bb36.i
+    i8 52, label %sw.bb37.i
+    i8 53, label %sw.bb38.i
+    i8 54, label %sw.bb39.i
+    i8 55, label %sw.bb40.i
+    i8 56, label %sw.bb41.i
+    i8 57, label %sw.bb42.i
+    i8 97, label %sw.bb43.i
+    i8 98, label %sw.bb44.i
+    i8 99, label %sw.bb45.i
+    i8 100, label %sw.bb46.i
+    i8 101, label %sw.bb47.i
+    i8 102, label %sw.bb48.i
   ]
 
 sw.bb34.i:                                        ; preds = %for.body32.i
@@ -3315,18 +3308,18 @@ cond.end:                                         ; preds = %do.body.i, %i2strin
   %spec.select37.idx = select i1 %or.cond1, i64 8, i64 0
   %spec.select37 = getelementptr inbounds i8, ptr %cond76, i64 %spec.select37.idx
   %27 = load i8, ptr %spec.select37, align 1
-  %tobool8857 = icmp ne i8 %27, 0
-  %cmp8958 = icmp ult ptr %to.addr.0, %add.ptr1
-  %28 = select i1 %tobool8857, i1 %cmp8958, i1 false
+  %tobool8853 = icmp ne i8 %27, 0
+  %cmp8954 = icmp ult ptr %to.addr.0, %add.ptr1
+  %28 = select i1 %tobool8853, i1 %cmp8954, i1 false
   br i1 %28, label %while.body, label %for.inc
 
 while.body:                                       ; preds = %cond.end, %while.body
   %29 = phi i8 [ %30, %while.body ], [ %27, %cond.end ]
-  %val_as_str.160 = phi ptr [ %incdec.ptr91, %while.body ], [ %spec.select37, %cond.end ]
-  %to.addr.159 = phi ptr [ %incdec.ptr92, %while.body ], [ %to.addr.0, %cond.end ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %val_as_str.160, i64 1
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %to.addr.159, i64 1
-  store i8 %29, ptr %to.addr.159, align 1
+  %val_as_str.156 = phi ptr [ %incdec.ptr91, %while.body ], [ %spec.select37, %cond.end ]
+  %to.addr.155 = phi ptr [ %incdec.ptr92, %while.body ], [ %to.addr.0, %cond.end ]
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %val_as_str.156, i64 1
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %to.addr.155, i64 1
+  store i8 %29, ptr %to.addr.155, align 1
   %30 = load i8, ptr %incdec.ptr91, align 1
   %tobool88 = icmp ne i8 %30, 0
   %cmp89 = icmp ult ptr %incdec.ptr92, %add.ptr1
@@ -3347,9 +3340,9 @@ vaarg.in_reg97:                                   ; preds = %sw.bb93
   br label %vaarg.end103
 
 vaarg.in_mem99:                                   ; preds = %sw.bb93
-  %overflow_arg_area101 = load ptr, ptr %overflow_arg_area_p100, align 8
+  %overflow_arg_area101 = load ptr, ptr %overflow_arg_area_p56, align 8
   %overflow_arg_area.next102 = getelementptr i8, ptr %overflow_arg_area101, i64 8
-  store ptr %overflow_arg_area.next102, ptr %overflow_arg_area_p100, align 8
+  store ptr %overflow_arg_area.next102, ptr %overflow_arg_area_p56, align 8
   br label %vaarg.end103
 
 vaarg.end103:                                     ; preds = %vaarg.in_mem99, %vaarg.in_reg97
@@ -3358,27 +3351,27 @@ vaarg.end103:                                     ; preds = %vaarg.in_mem99, %va
   %tobool105.not = icmp eq ptr %35, null
   %spec.store.select = select i1 %tobool105.not, ptr @.str.23, ptr %35
   %36 = load i8, ptr %spec.store.select, align 1
-  %tobool11053 = icmp ne i8 %36, 0
-  %cmp11254 = icmp ult ptr %to.addr.0, %add.ptr1
-  %37 = select i1 %tobool11053, i1 %cmp11254, i1 false
+  %tobool11057 = icmp ne i8 %36, 0
+  %cmp11258 = icmp ult ptr %to.addr.0, %add.ptr1
+  %37 = select i1 %tobool11057, i1 %cmp11258, i1 false
   br i1 %37, label %while.body115, label %for.inc
 
 while.body115:                                    ; preds = %vaarg.end103, %while.body115
   %38 = phi i8 [ %39, %while.body115 ], [ %36, %vaarg.end103 ]
-  %val.056 = phi ptr [ %incdec.ptr116, %while.body115 ], [ %spec.store.select, %vaarg.end103 ]
-  %to.addr.255 = phi ptr [ %incdec.ptr117, %while.body115 ], [ %to.addr.0, %vaarg.end103 ]
-  %incdec.ptr116 = getelementptr inbounds i8, ptr %val.056, i64 1
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %to.addr.255, i64 1
-  store i8 %38, ptr %to.addr.255, align 1
+  %val.060 = phi ptr [ %incdec.ptr116, %while.body115 ], [ %spec.store.select, %vaarg.end103 ]
+  %to.addr.259 = phi ptr [ %incdec.ptr117, %while.body115 ], [ %to.addr.0, %vaarg.end103 ]
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %val.060, i64 1
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %to.addr.259, i64 1
+  store i8 %38, ptr %to.addr.259, align 1
   %39 = load i8, ptr %incdec.ptr116, align 1
   %tobool110 = icmp ne i8 %39, 0
   %cmp112 = icmp ult ptr %incdec.ptr117, %add.ptr1
   %40 = select i1 %tobool110, i1 %cmp112, i1 false
   br i1 %40, label %while.body115, label %for.inc, !llvm.loop !39
 
-for.inc:                                          ; preds = %while.body115, %while.body, %vaarg.end103, %cond.end, %check_longlong_async_signal_safe.exit, %if.end
-  %format.addr.1 = phi ptr [ %format.addr.0, %if.end ], [ %fmt.addr.0.i, %check_longlong_async_signal_safe.exit ], [ %fmt.addr.0.i, %cond.end ], [ %fmt.addr.0.i, %vaarg.end103 ], [ %fmt.addr.0.i, %while.body ], [ %fmt.addr.0.i, %while.body115 ]
-  %to.addr.3 = phi ptr [ %incdec.ptr, %if.end ], [ %to.addr.0, %check_longlong_async_signal_safe.exit ], [ %to.addr.0, %cond.end ], [ %to.addr.0, %vaarg.end103 ], [ %incdec.ptr92, %while.body ], [ %incdec.ptr117, %while.body115 ]
+for.inc:                                          ; preds = %while.body, %while.body115, %cond.end, %vaarg.end103, %check_longlong_async_signal_safe.exit, %if.end
+  %format.addr.1 = phi ptr [ %format.addr.0, %if.end ], [ %fmt.addr.0.i, %check_longlong_async_signal_safe.exit ], [ %fmt.addr.0.i, %vaarg.end103 ], [ %fmt.addr.0.i, %cond.end ], [ %fmt.addr.0.i, %while.body115 ], [ %fmt.addr.0.i, %while.body ]
+  %to.addr.3 = phi ptr [ %incdec.ptr, %if.end ], [ %to.addr.0, %check_longlong_async_signal_safe.exit ], [ %to.addr.0, %vaarg.end103 ], [ %to.addr.0, %cond.end ], [ %incdec.ptr117, %while.body115 ], [ %incdec.ptr92, %while.body ]
   %incdec.ptr119 = getelementptr inbounds i8, ptr %format.addr.1, i64 1
   br label %for.cond, !llvm.loop !40
 

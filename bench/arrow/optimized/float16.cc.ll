@@ -3,7 +3,7 @@ source_filename = "bench/arrow/original/float16.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
@@ -11,10 +11,9 @@ entry:
   %shl.i = and i32 %h_bits.signext.i, -2147483648
   %and2.i = and i16 %0, 31744
   %and5.i = and i16 %0, 1023
-  %conv7.i = zext nneg i16 %and2.i to i32
-  switch i32 %conv7.i, label %sw.default.i [
-    i32 31744, label %sw.bb.i
-    i32 0, label %sw.bb11.i
+  switch i16 %and2.i, label %sw.default.i [
+    i16 31744, label %sw.bb.i
+    i16 0, label %sw.bb11.i
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -145,7 +144,7 @@ _ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit: ; preds = %
   ret i16 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK5arrow4util7Float168ToDoubleEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
@@ -155,10 +154,9 @@ entry:
   %shl.i = shl nuw i64 %conv1.i, 48
   %and3.i = and i16 %0, 31744
   %and6.i = and i16 %0, 1023
-  %conv8.i = zext nneg i16 %and3.i to i32
-  switch i32 %conv8.i, label %sw.default.i [
-    i32 31744, label %sw.bb.i
-    i32 0, label %sw.bb12.i
+  switch i16 %and3.i, label %sw.default.i [
+    i16 31744, label %sw.bb.i
+    i16 0, label %sw.bb12.i
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -293,10 +291,9 @@ entry:
   %shl.i.i = and i32 %h_bits.signext.i.i, -2147483648
   %and2.i.i = and i16 %arg.coerce, 31744
   %and5.i.i = and i16 %arg.coerce, 1023
-  %conv7.i.i = zext nneg i16 %and2.i.i to i32
-  switch i32 %conv7.i.i, label %sw.default.i.i [
-    i32 31744, label %sw.bb.i.i
-    i32 0, label %sw.bb11.i.i
+  switch i16 %and2.i.i, label %sw.default.i.i [
+    i16 31744, label %sw.bb.i.i
+    i16 0, label %sw.bb11.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
@@ -357,7 +354,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

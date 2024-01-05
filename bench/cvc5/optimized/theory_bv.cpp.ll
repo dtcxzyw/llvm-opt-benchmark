@@ -4305,13 +4305,12 @@ if.end48:                                         ; preds = %invoke.cont42, %inv
   %d_kind.i109 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %term.sroa.0.2, i64 0, i32 1
   %bf.load.i110 = load i16, ptr %d_kind.i109, align 8
   %bf.clear.i111 = and i16 %bf.load.i110, 1023
-  %bf.cast.i112 = zext nneg i16 %bf.clear.i111 to i32
-  %switch.tableidx = add nsw i32 %bf.cast.i112, -86
-  %19 = icmp ult i32 %switch.tableidx, 10
+  %switch.tableidx = add nsw i16 %bf.clear.i111, -86
+  %19 = icmp ult i16 %switch.tableidx, 10
   br i1 %19, label %switch.lookup, label %cleanup
 
 switch.lookup:                                    ; preds = %if.end48
-  %switch.cast = trunc i32 %switch.tableidx to i10
+  %switch.cast = trunc i16 %switch.tableidx to i10
   %switch.downshift = lshr i10 -393, %switch.cast
   %20 = and i10 %switch.downshift, 1
   %switch.masked = icmp ne i10 %20, 0
@@ -5032,7 +5031,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %21
@@ -5849,7 +5848,7 @@ if.then.i.i.i286:                                 ; preds = %if.else.i255
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i260: ; preds = %if.else.i255
   %sub.ptr.div.i.i.i.i261 = ashr exact i64 %sub.ptr.sub.i.i.i.i258, 3
   %.sroa.speculated.i.i.i262 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i261, i64 1)
-  %add.i.i.i263 = add i64 %.sroa.speculated.i.i.i262, %sub.ptr.div.i.i.i.i261
+  %add.i.i.i263 = add nsw i64 %.sroa.speculated.i.i.i262, %sub.ptr.div.i.i.i.i261
   %cmp7.i.i.i264 = icmp ult i64 %add.i.i.i263, %sub.ptr.div.i.i.i.i261
   %114 = call i64 @llvm.umin.i64(i64 %add.i.i.i263, i64 1152921504606846975)
   %cond.i.i.i265 = select i1 %cmp7.i.i.i264, i64 1152921504606846975, i64 %114
@@ -8552,7 +8551,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -9087,14 +9086,14 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont39
   %bf.load.i193 = load i16, ptr %d_kind.i192, align 8
   %bf.clear.i194 = and i16 %bf.load.i193, 1023
   %bf.cast.i195 = zext nneg i16 %bf.clear.i194 to i32
-  switch i32 %bf.cast.i195, label %sw.epilog [
-    i32 86, label %sw.bb
-    i32 91, label %sw.bb67
-    i32 88, label %sw.bb97
-    i32 92, label %sw.bb127
-    i32 90, label %sw.bb157
-    i32 87, label %sw.bb171
-    i32 95, label %sw.bb197
+  switch i16 %bf.clear.i194, label %sw.epilog [
+    i16 86, label %sw.bb
+    i16 91, label %sw.bb67
+    i16 88, label %sw.bb97
+    i16 92, label %sw.bb127
+    i16 90, label %sw.bb157
+    i16 87, label %sw.bb171
+    i16 95, label %sw.bb197
   ]
 
 lpad38:                                           ; preds = %invoke.cont37
@@ -9517,7 +9516,7 @@ lpad152:                                          ; preds = %invoke.cont149
 
 sw.bb157:                                         ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %call2.i.i.i286 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 90)
+  %call2.i.i.i286 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i195)
           to label %invoke.cont159 unwind label %lpad7
 
 invoke.cont159:                                   ; preds = %sw.bb157
@@ -9610,7 +9609,7 @@ sw.bb171:                                         ; preds = %_ZN4cvc58internal9B
 
 if.then173:                                       ; preds = %sw.bb171
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  %call2.i.i.i315 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 87)
+  %call2.i.i.i315 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i195)
           to label %invoke.cont175 unwind label %lpad7
 
 invoke.cont175:                                   ; preds = %if.then173
@@ -9649,7 +9648,7 @@ lpad179:                                          ; preds = %invoke.cont178
 
 if.else183:                                       ; preds = %sw.bb171
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %call2.i.i.i340 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 87)
+  %call2.i.i.i340 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i195)
           to label %invoke.cont186 unwind label %lpad7
 
 invoke.cont186:                                   ; preds = %if.else183
@@ -9763,7 +9762,7 @@ lpad192.body:                                     ; preds = %ehcleanup.i.i, %lpa
 
 sw.bb197:                                         ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
-  %call2.i.i.i380 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 95)
+  %call2.i.i.i380 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i195)
           to label %invoke.cont199 unwind label %lpad7
 
 invoke.cont199:                                   ; preds = %sw.bb197

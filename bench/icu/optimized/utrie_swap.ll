@@ -194,7 +194,6 @@ if.end11:                                         ; preds = %if.end6
   %8 = load i16, ptr %shiftedDataLength, align 4
   %call20 = tail call noundef zeroext i16 %7(i16 noundef zeroext %8)
   %9 = and i16 %call14, 15
-  %and = zext nneg i16 %9 to i32
   %conv24 = zext i16 %call20 to i32
   %cmp26 = icmp ne i32 %call12, 1416784178
   %cmp30 = icmp ugt i16 %9, 1
@@ -213,9 +212,9 @@ if.end38:                                         ; preds = %if.end11
   %conv33 = zext i16 %call17 to i32
   %mul = shl nuw nsw i32 %conv33, 1
   %narrow = add nuw nsw i32 %mul, 16
-  switch i32 %and, label %sw.default [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb45
+  switch i16 %9, label %sw.default [
+    i16 0, label %sw.epilog
+    i16 1, label %sw.bb45
   ]
 
 sw.bb45:                                          ; preds = %if.end38
@@ -247,9 +246,9 @@ if.end52:                                         ; preds = %if.then49
   %11 = load ptr, ptr %swapArray16, align 8
   %options57 = getelementptr inbounds %struct.UTrie2Header, ptr %outData, i64 0, i32 1
   %call58 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %options, i32 noundef 12, ptr noundef nonnull %options57, ptr noundef nonnull %pErrorCode)
-  switch i32 %and, label %sw.default87 [
-    i32 0, label %sw.bb59
-    i32 1, label %sw.bb67
+  switch i16 %9, label %sw.default87 [
+    i16 0, label %sw.bb59
+    i16 1, label %sw.bb67
   ]
 
 sw.bb59:                                          ; preds = %if.end52

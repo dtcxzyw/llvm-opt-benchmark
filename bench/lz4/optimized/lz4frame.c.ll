@@ -408,11 +408,7 @@ do.end:                                           ; preds = %entry
   %0 = load i32, ptr %compressionLevel, align 8
   %cmp5.inv = icmp sgt i32 %0, 2
   %conv = select i1 %cmp5.inv, i16 2, i16 1
-  %conv6 = zext nneg i16 %conv to i32
-  switch i32 %conv6, label %ctxTypeID_to_size.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
-  ]
+  br i1 %cmp5.inv, label %sw.bb1.i, label %sw.bb.i
 
 sw.bb.i:                                          ; preds = %do.end
   %call.i = tail call i32 @LZ4_sizeofState() #12
@@ -422,8 +418,8 @@ sw.bb1.i:                                         ; preds = %do.end
   %call2.i = tail call i32 @LZ4_sizeofStateHC() #12
   br label %ctxTypeID_to_size.exit
 
-ctxTypeID_to_size.exit:                           ; preds = %do.end, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %do.end ]
+ctxTypeID_to_size.exit:                           ; preds = %sw.bb.i, %sw.bb1.i
+  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
   %lz4CtxAlloc = getelementptr inbounds %struct.LZ4F_cctx_s, ptr %cctxPtr, i64 0, i32 13
   %1 = load i16, ptr %lz4CtxAlloc, align 8
   switch i16 %1, label %ctxTypeID_to_size.exit100 [

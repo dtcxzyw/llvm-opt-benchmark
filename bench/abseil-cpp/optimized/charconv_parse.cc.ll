@@ -463,12 +463,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %begin, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %return [
-    i32 105, label %sw.bb
-    i32 73, label %sw.bb
-    i32 110, label %sw.bb17
-    i32 78, label %sw.bb17
+  switch i8 %0, label %return [
+    i8 105, label %sw.bb
+    i8 73, label %sw.bb
+    i8 110, label %sw.bb17
+    i8 78, label %sw.bb17
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end

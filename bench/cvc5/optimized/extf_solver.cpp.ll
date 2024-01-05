@@ -1892,7 +1892,6 @@ if.end48:                                         ; preds = %if.end3.i.i.i.i.i.i
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %32, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %cmp51 = icmp eq i16 %bf.clear.i, 306
   br i1 %cmp51, label %if.then54, label %lor.lhs.false
 
@@ -1926,8 +1925,8 @@ invoke.cont60:                                    ; preds = %if.then59
   br label %cleanup
 
 if.else63:                                        ; preds = %if.else
-  %switch.tableidx = add nsw i32 %bf.cast.i, -304
-  %36 = icmp ult i32 %switch.tableidx, 29
+  %switch.tableidx = add nsw i16 %bf.clear.i, -304
+  %36 = icmp ult i16 %switch.tableidx, 29
   br i1 %36, label %switch.hole_check, label %lor.rhs
 
 lor.rhs:                                          ; preds = %switch.hole_check, %if.else63
@@ -1958,18 +1957,19 @@ invoke.cont74:                                    ; preds = %call.i.i289.noexc, 
   br label %lor.end
 
 switch.hole_check:                                ; preds = %if.else63
-  %switch.shifted = lshr i32 271056897, %switch.tableidx
+  %switch.maskindex = zext nneg i16 %switch.tableidx to i32
+  %switch.shifted = lshr i32 271056897, %switch.maskindex
   %41 = and i32 %switch.shifted, 1
   %switch.lobit.not = icmp eq i32 %41, 0
   br i1 %switch.lobit.not, label %lor.rhs, label %lor.end
 
 lor.end:                                          ; preds = %switch.hole_check, %invoke.cont74
   %42 = phi i1 [ %40, %invoke.cont74 ], [ true, %switch.hole_check ]
-  switch i32 %bf.cast.i, label %cleanup.action [
-    i32 332, label %cleanup.done
-    i32 325, label %cleanup.done
-    i32 323, label %cleanup.done
-    i32 304, label %cleanup.done
+  switch i16 %bf.clear.i, label %cleanup.action [
+    i16 332, label %cleanup.done
+    i16 325, label %cleanup.done
+    i16 323, label %cleanup.done
+    i16 304, label %cleanup.done
   ]
 
 cleanup.action:                                   ; preds = %lor.end
@@ -1998,9 +1998,9 @@ invoke.cont82:                                    ; preds = %if.else81
   br i1 %cmp85.not, label %if.end113, label %if.then86
 
 if.then86:                                        ; preds = %invoke.cont82
-  switch i32 %bf.cast.i, label %if.end113 [
-    i32 333, label %cleanup
-    i32 307, label %land.rhs93
+  switch i16 %bf.clear.i, label %if.end113 [
+    i16 333, label %cleanup
+    i16 307, label %land.rhs93
   ]
 
 land.rhs93:                                       ; preds = %if.then86

@@ -1298,13 +1298,12 @@ entry:
   %val.addr.i.i47.i = alloca i32, align 4
   %val.addr.i.i.i = alloca i32, align 4
   %and = and i8 %val, 15
-  %conv.i = zext nneg i8 %and to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %eepro100_ru_command.exit
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb5.i
-    i32 4, label %sw.bb11.i
-    i32 6, label %sw.bb17.i
+  switch i8 %and, label %sw.default.i [
+    i8 0, label %eepro100_ru_command.exit
+    i8 1, label %sw.bb1.i
+    i8 2, label %sw.bb5.i
+    i8 4, label %sw.bb11.i
+    i8 6, label %sw.bb17.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
@@ -1413,62 +1412,61 @@ sw.default.i:                                     ; preds = %entry
 
 eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit24.i, %sw.default.i
   %17 = lshr i8 %val, 4
-  %18 = zext nneg i8 %17 to i32
-  switch i32 %18, label %sw.default.i17 [
-    i32 0, label %eepro100_cu_command.exit
-    i32 1, label %sw.bb1.i8
-    i32 2, label %sw.bb6.i
-    i32 4, label %sw.bb17.i6
-    i32 5, label %sw.bb24.i
-    i32 6, label %sw.bb29.i
-    i32 7, label %sw.bb31.i
-    i32 10, label %sw.bb40.i
+  switch i8 %17, label %sw.default.i16 [
+    i8 0, label %eepro100_cu_command.exit
+    i8 1, label %sw.bb1.i7
+    i8 2, label %sw.bb6.i
+    i8 4, label %sw.bb17.i5
+    i8 5, label %sw.bb24.i
+    i8 6, label %sw.bb29.i
+    i8 7, label %sw.bb31.i
+    i8 10, label %sw.bb40.i
   ]
 
-sw.bb1.i8:                                        ; preds = %eepro100_ru_command.exit
-  %19 = getelementptr i8, ptr %s, i64 11888
-  %s.val.i9 = load i8, ptr %19, align 16
-  %20 = and i8 %s.val.i9, 63
-  %conv1.i.i10 = or disjoint i8 %20, -128
-  store i8 %conv1.i.i10, ptr %19, align 16
-  %arrayidx.i.i11 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %21 = ptrtoint ptr %arrayidx.i.i11 to i64
-  %and.i.i12 = and i64 %21, 3
-  %tobool.not.i.i13 = icmp eq i64 %and.i.i12, 0
-  br i1 %tobool.not.i.i13, label %e100_read_reg4.exit.i15, label %if.else.i.i14
+sw.bb1.i7:                                        ; preds = %eepro100_ru_command.exit
+  %18 = getelementptr i8, ptr %s, i64 11888
+  %s.val.i8 = load i8, ptr %18, align 16
+  %19 = and i8 %s.val.i8, 63
+  %conv1.i.i9 = or disjoint i8 %19, -128
+  store i8 %conv1.i.i9, ptr %18, align 16
+  %arrayidx.i.i10 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
+  %20 = ptrtoint ptr %arrayidx.i.i10 to i64
+  %and.i.i11 = and i64 %20, 3
+  %tobool.not.i.i12 = icmp eq i64 %and.i.i11, 0
+  br i1 %tobool.not.i.i12, label %e100_read_reg4.exit.i14, label %if.else.i.i13
 
-if.else.i.i14:                                    ; preds = %sw.bb1.i8
+if.else.i.i13:                                    ; preds = %sw.bb1.i7
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit.i15:                          ; preds = %sw.bb1.i8
-  %arrayidx.val.i.i16 = load i32, ptr %arrayidx.i.i11, align 1
+e100_read_reg4.exit.i14:                          ; preds = %sw.bb1.i7
+  %arrayidx.val.i.i15 = load i32, ptr %arrayidx.i.i10, align 1
   %cu_offset.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 13
-  store i32 %arrayidx.val.i.i16, ptr %cu_offset.i, align 8
+  store i32 %arrayidx.val.i.i15, ptr %cu_offset.i, align 8
   tail call fastcc void @action_command(ptr noundef nonnull %s)
   br label %eepro100_cu_command.exit
 
 sw.bb6.i:                                         ; preds = %eepro100_ru_command.exit
-  %22 = getelementptr i8, ptr %s, i64 11888
-  %s.val27.i = load i8, ptr %22, align 16
-  %23 = and i8 %s.val27.i, 63
-  %conv1.i34.i = or disjoint i8 %23, -128
-  store i8 %conv1.i34.i, ptr %22, align 16
+  %21 = getelementptr i8, ptr %s, i64 11888
+  %s.val27.i = load i8, ptr %21, align 16
+  %22 = and i8 %s.val27.i, 63
+  %conv1.i34.i = or disjoint i8 %22, -128
+  store i8 %conv1.i34.i, ptr %21, align 16
   tail call fastcc void @action_command(ptr noundef nonnull %s)
   br label %eepro100_cu_command.exit
 
-sw.bb17.i6:                                       ; preds = %eepro100_ru_command.exit
+sw.bb17.i5:                                       ; preds = %eepro100_ru_command.exit
   %arrayidx.i35.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %24 = ptrtoint ptr %arrayidx.i35.i to i64
-  %and.i36.i = and i64 %24, 3
+  %23 = ptrtoint ptr %arrayidx.i35.i to i64
+  %and.i36.i = and i64 %23, 3
   %tobool.not.i37.i = icmp eq i64 %and.i36.i, 0
   br i1 %tobool.not.i37.i, label %e100_read_reg4.exit40.i, label %if.else.i38.i
 
-if.else.i38.i:                                    ; preds = %sw.bb17.i6
+if.else.i38.i:                                    ; preds = %sw.bb17.i5
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit40.i:                          ; preds = %sw.bb17.i6
+e100_read_reg4.exit40.i:                          ; preds = %sw.bb17.i5
   %arrayidx.val.i39.i = load i32, ptr %arrayidx.i35.i, align 1
   %statsaddr.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
   store i32 %arrayidx.val.i39.i, ptr %statsaddr.i, align 4
@@ -1484,11 +1482,11 @@ if.then20.i:                                      ; preds = %e100_read_reg4.exit
 sw.bb24.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
   %statsaddr25.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
-  %25 = load i32, ptr %statsaddr25.i, align 4
+  %24 = load i32, ptr %statsaddr25.i, align 4
   %stats_size.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 24
-  %26 = load i16, ptr %stats_size.i, align 16
-  %conv26.i = zext i16 %26 to i32
-  %add.i = add i32 %25, %conv26.i
+  %25 = load i16, ptr %stats_size.i, align 16
+  %conv26.i = zext i16 %25 to i32
+  %add.i = add i32 %24, %conv26.i
   %conv27.i = zext i32 %add.i to i64
   %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
@@ -1501,8 +1499,8 @@ sw.bb24.i:                                        ; preds = %eepro100_ru_command
 
 sw.bb29.i:                                        ; preds = %eepro100_ru_command.exit
   %arrayidx.i41.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %27 = ptrtoint ptr %arrayidx.i41.i to i64
-  %and.i42.i = and i64 %27, 3
+  %26 = ptrtoint ptr %arrayidx.i41.i to i64
+  %and.i42.i = and i64 %26, 3
   %tobool.not.i43.i = icmp eq i64 %and.i42.i, 0
   br i1 %tobool.not.i43.i, label %e100_read_reg4.exit46.i, label %if.else.i44.i
 
@@ -1519,11 +1517,11 @@ e100_read_reg4.exit46.i:                          ; preds = %sw.bb29.i
 sw.bb31.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
   %statsaddr33.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
-  %28 = load i32, ptr %statsaddr33.i, align 4
+  %27 = load i32, ptr %statsaddr33.i, align 4
   %stats_size34.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 24
-  %29 = load i16, ptr %stats_size34.i, align 16
-  %conv35.i = zext i16 %29 to i32
-  %add36.i = add i32 %28, %conv35.i
+  %28 = load i16, ptr %stats_size34.i, align 16
+  %conv35.i = zext i16 %28 to i32
+  %add36.i = add i32 %27, %conv35.i
   %conv37.i = zext i32 %add36.i to i64
   %bus_master_as.i.i48.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i47.i)
@@ -1537,16 +1535,16 @@ sw.bb31.i:                                        ; preds = %eepro100_ru_command
   br label %eepro100_cu_command.exit
 
 sw.bb40.i:                                        ; preds = %eepro100_ru_command.exit
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %30) #15
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %29) #15
   br label %eepro100_cu_command.exit
 
-sw.default.i17:                                   ; preds = %eepro100_ru_command.exit
-  %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 69, i64 1, ptr %32) #15
+sw.default.i16:                                   ; preds = %eepro100_ru_command.exit
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 69, i64 1, ptr %31) #15
   br label %eepro100_cu_command.exit
 
-eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command.exit, %e100_read_reg4.exit.i15, %sw.bb6.i, %e100_read_reg4.exit40.i, %if.then20.i, %sw.bb24.i, %e100_read_reg4.exit46.i, %sw.bb31.i, %sw.bb40.i, %sw.default.i17
+eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command.exit, %e100_read_reg4.exit.i14, %sw.bb6.i, %e100_read_reg4.exit40.i, %if.then20.i, %sw.bb24.i, %e100_read_reg4.exit46.i, %sw.bb31.i, %sw.bb40.i, %sw.default.i16
   %arrayidx = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 2
   store i8 0, ptr %arrayidx, align 2
   ret void
@@ -1959,16 +1957,15 @@ if.end:                                           ; preds = %for.cond
   %3 = load i32, ptr %link, align 4
   store i32 %3, ptr %cu_offset, align 8
   %4 = and i16 %2, 7
-  %and30 = zext nneg i16 %4 to i32
-  switch i32 %and30, label %if.end.unreachabledefault [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb31
-    i32 2, label %sw.bb35
-    i32 3, label %sw.bb48
-    i32 4, label %sw.bb49
-    i32 5, label %sw.epilog
-    i32 7, label %sw.bb55
-    i32 6, label %sw.default
+  switch i16 %4, label %if.end.unreachabledefault [
+    i16 0, label %sw.epilog
+    i16 1, label %sw.bb31
+    i16 2, label %sw.bb35
+    i16 3, label %sw.bb48
+    i16 4, label %sw.bb49
+    i16 5, label %sw.epilog
+    i16 7, label %sw.bb55
+    i16 6, label %sw.default
   ]
 
 sw.bb31:                                          ; preds = %if.end

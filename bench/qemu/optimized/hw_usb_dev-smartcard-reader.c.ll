@@ -401,7 +401,7 @@ ccid_flush_pending_answers.exit:                  ; preds = %ccid_write_data_blo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ccid_card_ccid_attach(ptr noundef %card) local_unnamed_addr #0 {
+define dso_local noundef i32 @ccid_card_ccid_attach(ptr noundef %card) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %parent_bus = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 9
@@ -1844,9 +1844,9 @@ cond.end:                                         ; preds = %do.end, %cond.false
   %cond = phi i8 [ %9, %cond.false ], [ %retval.0.i26, %do.end ]
   %bProtocolNum15 = getelementptr inbounds %struct.USBCCIDState, ptr %s, i64 0, i32 19
   store i8 %cond, ptr %bProtocolNum15, align 2
-  switch i32 %conv6, label %do.body20 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb17
+  switch i8 %retval.0.i26, label %do.body20 [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb17
   ]
 
 sw.bb:                                            ; preds = %cond.end
@@ -2111,7 +2111,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i32 @ccid_post_load(ptr nocapture noundef %opaque, i32 %version_id) #6 {
+define internal noundef i32 @ccid_post_load(ptr nocapture noundef %opaque, i32 %version_id) #6 {
 entry:
   %state_vmstate = getelementptr inbounds %struct.USBCCIDState, ptr %opaque, i64 0, i32 22
   %0 = load i32, ptr %state_vmstate, align 4
@@ -2121,7 +2121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i32 @ccid_pre_save(ptr nocapture noundef %opaque) #6 {
+define internal noundef i32 @ccid_pre_save(ptr nocapture noundef %opaque) #6 {
 entry:
   %state = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 14
   %0 = load i32, ptr %state, align 4

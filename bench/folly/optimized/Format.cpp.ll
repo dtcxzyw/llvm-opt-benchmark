@@ -374,15 +374,15 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb2
   %tobool25.not = icmp eq i8 %10, 0
   %or = select i1 %tobool25.not, i32 1, i32 3
   %11 = load double, ptr %this, align 8, !tbaa !33
-  switch i32 %conv4, label %sw.default85 [
-    i32 37, label %sw.bb29
-    i32 102, label %sw.bb30
-    i32 70, label %sw.bb30
-    i32 101, label %sw.bb43
-    i32 69, label %sw.bb43
-    i32 110, label %sw.bb62
-    i32 103, label %sw.bb62
-    i32 71, label %sw.bb62
+  switch i8 %6, label %sw.default85 [
+    i8 37, label %sw.bb29
+    i8 102, label %sw.bb30
+    i8 70, label %sw.bb30
+    i8 101, label %sw.bb43
+    i8 69, label %sw.bb43
+    i8 110, label %sw.bb62
+    i8 103, label %sw.bb62
+    i8 71, label %sw.bb62
   ]
 
 sw.bb29:                                          ; preds = %sw.epilog
@@ -2984,7 +2984,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef %start_buffer, ptr nocapture noundef %end_buffer) local_unnamed_addr #21 {
 entry:
   %0 = load ptr, ptr %end_buffer, align 8, !tbaa !50
@@ -3451,7 +3451,7 @@ attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { noreturn }

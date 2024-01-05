@@ -2389,14 +2389,13 @@ define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_st
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry
@@ -2431,29 +2430,25 @@ for.body.i.i.i.i:                                 ; preds = %sw.bb6, %_ZSt8_Dest
   %__first.addr.0.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit ], [ %4, %sw.bb6 ]
   %_M_index.i4.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__first.addr.0.i.i.i.i16, i64 0, i32 1
   %6 = load i8, ptr %_M_index.i4.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i8 %6, -1
-  br i1 %cmp.i.i.i.not, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
-  %conv.i.i.i.i = sext i8 %6 to i64
-  switch i64 %conv.i.i.i.i, label %sw.default.i.i.i [
-    i64 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
-    i64 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
-    i64 2, label %sw.bb3.i.i.i
-    i64 3, label %sw.bb4.i.i.i
-    i64 4, label %sw.bb5.i.i.i
-    i64 5, label %sw.bb6.i.i.i
+  switch i8 %6, label %sw.default.i.i.i [
+    i8 -1, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit
+    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
+    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
+    i8 2, label %sw.bb3.i.i.i
+    i8 3, label %sw.bb4.i.i.i
+    i8 4, label %sw.bb5.i.i.i
+    i8 5, label %sw.bb6.i.i.i
   ]
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i.i.i
+sw.bb3.i.i.i:                                     ; preds = %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.i.i.i.i16) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
 
-sw.bb4.i.i.i:                                     ; preds = %if.end.i.i.i
+sw.bb4.i.i.i:                                     ; preds = %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.i.i.i.i16) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
 
-sw.bb5.i.i.i:                                     ; preds = %if.end.i.i.i
+sw.bb5.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i.i.i16, i64 16
   %7 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.0.i.i.i.i16, ptr noundef %7)
@@ -2466,7 +2461,7 @@ terminate.lpad.i.i:                               ; preds = %sw.bb5.i.i.i
   tail call void @__clang_call_terminate(ptr %9) #33
   unreachable
 
-sw.bb6.i.i.i:                                     ; preds = %if.end.i.i.i
+sw.bb6.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %10 = load ptr, ptr %__first.addr.0.i.i.i.i16, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %__first.addr.0.i.i.i.i16, i64 0, i32 1
   %11 = load ptr, ptr %_M_finish.i, align 8
@@ -2493,10 +2488,10 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN9gr
   tail call void @_ZdlPv(ptr noundef nonnull %12) #35
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i
 
-sw.default.i.i.i:                                 ; preds = %if.end.i.i.i
+sw.default.i.i.i:                                 ; preds = %for.body.i.i.i.i
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %if.then.i.i.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i, %sw.bb5.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i, %if.then.i.i.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i, %sw.bb5.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i
   store i8 -1, ptr %_M_index.i4.i.i, align 8
   br label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit
 
@@ -2506,11 +2501,11 @@ _ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit: ; preds = %for.body.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i.loopexit, label %for.body.i.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i.loopexit: ; preds = %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit
-  %.pre18 = load ptr, ptr %__variants, align 8
+  %.pre17 = load ptr, ptr %__variants, align 8
   br label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i
 
 _ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i.loopexit, %sw.bb6
-  %13 = phi ptr [ %.pre18, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i.loopexit ], [ %4, %sw.bb6 ]
+  %13 = phi ptr [ %.pre17, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i.i.loopexit ], [ %4, %sw.bb6 ]
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.then.i.i.i.i
 
@@ -2712,15 +2707,14 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -3247,15 +3241,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -3350,29 +3343,25 @@ define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9mon
 entry:
   %_M_index.i4 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i4, align 8
-  %cmp.i.not = icmp eq i8 %0, -1
-  br i1 %cmp.i.not, label %invoke.cont, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %conv.i.i = sext i8 %0 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %.noexc
-    i64 1, label %.noexc
-    i64 2, label %sw.bb3.i
-    i64 3, label %sw.bb4.i
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
+  switch i8 %0, label %sw.default.i [
+    i8 -1, label %invoke.cont
+    i8 0, label %.noexc
+    i8 1, label %.noexc
+    i8 2, label %sw.bb3.i
+    i8 3, label %sw.bb4.i
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
   ]
 
-sw.bb3.i:                                         ; preds = %if.end.i
+sw.bb3.i:                                         ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #32
   br label %.noexc
 
-sw.bb4.i:                                         ; preds = %if.end.i
+sw.bb4.i:                                         ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #32
   br label %.noexc
 
-sw.bb5.i:                                         ; preds = %if.end.i
+sw.bb5.i:                                         ; preds = %entry
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1)
@@ -3385,7 +3374,7 @@ terminate.lpad.i.i:                               ; preds = %sw.bb5.i
   tail call void @__clang_call_terminate(ptr %3) #33
   unreachable
 
-sw.bb6.i:                                         ; preds = %if.end.i
+sw.bb6.i:                                         ; preds = %entry
   %4 = load ptr, ptr %this, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %5 = load ptr, ptr %_M_finish.i, align 8
@@ -3412,14 +3401,14 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN9gr
   tail call void @_ZdlPv(ptr noundef nonnull %6) #35
   br label %.noexc
 
-sw.default.i:                                     ; preds = %if.end.i
+sw.default.i:                                     ; preds = %entry
   unreachable
 
-.noexc:                                           ; preds = %sw.bb4.i, %sw.bb3.i, %if.end.i, %if.end.i, %sw.bb5.i, %if.then.i.i.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i
+.noexc:                                           ; preds = %entry, %entry, %sw.bb4.i, %sw.bb3.i, %sw.bb5.i, %if.then.i.i.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_.exit.i
   store i8 -1, ptr %_M_index.i4, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %.noexc, %entry
+invoke.cont:                                      ; preds = %entry, %.noexc
   ret void
 }
 
@@ -3429,15 +3418,14 @@ entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %return
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %return
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -3965,29 +3953,25 @@ define linkonce_odr void @_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_(ptr
 entry:
   %_M_index.i4.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__pointer, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i4.i, align 8
-  %cmp.i.i.not = icmp eq i8 %0, -1
-  br i1 %cmp.i.i.not, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %entry
-  %conv.i.i.i = sext i8 %0 to i64
-  switch i64 %conv.i.i.i, label %sw.default.i.i [
-    i64 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
-    i64 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
-    i64 2, label %sw.bb3.i.i
-    i64 3, label %sw.bb4.i.i
-    i64 4, label %sw.bb5.i.i
-    i64 5, label %sw.bb6.i.i
+  switch i8 %0, label %sw.default.i.i [
+    i8 -1, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev.exit
+    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
+    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
+    i8 2, label %sw.bb3.i.i
+    i8 3, label %sw.bb4.i.i
+    i8 4, label %sw.bb5.i.i
+    i8 5, label %sw.bb6.i.i
   ]
 
-sw.bb3.i.i:                                       ; preds = %if.end.i.i
+sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__pointer) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
 
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
+sw.bb4.i.i:                                       ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__pointer) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
 
-sw.bb5.i.i:                                       ; preds = %if.end.i.i
+sw.bb5.i.i:                                       ; preds = %entry
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %__pointer, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %__pointer, ptr noundef %1)
@@ -4000,7 +3984,7 @@ terminate.lpad.i.i:                               ; preds = %sw.bb5.i.i
   tail call void @__clang_call_terminate(ptr %3) #33
   unreachable
 
-sw.bb6.i.i:                                       ; preds = %if.end.i.i
+sw.bb6.i.i:                                       ; preds = %entry
   %4 = load ptr, ptr %__pointer, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %__pointer, i64 0, i32 1
   %5 = load ptr, ptr %_M_finish.i, align 8
@@ -4027,10 +4011,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #35
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i
 
-sw.default.i.i:                                   ; preds = %if.end.i.i
+sw.default.i.i:                                   ; preds = %entry
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i: ; preds = %if.then.i.i.i, %invoke.cont.i, %sw.bb5.i.i, %if.end.i.i, %if.end.i.i, %sw.bb4.i.i, %sw.bb3.i.i
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_.exit.i: ; preds = %entry, %entry, %if.then.i.i.i, %invoke.cont.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i
   store i8 -1, ptr %_M_index.i4.i, align 8
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev.exit
 
@@ -4052,15 +4036,14 @@ entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %sw.bb2
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
-    i64 -1, label %sw.bb12
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb2
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
+    i8 -1, label %sw.bb12
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -16326,12 +16309,11 @@ define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_st
 entry:
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.542", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %sw.bb
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %entry

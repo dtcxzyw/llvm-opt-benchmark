@@ -534,20 +534,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %143, %sw.epilog354 ]
   %3 = phi ptr [ %0, %while.body.lr.ph ], [ %144, %sw.epilog354 ]
   %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 107, label %sw.bb
-    i32 75, label %sw.bb
-    i32 84, label %sw.bb75
-    i32 100, label %sw.bb120
-    i32 78, label %sw.bb166
-    i32 110, label %sw.bb166
-    i32 80, label %sw.bb207
-    i32 109, label %sw.bb281
-    i32 98, label %sw.bb281
-    i32 114, label %sw.bb281
-    i32 105, label %sw.bb293
-    i32 97, label %sw.bb322
+  switch i8 %4, label %sw.default [
+    i8 107, label %sw.bb
+    i8 75, label %sw.bb
+    i8 84, label %sw.bb75
+    i8 100, label %sw.bb120
+    i8 78, label %sw.bb166
+    i8 110, label %sw.bb166
+    i8 80, label %sw.bb207
+    i8 109, label %sw.bb281
+    i8 98, label %sw.bb281
+    i8 114, label %sw.bb281
+    i8 105, label %sw.bb293
+    i8 97, label %sw.bb322
   ]
 
 sw.bb:                                            ; preds = %while.body, %while.body
@@ -1318,12 +1317,11 @@ sw.bb207:                                         ; preds = %while.body
   %incdec.ptr.i243 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %incdec.ptr.i243, ptr %m_DataIt, align 8
   %68 = load i8, ptr %incdec.ptr.i243, align 1
-  %conv212 = sext i8 %68 to i32
-  switch i32 %conv212, label %sw.epilog269 [
-    i32 114, label %sw.bb213
-    i32 109, label %sw.bb223
-    i32 115, label %sw.bb233
-    i32 99, label %sw.bb243
+  switch i8 %68, label %sw.epilog269 [
+    i8 114, label %sw.bb213
+    i8 109, label %sw.bb223
+    i8 115, label %sw.bb233
+    i8 99, label %sw.bb243
   ]
 
 sw.bb213:                                         ; preds = %sw.bb207

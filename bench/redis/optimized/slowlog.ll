@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [44 x i8] c"count should be greater than or equal to -1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @slowlogCreateEntry(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #7
   %cmp = icmp sgt i32 %argc, 32
@@ -102,12 +102,11 @@ land.lhs.true34:                                  ; preds = %land.lhs.true20, %l
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = and i8 %3, 7
-  %and.i = zext nneg i8 %4 to i32
-  switch i32 %and.i, label %if.else55 [
-    i32 4, label %sw.bb13.i
-    i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
+  switch i8 %4, label %if.else55 [
+    i8 4, label %sw.bb13.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb9.i
   ]
 
 sw.bb3.i:                                         ; preds = %land.lhs.true34

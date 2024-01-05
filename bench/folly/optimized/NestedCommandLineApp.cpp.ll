@@ -5747,17 +5747,16 @@ if.end11:                                         ; preds = %sw.default, %sw.bb9
   %uval.0 = phi i8 [ %sub, %if.then3 ], [ %1, %sw.default ], [ %1, %sw.bb9 ], [ %1, %if.else ]
   call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %valBuf) #32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %valBufEnd) #32
-  %conv12 = sext i8 %spec.store.select to i32
-  switch i32 %conv12, label %sw.default119 [
-    i32 110, label %sw.bb13
-    i32 100, label %sw.bb23
-    i32 99, label %sw.bb40
-    i32 111, label %sw.bb54
-    i32 79, label %sw.bb54
-    i32 120, label %sw.bb68
-    i32 88, label %sw.bb85
-    i32 98, label %sw.bb102
-    i32 66, label %sw.bb102
+  switch i8 %spec.store.select, label %sw.default119 [
+    i8 110, label %sw.bb13
+    i8 100, label %sw.bb23
+    i8 99, label %sw.bb40
+    i8 111, label %sw.bb54
+    i8 79, label %sw.bb54
+    i8 120, label %sw.bb68
+    i8 88, label %sw.bb85
+    i8 98, label %sw.bb102
+    i8 66, label %sw.bb102
   ]
 
 sw.bb13:                                          ; preds = %if.end11

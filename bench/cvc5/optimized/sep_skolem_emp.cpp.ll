@@ -953,10 +953,9 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %19, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %land.lhs.true [
-    i32 238, label %if.then17
-    i32 352, label %if.end150
+  switch i16 %bf.clear.i, label %land.lhs.true [
+    i16 238, label %if.then17
+    i16 352, label %if.end150
   ]
 
 if.then17:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -1396,6 +1395,7 @@ ehcleanup76:                                      ; preds = %ehcleanup73, %ehcle
   br label %ehcleanup159
 
 land.lhs.true:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %cmp.i.i.i.i.i266 = icmp eq i16 %bf.clear.i, 1023
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i266, i32 -1, i32 %bf.cast.i
   %call2.i.i.i269 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i)

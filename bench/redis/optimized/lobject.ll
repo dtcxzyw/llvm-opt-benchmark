@@ -285,14 +285,13 @@ if.end8:                                          ; preds = %if.then7, %if.end
   store ptr %incdec.ptr, ptr %top.i, align 8, !tbaa !20
   %add.ptr = getelementptr inbounds i8, ptr %call251, i64 1
   %9 = load i8, ptr %add.ptr, align 1, !tbaa !7
-  %conv = sext i8 %9 to i32
-  switch i32 %conv, label %sw.default [
-    i32 115, label %sw.bb
-    i32 99, label %sw.bb14
-    i32 100, label %sw.bb28
-    i32 102, label %sw.bb57
-    i32 112, label %sw.bb82
-    i32 37, label %sw.bb98
+  switch i8 %9, label %sw.default [
+    i8 115, label %sw.bb
+    i8 99, label %sw.bb14
+    i8 100, label %sw.bb28
+    i8 102, label %sw.bb57
+    i8 112, label %sw.bb82
+    i8 37, label %sw.bb98
   ]
 
 sw.bb:                                            ; preds = %if.end8

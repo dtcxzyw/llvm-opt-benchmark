@@ -1283,24 +1283,23 @@ entry:
   %bf.load3 = load i8, ptr %category2, align 2
   %bf.clear4 = and i8 %bf.load3, 7
   %narrow = add nuw nsw i8 %0, %bf.clear4
-  %add = zext nneg i8 %narrow to i32
-  switch i32 %add, label %sw.default [
-    i32 7, label %return
-    i32 6, label %return
-    i32 4, label %return
-    i32 5, label %return
-    i32 13, label %return
-    i32 9, label %return
-    i32 1, label %return
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb6
-    i32 11, label %sw.bb6
-    i32 8, label %sw.bb10
-    i32 12, label %sw.bb10
-    i32 14, label %sw.bb10
-    i32 0, label %sw.bb19
-    i32 15, label %sw.bb40
-    i32 10, label %sw.epilog
+  switch i8 %narrow, label %sw.default [
+    i8 7, label %return
+    i8 6, label %return
+    i8 4, label %return
+    i8 5, label %return
+    i8 13, label %return
+    i8 9, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb6
+    i8 3, label %sw.bb6
+    i8 11, label %sw.bb6
+    i8 8, label %sw.bb10
+    i8 12, label %sw.bb10
+    i8 14, label %sw.bb10
+    i8 0, label %sw.bb19
+    i8 15, label %sw.bb40
+    i8 10, label %sw.epilog
   ]
 
 sw.default:                                       ; preds = %entry
@@ -1686,7 +1685,7 @@ if.then29:                                        ; preds = %if.end27
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit.thread
 
 if.end.i.i.i:                                     ; preds = %if.then29
-  %add.i.i.i = add nuw i32 %call.i.i.i, 1
+  %add.i.i.i = add nuw nsw i32 %call.i.i.i, 1
   %cmp1.i.i.i = icmp eq i32 %add.i.i.i, %spec.select
   br i1 %cmp1.i.i.i, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit, label %if.end3.i.i.i
 
@@ -2469,7 +2468,7 @@ if.then52:                                        ; preds = %land.lhs.true44
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4llvhL10shiftRightEPmjj.exit
 
 if.end.i.i:                                       ; preds = %if.then52
-  %add.i.i = add nuw i32 %call.i.i, 1
+  %add.i.i = add nuw nsw i32 %call.i.i, 1
   %cmp1.i.i = icmp eq i32 %add.i.i, %sub54
   br i1 %cmp1.i.i, label %_ZN4llvhL10shiftRightEPmjj.exit, label %if.end3.i.i
 
@@ -3023,7 +3022,7 @@ if.then57:                                        ; preds = %if.else55
   br i1 %cmp.not.i.i.i106, label %if.end.i.i.i108, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit119
 
 if.end.i.i.i108:                                  ; preds = %if.then57
-  %add.i.i.i109 = add nuw i32 %call.i.i.i105, 1
+  %add.i.i.i109 = add nuw nsw i32 %call.i.i.i105, 1
   %cmp1.i.i.i110 = icmp eq i32 %add.i.i.i109, %sub
   br i1 %cmp1.i.i.i110, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit119, label %if.end3.i.i.i111
 
@@ -3098,7 +3097,7 @@ if.else61:                                        ; preds = %if.else55
   br i1 %cmp.not.i.i.i147, label %if.end.i.i.i149, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit160
 
 if.end.i.i.i149:                                  ; preds = %if.else61
-  %add.i.i.i150 = add nuw i32 %call.i.i.i146, 1
+  %add.i.i.i150 = add nuw nsw i32 %call.i.i.i146, 1
   %cmp1.i.i.i151 = icmp eq i32 %add.i.i.i150, %sub62
   br i1 %cmp1.i.i.i151, label %_ZN4llvh6detail9IEEEFloat21shiftSignificandRightEj.exit160, label %if.end3.i.i.i152
 
@@ -3545,24 +3544,23 @@ entry:
   %bf.load3 = load i8, ptr %category2, align 2
   %bf.clear4 = and i8 %bf.load3, 7
   %narrow = add nuw nsw i8 %0, %bf.clear4
-  %add = zext nneg i8 %narrow to i32
-  switch i32 %add, label %sw.default [
-    i32 7, label %return
-    i32 6, label %return
-    i32 4, label %return
-    i32 5, label %return
-    i32 11, label %return
-    i32 2, label %return
-    i32 3, label %return
-    i32 13, label %sw.bb6
-    i32 9, label %sw.bb6
-    i32 1, label %sw.bb6
-    i32 8, label %sw.bb17
-    i32 12, label %sw.bb17
-    i32 14, label %sw.bb36
-    i32 15, label %return
-    i32 0, label %sw.bb52
-    i32 10, label %sw.bb68
+  switch i8 %narrow, label %sw.default [
+    i8 7, label %return
+    i8 6, label %return
+    i8 4, label %return
+    i8 5, label %return
+    i8 11, label %return
+    i8 2, label %return
+    i8 3, label %return
+    i8 13, label %sw.bb6
+    i8 9, label %sw.bb6
+    i8 1, label %sw.bb6
+    i8 8, label %sw.bb17
+    i8 12, label %sw.bb17
+    i8 14, label %sw.bb36
+    i8 15, label %return
+    i8 0, label %sw.bb52
+    i8 10, label %sw.bb68
   ]
 
 sw.default:                                       ; preds = %entry
@@ -3723,24 +3721,23 @@ entry:
   %bf.load3 = load i8, ptr %category2, align 2
   %bf.clear4 = and i8 %bf.load3, 7
   %narrow = add nuw nsw i8 %0, %bf.clear4
-  %add = zext nneg i8 %narrow to i32
-  switch i32 %add, label %sw.default [
-    i32 7, label %sw.bb
-    i32 6, label %sw.bb
-    i32 4, label %sw.bb
-    i32 5, label %sw.bb
-    i32 13, label %sw.bb8
-    i32 9, label %sw.bb8
-    i32 1, label %sw.bb8
-    i32 8, label %sw.bb17
-    i32 2, label %sw.bb17
-    i32 0, label %sw.bb17
-    i32 14, label %sw.bb22
-    i32 11, label %sw.bb22
-    i32 15, label %sw.bb22
-    i32 12, label %sw.bb27
-    i32 3, label %sw.bb27
-    i32 10, label %return
+  switch i8 %narrow, label %sw.default [
+    i8 7, label %sw.bb
+    i8 6, label %sw.bb
+    i8 4, label %sw.bb
+    i8 5, label %sw.bb
+    i8 13, label %sw.bb8
+    i8 9, label %sw.bb8
+    i8 1, label %sw.bb8
+    i8 8, label %sw.bb17
+    i8 2, label %sw.bb17
+    i8 0, label %sw.bb17
+    i8 14, label %sw.bb22
+    i8 11, label %sw.bb22
+    i8 15, label %sw.bb22
+    i8 12, label %sw.bb27
+    i8 3, label %sw.bb27
+    i8 10, label %return
   ]
 
 sw.default:                                       ; preds = %entry
@@ -3832,24 +3829,23 @@ entry:
   %bf.load3 = load i8, ptr %category2, align 2
   %bf.clear4 = and i8 %bf.load3, 7
   %narrow = add nuw nsw i8 %0, %bf.clear4
-  %add = zext nneg i8 %narrow to i32
-  switch i32 %add, label %sw.default [
-    i32 13, label %sw.bb
-    i32 9, label %sw.bb
-    i32 1, label %sw.bb
-    i32 7, label %sw.bb9
-    i32 6, label %sw.bb9
-    i32 4, label %sw.bb9
-    i32 5, label %sw.bb9
-    i32 3, label %return
-    i32 2, label %return
-    i32 12, label %return
-    i32 14, label %return
-    i32 8, label %sw.bb14
-    i32 11, label %sw.bb19
-    i32 0, label %sw.bb24
-    i32 15, label %sw.bb24
-    i32 10, label %return
+  switch i8 %narrow, label %sw.default [
+    i8 13, label %sw.bb
+    i8 9, label %sw.bb
+    i8 1, label %sw.bb
+    i8 7, label %sw.bb9
+    i8 6, label %sw.bb9
+    i8 4, label %sw.bb9
+    i8 5, label %sw.bb9
+    i8 3, label %return
+    i8 2, label %return
+    i8 12, label %return
+    i8 14, label %return
+    i8 8, label %sw.bb14
+    i8 11, label %sw.bb19
+    i8 0, label %sw.bb24
+    i8 15, label %sw.bb24
+    i8 10, label %return
   ]
 
 sw.default:                                       ; preds = %entry
@@ -3943,24 +3939,23 @@ entry:
   %bf.load3 = load i8, ptr %category2, align 2
   %bf.clear4 = and i8 %bf.load3, 7
   %narrow = add nuw nsw i8 %0, %bf.clear4
-  %add = zext nneg i8 %narrow to i32
-  switch i32 %add, label %sw.default [
-    i32 7, label %return
-    i32 6, label %return
-    i32 4, label %return
-    i32 5, label %return
-    i32 12, label %return
-    i32 14, label %return
-    i32 8, label %return
-    i32 13, label %sw.bb6
-    i32 9, label %sw.bb6
-    i32 1, label %sw.bb6
-    i32 11, label %sw.bb13
-    i32 3, label %sw.bb13
-    i32 2, label %sw.bb13
-    i32 0, label %sw.bb13
-    i32 15, label %sw.bb13
-    i32 10, label %return
+  switch i8 %narrow, label %sw.default [
+    i8 7, label %return
+    i8 6, label %return
+    i8 4, label %return
+    i8 5, label %return
+    i8 12, label %return
+    i8 14, label %return
+    i8 8, label %return
+    i8 13, label %sw.bb6
+    i8 9, label %sw.bb6
+    i8 1, label %sw.bb6
+    i8 11, label %sw.bb13
+    i8 3, label %sw.bb13
+    i8 2, label %sw.bb13
+    i8 0, label %sw.bb13
+    i8 15, label %sw.bb13
+    i8 10, label %return
   ]
 
 sw.default:                                       ; preds = %entry
@@ -7096,12 +7091,11 @@ if.end:                                           ; preds = %if.then, %entry
   %bf.load2 = phi i8 [ %bf.load2.pre, %if.then ], [ %bf.load, %entry ]
   %dst.addr.0 = phi ptr [ %incdec.ptr, %if.then ], [ %dst, %entry ]
   %bf.clear3 = and i8 %bf.load2, 7
-  %bf.cast4 = zext nneg i8 %bf.clear3 to i32
-  switch i32 %bf.cast4, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb6
-    i32 3, label %sw.bb14
-    i32 2, label %sw.bb28
+  switch i8 %bf.clear3, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb6
+    i8 3, label %sw.bb14
+    i8 2, label %sw.bb28
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -9590,7 +9584,7 @@ return:                                           ; preds = %if.else36.i, %if.th
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh6detail9IEEEFloat11makeLargestEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %Negative) local_unnamed_addr #12 align 2 {
 entry:
   %category = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 3
@@ -9884,11 +9878,10 @@ entry:
   %category = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 3
   %bf.load = load i8, ptr %category, align 2
   %bf.clear = and i8 %bf.load, 7
-  %bf.cast = zext nneg i8 %bf.clear to i32
-  switch i32 %bf.cast, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %_ZN4llvh9StringRefC2EPKc.exit265
-    i32 3, label %sw.bb5
+  switch i8 %bf.clear, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %_ZN4llvh9StringRefC2EPKc.exit265
+    i8 3, label %sw.bb5
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -11798,12 +11791,11 @@ if.end:                                           ; preds = %entry, %if.then
   %bf.load = phi i8 [ %bf.set.i, %if.then ], [ %bf.load.i, %entry ]
   %category = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 3
   %bf.clear = and i8 %bf.load, 7
-  %bf.cast = zext nneg i8 %bf.clear to i32
-  switch i32 %bf.cast, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit
-    i32 3, label %sw.bb9
-    i32 2, label %sw.bb10
+  switch i8 %bf.clear, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit
+    i8 3, label %sw.bb9
+    i8 2, label %sw.bb10
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -11938,8 +11930,8 @@ _ZNK4llvh6detail9IEEEFloat10isSmallestEv.exit:    ; preds = %land.lhs.true.i
   %bf.load.i.i.i.i44.pre = load i8, ptr %category, align 2
   %30 = and i8 %bf.load.i.i.i.i44.pre, 8
   %tobool.i39.not = icmp eq i8 %30, 0
-  %or.cond175 = select i1 %cmp4.i, i1 true, i1 %tobool.i39.not
-  br i1 %or.cond175, label %if.end19, label %if.then13
+  %or.cond174 = select i1 %cmp4.i, i1 true, i1 %tobool.i39.not
+  br i1 %or.cond174, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat10isSmallestEv.exit
   %31 = load ptr, ptr %this, align 8
@@ -11974,7 +11966,7 @@ land.lhs.true.i48:                                ; preds = %if.end19
   %38 = load i16, ptr %exponent.i49, align 8
   %39 = load i16, ptr %37, align 4
   %cmp.i50 = icmp eq i16 %38, %39
-  br i1 %cmp.i50, label %land.rhs.i51, label %if.end32.thread147
+  br i1 %cmp.i50, label %land.rhs.i51, label %if.end32.thread146
 
 land.rhs.i51:                                     ; preds = %land.lhs.true.i48
   %precision.i.i.i.i.i52 = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %37, i64 0, i32 2
@@ -12034,54 +12026,54 @@ if.then23:                                        ; preds = %_ZNK4llvh6detail9IE
   br label %sw.epilog
 
 if.end32.loopexit:                                ; preds = %for.body.i.i
-  %.pre160 = and i8 %bf.load.i.i.i.i44, 8
+  %.pre159 = and i8 %bf.load.i.i.i.i44, 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.loopexit, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit
-  %.pre-phi = phi i8 [ %.pre160, %if.end32.loopexit ], [ %45, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit ]
+  %.pre-phi = phi i8 [ %.pre159, %if.end32.loopexit ], [ %45, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit ]
   %tobool.i71.not = icmp eq i8 %.pre-phi, 0
   br i1 %tobool.i71.not, label %land.lhs.true.i98, label %if.then34
 
-if.end32.thread147:                               ; preds = %land.lhs.true.i48
+if.end32.thread146:                               ; preds = %land.lhs.true.i48
   %48 = and i8 %bf.load.i.i.i.i44, 8
-  %tobool.i71148.not = icmp eq i8 %48, 0
-  br i1 %tobool.i71148.not, label %land.lhs.true.i98, label %if.then34
+  %tobool.i71147.not = icmp eq i8 %48, 0
+  br i1 %tobool.i71147.not, label %land.lhs.true.i98, label %if.then34
 
 if.end32.thread:                                  ; preds = %if.end19
   %49 = and i8 %bf.load.i.i.i.i44, 8
-  %tobool.i71146.not = icmp eq i8 %49, 0
-  br i1 %tobool.i71146.not, label %land.rhs51, label %if.end32.thread.if.then34_crit_edge
+  %tobool.i71145.not = icmp eq i8 %49, 0
+  br i1 %tobool.i71145.not, label %land.rhs51, label %if.end32.thread.if.then34_crit_edge
 
 if.end32.thread.if.then34_crit_edge:              ; preds = %if.end32.thread
   %exponent35.phi.trans.insert = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 2
   %.pre = load i16, ptr %exponent35.phi.trans.insert, align 8
   br label %if.then34
 
-if.then34:                                        ; preds = %if.end32.thread.if.then34_crit_edge, %if.end32.thread147, %if.end32
-  %50 = phi i16 [ %.pre, %if.end32.thread.if.then34_crit_edge ], [ %38, %if.end32.thread147 ], [ %38, %if.end32 ]
+if.then34:                                        ; preds = %if.end32.thread.if.then34_crit_edge, %if.end32.thread146, %if.end32
+  %50 = phi i16 [ %.pre, %if.end32.thread.if.then34_crit_edge ], [ %38, %if.end32.thread146 ], [ %38, %if.end32 ]
   %exponent35 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 2
   %minExponent = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %37, i64 0, i32 1
   %51 = load i16, ptr %minExponent, align 2
   %cmp.not = icmp eq i16 %50, %51
   %precision.i.i86.phi.trans.insert = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %37, i64 0, i32 2
-  %.pre153 = load i32, ptr %precision.i.i86.phi.trans.insert, align 4
+  %.pre152 = load i32, ptr %precision.i.i86.phi.trans.insert, align 4
   br i1 %cmp.not, label %if.then34.land.end_crit_edge, label %land.rhs
 
 if.then34.land.end_crit_edge:                     ; preds = %if.then34
   %significand.i88.phi.trans.insert = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 1
-  %.pre154 = load ptr, ptr %significand.i88.phi.trans.insert, align 8
-  %.pre165 = add i32 %.pre153, -64
-  %.pre167 = add i32 %.pre153, 64
-  %.pre168 = lshr i32 %.pre167, 6
+  %.pre153 = load ptr, ptr %significand.i88.phi.trans.insert, align 8
+  %.pre164 = add i32 %.pre152, -64
+  %.pre166 = add i32 %.pre152, 64
+  %.pre167 = lshr i32 %.pre166, 6
   br label %land.end.thread
 
 land.rhs:                                         ; preds = %if.then34
-  %52 = add i32 %.pre153, -64
+  %52 = add i32 %.pre152, -64
   %cmp.i.i.i73 = icmp ult i32 %52, -128
   %significand.i.i.i74 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 1
   %53 = load ptr, ptr %significand.i.i.i74, align 8
   %retval.0.i.i.i75 = select i1 %cmp.i.i.i73, ptr %53, ptr %significand.i.i.i74
-  %sub.i.i.i76 = add i32 %.pre153, 64
+  %sub.i.i.i76 = add i32 %.pre152, 64
   %div1.i.i.i77 = lshr i32 %sub.i.i.i76, 6
   %sub.i78 = add nsw i32 %div1.i.i.i77, -1
   %cmp7.not.i = icmp eq i32 %sub.i78, 0
@@ -12104,19 +12096,19 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %tobool.not.i80, label %for.cond.i, label %land.end.thread
 
 land.end.thread:                                  ; preds = %for.body.i, %if.then34.land.end_crit_edge
-  %div1.i.i92.pre-phi.ph = phi i32 [ %.pre168, %if.then34.land.end_crit_edge ], [ %div1.i.i.i77, %for.body.i ]
-  %.pre-phi166.ph = phi i32 [ %.pre165, %if.then34.land.end_crit_edge ], [ %52, %for.body.i ]
-  %.ph = phi ptr [ %.pre154, %if.then34.land.end_crit_edge ], [ %53, %for.body.i ]
-  %cmp.i87171 = icmp ult i32 %.pre-phi166.ph, -128
-  %significand.i88172 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 1
-  %retval.0.i89173 = select i1 %cmp.i87171, ptr %.ph, ptr %significand.i88172
-  %call.i174 = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i89173, i64 noundef 1, i32 noundef %div1.i.i92.pre-phi.ph) #26
+  %div1.i.i92.pre-phi.ph = phi i32 [ %.pre167, %if.then34.land.end_crit_edge ], [ %div1.i.i.i77, %for.body.i ]
+  %.pre-phi165.ph = phi i32 [ %.pre164, %if.then34.land.end_crit_edge ], [ %52, %for.body.i ]
+  %.ph = phi ptr [ %.pre153, %if.then34.land.end_crit_edge ], [ %53, %for.body.i ]
+  %cmp.i87170 = icmp ult i32 %.pre-phi165.ph, -128
+  %significand.i88171 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 1
+  %retval.0.i89172 = select i1 %cmp.i87170, ptr %.ph, ptr %significand.i88171
+  %call.i173 = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i89172, i64 noundef 1, i32 noundef %div1.i.i92.pre-phi.ph) #26
   br label %sw.epilog
 
 land.end:                                         ; preds = %for.cond.i, %land.rhs
   %idxprom5.pre-phi.i = phi i64 [ 0, %land.rhs ], [ %wide.trip.count.i, %for.cond.i ]
   %mul.i82 = and i32 %sub.i.i.i76, -64
-  %reass.sub = sub i32 %mul.i82, %.pre153
+  %reass.sub = sub i32 %mul.i82, %.pre152
   %add.i83 = add i32 %reass.sub, 1
   %sh_prom.i84 = zext nneg i32 %add.i83 to i64
   %shr.i85 = lshr i64 -1, %sh_prom.i84
@@ -12141,7 +12133,7 @@ if.then45:                                        ; preds = %land.end
   store i16 %dec, ptr %exponent35, align 8
   br label %sw.epilog
 
-land.lhs.true.i98:                                ; preds = %if.end32, %if.end32.thread147
+land.lhs.true.i98:                                ; preds = %if.end32, %if.end32.thread146
   %minExponent.i100 = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %37, i64 0, i32 1
   %59 = load i16, ptr %minExponent.i100, align 2
   %cmp.i101 = icmp eq i16 %38, %59
@@ -12158,20 +12150,20 @@ _ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit:    ; preds = %land.lhs.true.i98
   %sub.i106 = add i32 %60, -1
   %call5.i = tail call noundef i32 @_ZN4llvh5APInt12tcExtractBitEPKmj(ptr noundef %retval.0.i.i.i105, i32 noundef %sub.i106) #26
   %cmp6.i = icmp eq i32 %call5.i, 0
-  %.pre157 = load ptr, ptr %this, align 8
+  %.pre156 = load ptr, ptr %this, align 8
   br i1 %cmp6.i, label %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge, label %land.rhs51
 
 _ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge: ; preds = %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit
-  %precision.i.i.i135.phi.trans.insert = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %.pre157, i64 0, i32 2
-  %.pre158 = load i32, ptr %precision.i.i.i135.phi.trans.insert, align 4
-  %.pre159 = load ptr, ptr %significand.i.i.i104, align 8
-  %.pre161 = add i32 %.pre158, -64
-  %.pre163 = add i32 %.pre158, 64
-  %.pre164 = lshr i32 %.pre163, 6
+  %precision.i.i.i135.phi.trans.insert = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %.pre156, i64 0, i32 2
+  %.pre157 = load i32, ptr %precision.i.i.i135.phi.trans.insert, align 4
+  %.pre158 = load ptr, ptr %significand.i.i.i104, align 8
+  %.pre160 = add i32 %.pre157, -64
+  %.pre162 = add i32 %.pre157, 64
+  %.pre163 = lshr i32 %.pre162, 6
   br label %if.else64
 
 land.rhs51:                                       ; preds = %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit, %if.end32.thread, %land.lhs.true.i98
-  %63 = phi ptr [ %37, %if.end32.thread ], [ %37, %land.lhs.true.i98 ], [ %.pre157, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit ]
+  %63 = phi ptr [ %37, %if.end32.thread ], [ %37, %land.lhs.true.i98 ], [ %.pre156, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit ]
   %precision.i.i.i.i107 = getelementptr inbounds %"struct.llvh::fltSemantics", ptr %63, i64 0, i32 2
   %64 = load i32, ptr %precision.i.i.i.i107, align 4
   %65 = add i32 %64, -64
@@ -12228,10 +12220,10 @@ if.then56:                                        ; preds = %_ZNK4llvh6detail9IE
   br label %sw.epilog
 
 if.else64:                                        ; preds = %for.body.i117, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit
-  %div1.i.i.i140.pre-phi = phi i32 [ %.pre164, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %div1.i.i.i112, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %div1.i.i.i112, %for.body.i117 ]
-  %.pre-phi162 = phi i32 [ %.pre161, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %65, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %65, %for.body.i117 ]
-  %72 = phi ptr [ %.pre159, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %66, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %66, %for.body.i117 ]
-  %cmp.i.i136 = icmp ult i32 %.pre-phi162, -128
+  %div1.i.i.i140.pre-phi = phi i32 [ %.pre163, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %div1.i.i.i112, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %div1.i.i.i112, %for.body.i117 ]
+  %.pre-phi161 = phi i32 [ %.pre160, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %65, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %65, %for.body.i117 ]
+  %72 = phi ptr [ %.pre158, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %66, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %66, %for.body.i117 ]
+  %cmp.i.i136 = icmp ult i32 %.pre-phi161, -128
   %significand.i.i137 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %this, i64 0, i32 1
   %retval.0.i.i138 = select i1 %cmp.i.i136, ptr %72, ptr %significand.i.i137
   %call.i.i = tail call noundef i64 @_ZN4llvh5APInt9tcAddPartEPmmj(ptr noundef %retval.0.i.i138, i64 noundef 1, i32 noundef %div1.i.i.i140.pre-phi) #26
@@ -15315,7 +15307,6 @@ entry:
   %category.i.i.i = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %retval.0.i.i.i, i64 0, i32 3
   %bf.load.i.i.i = load i8, ptr %category.i.i.i, align 2
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 7
-  %bf.cast.i.i.i = zext nneg i8 %bf.clear.i.i.i to i32
   %cmp = icmp eq i8 %bf.clear.i.i.i, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -15336,7 +15327,6 @@ if.end:                                           ; preds = %entry
   %category.i.i.i43 = getelementptr inbounds %"class.llvh::detail::IEEEFloat", ptr %retval.0.i.i.i42, i64 0, i32 3
   %bf.load.i.i.i44 = load i8, ptr %category.i.i.i43, align 2
   %bf.clear.i.i.i45 = and i8 %bf.load.i.i.i44, 7
-  %bf.cast.i.i.i46 = zext nneg i8 %bf.clear.i.i.i45 to i32
   %cmp4 = icmp eq i8 %bf.clear.i.i.i45, 1
   br i1 %cmp4, label %if.then5, label %if.end7
 
@@ -15345,9 +15335,9 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  switch i32 %bf.cast.i.i.i, label %if.end26 [
-    i32 3, label %land.lhs.true
-    i32 0, label %land.lhs.true14
+  switch i8 %bf.clear.i.i.i, label %if.end26 [
+    i8 3, label %land.lhs.true
+    i8 0, label %land.lhs.true14
   ]
 
 land.lhs.true:                                    ; preds = %if.end7
@@ -15367,9 +15357,9 @@ if.then24:                                        ; preds = %land.lhs.true, %lan
   br label %return
 
 if.end26:                                         ; preds = %if.end7
-  switch i32 %bf.cast.i.i.i46, label %if.end34 [
-    i32 3, label %if.then32
-    i32 0, label %if.then32
+  switch i8 %bf.clear.i.i.i45, label %if.end34 [
+    i8 3, label %if.then32
+    i8 0, label %if.then32
   ]
 
 if.then32:                                        ; preds = %if.end26, %if.end26
@@ -18027,12 +18017,11 @@ if.then.i7:                                       ; preds = %if.then.i
 if.end.i8:                                        ; preds = %if.then.i7, %if.then.i
   %dst.addr.0.i = phi ptr [ %incdec.ptr.i, %if.then.i7 ], [ %DST, %if.then.i ]
   %bf.clear3.i = and i8 %bf.load.i, 7
-  %bf.cast4.i = zext nneg i8 %bf.clear3.i to i32
-  switch i32 %bf.cast4.i, label %_ZNK4llvh6detail9IEEEFloat18convertToHexStringEPcjbNS_11APFloatBase12roundingModeE.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb6.i
-    i32 3, label %sw.bb14.i
-    i32 2, label %sw.bb28.i
+  switch i8 %bf.clear3.i, label %_ZNK4llvh6detail9IEEEFloat18convertToHexStringEPcjbNS_11APFloatBase12roundingModeE.exit [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb6.i
+    i8 3, label %sw.bb14.i
+    i8 2, label %sw.bb28.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i8
@@ -22198,7 +22187,7 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(read, inaccessi
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

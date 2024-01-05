@@ -455,10 +455,9 @@ invoke.cont12:                                    ; preds = %if.end
   %6 = getelementptr i8, ptr %call15, i64 %call14
   %arrayidx = getelementptr i8, ptr %6, i64 -1
   %7 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %7 to i32
-  %8 = add nsw i32 %conv, -67
-  %switch.and = and i32 %8, -33
-  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  %8 = add i8 %7, -67
+  %switch.and = and i8 %8, -33
+  %switch.selectcmp = icmp eq i8 %switch.and, 0
   %9 = select i1 %switch.selectcmp, i32 110, i32 200
   %10 = load ptr, ptr %mBuffer, align 8
   invoke void @_ZN6Assimp3ASE6ParserC1EPKcj(ptr noundef nonnull align 8 dereferenceable(180) %parser, ptr noundef %10, i32 noundef %9)

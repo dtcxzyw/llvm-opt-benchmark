@@ -16225,10 +16225,9 @@ if.end:                                           ; preds = %for.body, %_ZNK3smt
   %idxprom.i.i.i.i = zext i32 %shl.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i.i.i.i
   %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %11 to i32
-  switch i32 %conv.i.i.i, label %for.inc [
-    i32 1, label %for.inc.sink.split
-    i32 -1, label %for.inc.sink.split
+  switch i8 %11, label %for.inc [
+    i8 1, label %for.inc.sink.split
+    i8 -1, label %for.inc.sink.split
   ]
 
 for.inc.sink.split:                               ; preds = %if.end, %if.end
@@ -16883,10 +16882,9 @@ invoke.cont59:                                    ; preds = %if.end55
   %idxprom.i.i.i.i = zext i32 %spec.select to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 %idxprom.i.i.i.i
   %47 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %47 to i32
-  switch i32 %conv.i.i.i, label %invoke.cont68 [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb9.i
+  switch i8 %47, label %invoke.cont68 [
+    i8 -1, label %sw.bb.i
+    i8 0, label %sw.bb9.i
   ]
 
 sw.bb.i:                                          ; preds = %invoke.cont59
@@ -32320,10 +32318,9 @@ if.end:                                           ; preds = %for.body, %_ZNK3smt
   %idxprom.i.i.i.i = zext i32 %shl.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i.i.i.i
   %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %11 to i32
-  switch i32 %conv.i.i.i, label %for.inc [
-    i32 1, label %for.inc.sink.split
-    i32 -1, label %for.inc.sink.split
+  switch i8 %11, label %for.inc [
+    i8 1, label %for.inc.sink.split
+    i8 -1, label %for.inc.sink.split
   ]
 
 for.inc.sink.split:                               ; preds = %if.end, %if.end
@@ -32976,10 +32973,9 @@ invoke.cont59:                                    ; preds = %if.end55
   %idxprom.i.i.i.i = zext i32 %spec.select to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 %idxprom.i.i.i.i
   %47 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %47 to i32
-  switch i32 %conv.i.i.i, label %invoke.cont68 [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb9.i
+  switch i8 %47, label %invoke.cont68 [
+    i8 -1, label %sw.bb.i
+    i8 0, label %sw.bb9.i
   ]
 
 sw.bb.i:                                          ; preds = %invoke.cont59
@@ -33725,7 +33721,7 @@ invoke.cont52:                                    ; preds = %if.then51
   %add.i73 = add nsw i32 %50, %49
   store i32 %add.i73, ptr %m_second.i37, align 8
   %51 = trunc i64 %indvars.iv to i32
-  %add = add i32 %51, 1
+  %add = add nuw i32 %51, 1
   %52 = load ptr, ptr %nodes, align 8
   %tobool.not.i = icmp eq ptr %52, null
   br i1 %tobool.not.i, label %_ZN6vectorIiLb0EjE6shrinkEj.exit, label %if.then.i76
@@ -44827,11 +44823,10 @@ if.then33:                                        ; preds = %invoke.cont31
   %idxprom.i62 = zext i32 %65 to i64
   %arrayidx.i63 = getelementptr inbounds i8, ptr %66, i64 %idxprom.i62
   %67 = load i8, ptr %arrayidx.i63, align 1
-  %conv37 = sext i8 %67 to i32
-  switch i32 %conv37, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb51
-    i32 2, label %for.inc
+  switch i8 %67, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb51
+    i8 2, label %for.inc
   ]
 
 sw.bb:                                            ; preds = %if.then33
@@ -49137,11 +49132,10 @@ if.then33:                                        ; preds = %lor.rhs.i, %invoke.
   %idxprom.i66 = zext i32 %71 to i64
   %arrayidx.i67 = getelementptr inbounds i8, ptr %72, i64 %idxprom.i66
   %73 = load i8, ptr %arrayidx.i67, align 1
-  %conv37 = sext i8 %73 to i32
-  switch i32 %conv37, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb51
-    i32 2, label %for.inc
+  switch i8 %73, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb51
+    i8 2, label %for.inc
   ]
 
 sw.bb:                                            ; preds = %if.then33

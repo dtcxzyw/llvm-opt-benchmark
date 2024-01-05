@@ -78,7 +78,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL25_UTF7ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #1 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -264,17 +264,16 @@ if.else90:                                        ; preds = %lor.lhs.false63
   br i1 %cmp92, label %if.then93, label %if.else146
 
 if.then93:                                        ; preds = %if.else90
-  %conv94 = sext i8 %base64Counter.2159 to i32
-  switch i32 %conv94, label %if.end165 [
-    i32 -1, label %sw.bb
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb96
-    i32 3, label %sw.bb96
-    i32 4, label %sw.bb96
-    i32 6, label %sw.bb96
-    i32 2, label %sw.bb101
-    i32 5, label %sw.bb118
-    i32 7, label %sw.bb135
+  switch i8 %base64Counter.2159, label %if.end165 [
+    i8 -1, label %sw.bb
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb96
+    i8 3, label %sw.bb96
+    i8 4, label %sw.bb96
+    i8 6, label %sw.bb96
+    i8 2, label %sw.bb101
+    i8 5, label %sw.bb118
+    i8 7, label %sw.bb135
   ]
 
 sw.bb:                                            ; preds = %if.then93, %if.then93
@@ -286,7 +285,7 @@ sw.bb96:                                          ; preds = %if.then93, %if.then
   %shl = shl nuw nsw i32 %conv97, 6
   %or = or i32 %shl, %conv66
   %conv99 = trunc i32 %or to i16
-  %inc100 = add i8 %base64Counter.2159, 1
+  %inc100 = add nuw nsw i8 %base64Counter.2159, 1
   br label %if.end165
 
 sw.bb101:                                         ; preds = %if.then93
@@ -434,7 +433,7 @@ if.end177:                                        ; preds = %land.lhs.true171, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #1 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -693,11 +692,10 @@ if.else99:                                        ; preds = %if.then90
   br label %if.end286.sink.split
 
 if.else105:                                       ; preds = %land.lhs.true69, %if.then65
-  %conv106 = sext i8 %base64Counter.2249 to i32
-  switch i32 %conv106, label %if.end284 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb144
-    i32 2, label %sw.bb216
+  switch i8 %base64Counter.2249, label %if.end284 [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb144
+    i8 2, label %sw.bb216
   ]
 
 sw.bb:                                            ; preds = %if.else105
@@ -1120,7 +1118,7 @@ entry:
 
 declare void @ucnv_getCompleteUnicodeSet_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #1 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -1282,17 +1280,16 @@ cond.end65:                                       ; preds = %if.else54
 if.then70:                                        ; preds = %if.else54, %cond.end65
   %conv68132 = phi i32 [ %conv68, %cond.end65 ], [ 63, %if.else54 ]
   %cond66131 = phi i8 [ %14, %cond.end65 ], [ 63, %if.else54 ]
-  %conv71 = sext i8 %base64Counter.2232 to i32
-  switch i32 %conv71, label %if.end181 [
-    i32 -1, label %sw.bb
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb73
-    i32 3, label %sw.bb73
-    i32 4, label %sw.bb73
-    i32 6, label %sw.bb73
-    i32 2, label %sw.bb78
-    i32 5, label %sw.bb101
-    i32 7, label %sw.bb125
+  switch i8 %base64Counter.2232, label %if.end181 [
+    i8 -1, label %sw.bb
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb73
+    i8 3, label %sw.bb73
+    i8 4, label %sw.bb73
+    i8 6, label %sw.bb73
+    i8 2, label %sw.bb78
+    i8 5, label %sw.bb101
+    i8 7, label %sw.bb125
   ]
 
 sw.bb:                                            ; preds = %if.then70, %if.then70
@@ -1304,7 +1301,7 @@ sw.bb73:                                          ; preds = %if.then70, %if.then
   %shl = shl nuw nsw i32 %conv74, 6
   %or = or i32 %conv68132, %shl
   %conv76 = trunc i32 %or to i16
-  %inc77 = add i8 %base64Counter.2232, 1
+  %inc77 = add nuw nsw i8 %base64Counter.2232, 1
   br label %if.end181
 
 sw.bb78:                                          ; preds = %if.then70
@@ -1476,7 +1473,7 @@ if.end200.sink.split:                             ; preds = %sw.bb125, %sw.bb101
   %.sink = phi i32 [ 15, %while.end ], [ 12, %lor.lhs.false ], [ 12, %if.else156 ], [ 12, %if.then173 ], [ 12, %if.else170 ], [ 11, %if.then197 ], [ 11, %if.then194 ], [ 12, %if.then46 ], [ 12, %sw.bb78 ], [ 12, %sw.bb101 ], [ 12, %sw.bb125 ]
   %source.5358.ph = phi ptr [ %source.2, %while.end ], [ %incdec.ptr47, %lor.lhs.false ], [ %incdec.ptr47, %if.else156 ], [ %incdec.ptr47, %if.then173 ], [ %incdec.ptr47, %if.else170 ], [ %source.5, %if.then197 ], [ %source.5, %if.then194 ], [ %incdec.ptr47, %if.then46 ], [ %incdec.ptr47, %sw.bb78 ], [ %incdec.ptr47, %sw.bb101 ], [ %incdec.ptr47, %sw.bb125 ]
   %target.6357.ph = phi ptr [ %target.1146, %while.end ], [ %target.3233, %lor.lhs.false ], [ %target.3233, %if.else156 ], [ %target.3233, %if.then173 ], [ %target.3233, %if.else170 ], [ %target.6, %if.then197 ], [ %target.6, %if.then194 ], [ %target.3233, %if.then46 ], [ %target.3233, %sw.bb78 ], [ %target.3233, %sw.bb101 ], [ %target.3233, %sw.bb125 ]
-  %base64Counter.4356.ph = phi i8 [ %base64Counter.0, %while.end ], [ %base64Counter.2232, %lor.lhs.false ], [ %base64Counter.2232, %if.else156 ], [ %base64Counter.2232, %if.then173 ], [ %base64Counter.2232, %if.else170 ], [ %base64Counter.4, %if.then197 ], [ %base64Counter.4, %if.then194 ], [ %base64Counter.2232, %if.then46 ], [ %base64Counter.2232, %sw.bb78 ], [ %base64Counter.2232, %sw.bb101 ], [ %base64Counter.2232, %sw.bb125 ]
+  %base64Counter.4356.ph = phi i8 [ %base64Counter.0, %while.end ], [ %base64Counter.2232, %lor.lhs.false ], [ %base64Counter.2232, %if.else156 ], [ %base64Counter.2232, %if.then173 ], [ %base64Counter.2232, %if.else170 ], [ %base64Counter.4, %if.then197 ], [ %base64Counter.4, %if.then194 ], [ 7, %sw.bb125 ], [ 5, %sw.bb101 ], [ 2, %sw.bb78 ], [ %base64Counter.2232, %if.then46 ]
   %bits.4355.ph = phi i16 [ %bits.0, %while.end ], [ %bits.2231, %lor.lhs.false ], [ %bits.2231, %if.else156 ], [ %bits.2231, %if.then173 ], [ %bits.2231, %if.else170 ], [ %bits.4, %if.then197 ], [ %bits.4, %if.then194 ], [ %bits.2231, %if.then46 ], [ %bits.2231, %sw.bb78 ], [ %bits.2231, %sw.bb101 ], [ %bits.2231, %sw.bb125 ]
   %offsets.10354.ph = phi ptr [ %offsets.1149, %while.end ], [ %offsets.4230, %lor.lhs.false ], [ %offsets.4230, %if.else156 ], [ %offsets.4230, %if.then173 ], [ %offsets.4230, %if.else170 ], [ %offsets.10, %if.then197 ], [ %offsets.10, %if.then194 ], [ %offsets.4230, %if.then46 ], [ %offsets.4230, %sw.bb78 ], [ %offsets.4230, %sw.bb101 ], [ %offsets.4230, %sw.bb125 ]
   %byteIndex.7.ph = phi i8 [ %byteIndex.0, %while.end ], [ %inc48, %lor.lhs.false ], [ %inc48, %if.else156 ], [ 2, %if.then173 ], [ %inc48, %if.else170 ], [ 1, %if.then197 ], [ 0, %if.then194 ], [ %inc48, %if.then46 ], [ %inc48, %sw.bb78 ], [ %inc48, %sw.bb101 ], [ %inc48, %sw.bb125 ]
@@ -1504,7 +1501,7 @@ if.end200:                                        ; preds = %if.end200.sink.spli
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #1 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
@@ -1760,11 +1757,10 @@ if.else98:                                        ; preds = %if.end89.thread, %i
   br label %if.end419.sink.split
 
 if.else103:                                       ; preds = %if.then67
-  %conv104 = sext i8 %base64Counter.2282 to i32
-  switch i32 %conv104, label %if.end417 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb169
-    i32 2, label %sw.bb295
+  switch i8 %base64Counter.2282, label %if.end417 [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb169
+    i8 2, label %sw.bb295
   ]
 
 sw.bb:                                            ; preds = %if.else103
@@ -2325,7 +2321,7 @@ if.end497:                                        ; preds = %if.else485, %if.end
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

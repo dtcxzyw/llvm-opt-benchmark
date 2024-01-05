@@ -689,7 +689,7 @@ entry:
   %m_DataItEnd = getelementptr inbounds %"class.Assimp::ObjFileParser", ptr %this, i64 0, i32 1
   %m_filePos.i = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamBuffer, i64 0, i32 7
   %m_progress = getelementptr inbounds %"class.Assimp::ObjFileParser", ptr %this, i64 0, i32 6
-  %m_uiLine.i100 = getelementptr inbounds %"class.Assimp::ObjFileParser", ptr %this, i64 0, i32 3
+  %m_uiLine.i66 = getelementptr inbounds %"class.Assimp::ObjFileParser", ptr %this, i64 0, i32 3
   %m_pModel141 = getelementptr inbounds %"class.Assimp::ObjFileParser", ptr %this, i64 0, i32 2
   %z.i = getelementptr inbounds %class.aiVector3t, ptr %ref.tmp73, i64 0, i32 2
   %z.i40 = getelementptr inbounds %class.aiVector3t, ptr %ref.tmp108, i64 0, i32 2
@@ -722,7 +722,7 @@ if.then:                                          ; preds = %while.body
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %conv9, i32 noundef %conv)
           to label %if.end unwind label %lpad
 
-lpad:                                             ; preds = %if.then.i53, %if.then.i, %sw.bb222, %sw.bb218, %sw.bb147, %if.then138, %if.then117, %if.end76, %if.then49, %if.then45, %if.then, %while.cond
+lpad:                                             ; preds = %if.then.i53, %if.then.i, %sw.bb222, %sw.bb218, %cond.end, %if.then138, %if.then117, %if.end76, %if.then49, %if.then45, %if.then, %while.cond
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -759,19 +759,18 @@ lpad20:                                           ; preds = %sw.bb
   br label %ehcleanup
 
 if.end26:                                         ; preds = %if.end
-  %conv29 = sext i8 %9 to i32
-  switch i32 %conv29, label %pf_skip_line [
-    i32 118, label %sw.bb30
-    i32 112, label %sw.bb147
-    i32 108, label %sw.bb147
-    i32 102, label %sw.bb147
-    i32 35, label %sw.bb158
-    i32 117, label %sw.bb160
-    i32 109, label %sw.bb185
-    i32 103, label %sw.bb218
-    i32 115, label %sw.bb220
-    i32 111, label %sw.bb222
-    i32 99, label %sw.bb224
+  switch i8 %9, label %pf_skip_line [
+    i8 118, label %sw.bb30
+    i8 99, label %sw.bb224
+    i8 111, label %sw.bb222
+    i8 115, label %sw.bb220
+    i8 35, label %sw.bb158
+    i8 117, label %sw.bb160
+    i8 109, label %sw.bb185
+    i8 103, label %sw.bb218
+    i8 102, label %cond.end
+    i8 108, label %cond.false
+    i8 112, label %cond.false
   ]
 
 sw.bb30:                                          ; preds = %if.end26
@@ -785,8 +784,8 @@ sw.bb30:                                          ; preds = %if.end26
     i8 110, label %if.then138
   ]
 
-while.cond.backedge:                              ; preds = %sw.bb30, %cleanup.thread, %if.then.i53, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, %_ZN6Assimp13ObjFileParser10getCommentEv.exit, %sw.bb222, %sw.bb218, %sw.bb147, %land.lhs.true, %if.end86, %if.then138, %invoke.cont122, %invoke.cont249, %if.end184
-  %insideCstype.0.be = phi i8 [ %insideCstype.1, %invoke.cont249 ], [ %insideCstype.0, %sw.bb222 ], [ %insideCstype.0, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ %insideCstype.0, %sw.bb218 ], [ %insideCstype.0, %if.end184 ], [ %insideCstype.0, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ %insideCstype.0, %sw.bb147 ], [ %insideCstype.0, %if.end86 ], [ %insideCstype.0, %land.lhs.true ], [ %insideCstype.0, %invoke.cont122 ], [ %insideCstype.0, %if.then138 ], [ %insideCstype.0, %if.then.i53 ], [ %insideCstype.0, %cleanup.thread ], [ %insideCstype.0, %sw.bb30 ]
+while.cond.backedge:                              ; preds = %sw.bb30, %cleanup.thread, %if.then.i53, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, %_ZN6Assimp13ObjFileParser10getCommentEv.exit, %sw.bb222, %sw.bb218, %cond.end, %land.lhs.true, %if.end86, %if.then138, %invoke.cont122, %invoke.cont249, %if.end184
+  %insideCstype.0.be = phi i8 [ %insideCstype.1, %invoke.cont249 ], [ %insideCstype.0, %sw.bb222 ], [ %insideCstype.0, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ %insideCstype.0, %sw.bb218 ], [ %insideCstype.0, %if.end184 ], [ %insideCstype.0, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ %insideCstype.0, %cond.end ], [ %insideCstype.0, %if.end86 ], [ %insideCstype.0, %land.lhs.true ], [ %insideCstype.0, %invoke.cont122 ], [ %insideCstype.0, %if.then138 ], [ %insideCstype.0, %if.then.i53 ], [ %insideCstype.0, %cleanup.thread ], [ %insideCstype.0, %sw.bb30 ]
   br label %while.cond, !llvm.loop !9
 
 if.then41:                                        ; preds = %sw.bb30, %sw.bb30
@@ -905,11 +904,13 @@ if.then138:                                       ; preds = %sw.bb30
   invoke void @_ZN6Assimp13ObjFileParser10getVector3ERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(24) %mNormals)
           to label %while.cond.backedge unwind label %lpad
 
-sw.bb147:                                         ; preds = %if.end26, %if.end26, %if.end26
-  %cmp151 = icmp eq i8 %9, 102
+cond.false:                                       ; preds = %if.end26, %if.end26
   %cmp155 = icmp eq i8 %9, 108
   %cond = select i1 %cmp155, i32 2, i32 1
-  %cond156 = select i1 %cmp151, i32 8, i32 %cond
+  br label %cond.end
+
+cond.end:                                         ; preds = %if.end26, %cond.false
+  %cond156 = phi i32 [ %cond, %cond.false ], [ 8, %if.end26 ]
   invoke void @_ZN6Assimp13ObjFileParser7getFaceE15aiPrimitiveType(ptr noundef nonnull align 8 dereferenceable(4176) %this, i32 noundef %cond156)
           to label %while.cond.backedge unwind label %lpad
 
@@ -948,9 +949,9 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %la
 
 if.end12.i.i:                                     ; preds = %while.end.i.i
   %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i, i64 1
-  %30 = load i32, ptr %m_uiLine.i100, align 8
+  %30 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i = add i32 %30, 1
-  store i32 %inc.i.i, ptr %m_uiLine.i100, align 8
+  store i32 %inc.i.i, ptr %m_uiLine.i66, align 8
   %cmp.i4.not25.i.i = icmp eq ptr %incdec.ptr.i3.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i4.not25.i.i, label %_ZN6Assimp13ObjFileParser10getCommentEv.exit, label %land.rhs15.preheader.i.i
 
@@ -1086,9 +1087,9 @@ while.end.i.i75:                                  ; preds = %while.body.i.i90, %
 
 if.end12.i.i78:                                   ; preds = %while.end.i.i75
   %incdec.ptr.i3.i.i79 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i76, i64 1
-  %36 = load i32, ptr %m_uiLine.i100, align 8
+  %36 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i80 = add i32 %36, 1
-  store i32 %inc.i.i80, ptr %m_uiLine.i100, align 8
+  store i32 %inc.i.i80, ptr %m_uiLine.i66, align 8
   %cmp.i4.not25.i.i81 = icmp eq ptr %incdec.ptr.i3.i.i79, %agg.tmp2.sroa.0.0.copyload.i65
   br i1 %cmp.i4.not25.i.i81, label %_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv.exit, label %land.rhs15.preheader.i.i82
 
@@ -1168,9 +1169,9 @@ while.end.i.i109:                                 ; preds = %while.body.i.i124, 
 
 if.end12.i.i112:                                  ; preds = %while.end.i.i109
   %incdec.ptr.i3.i.i113 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i110, i64 1
-  %40 = load i32, ptr %m_uiLine.i100, align 8
+  %40 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i114 = add i32 %40, 1
-  store i32 %inc.i.i114, ptr %m_uiLine.i100, align 8
+  store i32 %inc.i.i114, ptr %m_uiLine.i66, align 8
   %cmp.i4.not25.i.i115 = icmp eq ptr %incdec.ptr.i3.i.i113, %agg.tmp2.sroa.0.0.copyload.i99
   br i1 %cmp.i4.not25.i.i115, label %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, label %land.rhs15.preheader.i.i116
 
@@ -1264,9 +1265,9 @@ while.end.i:                                      ; preds = %while.body.i, %land
 
 if.end12.i:                                       ; preds = %while.end.i
   %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
-  %45 = load i32, ptr %m_uiLine.i100, align 8
+  %45 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i = add i32 %45, 1
-  store i32 %inc.i, ptr %m_uiLine.i100, align 8
+  store i32 %inc.i, ptr %m_uiLine.i66, align 8
   %cmp.i4.not25.i = icmp eq ptr %incdec.ptr.i3.i, %agg.tmp245.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont249, label %land.rhs15.preheader.i
 

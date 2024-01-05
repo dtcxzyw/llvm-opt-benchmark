@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [27 x i8] c"cannot close standard file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @luaL_newmetatable(ptr noundef %L, ptr noundef nonnull @.str.5) #9
   tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -1) #9
@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_fclose(ptr noundef %L) #0 {
+define internal noundef i32 @io_fclose(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call, align 8, !tbaa !4
@@ -152,7 +152,7 @@ declare void @lua_replace(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @luaL_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_noclose(ptr noundef %L) #0 {
+define internal noundef i32 @io_noclose(ptr noundef %L) #0 {
 entry:
   tail call void @lua_pushnil(ptr noundef %L) #9
   tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.45, i64 noundef 26) #9
@@ -164,7 +164,7 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_pclose(ptr noundef %L) #0 {
+define internal noundef i32 @io_pclose(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   store ptr null, ptr %call, align 8, !tbaa !4
@@ -216,7 +216,7 @@ tofile.exit:                                      ; preds = %if.then.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_flush(ptr noundef %L) #0 {
+define internal noundef i32 @f_flush(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -254,7 +254,7 @@ pushresult.exit:                                  ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_lines(ptr noundef %L) #0 {
+define internal noundef i32 @f_lines(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -292,7 +292,7 @@ tofile.exit:                                      ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_seek(ptr noundef %L) #0 {
+define internal noundef i32 @f_seek(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -336,7 +336,7 @@ cleanup:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_setvbuf(ptr noundef %L) #0 {
+define internal noundef i32 @f_setvbuf(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -379,7 +379,7 @@ pushresult.exit:                                  ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_write(ptr noundef %L) #0 {
+define internal noundef i32 @f_write(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
@@ -398,7 +398,7 @@ tofile.exit:                                      ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_gc(ptr noundef %L) #0 {
+define internal noundef i32 @io_gc(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call, align 8, !tbaa !4
@@ -417,7 +417,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_tostring(ptr noundef %L) #0 {
+define internal noundef i32 @io_tostring(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.5) #9
   %0 = load ptr, ptr %call, align 8, !tbaa !4
@@ -695,11 +695,10 @@ lor.rhs:                                          ; preds = %land.lhs.true, %if.
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true
   %arrayidx18 = getelementptr inbounds i8, ptr %call12, i64 1
   %4 = load i8, ptr %arrayidx18, align 1, !tbaa !12
-  %conv19 = sext i8 %4 to i32
-  switch i32 %conv19, label %cleanup [
-    i32 110, label %sw.bb
-    i32 108, label %sw.bb21
-    i32 97, label %sw.bb23
+  switch i8 %4, label %cleanup [
+    i8 110, label %sw.bb
+    i8 108, label %sw.bb21
+    i8 97, label %sw.bb23
   ]
 
 sw.bb:                                            ; preds = %lor.end
@@ -849,7 +848,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %arg) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %call = tail call i32 @lua_gettop(ptr noundef %L) #9
@@ -949,7 +948,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_flush(ptr noundef %L) #0 {
+define internal noundef i32 @io_flush(ptr noundef %L) #0 {
 entry:
   tail call void @lua_rawgeti(ptr noundef %L, i32 noundef -10001, i32 noundef 2) #9
   %call.i = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1) #9
@@ -986,14 +985,14 @@ pushresult.exit:                                  ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_input(ptr noundef %L) #0 {
+define internal noundef i32 @io_input(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @g_iofile(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.40)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_lines(ptr noundef %L) #0 {
+define internal noundef i32 @io_lines(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
   %cmp = icmp slt i32 %call, 1
@@ -1044,7 +1043,7 @@ return:                                           ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_open(ptr noundef %L) #0 {
+define internal noundef i32 @io_open(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #9
   %call1 = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.40, ptr noundef null) #9
@@ -1084,14 +1083,14 @@ cond.end:                                         ; preds = %pushresult.exit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_output(ptr noundef %L) #0 {
+define internal noundef i32 @io_output(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @g_iofile(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.41)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_popen(ptr noundef %L) #0 {
+define internal noundef i32 @io_popen(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #9
   %call1 = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.40, ptr noundef null) #9
@@ -1146,7 +1145,7 @@ getiofile.exit:                                   ; preds = %entry.split, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_tmpfile(ptr noundef %L) #0 {
+define internal noundef i32 @io_tmpfile(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 8) #9
   store ptr null, ptr %call.i, align 8, !tbaa !4
@@ -1173,7 +1172,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_type(ptr noundef %L) #0 {
+define internal noundef i32 @io_type(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #9
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1) #9
@@ -1213,7 +1212,7 @@ if.end8:                                          ; preds = %if.else7, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_write(ptr noundef %L) #0 {
+define internal noundef i32 @io_write(ptr noundef %L) #0 {
 entry:
   tail call void @lua_rawgeti(ptr noundef %L, i32 noundef -10001, i32 noundef 2) #9
   %call.i = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1) #9

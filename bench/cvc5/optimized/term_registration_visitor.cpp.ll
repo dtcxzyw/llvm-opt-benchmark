@@ -838,17 +838,16 @@ cond.end:
   %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
-  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
-  switch i32 %bf.cast.i.i, label %if.end [
-    i32 26, label %land.end.thread200
-    i32 352, label %land.end.thread200
-    i32 353, label %land.end.thread200
-    i32 11, label %land.end.thread200
-    i32 255, label %land.end.thread200
-    i32 233, label %land.end.thread200
-    i32 240, label %land.end.thread200
-    i32 241, label %land.end.thread200
-    i32 242, label %land.lhs.true
+  switch i16 %bf.clear.i.i, label %if.end [
+    i16 26, label %land.end.thread200
+    i16 352, label %land.end.thread200
+    i16 353, label %land.end.thread200
+    i16 11, label %land.end.thread200
+    i16 255, label %land.end.thread200
+    i16 233, label %land.end.thread200
+    i16 240, label %land.end.thread200
+    i16 241, label %land.end.thread200
+    i16 242, label %land.lhs.true
   ]
 
 land.lhs.true:                                    ; preds = %cond.end
@@ -1735,17 +1734,16 @@ cond.end:
   %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
-  %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
-  switch i32 %bf.cast.i.i, label %if.end [
-    i32 26, label %land.end.thread245
-    i32 352, label %land.end.thread245
-    i32 353, label %land.end.thread245
-    i32 11, label %land.end.thread245
-    i32 255, label %land.end.thread245
-    i32 233, label %land.end.thread245
-    i32 240, label %land.end.thread245
-    i32 241, label %land.end.thread245
-    i32 242, label %land.lhs.true
+  switch i16 %bf.clear.i.i, label %if.end [
+    i16 26, label %land.end.thread245
+    i16 352, label %land.end.thread245
+    i16 353, label %land.end.thread245
+    i16 11, label %land.end.thread245
+    i16 255, label %land.end.thread245
+    i16 233, label %land.end.thread245
+    i16 240, label %land.end.thread245
+    i16 241, label %land.end.thread245
+    i16 242, label %land.lhs.true
   ]
 
 land.lhs.true:                                    ; preds = %cond.end

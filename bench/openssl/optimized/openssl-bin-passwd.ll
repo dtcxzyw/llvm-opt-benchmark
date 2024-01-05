@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.do_passwd = private unnamed_addr constant [5 x i64] [i64 8, i64 8, i64 0, i64 0, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @passwd_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @passwd_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %salt = alloca ptr, align 8
   %salt_malloc = alloca ptr, align 8
@@ -378,7 +378,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_passwd(i32 noundef %passed_salt, ptr nocapture noundef %salt_p, ptr nocapture noundef %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef %quiet, i32 noundef %table, i32 noundef %reverse, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc noundef i32 @do_passwd(i32 noundef %passed_salt, ptr nocapture noundef %salt_p, ptr nocapture noundef %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef %quiet, i32 noundef %table, i32 noundef %reverse, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %temp_buf.i = alloca [64 x i8], align 16
@@ -508,10 +508,9 @@ if.then56:                                        ; preds = %if.end50
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %tmp_buf.i)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %passwd) #9
   %16 = load i8, ptr %cond59, align 1
-  %conv.i = sext i8 %16 to i32
-  switch i32 %conv.i, label %shacrypt.exit [
-    i32 53, label %sw.bb.i
-    i32 54, label %sw.bb3.i
+  switch i8 %16, label %shacrypt.exit [
+    i8 53, label %sw.bb.i
+    i8 54, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then56
@@ -826,9 +825,9 @@ for.end259.i:                                     ; preds = %for.cond195.i, %for
   %add.ptr261.i = getelementptr inbounds i8, ptr @shacrypt.out_buf, i64 %call260.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr261.i, i64 1
   store i8 36, ptr %add.ptr261.i, align 1
-  switch i32 %conv.i, label %err.i [
-    i32 53, label %do.body.i
-    i32 54, label %do.body531.i
+  switch i8 %16, label %err.i [
+    i8 53, label %do.body.i
+    i8 54, label %do.body531.i
   ]
 
 do.body.i:                                        ; preds = %for.end259.i
@@ -1903,7 +1902,7 @@ declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @md5crypt(ptr noundef %passwd, ptr noundef %magic, ptr noundef %salt) unnamed_addr #0 {
+define internal fastcc noundef ptr @md5crypt(ptr noundef %passwd, ptr noundef %magic, ptr noundef %salt) unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %ascii_magic = alloca [5 x i8], align 1

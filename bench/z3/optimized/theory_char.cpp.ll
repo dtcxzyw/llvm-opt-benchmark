@@ -1738,10 +1738,9 @@ for.body.i:                                       ; preds = %_ZNK6vectorIN3sat7l
   %idxprom.i.i.i.i.i.i = zext i32 %spec.select.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i.i.i.i.i
   %18 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %conv.i.i.i.i.i = sext i8 %18 to i32
-  switch i32 %conv.i.i.i.i.i, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit.i [
-    i32 -1, label %sw.bb.i.i.i
-    i32 0, label %sw.bb9.i.i.i
+  switch i8 %18, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit.i [
+    i8 -1, label %sw.bb.i.i.i
+    i8 0, label %sw.bb9.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.body.i
@@ -1851,10 +1850,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %idxprom.i.i.i.i.i = zext i32 %spec.select to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %idxprom.i.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %7 to i32
-  switch i32 %conv.i.i.i.i, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %7, label %_ZN3smt7context6assignEN3sat7literalEPNS_13justificationEb.exit [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %for.body
@@ -3650,7 +3648,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %idxprom.i.i.i51 = zext i32 %agg.tmp9.sroa.0.0.copyload to i64
   %arrayidx.i.i.i52 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i.i51
   %18 = load i8, ptr %arrayidx.i.i.i52, align 1
-  %conv.i.i53 = sext i8 %18 to i32
   %cmp13 = icmp eq i8 %16, 0
   %cmp15 = icmp eq i8 %18, 0
   %or.cond.not202 = or i1 %cmp13, %cmp15
@@ -3663,10 +3660,9 @@ if.then18:                                        ; preds = %for.body
   br label %if.end111
 
 if.end:                                           ; preds = %for.body
-  %conv.i.i = sext i8 %16 to i32
-  switch i32 %conv.i.i, label %if.end64 [
-    i32 1, label %if.then20
-    i32 -1, label %if.then43
+  switch i8 %16, label %if.end64 [
+    i8 1, label %if.then20
+    i8 -1, label %if.then43
   ]
 
 if.then20:                                        ; preds = %if.end
@@ -3777,9 +3773,9 @@ if.then.i65:                                      ; preds = %if.then43
 
 if.end64:                                         ; preds = %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit", %if.end, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit87"
   %_eq.sroa.0.3 = phi i32 [ %_eq.sroa.0.0205, %if.end ], [ %_eq.sroa.0.2, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit87" ], [ %_eq.sroa.0.1, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit" ]
-  switch i32 %conv.i.i53, label %if.end110 [
-    i32 1, label %if.then66
-    i32 -1, label %if.then89
+  switch i8 %18, label %if.end110 [
+    i8 1, label %if.then66
+    i8 -1, label %if.then89
   ]
 
 if.then66:                                        ; preds = %if.end64
@@ -5365,10 +5361,9 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   %idxprom.i.i.i.i.i = zext i32 %call18 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i.i.i
   %10 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %10 to i32
-  switch i32 %conv.i.i.i.i, label %invoke.cont20 [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %10, label %invoke.cont20 [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont17

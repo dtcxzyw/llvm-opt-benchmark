@@ -174,7 +174,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.objectCommand = private unnamed_addr constant [12 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.34, ptr @.str.34, ptr @.str.34, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.28, ptr @.str.33, ptr @.str.29], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createObject(i32 noundef %type, ptr noundef %ptr) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createObject(i32 noundef %type, ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
   %bf.value = and i32 %type, 15
@@ -235,7 +235,7 @@ declare i64 @LFUGetTimeInMinutes() local_unnamed_addr #2
 declare i32 @LRU_CLOCK() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @makeObjectShared(ptr noundef returned %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @makeObjectShared(ptr noundef returned %o) local_unnamed_addr #0 {
 entry:
   %refcount = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 1
   %0 = load i32, ptr %refcount, align 4
@@ -258,7 +258,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createRawStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createRawStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsnewlen(ptr noundef %ptr, i64 noundef %len) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -273,7 +273,7 @@ entry:
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createEmbeddedStringObject(ptr noundef readonly %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @createEmbeddedStringObject(ptr noundef readonly %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add1 = add i64 %len, 20
   %call = tail call noalias ptr @zmalloc(i64 noundef %add1) #16
@@ -325,7 +325,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @createStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 45
   br i1 %cmp, label %if.then, label %if.else
@@ -386,7 +386,7 @@ return:                                           ; preds = %if.else17.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @tryCreateRawStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @tryCreateRawStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdstrynewlen(ptr noundef %ptr, i64 noundef %len) #17
   %tobool.not = icmp eq ptr %call, null
@@ -409,7 +409,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @sdstrynewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tryCreateStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @tryCreateStringObject(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 45
   br i1 %cmp, label %if.then, label %if.else
@@ -629,7 +629,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createStringObjectFromLongLongWithSds(i64 noundef %value) local_unnamed_addr #0 {
+define dso_local noundef ptr @createStringObjectFromLongLongWithSds(i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [21 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %buf.i)
@@ -686,7 +686,7 @@ createStringObjectFromLongLongWithOptions.exit:   ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createStringObjectFromLongDouble(x86_fp80 noundef %value, i32 noundef %humanfriendly) local_unnamed_addr #0 {
+define dso_local noundef ptr @createStringObjectFromLongDouble(x86_fp80 noundef %value, i32 noundef %humanfriendly) local_unnamed_addr #0 {
 entry:
   %buf = alloca [5120 x i8], align 16
   %tobool.not = icmp ne i32 %humanfriendly, 0
@@ -745,7 +745,7 @@ createStringObject.exit:                          ; preds = %if.then.i.i, %if.el
 declare i32 @ld2string(ptr noundef, i64 noundef, x86_fp80 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dupStringObject(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @dupStringObject(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -919,7 +919,7 @@ return:                                           ; preds = %if.then13.i, %if.th
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createQuicklistObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createQuicklistObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @quicklistCreate() #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -934,7 +934,7 @@ entry:
 declare ptr @quicklistCreate() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createListListpackObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createListListpackObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lpNew(i64 noundef 0) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -949,7 +949,7 @@ entry:
 declare ptr @lpNew(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createSetObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createSetObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictCreate(ptr noundef nonnull @setDictType) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -964,7 +964,7 @@ entry:
 declare ptr @dictCreate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createIntsetObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createIntsetObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @intsetNew() #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -979,7 +979,7 @@ entry:
 declare ptr @intsetNew() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createSetListpackObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createSetListpackObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lpNew(i64 noundef 0) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createHashObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createHashObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lpNew(i64 noundef 0) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -1005,7 +1005,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createZsetObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createZsetObject() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
   %call1 = tail call ptr @dictCreate(ptr noundef nonnull @zsetDictType) #17
@@ -1025,7 +1025,7 @@ entry:
 declare ptr @zslCreate() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createZsetListpackObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createZsetListpackObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lpNew(i64 noundef 0) #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -1038,7 +1038,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createStreamObject() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createStreamObject() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @streamNew() #17
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
@@ -1053,7 +1053,7 @@ entry:
 declare ptr @streamNew() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @createModuleObject(ptr noundef %mt, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @createModuleObject(ptr noundef %mt, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
   store ptr %mt, ptr %call, align 8
@@ -2004,7 +2004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkType(ptr noundef %c, ptr noundef readonly %o, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local noundef i32 @checkType(ptr noundef %c, ptr noundef readonly %o, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %o, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -2240,25 +2240,24 @@ land.lhs.true:                                    ; preds = %lor.lhs.false2
 
 if.then7:                                         ; preds = %land.lhs.true, %sdslen.exit
   %9 = and i8 %2, 7
-  %and.i9 = zext nneg i8 %9 to i32
-  switch i32 %and.i9, label %if.end16 [
-    i32 4, label %sw.bb21.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb5.i11
-    i32 3, label %sw.bb14.i
+  switch i8 %9, label %if.end16 [
+    i8 4, label %sw.bb21.i
+    i8 1, label %sw.bb1.i
+    i8 2, label %sw.bb5.i10
+    i8 3, label %sw.bb14.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.then7
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %1, i64 -3
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %1, i64 -3
   %alloc.i = getelementptr inbounds i8, ptr %1, i64 -2
   %10 = load i8, ptr %alloc.i, align 1
-  %conv2.i13 = zext i8 %10 to i64
-  %11 = load i8, ptr %add.ptr.i12, align 1
+  %conv2.i12 = zext i8 %10 to i64
+  %11 = load i8, ptr %add.ptr.i11, align 1
   %conv3.i = zext i8 %11 to i64
-  %sub.i = sub nsw i64 %conv2.i13, %conv3.i
+  %sub.i = sub nsw i64 %conv2.i12, %conv3.i
   br label %sdsavail.exit
 
-sw.bb5.i11:                                       ; preds = %if.then7
+sw.bb5.i10:                                       ; preds = %if.then7
   %add.ptr7.i = getelementptr inbounds i8, ptr %1, i64 -5
   %alloc8.i = getelementptr inbounds i8, ptr %1, i64 -3
   %12 = load i16, ptr %alloc8.i, align 1
@@ -2285,10 +2284,10 @@ sw.bb21.i:                                        ; preds = %if.then7
   %sub26.i = sub i64 %16, %17
   br label %sdsavail.exit
 
-sdsavail.exit:                                    ; preds = %sw.bb1.i, %sw.bb5.i11, %sw.bb14.i, %sw.bb21.i
-  %retval.0.i10 = phi i64 [ %sub26.i, %sw.bb21.i ], [ %conv20.i, %sw.bb14.i ], [ %sub12.i, %sw.bb5.i11 ], [ %sub.i, %sw.bb1.i ]
+sdsavail.exit:                                    ; preds = %sw.bb1.i, %sw.bb5.i10, %sw.bb14.i, %sw.bb21.i
+  %retval.0.i9 = phi i64 [ %sub26.i, %sw.bb21.i ], [ %conv20.i, %sw.bb14.i ], [ %sub12.i, %sw.bb5.i10 ], [ %sub.i, %sw.bb1.i ]
   %div = udiv i64 %retval.0.i, 10
-  %cmp10 = icmp ugt i64 %retval.0.i10, %div
+  %cmp10 = icmp ugt i64 %retval.0.i9, %div
   br i1 %cmp10, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %sdsavail.exit
@@ -2586,7 +2585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getDecodedObject(ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @getDecodedObject(ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %bf.load = load i32, ptr %o, align 8
@@ -2994,7 +2993,7 @@ return:                                           ; preds = %sw.bb13.i, %sw.bb9.
 declare i32 @sdigits10(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getDoubleFromObject(ptr noundef %o, ptr nocapture noundef writeonly %target) local_unnamed_addr #0 {
+define dso_local noundef i32 @getDoubleFromObject(ptr noundef %o, ptr nocapture noundef writeonly %target) local_unnamed_addr #0 {
 entry:
   %value = alloca double, align 8
   %cmp = icmp eq ptr %o, null
@@ -3098,7 +3097,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 declare i32 @string2d(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value = alloca double, align 8
   %call = call i32 @getDoubleFromObject(ptr noundef %o, ptr noundef nonnull %value), !range !11
@@ -3130,7 +3129,7 @@ return:                                           ; preds = %if.then2, %if.else,
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLongDoubleFromObject(ptr noundef %o, ptr nocapture noundef writeonly %target) local_unnamed_addr #0 {
+define dso_local noundef i32 @getLongDoubleFromObject(ptr noundef %o, ptr nocapture noundef writeonly %target) local_unnamed_addr #0 {
 entry:
   %value = alloca x86_fp80, align 16
   %cmp = icmp eq ptr %o, null
@@ -3234,7 +3233,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 declare i32 @string2ld(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLongDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getLongDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value = alloca x86_fp80, align 16
   %call = call i32 @getLongDoubleFromObject(ptr noundef %o, ptr noundef nonnull %value), !range !11
@@ -3264,7 +3263,7 @@ return:                                           ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLongLongFromObject(ptr noundef %o, ptr noundef writeonly %target) local_unnamed_addr #0 {
+define dso_local noundef i32 @getLongLongFromObject(ptr noundef %o, ptr noundef writeonly %target) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %cmp = icmp eq ptr %o, null
@@ -3370,7 +3369,7 @@ return:                                           ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @getLongLongFromObject(ptr noundef %o, ptr noundef nonnull %value), !range !11
@@ -3400,7 +3399,7 @@ return:                                           ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -3427,7 +3426,7 @@ return:                                           ; preds = %if.then.i, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getRangeLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, i64 noundef %min, i64 noundef %max, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getRangeLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, i64 noundef %min, i64 noundef %max, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i.i)
@@ -3471,7 +3470,7 @@ return:                                           ; preds = %getLongFromObjectOr
 declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getPositiveLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getPositiveLongFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value.i.i.i5 = alloca i64, align 8
   %value.i.i.i = alloca i64, align 8
@@ -3528,7 +3527,7 @@ return:                                           ; preds = %if.then3.i12, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getIntFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local noundef i32 @getIntFromObjectOrReply(ptr noundef %c, ptr noundef %o, ptr nocapture noundef writeonly %target, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i.i.i)
@@ -3573,7 +3572,7 @@ return:                                           ; preds = %if.then5.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @strEncoding(i32 noundef %encoding) local_unnamed_addr #8 {
+define dso_local noundef nonnull ptr @strEncoding(i32 noundef %encoding) local_unnamed_addr #8 {
 entry:
   %0 = icmp ult i32 %encoding, 12
   br i1 %0, label %switch.lookup, label %return
@@ -4198,7 +4197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @getMemoryOverheadData() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @zmalloc_used_memory() #17
   %call1 = tail call noalias dereferenceable_or_null(200) ptr @zcalloc(i64 noundef 200) #16
@@ -4657,7 +4656,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @objectSetLRUOrLFU(ptr nocapture noundef %val, i64 noundef %lfu_freq, i64 noundef %lru_idle, i64 noundef %lru_clock, i32 noundef %lru_multiplier) local_unnamed_addr #0 {
+define dso_local noundef i32 @objectSetLRUOrLFU(ptr nocapture noundef %val, i64 noundef %lfu_freq, i64 noundef %lru_idle, i64 noundef %lru_clock, i32 noundef %lru_multiplier) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
   %and = and i32 %0, 2

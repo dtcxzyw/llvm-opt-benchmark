@@ -888,10 +888,10 @@ if.then25.i:                                      ; preds = %if.end20.i
 if.end:                                           ; preds = %if.then25.i, %if.end20.i, %entry
   %conv = sext i16 %0 to i32
   %24 = load ptr, ptr %ci, align 8
-  switch i32 %conv, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 -1, label %sw.epilog.i
+  switch i16 %0, label %sw.default.i [
+    i16 0, label %sw.bb.i
+    i16 1, label %sw.bb1.i
+    i16 -1, label %sw.epilog.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end
@@ -1125,11 +1125,10 @@ retry:                                            ; preds = %sw.default, %entry
   %tt_ = getelementptr inbounds %struct.TValue, ptr %func.addr.0, i64 0, i32 1
   %1 = load i8, ptr %tt_, align 8
   %2 = and i8 %1, 63
-  %and = zext nneg i8 %2 to i32
-  switch i32 %and, label %sw.default [
-    i32 38, label %sw.bb
-    i32 22, label %sw.bb1
-    i32 6, label %sw.bb4
+  switch i8 %2, label %sw.default [
+    i8 38, label %sw.bb
+    i8 22, label %sw.bb1
+    i8 6, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %retry
@@ -1564,11 +1563,10 @@ retry:                                            ; preds = %sw.default, %entry
   %tt_ = getelementptr inbounds %struct.TValue, ptr %func.addr.0, i64 0, i32 1
   %0 = load i8, ptr %tt_, align 8
   %1 = and i8 %0, 63
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %sw.default [
-    i32 38, label %sw.bb
-    i32 22, label %return.sink.split
-    i32 6, label %sw.bb4
+  switch i8 %1, label %sw.default [
+    i8 38, label %sw.bb
+    i8 22, label %return.sink.split
+    i8 6, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %retry
@@ -2611,9 +2609,9 @@ if.else.i.i:                                      ; preds = %if.then5.i
   %conv8.i.i = and i8 %9, 1
   store i8 %conv8.i.i, ptr %allowhook.i.i, align 1
   %call.i.i = tail call ptr @luaF_close(ptr noundef nonnull %L, ptr noundef %add.ptr.i.i, i32 noundef %and.i.i, i32 noundef 1) #11
-  switch i32 %and.i.i, label %sw.default.i.i.i [
-    i32 4, label %sw.bb.i.i.i
-    i32 5, label %sw.bb2.i.i.i
+  switch i16 %6, label %sw.default.i.i.i [
+    i16 4, label %sw.bb.i.i.i
+    i16 5, label %sw.bb2.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.else.i.i

@@ -742,7 +742,7 @@ entry:
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mask_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %arg) #0 {
+define internal noundef i32 @mask_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %elem, null
   br i1 %cmp, label %return, label %if.end
@@ -847,7 +847,7 @@ return:                                           ; preds = %for.inc.i18, %for.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @asn1_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %bitstr) #0 {
+define internal noundef i32 @asn1_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %bitstr) #0 {
 entry:
   %tmp_tag = alloca i32, align 4
   %tmp_class = alloca i32, align 4
@@ -1261,7 +1261,7 @@ declare ptr @d2i_ASN1_TYPE(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_tagging(ptr noundef %vstart, i32 noundef %vlen, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass) unnamed_addr #0 {
+define internal fastcc noundef i32 @parse_tagging(ptr noundef %vstart, i32 noundef %vlen, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass) unnamed_addr #0 {
 entry:
   %eptr = alloca ptr, align 8
   %tobool.not = icmp eq ptr %vstart, null
@@ -1306,12 +1306,11 @@ if.end10:                                         ; preds = %if.end6
 
 if.then18:                                        ; preds = %if.end10
   %4 = load i8, ptr %0, align 1
-  %conv19 = sext i8 %4 to i32
-  switch i32 %conv19, label %sw.default [
-    i32 85, label %sw.bb
-    i32 65, label %sw.bb20
-    i32 80, label %sw.bb21
-    i32 67, label %sw.bb22
+  switch i8 %4, label %sw.default [
+    i8 85, label %sw.bb
+    i8 65, label %sw.bb20
+    i8 80, label %sw.bb21
+    i8 67, label %sw.bb22
   ]
 
 sw.bb:                                            ; preds = %if.then18
@@ -1348,7 +1347,7 @@ return:                                           ; preds = %if.else24, %sw.bb22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef %exp_constructed, i32 noundef %exp_pad, i32 noundef %imp_ok) unnamed_addr #0 {
+define internal fastcc noundef i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef %exp_constructed, i32 noundef %exp_pad, i32 noundef %imp_ok) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1461,7 +1460,7 @@ declare i64 @ASN1_tag2bit(i32 noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bitstr_cb(ptr noundef %elem, i32 noundef %len, ptr noundef %bitstr) #0 {
+define internal noundef i32 @bitstr_cb(ptr noundef %elem, i32 noundef %len, ptr noundef %bitstr) #0 {
 entry:
   %eptr = alloca ptr, align 8
   %tobool.not = icmp eq ptr %elem, null

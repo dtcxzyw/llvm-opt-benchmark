@@ -4457,7 +4457,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
 _ZNKSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %278 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %278
@@ -5887,15 +5887,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.053 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 %conv54
   %1 = load i8, ptr %arrayidx, align 1
-  %conv2 = sext i8 %1 to i32
-  switch i32 %conv2, label %sw.default [
-    i32 10, label %sw.bb
-    i32 9, label %sw.bb4
-    i32 13, label %sw.bb6
-    i32 8, label %sw.bb8
-    i32 12, label %sw.bb10
-    i32 34, label %sw.bb12
-    i32 92, label %sw.bb14
+  switch i8 %1, label %sw.default [
+    i8 10, label %sw.bb
+    i8 9, label %sw.bb4
+    i8 13, label %sw.bb6
+    i8 8, label %sw.bb8
+    i8 12, label %sw.bb10
+    i8 34, label %sw.bb12
+    i8 92, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %for.body
@@ -5966,6 +5965,7 @@ if.end5.i:                                        ; preds = %for.end.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %conv8.i = sext i8 %1 to i32
   br label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
@@ -5975,10 +5975,11 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i
+  %conv15.i = sext i8 %1 to i32
   %sub.i = sub nuw nsw i32 7, %len.031.i
   %notmask.i = shl nsw i32 -1, %sub.i
   %sub17.i = xor i32 %notmask.i, -1
-  %and18.i = and i32 %sub17.i, %conv2
+  %and18.i = and i32 %sub17.i, %conv15.i
   %5 = add nsw i32 %len.031.i, -2
   %scevgep65 = getelementptr i8, ptr %scevgep, i64 %conv54
   %6 = zext i32 %indvars.iv to i64
@@ -6033,7 +6034,7 @@ sw.bb50.i:                                        ; preds = %if.end38.i
 
 _ZN11flatbuffers8FromUTF8EPPKc.exit:              ; preds = %if.end38.i, %sw.bb.i, %sw.bb44.i, %sw.bb50.i, %if.then7.i
   %utf8.1 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep67, %sw.bb50.i ], [ %scevgep67, %sw.bb44.i ], [ %scevgep67, %sw.bb.i ], [ %scevgep67, %if.end38.i ]
-  %retval.0.i = phi i32 [ %conv2, %if.then7.i ], [ %or.i, %sw.bb50.i ], [ %or.i, %sw.bb44.i ], [ %or.i, %sw.bb.i ], [ %or.i, %if.end38.i ]
+  %retval.0.i = phi i32 [ %conv8.i, %if.then7.i ], [ %or.i, %sw.bb50.i ], [ %or.i, %sw.bb44.i ], [ %or.i, %sw.bb.i ], [ %or.i, %if.end38.i ]
   %cmp22 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp22, label %if.then23, label %if.else29
 

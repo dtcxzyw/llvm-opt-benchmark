@@ -125,13 +125,12 @@ return:                                           ; preds = %lor.lhs.false7, %en
 define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader5isBmpEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
-  %conv = sext i16 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 19778, label %return
-    i32 16706, label %return
-    i32 18755, label %return
-    i32 20547, label %return
-    i32 21584, label %return
+  switch i16 %0, label %sw.default [
+    i16 19778, label %return
+    i16 16706, label %return
+    i16 18755, label %return
+    i16 20547, label %return
+    i16 21584, label %return
   ]
 
 sw.default:                                       ; preds = %entry
@@ -142,7 +141,7 @@ return:                                           ; preds = %entry, %entry, %ent
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader11swap_endianEv(ptr nocapture noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
@@ -661,7 +660,7 @@ return:                                           ; preds = %lor.lhs.false19, %e
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt20DibInformationHeader11swap_endianEv(ptr nocapture noundef nonnull align 4 dereferenceable(124) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
@@ -720,7 +719,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

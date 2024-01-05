@@ -184,13 +184,13 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end6 [
-    i32 243, label %return
-    i32 250, label %if.then4
+  switch i16 %bf.clear.i, label %if.end6 [
+    i16 243, label %return
+    i16 250, label %if.then4
   ]
 
 if.then4:                                         ; preds = %entry
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 250), !noalias !4
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !4
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %idxprom.i.i = zext i1 %cmp.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i
@@ -673,31 +673,30 @@ lpad:                                             ; preds = %if.then13.i.i.i
 
 if.end:                                           ; preds = %cond.end
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 249, label %sw.bb
-    i32 248, label %sw.bb188
-    i32 5, label %sw.bb219
-    i32 247, label %sw.bb329
-    i32 246, label %sw.bb525
-    i32 245, label %sw.bb727
-    i32 253, label %sw.bb929
-    i32 252, label %sw.bb956
-    i32 256, label %invoke.cont1168
-    i32 257, label %invoke.cont1189
-    i32 255, label %sw.bb1210
-    i32 258, label %sw.bb1215
-    i32 259, label %sw.bb1220
-    i32 260, label %sw.bb1225
-    i32 269, label %invoke.cont1233
-    i32 268, label %invoke.cont1373
-    i32 267, label %invoke.cont1662
-    i32 270, label %invoke.cont1948
-    i32 272, label %invoke.cont2061
-    i32 271, label %sw.bb2176
-    i32 262, label %sw.bb2404
-    i32 264, label %sw.bb2409
-    i32 266, label %sw.bb2414
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 249, label %sw.bb
+    i16 248, label %sw.bb188
+    i16 5, label %sw.bb219
+    i16 247, label %sw.bb329
+    i16 246, label %sw.bb525
+    i16 245, label %sw.bb727
+    i16 253, label %sw.bb929
+    i16 252, label %sw.bb956
+    i16 256, label %invoke.cont1168
+    i16 257, label %invoke.cont1189
+    i16 255, label %sw.bb1210
+    i16 258, label %sw.bb1215
+    i16 259, label %sw.bb1220
+    i16 260, label %sw.bb1225
+    i16 269, label %invoke.cont1233
+    i16 268, label %invoke.cont1373
+    i16 267, label %invoke.cont1662
+    i16 270, label %invoke.cont1948
+    i16 272, label %invoke.cont2061
+    i16 271, label %sw.bb2176
+    i16 262, label %sw.bb2404
+    i16 264, label %sw.bb2409
+    i16 266, label %sw.bb2414
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -3581,10 +3580,9 @@ invoke.cont1189:                                  ; preds = %if.end
   %d_kind.i1634 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %313, i64 0, i32 1
   %bf.load.i1635 = load i16, ptr %d_kind.i1634, align 8
   %bf.clear.i1636 = and i16 %bf.load.i1635, 1023
-  %bf.cast.i1637 = zext nneg i16 %bf.clear.i1636 to i32
-  switch i32 %bf.cast.i1637, label %sw.epilog [
-    i32 243, label %if.then1193
-    i32 250, label %if.then1202
+  switch i16 %bf.clear.i1636, label %sw.epilog [
+    i16 243, label %if.then1193
+    i16 250, label %if.then1202
   ]
 
 if.then1193:                                      ; preds = %invoke.cont1189
@@ -10113,11 +10111,10 @@ invoke.cont:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 243, label %sw.bb
-    i32 250, label %sw.bb30
-    i32 245, label %sw.bb58
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 243, label %sw.bb
+    i16 250, label %sw.bb30
+    i16 245, label %sw.bb58
   ]
 
 sw.bb:                                            ; preds = %invoke.cont
@@ -11330,11 +11327,10 @@ invoke.cont:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 243, label %sw.bb
-    i32 250, label %sw.bb8
-    i32 245, label %sw.bb54
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 243, label %sw.bb
+    i16 250, label %sw.bb8
+    i16 245, label %sw.bb54
   ]
 
 sw.bb:                                            ; preds = %invoke.cont
@@ -12499,11 +12495,10 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %7, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 243, label %sw.bb
-    i32 250, label %sw.bb16
-    i32 245, label %sw.bb46
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 243, label %sw.bb
+    i16 250, label %sw.bb16
+    i16 245, label %sw.bb46
   ]
 
 lpad3:                                            ; preds = %invoke.cont
@@ -13674,10 +13669,9 @@ invoke.cont:                                      ; preds = %if.then13.i.i, %if.
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end [
-    i32 250, label %if.then
-    i32 243, label %if.then
+  switch i16 %bf.clear.i, label %if.end [
+    i16 250, label %if.then
+    i16 243, label %if.then
   ]
 
 if.then:                                          ; preds = %invoke.cont, %invoke.cont
@@ -14804,14 +14798,14 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end86 [
-    i32 5, label %if.then
-    i32 251, label %if.then13
-    i32 248, label %if.then59
+  switch i16 %bf.clear.i, label %if.end86 [
+    i16 5, label %if.then
+    i16 251, label %if.then13
+    i16 248, label %if.then59
   ]
 
 if.then:                                          ; preds = %entry
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 5), !noalias !501
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !501
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %idxprom.i.i = zext i1 %cmp.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i
@@ -14901,7 +14895,7 @@ lpad9:                                            ; preds = %if.then13.i.i.i
   br label %eh.resume
 
 if.then13:                                        ; preds = %entry
-  %call2.i.i.i42 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 251)
+  %call2.i.i.i42 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
   %cmp.i.i43 = icmp eq i32 %call2.i.i.i42, 2
   %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 2
   %bf.load.i.i44 = load i32, ptr %d_nchildren.i.i, align 4
@@ -15362,7 +15356,7 @@ ehcleanup56:                                      ; preds = %lpad47, %lpad49, %e
   br label %eh.resume
 
 if.then59:                                        ; preds = %entry
-  %call2.i.i.i197 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 248), !noalias !529
+  %call2.i.i.i197 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !529
   %cmp.i.i198 = icmp eq i32 %call2.i.i.i197, 2
   %idxprom.i.i200 = zext i1 %cmp.i.i198 to i64
   %arrayidx.i.i201 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i200
@@ -16564,7 +16558,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -17264,7 +17258,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

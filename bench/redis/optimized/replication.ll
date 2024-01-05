@@ -3249,8 +3249,8 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp2138 = icmp sgt i32 %0, 1
-  br i1 %cmp2138, label %for.body.lr.ph, label %for.end219
+  %cmp2139 = icmp sgt i32 %0, 1
+  br i1 %cmp2139, label %for.body.lr.ph, label %for.end219
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
@@ -3267,9 +3267,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc217
-  %indvars.iv173 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next174, %for.inc217 ]
+  %indvars.iv175 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next176, %for.inc217 ]
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv173
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv175
   %4 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
   %5 = load ptr, ptr %ptr, align 8
@@ -3303,11 +3303,10 @@ if.then17:                                        ; preds = %if.else
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 -1
   %10 = load i8, ptr %arrayidx.i, align 1
   %11 = and i8 %10, 7
-  %and.i = zext nneg i8 %11 to i32
-  switch i32 %and.i, label %if.then26 [
-    i32 4, label %sw.bb13.i
-    i32 3, label %sw.bb9.i
-    i32 2, label %sw.bb5.i
+  switch i8 %11, label %if.then26 [
+    i8 4, label %sw.bb13.i
+    i8 3, label %sw.bb9.i
+    i8 2, label %sw.bb5.i
   ]
 
 sw.bb5.i:                                         ; preds = %if.then17
@@ -3347,10 +3346,10 @@ if.end30:                                         ; preds = %if.then28, %if.then
   br label %for.inc217
 
 if.else33:                                        ; preds = %sdslen.exit
-  switch i32 %and.i, label %sdslen.exit97 [
-    i32 4, label %sw.bb13.i82
-    i32 3, label %sw.bb9.i85
-    i32 2, label %sw.bb5.i88
+  switch i8 %11, label %sdslen.exit97 [
+    i8 4, label %sw.bb13.i82
+    i8 3, label %sw.bb9.i85
+    i8 2, label %sw.bb5.i88
   ]
 
 sw.bb5.i88:                                       ; preds = %if.else33
@@ -3412,7 +3411,7 @@ if.else65:                                        ; preds = %if.else36
   br i1 %tobool71.not, label %if.then72, label %if.else131
 
 if.then72:                                        ; preds = %if.else65
-  %23 = trunc i64 %indvars.iv173 to i32
+  %23 = trunc i64 %indvars.iv175 to i32
   %24 = load i64, ptr %flags167, align 8
   %and = and i64 %24, 1
   %tobool73.not = icmp eq i64 %and, 0
@@ -3444,7 +3443,7 @@ if.end89:                                         ; preds = %if.then87, %if.end8
 
 land.lhs.true:                                    ; preds = %if.end89
   %29 = load ptr, ptr %argv, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv173
+  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv175
   %arrayidx97 = getelementptr ptr, ptr %30, i64 2
   %31 = load ptr, ptr %arrayidx97, align 8
   %ptr98 = getelementptr inbounds %struct.redisObject, ptr %31, i64 0, i32 2
@@ -3575,8 +3574,8 @@ if.end186:                                        ; preds = %if.then177
   %or189 = or i32 %47, 3
   store i32 %or189, ptr %slave_req, align 4
   %48 = load i32, ptr %filter_count, align 4
-  %cmp191136 = icmp sgt i32 %48, 0
-  br i1 %cmp191136, label %for.body193.preheader, label %for.end
+  %cmp191137 = icmp sgt i32 %48, 0
+  br i1 %cmp191137, label %for.body193.preheader, label %for.end
 
 for.body193.preheader:                            ; preds = %if.end186
   %wide.trip.count = zext nneg i32 %48 to i64
@@ -3612,9 +3611,9 @@ if.else205:                                       ; preds = %if.else170
   br label %return
 
 for.inc217:                                       ; preds = %if.end10, %if.else52, %if.then60, %if.then51, %if.then163, %if.else166, %for.end, %if.end30
-  %indvars.iv.next174 = add nuw i64 %indvars.iv173, 2
+  %indvars.iv.next176 = add nuw i64 %indvars.iv175, 2
   %51 = load i32, ptr %argc, align 8
-  %52 = trunc i64 %indvars.iv.next174 to i32
+  %52 = trunc i64 %indvars.iv.next176 to i32
   %cmp2 = icmp sgt i32 %51, %52
   br i1 %cmp2, label %for.body, label %for.end219, !llvm.loop !22
 

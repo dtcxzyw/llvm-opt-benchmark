@@ -272,18 +272,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %result, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 67, label %return
-    i32 99, label %return
-    i32 65, label %sw.bb3
-    i32 97, label %sw.bb3
-    i32 83, label %sw.bb4
-    i32 115, label %sw.bb4
-    i32 116, label %sw.bb5
-    i32 84, label %sw.bb5
-    i32 71, label %sw.bb6
-    i32 103, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 67, label %return
+    i8 99, label %return
+    i8 65, label %sw.bb3
+    i8 97, label %sw.bb3
+    i8 83, label %sw.bb4
+    i8 115, label %sw.bb4
+    i8 116, label %sw.bb5
+    i8 84, label %sw.bb5
+    i8 71, label %sw.bb6
+    i8 103, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %if.end, %if.end

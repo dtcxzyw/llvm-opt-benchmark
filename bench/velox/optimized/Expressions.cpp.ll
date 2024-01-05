@@ -8426,7 +8426,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN5folly7dynamicESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
@@ -10457,7 +10457,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -15784,11 +15784,10 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 for.cond.i:                                       ; preds = %if.else16.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else16.i ]
   %10 = load i8, ptr %p.1.i, align 1
-  %conv.i = sext i8 %10 to i32
-  switch i32 %conv.i, label %if.else16.i [
-    i32 60, label %if.then6.i.loopexit
-    i32 62, label %if.then6.i.loopexit152
-    i32 94, label %if.then6.i
+  switch i8 %10, label %if.else16.i [
+    i8 60, label %if.then6.i.loopexit
+    i8 62, label %if.then6.i.loopexit152
+    i8 94, label %if.then6.i
   ]
 
 if.then6.i.loopexit:                              ; preds = %for.cond.i
@@ -15858,11 +15857,12 @@ _ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %12 = load i8, ptr %retval.0.i, align 1
-  %conv18.i = sext i8 %12 to i32
-  switch i32 %conv18.i, label %if.end26.i [
-    i32 43, label %if.then.i.i
-    i32 45, label %if.then.i.i80
-    i32 32, label %if.then.i.i92
+  switch i8 %12, label %if.end42.i [
+    i8 43, label %if.then.i.i
+    i8 45, label %if.then.i.i80
+    i8 32, label %if.then.i.i92
+    i8 35, label %if.then.i.i104
+    i8 48, label %if.then.i.i110
   ]
 
 if.then.i.i:                                      ; preds = %if.end16.i
@@ -15877,21 +15877,15 @@ if.then.i.i92:                                    ; preds = %if.end16.i
   tail call void @_ZN3fmt2v86detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %ctx, ptr noundef nonnull @.str.41) #29
   unreachable
 
-if.end26.i:                                       ; preds = %if.end16.i
-  switch i8 %12, label %if.end42.i [
-    i8 35, label %if.then.i.i104
-    i8 48, label %if.then.i.i110
-  ]
-
-if.then.i.i104:                                   ; preds = %if.end26.i
+if.then.i.i104:                                   ; preds = %if.end16.i
   tail call void @_ZN3fmt2v86detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %ctx, ptr noundef nonnull @.str.41) #29
   unreachable
 
-if.then.i.i110:                                   ; preds = %if.end26.i
+if.then.i.i110:                                   ; preds = %if.end16.i
   tail call void @_ZN3fmt2v86detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %ctx, ptr noundef nonnull @.str.41) #29
   unreachable
 
-if.end42.i:                                       ; preds = %if.end26.i
+if.end42.i:                                       ; preds = %if.end16.i
   %call43.i = call noundef ptr @_ZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(28) %checker)
   %cmp44.i = icmp eq ptr %call43.i, %add.ptr.i.i
   br i1 %cmp44.i, label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
@@ -16254,25 +16248,24 @@ lpad2:                                            ; preds = %.noexc13.invoke, %.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #0 comdat {
 entry:
-  %conv = sext i8 %type to i32
-  switch i32 %conv, label %sw.default [
-    i32 100, label %return
-    i32 111, label %sw.bb1
-    i32 120, label %sw.bb2
-    i32 88, label %sw.bb3
-    i32 98, label %sw.bb4
-    i32 66, label %sw.bb5
-    i32 97, label %sw.bb6
-    i32 65, label %sw.bb7
-    i32 101, label %sw.bb8
-    i32 69, label %sw.bb9
-    i32 102, label %sw.bb10
-    i32 70, label %sw.bb11
-    i32 103, label %sw.bb12
-    i32 71, label %sw.bb13
-    i32 99, label %sw.bb14
-    i32 115, label %sw.bb15
-    i32 112, label %sw.bb16
+  switch i8 %type, label %sw.default [
+    i8 100, label %return
+    i8 111, label %sw.bb1
+    i8 120, label %sw.bb2
+    i8 88, label %sw.bb3
+    i8 98, label %sw.bb4
+    i8 66, label %sw.bb5
+    i8 97, label %sw.bb6
+    i8 65, label %sw.bb7
+    i8 101, label %sw.bb8
+    i8 69, label %sw.bb9
+    i8 102, label %sw.bb10
+    i8 70, label %sw.bb11
+    i8 103, label %sw.bb12
+    i8 71, label %sw.bb13
+    i8 99, label %sw.bb14
+    i8 115, label %sw.bb15
+    i8 112, label %sw.bb16
   ]
 
 sw.bb1:                                           ; preds = %entry
@@ -20577,7 +20570,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -20704,7 +20697,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2

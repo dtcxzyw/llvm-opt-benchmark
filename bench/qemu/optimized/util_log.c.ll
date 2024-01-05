@@ -145,14 +145,14 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_log_trylock() local_unnamed_addr #2 {
+define dso_local noundef ptr @qemu_log_trylock() local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc ptr @qemu_log_trylock_with_err(ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_log_trylock_with_err(ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc noundef ptr @qemu_log_trylock_with_err(ptr noundef %errp) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_file)
   %1 = load ptr, ptr %0, align 8
@@ -308,7 +308,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
 define dso_local void @qemu_log(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %call.i = tail call fastcc ptr @qemu_log_trylock_with_err(ptr noundef null)
+  %call.i = tail call fastcc noundef ptr @qemu_log_trylock_with_err(ptr noundef null)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.then.i
 
@@ -376,14 +376,14 @@ entry:
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_set_log(i32 noundef %log_flags, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_set_log(i32 noundef %log_flags, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @qemu_set_log_internal(ptr noundef null, i1 noundef zeroext false, i32 noundef %log_flags, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @qemu_set_log_internal(ptr noundef %filename, i1 noundef zeroext %changed_name, i32 noundef %log_flags, ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @qemu_set_log_internal(ptr noundef %filename, i1 noundef zeroext %changed_name, i32 noundef %log_flags, ptr noundef %errp) unnamed_addr #2 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -675,7 +675,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end10.i67, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_set_log_filename(ptr noundef %filename, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_set_log_filename(ptr noundef %filename, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @qemu_loglevel, align 4
   %call = tail call fastcc zeroext i1 @qemu_set_log_internal(ptr noundef %filename, i1 noundef zeroext true, i32 noundef %0, ptr noundef %errp)
@@ -683,14 +683,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_set_log_filename_flags(ptr noundef %name, i32 noundef %flags, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_set_log_filename_flags(ptr noundef %name, i32 noundef %flags, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @qemu_set_log_internal(ptr noundef %name, i1 noundef zeroext true, i32 noundef %flags, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_log_in_addr_range(i64 noundef %addr) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @qemu_log_in_addr_range(i64 noundef %addr) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @debug_regions, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -816,11 +816,10 @@ if.then37:                                        ; preds = %if.end34
 
 if.end42:                                         ; preds = %if.end34
   %4 = load i8, ptr %range_op.138, align 1
-  %conv43 = sext i8 %4 to i32
-  switch i32 %conv43, label %do.body [
-    i32 43, label %sw.bb
-    i32 45, label %sw.bb44
-    i32 46, label %sw.bb47
+  switch i8 %4, label %do.body [
+    i8 43, label %sw.bb
+    i8 45, label %sw.bb44
+    i8 46, label %sw.bb47
   ]
 
 sw.bb:                                            ; preds = %if.end42

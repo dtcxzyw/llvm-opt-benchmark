@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [31 x i8] c"(error object is not a string)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_debug(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_debug(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_debug, ptr noundef nonnull @lj_lib_cf_debug) #8
   ret i32 1
@@ -65,7 +65,7 @@ entry:
 declare hidden void @lj_lib_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @lj_cf_debug_getregistry(ptr nocapture noundef %L) #2 {
+define internal noundef i32 @lj_cf_debug_getregistry(ptr nocapture noundef %L) #2 {
 entry:
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   %0 = load ptr, ptr %top, align 8
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_getmetatable(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_getmetatable(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef 1) #8
@@ -100,7 +100,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_setmetatable(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_setmetatable(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktabornil(ptr noundef %L, i32 noundef 2) #8
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_getfenv(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_getfenv(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #8
   tail call void @lua_getfenv(ptr noundef %L, i32 noundef 1) #8
@@ -124,7 +124,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_setfenv(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_setfenv(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 2) #8
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -145,7 +145,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_getinfo(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_getinfo(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lj_Debug, align 8
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -235,11 +235,6 @@ if.then30:                                        ; preds = %if.end27
 
 if.end32:                                         ; preds = %if.end27
   call void @lua_createtable(ptr noundef nonnull %L, i32 noundef 0, i32 noundef 16) #8
-  %13 = load i8, ptr %options.0, align 1
-  %tobool33.not53 = icmp eq i8 %13, 0
-  br i1 %tobool33.not53, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end32
   %name = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 1
   %namewhat = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 2
   %nups = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 6
@@ -251,104 +246,89 @@ for.body.lr.ph:                                   ; preds = %if.end32
   %linedefined = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 7
   %lastlinedefined = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 8
   %what = getelementptr inbounds %struct.lj_Debug, ptr %ar, i64 0, i32 3
-  br label %for.body.outer
+  br label %for.cond
 
-for.body.outer:                                   ; preds = %for.inc.thread, %for.body.lr.ph
-  %.ph = phi i8 [ %27, %for.inc.thread ], [ %13, %for.body.lr.ph ]
-  %options.156.ph = phi ptr [ %incdec.ptr4063, %for.inc.thread ], [ %options.0, %for.body.lr.ph ]
-  %14 = phi i1 [ false, %for.inc.thread ], [ true, %for.body.lr.ph ]
-  %opt_f.054.ph = phi i32 [ %opt_f.054, %for.inc.thread ], [ 0, %for.body.lr.ph ]
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.outer, %for.inc
-  %15 = phi i8 [ %26, %for.inc ], [ %.ph, %for.body.outer ]
-  %options.156 = phi ptr [ %incdec.ptr40, %for.inc ], [ %options.156.ph, %for.body.outer ]
-  %opt_f.054 = phi i32 [ %opt_f.1, %for.inc ], [ %opt_f.054.ph, %for.body.outer ]
-  %conv34 = sext i8 %15 to i32
-  switch i32 %conv34, label %for.inc [
-    i32 83, label %sw.bb
-    i32 108, label %sw.bb35
-    i32 117, label %sw.bb36
-    i32 110, label %sw.bb37
-    i32 102, label %sw.bb38
-    i32 76, label %for.inc.thread
+for.cond:                                         ; preds = %for.inc, %if.end32
+  %opt_f.0 = phi i32 [ 0, %if.end32 ], [ %opt_f.1, %for.inc ]
+  %opt_L.0 = phi i32 [ 0, %if.end32 ], [ %opt_L.1, %for.inc ]
+  %options.1 = phi ptr [ %options.0, %if.end32 ], [ %incdec.ptr40, %for.inc ]
+  %13 = load i8, ptr %options.1, align 1
+  switch i8 %13, label %for.inc [
+    i8 0, label %for.end
+    i8 83, label %sw.bb
+    i8 108, label %sw.bb35
+    i8 117, label %sw.bb36
+    i8 110, label %sw.bb37
+    i8 102, label %sw.bb38
+    i8 76, label %sw.bb39
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %16 = load ptr, ptr %source, align 8
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %16) #8
+sw.bb:                                            ; preds = %for.cond
+  %14 = load ptr, ptr %source, align 8
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %14) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.4) #8
   call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %short_src) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.5) #8
-  %17 = load i32, ptr %linedefined, align 8
-  %conv.i = sext i32 %17 to i64
+  %15 = load i32, ptr %linedefined, align 8
+  %conv.i = sext i32 %15 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.6) #8
-  %18 = load i32, ptr %lastlinedefined, align 4
-  %conv.i36 = sext i32 %18 to i64
+  %16 = load i32, ptr %lastlinedefined, align 4
+  %conv.i36 = sext i32 %16 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i36) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.7) #8
-  %19 = load ptr, ptr %what, align 8
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %19) #8
+  %17 = load ptr, ptr %what, align 8
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %17) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.8) #8
   br label %for.inc
 
-sw.bb35:                                          ; preds = %for.body
-  %20 = load i32, ptr %currentline, align 8
-  %conv.i37 = sext i32 %20 to i64
+sw.bb35:                                          ; preds = %for.cond
+  %18 = load i32, ptr %currentline, align 8
+  %conv.i37 = sext i32 %18 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i37) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.9) #8
   br label %for.inc
 
-sw.bb36:                                          ; preds = %for.body
-  %21 = load i32, ptr %nups, align 4
-  %conv.i38 = sext i32 %21 to i64
+sw.bb36:                                          ; preds = %for.cond
+  %19 = load i32, ptr %nups, align 4
+  %conv.i38 = sext i32 %19 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i38) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.10) #8
-  %22 = load i32, ptr %nparams, align 8
-  %conv.i39 = sext i32 %22 to i64
+  %20 = load i32, ptr %nparams, align 8
+  %conv.i39 = sext i32 %20 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i39) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.11) #8
-  %23 = load i32, ptr %isvararg, align 4
-  call void @lua_pushboolean(ptr noundef %L, i32 noundef %23) #8
+  %21 = load i32, ptr %isvararg, align 4
+  call void @lua_pushboolean(ptr noundef %L, i32 noundef %21) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.12) #8
   br label %for.inc
 
-sw.bb37:                                          ; preds = %for.body
-  %24 = load ptr, ptr %name, align 8
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %24) #8
+sw.bb37:                                          ; preds = %for.cond
+  %22 = load ptr, ptr %name, align 8
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %22) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.13) #8
-  %25 = load ptr, ptr %namewhat, align 8
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %25) #8
+  %23 = load ptr, ptr %namewhat, align 8
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %23) #8
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.14) #8
   br label %for.inc
 
-sw.bb38:                                          ; preds = %for.body
+sw.bb38:                                          ; preds = %for.cond
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %sw.bb35, %sw.bb36, %sw.bb37, %sw.bb38, %for.body
-  %opt_f.1 = phi i32 [ %opt_f.054, %for.body ], [ 1, %sw.bb38 ], [ %opt_f.054, %sw.bb37 ], [ %opt_f.054, %sw.bb36 ], [ %opt_f.054, %sw.bb35 ], [ %opt_f.054, %sw.bb ]
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %options.156, i64 1
-  %26 = load i8, ptr %incdec.ptr40, align 1
-  %tobool33.not = icmp eq i8 %26, 0
-  br i1 %tobool33.not, label %for.end, label %for.body, !llvm.loop !4
+sw.bb39:                                          ; preds = %for.cond
+  br label %for.inc
 
-for.inc.thread:                                   ; preds = %for.body
-  %incdec.ptr4063 = getelementptr inbounds i8, ptr %options.156, i64 1
-  %27 = load i8, ptr %incdec.ptr4063, align 1
-  %tobool33.not64 = icmp eq i8 %27, 0
-  br i1 %tobool33.not64, label %for.end.thread67, label %for.body.outer, !llvm.loop !4
+for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb35, %sw.bb36, %sw.bb37, %sw.bb38, %sw.bb39
+  %opt_f.1 = phi i32 [ %opt_f.0, %sw.bb39 ], [ 1, %sw.bb38 ], [ %opt_f.0, %sw.bb37 ], [ %opt_f.0, %sw.bb36 ], [ %opt_f.0, %sw.bb35 ], [ %opt_f.0, %sw.bb ], [ %opt_f.0, %for.cond ]
+  %opt_L.1 = phi i32 [ 1, %sw.bb39 ], [ %opt_L.0, %sw.bb38 ], [ %opt_L.0, %sw.bb37 ], [ %opt_L.0, %sw.bb36 ], [ %opt_L.0, %sw.bb35 ], [ %opt_L.0, %sw.bb ], [ %opt_L.0, %for.cond ]
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %options.1, i64 1
+  br label %for.cond, !llvm.loop !4
 
-for.end.thread67:                                 ; preds = %for.inc.thread
-  %28 = icmp eq i32 %opt_f.054, 0
-  br label %if.then42
+for.end:                                          ; preds = %for.cond
+  %tobool41.not = icmp eq i32 %opt_L.0, 0
+  br i1 %tobool41.not, label %if.end43, label %if.then42
 
-for.end:                                          ; preds = %for.inc
-  %29 = icmp eq i32 %opt_f.1, 0
-  br i1 %14, label %if.end43, label %if.then42
-
-if.then42:                                        ; preds = %for.end.thread67, %for.end
-  %30 = phi i1 [ %28, %for.end.thread67 ], [ %29, %for.end ]
+if.then42:                                        ; preds = %for.end
   %cmp.i40 = icmp eq ptr %retval.0.i, %L
   br i1 %cmp.i40, label %if.then.i42, label %if.else.i41
 
@@ -363,12 +343,13 @@ if.else.i41:                                      ; preds = %if.then42
 
 treatstackoption.exit:                            ; preds = %if.then.i42, %if.else.i41
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.15) #8
-  br i1 %30, label %return, label %if.then45
+  br label %if.end43
 
-if.end43:                                         ; preds = %for.end
-  br i1 %29, label %return, label %if.then45
+if.end43:                                         ; preds = %treatstackoption.exit, %for.end
+  %tobool44.not = icmp eq i32 %opt_f.0, 0
+  br i1 %tobool44.not, label %return, label %if.then45
 
-if.then45:                                        ; preds = %treatstackoption.exit, %if.end43
+if.then45:                                        ; preds = %if.end43
   %cmp.i43 = icmp eq ptr %retval.0.i, %L
   br i1 %cmp.i43, label %if.then.i45, label %if.else.i44
 
@@ -385,12 +366,12 @@ treatstackoption.exit46:                          ; preds = %if.then.i45, %if.el
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.16) #8
   br label %return
 
-return:                                           ; preds = %if.end32, %treatstackoption.exit, %if.end43, %treatstackoption.exit46, %if.then8
+return:                                           ; preds = %if.end43, %treatstackoption.exit46, %if.then8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_getlocal(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_getlocal(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -467,7 +448,7 @@ return:                                           ; preds = %if.else, %if.then16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_setlocal(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_setlocal(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -519,7 +500,7 @@ if.end:                                           ; preds = %getthread.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_getupvalue(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_getupvalue(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
   %call1.i = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef 1) #8
@@ -545,7 +526,7 @@ debug_getupvalue.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 3) #8
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
@@ -564,7 +545,7 @@ debug_getupvalue.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_upvalueid(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_upvalueid(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef 1) #8
   %call1 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
@@ -603,7 +584,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_upvaluejoin(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %L) #0 {
 entry:
   %fn = alloca [2 x ptr], align 16
   %p = alloca [2 x ptr], align 16
@@ -682,7 +663,7 @@ if.end40:                                         ; preds = %if.then36, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_sethook(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_sethook(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -748,7 +729,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_gethook(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_gethook(ptr noundef %L) #0 {
 entry:
   %buff = alloca [5 x i8], align 1
   %call = tail call i32 @lua_gethookmask(ptr noundef %L) #8
@@ -819,7 +800,7 @@ unmakemask.exit:                                  ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_debug(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_debug(ptr noundef %L) #0 {
 entry:
   %buffer = alloca [250 x i8], align 16
   %0 = load ptr, ptr @stderr, align 8
@@ -869,7 +850,7 @@ if.end17:                                         ; preds = %if.then12, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_debug_traceback(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_debug_traceback(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8

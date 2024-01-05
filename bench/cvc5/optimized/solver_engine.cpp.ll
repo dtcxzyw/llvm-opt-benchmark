@@ -25605,22 +25605,18 @@ entry:
   %valueInfo = getelementptr inbounds %"struct.cvc5::internal::options::OptionInfo", ptr %this, i64 0, i32 4
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::options::OptionInfo", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJN4cvc58internal7options10OptionInfo8VoidInfoENS3_9ValueInfoIbEENS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS3_10NumberInfoIlEENSE_ImEENSE_IdEENS3_8ModeInfoEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %entry
-  %conv.i.i.i.i.i.i.i.i.i.i = sext i8 %0 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i [
-    i64 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
-    i64 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
-    i64 2, label %return.sink.split.i.i.i.i.i.i.i.i.i
-    i64 3, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
-    i64 4, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
-    i64 5, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
-    i64 6, label %sw.bb7.i.i.i.i.i.i.i.i.i
+  switch i8 %0, label %sw.default.i.i.i.i.i.i.i.i.i [
+    i8 -1, label %_ZNSt7variantIJN4cvc58internal7options10OptionInfo8VoidInfoENS3_9ValueInfoIbEENS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS3_10NumberInfoIlEENSE_ImEENSE_IdEENS3_8ModeInfoEEED2Ev.exit
+    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
+    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
+    i8 2, label %return.sink.split.i.i.i.i.i.i.i.i.i
+    i8 3, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
+    i8 4, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
+    i8 5, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
+    i8 6, label %sw.bb7.i.i.i.i.i.i.i.i.i
   ]
 
-sw.bb7.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
+sw.bb7.i.i.i.i.i.i.i.i.i:                         ; preds = %entry
   %modes.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::options::OptionInfo", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 16
   %1 = load ptr, ptr %modes.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::options::OptionInfo", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 24
@@ -25648,16 +25644,16 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %invoke.cont.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
   br label %return.sink.split.i.i.i.i.i.i.i.i.i
 
-sw.default.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i
+sw.default.i.i.i.i.i.i.i.i.i:                     ; preds = %entry
   unreachable
 
-return.sink.split.i.i.i.i.i.i.i.i.i:              ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
+return.sink.split.i.i.i.i.i.i.i.i.i:              ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %entry
   %currentValue.i.i.i.i.i.i14.sink.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::options::OptionInfo", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %currentValue.i.i.i.i.i.i14.sink.i.i.i.i.i.i.i.i.i) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %valueInfo) #27
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN4cvc58internal7options10OptionInfo8VoidInfoENS6_9ValueInfoIbEENS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS6_10NumberInfoIlEENSH_ImEENSH_IdEENS6_8ModeInfoEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SG_SI_SJ_SK_SL_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i.i.i, %entry, %entry, %entry, %entry, %entry
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt7variantIJN4cvc58internal7options10OptionInfo8VoidInfoENS3_9ValueInfoIbEENS5_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS3_10NumberInfoIlEENSE_ImEENSE_IdEENS3_8ModeInfoEEED2Ev.exit
 
@@ -28462,7 +28458,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
@@ -28619,7 +28615,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -29659,7 +29655,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
@@ -30400,7 +30396,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -30750,7 +30746,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -31905,7 +31901,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -32440,7 +32436,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal16InstantiationVecESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2

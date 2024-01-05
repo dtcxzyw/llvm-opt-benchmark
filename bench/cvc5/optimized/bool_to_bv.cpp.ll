@@ -1680,7 +1680,7 @@ if.then.i.i.i340:                                 ; preds = %if.else.i309
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i314: ; preds = %if.else.i309
   %sub.ptr.div.i.i.i.i315 = ashr exact i64 %sub.ptr.sub.i.i.i.i312, 3
   %.sroa.speculated.i.i.i316 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i315, i64 1)
-  %add.i.i.i317 = add i64 %.sroa.speculated.i.i.i316, %sub.ptr.div.i.i.i.i315
+  %add.i.i.i317 = add nsw i64 %.sroa.speculated.i.i.i316, %sub.ptr.div.i.i.i.i315
   %cmp7.i.i.i318 = icmp ult i64 %add.i.i.i317, %sub.ptr.div.i.i.i.i315
   %40 = call i64 @llvm.umin.i64(i64 %add.i.i.i317, i64 1152921504606846975)
   %cond.i.i.i319 = select i1 %cmp7.i.i.i318, i64 1152921504606846975, i64 %40
@@ -1802,7 +1802,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %46 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %46
@@ -3492,7 +3492,7 @@ if.then.i.i.i200:                                 ; preds = %if.else.i169
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i174: ; preds = %if.else.i169
   %sub.ptr.div.i.i.i.i175 = ashr exact i64 %sub.ptr.sub.i.i.i.i172, 3
   %.sroa.speculated.i.i.i176 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i175, i64 1)
-  %add.i.i.i177 = add i64 %.sroa.speculated.i.i.i176, %sub.ptr.div.i.i.i.i175
+  %add.i.i.i177 = add nsw i64 %.sroa.speculated.i.i.i176, %sub.ptr.div.i.i.i.i175
   %cmp7.i.i.i178 = icmp ult i64 %add.i.i.i177, %sub.ptr.div.i.i.i.i175
   %17 = call i64 @llvm.umin.i64(i64 %add.i.i.i177, i64 1152921504606846975)
   %cond.i.i.i179 = select i1 %cmp7.i.i.i178, i64 1152921504606846975, i64 %17
@@ -3614,7 +3614,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %23 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %23
@@ -4090,22 +4090,22 @@ lpad11:                                           ; preds = %cond.end
 
 if.end:                                           ; preds = %entry
   %call15 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 5, label %sw.bb
-    i32 19, label %sw.bb16
-    i32 21, label %sw.bb17
-    i32 18, label %sw.bb18
-    i32 22, label %sw.bb19
-    i32 20, label %sw.bb20
-    i32 23, label %sw.bb21
-    i32 107, label %sw.bb22
-    i32 111, label %sw.bb23
-    i32 106, label %sw.bb24
-    i32 109, label %sw.bb24
-    i32 108, label %sw.bb24
-    i32 110, label %sw.bb24
-    i32 113, label %sw.bb24
-    i32 112, label %sw.bb24
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 5, label %sw.bb
+    i16 19, label %sw.bb16
+    i16 21, label %sw.bb17
+    i16 18, label %sw.bb18
+    i16 22, label %sw.bb19
+    i16 20, label %sw.bb20
+    i16 23, label %sw.bb21
+    i16 107, label %sw.bb22
+    i16 111, label %sw.bb23
+    i16 106, label %sw.bb24
+    i16 109, label %sw.bb24
+    i16 108, label %sw.bb24
+    i16 110, label %sw.bb24
+    i16 113, label %sw.bb24
+    i16 112, label %sw.bb24
   ]
 
 sw.bb:                                            ; preds = %if.end

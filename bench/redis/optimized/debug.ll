@@ -3994,12 +3994,11 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
-  %and = zext nneg i8 %1 to i32
-  switch i32 %and, label %return [
-    i32 4, label %sw.bb21
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb14
+  switch i8 %1, label %return [
+    i8 4, label %sw.bb21
+    i8 1, label %sw.bb1
+    i8 2, label %sw.bb5
+    i8 3, label %sw.bb14
   ]
 
 sw.bb1:                                           ; preds = %entry
@@ -4918,7 +4917,7 @@ logStackContent.exit:                             ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @openDirectLogFiledes() local_unnamed_addr #15 {
+define dso_local noundef i32 @openDirectLogFiledes() local_unnamed_addr #15 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 250), align 8
   %1 = load i8, ptr %0, align 1

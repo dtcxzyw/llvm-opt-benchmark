@@ -95,8 +95,13 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6
 entry:
   %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %sed, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i, align 8
-  %cmp.i.not.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i, label %if.then.i, label %if.end.i
+  switch i8 %0, label %sw.default.i.i [
+    i8 -1, label %if.then.i
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb2.i.i
+    i8 2, label %sw.bb3.i.i
+    i8 3, label %sw.bb4.i.i
+  ]
 
 if.then.i:                                        ; preds = %entry
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #12
@@ -106,30 +111,21 @@ if.then.i:                                        ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #13
   unreachable
 
-if.end.i:                                         ; preds = %entry
-  %conv.i.i.i = sext i8 %0 to i64
-  switch i64 %conv.i.i.i, label %sw.default.i.i [
-    i64 0, label %sw.bb.i.i
-    i64 1, label %sw.bb2.i.i
-    i64 2, label %sw.bb3.i.i
-    i64 3, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %if.end.i
+sw.bb.i.i:                                        ; preds = %entry
   %call.val.i.i = load i64, ptr %sed, align 8
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %call.val.i.i)
   br label %"_ZSt5visitIN4cvc58internal10overloadedIJZNS1_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISB_mSt4lessISB_ESaISt4pairIKSB_mEEEEEE3$_0ZNS3_5printES4_SM_E3$_1ZNS3_5printES4_SM_E3$_2ZNS3_5printES4_SM_E3$_3ZNS3_5printES4_SM_E3$_4EEEJSM_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISW_EEEEE4typeEE4typeEOS15_EEEE4typeEOSU_DpOSW_.exit"
 
-sw.bb2.i.i:                                       ; preds = %if.end.i
+sw.bb2.i.i:                                       ; preds = %entry
   %call.val9.i.i = load double, ptr %sed, align 8
   %call.i.i.i.i11.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %out, double noundef %call.val9.i.i)
   br label %"_ZSt5visitIN4cvc58internal10overloadedIJZNS1_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISB_mSt4lessISB_ESaISt4pairIKSB_mEEEEEE3$_0ZNS3_5printES4_SM_E3$_1ZNS3_5printES4_SM_E3$_2ZNS3_5printES4_SM_E3$_3ZNS3_5printES4_SM_E3$_4EEEJSM_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISW_EEEEE4typeEE4typeEOS15_EEEE4typeEOSU_DpOSW_.exit"
 
-sw.bb3.i.i:                                       ; preds = %if.end.i
+sw.bb3.i.i:                                       ; preds = %entry
   %call.i.i.i.i12.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %sed)
   br label %"_ZSt5visitIN4cvc58internal10overloadedIJZNS1_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISB_mSt4lessISB_ESaISt4pairIKSB_mEEEEEE3$_0ZNS3_5printES4_SM_E3$_1ZNS3_5printES4_SM_E3$_2ZNS3_5printES4_SM_E3$_3ZNS3_5printES4_SM_E3$_4EEEJSM_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISW_EEEEE4typeEE4typeEOS15_EEEE4typeEOSU_DpOSW_.exit"
 
-sw.bb4.i.i:                                       ; preds = %if.end.i
+sw.bb4.i.i:                                       ; preds = %entry
   %call.i.i.i.i13.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sed, i64 24
   %1 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
@@ -164,7 +160,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   %call13.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
   br label %"_ZSt5visitIN4cvc58internal10overloadedIJZNS1_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISB_mSt4lessISB_ESaISt4pairIKSB_mEEEEEE3$_0ZNS3_5printES4_SM_E3$_1ZNS3_5printES4_SM_E3$_2ZNS3_5printES4_SM_E3$_3ZNS3_5printES4_SM_E3$_4EEEJSM_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISW_EEEEE4typeEE4typeEOS15_EEEE4typeEOSU_DpOSW_.exit"
 
-sw.default.i.i:                                   ; preds = %if.end.i
+sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 "_ZSt5visitIN4cvc58internal10overloadedIJZNS1_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISB_mSt4lessISB_ESaISt4pairIKSB_mEEEEEE3$_0ZNS3_5printES4_SM_E3$_1ZNS3_5printES4_SM_E3$_2ZNS3_5printES4_SM_E3$_3ZNS3_5printES4_SM_E3$_4EEEJSM_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISW_EEEEE4typeEE4typeEOS15_EEEE4typeEOSU_DpOSW_.exit": ; preds = %sw.bb.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON4cvc58internal10overloadedIJZNS6_6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISG_mSt4lessISG_ESaISt4pairIKSG_mEEEEEE3$_0ZNS8_5printES9_SR_E3$_1ZNS8_5printES9_SR_E3$_2ZNS8_5printES9_SR_E3$_3ZNS8_5printES9_SR_E3$_4EEESR_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESY_SR_.exit.i.i"
@@ -201,23 +197,19 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %1, -1
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %invoke.cont
-  %conv.i.i.i.i.i.i.i.i.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i [
-    i64 0, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
-    i64 1, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
-    i64 2, label %sw.bb3.i.i.i.i.i.i.i.i.i
-    i64 3, label %sw.bb4.i.i.i.i.i.i.i.i.i
+  switch i8 %1, label %sw.default.i.i.i.i.i.i.i.i.i [
+    i8 -1, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
+    i8 0, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
+    i8 1, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
+    i8 2, label %sw.bb3.i.i.i.i.i.i.i.i.i
+    i8 3, label %sw.bb4.i.i.i.i.i.i.i.i.i
   ]
 
-sw.bb3.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
+sw.bb3.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   br label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit
 
-sw.bb4.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
+sw.bb4.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %2)
@@ -230,10 +222,10 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %sw.bb4.i.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %4) #15
   unreachable
 
-sw.default.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i
+sw.default.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont
   unreachable
 
-_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i, %invoke.cont
+_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit: ; preds = %invoke.cont, %invoke.cont, %sw.bb3.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i, %invoke.cont
   ret ptr %out
 
 lpad:                                             ; preds = %entry
@@ -250,23 +242,19 @@ define linkonce_odr hidden void @_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt1
 entry:
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %entry
-  %conv.i.i.i.i.i.i.i.i.i = sext i8 %0 to i64
-  switch i64 %conv.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i [
-    i64 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i
-    i64 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i
-    i64 2, label %sw.bb3.i.i.i.i.i.i.i.i
-    i64 3, label %sw.bb4.i.i.i.i.i.i.i.i
+  switch i8 %0, label %sw.default.i.i.i.i.i.i.i.i [
+    i8 -1, label %_ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEED2Ev.exit
+    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i
+    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i
+    i8 2, label %sw.bb3.i.i.i.i.i.i.i.i
+    i8 3, label %sw.bb4.i.i.i.i.i.i.i.i
   ]
 
-sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
+sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i
 
-sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
+sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %entry
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1)
@@ -279,10 +267,10 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %sw.bb4.i.i.i.i.i.i.
   tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
-sw.default.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i
+sw.default.i.i.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i: ; preds = %sw.bb4.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS8_mSt4lessIS8_ESaISt4pairIKS8_mEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJldS8_SG_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i: ; preds = %sw.bb4.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i, %entry, %entry
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEED2Ev.exit
 

@@ -625,10 +625,9 @@ invoke.cont17:                                    ; preds = %_ZN7obj_refI4expr11
   %idxprom.i.i.i.i.i = zext i32 %xor.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i.i.i
   %14 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %14 to i32
-  switch i32 %conv.i.i.i.i, label %if.then.i.i.i [
-    i32 -1, label %sw.bb.i.i
-    i32 0, label %sw.bb9.i.i
+  switch i8 %14, label %if.then.i.i.i [
+    i8 -1, label %sw.bb.i.i
+    i8 0, label %sw.bb9.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont17

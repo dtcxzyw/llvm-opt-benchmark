@@ -575,9 +575,14 @@ invoke.cont38:                                    ; preds = %invoke.cont32
 if.then43:                                        ; preds = %invoke.cont38
   %_M_index.i.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 80
   %23 = load i8, ptr %_M_index.i.i.i.i39, align 8
-  switch i8 %23, label %if.then48 [
+  switch i8 %23, label %sw.default.i.i.i [
     i8 -1, label %if.then.i.i
+    i8 0, label %if.then48
+    i8 1, label %if.then48
+    i8 2, label %if.then48
+    i8 3, label %if.then48
     i8 4, label %invoke.cont53
+    i8 5, label %if.then48
   ]
 
 if.then.i.i:                                      ; preds = %if.then43
@@ -595,7 +600,10 @@ if.then.i.i.invoke:                               ; preds = %if.then.i.i.i.i35, 
 if.then.i.i.cont:                                 ; preds = %if.then.i.i.invoke
   unreachable
 
-if.then48:                                        ; preds = %if.then43
+sw.default.i.i.i:                                 ; preds = %if.then43
+  unreachable
+
+if.then48:                                        ; preds = %if.then43, %if.then43, %if.then43, %if.then43, %if.then43
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 16, ptr nonnull @.str.5)
           to label %cleanup69 unwind label %lpad37
 
@@ -682,17 +690,17 @@ _ZN9grpc_core13RefCountedPtrINS_26CertificateProviderFactory6ConfigEED2Ev.exit: 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %35 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i = icmp eq i8 %35, -1
-  br i1 %cmp.i.not.i.i, label %_ZN9grpc_core12experimental4JsonD2Ev.exit, label %if.end.i.i66
+  br i1 %cmp.i.not.i.i, label %_ZN9grpc_core12experimental4JsonD2Ev.exit, label %if.end.i.i
 
-if.end.i.i66:                                     ; preds = %_ZN9grpc_core13RefCountedPtrINS_26CertificateProviderFactory6ConfigEED2Ev.exit
+if.end.i.i:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_26CertificateProviderFactory6ConfigEED2Ev.exit
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp63)
-          to label %.noexc.i unwind label %terminate.lpad.i.i.i.i67
+          to label %.noexc.i unwind label %terminate.lpad.i.i.i.i66
 
-.noexc.i:                                         ; preds = %if.end.i.i66
+.noexc.i:                                         ; preds = %if.end.i.i
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit
 
-terminate.lpad.i.i.i.i67:                         ; preds = %if.end.i.i66
+terminate.lpad.i.i.i.i66:                         ; preds = %if.end.i.i
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
@@ -717,21 +725,21 @@ terminate.lpad.i.i:                               ; preds = %cleanup69
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %cleanup69
   %41 = load ptr, ptr %field22, align 8
-  %cmp.not.i69 = icmp eq ptr %41, null
-  br i1 %cmp.not.i69, label %cleanup.cont73, label %if.then.i70
+  %cmp.not.i68 = icmp eq ptr %41, null
+  br i1 %cmp.not.i68, label %cleanup.cont73, label %if.then.i69
 
-if.then.i70:                                      ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
+if.then.i69:                                      ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %41)
-          to label %cleanup.cont73 unwind label %terminate.lpad.i71
+          to label %cleanup.cont73 unwind label %terminate.lpad.i70
 
-terminate.lpad.i71:                               ; preds = %if.then.i70
+terminate.lpad.i70:                               ; preds = %if.then.i69
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
   call void @__clang_call_terminate(ptr %43) #20
   unreachable
 
-cleanup.cont73:                                   ; preds = %if.then.i70, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
+cleanup.cont73:                                   ; preds = %if.then.i69, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
   ret void
 
 lpad65:                                           ; preds = %if.end61
@@ -2153,15 +2161,14 @@ entry:
   store i8 -1, ptr %_M_index.i.i, align 8
   %_M_index.i.i2 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %_M_index.i.i2, align 8
-  %conv.i.i = sext i8 %1 to i64
-  switch i64 %conv.i.i, label %sw.default.i [
-    i64 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
-    i64 1, label %sw.bb2.i
-    i64 2, label %sw.bb4.i.invoke
-    i64 3, label %sw.bb4.i.invoke
-    i64 4, label %sw.bb5.i
-    i64 5, label %sw.bb6.i
-    i64 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+  switch i8 %1, label %sw.default.i [
+    i8 0, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
+    i8 1, label %sw.bb2.i
+    i8 2, label %sw.bb4.i.invoke
+    i8 3, label %sw.bb4.i.invoke
+    i8 4, label %sw.bb5.i
+    i8 5, label %sw.bb6.i
+    i8 -1, label %_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_.exit
   ]
 
 sw.bb2.i:                                         ; preds = %entry
@@ -2548,14 +2555,13 @@ entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.123, align 1
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
-  %conv.i = sext i8 %0 to i64
-  switch i64 %conv.i, label %sw.default [
-    i64 0, label %return
-    i64 1, label %return
-    i64 2, label %sw.bb3
-    i64 3, label %sw.bb4
-    i64 4, label %sw.bb5
-    i64 5, label %sw.bb6
+  switch i8 %0, label %sw.default [
+    i8 0, label %return
+    i8 1, label %return
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb4
+    i8 4, label %sw.bb5
+    i8 5, label %sw.bb6
   ]
 
 sw.bb3:                                           ; preds = %entry

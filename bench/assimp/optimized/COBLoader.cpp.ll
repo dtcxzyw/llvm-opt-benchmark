@@ -12644,11 +12644,10 @@ lpad.i.i89:                                       ; preds = %if.then.i.i87
 invoke.cont6:                                     ; preds = %invoke.cont4
   %14 = load i8, ptr %11, align 1
   store ptr %add.ptr.i.i84, ptr %mCurrent.i.i, align 8
-  %conv8 = sext i8 %14 to i32
-  switch i32 %conv8, label %sw.default [
-    i32 102, label %invoke.cont21.invoke
-    i32 112, label %sw.bb11
-    i32 109, label %sw.bb15
+  switch i8 %14, label %sw.default [
+    i8 102, label %invoke.cont21.invoke
+    i8 112, label %sw.bb11
+    i8 109, label %sw.bb15
   ]
 
 lpad:                                             ; preds = %invoke.cont21.invoke, %invoke.cont.i.invoke, %if.then142, %if.then95, %if.then73, %if.else.i, %invoke.cont146, %invoke.cont99, %invoke.cont76, %invoke.cont34, %sw.default33, %invoke.cont19, %sw.default
@@ -12702,11 +12701,10 @@ lpad.i.i100:                                      ; preds = %if.then.i.i98
 invoke.cont25:                                    ; preds = %sw.epilog
   %21 = load i8, ptr %18, align 1
   store ptr %add.ptr.i.i95, ptr %mCurrent.i.i, align 8
-  %conv27 = sext i8 %21 to i32
-  switch i32 %conv27, label %sw.default33 [
-    i32 102, label %sw.epilog39
-    i32 97, label %sw.bb29
-    i32 115, label %sw.bb31
+  switch i8 %21, label %sw.default33 [
+    i8 102, label %sw.epilog39
+    i8 97, label %sw.bb29
+    i8 115, label %sw.bb31
   ]
 
 sw.bb29:                                          ; preds = %invoke.cont25

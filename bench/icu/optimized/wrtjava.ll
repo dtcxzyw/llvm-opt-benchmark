@@ -82,15 +82,14 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %fType = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 1
   %1 = load i8, ptr %fType, align 8
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %if.end11 [
-    i32 0, label %sw.bb
-    i32 3, label %sw.bb2
-    i32 14, label %sw.bb6
-    i32 1, label %sw.bb7
-    i32 7, label %sw.bb8
-    i32 8, label %if.end.i47
-    i32 2, label %if.end.i58
+  switch i8 %1, label %if.end11 [
+    i8 0, label %sw.bb
+    i8 3, label %sw.bb2
+    i8 14, label %sw.bb6
+    i8 1, label %sw.bb7
+    i8 7, label %sw.bb8
+    i8 8, label %if.end.i47
+    i8 2, label %if.end.i58
   ]
 
 sw.bb:                                            ; preds = %if.then1

@@ -892,30 +892,29 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %conv2 = sext i8 %call1 to i32
-  switch i32 %conv2, label %sw.epilog [
-    i32 48, label %sw.bb
-    i32 97, label %sw.bb8
-    i32 98, label %sw.bb12
-    i32 116, label %sw.bb16
-    i32 9, label %sw.bb16
-    i32 110, label %sw.bb20
-    i32 118, label %sw.bb24
-    i32 102, label %sw.bb28
-    i32 114, label %sw.bb32
-    i32 101, label %sw.bb36
-    i32 32, label %sw.bb40
-    i32 34, label %sw.bb44
-    i32 39, label %sw.bb48
-    i32 92, label %sw.bb52
-    i32 47, label %sw.bb56
-    i32 78, label %sw.bb60
-    i32 95, label %sw.bb64
-    i32 76, label %sw.bb68
-    i32 80, label %sw.bb72
-    i32 120, label %sw.bb76
-    i32 117, label %sw.bb77
-    i32 85, label %sw.bb78
+  switch i8 %call1, label %sw.epilog [
+    i8 48, label %sw.bb
+    i8 97, label %sw.bb8
+    i8 98, label %sw.bb12
+    i8 116, label %sw.bb16
+    i8 9, label %sw.bb16
+    i8 110, label %sw.bb20
+    i8 118, label %sw.bb24
+    i8 102, label %sw.bb28
+    i8 114, label %sw.bb32
+    i8 101, label %sw.bb36
+    i8 32, label %sw.bb40
+    i8 34, label %sw.bb44
+    i8 39, label %sw.bb48
+    i8 92, label %sw.bb52
+    i8 47, label %sw.bb56
+    i8 78, label %sw.bb60
+    i8 95, label %sw.bb64
+    i8 76, label %sw.bb68
+    i8 80, label %sw.bb72
+    i8 120, label %sw.bb76
+    i8 117, label %sw.bb77
+    i8 85, label %sw.bb78
   ]
 
 sw.bb:                                            ; preds = %if.end

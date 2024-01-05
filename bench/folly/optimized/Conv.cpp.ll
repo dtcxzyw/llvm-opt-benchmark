@@ -438,10 +438,9 @@ if.end87:                                         ; preds = %if.then75.if.end87_
   %b.0 = phi ptr [ %incdec.ptr76, %if.then75.if.end87_crit_edge ], [ %retval.0.i.i.i, %if.end72 ]
   %size.0 = phi i64 [ %dec77, %if.then75.if.end87_crit_edge ], [ %sub.ptr.sub, %if.end72 ]
   %25 = or i8 %24, 32
-  %conv90 = sext i8 %25 to i32
-  switch i32 %conv90, label %cleanup177 [
-    i32 105, label %sw.bb
-    i32 110, label %sw.bb141
+  switch i8 %25, label %cleanup177 [
+    i8 105, label %sw.bb
+    i8 110, label %sw.bb141
   ]
 
 sw.bb:                                            ; preds = %if.end87
@@ -921,10 +920,9 @@ if.end78:                                         ; preds = %if.then66.if.end78_
   %b.0 = phi ptr [ %incdec.ptr67, %if.then66.if.end78_crit_edge ], [ %retval.0.i.i.i, %if.end63 ]
   %size.0 = phi i64 [ %dec68, %if.then66.if.end78_crit_edge ], [ %sub.ptr.sub, %if.end63 ]
   %25 = or i8 %24, 32
-  %conv80 = sext i8 %25 to i32
-  switch i32 %conv80, label %cleanup156 [
-    i32 105, label %sw.bb
-    i32 110, label %sw.bb124
+  switch i8 %25, label %cleanup156 [
+    i8 105, label %sw.bb
+    i8 110, label %sw.bb124
   ]
 
 sw.bb:                                            ; preds = %if.end78
@@ -5076,20 +5074,19 @@ for.inc:                                          ; preds = %if.end, %if.end, %i
 for.end:                                          ; preds = %if.end
   %sub.ptr.rhs.cast = ptrtoint ptr %b.0225 to i64
   %sub.ptr.sub = sub i64 %2, %sub.ptr.rhs.cast
-  %conv12 = sext i8 %5 to i32
-  switch i32 %conv12, label %cleanup84 [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 121, label %sw.bb37
-    i32 89, label %sw.bb37
-    i32 110, label %sw.bb43
-    i32 78, label %sw.bb43
-    i32 116, label %sw.bb49
-    i32 84, label %sw.bb49
-    i32 102, label %sw.bb55
-    i32 70, label %sw.bb55
-    i32 111, label %sw.bb61
-    i32 79, label %sw.bb61
+  switch i8 %5, label %cleanup84 [
+    i8 48, label %sw.bb
+    i8 49, label %sw.bb
+    i8 121, label %sw.bb37
+    i8 89, label %sw.bb37
+    i8 110, label %sw.bb43
+    i8 78, label %sw.bb43
+    i8 116, label %sw.bb49
+    i8 84, label %sw.bb49
+    i8 102, label %sw.bb55
+    i8 70, label %sw.bb55
+    i8 111, label %sw.bb61
+    i8 79, label %sw.bb61
   ]
 
 sw.bb:                                            ; preds = %for.end, %for.end

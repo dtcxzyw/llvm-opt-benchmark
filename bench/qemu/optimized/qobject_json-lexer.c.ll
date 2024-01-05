@@ -152,21 +152,21 @@ if.else.i35:                                      ; preds = %if.end15
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else.i35, %if.then.i, %next_state.exit
-  switch i32 %conv10, label %sw.epilog [
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 110, label %sw.bb
-    i32 106, label %sw.bb
-    i32 107, label %sw.bb
-    i32 108, label %sw.bb
-    i32 109, label %sw.bb
-    i32 16, label %sw.bb21
-    i32 0, label %sw.bb25
-    i32 1, label %sw.bb29
+  switch i8 %6, label %sw.epilog [
+    i8 100, label %sw.bb
+    i8 101, label %sw.bb
+    i8 102, label %sw.bb
+    i8 103, label %sw.bb
+    i8 104, label %sw.bb
+    i8 105, label %sw.bb
+    i8 110, label %sw.bb
+    i8 106, label %sw.bb
+    i8 107, label %sw.bb
+    i8 108, label %sw.bb
+    i8 109, label %sw.bb
+    i8 16, label %sw.bb21
+    i8 0, label %sw.bb25
+    i8 1, label %sw.bb29
   ]
 
 sw.bb:                                            ; preds = %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17

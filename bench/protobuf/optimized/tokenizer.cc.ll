@@ -559,11 +559,10 @@ entry:
 
 while.body:                                       ; preds = %while.body.backedge, %entry
   %0 = load i8, ptr %current_char_, align 8
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 10, label %sw.bb5
-    i32 92, label %sw.bb14
+  switch i8 %0, label %sw.default [
+    i8 0, label %sw.bb
+    i8 10, label %sw.bb5
+    i8 92, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %while.body
@@ -4801,11 +4800,22 @@ if.end30:                                         ; preds = %if.then25, %if.end2
   br label %for.cond.backedge
 
 if.else:                                          ; preds = %if.then12
-  switch i8 %1, label %if.else66 [
+  switch i8 %1, label %sw.default.i [
     i8 120, label %if.then36
     i8 88, label %if.then36
     i8 117, label %if.then59
     i8 85, label %if.then59
+    i8 97, label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
+    i8 98, label %sw.bb1.i
+    i8 102, label %sw.bb2.i
+    i8 110, label %sw.bb3.i
+    i8 114, label %sw.bb4.i
+    i8 116, label %sw.bb5.i
+    i8 118, label %sw.bb6.i
+    i8 92, label %sw.bb7.i
+    i8 63, label %sw.bb8.i
+    i8 39, label %sw.bb9.i
+    i8 34, label %sw.bb10.i
   ]
 
 if.then36:                                        ; preds = %if.else, %if.else
@@ -5053,57 +5063,41 @@ _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traits
   %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr80, i64 -1
   br label %for.cond.backedge
 
-if.else66:                                        ; preds = %if.else
-  %conv.i = sext i8 %1 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 97, label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
-    i32 98, label %sw.bb1.i
-    i32 102, label %sw.bb2.i
-    i32 110, label %sw.bb3.i
-    i32 114, label %sw.bb4.i
-    i32 116, label %sw.bb5.i
-    i32 118, label %sw.bb6.i
-    i32 92, label %sw.bb7.i
-    i32 63, label %sw.bb8.i
-    i32 39, label %sw.bb9.i
-    i32 34, label %sw.bb10.i
-  ]
-
-sw.bb1.i:                                         ; preds = %if.else66
+sw.bb1.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb2.i:                                         ; preds = %if.else66
+sw.bb2.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb3.i:                                         ; preds = %if.else66
+sw.bb3.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb4.i:                                         ; preds = %if.else66
+sw.bb4.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb5.i:                                         ; preds = %if.else66
+sw.bb5.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb6.i:                                         ; preds = %if.else66
+sw.bb6.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb7.i:                                         ; preds = %if.else66
+sw.bb7.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb8.i:                                         ; preds = %if.else66
+sw.bb8.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb9.i:                                         ; preds = %if.else66
+sw.bb9.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb10.i:                                        ; preds = %if.else66
+sw.bb10.i:                                        ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.default.i:                                     ; preds = %if.else66
+sw.default.i:                                     ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %if.else66, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.default.i
-  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ 34, %sw.bb10.i ], [ 39, %sw.bb9.i ], [ 63, %sw.bb8.i ], [ 92, %sw.bb7.i ], [ 11, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 7, %if.else66 ]
+_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.default.i
+  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ %1, %sw.bb10.i ], [ %1, %sw.bb9.i ], [ %1, %sw.bb8.i ], [ %1, %sw.bb7.i ], [ 11, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 7, %if.else ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output, i8 noundef signext %retval.0.i65)
   br label %for.cond.backedge
 

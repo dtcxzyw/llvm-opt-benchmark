@@ -14242,14 +14242,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %2, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %nrvo.skipdtor [
-    i32 343, label %sw.bb29
-    i32 339, label %sw.bb29
-    i32 337, label %sw.bb29
-    i32 334, label %sw.bb2
-    i32 335, label %sw.bb29
-    i32 336, label %sw.bb29
+  switch i16 %bf.clear.i, label %nrvo.skipdtor [
+    i16 343, label %sw.bb29
+    i16 339, label %sw.bb29
+    i16 337, label %sw.bb29
+    i16 334, label %sw.bb2
+    i16 335, label %sw.bb29
+    i16 336, label %sw.bb29
   ]
 
 lpad:                                             ; preds = %if.then13.i.i.i39, %if.then, %if.then13.i.i.i, %sw.bb2

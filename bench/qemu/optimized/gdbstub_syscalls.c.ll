@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @gdb_handled_syscall() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @gdb_handled_syscall() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.GDBSyscallState, ptr @gdbserver_syscall_state, i64 0, i32 1), align 8
   %tobool.not = icmp ne ptr %0, null
@@ -127,11 +127,10 @@ if.then2:                                         ; preds = %while.cond
   %incdec.ptr3 = getelementptr i8, ptr %fmt.addr.0, i64 1
   %incdec.ptr4 = getelementptr i8, ptr %fmt.addr.0, i64 2
   %6 = load i8, ptr %incdec.ptr3, align 1
-  %conv5 = sext i8 %6 to i32
-  switch i32 %conv5, label %bad_format [
-    i32 120, label %sw.bb
-    i32 108, label %sw.bb9
-    i32 115, label %sw.bb34
+  switch i8 %6, label %bad_format [
+    i8 120, label %sw.bb
+    i8 108, label %sw.bb9
+    i8 115, label %sw.bb34
   ]
 
 sw.bb:                                            ; preds = %if.then2

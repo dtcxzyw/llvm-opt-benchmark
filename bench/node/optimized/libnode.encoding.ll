@@ -58,18 +58,17 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local noundef i32 @_ZN4node13ParseEncodingEPKcNS_8encodingE(ptr noundef %encoding, i32 noundef %default_encoding) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %encoding, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 117, label %sw.bb
-    i32 85, label %sw.bb
-    i32 108, label %sw.bb65
-    i32 76, label %sw.bb65
-    i32 98, label %sw.bb79
-    i32 66, label %sw.bb79
-    i32 97, label %sw.bb129
-    i32 65, label %sw.bb129
-    i32 104, label %sw.bb143
-    i32 72, label %sw.bb143
+  switch i8 %0, label %sw.epilog [
+    i8 117, label %sw.bb
+    i8 85, label %sw.bb
+    i8 108, label %sw.bb65
+    i8 76, label %sw.bb65
+    i8 98, label %sw.bb79
+    i8 66, label %sw.bb79
+    i8 97, label %sw.bb129
+    i8 65, label %sw.bb129
+    i8 104, label %sw.bb143
+    i8 72, label %sw.bb143
   ]
 
 sw.bb:                                            ; preds = %entry, %entry

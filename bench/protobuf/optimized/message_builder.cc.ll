@@ -4517,12 +4517,11 @@ if.then23:                                        ; preds = %land.lhs.true
   %bf.load.i = load i8, ptr %label_.i, align 1
   %bf.lshr.i = lshr i8 %bf.load.i, 5
   %bf.clear.i = and i8 %bf.lshr.i, 3
-  %conv.i = zext nneg i8 %bf.clear.i to i32
-  switch i32 %conv.i, label %if.then23.unreachabledefault [
-    i32 2, label %sw.bb
-    i32 1, label %sw.bb28
-    i32 3, label %sw.bb31
-    i32 0, label %for.inc51
+  switch i8 %bf.clear.i, label %if.then23.unreachabledefault [
+    i8 2, label %sw.bb
+    i8 1, label %sw.bb28
+    i8 3, label %sw.bb31
+    i8 0, label %for.inc51
   ]
 
 sw.bb:                                            ; preds = %if.then23

@@ -1255,12 +1255,11 @@ if.end158:                                        ; preds = %land.lhs.true152, %
   %incdec.ptr169 = getelementptr inbounds i8, ptr %p.0, i64 2
   %30 = lshr i8 %26, 3
   %31 = and i8 %30, 3
-  %and172 = zext nneg i8 %31 to i32
-  switch i32 %and172, label %if.end168.unreachabledefault [
-    i32 3, label %sw.bb173
-    i32 2, label %sw.bb178
-    i32 1, label %sw.bb183
-    i32 0, label %while.body31.backedge
+  switch i8 %31, label %if.end168.unreachabledefault [
+    i8 3, label %sw.bb173
+    i8 2, label %sw.bb178
+    i8 1, label %sw.bb183
+    i8 0, label %while.body31.backedge
   ]
 
 sw.bb173:                                         ; preds = %if.end158
@@ -2788,12 +2787,11 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 if.end.i:                                         ; preds = %for.body.i
   %arrayidx4.i = getelementptr inbounds i8, ptr %2, i64 1
   %4 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = sext i8 %4 to i32
-  switch i32 %conv5.i, label %err.i [
-    i32 45, label %sw.bb.i
-    i32 0, label %ok.i
-    i32 109, label %sw.bb10.i
-    i32 111, label %sw.bb24.i
+  switch i8 %4, label %err.i [
+    i8 45, label %sw.bb.i
+    i8 0, label %ok.i
+    i8 109, label %sw.bb10.i
+    i8 111, label %sw.bb24.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -4089,10 +4087,9 @@ sw.bb75.i:                                        ; preds = %for.body, %for.body
   %10 = trunc i32 %op.010 to i8
   %div241.lhs.trunc.i = add nsw i8 %10, -22
   %div241242.i = udiv i8 %div241.lhs.trunc.i, 5
-  %div241.zext.i = zext nneg i8 %div241242.i to i32
-  switch i32 %div241.zext.i, label %sw.default78.i [
-    i32 0, label %sw.bb76.i
-    i32 1, label %sw.bb77.i
+  switch i8 %div241242.i, label %sw.default78.i [
+    i8 0, label %sw.bb76.i
+    i8 1, label %sw.bb77.i
   ]
 
 sw.bb76.i:                                        ; preds = %sw.bb75.i
@@ -4116,10 +4113,9 @@ sw.bb80.i:                                        ; preds = %for.body, %for.body
   %11 = trunc i32 %op.010 to i8
   %div82243.lhs.trunc.i = add nsw i8 %11, -22
   %div82243244.i = udiv i8 %div82243.lhs.trunc.i, 5
-  %div82243.zext.i = zext nneg i8 %div82243244.i to i32
-  switch i32 %div82243.zext.i, label %sw.default85.i [
-    i32 0, label %sw.bb83.i
-    i32 1, label %sw.bb84.i
+  switch i8 %div82243244.i, label %sw.default85.i [
+    i8 0, label %sw.bb83.i
+    i8 1, label %sw.bb84.i
   ]
 
 sw.bb83.i:                                        ; preds = %sw.bb80.i
@@ -4143,10 +4139,9 @@ sw.bb87.i:                                        ; preds = %for.body, %for.body
   %12 = trunc i32 %op.010 to i8
   %div89245.lhs.trunc.i = add nsw i8 %12, -22
   %div89245246.i = udiv i8 %div89245.lhs.trunc.i, 5
-  %div89245.zext.i = zext nneg i8 %div89245246.i to i32
-  switch i32 %div89245.zext.i, label %sw.default92.i [
-    i32 0, label %sw.bb90.i
-    i32 1, label %sw.bb91.i
+  switch i8 %div89245246.i, label %sw.default92.i [
+    i8 0, label %sw.bb90.i
+    i8 1, label %sw.bb91.i
   ]
 
 sw.bb90.i:                                        ; preds = %sw.bb87.i
@@ -4170,10 +4165,9 @@ sw.bb94.i:                                        ; preds = %for.body, %for.body
   %13 = trunc i32 %op.010 to i8
   %div96247.lhs.trunc.i = add nsw i8 %13, -22
   %div96247248.i = udiv i8 %div96247.lhs.trunc.i, 5
-  %div96247.zext.i = zext nneg i8 %div96247248.i to i32
-  switch i32 %div96247.zext.i, label %sw.default99.i [
-    i32 0, label %sw.bb97.i
-    i32 1, label %sw.bb98.i
+  switch i8 %div96247248.i, label %sw.default99.i [
+    i8 0, label %sw.bb97.i
+    i8 1, label %sw.bb98.i
   ]
 
 sw.bb97.i:                                        ; preds = %sw.bb94.i

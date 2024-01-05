@@ -4054,26 +4054,25 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %4 = load i8, ptr %fmt, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %err_format [
-    i32 66, label %sw.bb
-    i32 98, label %sw.bb4
-    i32 104, label %do.body
-    i32 105, label %do.body9
-    i32 108, label %do.body14
-    i32 63, label %do.body18
-    i32 72, label %do.body24
-    i32 73, label %do.body29
-    i32 76, label %do.body34
-    i32 113, label %do.body38
-    i32 81, label %do.body42
-    i32 110, label %do.body46
-    i32 78, label %do.body50
-    i32 102, label %do.body54
-    i32 100, label %do.body59
-    i32 101, label %sw.bb62
-    i32 99, label %convert_bytes
-    i32 80, label %do.body65
+  switch i8 %4, label %err_format [
+    i8 66, label %sw.bb
+    i8 98, label %sw.bb4
+    i8 104, label %do.body
+    i8 105, label %do.body9
+    i8 108, label %do.body14
+    i8 63, label %do.body18
+    i8 72, label %do.body24
+    i8 73, label %do.body29
+    i8 76, label %do.body34
+    i8 113, label %do.body38
+    i8 81, label %do.body42
+    i8 110, label %do.body46
+    i8 78, label %do.body50
+    i8 102, label %do.body54
+    i8 100, label %do.body59
+    i8 101, label %sw.bb62
+    i8 99, label %convert_bytes
+    i8 80, label %do.body65
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5358,26 +5357,25 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal fastcc noundef i32 @pack_single(ptr nocapture noundef readonly %self, ptr noundef %ptr, ptr noundef %item, ptr noundef %fmt) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %fmt, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %err_format [
-    i32 98, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 108, label %sw.bb
-    i32 66, label %sw.bb44
-    i32 72, label %sw.bb44
-    i32 73, label %sw.bb44
-    i32 76, label %sw.bb44
-    i32 113, label %sw.bb94
-    i32 81, label %sw.bb116
-    i32 110, label %sw.bb138
-    i32 78, label %sw.bb160
-    i32 102, label %sw.bb182
-    i32 100, label %sw.bb182
-    i32 101, label %sw.bb182
-    i32 63, label %sw.bb226
-    i32 99, label %sw.bb247
-    i32 80, label %sw.bb262
+  switch i8 %0, label %err_format [
+    i8 98, label %sw.bb
+    i8 104, label %sw.bb
+    i8 105, label %sw.bb
+    i8 108, label %sw.bb
+    i8 66, label %sw.bb44
+    i8 72, label %sw.bb44
+    i8 73, label %sw.bb44
+    i8 76, label %sw.bb44
+    i8 113, label %sw.bb94
+    i8 81, label %sw.bb116
+    i8 110, label %sw.bb138
+    i8 78, label %sw.bb160
+    i8 102, label %sw.bb182
+    i8 100, label %sw.bb182
+    i8 101, label %sw.bb182
+    i8 63, label %sw.bb226
+    i8 99, label %sw.bb247
+    i8 80, label %sw.bb262
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry
@@ -5435,11 +5433,10 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 if.end8:                                          ; preds = %lor.lhs.false
   %7 = load i8, ptr %fmt, align 1
-  %conv10 = sext i8 %7 to i32
-  switch i32 %conv10, label %do.body41 [
-    i32 98, label %sw.bb11
-    i32 104, label %sw.bb20
-    i32 105, label %sw.bb29
+  switch i8 %7, label %do.body41 [
+    i8 98, label %sw.bb11
+    i8 104, label %sw.bb20
+    i8 105, label %sw.bb29
   ]
 
 sw.bb11:                                          ; preds = %if.end8
@@ -5531,11 +5528,10 @@ if.then61:                                        ; preds = %lor.lhs.false56, %i
 
 if.end62:                                         ; preds = %lor.lhs.false56
   %17 = load i8, ptr %fmt, align 1
-  %conv64 = sext i8 %17 to i32
-  switch i32 %conv64, label %do.body90 [
-    i32 66, label %sw.bb65
-    i32 72, label %sw.bb71
-    i32 73, label %sw.bb80
+  switch i8 %17, label %do.body90 [
+    i8 66, label %sw.bb65
+    i8 72, label %sw.bb71
+    i8 73, label %sw.bb80
   ]
 
 sw.bb65:                                          ; preds = %if.end62
@@ -6301,26 +6297,25 @@ entry:
   %spec.select.idx = zext i1 %cmp to i64
   %spec.select = getelementptr i8, ptr %fmt, i64 %spec.select.idx
   %1 = load i8, ptr %spec.select, align 1
-  %conv3 = sext i8 %1 to i32
-  switch i32 %conv3, label %return [
-    i32 99, label %land.lhs.true
-    i32 98, label %land.lhs.true
-    i32 66, label %land.lhs.true
-    i32 104, label %sw.bb4
-    i32 72, label %sw.bb4
-    i32 105, label %sw.bb5
-    i32 73, label %sw.bb5
-    i32 108, label %sw.bb6
-    i32 76, label %sw.bb6
-    i32 113, label %sw.bb7
-    i32 81, label %sw.bb7
-    i32 110, label %sw.bb8
-    i32 78, label %sw.bb8
-    i32 102, label %sw.bb9
-    i32 100, label %sw.bb10
-    i32 101, label %sw.bb11
-    i32 63, label %land.lhs.true
-    i32 80, label %sw.bb13
+  switch i8 %1, label %return [
+    i8 99, label %land.lhs.true
+    i8 98, label %land.lhs.true
+    i8 66, label %land.lhs.true
+    i8 104, label %sw.bb4
+    i8 72, label %sw.bb4
+    i8 105, label %sw.bb5
+    i8 73, label %sw.bb5
+    i8 108, label %sw.bb6
+    i8 76, label %sw.bb6
+    i8 113, label %sw.bb7
+    i8 81, label %sw.bb7
+    i8 110, label %sw.bb8
+    i8 78, label %sw.bb8
+    i8 102, label %sw.bb9
+    i8 100, label %sw.bb10
+    i8 101, label %sw.bb11
+    i8 63, label %land.lhs.true
+    i8 80, label %sw.bb13
   ]
 
 sw.bb4:                                           ; preds = %entry, %entry
@@ -6808,27 +6803,26 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @unpack_cmp(ptr noundef %p, ptr noundef %q, i8 noundef signext %fmt, ptr nocapture noundef readonly %unpack_p, ptr nocapture noundef readonly %unpack_q) unnamed_addr #0 {
 entry:
-  %conv = sext i8 %fmt to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 66, label %sw.bb
-    i32 98, label %sw.bb4
-    i32 104, label %do.body
-    i32 105, label %do.body15
-    i32 108, label %do.body22
-    i32 63, label %do.body29
-    i32 72, label %do.body39
-    i32 73, label %do.body48
-    i32 76, label %do.body55
-    i32 113, label %do.body62
-    i32 81, label %do.body69
-    i32 110, label %do.body76
-    i32 78, label %do.body83
-    i32 102, label %do.body90
-    i32 100, label %do.body97
-    i32 101, label %sw.bb103
-    i32 99, label %sw.bb107
-    i32 80, label %do.body113
-    i32 95, label %sw.bb119
+  switch i8 %fmt, label %sw.epilog [
+    i8 66, label %sw.bb
+    i8 98, label %sw.bb4
+    i8 104, label %do.body
+    i8 105, label %do.body15
+    i8 108, label %do.body22
+    i8 63, label %do.body29
+    i8 72, label %do.body39
+    i8 73, label %do.body48
+    i8 76, label %do.body55
+    i8 113, label %do.body62
+    i8 81, label %do.body69
+    i8 110, label %do.body76
+    i8 78, label %do.body83
+    i8 102, label %do.body90
+    i8 100, label %do.body97
+    i8 101, label %sw.bb103
+    i8 99, label %sw.bb107
+    i8 80, label %do.body113
+    i8 95, label %sw.bb119
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -8424,7 +8418,6 @@ if.end34:                                         ; preds = %if.end32
   %spec.select.idx.i = zext i1 %cmp.not.not.not.not.not.not.not.not.not.not.not.not.not.not.not.not.not.not.i to i64
   %spec.select.i = getelementptr i8, ptr %ob_sval.i, i64 %spec.select.idx.i
   %7 = load i8, ptr %spec.select.i, align 1
-  %conv3.i = sext i8 %7 to i32
   %cmp4.i = icmp eq i8 %7, 0
   br i1 %cmp4.i, label %if.then41, label %lor.lhs.false.i
 
@@ -8435,25 +8428,25 @@ lor.lhs.false.i:                                  ; preds = %if.end34
   br i1 %cmp8.not.i, label %if.end11.i, label %if.then41
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
-  switch i32 %conv3.i, label %if.then41 [
-    i32 99, label %do.body.i
-    i32 98, label %do.body15.i
-    i32 66, label %do.body20.i
-    i32 104, label %do.body25.i
-    i32 72, label %do.body30.i
-    i32 105, label %do.body35.i
-    i32 73, label %do.body40.i
-    i32 108, label %do.body45.i
-    i32 76, label %do.body50.i
-    i32 113, label %do.body55.i
-    i32 81, label %do.body60.i
-    i32 110, label %do.body65.i
-    i32 78, label %do.body70.i
-    i32 102, label %do.body75.i
-    i32 100, label %do.body80.i
-    i32 101, label %do.body85.i
-    i32 63, label %do.body90.i
-    i32 80, label %do.body95.i
+  switch i8 %7, label %if.then41 [
+    i8 99, label %do.body.i
+    i8 98, label %do.body15.i
+    i8 66, label %do.body20.i
+    i8 104, label %do.body25.i
+    i8 72, label %do.body30.i
+    i8 105, label %do.body35.i
+    i8 73, label %do.body40.i
+    i8 108, label %do.body45.i
+    i8 76, label %do.body50.i
+    i8 113, label %do.body55.i
+    i8 81, label %do.body60.i
+    i8 110, label %do.body65.i
+    i8 78, label %do.body70.i
+    i8 102, label %do.body75.i
+    i8 100, label %do.body80.i
+    i8 101, label %do.body85.i
+    i8 63, label %do.body90.i
+    i8 80, label %do.body95.i
   ]
 
 do.body.i:                                        ; preds = %if.end11.i

@@ -4900,14 +4900,13 @@ if.else495:                                       ; preds = %if.end452, %land.lh
 if.then498:                                       ; preds = %if.else495
   %arrayidx499 = getelementptr inbounds i8, ptr %144, i64 1
   %163 = load i8, ptr %arrayidx499, align 1
-  %conv500 = sext i8 %163 to i32
-  switch i32 %conv500, label %sw.epilog [
-    i32 118, label %sw.bb
-    i32 86, label %sw.bb
-    i32 116, label %sw.bb501
-    i32 84, label %sw.bb501
-    i32 117, label %sw.bb501
-    i32 85, label %sw.bb501
+  switch i8 %163, label %sw.epilog [
+    i8 118, label %sw.bb
+    i8 86, label %sw.bb
+    i8 116, label %sw.bb501
+    i8 84, label %sw.bb501
+    i8 117, label %sw.bb501
+    i8 85, label %sw.bb501
   ]
 
 sw.bb:                                            ; preds = %if.then498, %if.then498

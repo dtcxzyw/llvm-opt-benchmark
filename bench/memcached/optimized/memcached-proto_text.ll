@@ -583,7 +583,7 @@ declare i32 @store_item(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr 
 declare void @item_remove(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @try_read_command_asciiauth(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local noundef i32 @try_read_command_asciiauth(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %tokens = alloca [24 x %struct.token_s], align 16
   %size = alloca i32, align 4
@@ -937,7 +937,7 @@ declare zeroext i1 @resp_start(ptr noundef) local_unnamed_addr #3
 declare i32 @authfile_check(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @try_read_command_ascii(ptr noundef %c) #0 {
+define dso_local noundef i32 @try_read_command_ascii(ptr noundef %c) #0 {
 entry:
   %rbytes = getelementptr inbounds %struct.conn, ptr %c, i64 0, i32 18
   %0 = load i32, ptr %rbytes, align 4
@@ -1166,14 +1166,13 @@ if.end9:                                          ; preds = %tokenize_command.ex
 if.then18:                                        ; preds = %if.end9
   %arrayidx21 = getelementptr inbounds i8, ptr %8, i64 1
   %10 = load i8, ptr %arrayidx21, align 1
-  %conv22 = sext i8 %10 to i32
-  switch i32 %conv22, label %sw.default [
-    i32 103, label %sw.bb
-    i32 115, label %sw.bb24
-    i32 100, label %sw.bb26
-    i32 110, label %sw.bb28
-    i32 97, label %sw.bb29
-    i32 101, label %sw.bb31
+  switch i8 %10, label %sw.default [
+    i8 103, label %sw.bb
+    i8 115, label %sw.bb24
+    i8 100, label %sw.bb26
+    i8 110, label %sw.bb28
+    i8 97, label %sw.bb29
+    i8 101, label %sw.bb31
   ]
 
 sw.bb:                                            ; preds = %if.then18
@@ -1813,19 +1812,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx74 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %conv70249
   %20 = load ptr, ptr %arrayidx74, align 8
   %21 = load i8, ptr %20, align 1
-  %conv77 = sext i8 %21 to i32
-  switch i32 %conv77, label %for.inc [
-    i32 84, label %sw.bb
-    i32 78, label %sw.bb79
-    i32 82, label %sw.bb84
-    i32 115, label %sw.bb102
-    i32 116, label %sw.bb108
-    i32 99, label %sw.bb122
-    i32 102, label %sw.bb133
-    i32 108, label %sw.bb160
-    i32 104, label %sw.bb165
-    i32 79, label %sw.bb176
-    i32 107, label %sw.bb195
+  switch i8 %21, label %for.inc [
+    i8 84, label %sw.bb
+    i8 78, label %sw.bb79
+    i8 82, label %sw.bb84
+    i8 115, label %sw.bb102
+    i8 116, label %sw.bb108
+    i8 99, label %sw.bb122
+    i8 102, label %sw.bb133
+    i8 108, label %sw.bb160
+    i8 104, label %sw.bb165
+    i8 79, label %sw.bb176
+    i8 107, label %sw.bb195
   ]
 
 sw.bb:                                            ; preds = %for.body
@@ -2315,10 +2313,9 @@ for.body443:                                      ; preds = %if.end436, %for.inc
   %arrayidx445 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %conv439255
   %100 = load ptr, ptr %arrayidx445, align 8
   %101 = load i8, ptr %100, align 1
-  %conv448 = sext i8 %101 to i32
-  switch i32 %conv448, label %for.inc485 [
-    i32 79, label %sw.bb449
-    i32 107, label %sw.bb468
+  switch i8 %101, label %for.inc485 [
+    i8 79, label %sw.bb449
+    i8 107, label %sw.bb468
   ]
 
 sw.bb449:                                         ; preds = %for.body443
@@ -2572,14 +2569,13 @@ for.end:                                          ; preds = %for.inc
   %19 = icmp eq i8 %18, 0
   %mode = getelementptr inbounds %struct._meta_flags, ptr %of, i64 0, i32 1
   %20 = load i8, ptr %mode, align 2
-  %conv60 = sext i8 %20 to i32
-  switch i32 %conv60, label %sw.default [
-    i32 0, label %sw.epilog83
-    i32 69, label %sw.bb62
-    i32 65, label %sw.bb63
-    i32 80, label %sw.bb71
-    i32 82, label %sw.bb81
-    i32 83, label %sw.epilog83
+  switch i8 %20, label %sw.default [
+    i8 0, label %sw.epilog83
+    i8 69, label %sw.bb62
+    i8 65, label %sw.bb63
+    i8 80, label %sw.bb71
+    i8 82, label %sw.bb81
+    i8 83, label %sw.epilog83
   ]
 
 sw.bb62:                                          ; preds = %for.end
@@ -2854,10 +2850,9 @@ for.body:                                         ; preds = %if.end10, %for.inc
   %arrayidx16 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx16, align 8
   %7 = load i8, ptr %6, align 1
-  %conv19 = sext i8 %7 to i32
-  switch i32 %conv19, label %for.inc [
-    i32 79, label %sw.bb
-    i32 107, label %sw.bb37
+  switch i8 %7, label %for.inc [
+    i8 79, label %sw.bb
+    i8 107, label %sw.bb37
   ]
 
 sw.bb:                                            ; preds = %for.body
@@ -3164,13 +3159,12 @@ if.end10:                                         ; preds = %if.end7
   %5 = load i64, ptr %length, align 8
   %mode = getelementptr inbounds %struct._meta_flags, ptr %of, i64 0, i32 1
   %6 = load i8, ptr %mode, align 2
-  %conv = sext i8 %6 to i32
-  switch i32 %conv, label %error.thread139 [
-    i32 0, label %sw.epilog
-    i32 73, label %sw.epilog
-    i32 43, label %sw.epilog
-    i32 68, label %sw.bb15
-    i32 45, label %sw.bb15
+  switch i8 %6, label %error.thread139 [
+    i8 0, label %sw.epilog
+    i8 73, label %sw.epilog
+    i8 43, label %sw.epilog
+    i8 68, label %sw.bb15
+    i8 45, label %sw.bb15
   ]
 
 sw.bb15:                                          ; preds = %if.end10, %if.end10
@@ -3356,14 +3350,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx129 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %indvars.iv
   %31 = load ptr, ptr %arrayidx129, align 8
   %32 = load i8, ptr %31, align 1
-  %conv132 = sext i8 %32 to i32
-  switch i32 %conv132, label %for.inc [
-    i32 99, label %sw.bb133
-    i32 116, label %sw.bb144
-    i32 84, label %sw.bb157
-    i32 78, label %sw.bb160
-    i32 79, label %sw.bb165
-    i32 107, label %sw.bb183
+  switch i8 %32, label %for.inc [
+    i8 99, label %sw.bb133
+    i8 116, label %sw.bb144
+    i8 84, label %sw.bb157
+    i8 78, label %sw.bb160
+    i8 79, label %sw.bb165
+    i8 107, label %sw.bb183
   ]
 
 sw.bb133:                                         ; preds = %for.body
@@ -3507,10 +3500,9 @@ for.body218:                                      ; preds = %for.cond213.prehead
   %arrayidx220 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %indvars.iv165
   %51 = load ptr, ptr %arrayidx220, align 8
   %52 = load i8, ptr %51, align 1
-  %conv223 = sext i8 %52 to i32
-  switch i32 %conv223, label %for.inc260 [
-    i32 79, label %sw.bb224
-    i32 107, label %sw.bb243
+  switch i8 %52, label %for.inc260 [
+    i8 79, label %sw.bb224
+    i8 107, label %sw.bb243
   ]
 
 sw.bb224:                                         ; preds = %for.body218
@@ -6291,7 +6283,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx76 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %idxprom71.pn
   %2 = load ptr, ptr %arrayidx76, align 8
   %3 = load i8, ptr %2, align 1
-  %conv5 = zext i8 %3 to i32
   %cmp6 = icmp ugt i8 %3, 126
   br i1 %cmp6, label %if.then, label %lor.lhs.false
 
@@ -6308,30 +6299,30 @@ if.then:                                          ; preds = %lor.lhs.false, %for
 
 if.end:                                           ; preds = %lor.lhs.false
   store i8 1, ptr %arrayidx9, align 1
-  switch i32 %conv5, label %sw.default [
-    i32 98, label %sw.bb
-    i32 78, label %sw.bb33
-    i32 84, label %sw.bb53
-    i32 82, label %sw.bb79
-    i32 108, label %sw.bb102
-    i32 79, label %for.inc
-    i32 80, label %for.inc
-    i32 76, label %for.inc
-    i32 107, label %for.inc
-    i32 115, label %for.inc
-    i32 116, label %for.inc
-    i32 99, label %for.inc
-    i32 102, label %for.inc
-    i32 118, label %sw.bb111
-    i32 104, label %sw.bb115
-    i32 117, label %sw.bb119
-    i32 113, label %sw.bb123
-    i32 70, label %sw.bb127
-    i32 67, label %sw.bb138
-    i32 77, label %sw.bb153
-    i32 74, label %sw.bb169
-    i32 68, label %sw.bb180
-    i32 73, label %sw.bb191
+  switch i8 %3, label %sw.default [
+    i8 98, label %sw.bb
+    i8 78, label %sw.bb33
+    i8 84, label %sw.bb53
+    i8 82, label %sw.bb79
+    i8 108, label %sw.bb102
+    i8 79, label %for.inc
+    i8 80, label %for.inc
+    i8 76, label %for.inc
+    i8 107, label %for.inc
+    i8 115, label %for.inc
+    i8 116, label %for.inc
+    i8 99, label %for.inc
+    i8 102, label %for.inc
+    i8 118, label %sw.bb111
+    i8 104, label %sw.bb115
+    i8 117, label %sw.bb119
+    i8 113, label %sw.bb123
+    i8 70, label %sw.bb127
+    i8 67, label %sw.bb138
+    i8 77, label %sw.bb153
+    i8 74, label %sw.bb169
+    i8 68, label %sw.bb180
+    i8 73, label %sw.bb191
   ]
 
 sw.bb:                                            ; preds = %if.end

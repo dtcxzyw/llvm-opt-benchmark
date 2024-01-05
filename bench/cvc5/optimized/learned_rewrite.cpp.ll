@@ -5833,17 +5833,15 @@ cond.end:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end209 [
-    i32 45, label %if.then
-    i32 43, label %if.then
-    i32 41, label %if.then
+  switch i16 %bf.clear.i, label %if.end209 [
+    i16 45, label %if.then
+    i16 43, label %if.then
+    i16 41, label %if.then
   ]
 
 if.then:                                          ; preds = %cond.end, %cond.end, %cond.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %cmp.i.i.i.i.i = icmp eq i16 %bf.clear.i, 1023
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 -1, i32 %bf.cast.i
-  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i), !noalias !49
+  %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !49
   %cmp.i.i150 = icmp eq i32 %call2.i.i.i, 2
   %idxprom.i.i151 = zext i1 %cmp.i.i150 to i64
   %arrayidx.i.i152 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i151
@@ -6515,10 +6513,10 @@ if.end138:                                        ; preds = %if.end, %if.then.i.
   br i1 %cmp.i4711793, label %cond.true143, label %if.end206
 
 cond.true143:                                     ; preds = %if.end138, %invoke.cont17, %if.end138.thread
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 43, label %sw.bb
-    i32 45, label %sw.bb155
-    i32 41, label %sw.bb156
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 43, label %sw.bb
+    i16 45, label %sw.bb155
+    i16 41, label %sw.bb156
   ]
 
 sw.bb:                                            ; preds = %cond.true143

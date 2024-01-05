@@ -168,46 +168,44 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.162 = private unnamed_addr constant [11 x i8] c"s_standard\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_param_find_pidx(ptr noundef readonly %s) local_unnamed_addr #0 {
+define noundef i32 @ossl_param_find_pidx(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.epilog3087 [
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb58
-    i32 99, label %sw.bb126
-    i32 100, label %sw.bb234
-    i32 101, label %sw.bb388
-    i32 102, label %sw.bb496
-    i32 103, label %sw.bb520
-    i32 104, label %sw.bb604
-    i32 105, label %sw.bb623
-    i32 106, label %sw.bb717
-    i32 107, label %sw.bb723
-    i32 108, label %sw.bb852
-    i32 109, label %sw.bb876
-    i32 110, label %sw.bb1107
-    i32 111, label %sw.bb1155
-    i32 112, label %sw.bb1205
-    i32 113, label %sw.bb1411
-    i32 114, label %sw.bb1448
-    i32 115, label %sw.bb1915
-    i32 116, label %sw.bb2184
-    i32 117, label %sw.bb2855
-    i32 118, label %sw.bb2942
-    i32 120, label %sw.bb3014
+  switch i8 %0, label %sw.epilog3087 [
+    i8 97, label %sw.bb
+    i8 98, label %sw.bb58
+    i8 99, label %sw.bb126
+    i8 100, label %sw.bb234
+    i8 101, label %sw.bb388
+    i8 102, label %sw.bb496
+    i8 103, label %sw.bb520
+    i8 104, label %sw.bb604
+    i8 105, label %sw.bb623
+    i8 106, label %sw.bb717
+    i8 107, label %sw.bb723
+    i8 108, label %sw.bb852
+    i8 109, label %sw.bb876
+    i8 110, label %sw.bb1107
+    i8 111, label %sw.bb1155
+    i8 112, label %sw.bb1205
+    i8 113, label %sw.bb1411
+    i8 114, label %sw.bb1448
+    i8 115, label %sw.bb1915
+    i8 116, label %sw.bb2184
+    i8 117, label %sw.bb2855
+    i8 118, label %sw.bb2942
+    i8 120, label %sw.bb3014
   ]
 
 sw.bb:                                            ; preds = %entry
   %arrayidx1 = getelementptr inbounds i8, ptr %s, i64 1
   %1 = load i8, ptr %arrayidx1, align 1
-  %conv2 = sext i8 %1 to i32
-  switch i32 %conv2, label %sw.epilog3087 [
-    i32 99, label %sw.bb4
-    i32 100, label %sw.bb6
-    i32 101, label %sw.bb11
-    i32 108, label %sw.bb18
-    i32 0, label %return
+  switch i8 %1, label %sw.epilog3087 [
+    i8 99, label %sw.bb4
+    i8 100, label %sw.bb6
+    i8 101, label %sw.bb11
+    i8 108, label %sw.bb18
+    i8 0, label %return
   ]
 
 sw.bb4:                                           ; preds = %sw.bb
@@ -231,20 +229,18 @@ sw.bb11:                                          ; preds = %sw.bb
 sw.bb18:                                          ; preds = %sw.bb
   %arrayidx19 = getelementptr inbounds i8, ptr %s, i64 2
   %3 = load i8, ptr %arrayidx19, align 1
-  %conv20 = sext i8 %3 to i32
-  switch i32 %conv20, label %sw.epilog3087 [
-    i32 103, label %sw.bb22
-    i32 105, label %sw.bb48
+  switch i8 %3, label %sw.epilog3087 [
+    i8 103, label %sw.bb22
+    i8 105, label %sw.bb48
   ]
 
 sw.bb22:                                          ; preds = %sw.bb18
   %arrayidx23 = getelementptr inbounds i8, ptr %s, i64 3
   %4 = load i8, ptr %arrayidx23, align 1
-  %conv24 = sext i8 %4 to i32
-  switch i32 %conv24, label %sw.epilog3087 [
-    i32 95, label %sw.bb26
-    i32 105, label %sw.bb33
-    i32 111, label %sw.bb40
+  switch i8 %4, label %sw.epilog3087 [
+    i8 95, label %sw.bb26
+    i8 105, label %sw.bb33
+    i8 111, label %sw.bb40
   ]
 
 sw.bb26:                                          ; preds = %sw.bb22
@@ -274,13 +270,12 @@ sw.bb48:                                          ; preds = %sw.bb18
 sw.bb58:                                          ; preds = %entry
   %arrayidx59 = getelementptr inbounds i8, ptr %s, i64 1
   %5 = load i8, ptr %arrayidx59, align 1
-  %conv60 = sext i8 %5 to i32
-  switch i32 %conv60, label %sw.epilog3087 [
-    i32 97, label %sw.bb62
-    i32 105, label %sw.bb69
-    i32 108, label %sw.bb76
-    i32 117, label %sw.bb117
-    i32 0, label %return
+  switch i8 %5, label %sw.epilog3087 [
+    i8 97, label %sw.bb62
+    i8 105, label %sw.bb69
+    i8 108, label %sw.bb76
+    i8 117, label %sw.bb117
+    i8 0, label %return
   ]
 
 sw.bb62:                                          ; preds = %sw.bb58
@@ -316,11 +311,10 @@ sw.bb84:                                          ; preds = %sw.bb80
 sw.bb88:                                          ; preds = %sw.bb84
   %arrayidx89 = getelementptr inbounds i8, ptr %s, i64 5
   %9 = load i8, ptr %arrayidx89, align 1
-  %conv90 = sext i8 %9 to i32
-  switch i32 %conv90, label %sw.epilog3087 [
-    i32 45, label %sw.bb92
-    i32 95, label %sw.bb99
-    i32 115, label %sw.bb106
+  switch i8 %9, label %sw.epilog3087 [
+    i8 45, label %sw.bb92
+    i8 95, label %sw.bb99
+    i8 115, label %sw.bb106
   ]
 
 sw.bb92:                                          ; preds = %sw.bb88
@@ -350,14 +344,13 @@ sw.bb117:                                         ; preds = %sw.bb58
 sw.bb126:                                         ; preds = %entry
   %arrayidx127 = getelementptr inbounds i8, ptr %s, i64 1
   %10 = load i8, ptr %arrayidx127, align 1
-  %conv128 = sext i8 %10 to i32
-  switch i32 %conv128, label %sw.epilog3087 [
-    i32 45, label %sw.bb130
-    i32 101, label %sw.bb137
-    i32 105, label %sw.bb144
-    i32 111, label %sw.bb151
-    i32 116, label %sw.bb182
-    i32 117, label %sw.bb200
+  switch i8 %10, label %sw.epilog3087 [
+    i8 45, label %sw.bb130
+    i8 101, label %sw.bb137
+    i8 105, label %sw.bb144
+    i8 111, label %sw.bb151
+    i8 116, label %sw.bb182
+    i8 117, label %sw.bb200
   ]
 
 sw.bb130:                                         ; preds = %sw.bb126
@@ -381,10 +374,9 @@ sw.bb144:                                         ; preds = %sw.bb126
 sw.bb151:                                         ; preds = %sw.bb126
   %arrayidx152 = getelementptr inbounds i8, ptr %s, i64 2
   %11 = load i8, ptr %arrayidx152, align 1
-  %conv153 = sext i8 %11 to i32
-  switch i32 %conv153, label %sw.epilog3087 [
-    i32 102, label %sw.bb155
-    i32 110, label %sw.bb162
+  switch i8 %11, label %sw.epilog3087 [
+    i8 102, label %sw.bb155
+    i8 110, label %sw.bb162
   ]
 
 sw.bb155:                                         ; preds = %sw.bb151
@@ -396,10 +388,9 @@ sw.bb155:                                         ; preds = %sw.bb151
 sw.bb162:                                         ; preds = %sw.bb151
   %arrayidx163 = getelementptr inbounds i8, ptr %s, i64 3
   %12 = load i8, ptr %arrayidx163, align 1
-  %conv164 = sext i8 %12 to i32
-  switch i32 %conv164, label %sw.epilog3087 [
-    i32 115, label %sw.bb166
-    i32 116, label %sw.bb173
+  switch i8 %12, label %sw.epilog3087 [
+    i8 115, label %sw.bb166
+    i8 116, label %sw.bb173
   ]
 
 sw.bb166:                                         ; preds = %sw.bb162
@@ -423,10 +414,9 @@ sw.bb182:                                         ; preds = %sw.bb126
 sw.bb186:                                         ; preds = %sw.bb182
   %arrayidx187 = getelementptr inbounds i8, ptr %s, i64 3
   %14 = load i8, ptr %arrayidx187, align 1
-  %conv188 = sext i8 %14 to i32
-  switch i32 %conv188, label %sw.epilog3087 [
-    i32 95, label %sw.bb190
-    i32 0, label %return
+  switch i8 %14, label %sw.epilog3087 [
+    i8 95, label %sw.bb190
+    i8 0, label %return
   ]
 
 sw.bb190:                                         ; preds = %sw.bb186
@@ -462,10 +452,9 @@ sw.bb212:                                         ; preds = %sw.bb208
 sw.bb216:                                         ; preds = %sw.bb212
   %arrayidx217 = getelementptr inbounds i8, ptr %s, i64 6
   %19 = load i8, ptr %arrayidx217, align 1
-  %conv218 = sext i8 %19 to i32
-  switch i32 %conv218, label %sw.epilog3087 [
-    i32 45, label %sw.bb220
-    i32 0, label %return
+  switch i8 %19, label %sw.epilog3087 [
+    i8 45, label %sw.bb220
+    i8 0, label %return
   ]
 
 sw.bb220:                                         ; preds = %sw.bb216
@@ -477,15 +466,14 @@ sw.bb220:                                         ; preds = %sw.bb216
 sw.bb234:                                         ; preds = %entry
   %arrayidx235 = getelementptr inbounds i8, ptr %s, i64 1
   %20 = load i8, ptr %arrayidx235, align 1
-  %conv236 = sext i8 %20 to i32
-  switch i32 %conv236, label %sw.epilog3087 [
-    i32 45, label %sw.bb238
-    i32 97, label %sw.bb245
-    i32 101, label %sw.bb280
-    i32 104, label %sw.bb306
-    i32 105, label %sw.bb313
-    i32 114, label %sw.bb379
-    i32 0, label %return
+  switch i8 %20, label %sw.epilog3087 [
+    i8 45, label %sw.bb238
+    i8 97, label %sw.bb245
+    i8 101, label %sw.bb280
+    i8 104, label %sw.bb306
+    i8 105, label %sw.bb313
+    i8 114, label %sw.bb379
+    i8 0, label %return
   ]
 
 sw.bb238:                                         ; preds = %sw.bb234
@@ -509,19 +497,17 @@ sw.bb249:                                         ; preds = %sw.bb245
 sw.bb253:                                         ; preds = %sw.bb249
   %arrayidx254 = getelementptr inbounds i8, ptr %s, i64 4
   %23 = load i8, ptr %arrayidx254, align 1
-  %conv255 = sext i8 %23 to i32
-  switch i32 %conv255, label %sw.epilog3087 [
-    i32 45, label %sw.bb257
-    i32 0, label %return
+  switch i8 %23, label %sw.epilog3087 [
+    i8 45, label %sw.bb257
+    i8 0, label %return
   ]
 
 sw.bb257:                                         ; preds = %sw.bb253
   %arrayidx258 = getelementptr inbounds i8, ptr %s, i64 5
   %24 = load i8, ptr %arrayidx258, align 1
-  %conv259 = sext i8 %24 to i32
-  switch i32 %conv259, label %sw.epilog3087 [
-    i32 115, label %sw.bb261
-    i32 116, label %sw.bb268
+  switch i8 %24, label %sw.epilog3087 [
+    i8 115, label %sw.bb261
+    i8 116, label %sw.bb268
   ]
 
 sw.bb261:                                         ; preds = %sw.bb257
@@ -539,11 +525,10 @@ sw.bb268:                                         ; preds = %sw.bb257
 sw.bb280:                                         ; preds = %sw.bb234
   %arrayidx281 = getelementptr inbounds i8, ptr %s, i64 2
   %25 = load i8, ptr %arrayidx281, align 1
-  %conv282 = sext i8 %25 to i32
-  switch i32 %conv282, label %sw.epilog3087 [
-    i32 99, label %sw.bb284
-    i32 102, label %sw.bb291
-    i32 115, label %sw.bb298
+  switch i8 %25, label %sw.epilog3087 [
+    i8 99, label %sw.bb284
+    i8 102, label %sw.bb291
+    i8 115, label %sw.bb298
   ]
 
 sw.bb284:                                         ; preds = %sw.bb280
@@ -573,10 +558,9 @@ sw.bb306:                                         ; preds = %sw.bb234
 sw.bb313:                                         ; preds = %sw.bb234
   %arrayidx314 = getelementptr inbounds i8, ptr %s, i64 2
   %26 = load i8, ptr %arrayidx314, align 1
-  %conv315 = sext i8 %26 to i32
-  switch i32 %conv315, label %sw.epilog3087 [
-    i32 103, label %sw.bb317
-    i32 115, label %sw.bb371
+  switch i8 %26, label %sw.epilog3087 [
+    i8 103, label %sw.bb317
+    i8 115, label %sw.bb371
   ]
 
 sw.bb317:                                         ; preds = %sw.bb313
@@ -600,21 +584,19 @@ sw.bb325:                                         ; preds = %sw.bb321
 sw.bb329:                                         ; preds = %sw.bb325
   %arrayidx330 = getelementptr inbounds i8, ptr %s, i64 6
   %30 = load i8, ptr %arrayidx330, align 1
-  %conv331 = sext i8 %30 to i32
-  switch i32 %conv331, label %sw.epilog3087 [
-    i32 45, label %sw.bb333
-    i32 0, label %return
+  switch i8 %30, label %sw.epilog3087 [
+    i8 45, label %sw.bb333
+    i8 0, label %return
   ]
 
 sw.bb333:                                         ; preds = %sw.bb329
   %arrayidx334 = getelementptr inbounds i8, ptr %s, i64 7
   %31 = load i8, ptr %arrayidx334, align 1
-  %conv335 = sext i8 %31 to i32
-  switch i32 %conv335, label %sw.epilog3087 [
-    i32 110, label %sw.bb337
-    i32 111, label %sw.bb344
-    i32 112, label %sw.bb351
-    i32 115, label %sw.bb358
+  switch i8 %31, label %sw.epilog3087 [
+    i8 110, label %sw.bb337
+    i8 111, label %sw.bb344
+    i8 112, label %sw.bb351
+    i8 115, label %sw.bb358
   ]
 
 sw.bb337:                                         ; preds = %sw.bb333
@@ -656,13 +638,12 @@ sw.bb379:                                         ; preds = %sw.bb234
 sw.bb388:                                         ; preds = %entry
   %arrayidx389 = getelementptr inbounds i8, ptr %s, i64 1
   %32 = load i8, ptr %arrayidx389, align 1
-  %conv390 = sext i8 %32 to i32
-  switch i32 %conv390, label %sw.epilog3087 [
-    i32 97, label %sw.bb392
-    i32 99, label %sw.bb399
-    i32 110, label %sw.bb406
-    i32 0, label %return
-    i32 120, label %sw.bb488
+  switch i8 %32, label %sw.epilog3087 [
+    i8 97, label %sw.bb392
+    i8 99, label %sw.bb399
+    i8 110, label %sw.bb406
+    i8 0, label %return
+    i8 120, label %sw.bb488
   ]
 
 sw.bb392:                                         ; preds = %sw.bb388
@@ -680,20 +661,18 @@ sw.bb399:                                         ; preds = %sw.bb388
 sw.bb406:                                         ; preds = %sw.bb388
   %arrayidx407 = getelementptr inbounds i8, ptr %s, i64 2
   %33 = load i8, ptr %arrayidx407, align 1
-  %conv408 = sext i8 %33 to i32
-  switch i32 %conv408, label %sw.epilog3087 [
-    i32 99, label %sw.bb410
-    i32 103, label %sw.bb446
-    i32 116, label %sw.bb453
+  switch i8 %33, label %sw.epilog3087 [
+    i8 99, label %sw.bb410
+    i8 103, label %sw.bb446
+    i8 116, label %sw.bb453
   ]
 
 sw.bb410:                                         ; preds = %sw.bb406
   %arrayidx411 = getelementptr inbounds i8, ptr %s, i64 3
   %34 = load i8, ptr %arrayidx411, align 1
-  %conv412 = sext i8 %34 to i32
-  switch i32 %conv412, label %sw.epilog3087 [
-    i32 111, label %sw.bb414
-    i32 114, label %sw.bb438
+  switch i8 %34, label %sw.epilog3087 [
+    i8 111, label %sw.bb414
+    i8 114, label %sw.bb438
   ]
 
 sw.bb414:                                         ; preds = %sw.bb410
@@ -705,10 +684,9 @@ sw.bb414:                                         ; preds = %sw.bb410
 sw.bb418:                                         ; preds = %sw.bb414
   %arrayidx419 = getelementptr inbounds i8, ptr %s, i64 5
   %36 = load i8, ptr %arrayidx419, align 1
-  %conv420 = sext i8 %36 to i32
-  switch i32 %conv420, label %sw.epilog3087 [
-    i32 101, label %sw.bb422
-    i32 105, label %sw.bb429
+  switch i8 %36, label %sw.epilog3087 [
+    i8 101, label %sw.bb422
+    i8 105, label %sw.bb429
   ]
 
 sw.bb422:                                         ; preds = %sw.bb418
@@ -762,10 +740,9 @@ sw.bb465:                                         ; preds = %sw.bb461
 sw.bb469:                                         ; preds = %sw.bb465
   %arrayidx470 = getelementptr inbounds i8, ptr %s, i64 7
   %41 = load i8, ptr %arrayidx470, align 1
-  %conv471 = sext i8 %41 to i32
-  switch i32 %conv471, label %sw.epilog3087 [
-    i32 95, label %sw.bb473
-    i32 0, label %return
+  switch i8 %41, label %sw.epilog3087 [
+    i8 95, label %sw.bb473
+    i8 0, label %return
   ]
 
 sw.bb473:                                         ; preds = %sw.bb469
@@ -789,10 +766,9 @@ sw.bb496:                                         ; preds = %entry
 sw.bb500:                                         ; preds = %sw.bb496
   %arrayidx501 = getelementptr inbounds i8, ptr %s, i64 2
   %43 = load i8, ptr %arrayidx501, align 1
-  %conv502 = sext i8 %43 to i32
-  switch i32 %conv502, label %sw.epilog3087 [
-    i32 101, label %sw.bb504
-    i32 110, label %sw.bb511
+  switch i8 %43, label %sw.epilog3087 [
+    i8 101, label %sw.bb504
+    i8 110, label %sw.bb511
   ]
 
 sw.bb504:                                         ; preds = %sw.bb500
@@ -810,12 +786,11 @@ sw.bb511:                                         ; preds = %sw.bb500
 sw.bb520:                                         ; preds = %entry
   %arrayidx521 = getelementptr inbounds i8, ptr %s, i64 1
   %44 = load i8, ptr %arrayidx521, align 1
-  %conv522 = sext i8 %44 to i32
-  switch i32 %conv522, label %sw.epilog3087 [
-    i32 101, label %sw.bb524
-    i32 105, label %sw.bb567
-    i32 114, label %sw.bb574
-    i32 0, label %return
+  switch i8 %44, label %sw.epilog3087 [
+    i8 101, label %sw.bb524
+    i8 105, label %sw.bb567
+    i8 114, label %sw.bb574
+    i8 0, label %return
   ]
 
 sw.bb524:                                         ; preds = %sw.bb520
@@ -851,10 +826,9 @@ sw.bb540:                                         ; preds = %sw.bb536
 sw.bb544:                                         ; preds = %sw.bb540
   %arrayidx545 = getelementptr inbounds i8, ptr %s, i64 7
   %50 = load i8, ptr %arrayidx545, align 1
-  %conv546 = sext i8 %50 to i32
-  switch i32 %conv546, label %sw.epilog3087 [
-    i32 101, label %sw.bb548
-    i32 111, label %sw.bb554
+  switch i8 %50, label %sw.epilog3087 [
+    i8 101, label %sw.bb548
+    i8 111, label %sw.bb554
   ]
 
 sw.bb548:                                         ; preds = %sw.bb544
@@ -896,10 +870,9 @@ sw.bb582:                                         ; preds = %sw.bb578
 sw.bb586:                                         ; preds = %sw.bb582
   %arrayidx587 = getelementptr inbounds i8, ptr %s, i64 5
   %55 = load i8, ptr %arrayidx587, align 1
-  %conv588 = sext i8 %55 to i32
-  switch i32 %conv588, label %sw.epilog3087 [
-    i32 45, label %sw.bb590
-    i32 0, label %return
+  switch i8 %55, label %sw.epilog3087 [
+    i8 45, label %sw.bb590
+    i8 0, label %return
   ]
 
 sw.bb590:                                         ; preds = %sw.bb586
@@ -911,10 +884,9 @@ sw.bb590:                                         ; preds = %sw.bb586
 sw.bb604:                                         ; preds = %entry
   %arrayidx605 = getelementptr inbounds i8, ptr %s, i64 1
   %56 = load i8, ptr %arrayidx605, align 1
-  %conv606 = sext i8 %56 to i32
-  switch i32 %conv606, label %sw.epilog3087 [
-    i32 97, label %sw.bb608
-    i32 105, label %sw.bb615
+  switch i8 %56, label %sw.epilog3087 [
+    i8 97, label %sw.bb608
+    i8 105, label %sw.bb615
   ]
 
 sw.bb608:                                         ; preds = %sw.bb604
@@ -932,14 +904,13 @@ sw.bb615:                                         ; preds = %sw.bb604
 sw.bb623:                                         ; preds = %entry
   %arrayidx624 = getelementptr inbounds i8, ptr %s, i64 1
   %57 = load i8, ptr %arrayidx624, align 1
-  %conv625 = sext i8 %57 to i32
-  switch i32 %conv625, label %sw.epilog3087 [
-    i32 100, label %sw.bb627
-    i32 107, label %sw.bb633
-    i32 109, label %sw.bb640
-    i32 110, label %sw.bb647
-    i32 116, label %sw.bb680
-    i32 118, label %sw.bb703
+  switch i8 %57, label %sw.epilog3087 [
+    i8 100, label %sw.bb627
+    i8 107, label %sw.bb633
+    i8 109, label %sw.bb640
+    i8 110, label %sw.bb647
+    i8 116, label %sw.bb680
+    i8 118, label %sw.bb703
   ]
 
 sw.bb627:                                         ; preds = %sw.bb623
@@ -963,12 +934,11 @@ sw.bb640:                                         ; preds = %sw.bb623
 sw.bb647:                                         ; preds = %sw.bb623
   %arrayidx648 = getelementptr inbounds i8, ptr %s, i64 2
   %59 = load i8, ptr %arrayidx648, align 1
-  %conv649 = sext i8 %59 to i32
-  switch i32 %conv649, label %sw.epilog3087 [
-    i32 99, label %sw.bb651
-    i32 102, label %sw.bb658
-    i32 112, label %sw.bb665
-    i32 115, label %sw.bb672
+  switch i8 %59, label %sw.epilog3087 [
+    i8 99, label %sw.bb651
+    i8 102, label %sw.bb658
+    i8 112, label %sw.bb665
+    i8 115, label %sw.bb672
   ]
 
 sw.bb651:                                         ; preds = %sw.bb647
@@ -1010,10 +980,9 @@ sw.bb684:                                         ; preds = %sw.bb680
 sw.bb688:                                         ; preds = %sw.bb684
   %arrayidx689 = getelementptr inbounds i8, ptr %s, i64 4
   %62 = load i8, ptr %arrayidx689, align 1
-  %conv690 = sext i8 %62 to i32
-  switch i32 %conv690, label %sw.epilog3087 [
-    i32 97, label %sw.bb692
-    i32 0, label %return
+  switch i8 %62, label %sw.epilog3087 [
+    i8 97, label %sw.bb692
+    i8 0, label %return
   ]
 
 sw.bb692:                                         ; preds = %sw.bb688
@@ -1025,10 +994,9 @@ sw.bb692:                                         ; preds = %sw.bb688
 sw.bb703:                                         ; preds = %sw.bb623
   %arrayidx704 = getelementptr inbounds i8, ptr %s, i64 2
   %63 = load i8, ptr %arrayidx704, align 1
-  %conv705 = sext i8 %63 to i32
-  switch i32 %conv705, label %sw.epilog3087 [
-    i32 108, label %sw.bb707
-    i32 0, label %return
+  switch i8 %63, label %sw.epilog3087 [
+    i8 108, label %sw.bb707
+    i8 0, label %return
   ]
 
 sw.bb707:                                         ; preds = %sw.bb703
@@ -1046,14 +1014,13 @@ sw.bb717:                                         ; preds = %entry
 sw.bb723:                                         ; preds = %entry
   %arrayidx724 = getelementptr inbounds i8, ptr %s, i64 1
   %65 = load i8, ptr %arrayidx724, align 1
-  %conv725 = sext i8 %65 to i32
-  switch i32 %conv725, label %sw.epilog3087 [
-    i32 49, label %sw.bb727
-    i32 50, label %sw.bb733
-    i32 51, label %sw.bb739
-    i32 97, label %sw.bb745
-    i32 100, label %sw.bb752
-    i32 101, label %sw.bb826
+  switch i8 %65, label %sw.epilog3087 [
+    i8 49, label %sw.bb727
+    i8 50, label %sw.bb733
+    i8 51, label %sw.bb739
+    i8 97, label %sw.bb745
+    i8 100, label %sw.bb752
+    i8 101, label %sw.bb826
   ]
 
 sw.bb727:                                         ; preds = %sw.bb723
@@ -1095,12 +1062,11 @@ sw.bb756:                                         ; preds = %sw.bb752
 sw.bb760:                                         ; preds = %sw.bb756
   %arrayidx761 = getelementptr inbounds i8, ptr %s, i64 4
   %71 = load i8, ptr %arrayidx761, align 1
-  %conv762 = sext i8 %71 to i32
-  switch i32 %conv762, label %sw.epilog3087 [
-    i32 100, label %sw.bb764
-    i32 111, label %sw.bb802
-    i32 116, label %sw.bb809
-    i32 117, label %sw.bb816
+  switch i8 %71, label %sw.epilog3087 [
+    i8 100, label %sw.bb764
+    i8 111, label %sw.bb802
+    i8 116, label %sw.bb809
+    i8 117, label %sw.bb816
   ]
 
 sw.bb764:                                         ; preds = %sw.bb760
@@ -1136,10 +1102,9 @@ sw.bb780:                                         ; preds = %sw.bb776
 sw.bb784:                                         ; preds = %sw.bb780
   %arrayidx785 = getelementptr inbounds i8, ptr %s, i64 10
   %77 = load i8, ptr %arrayidx785, align 1
-  %conv786 = sext i8 %77 to i32
-  switch i32 %conv786, label %sw.epilog3087 [
-    i32 45, label %sw.bb788
-    i32 0, label %return
+  switch i8 %77, label %sw.epilog3087 [
+    i8 45, label %sw.bb788
+    i8 0, label %return
   ]
 
 sw.bb788:                                         ; preds = %sw.bb784
@@ -1175,11 +1140,10 @@ sw.bb826:                                         ; preds = %sw.bb723
 sw.bb830:                                         ; preds = %sw.bb826
   %arrayidx831 = getelementptr inbounds i8, ptr %s, i64 3
   %79 = load i8, ptr %arrayidx831, align 1
-  %conv832 = sext i8 %79 to i32
-  switch i32 %conv832, label %sw.epilog3087 [
-    i32 98, label %sw.bb834
-    i32 108, label %sw.bb841
-    i32 0, label %return
+  switch i8 %79, label %sw.epilog3087 [
+    i8 98, label %sw.bb834
+    i8 108, label %sw.bb841
+    i8 0, label %return
   ]
 
 sw.bb834:                                         ; preds = %sw.bb830
@@ -1203,10 +1167,9 @@ sw.bb852:                                         ; preds = %entry
 sw.bb856:                                         ; preds = %sw.bb852
   %arrayidx857 = getelementptr inbounds i8, ptr %s, i64 2
   %81 = load i8, ptr %arrayidx857, align 1
-  %conv858 = sext i8 %81 to i32
-  switch i32 %conv858, label %sw.epilog3087 [
-    i32 98, label %sw.bb860
-    i32 110, label %sw.bb867
+  switch i8 %81, label %sw.epilog3087 [
+    i8 98, label %sw.bb860
+    i8 110, label %sw.bb867
   ]
 
 sw.bb860:                                         ; preds = %sw.bb856
@@ -1224,34 +1187,31 @@ sw.bb867:                                         ; preds = %sw.bb856
 sw.bb876:                                         ; preds = %entry
   %arrayidx877 = getelementptr inbounds i8, ptr %s, i64 1
   %82 = load i8, ptr %arrayidx877, align 1
-  %conv878 = sext i8 %82 to i32
-  switch i32 %conv878, label %sw.epilog3087 [
-    i32 97, label %sw.bb880
-    i32 101, label %sw.bb997
-    i32 103, label %sw.bb1004
-    i32 105, label %sw.bb1039
-    i32 111, label %sw.bb1082
-    i32 0, label %return
+  switch i8 %82, label %sw.epilog3087 [
+    i8 97, label %sw.bb880
+    i8 101, label %sw.bb997
+    i8 103, label %sw.bb1004
+    i8 105, label %sw.bb1039
+    i8 111, label %sw.bb1082
+    i8 0, label %return
   ]
 
 sw.bb880:                                         ; preds = %sw.bb876
   %arrayidx881 = getelementptr inbounds i8, ptr %s, i64 2
   %83 = load i8, ptr %arrayidx881, align 1
-  %conv882 = sext i8 %83 to i32
-  switch i32 %conv882, label %sw.epilog3087 [
-    i32 99, label %sw.bb884
-    i32 110, label %sw.bb904
-    i32 120, label %sw.bb911
+  switch i8 %83, label %sw.epilog3087 [
+    i8 99, label %sw.bb884
+    i8 110, label %sw.bb904
+    i8 120, label %sw.bb911
   ]
 
 sw.bb884:                                         ; preds = %sw.bb880
   %arrayidx885 = getelementptr inbounds i8, ptr %s, i64 3
   %84 = load i8, ptr %arrayidx885, align 1
-  %conv886 = sext i8 %84 to i32
-  switch i32 %conv886, label %sw.epilog3087 [
-    i32 107, label %sw.bb888
-    i32 108, label %sw.bb895
-    i32 0, label %return
+  switch i8 %84, label %sw.epilog3087 [
+    i8 107, label %sw.bb888
+    i8 108, label %sw.bb895
+    i8 0, label %return
   ]
 
 sw.bb888:                                         ; preds = %sw.bb884
@@ -1275,12 +1235,11 @@ sw.bb904:                                         ; preds = %sw.bb880
 sw.bb911:                                         ; preds = %sw.bb880
   %arrayidx912 = getelementptr inbounds i8, ptr %s, i64 3
   %85 = load i8, ptr %arrayidx912, align 1
-  %conv913 = sext i8 %85 to i32
-  switch i32 %conv913, label %sw.epilog3087 [
-    i32 45, label %sw.bb915
-    i32 95, label %sw.bb922
-    i32 105, label %sw.bb981
-    i32 109, label %sw.bb988
+  switch i8 %85, label %sw.epilog3087 [
+    i8 45, label %sw.bb915
+    i8 95, label %sw.bb922
+    i8 105, label %sw.bb981
+    i8 109, label %sw.bb988
   ]
 
 sw.bb915:                                         ; preds = %sw.bb911
@@ -1292,14 +1251,13 @@ sw.bb915:                                         ; preds = %sw.bb911
 sw.bb922:                                         ; preds = %sw.bb911
   %arrayidx923 = getelementptr inbounds i8, ptr %s, i64 4
   %86 = load i8, ptr %arrayidx923, align 1
-  %conv924 = sext i8 %86 to i32
-  switch i32 %conv924, label %sw.epilog3087 [
-    i32 97, label %sw.bb926
-    i32 101, label %sw.bb933
-    i32 102, label %sw.bb952
-    i32 110, label %sw.bb959
-    i32 112, label %sw.bb966
-    i32 114, label %sw.bb973
+  switch i8 %86, label %sw.epilog3087 [
+    i8 97, label %sw.bb926
+    i8 101, label %sw.bb933
+    i8 102, label %sw.bb952
+    i8 110, label %sw.bb959
+    i8 112, label %sw.bb966
+    i8 114, label %sw.bb973
   ]
 
 sw.bb926:                                         ; preds = %sw.bb922
@@ -1311,10 +1269,9 @@ sw.bb926:                                         ; preds = %sw.bb922
 sw.bb933:                                         ; preds = %sw.bb922
   %arrayidx934 = getelementptr inbounds i8, ptr %s, i64 5
   %87 = load i8, ptr %arrayidx934, align 1
-  %conv935 = sext i8 %87 to i32
-  switch i32 %conv935, label %sw.epilog3087 [
-    i32 97, label %sw.bb937
-    i32 110, label %sw.bb944
+  switch i8 %87, label %sw.epilog3087 [
+    i8 97, label %sw.bb937
+    i8 110, label %sw.bb944
   ]
 
 sw.bb937:                                         ; preds = %sw.bb933
@@ -1380,10 +1337,9 @@ sw.bb1004:                                        ; preds = %sw.bb876
 sw.bb1008:                                        ; preds = %sw.bb1004
   %arrayidx1009 = getelementptr inbounds i8, ptr %s, i64 3
   %89 = load i8, ptr %arrayidx1009, align 1
-  %conv1010 = sext i8 %89 to i32
-  switch i32 %conv1010, label %sw.epilog3087 [
-    i32 49, label %sw.bb1012
-    i32 0, label %return
+  switch i8 %89, label %sw.epilog3087 [
+    i8 49, label %sw.bb1012
+    i8 0, label %return
   ]
 
 sw.bb1012:                                        ; preds = %sw.bb1008
@@ -1395,10 +1351,9 @@ sw.bb1012:                                        ; preds = %sw.bb1008
 sw.bb1016:                                        ; preds = %sw.bb1012
   %arrayidx1017 = getelementptr inbounds i8, ptr %s, i64 5
   %91 = load i8, ptr %arrayidx1017, align 1
-  %conv1018 = sext i8 %91 to i32
-  switch i32 %conv1018, label %sw.epilog3087 [
-    i32 100, label %sw.bb1020
-    i32 112, label %sw.bb1027
+  switch i8 %91, label %sw.epilog3087 [
+    i8 100, label %sw.bb1020
+    i8 112, label %sw.bb1027
   ]
 
 sw.bb1020:                                        ; preds = %sw.bb1016
@@ -1416,10 +1371,9 @@ sw.bb1027:                                        ; preds = %sw.bb1016
 sw.bb1039:                                        ; preds = %sw.bb876
   %arrayidx1040 = getelementptr inbounds i8, ptr %s, i64 2
   %92 = load i8, ptr %arrayidx1040, align 1
-  %conv1041 = sext i8 %92 to i32
-  switch i32 %conv1041, label %sw.epilog3087 [
-    i32 99, label %sw.bb1043
-    i32 110, label %sw.bb1050
+  switch i8 %92, label %sw.epilog3087 [
+    i8 99, label %sw.bb1043
+    i8 110, label %sw.bb1050
   ]
 
 sw.bb1043:                                        ; preds = %sw.bb1039
@@ -1431,19 +1385,17 @@ sw.bb1043:                                        ; preds = %sw.bb1039
 sw.bb1050:                                        ; preds = %sw.bb1039
   %arrayidx1051 = getelementptr inbounds i8, ptr %s, i64 3
   %93 = load i8, ptr %arrayidx1051, align 1
-  %conv1052 = sext i8 %93 to i32
-  switch i32 %conv1052, label %sw.epilog3087 [
-    i32 95, label %sw.bb1054
-    i32 105, label %sw.bb1073
+  switch i8 %93, label %sw.epilog3087 [
+    i8 95, label %sw.bb1054
+    i8 105, label %sw.bb1073
   ]
 
 sw.bb1054:                                        ; preds = %sw.bb1050
   %arrayidx1055 = getelementptr inbounds i8, ptr %s, i64 4
   %94 = load i8, ptr %arrayidx1055, align 1
-  %conv1056 = sext i8 %94 to i32
-  switch i32 %conv1056, label %sw.epilog3087 [
-    i32 101, label %sw.bb1058
-    i32 110, label %sw.bb1065
+  switch i8 %94, label %sw.epilog3087 [
+    i8 101, label %sw.bb1058
+    i8 110, label %sw.bb1065
   ]
 
 sw.bb1058:                                        ; preds = %sw.bb1054
@@ -1473,10 +1425,9 @@ sw.bb1082:                                        ; preds = %sw.bb876
 sw.bb1086:                                        ; preds = %sw.bb1082
   %arrayidx1087 = getelementptr inbounds i8, ptr %s, i64 3
   %96 = load i8, ptr %arrayidx1087, align 1
-  %conv1088 = sext i8 %96 to i32
-  switch i32 %conv1088, label %sw.epilog3087 [
-    i32 101, label %sw.bb1090
-    i32 117, label %sw.bb1096
+  switch i8 %96, label %sw.epilog3087 [
+    i8 101, label %sw.bb1090
+    i8 117, label %sw.bb1096
   ]
 
 sw.bb1090:                                        ; preds = %sw.bb1086
@@ -1494,12 +1445,11 @@ sw.bb1096:                                        ; preds = %sw.bb1086
 sw.bb1107:                                        ; preds = %entry
   %arrayidx1108 = getelementptr inbounds i8, ptr %s, i64 1
   %98 = load i8, ptr %arrayidx1108, align 1
-  %conv1109 = sext i8 %98 to i32
-  switch i32 %conv1109, label %sw.epilog3087 [
-    i32 97, label %sw.bb1111
-    i32 111, label %sw.bb1118
-    i32 117, label %sw.bb1146
-    i32 0, label %return
+  switch i8 %98, label %sw.epilog3087 [
+    i8 97, label %sw.bb1111
+    i8 111, label %sw.bb1118
+    i8 117, label %sw.bb1146
+    i8 0, label %return
   ]
 
 sw.bb1111:                                        ; preds = %sw.bb1107
@@ -1529,10 +1479,9 @@ sw.bb1126:                                        ; preds = %sw.bb1122
 sw.bb1130:                                        ; preds = %sw.bb1126
   %arrayidx1131 = getelementptr inbounds i8, ptr %s, i64 5
   %102 = load i8, ptr %arrayidx1131, align 1
-  %conv1132 = sext i8 %102 to i32
-  switch i32 %conv1132, label %sw.epilog3087 [
-    i32 45, label %sw.bb1134
-    i32 0, label %return
+  switch i8 %102, label %sw.epilog3087 [
+    i8 45, label %sw.bb1134
+    i8 0, label %return
   ]
 
 sw.bb1134:                                        ; preds = %sw.bb1130
@@ -1550,11 +1499,10 @@ sw.bb1146:                                        ; preds = %sw.bb1107
 sw.bb1155:                                        ; preds = %entry
   %arrayidx1156 = getelementptr inbounds i8, ptr %s, i64 1
   %103 = load i8, ptr %arrayidx1156, align 1
-  %conv1157 = sext i8 %103 to i32
-  switch i32 %conv1157, label %sw.epilog3087 [
-    i32 97, label %sw.bb1159
-    i32 112, label %sw.bb1166
-    i32 114, label %sw.bb1197
+  switch i8 %103, label %sw.epilog3087 [
+    i8 97, label %sw.bb1159
+    i8 112, label %sw.bb1166
+    i8 114, label %sw.bb1197
   ]
 
 sw.bb1159:                                        ; preds = %sw.bb1155
@@ -1566,19 +1514,17 @@ sw.bb1159:                                        ; preds = %sw.bb1155
 sw.bb1166:                                        ; preds = %sw.bb1155
   %arrayidx1167 = getelementptr inbounds i8, ptr %s, i64 2
   %104 = load i8, ptr %arrayidx1167, align 1
-  %conv1168 = sext i8 %104 to i32
-  switch i32 %conv1168, label %sw.epilog3087 [
-    i32 101, label %sw.bb1170
-    i32 116, label %sw.bb1189
+  switch i8 %104, label %sw.epilog3087 [
+    i8 101, label %sw.bb1170
+    i8 116, label %sw.bb1189
   ]
 
 sw.bb1170:                                        ; preds = %sw.bb1166
   %arrayidx1171 = getelementptr inbounds i8, ptr %s, i64 3
   %105 = load i8, ptr %arrayidx1171, align 1
-  %conv1172 = sext i8 %105 to i32
-  switch i32 %conv1172, label %sw.epilog3087 [
-    i32 110, label %sw.bb1174
-    i32 114, label %sw.bb1181
+  switch i8 %105, label %sw.epilog3087 [
+    i8 110, label %sw.bb1174
+    i8 114, label %sw.bb1181
   ]
 
 sw.bb1174:                                        ; preds = %sw.bb1170
@@ -1608,18 +1554,17 @@ sw.bb1197:                                        ; preds = %sw.bb1155
 sw.bb1205:                                        ; preds = %entry
   %arrayidx1206 = getelementptr inbounds i8, ptr %s, i64 1
   %106 = load i8, ptr %arrayidx1206, align 1
-  %conv1207 = sext i8 %106 to i32
-  switch i32 %conv1207, label %sw.epilog3087 [
-    i32 49, label %sw.bb1209
-    i32 50, label %sw.bb1215
-    i32 97, label %sw.bb1221
-    i32 98, label %sw.bb1294
-    i32 99, label %sw.bb1301
-    i32 107, label %sw.bb1308
-    i32 111, label %sw.bb1315
-    i32 114, label %sw.bb1334
-    i32 117, label %sw.bb1402
-    i32 0, label %return
+  switch i8 %106, label %sw.epilog3087 [
+    i8 49, label %sw.bb1209
+    i8 50, label %sw.bb1215
+    i8 97, label %sw.bb1221
+    i8 98, label %sw.bb1294
+    i8 99, label %sw.bb1301
+    i8 107, label %sw.bb1308
+    i8 111, label %sw.bb1315
+    i8 114, label %sw.bb1334
+    i8 117, label %sw.bb1402
+    i8 0, label %return
   ]
 
 sw.bb1209:                                        ; preds = %sw.bb1205
@@ -1637,30 +1582,27 @@ sw.bb1215:                                        ; preds = %sw.bb1205
 sw.bb1221:                                        ; preds = %sw.bb1205
   %arrayidx1222 = getelementptr inbounds i8, ptr %s, i64 2
   %109 = load i8, ptr %arrayidx1222, align 1
-  %conv1223 = sext i8 %109 to i32
-  switch i32 %conv1223, label %sw.epilog3087 [
-    i32 100, label %sw.bb1225
-    i32 114, label %sw.bb1257
-    i32 115, label %sw.bb1286
+  switch i8 %109, label %sw.epilog3087 [
+    i8 100, label %sw.bb1225
+    i8 114, label %sw.bb1257
+    i8 115, label %sw.bb1286
   ]
 
 sw.bb1225:                                        ; preds = %sw.bb1221
   %arrayidx1226 = getelementptr inbounds i8, ptr %s, i64 3
   %110 = load i8, ptr %arrayidx1226, align 1
-  %conv1227 = sext i8 %110 to i32
-  switch i32 %conv1227, label %sw.epilog3087 [
-    i32 45, label %sw.bb1229
-    i32 100, label %sw.bb1248
-    i32 0, label %return
+  switch i8 %110, label %sw.epilog3087 [
+    i8 45, label %sw.bb1229
+    i8 100, label %sw.bb1248
+    i8 0, label %return
   ]
 
 sw.bb1229:                                        ; preds = %sw.bb1225
   %arrayidx1230 = getelementptr inbounds i8, ptr %s, i64 4
   %111 = load i8, ptr %arrayidx1230, align 1
-  %conv1231 = sext i8 %111 to i32
-  switch i32 %conv1231, label %sw.epilog3087 [
-    i32 109, label %sw.bb1233
-    i32 116, label %sw.bb1240
+  switch i8 %111, label %sw.epilog3087 [
+    i8 109, label %sw.bb1233
+    i8 116, label %sw.bb1240
   ]
 
 sw.bb1233:                                        ; preds = %sw.bb1229
@@ -1696,10 +1638,9 @@ sw.bb1261:                                        ; preds = %sw.bb1257
 sw.bb1265:                                        ; preds = %sw.bb1261
   %arrayidx1266 = getelementptr inbounds i8, ptr %s, i64 5
   %114 = load i8, ptr %arrayidx1266, align 1
-  %conv1267 = sext i8 %114 to i32
-  switch i32 %conv1267, label %sw.epilog3087 [
-    i32 117, label %sw.bb1269
-    i32 118, label %sw.bb1276
+  switch i8 %114, label %sw.epilog3087 [
+    i8 117, label %sw.bb1269
+    i8 118, label %sw.bb1276
   ]
 
 sw.bb1269:                                        ; preds = %sw.bb1265
@@ -1741,10 +1682,9 @@ sw.bb1308:                                        ; preds = %sw.bb1205
 sw.bb1315:                                        ; preds = %sw.bb1205
   %arrayidx1316 = getelementptr inbounds i8, ptr %s, i64 2
   %115 = load i8, ptr %arrayidx1316, align 1
-  %conv1317 = sext i8 %115 to i32
-  switch i32 %conv1317, label %sw.epilog3087 [
-    i32 105, label %sw.bb1319
-    i32 116, label %sw.bb1326
+  switch i8 %115, label %sw.epilog3087 [
+    i8 105, label %sw.bb1319
+    i8 116, label %sw.bb1326
   ]
 
 sw.bb1319:                                        ; preds = %sw.bb1315
@@ -1762,20 +1702,18 @@ sw.bb1326:                                        ; preds = %sw.bb1315
 sw.bb1334:                                        ; preds = %sw.bb1205
   %arrayidx1335 = getelementptr inbounds i8, ptr %s, i64 2
   %116 = load i8, ptr %arrayidx1335, align 1
-  %conv1336 = sext i8 %116 to i32
-  switch i32 %conv1336, label %sw.epilog3087 [
-    i32 101, label %sw.bb1338
-    i32 105, label %sw.bb1357
-    i32 111, label %sw.bb1382
+  switch i8 %116, label %sw.epilog3087 [
+    i8 101, label %sw.bb1338
+    i8 105, label %sw.bb1357
+    i8 111, label %sw.bb1382
   ]
 
 sw.bb1338:                                        ; preds = %sw.bb1334
   %arrayidx1339 = getelementptr inbounds i8, ptr %s, i64 3
   %117 = load i8, ptr %arrayidx1339, align 1
-  %conv1340 = sext i8 %117 to i32
-  switch i32 %conv1340, label %sw.epilog3087 [
-    i32 100, label %sw.bb1342
-    i32 102, label %sw.bb1349
+  switch i8 %117, label %sw.epilog3087 [
+    i8 100, label %sw.bb1342
+    i8 102, label %sw.bb1349
   ]
 
 sw.bb1342:                                        ; preds = %sw.bb1338
@@ -1793,10 +1731,9 @@ sw.bb1349:                                        ; preds = %sw.bb1338
 sw.bb1357:                                        ; preds = %sw.bb1334
   %arrayidx1358 = getelementptr inbounds i8, ptr %s, i64 3
   %118 = load i8, ptr %arrayidx1358, align 1
-  %conv1359 = sext i8 %118 to i32
-  switch i32 %conv1359, label %sw.epilog3087 [
-    i32 109, label %sw.bb1361
-    i32 118, label %sw.bb1368
+  switch i8 %118, label %sw.epilog3087 [
+    i8 109, label %sw.bb1361
+    i8 118, label %sw.bb1368
   ]
 
 sw.bb1361:                                        ; preds = %sw.bb1357
@@ -1808,10 +1745,9 @@ sw.bb1361:                                        ; preds = %sw.bb1357
 sw.bb1368:                                        ; preds = %sw.bb1357
   %arrayidx1369 = getelementptr inbounds i8, ptr %s, i64 4
   %119 = load i8, ptr %arrayidx1369, align 1
-  %conv1370 = sext i8 %119 to i32
-  switch i32 %conv1370, label %sw.epilog3087 [
-    i32 95, label %sw.bb1372
-    i32 0, label %return
+  switch i8 %119, label %sw.epilog3087 [
+    i8 95, label %sw.bb1372
+    i8 0, label %return
   ]
 
 sw.bb1372:                                        ; preds = %sw.bb1368
@@ -1823,10 +1759,9 @@ sw.bb1372:                                        ; preds = %sw.bb1368
 sw.bb1382:                                        ; preds = %sw.bb1334
   %arrayidx1383 = getelementptr inbounds i8, ptr %s, i64 3
   %120 = load i8, ptr %arrayidx1383, align 1
-  %conv1384 = sext i8 %120 to i32
-  switch i32 %conv1384, label %sw.epilog3087 [
-    i32 112, label %sw.bb1386
-    i32 118, label %sw.bb1393
+  switch i8 %120, label %sw.epilog3087 [
+    i8 112, label %sw.bb1386
+    i8 118, label %sw.bb1393
   ]
 
 sw.bb1386:                                        ; preds = %sw.bb1382
@@ -1850,14 +1785,13 @@ sw.bb1402:                                        ; preds = %sw.bb1205
 sw.bb1411:                                        ; preds = %entry
   %arrayidx1412 = getelementptr inbounds i8, ptr %s, i64 1
   %121 = load i8, ptr %arrayidx1412, align 1
-  %conv1413 = sext i8 %121 to i32
-  switch i32 %conv1413, label %sw.epilog3087 [
-    i32 49, label %sw.bb1415
-    i32 50, label %sw.bb1421
-    i32 98, label %sw.bb1427
-    i32 0, label %return
-    i32 120, label %sw.bb1435
-    i32 121, label %sw.bb1441
+  switch i8 %121, label %sw.epilog3087 [
+    i8 49, label %sw.bb1415
+    i8 50, label %sw.bb1421
+    i8 98, label %sw.bb1427
+    i8 0, label %return
+    i8 120, label %sw.bb1435
+    i8 121, label %sw.bb1441
   ]
 
 sw.bb1415:                                        ; preds = %sw.bb1411
@@ -1893,13 +1827,12 @@ sw.bb1441:                                        ; preds = %sw.bb1411
 sw.bb1448:                                        ; preds = %entry
   %arrayidx1449 = getelementptr inbounds i8, ptr %s, i64 1
   %126 = load i8, ptr %arrayidx1449, align 1
-  %conv1450 = sext i8 %126 to i32
-  switch i32 %conv1450, label %sw.epilog3087 [
-    i32 97, label %sw.bb1452
-    i32 101, label %sw.bb1481
-    i32 111, label %sw.bb1589
-    i32 115, label %sw.bb1596
-    i32 0, label %return
+  switch i8 %126, label %sw.epilog3087 [
+    i8 97, label %sw.bb1452
+    i8 101, label %sw.bb1481
+    i8 111, label %sw.bb1589
+    i8 115, label %sw.bb1596
+    i8 0, label %return
   ]
 
 sw.bb1452:                                        ; preds = %sw.bb1448
@@ -1917,10 +1850,9 @@ sw.bb1456:                                        ; preds = %sw.bb1452
 sw.bb1460:                                        ; preds = %sw.bb1456
   %arrayidx1461 = getelementptr inbounds i8, ptr %s, i64 4
   %129 = load i8, ptr %arrayidx1461, align 1
-  %conv1462 = sext i8 %129 to i32
-  switch i32 %conv1462, label %sw.epilog3087 [
-    i32 107, label %sw.bb1464
-    i32 111, label %sw.bb1471
+  switch i8 %129, label %sw.epilog3087 [
+    i8 107, label %sw.bb1464
+    i8 111, label %sw.bb1471
   ]
 
 sw.bb1464:                                        ; preds = %sw.bb1460
@@ -1938,11 +1870,10 @@ sw.bb1471:                                        ; preds = %sw.bb1460
 sw.bb1481:                                        ; preds = %sw.bb1448
   %arrayidx1482 = getelementptr inbounds i8, ptr %s, i64 2
   %130 = load i8, ptr %arrayidx1482, align 1
-  %conv1483 = sext i8 %130 to i32
-  switch i32 %conv1483, label %sw.epilog3087 [
-    i32 97, label %sw.bb1485
-    i32 102, label %sw.bb1514
-    i32 115, label %sw.bb1521
+  switch i8 %130, label %sw.epilog3087 [
+    i8 97, label %sw.bb1485
+    i8 102, label %sw.bb1514
+    i8 115, label %sw.bb1521
   ]
 
 sw.bb1485:                                        ; preds = %sw.bb1481
@@ -1960,10 +1891,9 @@ sw.bb1489:                                        ; preds = %sw.bb1485
 sw.bb1493:                                        ; preds = %sw.bb1489
   %arrayidx1494 = getelementptr inbounds i8, ptr %s, i64 5
   %133 = load i8, ptr %arrayidx1494, align 1
-  %conv1495 = sext i8 %133 to i32
-  switch i32 %conv1495, label %sw.epilog3087 [
-    i32 97, label %sw.bb1497
-    i32 98, label %sw.bb1504
+  switch i8 %133, label %sw.epilog3087 [
+    i8 97, label %sw.bb1497
+    i8 98, label %sw.bb1504
   ]
 
 sw.bb1497:                                        ; preds = %sw.bb1493
@@ -2011,11 +1941,10 @@ sw.bb1533:                                        ; preds = %sw.bb1529
 sw.bb1537:                                        ; preds = %sw.bb1533
   %arrayidx1538 = getelementptr inbounds i8, ptr %s, i64 7
   %138 = load i8, ptr %arrayidx1538, align 1
-  %conv1539 = sext i8 %138 to i32
-  switch i32 %conv1539, label %sw.epilog3087 [
-    i32 99, label %sw.bb1541
-    i32 114, label %sw.bb1548
-    i32 116, label %sw.bb1555
+  switch i8 %138, label %sw.epilog3087 [
+    i8 99, label %sw.bb1541
+    i8 114, label %sw.bb1548
+    i8 116, label %sw.bb1555
   ]
 
 sw.bb1541:                                        ; preds = %sw.bb1537
@@ -2051,10 +1980,9 @@ sw.bb1563:                                        ; preds = %sw.bb1559
 sw.bb1567:                                        ; preds = %sw.bb1563
   %arrayidx1568 = getelementptr inbounds i8, ptr %s, i64 11
   %142 = load i8, ptr %arrayidx1568, align 1
-  %conv1569 = sext i8 %142 to i32
-  switch i32 %conv1569, label %sw.epilog3087 [
-    i32 95, label %sw.bb1571
-    i32 0, label %return
+  switch i8 %142, label %sw.epilog3087 [
+    i8 95, label %sw.bb1571
+    i8 0, label %return
   ]
 
 sw.bb1571:                                        ; preds = %sw.bb1567
@@ -2084,11 +2012,10 @@ sw.bb1600:                                        ; preds = %sw.bb1596
 sw.bb1604:                                        ; preds = %sw.bb1600
   %arrayidx1605 = getelementptr inbounds i8, ptr %s, i64 4
   %145 = load i8, ptr %arrayidx1605, align 1
-  %conv1606 = sext i8 %145 to i32
-  switch i32 %conv1606, label %sw.epilog3087 [
-    i32 99, label %sw.bb1608
-    i32 101, label %sw.bb1718
-    i32 102, label %sw.bb1819
+  switch i8 %145, label %sw.epilog3087 [
+    i8 99, label %sw.bb1608
+    i8 101, label %sw.bb1718
+    i8 102, label %sw.bb1819
   ]
 
 sw.bb1608:                                        ; preds = %sw.bb1604
@@ -2154,18 +2081,17 @@ sw.bb1644:                                        ; preds = %sw.bb1640
 sw.bb1648:                                        ; preds = %sw.bb1644
   %arrayidx1649 = getelementptr inbounds i8, ptr %s, i64 15
   %156 = load i8, ptr %arrayidx1649, align 1
-  %conv1650 = sext i8 %156 to i32
-  switch i32 %conv1650, label %sw.epilog3087 [
-    i32 49, label %sw.bb1652
-    i32 50, label %sw.bb1658
-    i32 51, label %sw.bb1664
-    i32 52, label %sw.bb1670
-    i32 53, label %sw.bb1676
-    i32 54, label %sw.bb1682
-    i32 55, label %sw.bb1688
-    i32 56, label %sw.bb1694
-    i32 57, label %sw.bb1700
-    i32 0, label %return
+  switch i8 %156, label %sw.epilog3087 [
+    i8 49, label %sw.bb1652
+    i8 50, label %sw.bb1658
+    i8 51, label %sw.bb1664
+    i8 52, label %sw.bb1670
+    i8 53, label %sw.bb1676
+    i8 54, label %sw.bb1682
+    i8 55, label %sw.bb1688
+    i8 56, label %sw.bb1694
+    i8 57, label %sw.bb1700
+    i8 0, label %return
   ]
 
 sw.bb1652:                                        ; preds = %sw.bb1648
@@ -2267,27 +2193,25 @@ sw.bb1742:                                        ; preds = %sw.bb1738
 sw.bb1746:                                        ; preds = %sw.bb1742
   %arrayidx1747 = getelementptr inbounds i8, ptr %s, i64 12
   %173 = load i8, ptr %arrayidx1747, align 1
-  %conv1748 = sext i8 %173 to i32
-  switch i32 %conv1748, label %sw.epilog3087 [
-    i32 49, label %sw.bb1750
-    i32 50, label %sw.bb1762
-    i32 51, label %sw.bb1768
-    i32 52, label %sw.bb1774
-    i32 53, label %sw.bb1780
-    i32 54, label %sw.bb1786
-    i32 55, label %sw.bb1792
-    i32 56, label %sw.bb1798
-    i32 57, label %sw.bb1804
-    i32 0, label %return
+  switch i8 %173, label %sw.epilog3087 [
+    i8 49, label %sw.bb1750
+    i8 50, label %sw.bb1762
+    i8 51, label %sw.bb1768
+    i8 52, label %sw.bb1774
+    i8 53, label %sw.bb1780
+    i8 54, label %sw.bb1786
+    i8 55, label %sw.bb1792
+    i8 56, label %sw.bb1798
+    i8 57, label %sw.bb1804
+    i8 0, label %return
   ]
 
 sw.bb1750:                                        ; preds = %sw.bb1746
   %arrayidx1751 = getelementptr inbounds i8, ptr %s, i64 13
   %174 = load i8, ptr %arrayidx1751, align 1
-  %conv1752 = sext i8 %174 to i32
-  switch i32 %conv1752, label %sw.epilog3087 [
-    i32 48, label %sw.bb1754
-    i32 0, label %return
+  switch i8 %174, label %sw.epilog3087 [
+    i8 48, label %sw.bb1754
+    i8 0, label %return
   ]
 
 sw.bb1754:                                        ; preds = %sw.bb1750
@@ -2377,27 +2301,25 @@ sw.bb1835:                                        ; preds = %sw.bb1831
 sw.bb1839:                                        ; preds = %sw.bb1835
   %arrayidx1840 = getelementptr inbounds i8, ptr %s, i64 10
   %189 = load i8, ptr %arrayidx1840, align 1
-  %conv1841 = sext i8 %189 to i32
-  switch i32 %conv1841, label %sw.epilog3087 [
-    i32 49, label %sw.bb1843
-    i32 50, label %sw.bb1855
-    i32 51, label %sw.bb1861
-    i32 52, label %sw.bb1867
-    i32 53, label %sw.bb1873
-    i32 54, label %sw.bb1879
-    i32 55, label %sw.bb1885
-    i32 56, label %sw.bb1891
-    i32 57, label %sw.bb1897
-    i32 0, label %return
+  switch i8 %189, label %sw.epilog3087 [
+    i8 49, label %sw.bb1843
+    i8 50, label %sw.bb1855
+    i8 51, label %sw.bb1861
+    i8 52, label %sw.bb1867
+    i8 53, label %sw.bb1873
+    i8 54, label %sw.bb1879
+    i8 55, label %sw.bb1885
+    i8 56, label %sw.bb1891
+    i8 57, label %sw.bb1897
+    i8 0, label %return
   ]
 
 sw.bb1843:                                        ; preds = %sw.bb1839
   %arrayidx1844 = getelementptr inbounds i8, ptr %s, i64 11
   %190 = load i8, ptr %arrayidx1844, align 1
-  %conv1845 = sext i8 %190 to i32
-  switch i32 %conv1845, label %sw.epilog3087 [
-    i32 48, label %sw.bb1847
-    i32 0, label %return
+  switch i8 %190, label %sw.epilog3087 [
+    i8 48, label %sw.bb1847
+    i8 0, label %return
   ]
 
 sw.bb1847:                                        ; preds = %sw.bb1843
@@ -2457,25 +2379,23 @@ sw.bb1897:                                        ; preds = %sw.bb1839
 sw.bb1915:                                        ; preds = %entry
   %arrayidx1916 = getelementptr inbounds i8, ptr %s, i64 1
   %200 = load i8, ptr %arrayidx1916, align 1
-  %conv1917 = sext i8 %200 to i32
-  switch i32 %conv1917, label %sw.epilog3087 [
-    i32 97, label %sw.bb1919
-    i32 101, label %sw.bb1956
-    i32 105, label %sw.bb2038
-    i32 112, label %sw.bb2045
-    i32 115, label %sw.bb2052
-    i32 116, label %sw.bb2059
-    i32 117, label %sw.bb2137
+  switch i8 %200, label %sw.epilog3087 [
+    i8 97, label %sw.bb1919
+    i8 101, label %sw.bb1956
+    i8 105, label %sw.bb2038
+    i8 112, label %sw.bb2045
+    i8 115, label %sw.bb2052
+    i8 116, label %sw.bb2059
+    i8 117, label %sw.bb2137
   ]
 
 sw.bb1919:                                        ; preds = %sw.bb1915
   %arrayidx1920 = getelementptr inbounds i8, ptr %s, i64 2
   %201 = load i8, ptr %arrayidx1920, align 1
-  %conv1921 = sext i8 %201 to i32
-  switch i32 %conv1921, label %sw.epilog3087 [
-    i32 102, label %sw.bb1923
-    i32 108, label %sw.bb1930
-    i32 118, label %sw.bb1948
+  switch i8 %201, label %sw.epilog3087 [
+    i8 102, label %sw.bb1923
+    i8 108, label %sw.bb1930
+    i8 118, label %sw.bb1948
   ]
 
 sw.bb1923:                                        ; preds = %sw.bb1919
@@ -2493,10 +2413,9 @@ sw.bb1930:                                        ; preds = %sw.bb1919
 sw.bb1934:                                        ; preds = %sw.bb1930
   %arrayidx1935 = getelementptr inbounds i8, ptr %s, i64 4
   %203 = load i8, ptr %arrayidx1935, align 1
-  %conv1936 = sext i8 %203 to i32
-  switch i32 %conv1936, label %sw.epilog3087 [
-    i32 108, label %sw.bb1938
-    i32 0, label %return
+  switch i8 %203, label %sw.epilog3087 [
+    i8 108, label %sw.bb1938
+    i8 0, label %return
   ]
 
 sw.bb1938:                                        ; preds = %sw.bb1934
@@ -2514,21 +2433,19 @@ sw.bb1948:                                        ; preds = %sw.bb1919
 sw.bb1956:                                        ; preds = %sw.bb1915
   %arrayidx1957 = getelementptr inbounds i8, ptr %s, i64 2
   %204 = load i8, ptr %arrayidx1957, align 1
-  %conv1958 = sext i8 %204 to i32
-  switch i32 %conv1958, label %sw.epilog3087 [
-    i32 99, label %sw.bb1960
-    i32 101, label %sw.bb2016
-    i32 114, label %sw.bb2023
-    i32 115, label %sw.bb2030
+  switch i8 %204, label %sw.epilog3087 [
+    i8 99, label %sw.bb1960
+    i8 101, label %sw.bb2016
+    i8 114, label %sw.bb2023
+    i8 115, label %sw.bb2030
   ]
 
 sw.bb1960:                                        ; preds = %sw.bb1956
   %arrayidx1961 = getelementptr inbounds i8, ptr %s, i64 3
   %205 = load i8, ptr %arrayidx1961, align 1
-  %conv1962 = sext i8 %205 to i32
-  switch i32 %conv1962, label %sw.epilog3087 [
-    i32 114, label %sw.bb1964
-    i32 117, label %sw.bb1971
+  switch i8 %205, label %sw.epilog3087 [
+    i8 114, label %sw.bb1964
+    i8 117, label %sw.bb1971
   ]
 
 sw.bb1964:                                        ; preds = %sw.bb1960
@@ -2570,10 +2487,9 @@ sw.bb1987:                                        ; preds = %sw.bb1983
 sw.bb1991:                                        ; preds = %sw.bb1987
   %arrayidx1992 = getelementptr inbounds i8, ptr %s, i64 9
   %211 = load i8, ptr %arrayidx1992, align 1
-  %conv1993 = sext i8 %211 to i32
-  switch i32 %conv1993, label %sw.epilog3087 [
-    i32 98, label %sw.bb1995
-    i32 99, label %sw.bb2002
+  switch i8 %211, label %sw.epilog3087 [
+    i8 98, label %sw.bb1995
+    i8 99, label %sw.bb2002
   ]
 
 sw.bb1995:                                        ; preds = %sw.bb1991
@@ -2627,21 +2543,19 @@ sw.bb2052:                                        ; preds = %sw.bb1915
 sw.bb2059:                                        ; preds = %sw.bb1915
   %arrayidx2060 = getelementptr inbounds i8, ptr %s, i64 2
   %212 = load i8, ptr %arrayidx2060, align 1
-  %conv2061 = sext i8 %212 to i32
-  switch i32 %conv2061, label %sw.epilog3087 [
-    i32 45, label %sw.bb2063
-    i32 97, label %sw.bb2089
-    i32 114, label %sw.bb2112
+  switch i8 %212, label %sw.epilog3087 [
+    i8 45, label %sw.bb2063
+    i8 97, label %sw.bb2089
+    i8 114, label %sw.bb2112
   ]
 
 sw.bb2063:                                        ; preds = %sw.bb2059
   %arrayidx2064 = getelementptr inbounds i8, ptr %s, i64 3
   %213 = load i8, ptr %arrayidx2064, align 1
-  %conv2065 = sext i8 %213 to i32
-  switch i32 %conv2065, label %sw.epilog3087 [
-    i32 100, label %sw.bb2067
-    i32 112, label %sw.bb2074
-    i32 116, label %sw.bb2081
+  switch i8 %213, label %sw.epilog3087 [
+    i8 100, label %sw.bb2067
+    i8 112, label %sw.bb2074
+    i8 116, label %sw.bb2081
   ]
 
 sw.bb2067:                                        ; preds = %sw.bb2063
@@ -2671,10 +2585,9 @@ sw.bb2089:                                        ; preds = %sw.bb2059
 sw.bb2093:                                        ; preds = %sw.bb2089
   %arrayidx2094 = getelementptr inbounds i8, ptr %s, i64 4
   %215 = load i8, ptr %arrayidx2094, align 1
-  %conv2095 = sext i8 %215 to i32
-  switch i32 %conv2095, label %sw.epilog3087 [
-    i32 101, label %sw.bb2097
-    i32 117, label %sw.bb2103
+  switch i8 %215, label %sw.epilog3087 [
+    i8 101, label %sw.bb2097
+    i8 117, label %sw.bb2103
   ]
 
 sw.bb2097:                                        ; preds = %sw.bb2093
@@ -2698,10 +2611,9 @@ sw.bb2112:                                        ; preds = %sw.bb2059
 sw.bb2116:                                        ; preds = %sw.bb2112
   %arrayidx2117 = getelementptr inbounds i8, ptr %s, i64 4
   %218 = load i8, ptr %arrayidx2117, align 1
-  %conv2118 = sext i8 %218 to i32
-  switch i32 %conv2118, label %sw.epilog3087 [
-    i32 97, label %sw.bb2120
-    i32 110, label %sw.bb2127
+  switch i8 %218, label %sw.epilog3087 [
+    i8 97, label %sw.bb2120
+    i8 110, label %sw.bb2127
   ]
 
 sw.bb2120:                                        ; preds = %sw.bb2116
@@ -2719,10 +2631,9 @@ sw.bb2127:                                        ; preds = %sw.bb2116
 sw.bb2137:                                        ; preds = %sw.bb1915
   %arrayidx2138 = getelementptr inbounds i8, ptr %s, i64 2
   %219 = load i8, ptr %arrayidx2138, align 1
-  %conv2139 = sext i8 %219 to i32
-  switch i32 %conv2139, label %sw.epilog3087 [
-    i32 98, label %sw.bb2141
-    i32 112, label %sw.bb2148
+  switch i8 %219, label %sw.epilog3087 [
+    i8 98, label %sw.bb2141
+    i8 112, label %sw.bb2148
   ]
 
 sw.bb2141:                                        ; preds = %sw.bb2137
@@ -2752,10 +2663,9 @@ sw.bb2156:                                        ; preds = %sw.bb2152
 sw.bb2160:                                        ; preds = %sw.bb2156
   %arrayidx2161 = getelementptr inbounds i8, ptr %s, i64 6
   %223 = load i8, ptr %arrayidx2161, align 1
-  %conv2162 = sext i8 %223 to i32
-  switch i32 %conv2162, label %sw.epilog3087 [
-    i32 114, label %sw.bb2164
-    i32 117, label %sw.bb2171
+  switch i8 %223, label %sw.epilog3087 [
+    i8 114, label %sw.bb2164
+    i8 117, label %sw.bb2171
   ]
 
 sw.bb2164:                                        ; preds = %sw.bb2160
@@ -2773,14 +2683,13 @@ sw.bb2171:                                        ; preds = %sw.bb2160
 sw.bb2184:                                        ; preds = %entry
   %arrayidx2185 = getelementptr inbounds i8, ptr %s, i64 1
   %224 = load i8, ptr %arrayidx2185, align 1
-  %conv2186 = sext i8 %224 to i32
-  switch i32 %conv2186, label %sw.epilog3087 [
-    i32 97, label %sw.bb2188
-    i32 101, label %sw.bb2206
-    i32 104, label %sw.bb2240
-    i32 108, label %sw.bb2247
-    i32 112, label %sw.bb2841
-    i32 121, label %sw.bb2847
+  switch i8 %224, label %sw.epilog3087 [
+    i8 97, label %sw.bb2188
+    i8 101, label %sw.bb2206
+    i8 104, label %sw.bb2240
+    i8 108, label %sw.bb2247
+    i8 112, label %sw.bb2841
+    i8 121, label %sw.bb2847
   ]
 
 sw.bb2188:                                        ; preds = %sw.bb2184
@@ -2792,10 +2701,9 @@ sw.bb2188:                                        ; preds = %sw.bb2184
 sw.bb2192:                                        ; preds = %sw.bb2188
   %arrayidx2193 = getelementptr inbounds i8, ptr %s, i64 3
   %226 = load i8, ptr %arrayidx2193, align 1
-  %conv2194 = sext i8 %226 to i32
-  switch i32 %conv2194, label %sw.epilog3087 [
-    i32 108, label %sw.bb2196
-    i32 0, label %return
+  switch i8 %226, label %sw.epilog3087 [
+    i8 108, label %sw.bb2196
+    i8 0, label %return
   ]
 
 sw.bb2196:                                        ; preds = %sw.bb2192
@@ -2825,10 +2733,9 @@ sw.bb2214:                                        ; preds = %sw.bb2210
 sw.bb2218:                                        ; preds = %sw.bb2214
   %arrayidx2219 = getelementptr inbounds i8, ptr %s, i64 5
   %230 = load i8, ptr %arrayidx2219, align 1
-  %conv2220 = sext i8 %230 to i32
-  switch i32 %conv2220, label %sw.epilog3087 [
-    i32 101, label %sw.bb2222
-    i32 110, label %sw.bb2229
+  switch i8 %230, label %sw.epilog3087 [
+    i8 101, label %sw.bb2222
+    i8 110, label %sw.bb2229
   ]
 
 sw.bb2222:                                        ; preds = %sw.bb2218
@@ -2858,27 +2765,25 @@ sw.bb2247:                                        ; preds = %sw.bb2184
 sw.bb2251:                                        ; preds = %sw.bb2247
   %arrayidx2252 = getelementptr inbounds i8, ptr %s, i64 3
   %232 = load i8, ptr %arrayidx2252, align 1
-  %conv2253 = sext i8 %232 to i32
-  switch i32 %conv2253, label %sw.epilog3087 [
-    i32 45, label %sw.bb2255
-    i32 49, label %sw.bb2647
-    i32 97, label %sw.bb2778
-    i32 105, label %sw.bb2801
-    i32 116, label %sw.bb2832
+  switch i8 %232, label %sw.epilog3087 [
+    i8 45, label %sw.bb2255
+    i8 49, label %sw.bb2647
+    i8 97, label %sw.bb2778
+    i8 105, label %sw.bb2801
+    i8 116, label %sw.bb2832
   ]
 
 sw.bb2255:                                        ; preds = %sw.bb2251
   %arrayidx2256 = getelementptr inbounds i8, ptr %s, i64 4
   %233 = load i8, ptr %arrayidx2256, align 1
-  %conv2257 = sext i8 %233 to i32
-  switch i32 %conv2257, label %sw.epilog3087 [
-    i32 99, label %sw.bb2259
-    i32 100, label %sw.bb2266
-    i32 103, label %sw.bb2273
-    i32 109, label %sw.bb2363
-    i32 110, label %sw.bb2446
-    i32 115, label %sw.bb2453
-    i32 118, label %sw.bb2639
+  switch i8 %233, label %sw.epilog3087 [
+    i8 99, label %sw.bb2259
+    i8 100, label %sw.bb2266
+    i8 103, label %sw.bb2273
+    i8 109, label %sw.bb2363
+    i8 110, label %sw.bb2446
+    i8 115, label %sw.bb2453
+    i8 118, label %sw.bb2639
   ]
 
 sw.bb2259:                                        ; preds = %sw.bb2255
@@ -2926,12 +2831,11 @@ sw.bb2289:                                        ; preds = %sw.bb2285
 sw.bb2293:                                        ; preds = %sw.bb2289
   %arrayidx2294 = getelementptr inbounds i8, ptr %s, i64 10
   %239 = load i8, ptr %arrayidx2294, align 1
-  %conv2295 = sext i8 %239 to i32
-  switch i32 %conv2295, label %sw.epilog3087 [
-    i32 97, label %sw.bb2297
-    i32 105, label %sw.bb2304
-    i32 110, label %sw.bb2322
-    i32 115, label %sw.bb2350
+  switch i8 %239, label %sw.epilog3087 [
+    i8 97, label %sw.bb2297
+    i8 105, label %sw.bb2304
+    i8 110, label %sw.bb2322
+    i8 115, label %sw.bb2350
   ]
 
 sw.bb2297:                                        ; preds = %sw.bb2293
@@ -2943,10 +2847,9 @@ sw.bb2297:                                        ; preds = %sw.bb2293
 sw.bb2304:                                        ; preds = %sw.bb2293
   %arrayidx2305 = getelementptr inbounds i8, ptr %s, i64 11
   %240 = load i8, ptr %arrayidx2305, align 1
-  %conv2306 = sext i8 %240 to i32
-  switch i32 %conv2306, label %sw.epilog3087 [
-    i32 100, label %sw.bb2308
-    i32 115, label %sw.bb2314
+  switch i8 %240, label %sw.epilog3087 [
+    i8 100, label %sw.bb2308
+    i8 115, label %sw.bb2314
   ]
 
 sw.bb2308:                                        ; preds = %sw.bb2304
@@ -2982,10 +2885,9 @@ sw.bb2330:                                        ; preds = %sw.bb2326
 sw.bb2334:                                        ; preds = %sw.bb2330
   %arrayidx2335 = getelementptr inbounds i8, ptr %s, i64 14
   %245 = load i8, ptr %arrayidx2335, align 1
-  %conv2336 = sext i8 %245 to i32
-  switch i32 %conv2336, label %sw.epilog3087 [
-    i32 45, label %sw.bb2338
-    i32 0, label %return
+  switch i8 %245, label %sw.epilog3087 [
+    i8 45, label %sw.bb2338
+    i8 0, label %return
   ]
 
 sw.bb2338:                                        ; preds = %sw.bb2334
@@ -3003,29 +2905,26 @@ sw.bb2350:                                        ; preds = %sw.bb2293
 sw.bb2363:                                        ; preds = %sw.bb2255
   %arrayidx2364 = getelementptr inbounds i8, ptr %s, i64 5
   %246 = load i8, ptr %arrayidx2364, align 1
-  %conv2365 = sext i8 %246 to i32
-  switch i32 %conv2365, label %sw.epilog3087 [
-    i32 97, label %sw.bb2367
-    i32 105, label %sw.bb2409
-    i32 117, label %sw.bb2438
+  switch i8 %246, label %sw.epilog3087 [
+    i8 97, label %sw.bb2367
+    i8 105, label %sw.bb2409
+    i8 117, label %sw.bb2438
   ]
 
 sw.bb2367:                                        ; preds = %sw.bb2363
   %arrayidx2368 = getelementptr inbounds i8, ptr %s, i64 6
   %247 = load i8, ptr %arrayidx2368, align 1
-  %conv2369 = sext i8 %247 to i32
-  switch i32 %conv2369, label %sw.epilog3087 [
-    i32 99, label %sw.bb2371
-    i32 120, label %sw.bb2384
+  switch i8 %247, label %sw.epilog3087 [
+    i8 99, label %sw.bb2371
+    i8 120, label %sw.bb2384
   ]
 
 sw.bb2371:                                        ; preds = %sw.bb2367
   %arrayidx2372 = getelementptr inbounds i8, ptr %s, i64 7
   %248 = load i8, ptr %arrayidx2372, align 1
-  %conv2373 = sext i8 %248 to i32
-  switch i32 %conv2373, label %sw.epilog3087 [
-    i32 45, label %sw.bb2375
-    i32 0, label %return
+  switch i8 %248, label %sw.epilog3087 [
+    i8 45, label %sw.bb2375
+    i8 0, label %return
   ]
 
 sw.bb2375:                                        ; preds = %sw.bb2371
@@ -3043,10 +2942,9 @@ sw.bb2384:                                        ; preds = %sw.bb2367
 sw.bb2388:                                        ; preds = %sw.bb2384
   %arrayidx2389 = getelementptr inbounds i8, ptr %s, i64 8
   %250 = load i8, ptr %arrayidx2389, align 1
-  %conv2390 = sext i8 %250 to i32
-  switch i32 %conv2390, label %sw.epilog3087 [
-    i32 100, label %sw.bb2392
-    i32 116, label %sw.bb2399
+  switch i8 %250, label %sw.epilog3087 [
+    i8 100, label %sw.bb2392
+    i8 116, label %sw.bb2399
   ]
 
 sw.bb2392:                                        ; preds = %sw.bb2388
@@ -3076,10 +2974,9 @@ sw.bb2413:                                        ; preds = %sw.bb2409
 sw.bb2417:                                        ; preds = %sw.bb2413
   %arrayidx2418 = getelementptr inbounds i8, ptr %s, i64 8
   %253 = load i8, ptr %arrayidx2418, align 1
-  %conv2419 = sext i8 %253 to i32
-  switch i32 %conv2419, label %sw.epilog3087 [
-    i32 100, label %sw.bb2421
-    i32 116, label %sw.bb2428
+  switch i8 %253, label %sw.epilog3087 [
+    i8 100, label %sw.bb2421
+    i8 116, label %sw.bb2428
   ]
 
 sw.bb2421:                                        ; preds = %sw.bb2417
@@ -3145,15 +3042,14 @@ sw.bb2473:                                        ; preds = %sw.bb2469
 sw.bb2477:                                        ; preds = %sw.bb2473
   %arrayidx2478 = getelementptr inbounds i8, ptr %s, i64 11
   %260 = load i8, ptr %arrayidx2478, align 1
-  %conv2479 = sext i8 %260 to i32
-  switch i32 %conv2479, label %sw.epilog3087 [
-    i32 99, label %sw.bb2481
-    i32 104, label %sw.bb2488
-    i32 105, label %sw.bb2527
-    i32 107, label %sw.bb2534
-    i32 110, label %sw.bb2577
-    i32 111, label %sw.bb2584
-    i32 115, label %sw.bb2591
+  switch i8 %260, label %sw.epilog3087 [
+    i8 99, label %sw.bb2481
+    i8 104, label %sw.bb2488
+    i8 105, label %sw.bb2527
+    i8 107, label %sw.bb2534
+    i8 110, label %sw.bb2577
+    i8 111, label %sw.bb2584
+    i8 115, label %sw.bb2591
   ]
 
 sw.bb2481:                                        ; preds = %sw.bb2477
@@ -3189,10 +3085,9 @@ sw.bb2500:                                        ; preds = %sw.bb2496
 sw.bb2504:                                        ; preds = %sw.bb2500
   %arrayidx2505 = getelementptr inbounds i8, ptr %s, i64 16
   %265 = load i8, ptr %arrayidx2505, align 1
-  %conv2506 = sext i8 %265 to i32
-  switch i32 %conv2506, label %sw.epilog3087 [
-    i32 110, label %sw.bb2508
-    i32 111, label %sw.bb2515
+  switch i8 %265, label %sw.epilog3087 [
+    i8 110, label %sw.bb2508
+    i8 111, label %sw.bb2515
   ]
 
 sw.bb2508:                                        ; preds = %sw.bb2504
@@ -3252,10 +3147,9 @@ sw.bb2554:                                        ; preds = %sw.bb2550
 sw.bb2558:                                        ; preds = %sw.bb2554
   %arrayidx2559 = getelementptr inbounds i8, ptr %s, i64 18
   %272 = load i8, ptr %arrayidx2559, align 1
-  %conv2560 = sext i8 %272 to i32
-  switch i32 %conv2560, label %sw.epilog3087 [
-    i32 45, label %sw.bb2562
-    i32 0, label %return
+  switch i8 %272, label %sw.epilog3087 [
+    i8 45, label %sw.bb2562
+    i8 0, label %return
   ]
 
 sw.bb2562:                                        ; preds = %sw.bb2558
@@ -3279,10 +3173,9 @@ sw.bb2584:                                        ; preds = %sw.bb2477
 sw.bb2591:                                        ; preds = %sw.bb2477
   %arrayidx2592 = getelementptr inbounds i8, ptr %s, i64 12
   %273 = load i8, ptr %arrayidx2592, align 1
-  %conv2593 = sext i8 %273 to i32
-  switch i32 %conv2593, label %sw.epilog3087 [
-    i32 101, label %sw.bb2595
-    i32 105, label %sw.bb2602
+  switch i8 %273, label %sw.epilog3087 [
+    i8 101, label %sw.bb2595
+    i8 105, label %sw.bb2602
   ]
 
 sw.bb2595:                                        ; preds = %sw.bb2591
@@ -3306,10 +3199,9 @@ sw.bb2606:                                        ; preds = %sw.bb2602
 sw.bb2610:                                        ; preds = %sw.bb2606
   %arrayidx2611 = getelementptr inbounds i8, ptr %s, i64 15
   %276 = load i8, ptr %arrayidx2611, align 1
-  %conv2612 = sext i8 %276 to i32
-  switch i32 %conv2612, label %sw.epilog3087 [
-    i32 110, label %sw.bb2614
-    i32 111, label %sw.bb2621
+  switch i8 %276, label %sw.epilog3087 [
+    i8 110, label %sw.bb2614
+    i8 111, label %sw.bb2621
   ]
 
 sw.bb2614:                                        ; preds = %sw.bb2610
@@ -3333,10 +3225,9 @@ sw.bb2639:                                        ; preds = %sw.bb2255
 sw.bb2647:                                        ; preds = %sw.bb2251
   %arrayidx2648 = getelementptr inbounds i8, ptr %s, i64 4
   %277 = load i8, ptr %arrayidx2648, align 1
-  %conv2649 = sext i8 %277 to i32
-  switch i32 %conv2649, label %sw.epilog3087 [
-    i32 45, label %sw.bb2651
-    i32 109, label %sw.bb2658
+  switch i8 %277, label %sw.epilog3087 [
+    i8 45, label %sw.bb2651
+    i8 109, label %sw.bb2658
   ]
 
 sw.bb2651:                                        ; preds = %sw.bb2647
@@ -3403,10 +3294,9 @@ sw.bb2686:                                        ; preds = %sw.bb2682
 sw.bb2690:                                        ; preds = %sw.bb2686
   %arrayidx2691 = getelementptr inbounds i8, ptr %s, i64 13
   %288 = load i8, ptr %arrayidx2691, align 1
-  %conv2692 = sext i8 %288 to i32
-  switch i32 %conv2692, label %sw.epilog3087 [
-    i32 112, label %sw.bb2694
-    i32 0, label %return
+  switch i8 %288, label %sw.epilog3087 [
+    i8 112, label %sw.bb2694
+    i8 0, label %return
   ]
 
 sw.bb2694:                                        ; preds = %sw.bb2690
@@ -3430,11 +3320,10 @@ sw.bb2709:                                        ; preds = %sw.bb2705
 sw.bb2713:                                        ; preds = %sw.bb2709
   %arrayidx2714 = getelementptr inbounds i8, ptr %s, i64 13
   %291 = load i8, ptr %arrayidx2714, align 1
-  %conv2715 = sext i8 %291 to i32
-  switch i32 %conv2715, label %sw.epilog3087 [
-    i32 105, label %sw.bb2717
-    i32 108, label %sw.bb2724
-    i32 0, label %return
+  switch i8 %291, label %sw.epilog3087 [
+    i8 105, label %sw.bb2717
+    i8 108, label %sw.bb2724
+    i8 0, label %return
   ]
 
 sw.bb2717:                                        ; preds = %sw.bb2713
@@ -3470,10 +3359,9 @@ sw.bb2746:                                        ; preds = %sw.bb2742
 sw.bb2750:                                        ; preds = %sw.bb2746
   %arrayidx2751 = getelementptr inbounds i8, ptr %s, i64 13
   %294 = load i8, ptr %arrayidx2751, align 1
-  %conv2752 = sext i8 %294 to i32
-  switch i32 %conv2752, label %sw.epilog3087 [
-    i32 98, label %sw.bb2754
-    i32 115, label %sw.bb2761
+  switch i8 %294, label %sw.epilog3087 [
+    i8 98, label %sw.bb2754
+    i8 115, label %sw.bb2761
   ]
 
 sw.bb2754:                                        ; preds = %sw.bb2750
@@ -3503,10 +3391,9 @@ sw.bb2782:                                        ; preds = %sw.bb2778
 sw.bb2786:                                        ; preds = %sw.bb2782
   %arrayidx2787 = getelementptr inbounds i8, ptr %s, i64 6
   %297 = load i8, ptr %arrayidx2787, align 1
-  %conv2788 = sext i8 %297 to i32
-  switch i32 %conv2788, label %sw.epilog3087 [
-    i32 112, label %sw.bb2790
-    i32 0, label %return
+  switch i8 %297, label %sw.epilog3087 [
+    i8 112, label %sw.bb2790
+    i8 0, label %return
   ]
 
 sw.bb2790:                                        ; preds = %sw.bb2786
@@ -3524,11 +3411,10 @@ sw.bb2801:                                        ; preds = %sw.bb2251
 sw.bb2805:                                        ; preds = %sw.bb2801
   %arrayidx2806 = getelementptr inbounds i8, ptr %s, i64 5
   %299 = load i8, ptr %arrayidx2806, align 1
-  %conv2807 = sext i8 %299 to i32
-  switch i32 %conv2807, label %sw.epilog3087 [
-    i32 102, label %sw.bb2809
-    i32 103, label %sw.bb2816
-    i32 105, label %sw.bb2823
+  switch i8 %299, label %sw.epilog3087 [
+    i8 102, label %sw.bb2809
+    i8 103, label %sw.bb2816
+    i8 105, label %sw.bb2823
   ]
 
 sw.bb2809:                                        ; preds = %sw.bb2805
@@ -3570,11 +3456,10 @@ sw.bb2847:                                        ; preds = %sw.bb2184
 sw.bb2855:                                        ; preds = %entry
   %arrayidx2856 = getelementptr inbounds i8, ptr %s, i64 1
   %301 = load i8, ptr %arrayidx2856, align 1
-  %conv2857 = sext i8 %301 to i32
-  switch i32 %conv2857, label %sw.epilog3087 [
-    i32 107, label %sw.bb2859
-    i32 112, label %sw.bb2866
-    i32 115, label %sw.bb2873
+  switch i8 %301, label %sw.epilog3087 [
+    i8 107, label %sw.bb2859
+    i8 112, label %sw.bb2866
+    i8 115, label %sw.bb2873
   ]
 
 sw.bb2859:                                        ; preds = %sw.bb2855
@@ -3598,22 +3483,20 @@ sw.bb2873:                                        ; preds = %sw.bb2855
 sw.bb2877:                                        ; preds = %sw.bb2873
   %arrayidx2878 = getelementptr inbounds i8, ptr %s, i64 3
   %303 = load i8, ptr %arrayidx2878, align 1
-  %conv2879 = sext i8 %303 to i32
-  switch i32 %conv2879, label %sw.epilog3087 [
-    i32 45, label %sw.bb2881
-    i32 95, label %sw.bb2920
+  switch i8 %303, label %sw.epilog3087 [
+    i8 45, label %sw.bb2881
+    i8 95, label %sw.bb2920
   ]
 
 sw.bb2881:                                        ; preds = %sw.bb2877
   %arrayidx2882 = getelementptr inbounds i8, ptr %s, i64 4
   %304 = load i8, ptr %arrayidx2882, align 1
-  %conv2883 = sext i8 %304 to i32
-  switch i32 %conv2883, label %sw.epilog3087 [
-    i32 98, label %sw.bb2885
-    i32 99, label %sw.bb2892
-    i32 107, label %sw.bb2899
-    i32 108, label %sw.bb2906
-    i32 115, label %sw.bb2912
+  switch i8 %304, label %sw.epilog3087 [
+    i8 98, label %sw.bb2885
+    i8 99, label %sw.bb2892
+    i8 107, label %sw.bb2899
+    i8 108, label %sw.bb2906
+    i8 115, label %sw.bb2912
   ]
 
 sw.bb2885:                                        ; preds = %sw.bb2881
@@ -3649,10 +3532,9 @@ sw.bb2912:                                        ; preds = %sw.bb2881
 sw.bb2920:                                        ; preds = %sw.bb2877
   %arrayidx2921 = getelementptr inbounds i8, ptr %s, i64 4
   %306 = load i8, ptr %arrayidx2921, align 1
-  %conv2922 = sext i8 %306 to i32
-  switch i32 %conv2922, label %sw.epilog3087 [
-    i32 100, label %sw.bb2924
-    i32 101, label %sw.bb2931
+  switch i8 %306, label %sw.epilog3087 [
+    i8 100, label %sw.bb2924
+    i8 101, label %sw.bb2931
   ]
 
 sw.bb2924:                                        ; preds = %sw.bb2920
@@ -3670,10 +3552,9 @@ sw.bb2931:                                        ; preds = %sw.bb2920
 sw.bb2942:                                        ; preds = %entry
   %arrayidx2943 = getelementptr inbounds i8, ptr %s, i64 1
   %307 = load i8, ptr %arrayidx2943, align 1
-  %conv2944 = sext i8 %307 to i32
-  switch i32 %conv2944, label %sw.epilog3087 [
-    i32 97, label %sw.bb2946
-    i32 101, label %sw.bb3006
+  switch i8 %307, label %sw.epilog3087 [
+    i8 97, label %sw.bb2946
+    i8 101, label %sw.bb3006
   ]
 
 sw.bb2946:                                        ; preds = %sw.bb2942
@@ -3721,11 +3602,10 @@ sw.bb2970:                                        ; preds = %sw.bb2966
 sw.bb2974:                                        ; preds = %sw.bb2970
   %arrayidx2975 = getelementptr inbounds i8, ptr %s, i64 9
   %315 = load i8, ptr %arrayidx2975, align 1
-  %conv2976 = sext i8 %315 to i32
-  switch i32 %conv2976, label %sw.epilog3087 [
-    i32 103, label %sw.bb2978
-    i32 108, label %sw.bb2984
-    i32 112, label %sw.bb2991
+  switch i8 %315, label %sw.epilog3087 [
+    i8 103, label %sw.bb2978
+    i8 108, label %sw.bb2984
+    i8 112, label %sw.bb2991
   ]
 
 sw.bb2978:                                        ; preds = %sw.bb2974
@@ -3755,13 +3635,12 @@ sw.bb3006:                                        ; preds = %sw.bb2942
 sw.bb3014:                                        ; preds = %entry
   %arrayidx3015 = getelementptr inbounds i8, ptr %s, i64 1
   %317 = load i8, ptr %arrayidx3015, align 1
-  %conv3016 = sext i8 %317 to i32
-  switch i32 %conv3016, label %sw.epilog3087 [
-    i32 99, label %sw.bb3018
-    i32 111, label %sw.bb3025
-    i32 112, label %sw.bb3043
-    i32 113, label %sw.bb3061
-    i32 116, label %sw.bb3079
+  switch i8 %317, label %sw.epilog3087 [
+    i8 99, label %sw.bb3018
+    i8 111, label %sw.bb3025
+    i8 112, label %sw.bb3043
+    i8 113, label %sw.bb3061
+    i8 116, label %sw.bb3079
   ]
 
 sw.bb3018:                                        ; preds = %sw.bb3014
@@ -3779,10 +3658,9 @@ sw.bb3025:                                        ; preds = %sw.bb3014
 sw.bb3029:                                        ; preds = %sw.bb3025
   %arrayidx3030 = getelementptr inbounds i8, ptr %s, i64 3
   %319 = load i8, ptr %arrayidx3030, align 1
-  %conv3031 = sext i8 %319 to i32
-  switch i32 %conv3031, label %sw.epilog3087 [
-    i32 108, label %sw.bb3033
-    i32 0, label %return
+  switch i8 %319, label %sw.epilog3087 [
+    i8 108, label %sw.bb3033
+    i8 0, label %return
   ]
 
 sw.bb3033:                                        ; preds = %sw.bb3029
@@ -3794,11 +3672,10 @@ sw.bb3033:                                        ; preds = %sw.bb3029
 sw.bb3043:                                        ; preds = %sw.bb3014
   %arrayidx3044 = getelementptr inbounds i8, ptr %s, i64 2
   %320 = load i8, ptr %arrayidx3044, align 1
-  %conv3045 = sext i8 %320 to i32
-  switch i32 %conv3045, label %sw.epilog3087 [
-    i32 49, label %sw.bb3047
-    i32 50, label %sw.bb3053
-    i32 0, label %return
+  switch i8 %320, label %sw.epilog3087 [
+    i8 49, label %sw.bb3047
+    i8 50, label %sw.bb3053
+    i8 0, label %return
   ]
 
 sw.bb3047:                                        ; preds = %sw.bb3043
@@ -3816,11 +3693,10 @@ sw.bb3053:                                        ; preds = %sw.bb3043
 sw.bb3061:                                        ; preds = %sw.bb3014
   %arrayidx3062 = getelementptr inbounds i8, ptr %s, i64 2
   %323 = load i8, ptr %arrayidx3062, align 1
-  %conv3063 = sext i8 %323 to i32
-  switch i32 %conv3063, label %sw.epilog3087 [
-    i32 49, label %sw.bb3065
-    i32 50, label %sw.bb3071
-    i32 0, label %return
+  switch i8 %323, label %sw.epilog3087 [
+    i8 49, label %sw.bb3065
+    i8 50, label %sw.bb3071
+    i8 0, label %return
   ]
 
 sw.bb3065:                                        ; preds = %sw.bb3061

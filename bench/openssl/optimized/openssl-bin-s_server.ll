@@ -671,7 +671,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [27 x i8] c"Failed to initiate request\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @s_server_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @s_server_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %exc = alloca ptr, align 8
   %s_chain = alloca ptr, align 8
@@ -3320,7 +3320,7 @@ declare i32 @ssl_load_stores(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @next_proto_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture noundef readonly %arg) #7 {
+define internal noundef i32 @next_proto_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture noundef readonly %arg) #7 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   store ptr %0, ptr %data, align 8
@@ -3334,7 +3334,7 @@ entry:
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @alpn_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
+define internal noundef i32 @alpn_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %.b13 = load i1, ptr @s_quiet, align 4
   br i1 %.b13, label %if.end13, label %if.then
@@ -3425,7 +3425,7 @@ declare i32 @SSL_CTX_use_serverinfo_file(ptr noundef, ptr noundef) local_unnamed
 declare void @SSL_CTX_set_not_resumable_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @not_resumable_sess_cb(ptr nocapture readnone %s, i32 noundef returned %is_forward_secure) #8 {
+define internal noundef i32 @not_resumable_sess_cb(ptr nocapture readnone %s, i32 noundef returned %is_forward_secure) #8 {
 entry:
   ret i32 %is_forward_secure
 }
@@ -3563,7 +3563,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @SSL_CTX_set_psk_find_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psk_find_session_cb(ptr noundef %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #0 {
+define internal noundef i32 @psk_find_session_cb(ptr noundef %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #0 {
 entry:
   %key_len = alloca i64, align 8
   %0 = load ptr, ptr @psk_identity, align 8
@@ -3772,7 +3772,7 @@ declare void @SSL_CTX_set_client_CA_list(ptr noundef, ptr noundef) local_unnamed
 declare ptr @SSL_load_client_CA_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cert_status_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
+define internal noundef i32 @cert_status_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %host.i = alloca ptr, align 8
   %port.i = alloca ptr, align 8
@@ -4048,7 +4048,7 @@ declare i32 @SSL_CTX_set1_server_cert_type(ptr noundef, ptr noundef, i64 noundef
 declare i32 @SSL_CTX_set1_client_cert_type(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rev_body(i32 noundef %s, i32 %stype, i32 %prot, ptr noundef %context) #0 {
+define internal noundef i32 @rev_body(i32 noundef %s, i32 %stype, i32 %prot, ptr noundef %context) #0 {
 entry:
   %call = tail call ptr @app_malloc(i64 noundef 16385, ptr noundef nonnull @.str.599) #14
   %call1 = tail call ptr @BIO_f_buffer() #14
@@ -4317,7 +4317,7 @@ err:                                              ; preds = %if.then73, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @www_body(i32 noundef %s, i32 %stype, i32 %prot, ptr noundef %context) #0 {
+define internal noundef i32 @www_body(i32 noundef %s, i32 %stype, i32 %prot, ptr noundef %context) #0 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %add = add nsw i32 %s, 1
@@ -4594,56 +4594,52 @@ if.end157:                                        ; preds = %land.lhs.true107, %
   %call160 = call i32 @BIO_puts(ptr noundef %call2, ptr noundef nonnull @.str.572) #14
   %call161 = call i32 @BIO_puts(ptr noundef %call2, ptr noundef nonnull @.str.473) #14
   %20 = load i32, ptr @local_argc, align 4
-  %cmp163235 = icmp sgt i32 %20, 0
-  br i1 %cmp163235, label %for.body165, label %for.end183
+  %cmp163233 = icmp sgt i32 %20, 0
+  br i1 %cmp163233, label %for.body165, label %for.end183
 
 for.body165:                                      ; preds = %if.end157, %for.end179
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end179 ], [ 0, %if.end157 ]
   %21 = load ptr, ptr @local_argv, align 8
   %arrayidx167 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   %22 = load ptr, ptr %arrayidx167, align 8
-  %23 = load i8, ptr %22, align 1
-  %tobool169.not233 = icmp eq i8 %23, 0
-  br i1 %tobool169.not233, label %for.end179, label %for.body170
+  br label %for.cond168
 
-for.body170:                                      ; preds = %for.body165, %for.inc178
-  %24 = phi i8 [ %25, %for.inc178 ], [ %23, %for.body165 ]
-  %myp.0234 = phi ptr [ %incdec.ptr, %for.inc178 ], [ %22, %for.body165 ]
-  %conv171 = sext i8 %24 to i32
-  switch i32 %conv171, label %sw.default [
-    i32 60, label %sw.bb
-    i32 62, label %sw.bb173
-    i32 38, label %sw.bb175
+for.cond168:                                      ; preds = %for.inc178, %for.body165
+  %myp.0 = phi ptr [ %22, %for.body165 ], [ %incdec.ptr, %for.inc178 ]
+  %23 = load i8, ptr %myp.0, align 1
+  switch i8 %23, label %sw.default [
+    i8 0, label %for.end179
+    i8 60, label %sw.bb
+    i8 62, label %sw.bb173
+    i8 38, label %sw.bb175
   ]
 
-sw.bb:                                            ; preds = %for.body170
+sw.bb:                                            ; preds = %for.cond168
   %call172 = call i32 @BIO_puts(ptr noundef %call2, ptr noundef nonnull @.str.573) #14
   br label %for.inc178
 
-sw.bb173:                                         ; preds = %for.body170
+sw.bb173:                                         ; preds = %for.cond168
   %call174 = call i32 @BIO_puts(ptr noundef %call2, ptr noundef nonnull @.str.574) #14
   br label %for.inc178
 
-sw.bb175:                                         ; preds = %for.body170
+sw.bb175:                                         ; preds = %for.cond168
   %call176 = call i32 @BIO_puts(ptr noundef %call2, ptr noundef nonnull @.str.575) #14
   br label %for.inc178
 
-sw.default:                                       ; preds = %for.body170
-  %call177 = call i32 @BIO_write(ptr noundef %call2, ptr noundef nonnull %myp.0234, i32 noundef 1) #14
+sw.default:                                       ; preds = %for.cond168
+  %call177 = call i32 @BIO_write(ptr noundef %call2, ptr noundef nonnull %myp.0, i32 noundef 1) #14
   br label %for.inc178
 
 for.inc178:                                       ; preds = %sw.bb, %sw.bb173, %sw.bb175, %sw.default
-  %incdec.ptr = getelementptr inbounds i8, ptr %myp.0234, i64 1
-  %25 = load i8, ptr %incdec.ptr, align 1
-  %tobool169.not = icmp eq i8 %25, 0
-  br i1 %tobool169.not, label %for.end179, label %for.body170, !llvm.loop !14
+  %incdec.ptr = getelementptr inbounds i8, ptr %myp.0, i64 1
+  br label %for.cond168, !llvm.loop !14
 
-for.end179:                                       ; preds = %for.inc178, %for.body165
+for.end179:                                       ; preds = %for.cond168
   %call180 = call i32 @BIO_write(ptr noundef %call2, ptr noundef nonnull @.str.576, i32 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr @local_argc, align 4
-  %27 = sext i32 %26 to i64
-  %cmp163 = icmp slt i64 %indvars.iv.next, %27
+  %24 = load i32, ptr @local_argc, align 4
+  %25 = sext i32 %24 to i64
+  %cmp163 = icmp slt i64 %indvars.iv.next, %25
   br i1 %cmp163, label %for.body165, label %for.end183, !llvm.loop !15
 
 for.end183:                                       ; preds = %for.end179, %if.end157
@@ -4652,18 +4648,18 @@ for.end183:                                       ; preds = %for.end179, %if.end
   %call185 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call2, ptr noundef nonnull @.str.577) #14
   %call186 = call ptr @SSL_get_ciphers(ptr noundef %call20) #14
   %call188 = call i32 @OPENSSL_sk_num(ptr noundef %call186) #14
-  %cmp190237 = icmp sgt i32 %call188, 0
-  br i1 %cmp190237, label %for.body192, label %for.end211
+  %cmp190235 = icmp sgt i32 %call188, 0
+  br i1 %cmp190235, label %for.body192, label %for.end211
 
 for.body192:                                      ; preds = %for.end183, %for.inc209
-  %i.1238 = phi i32 [ %add198, %for.inc209 ], [ 0, %for.end183 ]
-  %call194 = call ptr @OPENSSL_sk_value(ptr noundef %call186, i32 noundef %i.1238) #14
+  %i.1236 = phi i32 [ %add198, %for.inc209 ], [ 0, %for.end183 ]
+  %call194 = call ptr @OPENSSL_sk_value(ptr noundef %call186, i32 noundef %i.1236) #14
   %call195 = call ptr @SSL_CIPHER_get_version(ptr noundef %call194) #14
   %call196 = call ptr @SSL_CIPHER_get_name(ptr noundef %call194) #14
   %call197 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call2, ptr noundef nonnull @.str.578, ptr noundef %call195, ptr noundef %call196) #14
-  %add198 = add nuw nsw i32 %i.1238, 1
-  %28 = and i32 %i.1238, 1
-  %cmp200.not = icmp eq i32 %28, 0
+  %add198 = add nuw nsw i32 %i.1236, 1
+  %26 = and i32 %i.1236, 1
+  %cmp200.not = icmp eq i32 %26, 0
   %cmp204.not = icmp eq i32 %add198, %call188
   %or.cond208 = select i1 %cmp200.not, i1 true, i1 %cmp204.not
   br i1 %or.cond208, label %for.inc209, label %if.then206
@@ -4690,8 +4686,8 @@ while.cond:                                       ; preds = %if.end232, %if.then
   %j.0 = phi i32 [ 0, %if.then216 ], [ %j.1, %if.end232 ]
   %i.2 = phi i32 [ 0, %if.then216 ], [ %i.3, %if.end232 ]
   %p.0 = phi ptr [ %call213, %if.then216 ], [ %incdec.ptr233, %if.end232 ]
-  %29 = load i8, ptr %p.0, align 1
-  switch i8 %29, label %if.else229 [
+  %27 = load i8, ptr %p.0, align 1
+  switch i8 %27, label %if.else229 [
     i8 0, label %while.end
     i8 58, label %if.then222
   ]
@@ -4758,8 +4754,8 @@ if.end260:                                        ; preds = %if.else258, %if.the
   br label %for.cond459.preheader
 
 if.else262:                                       ; preds = %if.end97
-  %30 = and i32 %12, -2
-  %or.cond1 = icmp eq i32 %30, 2
+  %28 = and i32 %12, -2
+  %or.cond1 = icmp eq i32 %28, 2
   br i1 %or.cond1, label %land.lhs.true268, label %for.cond.backedge
 
 land.lhs.true268:                                 ; preds = %land.lhs.true107, %if.else262
@@ -4777,8 +4773,8 @@ cond.true272:                                     ; preds = %land.lhs.true268
 for.cond275:                                      ; preds = %for.inc330, %cond.true272
   %dot.0 = phi i32 [ 1, %cond.true272 ], [ %dot.2, %for.inc330 ]
   %e.0 = phi ptr [ %add.ptr, %cond.true272 ], [ %incdec.ptr331, %for.inc330 ]
-  %31 = load i8, ptr %e.0, align 1
-  switch i8 %31, label %if.end291 [
+  %29 = load i8, ptr %e.0, align 1
+  switch i8 %29, label %if.end291 [
     i8 58, label %if.end345.thread
     i8 0, label %if.then342
     i8 32, label %if.end345
@@ -4796,16 +4792,16 @@ if.end291:                                        ; preds = %for.cond275
   ]
 
 sw.bb292:                                         ; preds = %if.end291
-  %cmp295 = icmp eq i8 %31, 46
+  %cmp295 = icmp eq i8 %29, 46
   br i1 %cmp295, label %for.inc330, label %if.then317
 
 sw.bb298:                                         ; preds = %if.end291
-  %cmp301 = icmp eq i8 %31, 46
+  %cmp301 = icmp eq i8 %29, 46
   br i1 %cmp301, label %for.inc330, label %if.then317
 
 sw.bb304:                                         ; preds = %if.end291
-  %cmp307 = icmp eq i8 %31, 47
-  %cmp311 = icmp eq i8 %31, 92
+  %cmp307 = icmp eq i8 %29, 47
+  %cmp311 = icmp eq i8 %29, 92
   %spec.select = or i1 %cmp307, %cmp311
   %cond313 = sext i1 %spec.select to i32
   br label %sw.epilog314
@@ -4816,8 +4812,8 @@ sw.epilog314:                                     ; preds = %sw.bb304, %if.end29
   br i1 %cmp315, label %if.then317, label %for.inc330
 
 if.then317:                                       ; preds = %sw.bb292, %sw.bb298, %sw.epilog314
-  %cmp320 = icmp eq i8 %31, 47
-  %cmp325 = icmp eq i8 %31, 92
+  %cmp320 = icmp eq i8 %29, 47
+  %cmp325 = icmp eq i8 %29, 92
   %spec.select209 = or i1 %cmp320, %cmp325
   %cond328 = zext i1 %spec.select209 to i32
   br label %for.inc330
@@ -4845,8 +4841,8 @@ if.then347:                                       ; preds = %if.end345.thread, %
   br label %for.cond459.preheader
 
 if.end350:                                        ; preds = %if.end345
-  %32 = load i8, ptr %add.ptr, align 1
-  switch i8 %32, label %if.end361 [
+  %30 = load i8, ptr %add.ptr, align 1
+  switch i8 %30, label %if.end361 [
     i8 47, label %if.then358
     i8 92, label %if.then358
   ]
@@ -4884,13 +4880,13 @@ if.end379:                                        ; preds = %if.end368
   br i1 %.b203, label %if.end383, label %if.then381
 
 if.then381:                                       ; preds = %if.end379
-  %33 = load ptr, ptr @bio_err, align 8
-  %call382 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.594, ptr noundef nonnull %add.ptr) #14
+  %31 = load ptr, ptr @bio_err, align 8
+  %call382 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.594, ptr noundef nonnull %add.ptr) #14
   br label %if.end383
 
 if.end383:                                        ; preds = %if.then381, %if.end379
-  %34 = load i32, ptr @www, align 4
-  %cmp384 = icmp eq i32 %34, 2
+  %32 = load i32, ptr @www, align 4
+  %cmp384 = icmp eq i32 %32, 2
   br i1 %cmp384, label %if.then386, label %if.end423
 
 if.then386:                                       ; preds = %if.end383
@@ -4933,9 +4929,9 @@ if.end423.sink.split:                             ; preds = %land.lhs.true391, %
   br label %if.end423
 
 if.end423:                                        ; preds = %if.end423.sink.split, %if.end383
-  %call425240 = tail call i32 @BIO_read(ptr noundef nonnull %call373, ptr noundef nonnull %call, i32 noundef 16384) #14
-  %cmp426241 = icmp slt i32 %call425240, 1
-  br i1 %cmp426241, label %write_error, label %for.cond430.preheader
+  %call425238 = tail call i32 @BIO_read(ptr noundef nonnull %call373, ptr noundef nonnull %call, i32 noundef 16384) #14
+  %cmp426239 = icmp slt i32 %call425238, 1
+  br i1 %cmp426239, label %write_error, label %for.cond430.preheader
 
 for.cond424.loopexit:                             ; preds = %if.end452
   %call425 = tail call i32 @BIO_read(ptr noundef nonnull %call373, ptr noundef %call, i32 noundef 16384) #14
@@ -4943,14 +4939,14 @@ for.cond424.loopexit:                             ; preds = %if.end452
   br i1 %cmp426, label %write_error, label %for.cond430.preheader
 
 for.cond430.preheader:                            ; preds = %if.end423, %for.cond424.loopexit
-  %call425242 = phi i32 [ %call425, %for.cond424.loopexit ], [ %call425240, %if.end423 ]
+  %call425240 = phi i32 [ %call425, %for.cond424.loopexit ], [ %call425238, %if.end423 ]
   br label %for.body433
 
 for.body433:                                      ; preds = %for.cond430.preheader, %if.end452
-  %j.2239 = phi i32 [ 0, %for.cond430.preheader ], [ %j.3, %if.end452 ]
-  %idxprom434 = sext i32 %j.2239 to i64
+  %j.2237 = phi i32 [ 0, %for.cond430.preheader ], [ %j.3, %if.end452 ]
+  %idxprom434 = sext i32 %j.2237 to i64
   %arrayidx435 = getelementptr inbounds i8, ptr %call, i64 %idxprom434
-  %sub436 = sub nsw i32 %call425242, %j.2239
+  %sub436 = sub nsw i32 %call425240, %j.2237
   %call437 = tail call i32 @BIO_write(ptr noundef %call2, ptr noundef %arrayidx435, i32 noundef %sub436) #14
   %cmp438 = icmp slt i32 %call437, 1
   br i1 %cmp438, label %if.then440, label %if.else450
@@ -4966,17 +4962,17 @@ land.lhs.true443:                                 ; preds = %if.then440
   br i1 %tobool445.not, label %write_error, label %if.else447
 
 if.else447:                                       ; preds = %land.lhs.true443, %if.then440
-  %35 = load ptr, ptr @bio_s_out, align 8
-  %call448 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.598) #14
+  %33 = load ptr, ptr @bio_s_out, align 8
+  %call448 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.598) #14
   br label %if.end452
 
 if.else450:                                       ; preds = %for.body433
-  %add451 = add nsw i32 %call437, %j.2239
+  %add451 = add nsw i32 %call437, %j.2237
   br label %if.end452
 
 if.end452:                                        ; preds = %if.else450, %if.else447
-  %j.3 = phi i32 [ %j.2239, %if.else447 ], [ %add451, %if.else450 ]
-  %cmp431 = icmp slt i32 %j.3, %call425242
+  %j.3 = phi i32 [ %j.2237, %if.else447 ], [ %add451, %if.else450 ]
+  %cmp431 = icmp slt i32 %j.3, %call425240
   br i1 %cmp431, label %for.body433, label %for.cond424.loopexit, !llvm.loop !19
 
 write_error:                                      ; preds = %for.cond424.loopexit, %land.lhs.true443, %if.end423
@@ -6304,7 +6300,7 @@ declare void @wait_for_async(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_ssl_connection(ptr noundef %con) unnamed_addr #0 {
+define internal fastcc noundef i32 @init_ssl_connection(ptr noundef %con) unnamed_addr #0 {
 entry:
   %fd = alloca i32, align 4
   %.b35 = load i1, ptr @dtlslisten, align 4
@@ -6573,7 +6569,7 @@ declare i32 @SSL_has_matching_session_id(ptr noundef, ptr noundef, i32 noundef) 
 declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @add_session(ptr nocapture readnone %ssl, ptr noundef %session) #0 {
+define internal noundef i32 @add_session(ptr nocapture readnone %ssl, ptr noundef %session) #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @app_malloc(i64 noundef 40, ptr noundef nonnull @.str.604) #14

@@ -198,7 +198,7 @@ if.end49:                                         ; preds = %if.end43, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_ssl_disable(ptr noundef %bev, i16 noundef signext %events) #0 {
+define internal noundef i32 @be_ssl_disable(ptr noundef %bev, i16 noundef signext %events) #0 {
 entry:
   %be_ops.i = getelementptr inbounds %struct.bufferevent, ptr %bev, i64 0, i32 1
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -418,7 +418,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @be_ssl_flush(ptr nocapture readnone %bufev, i16 signext %iotype, i32 %mode) #1 {
+define internal noundef i32 @be_ssl_flush(ptr nocapture readnone %bufev, i16 signext %iotype, i32 %mode) #1 {
 entry:
   ret i32 0
 }
@@ -704,9 +704,8 @@ entry:
   %bf.load = load i8, ptr %state, align 4
   %bf.lshr = lshr i8 %bf.load, 4
   %bf.clear = and i8 %bf.lshr, 3
-  %bf.cast = zext nneg i8 %bf.clear to i32
-  %bf.cast.off = add nsw i32 %bf.cast, -1
-  %switch = icmp ult i32 %bf.cast.off, 2
+  %bf.clear.off = add nsw i8 %bf.clear, -1
+  %switch = icmp ult i8 %bf.clear.off, 2
   br i1 %switch, label %sw.bb1, label %return
 
 sw.bb1:                                           ; preds = %entry
@@ -784,38 +783,38 @@ if.else.i:                                        ; preds = %if.end.i
   br label %bufferevent_ssl_stop_reading.exit
 
 bufferevent_ssl_stop_reading.exit:                ; preds = %if.then26, %if.then2.i, %if.else.i
-  %underlying.i29 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
-  %19 = load ptr, ptr %underlying.i29, align 8
-  %tobool.not.i30 = icmp eq ptr %19, null
-  br i1 %tobool.not.i30, label %if.else.i35, label %if.then.i
+  %underlying.i30 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
+  %19 = load ptr, ptr %underlying.i30, align 8
+  %tobool.not.i31 = icmp eq ptr %19, null
+  br i1 %tobool.not.i31, label %if.else.i36, label %if.then.i
 
 if.then.i:                                        ; preds = %bufferevent_ssl_stop_reading.exit
-  %bf.load.i32 = load i8, ptr %state, align 4
-  %20 = and i8 %bf.load.i32, 2
-  %tobool1.not.i33 = icmp eq i8 %20, 0
-  br i1 %tobool1.not.i33, label %return, label %if.then2.i34
+  %bf.load.i33 = load i8, ptr %state, align 4
+  %20 = and i8 %bf.load.i33, 2
+  %tobool1.not.i34 = icmp eq i8 %20, 0
+  br i1 %tobool1.not.i34, label %return, label %if.then2.i35
 
-if.then2.i34:                                     ; preds = %if.then.i
+if.then2.i35:                                     ; preds = %if.then.i
   tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %19, i16 noundef zeroext 16) #7
   br label %return
 
-if.else.i35:                                      ; preds = %bufferevent_ssl_stop_reading.exit
+if.else.i36:                                      ; preds = %bufferevent_ssl_stop_reading.exit
   %ev_write.i = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 3
   %timeout_write.i = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 13
-  %call.i36 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
-  %tobool6.not.i = icmp eq i32 %call.i36, 0
+  %call.i37 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
+  %tobool6.not.i = icmp eq i32 %call.i37, 0
   br i1 %tobool6.not.i, label %land.lhs.true.i, label %return
 
-land.lhs.true.i:                                  ; preds = %if.else.i35
+land.lhs.true.i:                                  ; preds = %if.else.i36
   %bf.load8.i = load i8, ptr %state, align 4
   %21 = and i8 %bf.load8.i, 2
   %tobool12.not.i = icmp eq i8 %21, 0
   br i1 %tobool12.not.i, label %return, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %ev_read.i37 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 2
+  %ev_read.i38 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 2
   %timeout_read.i = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 12
-  %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i37, ptr noundef nonnull %timeout_read.i) #7
+  %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i38, ptr noundef nonnull %timeout_read.i) #7
   br label %return
 
 if.else28:                                        ; preds = %if.else
@@ -827,53 +826,53 @@ if.else28:                                        ; preds = %if.else
   br i1 %tobool31.not, label %if.else34, label %if.then32
 
 if.then32:                                        ; preds = %if.else28
-  %bf.load.i38 = load i8, ptr %state, align 4
-  %bf.clear.i = and i8 %bf.load.i38, 1
-  %tobool.not.i39 = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.not.i39, label %if.end.i40, label %bufferevent_ssl_stop_writing.exit
+  %bf.load.i39 = load i8, ptr %state, align 4
+  %bf.clear.i = and i8 %bf.load.i39, 1
+  %tobool.not.i40 = icmp eq i8 %bf.clear.i, 0
+  br i1 %tobool.not.i40, label %if.end.i41, label %bufferevent_ssl_stop_writing.exit
 
-if.end.i40:                                       ; preds = %if.then32
-  %underlying.i41 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
-  %24 = load ptr, ptr %underlying.i41, align 8
-  %tobool1.not.i42 = icmp eq ptr %24, null
-  br i1 %tobool1.not.i42, label %if.else.i44, label %if.then2.i43
+if.end.i41:                                       ; preds = %if.then32
+  %underlying.i42 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
+  %24 = load ptr, ptr %underlying.i42, align 8
+  %tobool1.not.i43 = icmp eq ptr %24, null
+  br i1 %tobool1.not.i43, label %if.else.i45, label %if.then2.i44
 
-if.then2.i43:                                     ; preds = %if.end.i40
+if.then2.i44:                                     ; preds = %if.end.i41
   tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %24, i16 noundef zeroext 16) #7
   br label %bufferevent_ssl_stop_writing.exit
 
-if.else.i44:                                      ; preds = %if.end.i40
-  %ev_write.i45 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 3
-  %call.i46 = tail call i32 @event_del(ptr noundef nonnull %ev_write.i45) #7
+if.else.i45:                                      ; preds = %if.end.i41
+  %ev_write.i46 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 3
+  %call.i47 = tail call i32 @event_del(ptr noundef nonnull %ev_write.i46) #7
   br label %bufferevent_ssl_stop_writing.exit
 
-bufferevent_ssl_stop_writing.exit:                ; preds = %if.then32, %if.then2.i43, %if.else.i44
-  %underlying.i47 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
-  %25 = load ptr, ptr %underlying.i47, align 8
-  %tobool.not.i48 = icmp eq ptr %25, null
-  br i1 %tobool.not.i48, label %if.else.i50, label %if.then.i49
+bufferevent_ssl_stop_writing.exit:                ; preds = %if.then32, %if.then2.i44, %if.else.i45
+  %underlying.i48 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 1
+  %25 = load ptr, ptr %underlying.i48, align 8
+  %tobool.not.i49 = icmp eq ptr %25, null
+  br i1 %tobool.not.i49, label %if.else.i51, label %if.then.i50
 
-if.then.i49:                                      ; preds = %bufferevent_ssl_stop_writing.exit
+if.then.i50:                                      ; preds = %bufferevent_ssl_stop_writing.exit
   tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %25, i16 noundef zeroext 16) #7
   br label %return
 
-if.else.i50:                                      ; preds = %bufferevent_ssl_stop_writing.exit
-  %ev_read.i51 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 2
-  %timeout_read.i52 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 12
-  %call.i53 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i51, ptr noundef nonnull %timeout_read.i52) #7
-  %cmp.i = icmp eq i32 %call.i53, 0
-  br i1 %cmp.i, label %land.lhs.true.i54, label %return
+if.else.i51:                                      ; preds = %bufferevent_ssl_stop_writing.exit
+  %ev_read.i52 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 2
+  %timeout_read.i53 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 12
+  %call.i54 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i52, ptr noundef nonnull %timeout_read.i53) #7
+  %cmp.i = icmp eq i32 %call.i54, 0
+  br i1 %cmp.i, label %land.lhs.true.i55, label %return
 
-land.lhs.true.i54:                                ; preds = %if.else.i50
-  %bf.load.i56 = load i8, ptr %state, align 4
-  %bf.clear.i57 = and i8 %bf.load.i56, 1
-  %tobool4.not.i = icmp eq i8 %bf.clear.i57, 0
+land.lhs.true.i55:                                ; preds = %if.else.i51
+  %bf.load.i57 = load i8, ptr %state, align 4
+  %bf.clear.i58 = and i8 %bf.load.i57, 1
+  %tobool4.not.i = icmp eq i8 %bf.clear.i58, 0
   br i1 %tobool4.not.i, label %return, label %if.then5.i
 
-if.then5.i:                                       ; preds = %land.lhs.true.i54
-  %ev_write.i58 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 3
-  %timeout_write.i59 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 13
-  %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i58, ptr noundef nonnull %timeout_write.i59) #7
+if.then5.i:                                       ; preds = %land.lhs.true.i55
+  %ev_write.i59 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 3
+  %timeout_write.i60 = getelementptr inbounds %struct.bufferevent, ptr %bev_ssl, i64 0, i32 13
+  %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i59, ptr noundef nonnull %timeout_write.i60) #7
   br label %return
 
 if.else34:                                        ; preds = %if.else28
@@ -883,8 +882,8 @@ if.else34:                                        ; preds = %if.else28
   tail call void %27(ptr noundef nonnull %bev_ssl, i32 noundef 1, i32 noundef %call21, i32 noundef %call) #7
   br label %return
 
-return:                                           ; preds = %if.then5.i, %land.lhs.true.i54, %if.else.i50, %if.then.i49, %if.then13.i, %land.lhs.true.i, %if.else.i35, %if.then2.i34, %if.then.i, %entry, %if.else34, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ -1, %if.else34 ], [ -1, %entry ], [ 0, %if.then2.i34 ], [ 0, %if.then.i ], [ %call.i36, %if.else.i35 ], [ %call14.i, %if.then13.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i49 ], [ %call6.i, %if.then5.i ], [ 0, %land.lhs.true.i54 ], [ %call.i53, %if.else.i50 ]
+return:                                           ; preds = %if.then5.i, %land.lhs.true.i55, %if.else.i51, %if.then.i50, %if.then13.i, %land.lhs.true.i, %if.else.i36, %if.then2.i35, %if.then.i, %entry, %if.else34, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ -1, %if.else34 ], [ -1, %entry ], [ 0, %if.then2.i35 ], [ 0, %if.then.i ], [ %call.i37, %if.else.i36 ], [ %call14.i, %if.then13.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i50 ], [ %call6.i, %if.then5.i ], [ 0, %land.lhs.true.i55 ], [ %call.i54, %if.else.i51 ]
   ret i32 %retval.0
 }
 
@@ -1081,7 +1080,7 @@ declare void @bufferevent_init_generic_timeout_cbs_(ptr noundef) local_unnamed_a
 declare void @bufferevent_incref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @be_ssl_set_fd(ptr noundef %bev_ssl, i32 noundef %state, i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc noundef i32 @be_ssl_set_fd(ptr noundef %bev_ssl, i32 noundef %state, i32 noundef %fd) unnamed_addr #0 {
 entry:
   %state1 = getelementptr inbounds %struct.bufferevent_ssl, ptr %bev_ssl, i64 0, i32 8
   %0 = trunc i32 %state to i8

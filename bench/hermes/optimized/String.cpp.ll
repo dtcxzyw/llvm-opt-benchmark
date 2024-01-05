@@ -2549,14 +2549,13 @@ land.rhs.i:                                       ; preds = %land.rhs.i.preheade
   %toTrim.023.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i.preheader ]
   %begin.sroa.0.020.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %retval.sroa.0.0.i89, %land.rhs.i.preheader ]
   %29 = load i8, ptr %begin.sroa.0.020.i, align 1
-  %30 = sext i8 %29 to i16
-  switch i16 %30, label %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit [
-    i16 9, label %while.body.i
-    i16 11, label %while.body.i
-    i16 12, label %while.body.i
-    i16 32, label %while.body.i
-    i16 10, label %while.body.i
-    i16 13, label %while.body.i
+  switch i8 %29, label %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit [
+    i8 9, label %while.body.i
+    i8 11, label %while.body.i
+    i8 12, label %while.body.i
+    i8 32, label %while.body.i
+    i8 10, label %while.body.i
+    i8 13, label %while.body.i
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i
@@ -2572,16 +2571,16 @@ _ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit: ; preds = %w
   %begin.sroa.5.0 = getelementptr inbounds i16, ptr %retval.sroa.3.0.i87, i64 %begin.sroa.5.0.idx
   %begin.sroa.0.0 = select i1 %tobool.not.i.i17.i, ptr null, ptr %add.ptr.i74
   %call35 = call fastcc noundef i64 @_ZN6hermes2vmL7trimEndENS0_10StringView14const_iteratorES2_(ptr %begin.sroa.0.0, ptr %begin.sroa.5.0, ptr %retval.sroa.0.0.i29, ptr %retval.sroa.3.0.i28)
-  %31 = add i64 %toTrim.0.lcssa.i, %call35
-  %sub37 = sub i64 %conv, %31
+  %30 = add i64 %toTrim.0.lcssa.i, %call35
+  %sub37 = sub i64 %conv, %30
   %call40 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i, i64 noundef %toTrim.0.lcssa.i, i64 noundef %sub37) #16
-  %32 = extractvalue { i32, i64 } %call40, 0
-  %33 = extractvalue { i32, i64 } %call40, 1
+  %31 = extractvalue { i32, i64 } %call40, 0
+  %32 = extractvalue { i32, i64 } %call40, 1
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit
-  %retval.sroa.0.0 = phi i32 [ %32, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ]
-  %retval.sroa.4.0 = phi i64 [ %33, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ %31, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ]
+  %retval.sroa.4.0 = phi i64 [ %32, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3439,14 +3438,13 @@ land.rhs.i:                                       ; preds = %land.rhs.i.preheade
   %toTrim.023.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i.preheader ]
   %begin.sroa.0.020.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %retval.sroa.0.0.i84, %land.rhs.i.preheader ]
   %27 = load i8, ptr %begin.sroa.0.020.i, align 1
-  %28 = sext i8 %27 to i16
-  switch i16 %28, label %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit [
-    i16 9, label %while.body.i
-    i16 11, label %while.body.i
-    i16 12, label %while.body.i
-    i16 32, label %while.body.i
-    i16 10, label %while.body.i
-    i16 13, label %while.body.i
+  switch i8 %27, label %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit [
+    i8 9, label %while.body.i
+    i8 11, label %while.body.i
+    i8 12, label %while.body.i
+    i8 32, label %while.body.i
+    i8 10, label %while.body.i
+    i8 13, label %while.body.i
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i
@@ -3459,20 +3457,20 @@ _ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit: ; preds = %w
   %toTrim.0.lcssa.i = phi i64 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %inc.i.us, %while.body.i.us ], [ %toTrim.023.i.us, %switch.early.test.i.i.us ], [ %24, %while.body.i ], [ %toTrim.023.i, %land.rhs.i ]
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
-  %29 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %lengthAndUniquedFlag_.i = getelementptr inbounds %"class.hermes::vm::StringPrimitive", ptr %29, i64 0, i32 1
-  %30 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
-  %and.i = and i32 %30, 2147483647
+  %28 = inttoptr i64 %and.i.i.i.i.i to ptr
+  %lengthAndUniquedFlag_.i = getelementptr inbounds %"class.hermes::vm::StringPrimitive", ptr %28, i64 0, i32 1
+  %29 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
+  %and.i = and i32 %29, 2147483647
   %conv = zext nneg i32 %and.i to i64
   %sub = sub i64 %conv, %toTrim.0.lcssa.i
   %call35 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i, i64 noundef %toTrim.0.lcssa.i, i64 noundef %sub) #16
-  %31 = extractvalue { i32, i64 } %call35, 0
-  %32 = extractvalue { i32, i64 } %call35, 1
+  %30 = extractvalue { i32, i64 } %call35, 0
+  %31 = extractvalue { i32, i64 } %call35, 1
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit
-  %retval.sroa.0.0 = phi i32 [ %31, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ]
-  %retval.sroa.4.0 = phi i64 [ %32, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ %30, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ]
+  %retval.sroa.4.0 = phi i64 [ %31, %_ZN6hermes2vmL9trimStartENS0_10StringView14const_iteratorES2_.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

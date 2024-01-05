@@ -506,10 +506,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end93 [
-    i32 329, label %if.then
-    i32 331, label %if.then37
+  switch i16 %bf.clear.i, label %if.end93 [
+    i16 329, label %if.then
+    i16 331, label %if.then37
   ]
 
 if.then:                                          ; preds = %entry
@@ -1052,10 +1051,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end7 [
-    i32 329, label %if.then
-    i32 331, label %if.then4
+  switch i16 %bf.clear.i, label %if.end7 [
+    i16 329, label %if.then
+    i16 331, label %if.then4
   ]
 
 if.then:                                          ; preds = %entry
@@ -1139,10 +1137,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end76 [
-    i32 329, label %if.then
-    i32 331, label %if.then20
+  switch i16 %bf.clear.i, label %if.end76 [
+    i16 329, label %if.then
+    i16 331, label %if.then20
   ]
 
 if.then:                                          ; preds = %invoke.cont
@@ -1779,10 +1776,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end11 [
-    i32 329, label %if.then
-    i32 331, label %if.then6
+  switch i16 %bf.clear.i, label %if.end11 [
+    i16 329, label %if.then
+    i16 331, label %if.then6
   ]
 
 if.then:                                          ; preds = %entry
@@ -2006,10 +2002,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -2204,10 +2199,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -2402,10 +2396,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -2600,10 +2593,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -2798,10 +2790,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -2996,10 +2987,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -3197,10 +3187,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end19 [
-    i32 329, label %if.then
-    i32 331, label %if.then11
+  switch i16 %bf.clear.i, label %if.end19 [
+    i16 329, label %if.then
+    i16 331, label %if.then11
   ]
 
 if.then:                                          ; preds = %entry
@@ -3438,10 +3427,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end26 [
-    i32 329, label %if.then
-    i32 331, label %if.then16
+  switch i16 %bf.clear.i, label %if.end26 [
+    i16 329, label %if.then
+    i16 331, label %if.then16
   ]
 
 if.then:                                          ; preds = %entry
@@ -3776,10 +3764,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end12 [
-    i32 329, label %if.then
-    i32 331, label %if.then6
+  switch i16 %bf.clear.i, label %if.end12 [
+    i16 329, label %if.then
+    i16 331, label %if.then6
   ]
 
 if.then:                                          ; preds = %entry
@@ -3936,10 +3923,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end12 [
-    i32 329, label %if.then
-    i32 331, label %if.then6
+  switch i16 %bf.clear.i, label %if.end12 [
+    i16 329, label %if.then
+    i16 331, label %if.then6
   ]
 
 if.then:                                          ; preds = %entry
@@ -4106,10 +4092,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end12 [
-    i32 329, label %if.then
-    i32 331, label %if.then6
+  switch i16 %bf.clear.i, label %if.end12 [
+    i16 329, label %if.then
+    i16 331, label %if.then6
   ]
 
 if.then:                                          ; preds = %entry
@@ -4264,10 +4249,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -4462,10 +4446,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -4660,10 +4643,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end14 [
-    i32 329, label %if.then
-    i32 331, label %if.then8
+  switch i16 %bf.clear.i, label %if.end14 [
+    i16 329, label %if.then
+    i16 331, label %if.then8
   ]
 
 if.then:                                          ; preds = %entry
@@ -4856,10 +4838,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end7 [
-    i32 329, label %if.then
-    i32 331, label %if.then4
+  switch i16 %bf.clear.i, label %if.end7 [
+    i16 329, label %if.then
+    i16 331, label %if.then4
   ]
 
 if.then:                                          ; preds = %entry
@@ -5082,10 +5063,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %if.end51 [
-    i32 329, label %if.then
-    i32 331, label %if.then18
+  switch i16 %bf.clear.i, label %if.end51 [
+    i16 329, label %if.then
+    i16 331, label %if.then18
   ]
 
 if.then:                                          ; preds = %entry
@@ -6509,7 +6489,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -6710,7 +6690,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

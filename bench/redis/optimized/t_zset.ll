@@ -2336,12 +2336,11 @@ entry:
   %ptr = getelementptr inbounds %struct.redisObject, ptr %item, i64 0, i32 2
   %0 = load ptr, ptr %ptr, align 8
   %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  switch i32 %conv, label %return [
-    i32 43, label %sw.bb
-    i32 45, label %sw.bb4
-    i32 40, label %sw.bb11
-    i32 91, label %sw.bb13
+  switch i8 %1, label %return [
+    i8 43, label %sw.bb
+    i8 45, label %sw.bb4
+    i8 40, label %sw.bb11
+    i8 91, label %sw.bb13
   ]
 
 sw.bb:                                            ; preds = %entry

@@ -327,12 +327,11 @@ if.then:                                          ; preds = %invoke.cont1
 
 invoke.cont4:                                     ; preds = %if.then
   %3 = load i8, ptr %call5, align 1
-  %conv6 = sext i8 %3 to i32
-  switch i32 %conv6, label %for.inc [
-    i32 39, label %sw.bb
-    i32 34, label %sw.bb
-    i32 117, label %sw.bb8.invoke
-    i32 85, label %sw.bb11
+  switch i8 %3, label %for.inc [
+    i8 39, label %sw.bb
+    i8 34, label %sw.bb
+    i8 117, label %sw.bb8.invoke
+    i8 85, label %sw.bb11
   ]
 
 lpad.loopexit:                                    ; preds = %sw.bb8.invoke, %for.body, %if.then, %sw.bb, %if.else
@@ -352,7 +351,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 sw.bb:                                            ; preds = %invoke.cont4, %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %tmp2.i)
-  %conv.i = zext i8 %3 to i32
+  %conv.i = zext nneg i8 %3 to i32
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp2.i, i64 noundef 5, ptr noundef nonnull @.str.4, i32 noundef %conv.i) #13
   %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outstr, ptr noundef nonnull %tmp2.i)
           to label %_Z10appendByteRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit unwind label %lpad.loopexit

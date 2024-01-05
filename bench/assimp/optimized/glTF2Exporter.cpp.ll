@@ -38379,14 +38379,13 @@ entry:
   %flags.i = getelementptr inbounds %"struct.rapidjson::GenericValue<rapidjson::UTF8<>>::Flag", ptr %this, i64 0, i32 1
   %0 = load i16, ptr %flags.i, align 2
   %1 = and i16 %0, 7
-  %and.i = zext nneg i16 %1 to i32
-  switch i32 %and.i, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb7
-    i32 4, label %sw.bb34
-    i32 5, label %sw.bb60
+  switch i16 %1, label %sw.default [
+    i16 0, label %sw.bb
+    i16 1, label %sw.bb3
+    i16 2, label %sw.bb5
+    i16 3, label %sw.bb7
+    i16 4, label %sw.bb34
+    i16 5, label %sw.bb60
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -42167,14 +42166,13 @@ entry:
   %flags.i = getelementptr inbounds %"struct.rapidjson::GenericValue<rapidjson::UTF8<>>::Flag", ptr %this, i64 0, i32 1
   %0 = load i16, ptr %flags.i, align 2
   %1 = and i16 %0, 7
-  %and.i = zext nneg i16 %1 to i32
-  switch i32 %and.i, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb7
-    i32 4, label %sw.bb34
-    i32 5, label %sw.bb60
+  switch i16 %1, label %sw.default [
+    i16 0, label %sw.bb
+    i16 1, label %sw.bb3
+    i16 2, label %sw.bb5
+    i16 3, label %sw.bb7
+    i16 4, label %sw.bb34
+    i16 5, label %sw.bb60
   ]
 
 sw.bb:                                            ; preds = %entry

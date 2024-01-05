@@ -108,14 +108,13 @@ if.then6:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then6, %if.end
   %asn1_cb.0 = phi ptr [ %cond, %if.then6 ], [ null, %if.end ]
-  %conv12 = sext i8 %1 to i32
-  switch i32 %conv12, label %return [
-    i32 0, label %sw.bb
-    i32 5, label %sw.bb17
-    i32 2, label %sw.bb23
-    i32 4, label %sw.bb52
-    i32 6, label %sw.bb55
-    i32 1, label %sw.bb60
+  switch i8 %1, label %return [
+    i8 0, label %sw.bb
+    i8 5, label %sw.bb17
+    i8 2, label %sw.bb23
+    i8 4, label %sw.bb52
+    i8 6, label %sw.bb55
+    i8 1, label %sw.bb60
   ]
 
 sw.bb:                                            ; preds = %if.end10
@@ -206,7 +205,7 @@ sw.bb55:                                          ; preds = %if.end10
 
 sw.bb60:                                          ; preds = %sw.bb55, %if.end10
   %cmp124 = phi i1 [ false, %if.end10 ], [ %tobool57.not, %sw.bb55 ]
-  %ndef.0 = phi i32 [ %conv12, %if.end10 ], [ %spec.select94, %sw.bb55 ]
+  %ndef.0 = phi i32 [ 1, %if.end10 ], [ %spec.select94, %sw.bb55 ]
   %call61 = call i32 @ossl_asn1_enc_restore(ptr noundef nonnull %seqcontlen, ptr noundef %out, ptr noundef %pval, ptr noundef nonnull %it) #8
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %return, label %if.end65

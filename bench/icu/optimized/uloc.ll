@@ -1851,7 +1851,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @locale_getKeywordsStart_75(ptr noundef readonly %localeID) local_unnamed_addr #6 {
+define noundef ptr @locale_getKeywordsStart_75(ptr noundef readonly %localeID) local_unnamed_addr #6 {
 entry:
   %call = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %localeID, i32 noundef 64) #20
   ret ptr %call
@@ -3651,7 +3651,7 @@ nrvo.skipdtor:                                    ; preds = %if.end44, %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uloc_openKeywordList_75(ptr nocapture noundef readonly %keywordList, i32 noundef %keywordListSize, ptr nocapture noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uloc_openKeywordList_75(ptr nocapture noundef readonly %keywordList, i32 noundef %keywordListSize, ptr nocapture noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3769,7 +3769,7 @@ _ZN6icu_7511LocalMemoryI16UKeywordsContextED2Ev.exit14: ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uloc_openKeywords_75(ptr noundef %localeID, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uloc_openKeywords_75(ptr noundef %localeID, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tempBuffer = alloca %"class.icu_75::CharString", align 8
   %tmpLocaleID = alloca ptr, align 8
@@ -4168,7 +4168,7 @@ if.end14:                                         ; preds = %entry, %if.then9, %
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_getLanguage_75(ptr noundef %localeID, ptr noundef %language, i32 noundef %languageCapacity, ptr noundef %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uloc_getLanguage_75(ptr noundef %localeID, ptr noundef %language, i32 noundef %languageCapacity, ptr noundef %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::CharString", align 8
   %cmp = icmp eq ptr %err, null
@@ -5231,10 +5231,9 @@ land.lhs.true137:                                 ; preds = %if.end135
 do.body:                                          ; preds = %land.lhs.true137, %do.cond
   %52 = phi i8 [ %.pre154, %do.cond ], [ 46, %land.lhs.true137 ]
   %53 = phi ptr [ %incdec.ptr144, %do.cond ], [ %.pre155, %land.lhs.true137 ]
-  %conv141 = sext i8 %52 to i32
-  switch i32 %conv141, label %sw.default [
-    i32 0, label %if.end146
-    i32 64, label %if.end146
+  switch i8 %52, label %sw.default [
+    i8 0, label %if.end146
+    i8 64, label %if.end146
   ]
 
 sw.default:                                       ; preds = %do.body
@@ -5946,13 +5945,13 @@ return:                                           ; preds = %entry, %if.end
 declare void @locale_set_default_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uloc_getISOLanguages_75() local_unnamed_addr #11 {
+define noundef nonnull ptr @uloc_getISOLanguages_75() local_unnamed_addr #11 {
 entry:
   ret ptr @_ZL9LANGUAGES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @uloc_getISOCountries_75() local_unnamed_addr #11 {
+define noundef nonnull ptr @uloc_getISOCountries_75() local_unnamed_addr #11 {
 entry:
   ret ptr @_ZL9COUNTRIES
 }

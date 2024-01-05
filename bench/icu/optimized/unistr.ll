@@ -1928,12 +1928,11 @@ if.end7:                                          ; preds = %_ZN6icu_7513Unicode
   store i16 %9, ptr %fUnion.i17, align 8
   %10 = load i16, ptr %fUnion.i, align 8
   %11 = and i16 %10, 31
-  %and = zext nneg i16 %11 to i32
-  switch i32 %and, label %sw.default [
-    i32 2, label %do.body
-    i32 4, label %sw.bb18
-    i32 8, label %sw.bb32
-    i32 0, label %sw.bb52
+  switch i16 %11, label %sw.default [
+    i16 2, label %do.body
+    i16 4, label %sw.bb18
+    i16 8, label %sw.bb32
+    i16 0, label %sw.bb52
   ]
 
 do.body:                                          ; preds = %if.end7
@@ -6533,7 +6532,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashUnicodeString_75(ptr %key.coerce) local_unnamed_addr #5 {
+define noundef i32 @uhash_hashUnicodeString_75(ptr %key.coerce) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %key.coerce, null
   br i1 %cmp, label %cond.end, label %cond.false

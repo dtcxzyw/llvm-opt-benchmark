@@ -1620,20 +1620,19 @@ invoke.cont12:                                    ; preds = %_ZN4cvc58internal12
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %9, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.epilog [
-    i32 273, label %sw.bb
-    i32 284, label %sw.bb15
-    i32 276, label %sw.bb17
-    i32 275, label %sw.bb19
-    i32 277, label %sw.bb21
-    i32 278, label %sw.bb23
-    i32 279, label %sw.bb25
-    i32 283, label %sw.bb27
-    i32 291, label %sw.bb32
-    i32 294, label %sw.bb37
-    i32 300, label %sw.bb42
-    i32 302, label %sw.bb47
+  switch i16 %bf.clear.i, label %sw.epilog [
+    i16 273, label %sw.bb
+    i16 284, label %sw.bb15
+    i16 276, label %sw.bb17
+    i16 275, label %sw.bb19
+    i16 277, label %sw.bb21
+    i16 278, label %sw.bb23
+    i16 279, label %sw.bb25
+    i16 283, label %sw.bb27
+    i16 291, label %sw.bb32
+    i16 294, label %sw.bb37
+    i16 300, label %sw.bb42
+    i16 302, label %sw.bb47
   ]
 
 lpad:                                             ; preds = %invoke.cont, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit

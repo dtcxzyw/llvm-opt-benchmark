@@ -962,19 +962,17 @@ entry:
   store ptr %override_fk_column.coerce, ptr %override_fk_column, align 8
   %fk_upd_action = getelementptr inbounds %"struct.duckdb_libpgquery::PGConstraint", ptr %constraint, i64 0, i32 21
   %0 = load i8, ptr %fk_upd_action, align 1, !tbaa !41
-  %conv.i = sext i8 %0 to i32
-  switch i32 %conv.i, label %if.then [
-    i32 97, label %lor.lhs.false
-    i32 114, label %lor.lhs.false
+  switch i8 %0, label %if.then [
+    i8 97, label %lor.lhs.false
+    i8 114, label %lor.lhs.false
   ]
 
 lor.lhs.false:                                    ; preds = %entry, %entry
   %fk_del_action = getelementptr inbounds %"struct.duckdb_libpgquery::PGConstraint", ptr %constraint, i64 0, i32 22
   %1 = load i8, ptr %fk_del_action, align 2, !tbaa !42
-  %conv.i111 = sext i8 %1 to i32
-  switch i32 %conv.i111, label %if.then [
-    i32 97, label %if.end
-    i32 114, label %if.end
+  switch i8 %1, label %if.then [
+    i8 97, label %if.end
+    i8 114, label %if.end
   ]
 
 if.then:                                          ; preds = %lor.lhs.false, %entry

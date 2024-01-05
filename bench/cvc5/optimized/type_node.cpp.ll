@@ -1123,26 +1123,26 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 12, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb3
-    i32 14, label %sw.bb4
-    i32 25, label %sw.bb5
-    i32 82, label %sw.bb6
-    i32 144, label %sw.bb10
-    i32 152, label %sw.bb14
-    i32 207, label %sw.bb18
-    i32 213, label %sw.bb22
-    i32 214, label %sw.bb26
-    i32 215, label %sw.bb30
-    i32 216, label %sw.bb34
-    i32 221, label %sw.bb38
-    i32 222, label %sw.bb43
-    i32 223, label %sw.bb48
-    i32 244, label %sw.bb53
-    i32 274, label %sw.bb57
-    i32 330, label %sw.bb61
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 12, label %sw.bb
+    i16 1, label %sw.bb2
+    i16 2, label %sw.bb3
+    i16 14, label %sw.bb4
+    i16 25, label %sw.bb5
+    i16 82, label %sw.bb6
+    i16 144, label %sw.bb10
+    i16 152, label %sw.bb14
+    i16 207, label %sw.bb18
+    i16 213, label %sw.bb22
+    i16 214, label %sw.bb26
+    i16 215, label %sw.bb30
+    i16 216, label %sw.bb34
+    i16 221, label %sw.bb38
+    i16 222, label %sw.bb43
+    i16 223, label %sw.bb48
+    i16 244, label %sw.bb53
+    i16 274, label %sw.bb57
+    i16 330, label %sw.bb61
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2686,10 +2686,9 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %lor.end.fold.split [
-    i32 2, label %lor.end
-    i32 1, label %land.rhs
+  switch i16 %bf.clear.i, label %lor.end.fold.split [
+    i16 2, label %lor.end
+    i16 1, label %land.rhs
   ]
 
 land.rhs:                                         ; preds = %entry
@@ -4302,14 +4301,13 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %land.end15.fold.split [
-    i32 216, label %land.end15
-    i32 215, label %land.end15
-    i32 214, label %land.end15
-    i32 213, label %land.end15
-    i32 14, label %land.end15
-    i32 12, label %lor.rhs
+  switch i16 %bf.clear.i, label %land.end15.fold.split [
+    i16 216, label %land.end15
+    i16 215, label %land.end15
+    i16 214, label %land.end15
+    i16 213, label %land.end15
+    i16 14, label %land.end15
+    i16 12, label %lor.rhs
   ]
 
 lor.rhs:                                          ; preds = %entry
@@ -4419,21 +4417,21 @@ entry:
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 12, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 25, label %sw.bb10
-    i32 82, label %return
-    i32 144, label %return
-    i32 152, label %return
-    i32 207, label %sw.bb18
-    i32 221, label %sw.bb23
-    i32 222, label %sw.bb26
-    i32 223, label %sw.bb29
-    i32 244, label %sw.bb32
-    i32 274, label %sw.bb37
-    i32 330, label %sw.bb42
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 12, label %sw.bb
+    i16 1, label %sw.bb3
+    i16 2, label %sw.bb5
+    i16 25, label %sw.bb10
+    i16 82, label %return
+    i16 144, label %return
+    i16 152, label %return
+    i16 207, label %sw.bb18
+    i16 221, label %sw.bb23
+    i16 222, label %sw.bb26
+    i16 223, label %sw.bb29
+    i16 244, label %sw.bb32
+    i16 274, label %sw.bb37
+    i16 330, label %sw.bb42
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -9903,7 +9901,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -10185,7 +10183,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

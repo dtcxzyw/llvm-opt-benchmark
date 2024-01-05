@@ -4496,7 +4496,6 @@ entry:
   %retval.sroa.0.0.in.i = select i1 %tobool.i.not.i, ptr %flags4.i, ptr %flags.i
   %retval.sroa.0.0.i = load i8, ptr %retval.sroa.0.0.in.i, align 1
   %bf.clear = and i8 %retval.sroa.0.0.i, 3
-  %conv = zext nneg i8 %bf.clear to i32
   %OutBufEnd.i5.i22 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
   %2 = load ptr, ptr %OutBufEnd.i5.i22, align 8
   %OutBufCur.i6.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
@@ -4504,9 +4503,9 @@ entry:
   %sub.ptr.lhs.cast.i7.i24 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i25 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9.i26 = sub i64 %sub.ptr.lhs.cast.i7.i24, %sub.ptr.rhs.cast.i8.i25
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
+  switch i8 %bf.clear, label %sw.default [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb3
   ]
 
 sw.bb:                                            ; preds = %entry

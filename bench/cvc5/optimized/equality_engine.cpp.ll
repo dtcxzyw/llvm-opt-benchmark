@@ -16192,11 +16192,11 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   br i1 %cmp.not, label %switch.early.test, label %cleanup.cont165
 
 switch.early.test:                                ; preds = %land.lhs.true
-  switch i32 %bf.cast.i, label %lor.lhs.false20 [
-    i32 219, label %cleanup.cont165
-    i32 218, label %cleanup.cont165
-    i32 217, label %cleanup.cont165
-    i32 24, label %cleanup.cont165
+  switch i16 %bf.clear.i, label %lor.lhs.false20 [
+    i16 219, label %cleanup.cont165
+    i16 218, label %cleanup.cont165
+    i16 217, label %cleanup.cont165
+    i16 24, label %cleanup.cont165
   ]
 
 lor.lhs.false20:                                  ; preds = %switch.early.test

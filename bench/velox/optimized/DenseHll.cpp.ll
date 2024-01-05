@@ -933,8 +933,8 @@ entry:
   %0 = load i8, ptr %hll, align 8
   %conv19 = zext nneg i8 %0 to i32
   %shl = shl nuw i32 1, %conv19
-  %cmp33.not = icmp eq i8 %0, 31
-  br i1 %cmp33.not, label %for.end, label %for.body.lr.ph
+  %cmp34.not = icmp eq i8 %0, 31
+  br i1 %cmp34.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %hll, i64 8
@@ -943,13 +943,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %baselineCount.035 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
-  %i.034 = phi i32 [ 0, %for.body.lr.ph ], [ %inc3, %for.body ]
-  %shr.i = lshr i32 %i.034, 1
+  %baselineCount.036 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %i.035 = phi i32 [ 0, %for.body.lr.ph ], [ %inc3, %for.body ]
+  %shr.i = lshr i32 %i.035, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %hll.val, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %index.tr.i.i = trunc i32 %i.034 to i8
+  %index.tr.i.i = trunc i32 %i.035 to i8
   %3 = shl i8 %index.tr.i.i, 2
   %4 = and i8 %3, 4
   %conv.i.i = xor i8 %4, 4
@@ -957,8 +957,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and.i = and i8 %shr3.i, 15
   %cmp2 = icmp eq i8 %and.i, 0
   %inc = zext i1 %cmp2 to i32
-  %spec.select = add nuw nsw i32 %baselineCount.035, %inc
-  %inc3 = add nuw nsw i32 %i.034, 1
+  %spec.select = add nuw nsw i32 %baselineCount.036, %inc
+  %inc3 = add nuw nsw i32 %i.035, 1
   %exitcond.not = icmp eq i32 %inc3, %smax
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
@@ -986,7 +986,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %for.end
-  br i1 %cmp33.not, label %sw.default.i, label %for.body16.lr.ph
+  br i1 %cmp34.not, label %sw.default.i, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %if.end12
   %7 = getelementptr inbounds i8, ptr %hll, i64 8
@@ -1000,17 +1000,17 @@ for.body16.lr.ph:                                 ; preds = %if.end12
   %10 = load ptr, ptr %overflowValues.i, align 8
   %cmp4.i.i = icmp sgt i16 %.fr, 0
   %conv2.i20 = zext nneg i16 %.fr to i64
-  %smax46 = tail call i32 @llvm.smax.i32(i32 %shl, i32 1)
+  %smax47 = tail call i32 @llvm.smax.i32(i32 %shl, i32 1)
   br i1 %cmp4.i.i, label %for.body16.us, label %for.body16
 
 for.body16.us:                                    ; preds = %for.body16.lr.ph, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us
-  %i13.038.us = phi i32 [ %inc22.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ 0, %for.body16.lr.ph ]
-  %sum.037.us = phi double [ %add.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ 0.000000e+00, %for.body16.lr.ph ]
-  %shr.i.i.us = lshr i32 %i13.038.us, 1
+  %i13.039.us = phi i32 [ %inc22.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ 0, %for.body16.lr.ph ]
+  %sum.038.us = phi double [ %add.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ 0.000000e+00, %for.body16.lr.ph ]
+  %shr.i.i.us = lshr i32 %i13.039.us, 1
   %idxprom.i.i.us = zext nneg i32 %shr.i.i.us to i64
   %arrayidx.i.i.us = getelementptr inbounds i8, ptr %this.val.i, i64 %idxprom.i.i.us
   %11 = load i8, ptr %arrayidx.i.i.us, align 1
-  %index.tr.i.i.i.us = trunc i32 %i13.038.us to i8
+  %index.tr.i.i.i.us = trunc i32 %i13.039.us to i8
   %12 = shl i8 %index.tr.i.i.i.us, 2
   %13 = and i8 %12, 4
   %conv.i.i.i.us = xor i8 %13, 4
@@ -1024,7 +1024,7 @@ for.body.i.i.us:                                  ; preds = %for.body16.us, %for
   %arrayidx.i4.i.us = getelementptr inbounds i16, ptr %9, i64 %indvars.iv.i.i.us
   %14 = load i16, ptr %arrayidx.i4.i.us, align 2
   %conv.i.i21.us = zext i16 %14 to i32
-  %cmp1.i.i.us = icmp eq i32 %i13.038.us, %conv.i.i21.us
+  %cmp1.i.i.us = icmp eq i32 %i13.039.us, %conv.i.i21.us
   br i1 %cmp1.i.i.us, label %if.then.i.i.us, label %for.cond.i.i.us
 
 for.cond.i.i.us:                                  ; preds = %for.body.i.i.us
@@ -1046,19 +1046,19 @@ _ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us: ;
   %shl19.us = shl nuw i64 1, %sh_prom.us
   %conv20.us = sitofp i64 %shl19.us to double
   %div.us = fdiv double 1.000000e+00, %conv20.us
-  %add.us = fadd double %sum.037.us, %div.us
-  %inc22.us = add nuw nsw i32 %i13.038.us, 1
-  %exitcond47.not = icmp eq i32 %inc22.us, %smax46
-  br i1 %exitcond47.not, label %for.end23, label %for.body16.us, !llvm.loop !12
+  %add.us = fadd double %sum.038.us, %div.us
+  %inc22.us = add nuw nsw i32 %i13.039.us, 1
+  %exitcond48.not = icmp eq i32 %inc22.us, %smax47
+  br i1 %exitcond48.not, label %for.end23, label %for.body16.us, !llvm.loop !12
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %i13.038 = phi i32 [ %inc22, %for.body16 ], [ 0, %for.body16.lr.ph ]
-  %sum.037 = phi double [ %add, %for.body16 ], [ 0.000000e+00, %for.body16.lr.ph ]
-  %shr.i.i = lshr i32 %i13.038, 1
+  %i13.039 = phi i32 [ %inc22, %for.body16 ], [ 0, %for.body16.lr.ph ]
+  %sum.038 = phi double [ %add, %for.body16 ], [ 0.000000e+00, %for.body16.lr.ph ]
+  %shr.i.i = lshr i32 %i13.039, 1
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 %idxprom.i.i
   %17 = load i8, ptr %arrayidx.i.i, align 1
-  %index.tr.i.i.i = trunc i32 %i13.038 to i8
+  %index.tr.i.i.i = trunc i32 %i13.039 to i8
   %18 = shl i8 %index.tr.i.i.i, 2
   %19 = and i8 %18, 4
   %conv.i.i.i = xor i8 %19, 4
@@ -1070,18 +1070,17 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %shl19 = shl nuw i64 1, %sh_prom
   %conv20 = sitofp i64 %shl19 to double
   %div = fdiv double 1.000000e+00, %conv20
-  %add = fadd double %sum.037, %div
-  %inc22 = add nuw nsw i32 %i13.038, 1
-  %exitcond45.not = icmp eq i32 %inc22, %smax46
-  br i1 %exitcond45.not, label %for.end23, label %for.body16, !llvm.loop !12
+  %add = fadd double %sum.038, %div
+  %inc22 = add nuw nsw i32 %i13.039, 1
+  %exitcond46.not = icmp eq i32 %inc22, %smax47
+  br i1 %exitcond46.not, label %for.end23, label %for.body16, !llvm.loop !12
 
 for.end23:                                        ; preds = %for.body16, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us
   %sum.0.lcssa = phi double [ %add.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ %add, %for.body16 ]
-  %conv25 = sext i8 %0 to i32
-  switch i32 %conv25, label %sw.default.i [
-    i32 4, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
-    i32 5, label %sw.bb1.i
-    i32 6, label %sw.bb2.i
+  switch i8 %0, label %sw.default.i [
+    i8 4, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
+    i8 5, label %sw.bb1.i
+    i8 6, label %sw.bb2.i
   ]
 
 sw.bb1.i:                                         ; preds = %for.end23
@@ -1091,10 +1090,8 @@ sw.bb2.i:                                         ; preds = %for.end23
   br label %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
 
 sw.default.i:                                     ; preds = %if.end12, %for.end23
-  %conv2552 = phi i32 [ %conv25, %for.end23 ], [ 31, %if.end12 ]
   %sum.0.lcssa51 = phi double [ %sum.0.lcssa, %for.end23 ], [ 0.000000e+00, %if.end12 ]
-  %shl.i = shl nuw i32 1, %conv2552
-  %conv.i22 = sitofp i32 %shl.i to double
+  %conv.i22 = sitofp i32 %shl to double
   %div.i23 = fdiv double 1.079000e+00, %conv.i22
   %add.i = fadd double %div.i23, 1.000000e+00
   %div3.i = fdiv double 7.213000e-01, %add.i

@@ -2090,7 +2090,7 @@ exit:                                             ; preds = %entry, %unicodedata
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_is_normalized(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @unicodedata_UCD_is_normalized(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3016,7 +3016,7 @@ declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_getucname(ptr noundef readonly %self, i32 noundef %code, ptr noundef %buffer, i32 noundef %buflen, i32 noundef %with_alias_and_seq) unnamed_addr #0 {
+define internal fastcc noundef i32 @_getucname(ptr noundef readonly %self, i32 noundef %code, ptr noundef %buffer, i32 noundef %buflen, i32 noundef %with_alias_and_seq) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %code, 1114111
   br i1 %cmp, label %return, label %if.end
@@ -3316,7 +3316,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef writeonly %code) unnamed_addr #6 {
+define internal fastcc noundef i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef writeonly %code) unnamed_addr #6 {
 entry:
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.100, i64 noundef 16) #10
   %cmp = icmp eq i32 %call, 0
@@ -3515,13 +3515,13 @@ while.end:                                        ; preds = %if.end56
   br i1 %op.rdx133, label %return.sink.split, label %return
 
 if.end61:                                         ; preds = %if.end17
-  %cmp112.not.i = icmp eq i32 %namelen, 0
-  br i1 %cmp112.not.i, label %for.cond.i.i41.preheader.i, label %for.cond.i.i.preheader.i
+  %cmp113.not.i = icmp eq i32 %namelen, 0
+  br i1 %cmp113.not.i, label %for.cond.i.i41.preheader.i, label %for.cond.i.i.preheader.i
 
 for.cond.i.i.preheader.i:                         ; preds = %if.end61, %if.then8.i
-  %stringpos.0115.i = phi i32 [ %add.i238092.i, %if.then8.i ], [ 0, %if.end61 ]
-  %result.0114.i = phi i32 [ %spec.select.i, %if.then8.i ], [ 0, %if.end61 ]
-  %node_offset.0113.i = phi i32 [ %add.i.i, %if.then8.i ], [ 0, %if.end61 ]
+  %stringpos.0116.i = phi i32 [ %add.i238092.i, %if.then8.i ], [ 0, %if.end61 ]
+  %result.0115.i = phi i32 [ %spec.select.i, %if.then8.i ], [ 0, %if.end61 ]
+  %node_offset.0114.i = phi i32 [ %add.i.i, %if.then8.i ], [ 0, %if.end61 ]
   br label %for.cond.i.i.i
 
 for.cond.i.i41.preheader.i:                       ; preds = %if.then8.i, %if.end61
@@ -3532,7 +3532,7 @@ for.cond.i.i41.preheader.i:                       ; preds = %if.then8.i, %if.end
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.cond.i.i.preheader.i
   %res.0.i.i.i = phi i32 [ %or.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.i.i.preheader.i ]
   %shift.0.i.i.i = phi i32 [ %add.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.i.i.preheader.i ]
-  %index.addr.0.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ %node_offset.0113.i, %for.cond.i.i.preheader.i ]
+  %index.addr.0.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ %node_offset.0114.i, %for.cond.i.i.preheader.i ]
   %idxprom.i.i.i = zext i32 %index.addr.0.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [162032 x i8], ptr @packed_name_dawg, i64 0, i64 %idxprom.i.i.i
   %23 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -3546,11 +3546,11 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %tobool.not.i.i.i, label %for.cond.preheader.i, label %for.cond.i.i.i
 
 for.cond.preheader.i:                             ; preds = %for.cond.i.i.i
-  %add.i2372.i = add i32 %stringpos.0115.i, 1
+  %add.i2372.i = add i32 %stringpos.0116.i, 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %_dawg_node_descendant_count.exit.i, %for.cond.preheader.i
-  %result.1.i = phi i32 [ %add18.i, %_dawg_node_descendant_count.exit.i ], [ %result.0114.i, %for.cond.preheader.i ]
+  %result.1.i = phi i32 [ %add18.i, %_dawg_node_descendant_count.exit.i ], [ %result.0115.i, %for.cond.preheader.i ]
   %edge_offset.0.i = phi i32 [ %add19.i, %_dawg_node_descendant_count.exit.i ], [ %inc.i.i.i, %for.cond.preheader.i ]
   %prev_target_node_offset.0.i = phi i32 [ %add.i.i, %_dawg_node_descendant_count.exit.i ], [ %inc.i.i.i, %for.cond.preheader.i ]
   %is_first_edge.0.i = phi i1 [ false, %_dawg_node_descendant_count.exit.i ], [ true, %for.cond.preheader.i ]
@@ -3592,7 +3592,7 @@ if.end.i75:                                       ; preds = %if.end.i.i
   %28 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %28 to i32
   %cmp.i22.i = icmp ugt i8 %28, 1
-  %add.i23.i = add i32 %stringpos.0115.i, %conv.i.i
+  %add.i23.i = add i32 %stringpos.0116.i, %conv.i.i
   %cmp1.i.i = icmp ugt i32 %add.i23.i, %namelen
   %or.cond.i.i = and i1 %cmp.i22.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %if.end13.i, label %for.cond.preheader.i.i
@@ -3615,7 +3615,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %idxprom.i24.i = zext i32 %add3.i.i to i64
   %arrayidx.i25.i = getelementptr [162032 x i8], ptr @packed_name_dawg, i64 0, i64 %idxprom.i24.i
   %30 = load i8, ptr %arrayidx.i25.i, align 1
-  %add4.i.i = add i32 %stringpos.0115.i, %29
+  %add4.i.i = add i32 %stringpos.0116.i, %29
   %idxprom5.i.i = zext i32 %add4.i.i to i64
   %arrayidx6.i.i = getelementptr i8, ptr %name, i64 %idxprom5.i.i
   %31 = load i8, ptr %arrayidx6.i.i, align 1
@@ -3631,15 +3631,11 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then8.i, label %for.body.i.i, !llvm.loop !12
 
 _dawg_match_edge.exit.i:                          ; preds = %for.body.i.i
-  %cmp15.not.i.i = icmp ne i32 %29, 0
-  %..i.i = sext i1 %cmp15.not.i.i to i32
-  switch i32 %..i.i, label %if.then8.i [
-    i32 -1, label %return
-    i32 0, label %if.end13.i
-  ]
+  %cmp15.not.i.not.not.i = icmp eq i32 %29, 0
+  br i1 %cmp15.not.i.not.not.i, label %if.end13.i, label %return
 
-if.then8.i:                                       ; preds = %_dawg_match_edge.exit.i, %for.cond.preheader.i.i, %for.inc.i.i
-  %add.i238092.i = phi i32 [ %add.i237985.i, %for.inc.i.i ], [ %add.i237985.i, %_dawg_match_edge.exit.i ], [ %add.i23.i, %for.cond.preheader.i.i ]
+if.then8.i:                                       ; preds = %for.cond.preheader.i.i, %for.inc.i.i
+  %add.i238092.i = phi i32 [ %add.i237985.i, %for.inc.i.i ], [ %add.i23.i, %for.cond.preheader.i.i ]
   %frombool.i102.i = and i32 %or.i.i.i, 1
   %spec.select.i = add i32 %result.1.i, %frombool.i102.i
   %cmp.i = icmp ult i32 %add.i238092.i, %namelen
@@ -3707,8 +3703,8 @@ return.sink.split:                                ; preds = %while.end, %if.then
   store i32 %.sink, ptr %code, align 4
   br label %return
 
-return:                                           ; preds = %_dawg_decode_varint_unsigned.exit.i.i, %if.end13.i, %_dawg_match_edge.exit.i, %if.else, %return.sink.split, %_dawg_node_is_final.exit.i, %while.end, %if.then21, %for.end.i65, %land.lhs.true10
-  %retval.0 = phi i32 [ 0, %land.lhs.true10 ], [ 0, %for.end.i65 ], [ 0, %if.then21 ], [ 0, %while.end ], [ 0, %_dawg_node_is_final.exit.i ], [ 1, %return.sink.split ], [ 0, %if.else ], [ 0, %_dawg_match_edge.exit.i ], [ 0, %if.end13.i ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ]
+return:                                           ; preds = %_dawg_match_edge.exit.i, %_dawg_decode_varint_unsigned.exit.i.i, %if.end13.i, %if.else, %return.sink.split, %_dawg_node_is_final.exit.i, %while.end, %if.then21, %for.end.i65, %land.lhs.true10
+  %retval.0 = phi i32 [ 0, %land.lhs.true10 ], [ 0, %for.end.i65 ], [ 0, %if.then21 ], [ 0, %while.end ], [ 0, %_dawg_node_is_final.exit.i ], [ 1, %return.sink.split ], [ 0, %if.else ], [ 0, %if.end13.i ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.i ]
   ret i32 %retval.0
 }
 
@@ -5232,7 +5228,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @normalization_3_2_0(i32 noundef %n) #7 {
+define internal noundef i32 @normalization_3_2_0(i32 noundef %n) #7 {
 entry:
   switch i32 %n, label %sw.default [
     i32 194664, label %return
@@ -5322,14 +5318,14 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @capi_getucname(i32 noundef %code, ptr noundef %buffer, i32 noundef %buflen, i32 noundef %with_alias_and_seq) #0 {
+define internal noundef i32 @capi_getucname(i32 noundef %code, ptr noundef %buffer, i32 noundef %buflen, i32 noundef %with_alias_and_seq) #0 {
 entry:
   %call = tail call fastcc i32 @_getucname(ptr noundef null, i32 noundef %code, ptr noundef %buffer, i32 noundef %buflen, i32 noundef %with_alias_and_seq), !range !6
   ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @capi_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef %code, i32 noundef %with_named_seq) #6 {
+define internal noundef i32 @capi_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef %code, i32 noundef %with_named_seq) #6 {
 entry:
   %call = tail call fastcc i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr noundef %code), !range !6
   %tobool.not = icmp eq i32 %call, 0

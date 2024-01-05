@@ -3083,13 +3083,12 @@ entry:
   %add.ptr.val = load i32, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %add.ptr2, ptr %data, align 8
-  %conv = sext i8 %type to i32
-  %switch.tableidx = add nsw i32 %conv, -100
-  %1 = icmp ult i32 %switch.tableidx, 9
+  %switch.tableidx = add i8 %type, -100
+  %1 = icmp ult i8 %switch.tableidx, 9
   br i1 %1, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
-  %2 = zext nneg i32 %switch.tableidx to i64
+  %2 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEcjRPKcS3_RSt6vectorIcSaIcEERKNS0_7ElementE, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog

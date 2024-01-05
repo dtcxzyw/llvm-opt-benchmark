@@ -2413,7 +2413,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN7rocksdb10WideColumnESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %10 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 288230376151711743)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 288230376151711743, i64 %10
@@ -3087,7 +3087,7 @@ if.then.i.i.i217:                                 ; preds = %if.else.i184
 _ZNKSt6vectorIN7rocksdb10WideColumnESaIS1_EE12_M_check_lenEmPKc.exit.i.i189: ; preds = %if.else.i184
   %sub.ptr.div.i.i.i.i190 = ashr exact i64 %sub.ptr.sub.i.i.i.i187, 5
   %.sroa.speculated.i.i.i191 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i190, i64 1)
-  %add.i.i.i192 = add i64 %.sroa.speculated.i.i.i191, %sub.ptr.div.i.i.i.i190
+  %add.i.i.i192 = add nsw i64 %.sroa.speculated.i.i.i191, %sub.ptr.div.i.i.i.i190
   %cmp7.i.i.i193 = icmp ult i64 %add.i.i.i192, %sub.ptr.div.i.i.i.i190
   %135 = call i64 @llvm.umin.i64(i64 %add.i.i.i192, i64 288230376151711743)
   %cond.i.i.i194 = select i1 %cmp7.i.i.i193, i64 288230376151711743, i64 %135
@@ -4708,7 +4708,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %10
@@ -4797,7 +4797,7 @@ if.then.i.i.i37:                                  ; preds = %if.else.i9
 _ZNKSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i9
   %sub.ptr.div.i.i.i.i14 = ashr exact i64 %sub.ptr.sub.i.i.i.i12, 3
   %.sroa.speculated.i.i.i15 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i14, i64 1)
-  %add.i.i.i16 = add i64 %.sroa.speculated.i.i.i15, %sub.ptr.div.i.i.i.i14
+  %add.i.i.i16 = add nsw i64 %.sroa.speculated.i.i.i15, %sub.ptr.div.i.i.i.i14
   %cmp7.i.i.i17 = icmp ult i64 %add.i.i.i16, %sub.ptr.div.i.i.i.i14
   %18 = call i64 @llvm.umin.i64(i64 %add.i.i.i16, i64 1152921504606846975)
   %cond.i.i.i18 = select i1 %cmp7.i.i.i17, i64 1152921504606846975, i64 %18
@@ -4887,7 +4887,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %28 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %28
@@ -5076,7 +5076,6 @@ if.then.i.i:                                      ; preds = %if.then23
 
 if.end24:                                         ; preds = %invoke.cont
   %9 = load i8, ptr %tag, align 1
-  %conv = sext i8 %9 to i32
   %10 = icmp ult i8 %9, 24
   br i1 %10, label %switch.hole_check, label %sw.default
 
@@ -5084,7 +5083,8 @@ sw.default:                                       ; preds = %switch.hole_check, 
   store ptr @.str.5, ptr %ref.tmp32, align 8
   %size_.i32 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp32, i64 0, i32 1
   store i64 23, ptr %size_.i32, align 8
-  call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, i32 noundef %conv) #20
+  %conv36 = sext i8 %9 to i32
+  call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, i32 noundef %conv36) #20
   %call.i33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #20
   store ptr %call.i33, ptr %ref.tmp34, align 8
   %size_.i34 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp34, i64 0, i32 1
@@ -5107,7 +5107,8 @@ lpad37:                                           ; preds = %sw.default
   br i1 %cmp.not.i.i38, label %_ZN7rocksdb6StatusD2Ev.exit40, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i39
 
 switch.hole_check:                                ; preds = %if.end24
-  %switch.shifted = lshr i32 13434879, %conv
+  %switch.maskindex = zext nneg i8 %9 to i32
+  %switch.shifted = lshr i32 13434879, %switch.maskindex
   %13 = and i32 %switch.shifted, 1
   %switch.lobit.not = icmp eq i32 %13, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup

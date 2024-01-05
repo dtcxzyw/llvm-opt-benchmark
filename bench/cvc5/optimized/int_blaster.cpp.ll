@@ -2918,7 +2918,6 @@ if.end:                                           ; preds = %if.end3.i.i.i.i.i, 
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %19, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   store ptr %19, ptr %agg.result, align 8
   %bf.load.i.i17 = load i64, ptr %19, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i17, 40
@@ -2950,13 +2949,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
   br i1 %cmp, label %land.lhs.true, label %if.end41
 
 land.lhs.true:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  switch i32 %bf.cast.i, label %if.end41 [
-    i32 96, label %if.then18
-    i32 94, label %if.then18
-    i32 89, label %if.then18
-    i32 88, label %if.then18
-    i32 86, label %if.then18
-    i32 85, label %if.then18
+  switch i16 %bf.clear.i, label %if.end41 [
+    i16 96, label %if.then18
+    i16 94, label %if.then18
+    i16 89, label %if.then18
+    i16 88, label %if.then18
+    i16 86, label %if.then18
+    i16 85, label %if.then18
   ]
 
 if.then18:                                        ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true
@@ -7714,7 +7713,6 @@ entry:
   %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %1 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %1, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, !prof !4
@@ -7893,39 +7891,39 @@ terminate.lpad.i206:                              ; preds = %if.then13.i.i205
   unreachable
 
 if.end:                                           ; preds = %if.then13.i.i205, %if.then.i.i199, %if.end.critedge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  switch i32 %bf.cast.i, label %sw.default [
-    i32 96, label %sw.bb
-    i32 94, label %sw.bb41
-    i32 98, label %sw.bb74
-    i32 99, label %sw.bb139
-    i32 90, label %sw.bb179
-    i32 95, label %sw.bb202
-    i32 33, label %sw.bb225
-    i32 35, label %sw.bb229
-    i32 88, label %sw.bb247
-    i32 89, label %sw.bb275
-    i32 86, label %sw.bb327
-    i32 105, label %sw.bb355
-    i32 104, label %sw.bb377
-    i32 103, label %sw.bb399
-    i32 126, label %sw.bb498
-    i32 143, label %sw.bb534
-    i32 141, label %sw.bb538
-    i32 85, label %sw.bb567
-    i32 133, label %sw.bb613
-    i32 5, label %sw.bb654
-    i32 107, label %sw.bb662
-    i32 111, label %sw.bb670
-    i32 106, label %sw.bb715
-    i32 109, label %sw.bb723
-    i32 108, label %sw.bb731
-    i32 114, label %sw.bb739
-    i32 115, label %sw.bb766
-    i32 87, label %sw.bb830
-    i32 23, label %sw.bb867
-    i32 24, label %sw.bb875
-    i32 356, label %sw.bb916
-    i32 352, label %sw.bb940
+  switch i16 %bf.clear.i, label %sw.default [
+    i16 96, label %sw.bb
+    i16 94, label %sw.bb41
+    i16 98, label %sw.bb74
+    i16 99, label %sw.bb139
+    i16 90, label %sw.bb179
+    i16 95, label %sw.bb202
+    i16 33, label %sw.bb225
+    i16 35, label %sw.bb229
+    i16 88, label %sw.bb247
+    i16 89, label %sw.bb275
+    i16 86, label %sw.bb327
+    i16 105, label %sw.bb355
+    i16 104, label %sw.bb377
+    i16 103, label %sw.bb399
+    i16 126, label %sw.bb498
+    i16 143, label %sw.bb534
+    i16 141, label %sw.bb538
+    i16 85, label %sw.bb567
+    i16 133, label %sw.bb613
+    i16 5, label %sw.bb654
+    i16 107, label %sw.bb662
+    i16 111, label %sw.bb670
+    i16 106, label %sw.bb715
+    i16 109, label %sw.bb723
+    i16 108, label %sw.bb731
+    i16 114, label %sw.bb739
+    i16 115, label %sw.bb766
+    i16 87, label %sw.bb830
+    i16 23, label %sw.bb867
+    i16 24, label %sw.bb875
+    i16 356, label %sw.bb916
+    i16 352, label %sw.bb940
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -32006,7 +32004,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -33571,7 +33569,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -34407,7 +34405,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2

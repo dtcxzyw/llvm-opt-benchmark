@@ -2126,7 +2126,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_unknown(ptr nocapture noundef readonly %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_unknown(ptr nocapture noundef readonly %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
@@ -2170,7 +2170,7 @@ trace_pvscsi_on_cmd_unknown_data.exit:            ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_adapter_reset(ptr noundef %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_adapter_reset(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2252,7 +2252,7 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_issue_scsi(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_issue_scsi(ptr nocapture readnone %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2294,7 +2294,7 @@ trace_pvscsi_on_cmd_noimpl.exit:                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_setup_rings(ptr noundef %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_setup_rings(ptr noundef %s) #0 {
 entry:
   %_now.i.i.i10 = alloca %struct.timeval, align 8
   %val.addr.i.i115.i = alloca i32, align 4
@@ -2747,7 +2747,7 @@ return:                                           ; preds = %trace_pvscsi_on_cmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_reset_bus(ptr noundef %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_reset_bus(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2799,7 +2799,7 @@ trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_reset_device(ptr noundef %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_reset_device(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
@@ -2915,7 +2915,7 @@ return:                                           ; preds = %trace_pvscsi_on_cmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_abort(ptr nocapture noundef readonly %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_abort(ptr nocapture noundef readonly %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
@@ -3001,7 +3001,7 @@ if.end10:                                         ; preds = %for.inc, %trace_pvs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_config(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_config(ptr nocapture readnone %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3043,7 +3043,7 @@ trace_pvscsi_on_cmd_noimpl.exit:                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_setup_msg_ring(ptr noundef %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_setup_msg_ring(ptr noundef %s) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %val.addr.i.i51.i = alloca i32, align 4
@@ -3212,7 +3212,7 @@ return:                                           ; preds = %if.then2, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_on_cmd_unplug(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_unplug(ptr nocapture readnone %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3451,13 +3451,12 @@ if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %dev, align 8
   %host_status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 7
   %10 = load i16, ptr %host_status, align 2
-  %conv = sext i16 %10 to i32
-  %switch.tableidx = add nsw i32 %conv, -1
-  %11 = icmp ult i32 %switch.tableidx, 8
+  %switch.tableidx = add i16 %10, -1
+  %11 = icmp ult i16 %switch.tableidx, 8
   br i1 %11, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %if.end
-  %12 = zext nneg i32 %switch.tableidx to i64
+  %12 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x i16], ptr @switch.table.pvscsi_command_failed, i64 0, i64 %12
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %sw.epilog
@@ -3739,7 +3738,7 @@ declare void @msi_uninit(ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pvscsi_post_load(ptr nocapture readnone %opaque, i32 %version_id) #0 {
+define internal noundef i32 @pvscsi_post_load(ptr nocapture readnone %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3781,7 +3780,7 @@ trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pvscsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @pvscsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

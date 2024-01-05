@@ -507,7 +507,7 @@ snapshot_stack.exit:                              ; preds = %if.end35.i.i, %if.e
 
 declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lj_snap_purge(ptr nocapture noundef readonly %J) local_unnamed_addr #3 {
 entry:
   %udf = alloca [258 x i8], align 16
@@ -633,7 +633,7 @@ if.end22:                                         ; preds = %for.inc, %if.end
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @snap_usedef(ptr nocapture noundef readonly %J, ptr nocapture noundef %udf, ptr nocapture noundef readonly %pc, i32 noundef %maxslot) unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %maxslot, 0
@@ -699,13 +699,12 @@ sw.bb:                                            ; preds = %for.cond
 sw.epilog:                                        ; preds = %for.cond, %sw.bb
   %10 = lshr i16 %6, 7
   %11 = and i16 %10, 15
-  %and24 = zext nneg i16 %11 to i32
-  switch i32 %and24, label %sw.epilog166 [
-    i32 3, label %sw.bb25
-    i32 4, label %sw.bb33
-    i32 13, label %handle_jump
-    i32 6, label %sw.bb101
-    i32 12, label %return
+  switch i16 %11, label %sw.epilog166 [
+    i16 3, label %sw.bb25
+    i16 4, label %sw.bb33
+    i16 13, label %handle_jump
+    i16 6, label %sw.bb101
+    i16 12, label %return
   ]
 
 sw.bb25:                                          ; preds = %sw.epilog
@@ -918,11 +917,10 @@ for.body153:                                      ; preds = %for.body153.prehead
 sw.epilog166:                                     ; preds = %for.body48, %for.cond45.preheader, %sw.bb101, %sw.epilog, %if.end83, %sw.bb25
   %pc.addr.1 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %add.ptr, %if.end83 ], [ %incdec.ptr, %sw.bb25 ], [ %incdec.ptr, %sw.bb101 ], [ %incdec.ptr, %for.cond45.preheader ], [ %incdec.ptr, %for.body48 ]
   %35 = and i16 %6, 7
-  %and170 = zext nneg i16 %35 to i32
-  switch i32 %and170, label %for.cond.backedge [
-    i32 3, label %sw.bb171
-    i32 1, label %sw.bb179
-    i32 2, label %sw.bb194
+  switch i16 %35, label %for.cond.backedge [
+    i16 3, label %sw.bb171
+    i16 1, label %sw.bb179
+    i16 2, label %sw.bb194
   ]
 
 sw.bb171:                                         ; preds = %sw.epilog166
@@ -1108,7 +1106,7 @@ return:                                           ; preds = %if.else283, %sw.epi
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lj_snap_shrink(ptr nocapture noundef %J) local_unnamed_addr #3 {
 entry:
   %udf = alloca [258 x i8], align 16
@@ -1310,7 +1308,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_snap_regspmap(ptr nocapture noundef readnone %J, ptr nocapture noundef readonly %T, i32 noundef %snapno, ptr noundef %ir) local_unnamed_addr #5 {
+define hidden ptr @lj_snap_regspmap(ptr nocapture noundef readnone %J, ptr nocapture noundef readonly %T, i32 noundef %snapno, ptr noundef %ir) local_unnamed_addr #3 {
 entry:
   %snap1 = getelementptr inbounds %struct.GCtrace, ptr %T, i64 0, i32 10
   %0 = load ptr, ptr %snap1, align 8
@@ -3518,7 +3516,7 @@ if.end100:                                        ; preds = %if.then68, %if.else
 declare hidden i32 @lj_ir_k64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3531,7 +3529,7 @@ declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_u
 declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #4 {
+define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
 entry:
   %tmp = alloca i64, align 8
   %ir1 = getelementptr inbounds %struct.GCtrace, ptr %T, i64 0, i32 7
@@ -3730,10 +3728,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { noreturn nounwind }

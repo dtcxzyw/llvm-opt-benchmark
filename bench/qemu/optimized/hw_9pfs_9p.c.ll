@@ -2917,10 +2917,9 @@ if.end15:                                         ; preds = %stat_to_v9stat_dotl
 if.then16:                                        ; preds = %if.end15
   %26 = load i32, ptr %st_mode.i, align 8
   %call18 = call i32 @v9fs_co_st_gen(ptr noundef nonnull %opaque, ptr noundef nonnull %path, i32 noundef %26, ptr noundef nonnull %v9stat_dotl) #23
-  %conv19 = sext i32 %call18 to i64
-  switch i64 %conv19, label %if.end21 [
-    i64 0, label %sw.bb
-    i64 -4, label %out
+  switch i32 %call18, label %if.end21 [
+    i32 0, label %sw.bb
+    i32 -4, label %out
   ]
 
 sw.bb:                                            ; preds = %if.then16
@@ -2984,7 +2983,7 @@ trace_v9fs_getattr_return.exit:                   ; preds = %if.end26, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end21, %if.then16, %stat_to_v9stat_dotl.exit, %if.end4, %trace_v9fs_getattr_return.exit
-  %retval.0 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ %conv19, %if.then16 ]
+  %retval.0 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ -4, %if.then16 ]
   %ref.i = getelementptr inbounds %struct.V9fsFidState, ptr %call1, i64 0, i32 8
   %41 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %41, 0
@@ -6696,10 +6695,9 @@ if.then103:                                       ; preds = %if.then98
 
 if.end105:                                        ; preds = %if.then98
   %33 = load i8, ptr %ctype, align 1
-  %conv106 = sext i8 %33 to i32
-  switch i32 %conv106, label %out [
-    i32 99, label %sw.epilog
-    i32 98, label %sw.bb107
+  switch i8 %33, label %out [
+    i8 99, label %sw.epilog
+    i8 98, label %sw.bb107
   ]
 
 sw.bb107:                                         ; preds = %if.end105

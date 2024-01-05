@@ -38300,9 +38300,9 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   %3 = phi ptr [ %call2.i4.i7, %if.then.i.i ], [ %1, %entry ]
-  switch i64 %idx.ext, label %if.end.i.i.i.i.i [
-    i64 1, label %if.then.i.i.i.i
-    i64 0, label %invoke.cont
+  switch i32 %call, label %if.end.i.i.i.i.i [
+    i32 1, label %if.then.i.i.i.i
+    i32 0, label %invoke.cont
   ]
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i

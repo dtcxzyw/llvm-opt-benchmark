@@ -248,7 +248,7 @@ return:                                           ; preds = %entry, %if.end15
 declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisReaderFeed(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @redisReaderFeed(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %r, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -278,12 +278,11 @@ land.lhs.true7:                                   ; preds = %land.lhs.true5
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx.i, align 1
   %5 = and i8 %4, 7
-  %and.i = zext nneg i8 %5 to i32
-  switch i32 %and.i, label %if.end19 [
-    i32 4, label %sw.bb21.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb14.i
+  switch i8 %5, label %if.end19 [
+    i8 4, label %sw.bb21.i
+    i8 1, label %sw.bb1.i
+    i8 2, label %sw.bb5.i
+    i8 3, label %sw.bb14.i
   ]
 
 sw.bb1.i:                                         ; preds = %land.lhs.true7
@@ -352,27 +351,27 @@ if.end24:                                         ; preds = %if.end19
   %arrayidx.i17 = getelementptr inbounds i8, ptr %call21, i64 -1
   %15 = load i8, ptr %arrayidx.i17, align 1
   %conv.i = zext i8 %15 to i32
-  %and.i18 = and i32 %conv.i, 7
-  switch i32 %and.i18, label %hi_sdslen.exit [
+  %and.i = and i32 %conv.i, 7
+  switch i32 %and.i, label %hi_sdslen.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i20
+    i32 2, label %sw.bb5.i19
     i32 3, label %sw.bb9.i
     i32 4, label %sw.bb13.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end24
   %shr.i = lshr i32 %conv.i, 3
-  %conv2.i22 = zext nneg i32 %shr.i to i64
+  %conv2.i21 = zext nneg i32 %shr.i to i64
   br label %hi_sdslen.exit
 
 sw.bb3.i:                                         ; preds = %if.end24
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %call21, i64 -3
-  %16 = load i8, ptr %add.ptr.i21, align 1
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %call21, i64 -3
+  %16 = load i8, ptr %add.ptr.i20, align 1
   %conv4.i = zext i8 %16 to i64
   br label %hi_sdslen.exit
 
-sw.bb5.i20:                                       ; preds = %if.end24
+sw.bb5.i19:                                       ; preds = %if.end24
   %add.ptr6.i = getelementptr inbounds i8, ptr %call21, i64 -5
   %17 = load i16, ptr %add.ptr6.i, align 1
   %conv8.i = zext i16 %17 to i64
@@ -389,9 +388,9 @@ sw.bb13.i:                                        ; preds = %if.end24
   %19 = load i64, ptr %add.ptr14.i, align 1
   br label %hi_sdslen.exit
 
-hi_sdslen.exit:                                   ; preds = %if.end24, %sw.bb.i, %sw.bb3.i, %sw.bb5.i20, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i19 = phi i64 [ %19, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i20 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i22, %sw.bb.i ], [ 0, %if.end24 ]
-  store i64 %retval.0.i19, ptr %len3, align 8
+hi_sdslen.exit:                                   ; preds = %if.end24, %sw.bb.i, %sw.bb3.i, %sw.bb5.i19, %sw.bb9.i, %sw.bb13.i
+  %retval.0.i18 = phi i64 [ %19, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i19 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i21, %sw.bb.i ], [ 0, %if.end24 ]
+  store i64 %retval.0.i18, ptr %len3, align 8
   br label %return
 
 oom:                                              ; preds = %if.end19, %if.then11
@@ -479,7 +478,7 @@ __redisReaderSetError.exit:                       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly %reply) local_unnamed_addr #0 {
+define noundef i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly %reply) local_unnamed_addr #0 {
 entry:
   %cbuf.i = alloca [8 x i8], align 1
   %sbuf.i = alloca [128 x i8], align 16
@@ -587,21 +586,20 @@ readBytes.exit.i:                                 ; preds = %if.then.i
 if.then2.i:                                       ; preds = %readBytes.exit.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %21
   %23 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i = sext i8 %23 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 45, label %sw.bb31.sink.split.i
-    i32 43, label %sw.bb5.i
-    i32 58, label %sw.bb7.i
-    i32 44, label %sw.bb9.i
-    i32 95, label %sw.bb11.i
-    i32 36, label %sw.bb33.sink.split.i
-    i32 42, label %sw.bb35.sink.split.i
-    i32 37, label %sw.bb17.i
-    i32 126, label %sw.bb19.i
-    i32 35, label %sw.bb21.i
-    i32 61, label %sw.bb23.i
-    i32 62, label %sw.bb25.i
-    i32 40, label %sw.bb27.i
+  switch i8 %23, label %sw.default.i [
+    i8 45, label %sw.bb31.sink.split.i
+    i8 43, label %sw.bb5.i
+    i8 58, label %sw.bb7.i
+    i8 44, label %sw.bb9.i
+    i8 95, label %sw.bb11.i
+    i8 36, label %sw.bb33.sink.split.i
+    i8 42, label %sw.bb35.sink.split.i
+    i8 37, label %sw.bb17.i
+    i8 126, label %sw.bb19.i
+    i8 35, label %sw.bb21.i
+    i8 61, label %sw.bb23.i
+    i8 62, label %sw.bb25.i
+    i8 40, label %sw.bb27.i
   ]
 
 sw.bb5.i:                                         ; preds = %if.then2.i
@@ -637,18 +635,19 @@ sw.bb27.i:                                        ; preds = %if.then2.i
 sw.default.i:                                     ; preds = %if.then2.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cbuf.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sbuf.i)
-  switch i32 %conv.i, label %sw.default.i.i [
-    i32 92, label %sw.bb.i.i
-    i32 34, label %sw.bb.i.i
-    i32 10, label %sw.bb3.i.i
-    i32 13, label %sw.bb6.i.i
-    i32 9, label %sw.bb9.i.i
-    i32 7, label %sw.bb12.i.i
-    i32 8, label %sw.bb15.i.i
+  %conv.i.i38 = sext i8 %23 to i32
+  switch i8 %23, label %sw.default.i.i [
+    i8 92, label %sw.bb.i.i
+    i8 34, label %sw.bb.i.i
+    i8 10, label %sw.bb3.i.i
+    i8 13, label %sw.bb6.i.i
+    i8 9, label %sw.bb9.i.i
+    i8 7, label %sw.bb12.i.i
+    i8 8, label %sw.bb15.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.default.i, %sw.default.i
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %conv.i) #12
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %conv.i.i38) #12
   br label %chrtos.exit.i
 
 sw.bb3.i.i:                                       ; preds = %sw.default.i
@@ -674,15 +673,15 @@ sw.bb15.i.i:                                      ; preds = %sw.default.i
 sw.default.i.i:                                   ; preds = %sw.default.i
   %call18.i.i = tail call ptr @__ctype_b_loc() #13
   %24 = load ptr, ptr %call18.i.i, align 8
-  %idxprom.i.i45 = sext i8 %23 to i64
-  %arrayidx.i.i46 = getelementptr inbounds i16, ptr %24, i64 %idxprom.i.i45
-  %25 = load i16, ptr %arrayidx.i.i46, align 2
+  %idxprom.i.i44 = sext i8 %23 to i64
+  %arrayidx.i.i45 = getelementptr inbounds i16, ptr %24, i64 %idxprom.i.i44
+  %25 = load i16, ptr %arrayidx.i.i45, align 2
   %26 = and i16 %25, 16384
-  %tobool.not.i.i47 = icmp eq i16 %26, 0
-  br i1 %tobool.not.i.i47, label %if.else.i.i, label %if.then.i.i
+  %tobool.not.i.i46 = icmp eq i16 %26, 0
+  br i1 %tobool.not.i.i46, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.default.i.i
-  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef %conv.i) #12
+  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef %conv.i.i38) #12
   br label %chrtos.exit.i
 
 if.else.i.i:                                      ; preds = %sw.default.i.i
@@ -693,15 +692,15 @@ if.else.i.i:                                      ; preds = %sw.default.i.i
 chrtos.exit.i:                                    ; preds = %if.else.i.i, %if.then.i.i, %sw.bb15.i.i, %sw.bb12.i.i, %sw.bb9.i.i, %sw.bb6.i.i, %sw.bb3.i.i, %sw.bb.i.i
   %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sbuf.i, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef nonnull %cbuf.i) #12
   %27 = load ptr, ptr %reply.i197.i, align 8
-  %cmp.not.i.i41 = icmp eq ptr %27, null
-  br i1 %cmp.not.i.i41, label %__redisReaderSetErrorProtocolByte.exit, label %land.lhs.true.i.i42
+  %cmp.not.i.i40 = icmp eq ptr %27, null
+  br i1 %cmp.not.i.i40, label %__redisReaderSetErrorProtocolByte.exit, label %land.lhs.true.i.i41
 
-land.lhs.true.i.i42:                              ; preds = %chrtos.exit.i
+land.lhs.true.i.i41:                              ; preds = %chrtos.exit.i
   %28 = load ptr, ptr %fn45.i.i, align 8
   %tobool.not.i1.i = icmp eq ptr %28, null
   br i1 %tobool.not.i1.i, label %__redisReaderSetErrorProtocolByte.exit, label %land.lhs.true1.i.i
 
-land.lhs.true1.i.i:                               ; preds = %land.lhs.true.i.i42
+land.lhs.true1.i.i:                               ; preds = %land.lhs.true.i.i41
   %freeObject.i.i = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %28, i64 0, i32 6
   %29 = load ptr, ptr %freeObject.i.i, align 8
   %tobool3.not.i.i = icmp eq ptr %29, null
@@ -712,7 +711,7 @@ if.then.i2.i:                                     ; preds = %land.lhs.true1.i.i
   store ptr null, ptr %reply.i197.i, align 8
   br label %__redisReaderSetErrorProtocolByte.exit
 
-__redisReaderSetErrorProtocolByte.exit:           ; preds = %chrtos.exit.i, %land.lhs.true.i.i42, %land.lhs.true1.i.i, %if.then.i2.i
+__redisReaderSetErrorProtocolByte.exit:           ; preds = %chrtos.exit.i, %land.lhs.true.i.i41, %land.lhs.true1.i.i, %if.then.i2.i
   %30 = load ptr, ptr %buf.i.i, align 8
   call void @hi_sdsfree(ptr noundef %30) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
@@ -747,13 +746,13 @@ if.end29.i:                                       ; preds = %while.body
 sw.bb31.sink.split.i:                             ; preds = %sw.bb27.i, %sw.bb21.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %if.then2.i
   %.sink.i = phi i32 [ 5, %sw.bb5.i ], [ 3, %sw.bb7.i ], [ 7, %sw.bb9.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb21.i ], [ 13, %sw.bb27.i ], [ 6, %if.then2.i ]
   store i32 %.sink.i, ptr %18, align 8
-  %.pre130 = load ptr, ptr %task.i, align 8
-  %.pre131 = load i32, ptr %ridx, align 4
+  %.pre129 = load ptr, ptr %task.i, align 8
+  %.pre130 = load i32, ptr %ridx, align 4
   br label %sw.bb31.i
 
 sw.bb31.i:                                        ; preds = %sw.bb31.sink.split.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i
-  %31 = phi i32 [ %.pre131, %sw.bb31.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
-  %32 = phi ptr [ %.pre130, %sw.bb31.sink.split.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ]
+  %31 = phi i32 [ %.pre130, %sw.bb31.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
+  %32 = phi ptr [ %.pre129, %sw.bb31.sink.split.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ]
   call void @llvm.lifetime.start.p0(i64 326, ptr nonnull %buf.i22.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eptr.i.i)
   %idxprom.i.i = sext i32 %31 to i64
@@ -1418,13 +1417,13 @@ processLineItem.exit.i:                           ; preds = %if.end5.i.i.i.i, %i
 sw.bb33.sink.split.i:                             ; preds = %sw.bb23.i, %if.then2.i
   %.sink304.i = phi i32 [ 14, %sw.bb23.i ], [ 1, %if.then2.i ]
   store i32 %.sink304.i, ptr %18, align 8
-  %.pre128 = load ptr, ptr %task.i, align 8
-  %.pre129 = load i32, ptr %ridx, align 4
+  %.pre127 = load ptr, ptr %task.i, align 8
+  %.pre128 = load i32, ptr %ridx, align 4
   br label %sw.bb33.i
 
 sw.bb33.i:                                        ; preds = %sw.bb33.sink.split.i, %if.end29.i, %if.end29.i
-  %102 = phi i32 [ %.pre129, %sw.bb33.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
-  %103 = phi ptr [ %.pre128, %sw.bb33.sink.split.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ]
+  %102 = phi i32 [ %.pre128, %sw.bb33.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
+  %103 = phi ptr [ %.pre127, %sw.bb33.sink.split.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ]
   %idxprom.i28.i = sext i32 %102 to i64
   %arrayidx.i29.i = getelementptr inbounds ptr, ptr %103, i64 %idxprom.i28.i
   %104 = load ptr, ptr %arrayidx.i29.i, align 8
@@ -1824,11 +1823,11 @@ sw.bb35.sink.split.i:                             ; preds = %sw.bb25.i, %sw.bb19
   %.sink305.i = phi i32 [ 9, %sw.bb17.i ], [ 10, %sw.bb19.i ], [ 12, %sw.bb25.i ], [ 2, %if.then2.i ]
   store i32 %.sink305.i, ptr %18, align 8
   %.pre = load ptr, ptr %task.i, align 8
-  %.pre127 = load i32, ptr %ridx, align 4
+  %.pre126 = load i32, ptr %ridx, align 4
   br label %sw.bb35.i
 
 sw.bb35.i:                                        ; preds = %sw.bb35.sink.split.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i
-  %145 = phi i32 [ %.pre127, %sw.bb35.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
+  %145 = phi i32 [ %.pre126, %sw.bb35.sink.split.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ], [ %16, %if.end29.i ]
   %146 = phi ptr [ %.pre, %sw.bb35.sink.split.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ], [ %17, %if.end29.i ]
   %idxprom.i134.i = sext i32 %145 to i64
   %arrayidx.i135.i = getelementptr inbounds ptr, ptr %146, i64 %idxprom.i134.i
@@ -2278,18 +2277,18 @@ if.end36:                                         ; preds = %if.then31
   %207 = load ptr, ptr %buf.i.i, align 8
   %arrayidx.i34 = getelementptr inbounds i8, ptr %207, i64 -1
   %208 = load i8, ptr %arrayidx.i34, align 1
-  %conv.i35 = zext i8 %208 to i32
-  %and.i = and i32 %conv.i35, 7
+  %conv.i = zext i8 %208 to i32
+  %and.i = and i32 %conv.i, 7
   switch i32 %and.i, label %hi_sdslen.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i38
-    i32 3, label %sw.bb9.i37
+    i32 2, label %sw.bb5.i37
+    i32 3, label %sw.bb9.i36
     i32 4, label %sw.bb13.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end36
-  %shr.i = lshr i32 %conv.i35, 3
+  %shr.i = lshr i32 %conv.i, 3
   %conv2.i = zext nneg i32 %shr.i to i64
   br label %hi_sdslen.exit
 
@@ -2299,13 +2298,13 @@ sw.bb3.i:                                         ; preds = %if.end36
   %conv4.i = zext i8 %209 to i64
   br label %hi_sdslen.exit
 
-sw.bb5.i38:                                       ; preds = %if.end36
+sw.bb5.i37:                                       ; preds = %if.end36
   %add.ptr6.i = getelementptr inbounds i8, ptr %207, i64 -5
   %210 = load i16, ptr %add.ptr6.i, align 1
   %conv8.i = zext i16 %210 to i64
   br label %hi_sdslen.exit
 
-sw.bb9.i37:                                       ; preds = %if.end36
+sw.bb9.i36:                                       ; preds = %if.end36
   %add.ptr10.i = getelementptr inbounds i8, ptr %207, i64 -9
   %211 = load i32, ptr %add.ptr10.i, align 1
   %conv12.i = zext i32 %211 to i64
@@ -2316,9 +2315,9 @@ sw.bb13.i:                                        ; preds = %if.end36
   %212 = load i64, ptr %add.ptr14.i, align 1
   br label %hi_sdslen.exit
 
-hi_sdslen.exit:                                   ; preds = %if.end36, %sw.bb.i, %sw.bb3.i, %sw.bb5.i38, %sw.bb9.i37, %sw.bb13.i
-  %retval.0.i36 = phi i64 [ %212, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i37 ], [ %conv8.i, %sw.bb5.i38 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end36 ]
-  store i64 %retval.0.i36, ptr %len, align 8
+hi_sdslen.exit:                                   ; preds = %if.end36, %sw.bb.i, %sw.bb3.i, %sw.bb5.i37, %sw.bb9.i36, %sw.bb13.i
+  %retval.0.i35 = phi i64 [ %212, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i36 ], [ %conv8.i, %sw.bb5.i37 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end36 ]
+  store i64 %retval.0.i35, ptr %len, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %hi_sdslen.exit, %if.end29

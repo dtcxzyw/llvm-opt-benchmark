@@ -6483,7 +6483,7 @@ if.then.i.i.i.i15:                                ; preds = %if.else.i.i
 _ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %12 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %12
@@ -8245,7 +8245,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %mul.i = shl i64 %cond.i, 1
+  %mul.i = shl nuw i64 %cond.i, 1
   %cmp3.i = icmp ult i64 %sub4, %mul.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end11.i
 
@@ -9682,7 +9682,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i8.i
   br i1 %cmp19.i.i.i30.i, label %if.then20.i.i.i31.i, label %if.end33.i.i.i11.i
 
 if.then20.i.i.i31.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
   %sub24.i.i.i32.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i20.i.i.i33.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub24.i.i.i32.i
   %28 = load ptr, ptr %add.ptr.i20.i.i.i33.i, align 8
@@ -10390,9 +10390,9 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  switch i64 %conv3, label %if.end.i.i.i.i [
-    i64 0, label %invoke.cont
-    i64 1, label %if.then.i2.i.i
+  switch i32 %add2, label %if.end.i.i.i.i [
+    i32 0, label %invoke.cont
+    i32 1, label %if.then.i2.i.i
   ]
 
 if.then.i2.i.i:                                   ; preds = %if.end.i.i

@@ -646,7 +646,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp.i.i, label %if.then.i.i.i23.invoke, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %mul.i.i = shl i64 %cond.i.i, 1
+  %mul.i.i = shl nuw i64 %cond.i.i, 1
   %cmp3.i.i = icmp ugt i64 %mul.i.i, %add
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add
@@ -6601,9 +6601,9 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  switch i64 %conv, label %if.end.i.i.i.i [
-    i64 0, label %invoke.cont
-    i64 1, label %if.then.i2.i.i
+  switch i32 %retval.0.i, label %if.end.i.i.i.i [
+    i32 0, label %invoke.cont
+    i32 1, label %if.then.i2.i.i
   ]
 
 if.then.i2.i.i:                                   ; preds = %if.end.i.i
@@ -8653,7 +8653,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %mul.i = shl i64 %cond.i, 1
+  %mul.i = shl nuw i64 %cond.i, 1
   %cmp3.i = icmp ult i64 %sub4, %mul.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end11.i
 

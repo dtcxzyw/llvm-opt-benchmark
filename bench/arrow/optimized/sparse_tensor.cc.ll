@@ -8900,7 +8900,6 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
   %16 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(72) %1)
   %div = sdiv i32 %call3, 8
-  %conv = sext i32 %div to i64
   %17 = load ptr, ptr %coords, align 8
   %shape_.i = getelementptr inbounds %"class.arrow::Tensor", ptr %17, i64 0, i32 3
   %18 = load ptr, ptr %shape_.i, align 8
@@ -8935,11 +8934,11 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  switch i64 %conv, label %sw.epilog [
-    i64 1, label %for.cond.preheader
-    i64 2, label %for.cond26.preheader
-    i64 4, label %for.cond53.preheader
-    i64 8, label %for.cond80.preheader
+  switch i32 %div, label %sw.epilog [
+    i32 1, label %for.cond.preheader
+    i32 2, label %for.cond26.preheader
+    i32 4, label %for.cond53.preheader
+    i32 8, label %for.cond80.preheader
   ]
 
 for.cond80.preheader:                             ; preds = %_ZNSt6vectorIlSaIlEE6resizeEm.exit
