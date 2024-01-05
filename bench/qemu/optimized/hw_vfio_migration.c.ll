@@ -297,8 +297,7 @@ vfio_migration_init.exit.thread55:                ; preds = %if.then23.i, %if.el
   call void @g_free(ptr noundef %retval.0.i2738.i) #16
   call void @g_free(ptr noundef %storemerge.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %id.i)
-  %dirty_pages_supported = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 22
-  %13 = load i8, ptr %dirty_pages_supported, align 4
+  %13 = load i8, ptr %dirty_pages_supported.i, align 4
   %14 = and i8 %13, 1
   %tobool14.not = icmp eq i8 %14, 0
   br i1 %tobool14.not, label %if.then15, label %if.end22
@@ -440,20 +439,18 @@ out_deinit:                                       ; preds = %add_blocker
   br i1 %32, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end22, %out_deinit.thread61, %out_deinit
-  %migration1.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
-  %33 = load ptr, ptr %migration1.i, align 8
+  %33 = load ptr, ptr %migration14.i, align 8
   %migration_state.i47 = getelementptr inbounds %struct.VFIOMigration, ptr %33, i64 0, i32 2
   call void @migration_remove_notifier(ptr noundef nonnull %migration_state.i47) #16
   %vm_state.i48 = getelementptr inbounds %struct.VFIOMigration, ptr %33, i64 0, i32 1
   %34 = load ptr, ptr %vm_state.i48, align 8
   call void @qemu_del_vm_change_state_handler(ptr noundef %34) #16
-  %dev.i49 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 7
-  %35 = load ptr, ptr %dev.i49, align 8
+  %35 = load ptr, ptr %dev.i, align 8
   %call.i50 = call ptr @object_dynamic_cast_assert(ptr noundef %35, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 887, ptr noundef nonnull @__func__.vfio_migration_deinit) #16
   call void @unregister_savevm(ptr noundef %call.i50, ptr noundef nonnull @.str.8, ptr noundef nonnull %vbasedev) #16
-  %36 = load ptr, ptr %migration1.i, align 8
+  %36 = load ptr, ptr %migration14.i, align 8
   call void @g_free(ptr noundef %36) #16
-  store ptr null, ptr %migration1.i, align 8
+  store ptr null, ptr %migration14.i, align 8
   call void @vfio_unblock_multiple_devices_migration() #16
   br label %return
 
@@ -834,7 +831,7 @@ if.end:                                           ; preds = %if.then, %vfio_save
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_save_prepare(ptr nocapture noundef readonly %opaque, ptr noundef %errp) #2 {
+define internal noundef i32 @vfio_save_prepare(ptr nocapture noundef readonly %opaque, ptr noundef %errp) #2 {
 entry:
   %call = tail call zeroext i1 @runstate_check(i32 noundef 10) #16
   br i1 %call, label %return, label %if.end
@@ -1684,7 +1681,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_load_cleanup(ptr nocapture noundef readonly %opaque) #2 {
+define internal noundef i32 @vfio_load_cleanup(ptr nocapture noundef readonly %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %opaque, i64 128
