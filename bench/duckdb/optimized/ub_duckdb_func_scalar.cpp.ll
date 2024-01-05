@@ -7349,10 +7349,10 @@ if.end337:                                        ; preds = %if.end323
   %101 = load i8, ptr %arrayidx324, align 1, !tbaa !14
   %conv325 = sext i8 %101 to i32
   %call326 = call i32 @tolower(i32 noundef %conv325) #31
-  %sext = shl i32 %call326, 24
-  switch i32 %sext, label %if.else345 [
-    i32 1879048192, label %cleanup350
-    i32 1627389952, label %if.then344
+  %trunc = trunc i32 %call326 to i8
+  switch i8 %trunc, label %if.else345 [
+    i8 112, label %cleanup350
+    i8 97, label %if.then344
   ]
 
 if.then344:                                       ; preds = %if.end337

@@ -1194,10 +1194,10 @@ if.end19:                                         ; preds = %if.end, %if.else
   %bf.set25 = or disjoint i16 %bf.shl32, %bf.value23
   %bf.set34 = or disjoint i16 %bf.set25, %bf.load22
   store i16 %bf.set34, ptr %cword21, align 4
-  switch i32 %mul, label %return [
-    i32 128, label %sw.bb
-    i32 192, label %sw.bb42
-    i32 256, label %sw.bb42
+  switch i32 %call, label %return [
+    i32 16, label %sw.bb
+    i32 24, label %sw.bb42
+    i32 32, label %sw.bb42
   ]
 
 sw.bb:                                            ; preds = %if.end19

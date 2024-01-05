@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"clear\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
+define noundef i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_table, ptr noundef nonnull @lj_lib_cf_table) #3
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_maxn(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_maxn(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
   %array1 = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 5
@@ -143,7 +143,7 @@ for.end32:                                        ; preds = %for.inc30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_insert(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_insert(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
   %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #3
@@ -155,10 +155,10 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sext = shl i64 %sub.ptr.sub, 32
-  switch i64 %sext, label %if.then7 [
-    i64 68719476736, label %if.end30
-    i64 103079215104, label %if.end
+  %trunc = trunc i64 %sub.ptr.sub to i32
+  switch i32 %trunc, label %if.then7 [
+    i32 16, label %if.end30
+    i32 24, label %if.end
   ]
 
 if.then7:                                         ; preds = %entry
@@ -294,7 +294,7 @@ if.end59:                                         ; preds = %if.then57, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_concat(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_concat(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #3
@@ -414,7 +414,7 @@ if.end54:                                         ; preds = %if.then52, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_sort(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_sort(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
   %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #3
@@ -689,7 +689,7 @@ declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare hidden i32 @lj_lib_postreg(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_new(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_new(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #3
   %call1 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #3
@@ -700,7 +700,7 @@ entry:
 declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_table_clear(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_table_clear(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
   tail call void @lj_tab_clear(ptr noundef %call) #3
