@@ -1248,7 +1248,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gc_clear(ptr noundef %self) #1 {
+define internal noundef i32 @gc_clear(ptr noundef %self) #1 {
 entry:
   tail call fastcc void @clear_weakref(ptr noundef %self)
   ret i32 0
@@ -1529,7 +1529,6 @@ if.then.i17:                                      ; preds = %land.lhs.true.i16
   %14 = getelementptr i8, ptr %12, i64 8
   %head.val.i = load ptr, ptr %14, align 8
   %cmp.i.not.i = icmp eq ptr %head.val.i, @_PyWeakref_RefType
-  %ref.1 = select i1 %cmp.i.not.i, ptr %12, ptr null
   %15 = load ptr, ptr %callback, align 8
   %cmp10 = icmp eq ptr %15, null
   %cmp11 = icmp eq ptr %type, @_PyWeakref_RefType
@@ -1542,13 +1541,13 @@ get_basic_refs.exit.thread:                       ; preds = %_PyObject_GET_WEAKR
   br label %if.end17
 
 if.then14:                                        ; preds = %if.then.i17
-  %16 = load i32, ptr %ref.1, align 8
+  %16 = load i32, ptr %12, align 8
   %add.i.i = add i32 %16, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then14
-  store i32 %add.i.i, ptr %ref.1, align 8
+  store i32 %add.i.i, ptr %12, align 8
   br label %return
 
 if.end17:                                         ; preds = %get_basic_refs.exit.thread, %if.then.i17

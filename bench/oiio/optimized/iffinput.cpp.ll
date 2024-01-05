@@ -17768,7 +17768,7 @@ if.end71:                                         ; preds = %if.end64
   ]
 
 if.then77:                                        ; preds = %if.end71
-  %cmp78 = icmp eq i32 %precision.addr.0, 0
+  %cmp78 = icmp eq i32 %precision, 0
   br i1 %cmp78, label %if.then79, label %if.end81
 
 if.then79:                                        ; preds = %if.then77
@@ -19411,7 +19411,6 @@ if.end52:                                         ; preds = %_ZN3fmt2v86detail6b
 
 if.then54:                                        ; preds = %if.end52
   %tobool55.not = icmp eq ptr %upper.2, null
-  %spec.store.select = select i1 %tobool55.not, ptr %lower, ptr %upper.2
   %ptr_.i = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %buf, i64 0, i32 1
   %113 = load ptr, ptr %ptr_.i, align 8
   %114 = trunc i64 %value.coerce0 to i32
@@ -19874,9 +19873,9 @@ if.then.i.i620:                                   ; preds = %for.end.i.i617
   br i1 %cmp.i.i.i.i623, label %if.then.i.i.i.i627, label %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i.i624
 
 if.then.i.i.i.i627:                               ; preds = %if.then.i.i620
-  %vtable.i.i.i.i628 = load ptr, ptr %spec.store.select, align 8
+  %vtable.i.i.i.i628 = load ptr, ptr %upper.2, align 8
   %179 = load ptr, ptr %vtable.i.i.i.i628, align 8
-  invoke void %179(ptr noundef nonnull align 8 dereferenceable(32) %spec.store.select, i64 noundef %add.i.i.i621)
+  invoke void %179(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i621)
           to label %.noexc631 unwind label %lpad5.loopexit
 
 .noexc631:                                        ; preds = %if.then.i.i.i.i627
@@ -33908,7 +33907,7 @@ if.end70:                                         ; preds = %if.end63
   ]
 
 if.then76:                                        ; preds = %if.end70
-  %cmp77 = icmp eq i32 %precision.addr.0, 0
+  %cmp77 = icmp eq i32 %precision, 0
   br i1 %cmp77, label %if.then78, label %if.end80
 
 if.then78:                                        ; preds = %if.then76

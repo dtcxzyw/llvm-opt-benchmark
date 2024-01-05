@@ -9896,7 +9896,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %6 = load i8, ptr %cond.i.i, align 1, !tbaa !75
+  %6 = load i8, ptr %inlined.i.i, align 1, !tbaa !75
   store i8 %6, ptr %5, align 1, !tbaa !75
   br label %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
 

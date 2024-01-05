@@ -110,7 +110,7 @@ for.end19:                                        ; preds = %for.body11
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: none) uwtable
-define ptr @stbte_create_map(i32 noundef %map_x, i32 noundef %map_y, i32 noundef %map_layers, i32 noundef %spacing_x, i32 noundef %spacing_y, i32 noundef %max_tiles) local_unnamed_addr #1 {
+define noundef ptr @stbte_create_map(i32 noundef %map_x, i32 noundef %map_y, i32 noundef %map_layers, i32 noundef %spacing_x, i32 noundef %spacing_y, i32 noundef %max_tiles) local_unnamed_addr #1 {
 entry:
   %0 = or i32 %map_y, %map_x
   %1 = or i32 %0, %map_layers
@@ -184,7 +184,7 @@ if.end11:                                         ; preds = %for.body11.i, %if.e
   %conv = sext i32 %max_tiles to i64
   %mul = mul nsw i64 %conv, 24
   %add12 = add nsw i64 %mul, 17582384
-  %call = tail call noalias ptr @malloc(i64 noundef %add12) #27
+  %call = tail call noalias ptr @malloc(i64 noundef %add12) #24
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %return, label %if.end16
 
@@ -450,7 +450,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbte_set_layername(ptr nocapture noundef %tm, i32 noundef %layer, ptr noundef %layername) local_unnamed_addr #7 {
 entry:
   %cmp = icmp sgt i32 %layer, -1
@@ -644,7 +644,7 @@ return:                                           ; preds = %lor.lhs.false7, %en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__choose_category(ptr nocapture noundef %tm, i32 noundef %category) local_unnamed_addr #11 {
+define void @stbte__choose_category(ptr nocapture noundef %tm, i32 noundef %category) local_unnamed_addr #7 {
 entry:
   %cur_category = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 11
   store i32 %category, ptr %cur_category, align 4
@@ -714,7 +714,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__compute_tileinfo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
+define void @stbte__compute_tileinfo(ptr nocapture noundef %tm) local_unnamed_addr #11 {
 entry:
   %num_categories = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 15
   store i32 0, ptr %num_categories, align 8
@@ -849,7 +849,7 @@ stbte__choose_category.exit:                      ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__prepare_tileinfo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
+define void @stbte__prepare_tileinfo(ptr nocapture noundef %tm) local_unnamed_addr #11 {
 entry:
   %tileinfo_dirty = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 27
   %0 = load i32, ptr %tileinfo_dirty, align 8
@@ -992,7 +992,7 @@ if.end:                                           ; preds = %stbte__compute_tile
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_undo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #13 {
+define void @stbte__write_undo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #12 {
 entry:
   %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 34
   %0 = load i32, ptr %undo_pos, align 4
@@ -1022,7 +1022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_redo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #13 {
+define void @stbte__write_redo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #12 {
 entry:
   %undo_pos = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 34
   %0 = load i32, ptr %undo_pos, align 4
@@ -1052,7 +1052,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__begin_undo(ptr nocapture noundef %tm) local_unnamed_addr #13 {
+define void @stbte__begin_undo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
 entry:
   %redo_len = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 36
   store i32 0, ptr %redo_len, align 4
@@ -1215,7 +1215,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i32 noundef %v) local_unnamed_addr #13 {
+define void @stbte__redo_record(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i32 noundef %v) local_unnamed_addr #12 {
 entry:
   %conv = trunc i32 %v to i16
   %undo_pos.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 34
@@ -1436,7 +1436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record_prop(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i16 noundef signext %s0, i16 noundef signext %s1) local_unnamed_addr #13 {
+define void @stbte__redo_record_prop(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i16 noundef signext %s0, i16 noundef signext %s1) local_unnamed_addr #12 {
 entry:
   %undo_pos.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 34
   %0 = load i32, ptr %undo_pos.i, align 4
@@ -1574,7 +1574,7 @@ for.end:                                          ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__undo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
+define void @stbte__undo(ptr nocapture noundef %tm) local_unnamed_addr #11 {
 entry:
   %undo_len.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 35
   %0 = load i32, ptr %undo_len.i, align 8
@@ -1909,7 +1909,7 @@ for.end:                                          ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
+define void @stbte__redo(ptr nocapture noundef %tm) local_unnamed_addr #11 {
 entry:
   %redo_len.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 36
   %0 = load i32, ptr %redo_len.i, align 4
@@ -2204,7 +2204,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__recompute_undo_available(ptr nocapture noundef %tm) local_unnamed_addr #11 {
+define void @stbte__recompute_undo_available(ptr nocapture noundef %tm) local_unnamed_addr #7 {
 entry:
   %undo_len.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 35
   %0 = load i32, ptr %undo_len.i, align 8
@@ -2281,7 +2281,7 @@ stbte__redo_find_end.exit:                        ; preds = %for.body.i9, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbte__undo_available(ptr nocapture noundef %tm) local_unnamed_addr #11 {
+define i32 @stbte__undo_available(ptr nocapture noundef %tm) local_unnamed_addr #7 {
 entry:
   %undo_available_valid = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 21
   %0 = load i8, ptr %undo_available_valid, align 4
@@ -2374,7 +2374,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbte__redo_available(ptr nocapture noundef %tm) local_unnamed_addr #11 {
+define i32 @stbte__redo_available(ptr nocapture noundef %tm) local_unnamed_addr #7 {
 entry:
   %undo_available_valid = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 21
   %0 = load i8, ptr %undo_available_valid, align 4
@@ -2467,30 +2467,30 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_rect(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #14 {
+define void @stbte__draw_rect(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #13 {
 entry:
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) #25
   ret void
 }
 
-declare void @STBTE_DRAW_RECT(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #15
+declare void @STBTE_DRAW_RECT(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_frame(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #14 {
+define void @stbte__draw_frame(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #13 {
 entry:
   %sub = add nsw i32 %x1, -1
   %add = add nsw i32 %y0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub, i32 noundef %add, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub, i32 noundef %add, i32 noundef %color) #25
   %sub2 = add nsw i32 %y1, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2, i32 noundef %color) #25
   %add3 = add nsw i32 %x0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3, i32 noundef %sub2, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add, i32 noundef %add3, i32 noundef %y1, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3, i32 noundef %sub2, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add, i32 noundef %add3, i32 noundef %y1, i32 noundef %color) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @stbte__get_char_width(i32 noundef %ch) local_unnamed_addr #16 {
+define i32 @stbte__get_char_width(i32 noundef %ch) local_unnamed_addr #15 {
 entry:
   %sub = add nsw i32 %ch, -16
   %idxprom = sext i32 %sub to i64
@@ -2501,7 +2501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define nonnull ptr @stbte__get_char_bitmap(i32 noundef %ch) local_unnamed_addr #16 {
+define nonnull ptr @stbte__get_char_bitmap(i32 noundef %ch) local_unnamed_addr #15 {
 entry:
   %sub = add nsw i32 %ch, -16
   %idxprom = sext i32 %sub to i64
@@ -2513,7 +2513,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_bitmask_as_columns(i32 noundef %x, i32 noundef %y, i16 noundef signext %bitmask, i32 noundef %color) local_unnamed_addr #14 {
+define void @stbte__draw_bitmask_as_columns(i32 noundef %x, i32 noundef %y, i16 noundef signext %bitmask, i32 noundef %color) local_unnamed_addr #13 {
 entry:
   %tobool.not11 = icmp eq i16 %bitmask, 0
   br i1 %tobool.not11, label %while.end, label %while.body.lr.ph
@@ -2544,7 +2544,7 @@ if.else:                                          ; preds = %while.body
 if.then6:                                         ; preds = %if.else
   %add = add nsw i32 %start_i.013, %y
   %add8 = add nsw i32 %i.014, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add, i32 noundef %add7, i32 noundef %add8, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add, i32 noundef %add7, i32 noundef %add8, i32 noundef %color) #25
   %0 = trunc i32 %shl to i16
   %1 = sub i16 0, %0
   %conv12 = and i16 %bitmask.addr.012, %1
@@ -2562,7 +2562,7 @@ while.end:                                        ; preds = %if.end14, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_bitmap(i32 noundef %x, i32 noundef %y, i32 noundef %w, ptr nocapture noundef readonly %bitmap, i32 noundef %color) local_unnamed_addr #14 {
+define void @stbte__draw_bitmap(i32 noundef %x, i32 noundef %y, i32 noundef %w, ptr nocapture noundef readonly %bitmap, i32 noundef %color) local_unnamed_addr #13 {
 entry:
   %cmp3 = icmp sgt i32 %w, 0
   br i1 %cmp3, label %for.body, label %for.end
@@ -2602,7 +2602,7 @@ if.else.i:                                        ; preds = %while.body.i
 if.then6.i:                                       ; preds = %if.else.i
   %add.i = add nsw i32 %start_i.013.i, %y
   %add8.i = add nsw i32 %i.014.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %add.i, i32 noundef %add7.i, i32 noundef %add8.i, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %add.i, i32 noundef %add7.i, i32 noundef %add8.i, i32 noundef %color) #25
   %1 = trunc i32 %shl.i to i16
   %2 = sub i16 0, %1
   %conv12.i = and i16 %bitmask.addr.012.i, %2
@@ -2625,7 +2625,7 @@ for.end:                                          ; preds = %stbte__draw_bitmask
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_text_core(i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %str, i32 noundef %w, i32 noundef %color, i32 noundef %digitspace) local_unnamed_addr #14 {
+define void @stbte__draw_text_core(i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %str, i32 noundef %w, i32 noundef %color, i32 noundef %digitspace) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %w, %x
   %0 = load i8, ptr %str, align 1
@@ -2696,7 +2696,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
 if.then6.i.i:                                     ; preds = %if.else.i.i
   %add.i.i = add nsw i32 %start_i.013.i.i, %y
   %add8.i.i = add nsw i32 %i.014.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i, i32 noundef %add.i.i, i32 noundef %add7.i.i, i32 noundef %add8.i.i, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i, i32 noundef %add.i.i, i32 noundef %add7.i.i, i32 noundef %add8.i.i, i32 noundef %color) #25
   %5 = trunc i32 %shl.i.i to i16
   %6 = sub i16 0, %5
   %conv12.i.i = and i16 %bitmask.addr.012.i.i, %6
@@ -2731,7 +2731,7 @@ while.end:                                        ; preds = %stbte__draw_bitmap.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_text(i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %str, i32 noundef %w, i32 noundef %color) local_unnamed_addr #14 {
+define void @stbte__draw_text(i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %str, i32 noundef %w, i32 noundef %color) local_unnamed_addr #13 {
 entry:
   %add.i = add nsw i32 %w, %x
   %0 = load i8, ptr %str, align 1
@@ -2798,7 +2798,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %add.i.i.i = add nsw i32 %start_i.013.i.i.i, %y
   %add8.i.i.i = add nsw i32 %i.014.i.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %color) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %color) #25
   %5 = trunc i32 %shl.i.i.i to i16
   %6 = sub i16 0, %5
   %conv12.i.i.i = and i16 %bitmask.addr.012.i.i.i, %6
@@ -2827,7 +2827,7 @@ stbte__draw_text_core.exit:                       ; preds = %while.body.i, %stbt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__draw_frame_delayed(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #17 {
+define void @stbte__draw_frame_delayed(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %color) local_unnamed_addr #16 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 16), align 8
   %cmp = icmp slt i32 %0, 256
@@ -2854,10 +2854,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__flush_delay() local_unnamed_addr #14 {
+define void @stbte__flush_delay() local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 16), align 8
   %cmp7 = icmp sgt i32 %0, 0
@@ -2877,12 +2877,12 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = load i32, ptr %color, align 4
   %sub.i = add nsw i32 %3, -1
   %add.i = add nsw i32 %2, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %1, i32 noundef %2, i32 noundef %sub.i, i32 noundef %add.i, i32 noundef %5) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %1, i32 noundef %2, i32 noundef %sub.i, i32 noundef %add.i, i32 noundef %5) #25
   %sub2.i = add nsw i32 %4, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %2, i32 noundef %3, i32 noundef %sub2.i, i32 noundef %5) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %2, i32 noundef %3, i32 noundef %sub2.i, i32 noundef %5) #25
   %add3.i = add nsw i32 %1, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub2.i, i32 noundef %3, i32 noundef %4, i32 noundef %5) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %1, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %4, i32 noundef %5) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub2.i, i32 noundef %3, i32 noundef %4, i32 noundef %5) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %1, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %4, i32 noundef %5) #25
   %inc = add nuw nsw i32 %i.09, 1
   %incdec.ptr = getelementptr inbounds %struct.stbte__colorrect, ptr %r.08, i64 1
   %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 16), align 8
@@ -2895,7 +2895,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__activate(i32 noundef %id) local_unnamed_addr #17 {
+define void @stbte__activate(i32 noundef %id) local_unnamed_addr #16 {
 entry:
   store i32 %id, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 2), align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
@@ -2906,7 +2906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @stbte__hittest(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %id) local_unnamed_addr #17 {
+define i32 @stbte__hittest(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %id) local_unnamed_addr #16 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 6), align 8
   %cmp.not = icmp slt i32 %0, %x0
@@ -2935,7 +2935,7 @@ if.end:                                           ; preds = %entry, %if.then, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @stbte__button_core(i32 noundef %id) local_unnamed_addr #17 {
+define noundef i32 @stbte__button_core(i32 noundef %id) local_unnamed_addr #16 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   switch i32 %0, label %return [
@@ -2992,46 +2992,46 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_box(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #14 {
+define void @stbte__draw_box(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #13 {
 entry:
   %idxprom = sext i32 %colormode to i64
   %arrayidx = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom
   %idxprom2 = sext i32 %colorindex to i64
   %arrayidx3 = getelementptr inbounds [7 x i32], ptr %arrayidx, i64 0, i64 %idxprom2
   %0 = load i32, ptr %arrayidx3, align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %0) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %0) #25
   %arrayidx8 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom, i64 1, i64 %idxprom2
   %1 = load i32, ptr %arrayidx8, align 4
   %sub.i = add nsw i32 %x1, -1
   %add.i = add nsw i32 %y0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub.i, i32 noundef %add.i, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub.i, i32 noundef %add.i, i32 noundef %1) #25
   %sub2.i = add nsw i32 %y1, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2.i, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2.i, i32 noundef %1) #25
   %add3.i = add nsw i32 %x0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub2.i, i32 noundef %x1, i32 noundef %y1, i32 noundef %1) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %y1, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub2.i, i32 noundef %x1, i32 noundef %y1, i32 noundef %1) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %y1, i32 noundef %1) #25
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__draw_textbox(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, ptr nocapture noundef readonly %text, i32 noundef %xoff, i32 noundef %yoff, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #14 {
+define void @stbte__draw_textbox(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, ptr nocapture noundef readonly %text, i32 noundef %xoff, i32 noundef %yoff, i32 noundef %colormode, i32 noundef %colorindex) local_unnamed_addr #13 {
 entry:
   %idxprom.i = sext i32 %colormode to i64
   %arrayidx.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i
   %idxprom2.i = sext i32 %colorindex to i64
   %arrayidx3.i = getelementptr inbounds [7 x i32], ptr %arrayidx.i, i64 0, i64 %idxprom2.i
   %0 = load i32, ptr %arrayidx3.i, align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %0) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %0) #25
   %arrayidx8.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i, i64 1, i64 %idxprom2.i
   %1 = load i32, ptr %arrayidx8.i, align 4
   %sub.i.i = add i32 %x1, -1
   %add.i.i = add nsw i32 %y0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y0, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %1) #25
   %sub2.i.i = add nsw i32 %y1, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2.i.i, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y0, i32 noundef %x1, i32 noundef %sub2.i.i, i32 noundef %1) #25
   %add3.i.i = add nsw i32 %x0, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %x1, i32 noundef %y1, i32 noundef %1) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %y1, i32 noundef %1) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %x1, i32 noundef %y1, i32 noundef %1) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %y1, i32 noundef %1) #25
   %add1 = add nsw i32 %yoff, %y0
   %arrayidx6 = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i, i64 2, i64 %idxprom2.i
   %2 = load i32, ptr %arrayidx6, align 4
@@ -3103,7 +3103,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add1
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %2) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %2) #25
   %8 = trunc i32 %shl.i.i.i.i to i16
   %9 = sub i16 0, %8
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %9
@@ -3132,7 +3132,7 @@ stbte__draw_text.exit:                            ; preds = %while.body.i.i, %st
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__button(i32 noundef %colormode, ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %textoff, i32 noundef %width, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled) local_unnamed_addr #14 {
+define noundef i32 @stbte__button(i32 noundef %colormode, ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %textoff, i32 noundef %width, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %width, %x
   %add1 = add nsw i32 %y, 13
@@ -3248,7 +3248,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__button_icon(i32 noundef %colormode, i8 noundef signext %ch, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled) local_unnamed_addr #14 {
+define noundef i32 @stbte__button_icon(i32 noundef %colormode, i8 noundef signext %ch, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled) local_unnamed_addr #13 {
 entry:
   %label = alloca [2 x i8], align 1
   %add = add nsw i32 %width, %x
@@ -3368,7 +3368,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__minibutton(i32 noundef %colormode, i32 noundef %x, i32 noundef %y, i32 noundef %ch, i32 noundef %id) local_unnamed_addr #14 {
+define noundef i32 @stbte__minibutton(i32 noundef %colormode, i32 noundef %x, i32 noundef %y, i32 noundef %ch, i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %str = alloca [2 x i8], align 1
   %add = add nsw i32 %x, 8
@@ -3476,7 +3476,7 @@ stbte__button_core.exit:                          ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__layerbutton(i32 noundef %x, i32 noundef %y, i32 noundef %ch, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled, i32 noundef %colormode) local_unnamed_addr #14 {
+define noundef i32 @stbte__layerbutton(i32 noundef %x, i32 noundef %y, i32 noundef %ch, i32 noundef %id, i32 noundef %toggled, i32 noundef %disabled, i32 noundef %colormode) local_unnamed_addr #13 {
 entry:
   %str = alloca [2 x i8], align 1
   %add = add nsw i32 %x, 10
@@ -3604,7 +3604,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__microbutton(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, i32 noundef %colormode) local_unnamed_addr #14 {
+define noundef i32 @stbte__microbutton(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, i32 noundef %colormode) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %size, %x
   %add1 = add nsw i32 %size, %y
@@ -3651,17 +3651,17 @@ if.then:                                          ; preds = %stbte__hittest.exit
   %idxprom2.i = zext i8 %6 to i64
   %arrayidx3.i = getelementptr inbounds [7 x i32], ptr %arrayidx.i, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %add, i32 noundef %add1, i32 noundef %7) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %add, i32 noundef %add1, i32 noundef %7) #25
   %arrayidx8.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 %idxprom.i, i64 1, i64 %idxprom2.i
   %8 = load i32, ptr %arrayidx8.i, align 4
   %sub.i.i = add nsw i32 %add, -1
   %add.i.i = add nsw i32 %y, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %8) #25
   %sub2.i.i = add nsw i32 %add1, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y, i32 noundef %add, i32 noundef %sub2.i.i, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y, i32 noundef %add, i32 noundef %sub2.i.i, i32 noundef %8) #25
   %add3.i.i = add nsw i32 %x, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add, i32 noundef %add1, i32 noundef %8) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add1, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add, i32 noundef %add1, i32 noundef %8) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add1, i32 noundef %8) #25
   %.pr14.pre = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   br label %if.end
 
@@ -3721,7 +3721,7 @@ stbte__button_core.exit:                          ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__microbutton_dragger(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, ptr nocapture noundef %pos) local_unnamed_addr #14 {
+define noundef i32 @stbte__microbutton_dragger(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, ptr nocapture noundef %pos) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %size, %x
   %add1 = add nsw i32 %size, %y
@@ -3772,17 +3772,17 @@ sw.bb:                                            ; preds = %stbte__hittest.exit
   %idxprom2.i = zext i8 %6 to i64
   %arrayidx3.i = getelementptr inbounds [7 x i32], ptr @stbte__color_table, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %add, i32 noundef %add1, i32 noundef %7) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %add, i32 noundef %add1, i32 noundef %7) #25
   %arrayidx8.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 0, i64 1, i64 %idxprom2.i
   %8 = load i32, ptr %arrayidx8.i, align 4
   %sub.i.i = add nsw i32 %add, -1
   %add.i.i = add nsw i32 %y, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %8) #25
   %sub2.i.i = add nsw i32 %add1, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y, i32 noundef %add, i32 noundef %sub2.i.i, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %y, i32 noundef %add, i32 noundef %sub2.i.i, i32 noundef %8) #25
   %add3.i.i = add nsw i32 %x, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add, i32 noundef %add1, i32 noundef %8) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add1, i32 noundef %8) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add, i32 noundef %add1, i32 noundef %8) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add1, i32 noundef %8) #25
   br label %return
 
 sw.bb7:                                           ; preds = %stbte__hittest.exit
@@ -3860,7 +3860,7 @@ return:                                           ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__category_button(ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %id, i32 noundef %toggled) local_unnamed_addr #14 {
+define noundef i32 @stbte__category_button(ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %id, i32 noundef %toggled) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %width, %x
   %add1 = add nsw i32 %y, 13
@@ -3964,7 +3964,7 @@ stbte__button_core.exit:                          ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__slider(i32 noundef %x0, i32 noundef %w, i32 noundef %y, i32 noundef %range, ptr nocapture noundef %value, i32 noundef %id) local_unnamed_addr #14 {
+define noundef i32 @stbte__slider(i32 noundef %x0, i32 noundef %w, i32 noundef %y, i32 noundef %range, ptr nocapture noundef %value, i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %add = add nsw i32 %w, %x0
   %0 = load i32, ptr %value, align 4
@@ -4012,13 +4012,13 @@ sw.bb:                                            ; preds = %stbte__hittest.exit
   %mul = mul nsw i32 %0, %w
   %div = sdiv i32 %mul, %add1
   %add3 = add nsw i32 %y, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y, i32 noundef %add, i32 noundef %add3, i32 noundef 8421504) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x0, i32 noundef %y, i32 noundef %add, i32 noundef %add3, i32 noundef 8421504) #25
   %add4 = add nsw i32 %div, %x0
   %sub5 = add nsw i32 %add4, -1
   %sub6 = add nsw i32 %y, -1
   %add8 = add nsw i32 %add4, 2
   %add9 = add nsw i32 %y, 2
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub5, i32 noundef %sub6, i32 noundef %add8, i32 noundef %add9, i32 noundef 16777215) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub5, i32 noundef %sub6, i32 noundef %add8, i32 noundef %add9, i32 noundef 16777215) #25
   br label %return
 
 sw.bb10:                                          ; preds = %stbte__hittest.exit
@@ -4070,7 +4070,7 @@ return:                                           ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__float_control(i32 noundef %x0, i32 noundef %y0, i32 noundef %w, float noundef %minv, float noundef %maxv, float noundef %scale, ptr noundef readonly %fmt, ptr nocapture noundef %value, i32 noundef %colormode, i32 noundef %id) local_unnamed_addr #14 {
+define noundef i32 @stbte__float_control(i32 noundef %x0, i32 noundef %y0, i32 noundef %w, float noundef %minv, float noundef %maxv, float noundef %scale, ptr noundef readonly %fmt, ptr nocapture noundef %value, i32 noundef %colormode, i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %text = alloca [32 x i8], align 16
   %add = add nsw i32 %w, %x0
@@ -4115,7 +4115,7 @@ sw.bb:                                            ; preds = %stbte__hittest.exit
   %cond = select i1 %tobool.not, ptr @.str.1, ptr %fmt
   %4 = load float, ptr %value, align 4
   %conv = fpext float %4 to double
-  %call2 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) %cond, double noundef %conv) #28
+  %call2 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) %cond, double noundef %conv) #25
   %5 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 2), align 8
   %cmp = icmp eq i32 %5, %id
   %idxprom = zext i1 %cmp to i64
@@ -4222,13 +4222,13 @@ return:                                           ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #20
+declare float @llvm.fmuladd.f32(float, float, float) #19
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__scrollbar(i32 noundef %x, i32 noundef %y0, i32 noundef %y1, ptr nocapture noundef %val, i32 noundef %v0, i32 noundef %v1, i32 noundef %num_vis, i32 noundef %id) local_unnamed_addr #14 {
+define void @stbte__scrollbar(i32 noundef %x, i32 noundef %y0, i32 noundef %y1, ptr nocapture noundef %val, i32 noundef %v0, i32 noundef %v1, i32 noundef %num_vis, i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %sub = sub nsw i32 %v1, %v0
   %cmp.not = icmp sgt i32 %sub, %num_vis
@@ -4283,7 +4283,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
 sw.bb:                                            ; preds = %stbte__hittest.exit
   %add14 = add nsw i32 %x, 1
   %5 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 6, i64 2), align 16
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y0, i32 noundef %add14, i32 noundef %y1, i32 noundef %5) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y0, i32 noundef %add14, i32 noundef %y1, i32 noundef %5) #25
   %sub16 = add nsw i32 %thumbpos.1, -3
   %add18 = add nsw i32 %thumbpos.1, 4
   %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 2), align 8
@@ -4297,15 +4297,15 @@ sw.bb:                                            ; preds = %stbte__hittest.exit
   %idxprom2.i = zext i8 %8 to i64
   %arrayidx3.i = getelementptr inbounds [7 x i32], ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 6), i64 0, i64 %idxprom2.i
   %9 = load i32, ptr %arrayidx3.i, align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %sub16, i32 noundef %add13, i32 noundef %add18, i32 noundef %9) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %sub16, i32 noundef %add13, i32 noundef %add18, i32 noundef %9) #25
   %arrayidx8.i = getelementptr inbounds [13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 6, i64 1, i64 %idxprom2.i
   %10 = load i32, ptr %arrayidx8.i, align 4
   %add.i.i = add nsw i32 %thumbpos.1, -2
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %sub16, i32 noundef %add14, i32 noundef %add.i.i, i32 noundef %10) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %sub16, i32 noundef %add14, i32 noundef %add.i.i, i32 noundef %10) #25
   %sub2.i.i = add nsw i32 %thumbpos.1, 3
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add14, i32 noundef %sub16, i32 noundef %add13, i32 noundef %sub2.i.i, i32 noundef %10) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %sub2.i.i, i32 noundef %add13, i32 noundef %add18, i32 noundef %10) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %add.i.i, i32 noundef %x, i32 noundef %add18, i32 noundef %10) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add14, i32 noundef %sub16, i32 noundef %add13, i32 noundef %sub2.i.i, i32 noundef %10) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %sub2.i.i, i32 noundef %add13, i32 noundef %add18, i32 noundef %10) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub12, i32 noundef %add.i.i, i32 noundef %x, i32 noundef %add18, i32 noundef %10) #25
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %stbte__hittest.exit
@@ -4422,7 +4422,7 @@ if.end11:                                         ; preds = %if.then7, %if.else9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @stbte__is_single_selection() local_unnamed_addr #16 {
+define i32 @stbte__is_single_selection() local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 44), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -4446,8 +4446,8 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
   ret i32 %land.ext
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__compute_panel_locations(ptr nocapture noundef %tm) local_unnamed_addr #21 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @stbte__compute_panel_locations(ptr nocapture noundef %tm) local_unnamed_addr #11 {
 entry:
   %min_width = alloca [7 x i32], align 16
   %height = alloca [7 x i32], align 16
@@ -4769,10 +4769,10 @@ for.end276:                                       ; preds = %for.inc274
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__activate_map(i32 noundef %x, i32 noundef %y) local_unnamed_addr #17 {
+define void @stbte__activate_map(i32 noundef %x, i32 noundef %y) local_unnamed_addr #16 {
 entry:
   %0 = shl i32 %x, 19
   %1 = shl i32 %y, 7
@@ -4795,7 +4795,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__brush_predict(ptr nocapture noundef readonly %tm, ptr nocapture noundef %result) local_unnamed_addr #11 {
+define void @stbte__brush_predict(ptr nocapture noundef readonly %tm, ptr nocapture noundef %result) local_unnamed_addr #7 {
 entry:
   %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 12
   %0 = load i32, ptr %cur_tile, align 8
@@ -4891,7 +4891,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__brush(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #12 {
+define void @stbte__brush(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #11 {
 entry:
   %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 12
   %0 = load i32, ptr %cur_tile, align 8
@@ -4992,7 +4992,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbte__erase_predict(ptr nocapture noundef readonly %tm, ptr nocapture noundef %result, i32 noundef %allow_any) local_unnamed_addr #11 {
+define noundef i32 @stbte__erase_predict(ptr nocapture noundef readonly %tm, ptr nocapture noundef %result, i32 noundef %allow_any) local_unnamed_addr #7 {
 entry:
   %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 12
   %0 = load i32, ptr %cur_tile, align 8
@@ -5032,11 +5032,7 @@ cond.true10:                                      ; preds = %if.then8
 
 cond.end12:                                       ; preds = %if.then8, %cond.true10
   %cond13 = phi i16 [ %4, %cond.true10 ], [ -1, %if.then8 ]
-  br i1 %cmp372, label %if.then18, label %cond.end12.if.end29_crit_edge
-
-cond.end12.if.end29_crit_edge:                    ; preds = %cond.end12
-  %.pre = zext nneg i32 %3 to i64
-  br label %if.end29
+  br i1 %cmp372, label %if.then18, label %if.end29
 
 if.then18:                                        ; preds = %cond.end12
   %idxprom19 = zext nneg i32 %2 to i64
@@ -5051,9 +5047,9 @@ if.end22:                                         ; preds = %if.then18
   %tobool26.not = icmp eq i32 %6, 0
   br i1 %tobool26.not, label %if.end29, label %return
 
-if.end29:                                         ; preds = %cond.end12.if.end29_crit_edge, %if.end22
-  %idxprom30.pre-phi = phi i64 [ %.pre, %cond.end12.if.end29_crit_edge ], [ %idxprom19, %if.end22 ]
-  %arrayidx31 = getelementptr inbounds i16, ptr %result, i64 %idxprom30.pre-phi
+if.end29:                                         ; preds = %if.end22, %cond.end12
+  %idxprom30 = zext nneg i32 %spec.select to i64
+  %arrayidx31 = getelementptr inbounds i16, ptr %result, i64 %idxprom30
   %7 = load i16, ptr %arrayidx31, align 2
   %cmp34 = icmp eq i16 %7, %cond13
   br i1 %cmp34, label %return, label %if.end37
@@ -5252,7 +5248,7 @@ return:                                           ; preds = %land.lhs.true153, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbte__erase(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %allow_any) local_unnamed_addr #12 {
+define noundef i32 @stbte__erase(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %allow_any) local_unnamed_addr #11 {
 entry:
   %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 12
   %0 = load i32, ptr %cur_tile, align 8
@@ -5292,11 +5288,7 @@ cond.true10:                                      ; preds = %if.then8
 
 cond.end12:                                       ; preds = %if.then8, %cond.true10
   %cond13 = phi i16 [ %4, %cond.true10 ], [ -1, %if.then8 ]
-  br i1 %cmp3129, label %if.then18, label %cond.end12.if.end29_crit_edge
-
-cond.end12.if.end29_crit_edge:                    ; preds = %cond.end12
-  %.pre = zext nneg i32 %3 to i64
-  br label %if.end29
+  br i1 %cmp3129, label %if.then18, label %if.end29
 
 if.then18:                                        ; preds = %cond.end12
   %idxprom19 = zext nneg i32 %2 to i64
@@ -5311,11 +5303,11 @@ if.end22:                                         ; preds = %if.then18
   %tobool26.not = icmp eq i32 %6, 0
   br i1 %tobool26.not, label %if.end29, label %return
 
-if.end29:                                         ; preds = %cond.end12.if.end29_crit_edge, %if.end22
-  %idxprom34.pre-phi = phi i64 [ %.pre, %cond.end12.if.end29_crit_edge ], [ %idxprom19, %if.end22 ]
+if.end29:                                         ; preds = %if.end22, %cond.end12
   %idxprom30 = sext i32 %y to i64
   %idxprom32 = sext i32 %x to i64
-  %arrayidx35 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom30, i64 %idxprom32, i64 %idxprom34.pre-phi
+  %idxprom34 = zext nneg i32 %spec.select to i64
+  %arrayidx35 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom30, i64 %idxprom32, i64 %idxprom34
   %7 = load i16, ptr %arrayidx35, align 2
   %cmp38 = icmp eq i16 %7, %cond13
   br i1 %cmp38, label %return, label %if.end41
@@ -5555,7 +5547,7 @@ return:                                           ; preds = %land.lhs.true216, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define i32 @stbte__find_tile(ptr nocapture noundef readonly %tm, i32 noundef %tile_id) local_unnamed_addr #23 {
+define i32 @stbte__find_tile(ptr nocapture noundef readonly %tm, i32 noundef %tile_id) local_unnamed_addr #21 {
 entry:
   %num_tiles = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 18
   %0 = load i32, ptr %num_tiles, align 8
@@ -5596,7 +5588,7 @@ return:                                           ; preds = %return.loopexit, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__eyedrop(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #12 {
+define void @stbte__eyedrop(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 20), align 8
   %cmp.not = icmp eq i32 %0, %x
@@ -5746,7 +5738,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stbte__should_copy_properties(ptr nocapture noundef readonly %tm) local_unnamed_addr #24 {
+define noundef i32 @stbte__should_copy_properties(ptr nocapture noundef readonly %tm) local_unnamed_addr #22 {
 entry:
   %propmode = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 32
   %0 = load i32, ptr %propmode, align 4
@@ -5878,11 +5870,7 @@ for.inc.us:                                       ; preds = %if.then110.us, %con
   br i1 %cmp64.us, label %for.body.us, label %for.end, !llvm.loop !38
 
 if.then3:                                         ; preds = %entry
-  br i1 %cmp54, label %if.then6, label %if.then3.if.end39_crit_edge
-
-if.then3.if.end39_crit_edge:                      ; preds = %if.then3
-  %.pre = zext nneg i32 %1 to i64
-  br label %if.end39
+  br i1 %cmp54, label %if.then6, label %if.end39
 
 if.then6:                                         ; preds = %if.then3
   %idxprom = zext nneg i32 %0 to i64
@@ -5919,13 +5907,13 @@ cond.end:                                         ; preds = %land.lhs.true, %con
   %or.cond = and i1 %tobool29.not51, %cmp25.not
   br i1 %or.cond, label %if.end39, label %for.end
 
-if.end39:                                         ; preds = %if.end8, %if.then3.if.end39_crit_edge, %cond.end
-  %idxprom40.pre-phi = phi i64 [ %.pre, %if.then3.if.end39_crit_edge ], [ %idxprom, %cond.end ], [ %idxprom, %if.end8 ]
-  %arrayidx41 = getelementptr inbounds i16, ptr %dest, i64 %idxprom40.pre-phi
+if.end39:                                         ; preds = %if.end8, %cond.end, %if.then3
+  %idxprom40 = zext nneg i32 %spec.select to i64
+  %arrayidx41 = getelementptr inbounds i16, ptr %dest, i64 %idxprom40
   %14 = load i16, ptr %arrayidx41, align 2
-  %arrayidx43 = getelementptr inbounds i16, ptr %result, i64 %idxprom40.pre-phi
+  %arrayidx43 = getelementptr inbounds i16, ptr %result, i64 %idxprom40
   store i16 %14, ptr %arrayidx43, align 2
-  %arrayidx45 = getelementptr inbounds i16, ptr %src, i64 %idxprom40.pre-phi
+  %arrayidx45 = getelementptr inbounds i16, ptr %src, i64 %idxprom40
   %15 = load i16, ptr %arrayidx45, align 2
   %conv46 = sext i16 %15 to i32
   %cmp47 = icmp eq i32 %spec.select, 0
@@ -6062,8 +6050,8 @@ if.end28:                                         ; preds = %for.inc, %for.cond.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__fillrect(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %fill) local_unnamed_addr #21 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @stbte__fillrect(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %fill) local_unnamed_addr #11 {
 entry:
   %redo_len.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 36
   store i32 0, ptr %redo_len.i, align 4
@@ -6364,8 +6352,8 @@ stbte__end_undo.exit:                             ; preds = %for.end12, %if.end.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__select_rect(ptr nocapture noundef readnone %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1) local_unnamed_addr #25 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+define void @stbte__select_rect(ptr nocapture noundef readnone %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1) local_unnamed_addr #5 {
 entry:
   store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 44), align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %x0, i32 %x1)
@@ -6388,7 +6376,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__copy_cut(ptr noundef %tm, i32 noundef %cut) local_unnamed_addr #12 {
+define void @stbte__copy_cut(ptr noundef %tm, i32 noundef %cut) local_unnamed_addr #11 {
 entry:
   %propmode.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 32
   %0 = load i32, ptr %propmode.i, align 4
@@ -6886,8 +6874,8 @@ entry:
   ret i32 %land.ext
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__paste(ptr nocapture noundef %tm, i32 noundef %mapx, i32 noundef %mapy) local_unnamed_addr #21 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @stbte__paste(ptr nocapture noundef %tm, i32 noundef %mapx, i32 noundef %mapy) local_unnamed_addr #11 {
 entry:
   %tilestack = alloca [8 x i16], align 16
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 66), align 8
@@ -7317,8 +7305,8 @@ return:                                           ; preds = %if.end.i, %for.end1
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__drag_update(ptr nocapture noundef %tm, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %copy_props) local_unnamed_addr #21 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @stbte__drag_update(ptr nocapture noundef %tm, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %copy_props) local_unnamed_addr #11 {
 entry:
   %temp = alloca [8 x i16], align 16
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 37), align 4
@@ -7578,8 +7566,8 @@ if.end151:                                        ; preds = %for.inc148, %for.co
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__drag_place(ptr nocapture noundef %tm, i32 %mapx, i32 %mapy) local_unnamed_addr #21 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @stbte__drag_place(ptr nocapture noundef %tm, i32 %mapx, i32 %mapy) local_unnamed_addr #11 {
 entry:
   %propmode.i = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 32
   %0 = load i32, ptr %propmode.i, align 4
@@ -7791,7 +7779,7 @@ return:                                           ; preds = %stbte__should_copy_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile_paint(ptr noundef %tm, i32 noundef %sx, i32 noundef %sy, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %layer) local_unnamed_addr #14 {
+define void @stbte__tile_paint(ptr noundef %tm, i32 noundef %sx, i32 noundef %sy, i32 noundef %mapx, i32 noundef %mapy, i32 noundef %layer) local_unnamed_addr #13 {
 entry:
   %temp = alloca [8 x i16], align 16
   %0 = shl i32 %mapx, 19
@@ -8214,17 +8202,17 @@ if.then185:                                       ; preds = %if.end176, %lor.lhs
 
 if.then190:                                       ; preds = %if.then185
   %arrayidx196 = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 1, i64 %idxprom, i64 %idxprom6
-  tail call void @STBTE_DRAW_TILE(i32 noundef %sx, i32 noundef %sy, i16 noundef zeroext %71, i32 noundef 0, ptr noundef nonnull %arrayidx196) #28
+  tail call void @STBTE_DRAW_TILE(i32 noundef %sx, i32 noundef %sy, i16 noundef zeroext %71, i32 noundef 0, ptr noundef nonnull %arrayidx196) #25
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then185, %if.then190, %lor.lhs.false178
   ret void
 }
 
-declare void @STBTE_DRAW_TILE(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #15
+declare void @STBTE_DRAW_TILE(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile(ptr nocapture noundef %tm, i32 noundef %sx, i32 noundef %sy, i32 noundef %mapx, i32 noundef %mapy) local_unnamed_addr #14 {
+define void @stbte__tile(ptr nocapture noundef %tm, i32 noundef %sx, i32 noundef %sy, i32 noundef %mapx, i32 noundef %mapy) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr @stbte__ui, align 8
   %spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 5
@@ -8341,11 +8329,11 @@ if.then19:                                        ; preds = %land.lhs.true15, %l
   %add51 = add nsw i32 %add45, 1
   %add52 = add nsw i32 %add48, 1
   %add.i = sub i32 %ry0.0, %div23
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub49, i32 noundef %sub50, i32 noundef %add45, i32 noundef %add.i, i32 noundef 16777215) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add45, i32 noundef %sub50, i32 noundef %add51, i32 noundef %add48, i32 noundef 16777215) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub49, i32 noundef %sub50, i32 noundef %add45, i32 noundef %add.i, i32 noundef 16777215) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add45, i32 noundef %sub50, i32 noundef %add51, i32 noundef %add48, i32 noundef 16777215) #25
   %add3.i = sub i32 %spec.select, %div
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %add48, i32 noundef %add51, i32 noundef %add52, i32 noundef 16777215) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub49, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %add52, i32 noundef 16777215) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %add48, i32 noundef %add51, i32 noundef %add52, i32 noundef 16777215) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub49, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %add52, i32 noundef 16777215) #25
   br label %sw.epilog
 
 if.end53:                                         ; preds = %land.lhs.true12
@@ -8357,10 +8345,10 @@ if.then57:                                        ; preds = %if.end53
   %sub59 = add nsw i32 %sy, -1
   %add60 = add nsw i32 %add, 1
   %add61 = add nsw i32 %add1, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub58, i32 noundef %sub59, i32 noundef %add, i32 noundef %sy, i32 noundef 16777215) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %sub59, i32 noundef %add60, i32 noundef %add1, i32 noundef 16777215) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sx, i32 noundef %add1, i32 noundef %add60, i32 noundef %add61, i32 noundef 16777215) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub58, i32 noundef %sy, i32 noundef %sx, i32 noundef %add61, i32 noundef 16777215) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub58, i32 noundef %sub59, i32 noundef %add, i32 noundef %sy, i32 noundef 16777215) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %sub59, i32 noundef %add60, i32 noundef %add1, i32 noundef 16777215) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sx, i32 noundef %add1, i32 noundef %add60, i32 noundef %add61, i32 noundef 16777215) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub58, i32 noundef %sy, i32 noundef %sx, i32 noundef %add61, i32 noundef 16777215) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.lhs.true15, %if.end10, %stbte__hittest.exit.thread, %if.end53, %if.then57, %land.lhs.true, %sw.bb, %stbte__hittest.exit, %if.then19
@@ -8793,7 +8781,7 @@ sw.epilog224:                                     ; preds = %if.then77, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__start_paste(ptr nocapture noundef readnone %tm) local_unnamed_addr #17 {
+define void @stbte__start_paste(ptr nocapture noundef readnone %tm) local_unnamed_addr #16 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 68), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -8813,7 +8801,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__toolbar(ptr noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 %h) local_unnamed_addr #14 {
+define void @stbte__toolbar(ptr noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 %h) local_unnamed_addr #13 {
 entry:
   %div = sdiv i32 %w, 2
   %add = add i32 %x0, -126
@@ -9148,7 +9136,7 @@ if.end79:                                         ; preds = %if.then.i91, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbte__info_value(ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %val, i32 noundef %digits, i32 noundef %id) local_unnamed_addr #14 {
+define i32 @stbte__info_value(ptr nocapture noundef readonly %label, i32 noundef %x, i32 noundef %y, i32 noundef %val, i32 noundef %digits, i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %text = alloca [16 x i8], align 16
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
@@ -9162,7 +9150,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [769 x i16], ptr @stbte__fontdata, i64 0, i64 %sub.i
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv.i = sext i16 %2 to i32
-  %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) %label, i32 noundef %digits, i32 noundef %val) #28
+  %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) %label, i32 noundef %digits, i32 noundef %val) #25
   %reass.sub = sub i32 %x, %conv.i
   %3 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 2), align 4
   %add.i = add i32 %reass.sub, 1008
@@ -9234,7 +9222,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %add.i.i.i = add nsw i32 %start_i.013.i.i.i, %y
   %add8.i.i.i = add nsw i32 %i.014.i.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %3) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %3) #25
   %9 = trunc i32 %shl.i.i.i to i16
   %10 = sub i16 0, %9
   %conv12.i.i.i = and i16 %bitmask.addr.012.i.i.i, %10
@@ -9301,7 +9289,7 @@ if.end31:                                         ; preds = %if.then3, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__info(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 %w, i32 %h) local_unnamed_addr #14 {
+define void @stbte__info(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 %w, i32 %h) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 60, i64 2, i32 1), align 8
   %digits = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 20
@@ -9407,7 +9395,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add30
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add30
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %9) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %9) #25
   %14 = trunc i32 %shl.i.i.i.i to i16
   %15 = sub i16 0, %14
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %15
@@ -9445,7 +9433,7 @@ if.then34:                                        ; preds = %stbte__draw_text.ex
   %idxprom = zext nneg i32 %17 to i64
   %arrayidx = getelementptr inbounds %struct.stbte__tileinfo, ptr %18, i64 %idxprom
   %19 = load i16, ptr %arrayidx, align 8
-  tail call void @STBTE_DRAW_TILE(i32 noundef %add35, i32 noundef %sub, i16 noundef zeroext %19, i32 noundef 1, ptr noundef null) #28
+  tail call void @STBTE_DRAW_TILE(i32 noundef %add35, i32 noundef %sub, i16 noundef zeroext %19, i32 noundef 1, ptr noundef null) #25
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then34, %stbte__draw_text.exit
@@ -9453,7 +9441,7 @@ if.end37:                                         ; preds = %if.then34, %stbte__
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__layers(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #14 {
+define void @stbte__layers(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #13 {
 entry:
   %text = alloca [3 x i8], align 1
   %has_layer_names = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 29
@@ -9548,7 +9536,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add6145
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add6145
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %5) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %5) #25
   %10 = trunc i32 %shl.i.i.i.i to i16
   %11 = sub i16 0, %10
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %11
@@ -9624,7 +9612,7 @@ if.then32:                                        ; preds = %for.body
 if.then34:                                        ; preds = %if.then32
   %21 = trunc i64 %indvars.iv to i32
   %22 = add i32 %21, 1
-  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %22) #28
+  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %text, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %22) #25
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.then32
@@ -9809,7 +9797,7 @@ if.else.i.i.i.i136:                               ; preds = %while.body.i.i.i.i1
 if.then6.i.i.i.i138:                              ; preds = %if.else.i.i.i.i136
   %add.i.i.i.i139 = add nsw i32 %start_i.013.i.i.i.i119, %add123
   %add8.i.i.i.i140 = add nsw i32 %i.014.i.i.i.i118, %add123
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i112, i32 noundef %add.i.i.i.i139, i32 noundef %add7.i.i.i.i116, i32 noundef %add8.i.i.i.i140, i32 noundef %39) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i112, i32 noundef %add.i.i.i.i139, i32 noundef %add7.i.i.i.i116, i32 noundef %add8.i.i.i.i140, i32 noundef %39) #25
   %44 = trunc i32 %shl.i.i.i.i122 to i16
   %45 = sub i16 0, %44
   %conv12.i.i.i.i141 = and i16 %bitmask.addr.012.i.i.i.i120, %45
@@ -9859,7 +9847,7 @@ if.end140:                                        ; preds = %if.then135, %stbte_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__categories(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #14 {
+define void @stbte__categories(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #13 {
 entry:
   %div = sdiv i32 %h, 11
   %sub = add nsw i32 %w, -4
@@ -9997,7 +9985,7 @@ return:                                           ; preds = %if.then18, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__tile_in_palette(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %slot) local_unnamed_addr #14 {
+define void @stbte__tile_in_palette(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %slot) local_unnamed_addr #13 {
 entry:
   %palette_spacing_x = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 7
   %0 = load i32, ptr %palette_spacing_x, align 4
@@ -10040,13 +10028,13 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
 sw.bb:                                            ; preds = %stbte__hittest.exit
   %add7 = add i32 %y, -1
   %sub8 = add i32 %add7, %0
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub, i32 noundef %sub8, i32 noundef 0) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x, i32 noundef %y, i32 noundef %sub, i32 noundef %sub8, i32 noundef 0) #25
   %conv = trunc i32 %add2 to i16
   %cur_tile = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 12
   %6 = load i32, ptr %cur_tile, align 8
   %cmp = icmp eq i32 %6, %slot
   %conv9 = zext i1 %cmp to i32
-  tail call void @STBTE_DRAW_TILE(i32 noundef %x, i32 noundef %y, i16 noundef zeroext %conv, i32 noundef %conv9, ptr noundef null) #28
+  tail call void @STBTE_DRAW_TILE(i32 noundef %x, i32 noundef %y, i16 noundef zeroext %conv, i32 noundef %conv9, ptr noundef null) #25
   %7 = load i32, ptr %cur_tile, align 8
   %cmp11 = icmp eq i32 %7, %slot
   br i1 %cmp11, label %if.then, label %sw.epilog
@@ -10138,7 +10126,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__palette_of_tiles(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #14 {
+define void @stbte__palette_of_tiles(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %w, i32 noundef %h) local_unnamed_addr #13 {
 entry:
   %sub = add nsw i32 %h, -6
   %palette_spacing_y = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 8
@@ -10252,7 +10240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__editor_traverse(ptr noundef %tm) local_unnamed_addr #14 {
+define void @stbte__editor_traverse(ptr noundef %tm) local_unnamed_addr #13 {
 entry:
   %width346 = alloca i32, align 4
   %cmp = icmp eq ptr %tm, null
@@ -10282,7 +10270,7 @@ if.then6:                                         ; preds = %if.end4
   %6 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 52), align 8
   %7 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 53), align 4
   %8 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 54), align 8
-  tail call void @STBTE_DRAW_RECT(i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 2109536) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 2109536) #25
   %9 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 51), align 4
   %scroll_x = getelementptr inbounds %struct.stbte_tilemap, ptr %tm, i64 0, i32 9
   %10 = load i32, ptr %scroll_x, align 4
@@ -10303,7 +10291,7 @@ if.then6:                                         ; preds = %if.end4
   %16 = load i32, ptr %max_y, align 4
   %mul12 = mul nsw i32 %16, %15
   %add13 = add nsw i32 %mul12, %sub7
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub, i32 noundef %sub7, i32 noundef %add, i32 noundef %add13, i32 noundef 0) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub, i32 noundef %sub7, i32 noundef %add, i32 noundef %add13, i32 noundef 0) #25
   %.pre = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   br label %if.end14
 
@@ -10429,7 +10417,7 @@ for.body92:                                       ; preds = %if.then76, %for.bod
   %46 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 52), align 8
   %add93 = add nsw i32 %x77.0247, 1
   %47 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 54), align 8
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x77.0247, i32 noundef %46, i32 noundef %add93, i32 noundef %47, i32 noundef 4210752) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x77.0247, i32 noundef %46, i32 noundef %add93, i32 noundef %47, i32 noundef 4210752) #25
   %inc95 = add nuw nsw i32 %i.1248, 1
   %48 = load i32, ptr %spacing_x16, align 4
   %add97 = add nsw i32 %48, %x77.0247
@@ -10445,7 +10433,7 @@ for.body104:                                      ; preds = %for.cond99.preheade
   %51 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 51), align 4
   %52 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 53), align 4
   %add105 = add nsw i32 %y83.0251, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %51, i32 noundef %y83.0251, i32 noundef %52, i32 noundef %add105, i32 noundef 4210752) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %51, i32 noundef %y83.0251, i32 noundef %52, i32 noundef %add105, i32 noundef 4210752) #25
   %inc107 = add nuw nsw i32 %j.1252, 1
   %53 = load i32, ptr %spacing_y20, align 8
   %add109 = add nsw i32 %53, %y83.0251
@@ -10505,7 +10493,7 @@ for.body137:                                      ; preds = %if.then119, %for.bo
   %69 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 52), align 8
   %add138 = add nsw i32 %x120.0258, 1
   %70 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 54), align 8
-  tail call void @STBTE_DRAW_RECT(i32 noundef %x120.0258, i32 noundef %69, i32 noundef %add138, i32 noundef %70, i32 noundef 4210752) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %x120.0258, i32 noundef %69, i32 noundef %add138, i32 noundef %70, i32 noundef 4210752) #25
   %inc140 = add nuw nsw i32 %i.2259, 1
   %71 = load i32, ptr %spacing_x16, align 4
   %add142 = add nsw i32 %71, %x120.0258
@@ -10521,7 +10509,7 @@ for.body149:                                      ; preds = %for.cond144.prehead
   %74 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 51), align 4
   %75 = load i32, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 53), align 4
   %add150 = add nsw i32 %y126.0262, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %74, i32 noundef %y126.0262, i32 noundef %75, i32 noundef %add150, i32 noundef 4210752) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %74, i32 noundef %y126.0262, i32 noundef %75, i32 noundef %add150, i32 noundef 4210752) #25
   %inc152 = add nuw nsw i32 %j.2263, 1
   %76 = load i32, ptr %spacing_y20, align 8
   %add154 = add nsw i32 %76, %y126.0262
@@ -10607,11 +10595,11 @@ if.then184:                                       ; preds = %if.then183
   %tobool209.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool209.not, i32 3158064, i32 14671839
   %add.i = add nsw i32 %sub194, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub189, i32 noundef %sub194, i32 noundef %sub200, i32 noundef %add.i, i32 noundef %cond) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub200, i32 noundef %sub194, i32 noundef %add201, i32 noundef %sub207, i32 noundef %cond) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub189, i32 noundef %sub194, i32 noundef %sub200, i32 noundef %add.i, i32 noundef %cond) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub200, i32 noundef %sub194, i32 noundef %add201, i32 noundef %sub207, i32 noundef %cond) #25
   %add3.i = add nsw i32 %sub189, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub207, i32 noundef %add201, i32 noundef %add208, i32 noundef %cond) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub189, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %add208, i32 noundef %cond) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i, i32 noundef %sub207, i32 noundef %add201, i32 noundef %add208, i32 noundef %cond) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub189, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %add208, i32 noundef %cond) #25
   br label %if.end210
 
 if.end210:                                        ; preds = %if.then184, %if.then183
@@ -10640,16 +10628,16 @@ if.then216:                                       ; preds = %for.body214
   %102 = load i32, ptr %height, align 8
   %add222 = add nsw i32 %102, %100
   %103 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3), align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %100, i32 noundef %add220, i32 noundef %add222, i32 noundef %103) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %100, i32 noundef %add220, i32 noundef %add222, i32 noundef %103) #25
   %104 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3, i64 1, i64 0), align 8
   %sub.i.i = add nsw i32 %add220, -1
   %add.i.i = add nsw i32 %100, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %100, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %104) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %100, i32 noundef %sub.i.i, i32 noundef %add.i.i, i32 noundef %104) #25
   %sub2.i.i = add nsw i32 %add222, -1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %100, i32 noundef %add220, i32 noundef %sub2.i.i, i32 noundef %104) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i.i, i32 noundef %100, i32 noundef %add220, i32 noundef %sub2.i.i, i32 noundef %104) #25
   %add3.i.i = add nsw i32 %99, 1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add220, i32 noundef %add222, i32 noundef %104) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add222, i32 noundef %104) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i.i, i32 noundef %sub2.i.i, i32 noundef %add220, i32 noundef %add222, i32 noundef %104) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %99, i32 noundef %add.i.i, i32 noundef %add3.i.i, i32 noundef %add222, i32 noundef %104) #25
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then216, %for.body214
@@ -10708,7 +10696,7 @@ if.then236:                                       ; preds = %sw.bb
   %add241 = add nsw i32 %.pre292, %105
   %add244 = add nsw i32 %.pre294, %.pre290
   %117 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 1), align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %105, i32 noundef %.pre290, i32 noundef %add241, i32 noundef %add244, i32 noundef %117) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %105, i32 noundef %.pre290, i32 noundef %add241, i32 noundef %add244, i32 noundef %117) #25
   %.pre288 = load i32, ptr %x0224, align 4
   %.pre289 = load i32, ptr %y0225, align 8
   %.pre291 = load i32, ptr %width227, align 4
@@ -10761,7 +10749,7 @@ if.then270:                                       ; preds = %land.lhs.true268
   %sub278 = add i32 %add277, %132
   %add280 = add nsw i32 %131, 1
   %133 = load i32, ptr getelementptr inbounds ([13 x [3 x [7 x i32]]], ptr @stbte__color_table, i64 0, i64 3), align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add272, i32 noundef %sub274, i32 noundef %sub278, i32 noundef %add280, i32 noundef %133) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add272, i32 noundef %sub274, i32 noundef %sub278, i32 noundef %add280, i32 noundef %133) #25
   %.pre287 = load i32, ptr %x0224, align 4
   br label %if.end281
 
@@ -10982,15 +10970,15 @@ stbte__text_width.exit:                           ; preds = %while.body.i, %if.t
   %add438 = add nsw i32 %div428, %div433
   %add439 = add nsw i32 %add438, 4
   %add440 = add nsw i32 %div432, 8
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %sub436, i32 noundef %add439, i32 noundef %add440, i32 noundef 6307872) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %sub436, i32 noundef %add439, i32 noundef %add440, i32 noundef 6307872) #25
   %sub.i = add nsw i32 %add438, 3
   %add.i225 = add nsw i32 %div432, -7
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %sub436, i32 noundef %sub.i, i32 noundef %add.i225, i32 noundef 9461808) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %sub436, i32 noundef %sub.i, i32 noundef %add.i225, i32 noundef 9461808) #25
   %sub2.i = add nsw i32 %div432, 7
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %sub436, i32 noundef %add439, i32 noundef %sub2.i, i32 noundef 9461808) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub.i, i32 noundef %sub436, i32 noundef %add439, i32 noundef %sub2.i, i32 noundef 9461808) #25
   %add3.i226 = add nsw i32 %sub434, -3
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i226, i32 noundef %sub2.i, i32 noundef %add439, i32 noundef %add440, i32 noundef 9461808) #28
-  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %add.i225, i32 noundef %add3.i226, i32 noundef %add440, i32 noundef 9461808) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add3.i226, i32 noundef %sub2.i, i32 noundef %add439, i32 noundef %add440, i32 noundef 9461808) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %sub435, i32 noundef %add.i225, i32 noundef %add3.i226, i32 noundef %add440, i32 noundef 9461808) #25
   %sub451 = add nsw i32 %div432, -4
   %170 = load ptr, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 58), align 8
   %add452 = add nsw i32 %x.0.lcssa.i, 1
@@ -11059,7 +11047,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %sub451
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %sub451
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef 16744512) #28
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef 16744512) #25
   %176 = trunc i32 %shl.i.i.i.i to i16
   %177 = sub i16 0, %176
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %177
@@ -11133,7 +11121,7 @@ if.end473:                                        ; preds = %if.then462, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte__do_event(ptr noundef %tm) local_unnamed_addr #14 {
+define void @stbte__do_event(ptr noundef %tm) local_unnamed_addr #13 {
 entry:
   store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 4), align 8
   tail call void @stbte__editor_traverse(ptr noundef %tm)
@@ -11253,7 +11241,7 @@ if.end34:                                         ; preds = %if.then23, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @stbte__set_event(i32 noundef %event, i32 noundef %x, i32 noundef %y) local_unnamed_addr #17 {
+define void @stbte__set_event(i32 noundef %event, i32 noundef %x, i32 noundef %y) local_unnamed_addr #16 {
 entry:
   store i32 %event, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   store i32 %x, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 6), align 8
@@ -11276,7 +11264,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_draw(ptr noundef %tm) local_unnamed_addr #14 {
+define void @stbte_draw(ptr noundef %tm) local_unnamed_addr #13 {
 entry:
   store i32 0, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   tail call void @stbte__editor_traverse(ptr noundef %tm)
@@ -11284,7 +11272,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_mouse_move(ptr noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %shifted, i32 noundef %scrollkey) local_unnamed_addr #14 {
+define void @stbte_mouse_move(ptr noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %shifted, i32 noundef %scrollkey) local_unnamed_addr #13 {
 entry:
   store i32 2, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   store i32 %x, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 6), align 8
@@ -11310,7 +11298,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_mouse_button(ptr noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %right, i32 noundef %down, i32 noundef %shifted, i32 noundef %scrollkey) local_unnamed_addr #14 {
+define void @stbte_mouse_button(ptr noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %right, i32 noundef %down, i32 noundef %shifted, i32 noundef %scrollkey) local_unnamed_addr #13 {
 entry:
   %idxprom = sext i32 %right to i64
   %idxprom1 = sext i32 %down to i64
@@ -11346,7 +11334,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte_action(ptr noundef %tm, i32 noundef %act) local_unnamed_addr #12 {
+define void @stbte_action(ptr noundef %tm, i32 noundef %act) local_unnamed_addr #11 {
 entry:
   switch i32 %act, label %sw.epilog [
     i32 0, label %sw.bb
@@ -11476,7 +11464,7 @@ sw.epilog:                                        ; preds = %if.then.i, %sw.bb12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbte_tick(ptr noundef %tm, float noundef %dt) local_unnamed_addr #14 {
+define void @stbte_tick(ptr noundef %tm, float noundef %dt) local_unnamed_addr #13 {
 entry:
   store i32 1, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 5), align 4
   store float %dt, ptr getelementptr inbounds (%struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 59), align 8
@@ -11497,13 +11485,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #26
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #26
+declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11512,28 +11500,25 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { nounwind }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

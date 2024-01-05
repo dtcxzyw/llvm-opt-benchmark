@@ -6224,7 +6224,6 @@ if.end:                                           ; preds = %entry
   %m_special_type.i33 = getelementptr inbounds %"class.datalog::relation_plugin", ptr %1, i64 0, i32 1
   %3 = load i32, ptr %m_special_type.i33, align 8
   %cmp.i34 = icmp eq i32 %3, 4
-  %cond13 = select i1 %cmp.i34, ptr %neg, ptr null
   br i1 %cmp.i, label %cond.true15, label %cond.end18
 
 cond.true15:                                      ; preds = %if.end
@@ -6252,7 +6251,6 @@ cond.end23.thread:                                ; preds = %cond.end18
 for.body.us.preheader:                            ; preds = %cond.end23
   %m_sig2inner.i = getelementptr inbounds %"class.datalog::sieve_relation", ptr %r, i64 0, i32 2
   %m_sig2inner.i37 = getelementptr inbounds %"class.datalog::sieve_relation", ptr %neg, i64 0, i32 2
-  %m_sig2inner.i45 = getelementptr inbounds %"class.datalog::sieve_relation", ptr %cond13, i64 0, i32 2
   %wide.trip.count = zext i32 %col_cnt to i64
   br label %for.body.us
 
@@ -6261,13 +6259,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp.i, label %land.end.us, label %land.end.us.thread
 
 land.end.us.thread:                               ; preds = %for.body.us
-  %arrayidx34.us96 = getelementptr inbounds i32, ptr %neg_cols, i64 %indvars.iv
-  %6 = load i32, ptr %arrayidx34.us96, align 4
+  %arrayidx34.us95 = getelementptr inbounds i32, ptr %neg_cols, i64 %indvars.iv
+  %6 = load i32, ptr %arrayidx34.us95, align 4
   %7 = load ptr, ptr %m_sig2inner.i37, align 8
-  %idxprom.i.i38.us97 = zext i32 %6 to i64
-  %arrayidx.i.i39.us98 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i38.us97
-  %8 = load i32, ptr %arrayidx.i.i39.us98, align 4
-  %cmp.i40.not.us99 = icmp ne i32 %8, -1
+  %idxprom.i.i38.us96 = zext i32 %6 to i64
+  %arrayidx.i.i39.us97 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i38.us96
+  %8 = load i32, ptr %arrayidx.i.i39.us97, align 4
+  %cmp.i40.not.us98 = icmp ne i32 %8, -1
   br label %if.else.us
 
 land.end.us:                                      ; preds = %for.body.us
@@ -6326,7 +6324,7 @@ cond.end59.us:                                    ; preds = %.noexc.us, %lor.lhs
   %23 = load i32, ptr %arrayidx10.i.us, align 4
   %inc.i.us = add i32 %23, 1
   store i32 %inc.i.us, ptr %arrayidx10.i.us, align 4
-  %24 = load ptr, ptr %m_sig2inner.i45, align 8
+  %24 = load ptr, ptr %m_sig2inner.i37, align 8
   %arrayidx.i.i47.us = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx.i.i47.us, align 4
   %26 = load ptr, ptr %ineg_cols, align 8
@@ -6365,9 +6363,9 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit62.us:        ; preds = %.noexc61.us, %lor.l
   br label %for.inc.us
 
 if.else.us:                                       ; preds = %land.end.us.thread, %land.end.us
-  %cmp.i40.not.us102 = phi i1 [ %cmp.i40.not.us99, %land.end.us.thread ], [ %cmp.i40.not.us, %land.end.us ]
+  %cmp.i40.not.us101 = phi i1 [ %cmp.i40.not.us98, %land.end.us.thread ], [ %cmp.i40.not.us, %land.end.us ]
   %33 = phi i1 [ false, %land.end.us.thread ], [ %cmp.i36.not.us, %land.end.us ]
-  %brmerge29.us = or i1 %33, %cmp.i40.not.us102
+  %brmerge29.us = or i1 %33, %cmp.i40.not.us101
   br i1 %brmerge29.us, label %for.inc.us, label %if.then66
 
 for.inc.us:                                       ; preds = %if.else.us, %_ZN6vectorIjLb0EjE9push_backEOj.exit62.us
@@ -6401,8 +6399,8 @@ invoke.cont67:                                    ; preds = %if.then66
 
 for.end.thread:                                   ; preds = %cond.end23.thread, %cond.end23
   %cond-lvalue2490.ph = phi ptr [ %5, %cond.end23 ], [ %neg, %cond.end23.thread ]
-  %m_manager.i104 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::plugin_object", ptr %this, i64 0, i32 3
-  %34 = load ptr, ptr %m_manager.i104, align 8
+  %m_manager.i103 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::relation_traits>::plugin_object", ptr %this, i64 0, i32 3
+  %34 = load ptr, ptr %m_manager.i103, align 8
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
 
 for.end:                                          ; preds = %for.inc.us
@@ -6420,10 +6418,10 @@ if.end.i.i:                                       ; preds = %for.end
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %for.end.thread, %if.end.i.i, %for.end
   %37 = phi ptr [ %35, %if.end.i.i ], [ %35, %for.end ], [ %34, %for.end.thread ]
   %38 = phi ptr [ %.pre, %if.end.i.i ], [ null, %for.end ], [ null, %for.end.thread ]
-  %cond-lvalue2490106 = phi ptr [ %5, %if.end.i.i ], [ %5, %for.end ], [ %cond-lvalue2490.ph, %for.end.thread ]
+  %cond-lvalue2490105 = phi ptr [ %5, %if.end.i.i ], [ %5, %for.end ], [ %cond-lvalue2490.ph, %for.end.thread ]
   %retval.0.i.i = phi i32 [ %36, %if.end.i.i ], [ 0, %for.end ], [ 0, %for.end.thread ]
   %39 = load ptr, ptr %ineg_cols, align 8
-  %call4.i64 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_by_negation_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %37, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue2490106, i32 noundef %retval.0.i.i, ptr noundef %38, ptr noundef %39)
+  %call4.i64 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_by_negation_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %37, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue2490105, i32 noundef %retval.0.i.i, ptr noundef %38, ptr noundef %39)
           to label %invoke.cont73 unwind label %lpad27.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i

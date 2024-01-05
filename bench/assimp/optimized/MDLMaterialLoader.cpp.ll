@@ -857,7 +857,7 @@ for.cond165.preheader:                            ; preds = %if.then155
 
 for.body170:                                      ; preds = %for.cond165.preheader, %for.body170
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %for.body170 ], [ 0, %for.cond165.preheader ]
-  %mul171 = mul i64 %indvars.iv188, 3
+  %mul171 = mul nuw nsw i64 %indvars.iv188, 3
   %idxprom172 = and i64 %mul171, 4294967295
   %arrayidx173 = getelementptr inbounds i8, ptr %szData, i64 %idxprom172
   %40 = load ptr, ptr %pcData, align 8
@@ -937,7 +937,7 @@ for.cond226.preheader:                            ; preds = %if.then216
 
 for.body231:                                      ; preds = %for.cond226.preheader, %for.body231
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %for.body231 ], [ 0, %for.cond226.preheader ]
-  %mul233 = shl i64 %indvars.iv194, 2
+  %mul233 = shl nuw nsw i64 %indvars.iv194, 2
   %idxprom234 = and i64 %mul233, 4294967292
   %arrayidx235 = getelementptr inbounds i8, ptr %szData, i64 %idxprom234
   %incdec.ptr236 = getelementptr inbounds i8, ptr %arrayidx235, i64 1
@@ -1929,8 +1929,8 @@ entry:
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szCurrent.addr.0) #20
-  %0 = getelementptr i8, ptr %szCurrent.addr.0, i64 %call
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szCurrent) #20
+  %0 = getelementptr i8, ptr %szCurrent, i64 %call
   %add.ptr4 = getelementptr i8, ptr %0, i64 1
   br label %if.end24
 
@@ -2067,7 +2067,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %4

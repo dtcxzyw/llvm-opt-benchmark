@@ -507,10 +507,8 @@ entry:
   %retval.sroa.0.0.copyload.i263 = load i32, ptr %valueType.i262, align 2
   %0 = load i8, ptr %lhs, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %0, 114
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %lhs, ptr null
   %1 = load i8, ptr %rhs, align 8
   %cmp.i.i.i.i.i.i.i264 = icmp eq i8 %1, 114
-  %spec.select.i265 = select i1 %cmp.i.i.i.i.i.i.i264, ptr %rhs, ptr null
   %cmp.i.i.i.i.i.i.i266 = icmp eq i8 %0, 113
   %cmp.i.i.i.i.i.i.i268 = icmp eq i8 %1, 113
   %cmp.i.i.i.i.i.i.i270 = icmp eq i8 %0, 112
@@ -735,9 +733,9 @@ if.end82:                                         ; preds = %if.end70
   br i1 %or.cond, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.end82
-  %value.i303 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i303 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i304 = load ptr, ptr %value.i303, align 8
-  %value.i305 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i305 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i306 = load ptr, ptr %value.i305, align 8
   %cmp.i307 = icmp eq ptr %retval.sroa.0.0.copyload.i304, %retval.sroa.0.0.copyload.i306
   %call94 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i307) #6
@@ -792,9 +790,9 @@ if.end122:                                        ; preds = %if.end110
   br i1 %or.cond1, label %if.then126, label %return
 
 if.then126:                                       ; preds = %if.end122
-  %value.i309 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i309 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i310 = load ptr, ptr %value.i309, align 8
-  %value.i311 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i311 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i312 = load ptr, ptr %value.i311, align 8
   %cmp.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i310, %retval.sroa.0.0.copyload.i312
   %call135 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i) #6
@@ -864,9 +862,9 @@ if.end159:                                        ; preds = %if.end147
   br i1 %or.cond2, label %if.then163, label %return
 
 if.then163:                                       ; preds = %if.end159
-  %value.i317 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i317 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i318 = load ptr, ptr %value.i317, align 8
-  %value.i319 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i319 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i320 = load ptr, ptr %value.i319, align 8
   %cmp.i321 = icmp eq ptr %retval.sroa.0.0.copyload.i318, %retval.sroa.0.0.copyload.i320
   %call172 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i321) #6
@@ -911,9 +909,9 @@ if.end190:                                        ; preds = %if.end178
   br i1 %or.cond3, label %if.then194, label %return
 
 if.then194:                                       ; preds = %if.end190
-  %value.i323 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i323 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i324 = load ptr, ptr %value.i323, align 8
-  %value.i325 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i325 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i326 = load ptr, ptr %value.i325, align 8
   %cmp.i.i327 = icmp ne ptr %retval.sroa.0.0.copyload.i324, %retval.sroa.0.0.copyload.i326
   %call203 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i327) #6
@@ -1214,9 +1212,9 @@ sw.bb306:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then310, label %if.end314
 
 if.then310:                                       ; preds = %sw.bb306
-  %value.i399 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i399 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %34 = load double, ptr %value.i399, align 8
-  %value.i400 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i400 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %35 = load double, ptr %value.i400, align 8
   %add = fadd double %34, %35
   %call313 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %add) #6
@@ -1227,12 +1225,12 @@ if.end314:                                        ; preds = %sw.bb306
   br i1 %or.cond6, label %if.then318, label %if.end335
 
 if.then318:                                       ; preds = %if.end314
-  %value.i401 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i401 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i402 = load ptr, ptr %value.i401, align 8
   %retval.sroa.0.0.copyload.i403 = load ptr, ptr %retval.sroa.0.0.copyload.i402, align 8
   %retval.sroa.2.0.call.sroa_idx.i404 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i402, i64 8
   %retval.sroa.2.0.copyload.i405 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i404, align 8
-  %value.i408 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i408 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
   %retval.sroa.0.0.copyload.i409 = load ptr, ptr %value.i408, align 8
   %retval.sroa.0.0.copyload.i410 = load ptr, ptr %retval.sroa.0.0.copyload.i409, align 8
   %retval.sroa.2.0.call.sroa_idx.i411 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i409, i64 8
@@ -1415,9 +1413,9 @@ sw.bb434:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then438, label %return
 
 if.then438:                                       ; preds = %sw.bb434
-  %value.i483 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i483 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %54 = load double, ptr %value.i483, align 8
-  %value.i484 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i484 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %55 = load double, ptr %value.i484, align 8
   %sub = fsub double %54, %55
   %call441 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %sub) #6
@@ -1427,9 +1425,9 @@ sw.bb443:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then447, label %if.end451
 
 if.then447:                                       ; preds = %sw.bb443
-  %value.i485 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i485 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %56 = load double, ptr %value.i485, align 8
-  %value.i486 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i486 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %57 = load double, ptr %value.i486, align 8
   %mul = fmul double %56, %57
   %call450 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %mul) #6
@@ -1473,9 +1471,9 @@ sw.bb478:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then482, label %return
 
 if.then482:                                       ; preds = %sw.bb478
-  %value.i489 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i489 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %65 = load double, ptr %value.i489, align 8
-  %value.i490 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i490 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %66 = load double, ptr %value.i490, align 8
   %div = fdiv double %65, %66
   %call485 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %div) #6
@@ -1485,9 +1483,9 @@ sw.bb487:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then491, label %return
 
 if.then491:                                       ; preds = %sw.bb487
-  %value.i491 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i491 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %67 = load double, ptr %value.i491, align 8
-  %value.i492 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i492 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %68 = load double, ptr %value.i492, align 8
   %call494 = tail call double @fmod(double noundef %67, double noundef %68) #6
   %call495 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %call494) #6
@@ -1497,9 +1495,9 @@ sw.bb497:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then501, label %return
 
 if.then501:                                       ; preds = %sw.bb497
-  %value.i493 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i493 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %69 = load double, ptr %value.i493, align 8
-  %value.i494 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i494 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %70 = load double, ptr %value.i494, align 8
   %71 = fcmp uno double %70, 0.000000e+00
   br i1 %71, label %_ZN6hermes5expOpEdd.exit, label %if.else.i
@@ -1529,7 +1527,7 @@ sw.bb507:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then511, label %return
 
 if.then511:                                       ; preds = %sw.bb507
-  %value.i498 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i498 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %75 = load double, ptr %value.i498, align 8
   %conv4.i.i500 = fptoui double %75 to i64
   %shl.i.i501 = shl i64 %conv4.i.i500, 1
@@ -1548,7 +1546,7 @@ if.end11.i.i505:                                  ; preds = %if.then511
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517: ; preds = %if.then8.i.i508, %if.end11.i.i505
   %retval.0.i.i507 = phi i32 [ %call.i.i506, %if.end11.i.i505 ], [ %conv9.i.i509, %if.then8.i.i508 ]
-  %value.i518 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i518 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %76 = load double, ptr %value.i518, align 8
   %conv4.i.i520 = fptoui double %76 to i64
   %shl.i.i521 = shl i64 %conv4.i.i520, 1
@@ -1576,7 +1574,7 @@ sw.bb517:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then521, label %return
 
 if.then521:                                       ; preds = %sw.bb517
-  %value.i538 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i538 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %77 = load double, ptr %value.i538, align 8
   %conv4.i.i540 = fptoui double %77 to i64
   %shl.i.i541 = shl i64 %conv4.i.i540, 1
@@ -1595,7 +1593,7 @@ if.end11.i.i545:                                  ; preds = %if.then521
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557: ; preds = %if.then8.i.i548, %if.end11.i.i545
   %retval.0.i.i547 = phi i32 [ %call.i.i546, %if.end11.i.i545 ], [ %conv9.i.i549, %if.then8.i.i548 ]
-  %value.i558 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i558 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %78 = load double, ptr %value.i558, align 8
   %conv4.i.i560 = fptoui double %78 to i64
   %shl.i.i561 = shl i64 %conv4.i.i560, 1
@@ -1623,7 +1621,7 @@ sw.bb527:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then531, label %return
 
 if.then531:                                       ; preds = %sw.bb527
-  %value.i578 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i578 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
   %79 = load double, ptr %value.i578, align 8
   %conv4.i.i580 = fptoui double %79 to i64
   %shl.i.i581 = shl i64 %conv4.i.i580, 1
@@ -1642,7 +1640,7 @@ if.end11.i.i585:                                  ; preds = %if.then531
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597: ; preds = %if.then8.i.i588, %if.end11.i.i585
   %retval.0.i.i587 = phi i32 [ %call.i.i586, %if.end11.i.i585 ], [ %conv9.i.i589, %if.then8.i.i588 ]
-  %value.i598 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i598 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
   %80 = load double, ptr %value.i598, align 8
   %conv4.i.i600 = fptoui double %80 to i64
   %shl.i.i601 = shl i64 %conv4.i.i600, 1

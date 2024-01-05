@@ -14491,7 +14491,7 @@ if.end70:                                         ; preds = %if.end8
   store i32 %bf.clear75, ptr %encoding, align 4
   call void @zuiInitIterator(ptr noundef nonnull %src)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %zval, i8 0, i64 80, i1 false)
-  %cond81 = tail call i64 @llvm.umin.i64(i64 %count.0, i64 %length.0.i)
+  %cond81 = tail call i64 @llvm.umin.i64(i64 %l, i64 %length.0.i)
   %tobool82.not = icmp eq i32 %withscores, 0
   br i1 %tobool82.not, label %if.end90, label %land.lhs.true83
 
@@ -14506,7 +14506,7 @@ land.lhs.true83:                                  ; preds = %if.end70
 if.end90:                                         ; preds = %land.lhs.true83, %if.end70
   %cond81.sink = phi i64 [ %cond81, %if.end70 ], [ %spec.select219, %land.lhs.true83 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %cond81.sink) #19
-  %cmp91.not = icmp ult i64 %count.0, %length.0.i
+  %cmp91.not = icmp ugt i64 %length.0.i, %l
   br i1 %cmp91.not, label %if.end110, label %while.cond94.preheader
 
 while.cond94.preheader:                           ; preds = %if.end90
@@ -14633,7 +14633,7 @@ if.end110:                                        ; preds = %if.end90
   br i1 %cmp114, label %if.then116, label %if.end139
 
 if.then116:                                       ; preds = %if.end110
-  %mul119 = mul i64 %count.0, 24
+  %mul119 = mul i64 %l, 24
   %call120 = tail call noalias ptr @zmalloc(i64 noundef %mul119) #18
   br i1 %tobool82.not, label %if.end125, label %if.then122
 
@@ -14645,10 +14645,10 @@ if.end125:                                        ; preds = %if.then122, %if.the
   %vals118.0 = phi ptr [ %call124, %if.then122 ], [ null, %if.then116 ]
   %ptr126 = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
   %40 = load ptr, ptr %ptr126, align 8
-  %conv127 = trunc i64 %count.0 to i32
+  %conv127 = trunc i64 %l to i32
   %call128 = tail call i32 @lpRandomPairsUnique(ptr noundef %40, i32 noundef %conv127, ptr noundef %call120, ptr noundef %vals118.0) #19
   %conv129 = zext i32 %call128 to i64
-  %cmp130 = icmp eq i64 %count.0, %conv129
+  %cmp130 = icmp eq i64 %conv129, %l
   br i1 %cmp130, label %cond.end137, label %cond.false136
 
 cond.false136:                                    ; preds = %if.end125
@@ -14664,7 +14664,7 @@ cond.end137:                                      ; preds = %if.end125
   br label %return
 
 if.end139:                                        ; preds = %if.end110
-  %mul140 = mul i64 %count.0, 3
+  %mul140 = mul i64 %l, 3
   %cmp141 = icmp ugt i64 %mul140, %length.0.i
   br i1 %cmp141, label %if.then143, label %if.else214
 
@@ -14751,15 +14751,19 @@ while.end168:                                     ; preds = %if.end167, %if.then
   %48 = load i64, ptr %arrayidx171, align 8
   %add = add i64 %48, %47
   %cmp172 = icmp eq i64 %add, %length.0.i
-  br i1 %cmp172, label %while.body186, label %cond.false181
+  br i1 %cmp172, label %while.cond183.preheader, label %cond.false181
+
+while.cond183.preheader:                          ; preds = %while.end168
+  %cmp184210 = icmp ugt i64 %length.0.i, %count.0
+  br i1 %cmp184210, label %while.body186, label %while.end193
 
 cond.false181:                                    ; preds = %while.end168
   call void @_serverAssert(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.1, i32 noundef 4338) #19
   call void @abort() #20
   unreachable
 
-while.body186:                                    ; preds = %while.end168, %while.body186
-  %size.0211 = phi i64 [ %dec192, %while.body186 ], [ %length.0.i, %while.end168 ]
+while.body186:                                    ; preds = %while.cond183.preheader, %while.body186
+  %size.0211 = phi i64 [ %dec192, %while.body186 ], [ %length.0.i, %while.cond183.preheader ]
   %call188 = call ptr @dictGetFairRandomKey(ptr noundef %call144) #19
   %call189 = call ptr @dictGetKey(ptr noundef %call188) #19
   %call190 = call ptr @dictUnlink(ptr noundef %call144, ptr noundef %call189) #19
@@ -14770,7 +14774,7 @@ while.body186:                                    ; preds = %while.end168, %whil
   %cmp184 = icmp ugt i64 %dec192, %count.0
   br i1 %cmp184, label %while.body186, label %while.end193, !llvm.loop !97
 
-while.end193:                                     ; preds = %while.body186
+while.end193:                                     ; preds = %while.body186, %while.cond183.preheader
   %call195 = call ptr @dictGetIterator(ptr noundef %call144) #19
   %call197212 = call ptr @dictNext(ptr noundef %call195) #19
   %cmp198.not213 = icmp eq ptr %call197212, null
@@ -14813,7 +14817,7 @@ while.end213:                                     ; preds = %if.then210, %while.
 
 if.else214:                                       ; preds = %if.end139
   %call216 = tail call ptr @dictCreate(ptr noundef nonnull @hashDictType) #19
-  %call217 = tail call i32 @dictExpand(ptr noundef %call216, i64 noundef %count.0) #19
+  %call217 = tail call i32 @dictExpand(ptr noundef %call216, i64 noundef %l) #19
   %score223. = select i1 %tobool82.not, ptr null, ptr %score223
   %slen.i = getelementptr inbounds %struct.listpackEntry, ptr %key222, i64 0, i32 1
   %lval.i = getelementptr inbounds %struct.listpackEntry, ptr %key222, i64 0, i32 2

@@ -2675,9 +2675,8 @@ if.end.i:                                         ; preds = %if.else
   br i1 %or.cond1.i, label %if.end64, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %fPattern.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select59, i64 0, i32 2
   %fPattern2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posPrefix.0200, i64 0, i32 2
-  %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
+  %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont57:                                    ; preds = %if.end5.i
@@ -2693,9 +2692,8 @@ if.end.i122:                                      ; preds = %land.lhs.true59
   br i1 %or.cond1.i123, label %if.end64, label %if.end5.i124
 
 if.end5.i124:                                     ; preds = %if.end.i122
-  %fPattern.i.i125 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select61, i64 0, i32 2
   %fPattern2.i.i126 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posSuffix.0199, i64 0, i32 2
-  %call.i.i129 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i125, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i126)
+  %call.i.i129 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i85, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i126)
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont60:                                    ; preds = %if.end5.i124
@@ -2733,9 +2731,8 @@ if.end.i133:                                      ; preds = %lor.lhs.false
   br i1 %or.cond1.i134, label %if.then82, label %if.end5.i135
 
 if.end5.i135:                                     ; preds = %if.end.i133
-  %fPattern.i.i136 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select59, i64 0, i32 2
   %fPattern2.i.i137 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posPrefix.1, i64 0, i32 2
-  %call.i.i140 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i136, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i137)
+  %call.i.i140 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i137)
           to label %invoke.cont80 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %if.end5.i135
@@ -2764,9 +2761,8 @@ if.end.i146:                                      ; preds = %lor.lhs.false92
   br i1 %or.cond1.i147, label %if.then95, label %if.end5.i148
 
 if.end5.i148:                                     ; preds = %if.end.i146
-  %fPattern.i.i149 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select61, i64 0, i32 2
   %fPattern2.i.i150 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posSuffix.1, i64 0, i32 2
-  %call.i.i153 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i149, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i150)
+  %call.i.i153 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i85, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i150)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.end5.i148

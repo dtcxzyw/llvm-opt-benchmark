@@ -939,19 +939,18 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %userInfo.val2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %userInfo.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %retval.sroa.3.0.i = select i1 %cmp.i, ptr @.str.5, ptr %userInfo.val
   %cmp.i.i.not11 = icmp eq ptr %userInfo.val2, %userInfo.val
   %cmp.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i.not11
   br i1 %cmp.i.i.not, label %if.then, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call ptr @memchr(ptr noundef nonnull %retval.sroa.3.0.i, i32 noundef 58, i64 noundef %sub.ptr.sub.i) #18
+  %call.i.i.i = tail call ptr @memchr(ptr noundef nonnull %userInfo.val, i32 noundef 58, i64 noundef %sub.ptr.sub.i) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %if.then, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit: ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %retval.sroa.3.0.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %userInfo.val to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp = icmp eq i64 %sub.ptr.sub.i.i, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -971,7 +970,7 @@ if.then.i.i6:                                     ; preds = %if.else
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.else
   %sub.i = sub i64 %sub.ptr.sub.i, %add
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i, i64 %add
+  %add.ptr.i = getelementptr inbounds i8, ptr %userInfo.val, i64 %add
   tail call void @_ZN5arrow8internal11UriUnescapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %sub.i, ptr nonnull %add.ptr.i)
   br label %return
 
@@ -1754,7 +1753,6 @@ if.end:                                           ; preds = %_ZN5arrow8internal3
   %13 = getelementptr i8, ptr %12, i64 8
   %call15.val12 = load ptr, ptr %13, align 8
   %cmp.i = icmp eq ptr %call15.val, null
-  %retval.sroa.3.0.i = select i1 %cmp.i, ptr @.str.5, ptr %call15.val
   %cmp.i1451 = icmp eq ptr %call15.val12, %call15.val
   %cmp.i14 = select i1 %cmp.i, i1 true, i1 %cmp.i1451
   br i1 %cmp.i14, label %if.then20, label %if.end21
@@ -1771,7 +1769,7 @@ if.end21:                                         ; preds = %if.end
   br i1 %cmp.i15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %if.end21
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %retval.sroa.3.0.i, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call15.val, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   %14 = zext i1 %cmp.i.i to i8
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
@@ -1830,7 +1828,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i30
 _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i30
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %22
@@ -2506,7 +2504,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -2825,7 +2823,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 6
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
   %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2
@@ -3064,7 +3062,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 6
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
   %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2

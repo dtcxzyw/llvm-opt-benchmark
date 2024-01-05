@@ -20518,7 +20518,6 @@ if.end62:                                         ; preds = %_ZN3fmt3v106detail6
   %133 = and i32 %.off0, 1
   %conv = xor i32 %133, 1
   %tobool66.not = icmp eq ptr %upper.2, null
-  %spec.store.select = select i1 %tobool66.not, ptr %lower, ptr %upper.2
   %cmp69 = icmp slt i32 %num_digits, 0
   %and71 = and i32 %flags, 2
   %cmp72.not = icmp eq i32 %and71, 0
@@ -20792,9 +20791,9 @@ if.then.i.i592:                                   ; preds = %for.end.i.i589
   br i1 %cmp.i.i.i.i595, label %if.then.i.i.i.i599, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i596
 
 if.then.i.i.i.i599:                               ; preds = %if.then.i.i592
-  %vtable.i.i.i.i600 = load ptr, ptr %spec.store.select, align 8
+  %vtable.i.i.i.i600 = load ptr, ptr %upper.2, align 8
   %169 = load ptr, ptr %vtable.i.i.i.i600, align 8
-  invoke void %169(ptr noundef nonnull align 8 dereferenceable(32) %spec.store.select, i64 noundef %add.i.i.i593)
+  invoke void %169(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i593)
           to label %.noexc603 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc603:                                        ; preds = %if.then.i.i.i.i599
@@ -21315,9 +21314,9 @@ if.then.i.i849:                                   ; preds = %for.end.i.i846
   br i1 %cmp.i.i.i.i852, label %if.then.i.i.i.i856, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i853
 
 if.then.i.i.i.i856:                               ; preds = %if.then.i.i849
-  %vtable.i.i.i.i857 = load ptr, ptr %spec.store.select, align 8
+  %vtable.i.i.i.i857 = load ptr, ptr %upper.2, align 8
   %238 = load ptr, ptr %vtable.i.i.i.i857, align 8
-  invoke void %238(ptr noundef nonnull align 8 dereferenceable(32) %spec.store.select, i64 noundef %add.i.i.i850)
+  invoke void %238(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i850)
           to label %.noexc860 unwind label %lpad6.loopexit
 
 .noexc860:                                        ; preds = %if.then.i.i.i.i856

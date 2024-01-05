@@ -670,8 +670,8 @@ sw.epilog.i:                                      ; preds = %sw.bb125.i, %if.end
   br i1 %or.cond2.i, label %if.then148.i, label %if.else156.i
 
 if.then148.i:                                     ; preds = %sw.epilog.i
-  %cmp149.i = icmp sgt i64 %vdigits_end.0.i, %spec.select135.i
-  %add153.i = add nsw i64 %spec.select135.i, 1
+  %cmp149.i = icmp sgt i64 %vdigits_end.0.i, %conv14.i
+  %add153.i = add nsw i64 %conv14.i, 1
   %cond155.i = select i1 %cmp149.i, i64 %vdigits_end.0.i, i64 %add153.i
   br label %if.end163.i
 

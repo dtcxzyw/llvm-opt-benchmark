@@ -192,8 +192,6 @@ if.end.i.i:                                       ; preds = %entry
   %add.i.i = or disjoint i32 %shl5.i.i, %conv.i.i
   %add6.i.i = or disjoint i32 %add.i.i, %shl.i.i
   %shr.i.i = lshr i32 %conv4.i.i, 6
-  %cmp9.i.i = icmp eq i32 %shr.i.i, 2
-  %cond.i.i = select i1 %cmp9.i.i, i32 %add6.i.i, i32 0
   switch i32 %shr.i.i, label %if.end20.i.i [
     i32 3, label %return
     i32 2, label %if.end.i
@@ -222,12 +220,12 @@ sw.bb.i:                                          ; preds = %if.end3.i
   br label %ZSTDv01_decodeLiteralsBlock.exit
 
 sw.bb6.i:                                         ; preds = %if.end3.i
-  %conv.i = zext nneg i32 %cond.i.i to i64
+  %conv.i = zext nneg i32 %add6.i.i to i64
   %cmp7.i = icmp ugt i64 %conv.i, %maxDstSize
   br i1 %cmp7.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.bb6.i
-  %cmp14.not.i = icmp eq i32 %cond.i.i, 0
+  %cmp14.not.i = icmp eq i32 %add6.i.i, 0
   br i1 %cmp14.not.i, label %if.end19.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i

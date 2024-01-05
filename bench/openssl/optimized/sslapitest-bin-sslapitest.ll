@@ -1360,13 +1360,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.test_serverinfo_custom.19 = private unnamed_addr constant [4 x i64] [i64 7, i64 7, i64 11, i64 11], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1767,7 +1767,7 @@ declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_no_ems() #1 {
+define internal noundef i32 @test_no_ems() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -2470,14 +2470,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_stateful_tickets(i32 noundef %idx) #1 {
+define internal noundef i32 @test_stateful_tickets(i32 noundef %idx) #1 {
 entry:
   %call = tail call fastcc i32 @test_tickets(i32 noundef 1, i32 noundef %idx), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_stateless_tickets(i32 noundef %idx) #1 {
+define internal noundef i32 @test_stateless_tickets(i32 noundef %idx) #1 {
 entry:
   %call = tail call fastcc i32 @test_tickets(i32 noundef 0, i32 noundef %idx), !range !5
   ret i32 %call
@@ -2597,7 +2597,7 @@ end:                                              ; preds = %lor.lhs.false34, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_extra_tickets(i32 noundef %idx) #1 {
+define internal noundef i32 @test_extra_tickets(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -3159,7 +3159,7 @@ end:                                              ; preds = %if.end184, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_set_bio(i32 noundef %idx) #1 {
+define internal noundef i32 @test_ssl_set_bio(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -3412,28 +3412,28 @@ end:                                              ; preds = %land.lhs.true85, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_bio_pop_next_bio() #1 {
+define internal noundef i32 @test_ssl_bio_pop_next_bio() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 0), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_bio_pop_ssl_bio() #1 {
+define internal noundef i32 @test_ssl_bio_pop_ssl_bio() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 1, i32 noundef 0), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_bio_change_rbio() #1 {
+define internal noundef i32 @test_ssl_bio_change_rbio() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 1), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_bio_change_wbio() #1 {
+define internal noundef i32 @test_ssl_bio_change_wbio() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_ssl_bio(i32 noundef 0, i32 noundef 2), !range !5
   ret i32 %call
@@ -4373,7 +4373,7 @@ end:                                              ; preds = %lor.lhs.false25, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ccs_change_cipher() #1 {
+define internal noundef i32 @test_ccs_change_cipher() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -5692,7 +5692,7 @@ end:                                              ; preds = %lor.lhs.false57, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_early_data_psk(i32 noundef %idx) #1 {
+define internal noundef i32 @test_early_data_psk(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -6932,7 +6932,7 @@ end:                                              ; preds = %lor.lhs.false159, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13_ciphersuite(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tls13_ciphersuite(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7187,7 +7187,7 @@ end:                                              ; preds = %for.inc126, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13_psk(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tls13_psk(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7809,7 +7809,7 @@ end:                                              ; preds = %if.end356, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13_no_dhe_kex(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tls13_no_dhe_kex(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -7982,7 +7982,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_exchange(i32 noundef %idx) #1 {
+define internal noundef i32 @test_key_exchange(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -8541,7 +8541,7 @@ end:                                              ; preds = %lor.lhs.false192, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_custom_exts(i32 noundef %tst) #1 {
+define internal noundef i32 @test_custom_exts(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -8957,7 +8957,7 @@ end:                                              ; preds = %if.end234, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_stateless() #1 {
+define internal noundef i32 @test_stateless() #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -9121,7 +9121,7 @@ end:                                              ; preds = %if.end37, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pha_key_update() #1 {
+define internal noundef i32 @test_pha_key_update() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -9611,7 +9611,7 @@ end:                                              ; preds = %lor.lhs.false45, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key_update() #1 {
+define internal noundef i32 @test_key_update() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10398,7 +10398,7 @@ end:                                              ; preds = %lor.lhs.false92, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_clear(i32 noundef %idx) #1 {
+define internal noundef i32 @test_ssl_clear(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -10876,7 +10876,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_srp(i32 noundef %tst) #1 {
+define internal noundef i32 @test_srp(i32 noundef %tst) #1 {
 entry:
   %verifier.i = alloca ptr, align 8
   %salt.i = alloca ptr, align 8
@@ -11598,7 +11598,7 @@ end:                                              ; preds = %lor.lhs.false71, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_get_shared_ciphers(i32 noundef %tst) #1 {
+define internal noundef i32 @test_ssl_get_shared_ciphers(i32 noundef %tst) #1 {
 entry:
   %call = tail call fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef 0), !range !5
   %tobool.not = icmp eq i32 %call, 0
@@ -11855,7 +11855,7 @@ end:                                              ; preds = %lor.lhs.false143, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_shutdown(i32 noundef %tst) #1 {
+define internal noundef i32 @test_shutdown(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12346,7 +12346,7 @@ end:                                              ; preds = %if.end63, %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_incorrect_shutdown(i32 noundef %tst) #1 {
+define internal noundef i32 @test_incorrect_shutdown(i32 noundef %tst) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -12448,7 +12448,7 @@ end:                                              ; preds = %land.lhs.true41, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cert_cb(i32 noundef %tst) #1 {
+define internal noundef i32 @test_cert_cb(i32 noundef %tst) #1 {
 entry:
   %call = tail call fastcc i32 @test_cert_cb_int(i32 noundef 771, i32 noundef %tst), !range !5
   %call1 = tail call fastcc i32 @test_cert_cb_int(i32 noundef 772, i32 noundef %tst), !range !5
@@ -13315,7 +13315,7 @@ end:                                              ; preds = %lor.lhs.false49, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pluggable_signature(i32 noundef %idx) #1 {
+define internal noundef i32 @test_pluggable_signature(i32 noundef %idx) #1 {
 entry:
   %pkey.i = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -14251,7 +14251,7 @@ end:                                              ; preds = %if.end34, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ticket_lifetime(i32 noundef %idx) #1 {
+define internal noundef i32 @test_ticket_lifetime(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15243,7 +15243,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_read_ahead_key_change() #1 {
+define internal noundef i32 @test_read_ahead_key_change() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15367,7 +15367,7 @@ end:                                              ; preds = %end.loopexit.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13_record_padding(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tls13_record_padding(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -15786,18 +15786,16 @@ if.end57:                                         ; preds = %if.end33
   ]
 
 if.then60:                                        ; preds = %if.end57
-  %sub = add nsw i64 %., -2
   br label %if.end67
 
 if.then64:                                        ; preds = %if.end57
-  %sub65 = add nsw i64 %., -12
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end45, %if.end57, %if.then64, %if.then60
   %numpipes.078 = phi i64 [ 5, %if.then60 ], [ 5, %if.then64 ], [ 5, %if.end57 ], [ 2, %if.end45 ]
   %fragsize.077 = phi i64 [ 10, %if.then60 ], [ 10, %if.then64 ], [ 10, %if.end57 ], [ 16384, %if.end45 ]
   %msg.076 = phi ptr [ @.str.1152, %if.then60 ], [ @.str.1152, %if.then64 ], [ @.str.1152, %if.end57 ], [ %call41, %if.end45 ]
-  %msglen.1 = phi i64 [ %sub, %if.then60 ], [ %sub65, %if.then64 ], [ %., %if.end57 ], [ 32768, %if.end45 ]
+  %msglen.1 = phi i64 [ 48, %if.then60 ], [ 38, %if.then64 ], [ %., %if.end57 ], [ 32768, %if.end45 ]
   %call68 = call noalias ptr @CRYPTO_malloc(i64 noundef %msglen.1, ptr noundef nonnull @.str.14, i32 noundef 10832) #23
   %call69 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 10833, ptr noundef nonnull @.str.152, ptr noundef %call68) #23
   %tobool70.not = icmp eq i32 %call69, 0
@@ -15808,7 +15806,7 @@ if.end72:                                         ; preds = %if.end67
 
 if.then75:                                        ; preds = %if.end72
   %add = or disjoint i64 %fragsize.077, 1
-  %call76 = call i64 @SSL_ctrl(ptr noundef %peera.0, i32 noundef 125, i64 noundef %add, ptr noundef null) #23
+  %call76 = call i64 @SSL_ctrl(ptr noundef %clientssl.val, i32 noundef 125, i64 noundef %add, ptr noundef null) #23
   %cmp77 = icmp ne i64 %call76, 0
   %conv78 = zext i1 %cmp77 to i32
   %call79 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 10841, ptr noundef nonnull @.str.1156, i32 noundef %conv78) #23
@@ -15934,7 +15932,7 @@ if.then177:                                       ; preds = %if.end174
   %13 = load i64, ptr %readbytes, align 8
   %add.ptr178 = getelementptr inbounds i8, ptr %call68, i64 %13
   %sub179 = sub i64 %msglen.1, %13
-  %call180 = call i32 @SSL_read_ex(ptr noundef %peera.0, ptr noundef %add.ptr178, i64 noundef %sub179, ptr noundef nonnull %readbytes2) #23
+  %call180 = call i32 @SSL_read_ex(ptr noundef %clientssl.val, ptr noundef %add.ptr178, i64 noundef %sub179, ptr noundef nonnull %readbytes2) #23
   %cmp181 = icmp ne i32 %call180, 0
   %conv182 = zext i1 %cmp181 to i32
   %call183 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 10914, ptr noundef nonnull @.str.1167, i32 noundef %conv182) #23
@@ -15995,7 +15993,7 @@ return:                                           ; preds = %if.end202, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_version(i32 noundef %idx) #1 {
+define internal noundef i32 @test_version(i32 noundef %idx) #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -17083,7 +17081,7 @@ declare ptr @SSL_new(ptr noundef) local_unnamed_addr #2
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ocsp_client_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
+define internal noundef i32 @ocsp_client_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %respderin = alloca ptr, align 8
   %0 = load i32, ptr %arg, align 4
@@ -17108,7 +17106,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ocsp_server_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
+define internal noundef i32 @ocsp_server_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %ids = alloca ptr, align 8
   store ptr null, ptr %ids, align 8
@@ -17933,7 +17931,7 @@ return:                                           ; preds = %entry, %end
 declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @new_session_cb(ptr nocapture readnone %ssl, ptr noundef %sess) #1 {
+define internal noundef i32 @new_session_cb(ptr nocapture readnone %ssl, ptr noundef %sess) #1 {
 entry:
   %0 = load i32, ptr @new_called, align 4
   %inc = add nsw i32 %0, 1
@@ -17997,7 +17995,7 @@ declare i32 @test_long_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i6
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_tickets(i32 noundef %stateful, i32 noundef %idx) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_tickets(i32 noundef %stateful, i32 noundef %idx) unnamed_addr #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -18167,7 +18165,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx) unnamed_addr #1 {
+define internal fastcc noundef i32 @setup_ticket_test(i32 noundef %stateful, i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx) unnamed_addr #1 {
 entry:
   %sess_id_ctx = alloca i32, align 4
   store i32 1, ptr %sess_id_ctx, align 4
@@ -18226,7 +18224,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_resumption(i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx, i32 noundef %succ) unnamed_addr #1 {
+define internal fastcc noundef i32 @check_resumption(i32 noundef %idx, ptr noundef %sctx, ptr noundef %cctx, i32 noundef %succ) unnamed_addr #1 {
 entry:
   %serverssl = alloca ptr, align 8
   %clientssl = alloca ptr, align 8
@@ -18402,7 +18400,7 @@ declare i32 @SSL_CTX_set_num_tickets(ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @SSL_CTX_set_session_id_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @new_cachesession_cb(ptr nocapture readnone %ssl, ptr noundef %sess) #1 {
+define internal noundef i32 @new_cachesession_cb(ptr nocapture readnone %ssl, ptr noundef %sess) #1 {
 entry:
   %.b = load i1, ptr @do_cache, align 4
   br i1 %.b, label %if.then, label %if.else
@@ -18437,7 +18435,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @SSL_CTX_set_psk_use_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @use_session_cb(ptr nocapture readnone %ssl, ptr noundef readnone %md, ptr nocapture noundef writeonly %id, ptr nocapture noundef writeonly %idlen, ptr nocapture noundef writeonly %sess) #1 {
+define internal noundef i32 @use_session_cb(ptr nocapture readnone %ssl, ptr noundef readnone %md, ptr nocapture noundef writeonly %id, ptr nocapture noundef writeonly %idlen, ptr nocapture noundef writeonly %sess) #1 {
 entry:
   %0 = load i32, ptr @use_session_cb_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -18480,7 +18478,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 declare void @SSL_CTX_set_psk_find_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @find_session_cb(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #1 {
+define internal noundef i32 @find_session_cb(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %identity, i64 noundef %identity_len, ptr nocapture noundef writeonly %sess) #1 {
 entry:
   %0 = load i32, ptr @find_session_cb_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -18548,7 +18546,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #2
 declare void @SSL_set_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_test_ssl_bio(i32 noundef %pop_ssl, i32 noundef %change_bio) unnamed_addr #1 {
+define internal fastcc noundef i32 @execute_test_ssl_bio(i32 noundef %pop_ssl, i32 noundef %change_bio) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %call = tail call ptr @TLS_method() #23
@@ -19050,7 +19048,7 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 declare i64 @SSL_get_client_random(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compare_hex_encoded_buffer(ptr nocapture noundef readonly %hex_encoded, i64 noundef %hex_length, ptr nocapture noundef readonly %raw, i64 noundef %raw_length) unnamed_addr #1 {
+define internal fastcc noundef i32 @compare_hex_encoded_buffer(ptr nocapture noundef readonly %hex_encoded, i64 noundef %hex_length, ptr nocapture noundef readonly %raw, i64 noundef %raw_length) unnamed_addr #1 {
 entry:
   %hexed = alloca [3 x i8], align 1
   %mul = shl i64 %raw_length, 1
@@ -19187,7 +19185,7 @@ declare i32 @SSL_check_private_key(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_password_cb(ptr nocapture noundef writeonly %buf, i32 noundef %size, i32 %rw_flag, ptr nocapture readnone %userdata) #1 {
+define internal noundef i32 @get_password_cb(ptr nocapture noundef writeonly %buf, i32 noundef %size, i32 %rw_flag, ptr nocapture readnone %userdata) #1 {
 entry:
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 675, ptr noundef nonnull @.str.385, ptr noundef nonnull @.str.386, i32 noundef %size, i32 noundef 1024) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -19205,7 +19203,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @SSL_CTX_set_client_hello_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @full_client_hello_callback(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture noundef %arg) #1 {
+define internal noundef i32 @full_client_hello_callback(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture noundef %arg) #1 {
 entry:
   %p = alloca ptr, align 8
   %exts = alloca ptr, align 8
@@ -19902,7 +19900,7 @@ declare i32 @SSL_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @SSL_SESSION_set_protocol_version(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hostname_cb(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture readnone %arg) #1 {
+define internal noundef i32 @hostname_cb(ptr noundef %s, ptr nocapture readnone %al, ptr nocapture readnone %arg) #1 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #23
   %cmp.not = icmp eq ptr %call, null
@@ -19929,7 +19927,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @alpn_select_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture readnone %arg) #14 {
 entry:
   %idx.ext = zext i32 %inlen to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
@@ -20082,7 +20080,7 @@ declare ptr @SSL_group_to_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @SSL_get0_group_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_ssl_groups(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %clientmulti, i32 noundef %isecdhe, i32 noundef %idx) unnamed_addr #1 {
+define internal fastcc noundef i32 @set_ssl_groups(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %clientmulti, i32 noundef %isecdhe, i32 noundef %idx) unnamed_addr #1 {
 entry:
   %kexch_alg = alloca i32, align 4
   %tobool.not = icmp eq i32 %isecdhe, 0
@@ -20162,7 +20160,7 @@ declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @verify_cb(i32 %preverify_ok, ptr nocapture readnone %x509_ctx) #0 {
+define internal noundef i32 @verify_cb(i32 %preverify_ok, ptr nocapture readnone %x509_ctx) #0 {
 entry:
   ret i32 1
 }
@@ -20172,7 +20170,7 @@ declare i32 @SSL_CTX_use_certificate_file(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @old_add_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
+define internal noundef i32 @old_add_cb(ptr noundef %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20238,7 +20236,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 declare i32 @SSL_CTX_add_custom_ext(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @new_add_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
+define internal noundef i32 @new_add_cb(ptr noundef %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #1 {
 entry:
   %call = tail call i32 @SSL_is_server(ptr noundef %s) #23
   %tobool.not = icmp eq i32 %call, 0
@@ -20304,7 +20302,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sni_cb(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %arg) #1 {
+define internal noundef i32 @sni_cb(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %arg) #1 {
 entry:
   %call = tail call ptr @SSL_set_SSL_CTX(ptr noundef %s, ptr noundef %arg) #23
   %cmp = icmp eq ptr %call, null
@@ -20335,8 +20333,8 @@ declare i32 @SSL_stateless(ptr noundef) local_unnamed_addr #2
 
 declare void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #15 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #15 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
   store i64 12, ptr %cookie_len, align 8
@@ -20346,7 +20344,7 @@ entry:
 declare void @SSL_CTX_set_stateless_cookie_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @verify_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) #16 {
+define internal noundef i32 @verify_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) #16 {
 entry:
   %0 = and i64 %cookie_len, 4294967295
   %cmp.i = icmp eq i64 %0, 12
@@ -20399,7 +20397,7 @@ declare i32 @SRP_VBASE_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_CTX_set_srp_username_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture readnone %arg) #1 {
+define internal noundef i32 @ssl_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture readnone %arg) #1 {
 entry:
   %call = tail call ptr @SSL_get_srp_username(ptr noundef %s) #23
   %cmp = icmp eq ptr %call, null
@@ -20580,7 +20578,7 @@ declare i32 @SSL_pending(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_has_pending(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef %clnt) unnamed_addr #1 {
+define internal fastcc noundef i32 @int_test_ssl_get_shared_ciphers(i32 noundef %tst, i32 noundef %clnt) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -20962,7 +20960,7 @@ declare i32 @SSL_SESSION_is_resumable(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_get_shutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_cert_cb_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_cert_cb_int(i32 noundef %prot, i32 noundef %tst) unnamed_addr #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -21107,7 +21105,7 @@ end:                                              ; preds = %cond.end, %land.lhs
 declare void @SSL_CTX_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cert_cb(ptr noundef %s, ptr noundef %arg) #1 {
+define internal noundef i32 @cert_cb(ptr noundef %s, ptr noundef %arg) #1 {
 entry:
   %x509 = alloca ptr, align 8
   %rootx = alloca ptr, align 8
@@ -21338,7 +21336,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @client_cert_cb(ptr noundef %ssl, ptr nocapture noundef writeonly %x509, ptr nocapture noundef writeonly %pkey) #1 {
+define internal noundef i32 @client_cert_cb(ptr noundef %ssl, ptr nocapture noundef writeonly %x509, ptr nocapture noundef writeonly %pkey) #1 {
 entry:
   %xcert = alloca ptr, align 8
   %call = tail call ptr @SSL_get0_peer_certificate(ptr noundef %ssl) #23
@@ -21878,7 +21876,7 @@ declare i32 @SSL_CTX_set0_tmp_dh_pkey(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @SSL_CTX_set_tmp_dh_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tmp_dh_callback(ptr nocapture readnone %s, i32 %is_export, i32 %keylen) #1 {
+define internal noundef ptr @tmp_dh_callback(ptr nocapture readnone %s, i32 %is_export, i32 %keylen) #1 {
 entry:
   %call = tail call fastcc ptr @get_tmp_dh_params()
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 9844, ptr noundef nonnull @.str.1027, ptr noundef %call) #23
@@ -21951,7 +21949,7 @@ declare void @SSL_CTX_flush_sessions(ptr noundef, i64 noundef) local_unnamed_add
 declare void @SSL_CTX_set_record_padding_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @record_pad_cb(ptr nocapture readnone %s, i32 %type, i64 noundef %len, ptr nocapture noundef %arg) #18 {
+define internal noundef i64 @record_pad_cb(ptr nocapture readnone %s, i32 %type, i64 noundef %len, ptr nocapture noundef %arg) #18 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %inc = add nsw i32 %0, 1
@@ -22001,7 +21999,7 @@ declare i32 @SSL_CTX_use_serverinfo_ex(ptr noundef, i32 noundef, ptr noundef, i6
 declare i32 @SSL_CTX_use_serverinfo(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @serverinfo_custom_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef writeonly %parse_arg) #1 {
+define internal noundef i32 @serverinfo_custom_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef writeonly %parse_arg) #1 {
 entry:
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 6230, ptr noundef nonnull @.str.901, ptr noundef nonnull @.str.1151, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @serverinfo_custom_v1, i64 0, i64 4), i64 noundef 3) #23
   store i32 %call, ptr %parse_arg, align 4
@@ -22009,7 +22007,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @load_dasync() unnamed_addr #1 {
+define internal fastcc noundef ptr @load_dasync() unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_by_id(ptr noundef nonnull @.str.1169) #23
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 10728, ptr noundef nonnull @.str.1168, ptr noundef %call) #23
@@ -22145,7 +22143,7 @@ attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

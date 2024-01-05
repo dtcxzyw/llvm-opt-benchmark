@@ -434,13 +434,13 @@ entry:
   %0 = load i32, ptr %query_timeout_ms, align 8
   %cmp = icmp eq i32 %0, 0
   %conv = sext i32 %0 to i64
-  %spec.select = select i1 %cmp, i64 9223372036854775807, i64 %conv
   %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_trace_cares_resolver, i64 0, i32 2) monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %spec.select = select i1 %cmp, i64 9223372036854775807, i64 %conv
   %request = getelementptr inbounds %struct.grpc_ares_ev_driver, ptr %ev_driver, i64 0, i32 5
   %3 = load ptr, ptr %request, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 500, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef nonnull %ev_driver, i64 noundef %spec.select)
@@ -495,16 +495,16 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = xor i64 %call.i, 9223372036854775807
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %spec.select
+  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %conv
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %spec.select
+  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %conv
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %add.i.i.i = add nsw i64 %call.i, %spec.select
+  %add.i.i.i = add nsw i64 %call.i, %conv
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
@@ -5849,7 +5849,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -6103,7 +6103,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -6250,7 +6250,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

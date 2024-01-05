@@ -670,13 +670,12 @@ entry:
   %start.addr.0 = select i1 %cmp.i, i32 0, i32 %spec.select
   %cmp.i8 = icmp sgt i32 %end, -1
   %spec.select24 = tail call i32 @llvm.umin.i32(i32 %end, i32 1114111)
-  %end.addr.0 = select i1 %cmp.i8, i32 %spec.select24, i32 0
   %cmp26 = icmp ugt i32 %spec.select24, %start.addr.0
   %cmp = and i1 %cmp.i8, %cmp26
   br i1 %cmp, label %if.then, label %if.else61
 
 if.then:                                          ; preds = %entry
-  %add = add nuw nsw i32 %end.addr.0, 1
+  %add = add nuw nsw i32 %spec.select24, 1
   %len = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %len, align 4
   %and = and i32 %0, 1
@@ -738,7 +737,7 @@ if.then22:                                        ; preds = %if.then15
 if.else:                                          ; preds = %if.then13
   %arrayidx28 = getelementptr i32, ptr %11, i64 -1
   store i32 %start.addr.0, ptr %arrayidx28, align 4
-  %cmp29 = icmp ult i32 %end.addr.0, 1114111
+  %cmp29 = icmp ult i32 %end, 1114111
   %13 = load i32, ptr %len, align 4
   br i1 %cmp29, label %if.then30, label %if.else45
 
@@ -802,6 +801,7 @@ if.end59:                                         ; preds = %cond.end, %land.lhs
   br label %return
 
 if.else61:                                        ; preds = %entry
+  %end.addr.0 = select i1 %cmp.i8, i32 %spec.select24, i32 0
   %cmp62 = icmp eq i32 %start.addr.0, %end.addr.0
   br i1 %cmp62, label %if.then63, label %return
 

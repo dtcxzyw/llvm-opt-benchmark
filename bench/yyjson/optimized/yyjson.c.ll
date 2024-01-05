@@ -8896,7 +8896,7 @@ if.end336.i:                                      ; preds = %if.end323.i, %if.th
   br i1 %or.cond, label %if.then.i4605, label %if.end.i2720
 
 if.then.i4605:                                    ; preds = %if.end336.i
-  %call11.i4606 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef %raw_end.i., i32 noundef %flg, ptr noundef %val.i.3, ptr noundef nonnull %msg.i)
+  %call11.i4606 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef %val.i.3, ptr noundef nonnull %msg.i)
   br i1 %call11.i4606, label %arr_val_end.i.preheader, label %fail_number.i
 
 if.end.i2720:                                     ; preds = %if.end336.i
@@ -15859,7 +15859,7 @@ if.then1152.i:                                    ; preds = %if.end1150.i
   br i1 %or.cond7506, label %if.then.i6590, label %if.end.i4705
 
 if.then.i6590:                                    ; preds = %if.then1152.i
-  %call11.i6591 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef %raw_end.i., i32 noundef %flg, ptr noundef nonnull %incdec.ptr1153.i, ptr noundef nonnull %msg.i)
+  %call11.i6591 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i, ptr noundef nonnull %raw_end.i, i32 noundef %flg, ptr noundef nonnull %incdec.ptr1153.i, ptr noundef nonnull %msg.i)
   br i1 %call11.i6591, label %obj_val_end.i.preheader, label %fail_number.i
 
 if.end.i4705:                                     ; preds = %if.then1152.i
@@ -19459,7 +19459,7 @@ if.end142.i:                                      ; preds = %if.end129.i, %if.th
   br i1 %or.cond7520, label %if.then.i641, label %if.end.i546
 
 if.then.i641:                                     ; preds = %if.end142.i
-  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef %raw_end.i414., i32 noundef %flg, ptr noundef %val.i407.3, ptr noundef nonnull %msg.i411)
+  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef %val.i407.3, ptr noundef nonnull %msg.i411)
   br i1 %call11.i, label %arr_val_end.i473.preheader, label %fail_number.i523
 
 if.end.i546:                                      ; preds = %if.end142.i
@@ -26360,7 +26360,7 @@ if.then757.i:                                     ; preds = %if.end755.i
   br i1 %or.cond7537, label %if.then.i2620, label %if.end.i735
 
 if.then.i2620:                                    ; preds = %if.then757.i
-  %call11.i2621 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef %raw_end.i414., i32 noundef %flg, ptr noundef nonnull %incdec.ptr758.i, ptr noundef nonnull %msg.i411)
+  %call11.i2621 = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i395, ptr noundef nonnull %raw_end.i414, i32 noundef %flg, ptr noundef nonnull %incdec.ptr758.i, ptr noundef nonnull %msg.i411)
   br i1 %call11.i2621, label %obj_val_end.i478.preheader, label %fail_number.i523
 
 if.end.i735:                                      ; preds = %if.then757.i
@@ -29867,7 +29867,7 @@ if.then30.i7993:                                  ; preds = %if.end.i7989
   br i1 %or.cond1584.i, label %if.then.i.i8023, label %if.end.i.i7994
 
 if.then.i.i8023:                                  ; preds = %if.then30.i7993
-  %call11.i.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i7986, ptr noundef %raw_end..i, i32 noundef %flg, ptr noundef nonnull %add.ptr.i7990, ptr noundef nonnull %msg.i7987)
+  %call11.i.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur.addr.i7986, ptr noundef nonnull %raw_end.i7988, i32 noundef %flg, ptr noundef nonnull %add.ptr.i7990, ptr noundef nonnull %msg.i7987)
   %.pre2070.i = load ptr, ptr %cur.addr.i7986, align 8
   br i1 %call11.i.i, label %doc_end.i7998, label %do.body201.i
 
@@ -34751,7 +34751,7 @@ if.end33:                                         ; preds = %if.end8
   br i1 %or.cond1066, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end33
-  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur, ptr noundef %raw_end., i32 noundef %flg, ptr noundef nonnull %val, ptr noundef nonnull %msg)
+  %call11.i = call fastcc zeroext i1 @read_number_raw(ptr noundef nonnull %cur, ptr noundef nonnull %raw_end, i32 noundef %flg, ptr noundef nonnull %val, ptr noundef nonnull %msg)
   br i1 %call11.i, label %if.then.i.if.end57_crit_edge, label %do.body43
 
 if.then.i.if.end57_crit_edge:                     ; preds = %if.then.i

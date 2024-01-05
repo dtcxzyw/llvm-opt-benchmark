@@ -280,7 +280,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i8 @_ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE(i32 noundef %type) local_unnamed_addr #7 align 2 {
+define noundef i8 @_ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE(i32 noundef %type) local_unnamed_addr #7 align 2 {
 entry:
   %switch.tableidx = add i32 %type, 15
   %0 = icmp ugt i32 %type, -16
@@ -540,21 +540,19 @@ entry:
   %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1
   %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1, i32 0, i32 1
   %0 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i266 = icmp slt i16 %0, 0
+  %cmp.i.i274 = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
-  %shr.i.i267 = sext i16 %1 to i32
+  %shr.i.i275 = sext i16 %1 to i32
   %2 = load i32, ptr %fLength.i, align 4
-  %cond.i268 = select i1 %cmp.i.i266, i32 %2, i32 %shr.i.i267
-  %cmp269 = icmp sgt i32 %cond.i268, %tag.sroa.0.0.extract.trunc
-  br i1 %cmp269, label %for.body, label %for.end
+  %cond.i276 = select i1 %cmp.i.i274, i32 %2, i32 %shr.i.i275
+  %cmp277 = icmp sgt i32 %cond.i276, %tag.sroa.0.0.extract.trunc
+  br i1 %cmp277, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %sw.epilog81
-  %offset.0271 = phi i32 [ %offset.1, %sw.epilog81 ], [ %tag.sroa.0.0.extract.trunc, %entry ]
-  %state.0270 = phi i32 [ %state.1, %sw.epilog81 ], [ %tag.sroa.268.8.extract.trunc, %entry ]
-  %call3 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i32 noundef %offset.0271)
-  %cmp4 = icmp ult i32 %call3, 65536
-  %cond = select i1 %cmp4, i32 1, i32 2
-  switch i32 %state.0270, label %sw.default80 [
+  %offset.0279 = phi i32 [ %offset.1, %sw.epilog81 ], [ %tag.sroa.0.0.extract.trunc, %entry ]
+  %state.0278 = phi i32 [ %state.1, %sw.epilog81 ], [ %tag.sroa.268.8.extract.trunc, %entry ]
+  %call3 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i32 noundef %offset.0279)
+  switch i32 %state.0278, label %sw.default80 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb25
     i32 2, label %sw.bb31
@@ -568,49 +566,84 @@ for.body:                                         ; preds = %entry, %sw.epilog81
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %add23 = add nsw i32 %cond, %offset.0271
   switch i32 %call3, label %sw.default [
-    i32 39, label %sw.epilog81
-    i32 45, label %return.loopexit
-    i32 43, label %return
+    i32 39, label %sw.bb5
+    i32 45, label %sw.bb6
+    i32 43, label %sw.bb9
     i32 126, label %sw.bb12
     i32 37, label %sw.bb15
     i32 8240, label %sw.bb18
     i32 164, label %sw.bb21
   ]
 
+sw.bb5:                                           ; preds = %sw.bb
+  %add = add nsw i32 %offset.0279, 1
+  br label %sw.epilog81
+
+sw.bb6:                                           ; preds = %sw.bb
+  %add7 = add nsw i32 %offset.0279, 1
+  br label %return
+
+sw.bb9:                                           ; preds = %sw.bb
+  %add10 = add nsw i32 %offset.0279, 1
+  br label %return
+
 sw.bb12:                                          ; preds = %sw.bb
+  %add13 = add nsw i32 %offset.0279, 1
   br label %return
 
 sw.bb15:                                          ; preds = %sw.bb
+  %add16 = add nsw i32 %offset.0279, 1
   br label %return
 
 sw.bb18:                                          ; preds = %sw.bb
+  %add19 = add nsw i32 %offset.0279, 1
   br label %return
 
 sw.bb21:                                          ; preds = %sw.bb
+  %add22 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.default:                                       ; preds = %sw.bb
+  %cmp4.le272 = icmp ult i32 %call3, 65536
+  %cond.le = select i1 %cmp4.le272, i32 1, i32 2
+  %add23 = add nsw i32 %cond.le, %offset.0279
   br label %return
 
 sw.bb25:                                          ; preds = %for.body
   %cmp26 = icmp eq i32 %call3, 39
-  %add27 = add nsw i32 %cond, %offset.0271
-  %. = select i1 %cmp26, i64 0, i64 2
+  br i1 %cmp26, label %if.then, label %if.else
+
+if.then:                                          ; preds = %sw.bb25
+  %add27 = add nsw i32 %offset.0279, 1
+  br label %return
+
+if.else:                                          ; preds = %sw.bb25
+  %cmp4.le = icmp ult i32 %call3, 65536
+  %cond.le268 = select i1 %cmp4.le, i32 1, i32 2
+  %add29 = add nsw i32 %cond.le268, %offset.0279
   br label %return
 
 sw.bb31:                                          ; preds = %for.body
   %cmp32 = icmp eq i32 %call3, 39
-  %add34 = add nsw i32 %cond, %offset.0271
-  br i1 %cmp32, label %sw.epilog81, label %return
+  br i1 %cmp32, label %if.then33, label %if.else35
+
+if.then33:                                        ; preds = %sw.bb31
+  %add34 = add nsw i32 %offset.0279, 1
+  br label %sw.epilog81
+
+if.else35:                                        ; preds = %sw.bb31
+  %cmp4.le270 = icmp ult i32 %call3, 65536
+  %cond.le266 = select i1 %cmp4.le270, i32 1, i32 2
+  %add36 = add nsw i32 %cond.le266, %offset.0279
+  br label %return
 
 sw.bb38:                                          ; preds = %for.body
   %cmp39 = icmp eq i32 %call3, 39
   br i1 %cmp39, label %if.then40, label %sw.epilog81
 
 if.then40:                                        ; preds = %sw.bb38
-  %add41 = add nsw i32 %cond, %offset.0271
+  %add41 = add nsw i32 %offset.0279, 1
   br label %return
 
 sw.bb44:                                          ; preds = %for.body
@@ -618,7 +651,7 @@ sw.bb44:                                          ; preds = %for.body
   br i1 %cmp45, label %if.then46, label %return
 
 if.then46:                                        ; preds = %sw.bb44
-  %add47 = add nsw i32 %cond, %offset.0271
+  %add47 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.bb50:                                          ; preds = %for.body
@@ -626,7 +659,7 @@ sw.bb50:                                          ; preds = %for.body
   br i1 %cmp51, label %if.then52, label %return
 
 if.then52:                                        ; preds = %sw.bb50
-  %add53 = add nsw i32 %cond, %offset.0271
+  %add53 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.bb56:                                          ; preds = %for.body
@@ -634,7 +667,7 @@ sw.bb56:                                          ; preds = %for.body
   br i1 %cmp57, label %if.then58, label %return
 
 if.then58:                                        ; preds = %sw.bb56
-  %add59 = add nsw i32 %cond, %offset.0271
+  %add59 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.bb62:                                          ; preds = %for.body
@@ -642,7 +675,7 @@ sw.bb62:                                          ; preds = %for.body
   br i1 %cmp63, label %if.then64, label %return
 
 if.then64:                                        ; preds = %sw.bb62
-  %add65 = add nsw i32 %cond, %offset.0271
+  %add65 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.bb68:                                          ; preds = %for.body
@@ -650,7 +683,7 @@ sw.bb68:                                          ; preds = %for.body
   br i1 %cmp69, label %if.then70, label %return
 
 if.then70:                                        ; preds = %sw.bb68
-  %add71 = add nsw i32 %cond, %offset.0271
+  %add71 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.bb74:                                          ; preds = %for.body
@@ -658,16 +691,16 @@ sw.bb74:                                          ; preds = %for.body
   br i1 %cmp75, label %if.then76, label %return
 
 if.then76:                                        ; preds = %sw.bb74
-  %add77 = add nsw i32 %cond, %offset.0271
+  %add77 = add nsw i32 %offset.0279, 1
   br label %sw.epilog81
 
 sw.default80:                                     ; preds = %for.body
   tail call void @abort() #10
   unreachable
 
-sw.epilog81:                                      ; preds = %sw.bb31, %sw.bb, %sw.bb38, %sw.bb21, %if.then76, %if.then70, %if.then64, %if.then58, %if.then52, %if.then46
-  %state.1 = phi i32 [ 9, %if.then76 ], [ 9, %if.then70 ], [ 8, %if.then64 ], [ 7, %if.then58 ], [ 6, %if.then52 ], [ 5, %if.then46 ], [ 4, %sw.bb21 ], [ 0, %sw.bb38 ], [ 1, %sw.bb ], [ 3, %sw.bb31 ]
-  %offset.1 = phi i32 [ %add77, %if.then76 ], [ %add71, %if.then70 ], [ %add65, %if.then64 ], [ %add59, %if.then58 ], [ %add53, %if.then52 ], [ %add47, %if.then46 ], [ %add23, %sw.bb21 ], [ %offset.0271, %sw.bb38 ], [ %add23, %sw.bb ], [ %add34, %sw.bb31 ]
+sw.epilog81:                                      ; preds = %sw.bb38, %sw.bb5, %sw.bb21, %if.then76, %if.then70, %if.then64, %if.then58, %if.then52, %if.then46, %if.then33
+  %state.1 = phi i32 [ 9, %if.then76 ], [ 9, %if.then70 ], [ 8, %if.then64 ], [ 7, %if.then58 ], [ 6, %if.then52 ], [ 5, %if.then46 ], [ 3, %if.then33 ], [ 4, %sw.bb21 ], [ 1, %sw.bb5 ], [ 0, %sw.bb38 ]
+  %offset.1 = phi i32 [ %add77, %if.then76 ], [ %add71, %if.then70 ], [ %add65, %if.then64 ], [ %add59, %if.then58 ], [ %add53, %if.then52 ], [ %add47, %if.then46 ], [ %add34, %if.then33 ], [ %add22, %sw.bb21 ], [ %add, %sw.bb5 ], [ %offset.0279, %sw.bb38 ]
   %3 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
@@ -719,13 +752,10 @@ sw.default97:                                     ; preds = %for.end
   tail call void @abort() #10
   unreachable
 
-return.loopexit:                                  ; preds = %sw.bb
-  br label %return
-
-return:                                           ; preds = %sw.bb74, %sw.bb68, %sw.bb62, %sw.bb56, %sw.bb50, %sw.bb44, %sw.bb31, %sw.bb, %return.loopexit, %sw.bb25, %for.end, %for.end, %sw.bb95, %sw.bb93, %sw.bb91, %sw.bb89, %sw.bb87, %sw.bb85, %sw.bb83, %if.then40, %sw.default, %sw.bb18, %sw.bb15, %sw.bb12
-  %retval.sroa.26.sroa.23.0 = phi i64 [ 2, %if.then40 ], [ 0, %sw.default ], [ -21474836480, %sw.bb18 ], [ -17179869184, %sw.bb15 ], [ -12884901888, %sw.bb12 ], [ -64424509440, %sw.bb95 ], [ -42949672960, %sw.bb93 ], [ -38654705664, %sw.bb91 ], [ -34359738368, %sw.bb89 ], [ -30064771072, %sw.bb87 ], [ -25769803776, %sw.bb85 ], [ undef, %sw.bb83 ], [ undef, %for.end ], [ undef, %for.end ], [ %., %sw.bb25 ], [ -8589934592, %sw.bb ], [ -64424509440, %sw.bb74 ], [ -42949672960, %sw.bb68 ], [ -38654705664, %sw.bb62 ], [ -34359738368, %sw.bb56 ], [ -30064771072, %sw.bb50 ], [ -25769803776, %sw.bb44 ], [ 2, %sw.bb31 ], [ -4294967296, %return.loopexit ]
-  %retval.sroa.26.sroa.0.0 = phi i32 [ 39, %if.then40 ], [ %call3, %sw.default ], [ 0, %sw.bb18 ], [ 0, %sw.bb15 ], [ 0, %sw.bb12 ], [ 0, %sw.bb95 ], [ 0, %sw.bb93 ], [ 0, %sw.bb91 ], [ 0, %sw.bb89 ], [ 0, %sw.bb87 ], [ 0, %sw.bb85 ], [ undef, %sw.bb83 ], [ undef, %for.end ], [ undef, %for.end ], [ %call3, %sw.bb25 ], [ 0, %sw.bb ], [ 0, %sw.bb74 ], [ 0, %sw.bb68 ], [ 0, %sw.bb62 ], [ 0, %sw.bb56 ], [ 0, %sw.bb50 ], [ 0, %sw.bb44 ], [ %call3, %sw.bb31 ], [ 0, %return.loopexit ]
-  %retval.sroa.0.0 = phi i32 [ %add41, %if.then40 ], [ %add23, %sw.default ], [ %add23, %sw.bb18 ], [ %add23, %sw.bb15 ], [ %add23, %sw.bb12 ], [ %offset.0.lcssa, %sw.bb95 ], [ %offset.0.lcssa, %sw.bb93 ], [ %offset.0.lcssa, %sw.bb91 ], [ %offset.0.lcssa, %sw.bb89 ], [ %offset.0.lcssa, %sw.bb87 ], [ %offset.0.lcssa, %sw.bb85 ], [ -1, %sw.bb83 ], [ -1, %for.end ], [ -1, %for.end ], [ %add27, %sw.bb25 ], [ %add23, %sw.bb ], [ %offset.0271, %sw.bb74 ], [ %offset.0271, %sw.bb68 ], [ %offset.0271, %sw.bb62 ], [ %offset.0271, %sw.bb56 ], [ %offset.0271, %sw.bb50 ], [ %offset.0271, %sw.bb44 ], [ %add34, %sw.bb31 ], [ %add23, %return.loopexit ]
+return:                                           ; preds = %sw.bb74, %sw.bb68, %sw.bb62, %sw.bb56, %sw.bb50, %sw.bb44, %for.end, %for.end, %sw.bb95, %sw.bb93, %sw.bb91, %sw.bb89, %sw.bb87, %sw.bb85, %sw.bb83, %if.then40, %if.else35, %if.else, %if.then, %sw.default, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb9, %sw.bb6
+  %retval.sroa.26.sroa.23.0 = phi i64 [ 2, %if.then40 ], [ 2, %if.else35 ], [ 0, %if.then ], [ 2, %if.else ], [ 0, %sw.default ], [ -21474836480, %sw.bb18 ], [ -17179869184, %sw.bb15 ], [ -12884901888, %sw.bb12 ], [ -8589934592, %sw.bb9 ], [ -4294967296, %sw.bb6 ], [ -64424509440, %sw.bb95 ], [ -42949672960, %sw.bb93 ], [ -38654705664, %sw.bb91 ], [ -34359738368, %sw.bb89 ], [ -30064771072, %sw.bb87 ], [ -25769803776, %sw.bb85 ], [ undef, %sw.bb83 ], [ undef, %for.end ], [ undef, %for.end ], [ -64424509440, %sw.bb74 ], [ -42949672960, %sw.bb68 ], [ -38654705664, %sw.bb62 ], [ -34359738368, %sw.bb56 ], [ -30064771072, %sw.bb50 ], [ -25769803776, %sw.bb44 ]
+  %retval.sroa.26.sroa.0.0 = phi i32 [ 39, %if.then40 ], [ %call3, %if.else35 ], [ 39, %if.then ], [ %call3, %if.else ], [ %call3, %sw.default ], [ 0, %sw.bb18 ], [ 0, %sw.bb15 ], [ 0, %sw.bb12 ], [ 0, %sw.bb9 ], [ 0, %sw.bb6 ], [ 0, %sw.bb95 ], [ 0, %sw.bb93 ], [ 0, %sw.bb91 ], [ 0, %sw.bb89 ], [ 0, %sw.bb87 ], [ 0, %sw.bb85 ], [ undef, %sw.bb83 ], [ undef, %for.end ], [ undef, %for.end ], [ 0, %sw.bb44 ], [ 0, %sw.bb50 ], [ 0, %sw.bb56 ], [ 0, %sw.bb62 ], [ 0, %sw.bb68 ], [ 0, %sw.bb74 ]
+  %retval.sroa.0.0 = phi i32 [ %add41, %if.then40 ], [ %add36, %if.else35 ], [ %add27, %if.then ], [ %add29, %if.else ], [ %add23, %sw.default ], [ %add19, %sw.bb18 ], [ %add16, %sw.bb15 ], [ %add13, %sw.bb12 ], [ %add10, %sw.bb9 ], [ %add7, %sw.bb6 ], [ %offset.0.lcssa, %sw.bb95 ], [ %offset.0.lcssa, %sw.bb93 ], [ %offset.0.lcssa, %sw.bb91 ], [ %offset.0.lcssa, %sw.bb89 ], [ %offset.0.lcssa, %sw.bb87 ], [ %offset.0.lcssa, %sw.bb85 ], [ -1, %sw.bb83 ], [ -1, %for.end ], [ -1, %for.end ], [ %offset.0279, %sw.bb44 ], [ %offset.0279, %sw.bb50 ], [ %offset.0279, %sw.bb56 ], [ %offset.0279, %sw.bb62 ], [ %offset.0279, %sw.bb68 ], [ %offset.0279, %sw.bb74 ]
   %retval.sroa.26.0.insert.ext = zext i32 %retval.sroa.26.sroa.0.0 to i64
   %retval.sroa.26.0.insert.shift = shl nuw i64 %retval.sroa.26.0.insert.ext, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64

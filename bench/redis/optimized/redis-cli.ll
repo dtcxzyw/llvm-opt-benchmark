@@ -4216,10 +4216,8 @@ if.then157:                                       ; preds = %while.body146
   %len166 = getelementptr inbounds %struct.list, ptr %call165, i64 0, i32 5
   %50 = load i64, ptr %len166, align 8
   %conv167 = trunc i64 %50 to i32
-  %tobool168.not = icmp ne ptr %call165, null
   %cmp170.not = icmp eq i32 %cond, %conv167
-  %or.cond92 = select i1 %tobool168.not, i1 %cmp170.not, i1 false
-  br i1 %or.cond92, label %if.end173, label %cleanup.critedge.thread
+  br i1 %cmp170.not, label %if.end173, label %cleanup.critedge.thread
 
 cleanup.critedge.thread:                          ; preds = %if.then157
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.387)
@@ -4307,9 +4305,10 @@ cleanup.critedge:                                 ; preds = %while.body189
   %60 = load ptr, ptr %err, align 8
   call void @zfree(ptr noundef %60) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i104)
-  br label %if.then.i106
+  %cmp.not.i105 = icmp eq ptr %call165, null
+  br i1 %cmp.not.i105, label %clusterManagerReleaseReshardTable.exit116, label %if.then.i106
 
-if.then.i106:                                     ; preds = %cleanup.critedge, %cleanup.critedge.thread
+if.then.i106:                                     ; preds = %cleanup.critedge.thread, %cleanup.critedge
   call void @listRewind(ptr noundef nonnull %call165, ptr noundef nonnull %li.i104) #33
   %call3.i107 = call ptr @listNext(ptr noundef nonnull %li.i104) #33
   %cmp1.not4.i108 = icmp eq ptr %call3.i107, null
@@ -4326,11 +4325,14 @@ while.body.i109:                                  ; preds = %if.then.i106, %whil
 
 while.end.i114:                                   ; preds = %while.body.i109, %if.then.i106
   call void @listRelease(ptr noundef nonnull %call165) #33
+  br label %clusterManagerReleaseReshardTable.exit116
+
+clusterManagerReleaseReshardTable.exit116:        ; preds = %cleanup.critedge, %while.end.i114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i104)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end203, %if.end140, %while.end.i114, %while.end, %if.then96, %if.then49
-  %result.5 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %while.end.i114 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
+cleanup:                                          ; preds = %if.end203, %if.end140, %clusterManagerReleaseReshardTable.exit116, %while.end, %if.then96, %if.then49
+  %result.5 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %clusterManagerReleaseReshardTable.exit116 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
   %cmp221.not = icmp eq ptr %call19, null
   br i1 %cmp221.not, label %if.end224, label %if.then223
 
@@ -9465,7 +9467,7 @@ if.then807.i:                                     ; preds = %land.lhs.true800.i
   br i1 %cmp808.i, label %while.cond813.preheader.i, label %for.inc929.i
 
 while.cond813.preheader.i:                        ; preds = %if.then807.i
-  %84 = add i32 %i.0459.i, 1
+  %84 = add nsw i32 %i.0459.i, 1
   %smax.i = tail call i32 @llvm.smax.i32(i32 %argc, i32 %84)
   %85 = add nsw i32 %smax.i, -1
   br label %while.cond813.i
@@ -12416,7 +12418,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @slaveMode.lastbytes, i8 0, i64 40, i1 false)
   store i1 true, ptr @slaveMode.usemark, align 4
   %3 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.620, ptr noundef nonnull %cond) #37
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.618) #37
   br label %while.body.preheader
 
 if.else:                                          ; preds = %entry
@@ -12426,7 +12428,7 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %4 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.621, ptr noundef nonnull %cond, i64 noundef %call) #37
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.621, ptr noundef nonnull @.str.618, i64 noundef %call) #37
   br label %while.body.preheader
 
 if.else8:                                         ; preds = %if.else
@@ -12435,7 +12437,7 @@ if.else8:                                         ; preds = %if.else
 
 if.end15.thread33:                                ; preds = %if.else8
   %5 = load ptr, ptr @stderr, align 8
-  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.622, ptr noundef nonnull %cond) #37
+  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.622, ptr noundef nonnull @.str.619) #37
   br label %if.end15.while.end_crit_edge
 
 if.end15:                                         ; preds = %if.else8

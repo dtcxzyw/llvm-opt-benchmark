@@ -1134,7 +1134,7 @@ entry:
 declare void @_PyDebugAllocatorStats(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_CheckConsistency(ptr noundef %op, i32 noundef %check_content) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_CheckConsistency(ptr noundef %op, i32 noundef %check_content) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -2269,8 +2269,8 @@ if.end35:                                         ; preds = %if.else30.i, %Py_DE
   ret i64 %ix.1
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyDict_HasOnlyStringKeys(ptr nocapture noundef readonly %dict) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define hidden noundef i32 @_PyDict_HasOnlyStringKeys(ptr nocapture noundef readonly %dict) local_unnamed_addr #4 {
 entry:
   %ma_keys = getelementptr inbounds %struct.PyDictObject, ptr %dict, i64 0, i32 3
   %0 = load ptr, ptr %ma_keys, align 8
@@ -2379,7 +2379,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @PyDict_Next(ptr nocapture noundef readonly %op, ptr nocapture noundef %ppos, ptr noundef writeonly %pkey, ptr noundef writeonly %pvalue) local_unnamed_addr #5 {
+define dso_local noundef i32 @PyDict_Next(ptr nocapture noundef readonly %op, ptr nocapture noundef %ppos, ptr noundef writeonly %pkey, ptr noundef writeonly %pvalue) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val.i = load ptr, ptr %0, align 8
@@ -2998,7 +2998,7 @@ return:                                           ; preds = %if.end14, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_SetItem(ptr noundef %op, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_SetItem(ptr noundef %op, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -3173,7 +3173,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_GetItemRef(ptr nocapture noundef readonly %op, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_GetItemRef(ptr nocapture noundef readonly %op, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %0 = getelementptr i8, ptr %op, i64 8
@@ -3473,7 +3473,7 @@ return:                                           ; preds = %if.end9, %if.end5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_SetItem_Take2(ptr noundef %mp, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_SetItem_Take2(ptr noundef %mp, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val = load ptr, ptr %0, align 8
@@ -3548,7 +3548,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @insert_to_emptydict(ptr nocapture noundef %interp, ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc noundef i32 @insert_to_emptydict(ptr nocapture noundef %interp, ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef %value) unnamed_addr #0 {
 entry:
   %ma_version_tag.i = getelementptr inbounds %struct.PyDictObject, ptr %mp, i64 0, i32 2
   %0 = load i64, ptr %ma_version_tag.i, align 8
@@ -3841,7 +3841,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @insertdict(ptr nocapture noundef %interp, ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc noundef i32 @insertdict(ptr nocapture noundef %interp, ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef %value) unnamed_addr #0 {
 entry:
   %old_value = alloca ptr, align 8
   %ma_keys = getelementptr inbounds %struct.PyDictObject, ptr %mp, i64 0, i32 3
@@ -3867,7 +3867,7 @@ if.then:                                          ; preds = %land.lhs.true
   %4 = tail call i64 @llvm.ctlz.i64(i64 %or1.i.i, i1 true), !range !19
   %cast.i.i.i = trunc i64 %4 to i8
   %sub.i.i.i = sub nuw nsw i8 64, %cast.i.i.i
-  %call1.i = tail call fastcc i32 @dictresize(ptr noundef %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i, i32 noundef 0), !range !21
+  %call1.i = tail call fastcc noundef i32 @dictresize(ptr noundef %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i, i32 noundef 0), !range !21
   %cmp3 = icmp slt i32 %call1.i, 0
   br i1 %cmp3, label %Fail, label %if.end6
 
@@ -4022,7 +4022,7 @@ if.then30:                                        ; preds = %_PyDict_NotifyEvent
   %31 = tail call i64 @llvm.ctlz.i64(i64 %or1.i.i98, i1 true), !range !19
   %cast.i.i.i99 = trunc i64 %31 to i8
   %sub.i.i.i100 = sub nuw nsw i8 64, %cast.i.i.i99
-  %call1.i101 = tail call fastcc i32 @dictresize(ptr noundef nonnull %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i100, i32 noundef 1), !range !21
+  %call1.i101 = tail call fastcc noundef i32 @dictresize(ptr noundef nonnull %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i100, i32 noundef 1), !range !21
   %cmp32 = icmp slt i32 %call1.i101, 0
   br i1 %cmp32, label %Fail, label %if.then30.if.end36_crit_edge
 
@@ -4465,7 +4465,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyDict_SetItem_KnownHash(ptr noundef %op, ptr noundef %key, ptr noundef %value, i64 noundef %hash) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyDict_SetItem_KnownHash(ptr noundef %op, ptr noundef %key, ptr noundef %value, i64 noundef %hash) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -4540,7 +4540,7 @@ return:                                           ; preds = %_Py_NewRef.exit19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_DelItem(ptr noundef %op, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_DelItem(ptr noundef %op, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val = load ptr, ptr %0, align 8
@@ -4569,7 +4569,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyDict_DelItem_KnownHash(ptr noundef %op, ptr noundef %key, i64 noundef %hash) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PyDict_DelItem_KnownHash(ptr noundef %op, ptr noundef %key, i64 noundef %hash) local_unnamed_addr #0 {
 entry:
   %old_value = alloca ptr, align 8
   %0 = getelementptr i8, ptr %op, i64 8
@@ -4907,7 +4907,7 @@ Py_DECREF.exit:                                   ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_DelItemIf(ptr noundef %op, ptr noundef %key, ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_DelItemIf(ptr noundef %op, ptr noundef %key, ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
 entry:
   %old_value = alloca ptr, align 8
   %0 = getelementptr i8, ptr %op, i64 8
@@ -5466,7 +5466,7 @@ if.end4:                                          ; preds = %if.end36.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @_PyDict_Next(ptr nocapture noundef readonly %op, ptr nocapture noundef %ppos, ptr noundef writeonly %pkey, ptr noundef writeonly %pvalue, ptr noundef writeonly %phash) local_unnamed_addr #5 {
+define hidden noundef i32 @_PyDict_Next(ptr nocapture noundef readonly %op, ptr nocapture noundef %ppos, ptr noundef writeonly %pkey, ptr noundef writeonly %pvalue, ptr noundef writeonly %phash) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -5618,7 +5618,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_Pop_KnownHash(ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_Pop_KnownHash(ptr noundef %mp, ptr noundef %key, i64 noundef %hash, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %old_value = alloca ptr, align 8
   %ma_used = getelementptr inbounds %struct.PyDictObject, ptr %mp, i64 0, i32 1
@@ -5760,7 +5760,7 @@ return:                                           ; preds = %if.then21, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_Pop(ptr noundef %op, ptr noundef %key, ptr noundef %result) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_Pop(ptr noundef %op, ptr noundef %key, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -5832,7 +5832,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_PopString(ptr noundef %op, ptr noundef %key, ptr noundef %result) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_PopString(ptr noundef %op, ptr noundef %key, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #17
   %cmp = icmp eq ptr %call, null
@@ -6522,7 +6522,7 @@ return:                                           ; preds = %while.cond41, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dictresize(ptr nocapture noundef %interp, ptr nocapture noundef %mp, i8 noundef zeroext %log2_newsize, i32 noundef %unicode) unnamed_addr #0 {
+define internal fastcc noundef i32 @dictresize(ptr nocapture noundef %interp, ptr nocapture noundef %mp, i8 noundef zeroext %log2_newsize, i32 noundef %unicode) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i8 %log2_newsize, 63
   br i1 %cmp, label %if.then, label %if.end
@@ -6586,7 +6586,7 @@ if.then30.i:                                      ; preds = %land.lhs.true27.i
   %idxprom.i = zext nneg i32 %dec.i to i64
   %arrayidx.i = getelementptr %struct._is, ptr %interp, i64 0, i32 52, i32 3, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %.pre.i = mul nuw nsw i64 %cond.i, %div.i
+  %.pre.i = shl nuw nsw i64 %div.i, 4
   br label %if.end14
 
 if.else32.i:                                      ; preds = %land.lhs.true27.i, %if.end21.i, %if.else17.i, %if.then14.i, %if.then8.i
@@ -7385,7 +7385,7 @@ if.then26:                                        ; preds = %land.lhs.true
   %13 = tail call i64 @llvm.ctlz.i64(i64 %or1.i.i, i1 true), !range !19
   %cast.i.i.i = trunc i64 %13 to i8
   %sub.i.i.i = sub nuw nsw i8 64, %cast.i.i.i
-  %call1.i = tail call fastcc i32 @dictresize(ptr noundef %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i, i32 noundef 0), !range !21
+  %call1.i = tail call fastcc noundef i32 @dictresize(ptr noundef %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i, i32 noundef 0), !range !21
   %cmp28 = icmp slt i32 %call1.i, 0
   br i1 %cmp28, label %return, label %if.end32
 
@@ -7476,7 +7476,7 @@ if.then46:                                        ; preds = %_PyDict_NotifyEvent
   %25 = tail call i64 @llvm.ctlz.i64(i64 %or1.i.i83, i1 true), !range !19
   %cast.i.i.i84 = trunc i64 %25 to i8
   %sub.i.i.i85 = sub nuw nsw i8 64, %cast.i.i.i84
-  %call1.i86 = tail call fastcc i32 @dictresize(ptr noundef nonnull %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i85, i32 noundef 1), !range !21
+  %call1.i86 = tail call fastcc noundef i32 @dictresize(ptr noundef nonnull %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i85, i32 noundef 1), !range !21
   %cmp48 = icmp slt i32 %call1.i86, 0
   br i1 %cmp48, label %return, label %if.then46.if.end52_crit_edge
 
@@ -7998,7 +7998,7 @@ return:                                           ; preds = %do.end, %_Py_NewRef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_Update(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_Update(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -8009,7 +8009,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dict_merge(ptr nocapture noundef %interp, ptr noundef %a, ptr noundef %b, i32 noundef %override) unnamed_addr #0 {
+define internal fastcc noundef i32 @dict_merge(ptr nocapture noundef %interp, ptr noundef %a, ptr noundef %b, i32 noundef %override) unnamed_addr #0 {
 entry:
   %value.i141 = alloca ptr, align 8
   %value.i = alloca ptr, align 8
@@ -8778,7 +8778,7 @@ return:                                           ; preds = %Py_DECREF.exit259, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_Merge(ptr noundef %a, ptr noundef %b, i32 noundef %override) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_Merge(ptr noundef %a, ptr noundef %b, i32 noundef %override) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -8791,7 +8791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_MergeEx(ptr noundef %a, ptr noundef %b, i32 noundef %override) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_MergeEx(ptr noundef %a, ptr noundef %b, i32 noundef %override) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -10826,14 +10826,14 @@ return:                                           ; preds = %if.then8, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_tp_clear(ptr noundef %op) #0 {
+define internal noundef i32 @dict_tp_clear(ptr noundef %op) #0 {
 entry:
   tail call void @PyDict_Clear(ptr noundef %op)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dict_richcompare(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %w, i32 noundef %op) #0 {
+define internal noundef ptr @dict_richcompare(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %w, i32 noundef %op) #0 {
 entry:
   %bval.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %v, i64 8
@@ -11273,7 +11273,7 @@ if.then.i:                                        ; preds = %if.then8
   %17 = load ptr, ptr %1, align 8
   %interp.i.i.i24 = getelementptr inbounds %struct._ts, ptr %17, i64 0, i32 2
   %18 = load ptr, ptr %interp.i.i.i24, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %18, ptr noundef nonnull %call.i, ptr noundef nonnull %15, i32 noundef 1), !range !21
+  %call1.i.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %18, ptr noundef nonnull %call.i, ptr noundef nonnull %15, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end.i22:                                       ; preds = %if.then8
@@ -11289,7 +11289,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %19 = load ptr, ptr %1, align 8
   %interp.i.i8.i = getelementptr inbounds %struct._ts, ptr %19, i64 0, i32 2
   %20 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %20, ptr noundef nonnull %call.i, ptr noundef nonnull %15, i32 noundef 1), !range !21
+  %call1.i9.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %20, ptr noundef nonnull %call.i, ptr noundef nonnull %15, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -11437,7 +11437,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_GetItemStringRef(ptr nocapture noundef readonly %v, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_GetItemStringRef(ptr nocapture noundef readonly %v, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %value.i = alloca ptr, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #17
@@ -11526,7 +11526,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_SetItemId(ptr noundef %v, ptr noundef %key, ptr noundef %item) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_SetItemId(ptr noundef %v, ptr noundef %key, ptr noundef %item) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyUnicode_FromId(ptr noundef %key) #17
   %cmp = icmp eq ptr %call, null
@@ -11575,7 +11575,7 @@ return:                                           ; preds = %_Py_NewRef.exit5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_SetItemString(ptr noundef %v, ptr noundef %key, ptr noundef %item) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_SetItemString(ptr noundef %v, ptr noundef %key, ptr noundef %item) local_unnamed_addr #0 {
 entry:
   %kv = alloca ptr, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #17
@@ -11648,7 +11648,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare void @PyUnicode_InternInPlace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyDict_DelItemId(ptr noundef %v, ptr noundef %key) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyDict_DelItemId(ptr noundef %v, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyUnicode_FromId(ptr noundef %key) #17
   %cmp = icmp eq ptr %call, null
@@ -11682,7 +11682,7 @@ return:                                           ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_DelItemString(ptr noundef %v, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_DelItemString(ptr noundef %v, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #17
   %cmp = icmp eq ptr %call, null
@@ -11835,7 +11835,7 @@ return:                                           ; preds = %if.then7, %if.then,
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dictiter_iternextkey(ptr nocapture noundef %di) #0 {
+define internal noundef ptr @dictiter_iternextkey(ptr nocapture noundef %di) #0 {
 entry:
   %di_dict = getelementptr inbounds %struct.dictiterobject, ptr %di, i64 0, i32 1
   %0 = load ptr, ptr %di_dict, align 8
@@ -12002,7 +12002,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dictiter_iternextvalue(ptr nocapture noundef %di) #0 {
+define internal noundef ptr @dictiter_iternextvalue(ptr nocapture noundef %di) #0 {
 entry:
   %di_dict = getelementptr inbounds %struct.dictiterobject, ptr %di, i64 0, i32 1
   %0 = load ptr, ptr %di_dict, align 8
@@ -13421,7 +13421,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dictview_richcompare(ptr noundef %self, ptr noundef %other, i32 noundef %op) #0 {
+define internal noundef ptr @dictview_richcompare(ptr noundef %self, ptr noundef %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val33 = load ptr, ptr %0, align 8
@@ -13806,7 +13806,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyObject_InitInlineValues(ptr nocapture noundef writeonly %obj, ptr nocapture noundef readonly %tp) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyObject_InitInlineValues(ptr nocapture noundef writeonly %obj, ptr nocapture noundef readonly %tp) local_unnamed_addr #0 {
 entry:
   %ht_cached_keys = getelementptr inbounds %struct._heaptypeobject, ptr %tp, i64 0, i32 9
   %0 = load ptr, ptr %ht_cached_keys, align 8
@@ -13866,7 +13866,7 @@ return:                                           ; preds = %for.end, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyObject_InitializeDict(ptr noundef %obj) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyObject_InitializeDict(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -14262,7 +14262,7 @@ if.end8:                                          ; preds = %new_dict.exit.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_PyObject_MakeInstanceAttributesFromDict(ptr nocapture noundef readonly %obj, ptr nocapture noundef %dorv) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_PyObject_MakeInstanceAttributesFromDict(ptr nocapture noundef readonly %obj, ptr nocapture noundef %dorv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dorv, align 8
   %cmp = icmp eq ptr %0, null
@@ -14332,7 +14332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyObject_StoreInstanceAttribute(ptr nocapture noundef %obj, ptr noundef %values, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyObject_StoreInstanceAttribute(ptr nocapture noundef %obj, ptr noundef %values, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -15110,7 +15110,7 @@ if.end14:                                         ; preds = %if.else, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyObject_GenericGetDict(ptr noundef %obj, ptr nocapture noundef readnone %context) local_unnamed_addr #0 {
+define dso_local noundef ptr @PyObject_GenericGetDict(ptr noundef %obj, ptr nocapture noundef readnone %context) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -15285,7 +15285,7 @@ return:                                           ; preds = %if.then6, %if.end.i
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyObjectDict_SetItem(ptr nocapture noundef readonly %tp, ptr nocapture noundef %dictptr, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyObjectDict_SetItem(ptr nocapture noundef readonly %tp, ptr nocapture noundef %dictptr, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -15532,7 +15532,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_Watch(i32 noundef %watcher_id, ptr nocapture noundef %dict) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_Watch(i32 noundef %watcher_id, ptr nocapture noundef %dict) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dict, i64 8
   %dict.val = load ptr, ptr %0, align 8
@@ -15582,7 +15582,7 @@ return:                                           ; preds = %validate_watcher_id
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_Unwatch(i32 noundef %watcher_id, ptr nocapture noundef %dict) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_Unwatch(i32 noundef %watcher_id, ptr nocapture noundef %dict) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dict, i64 8
   %dict.val = load ptr, ptr %0, align 8
@@ -15670,7 +15670,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_ClearWatcher(i32 noundef %watcher_id) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyDict_ClearWatcher(i32 noundef %watcher_id) local_unnamed_addr #0 {
 entry:
   %or.cond.i = icmp ugt i32 %watcher_id, 7
   br i1 %or.cond.i, label %validate_watcher_id.exit, label %if.end.i
@@ -16271,7 +16271,7 @@ if.then.i:                                        ; preds = %if.end7
   %7 = load ptr, ptr %6, align 8
   %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %7, i64 0, i32 2
   %8 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %8, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1), !range !21
+  %call1.i.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %8, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end.i12:                                       ; preds = %if.end7
@@ -16288,7 +16288,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %10 = load ptr, ptr %9, align 8
   %interp.i.i8.i = getelementptr inbounds %struct._ts, ptr %10, i64 0, i32 2
   %11 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %11, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1), !range !21
+  %call1.i9.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %11, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -16322,7 +16322,7 @@ return:                                           ; preds = %dict_update_arg.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dict_ior(ptr noundef %self, ptr noundef %other) #0 {
+define internal noundef ptr @dict_ior(ptr noundef %self, ptr noundef %other) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %arg.val.i = load ptr, ptr %0, align 8
@@ -16334,7 +16334,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %3, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1), !range !21
+  %call1.i.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %3, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end.i:                                         ; preds = %entry
@@ -16351,7 +16351,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr %4, align 8
   %interp.i.i8.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
   %6 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %6, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1), !range !21
+  %call1.i9.i = tail call fastcc noundef i32 @dict_merge(ptr noundef %6, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1), !range !21
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -16474,7 +16474,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_ass_sub(ptr noundef %mp, ptr noundef %v, ptr noundef %w) #0 {
+define internal noundef i32 @dict_ass_sub(ptr noundef %mp, ptr noundef %v, ptr noundef %w) #0 {
 entry:
   %cmp = icmp eq ptr %w, null
   br i1 %cmp, label %if.then, label %if.else
@@ -16643,7 +16643,7 @@ _PyDict_SizeOf.exit:                              ; preds = %if.end.i, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dict_get(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @dict_get(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %val.i = alloca ptr, align 8
   %0 = add i64 %nargs, -1
@@ -17372,7 +17372,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @dict_clear(ptr noundef %mp, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @dict_clear(ptr noundef %mp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @PyDict_Clear(ptr noundef %mp)
   ret ptr @_Py_NoneStruct
@@ -17487,7 +17487,7 @@ if.then.i:                                        ; preds = %if.then1
   %3 = load ptr, ptr %2, align 8
   %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
   %4 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = call fastcc i32 @dict_merge(ptr noundef %4, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1), !range !21
+  %call1.i.i = call fastcc noundef i32 @dict_merge(ptr noundef %4, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1), !range !21
   br label %if.end3
 
 if.end.i:                                         ; preds = %if.then1
@@ -17504,7 +17504,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %6 = load ptr, ptr %5, align 8
   %interp.i.i8.i = getelementptr inbounds %struct._ts, ptr %6, i64 0, i32 2
   %7 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = call fastcc i32 @dict_merge(ptr noundef %7, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1), !range !21
+  %call1.i9.i = call fastcc noundef i32 @dict_merge(ptr noundef %7, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1), !range !21
   br label %if.end3
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -17528,7 +17528,7 @@ if.then9:                                         ; preds = %if.then6
   %9 = load ptr, ptr %8, align 8
   %interp.i.i = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
   %10 = load ptr, ptr %interp.i.i, align 8
-  %call1.i = call fastcc i32 @dict_merge(ptr noundef %10, ptr noundef %self, ptr noundef nonnull %kwds, i32 noundef 1), !range !21
+  %call1.i = call fastcc noundef i32 @dict_merge(ptr noundef %10, ptr noundef %self, ptr noundef nonnull %kwds, i32 noundef 1), !range !21
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end.i, %entry, %if.then6, %if.then9, %if.end3
@@ -18804,7 +18804,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

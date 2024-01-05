@@ -6967,7 +6967,6 @@ if.end9:                                          ; preds = %lor.lhs.false, %if.
   %tobool10.not = icmp eq i8 %isShort, 0
   %cond11 = zext i1 %tobool10.not to i32
   %tobool14.not = icmp eq i8 %isBasic, 0
-  %conv = select i1 %tobool14.not, i16 58, i16 0
   %cmp16 = icmp ugt i32 %cond, 86399999
   br i1 %cmp16, label %if.then17, label %if.end18
 
@@ -7081,7 +7080,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
 
 if.then46:                                        ; preds = %for.body42
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i42)
-  store i16 %conv, ptr %srcChar.addr.i42, align 2
+  store i16 58, ptr %srcChar.addr.i42, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i42, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i42)
   br label %if.end48

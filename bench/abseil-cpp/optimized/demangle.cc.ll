@@ -8416,7 +8416,7 @@ if.end.i30.i:                                     ; preds = %land.lhs.true4.i
   store i32 %inc.i.i.i.i72, ptr %recursion_depth.i, align 4
   %inc2.i.i.i32.i = add nsw i32 %12, 7
   store i32 %inc2.i.i.i32.i, ptr %steps.i, align 8
-  %cmp3.i.i.i34.i = icmp sgt i32 %12, 131065
+  %cmp3.i.i.i34.i = icmp eq i32 %inc2.i.i.i.i73, 131070
   %or.cond.i.i35.i = or i1 %cmp.i.i.i.i74, %cmp3.i.i.i34.i
   br i1 %or.cond.i.i35.i, label %invoke.cont.i43.i, label %if.end.i.i39.i
 

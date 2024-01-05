@@ -236,7 +236,7 @@ declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -370,7 +370,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -546,7 +546,7 @@ if.end:                                           ; preds = %cond.end, %entry
 declare i32 @sdigits10(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %vptr = alloca ptr, align 8
   %existing = alloca ptr, align 8
@@ -1069,7 +1069,7 @@ declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %fptr = alloca ptr, align 8
   %bf.load = load i32, ptr %o, align 8
@@ -1180,7 +1180,7 @@ declare i32 @dictResize(ptr noundef) local_unnamed_addr #1
 declare i64 @lpLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @hashTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @hashTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #12
   store ptr %subject, ptr %call, align 8
@@ -1245,7 +1245,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds %struct.hashTypeIterator, ptr %hi, i64 0, i32 1
   %0 = load i32, ptr %encoding, align 8
@@ -1531,7 +1531,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef ptr @hashTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
   %0 = load ptr, ptr %db, align 8
@@ -1767,7 +1767,7 @@ declare void @serverLogHexDump(i32 noundef, ptr noundef, ptr noundef, i64 nounde
 declare i64 @lpBytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeDup(ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @hashTypeDup(ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -3725,7 +3725,7 @@ while.end68:                                      ; preds = %while.body54
   br label %if.end250
 
 if.end71:                                         ; preds = %if.end8
-  %cond77 = tail call i64 @llvm.umin.i64(i64 %count.0, i64 %length.0.i)
+  %cond77 = tail call i64 @llvm.umin.i64(i64 %l, i64 %length.0.i)
   %tobool78.not = icmp eq i32 %withvalues, 0
   br i1 %tobool78.not, label %if.end86, label %land.lhs.true79
 
@@ -3740,7 +3740,7 @@ land.lhs.true79:                                  ; preds = %if.end71
 if.end86:                                         ; preds = %land.lhs.true79, %if.end71
   %cond77.sink = phi i64 [ %cond77, %if.end71 ], [ %spec.select228, %land.lhs.true79 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %cond77.sink) #10
-  %cmp87.not = icmp ult i64 %count.0, %length.0.i
+  %cmp87.not = icmp ugt i64 %length.0.i, %l
   br i1 %cmp87.not, label %if.end107, label %if.then89
 
 if.then89:                                        ; preds = %if.end86
@@ -3827,7 +3827,7 @@ if.end107:                                        ; preds = %if.end86
   br i1 %cmp111, label %if.then113, label %if.end136
 
 if.then113:                                       ; preds = %if.end107
-  %mul116 = mul i64 %count.0, 24
+  %mul116 = mul i64 %l, 24
   %call117 = tail call noalias ptr @zmalloc(i64 noundef %mul116) #12
   br i1 %tobool78.not, label %if.end122, label %if.then119
 
@@ -3839,10 +3839,10 @@ if.end122:                                        ; preds = %if.then119, %if.the
   %vals115.0 = phi ptr [ %call121, %if.then119 ], [ null, %if.then113 ]
   %ptr123 = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
   %35 = load ptr, ptr %ptr123, align 8
-  %conv124 = trunc i64 %count.0 to i32
+  %conv124 = trunc i64 %l to i32
   %call125 = tail call i32 @lpRandomPairsUnique(ptr noundef %35, i32 noundef %conv124, ptr noundef %call117, ptr noundef %vals115.0) #10
   %conv126 = zext i32 %call125 to i64
-  %cmp127 = icmp eq i64 %count.0, %conv126
+  %cmp127 = icmp eq i64 %conv126, %l
   br i1 %cmp127, label %cond.end134, label %cond.false133
 
 cond.false133:                                    ; preds = %if.end122
@@ -3857,7 +3857,7 @@ cond.end134:                                      ; preds = %if.end122
   br label %if.end250
 
 if.end136:                                        ; preds = %if.end107
-  %mul137 = mul i64 %count.0, 3
+  %mul137 = mul i64 %l, 3
   %cmp138 = icmp ugt i64 %mul137, %length.0.i
   br i1 %cmp138, label %if.then140, label %if.else218
 
@@ -3944,19 +3944,20 @@ while.end169:                                     ; preds = %while.cond145
   %43 = load i64, ptr %arrayidx172, align 8
   %add = add i64 %43, %42
   %cmp173 = icmp eq i64 %add, %length.0.i
-  br i1 %cmp173, label %while.body187.preheader, label %cond.false182
+  br i1 %cmp173, label %cond.end183, label %cond.false182
 
 cond.false182:                                    ; preds = %while.end169
   call void @_serverAssert(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 1064) #10
   call void @abort() #11
   unreachable
 
-while.body187.preheader:                          ; preds = %while.end169
+cond.end183:                                      ; preds = %while.end169
   call void @hashTypeReleaseIterator(ptr noundef %call144)
-  br label %while.body187
+  %cmp185219 = icmp ugt i64 %length.0.i, %count.0
+  br i1 %cmp185219, label %while.body187, label %while.end195
 
-while.body187:                                    ; preds = %while.body187.preheader, %while.body187
-  %size.0220 = phi i64 [ %dec194, %while.body187 ], [ %length.0.i, %while.body187.preheader ]
+while.body187:                                    ; preds = %cond.end183, %while.body187
+  %size.0220 = phi i64 [ %dec194, %while.body187 ], [ %length.0.i, %cond.end183 ]
   %call189 = call ptr @dictGetFairRandomKey(ptr noundef %call141) #10
   %call190 = call ptr @dictGetKey(ptr noundef %call189) #10
   %call191 = call ptr @dictUnlink(ptr noundef %call141, ptr noundef %call190) #10
@@ -3969,7 +3970,7 @@ while.body187:                                    ; preds = %while.body187.prehe
   %cmp185 = icmp ugt i64 %dec194, %count.0
   br i1 %cmp185, label %while.body187, label %while.end195, !llvm.loop !19
 
-while.end195:                                     ; preds = %while.body187
+while.end195:                                     ; preds = %while.body187, %cond.end183
   %call197 = call ptr @dictGetIterator(ptr noundef %call141) #10
   %call199221 = call ptr @dictNext(ptr noundef %call197) #10
   %cmp200.not222 = icmp eq ptr %call199221, null
@@ -4014,7 +4015,7 @@ while.end217:                                     ; preds = %if.then215, %while.
 
 if.else218:                                       ; preds = %if.end136
   %call222 = tail call ptr @dictCreate(ptr noundef nonnull @hashDictType) #10
-  %call223 = tail call i32 @dictExpand(ptr noundef %call222, i64 noundef %count.0) #10
+  %call223 = tail call i32 @dictExpand(ptr noundef %call222, i64 noundef %l) #10
   %value220. = select i1 %tobool78.not, ptr null, ptr %value220
   %slen.i = getelementptr inbounds %struct.listpackEntry, ptr %key219, i64 0, i32 1
   %lval.i = getelementptr inbounds %struct.listpackEntry, ptr %key219, i64 0, i32 2

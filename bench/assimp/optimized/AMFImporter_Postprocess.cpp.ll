@@ -2115,7 +2115,7 @@ if.then10:                                        ; preds = %for.body
 
 invoke.cont12:                                    ; preds = %if.then10
   %4 = load ptr, ptr %pSceneNode, align 8
-  invoke void @_ZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNode(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %vertex_arr, ptr noundef nonnull align 8 dereferenceable(24) %color_arr, ptr noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(24) %meshList, ptr noundef nonnull align 8 dereferenceable(1144) %4)
+  invoke void @_ZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNode(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %vertex_arr, ptr noundef nonnull align 8 dereferenceable(24) %color_arr, ptr noundef %object_color.022, ptr noundef nonnull align 8 dereferenceable(24) %meshList, ptr noundef nonnull align 8 dereferenceable(1144) %4)
           to label %if.end14 unwind label %lpad11
 
 lpad11:                                           ; preds = %invoke.cont12, %if.then10

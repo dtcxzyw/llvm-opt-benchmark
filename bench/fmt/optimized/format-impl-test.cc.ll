@@ -34530,9 +34530,9 @@ if.then.i.i271:                                   ; preds = %for.end.i.i268
   br i1 %cmp.i.i.i.i274, label %if.then.i.i.i.i278, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i275
 
 if.then.i.i.i.i278:                               ; preds = %if.then.i.i271
-  %vtable.i.i.i.i279 = load ptr, ptr %spec.store.select, align 8
+  %vtable.i.i.i.i279 = load ptr, ptr %upper.2, align 8
   %91 = load ptr, ptr %vtable.i.i.i.i279, align 8
-  invoke void %91(ptr noundef nonnull align 8 dereferenceable(32) %spec.store.select, i64 noundef %add.i.i.i272)
+  invoke void %91(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i272)
           to label %.noexc282 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp
 
 .noexc282:                                        ; preds = %if.then.i.i.i.i278
@@ -34830,9 +34830,9 @@ if.then.i.i384:                                   ; preds = %for.end.i.i381
   br i1 %cmp.i.i.i.i387, label %if.then.i.i.i.i391, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i388
 
 if.then.i.i.i.i391:                               ; preds = %if.then.i.i384
-  %vtable.i.i.i.i392 = load ptr, ptr %spec.store.select, align 8
+  %vtable.i.i.i.i392 = load ptr, ptr %upper.2, align 8
   %131 = load ptr, ptr %vtable.i.i.i.i392, align 8
-  invoke void %131(ptr noundef nonnull align 8 dereferenceable(32) %spec.store.select, i64 noundef %add.i.i.i385)
+  invoke void %131(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i385)
           to label %.noexc395 unwind label %lpad6.loopexit
 
 .noexc395:                                        ; preds = %if.then.i.i.i.i391

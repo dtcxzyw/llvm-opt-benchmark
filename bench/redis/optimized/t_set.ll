@@ -128,7 +128,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setTypeConvertAndExpand(ptr noundef %setobj, i32 noundef %enc, i64 noundef %cap, i32 noundef %panic) local_unnamed_addr #0 {
+define dso_local noundef i32 @setTypeConvertAndExpand(ptr noundef %setobj, i32 noundef %enc, i64 noundef %cap, i32 noundef %panic) local_unnamed_addr #0 {
 entry:
   %intele.i = alloca i64, align 8
   %str.i = alloca ptr, align 8
@@ -1204,7 +1204,7 @@ declare zeroext i8 @intsetFind(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @setTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @setTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #12
   store ptr %subject, ptr %call, align 8
@@ -4577,7 +4577,7 @@ if.end55:                                         ; preds = %if.else54, %if.then
   br i1 %tobool58.not, label %while.cond47, label %return, !llvm.loop !35
 
 if.end62:                                         ; preds = %if.end14
-  %cmp63.not = icmp ult i64 %count.0, %retval.0.i
+  %cmp63.not = icmp ult i64 %2, %retval.0.i
   br i1 %cmp63.not, label %if.end87, label %if.then65
 
 if.then65:                                        ; preds = %if.end62
@@ -4631,7 +4631,7 @@ if.then93:                                        ; preds = %if.end87
   %26 = load ptr, ptr %ptr94, align 8
   %call95 = call ptr @lpFirst(ptr noundef %26) #10
   store i32 0, ptr %i96, align 4
-  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %count.0) #10
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %2) #10
   br label %while.body99
 
 while.body99:                                     ; preds = %if.then93, %if.end110
@@ -4665,7 +4665,7 @@ if.end110:                                        ; preds = %if.else108, %if.the
 
 if.end114:                                        ; preds = %if.end87
   %call115 = call ptr @dictCreate(ptr noundef nonnull @sdsReplyDictType) #10
-  %mul116 = mul i64 %count.0, 3
+  %mul116 = mul i64 %2, 3
   %cmp117 = icmp ugt i64 %mul116, %retval.0.i
   br i1 %cmp117, label %if.then119, label %if.else173
 
@@ -4713,15 +4713,19 @@ while.end148:                                     ; preds = %while.cond123
   %34 = load i64, ptr %arrayidx151, align 8
   %add = add i64 %34, %33
   %cmp152 = icmp eq i64 %add, %retval.0.i
-  br i1 %cmp152, label %while.body166, label %cond.false161
+  br i1 %cmp152, label %while.cond163.preheader, label %cond.false161
+
+while.cond163.preheader:                          ; preds = %while.end148
+  %cmp164107 = icmp ugt i64 %retval.0.i, %count.0
+  br i1 %cmp164107, label %while.body166, label %if.end195
 
 cond.false161:                                    ; preds = %while.end148
   call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1171) #10
   call void @abort() #11
   unreachable
 
-while.body166:                                    ; preds = %while.end148, %while.body166
-  %size.1108 = phi i64 [ %dec171, %while.body166 ], [ %retval.0.i, %while.end148 ]
+while.body166:                                    ; preds = %while.cond163.preheader, %while.body166
+  %size.1108 = phi i64 [ %dec171, %while.body166 ], [ %retval.0.i, %while.cond163.preheader ]
   %call167 = call ptr @dictGetFairRandomKey(ptr noundef %call115) #10
   %call168 = call ptr @dictGetKey(ptr noundef %call167) #10
   %call169 = call ptr @dictUnlink(ptr noundef %call115, ptr noundef %call168) #10
@@ -4733,7 +4737,7 @@ while.body166:                                    ; preds = %while.end148, %whil
   br i1 %cmp164, label %while.body166, label %if.end195, !llvm.loop !39
 
 if.else173:                                       ; preds = %if.end114
-  %call174 = call i32 @dictExpand(ptr noundef %call115, i64 noundef %count.0) #10
+  %call174 = call i32 @dictExpand(ptr noundef %call115, i64 noundef %2) #10
   br label %while.body178
 
 while.body178:                                    ; preds = %if.else173, %if.end193
@@ -4772,7 +4776,7 @@ if.end193:                                        ; preds = %if.else192, %if.the
   %cmp176 = icmp ult i64 %added.1, %count.0
   br i1 %cmp176, label %while.body178, label %if.end195, !llvm.loop !40
 
-if.end195:                                        ; preds = %if.end193, %while.body166
+if.end195:                                        ; preds = %if.end193, %while.body166, %while.cond163.preheader
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef %count.0) #10
   %call197 = call ptr @dictGetIterator(ptr noundef %call115) #10
   %call199109 = call ptr @dictNext(ptr noundef %call197) #10

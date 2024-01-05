@@ -258,7 +258,7 @@ return:                                           ; preds = %if.end10.i, %do.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_freeDDict(ptr noundef %ddict) local_unnamed_addr #2 {
+define noundef i64 @ZSTD_freeDDict(ptr noundef %ddict) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ddict, null
   br i1 %cmp, label %return, label %if.end
@@ -321,7 +321,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ZSTD_initStaticDDict(ptr noundef %sBuffer, i64 noundef %sBufferSize, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #2 {
+define noundef ptr @ZSTD_initStaticDDict(ptr noundef %sBuffer, i64 noundef %sBufferSize, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %sBuffer to i64
   %and = and i64 %0, 7
@@ -380,7 +380,7 @@ if.end12.i.i:                                     ; preds = %if.end6.i.i
   %add.ptr.val.i.i = load i32, ptr %add.ptr.i.i, align 1
   store i32 %add.ptr.val.i.i, ptr %dictID.i.i, align 4
   %entropy.i.i = getelementptr inbounds %struct.ZSTD_DDict_s, ptr %sBuffer, i64 0, i32 3
-  %call18.i.i = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %entropy.i.i, ptr noundef nonnull %dict.addr.0, i64 noundef %spec.select.i) #9
+  %call18.i.i = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %entropy.i.i, ptr noundef nonnull %dict.addr.0, i64 noundef %dictSize) #9
   %cmp.i.i.i = icmp ult i64 %call18.i.i, -119
   br i1 %cmp.i.i.i, label %do.end29.i.i, label %ZSTD_initDDict_internal.exit.thread10
 
@@ -401,7 +401,7 @@ return:                                           ; preds = %if.end7, %do.end29.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ZSTD_estimateDDictSize(i64 noundef %dictSize, i32 noundef %dictLoadMethod) local_unnamed_addr #5 {
+define noundef i64 @ZSTD_estimateDDictSize(i64 noundef %dictSize, i32 noundef %dictLoadMethod) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i32 %dictLoadMethod, 1
   %0 = add i64 %dictSize, 27352

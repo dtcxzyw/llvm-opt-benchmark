@@ -17189,7 +17189,7 @@ declare ptr @hi_sdscat(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @hi_sdstolower(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @showThroughput(ptr noundef %eventLoop, i64 %id, ptr noundef readonly %clientData) #0 {
+define dso_local noundef i32 @showThroughput(ptr noundef %eventLoop, i64 %id, ptr noundef readonly %clientData) #0 {
 entry:
   %tv.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
@@ -17345,7 +17345,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %buf.i679 = alloca [256 x i8], align 16
   %buf.i661 = alloca [256 x i8], align 16
@@ -19469,7 +19469,7 @@ declare i64 @aeCreateTimeEvent(ptr noundef, i64 noundef, ptr noundef, ptr nounde
 declare ptr @listCreate() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getRedisConfig(ptr noundef %ip, i32 noundef %port, ptr noundef %hostsocket) unnamed_addr #0 {
+define internal fastcc noundef ptr @getRedisConfig(ptr noundef %ip, i32 noundef %port, ptr noundef %hostsocket) unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %call = tail call noalias dereferenceable_or_null(16) ptr @zcalloc(i64 noundef 16) #25
@@ -19495,36 +19495,35 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %for.inc, %if.end3
   %trunc.not = phi i1 [ true, %if.end3 ], [ false, %for.inc ]
-  %reply.044 = phi ptr [ null, %if.end3 ], [ %0, %for.inc ]
+  %reply.051 = phi ptr [ null, %if.end3 ], [ %0, %for.inc ]
   %call7 = call i32 @redisGetReply(ptr noundef nonnull %call1, ptr noundef nonnull %r) #22
-  %tobool8.not = icmp eq ptr %reply.044, null
+  %tobool8.not = icmp eq ptr %reply.051, null
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  call void @freeReplyObject(ptr noundef nonnull %reply.044) #22
+  call void @freeReplyObject(ptr noundef nonnull %reply.051) #22
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %for.body
   %cmp11 = icmp eq i32 %call7, 0
   %0 = load ptr, ptr %r, align 8
-  %cond = select i1 %cmp11, ptr %0, ptr null
   %tobool13 = icmp ne ptr %0, null
   %or.cond = select i1 %cmp11, i1 %tobool13, i1 false
   br i1 %or.cond, label %if.end15, label %fail
 
 if.end15:                                         ; preds = %if.end10
-  %1 = load i32, ptr %cond, align 8
+  %1 = load i32, ptr %0, align 8
   %cond33 = icmp eq i32 %1, 2
   br i1 %cond33, label %lor.lhs.false21, label %land.lhs.true
 
 lor.lhs.false21:                                  ; preds = %if.end15
-  %elements = getelementptr inbounds %struct.redisReply, ptr %cond, i64 0, i32 6
+  %elements = getelementptr inbounds %struct.redisReply, ptr %0, i64 0, i32 6
   %2 = load i64, ptr %elements, align 8
   %cmp22 = icmp ult i64 %2, 2
   br i1 %cmp22, label %if.end49.critedge, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false21
-  %element = getelementptr inbounds %struct.redisReply, ptr %cond, i64 0, i32 7
+  %element = getelementptr inbounds %struct.redisReply, ptr %0, i64 0, i32 7
   %3 = load ptr, ptr %element, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 1
   %4 = load ptr, ptr %arrayidx, align 8
@@ -19546,11 +19545,12 @@ for.end:                                          ; preds = %if.end24
   br label %return
 
 fail:                                             ; preds = %if.end10
-  %tobool31.not = icmp eq ptr %cond, null
-  br i1 %tobool31.not, label %if.end49.critedge, label %fail.land.lhs.truethread-pre-split_crit_edge
+  %tobool31.not75 = icmp ne ptr %0, null
+  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not75, i1 false
+  br i1 %tobool31.not.not, label %fail.land.lhs.truethread-pre-split_crit_edge, label %if.end49.critedge
 
 fail.land.lhs.truethread-pre-split_crit_edge:     ; preds = %fail
-  %.pr.pre = load i32, ptr %cond, align 8
+  %.pr.pre = load i32, ptr %0, align 8
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15, %fail.land.lhs.truethread-pre-split_crit_edge
@@ -19559,7 +19559,7 @@ land.lhs.true:                                    ; preds = %if.end15, %fail.lan
   br i1 %cmp33, label %land.lhs.true34, label %if.end49.critedge
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
-  %str35 = getelementptr inbounds %struct.redisReply, ptr %cond, i64 0, i32 4
+  %str35 = getelementptr inbounds %struct.redisReply, ptr %0, i64 0, i32 4
   %7 = load ptr, ptr %str35, align 8
   %call36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(7) @.str.16540, i64 noundef 6) #21
   %tobool37.not = icmp eq i32 %call36, 0
@@ -19579,15 +19579,15 @@ if.else:                                          ; preds = %if.then38
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then40, %if.else
-  call void @freeReplyObject(ptr noundef nonnull %cond) #22
+  call void @freeReplyObject(ptr noundef nonnull %0) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
   call fastcc void @freeRedisConfig(ptr noundef nonnull %call)
   call void @exit(i32 noundef 1) #23
   unreachable
 
 if.end49.critedge:                                ; preds = %lor.lhs.false21, %fail, %land.lhs.true, %land.lhs.true34
-  %cond51 = phi ptr [ null, %fail ], [ %0, %land.lhs.true ], [ %0, %land.lhs.true34 ], [ %0, %lor.lhs.false21 ]
-  call void @freeReplyObject(ptr noundef %cond51) #22
+  %cond41 = phi ptr [ null, %fail ], [ %0, %land.lhs.true ], [ %0, %land.lhs.true34 ], [ %0, %lor.lhs.false21 ]
+  call void @freeReplyObject(ptr noundef %cond41) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
   %9 = load ptr, ptr %call, align 8
   %tobool.not.i = icmp eq ptr %9, null
@@ -19709,7 +19709,7 @@ for.end:                                          ; preds = %createBenchmarkThre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createClient(ptr noundef %cmd, i64 noundef %len, ptr noundef readonly %from, i32 noundef %thread_id) unnamed_addr #0 {
+define internal fastcc noundef ptr @createClient(ptr noundef %cmd, i64 noundef %len, ptr noundef readonly %from, i32 noundef %thread_id) unnamed_addr #0 {
 entry:
   %err37 = alloca ptr, align 8
   %buf = alloca ptr, align 8
@@ -22397,7 +22397,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #4
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @execBenchmarkThread(ptr nocapture noundef readonly %ptr) #0 {
+define internal noalias noundef ptr @execBenchmarkThread(ptr nocapture noundef readonly %ptr) #0 {
 entry:
   %el = getelementptr inbounds %struct.benchmarkThread, ptr %ptr, i64 0, i32 2
   %0 = load ptr, ptr %el, align 8

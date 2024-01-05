@@ -2624,7 +2624,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN9grpc_core19XdsEndpointResource10DropConfig12DropCategoryESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
@@ -6946,12 +6946,10 @@ if.end50:                                         ; preds = %if.end38
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %33 = load ptr, ptr %vfn, align 8
   call void %33(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %args)
-  %tobool.not.i.i = icmp ne ptr %agg.result, null
   %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage.318", ptr %agg.result, i64 0, i32 1
   %34 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.i = icmp eq i8 %34, 0
-  %or.cond = select i1 %tobool.not.i.i, i1 %cmp.i.i, i1 false
-  br i1 %or.cond, label %if.then56, label %return
+  br i1 %cmp.i.i, label %if.then56, label %return
 
 if.then56:                                        ; preds = %if.end50
   %drop_stats_59 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::XdsClusterImplLb::Picker", ptr %this, i64 0, i32 4

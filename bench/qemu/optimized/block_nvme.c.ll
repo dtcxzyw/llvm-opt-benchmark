@@ -321,7 +321,7 @@ if.end18:                                         ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @nvme_reopen_prepare(ptr nocapture readnone %reopen_state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @nvme_reopen_prepare(ptr nocapture readnone %reopen_state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
 entry:
   ret i32 0
 }
@@ -949,7 +949,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @nvme_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #4 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -1068,7 +1068,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvme_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bsz) #0 {
+define internal noundef i32 @nvme_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bsz) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -1650,7 +1650,7 @@ if.end12:                                         ; preds = %if.then11, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvme_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
+define internal noundef i32 @nvme_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %cmp.not = icmp eq i32 %prealloc, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1705,7 +1705,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @nvme_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
+define internal noalias noundef ptr @nvme_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #18
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -1771,7 +1771,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @nvme_create_queue_pair(ptr noundef %s, ptr noundef %aio_context, i32 noundef %idx, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @nvme_create_queue_pair(ptr noundef %s, ptr noundef %aio_context, i32 noundef %idx, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %prp_list_iova = alloca i64, align 8
@@ -2101,7 +2101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @nvme_identify(ptr noundef %bs, i32 noundef %namespace, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @nvme_identify(ptr noundef %bs, i32 noundef %namespace, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %iova = alloca i64, align 8
   %cmd = alloca %struct.NvmeCmd, align 1
@@ -2116,7 +2116,7 @@ entry:
   %conv.i = sext i32 %call.i to i64
   %sub = add nsw i64 %conv.i, 4095
   %2 = urem i64 %sub, %conv.i
-  %mul = sub i64 %sub, %2
+  %mul = sub nuw i64 %sub, %2
   %call5 = tail call ptr @qemu_try_memalign(i64 noundef %conv.i, i64 noundef %mul) #16
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2272,7 +2272,7 @@ out:                                              ; preds = %if.end102, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @nvme_add_io_queue(ptr noundef %bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @nvme_add_io_queue(ptr noundef %bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %cmd = alloca %struct.NvmeCmd, align 1
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -2488,7 +2488,7 @@ if.end:                                           ; preds = %if.then, %trace_nvm
 declare i32 @getpagesize() local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @nvme_process_completion(ptr noundef %q) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @nvme_process_completion(ptr noundef %q) unnamed_addr #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -3277,7 +3277,7 @@ entry.cont:                                       ; preds = %entry, %entry.then
   %need_kick.i = getelementptr inbounds %struct.NVMeQueuePair, ptr %opaque, i64 0, i32 10
   %0 = load i32, ptr %need_kick.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.exit.cont, label %if.end.i
+  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry.cont
   %s1.i = getelementptr inbounds %struct.NVMeQueuePair, ptr %opaque, i64 0, i32 1
@@ -3342,9 +3342,9 @@ if.end4.i:                                        ; preds = %trace_nvme_kick.exi
   %add.i = add i32 %14, %13
   store i32 %add.i, ptr %inflight.i, align 4
   store i32 0, ptr %need_kick.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %entry.cont, %if.end4.i
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry.cont, %if.end4.i
   %call4 = tail call fastcc zeroext i1 @nvme_process_completion(ptr noundef nonnull %opaque)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.36, i32 noundef 132) #16
   ret void
@@ -3834,7 +3834,7 @@ entry.cont:                                       ; preds = %entry, %entry.then
   %free_req_head = getelementptr inbounds %struct.NVMeQueuePair, ptr %q, i64 0, i32 8
   %0 = load i32, ptr %free_req_head, align 4
   %cmp10 = icmp eq i32 %0, -1
-  br i1 %cmp10, label %while.body.lr.ph, label %glib_autoptr_cleanup_QemuLockable.exit.cont
+  br i1 %cmp10, label %while.body.lr.ph, label %glib_autoptr_cleanup_QemuLockable.exit
 
 while.body.lr.ph:                                 ; preds = %entry.cont
   %s = getelementptr inbounds %struct.NVMeQueuePair, ptr %q, i64 0, i32 1
@@ -3843,7 +3843,6 @@ while.body.lr.ph:                                 ; preds = %entry.cont
   %free_req_queue = getelementptr inbounds %struct.NVMeQueuePair, ptr %q, i64 0, i32 4
   %lock8 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral5, i64 0, i32 1
   %unlock9 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral5, i64 0, i32 2
-  %cond.i = select i1 %tobool.i14.not, ptr null, ptr %.compoundliteral5
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %trace_nvme_free_req_queue_wait.exit
@@ -3886,19 +3885,19 @@ trace_nvme_free_req_queue_wait.exit:              ; preds = %while.body, %land.l
   store ptr %q, ptr %.compoundliteral5, align 8
   store ptr @qemu_mutex_lock, ptr %lock8, align 8
   store ptr @qemu_mutex_unlock, ptr %unlock9, align 8
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %free_req_queue, ptr noundef %cond.i, i32 noundef 0) #16
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %free_req_queue, ptr noundef nonnull %.compoundliteral5, i32 noundef 0) #16
   %10 = load i32, ptr %free_req_head, align 4
   %cmp = icmp eq i32 %10, -1
-  br i1 %cmp, label %while.body, label %glib_autoptr_cleanup_QemuLockable.exit.cont, !llvm.loop !27
+  br i1 %cmp, label %while.body, label %glib_autoptr_cleanup_QemuLockable.exit, !llvm.loop !27
 
-glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %trace_nvme_free_req_queue_wait.exit, %entry.cont
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_nvme_free_req_queue_wait.exit, %entry.cont
   %.lcssa = phi i32 [ %0, %entry.cont ], [ %10, %trace_nvme_free_req_queue_wait.exit ]
   %idxprom.i = sext i32 %.lcssa to i64
+  %arrayidx.i = getelementptr %struct.NVMeQueuePair, ptr %q, i64 0, i32 9, i64 %idxprom.i
   %free_req_next.i = getelementptr %struct.NVMeQueuePair, ptr %q, i64 0, i32 9, i64 %idxprom.i, i32 5
   %11 = load i32, ptr %free_req_next.i, align 8
   store i32 %11, ptr %free_req_head, align 4
   store i32 -1, ptr %free_req_next.i, align 8
-  %arrayidx.i = getelementptr %struct.NVMeQueuePair, ptr %q, i64 0, i32 9, i64 %idxprom.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %q, ptr noundef nonnull @.str.36, i32 noundef 132) #16
   ret ptr %arrayidx.i
 }
@@ -4438,7 +4437,7 @@ attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-ve
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
