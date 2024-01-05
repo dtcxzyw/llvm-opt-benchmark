@@ -4534,13 +4534,12 @@ do.cond.i:                                        ; preds = %do.body.i
 
 do_fallocate.exit:                                ; preds = %do.cond.i
   %sub.i = sub i32 0, %5
-  switch i32 %sub.i, label %return [
-    i32 -95, label %sw.epilog
-    i32 -22, label %sw.epilog
-    i32 -16, label %sw.epilog
+  switch i32 %5, label %return [
+    i32 16, label %sw.epilog
+    i32 22, label %sw.epilog
   ]
 
-sw.epilog:                                        ; preds = %do.cond.i, %do.cond.i, %do.cond.i, %do.cond.i, %do_fallocate.exit, %do_fallocate.exit, %do_fallocate.exit
+sw.epilog:                                        ; preds = %do.cond.i, %do.cond.i, %do.cond.i, %do.cond.i, %do_fallocate.exit, %do_fallocate.exit
   %call2 = tail call i32 @handle_aiocb_write_zeroes(ptr noundef nonnull %opaque)
   br label %return
 
@@ -4647,16 +4646,14 @@ do.cond.i42:                                      ; preds = %do.body.i39
 
 do_fallocate.exit:                                ; preds = %do.cond.i42
   %sub.i44 = sub i32 0, %15
-  switch i32 %sub.i44, label %return [
-    i32 -95, label %if.then5
-    i32 -22, label %do_fallocate.exit.if.end16_crit_edge
-  ]
+  %cond = icmp eq i32 %15, 22
+  br i1 %cond, label %do_fallocate.exit.if.end16_crit_edge, label %return
 
 do_fallocate.exit.if.end16_crit_edge:             ; preds = %do_fallocate.exit
   %bf.load17.pre = load i8, ptr %has_write_zeroes, align 8
   br label %if.end16
 
-if.then5:                                         ; preds = %do.cond.i42, %do.cond.i42, %do.cond.i42, %do.cond.i42, %do_fallocate.exit
+if.then5:                                         ; preds = %do.cond.i42, %do.cond.i42, %do.cond.i42, %do.cond.i42
   %bf.load7 = load i8, ptr %has_write_zeroes, align 8
   %bf.clear8 = and i8 %bf.load7, -3
   store i8 %bf.clear8, ptr %has_write_zeroes, align 8
@@ -4701,10 +4698,9 @@ do.cond.i57:                                      ; preds = %do.body.i54
 
 do_fallocate.exit71:                              ; preds = %do.cond.i57
   %sub.i61 = sub i32 0, %22
-  switch i32 %sub.i61, label %return [
+  switch i32 %22, label %return [
     i32 0, label %if.then31
-    i32 -22, label %if.then47
-    i32 -95, label %if.else54
+    i32 22, label %if.then47
   ]
 
 if.then31:                                        ; preds = %do.body.i54, %do_fallocate.exit71
@@ -4741,7 +4737,7 @@ if.then47:                                        ; preds = %do_fallocate.exit71
   %call48 = tail call zeroext i1 (ptr, ptr, ...) @warn_report_once_cond(ptr noundef nonnull @handle_aiocb_write_zeroes.print_once_, ptr noundef nonnull @.str.93) #17
   br label %if.end62
 
-if.else54:                                        ; preds = %do.cond.i57, %do.cond.i57, %do.cond.i57, %do.cond.i57, %do_fallocate.exit71
+if.else54:                                        ; preds = %do.cond.i57, %do.cond.i57, %do.cond.i57, %do.cond.i57
   %bf.load56 = load i8, ptr %has_write_zeroes, align 8
   %bf.clear57 = and i8 %bf.load56, -2
   store i8 %bf.clear57, ptr %has_write_zeroes, align 8
@@ -4813,7 +4809,7 @@ if.end87:                                         ; preds = %do.cond.i98, %do.co
   store i8 0, ptr %has_fallocate65, align 8
   br label %return
 
-return:                                           ; preds = %do.body.i39, %do.body.i72, %do.body.i95, %do_fallocate.exit112, %do_fallocate.exit89, %if.end62, %raw_getlength.exit, %land.lhs.true71, %if.end87, %do_fallocate.exit71, %do_fallocate.exit, %handle_aiocb_write_zeroes_block.exit
+return:                                           ; preds = %do.body.i39, %do.body.i72, %do.body.i95, %do_fallocate.exit112, %do_fallocate.exit89, %do_fallocate.exit, %if.end62, %raw_getlength.exit, %land.lhs.true71, %if.end87, %do_fallocate.exit71, %handle_aiocb_write_zeroes_block.exit
   %retval.0 = phi i32 [ %retval.0.i, %handle_aiocb_write_zeroes_block.exit ], [ %sub.i44, %do_fallocate.exit ], [ %sub.i79, %do_fallocate.exit89 ], [ %sub.i61, %do_fallocate.exit71 ], [ %sub.i102, %do_fallocate.exit112 ], [ -95, %if.end87 ], [ -95, %land.lhs.true71 ], [ -95, %raw_getlength.exit ], [ -95, %if.end62 ], [ 0, %do.body.i95 ], [ 0, %do.body.i72 ], [ 0, %do.body.i39 ]
   ret i32 %retval.0
 }
@@ -4873,7 +4869,7 @@ raw_account_discard.exit:                         ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @handle_aiocb_discard(ptr nocapture noundef readonly %opaque) #0 {
+define internal i32 @handle_aiocb_discard(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %range = alloca [2 x i64], align 16
   %0 = load ptr, ptr %opaque, align 8
@@ -4897,7 +4893,7 @@ do.body.preheader:                                ; preds = %if.end
   %aio_fildes = getelementptr inbounds %struct.RawPosixAIOData, ptr %opaque, i64 0, i32 2
   br label %do.body
 
-do.body:                                          ; preds = %do.body.preheader, %do.cond
+do.body:                                          ; preds = %do.cond, %do.body.preheader
   %4 = load <2 x i64>, ptr %aio_offset, align 8
   store <2 x i64> %4, ptr %range, align 16
   %5 = load i32, ptr %aio_fildes, align 4
@@ -4908,16 +4904,12 @@ do.body:                                          ; preds = %do.body.preheader, 
 do.cond:                                          ; preds = %do.body
   %call5 = tail call ptr @__errno_location() #20
   %6 = load i32, ptr %call5, align 4
-  %cmp6 = icmp eq i32 %6, 4
-  br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !27
-
-do.end:                                           ; preds = %do.cond
-  %sub = sub i32 0, %6
-  switch i32 %sub, label %if.end13 [
-    i32 -19, label %if.then15
-    i32 -25, label %if.then15
-    i32 -38, label %if.then15
-    i32 -95, label %if.then15
+  switch i32 %6, label %if.end13 [
+    i32 4, label %do.body
+    i32 19, label %if.then15
+    i32 25, label %if.then15
+    i32 38, label %if.then15
+    i32 95, label %if.then15
   ]
 
 if.else:                                          ; preds = %if.end
@@ -4936,7 +4928,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.else
 do.cond.i:                                        ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #20
   %10 = load i32, ptr %call1.i, align 4
-  switch i32 %10, label %do_fallocate.exit [
+  switch i32 %10, label %if.end13 [
     i32 4, label %do.body.i
     i32 95, label %if.then15
     i32 38, label %if.then15
@@ -4944,21 +4936,13 @@ do.cond.i:                                        ; preds = %do.body.i
     i32 19, label %if.then15
   ]
 
-do_fallocate.exit:                                ; preds = %do.cond.i
-  %sub.i = sub i32 0, %10
-  switch i32 %sub.i, label %if.end13 [
-    i32 -19, label %if.then15
-    i32 -25, label %if.then15
-    i32 -38, label %if.then15
-    i32 -95, label %if.then15
-  ]
-
-if.end13:                                         ; preds = %do_fallocate.exit, %do.end
-  %ret.0 = phi i32 [ %sub, %do.end ], [ %sub.i, %do_fallocate.exit ]
-  %cmp14 = icmp eq i32 %ret.0, -95
+if.end13:                                         ; preds = %do.cond, %do.cond.i
+  %.pn = phi i32 [ %10, %do.cond.i ], [ %6, %do.cond ]
+  %ret.0 = sub i32 0, %.pn
+  %cmp14 = icmp eq i32 %.pn, 95
   br i1 %cmp14, label %if.then15, label %return
 
-if.then15:                                        ; preds = %do.cond.i, %do.cond.i, %do.cond.i, %do.cond.i, %do_fallocate.exit, %do_fallocate.exit, %do_fallocate.exit, %do_fallocate.exit, %do.end, %do.end, %do.end, %do.end, %if.end13
+if.then15:                                        ; preds = %do.cond, %do.cond, %do.cond, %do.cond, %do.cond.i, %do.cond.i, %do.cond.i, %do.cond.i, %if.end13
   %bf.load17 = load i8, ptr %has_discard, align 8
   %bf.clear18 = and i8 %bf.load17, -2
   store i8 %bf.clear18, ptr %has_discard, align 8
@@ -5054,7 +5038,7 @@ if.then4:                                         ; preds = %if.end
   switch i32 %18, label %sw.default [
     i32 38, label %return
     i32 4, label %while.cond
-  ], !llvm.loop !28
+  ], !llvm.loop !27
 
 sw.default:                                       ; preds = %if.then4
   %sub = sub i32 0, %18
@@ -5063,7 +5047,7 @@ sw.default:                                       ; preds = %if.then4
 if.end8:                                          ; preds = %if.end
   %sub9 = sub i64 %bytes.0.ph25, %call
   %tobool.not = icmp eq i64 %sub9, 0
-  br i1 %tobool.not, label %return, label %while.cond.preheader, !llvm.loop !28
+  br i1 %tobool.not, label %return, label %while.cond.preheader, !llvm.loop !27
 
 return:                                           ; preds = %if.end8, %trace_file_copy_file_range.exit, %if.then4, %entry, %sw.default
   %retval.0 = phi i32 [ %sub, %sw.default ], [ 0, %entry ], [ -95, %if.then4 ], [ -28, %trace_file_copy_file_range.exit ], [ 0, %if.end8 ]
@@ -5159,7 +5143,7 @@ if.end17:                                         ; preds = %if.end12
 for.cond21:                                       ; preds = %for.body23
   %inc = add nuw i64 %i.045, 1
   %cmp22 = icmp ult i64 %inc, %div20
-  br i1 %cmp22, label %for.body23, label %for.inc30, !llvm.loop !29
+  br i1 %cmp22, label %for.body23, label %for.inc30, !llvm.loop !28
 
 for.body23:                                       ; preds = %if.end17, %for.cond21
   %i.045 = phi i64 [ %inc, %for.cond21 ], [ 0, %if.end17 ]
@@ -5176,7 +5160,7 @@ if.then28:                                        ; preds = %for.body23
 for.inc30:                                        ; preds = %for.cond21, %if.end17
   %add31 = add i64 %offset.047, 134217728
   %cmp = icmp slt i64 %add31, %retval.0.i
-  br i1 %cmp, label %for.body, label %for.end32, !llvm.loop !30
+  br i1 %cmp, label %for.body, label %for.end32, !llvm.loop !29
 
 for.end32:                                        ; preds = %for.inc30, %if.then28, %if.then15, %if.then10
   %length.2 = phi i64 [ %length.1, %if.then10 ], [ %cond, %if.then15 ], [ %cond, %if.then28 ], [ %cond, %for.inc30 ]
@@ -5575,8 +5559,8 @@ entry:
   %bs.val = load ptr, ptr %0, align 8
   %stats.i = getelementptr inbounds %struct.BDRVRawState, ptr %bs.val, i64 0, i32 20
   %discard_bytes_ok5.i = getelementptr inbounds %struct.BDRVRawState, ptr %bs.val, i64 0, i32 20, i32 2
-  %1 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !31
-  %2 = load <2 x i64>, ptr %stats.i, align 8, !noalias !31
+  %1 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !30
+  %2 = load <2 x i64>, ptr %stats.i, align 8, !noalias !30
   store <2 x i64> %2, ptr %u, align 8
   %tmp.sroa.3.0.u.sroa_idx = getelementptr inbounds %struct.BlockStatsSpecific, ptr %call, i64 0, i32 1, i32 0, i32 2
   store i64 %1, ptr %tmp.sroa.3.0.u.sroa_idx, align 8
@@ -5835,7 +5819,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %add62, ptr %arrayidx64, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %return, label %for.body, !llvm.loop !34
+  br i1 %exitcond86.not, label %return, label %for.body, !llvm.loop !33
 
 if.else65:                                        ; preds = %if.else
   %cmp7176 = icmp ne i32 %conv23, 0
@@ -5855,7 +5839,7 @@ for.body73:                                       ; preds = %for.body73.preheade
   %arrayidx87 = getelementptr i64, ptr %arrayidx, i64 %indvars.iv
   store i64 %add77.add, ptr %arrayidx87, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body73, !llvm.loop !35
+  br i1 %exitcond.not, label %return, label %for.body73, !llvm.loop !34
 
 return:                                           ; preds = %for.body73, %for.body, %for.cond.preheader, %if.then48, %if.else65, %if.then54, %update_zones_wp.exit, %sw.default, %if.then30, %if.then10, %if.then
   %retval.0 = phi i32 [ -22, %if.then ], [ -22, %if.then10 ], [ -5, %if.then30 ], [ -95, %sw.default ], [ %call.i, %update_zones_wp.exit ], [ %call51, %if.then54 ], [ %call51, %if.then48 ], [ 0, %if.else65 ], [ 0, %for.cond.preheader ], [ 0, %for.body ], [ 0, %for.body73 ]
@@ -5922,7 +5906,7 @@ if.end15:                                         ; preds = %for.body
   %add = add i64 %5, %len.021
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %if.end15, %if.end5
   %len.0.lcssa = phi i64 [ 0, %if.end5 ], [ %add, %if.end15 ]
@@ -6052,7 +6036,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.cond.loopexit:                              ; preds = %switch.lookup95
   %add34.le = add i64 %11, %10
   %cmp = icmp ult i32 %inc35, %5
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !37
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !36
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %n.051 = phi i32 [ 0, %while.body.lr.ph ], [ %inc35, %while.cond.loopexit ]
@@ -6072,7 +6056,7 @@ land.rhs:                                         ; preds = %do.body
   %call9 = tail call ptr @__errno_location() #20
   %6 = load i32, ptr %call9, align 4
   %cmp10 = icmp eq i32 %6, 4
-  br i1 %cmp10, label %do.body, label %if.then, !llvm.loop !38
+  br i1 %cmp10, label %do.body, label %if.then, !llvm.loop !37
 
 if.then:                                          ; preds = %land.rhs
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.78, i32 noundef %0, i64 noundef %sector.050, i32 noundef %6) #17
@@ -6154,7 +6138,7 @@ switch.lookup95:                                  ; preds = %switch.hole_check
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc35 = add i32 %n.144, 1
   %cmp21 = icmp ult i64 %indvars.iv.next, %9
-  br i1 %cmp21, label %for.body, label %while.cond.loopexit, !llvm.loop !39
+  br i1 %cmp21, label %for.body, label %while.cond.loopexit, !llvm.loop !38
 
 while.end:                                        ; preds = %while.cond.loopexit, %if.end, %entry
   %n.0.lcssa = phi i32 [ 0, %entry ], [ %n.051, %if.end ], [ %inc35, %while.cond.loopexit ]
@@ -6195,7 +6179,7 @@ land.rhs:                                         ; preds = %do.body
   %call4 = tail call ptr @__errno_location() #20
   %5 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %5, 4
-  br i1 %cmp5, label %do.body, label %do.end, !llvm.loop !40
+  br i1 %cmp5, label %do.body, label %do.end, !llvm.loop !39
 
 do.end:                                           ; preds = %land.rhs
   %cmp6 = icmp slt i32 %call, 0
@@ -6232,7 +6216,7 @@ land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #20
   %4 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %4, 4
-  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !41
+  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !40
 
 if.then:                                          ; preds = %land.rhs
   %sub = sub i32 0, %4
@@ -6432,10 +6416,10 @@ attributes #23 = { cold }
 !27 = distinct !{!27, !10}
 !28 = distinct !{!28, !10}
 !29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"get_blockstats_specific_file: %agg.result"}
-!33 = distinct !{!33, !"get_blockstats_specific_file"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"get_blockstats_specific_file: %agg.result"}
+!32 = distinct !{!32, !"get_blockstats_specific_file"}
+!33 = distinct !{!33, !10}
 !34 = distinct !{!34, !10}
 !35 = distinct !{!35, !10}
 !36 = distinct !{!36, !10}
@@ -6443,4 +6427,3 @@ attributes #23 = { cold }
 !38 = distinct !{!38, !10}
 !39 = distinct !{!39, !10}
 !40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
