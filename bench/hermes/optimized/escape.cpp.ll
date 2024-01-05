@@ -2993,9 +2993,8 @@ for.body.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i, label %lor.end, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %__first.addr.049.i.i.i.i.add23 = or disjoint i64 %__first.addr.049.i.i.i.i.idx, 2
-  %incdec.ptr.i.i.i.i.ptr = getelementptr inbounds i8, ptr @.str.3, i64 %__first.addr.049.i.i.i.i.add23
-  %1 = load i16, ptr %incdec.ptr.i.i.i.i.ptr, align 2
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @.str.3, i64 2), i64 %__first.addr.049.i.i.i.i.idx
+  %1 = load i16, ptr %gep, align 2
   %cmp.i26.i.i.i.i = icmp eq i16 %1, %c
   br i1 %cmp.i26.i.i.i.i, label %lor.end, label %if.end3.i.i.i.i
 
@@ -3007,9 +3006,8 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %cmp.i27.i.i.i.i, label %_ZN6hermes2vmL11uriReservedEDs.exit, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
-  %__first.addr.049.i.i.i.i.add = or disjoint i64 %__first.addr.049.i.i.i.i.idx, 6
-  %incdec.ptr8.i.i.i.i.ptr = getelementptr inbounds i8, ptr @.str.3, i64 %__first.addr.049.i.i.i.i.add
-  %3 = load i16, ptr %incdec.ptr8.i.i.i.i.ptr, align 2
+  %gep37 = getelementptr i8, ptr getelementptr (i8, ptr @.str.3, i64 6), i64 %__first.addr.049.i.i.i.i.idx
+  %3 = load i16, ptr %gep37, align 2
   %cmp.i28.i.i.i.i = icmp eq i16 %3, %c
   br i1 %cmp.i28.i.i.i.i, label %lor.end, label %if.end11.i.i.i.i
 
@@ -3048,15 +3046,13 @@ if.end.i.i.i.i6:                                  ; preds = %for.body.i.i.i.i3
   br i1 %cmp.i26.i.i.i.i7, label %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i, label %if.end3.i.i.i.i8
 
 if.end3.i.i.i.i8:                                 ; preds = %if.end.i.i.i.i6
-  %__first.addr.049.i.i.i.add16.i = or disjoint i64 %__first.addr.049.i.i.i.idx.i, 4
-  %incdec.ptr4.i.i.i.ptr.i = getelementptr inbounds i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.add16.i
+  %incdec.ptr4.i.i.i.ptr.i = getelementptr i8, ptr %__first.addr.049.i.i.i.ptr.i, i64 4
   %6 = load i16, ptr %incdec.ptr4.i.i.i.ptr.i, align 2
   %cmp.i27.i.i.i.i9 = icmp eq i16 %6, %c
   br i1 %cmp.i27.i.i.i.i9, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end7.i.i.i.i10
 
 if.end7.i.i.i.i10:                                ; preds = %if.end3.i.i.i.i8
-  %__first.addr.049.i.i.i.add.i = or disjoint i64 %__first.addr.049.i.i.i.idx.i, 6
-  %incdec.ptr8.i.i.i.ptr.i = getelementptr inbounds i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.add.i
+  %incdec.ptr8.i.i.i.ptr.i = getelementptr i8, ptr %__first.addr.049.i.i.i.ptr.i, i64 6
   %7 = load i16, ptr %incdec.ptr8.i.i.i.ptr.i, align 2
   %cmp.i28.i.i.i.i11 = icmp eq i16 %7, %c
   br i1 %cmp.i28.i.i.i.i11, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end11.i.i.i.i12
@@ -3171,16 +3167,14 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %cmp.i26.i.i.i, label %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
-  %__first.addr.049.i.i.i.add16 = or disjoint i64 %__first.addr.049.i.i.i.idx, 4
-  %incdec.ptr4.i.i.i.ptr = getelementptr inbounds i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.add16
-  %2 = load i16, ptr %incdec.ptr4.i.i.i.ptr, align 2
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @.str.4, i64 4), i64 %__first.addr.049.i.i.i.idx
+  %2 = load i16, ptr %gep, align 2
   %cmp.i27.i.i.i = icmp eq i16 %2, %c
   br i1 %cmp.i27.i.i.i, label %return, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %__first.addr.049.i.i.i.add = or disjoint i64 %__first.addr.049.i.i.i.idx, 6
-  %incdec.ptr8.i.i.i.ptr = getelementptr inbounds i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.add
-  %3 = load i16, ptr %incdec.ptr8.i.i.i.ptr, align 2
+  %gep25 = getelementptr i8, ptr getelementptr (i8, ptr @.str.4, i64 6), i64 %__first.addr.049.i.i.i.idx
+  %3 = load i16, ptr %gep25, align 2
   %cmp.i28.i.i.i = icmp eq i16 %3, %c
   br i1 %cmp.i28.i.i.i, label %return, label %if.end11.i.i.i
 

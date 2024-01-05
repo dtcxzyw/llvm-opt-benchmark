@@ -1138,6 +1138,7 @@ if.end:                                           ; preds = %entry
   %eeprom = getelementptr inbounds %struct.DC390State, ptr %call.i, i64 0, i32 1
   store ptr %call2, ptr %eeprom, align 16
   %call4 = call ptr @eeprom93xx_data(ptr noundef %call2) #5
+  %invariant.gep = getelementptr i8, ptr %call4, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -1145,9 +1146,8 @@ for.body:                                         ; preds = %if.end, %for.body
   %1 = shl nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr i8, ptr %call4, i64 %1
   store i8 87, ptr %arrayidx, align 1
-  %2 = or disjoint i64 %1, 1
-  %arrayidx7 = getelementptr i8, ptr %call4, i64 %2
-  store i8 0, ptr %arrayidx7, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %1
+  store i8 0, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -1161,18 +1161,18 @@ for.end:                                          ; preds = %for.body
   store i8 4, ptr %arrayidx10, align 1
   %arrayidx11 = getelementptr i8, ptr %call4, i64 68
   store i8 7, ptr %arrayidx11, align 1
+  %invariant.gep33 = getelementptr i8, ptr %call4, i64 1
   br label %for.body14
 
 for.body14:                                       ; preds = %for.end, %for.body14
   %indvars.iv30 = phi i64 [ 0, %for.end ], [ %indvars.iv.next31, %for.body14 ]
   %chksum.025 = phi i16 [ 0, %for.end ], [ %add24, %for.body14 ]
   %arrayidx16 = getelementptr i8, ptr %call4, i64 %indvars.iv30
-  %3 = load i8, ptr %arrayidx16, align 1
-  %conv = zext i8 %3 to i16
-  %4 = or disjoint i64 %indvars.iv30, 1
-  %arrayidx19 = getelementptr i8, ptr %call4, i64 %4
-  %5 = load i8, ptr %arrayidx19, align 1
-  %conv21 = zext i8 %5 to i16
+  %2 = load i8, ptr %arrayidx16, align 1
+  %conv = zext i8 %2 to i16
+  %gep34 = getelementptr i8, ptr %invariant.gep33, i64 %indvars.iv30
+  %3 = load i8, ptr %gep34, align 1
+  %conv21 = zext i8 %3 to i16
   %shl = shl nuw i16 %conv21, 8
   %add22 = or disjoint i16 %shl, %conv
   %add24 = add i16 %add22, %chksum.025
@@ -1185,8 +1185,8 @@ for.end28:                                        ; preds = %for.body14
   %conv32 = trunc i16 %sub to i8
   %arrayidx33 = getelementptr i8, ptr %call4, i64 126
   store i8 %conv32, ptr %arrayidx33, align 1
-  %6 = lshr i16 %sub, 8
-  %conv35 = trunc i16 %6 to i8
+  %4 = lshr i16 %sub, 8
+  %conv35 = trunc i16 %4 to i8
   %arrayidx36 = getelementptr i8, ptr %call4, i64 127
   store i8 %conv35, ptr %arrayidx36, align 1
   br label %return

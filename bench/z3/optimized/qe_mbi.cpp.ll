@@ -15914,6 +15914,7 @@ entry:
   %__cmp = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr ptr, ptr %__first, i64 1
   %cmp40 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp40, label %while.body.lr.ph, label %while.end
 
@@ -15927,10 +15928,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add = shl i64 %__holeIndex.addr.041, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds ptr, ptr %__first, i64 %sub1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr2, align 8
+  %1 = load ptr, ptr %gep, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   store ptr %0, ptr %__args.addr.i.i, align 8
@@ -15948,7 +15948,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEEclIPS4_S9_EEbT_T0_
   %call4.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %__comp, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
-  %spec.select = select i1 %call4.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %call4.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %4 = load ptr, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.041
@@ -15969,7 +15970,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %land.lhs.true
-  %add10 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add10 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub12 = or disjoint i64 %add10, 1
   %add.ptr13 = getelementptr inbounds ptr, ptr %__first, i64 %sub12
   %5 = load ptr, ptr %add.ptr13, align 8

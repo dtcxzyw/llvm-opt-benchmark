@@ -2057,11 +2057,11 @@ if.then.i:                                        ; preds = %if.end7
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %add.i4 = add nuw nsw i64 %shr.i.i.i.i, 1
   %shr.i5 = lshr i64 %mul.i11.i, 2
-  %add2.i = add i64 %shr.i5, %mul.i11.i
+  %add2.i = add nuw nsw i64 %shr.i5, %mul.i11.i
   %shr3.i = lshr i64 %mul.i11.i, 3
-  %add4.i = add i64 %add2.i, %shr3.i
+  %add4.i = add nuw nsw i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i11.i, 5
-  %add6.i = add i64 %add4.i, %shr5.i
+  %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i4, i64 %add6.i)
   %cmp.i16.i = icmp ult i64 %.sroa.speculated.i, 15
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
@@ -2076,11 +2076,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
 if.else11.i.i:                                    ; preds = %if.then.i
-  %sub.i.i = add i64 %.sroa.speculated.i, -1
+  %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 12
   %13 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !128
   %add.i.i.i = sub nuw nsw i64 64, %13
-  %mul.i47.i.i = shl i64 12, %add.i.i.i
+  %mul.i47.i.i = shl nuw nsw i64 12, %add.i.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i47.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 
@@ -2353,26 +2353,19 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5fo
   %i.08.i = phi i64 [ 0, %_ZN5folly3f146detail10BasePolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvPSt4pairIKS3_S3_EE12beforeRehashEmmmmRPh.exit.new ], [ %inc.i.7, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %i.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
-  %inc.i = or disjoint i64 %i.08.i, 1
-  %arrayidx.i.1 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i
+  %arrayidx.i.1 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.1, i8 0, i64 16, i1 false)
-  %inc.i.1 = or disjoint i64 %i.08.i, 2
-  %arrayidx.i.2 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.1
+  %arrayidx.i.2 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.2, i8 0, i64 16, i1 false)
-  %inc.i.2 = or disjoint i64 %i.08.i, 3
-  %arrayidx.i.3 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.2
+  %arrayidx.i.3 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.3, i8 0, i64 16, i1 false)
-  %inc.i.3 = or disjoint i64 %i.08.i, 4
-  %arrayidx.i.4 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.3
+  %arrayidx.i.4 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.4, i8 0, i64 16, i1 false)
-  %inc.i.4 = or disjoint i64 %i.08.i, 5
-  %arrayidx.i.5 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.4
+  %arrayidx.i.5 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.5, i8 0, i64 16, i1 false)
-  %inc.i.5 = or disjoint i64 %i.08.i, 6
-  %arrayidx.i.6 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.5
+  %arrayidx.i.6 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.6, i8 0, i64 16, i1 false)
-  %inc.i.6 = or disjoint i64 %i.08.i, 7
-  %arrayidx.i.7 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i6.i, i64 %inc.i.6
+  %arrayidx.i.7 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.7, i8 0, i64 16, i1 false)
   %inc.i.7 = add nuw i64 %i.08.i, 8
   %niter.ncmp.7 = icmp eq i64 %inc.i.7, %unroll_iter

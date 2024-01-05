@@ -4774,15 +4774,12 @@ arrayctor.loop:                                   ; preds = %invoke.cont, %new.c
   %9 = ptrtoint ptr %bit_gen.i to i64
   %and.i.i.i.i.i.i.i = and i64 %9, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen.i, i64 %and.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !80
-  %10 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %bit_gen.i, i64 %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cond.i.i.i.i.i.i.i, i8 0, i64 256, i1 false), !alias.scope !80
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc.i, %arrayctor.loop
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arrayctor.cur.ptr.ptr) #24
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
@@ -4810,7 +4807,7 @@ arraydestroy.body:                                ; preds = %lpad.i, %arraydestr
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad.i
   call void @_ZdaPv(ptr noundef nonnull %call3) #23
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 }
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

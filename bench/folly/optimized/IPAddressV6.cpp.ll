@@ -3356,7 +3356,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly11IPAddressV616trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5folly11IPAddressV616trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %bytes.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %bytes.coerce0 to i64
@@ -7899,9 +7899,9 @@ for.body:                                         ; preds = %entry, %for.body
   %idxprom6 = zext nneg i32 %and to i64
   %arrayidx7 = getelementptr inbounds i8, ptr @.str.49, i64 %idxprom6
   %4 = load i8, ptr %arrayidx7, align 1, !tbaa !31
-  %add9 = or disjoint i64 %mul2, 1
   %5 = load ptr, ptr %agg.result, align 8, !tbaa !11
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %5, i64 %add9
+  %6 = getelementptr i8, ptr %5, i64 %mul2
+  %arrayidx.i19 = getelementptr i8, ptr %6, i64 1
   store i8 %4, ptr %arrayidx.i19, align 1, !tbaa !31
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %len

@@ -95,7 +95,7 @@ return:                                           ; preds = %if.end31, %for.cond
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @a2i_ASN1_STRING(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define noundef i32 @a2i_ASN1_STRING(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #3
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
@@ -233,15 +233,15 @@ for.cond73.preheader:                             ; preds = %for.cond73.preheade
   %indvars.iv115 = phi i64 [ 0, %for.cond73.preheader.preheader ], [ %indvars.iv.next116, %for.inc97 ]
   %7 = add nuw nsw i64 %indvars.iv115, %6
   %arrayidx87 = getelementptr inbounds i8, ptr %s.1, i64 %7
+  %invariant.gep147 = getelementptr i8, ptr %buf, i64 %indvars.iv118
   br label %for.body76
 
 for.body76:                                       ; preds = %for.cond73.preheader, %if.end84
   %cmp74 = phi i1 [ true, %for.cond73.preheader ], [ false, %if.end84 ]
   %indvars.iv111 = phi i64 [ 0, %for.cond73.preheader ], [ 1, %if.end84 ]
-  %8 = or disjoint i64 %indvars.iv111, %indvars.iv118
-  %arrayidx79 = getelementptr inbounds i8, ptr %buf, i64 %8
-  %9 = load i8, ptr %arrayidx79, align 1
-  %call80 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %9) #3
+  %gep148 = getelementptr i8, ptr %invariant.gep147, i64 %indvars.iv111
+  %8 = load i8, ptr %gep148, align 1
+  %call80 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %8) #3
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %if.then83, label %if.end84
 
@@ -253,10 +253,10 @@ if.then83:                                        ; preds = %for.body76
   br label %return
 
 if.end84:                                         ; preds = %for.body76
-  %10 = load i8, ptr %arrayidx87, align 1
-  %shl = shl i8 %10, 4
-  %11 = trunc i32 %call80 to i8
-  %conv94 = or i8 %shl, %11
+  %9 = load i8, ptr %arrayidx87, align 1
+  %shl = shl i8 %9, 4
+  %10 = trunc i32 %call80 to i8
+  %conv94 = or i8 %shl, %10
   store i8 %conv94, ptr %arrayidx87, align 1
   br i1 %cmp74, label %for.body76, label %for.inc97, !llvm.loop !7
 

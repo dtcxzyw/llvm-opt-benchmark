@@ -1707,6 +1707,7 @@ while.body.i.preheader:                           ; preds = %if.end17.i
   %47 = lshr exact i32 %46, 1
   %48 = add nuw nsw i32 %47, 1
   %wide.trip.count = zext nneg i32 %48 to i64
+  %invariant.gep = getelementptr i8, ptr %call1, i64 1
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
@@ -1715,48 +1716,47 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx33.i = getelementptr i8, ptr %str.0.i, i64 %indvars.iv
   %49 = load i8, ptr %arrayidx33.i, align 1
-  %50 = or disjoint i64 %indvars.iv158, 1
   %arrayidx36.i = getelementptr i8, ptr %call1, i64 %indvars.iv158
   store i8 %49, ptr %arrayidx36.i, align 1
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 2
-  %arrayidx39.i = getelementptr i8, ptr %call1, i64 %50
-  store i8 0, ptr %arrayidx39.i, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv158
+  store i8 0, ptr %gep, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %usb_desc_string.exit, label %while.body.i, !llvm.loop !14
 
 usb_desc_string.exit:                             ; preds = %while.body.i, %if.then2.i, %if.then9.i, %if.end17.i
   %retval.0.i = phi i32 [ 4, %if.then2.i ], [ 0, %if.then9.i ], [ 2, %if.end17.i ], [ %conv24.i, %while.body.i ]
   %addr37 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
-  %51 = load i8, ptr %addr37, align 8
-  %conv38 = zext i8 %51 to i32
+  %50 = load i8, ptr %addr37, align 8
+  %conv38 = zext i8 %50 to i32
   %conv40 = trunc i64 %len to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i73)
-  %52 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i74 = icmp ne i32 %52, 0
-  %53 = load i16, ptr @_TRACE_USB_DESC_STRING_DSTATE, align 2
-  %tobool4.i.i75 = icmp ne i16 %53, 0
+  %51 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i74 = icmp ne i32 %51, 0
+  %52 = load i16, ptr @_TRACE_USB_DESC_STRING_DSTATE, align 2
+  %tobool4.i.i75 = icmp ne i16 %52, 0
   %or.cond.i.i76 = select i1 %tobool.i.i74, i1 %tobool4.i.i75, i1 false
   br i1 %or.cond.i.i76, label %land.lhs.true5.i.i77, label %trace_usb_desc_string.exit
 
 land.lhs.true5.i.i77:                             ; preds = %usb_desc_string.exit
-  %54 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i78 = and i32 %54, 32768
+  %53 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i78 = and i32 %53, 32768
   %cmp.i.not.i.i79 = icmp eq i32 %and.i.i.i78, 0
   br i1 %cmp.i.not.i.i79, label %trace_usb_desc_string.exit, label %if.then.i.i80
 
 if.then.i.i80:                                    ; preds = %land.lhs.true5.i.i77
-  %55 = load i8, ptr @message_with_timestamp, align 1
-  %56 = and i8 %55, 1
-  %tobool7.not.i.i81 = icmp eq i8 %56, 0
+  %54 = load i8, ptr @message_with_timestamp, align 1
+  %55 = and i8 %54, 1
+  %tobool7.not.i.i81 = icmp eq i8 %55, 0
   br i1 %tobool7.not.i.i81, label %if.else.i.i86, label %if.then8.i.i82
 
 if.then8.i.i82:                                   ; preds = %if.then.i.i80
   %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i73, ptr noundef null) #12
   %call10.i.i84 = tail call i32 @qemu_get_thread_id() #12
-  %57 = load i64, ptr %_now.i.i73, align 8
+  %56 = load i64, ptr %_now.i.i73, align 8
   %tv_usec.i.i85 = getelementptr inbounds %struct.timeval, ptr %_now.i.i73, i64 0, i32 1
-  %58 = load i64, ptr %tv_usec.i.i85, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i84, i64 noundef %57, i64 noundef %58, i32 noundef %conv38, i32 noundef %conv35, i32 noundef %conv40, i32 noundef %retval.0.i) #12
+  %57 = load i64, ptr %tv_usec.i.i85, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i84, i64 noundef %56, i64 noundef %57, i32 noundef %conv38, i32 noundef %conv35, i32 noundef %conv40, i32 noundef %retval.0.i) #12
   br label %trace_usb_desc_string.exit
 
 if.else.i.i86:                                    ; preds = %if.then.i.i80
@@ -1775,35 +1775,35 @@ if.then44:                                        ; preds = %sw.bb41
   store i8 10, ptr %call1, align 1
   %bDescriptorType.i87 = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 1
   store i8 6, ptr %bDescriptorType.i87, align 1
-  %59 = load i16, ptr %other_dev.0, align 8
-  %conv1.i.i88 = trunc i16 %59 to i8
+  %58 = load i16, ptr %other_dev.0, align 8
+  %conv1.i.i88 = trunc i16 %58 to i8
   %u.i89 = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2
   store i8 %conv1.i.i88, ptr %u.i89, align 1
-  %60 = load i16, ptr %other_dev.0, align 8
-  %61 = lshr i16 %60, 8
-  %conv1.i18.i = trunc i16 %61 to i8
+  %59 = load i16, ptr %other_dev.0, align 8
+  %60 = lshr i16 %59, 8
+  %conv1.i18.i = trunc i16 %60 to i8
   %bcdUSB_hi.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 1
   store i8 %conv1.i18.i, ptr %bcdUSB_hi.i, align 1
   %bDeviceClass.i90 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 1
-  %62 = load i8, ptr %bDeviceClass.i90, align 2
+  %61 = load i8, ptr %bDeviceClass.i90, align 2
   %bDeviceClass7.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 2
-  store i8 %62, ptr %bDeviceClass7.i, align 1
+  store i8 %61, ptr %bDeviceClass7.i, align 1
   %bDeviceSubClass.i91 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 2
-  %63 = load i8, ptr %bDeviceSubClass.i91, align 1
+  %62 = load i8, ptr %bDeviceSubClass.i91, align 1
   %bDeviceSubClass9.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 3
-  store i8 %63, ptr %bDeviceSubClass9.i, align 1
+  store i8 %62, ptr %bDeviceSubClass9.i, align 1
   %bDeviceProtocol.i92 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 3
-  %64 = load i8, ptr %bDeviceProtocol.i92, align 4
+  %63 = load i8, ptr %bDeviceProtocol.i92, align 4
   %bDeviceProtocol11.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 4
-  store i8 %64, ptr %bDeviceProtocol11.i, align 1
+  store i8 %63, ptr %bDeviceProtocol11.i, align 1
   %bMaxPacketSize0.i93 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 4
-  %65 = load i8, ptr %bMaxPacketSize0.i93, align 1
+  %64 = load i8, ptr %bMaxPacketSize0.i93, align 1
   %bMaxPacketSize013.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 5
-  store i8 %65, ptr %bMaxPacketSize013.i, align 1
+  store i8 %64, ptr %bMaxPacketSize013.i, align 1
   %bNumConfigurations.i94 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 5
-  %66 = load i8, ptr %bNumConfigurations.i94, align 2
+  %65 = load i8, ptr %bNumConfigurations.i94, align 2
   %bNumConfigurations15.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 6
-  store i8 %66, ptr %bNumConfigurations15.i, align 1
+  store i8 %65, ptr %bNumConfigurations15.i, align 1
   %bReserved.i = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 2, i32 0, i32 7
   store i8 0, ptr %bReserved.i, align 1
   br label %if.end46
@@ -1811,36 +1811,36 @@ if.then44:                                        ; preds = %sw.bb41
 if.end46:                                         ; preds = %if.then44, %sw.bb41
   %ret.1 = phi i32 [ 10, %if.then44 ], [ -1, %sw.bb41 ]
   %addr47 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
-  %67 = load i8, ptr %addr47, align 8
-  %conv48 = zext i8 %67 to i32
+  %66 = load i8, ptr %addr47, align 8
+  %conv48 = zext i8 %66 to i32
   %conv49 = trunc i64 %len to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i96)
-  %68 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i97 = icmp ne i32 %68, 0
-  %69 = load i16, ptr @_TRACE_USB_DESC_DEVICE_QUALIFIER_DSTATE, align 2
-  %tobool4.i.i98 = icmp ne i16 %69, 0
+  %67 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i97 = icmp ne i32 %67, 0
+  %68 = load i16, ptr @_TRACE_USB_DESC_DEVICE_QUALIFIER_DSTATE, align 2
+  %tobool4.i.i98 = icmp ne i16 %68, 0
   %or.cond.i.i99 = select i1 %tobool.i.i97, i1 %tobool4.i.i98, i1 false
   br i1 %or.cond.i.i99, label %land.lhs.true5.i.i100, label %trace_usb_desc_device_qualifier.exit
 
 land.lhs.true5.i.i100:                            ; preds = %if.end46
-  %70 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i101 = and i32 %70, 32768
+  %69 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i101 = and i32 %69, 32768
   %cmp.i.not.i.i102 = icmp eq i32 %and.i.i.i101, 0
   br i1 %cmp.i.not.i.i102, label %trace_usb_desc_device_qualifier.exit, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %land.lhs.true5.i.i100
-  %71 = load i8, ptr @message_with_timestamp, align 1
-  %72 = and i8 %71, 1
-  %tobool7.not.i.i104 = icmp eq i8 %72, 0
+  %70 = load i8, ptr @message_with_timestamp, align 1
+  %71 = and i8 %70, 1
+  %tobool7.not.i.i104 = icmp eq i8 %71, 0
   br i1 %tobool7.not.i.i104, label %if.else.i.i109, label %if.then8.i.i105
 
 if.then8.i.i105:                                  ; preds = %if.then.i.i103
   %call9.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #12
   %call10.i.i107 = tail call i32 @qemu_get_thread_id() #12
-  %73 = load i64, ptr %_now.i.i96, align 8
+  %72 = load i64, ptr %_now.i.i96, align 8
   %tv_usec.i.i108 = getelementptr inbounds %struct.timeval, ptr %_now.i.i96, i64 0, i32 1
-  %74 = load i64, ptr %tv_usec.i.i108, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i107, i64 noundef %73, i64 noundef %74, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.1) #12
+  %73 = load i64, ptr %tv_usec.i.i108, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i107, i64 noundef %72, i64 noundef %73, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.1) #12
   br label %trace_usb_desc_device_qualifier.exit
 
 if.else.i.i109:                                   ; preds = %if.then.i.i103
@@ -1858,16 +1858,16 @@ sw.bb50:                                          ; preds = %entry
 
 land.lhs.true:                                    ; preds = %sw.bb50
   %bNumConfigurations54 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 5
-  %75 = load i8, ptr %bNumConfigurations54, align 2
-  %conv55 = zext i8 %75 to i32
+  %74 = load i8, ptr %bNumConfigurations54, align 2
+  %conv55 = zext i8 %74 to i32
   %cmp56 = icmp ult i32 %.pre164, %conv55
   br i1 %cmp56, label %if.then58, label %if.end64
 
 if.then58:                                        ; preds = %land.lhs.true
   %confs59 = getelementptr inbounds %struct.USBDescDevice, ptr %other_dev.0, i64 0, i32 6
-  %76 = load ptr, ptr %confs59, align 8
+  %75 = load ptr, ptr %confs59, align 8
   %idx.ext61 = zext nneg i32 %.pre164 to i64
-  %add.ptr62 = getelementptr %struct.USBDescConfig, ptr %76, i64 %idx.ext61
+  %add.ptr62 = getelementptr %struct.USBDescConfig, ptr %75, i64 %idx.ext61
   %call63 = tail call i32 @usb_desc_config(ptr noundef %add.ptr62, i32 noundef %spec.select, ptr noundef %call1, i64 noundef 8192), !range !15
   %arrayidx = getelementptr i8, ptr %call1, i64 1
   store i8 7, ptr %arrayidx, align 1
@@ -1876,36 +1876,36 @@ if.then58:                                        ; preds = %land.lhs.true
 if.end64:                                         ; preds = %sw.bb50, %if.then58, %land.lhs.true
   %ret.2 = phi i32 [ %call63, %if.then58 ], [ -1, %land.lhs.true ], [ -1, %sw.bb50 ]
   %addr65 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
-  %77 = load i8, ptr %addr65, align 8
-  %conv66 = zext i8 %77 to i32
+  %76 = load i8, ptr %addr65, align 8
+  %conv66 = zext i8 %76 to i32
   %conv68 = trunc i64 %len to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i110)
-  %78 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i111 = icmp ne i32 %78, 0
-  %79 = load i16, ptr @_TRACE_USB_DESC_OTHER_SPEED_CONFIG_DSTATE, align 2
-  %tobool4.i.i112 = icmp ne i16 %79, 0
+  %77 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i111 = icmp ne i32 %77, 0
+  %78 = load i16, ptr @_TRACE_USB_DESC_OTHER_SPEED_CONFIG_DSTATE, align 2
+  %tobool4.i.i112 = icmp ne i16 %78, 0
   %or.cond.i.i113 = select i1 %tobool.i.i111, i1 %tobool4.i.i112, i1 false
   br i1 %or.cond.i.i113, label %land.lhs.true5.i.i114, label %trace_usb_desc_other_speed_config.exit
 
 land.lhs.true5.i.i114:                            ; preds = %if.end64
-  %80 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i115 = and i32 %80, 32768
+  %79 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i115 = and i32 %79, 32768
   %cmp.i.not.i.i116 = icmp eq i32 %and.i.i.i115, 0
   br i1 %cmp.i.not.i.i116, label %trace_usb_desc_other_speed_config.exit, label %if.then.i.i117
 
 if.then.i.i117:                                   ; preds = %land.lhs.true5.i.i114
-  %81 = load i8, ptr @message_with_timestamp, align 1
-  %82 = and i8 %81, 1
-  %tobool7.not.i.i118 = icmp eq i8 %82, 0
+  %80 = load i8, ptr @message_with_timestamp, align 1
+  %81 = and i8 %80, 1
+  %tobool7.not.i.i118 = icmp eq i8 %81, 0
   br i1 %tobool7.not.i.i118, label %if.else.i.i123, label %if.then8.i.i119
 
 if.then8.i.i119:                                  ; preds = %if.then.i.i117
   %call9.i.i120 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i110, ptr noundef null) #12
   %call10.i.i121 = tail call i32 @qemu_get_thread_id() #12
-  %83 = load i64, ptr %_now.i.i110, align 8
+  %82 = load i64, ptr %_now.i.i110, align 8
   %tv_usec.i.i122 = getelementptr inbounds %struct.timeval, ptr %_now.i.i110, i64 0, i32 1
-  %84 = load i64, ptr %tv_usec.i.i122, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i121, i64 noundef %83, i64 noundef %84, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.2) #12
+  %83 = load i64, ptr %tv_usec.i.i122, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i121, i64 noundef %82, i64 noundef %83, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.2) #12
   br label %trace_usb_desc_other_speed_config.exit
 
 if.else.i.i123:                                   ; preds = %if.then.i.i117
@@ -1921,8 +1921,8 @@ sw.bb69:                                          ; preds = %entry
   %bDescriptorType.i124 = getelementptr inbounds %struct.USBDescriptor, ptr %call1, i64 0, i32 1
   store i8 15, ptr %bDescriptorType.i124, align 1
   %high.i = getelementptr inbounds %struct.USBDesc, ptr %call, i64 0, i32 2
-  %85 = load ptr, ptr %high.i, align 8
-  %cmp6.not.i = icmp eq ptr %85, null
+  %84 = load ptr, ptr %high.i, align 8
+  %cmp6.not.i = icmp eq ptr %84, null
   br i1 %cmp6.not.i, label %if.end18.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %sw.bb69
@@ -1940,8 +1940,8 @@ if.end18.i:                                       ; preds = %if.then8.i, %sw.bb6
   %wTotalLength.0.i = phi i16 [ 12, %if.then8.i ], [ 5, %sw.bb69 ]
   %bNumDeviceCaps.0.i = phi i8 [ 1, %if.then8.i ], [ 0, %sw.bb69 ]
   %super.i = getelementptr inbounds %struct.USBDesc, ptr %call, i64 0, i32 3
-  %86 = load ptr, ptr %super.i, align 8
-  %cmp19.not.i = icmp eq ptr %86, null
+  %85 = load ptr, ptr %super.i, align 8
+  %cmp19.not.i = icmp eq ptr %85, null
   br i1 %cmp19.not.i, label %usb_desc_bos.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end18.i
@@ -1963,20 +1963,20 @@ if.then21.i:                                      ; preds = %if.end18.i
   %wU2DevExitLat_hi.i.i = getelementptr inbounds %struct.USBDescriptor, ptr %add.ptr24.i, i64 0, i32 2, i32 0, i32 7
   store i8 0, ptr %wU2DevExitLat_hi.i.i, align 1
   %full.i.i = getelementptr inbounds %struct.USBDesc, ptr %call, i64 0, i32 1
-  %87 = load ptr, ptr %full.i.i, align 8
-  %tobool.not.i.i125 = icmp eq ptr %87, null
+  %86 = load ptr, ptr %full.i.i, align 8
+  %tobool.not.i.i125 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i125, label %if.end26.i.i, label %if.end26.thread.i.i
 
 if.end26.i.i:                                     ; preds = %if.then21.i
-  %88 = load ptr, ptr %high.i, align 8
-  %tobool27.not.i.i = icmp eq ptr %88, null
+  %87 = load ptr, ptr %high.i, align 8
+  %tobool27.not.i.i = icmp eq ptr %87, null
   br i1 %tobool27.not.i.i, label %if.end44.thread.i.i, label %if.then39.i.i
 
 if.end26.thread.i.i:                              ; preds = %if.then21.i
   store i8 2, ptr %wSpeedsSupported_lo.i.i, align 1
   store i8 1, ptr %bFunctionalitySupport.i.i, align 1
-  %89 = load ptr, ptr %high.i, align 8
-  %tobool27.not23.i.i = icmp eq ptr %89, null
+  %88 = load ptr, ptr %high.i, align 8
+  %tobool27.not23.i.i = icmp eq ptr %88, null
   br i1 %tobool27.not23.i.i, label %if.end44.i.i, label %if.then28.thread.i.i
 
 if.then28.thread.i.i:                             ; preds = %if.end26.thread.i.i
@@ -1989,18 +1989,18 @@ if.then39.i.i:                                    ; preds = %if.end26.i.i
   br label %if.end44.i.i
 
 if.end44.i.i:                                     ; preds = %if.then39.i.i, %if.then28.thread.i.i, %if.end26.thread.i.i
-  %90 = phi i8 [ 12, %if.then39.i.i ], [ 10, %if.end26.thread.i.i ], [ 14, %if.then28.thread.i.i ]
-  %91 = load ptr, ptr %super.i, align 8
-  %tobool45.not.i.i = icmp eq ptr %91, null
+  %89 = phi i8 [ 12, %if.then39.i.i ], [ 10, %if.end26.thread.i.i ], [ 14, %if.then28.thread.i.i ]
+  %90 = load ptr, ptr %super.i, align 8
+  %tobool45.not.i.i = icmp eq ptr %90, null
   br i1 %tobool45.not.i.i, label %if.end31.i, label %if.then46.i.i
 
 if.end44.thread.i.i:                              ; preds = %if.end26.i.i
-  %92 = load ptr, ptr %super.i, align 8
-  %tobool45.not25.i.i = icmp eq ptr %92, null
+  %91 = load ptr, ptr %super.i, align 8
+  %tobool45.not25.i.i = icmp eq ptr %91, null
   br i1 %tobool45.not25.i.i, label %if.end31.i, label %if.then57.i.i
 
 if.then46.i.i:                                    ; preds = %if.end44.i.i
-  store i8 %90, ptr %wSpeedsSupported_lo.i.i, align 1
+  store i8 %89, ptr %wSpeedsSupported_lo.i.i, align 1
   br label %if.end31.i
 
 if.then57.i.i:                                    ; preds = %if.end44.thread.i.i
@@ -2025,36 +2025,36 @@ usb_desc_bos.exit:                                ; preds = %if.end18.i, %if.end
   store i8 %bNumDeviceCaps.1.i, ptr %bNumDeviceCaps41.i, align 1
   %conv42.i = zext nneg i16 %wTotalLength.1.i to i32
   %addr71 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
-  %93 = load i8, ptr %addr71, align 8
-  %conv72 = zext i8 %93 to i32
+  %92 = load i8, ptr %addr71, align 8
+  %conv72 = zext i8 %92 to i32
   %conv73 = trunc i64 %len to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i128)
-  %94 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i129 = icmp ne i32 %94, 0
-  %95 = load i16, ptr @_TRACE_USB_DESC_BOS_DSTATE, align 2
-  %tobool4.i.i130 = icmp ne i16 %95, 0
+  %93 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i129 = icmp ne i32 %93, 0
+  %94 = load i16, ptr @_TRACE_USB_DESC_BOS_DSTATE, align 2
+  %tobool4.i.i130 = icmp ne i16 %94, 0
   %or.cond.i.i131 = select i1 %tobool.i.i129, i1 %tobool4.i.i130, i1 false
   br i1 %or.cond.i.i131, label %land.lhs.true5.i.i132, label %trace_usb_desc_bos.exit
 
 land.lhs.true5.i.i132:                            ; preds = %usb_desc_bos.exit
-  %96 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i133 = and i32 %96, 32768
+  %95 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i133 = and i32 %95, 32768
   %cmp.i.not.i.i134 = icmp eq i32 %and.i.i.i133, 0
   br i1 %cmp.i.not.i.i134, label %trace_usb_desc_bos.exit, label %if.then.i.i135
 
 if.then.i.i135:                                   ; preds = %land.lhs.true5.i.i132
-  %97 = load i8, ptr @message_with_timestamp, align 1
-  %98 = and i8 %97, 1
-  %tobool7.not.i.i136 = icmp eq i8 %98, 0
+  %96 = load i8, ptr @message_with_timestamp, align 1
+  %97 = and i8 %96, 1
+  %tobool7.not.i.i136 = icmp eq i8 %97, 0
   br i1 %tobool7.not.i.i136, label %if.else.i.i141, label %if.then8.i.i137
 
 if.then8.i.i137:                                  ; preds = %if.then.i.i135
   %call9.i.i138 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i128, ptr noundef null) #12
   %call10.i.i139 = tail call i32 @qemu_get_thread_id() #12
-  %99 = load i64, ptr %_now.i.i128, align 8
+  %98 = load i64, ptr %_now.i.i128, align 8
   %tv_usec.i.i140 = getelementptr inbounds %struct.timeval, ptr %_now.i.i128, i64 0, i32 1
-  %100 = load i64, ptr %tv_usec.i.i140, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i139, i64 noundef %99, i64 noundef %100, i32 noundef %conv72, i32 noundef %conv73, i32 noundef %conv42.i) #12
+  %99 = load i64, ptr %tv_usec.i.i140, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i139, i64 noundef %98, i64 noundef %99, i32 noundef %conv72, i32 noundef %conv73, i32 noundef %conv42.i) #12
   br label %trace_usb_desc_bos.exit
 
 if.else.i.i141:                                   ; preds = %if.then.i.i135
@@ -2067,11 +2067,11 @@ trace_usb_desc_bos.exit:                          ; preds = %usb_desc_bos.exit, 
 
 sw.default:                                       ; preds = %entry
   %conv13 = and i32 %shr, 255
-  %101 = load ptr, ptr @stderr, align 8
+  %100 = load ptr, ptr @stderr, align 8
   %addr75 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
-  %102 = load i8, ptr %addr75, align 8
-  %conv76 = zext i8 %102 to i32
-  %call78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.usb_desc_get_descriptor, i32 noundef %conv76, i32 noundef %conv13, i64 noundef %len) #16
+  %101 = load i8, ptr %addr75, align 8
+  %conv76 = zext i8 %101 to i32
+  %call78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.usb_desc_get_descriptor, i32 noundef %conv76, i32 noundef %conv13, i64 noundef %len) #16
   br label %if.end89
 
 sw.epilog:                                        ; preds = %trace_usb_desc_other_speed_config.exit, %trace_usb_desc_device_qualifier.exit, %trace_usb_desc_string.exit, %trace_usb_desc_config.exit

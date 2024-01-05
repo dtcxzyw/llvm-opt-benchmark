@@ -5065,15 +5065,15 @@ for.body:                                         ; preds = %sw.bb28, %for.body
   %conv35 = trunc i32 %8 to i8
   %9 = load ptr, ptr %io_buffer, align 8
   %10 = mul nuw nsw i64 %indvars.iv200, 12
-  %11 = or disjoint i64 %10, 2
-  %arrayidx38 = getelementptr i8, ptr %9, i64 %11
+  %11 = getelementptr i8, ptr %9, i64 %10
+  %arrayidx38 = getelementptr i8, ptr %11, i64 2
   store i8 %conv35, ptr %arrayidx38, align 1
   %arrayidx41 = getelementptr [7 x [12 x i32]], ptr @smart_attributes, i64 0, i64 %indvars.iv200, i64 11
   %12 = load i32, ptr %arrayidx41, align 4
   %conv42 = trunc i32 %12 to i8
   %13 = load ptr, ptr %io_buffer, align 8
-  %14 = or disjoint i64 %10, 3
-  %arrayidx47 = getelementptr i8, ptr %13, i64 %14
+  %14 = getelementptr i8, ptr %13, i64 %10
+  %arrayidx47 = getelementptr i8, ptr %14, i64 3
   store i8 %conv42, ptr %arrayidx47, align 1
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next201, 7
@@ -5154,16 +5154,16 @@ sw.bb71:                                          ; preds = %if.end9
 for.cond80.preheader:                             ; preds = %sw.bb71, %for.inc98
   %indvars.iv190 = phi i64 [ 0, %sw.bb71 ], [ %indvars.iv.next191, %for.inc98 ]
   %33 = mul nuw nsw i64 %indvars.iv190, 12
-  %34 = or disjoint i64 %33, 2
   br label %for.body83
 
 for.body83:                                       ; preds = %for.cond80.preheader, %for.body83
   %indvars.iv185 = phi i64 [ 0, %for.cond80.preheader ], [ %indvars.iv.next186, %for.body83 ]
   %arrayidx87 = getelementptr [7 x [12 x i32]], ptr @smart_attributes, i64 0, i64 %indvars.iv190, i64 %indvars.iv185
-  %35 = load i32, ptr %arrayidx87, align 4
-  %conv88 = trunc i32 %35 to i8
-  %36 = load ptr, ptr %io_buffer72, align 8
-  %37 = getelementptr i8, ptr %36, i64 %34
+  %34 = load i32, ptr %arrayidx87, align 4
+  %conv88 = trunc i32 %34 to i8
+  %35 = load ptr, ptr %io_buffer72, align 8
+  %36 = getelementptr i8, ptr %35, i64 %33
+  %37 = getelementptr i8, ptr %36, i64 2
   %arrayidx94 = getelementptr i8, ptr %37, i64 %indvars.iv185
   store i8 %conv88, ptr %arrayidx94, align 1
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1

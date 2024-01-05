@@ -9454,51 +9454,55 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIjP3appElS3_N9__gnu
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp29 = icmp sgt i64 %div, %__holeIndex
-  br i1 %cmp29, label %while.body, label %while.end
+  %cmp32 = icmp sgt i64 %div, %__holeIndex
+  br i1 %cmp32, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
-  %__holeIndex.addr.030 = phi i64 [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27 ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.030, 1
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29
+  %__holeIndex.addr.033 = phi i64 [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29 ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %sub1
-  %0 = load i32, ptr %add.ptr, align 8
-  %1 = load i32, ptr %add.ptr2, align 8
-  %cmp.i.i.i = icmp ult i32 %0, %1
+  %0 = getelementptr %"struct.std::pair.86", ptr %__first, i64 %add
+  %add.ptr2 = getelementptr %"struct.std::pair.86", ptr %0, i64 1
+  %1 = load i32, ptr %add.ptr, align 8
+  %2 = load i32, ptr %add.ptr2, align 8
+  %cmp.i.i.i = icmp ult i32 %1, %2
   br i1 %cmp.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i
 
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread: ; preds = %while.body
+  %dec26 = or disjoint i64 %add, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29
+
 lor.rhs.i.i.i:                                    ; preds = %while.body
-  %cmp4.i.i.i = icmp ult i32 %1, %0
-  br i1 %cmp4.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
+  %cmp4.i.i.i = icmp ult i32 %2, %1
+  br i1 %cmp4.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit: ; preds = %lor.rhs.i.i.i
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %mul, i32 1
-  %2 = load ptr, ptr %second.i.i.i, align 8
-  %second5.i.i.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %sub1, i32 1
-  %3 = load ptr, ptr %second5.i.i.i, align 8
-  %cmp6.i.i.i = icmp ult ptr %2, %3
+  %3 = load ptr, ptr %second.i.i.i, align 8
+  %second5.i.i.i = getelementptr %"struct.std::pair.86", ptr %0, i64 1, i32 1
+  %4 = load ptr, ptr %second5.i.i.i, align 8
+  %cmp6.i.i.i = icmp ult ptr %3, %4
+  %dec = or disjoint i64 %add, 1
   %cond.fr = freeze i1 %cmp6.i.i.i
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
+  %spec.select = select i1 %cond.fr, i64 %dec, i64 %mul
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread: ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27: ; preds = %lor.rhs.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread
-  %4 = phi i32 [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ], [ %0, %lor.rhs.i.i.i ]
-  %5 = phi i64 [ %sub1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ], [ %mul, %lor.rhs.i.i.i ]
-  %add.ptr4 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.030
-  store i32 %4, ptr %add.ptr4, align 8
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit, %lor.rhs.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread
+  %5 = phi i64 [ %dec26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %mul, %lor.rhs.i.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ]
+  %add.ptr3 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %5
+  %add.ptr4 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.033
+  %6 = load i32, ptr %add.ptr3, align 4
+  store i32 %6, ptr %add.ptr4, align 8
   %second.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %5, i32 1
-  %6 = load ptr, ptr %second.i, align 8
-  %second3.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.030, i32 1
-  store ptr %6, ptr %second3.i, align 8
+  %7 = load ptr, ptr %second.i, align 8
+  %second3.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.033, i32 1
+  store ptr %7, ptr %second3.i, align 8
   %cmp = icmp slt i64 %5, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !49
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27 ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread29 ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -9510,16 +9514,16 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.0.lcssa
-  %7 = load i32, ptr %add.ptr14, align 4
-  store i32 %7, ptr %add.ptr15, align 8
+  %8 = load i32, ptr %add.ptr14, align 4
+  store i32 %8, ptr %add.ptr15, align 8
   %second.i24 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %sub13, i32 1
-  %8 = load ptr, ptr %second.i24, align 8
+  %9 = load ptr, ptr %second.i24, align 8
   %second3.i25 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.0.lcssa, i32 1
-  store ptr %8, ptr %second3.i25, align 8
+  store ptr %9, ptr %second3.i25, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
@@ -9532,8 +9536,8 @@ land.rhs.i:                                       ; preds = %if.end18, %while.bo
   %__parent.019.in.i = add nsw i64 %__holeIndex.addr.018.i, -1
   %__parent.019.i = sdiv i64 %__parent.019.in.i, 2
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__parent.019.i
-  %9 = load i32, ptr %add.ptr.i, align 8
-  %cmp.i.i.i.i = icmp ult i32 %9, %__value.coerce0
+  %10 = load i32, ptr %add.ptr.i, align 8
+  %cmp.i.i.i.i = icmp ult i32 %10, %__value.coerce0
   br i1 %cmp.i.i.i.i, label %land.rhs.while.body_crit_edge.i, label %lor.rhs.i.i.i.i
 
 land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
@@ -9542,21 +9546,21 @@ land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
   br label %while.body.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i
-  %cmp4.i.i.i.i = icmp ugt i32 %9, %__value.coerce0
+  %cmp4.i.i.i.i = icmp ugt i32 %10, %__value.coerce0
   br i1 %cmp4.i.i.i.i, label %_ZSt11__push_heapIPSt4pairIjP3appElS3_N9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEEEvT_T0_SD_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESA_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESA_EEbT_RT0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__parent.019.i, i32 1
-  %10 = load ptr, ptr %second.i.i.i.i, align 8
-  %cmp6.i.i.i.i = icmp ult ptr %10, %__value.coerce1
+  %11 = load ptr, ptr %second.i.i.i.i, align 8
+  %cmp6.i.i.i.i = icmp ult ptr %11, %__value.coerce1
   br i1 %cmp6.i.i.i.i, label %while.body.i, label %_ZSt11__push_heapIPSt4pairIjP3appElS3_N9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEEEvT_T0_SD_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESA_EEbT_RT0_.exit.i, %land.rhs.while.body_crit_edge.i
-  %11 = phi ptr [ %.pre.i, %land.rhs.while.body_crit_edge.i ], [ %10, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESA_EEbT_RT0_.exit.i ]
+  %12 = phi ptr [ %.pre.i, %land.rhs.while.body_crit_edge.i ], [ %11, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESA_EEbT_RT0_.exit.i ]
   %add.ptr2.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.018.i
-  store i32 %9, ptr %add.ptr2.i, align 8
+  store i32 %10, ptr %add.ptr2.i, align 8
   %second3.i.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.018.i, i32 1
-  store ptr %11, ptr %second3.i.i, align 8
+  store ptr %12, ptr %second3.i.i, align 8
   %cmp.i = icmp sgt i64 %__parent.019.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIPSt4pairIjP3appElS3_N9__gnu_cxx5__ops14_Iter_comp_valIN3mbp22array_project_eqs_util10compare_ndEEEEvT_T0_SD_T1_RT2_.exit, !llvm.loop !50
 
@@ -18778,6 +18782,7 @@ entry:
   store ptr %__comp.coerce, ptr %__comp, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 1
   %cmp24 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp24, label %while.body, label %while.end
 
@@ -18786,10 +18791,10 @@ while.body:                                       ; preds = %entry, %while.body
   %add = shl i64 %__holeIndex.addr.025, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %sub2
-  %call.i = call noundef zeroext i1 @_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_(ptr noundef nonnull align 8 dereferenceable(8) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr3)
-  %spec.select = select i1 %call.i, i64 %sub2, i64 %mul
+  %gep = getelementptr %"struct.mbp::array_project_selects_util::idx_val", ptr %invariant.gep, i64 %add
+  %call.i = call noundef zeroext i1 @_ZN3mbp26array_project_selects_util11compare_idxclERKNS0_7idx_valES4_(ptr noundef nonnull align 8 dereferenceable(8) %__comp, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %gep)
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %call.i, i64 %dec, i64 %mul
   %add.ptr4 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %spec.select
   %add.ptr5 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %__holeIndex.addr.025
   %call6 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3mbp26array_project_selects_util7idx_valaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr4) #20
@@ -18809,7 +18814,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp10, label %if.then11, label %if.end19
 
 if.then11:                                        ; preds = %land.lhs.true
-  %add12 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add12 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub14 = or disjoint i64 %add12, 1
   %add.ptr15 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %sub14
   %add.ptr16 = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %__holeIndex.addr.0.lcssa

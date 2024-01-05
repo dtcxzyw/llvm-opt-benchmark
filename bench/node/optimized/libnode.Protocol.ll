@@ -11189,6 +11189,7 @@ entry:
   %3 = load ptr, ptr %tokenizer, align 8
   %4 = getelementptr i8, ptr %3, i64 %1
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 %sub.i
+  %invariant.gep = getelementptr i8, ptr %add.ptr.i.i, i64 1
   %cmp16.not = icmp eq i64 %0, 0
   br i1 %cmp16.not, label %for.end, label %for.body
 
@@ -11197,9 +11198,8 @@ for.body:                                         ; preds = %entry, %_ZNSt6vecto
   %value.sroa.0.019 = phi ptr [ %value.sroa.0.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ null, %entry ]
   %value.sroa.6.018 = phi ptr [ %value.sroa.6.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ null, %entry ]
   %value.sroa.11.017 = phi ptr [ %value.sroa.11.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ], [ null, %entry ]
-  %add = or disjoint i64 %ii.020, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %ii.020
+  %5 = load i8, ptr %gep, align 1
   %conv = zext i8 %5 to i16
   %shl = shl nuw i16 %conv, 8
   %arrayidx.i5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %ii.020

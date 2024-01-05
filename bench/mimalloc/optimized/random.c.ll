@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [33 x i8] c"unable to use secure randomness\0A\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"expand 32-byte k\00", align 1
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_mi_random_split(ptr nocapture noundef readonly %ctx, ptr noundef %ctx_new) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %ctx_new to i64
@@ -23,11 +23,11 @@ entry:
   %conv8.i = trunc i64 %shr.i to i32
   %arrayidx10.i = getelementptr inbounds [16 x i32], ptr %ctx_new, i64 0, i64 15
   store i32 %conv8.i, ptr %arrayidx10.i, align 4
-  tail call fastcc void @chacha_block(ptr noundef %ctx_new) #6
+  tail call fastcc void @chacha_block(ptr noundef %ctx_new) #7
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i64 @_mi_random_next(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %output_available.i = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 2
@@ -36,7 +36,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %chacha_next32.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @chacha_block(ptr noundef nonnull %ctx) #6
+  tail call fastcc void @chacha_block(ptr noundef nonnull %ctx) #7
   store i32 16, ptr %output_available.i, align 4
   br label %chacha_next32.exit
 
@@ -54,7 +54,7 @@ chacha_next32.exit:                               ; preds = %entry, %if.then.i
   br i1 %cmp.i3, label %if.then.i8, label %chacha_next32.exit9
 
 if.then.i8:                                       ; preds = %chacha_next32.exit
-  tail call fastcc void @chacha_block(ptr noundef nonnull %ctx) #6
+  tail call fastcc void @chacha_block(ptr noundef nonnull %ctx) #7
   store i32 16, ptr %output_available.i, align 4
   br label %chacha_next32.exit9
 
@@ -79,7 +79,7 @@ chacha_next32.exit9:                              ; preds = %chacha_next32.exit,
 define hidden i64 @_mi_os_random_weak(i64 noundef %extra_seed) #1 {
 entry:
   %xor = xor i64 %extra_seed, ptrtoint (ptr @_mi_os_random_weak to i64)
-  %call = tail call i64 @_mi_prim_clock_now() #7
+  %call = tail call i64 @_mi_prim_clock_now() #8
   %xor1 = xor i64 %xor, %call
   %shr = lshr i64 %xor1, 17
   %xor2 = xor i64 %shr, %xor1
@@ -112,7 +112,7 @@ declare i64 @_mi_prim_clock_now() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_init(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  tail call fastcc void @mi_random_init_ex(ptr noundef %ctx, i1 noundef zeroext false) #6
+  tail call fastcc void @mi_random_init_ex(ptr noundef %ctx, i1 noundef zeroext false) #7
   ret void
 }
 
@@ -123,15 +123,15 @@ entry:
   br i1 %use_weak, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = call zeroext i1 @_mi_prim_random_buf(ptr noundef nonnull %key, i64 noundef 32) #7
+  %call = call zeroext i1 @_mi_prim_random_buf(ptr noundef nonnull %key, i64 noundef 32) #8
   br i1 %call, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str) #7
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str) #8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then2
-  %call.i = call i64 @_mi_prim_clock_now() #7
+  %call.i = call i64 @_mi_prim_clock_now() #8
   %xor1.i = xor i64 %call.i, ptrtoint (ptr @_mi_os_random_weak to i64)
   %shr.i = lshr i64 %xor1.i, 17
   %xor2.i = xor i64 %shr.i, %xor1.i
@@ -180,76 +180,28 @@ if.end7:                                          ; preds = %for.body, %lor.lhs.
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.body.i10, %if.end7
-  %i.032.i = phi i64 [ 0, %if.end7 ], [ %inc.i12, %for.body.i10 ]
-  %mul.i.i11 = shl nuw nsw i64 %i.032.i, 2
+  %i.016.i = phi i64 [ 0, %if.end7 ], [ %inc.i12, %for.body.i10 ]
+  %mul.i.i11 = shl nuw nsw i64 %i.016.i, 2
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.1, i64 %mul.i.i11
-  %0 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %0 to i32
-  %add1.i.i = or disjoint i64 %mul.i.i11, 1
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr @.str.1, i64 %add1.i.i
-  %1 = load i8, ptr %arrayidx2.i.i, align 1
-  %conv3.i.i = zext i8 %1 to i32
-  %shl.i.i = shl nuw nsw i32 %conv3.i.i, 8
-  %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
-  %add4.i.i = or disjoint i64 %mul.i.i11, 2
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr @.str.1, i64 %add4.i.i
-  %2 = load i8, ptr %arrayidx5.i.i, align 1
-  %conv6.i.i = zext i8 %2 to i32
-  %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 16
-  %or8.i.i = or disjoint i32 %or.i.i, %shl7.i.i
-  %add9.i.i = or disjoint i64 %mul.i.i11, 3
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr @.str.1, i64 %add9.i.i
-  %3 = load i8, ptr %arrayidx10.i.i, align 1
-  %conv11.i.i = zext i8 %3 to i32
-  %shl12.i.i = shl nuw i32 %conv11.i.i, 24
-  %or13.i.i = or disjoint i32 %or8.i.i, %shl12.i.i
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i.032.i
-  store i32 %or13.i.i, ptr %arrayidx.i, align 4
-  %inc.i12 = add nuw nsw i64 %i.032.i, 1
+  %0 = load i32, ptr %arrayidx.i.i, align 1
+  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i.016.i
+  store i32 %0, ptr %arrayidx.i, align 4
+  %inc.i12 = add nuw nsw i64 %i.016.i, 1
   %exitcond.not.i13 = icmp eq i64 %inc.i12, 4
-  br i1 %exitcond.not.i13, label %for.body4.i, label %for.body.i10, !llvm.loop !7
+  br i1 %exitcond.not.i13, label %for.body4.i.preheader, label %for.body.i10, !llvm.loop !7
 
-for.body4.i:                                      ; preds = %for.body.i10, %for.body4.i
-  %i1.033.i = phi i64 [ %inc9.i, %for.body4.i ], [ 0, %for.body.i10 ]
-  %mul.i14.i = shl nuw nsw i64 %i1.033.i, 2
-  %arrayidx.i15.i = getelementptr inbounds i8, ptr %key, i64 %mul.i14.i
-  %4 = load i8, ptr %arrayidx.i15.i, align 4
-  %conv.i16.i = zext i8 %4 to i32
-  %add1.i17.i = or disjoint i64 %mul.i14.i, 1
-  %arrayidx2.i18.i = getelementptr inbounds i8, ptr %key, i64 %add1.i17.i
-  %5 = load i8, ptr %arrayidx2.i18.i, align 1
-  %conv3.i19.i = zext i8 %5 to i32
-  %shl.i20.i = shl nuw nsw i32 %conv3.i19.i, 8
-  %or.i21.i = or disjoint i32 %shl.i20.i, %conv.i16.i
-  %add4.i22.i = or disjoint i64 %mul.i14.i, 2
-  %arrayidx5.i23.i = getelementptr inbounds i8, ptr %key, i64 %add4.i22.i
-  %6 = load i8, ptr %arrayidx5.i23.i, align 2
-  %conv6.i24.i = zext i8 %6 to i32
-  %shl7.i25.i = shl nuw nsw i32 %conv6.i24.i, 16
-  %or8.i26.i = or disjoint i32 %or.i21.i, %shl7.i25.i
-  %add9.i27.i = or disjoint i64 %mul.i14.i, 3
-  %arrayidx10.i28.i = getelementptr inbounds i8, ptr %key, i64 %add9.i27.i
-  %7 = load i8, ptr %arrayidx10.i28.i, align 1
-  %conv11.i29.i = zext i8 %7 to i32
-  %shl12.i30.i = shl nuw i32 %conv11.i29.i, 24
-  %or13.i31.i = or disjoint i32 %or8.i26.i, %shl12.i30.i
-  %add.i = add nuw nsw i64 %i1.033.i, 4
-  %arrayidx7.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %add.i
-  store i32 %or13.i31.i, ptr %arrayidx7.i, align 4
-  %inc9.i = add nuw nsw i64 %i1.033.i, 1
-  %exitcond34.not.i = icmp eq i64 %inc9.i, 8
-  br i1 %exitcond34.not.i, label %chacha_init.exit, label %for.body4.i, !llvm.loop !8
-
-chacha_init.exit:                                 ; preds = %for.body4.i
-  %8 = ptrtoint ptr %ctx to i64
+for.body4.i.preheader:                            ; preds = %for.body.i10
+  %scevgep = getelementptr i8, ptr %ctx, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %key, i64 32, i1 false)
+  %1 = ptrtoint ptr %ctx to i64
   %arrayidx12.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
   store i32 0, ptr %arrayidx12.i, align 4
   %arrayidx14.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
   store i32 0, ptr %arrayidx14.i, align 4
-  %conv.i = trunc i64 %8 to i32
+  %conv.i = trunc i64 %1 to i32
   %arrayidx16.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
   store i32 %conv.i, ptr %arrayidx16.i, align 4
-  %shr.i14 = lshr i64 %8, 32
+  %shr.i14 = lshr i64 %1, 32
   %conv17.i = trunc i64 %shr.i14 to i32
   %arrayidx19.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
   store i32 %conv17.i, ptr %arrayidx19.i, align 4
@@ -259,7 +211,83 @@ chacha_init.exit:                                 ; preds = %for.body4.i
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_init_weak(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  tail call fastcc void @mi_random_init_ex(ptr noundef %ctx, i1 noundef zeroext true) #6
+  %key.i = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i)
+  %call.i.i = tail call i64 @_mi_prim_clock_now() #8
+  %xor1.i.i = xor i64 %call.i.i, ptrtoint (ptr @_mi_os_random_weak to i64)
+  %shr.i.i = lshr i64 %xor1.i.i, 17
+  %xor2.i.i = xor i64 %shr.i.i, %xor1.i.i
+  %and.i.i = and i64 %xor2.i.i, 15
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.body.i.i, %entry
+  %i.07.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
+  %x.06.i.i = phi i64 [ %xor1.i.i, %entry ], [ %xor5.i.i.i, %for.body.i.i ]
+  %cmp.i.i.i = icmp eq i64 %x.06.i.i, 0
+  %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i64 17, i64 %x.06.i.i
+  %shr.i.i.i = lshr i64 %spec.store.select.i.i.i, 30
+  %xor.i.i.i = xor i64 %shr.i.i.i, %spec.store.select.i.i.i
+  %mul.i.i.i = mul i64 %xor.i.i.i, -4658895280553007687
+  %shr1.i.i.i = lshr i64 %mul.i.i.i, 27
+  %xor2.i.i.i = xor i64 %shr1.i.i.i, %mul.i.i.i
+  %mul3.i.i.i = mul i64 %xor2.i.i.i, -7723592293110705685
+  %shr4.i.i.i = lshr i64 %mul3.i.i.i, 31
+  %xor5.i.i.i = xor i64 %shr4.i.i.i, %mul3.i.i.i
+  %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %i.07.i.i, %and.i.i
+  br i1 %exitcond.not.i.i, label %for.body.i, label %for.body.i.i, !llvm.loop !4
+
+for.body.i:                                       ; preds = %for.body.i.i, %for.body.i
+  %i.016.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.i ]
+  %x.015.i = phi i64 [ %xor5.i.i, %for.body.i ], [ %xor5.i.i.i, %for.body.i.i ]
+  %cmp.i.i = icmp eq i64 %x.015.i, 0
+  %spec.store.select.i.i = select i1 %cmp.i.i, i64 17, i64 %x.015.i
+  %shr.i8.i = lshr i64 %spec.store.select.i.i, 30
+  %xor.i.i = xor i64 %shr.i8.i, %spec.store.select.i.i
+  %mul.i.i = mul i64 %xor.i.i, -4658895280553007687
+  %shr1.i.i = lshr i64 %mul.i.i, 27
+  %xor2.i9.i = xor i64 %shr1.i.i, %mul.i.i
+  %mul3.i.i = mul i64 %xor2.i9.i, -7723592293110705685
+  %shr4.i.i = lshr i64 %mul3.i.i, 31
+  %xor5.i.i = xor i64 %shr4.i.i, %mul3.i.i
+  %conv.i = trunc i64 %xor5.i.i to i32
+  %arrayidx.i = getelementptr inbounds i32, ptr %key.i, i64 %i.016.i
+  store i32 %conv.i, ptr %arrayidx.i, align 4
+  %inc.i = add nuw nsw i64 %i.016.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %if.end7.i, label %for.body.i, !llvm.loop !6
+
+if.end7.i:                                        ; preds = %for.body.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx, i8 0, i64 136, i1 false)
+  br label %for.body.i10.i
+
+for.body.i10.i:                                   ; preds = %for.body.i10.i, %if.end7.i
+  %i.016.i.i = phi i64 [ 0, %if.end7.i ], [ %inc.i12.i, %for.body.i10.i ]
+  %mul.i.i11.i = shl nuw nsw i64 %i.016.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr @.str.1, i64 %mul.i.i11.i
+  %0 = load i32, ptr %arrayidx.i.i.i, align 1
+  %arrayidx.i.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i.016.i.i
+  store i32 %0, ptr %arrayidx.i.i, align 4
+  %inc.i12.i = add nuw nsw i64 %i.016.i.i, 1
+  %exitcond.not.i13.i = icmp eq i64 %inc.i12.i, 4
+  br i1 %exitcond.not.i13.i, label %mi_random_init_ex.exit, label %for.body.i10.i, !llvm.loop !7
+
+mi_random_init_ex.exit:                           ; preds = %for.body.i10.i
+  %scevgep.i = getelementptr i8, ptr %ctx, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(32) %key.i, i64 32, i1 false)
+  %1 = ptrtoint ptr %ctx to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  store i32 0, ptr %arrayidx12.i.i, align 4
+  %arrayidx14.i.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  store i32 0, ptr %arrayidx14.i.i, align 4
+  %conv.i.i = trunc i64 %1 to i32
+  %arrayidx16.i.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  store i32 %conv.i.i, ptr %arrayidx16.i.i, align 4
+  %shr.i14.i = lshr i64 %1, 32
+  %conv17.i.i = trunc i64 %shr.i14.i to i32
+  %arrayidx19.i.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  store i32 %conv17.i.i, ptr %arrayidx19.i.i, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i)
   ret void
 }
 
@@ -273,7 +301,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull %ctx, i1 noundef zeroext false) #6
+  tail call fastcc void @mi_random_init_ex(ptr noundef nonnull %ctx, i1 noundef zeroext false) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -283,7 +311,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @chacha_block(ptr nocapture noundef %ctx) unnamed_addr #0 {
 entry:
   %x = alloca [16 x i32], align 16
@@ -456,7 +484,7 @@ for.body5:                                        ; preds = %entry, %for.body5
   %or.i44.i126 = tail call i32 @llvm.fshl.i32(i32 %xor26.i125, i32 %xor26.i125, i32 7)
   %add = add nuw nsw i64 %i2.0160, 2
   %cmp4 = icmp ult i64 %i2.0160, 18
-  br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !9
+  br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !8
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.body18
   %i15.0161 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
@@ -469,7 +497,7 @@ for.body18:                                       ; preds = %for.cond16.preheade
   store i32 %add22, ptr %arrayidx23, align 4
   %inc25 = add nuw nsw i64 %i15.0161, 1
   %exitcond.not = icmp eq i64 %inc25, 16
-  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !9
 
 for.end26:                                        ; preds = %for.body18
   %output_available = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 2
@@ -510,14 +538,21 @@ declare void @_mi_warning_message(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { "no-builtin-malloc" }
-attributes #7 = { nounwind "no-builtin-malloc" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "no-builtin-malloc" }
+attributes #8 = { nounwind "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -531,4 +566,3 @@ attributes #7 = { nounwind "no-builtin-malloc" }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

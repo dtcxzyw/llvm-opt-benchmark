@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -96,26 +96,26 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx10 = getelementptr [17 x i8], ptr @hex, i64 0, i64 %idxprom9
   %11 = load i8, ptr %arrayidx10, align 1
   %12 = load ptr, ptr %digest, align 8
-  %add12 = or disjoint i64 %mul4, 1
-  %arrayidx13 = getelementptr i8, ptr %12, i64 %add12
+  %13 = getelementptr i8, ptr %12, i64 %mul4
+  %arrayidx13 = getelementptr i8, ptr %13, i64 1
   store i8 %11, ptr %arrayidx13, align 1
   %inc = add nuw i64 %i.010, 1
-  %13 = load i64, ptr %resultlen, align 8
-  %cmp2 = icmp ult i64 %inc, %13
+  %14 = load i64, ptr %resultlen, align 8
+  %cmp2 = icmp ult i64 %inc, %14
   br i1 %cmp2, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %digest, align 8
-  %14 = shl i64 %13, 1
+  %15 = shl i64 %14, 1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %15 = phi ptr [ %call1, %if.end ], [ %.pre, %for.end.loopexit ]
-  %.lcssa = phi i64 [ 0, %if.end ], [ %14, %for.end.loopexit ]
-  %arrayidx15 = getelementptr i8, ptr %15, i64 %.lcssa
+  %16 = phi ptr [ %call1, %if.end ], [ %.pre, %for.end.loopexit ]
+  %.lcssa = phi i64 [ 0, %if.end ], [ %15, %for.end.loopexit ]
+  %arrayidx15 = getelementptr i8, ptr %16, i64 %.lcssa
   store i8 0, ptr %arrayidx15, align 1
-  %16 = load ptr, ptr %result, align 8
-  call void @g_free(ptr noundef %16) #6
+  %17 = load ptr, ptr %result, align 8
+  call void @g_free(ptr noundef %17) #6
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -129,7 +129,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8
@@ -177,26 +177,26 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %arrayidx10.i = getelementptr [17 x i8], ptr @hex, i64 0, i64 %idxprom9.i
   %11 = load i8, ptr %arrayidx10.i, align 1
   %12 = load ptr, ptr %digest, align 8
-  %add12.i = or disjoint i64 %mul4.i, 1
-  %arrayidx13.i = getelementptr i8, ptr %12, i64 %add12.i
+  %13 = getelementptr i8, ptr %12, i64 %mul4.i
+  %arrayidx13.i = getelementptr i8, ptr %13, i64 1
   store i8 %11, ptr %arrayidx13.i, align 1
   %inc.i = add nuw i64 %i.010.i, 1
-  %13 = load i64, ptr %resultlen.i, align 8
-  %cmp2.i = icmp ult i64 %inc.i, %13
+  %14 = load i64, ptr %resultlen.i, align 8
+  %cmp2.i = icmp ult i64 %inc.i, %14
   br i1 %cmp2.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %.pre.i = load ptr, ptr %digest, align 8
-  %14 = shl i64 %13, 1
+  %15 = shl i64 %14, 1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
-  %15 = phi ptr [ %call1.i, %if.end.i ], [ %.pre.i, %for.end.loopexit.i ]
-  %.lcssa.i = phi i64 [ 0, %if.end.i ], [ %14, %for.end.loopexit.i ]
-  %arrayidx15.i = getelementptr i8, ptr %15, i64 %.lcssa.i
+  %16 = phi ptr [ %call1.i, %if.end.i ], [ %.pre.i, %for.end.loopexit.i ]
+  %.lcssa.i = phi i64 [ 0, %if.end.i ], [ %15, %for.end.loopexit.i ]
+  %arrayidx15.i = getelementptr i8, ptr %16, i64 %.lcssa.i
   store i8 0, ptr %arrayidx15.i, align 1
-  %16 = load ptr, ptr %result.i, align 8
-  call void @g_free(ptr noundef %16) #6
+  %17 = load ptr, ptr %result.i, align 8
+  call void @g_free(ptr noundef %17) #6
   br label %qcrypto_hash_digestv.exit
 
 qcrypto_hash_digestv.exit:                        ; preds = %entry, %for.end.i
@@ -207,7 +207,7 @@ qcrypto_hash_digestv.exit:                        ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8

@@ -258,17 +258,17 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv14 = sext i16 %4 to i32
   %mul = shl nsw i32 %conv14, 8
   %conv15 = sext i32 %mul to i64
-  %add = or disjoint i64 %i.012, %conv15
   %5 = load ptr, ptr %lookup_table_, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %5, i64 %add
-  %6 = load i16, ptr %add.ptr.i, align 2
-  %cmp18 = icmp sgt i16 %6, -1
+  %6 = getelementptr i16, ptr %5, i64 %i.012
+  %add.ptr.i = getelementptr i16, ptr %6, i64 %conv15
+  %7 = load i16, ptr %add.ptr.i, align 2
+  %cmp18 = icmp sgt i16 %7, -1
   br i1 %cmp18, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %for.body
-  %conv20 = zext nneg i16 %6 to i64
-  %7 = load ptr, ptr %this, align 8
-  %add.ptr.i9 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %7, i64 %conv20
+  %conv20 = zext nneg i16 %7 to i64
+  %8 = load ptr, ptr %this, align 8
+  %add.ptr.i9 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %8, i64 %conv20
   %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %child_indent)
           to label %invoke.cont22 unwind label %lpad.loopexit
 
@@ -813,7 +813,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %child_lookup_10 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %0, i64 %node_index, i32 1
   %substring_ = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %child_node, i64 0, i32 2
   %data_.i.i = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %0, i64 %node_index, i32 2, i32 1
-  %sub.i.i = sub i64 %conv.i.i, %add
+  %sub.i.i = sub nsw i64 %conv.i.i, %add
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data_.i.i, i64 %add
   %conv.i.i.i = trunc i64 %sub.i.i to i8
   %conv4.i.i.i = and i64 %sub.i.i, 255

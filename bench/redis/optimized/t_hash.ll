@@ -236,7 +236,7 @@ declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -370,7 +370,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -546,7 +546,7 @@ if.end:                                           ; preds = %cond.end, %entry
 declare i32 @sdigits10(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeSet(ptr noundef %o, ptr noundef %field, ptr noundef %value, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %vptr = alloca ptr, align 8
   %existing = alloca ptr, align 8
@@ -1069,7 +1069,7 @@ declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %fptr = alloca ptr, align 8
   %bf.load = load i32, ptr %o, align 8
@@ -1180,7 +1180,7 @@ declare i32 @dictResize(ptr noundef) local_unnamed_addr #1
 declare i64 @lpLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @hashTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @hashTypeInitIterator(ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #12
   store ptr %subject, ptr %call, align 8
@@ -1245,7 +1245,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds %struct.hashTypeIterator, ptr %hi, i64 0, i32 1
   %0 = load i32, ptr %encoding, align 8
@@ -1531,7 +1531,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef ptr @hashTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
   %0 = load ptr, ptr %db, align 8
@@ -1767,7 +1767,7 @@ declare void @serverLogHexDump(i32 noundef, ptr noundef, ptr noundef, i64 nounde
 declare i64 @lpBytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeDup(ptr noundef %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @hashTypeDup(ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -2235,8 +2235,8 @@ for.body:                                         ; preds = %if.end3, %for.body
   %10 = load ptr, ptr %arrayidx9, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %10, i64 0, i32 2
   %11 = load ptr, ptr %ptr, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %12 = getelementptr ptr, ptr %9, i64 %indvars.iv
+  %arrayidx12 = getelementptr ptr, ptr %12, i64 1
   %13 = load ptr, ptr %arrayidx12, align 8
   %ptr13 = getelementptr inbounds %struct.redisObject, ptr %13, i64 0, i32 2
   %14 = load ptr, ptr %ptr13, align 8

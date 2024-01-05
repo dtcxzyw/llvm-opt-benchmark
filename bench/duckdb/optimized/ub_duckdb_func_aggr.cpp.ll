@@ -2064,22 +2064,19 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
   %11 = load i64, ptr %nsel.us, align 8, !tbaa !171
   %inc.us = add i64 %11, 1
   store i64 %inc.us, ptr %nsel.us, align 8, !tbaa !171
-  %inc14.us = or disjoint i64 %i.0161.us, 1
-  %arrayidx.us.1 = getelementptr inbounds ptr, ptr %6, i64 %inc14.us
+  %arrayidx.us.1 = getelementptr ptr, ptr %arrayidx.us, i64 1
   %12 = load ptr, ptr %arrayidx.us.1, align 8, !tbaa !3
   %nsel.us.1 = getelementptr inbounds %"struct.duckdb::SortedAggregateState", ptr %12, i64 0, i32 6
   %13 = load i64, ptr %nsel.us.1, align 8, !tbaa !171
   %inc.us.1 = add i64 %13, 1
   store i64 %inc.us.1, ptr %nsel.us.1, align 8, !tbaa !171
-  %inc14.us.1 = or disjoint i64 %i.0161.us, 2
-  %arrayidx.us.2 = getelementptr inbounds ptr, ptr %6, i64 %inc14.us.1
+  %arrayidx.us.2 = getelementptr ptr, ptr %arrayidx.us, i64 2
   %14 = load ptr, ptr %arrayidx.us.2, align 8, !tbaa !3
   %nsel.us.2 = getelementptr inbounds %"struct.duckdb::SortedAggregateState", ptr %14, i64 0, i32 6
   %15 = load i64, ptr %nsel.us.2, align 8, !tbaa !171
   %inc.us.2 = add i64 %15, 1
   store i64 %inc.us.2, ptr %nsel.us.2, align 8, !tbaa !171
-  %inc14.us.2 = or disjoint i64 %i.0161.us, 3
-  %arrayidx.us.3 = getelementptr inbounds ptr, ptr %6, i64 %inc14.us.2
+  %arrayidx.us.3 = getelementptr ptr, ptr %arrayidx.us, i64 3
   %16 = load ptr, ptr %arrayidx.us.3, align 8, !tbaa !3
   %nsel.us.3 = getelementptr inbounds %"struct.duckdb::SortedAggregateState", ptr %16, i64 0, i32 6
   %17 = load i64, ptr %nsel.us.3, align 8, !tbaa !171
@@ -2198,8 +2195,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %28 = load i64, ptr %nsel, align 8, !tbaa !171
   %inc = add i64 %28, 1
   store i64 %inc, ptr %nsel, align 8, !tbaa !171
-  %inc14 = or disjoint i64 %i.0161, 1
-  %arrayidx.i121.1 = getelementptr inbounds i32, ptr %8, i64 %inc14
+  %arrayidx.i121.1 = getelementptr i32, ptr %arrayidx.i121, i64 1
   %29 = load i32, ptr %arrayidx.i121.1, align 4, !tbaa !136
   %conv.i.1 = zext i32 %29 to i64
   %arrayidx.1 = getelementptr inbounds ptr, ptr %6, i64 %conv.i.1
@@ -2208,8 +2204,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %31 = load i64, ptr %nsel.1, align 8, !tbaa !171
   %inc.1 = add i64 %31, 1
   store i64 %inc.1, ptr %nsel.1, align 8, !tbaa !171
-  %inc14.1 = or disjoint i64 %i.0161, 2
-  %arrayidx.i121.2 = getelementptr inbounds i32, ptr %8, i64 %inc14.1
+  %arrayidx.i121.2 = getelementptr i32, ptr %arrayidx.i121, i64 2
   %32 = load i32, ptr %arrayidx.i121.2, align 4, !tbaa !136
   %conv.i.2 = zext i32 %32 to i64
   %arrayidx.2 = getelementptr inbounds ptr, ptr %6, i64 %conv.i.2
@@ -2218,8 +2213,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %34 = load i64, ptr %nsel.2, align 8, !tbaa !171
   %inc.2 = add i64 %34, 1
   store i64 %inc.2, ptr %nsel.2, align 8, !tbaa !171
-  %inc14.2 = or disjoint i64 %i.0161, 3
-  %arrayidx.i121.3 = getelementptr inbounds i32, ptr %8, i64 %inc14.2
+  %arrayidx.i121.3 = getelementptr i32, ptr %arrayidx.i121, i64 3
   %35 = load i32, ptr %arrayidx.i121.3, align 4, !tbaa !136
   %conv.i.3 = zext i32 %35 to i64
   %arrayidx.3 = getelementptr inbounds ptr, ptr %6, i64 %conv.i.3

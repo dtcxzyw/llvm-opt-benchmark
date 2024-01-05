@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.141 = private unnamed_addr constant [64 x i8] c"syntax error, LIMIT cannot be used without the special ~ option\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @streamNew() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @streamNew() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zmalloc(i64 noundef 80) #15
   %call1 = tail call ptr @raxNew() #16
@@ -251,8 +251,8 @@ entry:
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @streamIncrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @streamIncrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
   %0 = load i64, ptr %seq, align 8
@@ -284,8 +284,8 @@ if.end10:                                         ; preds = %if.then2, %if.else,
   ret i32 %ret.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @streamDecrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @streamDecrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
   %0 = load i64, ptr %seq, align 8
@@ -682,7 +682,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 declare void @raxStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamCreateCG(ptr nocapture noundef %s, ptr noundef %name, i64 noundef %namelen, ptr nocapture noundef readonly %id, i64 noundef %entries_read) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateCG(ptr nocapture noundef %s, ptr noundef %name, i64 noundef %namelen, ptr nocapture noundef readonly %id, i64 noundef %entries_read) local_unnamed_addr #0 {
 entry:
   %cgroups = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 6
   %0 = load ptr, ptr %cgroups, align 8
@@ -721,7 +721,7 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @streamCreateNACK(ptr noundef %consumer) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @streamCreateNACK(ptr noundef %consumer) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
   %call1 = tail call i64 @commandTimeSnapshot() #16
@@ -738,7 +738,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
 declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr nocapture noundef readonly %master_id, ptr nocapture noundef writeonly %edge_id) local_unnamed_addr #0 {
+define dso_local noundef i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr nocapture noundef readonly %master_id, ptr nocapture noundef writeonly %edge_id) local_unnamed_addr #0 {
 entry:
   %v.i54 = alloca i64, align 8
   %ll.i55 = alloca i64, align 8
@@ -1200,7 +1200,7 @@ if.end57:                                         ; preds = %if.else53, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamIteratorGetID(ptr noundef %si, ptr nocapture noundef %id, ptr nocapture noundef %numfields) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamIteratorGetID(ptr noundef %si, ptr nocapture noundef %id, ptr nocapture noundef %numfields) local_unnamed_addr #0 {
 entry:
   %v.i181 = alloca i64, align 8
   %ll.i182 = alloca i64, align 8
@@ -1727,7 +1727,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamAppendItem(ptr nocapture noundef %s, ptr nocapture noundef readonly %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamAppendItem(ptr nocapture noundef %s, ptr nocapture noundef readonly %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %v.i151 = alloca i64, align 8
   %ll.i152 = alloca i64, align 8
@@ -1768,7 +1768,7 @@ if.then4:                                         ; preds = %if.else
   %seq = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2, i32 1
   %2 = load i64, ptr %seq, align 8
   %cmp6 = icmp eq i64 %2, -1
-  br i1 %cmp6, label %if.then7, label %if.end15.thread289
+  br i1 %cmp6, label %if.then7, label %if.end15.thread291
 
 if.then7:                                         ; preds = %if.then4
   %call = tail call ptr @__errno_location() #19
@@ -1791,22 +1791,22 @@ if.else.i:                                        ; preds = %if.else13
   %id.sroa.15.0.last_id14.sroa_idx = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2, i32 1
   %id.sroa.15.0.copyload237 = load i64, ptr %id.sroa.15.0.last_id14.sroa_idx, align 8
   %cmp.i.i = icmp eq i64 %id.sroa.15.0.copyload237, -1
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end15.thread289
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end15.thread291
 
 if.then.i.i:                                      ; preds = %if.else.i
   %cmp1.i.i = icmp eq i64 %3, -1
-  br i1 %cmp1.i.i, label %if.then19, label %if.end15.thread294
+  br i1 %cmp1.i.i, label %if.then19, label %if.end15.thread296
 
-if.end15.thread294:                               ; preds = %if.then.i.i
+if.end15.thread296:                               ; preds = %if.then.i.i
   %inc.i.i = add nuw i64 %3, 1
-  %last_id16297 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2
+  %last_id16299 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2
   br label %streamCompareID.exit
 
-if.end15.thread289:                               ; preds = %if.else.i, %if.then4
+if.end15.thread291:                               ; preds = %if.else.i, %if.then4
   %.sink = phi i64 [ %2, %if.then4 ], [ %id.sroa.15.0.copyload237, %if.else.i ]
   %.ph = phi i64 [ %0, %if.then4 ], [ %3, %if.else.i ]
   %inc = add nuw i64 %.sink, 1
-  %last_id16292 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2
+  %last_id16294 = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 2
   br label %if.else.i91
 
 if.end15:                                         ; preds = %if.else13, %if.then2, %if.else10
@@ -1817,11 +1817,11 @@ if.end15:                                         ; preds = %if.else13, %if.then
   %cmp.i90 = icmp ugt i64 %id.sroa.0.1, %4
   br i1 %cmp.i90, label %streamCompareID.exit, label %if.else.i91
 
-if.else.i91:                                      ; preds = %if.end15.thread289, %if.end15
-  %5 = phi i64 [ %4, %if.end15 ], [ %.ph, %if.end15.thread289 ]
-  %last_id16258 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16292, %if.end15.thread289 ]
-  %id.sroa.15.1256 = phi i64 [ %id.sroa.15.1, %if.end15 ], [ %inc, %if.end15.thread289 ]
-  %id.sroa.0.1254 = phi i64 [ %id.sroa.0.1, %if.end15 ], [ %.ph, %if.end15.thread289 ]
+if.else.i91:                                      ; preds = %if.end15.thread291, %if.end15
+  %5 = phi i64 [ %4, %if.end15 ], [ %.ph, %if.end15.thread291 ]
+  %last_id16258 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16294, %if.end15.thread291 ]
+  %id.sroa.15.1256 = phi i64 [ %id.sroa.15.1, %if.end15 ], [ %inc, %if.end15.thread291 ]
+  %id.sroa.0.1254 = phi i64 [ %id.sroa.0.1, %if.end15 ], [ %.ph, %if.end15.thread291 ]
   %cmp4.i = icmp ult i64 %id.sroa.0.1254, %5
   br i1 %cmp4.i, label %if.then19, label %if.else6.i
 
@@ -1831,10 +1831,10 @@ if.else6.i:                                       ; preds = %if.else.i91
   %cmp8.i = icmp ugt i64 %id.sroa.15.1256, %6
   br i1 %cmp8.i, label %streamCompareID.exit, label %if.then19
 
-streamCompareID.exit:                             ; preds = %if.end15.thread294, %if.end15, %if.else6.i
-  %last_id16259 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16258, %if.else6.i ], [ %last_id16297, %if.end15.thread294 ]
-  %id.sroa.15.1257 = phi i64 [ %id.sroa.15.1, %if.end15 ], [ %id.sroa.15.1256, %if.else6.i ], [ 0, %if.end15.thread294 ]
-  %id.sroa.0.1255 = phi i64 [ %id.sroa.0.1, %if.end15 ], [ %id.sroa.0.1254, %if.else6.i ], [ %inc.i.i, %if.end15.thread294 ]
+streamCompareID.exit:                             ; preds = %if.end15.thread296, %if.end15, %if.else6.i
+  %last_id16259 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16258, %if.else6.i ], [ %last_id16299, %if.end15.thread296 ]
+  %id.sroa.15.1257 = phi i64 [ %id.sroa.15.1, %if.end15 ], [ %id.sroa.15.1256, %if.else6.i ], [ 0, %if.end15.thread296 ]
+  %id.sroa.0.1255 = phi i64 [ %id.sroa.0.1, %if.end15 ], [ %id.sroa.0.1254, %if.else6.i ], [ %inc.i.i, %if.end15.thread296 ]
   %cmp22270 = icmp sgt i64 %numfields, 0
   br i1 %cmp22270, label %for.body.preheader, label %if.end28
 
@@ -1912,7 +1912,7 @@ if.then26:                                        ; preds = %for.end
   br label %return
 
 if.end28:                                         ; preds = %streamCompareID.exit, %for.end
-  %totelelen.0.lcssa305 = phi i64 [ %add, %for.end ], [ 0, %streamCompareID.exit ]
+  %totelelen.0.lcssa307 = phi i64 [ %add, %for.end ], [ 0, %streamCompareID.exit ]
   %14 = load ptr, ptr %s, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %14) #16
   %call29 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef 0) #16
@@ -1937,7 +1937,7 @@ if.then36:                                        ; preds = %if.end34
   %17 = add i64 %16, -1073741825
   %or.cond = icmp ult i64 %17, -1073741824
   %spec.store.select = select i1 %or.cond, i64 1073741824, i64 %16
-  %add41 = add i64 %call33, %totelelen.0.lcssa305
+  %add41 = add i64 %call33, %totelelen.0.lcssa307
   %cmp42.not = icmp ult i64 %add41, %spec.store.select
   br i1 %cmp42.not, label %if.else44, label %if.then58
 
@@ -2082,8 +2082,8 @@ sdslen.exit133:                                   ; preds = %for.body81, %sw.bb.
   %conv = trunc i64 %retval.0.i120 to i32
   %call86 = call ptr @lpAppend(ptr noundef %lp.2280, ptr noundef nonnull %29, i32 noundef %conv) #16
   %inc88 = add nuw nsw i64 %i78.0279, 1
-  %exitcond287.not = icmp eq i64 %inc88, %numfields
-  br i1 %exitcond287.not, label %for.end89, label %for.body81, !llvm.loop !21
+  %exitcond288.not = icmp eq i64 %inc88, %numfields
+  br i1 %exitcond288.not, label %for.end89, label %for.body81, !llvm.loop !21
 
 for.end89:                                        ; preds = %sdslen.exit133, %if.then69
   %lp.2.lcssa = phi ptr [ %call77, %if.then69 ], [ %call86, %sdslen.exit133 ]
@@ -2239,8 +2239,8 @@ if.end135:                                        ; preds = %lor.lhs.false130
   %call136 = call ptr @lpNext(ptr noundef %call108, ptr noundef %51) #16
   store ptr %call136, ptr %lp_ele103, align 8
   %inc138 = add nuw nsw i64 %i116.0274, 1
-  %exitcond286.not = icmp eq i64 %inc138, %numfields
-  br i1 %exitcond286.not, label %for.end139, label %for.body120, !llvm.loop !22
+  %exitcond287.not = icmp eq i64 %inc138, %numfields
+  br i1 %exitcond287.not, label %for.end139, label %for.body120, !llvm.loop !22
 
 for.end139:                                       ; preds = %if.end135, %lor.lhs.false130, %sdslen.exit183, %for.cond117.preheader
   %i116.0.lcssa = phi i64 [ 0, %for.cond117.preheader ], [ %i116.0274, %sdslen.exit183 ], [ %i116.0274, %lor.lhs.false130 ], [ %numfields, %if.end135 ]
@@ -2259,83 +2259,134 @@ if.end146:                                        ; preds = %for.end139, %lpGetI
   %call151 = call ptr @lpAppendInteger(ptr noundef %call148, i64 noundef %sub) #16
   %sub154 = sub i64 %id.sroa.15.1257, %master_id.sroa.3.0
   %call155 = call ptr @lpAppendInteger(ptr noundef %call151, i64 noundef %sub154) #16
-  br i1 %tobool156.not, label %if.then157, label %if.end159
+  br i1 %tobool156.not, label %if.end159, label %if.end159.thread
 
-if.then157:                                       ; preds = %if.end146
+if.end159:                                        ; preds = %if.end146
   %call158 = call ptr @lpAppendInteger(ptr noundef %call155, i64 noundef %numfields) #16
-  br label %if.end159
+  br i1 %cmp22270, label %for.body164.us, label %for.end185
 
-if.end159:                                        ; preds = %if.then157, %if.end146
-  %lp.4 = phi ptr [ %call155, %if.end146 ], [ %call158, %if.then157 ]
-  br i1 %cmp22270, label %for.body164, label %for.end185
+if.end159.thread:                                 ; preds = %if.end146
+  br i1 %cmp22270, label %for.body164.lr.ph.split, label %for.end185
 
-for.body164:                                      ; preds = %if.end159, %sdslen.exit221
-  %i160.0284 = phi i64 [ %inc184, %sdslen.exit221 ], [ 0, %if.end159 ]
-  %lp.5283 = phi ptr [ %call182, %sdslen.exit221 ], [ %lp.4, %if.end159 ]
-  %mul166 = shl nuw nsw i64 %i160.0284, 1
-  %add170 = or disjoint i64 %mul166, 1
-  %arrayidx171 = getelementptr inbounds ptr, ptr %argv, i64 %add170
-  %52 = load ptr, ptr %arrayidx171, align 8
-  %ptr172 = getelementptr inbounds %struct.redisObject, ptr %52, i64 0, i32 2
-  %53 = load ptr, ptr %ptr172, align 8
-  br i1 %tobool156.not, label %if.then175, label %if.end179
-
-if.then175:                                       ; preds = %for.body164
-  %arrayidx167 = getelementptr inbounds ptr, ptr %argv, i64 %mul166
-  %54 = load ptr, ptr %arrayidx167, align 8
-  %ptr168 = getelementptr inbounds %struct.redisObject, ptr %54, i64 0, i32 2
-  %55 = load ptr, ptr %ptr168, align 8
-  %arrayidx.i184 = getelementptr inbounds i8, ptr %55, i64 -1
-  %56 = load i8, ptr %arrayidx.i184, align 1
-  %conv.i185 = zext i8 %56 to i32
-  %and.i186 = and i32 %conv.i185, 7
-  switch i32 %and.i186, label %sdslen.exit202 [
-    i32 0, label %sw.bb.i199
-    i32 1, label %sw.bb3.i196
-    i32 2, label %sw.bb5.i193
-    i32 3, label %sw.bb9.i190
-    i32 4, label %sw.bb13.i187
+for.body164.us:                                   ; preds = %if.end159, %sdslen.exit221.us
+  %i160.0284.us = phi i64 [ %inc184.us, %sdslen.exit221.us ], [ 0, %if.end159 ]
+  %lp.5283.us = phi ptr [ %call182.us, %sdslen.exit221.us ], [ %call158, %if.end159 ]
+  %mul166.us = shl nuw nsw i64 %i160.0284.us, 1
+  %52 = getelementptr ptr, ptr %argv, i64 %mul166.us
+  %arrayidx171.us = getelementptr ptr, ptr %52, i64 1
+  %53 = load ptr, ptr %arrayidx171.us, align 8
+  %ptr172.us = getelementptr inbounds %struct.redisObject, ptr %53, i64 0, i32 2
+  %54 = load ptr, ptr %ptr172.us, align 8
+  %55 = load ptr, ptr %52, align 8
+  %ptr168.us = getelementptr inbounds %struct.redisObject, ptr %55, i64 0, i32 2
+  %56 = load ptr, ptr %ptr168.us, align 8
+  %arrayidx.i184.us = getelementptr inbounds i8, ptr %56, i64 -1
+  %57 = load i8, ptr %arrayidx.i184.us, align 1
+  %conv.i185.us = zext i8 %57 to i32
+  %and.i186.us = and i32 %conv.i185.us, 7
+  switch i32 %and.i186.us, label %sdslen.exit202.us [
+    i32 0, label %sw.bb.i199.us
+    i32 1, label %sw.bb3.i196.us
+    i32 2, label %sw.bb5.i193.us
+    i32 3, label %sw.bb9.i190.us
+    i32 4, label %sw.bb13.i187.us
   ]
 
-sw.bb.i199:                                       ; preds = %if.then175
-  %shr.i200 = lshr i32 %conv.i185, 3
-  %conv2.i201 = zext nneg i32 %shr.i200 to i64
-  br label %sdslen.exit202
+sw.bb13.i187.us:                                  ; preds = %for.body164.us
+  %add.ptr14.i188.us = getelementptr inbounds i8, ptr %56, i64 -17
+  %58 = load i64, ptr %add.ptr14.i188.us, align 1
+  br label %sdslen.exit202.us
 
-sw.bb3.i196:                                      ; preds = %if.then175
-  %add.ptr.i197 = getelementptr inbounds i8, ptr %55, i64 -3
-  %57 = load i8, ptr %add.ptr.i197, align 1
-  %conv4.i198 = zext i8 %57 to i64
-  br label %sdslen.exit202
+sw.bb9.i190.us:                                   ; preds = %for.body164.us
+  %add.ptr10.i191.us = getelementptr inbounds i8, ptr %56, i64 -9
+  %59 = load i32, ptr %add.ptr10.i191.us, align 1
+  %conv12.i192.us = zext i32 %59 to i64
+  br label %sdslen.exit202.us
 
-sw.bb5.i193:                                      ; preds = %if.then175
-  %add.ptr6.i194 = getelementptr inbounds i8, ptr %55, i64 -5
-  %58 = load i16, ptr %add.ptr6.i194, align 1
-  %conv8.i195 = zext i16 %58 to i64
-  br label %sdslen.exit202
+sw.bb5.i193.us:                                   ; preds = %for.body164.us
+  %add.ptr6.i194.us = getelementptr inbounds i8, ptr %56, i64 -5
+  %60 = load i16, ptr %add.ptr6.i194.us, align 1
+  %conv8.i195.us = zext i16 %60 to i64
+  br label %sdslen.exit202.us
 
-sw.bb9.i190:                                      ; preds = %if.then175
-  %add.ptr10.i191 = getelementptr inbounds i8, ptr %55, i64 -9
-  %59 = load i32, ptr %add.ptr10.i191, align 1
-  %conv12.i192 = zext i32 %59 to i64
-  br label %sdslen.exit202
+sw.bb3.i196.us:                                   ; preds = %for.body164.us
+  %add.ptr.i197.us = getelementptr inbounds i8, ptr %56, i64 -3
+  %61 = load i8, ptr %add.ptr.i197.us, align 1
+  %conv4.i198.us = zext i8 %61 to i64
+  br label %sdslen.exit202.us
 
-sw.bb13.i187:                                     ; preds = %if.then175
-  %add.ptr14.i188 = getelementptr inbounds i8, ptr %55, i64 -17
-  %60 = load i64, ptr %add.ptr14.i188, align 1
-  br label %sdslen.exit202
+sw.bb.i199.us:                                    ; preds = %for.body164.us
+  %shr.i200.us = lshr i32 %conv.i185.us, 3
+  %conv2.i201.us = zext nneg i32 %shr.i200.us to i64
+  br label %sdslen.exit202.us
 
-sdslen.exit202:                                   ; preds = %if.then175, %sw.bb.i199, %sw.bb3.i196, %sw.bb5.i193, %sw.bb9.i190, %sw.bb13.i187
-  %retval.0.i189 = phi i64 [ %60, %sw.bb13.i187 ], [ %conv12.i192, %sw.bb9.i190 ], [ %conv8.i195, %sw.bb5.i193 ], [ %conv4.i198, %sw.bb3.i196 ], [ %conv2.i201, %sw.bb.i199 ], [ 0, %if.then175 ]
-  %conv177 = trunc i64 %retval.0.i189 to i32
-  %call178 = call ptr @lpAppend(ptr noundef %lp.5283, ptr noundef nonnull %55, i32 noundef %conv177) #16
-  br label %if.end179
+sdslen.exit202.us:                                ; preds = %sw.bb.i199.us, %sw.bb3.i196.us, %sw.bb5.i193.us, %sw.bb9.i190.us, %sw.bb13.i187.us, %for.body164.us
+  %retval.0.i189.us = phi i64 [ %58, %sw.bb13.i187.us ], [ %conv12.i192.us, %sw.bb9.i190.us ], [ %conv8.i195.us, %sw.bb5.i193.us ], [ %conv4.i198.us, %sw.bb3.i196.us ], [ %conv2.i201.us, %sw.bb.i199.us ], [ 0, %for.body164.us ]
+  %conv177.us = trunc i64 %retval.0.i189.us to i32
+  %call178.us = call ptr @lpAppend(ptr noundef %lp.5283.us, ptr noundef nonnull %56, i32 noundef %conv177.us) #16
+  %arrayidx.i203.us = getelementptr inbounds i8, ptr %54, i64 -1
+  %62 = load i8, ptr %arrayidx.i203.us, align 1
+  %conv.i204.us = zext i8 %62 to i32
+  %and.i205.us = and i32 %conv.i204.us, 7
+  switch i32 %and.i205.us, label %sdslen.exit221.us [
+    i32 0, label %sw.bb.i218.us
+    i32 1, label %sw.bb3.i215.us
+    i32 2, label %sw.bb5.i212.us
+    i32 3, label %sw.bb9.i209.us
+    i32 4, label %sw.bb13.i206.us
+  ]
 
-if.end179:                                        ; preds = %sdslen.exit202, %for.body164
-  %lp.6 = phi ptr [ %lp.5283, %for.body164 ], [ %call178, %sdslen.exit202 ]
-  %arrayidx.i203 = getelementptr inbounds i8, ptr %53, i64 -1
-  %61 = load i8, ptr %arrayidx.i203, align 1
-  %conv.i204 = zext i8 %61 to i32
+sw.bb13.i206.us:                                  ; preds = %sdslen.exit202.us
+  %add.ptr14.i207.us = getelementptr inbounds i8, ptr %54, i64 -17
+  %63 = load i64, ptr %add.ptr14.i207.us, align 1
+  br label %sdslen.exit221.us
+
+sw.bb9.i209.us:                                   ; preds = %sdslen.exit202.us
+  %add.ptr10.i210.us = getelementptr inbounds i8, ptr %54, i64 -9
+  %64 = load i32, ptr %add.ptr10.i210.us, align 1
+  %conv12.i211.us = zext i32 %64 to i64
+  br label %sdslen.exit221.us
+
+sw.bb5.i212.us:                                   ; preds = %sdslen.exit202.us
+  %add.ptr6.i213.us = getelementptr inbounds i8, ptr %54, i64 -5
+  %65 = load i16, ptr %add.ptr6.i213.us, align 1
+  %conv8.i214.us = zext i16 %65 to i64
+  br label %sdslen.exit221.us
+
+sw.bb3.i215.us:                                   ; preds = %sdslen.exit202.us
+  %add.ptr.i216.us = getelementptr inbounds i8, ptr %54, i64 -3
+  %66 = load i8, ptr %add.ptr.i216.us, align 1
+  %conv4.i217.us = zext i8 %66 to i64
+  br label %sdslen.exit221.us
+
+sw.bb.i218.us:                                    ; preds = %sdslen.exit202.us
+  %shr.i219.us = lshr i32 %conv.i204.us, 3
+  %conv2.i220.us = zext nneg i32 %shr.i219.us to i64
+  br label %sdslen.exit221.us
+
+sdslen.exit221.us:                                ; preds = %sw.bb.i218.us, %sw.bb3.i215.us, %sw.bb5.i212.us, %sw.bb9.i209.us, %sw.bb13.i206.us, %sdslen.exit202.us
+  %retval.0.i208.us = phi i64 [ %63, %sw.bb13.i206.us ], [ %conv12.i211.us, %sw.bb9.i209.us ], [ %conv8.i214.us, %sw.bb5.i212.us ], [ %conv4.i217.us, %sw.bb3.i215.us ], [ %conv2.i220.us, %sw.bb.i218.us ], [ 0, %sdslen.exit202.us ]
+  %conv181.us = trunc i64 %retval.0.i208.us to i32
+  %call182.us = call ptr @lpAppend(ptr noundef %call178.us, ptr noundef nonnull %54, i32 noundef %conv181.us) #16
+  %inc184.us = add nuw nsw i64 %i160.0284.us, 1
+  %exitcond290.not = icmp eq i64 %inc184.us, %numfields
+  br i1 %exitcond290.not, label %for.end185, label %for.body164.us, !llvm.loop !23
+
+for.body164.lr.ph.split:                          ; preds = %if.end159.thread
+  %invariant.gep = getelementptr ptr, ptr %argv, i64 1
+  br label %for.body164
+
+for.body164:                                      ; preds = %for.body164.lr.ph.split, %sdslen.exit221
+  %i160.0284 = phi i64 [ 0, %for.body164.lr.ph.split ], [ %inc184, %sdslen.exit221 ]
+  %lp.5283 = phi ptr [ %call155, %for.body164.lr.ph.split ], [ %call182, %sdslen.exit221 ]
+  %mul166 = shl nuw nsw i64 %i160.0284, 1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %mul166
+  %67 = load ptr, ptr %gep, align 8
+  %ptr172 = getelementptr inbounds %struct.redisObject, ptr %67, i64 0, i32 2
+  %68 = load ptr, ptr %ptr172, align 8
+  %arrayidx.i203 = getelementptr inbounds i8, ptr %68, i64 -1
+  %69 = load i8, ptr %arrayidx.i203, align 1
+  %conv.i204 = zext i8 %69 to i32
   %and.i205 = and i32 %conv.i204, 7
   switch i32 %and.i205, label %sdslen.exit221 [
     i32 0, label %sw.bb.i218
@@ -2345,72 +2396,72 @@ if.end179:                                        ; preds = %sdslen.exit202, %fo
     i32 4, label %sw.bb13.i206
   ]
 
-sw.bb.i218:                                       ; preds = %if.end179
+sw.bb.i218:                                       ; preds = %for.body164
   %shr.i219 = lshr i32 %conv.i204, 3
   %conv2.i220 = zext nneg i32 %shr.i219 to i64
   br label %sdslen.exit221
 
-sw.bb3.i215:                                      ; preds = %if.end179
-  %add.ptr.i216 = getelementptr inbounds i8, ptr %53, i64 -3
-  %62 = load i8, ptr %add.ptr.i216, align 1
-  %conv4.i217 = zext i8 %62 to i64
+sw.bb3.i215:                                      ; preds = %for.body164
+  %add.ptr.i216 = getelementptr inbounds i8, ptr %68, i64 -3
+  %70 = load i8, ptr %add.ptr.i216, align 1
+  %conv4.i217 = zext i8 %70 to i64
   br label %sdslen.exit221
 
-sw.bb5.i212:                                      ; preds = %if.end179
-  %add.ptr6.i213 = getelementptr inbounds i8, ptr %53, i64 -5
-  %63 = load i16, ptr %add.ptr6.i213, align 1
-  %conv8.i214 = zext i16 %63 to i64
+sw.bb5.i212:                                      ; preds = %for.body164
+  %add.ptr6.i213 = getelementptr inbounds i8, ptr %68, i64 -5
+  %71 = load i16, ptr %add.ptr6.i213, align 1
+  %conv8.i214 = zext i16 %71 to i64
   br label %sdslen.exit221
 
-sw.bb9.i209:                                      ; preds = %if.end179
-  %add.ptr10.i210 = getelementptr inbounds i8, ptr %53, i64 -9
-  %64 = load i32, ptr %add.ptr10.i210, align 1
-  %conv12.i211 = zext i32 %64 to i64
+sw.bb9.i209:                                      ; preds = %for.body164
+  %add.ptr10.i210 = getelementptr inbounds i8, ptr %68, i64 -9
+  %72 = load i32, ptr %add.ptr10.i210, align 1
+  %conv12.i211 = zext i32 %72 to i64
   br label %sdslen.exit221
 
-sw.bb13.i206:                                     ; preds = %if.end179
-  %add.ptr14.i207 = getelementptr inbounds i8, ptr %53, i64 -17
-  %65 = load i64, ptr %add.ptr14.i207, align 1
+sw.bb13.i206:                                     ; preds = %for.body164
+  %add.ptr14.i207 = getelementptr inbounds i8, ptr %68, i64 -17
+  %73 = load i64, ptr %add.ptr14.i207, align 1
   br label %sdslen.exit221
 
-sdslen.exit221:                                   ; preds = %if.end179, %sw.bb.i218, %sw.bb3.i215, %sw.bb5.i212, %sw.bb9.i209, %sw.bb13.i206
-  %retval.0.i208 = phi i64 [ %65, %sw.bb13.i206 ], [ %conv12.i211, %sw.bb9.i209 ], [ %conv8.i214, %sw.bb5.i212 ], [ %conv4.i217, %sw.bb3.i215 ], [ %conv2.i220, %sw.bb.i218 ], [ 0, %if.end179 ]
+sdslen.exit221:                                   ; preds = %for.body164, %sw.bb.i218, %sw.bb3.i215, %sw.bb5.i212, %sw.bb9.i209, %sw.bb13.i206
+  %retval.0.i208 = phi i64 [ %73, %sw.bb13.i206 ], [ %conv12.i211, %sw.bb9.i209 ], [ %conv8.i214, %sw.bb5.i212 ], [ %conv4.i217, %sw.bb3.i215 ], [ %conv2.i220, %sw.bb.i218 ], [ 0, %for.body164 ]
   %conv181 = trunc i64 %retval.0.i208 to i32
-  %call182 = call ptr @lpAppend(ptr noundef %lp.6, ptr noundef nonnull %53, i32 noundef %conv181) #16
+  %call182 = call ptr @lpAppend(ptr noundef %lp.5283, ptr noundef nonnull %68, i32 noundef %conv181) #16
   %inc184 = add nuw nsw i64 %i160.0284, 1
-  %exitcond288.not = icmp eq i64 %inc184, %numfields
-  br i1 %exitcond288.not, label %for.end185, label %for.body164, !llvm.loop !23
+  %exitcond289.not = icmp eq i64 %inc184, %numfields
+  br i1 %exitcond289.not, label %for.end185, label %for.body164, !llvm.loop !23
 
-for.end185:                                       ; preds = %sdslen.exit221, %if.end159
-  %lp.5.lcssa = phi ptr [ %lp.4, %if.end159 ], [ %call182, %sdslen.exit221 ]
+for.end185:                                       ; preds = %sdslen.exit221, %sdslen.exit221.us, %if.end159.thread, %if.end159
+  %lp.5.lcssa = phi ptr [ %call158, %if.end159 ], [ %call155, %if.end159.thread ], [ %call182.us, %sdslen.exit221.us ], [ %call182, %sdslen.exit221 ]
   %add186 = add nsw i64 %numfields, 3
   %add190 = add nsw i64 %numfields, 1
   %add191 = select i1 %tobool156.not, i64 %add190, i64 0
   %lp_count.0 = add nsw i64 %add186, %add191
   %call193 = call ptr @lpAppendInteger(ptr noundef %lp.5.lcssa, i64 noundef %lp_count.0) #16
   %data194 = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 3
-  %66 = load ptr, ptr %data194, align 8
-  %cmp195.not = icmp eq ptr %66, %call193
+  %74 = load ptr, ptr %data194, align 8
+  %cmp195.not = icmp eq ptr %74, %call193
   br i1 %cmp195.not, label %if.end200, label %if.then197
 
 if.then197:                                       ; preds = %for.end185
-  %67 = load ptr, ptr %s, align 8
-  %call199 = call i32 @raxInsert(ptr noundef %67, ptr noundef nonnull %rax_key, i64 noundef 16, ptr noundef %call193, ptr noundef null) #16
+  %75 = load ptr, ptr %s, align 8
+  %call199 = call i32 @raxInsert(ptr noundef %75, ptr noundef nonnull %rax_key, i64 noundef 16, ptr noundef %call193, ptr noundef null) #16
   br label %if.end200
 
 if.end200:                                        ; preds = %if.then197, %for.end185
   %length = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 1
-  %68 = load i64, ptr %length, align 8
-  %inc201 = add i64 %68, 1
+  %76 = load i64, ptr %length, align 8
+  %inc201 = add i64 %76, 1
   store i64 %inc201, ptr %length, align 8
   %entries_added = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 5
-  %69 = load i64, ptr %entries_added, align 8
-  %inc202 = add i64 %69, 1
+  %77 = load i64, ptr %entries_added, align 8
+  %inc202 = add i64 %77, 1
   store i64 %inc202, ptr %entries_added, align 8
   store i64 %id.sroa.0.1255, ptr %last_id16259, align 8
   %id.sroa.15.0.last_id16.sroa_idx = getelementptr inbounds i8, ptr %last_id16259, i64 8
   store i64 %id.sroa.15.1257, ptr %id.sroa.15.0.last_id16.sroa_idx, align 8
-  %cmp205 = icmp eq i64 %68, 0
+  %cmp205 = icmp eq i64 %76, 0
   br i1 %cmp205, label %if.then207, label %if.end208
 
 if.then207:                                       ; preds = %if.end200
@@ -3232,7 +3283,7 @@ if.end27:                                         ; preds = %if.else25, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamEntryExists(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamEntryExists(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3269,7 +3320,7 @@ return:                                           ; preds = %if.else6.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamDeleteItem(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamDeleteItem(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3559,7 +3610,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local noundef i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds %struct.stream, ptr %s, i64 0, i32 1
   %0 = load i64, ptr %length, align 8
@@ -4716,7 +4767,7 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key, i32 noundef %no_create) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamTypeLookupWriteOrCreate(ptr noundef %c, ptr noundef %key, i32 noundef %no_create) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
   %0 = load ptr, ptr %db, align 8
@@ -4755,7 +4806,7 @@ declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %ms45 = alloca i64, align 8
@@ -4959,28 +5010,28 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseID(ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseID(ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %o, ptr noundef %id, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef %seq_given), !range !31
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local noundef i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
   %0 = load ptr, ptr %ptr, align 8
@@ -5052,12 +5103,12 @@ if.then6:                                         ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
   %sub = add i64 %retval.0.i, -1
   %call7 = tail call ptr @createStringObject(ptr noundef nonnull %add.ptr, i64 noundef %sub) #16
-  %call.i = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %call7, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef null), !range !31
   tail call void @decrRefCount(ptr noundef %call7) #16
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true.thread, %sdslen.exit.thread, %sdslen.exit, %land.lhs.true
-  %call.i12 = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
+  %call.i12 = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef nonnull %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null), !range !31
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then6
@@ -5662,7 +5713,7 @@ if.end118:                                        ; preds = %land.lhs.true89, %l
   %idxprom121 = sext i32 %add120 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %25, i64 %idxprom121
   %26 = load ptr, ptr %arrayidx122, align 8
-  %call.i = tail call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %26, ptr noundef nonnull %minid, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp124.not = icmp eq i32 %call.i, 0
   br i1 %cmp124.not, label %if.end127, label %return
 
@@ -5709,7 +5760,7 @@ if.then157:                                       ; preds = %land.lhs.true154
 
 if.then160:                                       ; preds = %land.lhs.true154
   %seq_given = getelementptr inbounds %struct.streamAddTrimArgs, ptr %args, i64 0, i32 2
-  %call.i96 = tail call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given), !range !31
+  %call.i96 = tail call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %4, ptr noundef nonnull %args, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %seq_given), !range !31
   %cmp165.not = icmp eq i32 %call.i96, 0
   br i1 %cmp165.not, label %if.end168, label %return
 
@@ -5941,8 +5992,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %for.body
-  %14 = or disjoint i64 %indvars.iv, 1
-  %arrayidx42 = getelementptr inbounds ptr, ptr %9, i64 %14
+  %14 = getelementptr ptr, ptr %9, i64 %indvars.iv
+  %arrayidx42 = getelementptr ptr, ptr %14, i64 1
   %15 = load ptr, ptr %arrayidx42, align 8
   %call43 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull %count, ptr noundef null) #16
   %cmp44.not = icmp eq i32 %call43, 0
@@ -6492,7 +6543,7 @@ if.end173:                                        ; preds = %if.then170
 if.end181:                                        ; preds = %if.else162
   %idx.ext = sext i32 %sub113 to i64
   %add.ptr = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %idx.ext
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %46, ptr noundef %add.ptr, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp186.not = icmp eq i32 %call.i, 0
   br i1 %cmp186.not, label %for.inc190, label %cleanup
 
@@ -7057,7 +7108,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamCreateConsumer(ptr noundef readonly %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateConsumer(ptr noundef readonly %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cg, null
   br i1 %cmp, label %return, label %if.end
@@ -7577,7 +7628,7 @@ if.end116.thread:                                 ; preds = %if.then104
   br label %if.then118
 
 if.else109:                                       ; preds = %if.then98
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %42, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp113.not = icmp eq i32 %call.i, 0
   br i1 %cmp113.not, label %if.end116, label %if.end249
 
@@ -7730,7 +7781,7 @@ if.then164:                                       ; preds = %if.then157
   br label %if.end174
 
 if.else166:                                       ; preds = %if.then157
-  %call.i111 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %67, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
+  %call.i111 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef nonnull %67, ptr noundef nonnull %id158, i64 noundef 0, i32 noundef 0, ptr noundef null), !range !31
   %cmp170.not = icmp eq i32 %call.i111, 0
   br i1 %cmp170.not, label %if.end174, label %if.end249
 
@@ -7992,7 +8043,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
   %1 = load ptr, ptr %arrayidx, align 8
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %while.cond.preheader, label %return
 
@@ -8051,7 +8102,7 @@ if.else20:                                        ; preds = %while.body
 if.then25:                                        ; preds = %if.else20
   %arrayidx29 = getelementptr ptr, ptr %arrayidx5, i64 1
   %14 = load ptr, ptr %arrayidx29, align 8
-  %call.i40 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i40 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull %max_xdel_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp31.not = icmp eq i32 %call.i40, 0
   br i1 %cmp31.not, label %if.else33, label %return
 
@@ -8364,7 +8415,7 @@ for.body:                                         ; preds = %if.end15, %for.cond
   %21 = load ptr, ptr %arrayidx20, align 8
   %22 = add nsw i64 %indvars.iv, -3
   %arrayidx23 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %22
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %arrayidx23, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp25.not = icmp eq i32 %call.i, 0
   br i1 %cmp25.not, label %for.cond, label %cleanup
 
@@ -9160,7 +9211,7 @@ for.body:                                         ; preds = %if.end30, %for.inc
   %24 = load ptr, ptr %arrayidx35, align 8
   %25 = add nsw i64 %indvars.iv, -5
   %arrayidx38 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %25
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %24, ptr noundef %arrayidx38, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp40.not = icmp eq i32 %call.i, 0
   br i1 %cmp40.not, label %for.inc, label %for.end.loopexit
 
@@ -9268,7 +9319,7 @@ if.then114:                                       ; preds = %if.else109
   %idxprom117 = sext i32 %.neg to i64
   %arrayidx118 = getelementptr inbounds ptr, ptr %31, i64 %idxprom117
   %38 = load ptr, ptr %arrayidx118, align 8
-  %call.i135 = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i135 = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %last_id, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp120.not = icmp eq i32 %call.i135, 0
   br i1 %cmp120.not, label %for.inc131, label %cleanup
 
@@ -10436,7 +10487,7 @@ for.body:                                         ; preds = %if.end5, %for.cond
   %10 = load ptr, ptr %arrayidx10, align 8
   %11 = add nsw i64 %indvars.iv, -2
   %arrayidx13 = getelementptr inbounds %struct.streamID, ptr %ids.0, i64 %11
-  %call.i = call i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
+  %call.i = call noundef i32 @streamGenericParseIDOrReply(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %arrayidx13, i64 noundef 0, i32 noundef 1, ptr noundef null), !range !31
   %cmp15.not = icmp eq i32 %call.i, 0
   br i1 %cmp15.not, label %for.cond, label %cleanup
 
@@ -12050,7 +12101,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

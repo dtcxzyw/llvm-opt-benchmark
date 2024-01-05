@@ -2763,7 +2763,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorI12TIFFDirEntrySaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 12
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %23 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 768614336404564650)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 768614336404564650, i64 %23
@@ -4175,6 +4175,7 @@ for.body.preheader:                               ; preds = %if.then16
   %m_data.i112 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %p, i64 0, i32 2
   %26 = load ptr, ptr %m_data.i112, align 8
   %cond.i113 = select i1 %tobool.not.i111, ptr %m_data.i112, ptr %26
+  %invariant.gep43 = getelementptr i32, ptr %23, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRjS0_.exit
@@ -4183,8 +4184,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %27 = load float, ptr %arrayidx, align 4
   %mul22 = shl i64 %i.023, 1
   %arrayidx23 = getelementptr inbounds i32, ptr %23, i64 %mul22
-  %add25 = or disjoint i64 %mul22, 1
-  %arrayidx26 = getelementptr inbounds i32, ptr %23, i64 %add25
+  %gep44 = getelementptr i32, ptr %invariant.gep43, i64 %mul22
   %cmp.i114 = fcmp ugt float %27, 0.000000e+00
   br i1 %cmp.i114, label %if.else.i, label %if.then.i
 
@@ -4208,7 +4208,7 @@ if.then6.i:                                       ; preds = %if.else.i
 if.else8.i:                                       ; preds = %if.else.i
   %conv9.i = fptosi float %27 to i32
   store i32 %conv9.i, ptr %arrayidx23, align 8
-  store i32 1, ptr %arrayidx26, align 4
+  store i32 1, ptr %gep44, align 4
   %conv1016.i = uitofp i32 %conv9.i to float
   %sub17.i = fsub float %27, %conv1016.i
   %28 = tail call float @llvm.fabs.f32(float %sub17.i)
@@ -4231,11 +4231,11 @@ while.body.i:                                     ; preds = %if.else8.i, %while.
 
 if.end15.sink.split.i:                            ; preds = %if.then6.i, %if.then.i
   %conv7.sink.i = phi i32 [ %conv7.i, %if.then6.i ], [ 1, %if.then.i ]
-  store i32 %conv7.sink.i, ptr %arrayidx26, align 4
+  store i32 %conv7.sink.i, ptr %gep44, align 4
   br label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRjS0_.exit
 
 _ZN18OpenImageIO_v2_6_017float_to_rationalEfRjS0_.exit.loopexit: ; preds = %while.body.i
-  store i32 %mul.i, ptr %arrayidx26, align 4
+  store i32 %mul.i, ptr %gep44, align 4
   store i32 %conv14.i, ptr %arrayidx23, align 8
   br label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRjS0_.exit
 
@@ -4269,6 +4269,7 @@ for.body45.preheader:                             ; preds = %if.then30
   %m_data.i125 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %p, i64 0, i32 2
   %34 = load ptr, ptr %m_data.i125, align 8
   %cond.i126 = select i1 %tobool.not.i124, ptr %m_data.i125, ptr %34
+  %invariant.gep = getelementptr i32, ptr %31, i64 1
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.preheader, %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRiS0_.exit
@@ -4277,8 +4278,7 @@ for.body45:                                       ; preds = %for.body45.preheade
   %35 = load float, ptr %arrayidx46, align 4
   %mul47 = shl i64 %i42.020, 1
   %arrayidx48 = getelementptr inbounds i32, ptr %31, i64 %mul47
-  %add50 = or disjoint i64 %mul47, 1
-  %arrayidx51 = getelementptr inbounds i32, ptr %31, i64 %add50
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %mul47
   %36 = tail call float @llvm.fabs.f32(float %35)
   %cmp.i.i = fcmp une float %35, 0.000000e+00
   br i1 %cmp.i.i, label %if.else.i.i, label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRiS0_.exit
@@ -4320,7 +4320,7 @@ _ZN18OpenImageIO_v2_6_017float_to_rationalEfRiS0_.exit: ; preds = %while.body.i.
   %sub.i128 = sub nsw i32 0, %n.2.i
   %cond.i129 = select i1 %cmp.i127, i32 %n.2.i, i32 %sub.i128
   store i32 %cond.i129, ptr %arrayidx48, align 8
-  store i32 %d.1.i, ptr %arrayidx51, align 4
+  store i32 %d.1.i, ptr %gep, align 4
   %inc53 = add nuw i64 %i42.020, 1
   %exitcond.not = icmp eq i64 %inc53, %conv
   br i1 %exitcond.not, label %for.end54, label %for.body45, !llvm.loop !169
@@ -7494,7 +7494,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp21, label %if.then22, label %if.end35
 
 if.then22:                                        ; preds = %land.lhs.true
-  %add23 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add23 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub26 = or disjoint i64 %add23, 1
   %add.ptr.i21 = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %sub26
   %add.ptr.i22 = getelementptr inbounds %struct.TIFFDirEntry, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa

@@ -10938,8 +10938,7 @@ invoke.cont73:                                    ; preds = %for.body67
           to label %invoke.cont75 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %add80 = or disjoint i64 %mul70, 1
-  %arrayidx81 = getelementptr inbounds float, ptr %pData, i64 %add80
+  %arrayidx81 = getelementptr float, ptr %arrayidx72, i64 1
   %9 = load float, ptr %arrayidx81, align 4
   %call83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %9)
           to label %invoke.cont82 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -10949,8 +10948,7 @@ invoke.cont82:                                    ; preds = %invoke.cont75
           to label %invoke.cont84 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont84:                                    ; preds = %invoke.cont82
-  %add89 = or disjoint i64 %mul70, 2
-  %arrayidx90 = getelementptr inbounds float, ptr %pData, i64 %add89
+  %arrayidx90 = getelementptr float, ptr %arrayidx72, i64 2
   %10 = load float, ptr %arrayidx90, align 4
   %call92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %10)
           to label %invoke.cont91 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit

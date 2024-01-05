@@ -26160,6 +26160,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN3mbp4termElS2_N9__gnu_cx
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr ptr, ptr %__first, i64 1
   %cmp24 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp24, label %while.body, label %while.end
 
@@ -26168,10 +26169,9 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
   %add = shl i64 %__secondChild.025, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds ptr, ptr %__first, i64 %sub1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %add
   %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr2, align 8
+  %1 = load ptr, ptr %gep, align 8
   %2 = load ptr, ptr %0, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds %class.ast, ptr %2, i64 0, i32 1
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
@@ -26229,7 +26229,8 @@ if.then4.i4.i.i:                                  ; preds = %_Z9get_depthPK4expr
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit: ; preds = %_Z9get_depthPK4expr.exit.i.i, %if.then.i7.i.i, %if.then4.i4.i.i
   %retval.0.i6.i.i = phi i32 [ %bf.clear.i.i15.i.i, %if.then.i7.i.i ], [ %7, %if.then4.i4.i.i ], [ 1, %_Z9get_depthPK4expr.exit.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i6.i.i
-  %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds ptr, ptr %__first, i64 %spec.select
   %8 = load ptr, ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.025
@@ -26250,7 +26251,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %land.lhs.true
-  %add10 = shl i64 %__secondChild.0.lcssa, 1
+  %add10 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub12 = or disjoint i64 %add10, 1
   %add.ptr13 = getelementptr inbounds ptr, ptr %__first, i64 %sub12
   %9 = load ptr, ptr %add.ptr13, align 8

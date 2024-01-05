@@ -705,6 +705,7 @@ while.cond82.preheader:                           ; preds = %if.else
 
 while.body84.preheader:                           ; preds = %while.cond82.preheader
   %wide.trip.count96 = zext nneg i32 %length to i64
+  %invariant.gep = getelementptr inbounds i16, ptr %uniValueString, i64 2
   br label %while.body84
 
 while.body13:                                     ; preds = %while.body13.preheader, %while.body13
@@ -794,27 +795,26 @@ while.body84:                                     ; preds = %while.body84.prehea
   %5 = or disjoint i64 %indvars.iv88, 1
   %arrayidx87 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %indvars.iv88
   store i16 37, ptr %arrayidx87, align 8
-  %6 = or disjoint i64 %indvars.iv88, 2
   %arrayidx90 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %5
   store i16 88, ptr %arrayidx90, align 2
-  %add.ptr93 = getelementptr inbounds i16, ptr %uniValueString, i64 %6
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv88
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %arrayidx97 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv86
-  %7 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %7 to i32
-  %8 = trunc i64 %indvars.iv88 to i32
-  %9 = sub i32 46, %8
-  %call99 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr93, i32 noundef %9, i32 noundef %conv98, i32 noundef 16, i32 noundef 2)
+  %6 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %6 to i32
+  %7 = trunc i64 %indvars.iv88 to i32
+  %8 = sub i32 46, %7
+  %call99 = call i32 @uprv_itou_75(ptr noundef nonnull %gep, i32 noundef %8, i32 noundef %conv98, i32 noundef 16, i32 noundef 2)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
   %exitcond97.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count96
   br i1 %exitcond97.not, label %if.end102.loopexit71, label %while.body84, !llvm.loop !12
 
 if.end102.loopexit71:                             ; preds = %while.body84
-  %10 = trunc i64 %indvars.iv.next89 to i32
+  %9 = trunc i64 %indvars.iv.next89 to i32
   br label %if.end102
 
 if.end102:                                        ; preds = %while.body64, %while.body37, %while.body13, %while.body, %if.end102.loopexit71, %while.cond62.preheader, %while.cond35.preheader, %while.cond11.preheader, %while.cond82.preheader, %while.cond.preheader
-  %valueStringLength.5 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %10, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
+  %valueStringLength.5 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %9, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
   store i32 0, ptr %err, align 4
   call void @ucnv_cbToUWriteUChars_75(ptr noundef %toArgs, ptr noundef nonnull %uniValueString, i32 noundef %valueStringLength.5, i32 noundef 0, ptr noundef nonnull %err)
   br label %return

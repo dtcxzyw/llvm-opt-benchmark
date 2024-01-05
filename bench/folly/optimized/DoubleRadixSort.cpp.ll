@@ -83,8 +83,7 @@ for.body:                                         ; preds = %for.body, %entry
   %1 = load i64, ptr %arrayidx1, align 8, !tbaa !8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %arrayidx1, align 8, !tbaa !8
-  %inc2 = or disjoint i64 %i.0121, 1
-  %arrayidx.1 = getelementptr inbounds double, ptr %in, i64 %inc2
+  %arrayidx.1 = getelementptr double, ptr %arrayidx, i64 1
   %arrayidx.val.1 = load i64, ptr %arrayidx.1, align 8
   %shr.neg.i.1 = ashr i64 %arrayidx.val.1, 63
   %or.i.1 = or i64 %shr.neg.i.1, -9223372036854775808
@@ -105,25 +104,21 @@ for.body7:                                        ; preds = %for.body7.preheader
   %arrayidx8 = getelementptr inbounds i64, ptr %buckets, i64 %i3.0122
   %3 = load i64, ptr %arrayidx8, align 8, !tbaa !8
   %add = add i64 %3, %tot.0123
-  %add9 = or disjoint i64 %i3.0122, 256
-  %arrayidx10 = getelementptr inbounds i64, ptr %buckets, i64 %add9
+  %arrayidx10 = getelementptr i64, ptr %arrayidx8, i64 256
   store i64 %tot.0123, ptr %arrayidx10, align 8, !tbaa !8
-  %inc12 = or disjoint i64 %i3.0122, 1
-  %arrayidx8.1 = getelementptr inbounds i64, ptr %buckets, i64 %inc12
+  %arrayidx8.1 = getelementptr i64, ptr %arrayidx8, i64 1
   %4 = load i64, ptr %arrayidx8.1, align 8, !tbaa !8
   %add.1 = add i64 %4, %add
   %add9.1 = or i64 %i3.0122, 257
   %arrayidx10.1 = getelementptr inbounds i64, ptr %buckets, i64 %add9.1
   store i64 %add, ptr %arrayidx10.1, align 8, !tbaa !8
-  %inc12.1 = or disjoint i64 %i3.0122, 2
-  %arrayidx8.2 = getelementptr inbounds i64, ptr %buckets, i64 %inc12.1
+  %arrayidx8.2 = getelementptr i64, ptr %arrayidx8, i64 2
   %5 = load i64, ptr %arrayidx8.2, align 8, !tbaa !8
   %add.2 = add i64 %5, %add.1
   %add9.2 = or i64 %i3.0122, 258
   %arrayidx10.2 = getelementptr inbounds i64, ptr %buckets, i64 %add9.2
   store i64 %add.1, ptr %arrayidx10.2, align 8, !tbaa !8
-  %inc12.2 = or disjoint i64 %i3.0122, 3
-  %arrayidx8.3 = getelementptr inbounds i64, ptr %buckets, i64 %inc12.2
+  %arrayidx8.3 = getelementptr i64, ptr %arrayidx8, i64 3
   %6 = load i64, ptr %arrayidx8.3, align 8, !tbaa !8
   %add.3 = add i64 %6, %add.2
   %add9.3 = or i64 %i3.0122, 259
@@ -131,20 +126,23 @@ for.body7:                                        ; preds = %for.body7.preheader
   store i64 %add.2, ptr %arrayidx10.3, align 8, !tbaa !8
   %inc12.3 = add nuw nsw i64 %i3.0122, 4
   %exitcond128.not.3 = icmp eq i64 %inc12.3, 256
-  br i1 %exitcond128.not.3, label %for.body18, label %for.body7, !llvm.loop !14
+  br i1 %exitcond128.not.3, label %for.body18.preheader, label %for.body7, !llvm.loop !14
+
+for.body18.preheader:                             ; preds = %for.body7
+  %invariant.gep = getelementptr i64, ptr %buckets, i64 256
+  br label %for.body18
 
 for.cond.cleanup17:                               ; preds = %for.body18
   %cmp31 = icmp ult i8 %shift, 56
   br i1 %cmp31, label %for.cond33.preheader, label %if.end66
 
 for.cond33.preheader:                             ; preds = %for.cond.cleanup17
-  %add.ptr52 = getelementptr inbounds i64, ptr %buckets, i64 256
   %narrow = add nuw nsw i8 %shift, 8
   %lnot = xor i1 %inout, true
   br label %for.body36
 
-for.body18:                                       ; preds = %for.body7, %for.body18
-  %i14.0125 = phi i64 [ %inc28, %for.body18 ], [ 0, %for.body7 ]
+for.body18:                                       ; preds = %for.body18.preheader, %for.body18
+  %i14.0125 = phi i64 [ %inc28, %for.body18 ], [ 0, %for.body18.preheader ]
   %arrayidx19 = getelementptr inbounds double, ptr %in, i64 %i14.0125
   %arrayidx19.val = load i64, ptr %arrayidx19, align 8
   %shr.neg.i112 = ashr i64 %arrayidx19.val, 63
@@ -152,11 +150,10 @@ for.body18:                                       ; preds = %for.body7, %for.bod
   %xor.i114 = xor i64 %or.i113, %arrayidx19.val
   %shr2.i118 = lshr i64 %xor.i114, %sh_prom.i
   %conv = and i64 %shr2.i118, 255
-  %add21 = or disjoint i64 %conv, 256
-  %arrayidx23 = getelementptr inbounds i64, ptr %buckets, i64 %add21
-  %7 = load i64, ptr %arrayidx23, align 8, !tbaa !8
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %conv
+  %7 = load i64, ptr %gep, align 8, !tbaa !8
   %inc24 = add i64 %7, 1
-  store i64 %inc24, ptr %arrayidx23, align 8, !tbaa !8
+  store i64 %inc24, ptr %gep, align 8, !tbaa !8
   %arrayidx26 = getelementptr inbounds double, ptr %out, i64 %7
   store i64 %arrayidx19.val, ptr %arrayidx26, align 8, !tbaa !15
   %inc28 = add nuw i64 %i14.0125, 1
@@ -197,7 +194,7 @@ if.then45:                                        ; preds = %_ZSt4sortIPdEvT_S1_
 
 if.else:                                          ; preds = %for.body36
   %add.ptr58 = getelementptr inbounds double, ptr %in, i64 %tot.1126
-  tail call fastcc void @_ZN5folly6detailL21double_radix_sort_recEmPmhbPdS2_(i64 noundef %8, ptr noundef nonnull %add.ptr52, i8 noundef zeroext %narrow, i1 noundef zeroext %lnot, ptr noundef %add.ptr, ptr noundef %add.ptr58)
+  tail call fastcc void @_ZN5folly6detailL21double_radix_sort_recEmPmhbPdS2_(i64 noundef %8, ptr noundef nonnull %invariant.gep, i8 noundef zeroext %narrow, i1 noundef zeroext %lnot, ptr noundef %add.ptr, ptr noundef %add.ptr58)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.else, %if.then45, %_ZSt4sortIPdEvT_S1_.exit

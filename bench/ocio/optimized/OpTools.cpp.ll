@@ -45,23 +45,26 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIfSaIfE
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
   %cmp48 = icmp sgt i64 %numPixels, 0
-  br i1 %cmp48, label %for.body, label %for.end
+  br i1 %cmp48, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %invoke.cont, %for.body
-  %idx.050 = phi i64 [ %inc, %for.body ], [ 0, %invoke.cont ]
-  %values.049 = phi ptr [ %add.ptr, %for.body ], [ %in, %invoke.cont ]
+for.body.preheader:                               ; preds = %invoke.cont
+  %invariant.gep = getelementptr float, ptr %call5.i.i.i.i2.i.i25, i64 2
+  %invariant.gep64 = getelementptr float, ptr %call5.i.i.i.i2.i.i25, i64 3
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %idx.050 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %values.049 = phi ptr [ %add.ptr, %for.body ], [ %in, %for.body.preheader ]
   %mul1 = shl nsw i64 %idx.050, 2
   %add.ptr.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %mul1
   %2 = load <2 x float>, ptr %values.049, align 4
   store <2 x float> %2, ptr %add.ptr.i, align 4
   %arrayidx6 = getelementptr inbounds float, ptr %values.049, i64 2
   %3 = load float, ptr %arrayidx6, align 4
-  %add8 = or disjoint i64 %mul1, 2
-  %add.ptr.i27 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add8
-  store float %3, ptr %add.ptr.i27, align 4
-  %add11 = or disjoint i64 %mul1, 3
-  %add.ptr.i28 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add11
-  store float 1.000000e+00, ptr %add.ptr.i28, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %mul1
+  store float %3, ptr %gep, align 4
+  %gep65 = getelementptr float, ptr %invariant.gep64, i64 %mul1
+  store float 1.000000e+00, ptr %gep65, align 4
   %add.ptr = getelementptr inbounds float, ptr %values.049, i64 3
   %inc = add nuw nsw i64 %idx.050, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels

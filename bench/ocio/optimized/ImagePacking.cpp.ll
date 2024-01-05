@@ -116,12 +116,15 @@ while.body.preheader:                             ; preds = %if.end7
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
   %wide.trip.count = zext nneg i32 %outputBufferSize to i64
-  %spec.select62 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %spec.select66 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %invariant.gep = getelementptr i8, ptr %inBitDepthBuffer, i64 1
+  %invariant.gep62 = getelementptr i8, ptr %inBitDepthBuffer, i64 2
+  %invariant.gep64 = getelementptr i8, ptr %inBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %while.body.preheader ]
-  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select62, %while.body.preheader ]
+  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select66, %while.body.preheader ]
   %bPtr.053 = phi ptr [ %add.ptr44, %cond.end ], [ %add.ptr18, %while.body.preheader ]
   %gPtr.052 = phi ptr [ %add.ptr43, %cond.end ], [ %add.ptr16, %while.body.preheader ]
   %rPtr.051 = phi ptr [ %add.ptr42, %cond.end ], [ %add.ptr14, %while.body.preheader ]
@@ -130,25 +133,22 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds i8, ptr %inBitDepthBuffer, i64 %11
   store i8 %10, ptr %arrayidx, align 1
   %12 = load i8, ptr %gPtr.052, align 1
-  %13 = or disjoint i64 %11, 1
-  %arrayidx31 = getelementptr inbounds i8, ptr %inBitDepthBuffer, i64 %13
-  store i8 %12, ptr %arrayidx31, align 1
-  %14 = load i8, ptr %bPtr.053, align 1
-  %15 = or disjoint i64 %11, 2
-  %arrayidx35 = getelementptr inbounds i8, ptr %inBitDepthBuffer, i64 %15
-  store i8 %14, ptr %arrayidx35, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %11
+  store i8 %12, ptr %gep, align 1
+  %13 = load i8, ptr %bPtr.053, align 1
+  %gep63 = getelementptr i8, ptr %invariant.gep62, i64 %11
+  store i8 %13, ptr %gep63, align 1
   %tobool36.not = icmp eq ptr %aPtr.154, null
   br i1 %tobool36.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %16 = load i8, ptr %aPtr.154, align 1
+  %14 = load i8, ptr %aPtr.154, align 1
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %cond = phi i8 [ %16, %cond.true ], [ 0, %while.body ]
-  %17 = or disjoint i64 %11, 3
-  %arrayidx40 = getelementptr inbounds i8, ptr %inBitDepthBuffer, i64 %17
-  store i8 %cond, ptr %arrayidx40, align 1
+  %cond = phi i8 [ %14, %cond.true ], [ 0, %while.body ]
+  %gep65 = getelementptr i8, ptr %invariant.gep64, i64 %11
+  store i8 %cond, ptr %gep65, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr42 = getelementptr inbounds i8, ptr %rPtr.051, i64 %4
   %add.ptr43 = getelementptr inbounds i8, ptr %gPtr.052, i64 %4
@@ -159,17 +159,17 @@ cond.end:                                         ; preds = %while.body, %cond.t
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !4
 
 while.end.loopexit:                               ; preds = %cond.end
-  %18 = zext nneg i32 %outputBufferSize to i64
+  %15 = zext nneg i32 %outputBufferSize to i64
   br label %while.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
-  %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
+  %pixelsCopied.0.lcssa = phi i64 [ %15, %while.end.loopexit ], [ 0, %if.end7 ]
   %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
-  %19 = load ptr, ptr %m_bitDepthOp, align 8
-  %vtable = load ptr, ptr %19, align 8
+  %16 = load ptr, ptr %m_bitDepthOp, align 8
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %20 = load ptr, ptr %vfn, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
+  %17 = load ptr, ptr %vfn, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -263,12 +263,15 @@ while.body.preheader:                             ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul5
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul10
   %wide.trip.count = zext nneg i32 %numPixelsToUnpack to i64
-  %spec.select61 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %spec.select65 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %invariant.gep = getelementptr i8, ptr %outBitDepthBuffer, i64 1
+  %invariant.gep61 = getelementptr i8, ptr %outBitDepthBuffer, i64 2
+  %invariant.gep63 = getelementptr i8, ptr %outBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end40
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end40 ], [ 0, %while.body.preheader ]
-  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select61, %while.body.preheader ]
+  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select65, %while.body.preheader ]
   %bPtr.052 = phi ptr [ %add.ptr44, %if.end40 ], [ %add.ptr15, %while.body.preheader ]
   %gPtr.051 = phi ptr [ %add.ptr43, %if.end40 ], [ %add.ptr13, %while.body.preheader ]
   %rPtr.050 = phi ptr [ %add.ptr42, %if.end40 ], [ %add.ptr11, %while.body.preheader ]
@@ -276,22 +279,19 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx26 = getelementptr inbounds i8, ptr %outBitDepthBuffer, i64 %11
   %12 = load i8, ptr %arrayidx26, align 1
   store i8 %12, ptr %rPtr.050, align 1
-  %13 = or disjoint i64 %11, 1
-  %arrayidx29 = getelementptr inbounds i8, ptr %outBitDepthBuffer, i64 %13
-  %14 = load i8, ptr %arrayidx29, align 1
-  store i8 %14, ptr %gPtr.051, align 1
-  %15 = or disjoint i64 %11, 2
-  %arrayidx33 = getelementptr inbounds i8, ptr %outBitDepthBuffer, i64 %15
-  %16 = load i8, ptr %arrayidx33, align 1
-  store i8 %16, ptr %bPtr.052, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %11
+  %13 = load i8, ptr %gep, align 1
+  store i8 %13, ptr %gPtr.051, align 1
+  %gep62 = getelementptr i8, ptr %invariant.gep61, i64 %11
+  %14 = load i8, ptr %gep62, align 1
+  store i8 %14, ptr %bPtr.052, align 1
   %tobool34.not = icmp eq ptr %aPtr.153, null
   br i1 %tobool34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %while.body
-  %17 = or disjoint i64 %11, 3
-  %arrayidx39 = getelementptr inbounds i8, ptr %outBitDepthBuffer, i64 %17
-  %18 = load i8, ptr %arrayidx39, align 1
-  store i8 %18, ptr %aPtr.153, align 1
+  %gep64 = getelementptr i8, ptr %invariant.gep63, i64 %11
+  %15 = load i8, ptr %gep64, align 1
+  store i8 %15, ptr %aPtr.153, align 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %while.body
@@ -385,12 +385,15 @@ while.body.preheader:                             ; preds = %if.end7
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
   %wide.trip.count = zext nneg i32 %outputBufferSize to i64
-  %spec.select62 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %spec.select66 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %invariant.gep = getelementptr i16, ptr %inBitDepthBuffer, i64 1
+  %invariant.gep62 = getelementptr i16, ptr %inBitDepthBuffer, i64 2
+  %invariant.gep64 = getelementptr i16, ptr %inBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %while.body.preheader ]
-  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select62, %while.body.preheader ]
+  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select66, %while.body.preheader ]
   %bPtr.053 = phi ptr [ %add.ptr44, %cond.end ], [ %add.ptr18, %while.body.preheader ]
   %gPtr.052 = phi ptr [ %add.ptr43, %cond.end ], [ %add.ptr16, %while.body.preheader ]
   %rPtr.051 = phi ptr [ %add.ptr42, %cond.end ], [ %add.ptr14, %while.body.preheader ]
@@ -399,25 +402,22 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds i16, ptr %inBitDepthBuffer, i64 %11
   store i16 %10, ptr %arrayidx, align 2
   %12 = load i16, ptr %gPtr.052, align 2
-  %13 = or disjoint i64 %11, 1
-  %arrayidx31 = getelementptr inbounds i16, ptr %inBitDepthBuffer, i64 %13
-  store i16 %12, ptr %arrayidx31, align 2
-  %14 = load i16, ptr %bPtr.053, align 2
-  %15 = or disjoint i64 %11, 2
-  %arrayidx35 = getelementptr inbounds i16, ptr %inBitDepthBuffer, i64 %15
-  store i16 %14, ptr %arrayidx35, align 2
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %11
+  store i16 %12, ptr %gep, align 2
+  %13 = load i16, ptr %bPtr.053, align 2
+  %gep63 = getelementptr i16, ptr %invariant.gep62, i64 %11
+  store i16 %13, ptr %gep63, align 2
   %tobool36.not = icmp eq ptr %aPtr.154, null
   br i1 %tobool36.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %16 = load i16, ptr %aPtr.154, align 2
+  %14 = load i16, ptr %aPtr.154, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %cond = phi i16 [ %16, %cond.true ], [ 0, %while.body ]
-  %17 = or disjoint i64 %11, 3
-  %arrayidx40 = getelementptr inbounds i16, ptr %inBitDepthBuffer, i64 %17
-  store i16 %cond, ptr %arrayidx40, align 2
+  %cond = phi i16 [ %14, %cond.true ], [ 0, %while.body ]
+  %gep65 = getelementptr i16, ptr %invariant.gep64, i64 %11
+  store i16 %cond, ptr %gep65, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr42 = getelementptr inbounds i8, ptr %rPtr.051, i64 %4
   %add.ptr43 = getelementptr inbounds i8, ptr %gPtr.052, i64 %4
@@ -428,17 +428,17 @@ cond.end:                                         ; preds = %while.body, %cond.t
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %cond.end
-  %18 = zext nneg i32 %outputBufferSize to i64
+  %15 = zext nneg i32 %outputBufferSize to i64
   br label %while.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
-  %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
+  %pixelsCopied.0.lcssa = phi i64 [ %15, %while.end.loopexit ], [ 0, %if.end7 ]
   %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
-  %19 = load ptr, ptr %m_bitDepthOp, align 8
-  %vtable = load ptr, ptr %19, align 8
+  %16 = load ptr, ptr %m_bitDepthOp, align 8
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %20 = load ptr, ptr %vfn, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
+  %17 = load ptr, ptr %vfn, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -519,12 +519,15 @@ while.body.preheader:                             ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul5
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul10
   %wide.trip.count = zext nneg i32 %numPixelsToUnpack to i64
-  %spec.select61 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %spec.select65 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %invariant.gep = getelementptr i16, ptr %outBitDepthBuffer, i64 1
+  %invariant.gep61 = getelementptr i16, ptr %outBitDepthBuffer, i64 2
+  %invariant.gep63 = getelementptr i16, ptr %outBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end40
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end40 ], [ 0, %while.body.preheader ]
-  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select61, %while.body.preheader ]
+  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select65, %while.body.preheader ]
   %bPtr.052 = phi ptr [ %add.ptr44, %if.end40 ], [ %add.ptr15, %while.body.preheader ]
   %gPtr.051 = phi ptr [ %add.ptr43, %if.end40 ], [ %add.ptr13, %while.body.preheader ]
   %rPtr.050 = phi ptr [ %add.ptr42, %if.end40 ], [ %add.ptr11, %while.body.preheader ]
@@ -532,22 +535,19 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx26 = getelementptr inbounds i16, ptr %outBitDepthBuffer, i64 %11
   %12 = load i16, ptr %arrayidx26, align 2
   store i16 %12, ptr %rPtr.050, align 2
-  %13 = or disjoint i64 %11, 1
-  %arrayidx29 = getelementptr inbounds i16, ptr %outBitDepthBuffer, i64 %13
-  %14 = load i16, ptr %arrayidx29, align 2
-  store i16 %14, ptr %gPtr.051, align 2
-  %15 = or disjoint i64 %11, 2
-  %arrayidx33 = getelementptr inbounds i16, ptr %outBitDepthBuffer, i64 %15
-  %16 = load i16, ptr %arrayidx33, align 2
-  store i16 %16, ptr %bPtr.052, align 2
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %11
+  %13 = load i16, ptr %gep, align 2
+  store i16 %13, ptr %gPtr.051, align 2
+  %gep62 = getelementptr i16, ptr %invariant.gep61, i64 %11
+  %14 = load i16, ptr %gep62, align 2
+  store i16 %14, ptr %bPtr.052, align 2
   %tobool34.not = icmp eq ptr %aPtr.153, null
   br i1 %tobool34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %while.body
-  %17 = or disjoint i64 %11, 3
-  %arrayidx39 = getelementptr inbounds i16, ptr %outBitDepthBuffer, i64 %17
-  %18 = load i16, ptr %arrayidx39, align 2
-  store i16 %18, ptr %aPtr.153, align 2
+  %gep64 = getelementptr i16, ptr %invariant.gep63, i64 %11
+  %15 = load i16, ptr %gep64, align 2
+  store i16 %15, ptr %aPtr.153, align 2
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %while.body
@@ -641,12 +641,15 @@ while.body.preheader:                             ; preds = %if.end7
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
   %wide.trip.count = zext nneg i32 %outputBufferSize to i64
-  %spec.select62 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %spec.select66 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %invariant.gep = getelementptr %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 1
+  %invariant.gep62 = getelementptr %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 2
+  %invariant.gep64 = getelementptr %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %while.body.preheader ]
-  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select62, %while.body.preheader ]
+  %aPtr.154 = phi ptr [ %spec.select, %cond.end ], [ %spec.select66, %while.body.preheader ]
   %bPtr.053 = phi ptr [ %add.ptr44, %cond.end ], [ %add.ptr18, %while.body.preheader ]
   %gPtr.052 = phi ptr [ %add.ptr43, %cond.end ], [ %add.ptr16, %while.body.preheader ]
   %rPtr.051 = phi ptr [ %add.ptr42, %cond.end ], [ %add.ptr14, %while.body.preheader ]
@@ -654,26 +657,23 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 %10
   %11 = load i16, ptr %rPtr.051, align 2
   store i16 %11, ptr %arrayidx, align 2
-  %12 = or disjoint i64 %10, 1
-  %arrayidx31 = getelementptr inbounds %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 %12
-  %13 = load i16, ptr %gPtr.052, align 2
-  store i16 %13, ptr %arrayidx31, align 2
-  %14 = or disjoint i64 %10, 2
-  %arrayidx35 = getelementptr inbounds %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 %14
-  %15 = load i16, ptr %bPtr.053, align 2
-  store i16 %15, ptr %arrayidx35, align 2
+  %gep = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep, i64 %10
+  %12 = load i16, ptr %gPtr.052, align 2
+  store i16 %12, ptr %gep, align 2
+  %gep63 = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep62, i64 %10
+  %13 = load i16, ptr %bPtr.053, align 2
+  store i16 %13, ptr %gep63, align 2
   %tobool36.not = icmp eq ptr %aPtr.154, null
   br i1 %tobool36.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %16 = load i16, ptr %aPtr.154, align 2
+  %14 = load i16, ptr %aPtr.154, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %ref.tmp.sroa.0.0 = phi i16 [ %16, %cond.true ], [ 0, %while.body ]
-  %17 = or disjoint i64 %10, 3
-  %arrayidx40 = getelementptr inbounds %"class.Imath_3_1::half", ptr %inBitDepthBuffer, i64 %17
-  store i16 %ref.tmp.sroa.0.0, ptr %arrayidx40, align 2
+  %ref.tmp.sroa.0.0 = phi i16 [ %14, %cond.true ], [ 0, %while.body ]
+  %gep65 = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep64, i64 %10
+  store i16 %ref.tmp.sroa.0.0, ptr %gep65, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr42 = getelementptr inbounds i8, ptr %rPtr.051, i64 %4
   %add.ptr43 = getelementptr inbounds i8, ptr %gPtr.052, i64 %4
@@ -684,17 +684,17 @@ cond.end:                                         ; preds = %while.body, %cond.t
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !9
 
 while.end.loopexit:                               ; preds = %cond.end
-  %18 = zext nneg i32 %outputBufferSize to i64
+  %15 = zext nneg i32 %outputBufferSize to i64
   br label %while.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
-  %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
+  %pixelsCopied.0.lcssa = phi i64 [ %15, %while.end.loopexit ], [ 0, %if.end7 ]
   %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
-  %19 = load ptr, ptr %m_bitDepthOp, align 8
-  %vtable = load ptr, ptr %19, align 8
+  %16 = load ptr, ptr %m_bitDepthOp, align 8
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %20 = load ptr, ptr %vfn, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
+  %17 = load ptr, ptr %vfn, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -775,12 +775,15 @@ while.body.preheader:                             ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul5
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul10
   %wide.trip.count = zext nneg i32 %numPixelsToUnpack to i64
-  %spec.select61 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %spec.select65 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %invariant.gep = getelementptr %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 1
+  %invariant.gep61 = getelementptr %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 2
+  %invariant.gep63 = getelementptr %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end40
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end40 ], [ 0, %while.body.preheader ]
-  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select61, %while.body.preheader ]
+  %aPtr.153 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select65, %while.body.preheader ]
   %bPtr.052 = phi ptr [ %add.ptr44, %if.end40 ], [ %add.ptr15, %while.body.preheader ]
   %gPtr.051 = phi ptr [ %add.ptr43, %if.end40 ], [ %add.ptr13, %while.body.preheader ]
   %rPtr.050 = phi ptr [ %add.ptr42, %if.end40 ], [ %add.ptr11, %while.body.preheader ]
@@ -788,22 +791,19 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx26 = getelementptr inbounds %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 %11
   %12 = load i16, ptr %arrayidx26, align 2
   store i16 %12, ptr %rPtr.050, align 2
-  %13 = or disjoint i64 %11, 1
-  %arrayidx29 = getelementptr inbounds %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 %13
-  %14 = load i16, ptr %arrayidx29, align 2
-  store i16 %14, ptr %gPtr.051, align 2
-  %15 = or disjoint i64 %11, 2
-  %arrayidx33 = getelementptr inbounds %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 %15
-  %16 = load i16, ptr %arrayidx33, align 2
-  store i16 %16, ptr %bPtr.052, align 2
+  %gep = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep, i64 %11
+  %13 = load i16, ptr %gep, align 2
+  store i16 %13, ptr %gPtr.051, align 2
+  %gep62 = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep61, i64 %11
+  %14 = load i16, ptr %gep62, align 2
+  store i16 %14, ptr %bPtr.052, align 2
   %tobool34.not = icmp eq ptr %aPtr.153, null
   br i1 %tobool34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %while.body
-  %17 = or disjoint i64 %11, 3
-  %arrayidx39 = getelementptr inbounds %"class.Imath_3_1::half", ptr %outBitDepthBuffer, i64 %17
-  %18 = load i16, ptr %arrayidx39, align 2
-  store i16 %18, ptr %aPtr.153, align 2
+  %gep64 = getelementptr %"class.Imath_3_1::half", ptr %invariant.gep63, i64 %11
+  %15 = load i16, ptr %gep64, align 2
+  store i16 %15, ptr %aPtr.153, align 2
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %while.body
@@ -897,12 +897,15 @@ while.body.preheader:                             ; preds = %if.end7
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
   %wide.trip.count = zext nneg i32 %outputBufferSize to i64
-  %spec.select63 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %spec.select67 = select i1 %tobool.not, ptr null, ptr %add.ptr24
+  %invariant.gep = getelementptr float, ptr %outputBuffer, i64 1
+  %invariant.gep63 = getelementptr float, ptr %outputBuffer, i64 2
+  %invariant.gep65 = getelementptr float, ptr %outputBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 0, %while.body.preheader ]
-  %aPtr.155 = phi ptr [ %spec.select, %cond.end ], [ %spec.select63, %while.body.preheader ]
+  %aPtr.155 = phi ptr [ %spec.select, %cond.end ], [ %spec.select67, %while.body.preheader ]
   %bPtr.054 = phi ptr [ %add.ptr44, %cond.end ], [ %add.ptr18, %while.body.preheader ]
   %gPtr.053 = phi ptr [ %add.ptr43, %cond.end ], [ %add.ptr16, %while.body.preheader ]
   %rPtr.052 = phi ptr [ %add.ptr42, %cond.end ], [ %add.ptr14, %while.body.preheader ]
@@ -911,25 +914,22 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds float, ptr %outputBuffer, i64 %12
   store float %11, ptr %arrayidx, align 4
   %13 = load float, ptr %gPtr.053, align 4
-  %14 = or disjoint i64 %12, 1
-  %arrayidx31 = getelementptr inbounds float, ptr %outputBuffer, i64 %14
-  store float %13, ptr %arrayidx31, align 4
-  %15 = load float, ptr %bPtr.054, align 4
-  %16 = or disjoint i64 %12, 2
-  %arrayidx35 = getelementptr inbounds float, ptr %outputBuffer, i64 %16
-  store float %15, ptr %arrayidx35, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %12
+  store float %13, ptr %gep, align 4
+  %14 = load float, ptr %bPtr.054, align 4
+  %gep64 = getelementptr float, ptr %invariant.gep63, i64 %12
+  store float %14, ptr %gep64, align 4
   %tobool36.not = icmp eq ptr %aPtr.155, null
   br i1 %tobool36.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %17 = load float, ptr %aPtr.155, align 4
+  %15 = load float, ptr %aPtr.155, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %cond = phi float [ %17, %cond.true ], [ 0.000000e+00, %while.body ]
-  %18 = or disjoint i64 %12, 3
-  %arrayidx40 = getelementptr inbounds float, ptr %outputBuffer, i64 %18
-  store float %cond, ptr %arrayidx40, align 4
+  %cond = phi float [ %15, %cond.true ], [ 0.000000e+00, %while.body ]
+  %gep66 = getelementptr float, ptr %invariant.gep65, i64 %12
+  store float %cond, ptr %gep66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr42 = getelementptr inbounds i8, ptr %rPtr.052, i64 %5
   %add.ptr43 = getelementptr inbounds i8, ptr %gPtr.053, i64 %5
@@ -940,17 +940,17 @@ cond.end:                                         ; preds = %while.body, %cond.t
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !11
 
 while.end.loopexit:                               ; preds = %cond.end
-  %19 = zext nneg i32 %outputBufferSize to i64
+  %16 = zext nneg i32 %outputBufferSize to i64
   br label %while.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
-  %pixelsCopied.0.lcssa = phi i64 [ %19, %while.end.loopexit ], [ 0, %if.end7 ]
+  %pixelsCopied.0.lcssa = phi i64 [ %16, %while.end.loopexit ], [ 0, %if.end7 ]
   %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
-  %20 = load ptr, ptr %m_bitDepthOp, align 8
-  %vtable = load ptr, ptr %20, align 8
+  %17 = load ptr, ptr %m_bitDepthOp, align 8
+  %vtable = load ptr, ptr %17, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %21 = load ptr, ptr %vfn, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %outputBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
+  %18 = load ptr, ptr %vfn, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %outputBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -1031,12 +1031,15 @@ while.body.preheader:                             ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %mul5
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul10
   %wide.trip.count = zext nneg i32 %numPixelsToUnpack to i64
-  %spec.select62 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %spec.select66 = select i1 %tobool.not, ptr null, ptr %add.ptr21
+  %invariant.gep = getelementptr float, ptr %inputBuffer, i64 1
+  %invariant.gep62 = getelementptr float, ptr %inputBuffer, i64 2
+  %invariant.gep64 = getelementptr float, ptr %inputBuffer, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end40
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end40 ], [ 0, %while.body.preheader ]
-  %aPtr.154 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select62, %while.body.preheader ]
+  %aPtr.154 = phi ptr [ %spec.select, %if.end40 ], [ %spec.select66, %while.body.preheader ]
   %bPtr.053 = phi ptr [ %add.ptr44, %if.end40 ], [ %add.ptr15, %while.body.preheader ]
   %gPtr.052 = phi ptr [ %add.ptr43, %if.end40 ], [ %add.ptr13, %while.body.preheader ]
   %rPtr.051 = phi ptr [ %add.ptr42, %if.end40 ], [ %add.ptr11, %while.body.preheader ]
@@ -1044,22 +1047,19 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx26 = getelementptr inbounds float, ptr %inputBuffer, i64 %12
   %13 = load float, ptr %arrayidx26, align 4
   store float %13, ptr %rPtr.051, align 4
-  %14 = or disjoint i64 %12, 1
-  %arrayidx29 = getelementptr inbounds float, ptr %inputBuffer, i64 %14
-  %15 = load float, ptr %arrayidx29, align 4
-  store float %15, ptr %gPtr.052, align 4
-  %16 = or disjoint i64 %12, 2
-  %arrayidx33 = getelementptr inbounds float, ptr %inputBuffer, i64 %16
-  %17 = load float, ptr %arrayidx33, align 4
-  store float %17, ptr %bPtr.053, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %12
+  %14 = load float, ptr %gep, align 4
+  store float %14, ptr %gPtr.052, align 4
+  %gep63 = getelementptr float, ptr %invariant.gep62, i64 %12
+  %15 = load float, ptr %gep63, align 4
+  store float %15, ptr %bPtr.053, align 4
   %tobool34.not = icmp eq ptr %aPtr.154, null
   br i1 %tobool34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %while.body
-  %18 = or disjoint i64 %12, 3
-  %arrayidx39 = getelementptr inbounds float, ptr %inputBuffer, i64 %18
-  %19 = load float, ptr %arrayidx39, align 4
-  store float %19, ptr %aPtr.154, align 4
+  %gep65 = getelementptr float, ptr %invariant.gep64, i64 %12
+  %16 = load float, ptr %gep65, align 4
+  store float %16, ptr %aPtr.154, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %while.body

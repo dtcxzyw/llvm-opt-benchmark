@@ -49579,8 +49579,7 @@ for.body396:                                      ; preds = %for.body396.lr.ph, 
   %mul397 = shl nuw nsw i64 %v393.0658, 1
   %arrayidx398 = getelementptr inbounds float, ptr %116, i64 %mul397
   %117 = load float, ptr %arrayidx398, align 4
-  %add401 = or disjoint i64 %mul397, 1
-  %arrayidx402 = getelementptr inbounds float, ptr %116, i64 %add401
+  %arrayidx402 = getelementptr float, ptr %arrayidx398, i64 1
   %118 = load float, ptr %arrayidx402, align 4
   %mul403 = mul i64 %v393.0658, %stride
   %arrayidx404 = getelementptr inbounds float, ptr %floatArray, i64 %mul403
@@ -53133,8 +53132,8 @@ invoke.cont118:                                   ; preds = %if.else18.i, %if.th
   %arrayidx139 = getelementptr inbounds float, ptr %29, i64 %mul138
   store float %rna0.0, ptr %arrayidx139, align 4
   %30 = load ptr, ptr %m_normals137, align 8
-  %add142 = or disjoint i64 %mul138, 1
-  %arrayidx143 = getelementptr inbounds float, ptr %30, i64 %add142
+  %31 = getelementptr float, ptr %30, i64 %mul138
+  %arrayidx143 = getelementptr float, ptr %31, i64 1
   store float %rnb0.0, ptr %arrayidx143, align 4
   %inc145 = add nuw nsw i64 %v.098, 1
   %exitcond99.not = icmp eq i64 %inc145, %0

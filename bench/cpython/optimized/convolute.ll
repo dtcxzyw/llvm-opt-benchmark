@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fnt_convolute(ptr noundef %c1, ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden noundef i32 @fnt_convolute(ptr noundef %c1, ptr noundef %c2, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %idxprom.i = sext i32 %modnum to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
@@ -90,14 +90,11 @@ for.body30:                                       ; preds = %for.cond27.preheade
   %i.164 = phi i64 [ %add48, %for.body30 ], [ 0, %for.cond27.preheader ]
   %arrayidx32 = getelementptr i64, ptr %c1, i64 %i.164
   %8 = load i64, ptr %arrayidx32, align 8
-  %add34 = or disjoint i64 %i.164, 1
-  %arrayidx35 = getelementptr i64, ptr %c1, i64 %add34
+  %arrayidx35 = getelementptr i64, ptr %arrayidx32, i64 1
   %9 = load i64, ptr %arrayidx35, align 8
-  %add36 = or disjoint i64 %i.164, 2
-  %arrayidx37 = getelementptr i64, ptr %c1, i64 %add36
+  %arrayidx37 = getelementptr i64, ptr %arrayidx32, i64 2
   %10 = load i64, ptr %arrayidx37, align 8
-  %add38 = or disjoint i64 %i.164, 3
-  %arrayidx39 = getelementptr i64, ptr %c1, i64 %add38
+  %arrayidx39 = getelementptr i64, ptr %arrayidx32, i64 3
   %11 = load i64, ptr %arrayidx39, align 8
   %call.i48 = tail call fastcc i64 @x64_mulmod(i64 noundef %8, i64 noundef %r.0.lcssa.i, i64 noundef %0)
   %call1.i49 = tail call fastcc i64 @x64_mulmod(i64 noundef %9, i64 noundef %r.0.lcssa.i, i64 noundef %0)
@@ -129,7 +126,7 @@ declare hidden i32 @four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_u
 declare hidden i32 @inv_four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fnt_autoconvolute(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden noundef i32 @fnt_autoconvolute(ptr noundef %c1, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %idxprom.i = sext i32 %modnum to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
@@ -179,8 +176,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.055 = phi i64 [ %add15, %for.body ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr i64, ptr %c1, i64 %i.055
   %4 = load i64, ptr %arrayidx, align 8
-  %add = or disjoint i64 %i.055, 1
-  %arrayidx11 = getelementptr i64, ptr %c1, i64 %add
+  %arrayidx11 = getelementptr i64, ptr %arrayidx, i64 1
   %5 = load i64, ptr %arrayidx11, align 8
   %call.i39 = tail call fastcc i64 @x64_mulmod(i64 noundef %4, i64 noundef %4, i64 noundef %0)
   %call1.i40 = tail call fastcc i64 @x64_mulmod(i64 noundef %5, i64 noundef %5, i64 noundef %0)
@@ -204,14 +200,11 @@ for.body23:                                       ; preds = %for.cond20.preheade
   %i.157 = phi i64 [ %add41, %for.body23 ], [ 0, %for.cond20.preheader ]
   %arrayidx25 = getelementptr i64, ptr %c1, i64 %i.157
   %6 = load i64, ptr %arrayidx25, align 8
-  %add27 = or disjoint i64 %i.157, 1
-  %arrayidx28 = getelementptr i64, ptr %c1, i64 %add27
+  %arrayidx28 = getelementptr i64, ptr %arrayidx25, i64 1
   %7 = load i64, ptr %arrayidx28, align 8
-  %add29 = or disjoint i64 %i.157, 2
-  %arrayidx30 = getelementptr i64, ptr %c1, i64 %add29
+  %arrayidx30 = getelementptr i64, ptr %arrayidx25, i64 2
   %8 = load i64, ptr %arrayidx30, align 8
-  %add31 = or disjoint i64 %i.157, 3
-  %arrayidx32 = getelementptr i64, ptr %c1, i64 %add31
+  %arrayidx32 = getelementptr i64, ptr %arrayidx25, i64 3
   %9 = load i64, ptr %arrayidx32, align 8
   %call.i41 = tail call fastcc i64 @x64_mulmod(i64 noundef %6, i64 noundef %r.0.lcssa.i, i64 noundef %0)
   %call1.i42 = tail call fastcc i64 @x64_mulmod(i64 noundef %7, i64 noundef %r.0.lcssa.i, i64 noundef %0)

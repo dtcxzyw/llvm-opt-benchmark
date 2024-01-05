@@ -50544,19 +50544,19 @@ if.end.split:                                     ; preds = %entry
   %add.ptr9 = getelementptr inbounds ptr, ptr %__first, i64 %div11
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8183 = lshr i64 %sub.i, 1
-  %cmp26.i = icmp ugt i64 %div.i8183, %div11
-  br i1 %cmp26.i, label %while.body.i, label %while.end.i
+  %div.i8587 = lshr i64 %sub.i, 1
+  %invariant.gep.i = getelementptr ptr, ptr %__first, i64 1
+  %cmp29.i = icmp ugt i64 %div.i8587, %div11
+  br i1 %cmp29.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-  %__secondChild.027.i = phi i64 [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ], [ %div11, %if.end.split ]
-  %add.i = shl i64 %__secondChild.027.i, 1
+while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
+  %__secondChild.030.i = phi i64 [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i ], [ %div11, %if.end.split ]
+  %add.i = shl i64 %__secondChild.030.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i
-  %sub1.i = or disjoint i64 %add.i, 1
-  %add.ptr2.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %add.i
   %1 = load ptr, ptr %add.ptr.i, align 8
-  %2 = load ptr, ptr %add.ptr2.i, align 8
+  %2 = load ptr, ptr %gep.i, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds %"struct.realclosure::extension", ptr %1, i64 0, i32 1
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 3
@@ -50566,30 +50566,34 @@ while.body.i:                                     ; preds = %if.end.split, %_ZN9
   %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %lor.rhs.i.i.i.i
 
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %while.body.i
+  %dec23.i = or disjoint i64 %add.i, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
+
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
   %cmp4.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
-  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %dec.i = or disjoint i64 %add.i, 1
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %dec.i, i64 %mul.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %while.body.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
-  %3 = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %1, %lor.rhs.i.i.i.i ]
-  %4 = phi i64 [ %sub1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i.i ]
-  %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i
-  store ptr %3, ptr %add.ptr4.i, align 8
-  %cmp.i = icmp slt i64 %4, %div.i8183
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
+  %3 = phi i64 [ %dec23.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %lor.rhs.i.i.i.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ]
+  %add.ptr3.i = getelementptr inbounds ptr, ptr %__first, i64 %3
+  %4 = load ptr, ptr %add.ptr3.i, align 8
+  %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.030.i
+  store ptr %4, ptr %add.ptr4.i, align 8
+  %cmp.i = icmp slt i64 %3, %div.i8587
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !123
 
-while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i, %if.end.split
-  %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ]
+while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i, %if.end.split
+  %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i ]
   %5 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %5, 0
   %div7.i = ashr exact i64 %sub, 1
@@ -50649,32 +50653,31 @@ _ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.015.i.i, %lor.rhs.i.i.i.i.i ], [ %__parent.016.i.i, %while.body.i.i ], [ %__holeIndex.addr.015.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store ptr %0, ptr %add.ptr5.i.i, align 8
-  %cmp585 = icmp ult i64 %sub, 2
-  br i1 %cmp585, label %return, label %if.end7.split.lr.ph
+  %cmp589 = icmp ult i64 %sub, 2
+  br i1 %cmp589, label %return, label %if.end7.split.lr.ph
 
 if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
-  %sub12.i52 = or disjoint i64 %sub, 1
-  %add.ptr13.i53 = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i52
-  %add.ptr14.i54 = getelementptr inbounds ptr, ptr %__first, i64 %div7.i
+  %sub12.i53 = or disjoint i64 %sub, 1
+  %add.ptr13.i54 = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i53
+  %add.ptr14.i55 = getelementptr inbounds ptr, ptr %__first, i64 %div7.i
   br label %if.end7.split
 
-if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
-  %__parent.086 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80 ]
-  %dec = add nsw i64 %__parent.086, -1
+if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84
+  %__parent.090 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84 ]
+  %dec = add nsw i64 %__parent.090, -1
   %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
   %8 = load ptr, ptr %add.ptr10, align 8
-  %cmp26.i14.not = icmp slt i64 %div.i8183, %__parent.086
-  br i1 %cmp26.i14.not, label %while.end.i15, label %while.body.i55
+  %cmp29.i15.not = icmp slt i64 %div.i8587, %__parent.090
+  br i1 %cmp29.i15.not, label %while.end.i16, label %while.body.i56
 
-while.body.i55:                                   ; preds = %if.end7.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
-  %__secondChild.027.i56 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71 ], [ %dec, %if.end7.split ]
-  %add.i57 = shl i64 %__secondChild.027.i56, 1
-  %mul.i58 = add i64 %add.i57, 2
-  %add.ptr.i59 = getelementptr inbounds ptr, ptr %__first, i64 %mul.i58
-  %sub1.i60 = or disjoint i64 %add.i57, 1
-  %add.ptr2.i61 = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i60
-  %9 = load ptr, ptr %add.ptr.i59, align 8
-  %10 = load ptr, ptr %add.ptr2.i61, align 8
+while.body.i56:                                   ; preds = %if.end7.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71
+  %__secondChild.030.i57 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71 ], [ %dec, %if.end7.split ]
+  %add.i58 = shl i64 %__secondChild.030.i57, 1
+  %mul.i59 = add i64 %add.i58, 2
+  %add.ptr.i60 = getelementptr inbounds ptr, ptr %__first, i64 %mul.i59
+  %gep.i61 = getelementptr ptr, ptr %invariant.gep.i, i64 %add.i58
+  %9 = load ptr, ptr %add.ptr.i60, align 8
+  %10 = load ptr, ptr %gep.i61, align 8
   %m_kind.i.i.i.i.i62 = getelementptr inbounds %"struct.realclosure::extension", ptr %9, i64 0, i32 1
   %bf.load.i.i.i.i.i63 = load i32, ptr %m_kind.i.i.i.i.i62, align 4
   %bf.clear.i.i.i.i.i64 = and i32 %bf.load.i.i.i.i.i63, 3
@@ -50682,88 +50685,92 @@ while.body.i55:                                   ; preds = %if.end7.split, %_ZN
   %bf.load.i6.i.i.i.i66 = load i32, ptr %m_kind.i5.i.i.i.i65, align 4
   %bf.clear.i7.i.i.i.i67 = and i32 %bf.load.i6.i.i.i.i66, 3
   %cmp.i.i.i.i68 = icmp ult i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %lor.rhs.i.i.i.i69
+  br i1 %cmp.i.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i82, label %lor.rhs.i.i.i.i69
 
-lor.rhs.i.i.i.i69:                                ; preds = %while.body.i55
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i82: ; preds = %while.body.i56
+  %dec23.i83 = or disjoint i64 %add.i58, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71
+
+lor.rhs.i.i.i.i69:                                ; preds = %while.body.i56
   %cmp4.i.i.i.i70 = icmp eq i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
-  br i1 %cmp4.i.i.i.i70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+  br i1 %cmp4.i.i.i.i70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74: ; preds = %lor.rhs.i.i.i.i69
-  %bf.lshr.i.i.i.i.i75 = lshr i32 %bf.load.i.i.i.i.i63, 2
-  %bf.lshr.i17.i.i.i.i76 = lshr i32 %bf.load.i6.i.i.i.i66, 2
-  %cmp7.i.i.i.i77 = icmp ult i32 %bf.lshr.i.i.i.i.i75, %bf.lshr.i17.i.i.i.i76
-  %cond.fr.i78 = freeze i1 %cmp7.i.i.i.i77
-  br i1 %cond.fr.i78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75: ; preds = %lor.rhs.i.i.i.i69
+  %bf.lshr.i.i.i.i.i76 = lshr i32 %bf.load.i.i.i.i.i63, 2
+  %bf.lshr.i17.i.i.i.i77 = lshr i32 %bf.load.i6.i.i.i.i66, 2
+  %cmp7.i.i.i.i78 = icmp ult i32 %bf.lshr.i.i.i.i.i76, %bf.lshr.i17.i.i.i.i77
+  %dec.i79 = or disjoint i64 %add.i58, 1
+  %cond.fr.i80 = freeze i1 %cmp7.i.i.i.i78
+  %spec.select.i81 = select i1 %cond.fr.i80, i64 %dec.i79, i64 %mul.i59
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, %while.body.i55
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75, %lor.rhs.i.i.i.i69, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i82
+  %11 = phi i64 [ %dec23.i83, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i82 ], [ %mul.i59, %lor.rhs.i.i.i.i69 ], [ %spec.select.i81, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75 ]
+  %add.ptr3.i72 = getelementptr inbounds ptr, ptr %__first, i64 %11
+  %12 = load ptr, ptr %add.ptr3.i72, align 8
+  %add.ptr4.i73 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.030.i57
+  store ptr %12, ptr %add.ptr4.i73, align 8
+  %cmp.i74 = icmp slt i64 %11, %div.i8587
+  br i1 %cmp.i74, label %while.body.i56, label %while.end.i16, !llvm.loop !123
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, %lor.rhs.i.i.i.i69
-  %11 = phi ptr [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79 ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74 ], [ %9, %lor.rhs.i.i.i.i69 ]
-  %12 = phi i64 [ %sub1.i60, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79 ], [ %mul.i58, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74 ], [ %mul.i58, %lor.rhs.i.i.i.i69 ]
-  %add.ptr4.i72 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i56
-  store ptr %11, ptr %add.ptr4.i72, align 8
-  %cmp.i73 = icmp slt i64 %12, %div.i8183
-  br i1 %cmp.i73, label %while.body.i55, label %while.end.i15, !llvm.loop !123
+while.end.i16:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71, %if.end7.split
+  %__secondChild.0.lcssa.i17 = phi i64 [ %dec, %if.end7.split ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i71 ]
+  %cmp8.i50 = icmp eq i64 %__secondChild.0.lcssa.i17, %div7.i
+  %or.cond86 = select i1 %cmp5.i, i1 %cmp8.i50, i1 false
+  br i1 %or.cond86, label %if.then9.i51, label %if.end16.i20
 
-while.end.i15:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71, %if.end7.split
-  %__secondChild.0.lcssa.i16 = phi i64 [ %dec, %if.end7.split ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71 ]
-  %cmp8.i49 = icmp eq i64 %__secondChild.0.lcssa.i16, %div7.i
-  %or.cond82 = select i1 %cmp5.i, i1 %cmp8.i49, i1 false
-  br i1 %or.cond82, label %if.then9.i50, label %if.end16.i19
+if.then9.i51:                                     ; preds = %while.end.i16
+  %13 = load ptr, ptr %add.ptr13.i54, align 8
+  store ptr %13, ptr %add.ptr14.i55, align 8
+  br label %if.end16.i20
 
-if.then9.i50:                                     ; preds = %while.end.i15
-  %13 = load ptr, ptr %add.ptr13.i53, align 8
-  store ptr %13, ptr %add.ptr14.i54, align 8
-  br label %if.end16.i19
+if.end16.i20:                                     ; preds = %if.then9.i51, %while.end.i16
+  %__holeIndex.addr.1.i21 = phi i64 [ %sub12.i53, %if.then9.i51 ], [ %__secondChild.0.lcssa.i17, %while.end.i16 ]
+  %cmp14.i.i22.not = icmp slt i64 %__holeIndex.addr.1.i21, %__parent.090
+  br i1 %cmp14.i.i22.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84, label %land.rhs.lr.ph.i.i25
 
-if.end16.i19:                                     ; preds = %if.then9.i50, %while.end.i15
-  %__holeIndex.addr.1.i20 = phi i64 [ %sub12.i52, %if.then9.i50 ], [ %__secondChild.0.lcssa.i16, %while.end.i15 ]
-  %cmp14.i.i21.not = icmp slt i64 %__holeIndex.addr.1.i20, %__parent.086
-  br i1 %cmp14.i.i21.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, label %land.rhs.lr.ph.i.i24
+land.rhs.lr.ph.i.i25:                             ; preds = %if.end16.i20
+  %m_kind.i5.i.i.i.i.i26 = getelementptr inbounds %"struct.realclosure::extension", ptr %8, i64 0, i32 1
+  br label %land.rhs.i.i27
 
-land.rhs.lr.ph.i.i24:                             ; preds = %if.end16.i19
-  %m_kind.i5.i.i.i.i.i25 = getelementptr inbounds %"struct.realclosure::extension", ptr %8, i64 0, i32 1
-  br label %land.rhs.i.i26
+land.rhs.i.i27:                                   ; preds = %while.body.i.i44, %land.rhs.lr.ph.i.i25
+  %__holeIndex.addr.015.i.i28 = phi i64 [ %__holeIndex.addr.1.i21, %land.rhs.lr.ph.i.i25 ], [ %__parent.016.i.i30, %while.body.i.i44 ]
+  %__parent.016.in.i.i29 = add nsw i64 %__holeIndex.addr.015.i.i28, -1
+  %__parent.016.i.i30 = sdiv i64 %__parent.016.in.i.i29, 2
+  %add.ptr.i.i31 = getelementptr inbounds ptr, ptr %__first, i64 %__parent.016.i.i30
+  %14 = load ptr, ptr %add.ptr.i.i31, align 8
+  %m_kind.i.i.i.i.i.i32 = getelementptr inbounds %"struct.realclosure::extension", ptr %14, i64 0, i32 1
+  %bf.load.i.i.i.i.i.i33 = load i32, ptr %m_kind.i.i.i.i.i.i32, align 4
+  %bf.clear.i.i.i.i.i.i34 = and i32 %bf.load.i.i.i.i.i.i33, 3
+  %bf.load.i6.i.i.i.i.i35 = load i32, ptr %m_kind.i5.i.i.i.i.i26, align 4
+  %bf.clear.i7.i.i.i.i.i36 = and i32 %bf.load.i6.i.i.i.i.i35, 3
+  %cmp.i.i.i.i.i37 = icmp ult i32 %bf.clear.i.i.i.i.i.i34, %bf.clear.i7.i.i.i.i.i36
+  br i1 %cmp.i.i.i.i.i37, label %while.body.i.i44, label %lor.rhs.i.i.i.i.i38
 
-land.rhs.i.i26:                                   ; preds = %while.body.i.i43, %land.rhs.lr.ph.i.i24
-  %__holeIndex.addr.015.i.i27 = phi i64 [ %__holeIndex.addr.1.i20, %land.rhs.lr.ph.i.i24 ], [ %__parent.016.i.i29, %while.body.i.i43 ]
-  %__parent.016.in.i.i28 = add nsw i64 %__holeIndex.addr.015.i.i27, -1
-  %__parent.016.i.i29 = sdiv i64 %__parent.016.in.i.i28, 2
-  %add.ptr.i.i30 = getelementptr inbounds ptr, ptr %__first, i64 %__parent.016.i.i29
-  %14 = load ptr, ptr %add.ptr.i.i30, align 8
-  %m_kind.i.i.i.i.i.i31 = getelementptr inbounds %"struct.realclosure::extension", ptr %14, i64 0, i32 1
-  %bf.load.i.i.i.i.i.i32 = load i32, ptr %m_kind.i.i.i.i.i.i31, align 4
-  %bf.clear.i.i.i.i.i.i33 = and i32 %bf.load.i.i.i.i.i.i32, 3
-  %bf.load.i6.i.i.i.i.i34 = load i32, ptr %m_kind.i5.i.i.i.i.i25, align 4
-  %bf.clear.i7.i.i.i.i.i35 = and i32 %bf.load.i6.i.i.i.i.i34, 3
-  %cmp.i.i.i.i.i36 = icmp ult i32 %bf.clear.i.i.i.i.i.i33, %bf.clear.i7.i.i.i.i.i35
-  br i1 %cmp.i.i.i.i.i36, label %while.body.i.i43, label %lor.rhs.i.i.i.i.i37
+lor.rhs.i.i.i.i.i38:                              ; preds = %land.rhs.i.i27
+  %cmp4.i.i.i.i.i39 = icmp eq i32 %bf.clear.i.i.i.i.i.i34, %bf.clear.i7.i.i.i.i.i36
+  br i1 %cmp4.i.i.i.i.i39, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i40, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84
 
-lor.rhs.i.i.i.i.i37:                              ; preds = %land.rhs.i.i26
-  %cmp4.i.i.i.i.i38 = icmp eq i32 %bf.clear.i.i.i.i.i.i33, %bf.clear.i7.i.i.i.i.i35
-  br i1 %cmp4.i.i.i.i.i38, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i40: ; preds = %lor.rhs.i.i.i.i.i38
+  %bf.lshr.i.i.i.i.i.i41 = lshr i32 %bf.load.i.i.i.i.i.i33, 2
+  %bf.lshr.i17.i.i.i.i.i42 = lshr i32 %bf.load.i6.i.i.i.i.i35, 2
+  %cmp7.i.i.i.i.i43 = icmp ult i32 %bf.lshr.i.i.i.i.i.i41, %bf.lshr.i17.i.i.i.i.i42
+  br i1 %cmp7.i.i.i.i.i43, label %while.body.i.i44, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39: ; preds = %lor.rhs.i.i.i.i.i37
-  %bf.lshr.i.i.i.i.i.i40 = lshr i32 %bf.load.i.i.i.i.i.i32, 2
-  %bf.lshr.i17.i.i.i.i.i41 = lshr i32 %bf.load.i6.i.i.i.i.i34, 2
-  %cmp7.i.i.i.i.i42 = icmp ult i32 %bf.lshr.i.i.i.i.i.i40, %bf.lshr.i17.i.i.i.i.i41
-  br i1 %cmp7.i.i.i.i.i42, label %while.body.i.i43, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
+while.body.i.i44:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i40, %land.rhs.i.i27
+  %add.ptr2.i.i45 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.015.i.i28
+  store ptr %14, ptr %add.ptr2.i.i45, align 8
+  %cmp.i.i46.not = icmp slt i64 %__parent.016.i.i30, %__parent.090
+  br i1 %cmp.i.i46.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84, label %land.rhs.i.i27, !llvm.loop !124
 
-while.body.i.i43:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %land.rhs.i.i26
-  %add.ptr2.i.i44 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.015.i.i27
-  store ptr %14, ptr %add.ptr2.i.i44, align 8
-  %cmp.i.i45.not = icmp slt i64 %__parent.016.i.i29, %__parent.086
-  br i1 %cmp.i.i45.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, label %land.rhs.i.i26, !llvm.loop !124
-
-_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80: ; preds = %lor.rhs.i.i.i.i.i37, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %while.body.i.i43, %if.end16.i19
-  %__holeIndex.addr.0.lcssa.i.i22 = phi i64 [ %__holeIndex.addr.1.i20, %if.end16.i19 ], [ %__holeIndex.addr.015.i.i27, %lor.rhs.i.i.i.i.i37 ], [ %__parent.016.i.i29, %while.body.i.i43 ], [ %__holeIndex.addr.015.i.i27, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39 ]
-  %add.ptr5.i.i23 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22
-  store ptr %8, ptr %add.ptr5.i.i23, align 8
+_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84: ; preds = %lor.rhs.i.i.i.i.i38, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i40, %while.body.i.i44, %if.end16.i20
+  %__holeIndex.addr.0.lcssa.i.i23 = phi i64 [ %__holeIndex.addr.1.i21, %if.end16.i20 ], [ %__holeIndex.addr.015.i.i28, %lor.rhs.i.i.i.i.i38 ], [ %__parent.016.i.i30, %while.body.i.i44 ], [ %__holeIndex.addr.015.i.i28, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i40 ]
+  %add.ptr5.i.i24 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i23
+  store ptr %8, ptr %add.ptr5.i.i24, align 8
   %cmp5 = icmp eq i64 %dec, 0
   br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !125
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit84, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %entry
   ret void
 }
 
@@ -50779,18 +50786,18 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp26.i = icmp sgt i64 %sub.ptr.div, 2
-  br i1 %cmp26.i, label %while.body.i, label %while.end.i
+  %invariant.gep.i = getelementptr ptr, ptr %__first, i64 1
+  %cmp29.i = icmp sgt i64 %sub.ptr.div, 2
+  br i1 %cmp29.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-  %__secondChild.027.i = phi i64 [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ], [ 0, %entry ]
-  %add.i = shl i64 %__secondChild.027.i, 1
+while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
+  %__secondChild.030.i = phi i64 [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i ], [ 0, %entry ]
+  %add.i = shl i64 %__secondChild.030.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i
-  %sub1.i = or disjoint i64 %add.i, 1
-  %add.ptr2.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %add.i
   %2 = load ptr, ptr %add.ptr.i, align 8
-  %3 = load ptr, ptr %add.ptr2.i, align 8
+  %3 = load ptr, ptr %gep.i, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds %"struct.realclosure::extension", ptr %2, i64 0, i32 1
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 3
@@ -50800,30 +50807,34 @@ while.body.i:                                     ; preds = %entry, %_ZN9__gnu_c
   %cmp.i.i.i.i = icmp ult i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %lor.rhs.i.i.i.i
 
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %while.body.i
+  %dec23.i = or disjoint i64 %add.i, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
+
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
   %cmp4.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
-  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
+  %dec.i = or disjoint i64 %add.i, 1
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %dec.i, i64 %mul.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %while.body.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
-  %4 = phi ptr [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %2, %lor.rhs.i.i.i.i ]
-  %5 = phi i64 [ %sub1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i.i ]
-  %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i
-  store ptr %4, ptr %add.ptr4.i, align 8
-  %cmp.i = icmp slt i64 %5, %div.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
+  %4 = phi i64 [ %dec23.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %lor.rhs.i.i.i.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ]
+  %add.ptr3.i = getelementptr inbounds ptr, ptr %__first, i64 %4
+  %5 = load ptr, ptr %add.ptr3.i, align 8
+  %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.030.i
+  store ptr %5, ptr %add.ptr4.i, align 8
+  %cmp.i = icmp slt i64 %4, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !123
 
-while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i, %entry
-  %__secondChild.0.lcssa.i = phi i64 [ 0, %entry ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ]
+while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i, %entry
+  %__secondChild.0.lcssa.i = phi i64 [ 0, %entry ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread26.i ]
   %6 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %6, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end16.i

@@ -8,8 +8,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.fdt_node_header = type { i32, [0 x i8] }
 %struct.fdt_property = type { i32, i32, i32, [0 x i8] }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local noundef i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %bufsize, 48
   br i1 %cmp, label %return, label %if.end
@@ -25,7 +25,7 @@ if.end2:                                          ; preds = %if.end
   %rev.i.i = shl nuw nsw i32 %flags, 24
   %last_comp_version.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 6
   store i32 %rev.i.i, ptr %last_comp_version.i, align 4
-  %rev.i.i12 = tail call i32 @llvm.bswap.i32(i32 %bufsize)
+  %rev.i.i12 = tail call noundef i32 @llvm.bswap.i32(i32 %bufsize)
   %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 1
   store i32 %rev.i.i12, ptr %totalsize.i, align 4
   %off_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 2
@@ -40,8 +40,8 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local noundef i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %bufsize, 48
   br i1 %cmp.i, label %fdt_create_with_flags.exit, label %if.end.i
@@ -52,7 +52,7 @@ if.end.i:                                         ; preds = %entry
   store i32 302117423, ptr %buf, align 4
   %last_comp_version.i.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 6
   store i32 0, ptr %last_comp_version.i.i, align 4
-  %rev.i.i12.i = tail call i32 @llvm.bswap.i32(i32 %bufsize)
+  %rev.i.i12.i = tail call noundef i32 @llvm.bswap.i32(i32 %bufsize)
   %totalsize.i.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 1
   store i32 %rev.i.i12.i, ptr %totalsize.i.i, align 4
   %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 2
@@ -64,7 +64,7 @@ fdt_create_with_flags.exit:                       ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @fdt_resize(ptr noundef readonly %fdt, ptr noundef %buf, i32 noundef %bufsize) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
@@ -198,7 +198,7 @@ if.else:                                          ; preds = %if.end21
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else, %if.then31
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %bufsize)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %bufsize)
   %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 1
   store i32 %rev.i.i, ptr %totalsize.i, align 4
   %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 3
@@ -234,7 +234,7 @@ return:                                           ; preds = %if.end32, %if.then3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @fdt_add_reservemap_entry(ptr nocapture noundef %fdt, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
@@ -328,13 +328,13 @@ if.end:                                           ; preds = %if.end.i
 
 if.end7:                                          ; preds = %if.end
   %add.ptr = getelementptr i8, ptr %fdt, i64 %conv
-  %or26.i = tail call i64 @llvm.bswap.i64(i64 %addr)
+  %or26.i = tail call noundef i64 @llvm.bswap.i64(i64 %addr)
   store i64 %or26.i, ptr %add.ptr, align 8
-  %or26.i21 = tail call i64 @llvm.bswap.i64(i64 %size)
+  %or26.i21 = tail call noundef i64 @llvm.bswap.i64(i64 %size)
   %size10 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %add.ptr, i64 0, i32 1
   store i64 %or26.i21, ptr %size10, align 8
   %conv13 = trunc i64 %add to i32
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %conv13)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv13)
   store i32 %rev.i.i, ptr %off_dt_struct, align 4
   br label %return
 
@@ -343,7 +343,7 @@ return:                                           ; preds = %fdt_sw_probe_memrsv
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @fdt_finish_reservemap(ptr nocapture noundef %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
@@ -438,7 +438,7 @@ if.end.i:                                         ; preds = %if.end.i.i
 if.end:                                           ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %fdt, i64 %conv.i
   %conv13.i = trunc i64 %add.i to i32
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %conv13.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv13.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   store i32 %rev.i.i.i, ptr %off_dt_struct.i, align 4
   %16 = load i8, ptr %totalsize.i, align 1
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %if.end.i
   %19 = load i8, ptr %arrayidx8.i18.i, align 1
   %conv9.i = zext i8 %19 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %or10.i)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %or10.i)
   store i32 %rev.i.i, ptr %off_dt_strings.i.i, align 4
   br label %return
 
@@ -618,13 +618,13 @@ lor.lhs.false.i:                                  ; preds = %if.end
 
 fdt_grab_space_.exit:                             ; preds = %lor.lhs.false.i
   %conv14.i = trunc i64 %add.i to i32
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %conv14.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
-  %33 = or disjoint i64 %24, %shl.i.i.i.i
-  %or7.i.i.i.i = or disjoint i64 %33, %26
-  %or10.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %conv9.i36.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i.i
+  %33 = getelementptr i8, ptr %fdt, i64 %24
+  %34 = getelementptr i8, ptr %33, i64 %shl.i.i.i.i
+  %35 = getelementptr i8, ptr %34, i64 %26
+  %add.ptr.i.i.i = getelementptr i8, ptr %35, i64 %conv9.i36.i
   %idx.ext1.i.i.i = sext i32 %or10.i.i18 to i64
   %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %idx.ext1.i.i.i
   %tobool.not = icmp eq ptr %add.ptr2.i.i.i, null
@@ -647,7 +647,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @fdt_end_node(ptr noundef %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
@@ -790,13 +790,13 @@ if.end:                                           ; preds = %if.end.i
 
 fdt_grab_space_.exit:                             ; preds = %if.end
   %conv14.i = trunc i64 %add.i to i32
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %conv14.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
-  %33 = or disjoint i64 %24, %shl.i.i.i.i
-  %or7.i.i.i.i = or disjoint i64 %33, %26
-  %or10.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %conv9.i36.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i.i
+  %33 = getelementptr i8, ptr %fdt, i64 %24
+  %34 = getelementptr i8, ptr %33, i64 %shl.i.i.i.i
+  %35 = getelementptr i8, ptr %34, i64 %26
+  %add.ptr.i.i.i = getelementptr i8, ptr %35, i64 %conv9.i36.i
   %idx.ext1.i.i.i = sext i32 %or10.i.i15 to i64
   %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %idx.ext1.i.i.i
   %tobool.not = icmp eq ptr %add.ptr2.i.i.i, null
@@ -895,37 +895,37 @@ if.else:                                          ; preds = %if.end
   %shl.i.i29 = shl nuw nsw i64 %conv.i.i28, 24
   %conv2.i.i31 = zext i8 %9 to i64
   %shl3.i.i32 = shl nuw nsw i64 %conv2.i.i31, 16
-  %or.i.i33 = or disjoint i64 %shl3.i.i32, %shl.i.i29
-  %conv5.i.i35 = zext i8 %10 to i64
-  %shl6.i.i36 = shl nuw nsw i64 %conv5.i.i35, 8
-  %or7.i.i37 = or disjoint i64 %or.i.i33, %shl6.i.i36
-  %conv9.i.i39 = zext i8 %11 to i64
-  %or10.i.i40 = or disjoint i64 %or7.i.i37, %conv9.i.i39
-  %add.ptr.i = getelementptr i8, ptr %fdt, i64 %or10.i.i40
+  %conv5.i.i34 = zext i8 %10 to i64
+  %shl6.i.i35 = shl nuw nsw i64 %conv5.i.i34, 8
+  %conv9.i.i37 = zext i8 %11 to i64
+  %14 = getelementptr i8, ptr %fdt, i64 %shl3.i.i32
+  %15 = getelementptr i8, ptr %14, i64 %shl.i.i29
+  %16 = getelementptr i8, ptr %15, i64 %shl6.i.i35
+  %add.ptr.i = getelementptr i8, ptr %16, i64 %conv9.i.i37
   %size_dt_strings.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
-  %14 = load i8, ptr %size_dt_strings.i, align 1
-  %conv.i9.i = zext i8 %14 to i32
+  %17 = load i8, ptr %size_dt_strings.i, align 1
+  %conv.i9.i = zext i8 %17 to i32
   %shl.i10.i = shl nuw i32 %conv.i9.i, 24
   %arrayidx1.i11.i = getelementptr i8, ptr %fdt, i64 33
-  %15 = load i8, ptr %arrayidx1.i11.i, align 1
-  %conv2.i12.i = zext i8 %15 to i32
+  %18 = load i8, ptr %arrayidx1.i11.i, align 1
+  %conv2.i12.i = zext i8 %18 to i32
   %shl3.i13.i = shl nuw nsw i32 %conv2.i12.i, 16
   %or.i14.i = or disjoint i32 %shl3.i13.i, %shl.i10.i
   %arrayidx4.i15.i = getelementptr i8, ptr %fdt, i64 34
-  %16 = load i8, ptr %arrayidx4.i15.i, align 1
-  %conv5.i16.i = zext i8 %16 to i32
+  %19 = load i8, ptr %arrayidx4.i15.i, align 1
+  %conv5.i16.i = zext i8 %19 to i32
   %shl6.i17.i = shl nuw nsw i32 %conv5.i16.i, 8
   %or7.i18.i = or disjoint i32 %or.i14.i, %shl6.i17.i
   %arrayidx8.i19.i = getelementptr i8, ptr %fdt, i64 35
-  %17 = load i8, ptr %arrayidx8.i19.i, align 1
-  %conv9.i20.i = zext i8 %17 to i32
+  %20 = load i8, ptr %arrayidx8.i19.i, align 1
+  %conv9.i20.i = zext i8 %20 to i32
   %or10.i21.i = or disjoint i32 %or7.i18.i, %conv9.i20.i
   %idx.ext2.i = sext i32 %or10.i21.i to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext2.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.neg.i
   %call4.i = tail call ptr @fdt_find_string_(ptr noundef %add.ptr3.i, i32 noundef %or10.i21.i, ptr noundef %name) #10
   %tobool.not.i = icmp eq ptr %call4.i, null
-  br i1 %tobool.not.i, label %if.end.i42, label %if.then.i
+  br i1 %tobool.not.i, label %if.end.i39, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call4.i to i64
@@ -934,13 +934,13 @@ if.then.i:                                        ; preds = %if.else
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
   br label %if.end5
 
-if.end.i42:                                       ; preds = %if.else
+if.end.i39:                                       ; preds = %if.else
   %call5.i = tail call fastcc i32 @fdt_add_string_(ptr noundef nonnull %fdt, ptr noundef %name)
   br label %if.end5
 
-if.end5:                                          ; preds = %if.end.i42, %if.then.i, %if.then2
-  %tobool14.not = phi i1 [ false, %if.then2 ], [ false, %if.end.i42 ], [ true, %if.then.i ]
-  %nameoff.0 = phi i32 [ %call3, %if.then2 ], [ %call5.i, %if.end.i42 ], [ %conv.i, %if.then.i ]
+if.end5:                                          ; preds = %if.end.i39, %if.then.i, %if.then2
+  %tobool14.not = phi i1 [ false, %if.then2 ], [ false, %if.end.i39 ], [ true, %if.then.i ]
+  %nameoff.0 = phi i32 [ %call3, %if.then2 ], [ %call5.i, %if.end.i39 ], [ %conv.i, %if.then.i ]
   %cmp6 = icmp eq i32 %nameoff.0, 0
   br i1 %cmp6, label %return, label %if.end8
 
@@ -950,80 +950,80 @@ if.end8:                                          ; preds = %if.end5
   %and9 = and i64 %sub, -4
   %add10 = add nsw i64 %and9, 12
   %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
-  %18 = load i8, ptr %size_dt_struct.i, align 1
-  %conv.i.i43 = zext i8 %18 to i32
-  %shl.i.i44 = shl nuw i32 %conv.i.i43, 24
-  %arrayidx1.i.i45 = getelementptr i8, ptr %fdt, i64 37
-  %19 = load i8, ptr %arrayidx1.i.i45, align 1
-  %conv2.i.i46 = zext i8 %19 to i32
-  %shl3.i.i47 = shl nuw nsw i32 %conv2.i.i46, 16
-  %or.i.i48 = or disjoint i32 %shl3.i.i47, %shl.i.i44
-  %arrayidx4.i.i49 = getelementptr i8, ptr %fdt, i64 38
-  %20 = load i8, ptr %arrayidx4.i.i49, align 1
-  %conv5.i.i50 = zext i8 %20 to i32
-  %shl6.i.i51 = shl nuw nsw i32 %conv5.i.i50, 8
-  %or7.i.i52 = or disjoint i32 %or.i.i48, %shl6.i.i51
-  %arrayidx8.i.i53 = getelementptr i8, ptr %fdt, i64 39
-  %21 = load i8, ptr %arrayidx8.i.i53, align 1
-  %conv9.i.i54 = zext i8 %21 to i32
-  %or10.i.i55 = or disjoint i32 %or7.i.i52, %conv9.i.i54
-  %conv.i56 = zext i32 %or10.i.i55 to i64
-  %add.i = add nsw i64 %add10, %conv.i56
-  %cmp.i = icmp ult i64 %add.i, %conv.i56
+  %21 = load i8, ptr %size_dt_struct.i, align 1
+  %conv.i.i40 = zext i8 %21 to i32
+  %shl.i.i41 = shl nuw i32 %conv.i.i40, 24
+  %arrayidx1.i.i42 = getelementptr i8, ptr %fdt, i64 37
+  %22 = load i8, ptr %arrayidx1.i.i42, align 1
+  %conv2.i.i43 = zext i8 %22 to i32
+  %shl3.i.i44 = shl nuw nsw i32 %conv2.i.i43, 16
+  %or.i.i45 = or disjoint i32 %shl3.i.i44, %shl.i.i41
+  %arrayidx4.i.i46 = getelementptr i8, ptr %fdt, i64 38
+  %23 = load i8, ptr %arrayidx4.i.i46, align 1
+  %conv5.i.i47 = zext i8 %23 to i32
+  %shl6.i.i48 = shl nuw nsw i32 %conv5.i.i47, 8
+  %or7.i.i49 = or disjoint i32 %or.i.i45, %shl6.i.i48
+  %arrayidx8.i.i50 = getelementptr i8, ptr %fdt, i64 39
+  %24 = load i8, ptr %arrayidx8.i.i50, align 1
+  %conv9.i.i51 = zext i8 %24 to i32
+  %or10.i.i52 = or disjoint i32 %or7.i.i49, %conv9.i.i51
+  %conv.i53 = zext i32 %or10.i.i52 to i64
+  %add.i = add nsw i64 %add10, %conv.i53
+  %cmp.i = icmp ult i64 %add.i, %conv.i53
   br i1 %cmp.i, label %if.then13, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end8
   %off_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
-  %22 = load i8, ptr %off_dt_struct.i, align 1
+  %25 = load i8, ptr %off_dt_struct.i, align 1
   %arrayidx1.i40.i = getelementptr i8, ptr %fdt, i64 33
-  %23 = load i8, ptr %arrayidx1.i40.i, align 1
-  %conv2.i41.i = zext i8 %23 to i64
+  %26 = load i8, ptr %arrayidx1.i40.i, align 1
+  %conv2.i41.i = zext i8 %26 to i64
   %shl3.i42.neg.i = mul nuw nsw i64 %conv2.i41.i, 4294901760
-  %size_dt_strings.i57 = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
-  %24 = load i8, ptr %size_dt_strings.i57, align 1
-  %conv.i38.i = zext i8 %24 to i64
+  %size_dt_strings.i54 = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %27 = load i8, ptr %size_dt_strings.i54, align 1
+  %conv.i38.i = zext i8 %27 to i64
   %arrayidx4.i44.i = getelementptr i8, ptr %fdt, i64 34
-  %25 = load i8, ptr %arrayidx4.i44.i, align 1
-  %conv5.i45.i = zext i8 %25 to i64
-  %26 = shl nuw nsw i64 %conv5.i45.i, 8
+  %28 = load i8, ptr %arrayidx4.i44.i, align 1
+  %conv5.i45.i = zext i8 %28 to i64
+  %29 = shl nuw nsw i64 %conv5.i45.i, 8
   %arrayidx8.i48.i = getelementptr i8, ptr %fdt, i64 35
-  %27 = load i8, ptr %arrayidx8.i48.i, align 1
-  %conv9.i49.i = zext i8 %27 to i64
-  %28 = or disjoint i64 %26, %conv9.i49.i
+  %30 = load i8, ptr %arrayidx8.i48.i, align 1
+  %conv9.i49.i = zext i8 %30 to i64
+  %31 = or disjoint i64 %29, %conv9.i49.i
   %arrayidx1.i27.i = getelementptr i8, ptr %fdt, i64 9
-  %29 = load i8, ptr %arrayidx1.i27.i, align 1
-  %conv2.i28.i = zext i8 %29 to i64
-  %conv.i25.i = zext i8 %22 to i64
+  %32 = load i8, ptr %arrayidx1.i27.i, align 1
+  %conv2.i28.i = zext i8 %32 to i64
+  %conv.i25.i = zext i8 %25 to i64
   %shl.i26.neg.i = mul nuw nsw i64 %conv.i25.i, 4278190080
-  %30 = shl nuw nsw i64 %conv2.i28.i, 16
+  %33 = shl nuw nsw i64 %conv2.i28.i, 16
   %arrayidx4.i31.i = getelementptr i8, ptr %fdt, i64 10
-  %31 = load i8, ptr %arrayidx4.i31.i, align 1
-  %conv5.i32.i = zext i8 %31 to i64
-  %32 = shl nuw nsw i64 %conv5.i32.i, 8
-  %33 = or disjoint i64 %32, %30
+  %34 = load i8, ptr %arrayidx4.i31.i, align 1
+  %conv5.i32.i = zext i8 %34 to i64
+  %35 = shl nuw nsw i64 %conv5.i32.i, 8
+  %36 = or disjoint i64 %35, %33
   %arrayidx8.i35.i = getelementptr i8, ptr %fdt, i64 11
-  %34 = load i8, ptr %arrayidx8.i35.i, align 1
-  %conv9.i36.i = zext i8 %34 to i64
-  %35 = or disjoint i64 %33, %conv9.i36.i
-  %36 = load i8, ptr %arrayidx1.i6.i, align 1
-  %conv2.i15.i = zext i8 %36 to i64
+  %37 = load i8, ptr %arrayidx8.i35.i, align 1
+  %conv9.i36.i = zext i8 %37 to i64
+  %38 = or disjoint i64 %36, %conv9.i36.i
+  %39 = load i8, ptr %arrayidx1.i6.i, align 1
+  %conv2.i15.i = zext i8 %39 to i64
   %shl3.i16.i = shl nuw nsw i64 %conv2.i15.i, 16
-  %37 = load i8, ptr %totalsize.i, align 1
-  %conv.i12.i = zext i8 %37 to i64
+  %40 = load i8, ptr %totalsize.i, align 1
+  %conv.i12.i = zext i8 %40 to i64
   %shl.i13.i = shl nuw nsw i64 %conv.i12.i, 24
   %or.i17.i = or disjoint i64 %shl.i13.i, %shl3.i16.i
-  %38 = load i8, ptr %arrayidx4.i10.i, align 1
-  %conv5.i19.i = zext i8 %38 to i64
+  %41 = load i8, ptr %arrayidx4.i10.i, align 1
+  %conv5.i19.i = zext i8 %41 to i64
   %shl6.i20.i = shl nuw nsw i64 %conv5.i19.i, 8
   %or7.i21.i = or disjoint i64 %or.i17.i, %shl6.i20.i
-  %39 = load i8, ptr %arrayidx8.i14.i, align 1
-  %conv9.i23.i = zext i8 %39 to i64
+  %42 = load i8, ptr %arrayidx8.i14.i, align 1
+  %conv9.i23.i = zext i8 %42 to i64
   %or10.i24.i = or disjoint i64 %or7.i21.i, %conv9.i23.i
   %or10.i37.neg52.i = add nuw nsw i64 %shl3.i42.neg.i, %shl.i26.neg.i
-  %40 = shl nuw nsw i64 %conv.i38.i, 24
-  %41 = add nuw nsw i64 %28, %35
-  %42 = add nuw nsw i64 %40, %41
-  %.neg.i = sub nsw i64 %or10.i37.neg52.i, %42
+  %43 = shl nuw nsw i64 %conv.i38.i, 24
+  %44 = add nuw nsw i64 %31, %38
+  %45 = add nuw nsw i64 %43, %44
+  %.neg.i = sub nsw i64 %or10.i37.neg52.i, %45
   %sub4.i = add nsw i64 %.neg.i, %or10.i24.i
   %conv9.i = and i64 %sub4.i, 4294967295
   %cmp10.i = icmp ugt i64 %add.i, %conv9.i
@@ -1031,14 +1031,14 @@ lor.lhs.false.i:                                  ; preds = %if.end8
 
 fdt_grab_space_.exit:                             ; preds = %lor.lhs.false.i
   %conv14.i = trunc i64 %add.i to i32
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %conv14.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
-  %43 = or disjoint i64 %30, %shl.i.i.i.i
-  %or7.i.i.i.i = or disjoint i64 %43, %32
-  %or10.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %conv9.i36.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i.i
-  %idx.ext1.i.i.i = sext i32 %or10.i.i55 to i64
+  %46 = getelementptr i8, ptr %fdt, i64 %33
+  %47 = getelementptr i8, ptr %46, i64 %shl.i.i.i.i
+  %48 = getelementptr i8, ptr %47, i64 %35
+  %add.ptr.i.i.i = getelementptr i8, ptr %48, i64 %conv9.i36.i
+  %idx.ext1.i.i.i = sext i32 %or10.i.i52 to i64
   %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %idx.ext1.i.i.i
   %tobool12.not = icmp eq ptr %add.ptr2.i.i.i, null
   br i1 %tobool12.not, label %if.then13, label %if.end17
@@ -1047,40 +1047,40 @@ if.then13:                                        ; preds = %if.end8, %lor.lhs.f
   br i1 %tobool14.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %size_dt_strings.i61 = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
-  %44 = load i8, ptr %size_dt_strings.i61, align 1
-  %conv.i.i62 = zext i8 %44 to i32
-  %shl.i.i63 = shl nuw i32 %conv.i.i62, 24
-  %arrayidx1.i.i64 = getelementptr i8, ptr %fdt, i64 33
-  %45 = load i8, ptr %arrayidx1.i.i64, align 1
-  %conv2.i.i65 = zext i8 %45 to i32
-  %shl3.i.i66 = shl nuw nsw i32 %conv2.i.i65, 16
-  %or.i.i67 = or disjoint i32 %shl3.i.i66, %shl.i.i63
-  %arrayidx4.i.i68 = getelementptr i8, ptr %fdt, i64 34
-  %46 = load i8, ptr %arrayidx4.i.i68, align 1
-  %conv5.i.i69 = zext i8 %46 to i32
-  %shl6.i.i70 = shl nuw nsw i32 %conv5.i.i69, 8
-  %or7.i.i71 = or disjoint i32 %or.i.i67, %shl6.i.i70
-  %arrayidx8.i.i72 = getelementptr i8, ptr %fdt, i64 35
-  %47 = load i8, ptr %arrayidx8.i.i72, align 1
-  %conv9.i.i73 = zext i8 %47 to i32
-  %or10.i.i74 = or disjoint i32 %or7.i.i71, %conv9.i.i73
+  %size_dt_strings.i58 = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %49 = load i8, ptr %size_dt_strings.i58, align 1
+  %conv.i.i59 = zext i8 %49 to i32
+  %shl.i.i60 = shl nuw i32 %conv.i.i59, 24
+  %arrayidx1.i.i61 = getelementptr i8, ptr %fdt, i64 33
+  %50 = load i8, ptr %arrayidx1.i.i61, align 1
+  %conv2.i.i62 = zext i8 %50 to i32
+  %shl3.i.i63 = shl nuw nsw i32 %conv2.i.i62, 16
+  %or.i.i64 = or disjoint i32 %shl3.i.i63, %shl.i.i60
+  %arrayidx4.i.i65 = getelementptr i8, ptr %fdt, i64 34
+  %51 = load i8, ptr %arrayidx4.i.i65, align 1
+  %conv5.i.i66 = zext i8 %51 to i32
+  %shl6.i.i67 = shl nuw nsw i32 %conv5.i.i66, 8
+  %or7.i.i68 = or disjoint i32 %or.i.i64, %shl6.i.i67
+  %arrayidx8.i.i69 = getelementptr i8, ptr %fdt, i64 35
+  %52 = load i8, ptr %arrayidx8.i.i69, align 1
+  %conv9.i.i70 = zext i8 %52 to i32
+  %or10.i.i71 = or disjoint i32 %or7.i.i68, %conv9.i.i70
   %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
-  %48 = trunc i64 %call1.i to i32
-  %conv.neg.i = xor i32 %48, -1
-  %sub.i = add i32 %or10.i.i74, %conv.neg.i
-  %rev.i.i.i75 = tail call i32 @llvm.bswap.i32(i32 %sub.i)
-  store i32 %rev.i.i.i75, ptr %size_dt_strings.i61, align 4
+  %53 = trunc i64 %call1.i to i32
+  %conv.neg.i = xor i32 %53, -1
+  %sub.i = add i32 %or10.i.i71, %conv.neg.i
+  %rev.i.i.i72 = tail call noundef i32 @llvm.bswap.i32(i32 %sub.i)
+  store i32 %rev.i.i.i72, ptr %size_dt_strings.i58, align 4
   br label %return
 
 if.end17:                                         ; preds = %fdt_grab_space_.exit
   store i32 50331648, ptr %add.ptr2.i.i.i, align 4
-  %rev.i = tail call i32 @llvm.bswap.i32(i32 %nameoff.0)
+  %rev.i = tail call noundef i32 @llvm.bswap.i32(i32 %nameoff.0)
   %nameoff20 = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i.i, i64 0, i32 2
   store i32 %rev.i, ptr %nameoff20, align 4
-  %rev.i76 = tail call i32 @llvm.bswap.i32(i32 %len)
+  %rev.i73 = tail call noundef i32 @llvm.bswap.i32(i32 %len)
   %len22 = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i.i, i64 0, i32 1
-  store i32 %rev.i76, ptr %len22, align 4
+  store i32 %rev.i73, ptr %len22, align 4
   %data = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i.i, i64 0, i32 3
   store ptr %data, ptr %valp, align 8
   br label %return
@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %entry
   %add.ptr11 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
   %conv12 = zext i32 %conv to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11, ptr align 1 %s, i64 %conv12, i1 false)
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %add3)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add3)
   store i32 %rev.i.i, ptr %size_dt_strings, align 4
   %sub14 = sub i32 0, %add3
   br label %return
@@ -1354,13 +1354,13 @@ if.end:                                           ; preds = %if.end.i
 
 fdt_grab_space_.exit:                             ; preds = %if.end
   %conv14.i = trunc i64 %add.i to i32
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %conv14.i)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
-  %33 = or disjoint i64 %24, %shl.i.i.i.i
-  %or7.i.i.i.i = or disjoint i64 %33, %26
-  %or10.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %conv9.i36.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i.i
+  %33 = getelementptr i8, ptr %fdt, i64 %24
+  %34 = getelementptr i8, ptr %33, i64 %shl.i.i.i.i
+  %35 = getelementptr i8, ptr %34, i64 %26
+  %add.ptr.i.i.i = getelementptr i8, ptr %35, i64 %conv9.i36.i
   %idx.ext1.i.i.i = sext i32 %or10.i.i35 to i64
   %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %idx.ext1.i.i.i
   %tobool.not = icmp eq ptr %add.ptr2.i.i.i, null
@@ -1368,62 +1368,62 @@ fdt_grab_space_.exit:                             ; preds = %if.end
 
 if.end3:                                          ; preds = %fdt_grab_space_.exit
   store i32 150994944, ptr %add.ptr2.i.i.i, align 4
-  %34 = load i8, ptr %totalsize.i, align 1
-  %conv.i39 = zext i8 %34 to i32
+  %36 = load i8, ptr %totalsize.i, align 1
+  %conv.i39 = zext i8 %36 to i32
   %shl.i = shl nuw i32 %conv.i39, 24
-  %35 = load i8, ptr %arrayidx1.i6.i, align 1
-  %conv2.i = zext i8 %35 to i32
+  %37 = load i8, ptr %arrayidx1.i6.i, align 1
+  %conv2.i = zext i8 %37 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
-  %36 = load i8, ptr %arrayidx4.i10.i, align 1
-  %conv5.i = zext i8 %36 to i32
+  %38 = load i8, ptr %arrayidx4.i10.i, align 1
+  %conv5.i = zext i8 %38 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %or7.i = or disjoint i32 %or.i, %shl6.i
-  %37 = load i8, ptr %arrayidx8.i14.i, align 1
-  %conv9.i40 = zext i8 %37 to i32
+  %39 = load i8, ptr %arrayidx8.i14.i, align 1
+  %conv9.i40 = zext i8 %39 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i40
-  %38 = load i8, ptr %size_dt_strings.i, align 1
-  %conv.i41 = zext i8 %38 to i32
+  %40 = load i8, ptr %size_dt_strings.i, align 1
+  %conv.i41 = zext i8 %40 to i32
   %shl.i42 = shl nuw i32 %conv.i41, 24
-  %39 = load i8, ptr %arrayidx1.i40.i, align 1
-  %conv2.i44 = zext i8 %39 to i32
+  %41 = load i8, ptr %arrayidx1.i40.i, align 1
+  %conv2.i44 = zext i8 %41 to i32
   %shl3.i45 = shl nuw nsw i32 %conv2.i44, 16
   %or.i46 = or disjoint i32 %shl3.i45, %shl.i42
-  %40 = load i8, ptr %arrayidx4.i44.i, align 1
-  %conv5.i48 = zext i8 %40 to i32
+  %42 = load i8, ptr %arrayidx4.i44.i, align 1
+  %conv5.i48 = zext i8 %42 to i32
   %shl6.i49 = shl nuw nsw i32 %conv5.i48, 8
   %or7.i50 = or disjoint i32 %or.i46, %shl6.i49
-  %41 = load i8, ptr %arrayidx8.i48.i, align 1
-  %conv9.i52 = zext i8 %41 to i32
+  %43 = load i8, ptr %arrayidx8.i48.i, align 1
+  %conv9.i52 = zext i8 %43 to i32
   %or10.i53 = or disjoint i32 %or7.i50, %conv9.i52
   %sub = sub i32 %or10.i, %or10.i53
-  %42 = load i8, ptr %off_dt_struct.i, align 1
-  %conv.i54 = zext i8 %42 to i32
+  %44 = load i8, ptr %off_dt_struct.i, align 1
+  %conv.i54 = zext i8 %44 to i32
   %shl.i55 = shl nuw i32 %conv.i54, 24
-  %43 = load i8, ptr %arrayidx1.i27.i, align 1
-  %conv2.i57 = zext i8 %43 to i32
+  %45 = load i8, ptr %arrayidx1.i27.i, align 1
+  %conv2.i57 = zext i8 %45 to i32
   %shl3.i58 = shl nuw nsw i32 %conv2.i57, 16
   %or.i59 = or disjoint i32 %shl3.i58, %shl.i55
-  %44 = load i8, ptr %arrayidx4.i31.i, align 1
-  %conv5.i61 = zext i8 %44 to i32
+  %46 = load i8, ptr %arrayidx4.i31.i, align 1
+  %conv5.i61 = zext i8 %46 to i32
   %shl6.i62 = shl nuw nsw i32 %conv5.i61, 8
   %or7.i63 = or disjoint i32 %or.i59, %shl6.i62
-  %45 = load i8, ptr %arrayidx8.i35.i, align 1
-  %conv9.i65 = zext i8 %45 to i32
+  %47 = load i8, ptr %arrayidx8.i35.i, align 1
+  %conv9.i65 = zext i8 %47 to i32
   %or10.i66 = or disjoint i32 %or7.i63, %conv9.i65
-  %46 = load i8, ptr %size_dt_struct.i, align 1
-  %conv.i67 = zext i8 %46 to i32
+  %48 = load i8, ptr %size_dt_struct.i, align 1
+  %conv.i67 = zext i8 %48 to i32
   %shl.i68 = shl nuw i32 %conv.i67, 24
-  %47 = load i8, ptr %arrayidx1.i.i25, align 1
-  %conv2.i70 = zext i8 %47 to i32
+  %49 = load i8, ptr %arrayidx1.i.i25, align 1
+  %conv2.i70 = zext i8 %49 to i32
   %shl3.i71 = shl nuw nsw i32 %conv2.i70, 16
   %or.i72 = or disjoint i32 %shl3.i71, %shl.i68
-  %48 = load i8, ptr %arrayidx4.i.i29, align 1
-  %conv5.i74 = zext i8 %48 to i32
+  %50 = load i8, ptr %arrayidx4.i.i29, align 1
+  %conv5.i74 = zext i8 %50 to i32
   %shl6.i75 = shl nuw nsw i32 %conv5.i74, 8
   %or7.i76 = or disjoint i32 %or.i72, %shl6.i75
-  %49 = load i8, ptr %arrayidx8.i.i33, align 1
-  %conv9.i78 = zext i8 %49 to i32
+  %51 = load i8, ptr %arrayidx8.i.i33, align 1
+  %conv9.i78 = zext i8 %51 to i32
   %or10.i79 = or disjoint i32 %or7.i76, %conv9.i78
   %add = add i32 %or10.i79, %or10.i66
   %idx.ext = sext i32 %add to i64
@@ -1432,12 +1432,12 @@ if.end3:                                          ; preds = %fdt_grab_space_.exi
   %add.ptr10 = getelementptr i8, ptr %fdt, i64 %idx.ext9
   %conv = zext i32 %or10.i53 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr10, i64 %conv, i1 false)
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %add)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add)
   store i32 %rev.i.i, ptr %off_dt_strings.i, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end27, %if.end3
-  %offset.0 = phi i32 [ 0, %if.end3 ], [ %59, %if.end27 ]
+  %offset.0 = phi i32 [ 0, %if.end3 ], [ %64, %if.end27 ]
   %call13 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %offset.0, ptr noundef nonnull %nextoffset) #10
   switch i32 %call13, label %if.end27 [
     i32 9, label %while.end
@@ -1445,79 +1445,79 @@ while.cond:                                       ; preds = %if.end27, %if.end3
   ]
 
 if.then18:                                        ; preds = %while.cond
-  %50 = load i8, ptr %off_dt_struct.i, align 1
-  %conv.i.i.i94 = zext i8 %50 to i64
+  %52 = load i8, ptr %off_dt_struct.i, align 1
+  %conv.i.i.i94 = zext i8 %52 to i64
   %shl.i.i.i95 = shl nuw nsw i64 %conv.i.i.i94, 24
-  %51 = load i8, ptr %arrayidx1.i27.i, align 1
-  %conv2.i.i.i97 = zext i8 %51 to i64
+  %53 = load i8, ptr %arrayidx1.i27.i, align 1
+  %conv2.i.i.i97 = zext i8 %53 to i64
   %shl3.i.i.i98 = shl nuw nsw i64 %conv2.i.i.i97, 16
-  %or.i.i.i99 = or disjoint i64 %shl3.i.i.i98, %shl.i.i.i95
-  %52 = load i8, ptr %arrayidx4.i31.i, align 1
-  %conv5.i.i.i101 = zext i8 %52 to i64
-  %shl6.i.i.i102 = shl nuw nsw i64 %conv5.i.i.i101, 8
-  %or7.i.i.i103 = or disjoint i64 %or.i.i.i99, %shl6.i.i.i102
-  %53 = load i8, ptr %arrayidx8.i35.i, align 1
-  %conv9.i.i.i105 = zext i8 %53 to i64
-  %or10.i.i.i106 = or disjoint i64 %or7.i.i.i103, %conv9.i.i.i105
-  %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i106
+  %54 = load i8, ptr %arrayidx4.i31.i, align 1
+  %conv5.i.i.i100 = zext i8 %54 to i64
+  %shl6.i.i.i101 = shl nuw nsw i64 %conv5.i.i.i100, 8
+  %55 = load i8, ptr %arrayidx8.i35.i, align 1
+  %conv9.i.i.i103 = zext i8 %55 to i64
+  %56 = getelementptr i8, ptr %fdt, i64 %shl3.i.i.i98
+  %57 = getelementptr i8, ptr %56, i64 %shl.i.i.i95
+  %58 = getelementptr i8, ptr %57, i64 %shl6.i.i.i101
+  %add.ptr.i.i = getelementptr i8, ptr %58, i64 %conv9.i.i.i103
   %idx.ext1.i.i = sext i32 %offset.0 to i64
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
   %nameoff20 = getelementptr inbounds %struct.fdt_property, ptr %add.ptr2.i.i, i64 0, i32 2
-  %54 = load i32, ptr %nameoff20, align 4
-  %rev.i = call i32 @llvm.bswap.i32(i32 %54)
-  %55 = load i8, ptr %size_dt_strings.i, align 1
-  %conv.i107 = zext i8 %55 to i32
-  %shl.i108 = shl nuw i32 %conv.i107, 24
-  %56 = load i8, ptr %arrayidx1.i40.i, align 1
-  %conv2.i110 = zext i8 %56 to i32
-  %shl3.i111 = shl nuw nsw i32 %conv2.i110, 16
-  %or.i112 = or disjoint i32 %shl3.i111, %shl.i108
-  %57 = load i8, ptr %arrayidx4.i44.i, align 1
-  %conv5.i114 = zext i8 %57 to i32
-  %shl6.i115 = shl nuw nsw i32 %conv5.i114, 8
-  %or7.i116 = or disjoint i32 %or.i112, %shl6.i115
-  %58 = load i8, ptr %arrayidx8.i48.i, align 1
-  %conv9.i118 = zext i8 %58 to i32
-  %or10.i119 = or disjoint i32 %or7.i116, %conv9.i118
-  %add24 = add i32 %or10.i119, %rev.i
-  %rev.i120 = call i32 @llvm.bswap.i32(i32 %add24)
-  store i32 %rev.i120, ptr %nameoff20, align 4
+  %59 = load i32, ptr %nameoff20, align 4
+  %rev.i = call noundef i32 @llvm.bswap.i32(i32 %59)
+  %60 = load i8, ptr %size_dt_strings.i, align 1
+  %conv.i104 = zext i8 %60 to i32
+  %shl.i105 = shl nuw i32 %conv.i104, 24
+  %61 = load i8, ptr %arrayidx1.i40.i, align 1
+  %conv2.i107 = zext i8 %61 to i32
+  %shl3.i108 = shl nuw nsw i32 %conv2.i107, 16
+  %or.i109 = or disjoint i32 %shl3.i108, %shl.i105
+  %62 = load i8, ptr %arrayidx4.i44.i, align 1
+  %conv5.i111 = zext i8 %62 to i32
+  %shl6.i112 = shl nuw nsw i32 %conv5.i111, 8
+  %or7.i113 = or disjoint i32 %or.i109, %shl6.i112
+  %63 = load i8, ptr %arrayidx8.i48.i, align 1
+  %conv9.i115 = zext i8 %63 to i32
+  %or10.i116 = or disjoint i32 %or7.i113, %conv9.i115
+  %add24 = add i32 %or10.i116, %rev.i
+  %rev.i117 = call noundef i32 @llvm.bswap.i32(i32 %add24)
+  store i32 %rev.i117, ptr %nameoff20, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %while.cond, %if.then18
-  %59 = load i32, ptr %nextoffset, align 4
+  %64 = load i32, ptr %nextoffset, align 4
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
-  %60 = load i32, ptr %nextoffset, align 4
-  %cmp28 = icmp slt i32 %60, 0
+  %65 = load i32, ptr %nextoffset, align 4
+  %cmp28 = icmp slt i32 %65, 0
   br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %while.end
-  %61 = load i8, ptr %size_dt_strings.i, align 1
-  %conv.i121 = zext i8 %61 to i32
-  %shl.i122 = shl nuw i32 %conv.i121, 24
-  %62 = load i8, ptr %arrayidx1.i40.i, align 1
-  %conv2.i124 = zext i8 %62 to i32
-  %shl3.i125 = shl nuw nsw i32 %conv2.i124, 16
-  %or.i126 = or disjoint i32 %shl3.i125, %shl.i122
-  %63 = load i8, ptr %arrayidx4.i44.i, align 1
-  %conv5.i128 = zext i8 %63 to i32
-  %shl6.i129 = shl nuw nsw i32 %conv5.i128, 8
-  %or7.i130 = or disjoint i32 %or.i126, %shl6.i129
-  %64 = load i8, ptr %arrayidx8.i48.i, align 1
-  %conv9.i132 = zext i8 %64 to i32
-  %or10.i133 = or disjoint i32 %or7.i130, %conv9.i132
-  %add34 = add i32 %or10.i133, %add
-  %rev.i.i134 = call i32 @llvm.bswap.i32(i32 %add34)
-  store i32 %rev.i.i134, ptr %totalsize.i, align 4
+  %66 = load i8, ptr %size_dt_strings.i, align 1
+  %conv.i118 = zext i8 %66 to i32
+  %shl.i119 = shl nuw i32 %conv.i118, 24
+  %67 = load i8, ptr %arrayidx1.i40.i, align 1
+  %conv2.i121 = zext i8 %67 to i32
+  %shl3.i122 = shl nuw nsw i32 %conv2.i121, 16
+  %or.i123 = or disjoint i32 %shl3.i122, %shl.i119
+  %68 = load i8, ptr %arrayidx4.i44.i, align 1
+  %conv5.i125 = zext i8 %68 to i32
+  %shl6.i126 = shl nuw nsw i32 %conv5.i125, 8
+  %or7.i127 = or disjoint i32 %or.i123, %shl6.i126
+  %69 = load i8, ptr %arrayidx8.i48.i, align 1
+  %conv9.i129 = zext i8 %69 to i32
+  %or10.i130 = or disjoint i32 %or7.i127, %conv9.i129
+  %add34 = add i32 %or10.i130, %add
+  %rev.i.i131 = call noundef i32 @llvm.bswap.i32(i32 %add34)
+  store i32 %rev.i.i131, ptr %totalsize.i, align 4
   %last_comp_version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 6
   store i32 268435456, ptr %last_comp_version.i, align 4
   store i32 -302117424, ptr %fdt, align 4
   br label %return
 
 return:                                           ; preds = %fdt_sw_probe_struct_.exit, %if.end, %if.end.i, %while.end, %fdt_grab_space_.exit, %if.end31
-  %retval.0 = phi i32 [ 0, %if.end31 ], [ %retval.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_grab_space_.exit ], [ %60, %while.end ], [ -7, %if.end.i ], [ -3, %if.end ]
+  %retval.0 = phi i32 [ 0, %if.end31 ], [ %retval.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_grab_space_.exit ], [ %65, %while.end ], [ -7, %if.end.i ], [ -3, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1531,9 +1531,9 @@ declare i64 @llvm.bswap.i64(i64) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

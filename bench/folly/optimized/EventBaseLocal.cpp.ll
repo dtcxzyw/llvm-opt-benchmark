@@ -1134,7 +1134,7 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5folly6detail18EventBaseLocalBase7getVoidERNS_9EventBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(584) %evb) local_unnamed_addr #9 align 2 {
 entry:
   %localStorage_ = getelementptr inbounds %"class.folly::EventBase", ptr %evb, i64 0, i32 34
@@ -3187,26 +3187,19 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5fo
   %i.08.i = phi i64 [ 0, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit.new ], [ %inc.i.7, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %i.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
-  %inc.i = or disjoint i64 %i.08.i, 1
-  %arrayidx.i.1 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i
+  %arrayidx.i.1 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.1, i8 0, i64 16, i1 false)
-  %inc.i.1 = or disjoint i64 %i.08.i, 2
-  %arrayidx.i.2 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.1
+  %arrayidx.i.2 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.2, i8 0, i64 16, i1 false)
-  %inc.i.2 = or disjoint i64 %i.08.i, 3
-  %arrayidx.i.3 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.2
+  %arrayidx.i.3 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.3, i8 0, i64 16, i1 false)
-  %inc.i.3 = or disjoint i64 %i.08.i, 4
-  %arrayidx.i.4 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.3
+  %arrayidx.i.4 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.4, i8 0, i64 16, i1 false)
-  %inc.i.4 = or disjoint i64 %i.08.i, 5
-  %arrayidx.i.5 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.4
+  %arrayidx.i.5 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.5, i8 0, i64 16, i1 false)
-  %inc.i.5 = or disjoint i64 %i.08.i, 6
-  %arrayidx.i.6 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.5
+  %arrayidx.i.6 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.6, i8 0, i64 16, i1 false)
-  %inc.i.6 = or disjoint i64 %i.08.i, 7
-  %arrayidx.i.7 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i3.i.i17.i, i64 %inc.i.6
+  %arrayidx.i.7 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %arrayidx.i, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.7, i8 0, i64 16, i1 false)
   %inc.i.7 = add nuw i64 %i.08.i, 8
   %niter269.ncmp.7 = icmp eq i64 %inc.i.7, %unroll_iter268
@@ -4387,26 +4380,19 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5fo
   %i.08.i = phi i64 [ 0, %_ZN5folly3f146detail10BasePolicyIPNS_6detail18EventBaseLocalBaseEvvvvS5_E12beforeRehashEmmmmRPh.exit.new ], [ %inc.i.7, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %i.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
-  %inc.i = or disjoint i64 %i.08.i, 1
-  %arrayidx.i.1 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i
+  %arrayidx.i.1 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.1, i8 0, i64 16, i1 false)
-  %inc.i.1 = or disjoint i64 %i.08.i, 2
-  %arrayidx.i.2 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.1
+  %arrayidx.i.2 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.2, i8 0, i64 16, i1 false)
-  %inc.i.2 = or disjoint i64 %i.08.i, 3
-  %arrayidx.i.3 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.2
+  %arrayidx.i.3 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.3, i8 0, i64 16, i1 false)
-  %inc.i.3 = or disjoint i64 %i.08.i, 4
-  %arrayidx.i.4 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.3
+  %arrayidx.i.4 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.4, i8 0, i64 16, i1 false)
-  %inc.i.4 = or disjoint i64 %i.08.i, 5
-  %arrayidx.i.5 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.4
+  %arrayidx.i.5 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.5, i8 0, i64 16, i1 false)
-  %inc.i.5 = or disjoint i64 %i.08.i, 6
-  %arrayidx.i.6 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.5
+  %arrayidx.i.6 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.6, i8 0, i64 16, i1 false)
-  %inc.i.6 = or disjoint i64 %i.08.i, 7
-  %arrayidx.i.7 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %call5.i.i3.i.i6.i, i64 %inc.i.6
+  %arrayidx.i.7 = getelementptr %"struct.folly::f14::detail::F14Chunk.121", ptr %arrayidx.i, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.7, i8 0, i64 16, i1 false)
   %inc.i.7 = add nuw i64 %i.08.i, 8
   %niter.ncmp.7 = icmp eq i64 %inc.i.7, %unroll_iter
@@ -4847,7 +4833,7 @@ attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

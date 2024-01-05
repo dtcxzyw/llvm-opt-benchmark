@@ -4582,39 +4582,40 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %add = shl i64 %__secondChild.031, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %mul
-  %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %sub1
-  %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %add.ptr2, align 8
-  %cmp.not.i.i = icmp eq ptr %0, %1
+  %0 = getelementptr %"class.llvh::SMFixIt", ptr %__first, i64 %add
+  %add.ptr2 = getelementptr %"class.llvh::SMFixIt", ptr %0, i64 1
+  %1 = load ptr, ptr %add.ptr, align 8
+  %2 = load ptr, ptr %add.ptr2, align 8
+  %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %cmp11.i.i = icmp ult ptr %0, %1
+  %cmp11.i.i = icmp ult ptr %1, %2
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.body
   %End.i.i = getelementptr inbounds %"class.llvh::SMRange", ptr %add.ptr, i64 0, i32 1
-  %2 = load ptr, ptr %End.i.i, align 8
-  %End15.i.i = getelementptr inbounds %"class.llvh::SMRange", ptr %add.ptr2, i64 0, i32 1
-  %3 = load ptr, ptr %End15.i.i, align 8
-  %cmp17.not.i.i = icmp eq ptr %2, %3
+  %3 = load ptr, ptr %End.i.i, align 8
+  %End15.i.i = getelementptr %"class.llvh::SMFixIt", ptr %0, i64 1, i32 0, i32 1
+  %4 = load ptr, ptr %End15.i.i, align 8
+  %cmp17.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp17.not.i.i, label %if.end26.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.end.i.i
-  %cmp25.i.i = icmp ult ptr %2, %3
+  %cmp25.i.i = icmp ult ptr %3, %4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit
 
 if.end26.i.i:                                     ; preds = %if.end.i.i
   %Text.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %mul, i32 1
-  %Text27.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %sub1, i32 1
+  %Text27.i.i = getelementptr %"class.llvh::SMFixIt", ptr %0, i64 1, i32 1
   %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text27.i.i) #19
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit: ; preds = %if.then.i.i, %if.then18.i.i, %if.end26.i.i
   %retval.0.i.i = phi i1 [ %cmp11.i.i, %if.then.i.i ], [ %cmp25.i.i, %if.then18.i.i ], [ %cmp.i.i.i, %if.end26.i.i ]
-  %spec.select = select i1 %retval.0.i.i, i64 %sub1, i64 %mul
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %retval.0.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__secondChild.031
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3, i64 16, i1 false)
@@ -4665,24 +4666,24 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__parent.017.in.i = add nsw i64 %__holeIndex.addr.016.i, -1
   %__parent.017.i = sdiv i64 %__parent.017.in.i, 2
   %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.017.i
-  %4 = load ptr, ptr %add.ptr.i, align 8
-  %5 = load ptr, ptr %agg.tmp19, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %5
+  %5 = load ptr, ptr %add.ptr.i, align 8
+  %6 = load ptr, ptr %agg.tmp19, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp11.i.i.i = icmp ult ptr %4, %5
+  %cmp11.i.i.i = icmp ult ptr %5, %6
   br i1 %cmp11.i.i.i, label %while.body.i, label %_ZSt11__push_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i
   %End.i.i.i = getelementptr inbounds %"class.llvh::SMRange", ptr %add.ptr.i, i64 0, i32 1
-  %6 = load ptr, ptr %End.i.i.i, align 8
-  %7 = load ptr, ptr %End15.i.i.i, align 8
-  %cmp17.not.i.i.i = icmp eq ptr %6, %7
+  %7 = load ptr, ptr %End.i.i.i, align 8
+  %8 = load ptr, ptr %End15.i.i.i, align 8
+  %cmp17.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp17.not.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end.i.i.i
-  %cmp25.i.i.i = icmp ult ptr %6, %7
+  %cmp25.i.i.i = icmp ult ptr %7, %8
   br i1 %cmp25.i.i.i, label %while.body.i, label %_ZSt11__push_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i: ; preds = %if.end.i.i.i
