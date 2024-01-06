@@ -3842,17 +3842,13 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
 store_whole_le8.exit.i:                           ; preds = %do.body1.i.i.i
   %idx.ext.i = zext nneg i32 %sub.i8 to i64
   %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %cmp5.i.not.i, label %store_atom_8.exit, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le8.exit.i
   %sh_prom6.i.i = zext nneg i32 %mul.i.i to i64
   %shr7.i.i = lshr i64 %spec.select, %sh_prom6.i.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %val_le.addr.06.i.i = phi i64 [ %shr7.i.i, %for.body.preheader.i.i ], [ %shr.i33.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %store_whole_le8.exit.i
+  %indvars.iv.i.i = phi i64 [ 0, %store_whole_le8.exit.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %val_le.addr.06.i.i = phi i64 [ %shr7.i.i, %store_whole_le8.exit.i ], [ %shr.i33.i, %for.body.i.i ]
   %conv.i32.i = trunc i64 %val_le.addr.06.i.i to i8
   %arrayidx.i.i = getelementptr i8, ptr %add.ptr.i, i64 %indvars.iv.i.i
   store i8 %conv.i32.i, ptr %arrayidx.i.i, align 1
@@ -3941,7 +3937,7 @@ do.body23.i:                                      ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #17
   unreachable
 
-store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %store_whole_le8.exit.i
+store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void
@@ -4246,18 +4242,14 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
 store_whole_le16.exit.i:                          ; preds = %do.body.i.i.i
   %idx.ext.i = zext nneg i32 %sub.i11 to i64
   %add.ptr18.i = getelementptr i8, ptr %1, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv14.i, 0
-  br i1 %cmp5.i.not.i, label %store_atom_16.exit, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le16.exit.i
   %sub25.i.i = add nsw i32 %mul.i.i, -64
   %sh_prom26.i.i = zext nneg i32 %sub25.i.i to i64
   %shr27.i.i = ashr i64 %val.addr.0.off64, %sh_prom26.i.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %val_le.addr.06.i.i = phi i64 [ %shr27.i.i, %for.body.preheader.i.i ], [ %shr.i56.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %store_whole_le16.exit.i
+  %indvars.iv.i.i = phi i64 [ 0, %store_whole_le16.exit.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %val_le.addr.06.i.i = phi i64 [ %shr27.i.i, %store_whole_le16.exit.i ], [ %shr.i56.i, %for.body.i.i ]
   %conv.i55.i = trunc i64 %val_le.addr.06.i.i to i8
   %arrayidx.i.i = getelementptr i8, ptr %add.ptr18.i, i64 %indvars.iv.i.i
   store i8 %conv.i55.i, ptr %arrayidx.i.i, align 1
@@ -4286,47 +4278,40 @@ store_bytes_leN.exit68.i:                         ; preds = %for.body.i59.i
   %sh_prom.i69.i = zext nneg i32 %mul.i to i128
   %shr.i70.i = lshr i128 %val.sroa.0.0.insert.insert.i, %sh_prom.i69.i
   %add.ptr28.i = getelementptr i8, ptr %1, i64 %wide.trip.count.i58.i
-  %mul.i71.i = shl nuw nsw i32 %conv14.i, 3
+  %mul.i71.i = shl nuw nsw i64 %and.i10, 3
   %26 = ptrtoint ptr %add.ptr28.i to i64
   %27 = trunc i64 %26 to i32
   %conv.i72.i = shl i32 %27, 3
   %mul2.i73.i = and i32 %conv.i72.i, 120
-  %cmp.i74.i = icmp ult i32 %conv14.i, 9
-  %sub.i75.i = sub nsw i32 64, %mul.i71.i
-  %sh_prom.i76.i = zext nneg i32 %sub.i75.i to i64
-  %shr.i77.i = lshr i64 -1, %sh_prom.i76.i
-  %sub5.i78.i = sub nuw nsw i32 128, %mul.i71.i
-  %sh_prom6.i79.i = zext nneg i32 %sub5.i78.i to i64
-  %shr7.i80.i = lshr i64 -1, %sh_prom6.i79.i
-  %28 = zext i64 %shr.i77.i to i128
-  %29 = zext nneg i64 %shr7.i80.i to i128
+  %sub5.i78.i = sub nuw nsw i64 128, %mul.i71.i
+  %shr7.i80.i = lshr i64 -1, %sub5.i78.i
+  %28 = zext nneg i64 %shr7.i80.i to i128
   %sh_prom.i.i85.i = zext nneg i32 %mul2.i73.i to i128
   %shl.i.i86.i = shl i128 %shr.i70.i, %sh_prom.i.i85.i
-  %30 = shl nuw nsw i128 %29, 64
-  %31 = or disjoint i128 %30, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i20.i87.i = select i1 %cmp.i74.i, i128 %28, i128 %31
-  %shl.i22.i88.i = shl i128 %a.sroa.0.0.insert.insert.i20.i87.i, %sh_prom.i.i85.i
+  %29 = shl nuw nsw i128 %28, 64
+  %30 = or disjoint i128 %29, 18446744073709551615
+  %shl.i22.i88.i = shl i128 %30, %sh_prom.i.i85.i
   %retval.sroa.0.0.extract.trunc.i23.i89.i = trunc i128 %shl.i22.i88.i to i64
   %retval.sroa.2.0.extract.shift.i24.i90.i = and i128 %shl.i22.i88.i, -18446744073709551616
   %idx.ext.i91.i = and i64 %26, 15
   %idx.neg.i92.i = sub nsw i64 0, %idx.ext.i91.i
   %add.ptr.i93.i = getelementptr i8, ptr %add.ptr28.i, i64 %idx.neg.i92.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i93.i, i64 16) ]
-  %32 = load i128, ptr %add.ptr.i93.i, align 16
+  %31 = load i128, ptr %add.ptr.i93.i, align 16
   %not.i.i.i94.i = xor i64 %retval.sroa.0.0.extract.trunc.i23.i89.i, -1
   %b.sroa.0.0.insert.ext.i.i.i95.i = zext i64 %not.i.i.i94.i to i128
-  %33 = or disjoint i128 %retval.sroa.2.0.extract.shift.i24.i90.i, %b.sroa.0.0.insert.ext.i.i.i95.i
-  %b.sroa.0.0.insert.insert.i.i.i96.i = xor i128 %33, -18446744073709551616
+  %32 = or disjoint i128 %retval.sroa.2.0.extract.shift.i24.i90.i, %b.sroa.0.0.insert.ext.i.i.i95.i
+  %b.sroa.0.0.insert.insert.i.i.i96.i = xor i128 %32, -18446744073709551616
   br label %do.body.i.i97.i
 
 do.body.i.i97.i:                                  ; preds = %do.body.i.i97.i, %store_bytes_leN.exit68.i
-  %old.sroa.0.0.i.i98.i = phi i128 [ %32, %store_bytes_leN.exit68.i ], [ %36, %do.body.i.i97.i ]
+  %old.sroa.0.0.i.i98.i = phi i128 [ %31, %store_bytes_leN.exit68.i ], [ %35, %do.body.i.i97.i ]
   %and.i.i.i99.i = and i128 %old.sroa.0.0.i.i98.i, %b.sroa.0.0.insert.insert.i.i.i96.i
   %or.i.i.i100.i = or i128 %and.i.i.i99.i, %shl.i.i86.i
-  %34 = cmpxchg weak ptr %add.ptr.i93.i, i128 %old.sroa.0.0.i.i98.i, i128 %or.i.i.i100.i monotonic monotonic, align 16
-  %35 = extractvalue { i128, i1 } %34, 1
-  %36 = extractvalue { i128, i1 } %34, 0
-  br i1 %35, label %store_atom_16.exit, label %do.body.i.i97.i, !llvm.loop !18
+  %33 = cmpxchg weak ptr %add.ptr.i93.i, i128 %old.sroa.0.0.i.i98.i, i128 %or.i.i.i100.i monotonic monotonic, align 16
+  %34 = extractvalue { i128, i1 } %33, 1
+  %35 = extractvalue { i128, i1 } %33, 0
+  br i1 %34, label %store_atom_16.exit, label %do.body.i.i97.i, !llvm.loop !18
 
 do.body.i:                                        ; preds = %sw.bb12.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1100, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #17
@@ -4340,7 +4325,7 @@ sw.epilog36.i:                                    ; preds = %required_atomicity.
   tail call void @cpu_loop_exit_atomic(ptr noundef nonnull %cpu, i64 noundef %ra) #17
   unreachable
 
-store_atom_16.exit:                               ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i, %store_whole_le16.exit.i
+store_atom_16.exit:                               ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void

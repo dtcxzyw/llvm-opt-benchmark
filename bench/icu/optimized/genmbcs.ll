@@ -446,8 +446,7 @@ if.then54:                                        ; preds = %sw.bb46
 
 lor.lhs.false7.i:                                 ; preds = %sw.bb46
   %cmp11.i = icmp sgt i8 %28, 1
-  %or.cond1.i = and i1 %cmp31, %cmp11.i
-  br i1 %or.cond1.i, label %land.lhs.true12.i, label %if.end.i98
+  br i1 %cmp11.i, label %land.lhs.true12.i, label %if.end.i98
 
 land.lhs.true12.i:                                ; preds = %lor.lhs.false7.i
   %29 = load i8, ptr %b, align 1
@@ -456,9 +455,8 @@ land.lhs.true12.i:                                ; preds = %lor.lhs.false7.i
 
 if.end.i98:                                       ; preds = %land.lhs.true12.i, %lor.lhs.false7.i
   %30 = load i8, ptr %utf8Friendly7, align 2
-  %tobool.i = icmp ne i8 %30, 0
-  %or.cond2.i = and i1 %cmp31, %tobool.i
-  br i1 %or.cond2.i, label %land.lhs.true19.i, label %MBCSOkForBaseFromUnicode.exit
+  %tobool.i.not = icmp eq i8 %30, 0
+  br i1 %tobool.i.not, label %MBCSOkForBaseFromUnicode.exit, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %if.end.i98
   %31 = load i16, ptr %utf8Max33, align 8

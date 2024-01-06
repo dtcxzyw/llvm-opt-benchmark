@@ -26652,7 +26652,7 @@ if.then54:                                        ; preds = %if.then48
 
 if.end58:                                         ; preds = %if.end25.thread, %land.lhs.true43, %if.then30, %if.end25, %if.end39, %if.then48, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit
   %retval.sroa.0.0.copyload.i42593 = phi ptr [ %retval.sroa.0.0.copyload.i42, %if.then48 ], [ %retval.sroa.0.0.copyload.i42, %if.end39 ], [ %retval.sroa.0.0.copyload.i42, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit ], [ %retval.sroa.0.0.copyload.i42, %if.end25 ], [ %retval.sroa.0.0.copyload.i42, %if.then30 ], [ %retval.sroa.0.0.copyload.i42, %land.lhs.true43 ], [ %retval.sroa.0.0.copyload.i42585, %if.end25.thread ]
-  %forceAsync.1.shrunk = phi i1 [ %cmp37, %if.then48 ], [ %cmp37, %if.end39 ], [ false, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit ], [ false, %if.end25 ], [ false, %if.then30 ], [ %cmp37, %land.lhs.true43 ], [ false, %if.end25.thread ]
+  %forceAsync.1.shrunk = phi i1 [ false, %if.then48 ], [ %cmp37, %if.end39 ], [ false, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit ], [ false, %if.end25 ], [ false, %if.then30 ], [ %cmp37, %land.lhs.true43 ], [ false, %if.end25.thread ]
   %25 = load ptr, ptr %0, align 8
   %parseFlow_.i54 = getelementptr inbounds %"class.hermes::Context", ptr %25, i64 0, i32 17
   %26 = load i32, ptr %parseFlow_.i54, align 4
