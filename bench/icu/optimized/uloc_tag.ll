@@ -645,7 +645,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isLanguageSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isLanguageSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -687,7 +687,7 @@ return:                                           ; preds = %for.body.i, %for.co
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isScriptSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isScriptSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -721,7 +721,7 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isRegionSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isRegionSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -765,12 +765,12 @@ for.body.i7:                                      ; preds = %if.end, %for.cond.i
   br i1 %or.cond.i, label %for.cond.i11, label %return
 
 return:                                           ; preds = %for.body.i7, %for.cond.i11, %for.cond.i, %for.body.i, %if.end
-  %retval.0 = phi i8 [ 0, %if.end ], [ 0, %for.body.i ], [ 1, %for.cond.i ], [ 0, %for.body.i7 ], [ 1, %for.cond.i11 ]
+  %retval.0 = phi i8 [ 0, %if.end ], [ 1, %for.cond.i ], [ 0, %for.body.i ], [ 0, %for.body.i7 ], [ 1, %for.cond.i11 ]
   ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isVariantSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isVariantSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -973,7 +973,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end3.i11, %land.
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isExtensionSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isExtensionSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1111,7 +1111,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isPrivateuseValueSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isPrivateuseValueSubtags_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1249,7 +1249,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isUnicodeLocaleAttribute_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isUnicodeLocaleAttribute_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1294,7 +1294,7 @@ _ZL34_isAlphaNumericStringLimitedLengthPKciii.exit: ; preds = %land.lhs.true.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isUnicodeLocaleAttributes_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isUnicodeLocaleAttributes_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1432,7 +1432,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isUnicodeLocaleKey_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isUnicodeLocaleKey_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1477,7 +1477,7 @@ return:                                           ; preds = %land.lhs.true8, %if
 declare signext i8 @uprv_isASCIILetter_75(i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @_isUnicodeLocaleTypeSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @_isUnicodeLocaleTypeSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1522,7 +1522,7 @@ _ZL34_isAlphaNumericStringLimitedLengthPKciii.exit: ; preds = %land.lhs.true.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ultag_isUnicodeLocaleType_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
+define noundef signext i8 @ultag_isUnicodeLocaleType_75(ptr noundef %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1660,7 +1660,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ultag_getTKeyStart_75(ptr noundef %localeID) local_unnamed_addr #1 {
+define noundef ptr @ultag_getTKeyStart_75(ptr noundef %localeID) local_unnamed_addr #1 {
 entry:
   %call27 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %localeID, i32 noundef 45) #16
   %cmp.not28 = icmp eq ptr %call27, null

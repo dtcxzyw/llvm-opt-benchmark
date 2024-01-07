@@ -772,7 +772,7 @@ if.end187:                                        ; preds = %if.then175
 
 for.cond.i.i492:                                  ; preds = %for.body.i.i487
   %inc.i.i493 = add nuw i64 %i.025.i.i488, 1
-  %exitcond.i.i494 = icmp eq i64 %inc.i.i493, 7
+  %exitcond.i.i494 = icmp eq i64 %inc.i.i493, %34
   br i1 %exitcond.i.i494, label %if.then192, label %for.body.i.i487, !llvm.loop !53
 
 for.body.i.i487:                                  ; preds = %if.end152, %for.cond.i.i492

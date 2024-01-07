@@ -1381,8 +1381,8 @@ if.then30:                                        ; preds = %tok_backup.exit, %t
   %cmp27 = icmp eq i8 %11, 10
   %cmp31 = icmp eq i32 %col.0, 0
   %or.cond2 = and i1 %cmp31, %cmp27
-  %.pre2353 = load ptr, ptr %prompt, align 8
-  %cmp34.not = icmp eq ptr %.pre2353, null
+  %.pre2354 = load ptr, ptr %prompt, align 8
+  %cmp34.not = icmp eq ptr %.pre2354, null
   br i1 %or.cond2, label %land.lhs.true33, label %if.else36
 
 land.lhs.true33:                                  ; preds = %if.then30
@@ -1489,14 +1489,14 @@ while.body:                                       ; preds = %land.rhs
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
   %.lcssa1857.ph = phi i32 [ %24, %land.rhs ], [ 0, %while.body ]
-  %.pre2354 = zext nneg i32 %.lcssa1857.ph to i64
-  %arrayidx116.phi.trans.insert = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %.pre2354
-  %.pre2355 = load i32, ptr %arrayidx116.phi.trans.insert, align 4
+  %.pre2355 = zext nneg i32 %.lcssa1857.ph to i64
+  %arrayidx116.phi.trans.insert = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %.pre2355
+  %.pre2356 = load i32, ptr %arrayidx116.phi.trans.insert, align 4
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.condthread-pre-split
-  %27 = phi i32 [ %.pre2355, %while.end.loopexit ], [ %19, %while.condthread-pre-split ]
-  %idxprom115.pre-phi = phi i64 [ %.pre2354, %while.end.loopexit ], [ %idxprom, %while.condthread-pre-split ]
+  %27 = phi i32 [ %.pre2356, %while.end.loopexit ], [ %19, %while.condthread-pre-split ]
+  %idxprom115.pre-phi = phi i64 [ %.pre2355, %while.end.loopexit ], [ %idxprom, %while.condthread-pre-split ]
   %cmp117.not = icmp eq i32 %cond54, %27
   br i1 %cmp117.not, label %if.end123, label %if.then118
 
@@ -1648,13 +1648,13 @@ again:                                            ; preds = %again.preheader, %i
   br label %for.cond.i949.outer
 
 for.cond.i949.outer:                              ; preds = %again, %if.end16.i965
-  %.pre31.i9482357.ph = phi ptr [ %.pre31.i948.pre, %again ], [ %52, %if.end16.i965 ]
-  %.ph3148 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
+  %.pre31.i9482358.ph = phi ptr [ %.pre31.i948.pre, %again ], [ %52, %if.end16.i965 ]
+  %.ph3147 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
   br label %for.cond.i949
 
 for.cond.i949:                                    ; preds = %for.cond.i949.backedge, %for.cond.i949.outer
-  %46 = phi ptr [ %.ph3148, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
-  %cmp.not.i950 = icmp eq ptr %46, %.pre31.i9482357.ph
+  %46 = phi ptr [ %.ph3147, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
+  %cmp.not.i950 = icmp eq ptr %46, %.pre31.i9482358.ph
   br i1 %cmp.not.i950, label %if.end7.i960, label %if.then.i951
 
 if.then.i951:                                     ; preds = %for.cond.i949
@@ -1719,8 +1719,8 @@ do.end.loopexit1725:                              ; preds = %tok_nextc.exit974
   br label %do.end
 
 do.end:                                           ; preds = %if.end7.i960, %do.end.loopexit1725, %if.then13.i973, %if.then23.i971, %if.then2.i959
-  %.pre31.i11292362 = phi ptr [ %.pre31.i9482357.ph, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %.pre31.i9482357.ph, %do.end.loopexit1725 ], [ %.pre31.i9482357.ph, %if.end7.i960 ]
-  %55 = phi ptr [ %46, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %incdec.ptr.i956, %do.end.loopexit1725 ], [ %.pre31.i9482357.ph, %if.end7.i960 ]
+  %.pre31.i11292363 = phi ptr [ %.pre31.i9482358.ph, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %.pre31.i9482358.ph, %do.end.loopexit1725 ], [ %.pre31.i9482358.ph, %if.end7.i960 ]
+  %55 = phi ptr [ %46, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %incdec.ptr.i956, %do.end.loopexit1725 ], [ %.pre31.i9482358.ph, %if.end7.i960 ]
   %retval.0.i9581672 = phi i32 [ -1, %if.then2.i959 ], [ -1, %if.then23.i971 ], [ -1, %if.then13.i973 ], [ %conv6.i957.le, %do.end.loopexit1725 ], [ -1, %if.end7.i960 ]
   %cmp172 = icmp eq ptr %55, null
   %add.ptr = getelementptr i8, ptr %55, i64 -1
@@ -1733,7 +1733,7 @@ do.end:                                           ; preds = %if.end7.i960, %do.e
   br i1 %cmp181, label %while.cond183, label %if.end292
 
 while.cond183:                                    ; preds = %do.end, %while.cond183.backedge
-  %.pre31.i981 = phi ptr [ %.pre31.i981.be, %while.cond183.backedge ], [ %.pre31.i11292362, %do.end ]
+  %.pre31.i981 = phi ptr [ %.pre31.i981.be, %while.cond183.backedge ], [ %.pre31.i11292363, %do.end ]
   %.pre.i980 = phi ptr [ %.pre.i980.be, %while.cond183.backedge ], [ %55, %do.end ]
   %c.0 = phi i32 [ %c.0.be, %while.cond183.backedge ], [ 35, %do.end ]
   switch i32 %c.0, label %for.cond.i982 [
@@ -1743,9 +1743,9 @@ while.cond183:                                    ; preds = %do.end, %while.cond
   ]
 
 for.cond.i982:                                    ; preds = %while.cond183, %if.end16.i998
-  %.pre31.i9812446 = phi ptr [ %63, %if.end16.i998 ], [ %.pre31.i981, %while.cond183 ]
-  %.pre.i9802443 = phi ptr [ %62, %if.end16.i998 ], [ %.pre.i980, %while.cond183 ]
-  %cmp.not.i983 = icmp eq ptr %.pre.i9802443, %.pre31.i9812446
+  %.pre31.i9812442 = phi ptr [ %63, %if.end16.i998 ], [ %.pre31.i981, %while.cond183 ]
+  %.pre.i9802439 = phi ptr [ %62, %if.end16.i998 ], [ %.pre.i980, %while.cond183 ]
+  %cmp.not.i983 = icmp eq ptr %.pre.i9802439, %.pre31.i9812442
   br i1 %cmp.not.i983, label %if.end7.i993, label %if.then.i984
 
 if.then.i984:                                     ; preds = %for.cond.i982
@@ -1758,17 +1758,17 @@ if.then2.i992:                                    ; preds = %if.then.i984
   br label %while.cond183.backedge
 
 while.cond183.backedge:                           ; preds = %if.end7.i993, %if.then2.i992, %if.end.i987, %if.then13.i1006, %if.then23.i1004
-  %.pre31.i981.be = phi ptr [ %.pre31.i9812446, %if.then2.i992 ], [ %.pre31.i9812446, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812446, %if.end7.i993 ]
-  %.pre.i980.be = phi ptr [ %.pre.i9802443, %if.then2.i992 ], [ %incdec.ptr.i989, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812446, %if.end7.i993 ]
+  %.pre31.i981.be = phi ptr [ %.pre31.i9812442, %if.then2.i992 ], [ %.pre31.i9812442, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812442, %if.end7.i993 ]
+  %.pre.i980.be = phi ptr [ %.pre.i9802439, %if.then2.i992 ], [ %incdec.ptr.i989, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812442, %if.end7.i993 ]
   %c.0.be = phi i32 [ -1, %if.then2.i992 ], [ %conv6.i990, %if.end.i987 ], [ -1, %if.then23.i1004 ], [ -1, %if.then13.i1006 ], [ -1, %if.end7.i993 ]
   br label %while.cond183, !llvm.loop !12
 
 if.end.i987:                                      ; preds = %if.then.i984
   %inc.i988 = add nuw nsw i32 %57, 1
   store i32 %inc.i988, ptr %col_offset.i, align 4
-  %incdec.ptr.i989 = getelementptr i8, ptr %.pre.i9802443, i64 1
+  %incdec.ptr.i989 = getelementptr i8, ptr %.pre.i9802439, i64 1
   store ptr %incdec.ptr.i989, ptr %cur.i, align 8
-  %58 = load i8, ptr %.pre.i9802443, align 1
+  %58 = load i8, ptr %.pre.i9802439, align 1
   %conv6.i990 = zext i8 %58 to i32
   br label %while.cond183.backedge
 
@@ -1990,7 +1990,7 @@ tok_backup.exit1033:                              ; preds = %if.then288, %if.end
   br label %return
 
 if.end292:                                        ; preds = %if.end285, %do.end
-  %.pre31.i1129 = phi ptr [ %.pre31.i981, %if.end285 ], [ %.pre31.i11292362, %do.end ]
+  %.pre31.i1129 = phi ptr [ %.pre31.i981, %if.end285 ], [ %.pre31.i11292363, %do.end ]
   %.pre.i1128 = phi ptr [ %.pre.i980, %if.end285 ], [ %55, %do.end ]
   %c.1 = phi i32 [ %c.0, %if.end285 ], [ %retval.0.i9581672, %do.end ]
   %88 = load i32, ptr %done8.i, align 8
@@ -2038,9 +2038,9 @@ while.body332.preheader:                          ; preds = %lor.lhs.false318, %
   br label %while.body332
 
 while.body332:                                    ; preds = %while.body332.preheader, %tok_nextc.exit1066
-  %.pre.i13262396 = phi ptr [ %.pre.i13262394, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
-  %.pre31.i1040 = phi ptr [ %.pre31.i10402391, %tok_nextc.exit1066 ], [ %.pre31.i1129, %while.body332.preheader ]
-  %.pre.i1039 = phi ptr [ %.pre.i10392388, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
+  %.pre.i13262397 = phi ptr [ %.pre.i13262395, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
+  %.pre31.i1040 = phi ptr [ %.pre31.i10402392, %tok_nextc.exit1066 ], [ %.pre31.i1129, %while.body332.preheader ]
+  %.pre.i1039 = phi ptr [ %.pre.i10392389, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
   %saw_f.0 = phi i32 [ %saw_f.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %saw_u.0 = phi i32 [ %saw_u.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %saw_r.0 = phi i32 [ %saw_r.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
@@ -2085,10 +2085,10 @@ if.end388:                                        ; preds = %if.else371, %if.els
   br label %for.cond.i1041
 
 for.cond.i1041:                                   ; preds = %if.end16.i1057, %if.end388
-  %.pre.i13262395 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i13262396, %if.end388 ]
-  %.pre31.i10402389 = phi ptr [ %102, %if.end16.i1057 ], [ %.pre31.i1040, %if.end388 ]
-  %.pre.i10392386 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i1039, %if.end388 ]
-  %cmp.not.i1042 = icmp eq ptr %.pre.i10392386, %.pre31.i10402389
+  %.pre.i13262396 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i13262397, %if.end388 ]
+  %.pre31.i10402390 = phi ptr [ %102, %if.end16.i1057 ], [ %.pre31.i1040, %if.end388 ]
+  %.pre.i10392387 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i1039, %if.end388 ]
+  %cmp.not.i1042 = icmp eq ptr %.pre.i10392387, %.pre31.i10402390
   br i1 %cmp.not.i1042, label %if.end7.i1052, label %if.then.i1043
 
 if.then.i1043:                                    ; preds = %for.cond.i1041
@@ -2103,9 +2103,9 @@ if.then2.i1051:                                   ; preds = %if.then.i1043
 if.end.i1046:                                     ; preds = %if.then.i1043
   %inc.i1047 = add nuw nsw i32 %96, 1
   store i32 %inc.i1047, ptr %col_offset.i, align 4
-  %incdec.ptr.i1048 = getelementptr i8, ptr %.pre.i10392386, i64 1
+  %incdec.ptr.i1048 = getelementptr i8, ptr %.pre.i10392387, i64 1
   store ptr %incdec.ptr.i1048, ptr %cur.i, align 8
-  %97 = load i8, ptr %.pre.i10392386, align 1
+  %97 = load i8, ptr %.pre.i10392387, align 1
   %conv6.i1049 = zext i8 %97 to i32
   br label %tok_nextc.exit1066
 
@@ -2143,9 +2143,9 @@ if.then23.i1063:                                  ; preds = %if.end16.i1057
   br label %tok_nextc.exit1066
 
 tok_nextc.exit1066:                               ; preds = %if.end7.i1052, %if.then2.i1051, %if.end.i1046, %if.then13.i1065, %if.then23.i1063
-  %.pre.i13262394 = phi ptr [ %.pre.i13262395, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre.i13262395, %if.end7.i1052 ]
-  %.pre31.i10402391 = phi ptr [ %.pre31.i10402389, %if.then2.i1051 ], [ %.pre31.i10402389, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402389, %if.end7.i1052 ]
-  %.pre.i10392388 = phi ptr [ %.pre.i10392386, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402389, %if.end7.i1052 ]
+  %.pre.i13262395 = phi ptr [ %.pre.i13262396, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre.i13262396, %if.end7.i1052 ]
+  %.pre31.i10402392 = phi ptr [ %.pre31.i10402390, %if.then2.i1051 ], [ %.pre31.i10402390, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402390, %if.end7.i1052 ]
+  %.pre.i10392389 = phi ptr [ %.pre.i10392387, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402390, %if.end7.i1052 ]
   %retval.0.i1050 = phi i32 [ -1, %if.then2.i1051 ], [ %conv6.i1049, %if.end.i1046 ], [ -1, %if.then23.i1063 ], [ -1, %if.then13.i1065 ], [ -1, %if.end7.i1052 ]
   switch i32 %retval.0.i1050, label %while.body332 [
     i32 39, label %if.then395
@@ -2181,9 +2181,9 @@ while.body426:                                    ; preds = %while.cond401, %lor
   br label %for.cond.i1074
 
 for.cond.i1074:                                   ; preds = %if.end16.i1090, %while.body426
-  %.pre31.i10732382 = phi ptr [ %113, %if.end16.i1090 ], [ %.pre31.i1073, %while.body426 ]
-  %.pre.i10722379 = phi ptr [ %112, %if.end16.i1090 ], [ %.pre.i1072, %while.body426 ]
-  %cmp.not.i1075 = icmp eq ptr %.pre.i10722379, %.pre31.i10732382
+  %.pre31.i10732383 = phi ptr [ %113, %if.end16.i1090 ], [ %.pre31.i1073, %while.body426 ]
+  %.pre.i10722380 = phi ptr [ %112, %if.end16.i1090 ], [ %.pre.i1072, %while.body426 ]
+  %cmp.not.i1075 = icmp eq ptr %.pre.i10722380, %.pre31.i10732383
   br i1 %cmp.not.i1075, label %if.end7.i1085, label %if.then.i1076
 
 if.then.i1076:                                    ; preds = %for.cond.i1074
@@ -2196,17 +2196,17 @@ if.then2.i1084:                                   ; preds = %if.then.i1076
   br label %while.cond401.backedge
 
 while.cond401.backedge:                           ; preds = %if.end7.i1085, %if.then2.i1084, %if.end.i1079, %if.then13.i1098, %if.then23.i1096
-  %.pre31.i1073.be = phi ptr [ %.pre31.i10732382, %if.then2.i1084 ], [ %.pre31.i10732382, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732382, %if.end7.i1085 ]
-  %.pre.i1072.be = phi ptr [ %.pre.i10722379, %if.then2.i1084 ], [ %incdec.ptr.i1081, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732382, %if.end7.i1085 ]
+  %.pre31.i1073.be = phi ptr [ %.pre31.i10732383, %if.then2.i1084 ], [ %.pre31.i10732383, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732383, %if.end7.i1085 ]
+  %.pre.i1072.be = phi ptr [ %.pre.i10722380, %if.then2.i1084 ], [ %incdec.ptr.i1081, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732383, %if.end7.i1085 ]
   %c.3.be = phi i32 [ -1, %if.then2.i1084 ], [ %conv6.i1082, %if.end.i1079 ], [ -1, %if.then23.i1096 ], [ -1, %if.then13.i1098 ], [ -1, %if.end7.i1085 ]
   br label %while.cond401, !llvm.loop !15
 
 if.end.i1079:                                     ; preds = %if.then.i1076
   %inc.i1080 = add nuw nsw i32 %107, 1
   store i32 %inc.i1080, ptr %col_offset.i, align 4
-  %incdec.ptr.i1081 = getelementptr i8, ptr %.pre.i10722379, i64 1
+  %incdec.ptr.i1081 = getelementptr i8, ptr %.pre.i10722380, i64 1
   store ptr %incdec.ptr.i1081, ptr %cur.i, align 8
-  %108 = load i8, ptr %.pre.i10722379, align 1
+  %108 = load i8, ptr %.pre.i10722380, align 1
   %conv6.i1082 = zext i8 %108 to i32
   br label %while.cond401.backedge
 
@@ -2602,7 +2602,7 @@ if.then23.i1152:                                  ; preds = %if.end16.i1146
   br label %if.end518.thread
 
 if.end448:                                        ; preds = %if.end.i1135, %if.end443
-  %.pre31.i13272399 = phi ptr [ %.pre31.i1129, %if.end443 ], [ %149, %if.end.i1135 ]
+  %.pre31.i13272400 = phi ptr [ %.pre31.i1129, %if.end443 ], [ %149, %if.end.i1135 ]
   %159 = phi ptr [ %.pre.i1128, %if.end443 ], [ %incdec.ptr.i1137, %if.end.i1135 ]
   %c.4 = phi i32 [ %c.1, %if.end443 ], [ %conv6.i1138, %if.end.i1135 ]
   switch i32 %c.4, label %if.end518 [
@@ -2646,22 +2646,22 @@ if.end471:                                        ; preds = %lor.lhs.false454
   br i1 %tobool473.not, label %if.end471.if.end482_crit_edge, label %land.lhs.true474
 
 if.end471.if.end482_crit_edge:                    ; preds = %if.end471
-  %.pre2364 = load ptr, ptr %start, align 8
+  %.pre2365 = load ptr, ptr %start, align 8
   br label %if.end482
 
 land.lhs.true474:                                 ; preds = %if.end471
   %165 = load i32, ptr %tok_extra_tokens193, align 4
   %tobool476.not = icmp eq i32 %165, 0
-  %.pre2365 = load ptr, ptr %start, align 8
+  %.pre2366 = load ptr, ptr %start, align 8
   br i1 %tobool476.not, label %if.end482, label %if.then477
 
 if.then477:                                       ; preds = %land.lhs.true474
   store i32 0, ptr %comment_newline472, align 8
-  %call481 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 63, ptr noundef %.pre2365, ptr noundef %159) #8
+  %call481 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 63, ptr noundef %.pre2366, ptr noundef %159) #8
   br label %return
 
 if.end482:                                        ; preds = %if.end471.if.end482_crit_edge, %land.lhs.true474
-  %166 = phi ptr [ %.pre2364, %if.end471.if.end482_crit_edge ], [ %.pre2365, %land.lhs.true474 ]
+  %166 = phi ptr [ %.pre2365, %if.end471.if.end482_crit_edge ], [ %.pre2366, %land.lhs.true474 ]
   %add.ptr485 = getelementptr i8, ptr %159, i64 -1
   store i32 0, ptr %cont_line1100, align 8
   %call486 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 4, ptr noundef %166, ptr noundef %add.ptr485) #8
@@ -2714,8 +2714,8 @@ if.end518:                                        ; preds = %if.end448
   br i1 %tobool524.not, label %f_string_quote, label %if.then525
 
 if.end518.thread:                                 ; preds = %if.end7.i1141, %if.then13.i1154, %if.then23.i1152, %if.then2.i1140
-  %.pre31.i13272398 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %149, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
-  %.pre.i13262393 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %150, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
+  %.pre31.i13272399 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %149, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
+  %.pre.i13262394 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %150, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
   br i1 %tobool524.not1681, label %f_string_quote, label %if.else782
 
 if.then525:                                       ; preds = %if.end518
@@ -2824,9 +2824,9 @@ if.then549:                                       ; preds = %if.end542
   br label %return
 
 for.cond.i1196:                                   ; preds = %for.cond.i1196.backedge, %do.body553.preheader
-  %.pre31.i11952376 = phi ptr [ %.pre31.i1195.pre, %do.body553.preheader ], [ %.pre31.i11952376.be, %for.cond.i1196.backedge ]
-  %.pre.i11942373 = phi ptr [ %.pre.i1194.pre, %do.body553.preheader ], [ %.pre.i11942373.be, %for.cond.i1196.backedge ]
-  %cmp.not.i1197 = icmp eq ptr %.pre.i11942373, %.pre31.i11952376
+  %.pre31.i11952377 = phi ptr [ %.pre31.i1195.pre, %do.body553.preheader ], [ %.pre31.i11952377.be, %for.cond.i1196.backedge ]
+  %.pre.i11942374 = phi ptr [ %.pre.i1194.pre, %do.body553.preheader ], [ %.pre.i11942374.be, %for.cond.i1196.backedge ]
+  %cmp.not.i1197 = icmp eq ptr %.pre.i11942374, %.pre31.i11952377
   br i1 %cmp.not.i1197, label %if.end7.i1207, label %if.then.i1198
 
 if.then.i1198:                                    ; preds = %for.cond.i1196
@@ -2841,9 +2841,9 @@ if.then2.i1206:                                   ; preds = %if.then.i1198
 if.end.i1201:                                     ; preds = %if.then.i1198
   %inc.i1202 = add nuw nsw i32 %188, 1
   store i32 %inc.i1202, ptr %col_offset.i, align 4
-  %incdec.ptr.i1203 = getelementptr i8, ptr %.pre.i11942373, i64 1
+  %incdec.ptr.i1203 = getelementptr i8, ptr %.pre.i11942374, i64 1
   store ptr %incdec.ptr.i1203, ptr %cur.i, align 8
-  %189 = load i8, ptr %.pre.i11942373, align 1
+  %189 = load i8, ptr %.pre.i11942374, align 1
   %conv6.i1204 = zext i8 %189 to i32
   br label %tok_nextc.exit1221
 
@@ -2875,8 +2875,8 @@ if.end16.i1212:                                   ; preds = %if.end12.i1209
   br i1 %cmp.i.not.i1217, label %for.cond.i1196.backedge, label %if.then23.i1218
 
 for.cond.i1196.backedge:                          ; preds = %if.end16.i1212, %tok_nextc.exit1221
-  %.pre31.i11952376.be = phi ptr [ %194, %if.end16.i1212 ], [ %.pre31.i11952375, %tok_nextc.exit1221 ]
-  %.pre.i11942373.be = phi ptr [ %193, %if.end16.i1212 ], [ %.pre.i11942372, %tok_nextc.exit1221 ]
+  %.pre31.i11952377.be = phi ptr [ %194, %if.end16.i1212 ], [ %.pre31.i11952376, %tok_nextc.exit1221 ]
+  %.pre.i11942374.be = phi ptr [ %193, %if.end16.i1212 ], [ %.pre.i11942373, %tok_nextc.exit1221 ]
   br label %for.cond.i1196, !llvm.loop !16
 
 if.then23.i1218:                                  ; preds = %if.end16.i1212
@@ -2886,8 +2886,8 @@ if.then23.i1218:                                  ; preds = %if.end16.i1212
   br label %tok_nextc.exit1221
 
 tok_nextc.exit1221:                               ; preds = %if.end7.i1207, %if.then2.i1206, %if.end.i1201, %if.then13.i1220, %if.then23.i1218
-  %.pre31.i11952375 = phi ptr [ %.pre31.i11952376, %if.then2.i1206 ], [ %.pre31.i11952376, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952376, %if.end7.i1207 ]
-  %.pre.i11942372 = phi ptr [ %.pre.i11942373, %if.then2.i1206 ], [ %incdec.ptr.i1203, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952376, %if.end7.i1207 ]
+  %.pre31.i11952376 = phi ptr [ %.pre31.i11952377, %if.then2.i1206 ], [ %.pre31.i11952377, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952377, %if.end7.i1207 ]
+  %.pre.i11942373 = phi ptr [ %.pre.i11942374, %if.then2.i1206 ], [ %incdec.ptr.i1203, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952377, %if.end7.i1207 ]
   %retval.0.i1205 = phi i32 [ -1, %if.then2.i1206 ], [ %conv6.i1204, %if.end.i1201 ], [ -1, %if.then23.i1218 ], [ -1, %if.then13.i1220 ], [ -1, %if.end7.i1207 ]
   %196 = and i32 %retval.0.i1205, 255
   %idxprom558 = zext nneg i32 %196 to i64
@@ -2955,8 +2955,8 @@ if.else601:                                       ; preds = %if.then591
   br label %return
 
 for.cond.i1229:                                   ; preds = %for.cond.i1229.outer, %tok_nextc.exit1254
-  %201 = phi ptr [ %incdec.ptr.i1236, %tok_nextc.exit1254 ], [ %.ph3099, %for.cond.i1229.outer ]
-  %cmp.not.i1230 = icmp eq ptr %201, %.pre31.i12282370.ph
+  %201 = phi ptr [ %incdec.ptr.i1236, %tok_nextc.exit1254 ], [ %.ph3098, %for.cond.i1229.outer ]
+  %cmp.not.i1230 = icmp eq ptr %201, %.pre31.i12282371.ph
   br i1 %cmp.not.i1230, label %if.end7.i1240, label %if.then.i1231
 
 if.then.i1231:                                    ; preds = %for.cond.i1229
@@ -2996,8 +2996,8 @@ if.end16.i1245:                                   ; preds = %if.end12.i1242
   br i1 %cmp.i.not.i1250, label %for.cond.i1229.outer, label %if.then23.i1251
 
 for.cond.i1229.outer:                             ; preds = %do.body605.preheader, %if.end16.i1245
-  %.pre31.i12282370.ph = phi ptr [ %.pre31.i1228.pre, %do.body605.preheader ], [ %207, %if.end16.i1245 ]
-  %.ph3099 = phi ptr [ %.pre.i1227.pre, %do.body605.preheader ], [ %206, %if.end16.i1245 ]
+  %.pre31.i12282371.ph = phi ptr [ %.pre31.i1228.pre, %do.body605.preheader ], [ %207, %if.end16.i1245 ]
+  %.ph3098 = phi ptr [ %.pre.i1227.pre, %do.body605.preheader ], [ %206, %if.end16.i1245 ]
   br label %for.cond.i1229
 
 if.then23.i1251:                                  ; preds = %if.end16.i1245
@@ -3090,8 +3090,8 @@ if.else664:                                       ; preds = %if.then654
   br label %return
 
 for.cond.i1262:                                   ; preds = %for.cond.i1262.outer, %tok_nextc.exit1287
-  %217 = phi ptr [ %incdec.ptr.i1269, %tok_nextc.exit1287 ], [ %.ph3107, %for.cond.i1262.outer ]
-  %cmp.not.i1263 = icmp eq ptr %217, %.pre31.i12612367.ph
+  %217 = phi ptr [ %incdec.ptr.i1269, %tok_nextc.exit1287 ], [ %.ph3106, %for.cond.i1262.outer ]
+  %cmp.not.i1263 = icmp eq ptr %217, %.pre31.i12612368.ph
   br i1 %cmp.not.i1263, label %if.end7.i1273, label %if.then.i1264
 
 if.then.i1264:                                    ; preds = %for.cond.i1262
@@ -3131,8 +3131,8 @@ if.end16.i1278:                                   ; preds = %if.end12.i1275
   br i1 %cmp.i.not.i1283, label %for.cond.i1262.outer, label %if.then23.i1284
 
 for.cond.i1262.outer:                             ; preds = %do.body668.preheader, %if.end16.i1278
-  %.pre31.i12612367.ph = phi ptr [ %.pre31.i1261.pre, %do.body668.preheader ], [ %223, %if.end16.i1278 ]
-  %.ph3107 = phi ptr [ %.pre.i1260.pre, %do.body668.preheader ], [ %222, %if.end16.i1278 ]
+  %.pre31.i12612368.ph = phi ptr [ %.pre31.i1261.pre, %do.body668.preheader ], [ %223, %if.end16.i1278 ]
+  %.ph3106 = phi ptr [ %.pre.i1260.pre, %do.body668.preheader ], [ %222, %if.end16.i1278 ]
   br label %for.cond.i1262
 
 if.then23.i1284:                                  ; preds = %if.end16.i1278
@@ -3431,7 +3431,7 @@ if.end849:                                        ; preds = %if.else832, %if.the
   br i1 %cmp851, label %if.then853, label %if.end849.if.end856_crit_edge
 
 if.end849.if.end856_crit_edge:                    ; preds = %if.end849
-  %.pre2452 = and i32 %call850, -33
+  %.pre2448 = and i32 %call850, -33
   br label %if.end856
 
 if.then853:                                       ; preds = %if.end849
@@ -3439,7 +3439,7 @@ if.then853:                                       ; preds = %if.end849
   br label %return
 
 if.end856:                                        ; preds = %if.end849.if.end856_crit_edge, %if.end807
-  %.pre-phi = phi i32 [ %.pre2452, %if.end849.if.end856_crit_edge ], [ %250, %if.end807 ]
+  %.pre-phi = phi i32 [ %.pre2448, %if.end849.if.end856_crit_edge ], [ %250, %if.end807 ]
   %c.17 = phi i32 [ %call850, %if.end849.if.end856_crit_edge ], [ %c.15, %if.end807 ]
   %or.cond35 = icmp eq i32 %.pre-phi, 74
   br i1 %or.cond35, label %imaginary, label %if.else869
@@ -3472,8 +3472,8 @@ if.end876:                                        ; preds = %imaginary, %if.else
   br label %return
 
 f_string_quote:                                   ; preds = %if.end518.thread, %if.end518, %if.then395
-  %.pre31.i1327 = phi ptr [ %.pre31.i10402391, %if.then395 ], [ %.pre31.i13272399, %if.end518 ], [ %.pre31.i13272398, %if.end518.thread ]
-  %.pre.i1326 = phi ptr [ %.pre.i13262394, %if.then395 ], [ %159, %if.end518 ], [ %.pre.i13262393, %if.end518.thread ]
+  %.pre31.i1327 = phi ptr [ %.pre31.i10402392, %if.then395 ], [ %.pre31.i13272400, %if.end518 ], [ %.pre31.i13272399, %if.end518.thread ]
+  %.pre.i1326 = phi ptr [ %.pre.i13262395, %if.then395 ], [ %159, %if.end518 ], [ %.pre.i13262394, %if.end518.thread ]
   %c.19 = phi i32 [ %retval.0.i1050, %if.then395 ], [ %c.4, %if.end518 ], [ -1, %if.end518.thread ]
   %259 = load ptr, ptr %start, align 8
   %260 = load i8, ptr %259, align 1
@@ -3630,7 +3630,7 @@ tok_nextc.exit1386:                               ; preds = %if.end7.i1372, %if.
 if.else917:                                       ; preds = %tok_nextc.exit1386
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %retval.0.i1370)
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %c.19)
-  %.pre2401 = load ptr, ptr %cur.i, align 8
+  %.pre2402 = load ptr, ptr %cur.i, align 8
   br label %if.end923
 
 if.then922:                                       ; preds = %tok_nextc.exit1353
@@ -3665,7 +3665,7 @@ if.end9.i1395:                                    ; preds = %if.end.i1392
   br label %if.end923
 
 if.end923:                                        ; preds = %if.else917, %tok_nextc.exit1386, %if.end9.i1395, %if.then922
-  %289 = phi ptr [ %.pre.i1359, %if.then922 ], [ %incdec.ptr.i1390, %if.end9.i1395 ], [ %.pre2401, %if.else917 ], [ %284, %tok_nextc.exit1386 ]
+  %289 = phi ptr [ %.pre.i1359, %if.then922 ], [ %incdec.ptr.i1390, %if.end9.i1395 ], [ %.pre2402, %if.else917 ], [ %284, %tok_nextc.exit1386 ]
   %quote_size.01697 = phi i32 [ 1, %if.then922 ], [ 1, %if.end9.i1395 ], [ 1, %if.else917 ], [ 3, %tok_nextc.exit1386 ]
   %290 = load ptr, ptr %start, align 8
   %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
@@ -3731,9 +3731,9 @@ sw.default:                                       ; preds = %if.end932
   unreachable
 
 sw.epilog:                                        ; preds = %if.end932, %if.end932, %sw.bb
-  %.sink2762 = phi i32 [ %conv953, %sw.bb ], [ 1, %if.end932 ], [ 1, %if.end932 ]
+  %.sink2759 = phi i32 [ %conv953, %sw.bb ], [ 1, %if.end932 ], [ 1, %if.end932 ]
   %f_string_raw955 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 5
-  store i32 %.sink2762, ptr %f_string_raw955, align 4
+  store i32 %.sink2759, ptr %f_string_raw955, align 4
   %curly_bracket_depth = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 1
   store i32 0, ptr %curly_bracket_depth, align 4
   %curly_bracket_expr_start_depth = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 2
@@ -3742,8 +3742,8 @@ sw.epilog:                                        ; preds = %if.end932, %if.end9
   br label %return
 
 letter_quote:                                     ; preds = %land.lhs.true900, %f_string_quote, %if.then395
-  %.pre31.i1406 = phi ptr [ %.pre31.i1327, %land.lhs.true900 ], [ %.pre31.i10402391, %if.then395 ], [ %.pre31.i1327, %f_string_quote ]
-  %.pre.i1405 = phi ptr [ %.pre.i1326, %land.lhs.true900 ], [ %.pre.i13262394, %if.then395 ], [ %.pre.i1326, %f_string_quote ]
+  %.pre31.i1406 = phi ptr [ %.pre31.i1327, %land.lhs.true900 ], [ %.pre31.i10402392, %if.then395 ], [ %.pre31.i1327, %f_string_quote ]
+  %.pre.i1405 = phi ptr [ %.pre.i1326, %land.lhs.true900 ], [ %.pre.i13262395, %if.then395 ], [ %.pre.i1326, %f_string_quote ]
   %c.20 = phi i32 [ %c.19, %land.lhs.true900 ], [ %retval.0.i1050, %if.then395 ], [ %c.19, %f_string_quote ]
   switch i32 %c.20, label %if.end1101 [
     i32 39, label %if.then963
@@ -3882,7 +3882,7 @@ if.then23.i1462:                                  ; preds = %if.end16.i1456
   br label %tok_nextc.exit1465
 
 tok_nextc.exit1465:                               ; preds = %if.end7.i1451, %if.then2.i1450, %if.end.i1445, %if.then13.i1464, %if.then23.i1462
-  %.pre31.i14852420 = phi ptr [ %311, %if.then2.i1450 ], [ %311, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
+  %.pre31.i14852419 = phi ptr [ %311, %if.then2.i1450 ], [ %311, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
   %321 = phi ptr [ %312, %if.then2.i1450 ], [ %incdec.ptr.i1447, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
   %retval.0.i1449 = phi i32 [ -1, %if.then2.i1450 ], [ %conv6.i1448, %if.end.i1445 ], [ -1, %if.then23.i1462 ], [ -1, %if.then13.i1464 ], [ -1, %if.end7.i1451 ]
   %cmp975 = icmp eq i32 %retval.0.i1449, %c.20
@@ -3892,7 +3892,7 @@ tok_nextc.exit1465:                               ; preds = %if.end7.i1451, %if.
   br label %if.end980
 
 if.end980:                                        ; preds = %tok_nextc.exit1465, %tok_nextc.exit1432
-  %.pre31.i14852419 = phi ptr [ %.pre31.i1439, %tok_nextc.exit1432 ], [ %.pre31.i14852420, %tok_nextc.exit1465 ]
+  %.pre31.i14852418 = phi ptr [ %.pre31.i1439, %tok_nextc.exit1432 ], [ %.pre31.i14852419, %tok_nextc.exit1465 ]
   %322 = phi ptr [ %.pre.i1438, %tok_nextc.exit1432 ], [ %321, %tok_nextc.exit1465 ]
   %cmp1004 = phi i1 [ true, %tok_nextc.exit1432 ], [ %not.cmp975, %tok_nextc.exit1465 ]
   %cmp1042 = phi i1 [ false, %tok_nextc.exit1432 ], [ %cmp975, %tok_nextc.exit1465 ]
@@ -3932,33 +3932,29 @@ if.end9.i1474:                                    ; preds = %if.end.i1471
   br label %if.end984
 
 if.end984:                                        ; preds = %if.end9.i1474, %if.end980
-  %.pre.i14842412 = phi ptr [ %incdec.ptr.i1469, %if.end9.i1474 ], [ %322, %if.end980 ]
+  %.pre.i14842411 = phi ptr [ %incdec.ptr.i1469, %if.end9.i1474 ], [ %322, %if.end980 ]
   %cmp986.not2142 = icmp eq i32 %end_quote_size.0, %quote_size965.0
-  br i1 %cmp986.not2142, label %while.end1086, label %while.body988.lr.ph
+  br i1 %cmp986.not2142, label %while.end1086, label %while.body988
 
-while.body988.lr.ph:                              ; preds = %if.end984
-  %cmp10751708 = icmp eq i32 %c.20, -1
-  br label %while.body988
-
-while.body988:                                    ; preds = %while.body988.lr.ph, %if.end1085
-  %327 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %364, %if.end1085 ]
-  %.pre31.i15512437 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i15512438, %if.end1085 ]
-  %.pre31.i15182427 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i15182428, %if.end1085 ]
-  %.pre.i15172421 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %.pre.i15172422, %if.end1085 ]
-  %.pre31.i1485 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i14852417, %if.end1085 ]
-  %.pre.i1484 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %.pre.i14842409, %if.end1085 ]
-  %has_escaped_quote.02144 = phi i32 [ 0, %while.body988.lr.ph ], [ %has_escaped_quote.2, %if.end1085 ]
-  %end_quote_size.12143 = phi i32 [ %end_quote_size.0, %while.body988.lr.ph ], [ %end_quote_size.2, %if.end1085 ]
+while.body988:                                    ; preds = %if.end984, %if.end1085
+  %327 = phi ptr [ %363, %if.end1085 ], [ %.pre.i14842411, %if.end984 ]
+  %.pre31.i15512434 = phi ptr [ %.pre31.i15512435, %if.end1085 ], [ %.pre31.i14852418, %if.end984 ]
+  %.pre31.i15182425 = phi ptr [ %.pre31.i15182426, %if.end1085 ], [ %.pre31.i14852418, %if.end984 ]
+  %.pre.i15172420 = phi ptr [ %.pre.i15172421, %if.end1085 ], [ %.pre.i14842411, %if.end984 ]
+  %.pre31.i1485 = phi ptr [ %.pre31.i14852413, %if.end1085 ], [ %.pre31.i14852418, %if.end984 ]
+  %.pre.i1484 = phi ptr [ %.pre.i14842407, %if.end1085 ], [ %.pre.i14842411, %if.end984 ]
+  %has_escaped_quote.02144 = phi i32 [ %has_escaped_quote.2, %if.end1085 ], [ 0, %if.end984 ]
+  %end_quote_size.12143 = phi i32 [ %end_quote_size.2, %if.end1085 ], [ %end_quote_size.0, %if.end984 ]
   br label %for.cond.i1486
 
 for.cond.i1486:                                   ; preds = %if.end16.i1502, %while.body988
   %328 = phi ptr [ %334, %if.end16.i1502 ], [ %327, %while.body988 ]
-  %.pre31.i15512436 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15512437, %while.body988 ]
-  %.pre31.i15182433 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15182427, %while.body988 ]
-  %.pre.i15172426 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i15172421, %while.body988 ]
-  %.pre31.i14852415 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i1485, %while.body988 ]
-  %.pre.i14842407 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i1484, %while.body988 ]
-  %cmp.not.i1487 = icmp eq ptr %.pre.i14842407, %.pre31.i14852415
+  %.pre31.i15512433 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15512434, %while.body988 ]
+  %.pre31.i15182430 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15182425, %while.body988 ]
+  %.pre.i15172424 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i15172420, %while.body988 ]
+  %.pre31.i14852416 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i1485, %while.body988 ]
+  %.pre.i14842409 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i1484, %while.body988 ]
+  %cmp.not.i1487 = icmp eq ptr %.pre.i14842409, %.pre31.i14852416
   br i1 %cmp.not.i1487, label %if.end7.i1497, label %if.then.i1488
 
 if.then.i1488:                                    ; preds = %for.cond.i1486
@@ -3973,9 +3969,9 @@ if.end1000.thread:                                ; preds = %if.then.i1488
 if.end.i1491:                                     ; preds = %if.then.i1488
   %inc.i1492 = add nuw nsw i32 %329, 1
   store i32 %inc.i1492, ptr %col_offset.i, align 4
-  %incdec.ptr.i1493 = getelementptr i8, ptr %.pre.i14842407, i64 1
+  %incdec.ptr.i1493 = getelementptr i8, ptr %.pre.i14842409, i64 1
   store ptr %incdec.ptr.i1493, ptr %cur.i, align 8
-  %330 = load i8, ptr %.pre.i14842407, align 1
+  %330 = load i8, ptr %.pre.i14842409, align 1
   %conv6.i1494 = zext i8 %330 to i32
   br label %tok_nextc.exit1511thread-pre-split
 
@@ -4013,21 +4009,21 @@ if.then23.i1508:                                  ; preds = %if.end16.i1502
   br label %tok_nextc.exit1511thread-pre-split
 
 tok_nextc.exit1511thread-pre-split:               ; preds = %if.then23.i1508, %if.then13.i1510, %if.end.i1491
-  %.pre31.i15512435 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15512436, %if.end.i1491 ]
-  %.pre31.i15182432 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15182433, %if.end.i1491 ]
-  %.pre31.i14852414 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i14852415, %if.end.i1491 ]
-  %.pre.i14842411 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %incdec.ptr.i1493, %if.end.i1491 ]
+  %.pre31.i15512432 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15512433, %if.end.i1491 ]
+  %.pre31.i15182429 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15182430, %if.end.i1491 ]
+  %.pre31.i14852415 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i14852416, %if.end.i1491 ]
+  %.pre.i14842412 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %incdec.ptr.i1493, %if.end.i1491 ]
   %retval.0.i1495.ph = phi i32 [ -1, %if.then13.i1510 ], [ -1, %if.then23.i1508 ], [ %conv6.i1494, %if.end.i1491 ]
   %.pr1698 = load i32, ptr %done8.i, align 8
   br label %tok_nextc.exit1511
 
 tok_nextc.exit1511:                               ; preds = %if.end7.i1497, %tok_nextc.exit1511thread-pre-split
-  %337 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %328, %if.end7.i1497 ]
-  %.pre31.i15512434 = phi ptr [ %.pre31.i15512435, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15512436, %if.end7.i1497 ]
-  %.pre31.i1518 = phi ptr [ %.pre31.i15182432, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15182433, %if.end7.i1497 ]
-  %.pre.i1517 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %.pre.i15172426, %if.end7.i1497 ]
-  %.pre31.i14852413 = phi ptr [ %.pre31.i14852414, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852415, %if.end7.i1497 ]
-  %.pre.i14842406 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852415, %if.end7.i1497 ]
+  %337 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %328, %if.end7.i1497 ]
+  %.pre31.i15512431 = phi ptr [ %.pre31.i15512432, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15512433, %if.end7.i1497 ]
+  %.pre31.i1518 = phi ptr [ %.pre31.i15182429, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15182430, %if.end7.i1497 ]
+  %.pre.i1517 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %.pre.i15172424, %if.end7.i1497 ]
+  %.pre31.i14852414 = phi ptr [ %.pre31.i14852415, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852416, %if.end7.i1497 ]
+  %.pre.i14842408 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852416, %if.end7.i1497 ]
   %338 = phi i32 [ %.pr1698, %tok_nextc.exit1511thread-pre-split ], [ %331, %if.end7.i1497 ]
   %retval.0.i1495 = phi i32 [ %retval.0.i1495.ph, %tok_nextc.exit1511thread-pre-split ], [ -1, %if.end7.i1497 ]
   switch i32 %338, label %if.end1000 [
@@ -4123,10 +4119,10 @@ if.else1070:                                      ; preds = %if.end1065
 
 for.cond.i1519:                                   ; preds = %if.else1070, %if.end16.i1535
   %346 = phi ptr [ %351, %if.end16.i1535 ], [ %337, %if.else1070 ]
-  %.pre31.i1551 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i15512434, %if.else1070 ]
-  %.pre31.i15182430 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i1518, %if.else1070 ]
-  %.pre.i15172424 = phi ptr [ %351, %if.end16.i1535 ], [ %.pre.i1517, %if.else1070 ]
-  %cmp.not.i1520 = icmp eq ptr %.pre.i15172424, %.pre31.i15182430
+  %.pre31.i1551 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i15512431, %if.else1070 ]
+  %.pre31.i15182427 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i1518, %if.else1070 ]
+  %.pre.i15172422 = phi ptr [ %351, %if.end16.i1535 ], [ %.pre.i1517, %if.else1070 ]
+  %cmp.not.i1520 = icmp eq ptr %.pre.i15172422, %.pre31.i15182427
   br i1 %cmp.not.i1520, label %if.end7.i1530, label %if.then.i1521
 
 if.then.i1521:                                    ; preds = %for.cond.i1519
@@ -4136,12 +4132,12 @@ if.then.i1521:                                    ; preds = %for.cond.i1519
 
 if.then2.i1529:                                   ; preds = %if.then.i1521
   store i32 29, ptr %done8.i, align 8
-  br label %tok_nextc.exit1544.thread
+  br label %if.end1085
 
 if.end7.i1530:                                    ; preds = %for.cond.i1519
   %348 = load i32, ptr %done8.i, align 8
   %cmp9.not.i1531 = icmp eq i32 %348, 10
-  br i1 %cmp9.not.i1531, label %if.end12.i1532, label %tok_nextc.exit1544.thread
+  br i1 %cmp9.not.i1531, label %if.end12.i1532, label %if.end1085
 
 if.end12.i1532:                                   ; preds = %if.end7.i1530
   %349 = load ptr, ptr %underflow.i, align 8
@@ -4152,7 +4148,7 @@ if.end12.i1532:                                   ; preds = %if.end7.i1530
 if.then13.i1543:                                  ; preds = %if.end12.i1532
   %350 = load ptr, ptr %inp.i, align 8
   store ptr %350, ptr %cur.i, align 8
-  br label %tok_nextc.exit1544.thread
+  br label %if.end1085
 
 if.end16.i1535:                                   ; preds = %if.end12.i1532
   %351 = load ptr, ptr %cur.i, align 8
@@ -4169,37 +4165,29 @@ if.then23.i1541:                                  ; preds = %if.end16.i1535
   %call24.i1542 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
   %353 = load ptr, ptr %inp.i, align 8
   store ptr %353, ptr %cur.i, align 8
-  br label %tok_nextc.exit1544.thread
-
-tok_nextc.exit1544.thread:                        ; preds = %if.end7.i1530, %if.then2.i1529, %if.then23.i1541, %if.then13.i1543
-  %354 = phi ptr [ %346, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %346, %if.end7.i1530 ]
-  %.pre31.i15512440 = phi ptr [ %.pre31.i1551, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i1551, %if.end7.i1530 ]
-  %.pre31.i15182429 = phi ptr [ %.pre31.i15182430, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182430, %if.end7.i1530 ]
-  %.pre.i15172423 = phi ptr [ %.pre.i15172424, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182430, %if.end7.i1530 ]
-  %spec.select8871709 = select i1 %cmp10751708, i32 1, i32 %has_escaped_quote.02144
   br label %if.end1085
 
 tok_nextc.exit1544:                               ; preds = %if.then.i1521
   %inc.i1525 = add nuw nsw i32 %347, 1
   store i32 %inc.i1525, ptr %col_offset.i, align 4
-  %incdec.ptr.i1526 = getelementptr i8, ptr %.pre.i15172424, i64 1
+  %incdec.ptr.i1526 = getelementptr i8, ptr %.pre.i15172422, i64 1
   store ptr %incdec.ptr.i1526, ptr %cur.i, align 8
-  %355 = load i8, ptr %.pre.i15172424, align 1
-  %conv6.i1527 = zext i8 %355 to i32
+  %354 = load i8, ptr %.pre.i15172422, align 1
+  %conv6.i1527 = zext i8 %354 to i32
   %cmp1075 = icmp eq i32 %c.20, %conv6.i1527
   %spec.select887 = select i1 %cmp1075, i32 1, i32 %has_escaped_quote.02144
-  %cmp1079 = icmp eq i8 %355, 13
+  %cmp1079 = icmp eq i8 %354, 13
   br i1 %cmp1079, label %for.cond.i1552, label %if.end1085
 
 for.cond.i1552:                                   ; preds = %tok_nextc.exit1544, %if.end16.i1568
-  %.pre31.i15512439 = phi ptr [ %362, %if.end16.i1568 ], [ %.pre31.i1551, %tok_nextc.exit1544 ]
-  %356 = phi ptr [ %361, %if.end16.i1568 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ]
-  %cmp.not.i1553 = icmp eq ptr %356, %.pre31.i15512439
+  %.pre31.i15512436 = phi ptr [ %361, %if.end16.i1568 ], [ %.pre31.i1551, %tok_nextc.exit1544 ]
+  %355 = phi ptr [ %360, %if.end16.i1568 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ]
+  %cmp.not.i1553 = icmp eq ptr %355, %.pre31.i15512436
   br i1 %cmp.not.i1553, label %if.end7.i1563, label %if.then.i1554
 
 if.then.i1554:                                    ; preds = %for.cond.i1552
-  %357 = load i32, ptr %col_offset.i, align 4
-  %cmp1.i1556 = icmp ugt i32 %357, 2147483646
+  %356 = load i32, ptr %col_offset.i, align 4
+  %cmp1.i1556 = icmp ugt i32 %356, 2147483646
   br i1 %cmp1.i1556, label %if.then2.i1562, label %if.end.i1557
 
 if.then2.i1562:                                   ; preds = %if.then.i1554
@@ -4207,61 +4195,61 @@ if.then2.i1562:                                   ; preds = %if.then.i1554
   br label %if.end1085
 
 if.end.i1557:                                     ; preds = %if.then.i1554
-  %inc.i1558 = add nuw nsw i32 %357, 1
+  %inc.i1558 = add nuw nsw i32 %356, 1
   store i32 %inc.i1558, ptr %col_offset.i, align 4
-  %incdec.ptr.i1559 = getelementptr i8, ptr %356, i64 1
+  %incdec.ptr.i1559 = getelementptr i8, ptr %355, i64 1
   store ptr %incdec.ptr.i1559, ptr %cur.i, align 8
   br label %if.end1085
 
 if.end7.i1563:                                    ; preds = %for.cond.i1552
-  %358 = load i32, ptr %done8.i, align 8
-  %cmp9.not.i1564 = icmp eq i32 %358, 10
+  %357 = load i32, ptr %done8.i, align 8
+  %cmp9.not.i1564 = icmp eq i32 %357, 10
   br i1 %cmp9.not.i1564, label %if.end12.i1565, label %if.end1085
 
 if.end12.i1565:                                   ; preds = %if.end7.i1563
-  %359 = load ptr, ptr %underflow.i, align 8
-  %call.i1566 = tail call i32 %359(ptr noundef nonnull %tok) #8
+  %358 = load ptr, ptr %underflow.i, align 8
+  %call.i1566 = tail call i32 %358(ptr noundef nonnull %tok) #8
   %tobool.not.i1567 = icmp eq i32 %call.i1566, 0
   br i1 %tobool.not.i1567, label %if.then13.i1576, label %if.end16.i1568
 
 if.then13.i1576:                                  ; preds = %if.end12.i1565
-  %360 = load ptr, ptr %inp.i, align 8
-  store ptr %360, ptr %cur.i, align 8
+  %359 = load ptr, ptr %inp.i, align 8
+  store ptr %359, ptr %cur.i, align 8
   br label %if.end1085
 
 if.end16.i1568:                                   ; preds = %if.end12.i1565
-  %361 = load ptr, ptr %cur.i, align 8
-  store ptr %361, ptr %line_start.i, align 8
-  %362 = load ptr, ptr %inp.i, align 8
-  %sub.ptr.lhs.cast.i1569 = ptrtoint ptr %362 to i64
-  %sub.ptr.rhs.cast.i1570 = ptrtoint ptr %361 to i64
+  %360 = load ptr, ptr %cur.i, align 8
+  store ptr %360, ptr %line_start.i, align 8
+  %361 = load ptr, ptr %inp.i, align 8
+  %sub.ptr.lhs.cast.i1569 = ptrtoint ptr %361 to i64
+  %sub.ptr.rhs.cast.i1570 = ptrtoint ptr %360 to i64
   %sub.ptr.sub.i1571 = sub i64 %sub.ptr.lhs.cast.i1569, %sub.ptr.rhs.cast.i1570
-  %call.i.i1572 = tail call ptr @memchr(ptr noundef %361, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
+  %call.i.i1572 = tail call ptr @memchr(ptr noundef %360, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
   %cmp.i.not.i1573 = icmp eq ptr %call.i.i1572, null
   br i1 %cmp.i.not.i1573, label %for.cond.i1552, label %if.then23.i1574
 
 if.then23.i1574:                                  ; preds = %if.end16.i1568
   %call24.i1575 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %363 = load ptr, ptr %inp.i, align 8
-  store ptr %363, ptr %cur.i, align 8
+  %362 = load ptr, ptr %inp.i, align 8
+  store ptr %362, ptr %cur.i, align 8
   br label %if.end1085
 
-if.end1085:                                       ; preds = %if.end7.i1563, %if.then23.i1574, %if.then13.i1576, %if.end.i1557, %if.then2.i1562, %tok_nextc.exit1544.thread, %if.else1070, %tok_nextc.exit1544, %if.then1068
-  %364 = phi ptr [ %337, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %337, %if.else1070 ], [ %354, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i15512438 = phi ptr [ %.pre31.i15512434, %if.then1068 ], [ %.pre31.i1551, %tok_nextc.exit1544 ], [ %.pre31.i15512434, %if.else1070 ], [ %.pre31.i15512440, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i15182428 = phi ptr [ %.pre31.i1518, %if.then1068 ], [ %.pre31.i15182430, %tok_nextc.exit1544 ], [ %.pre31.i1518, %if.else1070 ], [ %.pre31.i15182429, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre.i15172422 = phi ptr [ %.pre.i1517, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i1517, %if.else1070 ], [ %.pre.i15172423, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i14852417 = phi ptr [ %.pre31.i14852413, %if.then1068 ], [ %.pre31.i15182430, %tok_nextc.exit1544 ], [ %.pre31.i14852413, %if.else1070 ], [ %.pre31.i15182429, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre.i14842409 = phi ptr [ %.pre.i14842406, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i14842406, %if.else1070 ], [ %.pre.i15172423, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %end_quote_size.2 = phi i32 [ %add1069, %if.then1068 ], [ 0, %tok_nextc.exit1544 ], [ 0, %if.else1070 ], [ 0, %tok_nextc.exit1544.thread ], [ 0, %if.then2.i1562 ], [ 0, %if.end.i1557 ], [ 0, %if.then13.i1576 ], [ 0, %if.then23.i1574 ], [ 0, %if.end7.i1563 ]
-  %has_escaped_quote.2 = phi i32 [ %has_escaped_quote.02144, %if.then1068 ], [ %spec.select887, %tok_nextc.exit1544 ], [ %has_escaped_quote.02144, %if.else1070 ], [ %spec.select8871709, %tok_nextc.exit1544.thread ], [ %spec.select887, %if.then2.i1562 ], [ %spec.select887, %if.end.i1557 ], [ %spec.select887, %if.then13.i1576 ], [ %spec.select887, %if.then23.i1574 ], [ %spec.select887, %if.end7.i1563 ]
+if.end1085:                                       ; preds = %if.end7.i1530, %if.end7.i1563, %if.then13.i1543, %if.then23.i1541, %if.then2.i1529, %if.then23.i1574, %if.then13.i1576, %if.end.i1557, %if.then2.i1562, %if.else1070, %tok_nextc.exit1544, %if.then1068
+  %363 = phi ptr [ %337, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %337, %if.else1070 ], [ %355, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %346, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %346, %if.end7.i1530 ]
+  %.pre31.i15512435 = phi ptr [ %.pre31.i15512431, %if.then1068 ], [ %.pre31.i1551, %tok_nextc.exit1544 ], [ %.pre31.i15512431, %if.else1070 ], [ %.pre31.i15512436, %if.then2.i1562 ], [ %.pre31.i15512436, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %.pre31.i1551, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %.pre31.i1551, %if.end7.i1530 ]
+  %.pre31.i15182426 = phi ptr [ %.pre31.i1518, %if.then1068 ], [ %.pre31.i15182427, %tok_nextc.exit1544 ], [ %.pre31.i1518, %if.else1070 ], [ %.pre31.i15512436, %if.then2.i1562 ], [ %.pre31.i15512436, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %.pre31.i15182427, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %.pre31.i15182427, %if.end7.i1530 ]
+  %.pre.i15172421 = phi ptr [ %.pre.i1517, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i1517, %if.else1070 ], [ %355, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %.pre.i15172422, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %.pre31.i15182427, %if.end7.i1530 ]
+  %.pre31.i14852413 = phi ptr [ %.pre31.i14852414, %if.then1068 ], [ %.pre31.i15182427, %tok_nextc.exit1544 ], [ %.pre31.i14852414, %if.else1070 ], [ %.pre31.i15512436, %if.then2.i1562 ], [ %.pre31.i15512436, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %.pre31.i15182427, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %.pre31.i15182427, %if.end7.i1530 ]
+  %.pre.i14842407 = phi ptr [ %.pre.i14842408, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i14842408, %if.else1070 ], [ %355, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %359, %if.then13.i1576 ], [ %362, %if.then23.i1574 ], [ %.pre.i15172422, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15512436, %if.end7.i1563 ], [ %.pre31.i15182427, %if.end7.i1530 ]
+  %end_quote_size.2 = phi i32 [ %add1069, %if.then1068 ], [ 0, %tok_nextc.exit1544 ], [ 0, %if.else1070 ], [ 0, %if.then2.i1562 ], [ 0, %if.end.i1557 ], [ 0, %if.then13.i1576 ], [ 0, %if.then23.i1574 ], [ 0, %if.then2.i1529 ], [ 0, %if.then23.i1541 ], [ 0, %if.then13.i1543 ], [ 0, %if.end7.i1563 ], [ 0, %if.end7.i1530 ]
+  %has_escaped_quote.2 = phi i32 [ %has_escaped_quote.02144, %if.then1068 ], [ %spec.select887, %tok_nextc.exit1544 ], [ %has_escaped_quote.02144, %if.else1070 ], [ %spec.select887, %if.then2.i1562 ], [ %spec.select887, %if.end.i1557 ], [ %spec.select887, %if.then13.i1576 ], [ %spec.select887, %if.then23.i1574 ], [ %has_escaped_quote.02144, %if.then2.i1529 ], [ %has_escaped_quote.02144, %if.then23.i1541 ], [ %has_escaped_quote.02144, %if.then13.i1543 ], [ %spec.select887, %if.end7.i1563 ], [ %has_escaped_quote.02144, %if.end7.i1530 ]
   %cmp986.not = icmp eq i32 %end_quote_size.2, %quote_size965.0
   br i1 %cmp986.not, label %while.end1086, label %while.body988, !llvm.loop !23
 
 while.end1086:                                    ; preds = %if.end1085, %tok_nextc.exit1511, %if.end984
-  %365 = phi ptr [ %.pre.i14842412, %if.end984 ], [ %364, %if.end1085 ], [ %337, %tok_nextc.exit1511 ]
-  %366 = load ptr, ptr %start, align 8
-  %call1089 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 3, ptr noundef %366, ptr noundef %365) #8
+  %364 = phi ptr [ %.pre.i14842411, %if.end984 ], [ %363, %if.end1085 ], [ %337, %tok_nextc.exit1511 ]
+  %365 = load ptr, ptr %start, align 8
+  %call1089 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 3, ptr noundef %365, ptr noundef %364) #8
   br label %return
 
 if.then1093:                                      ; preds = %letter_quote
@@ -4291,22 +4279,22 @@ if.end1101:                                       ; preds = %letter_quote
 
 land.lhs.true1115.critedge:                       ; preds = %if.end1101, %if.end1101, %if.end1101, %if.end1101
   %tok_mode_stack_index1116 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
-  %367 = load i32, ptr %tok_mode_stack_index1116, align 8
-  %cmp1117 = icmp sgt i32 %367, 0
+  %366 = load i32, ptr %tok_mode_stack_index1116, align 8
+  %cmp1117 = icmp sgt i32 %366, 0
   br i1 %cmp1117, label %land.lhs.true1119, label %if.end1162
 
 land.lhs.true1119:                                ; preds = %land.lhs.true1115.critedge
   %curly_bracket_expr_start_depth1120 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
-  %368 = load i32, ptr %curly_bracket_expr_start_depth1120, align 8
-  %cmp1121 = icmp sgt i32 %368, -1
+  %367 = load i32, ptr %curly_bracket_expr_start_depth1120, align 8
+  %cmp1121 = icmp sgt i32 %367, -1
   br i1 %cmp1121, label %if.then1123, label %if.end1162
 
 if.then1123:                                      ; preds = %land.lhs.true1119
   %curly_bracket_depth1124 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
-  %369 = load i32, ptr %curly_bracket_depth1124, align 4
+  %368 = load i32, ptr %curly_bracket_depth1124, align 4
   %cmp1125 = icmp ne i32 %c.20, 123
   %conv1126.neg = sext i1 %cmp1125 to i32
-  %sub1127 = add i32 %369, %conv1126.neg
+  %sub1127 = add i32 %368, %conv1126.neg
   %cmp1128 = icmp eq i32 %sub1127, 0
   br i1 %cmp1128, label %land.lhs.true1130, label %if.end1148
 
@@ -4336,16 +4324,16 @@ if.end1148:                                       ; preds = %if.then1123, %land.
   br i1 %cmp1102, label %land.lhs.true1151, label %if.end1162
 
 land.lhs.true1151:                                ; preds = %if.end1148
-  %370 = load i32, ptr %curly_bracket_expr_start_depth1120, align 8
-  %cmp1153 = icmp eq i32 %sub1127, %370
+  %369 = load i32, ptr %curly_bracket_expr_start_depth1120, align 8
+  %cmp1153 = icmp eq i32 %sub1127, %369
   br i1 %cmp1153, label %if.then1155, label %if.end1162
 
 if.then1155:                                      ; preds = %land.lhs.true1151
   store i32 1, ptr %current_tok, align 8
-  %371 = load ptr, ptr %start, align 8
-  %372 = load ptr, ptr %cur.i, align 8
+  %370 = load ptr, ptr %start, align 8
+  %371 = load ptr, ptr %cur.i, align 8
   %call1159 = tail call i32 @_PyToken_OneChar(i32 noundef 58) #8
-  %call1160 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call1159, ptr noundef %371, ptr noundef %372) #8
+  %call1160 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call1159, ptr noundef %370, ptr noundef %371) #8
   br label %return
 
 if.end1162:                                       ; preds = %if.end1136, %if.end1101, %if.end1148, %land.lhs.true1151, %land.lhs.true1119, %land.lhs.true1115.critedge
@@ -4354,14 +4342,14 @@ if.end1162:                                       ; preds = %if.end1136, %if.end
   br label %for.cond.i1585
 
 for.cond.i1585:                                   ; preds = %if.end16.i1601, %if.end1162
-  %373 = phi ptr [ %381, %if.end16.i1601 ], [ %.pre31.i1584, %if.end1162 ]
-  %374 = phi ptr [ %380, %if.end16.i1601 ], [ %.pre.i1583, %if.end1162 ]
-  %cmp.not.i1586 = icmp eq ptr %374, %373
+  %372 = phi ptr [ %380, %if.end16.i1601 ], [ %.pre31.i1584, %if.end1162 ]
+  %373 = phi ptr [ %379, %if.end16.i1601 ], [ %.pre.i1583, %if.end1162 ]
+  %cmp.not.i1586 = icmp eq ptr %373, %372
   br i1 %cmp.not.i1586, label %if.end7.i1596, label %if.then.i1587
 
 if.then.i1587:                                    ; preds = %for.cond.i1585
-  %375 = load i32, ptr %col_offset.i, align 4
-  %cmp1.i1589 = icmp ugt i32 %375, 2147483646
+  %374 = load i32, ptr %col_offset.i, align 4
+  %cmp1.i1589 = icmp ugt i32 %374, 2147483646
   br i1 %cmp1.i1589, label %if.then2.i1595, label %if.end.i1590
 
 if.then2.i1595:                                   ; preds = %if.then.i1587
@@ -4369,45 +4357,45 @@ if.then2.i1595:                                   ; preds = %if.then.i1587
   br label %tok_nextc.exit1610
 
 if.end.i1590:                                     ; preds = %if.then.i1587
-  %inc.i1591 = add nuw nsw i32 %375, 1
+  %inc.i1591 = add nuw nsw i32 %374, 1
   store i32 %inc.i1591, ptr %col_offset.i, align 4
-  %incdec.ptr.i1592 = getelementptr i8, ptr %374, i64 1
+  %incdec.ptr.i1592 = getelementptr i8, ptr %373, i64 1
   store ptr %incdec.ptr.i1592, ptr %cur.i, align 8
-  %376 = load i8, ptr %374, align 1
-  %conv6.i1593 = zext i8 %376 to i32
+  %375 = load i8, ptr %373, align 1
+  %conv6.i1593 = zext i8 %375 to i32
   br label %tok_nextc.exit1610
 
 if.end7.i1596:                                    ; preds = %for.cond.i1585
-  %377 = load i32, ptr %done8.i, align 8
-  %cmp9.not.i1597 = icmp eq i32 %377, 10
+  %376 = load i32, ptr %done8.i, align 8
+  %cmp9.not.i1597 = icmp eq i32 %376, 10
   br i1 %cmp9.not.i1597, label %if.end12.i1598, label %tok_nextc.exit1610
 
 if.end12.i1598:                                   ; preds = %if.end7.i1596
-  %378 = load ptr, ptr %underflow.i, align 8
-  %call.i1599 = tail call i32 %378(ptr noundef nonnull %tok) #8
+  %377 = load ptr, ptr %underflow.i, align 8
+  %call.i1599 = tail call i32 %377(ptr noundef nonnull %tok) #8
   %tobool.not.i1600 = icmp eq i32 %call.i1599, 0
   br i1 %tobool.not.i1600, label %if.then13.i1609, label %if.end16.i1601
 
 if.then13.i1609:                                  ; preds = %if.end12.i1598
-  %379 = load ptr, ptr %inp.i, align 8
-  store ptr %379, ptr %cur.i, align 8
+  %378 = load ptr, ptr %inp.i, align 8
+  store ptr %378, ptr %cur.i, align 8
   br label %tok_nextc.exit1610
 
 if.end16.i1601:                                   ; preds = %if.end12.i1598
-  %380 = load ptr, ptr %cur.i, align 8
-  store ptr %380, ptr %line_start.i, align 8
-  %381 = load ptr, ptr %inp.i, align 8
-  %sub.ptr.lhs.cast.i1602 = ptrtoint ptr %381 to i64
-  %sub.ptr.rhs.cast.i1603 = ptrtoint ptr %380 to i64
+  %379 = load ptr, ptr %cur.i, align 8
+  store ptr %379, ptr %line_start.i, align 8
+  %380 = load ptr, ptr %inp.i, align 8
+  %sub.ptr.lhs.cast.i1602 = ptrtoint ptr %380 to i64
+  %sub.ptr.rhs.cast.i1603 = ptrtoint ptr %379 to i64
   %sub.ptr.sub.i1604 = sub i64 %sub.ptr.lhs.cast.i1602, %sub.ptr.rhs.cast.i1603
-  %call.i.i1605 = tail call ptr @memchr(ptr noundef %380, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
+  %call.i.i1605 = tail call ptr @memchr(ptr noundef %379, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
   %cmp.i.not.i1606 = icmp eq ptr %call.i.i1605, null
   br i1 %cmp.i.not.i1606, label %for.cond.i1585, label %if.then23.i1607
 
 if.then23.i1607:                                  ; preds = %if.end16.i1601
   %call24.i1608 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %382 = load ptr, ptr %inp.i, align 8
-  store ptr %382, ptr %cur.i, align 8
+  %381 = load ptr, ptr %inp.i, align 8
+  store ptr %381, ptr %cur.i, align 8
   br label %tok_nextc.exit1610
 
 tok_nextc.exit1610:                               ; preds = %if.end7.i1596, %if.then2.i1595, %if.end.i1590, %if.then13.i1609, %if.then23.i1607
@@ -4422,14 +4410,14 @@ if.then1167:                                      ; preds = %tok_nextc.exit1610
   br label %for.cond.i1618
 
 for.cond.i1618:                                   ; preds = %if.end16.i1634, %if.then1167
-  %383 = phi ptr [ %391, %if.end16.i1634 ], [ %.pre31.i1617, %if.then1167 ]
-  %384 = phi ptr [ %390, %if.end16.i1634 ], [ %.pre.i1616, %if.then1167 ]
-  %cmp.not.i1619 = icmp eq ptr %384, %383
+  %382 = phi ptr [ %390, %if.end16.i1634 ], [ %.pre31.i1617, %if.then1167 ]
+  %383 = phi ptr [ %389, %if.end16.i1634 ], [ %.pre.i1616, %if.then1167 ]
+  %cmp.not.i1619 = icmp eq ptr %383, %382
   br i1 %cmp.not.i1619, label %if.end7.i1629, label %if.then.i1620
 
 if.then.i1620:                                    ; preds = %for.cond.i1618
-  %385 = load i32, ptr %col_offset.i, align 4
-  %cmp1.i1622 = icmp ugt i32 %385, 2147483646
+  %384 = load i32, ptr %col_offset.i, align 4
+  %cmp1.i1622 = icmp ugt i32 %384, 2147483646
   br i1 %cmp1.i1622, label %if.then2.i1628, label %if.end.i1623
 
 if.then2.i1628:                                   ; preds = %if.then.i1620
@@ -4437,45 +4425,45 @@ if.then2.i1628:                                   ; preds = %if.then.i1620
   br label %tok_nextc.exit1643
 
 if.end.i1623:                                     ; preds = %if.then.i1620
-  %inc.i1624 = add nuw nsw i32 %385, 1
+  %inc.i1624 = add nuw nsw i32 %384, 1
   store i32 %inc.i1624, ptr %col_offset.i, align 4
-  %incdec.ptr.i1625 = getelementptr i8, ptr %384, i64 1
+  %incdec.ptr.i1625 = getelementptr i8, ptr %383, i64 1
   store ptr %incdec.ptr.i1625, ptr %cur.i, align 8
-  %386 = load i8, ptr %384, align 1
-  %conv6.i1626 = zext i8 %386 to i32
+  %385 = load i8, ptr %383, align 1
+  %conv6.i1626 = zext i8 %385 to i32
   br label %tok_nextc.exit1643
 
 if.end7.i1629:                                    ; preds = %for.cond.i1618
-  %387 = load i32, ptr %done8.i, align 8
-  %cmp9.not.i1630 = icmp eq i32 %387, 10
+  %386 = load i32, ptr %done8.i, align 8
+  %cmp9.not.i1630 = icmp eq i32 %386, 10
   br i1 %cmp9.not.i1630, label %if.end12.i1631, label %tok_nextc.exit1643
 
 if.end12.i1631:                                   ; preds = %if.end7.i1629
-  %388 = load ptr, ptr %underflow.i, align 8
-  %call.i1632 = tail call i32 %388(ptr noundef nonnull %tok) #8
+  %387 = load ptr, ptr %underflow.i, align 8
+  %call.i1632 = tail call i32 %387(ptr noundef nonnull %tok) #8
   %tobool.not.i1633 = icmp eq i32 %call.i1632, 0
   br i1 %tobool.not.i1633, label %if.then13.i1642, label %if.end16.i1634
 
 if.then13.i1642:                                  ; preds = %if.end12.i1631
-  %389 = load ptr, ptr %inp.i, align 8
-  store ptr %389, ptr %cur.i, align 8
+  %388 = load ptr, ptr %inp.i, align 8
+  store ptr %388, ptr %cur.i, align 8
   br label %tok_nextc.exit1643
 
 if.end16.i1634:                                   ; preds = %if.end12.i1631
-  %390 = load ptr, ptr %cur.i, align 8
-  store ptr %390, ptr %line_start.i, align 8
-  %391 = load ptr, ptr %inp.i, align 8
-  %sub.ptr.lhs.cast.i1635 = ptrtoint ptr %391 to i64
-  %sub.ptr.rhs.cast.i1636 = ptrtoint ptr %390 to i64
+  %389 = load ptr, ptr %cur.i, align 8
+  store ptr %389, ptr %line_start.i, align 8
+  %390 = load ptr, ptr %inp.i, align 8
+  %sub.ptr.lhs.cast.i1635 = ptrtoint ptr %390 to i64
+  %sub.ptr.rhs.cast.i1636 = ptrtoint ptr %389 to i64
   %sub.ptr.sub.i1637 = sub i64 %sub.ptr.lhs.cast.i1635, %sub.ptr.rhs.cast.i1636
-  %call.i.i1638 = tail call ptr @memchr(ptr noundef %390, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
+  %call.i.i1638 = tail call ptr @memchr(ptr noundef %389, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
   %cmp.i.not.i1639 = icmp eq ptr %call.i.i1638, null
   br i1 %cmp.i.not.i1639, label %for.cond.i1618, label %if.then23.i1640
 
 if.then23.i1640:                                  ; preds = %if.end16.i1634
   %call24.i1641 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %392 = load ptr, ptr %inp.i, align 8
-  store ptr %392, ptr %cur.i, align 8
+  %391 = load ptr, ptr %inp.i, align 8
+  store ptr %391, ptr %cur.i, align 8
   br label %tok_nextc.exit1643
 
 tok_nextc.exit1643:                               ; preds = %if.end7.i1629, %if.then2.i1628, %if.end.i1623, %if.then13.i1642, %if.then23.i1640
@@ -4490,9 +4478,9 @@ if.else1173:                                      ; preds = %tok_nextc.exit1643
 
 if.end1174:                                       ; preds = %tok_nextc.exit1643, %if.else1173
   %current_token.0 = phi i32 [ %call1164, %if.else1173 ], [ %call1169, %tok_nextc.exit1643 ]
-  %393 = load ptr, ptr %start, align 8
-  %394 = load ptr, ptr %cur.i, align 8
-  %call1177 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %current_token.0, ptr noundef %393, ptr noundef %394) #8
+  %392 = load ptr, ptr %start, align 8
+  %393 = load ptr, ptr %cur.i, align 8
+  %call1177 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %current_token.0, ptr noundef %392, ptr noundef %393) #8
   br label %return
 
 if.end1178:                                       ; preds = %tok_nextc.exit1610
@@ -4500,11 +4488,11 @@ if.end1178:                                       ; preds = %tok_nextc.exit1610
   br i1 %cmp.not.i1644, label %tok_backup.exit1656, label %if.then.i1645
 
 if.then.i1645:                                    ; preds = %if.end1178
-  %395 = load ptr, ptr %cur.i, align 8
-  %incdec.ptr.i1647 = getelementptr i8, ptr %395, i64 -1
+  %394 = load ptr, ptr %cur.i, align 8
+  %incdec.ptr.i1647 = getelementptr i8, ptr %394, i64 -1
   store ptr %incdec.ptr.i1647, ptr %cur.i, align 8
-  %396 = load ptr, ptr %tok, align 8
-  %cmp1.i1648 = icmp ult ptr %incdec.ptr.i1647, %396
+  %395 = load ptr, ptr %tok, align 8
+  %cmp1.i1648 = icmp ult ptr %incdec.ptr.i1647, %395
   br i1 %cmp1.i1648, label %if.then2.i1655, label %if.end.i1649
 
 if.then2.i1655:                                   ; preds = %if.then.i1645
@@ -4512,9 +4500,9 @@ if.then2.i1655:                                   ; preds = %if.then.i1645
   unreachable
 
 if.end.i1649:                                     ; preds = %if.then.i1645
-  %397 = load i8, ptr %incdec.ptr.i1647, align 1
-  %398 = trunc i32 %retval.0.i1594 to i8
-  %cmp6.not.i1650 = icmp eq i8 %397, %398
+  %396 = load i8, ptr %incdec.ptr.i1647, align 1
+  %397 = trunc i32 %retval.0.i1594 to i8
+  %cmp6.not.i1650 = icmp eq i8 %396, %397
   br i1 %cmp6.not.i1650, label %if.end9.i1652, label %if.then8.i1651
 
 if.then8.i1651:                                   ; preds = %if.end.i1649
@@ -4522,8 +4510,8 @@ if.then8.i1651:                                   ; preds = %if.end.i1649
   unreachable
 
 if.end9.i1652:                                    ; preds = %if.end.i1649
-  %399 = load i32, ptr %col_offset.i, align 4
-  %dec.i1654 = add i32 %399, -1
+  %398 = load i32, ptr %col_offset.i, align 4
+  %dec.i1654 = add i32 %398, -1
   store i32 %dec.i1654, ptr %col_offset.i, align 4
   br label %tok_backup.exit1656
 
@@ -4538,8 +4526,8 @@ tok_backup.exit1656:                              ; preds = %if.end1178, %if.end
   ]
 
 sw.bb1179:                                        ; preds = %tok_backup.exit1656, %tok_backup.exit1656, %tok_backup.exit1656
-  %400 = load i32, ptr %level, align 8
-  %cmp1181 = icmp sgt i32 %400, 199
+  %399 = load i32, ptr %level, align 8
+  %cmp1181 = icmp sgt i32 %399, 199
   br i1 %cmp1181, label %if.then1183, label %if.end1186
 
 if.then1183:                                      ; preds = %sw.bb1179
@@ -4549,49 +4537,49 @@ if.then1183:                                      ; preds = %sw.bb1179
 
 if.end1186:                                       ; preds = %sw.bb1179
   %conv1187 = trunc i32 %c.20 to i8
-  %idxprom1189 = sext i32 %400 to i64
+  %idxprom1189 = sext i32 %399 to i64
   %arrayidx1190 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 22, i64 %idxprom1189
   store i8 %conv1187, ptr %arrayidx1190, align 1
-  %401 = load i32, ptr %lineno, align 8
-  %402 = load i32, ptr %level, align 8
-  %idxprom1193 = sext i32 %402 to i64
+  %400 = load i32, ptr %lineno, align 8
+  %401 = load i32, ptr %level, align 8
+  %idxprom1193 = sext i32 %401 to i64
   %arrayidx1194 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 23, i64 %idxprom1193
-  store i32 %401, ptr %arrayidx1194, align 4
-  %403 = load ptr, ptr %start, align 8
-  %404 = load ptr, ptr %line_start.i, align 8
-  %sub.ptr.lhs.cast1197 = ptrtoint ptr %403 to i64
-  %sub.ptr.rhs.cast1198 = ptrtoint ptr %404 to i64
+  store i32 %400, ptr %arrayidx1194, align 4
+  %402 = load ptr, ptr %start, align 8
+  %403 = load ptr, ptr %line_start.i, align 8
+  %sub.ptr.lhs.cast1197 = ptrtoint ptr %402 to i64
+  %sub.ptr.rhs.cast1198 = ptrtoint ptr %403 to i64
   %sub.ptr.sub1199 = sub i64 %sub.ptr.lhs.cast1197, %sub.ptr.rhs.cast1198
   %conv1200 = trunc i64 %sub.ptr.sub1199 to i32
-  %405 = load i32, ptr %level, align 8
-  %idxprom1202 = sext i32 %405 to i64
+  %404 = load i32, ptr %level, align 8
+  %idxprom1202 = sext i32 %404 to i64
   %arrayidx1203 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 24, i64 %idxprom1202
   store i32 %conv1200, ptr %arrayidx1203, align 4
-  %406 = load i32, ptr %level, align 8
-  %inc1205 = add i32 %406, 1
+  %405 = load i32, ptr %level, align 8
+  %inc1205 = add i32 %405, 1
   store i32 %inc1205, ptr %level, align 8
   %tok_mode_stack_index1206 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
-  %407 = load i32, ptr %tok_mode_stack_index1206, align 8
-  %cmp1207 = icmp sgt i32 %407, 0
+  %406 = load i32, ptr %tok_mode_stack_index1206, align 8
+  %cmp1207 = icmp sgt i32 %406, 0
   br i1 %cmp1207, label %if.then1209, label %sw.epilog1325
 
 if.then1209:                                      ; preds = %if.end1186
   %curly_bracket_depth1210 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
-  %408 = load i32, ptr %curly_bracket_depth1210, align 4
-  %inc1211 = add i32 %408, 1
+  %407 = load i32, ptr %curly_bracket_depth1210, align 4
+  %inc1211 = add i32 %407, 1
   store i32 %inc1211, ptr %curly_bracket_depth1210, align 4
   br label %sw.epilog1325
 
 sw.bb1213:                                        ; preds = %tok_backup.exit1656, %tok_backup.exit1656, %tok_backup.exit1656
   %tok_mode_stack_index1214 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
-  %409 = load i32, ptr %tok_mode_stack_index1214, align 8
-  %cmp1215 = icmp sgt i32 %409, 0
+  %408 = load i32, ptr %tok_mode_stack_index1214, align 8
+  %cmp1215 = icmp sgt i32 %408, 0
   br i1 %cmp1215, label %land.lhs.true1217, label %if.end1226
 
 land.lhs.true1217:                                ; preds = %sw.bb1213
   %curly_bracket_depth1218 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
-  %410 = load i32, ptr %curly_bracket_depth1218, align 4
-  %tobool1219 = icmp eq i32 %410, 0
+  %409 = load i32, ptr %curly_bracket_depth1218, align 4
+  %tobool1219 = icmp eq i32 %409, 0
   %or.cond42 = and i1 %cmp1105, %tobool1219
   br i1 %or.cond42, label %if.then1223, label %if.end1226
 
@@ -4601,13 +4589,13 @@ if.then1223:                                      ; preds = %land.lhs.true1217
   br label %return
 
 if.end1226:                                       ; preds = %land.lhs.true1217, %sw.bb1213
-  %411 = load i32, ptr %tok_extra_tokens193, align 4
-  %tobool1228.not = icmp eq i32 %411, 0
-  %412 = load i32, ptr %level, align 8
+  %410 = load i32, ptr %tok_extra_tokens193, align 4
+  %tobool1228.not = icmp eq i32 %410, 0
+  %411 = load i32, ptr %level, align 8
   br i1 %tobool1228.not, label %land.lhs.true1229, label %if.end1235.thread
 
 land.lhs.true1229:                                ; preds = %if.end1226
-  %tobool1231.not = icmp eq i32 %412, 0
+  %tobool1231.not = icmp eq i32 %411, 0
   br i1 %tobool1231.not, label %if.then1232, label %if.end1235
 
 if.then1232:                                      ; preds = %land.lhs.true1229
@@ -4616,38 +4604,38 @@ if.then1232:                                      ; preds = %land.lhs.true1229
   br label %return
 
 if.end1235:                                       ; preds = %land.lhs.true1229
-  %cmp1237 = icmp sgt i32 %412, 0
+  %cmp1237 = icmp sgt i32 %411, 0
   br i1 %cmp1237, label %land.lhs.true1249, label %if.end1303
 
 if.end1235.thread:                                ; preds = %if.end1226
-  %cmp12371713 = icmp sgt i32 %412, 0
+  %cmp12371713 = icmp sgt i32 %411, 0
   br i1 %cmp12371713, label %if.then1239.thread, label %if.end1303
 
 if.then1239.thread:                               ; preds = %if.end1235.thread
-  %dec12411716 = add nsw i32 %412, -1
+  %dec12411716 = add nsw i32 %411, -1
   store i32 %dec12411716, ptr %level, align 8
   br label %if.end1303
 
 land.lhs.true1249:                                ; preds = %if.end1235
-  %dec1241 = add nsw i32 %412, -1
+  %dec1241 = add nsw i32 %411, -1
   store i32 %dec1241, ptr %level, align 8
   %idxprom1244 = zext nneg i32 %dec1241 to i64
   %arrayidx1245 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 22, i64 %idxprom1244
-  %413 = load i8, ptr %arrayidx1245, align 1
-  %conv1246 = sext i8 %413 to i32
-  %cmp1250 = icmp eq i8 %413, 40
+  %412 = load i8, ptr %arrayidx1245, align 1
+  %conv1246 = sext i8 %412 to i32
+  %cmp1250 = icmp eq i8 %412, 40
   %cmp1253 = icmp eq i32 %c.20, 41
   %or.cond43 = and i1 %cmp1253, %cmp1250
   br i1 %or.cond43, label %if.end1303, label %lor.lhs.false1255
 
 lor.lhs.false1255:                                ; preds = %land.lhs.true1249
-  %cmp1256 = icmp eq i8 %413, 91
+  %cmp1256 = icmp eq i8 %412, 91
   %cmp1259 = icmp eq i32 %c.20, 93
   %or.cond44 = and i1 %cmp1259, %cmp1256
   br i1 %or.cond44, label %if.end1303, label %lor.lhs.false1261
 
 lor.lhs.false1261:                                ; preds = %lor.lhs.false1255
-  %cmp1262 = icmp eq i8 %413, 123
+  %cmp1262 = icmp eq i8 %412, 123
   %or.cond45 = and i1 %cmp1105, %cmp1262
   br i1 %or.cond45, label %if.end1303, label %if.then1267
 
@@ -4657,11 +4645,11 @@ if.then1267:                                      ; preds = %lor.lhs.false1261
 
 if.then1274:                                      ; preds = %if.then1267
   %curly_bracket_depth1275 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
-  %414 = load i32, ptr %curly_bracket_depth1275, align 4
-  %sub1276 = add i32 %414, -1
+  %413 = load i32, ptr %curly_bracket_depth1275, align 4
+  %sub1276 = add i32 %413, -1
   %curly_bracket_expr_start_depth1277 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
-  %415 = load i32, ptr %curly_bracket_expr_start_depth1277, align 8
-  %cmp1278 = icmp eq i32 %sub1276, %415
+  %414 = load i32, ptr %curly_bracket_expr_start_depth1277, align 8
+  %cmp1278 = icmp eq i32 %sub1276, %414
   br i1 %cmp1278, label %if.then1280, label %if.end1284
 
 if.then1280:                                      ; preds = %if.then1274
@@ -4671,13 +4659,13 @@ if.then1280:                                      ; preds = %if.then1274
 
 if.end1284:                                       ; preds = %if.then1274, %if.then1267
   %arrayidx1288 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 23, i64 %idxprom1244
-  %416 = load i32, ptr %arrayidx1288, align 4
-  %417 = load i32, ptr %lineno, align 8
-  %cmp1290.not = icmp eq i32 %416, %417
+  %415 = load i32, ptr %arrayidx1288, align 4
+  %416 = load i32, ptr %lineno, align 8
+  %cmp1290.not = icmp eq i32 %415, %416
   br i1 %cmp1290.not, label %if.else1299, label %if.then1292
 
 if.then1292:                                      ; preds = %if.end1284
-  %call1297 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.22, i32 noundef %c.20, i32 noundef %conv1246, i32 noundef %416) #8
+  %call1297 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.22, i32 noundef %c.20, i32 noundef %conv1246, i32 noundef %415) #8
   %call1298 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call1297, ptr noundef null, ptr noundef null) #8
   br label %return
 
@@ -4691,19 +4679,19 @@ if.end1303:                                       ; preds = %if.then1239.thread,
 
 if.then1307:                                      ; preds = %if.end1303
   %curly_bracket_depth1308 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
-  %418 = load i32, ptr %curly_bracket_depth1308, align 4
-  %dec1309 = add i32 %418, -1
+  %417 = load i32, ptr %curly_bracket_depth1308, align 4
+  %dec1309 = add i32 %417, -1
   store i32 %dec1309, ptr %curly_bracket_depth1308, align 4
   br i1 %cmp1105, label %land.lhs.true1312, label %sw.epilog1325
 
 land.lhs.true1312:                                ; preds = %if.then1307
   %curly_bracket_expr_start_depth1314 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
-  %419 = load i32, ptr %curly_bracket_expr_start_depth1314, align 8
-  %cmp1315 = icmp eq i32 %dec1309, %419
+  %418 = load i32, ptr %curly_bracket_expr_start_depth1314, align 8
+  %cmp1315 = icmp eq i32 %dec1309, %418
   br i1 %cmp1315, label %if.then1317, label %sw.epilog1325
 
 if.then1317:                                      ; preds = %land.lhs.true1312
-  %dec1319 = add i32 %418, -2
+  %dec1319 = add i32 %417, -2
   store i32 %dec1319, ptr %curly_bracket_expr_start_depth1314, align 8
   store i32 1, ptr %current_tok, align 8
   %f_string_debug1321 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 14
@@ -4726,8 +4714,8 @@ if.end1331:                                       ; preds = %sw.epilog1325
 
 land.lhs.true1334:                                ; preds = %if.end1331
   %curly_bracket_expr_start_depth1335 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
-  %420 = load i32, ptr %curly_bracket_expr_start_depth1335, align 8
-  %cmp1336 = icmp sgt i32 %420, -1
+  %419 = load i32, ptr %curly_bracket_expr_start_depth1335, align 8
+  %cmp1336 = icmp sgt i32 %419, -1
   br i1 %cmp1336, label %if.then1338, label %if.end1340
 
 if.then1338:                                      ; preds = %land.lhs.true1334
@@ -4736,10 +4724,10 @@ if.then1338:                                      ; preds = %land.lhs.true1334
   br label %if.end1340
 
 if.end1340:                                       ; preds = %if.then1338, %land.lhs.true1334, %if.end1331
-  %421 = load ptr, ptr %start, align 8
-  %422 = load ptr, ptr %cur.i, align 8
+  %420 = load ptr, ptr %start, align 8
+  %421 = load ptr, ptr %cur.i, align 8
   %call1343 = tail call i32 @_PyToken_OneChar(i32 noundef %c.20) #8
-  %call1344 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call1343, ptr noundef %421, ptr noundef %422) #8
+  %call1344 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call1343, ptr noundef %420, ptr noundef %421) #8
   br label %return
 
 return:                                           ; preds = %if.end1340, %if.then1328, %if.else1299, %if.then1292, %if.then1280, %if.then1232, %if.then1223, %if.then1183, %if.end1174, %if.then1155, %if.then1146, %if.then1134, %if.then1097, %while.end1086, %if.end1063, %if.end1050, %if.then1037, %if.then993, %sw.epilog, %if.then929, %if.end876, %if.then872, %if.then866, %if.then853, %if.end844, %if.then842, %if.then828, %if.then803, %if.then786, %if.then776, %if.then759, %if.then732, %if.then710, %if.then694, %if.then688, %if.else664, %if.then661, %if.then632, %if.then626, %if.else601, %if.then598, %if.then569, %if.then549, %if.end514, %if.then506, %if.end482, %if.then477, %if.end466, %if.end439, %if.then437, %if.end306, %if.then304, %if.then296, %tok_backup.exit1033, %if.else280, %if.end277, %if.end159, %if.then145, %if.then129, %if.then118, %if.then88, %if.then80, %if.then66, %if.then19
