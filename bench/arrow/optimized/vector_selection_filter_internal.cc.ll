@@ -15787,7 +15787,7 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %shr.i9.i = lshr i64 %shr.i.i, %5
   store i64 %shr.i9.i, ptr %current_word_.i, align 8
   %6 = add nuw nsw i32 %cast.i.i7.i, %cast.i.i.i
-  %sub20.i = sub i32 %0, %6
+  %sub20.i = sub nsw i32 %0, %6
   store i32 %sub20.i, ptr %current_num_bits_, align 8
   %sub23.i = sub nsw i64 %sub12.i, %5
   store i64 %sub23.i, ptr %remaining_11.i, align 8
@@ -29762,19 +29762,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -29935,8 +29933,7 @@ if.else:                                          ; preds = %if.then
   %23 = load ptr, ptr %_M_finish.i23, align 8
   %sub.ptr.lhs.cast.i24 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i27 = ashr exact i64 %sub.ptr.sub.i26, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i27, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i26, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -30517,7 +30514,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -31078,18 +31075,17 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 88
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::internal::SelectionKernelData, std::allocator<arrow::compute::internal::SelectionKernelData>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 88
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
+  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 88
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 104811045873349725
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN5arrow7compute8internal19SelectionKernelDataESaIS3_EE11_M_allocateEm.exit.i
 
@@ -31167,8 +31163,7 @@ if.else:                                          ; preds = %entry
   %6 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 88
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else

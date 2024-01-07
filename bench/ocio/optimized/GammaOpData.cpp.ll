@@ -897,9 +897,9 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams, i8 0, i64 24, i1 false), !alias.scope !4
   %call5.i.i.i.i.i1.i4 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-          to label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i unwind label %lpad
+          to label %cond.true.i.i.i.i unwind label %lpad
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %entry
+cond.true.i.i.i.i:                                ; preds = %entry
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store double 1.000000e+00, ptr %call5.i.i.i.i.i1.i4, align 8, !noalias !4
@@ -911,9 +911,9 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams, i8 0, i64 24, i1 false), !alias.scope !7
   %call5.i.i.i.i.i1.i8 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-          to label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i22 unwind label %lpad4
+          to label %cond.true.i.i.i.i22 unwind label %lpad4
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i22: ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+cond.true.i.i.i.i22:                              ; preds = %cond.true.i.i.i.i
   %_M_end_of_storage.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   store double 1.000000e+00, ptr %call5.i.i.i.i.i1.i8, align 8, !noalias !7
@@ -925,9 +925,9 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i22: ; preds = %_ZNSt16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams, i8 0, i64 24, i1 false), !alias.scope !10
   %call5.i.i.i.i.i1.i27 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-          to label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i43 unwind label %lpad7
+          to label %cond.true.i.i.i.i43 unwind label %lpad7
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i43: ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i22
+cond.true.i.i.i.i43:                              ; preds = %cond.true.i.i.i.i22
   %_M_end_of_storage.i.i24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   store double 1.000000e+00, ptr %call5.i.i.i.i.i1.i27, align 8, !noalias !10
@@ -941,7 +941,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i43: ; preds = %_ZNSt16
   %call5.i.i.i.i.i1.i48 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %invoke.cont11 unwind label %if.then.i.i.i
 
-invoke.cont11:                                    ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i43
+invoke.cont11:                                    ; preds = %cond.true.i.i.i.i43
   %_M_end_of_storage.i.i45 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
   %_M_finish.i.i44 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   store double 1.000000e+00, ptr %call5.i.i.i.i.i1.i48, align 8, !noalias !13
@@ -956,17 +956,17 @@ lpad:                                             ; preds = %entry
           cleanup
   br label %ehcleanup13
 
-lpad4:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+lpad4:                                            ; preds = %cond.true.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
-lpad7:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i22
+lpad7:                                            ; preds = %cond.true.i.i.i.i22
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-if.then.i.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i43
+if.then.i.i.i:                                    ; preds = %cond.true.i.i.i.i43
   %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i1.i27) #21
@@ -1007,19 +1007,19 @@ define hidden void @_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParameters
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   switch i32 %style, label %nrvo.skipdtor [
-    i32 0, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 1, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 2, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 3, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 4, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 5, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i
-    i32 6, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
-    i32 7, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
-    i32 8, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
-    i32 9, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
+    i32 0, label %cond.true.i.i.i
+    i32 1, label %cond.true.i.i.i
+    i32 2, label %cond.true.i.i.i
+    i32 3, label %cond.true.i.i.i
+    i32 4, label %cond.true.i.i.i
+    i32 5, label %cond.true.i.i.i
+    i32 6, label %cond.true.i.i.i21
+    i32 7, label %cond.true.i.i.i21
+    i32 8, label %cond.true.i.i.i21
+    i32 9, label %cond.true.i.i.i21
   ]
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i: ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+cond.true.i.i.i:                                  ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   %call5.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
@@ -1030,38 +1030,38 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i: ; preds = %entry, %ent
   store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i, align 8
   br label %nrvo.skipdtor
 
-if.then.i.i.i3:                                   ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
-  %lpad.thr_comm.split-lp8187 = landingpad { ptr, i32 }
+if.then.i.i.i3:                                   ; preds = %cond.true.i.i.i21
+  %lpad.thr_comm.split-lp7783 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i40) #21
-  resume { ptr, i32 } %lpad.thr_comm.split-lp8187
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i38) #21
+  resume { ptr, i32 } %lpad.thr_comm.split-lp7783
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23: ; preds = %entry, %entry, %entry, %entry
+cond.true.i.i.i21:                                ; preds = %entry, %entry, %entry, %entry
   %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   %_M_end_of_storage.i5 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
-  %call5.i.i.i.i.i40 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store double 1.000000e+00, ptr %call5.i.i.i.i.i40, align 8
-  %incdec.ptr.i.i31 = getelementptr inbounds double, ptr %call5.i.i.i.i.i40, i64 1
-  store ptr %call5.i.i.i.i.i40, ptr %agg.result, align 8
-  store ptr %incdec.ptr.i.i31, ptr %_M_finish.i4, align 8
-  store ptr %incdec.ptr.i.i31, ptr %_M_end_of_storage.i5, align 8
-  %call5.i.i.i.i.i78 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
-          to label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i72 unwind label %if.then.i.i.i3
+  %call5.i.i.i.i.i38 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  store double 1.000000e+00, ptr %call5.i.i.i.i.i38, align 8
+  %incdec.ptr.i.i29 = getelementptr inbounds double, ptr %call5.i.i.i.i.i38, i64 1
+  store ptr %call5.i.i.i.i.i38, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i29, ptr %_M_finish.i4, align 8
+  store ptr %incdec.ptr.i.i29, ptr %_M_end_of_storage.i5, align 8
+  %call5.i.i.i.i.i74 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
+          to label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i68 unwind label %if.then.i.i.i3
 
-_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i72: ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23
-  %add.ptr.i.i65 = getelementptr inbounds double, ptr %call5.i.i.i.i.i78, i64 1
-  store double 0.000000e+00, ptr %add.ptr.i.i65, align 8
-  %0 = load i64, ptr %call5.i.i.i.i.i40, align 8
-  store i64 %0, ptr %call5.i.i.i.i.i78, align 8
-  %incdec.ptr.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i78, i64 16
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i40) #21
-  store ptr %call5.i.i.i.i.i78, ptr %agg.result, align 8
-  store ptr %incdec.ptr.i.i69, ptr %_M_finish.i4, align 8
-  %add.ptr19.i.i73 = getelementptr inbounds double, ptr %call5.i.i.i.i.i78, i64 2
-  store ptr %add.ptr19.i.i73, ptr %_M_end_of_storage.i5, align 8
+_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i68: ; preds = %cond.true.i.i.i21
+  %add.ptr.i.i61 = getelementptr inbounds double, ptr %call5.i.i.i.i.i74, i64 1
+  store double 0.000000e+00, ptr %add.ptr.i.i61, align 8
+  %0 = load i64, ptr %call5.i.i.i.i.i38, align 8
+  store i64 %0, ptr %call5.i.i.i.i.i74, align 8
+  %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i74, i64 16
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i38) #21
+  store ptr %call5.i.i.i.i.i74, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i65, ptr %_M_finish.i4, align 8
+  %add.ptr19.i.i69 = getelementptr inbounds double, ptr %call5.i.i.i.i.i74, i64 2
+  store ptr %add.ptr19.i.i69, ptr %_M_end_of_storage.i5, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i72, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i, %entry
+nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i68, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -1847,19 +1847,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -1894,8 +1892,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -1985,35 +1982,35 @@ entry:
   %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 1
   %0 = load i32, ptr %m_style.i, align 8
   switch i32 %0, label %_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit [
-    i32 0, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 1, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 2, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 3, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 4, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 5, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-    i32 6, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i
-    i32 7, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i
-    i32 8, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i
-    i32 9, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i
+    i32 0, label %cond.true.i.i.i.i
+    i32 1, label %cond.true.i.i.i.i
+    i32 2, label %cond.true.i.i.i.i
+    i32 3, label %cond.true.i.i.i.i
+    i32 4, label %cond.true.i.i.i.i
+    i32 5, label %cond.true.i.i.i.i
+    i32 6, label %cond.true.i.i.i21.i
+    i32 7, label %cond.true.i.i.i21.i
+    i32 8, label %cond.true.i.i.i21.i
+    i32 9, label %cond.true.i.i.i21.i
   ]
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+cond.true.i.i.i.i:                                ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   %call5.i.i.i.i.i1.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20, !noalias !28
   store double 1.000000e+00, ptr %call5.i.i.i.i.i1.i, align 8, !noalias !28
   %incdec.ptr.i.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i.i1.i, i64 1
   br label %_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i: ; preds = %entry, %entry, %entry, %entry
-  %call5.i.i.i.i.i78.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !28
-  %add.ptr.i.i65.i = getelementptr inbounds double, ptr %call5.i.i.i.i.i78.i, i64 1
-  store double 0.000000e+00, ptr %add.ptr.i.i65.i, align 8, !noalias !28
-  store i64 4607182418800017408, ptr %call5.i.i.i.i.i78.i, align 8, !noalias !28
-  %incdec.ptr.i.i69.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i78.i, i64 16
+cond.true.i.i.i21.i:                              ; preds = %entry, %entry, %entry, %entry
+  %call5.i.i.i.i.i74.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !28
+  %add.ptr.i.i61.i = getelementptr inbounds double, ptr %call5.i.i.i.i.i74.i, i64 1
+  store double 0.000000e+00, ptr %add.ptr.i.i61.i, align 8, !noalias !28
+  store i64 4607182418800017408, ptr %call5.i.i.i.i.i74.i, align 8, !noalias !28
+  %incdec.ptr.i.i65.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i74.i, i64 16
   br label %_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit
 
-_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit: ; preds = %entry, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i
-  %ref.tmp.sroa.0.0 = phi ptr [ null, %entry ], [ %call5.i.i.i.i.i78.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i ], [ %call5.i.i.i.i.i1.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ]
-  %ref.tmp.sroa.7.0 = phi ptr [ null, %entry ], [ %incdec.ptr.i.i69.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i23.i ], [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ]
+_ZN19OpenColorIO_v2_4dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit: ; preds = %entry, %cond.true.i.i.i.i, %cond.true.i.i.i21.i
+  %ref.tmp.sroa.0.0 = phi ptr [ null, %entry ], [ %call5.i.i.i.i.i74.i, %cond.true.i.i.i21.i ], [ %call5.i.i.i.i.i1.i, %cond.true.i.i.i.i ]
+  %ref.tmp.sroa.7.0 = phi ptr [ null, %entry ], [ %incdec.ptr.i.i65.i, %cond.true.i.i.i21.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i.i.i ]
   %m_alphaParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 5
   %1 = load ptr, ptr %m_alphaParams, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1

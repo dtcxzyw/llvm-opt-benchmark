@@ -22895,19 +22895,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !95
   %3 = load ptr, ptr %this, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i, !prof !57
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -22942,8 +22940,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !96
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -23018,8 +23015,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 5
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -23505,8 +23501,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = sdiv exact i64 %sub.ptr.sub.i91, 24
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -30196,8 +30191,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
@@ -30393,8 +30387,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then

@@ -45575,19 +45575,17 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 2305843009213693951
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775804
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -45624,8 +45622,7 @@ if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %_ZSt7advanceIPKfmEvRT_T0_.exit, label %if.then25
 
 if.then25:                                        ; preds = %if.else

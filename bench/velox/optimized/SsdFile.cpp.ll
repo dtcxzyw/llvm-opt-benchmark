@@ -7495,8 +7495,7 @@ for.end116:                                       ; preds = %invoke.cont67
   %sub.ptr.lhs.cast.i136 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i137 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i138 = sub i64 %sub.ptr.lhs.cast.i136, %sub.ptr.rhs.cast.i137
-  %sub.ptr.div.i139 = ashr exact i64 %sub.ptr.sub.i138, 3
-  %cmp121.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i139
+  %cmp121.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i138
   br i1 %cmp121.not, label %if.end125, label %if.then124
 
 if.then124:                                       ; preds = %for.end116

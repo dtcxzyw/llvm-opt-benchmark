@@ -2568,11 +2568,9 @@ if.then376.i.i:                                   ; preds = %if.end4.i.i.i, %if.
   %sub5.i.i.pn.i = phi i32 [ %sub5.i.i.i, %if.end4.i.i.i ], [ %budget.sroa.7.2.i, %if.end369.i.i ]
   %budget.sroa.0.3.i = phi i32 [ %sub9.i.i.i, %if.end4.i.i.i ], [ %budget.sroa.0.2.i, %if.end369.i.i ]
   %budget.sroa.7.3.i = sub i32 %sub5.i.i.pn.i, %conv374.i.i
-  %sub.ptr.div380.i.i = ashr exact i64 %sub.ptr.sub372.i.i, 2
   %sub.ptr.lhs.cast381.i.i = ptrtoint ptr %last.addr.0.ph.i.i to i64
   %sub.ptr.sub383.i.i = sub i64 %sub.ptr.lhs.cast381.i.i, %sub.ptr.lhs.cast354.i.i
-  %sub.ptr.div384.i.i = ashr exact i64 %sub.ptr.sub383.i.i, 2
-  %cmp385.not.i.i = icmp sgt i64 %sub.ptr.div380.i.i, %sub.ptr.div384.i.i
+  %cmp385.not.i.i = icmp sgt i64 %sub.ptr.sub372.i.i, %sub.ptr.sub383.i.i
   br i1 %cmp385.not.i.i, label %if.else409.i.i, label %do.body388.i.i
 
 do.body388.i.i:                                   ; preds = %if.then376.i.i
@@ -2592,7 +2590,7 @@ do.body388.i.i:                                   ; preds = %if.then376.i.i
   br label %for.cond.outer.i.i.backedge
 
 if.else409.i.i:                                   ; preds = %if.then376.i.i
-  %cmp414.i.i = icmp sgt i64 %sub.ptr.div384.i.i, 1
+  %cmp414.i.i = icmp sgt i64 %sub.ptr.sub383.i.i, 4
   %add.ptr419.i.i = getelementptr inbounds i32, ptr %ISAd.addr.0.ph.i.i, i64 %idx.ext733.i.i
   br i1 %cmp414.i.i, label %do.body417.i.i, label %for.cond.outer.i.i.backedge
 

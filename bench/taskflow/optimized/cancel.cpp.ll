@@ -12463,7 +12463,6 @@ if.end12:                                         ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %EndX.i.i29 = getelementptr inbounds %"class.tf::SmallVectorBase", ptr %this, i64 0, i32 1
   %6 = load ptr, ptr %EndX.i.i29, align 8
   %7 = load ptr, ptr %this, align 8
@@ -12471,7 +12470,7 @@ if.end12:                                         ; preds = %if.end
   %sub.ptr.rhs.cast.i31 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
   %sub.ptr.div.i33 = ashr exact i64 %sub.ptr.sub.i32, 2
-  %cmp15.not = icmp ult i64 %sub.ptr.div.i33, %sub.ptr.div.i
+  %cmp15.not = icmp ult i64 %sub.ptr.sub.i32, %sub.ptr.sub.i
   br i1 %cmp15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
@@ -12495,8 +12494,7 @@ if.end24:                                         ; preds = %if.end12
   %9 = load ptr, ptr %CapacityX.i.i, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i31
-  %sub.ptr.div.i41 = ashr exact i64 %sub.ptr.sub.i40, 2
-  %cmp26 = icmp ult i64 %sub.ptr.div.i41, %sub.ptr.div.i
+  %cmp26 = icmp ult i64 %sub.ptr.sub.i40, %sub.ptr.sub.i
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.end24

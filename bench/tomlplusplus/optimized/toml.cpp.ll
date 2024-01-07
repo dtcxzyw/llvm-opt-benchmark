@@ -8121,8 +8121,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE5clea
   %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE5clearEv.exit
@@ -8136,8 +8135,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorISt10un
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -9967,8 +9965,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i14 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i14
-  %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 3
-  %cmp3.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i16
+  %cmp3.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i15
   br i1 %cmp3.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
@@ -41413,8 +41410,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
@@ -41815,8 +41811,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.not, label %if.else78, label %if.then13
 
 if.then13:                                        ; preds = %if.then

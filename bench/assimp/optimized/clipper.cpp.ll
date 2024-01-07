@@ -6381,8 +6381,7 @@ _ZN10ClipperLib8PolyTree5ClearEv.exit:            ; preds = %_ZNSt6vectorIPN10Cl
   %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i32 = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i32 = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i32, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN10ClipperLib8PolyTree5ClearEv.exit
@@ -6395,8 +6394,7 @@ if.end.i:                                         ; preds = %_ZN10ClipperLib8Pol
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
-  %sub.ptr.div.i.i36 = ashr exact i64 %sub.ptr.sub.i.i35, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i36, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i35, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %if.end.i
@@ -6424,16 +6422,18 @@ _ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i
   %.pre262 = ptrtoint ptr %.pre to i64
   %.pre263 = ptrtoint ptr %.pre258 to i64
   %.pre264 = sub i64 %.pre262, %.pre263
-  %.pre265 = ashr exact i64 %.pre264, 3
   br label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  %sub.ptr.div.i42237.pre-phi = phi i64 [ %sub.ptr.div.i, %if.end.i ], [ %.pre265, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %sub.ptr.sub.i41236.pre-phi = phi i64 [ %sub.ptr.sub.i, %if.end.i ], [ %.pre264, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %14 = phi ptr [ %12, %if.end.i ], [ %.pre258, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %vtable2228 = phi ptr [ %vtable, %if.end.i ], [ %vtable2228.pre, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
   %cmp238.not = icmp eq i64 %sub.ptr.sub.i41236.pre-phi, 0
-  br i1 %cmp238.not, label %for.end30, label %for.body
+  br i1 %cmp238.not, label %if.end.i100.thread, label %for.body
+
+if.end.i100.thread:                               ; preds = %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit
+  %_M_end_of_storage.i.i101278 = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %polytree, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  br label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit121
 
 for.body:                                         ; preds = %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit, %for.inc28
   %15 = phi ptr [ %47, %for.inc28 ], [ %14, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit ]
@@ -6746,11 +6746,8 @@ for.inc28:                                        ; preds = %_ZNSt6vectorIN10Cli
   %cmp = icmp ult i64 %inc29, %sub.ptr.div.i42
   br i1 %cmp, label %for.body, label %for.end30, !llvm.loop !79
 
-for.end30:                                        ; preds = %for.inc28, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit
-  %vtable39241261 = phi ptr [ %vtable2228, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit ], [ %vtable2, %for.inc28 ]
-  %sub.ptr.sub.i41.lcssa = phi i64 [ 0, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit ], [ %sub.ptr.sub.i41, %for.inc28 ]
-  %sub.ptr.div.i42.lcssa = phi i64 [ %sub.ptr.div.i42237.pre-phi, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit ], [ %sub.ptr.div.i42, %for.inc28 ]
-  %cmp.i99 = icmp ugt i64 %sub.ptr.div.i42.lcssa, 1152921504606846975
+for.end30:                                        ; preds = %for.inc28
+  %cmp.i99 = icmp ugt i64 %sub.ptr.div.i42, 1152921504606846975
   br i1 %cmp.i99, label %if.then.i120, label %if.end.i100
 
 if.then.i120:                                     ; preds = %for.end30
@@ -6764,15 +6761,14 @@ if.end.i100:                                      ; preds = %for.end30
   %sub.ptr.lhs.cast.i.i102 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i.i103 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i104 = sub i64 %sub.ptr.lhs.cast.i.i102, %sub.ptr.rhs.cast.i.i103
-  %sub.ptr.div.i.i105 = ashr exact i64 %sub.ptr.sub.i.i104, 3
-  %cmp3.i106 = icmp ult i64 %sub.ptr.div.i.i105, %sub.ptr.div.i42.lcssa
+  %cmp3.i106 = icmp ult i64 %sub.ptr.sub.i.i104, %sub.ptr.sub.i41
   br i1 %cmp3.i106, label %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE11_M_allocateEm.exit.i107, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit121
 
 _ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE11_M_allocateEm.exit.i107: ; preds = %if.end.i100
   %50 = load ptr, ptr %_M_finish.i.i3.i, align 8
   %sub.ptr.lhs.cast.i6.i109 = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i8.i110 = sub i64 %sub.ptr.lhs.cast.i6.i109, %sub.ptr.rhs.cast.i.i103
-  %call5.i.i.i.i111 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i41.lcssa) #30
+  %call5.i.i.i.i111 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i41) #30
   %cmp.i.i.i10.i112 = icmp sgt i64 %sub.ptr.sub.i8.i110, 0
   br i1 %cmp.i.i.i10.i112, label %if.then.i.i.i11.i119, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i113
 
@@ -6792,13 +6788,14 @@ _ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i
   store ptr %call5.i.i.i.i111, ptr %Childs.i, align 8
   %add.ptr.i117 = getelementptr inbounds i8, ptr %call5.i.i.i.i111, i64 %sub.ptr.sub.i8.i110
   store ptr %add.ptr.i117, ptr %_M_finish.i.i3.i, align 8
-  %add.ptr21.i118 = getelementptr inbounds i8, ptr %call5.i.i.i.i111, i64 %sub.ptr.sub.i41.lcssa
+  %add.ptr21.i118 = getelementptr inbounds i8, ptr %call5.i.i.i.i111, i64 %sub.ptr.sub.i41
   store ptr %add.ptr21.i118, ptr %_M_end_of_storage.i.i101, align 8
   %vtable39241.pre = load ptr, ptr %this, align 8
   br label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit121
 
-_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit121: ; preds = %if.end.i100, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i116
-  %vtable39241 = phi ptr [ %vtable39241261, %if.end.i100 ], [ %vtable39241.pre, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i116 ]
+_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit121: ; preds = %if.end.i100.thread, %if.end.i100, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i116
+  %_M_end_of_storage.i.i101283 = phi ptr [ %_M_end_of_storage.i.i101, %if.end.i100 ], [ %_M_end_of_storage.i.i101, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i116 ], [ %_M_end_of_storage.i.i101278, %if.end.i100.thread ]
+  %vtable39241 = phi ptr [ %vtable2, %if.end.i100 ], [ %vtable39241.pre, %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i116 ], [ %vtable2228, %if.end.i100.thread ]
   %vbase.offset.ptr40242 = getelementptr i8, ptr %vtable39241, i64 -24
   %vbase.offset41243 = load i64, ptr %vbase.offset.ptr40242, align 8
   %add.ptr42244 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset41243
@@ -6836,7 +6833,7 @@ if.then60:                                        ; preds = %if.end57
   %sub.ptr.rhs.cast.i.i131 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i132 = sub i64 %sub.ptr.lhs.cast.i.i130, %sub.ptr.rhs.cast.i.i131
   %sub.ptr.div.i.i133 = ashr exact i64 %sub.ptr.sub.i.i132, 3
-  %61 = load ptr, ptr %_M_end_of_storage.i.i101, align 8
+  %61 = load ptr, ptr %_M_end_of_storage.i.i101283, align 8
   %cmp.not.i.i.i134 = icmp eq ptr %59, %61
   br i1 %cmp.not.i.i.i134, label %if.else.i.i.i, label %if.then.i.i.i135
 
@@ -6894,7 +6891,7 @@ _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu
   store ptr %cond.i10.i.i.i.i, ptr %Childs.i, align 8
   store ptr %incdec.ptr.i.i.i.i138, ptr %_M_finish.i.i3.i, align 8
   %add.ptr19.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
-  store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i101, align 8
+  store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i101283, align 8
   br label %for.inc76.sink.split
 
 if.else:                                          ; preds = %if.end57
@@ -6987,7 +6984,7 @@ if.else72:                                        ; preds = %land.lhs.true64, %i
   %sub.ptr.rhs.cast.i.i181 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i.i182 = sub i64 %sub.ptr.lhs.cast.i.i180, %sub.ptr.rhs.cast.i.i181
   %sub.ptr.div.i.i183 = ashr exact i64 %sub.ptr.sub.i.i182, 3
-  %73 = load ptr, ptr %_M_end_of_storage.i.i101, align 8
+  %73 = load ptr, ptr %_M_end_of_storage.i.i101283, align 8
   %cmp.not.i.i.i185 = icmp eq ptr %71, %73
   br i1 %cmp.not.i.i.i185, label %if.else.i.i.i191, label %if.then.i.i.i186
 
@@ -7045,17 +7042,17 @@ _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu
   store ptr %cond.i10.i.i.i.i203, ptr %Childs.i, align 8
   store ptr %incdec.ptr.i.i.i.i208, ptr %_M_finish.i.i3.i, align 8
   %add.ptr19.i.i.i.i212 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i203, i64 %cond.i.i.i.i.i197
-  store ptr %add.ptr19.i.i.i.i212, ptr %_M_end_of_storage.i.i101, align 8
+  store ptr %add.ptr19.i.i.i.i212, ptr %_M_end_of_storage.i.i101283, align 8
   br label %for.inc76.sink.split
 
 for.inc76.sink.split:                             ; preds = %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211, %if.then.i.i.i186, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i173, %if.then.i.i.i148, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i135
   %sub.ptr.div.i.i133.sink = phi i64 [ %sub.ptr.div.i.i133, %if.then.i.i.i135 ], [ %sub.ptr.div.i.i133, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %sub.ptr.div.i.i145, %if.then.i.i.i148 ], [ %sub.ptr.div.i.i145, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i173 ], [ %sub.ptr.div.i.i183, %if.then.i.i.i186 ], [ %sub.ptr.div.i.i183, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211 ]
-  %.sink274 = phi ptr [ %58, %if.then.i.i.i135 ], [ %58, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %55, %if.then.i.i.i148 ], [ %55, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i173 ], [ %55, %if.then.i.i.i186 ], [ %55, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211 ]
+  %.sink285 = phi ptr [ %58, %if.then.i.i.i135 ], [ %58, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %55, %if.then.i.i.i148 ], [ %55, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i173 ], [ %55, %if.then.i.i.i186 ], [ %55, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211 ]
   %polytree.sink = phi ptr [ %polytree, %if.then.i.i.i135 ], [ %polytree, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %65, %if.then.i.i.i148 ], [ %65, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i173 ], [ %polytree, %if.then.i.i.i186 ], [ %polytree, %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211 ]
   %conv.i = trunc i64 %sub.ptr.div.i.i133.sink to i32
-  %Parent.i = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %.sink274, i64 0, i32 3
+  %Parent.i = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %.sink285, i64 0, i32 3
   store ptr %polytree.sink, ptr %Parent.i, align 8
-  %Index.i = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %.sink274, i64 0, i32 4
+  %Index.i = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %.sink285, i64 0, i32 4
   store i32 %conv.i, ptr %Index.i, align 8
   br label %for.inc76
 
@@ -22055,19 +22052,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ClipperLib::IntPoint, std::allocator<ClipperLib::IntPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIN10ClipperLib8IntPointESaIS1_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -22106,8 +22101,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

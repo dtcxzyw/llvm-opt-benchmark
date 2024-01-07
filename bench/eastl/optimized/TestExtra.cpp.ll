@@ -16304,8 +16304,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -17600,8 +17599,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -17721,7 +17719,7 @@ if.end.i.i.i.i.i.i.i60:                           ; preds = %_ZN5eastl22uninitia
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %position to i64
   %sub.i.i.i.i.i.i.i61 = sub i64 %11, %12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i56, ptr align 4 %position, i64 %sub.i.i.i.i.i.i.i61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i56, ptr align 4 %position, i64 %sub.i.i.i.i.i.i.i61, i1 false)
   %add.ptr.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr.i.i.i56, i64 %sub.i.i.i.i.i.i.i61
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit64
 
@@ -19569,8 +19567,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -20348,8 +20345,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -20469,7 +20465,7 @@ if.end.i.i.i.i.i.i.i60:                           ; preds = %_ZN5eastl22uninitia
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %position to i64
   %sub.i.i.i.i.i.i.i61 = sub i64 %11, %12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i56, ptr align 4 %position, i64 %sub.i.i.i.i.i.i.i61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i56, ptr align 4 %position, i64 %sub.i.i.i.i.i.i.i61, i1 false)
   %add.ptr.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr.i.i.i56, i64 %sub.i.i.i.i.i.i.i61
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPfS1_S1_EET1_T_T0_S2_.exit64
 

@@ -2953,7 +2953,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i50.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i50.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %37 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %37
@@ -6275,7 +6275,7 @@ if.then.i.i.i.i308.i:                             ; preds = %if.else.i.i288.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i288.i
   %sub.ptr.div.i.i.i.i.i293.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i291.i, 3
   %.sroa.speculated.i.i.i.i294.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i293.i, i64 1)
-  %add.i.i.i.i295.i = add i64 %.sroa.speculated.i.i.i.i294.i, %sub.ptr.div.i.i.i.i.i293.i
+  %add.i.i.i.i295.i = add nsw i64 %.sroa.speculated.i.i.i.i294.i, %sub.ptr.div.i.i.i.i.i293.i
   %cmp7.i.i.i.i296.i = icmp ult i64 %add.i.i.i.i295.i, %sub.ptr.div.i.i.i.i.i293.i
   %423 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i295.i, i64 1152921504606846975)
   %cond.i.i.i.i297.i = select i1 %cmp7.i.i.i.i296.i, i64 1152921504606846975, i64 %423
@@ -6665,7 +6665,7 @@ if.then.i.i.i.i362.i:                             ; preds = %if.else.i.i336.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i341.i: ; preds = %if.else.i.i336.i
   %sub.ptr.div.i.i.i.i.i342.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i339.i, 3
   %.sroa.speculated.i.i.i.i343.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i342.i, i64 1)
-  %add.i.i.i.i344.i = add i64 %.sroa.speculated.i.i.i.i343.i, %sub.ptr.div.i.i.i.i.i342.i
+  %add.i.i.i.i344.i = add nsw i64 %.sroa.speculated.i.i.i.i343.i, %sub.ptr.div.i.i.i.i.i342.i
   %cmp7.i.i.i.i345.i = icmp ult i64 %add.i.i.i.i344.i, %sub.ptr.div.i.i.i.i.i342.i
   %472 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i344.i, i64 1152921504606846975)
   %cond.i.i.i.i346.i = select i1 %cmp7.i.i.i.i345.i, i64 1152921504606846975, i64 %472
@@ -9935,18 +9935,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 40
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %call11 = tail call noundef ptr @_ZNSt6vectorIN7rocksdb6DbPathESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.ptr.div.i, ptr %1, ptr %0)
   %4 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl_data", ptr %this, i64 0, i32 1
@@ -9985,8 +9984,7 @@ if.else:                                          ; preds = %if.then
   %7 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 40
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -10268,19 +10266,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 2305843009213693951
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775804
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -10315,8 +10311,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -10383,19 +10378,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>, std::allocator<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -10556,8 +10549,7 @@ if.else:                                          ; preds = %if.then
   %23 = load ptr, ptr %_M_finish.i23, align 8
   %sub.ptr.lhs.cast.i24 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i27 = ashr exact i64 %sub.ptr.sub.i26, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i27, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i26, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -10743,19 +10735,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::FileTemperatureAge, std::allocator<rocksdb::FileTemperatureAge>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb18FileTemperatureAgeESaIS1_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -10794,8 +10784,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -18084,7 +18073,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -18217,7 +18206,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb14FileDescriptorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
@@ -21453,19 +21442,17 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::VersionEdit *, std::allocator<rocksdb::VersionEdit *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i, 1152921504606846975
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIPN7rocksdb11VersionEditESaIS2_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -21502,8 +21489,7 @@ if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb11VersionEditESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -21574,7 +21560,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 88686269585142075)
   %cond.i = select i1 %cmp7.i, i64 88686269585142075, i64 %2
@@ -22679,7 +22665,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb14FileDescriptorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
@@ -23448,7 +23434,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairIiN7rocksdb12FileMetaDataEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 320
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 28823037615171174)
   %cond.i = select i1 %cmp7.i, i64 28823037615171174, i64 %2
@@ -23710,7 +23696,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairIiN7rocksdb12FileMetaDataEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 320
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 28823037615171174)
   %cond.i = select i1 %cmp7.i, i64 28823037615171174, i64 %2

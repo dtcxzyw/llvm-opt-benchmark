@@ -193,7 +193,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp38.not = icmp eq ptr %0, %1
   br i1 %cmp38.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
@@ -205,10 +204,10 @@ entry.for.end_crit_edge:                          ; preds = %entry
   %.pre41 = ptrtoint ptr %.pre to i64
   %.pre42 = ptrtoint ptr %.pre40 to i64
   %.pre43 = sub i64 %.pre41, %.pre42
-  %.pre44 = ashr exact i64 %.pre43, 3
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %path_1 = getelementptr inbounds %"class.grpc_core::HierarchicalPathArg", ptr %b, i64 0, i32 1
   %_M_finish.i10 = getelementptr inbounds %"class.grpc_core::HierarchicalPathArg", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i10, align 8
@@ -277,8 +276,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %_ZNK
   br i1 %cmp11.not, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %entry.for.end_crit_edge
-  %sub.ptr.div.i29.pre-phi = phi i64 [ %.pre44, %entry.for.end_crit_edge ], [ %sub.ptr.div.i14, %for.cond ]
-  %cmp18 = icmp ugt i64 %sub.ptr.div.i29.pre-phi, %sub.ptr.div.i
+  %sub.ptr.sub.i28.pre-phi = phi i64 [ %.pre43, %entry.for.end_crit_edge ], [ %sub.ptr.sub.i13, %for.cond ]
+  %cmp18 = icmp ugt i64 %sub.ptr.sub.i28.pre-phi, %sub.ptr.sub.i
   %. = sext i1 %cmp18 to i32
   br label %return
 
@@ -2507,7 +2506,6 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %cmp38.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp38.not.i.i, label %entry.for.end_crit_edge.i.i, label %for.body.lr.ph.i.i
 
@@ -2519,10 +2517,10 @@ entry.for.end_crit_edge.i.i:                      ; preds = %entry
   %.pre41.i.i = ptrtoint ptr %.pre.i.i to i64
   %.pre42.i.i = ptrtoint ptr %.pre40.i.i to i64
   %.pre43.i.i = sub i64 %.pre41.i.i, %.pre42.i.i
-  %.pre44.i.i = ashr exact i64 %.pre43.i.i, 3
   br label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %path_1.i.i = getelementptr inbounds %"class.grpc_core::HierarchicalPathArg", ptr %p2, i64 0, i32 1
   %_M_finish.i10.i.i = getelementptr inbounds %"class.grpc_core::HierarchicalPathArg", ptr %p2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i10.i.i, align 8
@@ -2591,8 +2589,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i: ; preds = %
   br i1 %cmp11.not.i.i, label %for.cond.i.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %entry.for.end_crit_edge.i.i
-  %sub.ptr.div.i29.pre-phi.i.i = phi i64 [ %.pre44.i.i, %entry.for.end_crit_edge.i.i ], [ %sub.ptr.div.i14.i.i, %for.cond.i.i ]
-  %cmp18.i.i = icmp ugt i64 %sub.ptr.div.i29.pre-phi.i.i, %sub.ptr.div.i.i.i
+  %sub.ptr.sub.i28.pre-phi.i.i = phi i64 [ %.pre43.i.i, %entry.for.end_crit_edge.i.i ], [ %sub.ptr.sub.i13.i.i, %for.cond.i.i ]
+  %cmp18.i.i = icmp ugt i64 %sub.ptr.sub.i28.pre-phi.i.i, %sub.ptr.sub.i.i.i
   %..i.i = sext i1 %cmp18.i.i to i32
   br label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
 

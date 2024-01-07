@@ -26622,8 +26622,7 @@ if.end3:                                          ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %start to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %cmp.i = icmp ugt i64 %sub.ptr.div, 4611686018427387903
+  %cmp.i = icmp ugt i64 %sub.ptr.sub, 9223372036854775806
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end3
@@ -26637,8 +26636,7 @@ if.end.i:                                         ; preds = %if.end3
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i, label %_ZNSt6vectorItSaItEE7reserveEm.exit
 
 _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %if.end.i

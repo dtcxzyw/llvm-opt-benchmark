@@ -1841,8 +1841,7 @@ land.end:                                         ; preds = %for.body.i, %for.co
   %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.end
@@ -1855,19 +1854,27 @@ if.then.i:                                        ; preds = %land.end
 if.end.i:                                         ; preds = %land.end
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.facebook::velox::exec::Expr", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 2
   %cmp3.i.not = icmp eq ptr %19, %20
-  br i1 %cmp3.i.not, label %invoke.cont30, label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE11_M_allocateEm.exit.i
+  br i1 %cmp3.i.not, label %if.end.i16, label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
   %call5.i.i.i.i9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #35
-          to label %if.then4.i unwind label %lpad25
+          to label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE13_M_deallocateEPS4_m.exit.i unwind label %lpad25
 
-if.then4.i:                                       ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE11_M_allocateEm.exit.i
+_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE11_M_allocateEm.exit.i
   %_M_finish.i.i8 = getelementptr inbounds %"class.facebook::velox::exec::Expr", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
   store ptr %call5.i.i.i.i9, ptr %constantInputs_, align 8
   store ptr %call5.i.i.i.i9, ptr %_M_finish.i.i8, align 8
   %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i9, i64 %sub.ptr.sub.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  invoke void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %inputIsConstant_, i64 noundef %sub.ptr.div.i)
+  br label %if.end.i16
+
+if.end.i16:                                       ; preds = %if.end.i, %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE13_M_deallocateEPS4_m.exit.i
+  %cmp3.i17.not = icmp eq ptr %19, %20
+  br i1 %cmp3.i17.not, label %invoke.cont30, label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.end.i16
+  %sub.ptr.div.i14 = lshr exact i64 %sub.ptr.sub.i, 4
+  invoke void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %inputIsConstant_, i64 noundef %sub.ptr.div.i14)
           to label %if.then4.i.invoke.cont30_crit_edge unwind label %lpad25
 
 if.then4.i.invoke.cont30_crit_edge:               ; preds = %if.then4.i
@@ -1875,9 +1882,9 @@ if.then4.i.invoke.cont30_crit_edge:               ; preds = %if.then4.i
   %.pre77 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %if.end.i, %if.then4.i.invoke.cont30_crit_edge
-  %21 = phi ptr [ %.pre77, %if.then4.i.invoke.cont30_crit_edge ], [ %19, %if.end.i ]
-  %22 = phi ptr [ %.pre, %if.then4.i.invoke.cont30_crit_edge ], [ %20, %if.end.i ]
+invoke.cont30:                                    ; preds = %if.then4.i.invoke.cont30_crit_edge, %if.end.i16
+  %21 = phi ptr [ %.pre77, %if.then4.i.invoke.cont30_crit_edge ], [ %19, %if.end.i16 ]
+  %22 = phi ptr [ %.pre, %if.then4.i.invoke.cont30_crit_edge ], [ %20, %if.end.i16 ]
   %cmp.i22.not75 = icmp eq ptr %22, %21
   br i1 %cmp.i22.not75, label %for.end, label %for.body.lr.ph
 
@@ -28296,19 +28303,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -28343,8 +28348,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

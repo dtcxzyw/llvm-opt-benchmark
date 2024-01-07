@@ -14075,8 +14075,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -14126,8 +14125,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -14214,11 +14212,12 @@ _ZSt8_DestroyIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEEEvPT_.exit.i.i.i2
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !175
 
 if.else49:                                        ; preds = %if.else
-  %cmp7.i.i.i.i.i39 = icmp sgt i64 %sub.ptr.div.i23, 0
+  %sub.ptr.div.i.i.i.i.i38 = ashr exact i64 %sub.ptr.sub.i22, 3
+  %cmp7.i.i.i.i.i39 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i38, 0
   br i1 %cmp7.i.i.i.i.i39, label %for.body.i.i.i.i.i41, label %_ZSt4copyIPN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEES4_ET0_T_S6_S5_.exit
 
 for.body.i.i.i.i.i41:                             ; preds = %if.else49, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSERKS2_.exit.i.i.i.i.i56
-  %__n.011.i.i.i.i.i42 = phi i64 [ %dec.i.i.i.i.i59, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSERKS2_.exit.i.i.i.i.i56 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__n.011.i.i.i.i.i42 = phi i64 [ %dec.i.i.i.i.i59, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSERKS2_.exit.i.i.i.i.i56 ], [ %sub.ptr.div.i.i.i.i.i38, %if.else49 ]
   %__result.addr.010.i.i.i.i.i43 = phi ptr [ %incdec.ptr1.i.i.i.i.i58, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSERKS2_.exit.i.i.i.i.i56 ], [ %3, %if.else49 ]
   %__first.addr.08.i.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i57, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSERKS2_.exit.i.i.i.i.i56 ], [ %1, %if.else49 ]
   %15 = load ptr, ptr %__first.addr.08.i.i.i.i.i44, align 8

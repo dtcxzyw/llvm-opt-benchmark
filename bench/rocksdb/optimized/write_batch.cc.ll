@@ -12737,19 +12737,17 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::SavePoint, std::allocator<rocksdb::SavePoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN7rocksdb9SavePointESaIS1_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -12762,7 +12760,7 @@ _ZNSt12_Vector_baseIN7rocksdb9SavePointESaIS1_EE11_M_allocateEm.exit.i: ; preds 
   br i1 %cmp.i.not5.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb9SavePointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %for.body.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt12_Vector_baseIN7rocksdb9SavePointESaIS1_EE11_M_allocateEm.exit.i
-  %2 = and i64 %sub.ptr.sub.i.i.i, -16
+  %2 = and i64 %sub.ptr.sub.i.i.i, 9223372036854775792
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i, ptr align 8 %__first.coerce, i64 %2, i1 false)
   br label %_ZNSt6vectorIN7rocksdb9SavePointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
@@ -12787,8 +12785,7 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 4
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb9SavePointESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -22433,19 +22430,17 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::ProtectionInfoKVOC<unsigned long>, std::allocator<rocksdb::ProtectionInfoKVOC<unsigned long>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i, 1152921504606846975
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN7rocksdb18ProtectionInfoKVOCImEESaIS2_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -22458,7 +22453,7 @@ _ZNSt12_Vector_baseIN7rocksdb18ProtectionInfoKVOCImEESaIS2_EE11_M_allocateEm.exi
   br i1 %cmp.i.not5.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb18ProtectionInfoKVOCImEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %for.body.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt12_Vector_baseIN7rocksdb18ProtectionInfoKVOCImEESaIS2_EE11_M_allocateEm.exit.i
-  %2 = and i64 %sub.ptr.sub.i.i.i, -8
+  %2 = and i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i, ptr align 8 %__first.coerce, i64 %2, i1 false)
   br label %_ZNSt6vectorIN7rocksdb18ProtectionInfoKVOCImEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
 
@@ -22483,8 +22478,7 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb18ProtectionInfoKVOCImEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else

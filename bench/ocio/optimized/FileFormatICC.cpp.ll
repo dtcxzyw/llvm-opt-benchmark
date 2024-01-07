@@ -4276,8 +4276,7 @@ if.end342:                                        ; preds = %dynamic_cast.notnul
   %sub.ptr.lhs.cast.i162 = ptrtoint ptr %92 to i64
   %sub.ptr.rhs.cast.i163 = ptrtoint ptr %93 to i64
   %sub.ptr.sub.i164 = sub i64 %sub.ptr.lhs.cast.i162, %sub.ptr.rhs.cast.i163
-  %sub.ptr.div.i165 = ashr exact i64 %sub.ptr.sub.i164, 2
-  %cmp349.not = icmp eq i64 %sub.ptr.div.i165, %sub.ptr.div.i
+  %cmp349.not = icmp eq i64 %sub.ptr.sub.i164, %sub.ptr.sub.i
   br i1 %cmp349.not, label %lor.lhs.false350, label %if.then355
 
 lor.lhs.false350:                                 ; preds = %if.end342
@@ -4288,8 +4287,7 @@ lor.lhs.false350:                                 ; preds = %if.end342
   %sub.ptr.lhs.cast.i168 = ptrtoint ptr %94 to i64
   %sub.ptr.rhs.cast.i169 = ptrtoint ptr %95 to i64
   %sub.ptr.sub.i170 = sub i64 %sub.ptr.lhs.cast.i168, %sub.ptr.rhs.cast.i169
-  %sub.ptr.div.i171 = ashr exact i64 %sub.ptr.sub.i170, 2
-  %cmp354.not = icmp eq i64 %sub.ptr.div.i171, %sub.ptr.div.i
+  %cmp354.not = icmp eq i64 %sub.ptr.sub.i170, %sub.ptr.sub.i
   br i1 %cmp354.not, label %if.end364, label %if.then355
 
 if.then355:                                       ; preds = %lor.lhs.false350, %if.end342

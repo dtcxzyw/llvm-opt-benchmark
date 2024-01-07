@@ -3215,18 +3215,17 @@ invoke.cont187:                                   ; preds = %while.end184
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cond.i12.i.i.i132269 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %reass.sub.fr.i = freeze i64 %sub.ptr.sub.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %reass.sub.fr.i, 56
   %this.val22.i = load ptr, ptr %slices190, align 8
   %28 = getelementptr inbounds %"struct.Imf_3_2::TiledInputFile::Data", ptr %27, i64 0, i32 19, i32 0, i32 0, i32 0, i32 2
   %this.val23.i = load ptr, ptr %28, align 8
   %sub.ptr.lhs.cast.i28.i = ptrtoint ptr %this.val23.i to i64
   %sub.ptr.rhs.cast.i29.i = ptrtoint ptr %this.val22.i to i64
   %sub.ptr.sub.i30.i = sub i64 %sub.ptr.lhs.cast.i28.i, %sub.ptr.rhs.cast.i29.i
-  %sub.ptr.div.i31.i = sdiv exact i64 %sub.ptr.sub.i30.i, 56
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i31.i
+  %cmp3.i = icmp ugt i64 %reass.sub.fr.i, %sub.ptr.sub.i30.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %invoke.cont187
+  %sub.ptr.div.i.i = sdiv exact i64 %reass.sub.fr.i, 56
   %cmp.i.i.i.i.i155 = icmp ugt i64 %sub.ptr.div.i.i, 164703072086692425
   br i1 %cmp.i.i.i.i.i155, label %if.then3.i.i.i.i.i, label %_ZNSt12_Vector_baseIN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS2_EE11_M_allocateEm.exit.i.i
 
@@ -3271,8 +3270,7 @@ if.else.i:                                        ; preds = %invoke.cont187
   %this.val16.i = load ptr, ptr %32, align 8
   %sub.ptr.lhs.cast.i32.i = ptrtoint ptr %this.val16.i to i64
   %sub.ptr.sub.i34.i = sub i64 %sub.ptr.lhs.cast.i32.i, %sub.ptr.rhs.cast.i29.i
-  %sub.ptr.div.i35.i = sdiv exact i64 %sub.ptr.sub.i34.i, 56
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i35.i, %sub.ptr.div.i.i
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i34.i, %reass.sub.fr.i
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i

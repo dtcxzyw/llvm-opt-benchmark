@@ -4847,8 +4847,7 @@ land.lhs.true159:                                 ; preds = %if.end157
   %sub.ptr.lhs.cast.i401 = ptrtoint ptr %90 to i64
   %sub.ptr.rhs.cast.i402 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i403 = sub i64 %sub.ptr.lhs.cast.i401, %sub.ptr.rhs.cast.i402
-  %sub.ptr.div.i404 = sdiv exact i64 %sub.ptr.sub.i403, 12
-  %cmp164.not = icmp eq i64 %sub.ptr.div.i404, %sub.ptr.div.i394
+  %cmp164.not = icmp eq i64 %sub.ptr.sub.i403, %sub.ptr.sub.i393
   br i1 %cmp164.not, label %if.end173, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true159
@@ -4884,8 +4883,7 @@ land.lhs.true175:                                 ; preds = %if.end173
   %sub.ptr.lhs.cast.i411 = ptrtoint ptr %95 to i64
   %sub.ptr.rhs.cast.i412 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i413 = sub i64 %sub.ptr.lhs.cast.i411, %sub.ptr.rhs.cast.i412
-  %sub.ptr.div.i414 = sdiv exact i64 %sub.ptr.sub.i413, 12
-  %cmp180.not = icmp eq i64 %sub.ptr.div.i414, %sub.ptr.div.i394
+  %cmp180.not = icmp eq i64 %sub.ptr.sub.i413, %sub.ptr.sub.i393
   br i1 %cmp180.not, label %if.end189, label %if.then181
 
 if.then181:                                       ; preds = %land.lhs.true175
@@ -4932,8 +4930,7 @@ for.body196:                                      ; preds = %if.end189, %for.inc
   %sub.ptr.lhs.cast.i427 = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i428 = ptrtoint ptr %103 to i64
   %sub.ptr.sub.i429 = sub i64 %sub.ptr.lhs.cast.i427, %sub.ptr.rhs.cast.i428
-  %sub.ptr.div.i430 = sdiv exact i64 %sub.ptr.sub.i429, 12
-  %cmp203.not = icmp eq i64 %sub.ptr.div.i430, %sub.ptr.div.i394
+  %cmp203.not = icmp eq i64 %sub.ptr.sub.i429, %sub.ptr.sub.i393
   br i1 %cmp203.not, label %for.inc215, label %if.then204
 
 if.then204:                                       ; preds = %for.body196

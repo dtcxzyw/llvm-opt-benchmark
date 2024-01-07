@@ -2039,7 +2039,7 @@ _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_ssl_session_cache_create_lru(i64 noundef %capacity) local_unnamed_addr #4 {
+define noundef ptr @grpc_ssl_session_cache_create_lru(i64 noundef %capacity) local_unnamed_addr #4 {
 entry:
   %call = tail call noundef ptr @_Z32tsi_ssl_session_cache_create_lrum(i64 noundef %capacity)
   ret ptr %call
@@ -2732,8 +2732,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
-  %cmp3.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i
+  %cmp3.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   br i1 %cmp3.not, label %if.else50, label %if.then4
 
 if.then4:                                         ; preds = %if.then

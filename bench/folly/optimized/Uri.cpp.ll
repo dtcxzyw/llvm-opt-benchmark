@@ -3649,8 +3649,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 6
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -40694,13 +40693,8 @@ cond.end:                                         ; preds = %cond.true.i, %cond.
 if.then.i15:                                      ; preds = %cond.end
   %add.ptr.i.i16 = getelementptr inbounds %"struct.boost::sub_match", ptr %8, i64 %cond
   %add.ptr.i62.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i16, i64 2
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i62.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i10
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i12
-  %tobool.not.i.i.i.i = icmp eq ptr %7, %add.ptr.i62.i
-  %or.cond.i = or i1 %tobool.not.i.i.i.i, %cmp.i.not.i.i.i
-  br i1 %or.cond.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, label %invoke.cont.i.i.i.i
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i62.i, %7
+  br i1 %cmp.i.not.i.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i15
   store ptr %add.ptr.i62.i, ptr %_M_finish.i.i, align 8, !tbaa !62
@@ -41710,18 +41704,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !817
   %3 = load ptr, ptr %this, align 8, !tbaa !61
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = sdiv exact i64 %sub.ptr.sub.i91, 24
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 384307168202282325
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIN5boost9sub_matchIPKcEESaIS4_EE11_M_allocateEm.exit.i, !prof !99
 
@@ -41766,8 +41759,7 @@ if.else:                                          ; preds = %if.then
   %5 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = sdiv exact i64 %sub.ptr.sub.i97, 24
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -55924,7 +55916,7 @@ return:                                           ; preds = %invoke.cont, %_ZNK5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE8find_impEv(ptr noundef nonnull align 8 dereferenceable(236) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %v.i65 = alloca %"struct.boost::sub_match", align 8
+  %v.i60 = alloca %"struct.boost::sub_match", align 8
   %v.i17 = alloca %"struct.boost::sub_match", align 8
   %v.i = alloca %"struct.boost::sub_match", align 8
   %e.i.i105 = alloca %"class.std::logic_error", align 8
@@ -55998,13 +55990,8 @@ cond.end:                                         ; preds = %invoke.cont6, %invo
 if.then.i14:                                      ; preds = %cond.end
   %add.ptr.i.i15 = getelementptr inbounds %"struct.boost::sub_match", ptr %9, i64 %cond
   %add.ptr.i62.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i15, i64 2
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i62.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i10
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i12
-  %tobool.not.i.i.i.i = icmp eq ptr %8, %add.ptr.i62.i
-  %or.cond.i = or i1 %tobool.not.i.i.i.i, %cmp.i.not.i.i.i
-  br i1 %or.cond.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, label %invoke.cont.i.i.i.i
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i62.i, %8
+  br i1 %cmp.i.not.i.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i14
   store ptr %add.ptr.i62.i, ptr %_M_finish.i.i, align 8, !tbaa !62
@@ -56057,15 +56044,15 @@ if.then42.i:                                      ; preds = %_ZSt4fillIN9__gnu_c
           to label %if.then42.i.invoke.cont9_crit_edge unwind label %lpad
 
 if.then42.i.invoke.cont9_crit_edge:               ; preds = %if.then42.i
-  %.pre114 = load ptr, ptr %m_presult, align 8, !tbaa !786
-  %.pre115 = load ptr, ptr %base, align 8, !tbaa !105
-  %.pre116 = load ptr, ptr %re, align 8, !tbaa !781
+  %.pre104 = load ptr, ptr %m_presult, align 8, !tbaa !786
+  %.pre105 = load ptr, ptr %base, align 8, !tbaa !105
+  %.pre106 = load ptr, ptr %re, align 8, !tbaa !781
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i, %if.then42.i.invoke.cont9_crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i
-  %13 = phi ptr [ %.pre116, %if.then42.i.invoke.cont9_crit_edge ], [ %2, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %2, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %2, %for.body.i.i.i.i.i ]
-  %14 = phi ptr [ %.pre115, %if.then42.i.invoke.cont9_crit_edge ], [ %1, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %1, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %1, %for.body.i.i.i.i.i ]
-  %15 = phi ptr [ %.pre114, %if.then42.i.invoke.cont9_crit_edge ], [ %5, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %5, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %5, %for.body.i.i.i.i.i ]
+  %13 = phi ptr [ %.pre106, %if.then42.i.invoke.cont9_crit_edge ], [ %2, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %2, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %2, %for.body.i.i.i.i.i ]
+  %14 = phi ptr [ %.pre105, %if.then42.i.invoke.cont9_crit_edge ], [ %1, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %1, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %1, %for.body.i.i.i.i.i ]
+  %15 = phi ptr [ %.pre104, %if.then42.i.invoke.cont9_crit_edge ], [ %5, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i ], [ %5, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ], [ %5, %for.body.i.i.i.i.i ]
   %16 = load ptr, ptr %5, align 8, !tbaa !63
   %add.ptr.i86.i = getelementptr inbounds %"struct.boost::sub_match", ptr %16, i64 1
   store ptr %1, ptr %add.ptr.i86.i, align 8, !tbaa !64
@@ -56170,7 +56157,7 @@ _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit: ; 
   store i32 %or.i.i, ptr %m_match_flags, align 8, !tbaa !784
   br label %if.end50
 
-lpad:                                             ; preds = %if.then42.i85, %if.then42.i37, %if.then42.i, %invoke.cont67, %if.then.i108, %if.then.i
+lpad:                                             ; preds = %if.then42.i80, %if.then42.i37, %if.then42.i, %invoke.cont67, %if.then.i108, %if.then.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
@@ -56333,33 +56320,28 @@ cond.end45:                                       ; preds = %cond.true.i124, %co
 if.then.i45:                                      ; preds = %cond.end45
   %add.ptr.i.i46 = getelementptr inbounds %"struct.boost::sub_match", ptr %56, i64 %cond46
   %add.ptr.i62.i47 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i46, i64 2
-  %sub.ptr.lhs.cast.i.i.i48 = ptrtoint ptr %add.ptr.i62.i47 to i64
-  %sub.ptr.sub.i.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i.i48, %sub.ptr.rhs.cast.i.i22
-  %sub.ptr.div.i.i.i50 = sdiv exact i64 %sub.ptr.sub.i.i.i49, 24
-  %cmp.i.not.i.i.i51 = icmp eq i64 %sub.ptr.div.i.i.i50, %sub.ptr.div.i.i24
-  %tobool.not.i.i.i.i52 = icmp eq ptr %55, %add.ptr.i62.i47
-  %or.cond.i53 = or i1 %tobool.not.i.i.i.i52, %cmp.i.not.i.i.i51
-  br i1 %or.cond.i53, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55, label %invoke.cont.i.i.i.i54
+  %cmp.i.not.i.i.i48 = icmp eq ptr %add.ptr.i62.i47, %55
+  br i1 %cmp.i.not.i.i.i48, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50, label %invoke.cont.i.i.i.i49
 
-invoke.cont.i.i.i.i54:                            ; preds = %if.then.i45
+invoke.cont.i.i.i.i49:                            ; preds = %if.then.i45
   store ptr %add.ptr.i62.i47, ptr %_M_finish.i.i20, align 8, !tbaa !62
-  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55
+  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50
 
-_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55: ; preds = %invoke.cont.i.i.i.i54, %if.then.i45
-  %57 = phi ptr [ %55, %if.then.i45 ], [ %add.ptr.i62.i47, %invoke.cont.i.i.i.i54 ]
-  %cmp.not3.i.i.i.i.i56 = icmp eq ptr %56, %57
-  br i1 %cmp.not3.i.i.i.i.i56, label %cond.end45.if.end50_crit_edge, label %for.body.i.i.i.i.i57
+_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50: ; preds = %invoke.cont.i.i.i.i49, %if.then.i45
+  %57 = phi ptr [ %55, %if.then.i45 ], [ %add.ptr.i62.i47, %invoke.cont.i.i.i.i49 ]
+  %cmp.not3.i.i.i.i.i51 = icmp eq ptr %56, %57
+  br i1 %cmp.not3.i.i.i.i.i51, label %cond.end45.if.end50_crit_edge, label %for.body.i.i.i.i.i52
 
-for.body.i.i.i.i.i57:                             ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55, %for.body.i.i.i.i.i57
-  %__first.addr.04.i.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i61, %for.body.i.i.i.i.i57 ], [ %56, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55 ]
-  store ptr %54, ptr %__first.addr.04.i.i.i.i.i58, align 8, !tbaa !64
-  %second3.i.i.i.i.i.i59 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i.i58, i64 0, i32 1
-  store ptr %54, ptr %second3.i.i.i.i.i.i59, align 8, !tbaa !65
-  %matched4.i.i.i.i.i.i60 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i58, i64 0, i32 1
-  store i8 0, ptr %matched4.i.i.i.i.i.i60, align 8, !tbaa !797
-  %incdec.ptr.i.i.i.i.i61 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i58, i64 1
-  %cmp.not.i.i.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i.i.i61, %57
-  br i1 %cmp.not.i.i.i.i.i62, label %cond.end45.if.end50_crit_edge, label %for.body.i.i.i.i.i57, !llvm.loop !798
+for.body.i.i.i.i.i52:                             ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50, %for.body.i.i.i.i.i52
+  %__first.addr.04.i.i.i.i.i53 = phi ptr [ %incdec.ptr.i.i.i.i.i56, %for.body.i.i.i.i.i52 ], [ %56, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50 ]
+  store ptr %54, ptr %__first.addr.04.i.i.i.i.i53, align 8, !tbaa !64
+  %second3.i.i.i.i.i.i54 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i.i53, i64 0, i32 1
+  store ptr %54, ptr %second3.i.i.i.i.i.i54, align 8, !tbaa !65
+  %matched4.i.i.i.i.i.i55 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i53, i64 0, i32 1
+  store i8 0, ptr %matched4.i.i.i.i.i.i55, align 8, !tbaa !797
+  %incdec.ptr.i.i.i.i.i56 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i53, i64 1
+  %cmp.not.i.i.i.i.i57 = icmp eq ptr %incdec.ptr.i.i.i.i.i56, %57
+  br i1 %cmp.not.i.i.i.i.i57, label %cond.end45.if.end50_crit_edge, label %for.body.i.i.i.i.i52, !llvm.loop !798
 
 if.else.i27:                                      ; preds = %cond.end45
   %cmp.not3.i.i.i.i66.i28 = icmp eq ptr %56, %55
@@ -56395,8 +56377,8 @@ if.then42.i37.cond.end45.if.end50_crit_edge_crit_edge: ; preds = %if.then42.i37
   %.pre.pre = load i32, ptr %m_match_flags, align 8, !tbaa !780
   br label %cond.end45.if.end50_crit_edge
 
-cond.end45.if.end50_crit_edge:                    ; preds = %for.body.i.i.i.i.i57, %if.then42.i37.cond.end45.if.end50_crit_edge_crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i35, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55
-  %.pre = phi i32 [ %.pre.pre, %if.then42.i37.cond.end45.if.end50_crit_edge_crit_edge ], [ %0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i35 ], [ %0, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i55 ], [ %0, %for.body.i.i.i.i.i57 ]
+cond.end45.if.end50_crit_edge:                    ; preds = %for.body.i.i.i.i.i52, %if.then42.i37.cond.end45.if.end50_crit_edge_crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i35, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50
+  %.pre = phi i32 [ %.pre.pre, %if.then42.i37.cond.end45.if.end50_crit_edge_crit_edge ], [ %0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i35 ], [ %0, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i50 ], [ %0, %for.body.i.i.i.i.i52 ]
   %60 = load ptr, ptr %50, align 8, !tbaa !63
   %add.ptr.i86.i43 = getelementptr inbounds %"struct.boost::sub_match", ptr %60, i64 1
   store ptr %43, ptr %add.ptr.i86.i43, align 8, !tbaa !64
@@ -56430,98 +56412,93 @@ invoke.cont57:                                    ; preds = %cond.true.i131, %if
   %66 = load ptr, ptr %base60, align 8, !tbaa !105
   %last61 = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 4
   %67 = load ptr, ptr %last61, align 8, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i65) #26
-  store ptr %67, ptr %v.i65, align 8, !tbaa !64
-  %second.i.i.i66 = getelementptr inbounds %"struct.std::pair.13", ptr %v.i65, i64 0, i32 1
-  store ptr %67, ptr %second.i.i.i66, align 8, !tbaa !65
-  %matched.i.i67 = getelementptr inbounds %"struct.boost::sub_match", ptr %v.i65, i64 0, i32 1
-  store i8 0, ptr %matched.i.i67, align 8, !tbaa !797
-  %_M_finish.i.i68 = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %62, i64 0, i32 1
-  %68 = load ptr, ptr %_M_finish.i.i68, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i60) #26
+  store ptr %67, ptr %v.i60, align 8, !tbaa !64
+  %second.i.i.i61 = getelementptr inbounds %"struct.std::pair.13", ptr %v.i60, i64 0, i32 1
+  store ptr %67, ptr %second.i.i.i61, align 8, !tbaa !65
+  %matched.i.i62 = getelementptr inbounds %"struct.boost::sub_match", ptr %v.i60, i64 0, i32 1
+  store i8 0, ptr %matched.i.i62, align 8, !tbaa !797
+  %_M_finish.i.i63 = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %62, i64 0, i32 1
+  %68 = load ptr, ptr %_M_finish.i.i63, align 8, !tbaa !61
   %69 = load ptr, ptr %62, align 8, !tbaa !61
-  %sub.ptr.lhs.cast.i.i69 = ptrtoint ptr %68 to i64
-  %sub.ptr.rhs.cast.i.i70 = ptrtoint ptr %69 to i64
-  %sub.ptr.sub.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i69, %sub.ptr.rhs.cast.i.i70
-  %sub.ptr.div.i.i72 = sdiv exact i64 %sub.ptr.sub.i.i71, 24
-  %add.i73 = add i64 %cond.i134, 2
-  %cmp.i74 = icmp ugt i64 %sub.ptr.div.i.i72, %add.i73
-  br i1 %cmp.i74, label %if.then.i93, label %if.else.i75
+  %sub.ptr.lhs.cast.i.i64 = ptrtoint ptr %68 to i64
+  %sub.ptr.rhs.cast.i.i65 = ptrtoint ptr %69 to i64
+  %sub.ptr.sub.i.i66 = sub i64 %sub.ptr.lhs.cast.i.i64, %sub.ptr.rhs.cast.i.i65
+  %sub.ptr.div.i.i67 = sdiv exact i64 %sub.ptr.sub.i.i66, 24
+  %add.i68 = add i64 %cond.i134, 2
+  %cmp.i69 = icmp ugt i64 %sub.ptr.div.i.i67, %add.i68
+  br i1 %cmp.i69, label %if.then.i88, label %if.else.i70
 
-if.then.i93:                                      ; preds = %invoke.cont57
-  %add.ptr.i.i94 = getelementptr inbounds %"struct.boost::sub_match", ptr %69, i64 %cond.i134
-  %add.ptr.i62.i95 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i94, i64 2
-  %sub.ptr.lhs.cast.i.i.i96 = ptrtoint ptr %add.ptr.i62.i95 to i64
-  %sub.ptr.sub.i.i.i97 = sub i64 %sub.ptr.lhs.cast.i.i.i96, %sub.ptr.rhs.cast.i.i70
-  %sub.ptr.div.i.i.i98 = sdiv exact i64 %sub.ptr.sub.i.i.i97, 24
-  %cmp.i.not.i.i.i99 = icmp eq i64 %sub.ptr.div.i.i.i98, %sub.ptr.div.i.i72
-  %tobool.not.i.i.i.i100 = icmp eq ptr %68, %add.ptr.i62.i95
-  %or.cond.i101 = or i1 %tobool.not.i.i.i.i100, %cmp.i.not.i.i.i99
-  br i1 %or.cond.i101, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103, label %invoke.cont.i.i.i.i102
+if.then.i88:                                      ; preds = %invoke.cont57
+  %add.ptr.i.i89 = getelementptr inbounds %"struct.boost::sub_match", ptr %69, i64 %cond.i134
+  %add.ptr.i62.i90 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i89, i64 2
+  %cmp.i.not.i.i.i91 = icmp eq ptr %add.ptr.i62.i90, %68
+  br i1 %cmp.i.not.i.i.i91, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93, label %invoke.cont.i.i.i.i92
 
-invoke.cont.i.i.i.i102:                           ; preds = %if.then.i93
-  store ptr %add.ptr.i62.i95, ptr %_M_finish.i.i68, align 8, !tbaa !62
-  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103
+invoke.cont.i.i.i.i92:                            ; preds = %if.then.i88
+  store ptr %add.ptr.i62.i90, ptr %_M_finish.i.i63, align 8, !tbaa !62
+  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93
 
-_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103: ; preds = %invoke.cont.i.i.i.i102, %if.then.i93
-  %70 = phi ptr [ %68, %if.then.i93 ], [ %add.ptr.i62.i95, %invoke.cont.i.i.i.i102 ]
-  %cmp.not3.i.i.i.i.i104 = icmp eq ptr %69, %70
-  br i1 %cmp.not3.i.i.i.i.i104, label %invoke.cont62, label %for.body.i.i.i.i.i105
+_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93: ; preds = %invoke.cont.i.i.i.i92, %if.then.i88
+  %70 = phi ptr [ %68, %if.then.i88 ], [ %add.ptr.i62.i90, %invoke.cont.i.i.i.i92 ]
+  %cmp.not3.i.i.i.i.i94 = icmp eq ptr %69, %70
+  br i1 %cmp.not3.i.i.i.i.i94, label %invoke.cont62, label %for.body.i.i.i.i.i95
 
-for.body.i.i.i.i.i105:                            ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103, %for.body.i.i.i.i.i105
-  %__first.addr.04.i.i.i.i.i106 = phi ptr [ %incdec.ptr.i.i.i.i.i109, %for.body.i.i.i.i.i105 ], [ %69, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103 ]
-  store ptr %67, ptr %__first.addr.04.i.i.i.i.i106, align 8, !tbaa !64
-  %second3.i.i.i.i.i.i107 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i.i106, i64 0, i32 1
-  store ptr %67, ptr %second3.i.i.i.i.i.i107, align 8, !tbaa !65
-  %matched4.i.i.i.i.i.i108 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i106, i64 0, i32 1
-  store i8 0, ptr %matched4.i.i.i.i.i.i108, align 8, !tbaa !797
-  %incdec.ptr.i.i.i.i.i109 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i106, i64 1
-  %cmp.not.i.i.i.i.i110 = icmp eq ptr %incdec.ptr.i.i.i.i.i109, %70
-  br i1 %cmp.not.i.i.i.i.i110, label %invoke.cont62, label %for.body.i.i.i.i.i105, !llvm.loop !798
+for.body.i.i.i.i.i95:                             ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93, %for.body.i.i.i.i.i95
+  %__first.addr.04.i.i.i.i.i96 = phi ptr [ %incdec.ptr.i.i.i.i.i99, %for.body.i.i.i.i.i95 ], [ %69, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93 ]
+  store ptr %67, ptr %__first.addr.04.i.i.i.i.i96, align 8, !tbaa !64
+  %second3.i.i.i.i.i.i97 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i.i96, i64 0, i32 1
+  store ptr %67, ptr %second3.i.i.i.i.i.i97, align 8, !tbaa !65
+  %matched4.i.i.i.i.i.i98 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i96, i64 0, i32 1
+  store i8 0, ptr %matched4.i.i.i.i.i.i98, align 8, !tbaa !797
+  %incdec.ptr.i.i.i.i.i99 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i96, i64 1
+  %cmp.not.i.i.i.i.i100 = icmp eq ptr %incdec.ptr.i.i.i.i.i99, %70
+  br i1 %cmp.not.i.i.i.i.i100, label %invoke.cont62, label %for.body.i.i.i.i.i95, !llvm.loop !798
 
-if.else.i75:                                      ; preds = %invoke.cont57
-  %cmp.not3.i.i.i.i66.i76 = icmp eq ptr %69, %68
-  br i1 %cmp.not3.i.i.i.i66.i76, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83, label %for.body.i.i.i.i73.i77
+if.else.i70:                                      ; preds = %invoke.cont57
+  %cmp.not3.i.i.i.i66.i71 = icmp eq ptr %69, %68
+  br i1 %cmp.not3.i.i.i.i66.i71, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78, label %for.body.i.i.i.i73.i72
 
-for.body.i.i.i.i73.i77:                           ; preds = %if.else.i75, %for.body.i.i.i.i73.i77
-  %__first.addr.04.i.i.i.i74.i78 = phi ptr [ %incdec.ptr.i.i.i.i77.i81, %for.body.i.i.i.i73.i77 ], [ %69, %if.else.i75 ]
-  store ptr %67, ptr %__first.addr.04.i.i.i.i74.i78, align 8, !tbaa !64
-  %second3.i.i.i.i.i75.i79 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i74.i78, i64 0, i32 1
-  store ptr %67, ptr %second3.i.i.i.i.i75.i79, align 8, !tbaa !65
-  %matched4.i.i.i.i.i76.i80 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i74.i78, i64 0, i32 1
-  store i8 0, ptr %matched4.i.i.i.i.i76.i80, align 8, !tbaa !797
-  %incdec.ptr.i.i.i.i77.i81 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i74.i78, i64 1
-  %cmp.not.i.i.i.i78.i82 = icmp eq ptr %incdec.ptr.i.i.i.i77.i81, %68
-  br i1 %cmp.not.i.i.i.i78.i82, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83, label %for.body.i.i.i.i73.i77, !llvm.loop !799
+for.body.i.i.i.i73.i72:                           ; preds = %if.else.i70, %for.body.i.i.i.i73.i72
+  %__first.addr.04.i.i.i.i74.i73 = phi ptr [ %incdec.ptr.i.i.i.i77.i76, %for.body.i.i.i.i73.i72 ], [ %69, %if.else.i70 ]
+  store ptr %67, ptr %__first.addr.04.i.i.i.i74.i73, align 8, !tbaa !64
+  %second3.i.i.i.i.i75.i74 = getelementptr inbounds %"struct.std::pair.13", ptr %__first.addr.04.i.i.i.i74.i73, i64 0, i32 1
+  store ptr %67, ptr %second3.i.i.i.i.i75.i74, align 8, !tbaa !65
+  %matched4.i.i.i.i.i76.i75 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i74.i73, i64 0, i32 1
+  store i8 0, ptr %matched4.i.i.i.i.i76.i75, align 8, !tbaa !797
+  %incdec.ptr.i.i.i.i77.i76 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i74.i73, i64 1
+  %cmp.not.i.i.i.i78.i77 = icmp eq ptr %incdec.ptr.i.i.i.i77.i76, %68
+  br i1 %cmp.not.i.i.i.i78.i77, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78, label %for.body.i.i.i.i73.i72, !llvm.loop !799
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83: ; preds = %for.body.i.i.i.i73.i77, %if.else.i75
-  %cmp41.not.i84 = icmp eq i64 %add.i73, %sub.ptr.div.i.i72
-  br i1 %cmp41.not.i84, label %invoke.cont62, label %if.then42.i85
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78: ; preds = %for.body.i.i.i.i73.i72, %if.else.i70
+  %cmp41.not.i79 = icmp eq i64 %add.i68, %sub.ptr.div.i.i67
+  br i1 %cmp41.not.i79, label %invoke.cont62, label %if.then42.i80
 
-if.then42.i85:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83
-  %71 = load ptr, ptr %_M_finish.i.i68, align 8, !tbaa !61
-  %sub.i86 = sub i64 %add.i73, %sub.ptr.div.i.i72
+if.then42.i80:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78
+  %71 = load ptr, ptr %_M_finish.i.i63, align 8, !tbaa !61
+  %sub.i81 = sub i64 %add.i68, %sub.ptr.div.i.i67
   %72 = load ptr, ptr %62, align 8, !tbaa !61
-  %sub.ptr.lhs.cast.i.i81.i87 = ptrtoint ptr %71 to i64
-  %sub.ptr.rhs.cast.i.i82.i88 = ptrtoint ptr %72 to i64
-  %sub.ptr.sub.i.i83.i89 = sub i64 %sub.ptr.lhs.cast.i.i81.i87, %sub.ptr.rhs.cast.i.i82.i88
-  %add.ptr.i.i85.i90 = getelementptr inbounds i8, ptr %72, i64 %sub.ptr.sub.i.i83.i89
-  invoke void @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr %add.ptr.i.i85.i90, i64 noundef %sub.i86, ptr noundef nonnull align 8 dereferenceable(17) %v.i65)
-          to label %if.then42.i85.invoke.cont62_crit_edge unwind label %lpad
+  %sub.ptr.lhs.cast.i.i81.i82 = ptrtoint ptr %71 to i64
+  %sub.ptr.rhs.cast.i.i82.i83 = ptrtoint ptr %72 to i64
+  %sub.ptr.sub.i.i83.i84 = sub i64 %sub.ptr.lhs.cast.i.i81.i82, %sub.ptr.rhs.cast.i.i82.i83
+  %add.ptr.i.i85.i85 = getelementptr inbounds i8, ptr %72, i64 %sub.ptr.sub.i.i83.i84
+  invoke void @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr %add.ptr.i.i85.i85, i64 noundef %sub.i81, ptr noundef nonnull align 8 dereferenceable(17) %v.i60)
+          to label %if.then42.i80.invoke.cont62_crit_edge unwind label %lpad
 
-if.then42.i85.invoke.cont62_crit_edge:            ; preds = %if.then42.i85
-  %.pre117 = load ptr, ptr %this, align 8, !tbaa !785
-  %.pre118 = load ptr, ptr %base60, align 8, !tbaa !105
+if.then42.i80.invoke.cont62_crit_edge:            ; preds = %if.then42.i80
+  %.pre107 = load ptr, ptr %this, align 8, !tbaa !785
+  %.pre108 = load ptr, ptr %base60, align 8, !tbaa !105
   br label %invoke.cont62
 
-invoke.cont62:                                    ; preds = %for.body.i.i.i.i.i105, %if.then42.i85.invoke.cont62_crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103
-  %73 = phi ptr [ %.pre118, %if.then42.i85.invoke.cont62_crit_edge ], [ %66, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83 ], [ %66, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103 ], [ %66, %for.body.i.i.i.i.i105 ]
-  %74 = phi ptr [ %.pre117, %if.then42.i85.invoke.cont62_crit_edge ], [ %62, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i83 ], [ %62, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i103 ], [ %62, %for.body.i.i.i.i.i105 ]
+invoke.cont62:                                    ; preds = %for.body.i.i.i.i.i95, %if.then42.i80.invoke.cont62_crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93
+  %73 = phi ptr [ %.pre108, %if.then42.i80.invoke.cont62_crit_edge ], [ %66, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78 ], [ %66, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93 ], [ %66, %for.body.i.i.i.i.i95 ]
+  %74 = phi ptr [ %.pre107, %if.then42.i80.invoke.cont62_crit_edge ], [ %62, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit79.i78 ], [ %62, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i93 ], [ %62, %for.body.i.i.i.i.i95 ]
   %75 = load ptr, ptr %62, align 8, !tbaa !63
-  %add.ptr.i86.i91 = getelementptr inbounds %"struct.boost::sub_match", ptr %75, i64 1
-  store ptr %66, ptr %add.ptr.i86.i91, align 8, !tbaa !64
-  %m_last_closed_paren.i92 = getelementptr inbounds %"class.boost::match_results", ptr %62, i64 0, i32 4
-  store i32 0, ptr %m_last_closed_paren.i92, align 8, !tbaa !800
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i65) #26
+  %add.ptr.i86.i86 = getelementptr inbounds %"struct.boost::sub_match", ptr %75, i64 1
+  store ptr %66, ptr %add.ptr.i86.i86, align 8, !tbaa !64
+  %m_last_closed_paren.i87 = getelementptr inbounds %"class.boost::match_results", ptr %62, i64 0, i32 4
+  store i32 0, ptr %m_last_closed_paren.i87, align 8, !tbaa !800
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i60) #26
   %m_base.i136 = getelementptr inbounds %"class.boost::match_results", ptr %74, i64 0, i32 1
   store ptr %73, ptr %m_base.i136, align 8, !tbaa !801
   br label %if.end65

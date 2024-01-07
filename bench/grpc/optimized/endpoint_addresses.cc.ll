@@ -290,18 +290,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 132
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 69874030582233150
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EE11_M_allocateEm.exit.i
 
@@ -337,8 +336,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 132
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -458,18 +456,27 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
   %cmp38.not = icmp eq ptr %0, %1
+  br i1 %cmp38.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
+
+entry.for.end_crit_edge:                          ; preds = %entry
   %_M_finish.i27.phi.trans.insert = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %other, i64 0, i32 1
   %.pre = load ptr, ptr %_M_finish.i27.phi.trans.insert, align 8
   %.pre40 = load ptr, ptr %other, align 8
   %.pre41 = ptrtoint ptr %.pre to i64
   %.pre42 = ptrtoint ptr %.pre40 to i64
   %.pre43 = sub i64 %.pre41, %.pre42
-  %.pre44 = sdiv exact i64 %.pre43, 132
-  br i1 %cmp38.not, label %for.end, label %for.body.lr.ph
+  br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
+  %_M_finish.i16 = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %other, i64 0, i32 1
+  %2 = load ptr, ptr %_M_finish.i16, align 8
+  %3 = load ptr, ptr %other, align 8
+  %sub.ptr.lhs.cast.i17 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i18 = ptrtoint ptr %3 to i64
+  %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
+  %sub.ptr.div.i20 = sdiv exact i64 %sub.ptr.sub.i19, 132
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
@@ -480,31 +487,32 @@ for.cond:                                         ; preds = %if.end21
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.039 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %cmp4 = icmp eq i64 %.pre44, %i.039
+  %cmp4 = icmp eq i64 %sub.ptr.div.i20, %i.039
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %add.ptr.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %1, i64 %i.039
   %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %1, i64 %i.039, i32 1
-  %2 = load i32, ptr %len, align 4
-  %add.ptr.i21 = getelementptr inbounds %struct.grpc_resolved_address, ptr %.pre40, i64 %i.039
-  %len9 = getelementptr inbounds %struct.grpc_resolved_address, ptr %.pre40, i64 %i.039, i32 1
-  %3 = load i32, ptr %len9, align 4
-  %cmp10 = icmp ugt i32 %2, %3
+  %4 = load i32, ptr %len, align 4
+  %add.ptr.i21 = getelementptr inbounds %struct.grpc_resolved_address, ptr %3, i64 %i.039
+  %len9 = getelementptr inbounds %struct.grpc_resolved_address, ptr %3, i64 %i.039, i32 1
+  %5 = load i32, ptr %len9, align 4
+  %cmp10 = icmp ugt i32 %4, %5
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end
-  %cmp19 = icmp ult i32 %2, %3
+  %cmp19 = icmp ult i32 %4, %5
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end12
-  %conv = zext i32 %2 to i64
+  %conv = zext i32 %4 to i64
   %call32 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i21, i64 noundef %conv) #22
   %cmp33.not = icmp eq i32 %call32, 0
   br i1 %cmp33.not, label %for.cond, label %return
 
-for.end:                                          ; preds = %for.cond, %entry
-  %cmp40 = icmp ugt i64 %.pre44, %sub.ptr.div.i
+for.end:                                          ; preds = %for.cond, %entry.for.end_crit_edge
+  %sub.ptr.sub.i30.pre-phi = phi i64 [ %.pre43, %entry.for.end_crit_edge ], [ %sub.ptr.sub.i19, %for.cond ]
+  %cmp40 = icmp ugt i64 %sub.ptr.sub.i30.pre-phi, %sub.ptr.sub.i
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %for.end
@@ -1682,7 +1690,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

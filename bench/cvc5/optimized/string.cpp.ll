@@ -1376,8 +1376,7 @@ if.then.i.i.i4.i43:                               ; preds = %lpad.i41
 invoke.cont:                                      ; preds = %invoke.cont16.i59, %if.then.i.i.i.i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ret_vec.i39)
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i36, 2
-  %sub.ptr.div.i.i13.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i49, 2
-  %cmp.not.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i13.i.i
+  %cmp.not.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i36, %sub.ptr.sub.i.i.i.i49
   %brmerge.not = and i1 %cmp.not.i.i.i.i.i.i, %cmp.not.i.i
   br i1 %brmerge.not, label %for.body.i.i, label %invoke.cont7
 
@@ -1612,8 +1611,7 @@ if.then.i.i.i4.i43:                               ; preds = %lpad.i41
 invoke.cont:                                      ; preds = %invoke.cont16.i59, %if.then.i.i.i.i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ret_vec.i39)
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i36, 2
-  %sub.ptr.div.i.i13.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i49, 2
-  %cmp.not.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i13.i.i
+  %cmp.not.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i36, %sub.ptr.sub.i.i.i.i49
   %brmerge.not = and i1 %cmp.not.i.i.i.i.i.i, %cmp.not.i.i
   br i1 %brmerge.not, label %for.body.i.i, label %invoke.cont7
 
@@ -2228,7 +2226,6 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %_M_finish.i.i6 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %y, i64 0, i32 1
   %2 = load ptr, ptr %_M_finish.i.i6, align 8
   %3 = load ptr, ptr %y, align 8
@@ -2236,7 +2233,7 @@ entry:
   %sub.ptr.rhs.cast.i.i8 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i7, %sub.ptr.rhs.cast.i.i8
   %sub.ptr.div.i.i10 = ashr exact i64 %sub.ptr.sub.i.i9, 2
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i10, %sub.ptr.div.i.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i9, %sub.ptr.sub.i.i
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
@@ -3309,8 +3306,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
@@ -3426,7 +3422,7 @@ invoke.cont83:                                    ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i64, label %invoke.cont87, label %if.then.i.i.i.i.i.i.i.i.i65
 
 if.then.i.i.i.i.i.i.i.i.i65:                      ; preds = %invoke.cont83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i59, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i59, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63, i1 false)
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i65, %invoke.cont83
@@ -3467,8 +3463,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
@@ -3584,7 +3579,7 @@ invoke.cont83:                                    ; preds = %if.then.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i64, label %invoke.cont87, label %if.then.i.i.i.i.i.i.i.i.i65
 
 if.then.i.i.i.i.i.i.i.i.i65:                      ; preds = %invoke.cont83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i59, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i59, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63, i1 false)
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i65, %invoke.cont83

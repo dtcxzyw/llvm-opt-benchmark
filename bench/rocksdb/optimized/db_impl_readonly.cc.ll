@@ -3203,8 +3203,7 @@ _ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE5clearEv.exit: ; preds = %if.end40, %in
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i59 = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i59 = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i59, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE5clearEv.exit
@@ -3217,8 +3216,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIPN7roc
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %if.end.i
@@ -3346,7 +3344,7 @@ if.then.i.i153:                                   ; preds = %if.else.i.i
 _ZNKSt6vectorISt5tupleIJPN7rocksdb16ColumnFamilyDataEPNS1_12SuperVersionEEESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i141 = ashr exact i64 %sub.ptr.sub.i.i.i139, 4
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i141, i64 1)
-  %add.i.i142 = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i141
+  %add.i.i142 = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i141
   %cmp7.i.i = icmp ult i64 %add.i.i142, %sub.ptr.div.i.i.i141
   %35 = call i64 @llvm.umin.i64(i64 %add.i.i142, i64 576460752303423487)
   %cond.i.i = select i1 %cmp7.i.i, i64 576460752303423487, i64 %35
@@ -3593,7 +3591,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i115
 _ZNKSt6vectorIPN7rocksdb8IteratorESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i115
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %68 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %68
@@ -4638,7 +4636,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %25 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %25
@@ -8869,7 +8867,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp20, label %if.then21, label %if.end35
 
 if.then21:                                        ; preds = %land.lhs.true
-  %add22 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
   %add.ptr.i20 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub25
   %add.ptr.i21 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
@@ -10560,7 +10558,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 856
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 10774967332774270)
   %cond.i = select i1 %cmp7.i, i64 10774967332774270, i64 %2

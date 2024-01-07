@@ -4693,8 +4693,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4745,8 +4744,7 @@ if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 5
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else

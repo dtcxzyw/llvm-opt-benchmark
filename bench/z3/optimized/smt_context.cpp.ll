@@ -11201,8 +11201,7 @@ cond.end30:                                       ; preds = %while.body.i41, %co
 land.lhs.true37:                                  ; preds = %cond.end30
   %bf.load.i52 = load i32, ptr %m_th_var_list12, align 8
   %bf.shl.i53 = shl i32 %bf.load.i52, 24
-  %bf.ashr.i54 = ashr exact i32 %bf.shl.i53, 24
-  %cmp40 = icmp eq i32 %bf.ashr.i35, %bf.ashr.i54
+  %cmp40 = icmp eq i32 %bf.shl.i34, %bf.shl.i53
   br i1 %cmp40, label %if.end.i.i56, label %return
 
 if.end.i.i56:                                     ; preds = %land.lhs.true37

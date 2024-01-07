@@ -5761,7 +5761,10 @@ invoke.cont21:                                    ; preds = %_ZNSt10unique_ptrIN
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
   %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %20 = load ptr, ptr %endpoint_base_, align 8
-  %cmp.i8 = icmp eq ptr %19, %20
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %cmp.i8 = icmp ult i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp.i8, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont21
@@ -5771,11 +5774,11 @@ if.then.i:                                        ; preds = %invoke.cont21
 call5.i.i.i.i.i.noexc:                            ; preds = %if.then.i
   store i64 %add.i, ptr %call5.i.i.i.i.i9, align 8
   %_M_finish.i = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %tobool.not.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i, label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %call5.i.i.i.i.i.noexc
-  call void @_ZdlPv(ptr noundef nonnull %19) #20
+  call void @_ZdlPv(ptr noundef nonnull %20) #20
   br label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i13.i, %call5.i.i.i.i.i.noexc

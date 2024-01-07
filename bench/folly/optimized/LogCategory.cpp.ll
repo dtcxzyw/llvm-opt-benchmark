@@ -1374,8 +1374,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then

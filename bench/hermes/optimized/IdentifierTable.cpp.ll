@@ -2574,8 +2574,7 @@ entry:
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i4 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i7 = ashr exact i64 %sub.ptr.sub.i6, 4
-  %cmp = icmp eq i64 %sub.ptr.div.i7, %sub.ptr.div.i
+  %cmp = icmp eq ptr %2, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2590,12 +2589,12 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %cmp3.i = icmp ult i64 %sub.ptr.div.i, %add
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit.i, label %if.end
+  br i1 %cmp3.i, label %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit.i, label %if.else.i
 
 _ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
   %mul.i.i.i.i = shl nuw nsw i64 %add, 4
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #18
-  %cmp.not5.i.i.i.i = icmp eq ptr %1, %2
+  %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
@@ -2604,7 +2603,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !7
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %for.body.i.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit.i
@@ -2623,9 +2622,9 @@ _ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deall
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i, %if.end.i, %entry
-  %3 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %0, %if.end.i ], [ %0, %entry ]
-  %4 = phi ptr [ %add.ptr.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %2, %if.end.i ], [ %2, %entry ]
+if.end:                                           ; preds = %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i, %entry
+  %3 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %0, %entry ]
+  %4 = phi ptr [ %add.ptr.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %2, %entry ]
   %cmp.not.i = icmp eq ptr %4, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i10
 
@@ -2642,8 +2641,9 @@ if.then.i10:                                      ; preds = %if.end
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
-if.else.i:                                        ; preds = %if.end
-  tail call void @_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %3)
+if.else.i:                                        ; preds = %if.end.i, %if.end
+  %6 = phi ptr [ %3, %if.end ], [ %0, %if.end.i ]
+  tail call void @_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %6)
   br label %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit: ; preds = %if.then.i10, %if.else.i
@@ -4062,7 +4062,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2

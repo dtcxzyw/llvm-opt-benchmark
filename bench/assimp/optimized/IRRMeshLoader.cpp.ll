@@ -1528,14 +1528,13 @@ arrayctor.cont219:                                ; preds = %new.ctorloop213, %i
   %sub.ptr.lhs.cast.i578 = ptrtoint ptr %88 to i64
   %sub.ptr.rhs.cast.i579 = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i580 = sub i64 %sub.ptr.lhs.cast.i578, %sub.ptr.rhs.cast.i579
-  %sub.ptr.div.i581 = sdiv exact i64 %sub.ptr.sub.i580, 12
   %90 = load ptr, ptr %_M_finish.i.i115, align 8
   %91 = load ptr, ptr %curVertices, align 8
   %sub.ptr.lhs.cast.i583 = ptrtoint ptr %90 to i64
   %sub.ptr.rhs.cast.i584 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i585 = sub i64 %sub.ptr.lhs.cast.i583, %sub.ptr.rhs.cast.i584
   %sub.ptr.div.i586 = sdiv exact i64 %sub.ptr.sub.i585, 12
-  %cmp222 = icmp eq i64 %sub.ptr.div.i581, %sub.ptr.div.i586
+  %cmp222 = icmp eq i64 %sub.ptr.sub.i580, %sub.ptr.sub.i585
   br i1 %cmp222, label %if.then223, label %if.end236
 
 if.then223:                                       ; preds = %arrayctor.cont219
@@ -1564,8 +1563,7 @@ if.end236:                                        ; preds = %arrayctor.cont235, 
   %sub.ptr.lhs.cast.i590 = ptrtoint ptr %96 to i64
   %sub.ptr.rhs.cast.i591 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i592 = sub i64 %sub.ptr.lhs.cast.i590, %sub.ptr.rhs.cast.i591
-  %sub.ptr.div.i593 = sdiv exact i64 %sub.ptr.sub.i592, 12
-  %cmp239 = icmp eq i64 %sub.ptr.div.i593, %sub.ptr.div.i586
+  %cmp239 = icmp eq i64 %sub.ptr.sub.i592, %sub.ptr.sub.i585
   br i1 %cmp239, label %if.then240, label %if.end253
 
 if.then240:                                       ; preds = %if.end236
@@ -1594,8 +1592,7 @@ if.end253:                                        ; preds = %arrayctor.cont252, 
   %sub.ptr.lhs.cast.i602 = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i603 = ptrtoint ptr %103 to i64
   %sub.ptr.sub.i604 = sub i64 %sub.ptr.lhs.cast.i602, %sub.ptr.rhs.cast.i603
-  %sub.ptr.div.i605 = sdiv exact i64 %sub.ptr.sub.i604, 12
-  %cmp256 = icmp eq i64 %sub.ptr.div.i605, %sub.ptr.div.i586
+  %cmp256 = icmp eq i64 %sub.ptr.sub.i604, %sub.ptr.sub.i585
   br i1 %cmp256, label %if.then257, label %if.end270
 
 if.then257:                                       ; preds = %if.end253
@@ -1657,8 +1654,7 @@ if.end288:                                        ; preds = %arrayctor.cont287, 
   %sub.ptr.lhs.cast.i624 = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i625 = ptrtoint ptr %114 to i64
   %sub.ptr.sub.i626 = sub i64 %sub.ptr.lhs.cast.i624, %sub.ptr.rhs.cast.i625
-  %sub.ptr.div.i627 = sdiv exact i64 %sub.ptr.sub.i626, 12
-  %cmp291 = icmp eq i64 %sub.ptr.div.i627, %sub.ptr.div.i586
+  %cmp291 = icmp eq i64 %sub.ptr.sub.i626, %sub.ptr.sub.i585
   br i1 %cmp291, label %if.then292, label %if.end306
 
 if.then292:                                       ; preds = %if.end288
@@ -1687,8 +1683,7 @@ if.end306:                                        ; preds = %arrayctor.cont304, 
   %sub.ptr.lhs.cast.i636 = ptrtoint ptr %119 to i64
   %sub.ptr.rhs.cast.i637 = ptrtoint ptr %120 to i64
   %sub.ptr.sub.i638 = sub i64 %sub.ptr.lhs.cast.i636, %sub.ptr.rhs.cast.i637
-  %sub.ptr.div.i639 = sdiv exact i64 %sub.ptr.sub.i638, 12
-  %cmp309 = icmp eq i64 %sub.ptr.div.i639, %sub.ptr.div.i586
+  %cmp309 = icmp eq i64 %sub.ptr.sub.i638, %sub.ptr.sub.i585
   br i1 %cmp309, label %if.then310, label %if.end306.lor.lhs.false.i.i648_crit_edge
 
 if.end306.lor.lhs.false.i.i648_crit_edge:         ; preds = %if.end306

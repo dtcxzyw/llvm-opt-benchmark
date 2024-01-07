@@ -6327,8 +6327,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 56
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -6392,8 +6391,7 @@ if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 56
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %for.cond.i.i.preheader
 
 for.cond.i.i.preheader:                           ; preds = %if.else
@@ -6462,12 +6460,16 @@ _ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i.i: ; preds = %.noexc
 
 if.else49:                                        ; preds = %if.else
   %cmp.i.i5162 = icmp sgt i64 %sub.ptr.sub.i22, 0
-  br i1 %cmp.i.i5162, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
+  br i1 %cmp.i.i5162, label %for.body.i.i52.preheader, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
 
-for.body.i.i52:                                   ; preds = %if.else49, %for.body.i.i52
-  %__n.0.i.i5065 = phi i64 [ %dec.i.i56, %for.body.i.i52 ], [ %sub.ptr.div.i23, %if.else49 ]
-  %__result.addr.0.i.i4964 = phi ptr [ %incdec.ptr1.i.i55, %for.body.i.i52 ], [ %3, %if.else49 ]
-  %__first.addr.0.i.i4863 = phi ptr [ %incdec.ptr.i.i54, %for.body.i.i52 ], [ %1, %if.else49 ]
+for.body.i.i52.preheader:                         ; preds = %if.else49
+  %sub.ptr.div.i.i4674 = udiv exact i64 %sub.ptr.sub.i22, 56
+  br label %for.body.i.i52
+
+for.body.i.i52:                                   ; preds = %for.body.i.i52.preheader, %for.body.i.i52
+  %__n.0.i.i5065 = phi i64 [ %dec.i.i56, %for.body.i.i52 ], [ %sub.ptr.div.i.i4674, %for.body.i.i52.preheader ]
+  %__result.addr.0.i.i4964 = phi ptr [ %incdec.ptr1.i.i55, %for.body.i.i52 ], [ %3, %for.body.i.i52.preheader ]
+  %__first.addr.0.i.i4863 = phi ptr [ %incdec.ptr.i.i54, %for.body.i.i52 ], [ %1, %for.body.i.i52.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i57)
   store ptr %__result.addr.0.i.i4964, ptr %ref.tmp.i.i57, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i57, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i4863)
@@ -6475,7 +6477,7 @@ for.body.i.i52:                                   ; preds = %if.else49, %for.bod
   %incdec.ptr.i.i54 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i4863, i64 1
   %incdec.ptr1.i.i55 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i4964, i64 1
   %dec.i.i56 = add nsw i64 %__n.0.i.i5065, -1
-  %cmp.i.i51 = icmp sgt i64 %__n.0.i.i5065, 1
+  %cmp.i.i51 = icmp ugt i64 %__n.0.i.i5065, 1
   br i1 %cmp.i.i51, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !85
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i52
@@ -10810,8 +10812,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10884,8 +10885,7 @@ if.else:                                          ; preds = %entry
   %8 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 56
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else

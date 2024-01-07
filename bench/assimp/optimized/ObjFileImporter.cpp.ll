@@ -685,7 +685,7 @@ if.end13:                                         ; preds = %invoke.cont6
 
 invoke.cont15:                                    ; preds = %if.end13
   %cmp17 = icmp ult i64 %call16, 16
-  br i1 %cmp17, label %if.then18, label %cond.true.i.i
+  br i1 %cmp17, label %if.then18, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
 
 if.then18:                                        ; preds = %invoke.cont15
   %exception19 = call ptr @__cxa_allocate_exception(i64 16) #18
@@ -706,7 +706,7 @@ lpad20:                                           ; preds = %if.then18
   call void @__cxa_free_exception(ptr %exception19) #18
   br label %ehcleanup73
 
-cond.true.i.i:                                    ; preds = %invoke.cont15
+_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %invoke.cont15
   %m_cacheSize.i = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamedBuffer, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %streamedBuffer, i8 0, i64 16, i1 false)
   store i64 16777216, ptr %m_cacheSize.i, align 8
@@ -715,23 +715,23 @@ cond.true.i.i:                                    ; preds = %invoke.cont15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_numBlocks.i, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_cache.i) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_cache.i, i8 0, i64 40, i1 false)
-  %call5.i.i.i.i40 = invoke noalias noundef nonnull dereferenceable(16777216) ptr @_Znwm(i64 noundef 16777216) #21
+  %call5.i.i.i.i.i44 = invoke noalias noundef nonnull dereferenceable(16777216) ptr @_Znwm(i64 noundef 16777216) #21
           to label %invoke.cont24 unwind label %lpad.i22
 
-lpad.i22:                                         ; preds = %cond.true.i.i
+lpad.i22:                                         ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i) #18
   br label %ehcleanup73
 
-invoke.cont24:                                    ; preds = %cond.true.i.i
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamedBuffer, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamedBuffer, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  store ptr %call5.i.i.i.i40, ptr %m_cache.i, align 8
-  %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i40, i64 16777216
-  store ptr %add.ptr36.i, ptr %_M_finish.i.i.i, align 8
-  store ptr %add.ptr36.i, ptr %_M_end_of_storage.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16777216) %call5.i.i.i.i40, i8 10, i64 16777216, i1 false)
+invoke.cont24:                                    ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
+  %_M_end_of_storage.i.i = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamedBuffer, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i36 = getelementptr inbounds %"class.Assimp::IOStreamBuffer", ptr %streamedBuffer, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  store ptr %call5.i.i.i.i.i44, ptr %m_cache.i, align 8
+  %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i44, i64 16777216
+  store ptr %add.ptr36.i.i, ptr %_M_finish.i.i36, align 8
+  store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16777216) %call5.i.i.i.i.i44, i8 10, i64 16777216, i1 false)
   %13 = load ptr, ptr %streamedBuffer, align 8
   %cmp.not.i.not = icmp eq ptr %13, null
   br i1 %cmp.not.i.not, label %if.end4.i, label %invoke.cont27
@@ -848,13 +848,13 @@ if.end.i:                                         ; preds = %invoke.cont55
 _ZN6Assimp14IOStreamBufferIcE5closeEv.exit:       ; preds = %invoke.cont55, %if.end.i
   %m_Buffer = getelementptr inbounds %"class.Assimp::ObjFileImporter", ptr %this, i64 0, i32 1
   %25 = load ptr, ptr %m_Buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::ObjFileImporter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %26 = load ptr, ptr %_M_finish.i.i, align 8
+  %_M_finish.i.i32 = getelementptr inbounds %"class.Assimp::ObjFileImporter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %26 = load ptr, ptr %_M_finish.i.i32, align 8
   %tobool.not.i.i = icmp eq ptr %26, %25
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit
-  store ptr %25, ptr %_M_finish.i.i, align 8
+  store ptr %25, ptr %_M_finish.i.i32, align 8
   br label %_ZNSt6vectorIcSaIcEE5clearEv.exit
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit, %invoke.cont.i.i
@@ -1595,7 +1595,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %14 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %14
@@ -1706,7 +1706,7 @@ if.then24:                                        ; preds = %if.end21
   %conv27 = trunc i64 %sub to i32
   %mNumMeshes28 = getelementptr inbounds %struct.aiNode, ptr %call2, i64 0, i32 5
   store i32 %conv27, ptr %mNumMeshes28, align 8
-  %cmp3261 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i44
+  %cmp3261 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i43
   br i1 %cmp3261, label %for.body33.lr.ph, label %return
 
 for.body33.lr.ph:                                 ; preds = %if.then24
@@ -4360,7 +4360,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

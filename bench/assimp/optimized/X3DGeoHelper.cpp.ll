@@ -2977,8 +2977,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i68 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
-  %sub.ptr.div.i70 = ashr exact i64 %sub.ptr.sub.i69, 2
-  %cmp12.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i70
+  %cmp12.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i69
   br i1 %cmp12.not, label %if.end, label %if.then13
 
 if.then13:                                        ; preds = %if.then9

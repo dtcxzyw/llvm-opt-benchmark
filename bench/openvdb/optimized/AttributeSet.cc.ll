@@ -7954,8 +7954,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i12 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i13 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
-  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i14, 6
-  %cmp4.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i15
+  %cmp4.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i14
   br i1 %cmp4.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end

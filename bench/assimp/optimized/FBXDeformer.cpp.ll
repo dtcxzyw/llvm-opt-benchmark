@@ -1844,8 +1844,7 @@ invoke.cont16:                                    ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i, label %if.then.i.invoke, label %if.end.i
 
 if.then.i.invoke:                                 ; preds = %if.else.i, %invoke.cont16
@@ -1863,8 +1862,7 @@ if.end.i:                                         ; preds = %invoke.cont16
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX7ClusterESaIS4_EE11_M_allocateEm.exit.i, label %invoke.cont20
 
 _ZNSt12_Vector_baseIPKN6Assimp3FBX7ClusterESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -1947,7 +1945,7 @@ if.else.i:                                        ; preds = %if.then29
 _ZNKSt6vectorIPKN6Assimp3FBX7ClusterESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %23 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %23

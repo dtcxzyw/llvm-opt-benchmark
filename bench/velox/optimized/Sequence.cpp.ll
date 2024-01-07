@@ -4430,7 +4430,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
   %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
@@ -4983,19 +4983,17 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -5154,8 +5152,7 @@ if.else:                                          ; preds = %entry
   %21 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i21, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i20, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else
@@ -9345,7 +9342,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -9713,7 +9710,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
@@ -13234,7 +13231,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp19.i, label %if.then20.i, label %if.end33.i
 
 if.then20.i:                                      ; preds = %land.lhs.true.i
-  %add21.i = shl i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add21.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub24.i = or disjoint i64 %add21.i, 1
   %add.ptr.i20.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub24.i
   %8 = load i32, ptr %add.ptr.i20.i, align 4
@@ -13938,7 +13935,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br i1 %cmp19.i, label %if.then20.i, label %if.end33.i
 
 if.then20.i:                                      ; preds = %land.lhs.true.i
-  %add21.i = shl i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add21.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub24.i = or disjoint i64 %add21.i, 1
   %add.ptr.i20.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub24.i
   %11 = load i32, ptr %add.ptr.i20.i, align 4

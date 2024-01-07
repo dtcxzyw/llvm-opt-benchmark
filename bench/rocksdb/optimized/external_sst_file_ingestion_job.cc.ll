@@ -1379,7 +1379,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPKN7rocksdb16IngestedFileInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %51 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %51
@@ -2415,12 +2415,12 @@ ehcleanup214:                                     ; preds = %if.then194, %if.the
   br i1 %cmp.i.not.i.i, label %ehcleanup215, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i362
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i362: ; preds = %ehcleanup214.thread, %lpad208, %ehcleanup214
-  %.pn701061 = phi { ptr, i32 } [ %191, %lpad208 ], [ %194, %ehcleanup214 ], [ %170, %ehcleanup214.thread ]
+  %.pn701060 = phi { ptr, i32 } [ %191, %lpad208 ], [ %194, %ehcleanup214 ], [ %170, %ehcleanup214.thread ]
   call void @_ZdaPv(ptr noundef nonnull %153) #20
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %lpad208, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i362, %ehcleanup214, %lpad182
-  %.pn70.pn = phi { ptr, i32 } [ %190, %lpad182 ], [ %194, %ehcleanup214 ], [ %.pn701061, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i362 ], [ %191, %lpad208 ]
+  %.pn70.pn = phi { ptr, i32 } [ %190, %lpad182 ], [ %194, %ehcleanup214 ], [ %.pn701060, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i362 ], [ %191, %lpad208 ]
   %195 = load ptr, ptr %file_to_sync, align 8
   %cmp.not.i364 = icmp eq ptr %195, null
   br i1 %cmp.not.i364, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit368, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i365
@@ -2819,8 +2819,7 @@ land.lhs.true344:                                 ; preds = %land.lhs.true338
   %sub.ptr.lhs.cast.i467 = ptrtoint ptr %261 to i64
   %sub.ptr.rhs.cast.i468 = ptrtoint ptr %262 to i64
   %sub.ptr.sub.i469 = sub i64 %sub.ptr.lhs.cast.i467, %sub.ptr.rhs.cast.i468
-  %sub.ptr.div.i470 = ashr exact i64 %sub.ptr.sub.i469, 5
-  %cmp349 = icmp eq i64 %sub.ptr.div.i470, %sub.ptr.div.i
+  %cmp349 = icmp eq i64 %sub.ptr.sub.i469, %sub.ptr.sub.i
   br i1 %cmp349, label %if.end353, label %if.else351
 
 if.else351:                                       ; preds = %land.lhs.true344, %land.lhs.true338, %if.then333
@@ -3237,10 +3236,9 @@ if.then454:                                       ; preds = %invoke.cont452
   %sub.ptr.lhs.cast.i592 = ptrtoint ptr %337 to i64
   %sub.ptr.rhs.cast.i593 = ptrtoint ptr %338 to i64
   %sub.ptr.sub.i594 = sub i64 %sub.ptr.lhs.cast.i592, %sub.ptr.rhs.cast.i593
-  %sub.ptr.div.i595 = ashr exact i64 %sub.ptr.sub.i594, 5
-  %cmp465 = icmp eq i64 %sub.ptr.div.i595, %sub.ptr.div.i583
-  %or.cond1085 = select i1 %cmp459, i1 %cmp465, i1 false
-  br i1 %or.cond1085, label %if.then466, label %if.else587
+  %cmp465 = icmp eq i64 %sub.ptr.sub.i594, %sub.ptr.sub.i582
+  %or.cond1084 = select i1 %cmp459, i1 %cmp465, i1 false
+  br i1 %or.cond1084, label %if.then466, label %if.else587
 
 if.then466:                                       ; preds = %if.then454
   %339 = load ptr, ptr %ingestion_options_, align 8
@@ -3482,7 +3480,7 @@ for.inc583:                                       ; preds = %invoke.cont574
   br i1 %cmp538, label %for.body539, label %if.end618, !llvm.loop !28
 
 if.else587:                                       ; preds = %if.then454
-  %cmp590.not = icmp eq i64 %sub.ptr.div.i583, %sub.ptr.div.i595
+  %cmp590.not = icmp eq i64 %sub.ptr.sub.i582, %sub.ptr.sub.i594
   %cmp597.not = icmp eq ptr %332, %333
   %or.cond940 = and i1 %cmp597.not, %cmp590.not
   br i1 %or.cond940, label %if.end618, label %if.then598
@@ -7503,7 +7501,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i96
 _ZNKSt6vectorIN7rocksdb5RangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i96
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %39 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 288230376151711743)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 288230376151711743, i64 %39
@@ -10827,7 +10825,7 @@ if.else.i.i:                                      ; preds = %invoke.cont13
 _ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %13 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %13
@@ -10901,7 +10899,7 @@ if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invok
 _ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %20 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %20
@@ -11249,7 +11247,7 @@ if.then.i.i.i.i71:                                ; preds = %if.else.i.i49
 _ZNKSt6vectorIPN7rocksdb10CompactionESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i49
   %sub.ptr.div.i.i.i.i.i54 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i52, 3
   %.sroa.speculated.i.i.i.i55 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i54, i64 1)
-  %add.i.i.i.i56 = add i64 %.sroa.speculated.i.i.i.i55, %sub.ptr.div.i.i.i.i.i54
+  %add.i.i.i.i56 = add nsw i64 %.sroa.speculated.i.i.i.i55, %sub.ptr.div.i.i.i.i.i54
   %cmp7.i.i.i.i57 = icmp ult i64 %add.i.i.i.i56, %sub.ptr.div.i.i.i.i.i54
   %49 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i56, i64 1152921504606846975)
   %cond.i.i.i.i58 = select i1 %cmp7.i.i.i.i57, i64 1152921504606846975, i64 %49
@@ -14682,7 +14680,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %10
@@ -14746,7 +14744,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairIiN7rocksdb12FileMetaDataEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 320
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 28823037615171174)
   %cond.i = select i1 %cmp7.i, i64 28823037615171174, i64 %2
@@ -15825,7 +15823,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -16888,7 +16886,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb16IngestedFileInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 10
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9007199254740991)
   %cond.i = select i1 %cmp7.i, i64 9007199254740991, i64 %2
@@ -18406,7 +18404,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp19, label %invoke.cont31, label %if.end36
 
 invoke.cont31:                                    ; preds = %land.lhs.true
-  %add21 = shl i64 %__secondChild.0.lcssa, 1
+  %add21 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
   %17 = load ptr, ptr %__first, align 8, !noalias !141
   %index_.i47 = getelementptr inbounds %"class.rocksdb::autovector<const rocksdb::IngestedFileInfo *>::iterator_impl", ptr %__first, i64 0, i32 1
@@ -19068,7 +19066,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -19198,7 +19196,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
@@ -19283,7 +19281,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb5RangeESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

@@ -18114,8 +18114,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 736
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -18159,8 +18158,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 736
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %for.cond.i.i.preheader
 
 for.cond.i.i.preheader:                           ; preds = %if.else
@@ -18224,12 +18222,16 @@ for.body.i.i.i26:                                 ; preds = %for.body.i.i.i26.pr
 
 if.else49:                                        ; preds = %if.else
   %cmp.i.i5273 = icmp sgt i64 %sub.ptr.sub.i22, 0
-  br i1 %cmp.i.i5273, label %for.body.i.i53, label %_ZSt14__copy_move_a2ILb0EPN6Assimp3ASE8MaterialES3_ET1_T0_S5_S4_.exit
+  br i1 %cmp.i.i5273, label %for.body.i.i53.preheader, label %_ZSt14__copy_move_a2ILb0EPN6Assimp3ASE8MaterialES3_ET1_T0_S5_S4_.exit
 
-for.body.i.i53:                                   ; preds = %if.else49, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63
-  %__n.0.i.i5176 = phi i64 [ %dec.i.i66, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %sub.ptr.div.i23, %if.else49 ]
-  %__result.addr.0.i.i5075 = phi ptr [ %incdec.ptr1.i.i65, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %3, %if.else49 ]
-  %__first.addr.0.i.i4974 = phi ptr [ %incdec.ptr.i.i64, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %1, %if.else49 ]
+for.body.i.i53.preheader:                         ; preds = %if.else49
+  %sub.ptr.div.i.i4787 = udiv exact i64 %sub.ptr.sub.i22, 736
+  br label %for.body.i.i53
+
+for.body.i.i53:                                   ; preds = %for.body.i.i53.preheader, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63
+  %__n.0.i.i5176 = phi i64 [ %dec.i.i66, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %sub.ptr.div.i.i4787, %for.body.i.i53.preheader ]
+  %__result.addr.0.i.i5075 = phi ptr [ %incdec.ptr1.i.i65, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %3, %for.body.i.i53.preheader ]
+  %__first.addr.0.i.i4974 = phi ptr [ %incdec.ptr.i.i64, %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63 ], [ %1, %for.body.i.i53.preheader ]
   %cmp.i1.i54 = icmp eq ptr %__result.addr.0.i.i5075, %__first.addr.0.i.i4974
   br i1 %cmp.i1.i54, label %_ZN6Assimp3ASE8MaterialaSERKS1_.exit.i63, label %if.end.i.i55
 

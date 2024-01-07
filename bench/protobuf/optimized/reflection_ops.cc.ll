@@ -1727,7 +1727,10 @@ invoke.cont13:                                    ; preds = %if.then12
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %fields, i64 0, i32 2
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %9 = load ptr, ptr %fields, align 8
-  %cmp.i117 = icmp eq ptr %8, %9
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %cmp.i117 = icmp ult i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp.i117, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont13
@@ -1738,11 +1741,11 @@ call5.i.i.i.i.i.noexc:                            ; preds = %if.then.i
   %10 = ptrtoint ptr %call14 to i64
   store i64 %10, ptr %call5.i.i.i.i.i121, align 8
   %_M_finish.i118 = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %fields, i64 0, i32 1
-  %tobool.not.i.i119 = icmp eq ptr %8, null
+  %tobool.not.i.i119 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i119, label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i, label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %call5.i.i.i.i.i.noexc
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #16
   br label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i
 
 _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %if.then.i13.i, %call5.i.i.i.i.i.noexc
@@ -3396,7 +3399,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2

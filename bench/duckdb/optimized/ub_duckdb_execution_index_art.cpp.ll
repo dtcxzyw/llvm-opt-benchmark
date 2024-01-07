@@ -30240,8 +30240,7 @@ invoke.cont86:                                    ; preds = %.noexc192
   %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i, label %if.then.i.i.i.invoke, label %if.end.i195
 
 if.end.i195:                                      ; preds = %invoke.cont86
@@ -30251,8 +30250,7 @@ if.end.i195:                                      ; preds = %invoke.cont86
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i, label %invoke.cont88
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %if.end.i195

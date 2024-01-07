@@ -37,7 +37,7 @@ $_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_ = comdat any
 @switch.table.YGNodeCanUseCachedMeasurement.3 = private unnamed_addr constant [3 x i32] [i32 1, i32 0, i32 2], align 4
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @YGNodeNew() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @YGNodeNew() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp.i = alloca %"struct.facebook::yoga::Event::TypedData", align 8
@@ -66,7 +66,7 @@ YGNodeNewWithConfig.exit:                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @YGNodeNewWithConfig(ptr noundef %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @YGNodeNewWithConfig(ptr noundef %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
@@ -106,7 +106,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @YGNodeClone(ptr nocapture noundef readonly %oldNodeRef) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @YGNodeClone(ptr nocapture noundef readonly %oldNodeRef) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
@@ -1238,7 +1238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i1 @YGNodeCanUseCachedMeasurement(i32 noundef %widthMode, float noundef %availableWidth, i32 noundef %heightMode, float noundef %availableHeight, i32 noundef %lastWidthMode, float noundef %lastAvailableWidth, i32 noundef %lastHeightMode, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config) local_unnamed_addr #0 {
+define noundef zeroext i1 @YGNodeCanUseCachedMeasurement(i32 noundef %widthMode, float noundef %availableWidth, i32 noundef %heightMode, float noundef %availableHeight, i32 noundef %lastWidthMode, float noundef %lastAvailableWidth, i32 noundef %lastHeightMode, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %widthMode to i8
   %0 = icmp ult i8 %conv.i, 3
@@ -1323,19 +1323,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -1370,8 +1368,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

@@ -12493,12 +12493,12 @@ for.body.lr.ph:                                   ; preds = %if.then
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp16.not232 = icmp ne ptr %3, %4
   %cmp16.not232.fr = freeze i1 %cmp16.not232
   br i1 %cmp16.not232.fr, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us
 
@@ -12511,8 +12511,7 @@ for.body.us:                                      ; preds = %for.inc41.us, %for.
   %sub.ptr.lhs.cast.i118.us = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i119.us = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i120.us = sub i64 %sub.ptr.lhs.cast.i118.us, %sub.ptr.rhs.cast.i119.us
-  %sub.ptr.div.i121.us = sdiv exact i64 %sub.ptr.sub.i120.us, 24
-  %cmp12.not.us = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i121.us
+  %cmp12.not.us = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i120.us
   br i1 %cmp12.not.us, label %invoke.cont20.us, label %for.inc41.us
 
 for.cond14.us:                                    ; preds = %invoke.cont20.us
@@ -12553,8 +12552,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.lhs.cast.i118 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i119 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
-  %sub.ptr.div.i121 = sdiv exact i64 %sub.ptr.sub.i120, 24
-  %cmp12.not = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i121
+  %cmp12.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i120
   br i1 %cmp12.not, label %if.then32, label %for.inc41
 
 if.then32:                                        ; preds = %for.body, %for.cond14.us
@@ -23570,8 +23568,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = sdiv exact i64 %sub.ptr.sub.i91, 24
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then

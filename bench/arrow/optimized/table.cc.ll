@@ -7955,8 +7955,7 @@ invoke.cont25:                                    ; preds = %invoke.cont15
   %sub.ptr.lhs.cast.i61 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i62 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i63 = sub i64 %sub.ptr.lhs.cast.i61, %sub.ptr.rhs.cast.i62
-  %sub.ptr.div.i64 = ashr exact i64 %sub.ptr.sub.i63, 4
-  %cmp.i65 = icmp ugt i64 %sub.ptr.div.i64, 576460752303423487
+  %cmp.i65 = icmp ugt i64 %sub.ptr.sub.i63, 9223372036854775792
   br i1 %cmp.i65, label %if.then.i90, label %if.end.i66
 
 if.then.i90:                                      ; preds = %invoke.cont25
@@ -7973,8 +7972,7 @@ if.end.i66:                                       ; preds = %invoke.cont25
   %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i69 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i68, %sub.ptr.rhs.cast.i.i69
-  %sub.ptr.div.i.i71 = ashr exact i64 %sub.ptr.sub.i.i70, 4
-  %cmp3.i72 = icmp ult i64 %sub.ptr.div.i.i71, %sub.ptr.div.i64
+  %cmp3.i72 = icmp ult i64 %sub.ptr.sub.i.i70, %sub.ptr.sub.i63
   br i1 %cmp3.i72, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE11_M_allocateEm.exit.i, label %invoke.cont28
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.end.i66

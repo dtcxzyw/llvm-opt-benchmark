@@ -1616,61 +1616,86 @@ for.body.lr.ph.i:                                 ; preds = %while.body.i
   %11 = zext i16 %10 to i32
   %12 = load ptr, ptr %8, align 8
   %13 = load i32, ptr %ninst_2.i.i.i.i.i.i.i, align 8
-  %conv3.i.i.i.i.i.i.i = sext i32 %13 to i64
-  %add.ptr.i2.idx.i.i.i.i.i.i.i.i.i = shl nsw i64 %conv3.i.i.i.i.i.i.i, 2
-  br label %for.body.i
+  %.fr = freeze i32 %13
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.us, label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__begin5.sroa.0.027.i = phi i32 [ %11, %for.body.lr.ph.i ], [ %and.i9.i, %for.inc.i ]
-  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.027.i, i1 true), !range !5
-  %conv.i = zext nneg i32 %14 to i64
+for.body.i.us:                                    ; preds = %for.body.lr.ph.i, %for.inc.i.us
+  %__begin5.sroa.0.027.i.us = phi i32 [ %and.i9.i.us, %for.inc.i.us ], [ %11, %for.body.lr.ph.i ]
+  %14 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.027.i.us, i1 true), !range !5
+  %conv.i.us = zext nneg i32 %14 to i64
+  %add.i.i.us = add i64 %seq.sroa.4.0.i, %conv.i.us
+  %and.i.i.us = and i64 %add.i.i.us, %4
+  %add.ptr14.i.us = getelementptr inbounds ptr, ptr %7, i64 %and.i.i.us
+  %15 = load ptr, ptr %add.ptr14.i.us, align 8
+  %cmp.i.i.i.i.i.i.i.us = icmp eq ptr %15, %8
+  br i1 %cmp.i.i.i.i.i.i.i.us, label %if.then.i, label %lor.rhs.i.i.i.i.i.i.i.us
+
+lor.rhs.i.i.i.i.i.i.i.us:                         ; preds = %for.body.i.us
+  %ninst_.i.i.i.i.i.i.i.us = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 1
+  %16 = load i32, ptr %ninst_.i.i.i.i.i.i.i.us, align 8
+  %flag_.i.i.i.i.i.i.i.us = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 2
+  %17 = load i32, ptr %flag_.i.i.i.i.i.i.i.us, align 4
+  %18 = load i32, ptr %flag_4.i.i.i.i.i.i.i, align 4
+  %cmp5.i.i.i.i.i.i.i.us = icmp eq i32 %17, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.us = icmp eq i32 %16, 0
+  %or.cond = select i1 %cmp5.i.i.i.i.i.i.i.us, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.us, i1 false
+  br i1 %or.cond, label %if.then.i, label %for.inc.i.us
+
+for.inc.i.us:                                     ; preds = %lor.rhs.i.i.i.i.i.i.i.us
+  %sub.i.i.us = add nsw i32 %__begin5.sroa.0.027.i.us, -1
+  %and.i9.i.us = and i32 %sub.i.i.us, %__begin5.sroa.0.027.i.us
+  %cmp.i.not.i.us = icmp eq i32 %and.i9.i.us, 0
+  br i1 %cmp.i.not.i.us, label %for.end.i, label %for.body.i.us
+
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
+  %__begin5.sroa.0.027.i = phi i32 [ %and.i9.i, %for.inc.i ], [ %11, %for.body.lr.ph.i ]
+  %19 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.027.i, i1 true), !range !5
+  %conv.i = zext nneg i32 %19 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %4
   %add.ptr14.i = getelementptr inbounds ptr, ptr %7, i64 %and.i.i
-  %15 = load ptr, ptr %add.ptr14.i, align 8
-  %16 = load ptr, ptr %15, align 8
-  %ninst_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 1
-  %17 = load i32, ptr %ninst_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %15, %8
+  %20 = load ptr, ptr %add.ptr14.i, align 8
+  %21 = load ptr, ptr %20, align 8
+  %ninst_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::DFA::State", ptr %20, i64 0, i32 1
+  %22 = load i32, ptr %ninst_.i.i.i.i.i.i.i, align 8
+  %conv.i.i.i.i.i.i.i = sext i32 %22 to i64
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %20, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %for.body.i
-  %conv.i.i.i.i.i.i.i = sext i32 %17 to i64
-  %flag_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 2
-  %18 = load i32, ptr %flag_.i.i.i.i.i.i.i, align 4
-  %19 = load i32, ptr %flag_4.i.i.i.i.i.i.i, align 4
-  %cmp5.i.i.i.i.i.i.i = icmp eq i32 %18, %19
-  %add.ptr.i.idx.i.i.i.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i.i, 2
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i, %add.ptr.i2.idx.i.i.i.i.i.i.i.i.i
-  %or.cond.i = select i1 %cmp5.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i
+  %flag_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::DFA::State", ptr %20, i64 0, i32 2
+  %23 = load i32, ptr %flag_.i.i.i.i.i.i.i, align 4
+  %24 = load i32, ptr %flag_4.i.i.i.i.i.i.i, align 4
+  %cmp5.i.i.i.i.i.i.i = icmp eq i32 %23, %24
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %22, %.fr
+  %or.cond16 = select i1 %cmp5.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond16, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i
 
 land.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %lor.rhs.i.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit.i
-
-_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr %12, i64 %add.ptr.i2.idx.i.i.i.i.i.i.i.i.i)
+  %add.ptr.i.idx.i.i.i.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i.i, 2
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %21, ptr %12, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i
-  %add.ptr14.i.le = getelementptr inbounds ptr, ptr %7, i64 %and.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %and.i.i
+if.then.i:                                        ; preds = %for.body.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.us, %for.body.i.us
+  %.us-phi = phi i64 [ %and.i.i.us, %for.body.i.us ], [ %and.i.i.us, %lor.rhs.i.i.i.i.i.i.i.us ], [ %and.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i ], [ %and.i.i, %for.body.i ]
+  %add.ptr14.i.le = getelementptr inbounds ptr, ptr %7, i64 %.us-phi
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %.us-phi
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %add.ptr14.i.le, 1
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE4findIS7_EENSC_8iteratorERKS7_m.exit
 
-for.inc.i:                                        ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit.i, %lor.rhs.i.i.i.i.i.i.i
+for.inc.i:                                        ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i
   %sub.i.i = add nsw i32 %__begin5.sroa.0.027.i, -1
   %and.i9.i = and i32 %sub.i.i, %__begin5.sroa.0.027.i
   %cmp.i.not.i = icmp eq i32 %and.i9.i, 0
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
-for.end.i:                                        ; preds = %for.inc.i, %while.body.i
+for.end.i:                                        ; preds = %for.inc.i, %for.inc.i.us, %while.body.i
   %cmp.i.i.i10.i = icmp eq <16 x i8> %9, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %20 = bitcast <16 x i1> %cmp.i.i.i10.i to i16
-  %cmp.i11.not.i = icmp eq i16 %20, 0
+  %25 = bitcast <16 x i1> %cmp.i.i.i10.i to i16
+  %cmp.i11.not.i = icmp eq i16 %25, 0
   br i1 %cmp.i11.not.i, label %if.end29.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE4findIS7_EENSC_8iteratorERKS7_m.exit
 
 if.end29.i:                                       ; preds = %for.end.i
@@ -12527,8 +12552,7 @@ for.body.lr.ph:                                   ; preds = %while.body
   %11 = zext i16 %10 to i32
   %12 = load ptr, ptr %8, align 8
   %13 = load i32, ptr %ninst_2.i.i.i.i.i.i, align 8
-  %conv3.i.i.i.i.i.i = sext i32 %13 to i64
-  %add.ptr.i2.idx.i.i.i.i.i.i.i.i = shl nsw i64 %conv3.i.i.i.i.i.i, 2
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -12542,30 +12566,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %16 = load ptr, ptr %15, align 8
   %ninst_.i.i.i.i.i.i8 = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 1
   %17 = load i32, ptr %ninst_.i.i.i.i.i.i8, align 8
+  %conv.i.i.i.i.i.i9 = sext i32 %17 to i64
   %cmp.i.i.i.i.i.i = icmp eq ptr %15, %8
   br i1 %cmp.i.i.i.i.i.i, label %return, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %for.body
-  %conv.i.i.i.i.i.i9 = sext i32 %17 to i64
   %flag_.i.i.i.i.i.i10 = getelementptr inbounds %"struct.re2::DFA::State", ptr %15, i64 0, i32 2
   %18 = load i32, ptr %flag_.i.i.i.i.i.i10, align 4
   %19 = load i32, ptr %flag_4.i.i.i.i.i.i, align 4
   %cmp5.i.i.i.i.i.i = icmp eq i32 %18, %19
-  %add.ptr.i.idx.i.i.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i9, 2
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i, %add.ptr.i2.idx.i.i.i.i.i.i.i.i
-  %or.cond = select i1 %cmp5.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i, label %for.inc
+  br i1 %cmp5.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %for.inc
 
-land.rhs.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %lor.rhs.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, 0
+land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
+  %add.ptr.i.idx.i.i.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i9, 2
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, %13
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i, label %for.inc
+
+land.rhs.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %return, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit
 
 _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit: ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr %12, i64 %add.ptr.i2.idx.i.i.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr %12, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %return, label %for.inc
 
-for.inc:                                          ; preds = %lor.rhs.i.i.i.i.i.i, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit
+for.inc:                                          ; preds = %land.rhs.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEEvE5applyINS1_12raw_hash_setIS8_NS5_9StateHashENS5_10StateEqualESaIS7_EE12EqualElementIS7_EEJRS7_ES8_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSK_DpOSL_.exit
   %sub.i = add nsw i32 %__begin0.sroa.0.032, -1
   %and.i14 = and i32 %sub.i, %__begin0.sroa.0.032
   %cmp.i.not = icmp eq i32 %and.i14, 0

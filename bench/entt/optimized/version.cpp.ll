@@ -30742,18 +30742,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::sub_match<const char *>, std::allocator<std::__cxx11::sub_match<const char *>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !612
   %3 = load ptr, ptr %this, align 8, !tbaa !28
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = sdiv exact i64 %sub.ptr.sub.i91, 24
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 384307168202282325
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx119sub_matchIPKcEESaIS4_EE11_M_allocateEm.exit.i, !prof !43
 
@@ -30795,8 +30794,7 @@ if.else:                                          ; preds = %if.then
   %9 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !615
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = sdiv exact i64 %sub.ptr.sub.i97, 24
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

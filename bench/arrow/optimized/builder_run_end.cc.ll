@@ -2900,8 +2900,8 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread: ; preds = %entry
-  %sub.ptr.rhs.cast.i.i.i.i.i.i249 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39
+  %sub.ptr.rhs.cast.i.i.i.i.i.i246 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
@@ -2928,33 +2928,33 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
-  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i36, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i34, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i33, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
   %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i31 = getelementptr inbounds i16, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
-  %7 = load i16, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, align 2
-  %conv.i.i.i.i.i32 = sext i16 %7 to i64
-  %cmp.i.i.i.i.i33 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i32
-  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i16, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, i64 1
+  %incdec.ptr4.sink.i.i.i.i.i.i28 = getelementptr inbounds i16, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
+  %7 = load i16, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, align 2
+  %conv.i.i.i.i.i29 = sext i16 %7 to i64
+  %cmp.i.i.i.i.i30 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i29
+  %incdec.ptr.i.i.i.i31 = getelementptr inbounds i16, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, i64 1
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i35 = add nsw i64 %__len.012.i.i.i.i26, %8
-  %__len.1.i.i.i.i36 = select i1 %cmp.i.i.i.i.i33, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i35
-  %__first.addr.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i33, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i34
-  %cmp.i.i.i.i38 = icmp sgt i64 %__len.1.i.i.i.i36, 0
-  br i1 %cmp.i.i.i.i38, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit, !llvm.loop !140
+  %sub2.i.i.i.i32 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i33 = select i1 %cmp.i.i.i.i.i30, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i32
+  %__first.addr.1.i.i.i.i34 = select i1 %cmp.i.i.i.i.i30, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i31
+  %cmp.i.i.i.i35 = icmp sgt i64 %__len.1.i.i.i.i33, 0
+  br i1 %cmp.i.i.i.i35, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit, !llvm.loop !140
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit: ; preds = %while.body.i.i.i.i24
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 1
-  %.pre272 = ptrtoint ptr %__first.addr.1.i.i.i.i37 to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39
+  %.pre269 = ptrtoint ptr %__first.addr.1.i.i.i.i34 to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread
-  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre272, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.div.i.i.i.i256 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.rhs.cast.i.i.i.i.i.i255 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i255
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread
+  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre269, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.div.i.i.i.i253 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.rhs.cast.i.i.i.i.i.i252 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i252
   %sub.ptr.div.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i22, 1
-  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i256
+  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i253
   %sub29 = add i64 %reass.sub, 1
   %capacity_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 6
   %9 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !141
@@ -2962,19 +2962,19 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39: ; preds 
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
   %10 = load ptr, ptr %vfn.i.i, align 8, !noalias !141
   %call2.i.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(144) %this), !noalias !141
-  %add.i.i40 = add nsw i64 %call2.i.i, %sub29
-  %cmp.not.i.i = icmp sgt i64 %add.i.i40, %9
+  %add.i.i37 = add nsw i64 %call2.i.i, %sub29
+  %cmp.not.i.i = icmp sgt i64 %add.i.i37, %9
   br i1 %cmp.not.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %nrvo.skipdtor.thread
 
-nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39
+nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   store ptr null, ptr %agg.result, align 8, !alias.scope !146
   store ptr null, ptr %ref.tmp, align 8, !noalias !146
   br label %do.end36
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit39
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit36
   %mul.i.i.i = shl nsw i64 %9, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i40)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i37)
   %vtable4.i.i = load ptr, ptr %this, align 8, !noalias !141
   %vfn5.i.i = getelementptr inbounds ptr, ptr %vtable4.i.i, i64 3
   %11 = load ptr, ptr %vfn5.i.i, align 8, !noalias !141
@@ -2987,52 +2987,52 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util
   br i1 %cmp.i, label %do.end36, label %return
 
 do.end36:                                         ; preds = %nrvo.skipdtor.thread, %_ZN5arrow6StatusD2Ev.exit
-  %cmp.i77.not269 = icmp sgt i64 %length, 0
-  br i1 %cmp.i77.not269, label %_ZN5arrow6StatusD2Ev.exit116.lr.ph, label %do.body62
+  %cmp.i74.not266 = icmp sgt i64 %length, 0
+  br i1 %cmp.i74.not266, label %_ZN5arrow6StatusD2Ev.exit113.lr.ph, label %do.body62
 
-_ZN5arrow6StatusD2Ev.exit116.lr.ph:               ; preds = %do.end36
+_ZN5arrow6StatusD2Ev.exit113.lr.ph:               ; preds = %do.end36
   %committed_logical_length_ = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 3
   %children_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 7
-  %length_.i154 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
+  %length_.i151 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
   %.pre = load i64, ptr %committed_logical_length_, align 8
-  br label %_ZN5arrow6StatusD2Ev.exit116
+  br label %_ZN5arrow6StatusD2Ev.exit113
 
-_ZN5arrow6StatusD2Ev.exit116:                     ; preds = %_ZN5arrow6StatusD2Ev.exit116.lr.ph, %do.end60
-  %12 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %add40, %do.end60 ]
-  %it.sroa.7.0271 = phi i64 [ %sub.ptr.div.i.i.i.i256, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %add.i, %do.end60 ]
-  %it.sroa.3.0270 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0271
+_ZN5arrow6StatusD2Ev.exit113:                     ; preds = %_ZN5arrow6StatusD2Ev.exit113.lr.ph, %do.end60
+  %12 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %add40, %do.end60 ]
+  %it.sroa.7.0268 = phi i64 [ %sub.ptr.div.i.i.i.i253, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %add.i, %do.end60 ]
+  %it.sroa.3.0267 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0268
   %13 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i.i = sext i16 %13 to i64
   %sub.i.i.i = sub nsw i64 %conv.i.i.i, %add24
   %.sroa.speculated5.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i, i64 0)
-  %.sroa.speculated.i.i.i79 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
-  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i79, %it.sroa.3.0270
+  %.sroa.speculated.i.i.i76 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
+  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i76, %it.sroa.3.0267
   %add40 = add nsw i64 %sub.i, %12
   call void @_ZN5arrow20RunEndEncodedBuilder14DoAppendRunEndIsEENS_6StatusEl(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(176) %this, i64 noundef %add40)
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %14 = load ptr, ptr %ref.tmp43, align 8, !noalias !151
   store ptr %14, ptr %agg.result, align 8, !alias.scope !151
   store ptr null, ptr %ref.tmp43, align 8, !noalias !151
-  %cmp.i117 = icmp eq ptr %14, null
-  br i1 %cmp.i117, label %do.end60, label %return
+  %cmp.i114 = icmp eq ptr %14, null
+  br i1 %cmp.i114, label %do.end60, label %return
 
-do.end60:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit116
+do.end60:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit113
   %15 = load ptr, ptr %children_.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %capacity_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %16, i64 0, i32 6
   %17 = load i64, ptr %capacity_.i.i, align 8
   store i64 %17, ptr %capacity_.i.i.i, align 8
-  store i64 %add40, ptr %length_.i154, align 8
+  store i64 %add40, ptr %length_.i151, align 8
   store i64 %add40, ptr %committed_logical_length_, align 8
   %18 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i = sext i16 %18 to i64
   %sub.i.i = sub nsw i64 %conv.i.i, %add24
   %.sroa.speculated5.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
   %.sroa.speculated.i.i = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i)
-  %add.i = add nsw i64 %it.sroa.7.0271, 1
-  %cmp.i77.not = icmp slt i64 %sub.i.i, %length
-  br i1 %cmp.i77.not, label %_ZN5arrow6StatusD2Ev.exit116, label %do.body62, !llvm.loop !154
+  %add.i = add nsw i64 %it.sroa.7.0268, 1
+  %cmp.i74.not = icmp slt i64 %sub.i.i, %length
+  br i1 %cmp.i74.not, label %_ZN5arrow6StatusD2Ev.exit113, label %do.body62, !llvm.loop !154
 
 do.body62:                                        ; preds = %do.end60, %do.end36
   %value_run_builder_65 = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 2
@@ -3045,7 +3045,7 @@ do.body62:                                        ; preds = %do.end60, %do.end36
   %vtable.i = load ptr, ptr %21, align 8, !noalias !155
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
   %22 = load ptr, ptr %vfn.i, align 8, !noalias !155
-  call void %22(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i256, i64 noundef %sub29), !noalias !155
+  call void %22(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i253, i64 noundef %sub29), !noalias !155
   %23 = load ptr, ptr %ref.tmp.i, align 8, !noalias !158
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !158
   %cmp.i.i = icmp eq ptr %23, null
@@ -3057,16 +3057,16 @@ nrvo.skipdtor79:                                  ; preds = %do.body62
 
 do.end83:                                         ; preds = %do.body62
   %24 = load ptr, ptr %inner_builder_.i, align 8, !noalias !155
-  %capacity_.i.i.i156 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %24, i64 0, i32 6
-  %25 = load i64, ptr %capacity_.i.i.i156, align 8, !noalias !155
-  %capacity_.i.i157 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 6
-  store i64 %25, ptr %capacity_.i.i157, align 8, !noalias !155
-  %vtable.i.i158 = load ptr, ptr %24, align 8, !noalias !155
-  %vfn.i.i159 = getelementptr inbounds ptr, ptr %vtable.i.i158, i64 2
-  %26 = load ptr, ptr %vfn.i.i159, align 8, !noalias !155
+  %capacity_.i.i.i153 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %24, i64 0, i32 6
+  %25 = load i64, ptr %capacity_.i.i.i153, align 8, !noalias !155
+  %capacity_.i.i154 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 6
+  store i64 %25, ptr %capacity_.i.i154, align 8, !noalias !155
+  %vtable.i.i155 = load ptr, ptr %24, align 8, !noalias !155
+  %vfn.i.i156 = getelementptr inbounds ptr, ptr %vtable.i.i155, i64 2
+  %26 = load ptr, ptr %vfn.i.i156, align 8, !noalias !155
   %call5.i.i = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(144) %24), !noalias !155
-  %length_.i.i160 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 5
-  store i64 %call5.i.i, ptr %length_.i.i160, align 8, !noalias !155
+  %length_.i.i157 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 5
+  store i64 %call5.i.i, ptr %length_.i.i157, align 8, !noalias !155
   %27 = load ptr, ptr %inner_builder_.i, align 8, !noalias !155
   %null_count_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %27, i64 0, i32 4
   %28 = load i64, ptr %null_count_.i.i.i, align 8, !noalias !155
@@ -3080,7 +3080,7 @@ return.sink.split:                                ; preds = %do.end83, %nrvo.ski
   store ptr %.sink, ptr %agg.result, align 8
   br label %return
 
-return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit116, %return.sink.split, %_ZN5arrow6StatusD2Ev.exit
+return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit113, %return.sink.split, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -3106,8 +3106,8 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread: ; preds = %entry
-  %sub.ptr.rhs.cast.i.i.i.i.i.i249 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39
+  %sub.ptr.rhs.cast.i.i.i.i.i.i246 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
@@ -3134,33 +3134,33 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
-  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i36, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i34, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i33, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
   %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i31 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
-  %7 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, align 4
-  %conv.i.i.i.i.i32 = sext i32 %7 to i64
-  %cmp.i.i.i.i.i33 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i32
-  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, i64 1
+  %incdec.ptr4.sink.i.i.i.i.i.i28 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
+  %7 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, align 4
+  %conv.i.i.i.i.i29 = sext i32 %7 to i64
+  %cmp.i.i.i.i.i30 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i29
+  %incdec.ptr.i.i.i.i31 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, i64 1
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i35 = add nsw i64 %__len.012.i.i.i.i26, %8
-  %__len.1.i.i.i.i36 = select i1 %cmp.i.i.i.i.i33, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i35
-  %__first.addr.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i33, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i34
-  %cmp.i.i.i.i38 = icmp sgt i64 %__len.1.i.i.i.i36, 0
-  br i1 %cmp.i.i.i.i38, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit, !llvm.loop !161
+  %sub2.i.i.i.i32 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i33 = select i1 %cmp.i.i.i.i.i30, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i32
+  %__first.addr.1.i.i.i.i34 = select i1 %cmp.i.i.i.i.i30, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i31
+  %cmp.i.i.i.i35 = icmp sgt i64 %__len.1.i.i.i.i33, 0
+  br i1 %cmp.i.i.i.i35, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit, !llvm.loop !161
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit: ; preds = %while.body.i.i.i.i24
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
-  %.pre272 = ptrtoint ptr %__first.addr.1.i.i.i.i37 to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39
+  %.pre269 = ptrtoint ptr %__first.addr.1.i.i.i.i34 to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread
-  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre272, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.div.i.i.i.i256 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.rhs.cast.i.i.i.i.i.i255 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i255
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread
+  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre269, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.div.i.i.i.i253 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.rhs.cast.i.i.i.i.i.i252 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i252
   %sub.ptr.div.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i22, 2
-  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i256
+  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i253
   %sub29 = add nsw i64 %reass.sub, 1
   %capacity_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 6
   %9 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !162
@@ -3168,19 +3168,19 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39: ; preds 
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
   %10 = load ptr, ptr %vfn.i.i, align 8, !noalias !162
   %call2.i.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(144) %this), !noalias !162
-  %add.i.i40 = add nsw i64 %call2.i.i, %sub29
-  %cmp.not.i.i = icmp sgt i64 %add.i.i40, %9
+  %add.i.i37 = add nsw i64 %call2.i.i, %sub29
+  %cmp.not.i.i = icmp sgt i64 %add.i.i37, %9
   br i1 %cmp.not.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %nrvo.skipdtor.thread
 
-nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39
+nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   store ptr null, ptr %agg.result, align 8, !alias.scope !167
   store ptr null, ptr %ref.tmp, align 8, !noalias !167
   br label %do.end36
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit39
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit36
   %mul.i.i.i = shl nsw i64 %9, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i40)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i37)
   %vtable4.i.i = load ptr, ptr %this, align 8, !noalias !162
   %vfn5.i.i = getelementptr inbounds ptr, ptr %vtable4.i.i, i64 3
   %11 = load ptr, ptr %vfn5.i.i, align 8, !noalias !162
@@ -3193,52 +3193,52 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util
   br i1 %cmp.i, label %do.end36, label %return
 
 do.end36:                                         ; preds = %nrvo.skipdtor.thread, %_ZN5arrow6StatusD2Ev.exit
-  %cmp.i77.not269 = icmp sgt i64 %length, 0
-  br i1 %cmp.i77.not269, label %_ZN5arrow6StatusD2Ev.exit116.lr.ph, label %do.body62
+  %cmp.i74.not266 = icmp sgt i64 %length, 0
+  br i1 %cmp.i74.not266, label %_ZN5arrow6StatusD2Ev.exit113.lr.ph, label %do.body62
 
-_ZN5arrow6StatusD2Ev.exit116.lr.ph:               ; preds = %do.end36
+_ZN5arrow6StatusD2Ev.exit113.lr.ph:               ; preds = %do.end36
   %committed_logical_length_ = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 3
   %children_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 7
-  %length_.i154 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
+  %length_.i151 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
   %.pre = load i64, ptr %committed_logical_length_, align 8
-  br label %_ZN5arrow6StatusD2Ev.exit116
+  br label %_ZN5arrow6StatusD2Ev.exit113
 
-_ZN5arrow6StatusD2Ev.exit116:                     ; preds = %_ZN5arrow6StatusD2Ev.exit116.lr.ph, %do.end60
-  %12 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %add40, %do.end60 ]
-  %it.sroa.7.0271 = phi i64 [ %sub.ptr.div.i.i.i.i256, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %add.i, %do.end60 ]
-  %it.sroa.3.0270 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit116.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0271
+_ZN5arrow6StatusD2Ev.exit113:                     ; preds = %_ZN5arrow6StatusD2Ev.exit113.lr.ph, %do.end60
+  %12 = phi i64 [ %.pre, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %add40, %do.end60 ]
+  %it.sroa.7.0268 = phi i64 [ %sub.ptr.div.i.i.i.i253, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %add.i, %do.end60 ]
+  %it.sroa.3.0267 = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit113.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0268
   %13 = load i32, ptr %arrayidx.i.i.i, align 4
   %conv.i.i.i = sext i32 %13 to i64
   %sub.i.i.i = sub nsw i64 %conv.i.i.i, %add24
   %.sroa.speculated5.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i, i64 0)
-  %.sroa.speculated.i.i.i79 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
-  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i79, %it.sroa.3.0270
+  %.sroa.speculated.i.i.i76 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
+  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i76, %it.sroa.3.0267
   %add40 = add nsw i64 %sub.i, %12
   call void @_ZN5arrow20RunEndEncodedBuilder14DoAppendRunEndIiEENS_6StatusEl(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(176) %this, i64 noundef %add40)
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %14 = load ptr, ptr %ref.tmp43, align 8, !noalias !172
   store ptr %14, ptr %agg.result, align 8, !alias.scope !172
   store ptr null, ptr %ref.tmp43, align 8, !noalias !172
-  %cmp.i117 = icmp eq ptr %14, null
-  br i1 %cmp.i117, label %do.end60, label %return
+  %cmp.i114 = icmp eq ptr %14, null
+  br i1 %cmp.i114, label %do.end60, label %return
 
-do.end60:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit116
+do.end60:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit113
   %15 = load ptr, ptr %children_.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %capacity_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %16, i64 0, i32 6
   %17 = load i64, ptr %capacity_.i.i, align 8
   store i64 %17, ptr %capacity_.i.i.i, align 8
-  store i64 %add40, ptr %length_.i154, align 8
+  store i64 %add40, ptr %length_.i151, align 8
   store i64 %add40, ptr %committed_logical_length_, align 8
   %18 = load i32, ptr %arrayidx.i.i.i, align 4
   %conv.i.i = sext i32 %18 to i64
   %sub.i.i = sub nsw i64 %conv.i.i, %add24
   %.sroa.speculated5.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
   %.sroa.speculated.i.i = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i)
-  %add.i = add nsw i64 %it.sroa.7.0271, 1
-  %cmp.i77.not = icmp slt i64 %sub.i.i, %length
-  br i1 %cmp.i77.not, label %_ZN5arrow6StatusD2Ev.exit116, label %do.body62, !llvm.loop !175
+  %add.i = add nsw i64 %it.sroa.7.0268, 1
+  %cmp.i74.not = icmp slt i64 %sub.i.i, %length
+  br i1 %cmp.i74.not, label %_ZN5arrow6StatusD2Ev.exit113, label %do.body62, !llvm.loop !175
 
 do.body62:                                        ; preds = %do.end60, %do.end36
   %value_run_builder_65 = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 2
@@ -3251,7 +3251,7 @@ do.body62:                                        ; preds = %do.end60, %do.end36
   %vtable.i = load ptr, ptr %21, align 8, !noalias !176
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
   %22 = load ptr, ptr %vfn.i, align 8, !noalias !176
-  call void %22(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i256, i64 noundef %sub29), !noalias !176
+  call void %22(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i253, i64 noundef %sub29), !noalias !176
   %23 = load ptr, ptr %ref.tmp.i, align 8, !noalias !179
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !179
   %cmp.i.i = icmp eq ptr %23, null
@@ -3263,16 +3263,16 @@ nrvo.skipdtor79:                                  ; preds = %do.body62
 
 do.end83:                                         ; preds = %do.body62
   %24 = load ptr, ptr %inner_builder_.i, align 8, !noalias !176
-  %capacity_.i.i.i156 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %24, i64 0, i32 6
-  %25 = load i64, ptr %capacity_.i.i.i156, align 8, !noalias !176
-  %capacity_.i.i157 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 6
-  store i64 %25, ptr %capacity_.i.i157, align 8, !noalias !176
-  %vtable.i.i158 = load ptr, ptr %24, align 8, !noalias !176
-  %vfn.i.i159 = getelementptr inbounds ptr, ptr %vtable.i.i158, i64 2
-  %26 = load ptr, ptr %vfn.i.i159, align 8, !noalias !176
+  %capacity_.i.i.i153 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %24, i64 0, i32 6
+  %25 = load i64, ptr %capacity_.i.i.i153, align 8, !noalias !176
+  %capacity_.i.i154 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 6
+  store i64 %25, ptr %capacity_.i.i154, align 8, !noalias !176
+  %vtable.i.i155 = load ptr, ptr %24, align 8, !noalias !176
+  %vfn.i.i156 = getelementptr inbounds ptr, ptr %vtable.i.i155, i64 2
+  %26 = load ptr, ptr %vfn.i.i156, align 8, !noalias !176
   %call5.i.i = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(144) %24), !noalias !176
-  %length_.i.i160 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 5
-  store i64 %call5.i.i, ptr %length_.i.i160, align 8, !noalias !176
+  %length_.i.i157 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %19, i64 0, i32 5
+  store i64 %call5.i.i, ptr %length_.i.i157, align 8, !noalias !176
   %27 = load ptr, ptr %inner_builder_.i, align 8, !noalias !176
   %null_count_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %27, i64 0, i32 4
   %28 = load i64, ptr %null_count_.i.i.i, align 8, !noalias !176
@@ -3286,7 +3286,7 @@ return.sink.split:                                ; preds = %do.end83, %nrvo.ski
   store ptr %.sink, ptr %agg.result, align 8
   br label %return
 
-return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit116, %return.sink.split, %_ZN5arrow6StatusD2Ev.exit
+return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit113, %return.sink.split, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -3312,8 +3312,8 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread: ; preds = %entry
-  %sub.ptr.rhs.cast.i.i.i.i.i.i249 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38
+  %sub.ptr.rhs.cast.i.i.i.i.i.i246 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
@@ -3339,32 +3339,32 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i36, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
-  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i35, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i33, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i32, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
   %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i31 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
-  %7 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, align 8
-  %cmp.i.i.i.i.i32 = icmp slt i64 %add.i.i, %7
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i31, i64 1
+  %incdec.ptr4.sink.i.i.i.i.i.i28 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
+  %7 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, align 8
+  %cmp.i.i.i.i.i29 = icmp slt i64 %add.i.i, %7
+  %incdec.ptr.i.i.i.i30 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i28, i64 1
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i34 = add nsw i64 %__len.012.i.i.i.i26, %8
-  %__len.1.i.i.i.i35 = select i1 %cmp.i.i.i.i.i32, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i34
-  %__first.addr.1.i.i.i.i36 = select i1 %cmp.i.i.i.i.i32, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i33
-  %cmp.i.i.i.i37 = icmp sgt i64 %__len.1.i.i.i.i35, 0
-  br i1 %cmp.i.i.i.i37, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit, !llvm.loop !182
+  %sub2.i.i.i.i31 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i32 = select i1 %cmp.i.i.i.i.i29, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i31
+  %__first.addr.1.i.i.i.i33 = select i1 %cmp.i.i.i.i.i29, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i30
+  %cmp.i.i.i.i34 = icmp sgt i64 %__len.1.i.i.i.i32, 0
+  br i1 %cmp.i.i.i.i34, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit, !llvm.loop !182
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit: ; preds = %while.body.i.i.i.i24
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %.pre280 = ptrtoint ptr %__first.addr.1.i.i.i.i36 to i64
-  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38
+  %.pre277 = ptrtoint ptr %__first.addr.1.i.i.i.i33 to i64
+  br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread
-  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre280, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.div.i.i.i.i256 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.rhs.cast.i.i.i.i.i.i255 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i249, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
-  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i255
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread
+  %sub.ptr.lhs.cast.i.i.i.i21.pre-phi = phi i64 [ %.pre277, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.div.i.i.i.i253 = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.rhs.cast.i.i.i.i.i.i252 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i246, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
+  %sub.ptr.sub.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i21.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i252
   %sub.ptr.div.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i22, 3
-  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i256
+  %reass.sub = sub nsw i64 %sub.ptr.div.i.i.i.i23, %sub.ptr.div.i.i.i.i253
   %sub29 = add nsw i64 %reass.sub, 1
   %capacity_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 6
   %9 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !183
@@ -3372,19 +3372,19 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38: ; preds 
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
   %10 = load ptr, ptr %vfn.i.i, align 8, !noalias !183
   %call2.i.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(144) %this), !noalias !183
-  %add.i.i39 = add nsw i64 %call2.i.i, %sub29
-  %cmp.not.i.i = icmp sgt i64 %add.i.i39, %9
+  %add.i.i36 = add nsw i64 %call2.i.i, %sub29
+  %cmp.not.i.i = icmp sgt i64 %add.i.i36, %9
   br i1 %cmp.not.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %nrvo.skipdtor.thread
 
-nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38
+nrvo.skipdtor.thread:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   store ptr null, ptr %agg.result, align 8, !alias.scope !188
   store ptr null, ptr %ref.tmp, align 8, !noalias !188
   br label %do.end36
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit38
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit35
   %mul.i.i.i = shl nsw i64 %9, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i39)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i36)
   %vtable4.i.i = load ptr, ptr %this, align 8, !noalias !183
   %vfn5.i.i = getelementptr inbounds ptr, ptr %vtable4.i.i, i64 3
   %11 = load ptr, ptr %vfn5.i.i, align 8, !noalias !183
@@ -3397,28 +3397,28 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow8ree_util
   br i1 %cmp.i, label %do.end36, label %return
 
 do.end36:                                         ; preds = %nrvo.skipdtor.thread, %_ZN5arrow6StatusD2Ev.exit
-  %cmp.i76.not276 = icmp sgt i64 %length, 0
-  br i1 %cmp.i76.not276, label %for.body.lr.ph, label %do.body62
+  %cmp.i73.not273 = icmp sgt i64 %length, 0
+  br i1 %cmp.i73.not273, label %for.body.lr.ph, label %do.body62
 
 for.body.lr.ph:                                   ; preds = %do.end36
   %committed_logical_length_ = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 3
   %children_.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 7
-  %length_.i153 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
+  %length_.i150 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 5
   %.pre = load i64, ptr %committed_logical_length_, align 8
-  %.pre279 = load ptr, ptr %children_.i, align 8, !noalias !193
+  %.pre276 = load ptr, ptr %children_.i, align 8, !noalias !193
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %do.end60
-  %12 = phi ptr [ %.pre279, %for.body.lr.ph ], [ %28, %do.end60 ]
+  %12 = phi ptr [ %.pre276, %for.body.lr.ph ], [ %28, %do.end60 ]
   %13 = phi i64 [ %.pre, %for.body.lr.ph ], [ %add40, %do.end60 ]
-  %it.sroa.7.0278 = phi i64 [ %sub.ptr.div.i.i.i.i256, %for.body.lr.ph ], [ %add.i, %do.end60 ]
-  %it.sroa.3.0277 = phi i64 [ 0, %for.body.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0278
+  %it.sroa.7.0275 = phi i64 [ %sub.ptr.div.i.i.i.i253, %for.body.lr.ph ], [ %add.i, %do.end60 ]
+  %it.sroa.3.0274 = phi i64 [ 0, %for.body.lr.ph ], [ %.sroa.speculated.i.i, %do.end60 ]
+  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 %it.sroa.7.0275
   %14 = load i64, ptr %arrayidx.i.i.i, align 8
   %sub.i.i.i = sub nsw i64 %14, %add24
   %.sroa.speculated5.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i, i64 0)
-  %.sroa.speculated.i.i.i78 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
-  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i78, %it.sroa.3.0277
+  %.sroa.speculated.i.i.i75 = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i.i)
+  %sub.i = sub nsw i64 %.sroa.speculated.i.i.i75, %it.sroa.3.0274
   %add40 = add nsw i64 %sub.i, %13
   %15 = load ptr, ptr %12, align 8, !noalias !193
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !193
@@ -3488,15 +3488,15 @@ do.end60:                                         ; preds = %nrvo.skipdtor.threa
   %capacity_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %29, i64 0, i32 6
   %30 = load i64, ptr %capacity_.i.i, align 8
   store i64 %30, ptr %capacity_.i.i.i, align 8
-  store i64 %add40, ptr %length_.i153, align 8
+  store i64 %add40, ptr %length_.i150, align 8
   store i64 %add40, ptr %committed_logical_length_, align 8
   %31 = load i64, ptr %arrayidx.i.i.i, align 8
   %sub.i.i = sub nsw i64 %31, %add24
   %.sroa.speculated5.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
   %.sroa.speculated.i.i = call noundef i64 @llvm.smin.i64(i64 %length, i64 %.sroa.speculated5.i.i)
-  %add.i = add nsw i64 %it.sroa.7.0278, 1
-  %cmp.i76.not = icmp slt i64 %sub.i.i, %length
-  br i1 %cmp.i76.not, label %for.body, label %do.body62, !llvm.loop !210
+  %add.i = add nsw i64 %it.sroa.7.0275, 1
+  %cmp.i73.not = icmp slt i64 %sub.i.i, %length
+  br i1 %cmp.i73.not, label %for.body, label %do.body62, !llvm.loop !210
 
 do.body62:                                        ; preds = %do.end60, %do.end36
   %value_run_builder_65 = getelementptr inbounds %"class.arrow::RunEndEncodedBuilder", ptr %this, i64 0, i32 2
@@ -3509,7 +3509,7 @@ do.body62:                                        ; preds = %do.end60, %do.end36
   %vtable.i = load ptr, ptr %34, align 8, !noalias !211
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
   %35 = load ptr, ptr %vfn.i, align 8, !noalias !211
-  call void %35(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i256, i64 noundef %sub29), !noalias !211
+  call void %35(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i.i, i64 noundef %sub.ptr.div.i.i.i.i253, i64 noundef %sub29), !noalias !211
   %36 = load ptr, ptr %ref.tmp.i, align 8, !noalias !214
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !214
   %cmp.i.i = icmp eq ptr %36, null
@@ -3521,16 +3521,16 @@ nrvo.skipdtor79:                                  ; preds = %do.body62
 
 do.end83:                                         ; preds = %do.body62
   %37 = load ptr, ptr %inner_builder_.i, align 8, !noalias !211
-  %capacity_.i.i.i155 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %37, i64 0, i32 6
-  %38 = load i64, ptr %capacity_.i.i.i155, align 8, !noalias !211
-  %capacity_.i.i156 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %32, i64 0, i32 6
-  store i64 %38, ptr %capacity_.i.i156, align 8, !noalias !211
-  %vtable.i.i157 = load ptr, ptr %37, align 8, !noalias !211
-  %vfn.i.i158 = getelementptr inbounds ptr, ptr %vtable.i.i157, i64 2
-  %39 = load ptr, ptr %vfn.i.i158, align 8, !noalias !211
+  %capacity_.i.i.i152 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %37, i64 0, i32 6
+  %38 = load i64, ptr %capacity_.i.i.i152, align 8, !noalias !211
+  %capacity_.i.i153 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %32, i64 0, i32 6
+  store i64 %38, ptr %capacity_.i.i153, align 8, !noalias !211
+  %vtable.i.i154 = load ptr, ptr %37, align 8, !noalias !211
+  %vfn.i.i155 = getelementptr inbounds ptr, ptr %vtable.i.i154, i64 2
+  %39 = load ptr, ptr %vfn.i.i155, align 8, !noalias !211
   %call5.i.i = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(144) %37), !noalias !211
-  %length_.i.i159 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %32, i64 0, i32 5
-  store i64 %call5.i.i, ptr %length_.i.i159, align 8, !noalias !211
+  %length_.i.i156 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %32, i64 0, i32 5
+  store i64 %call5.i.i, ptr %length_.i.i156, align 8, !noalias !211
   %40 = load ptr, ptr %inner_builder_.i, align 8, !noalias !211
   %null_count_.i.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %40, i64 0, i32 4
   %41 = load i64, ptr %null_count_.i.i.i, align 8, !noalias !211
@@ -5874,19 +5874,17 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayBuilder>, std::allocator<std::shared_ptr<arrow::ArrayBuilder>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE11_M_allocateEm.exit.i
 
 if.then.i:                                        ; preds = %if.then
@@ -6045,8 +6043,7 @@ if.else:                                          ; preds = %entry
   %21 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i21, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i20, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else

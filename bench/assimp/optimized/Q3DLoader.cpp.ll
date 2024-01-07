@@ -3946,8 +3946,7 @@ land.lhs.true904:                                 ; preds = %if.then901
   %sub.ptr.lhs.cast.i1398 = ptrtoint ptr %512 to i64
   %sub.ptr.rhs.cast.i1399 = ptrtoint ptr %513 to i64
   %sub.ptr.sub.i1400 = sub i64 %sub.ptr.lhs.cast.i1398, %sub.ptr.rhs.cast.i1399
-  %sub.ptr.div.i1401 = sdiv exact i64 %sub.ptr.sub.i1400, 12
-  %cmp909.not = icmp ult i64 %sub.ptr.div.i1391, %sub.ptr.div.i1401
+  %cmp909.not = icmp ult i64 %sub.ptr.sub.i1390, %sub.ptr.sub.i1400
   br i1 %cmp909.not, label %if.else917, label %if.then910
 
 if.then910:                                       ; preds = %land.lhs.true904

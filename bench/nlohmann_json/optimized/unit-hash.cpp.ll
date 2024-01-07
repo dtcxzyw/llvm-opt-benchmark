@@ -7139,8 +7139,7 @@ if.then19:                                        ; preds = %if.then17
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i130.invoke, label %if.end.i
 
 if.then.i130.invoke:                              ; preds = %if.else.i.i.i.i, %if.then19, %if.else
@@ -7166,13 +7165,14 @@ for.body.i.lr.ph.i:                               ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i131, ptr %_M_finish.i.i124, align 8
   %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i131, i64 %sub.ptr.sub.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
+  %sub.ptr.div.i.i135 = lshr exact i64 %sub.ptr.sub.i, 4
   br label %for.body.i.i136
 
 for.body.i.i136:                                  ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i, %for.body.i.lr.ph.i
   %8 = phi ptr [ %call5.i.i.i.i131, %for.body.i.lr.ph.i ], [ %12, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %9 = phi ptr [ %add.ptr21.i, %for.body.i.lr.ph.i ], [ %13, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %10 = phi ptr [ %call5.i.i.i.i131, %for.body.i.lr.ph.i ], [ %14, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
-  %__n.0.i4.i = phi i64 [ %sub.ptr.div.i, %for.body.i.lr.ph.i ], [ %dec.i.i139, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
+  %__n.0.i4.i = phi i64 [ %sub.ptr.div.i.i135, %for.body.i.lr.ph.i ], [ %dec.i.i139, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %__first.addr.0.i3.i = phi ptr [ %6, %for.body.i.lr.ph.i ], [ %incdec.ptr.i.i138, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %cmp.not.i.i.i.i = icmp eq ptr %10, %9
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
@@ -7196,7 +7196,7 @@ if.else.i.i.i.i:                                  ; preds = %for.body.i.i136
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 576460752303423487)
   %cond.i.i = select i1 %cmp7.i.i, i64 576460752303423487, i64 %11
@@ -7348,7 +7348,7 @@ if.then.i.i255:                                   ; preds = %if.else.i
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i213: ; preds = %if.else.i
   %sub.ptr.div.i.i.i214 = ashr exact i64 %sub.ptr.sub.i.i.i211, 4
   %.sroa.speculated.i.i215 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i214, i64 1)
-  %add.i.i216 = add i64 %.sroa.speculated.i.i215, %sub.ptr.div.i.i.i214
+  %add.i.i216 = add nsw i64 %.sroa.speculated.i.i215, %sub.ptr.div.i.i.i214
   %cmp7.i.i217 = icmp ult i64 %add.i.i216, %sub.ptr.div.i.i.i214
   %22 = tail call i64 @llvm.umin.i64(i64 %add.i.i216, i64 576460752303423487)
   %cond.i.i218 = select i1 %cmp7.i.i217, i64 576460752303423487, i64 %22
@@ -7484,7 +7484,7 @@ if.then.i.i307:                                   ; preds = %if.else.i72
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i265: ; preds = %if.else.i72
   %sub.ptr.div.i.i.i266 = ashr exact i64 %sub.ptr.sub.i.i.i263, 4
   %.sroa.speculated.i.i267 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i266, i64 1)
-  %add.i.i268 = add i64 %.sroa.speculated.i.i267, %sub.ptr.div.i.i.i266
+  %add.i.i268 = add nsw i64 %.sroa.speculated.i.i267, %sub.ptr.div.i.i.i266
   %cmp7.i.i269 = icmp ult i64 %add.i.i268, %sub.ptr.div.i.i.i266
   %36 = call i64 @llvm.umin.i64(i64 %add.i.i268, i64 576460752303423487)
   %cond.i.i270 = select i1 %cmp7.i.i269, i64 576460752303423487, i64 %36
@@ -7651,7 +7651,7 @@ if.then.i.i359:                                   ; preds = %if.else.i46
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i317: ; preds = %if.else.i46
   %sub.ptr.div.i.i.i318 = ashr exact i64 %sub.ptr.sub.i.i.i315, 4
   %.sroa.speculated.i.i319 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i318, i64 1)
-  %add.i.i320 = add i64 %.sroa.speculated.i.i319, %sub.ptr.div.i.i.i318
+  %add.i.i320 = add nsw i64 %.sroa.speculated.i.i319, %sub.ptr.div.i.i.i318
   %cmp7.i.i321 = icmp ult i64 %add.i.i320, %sub.ptr.div.i.i.i318
   %52 = call i64 @llvm.umin.i64(i64 %add.i.i320, i64 576460752303423487)
   %cond.i.i322 = select i1 %cmp7.i.i321, i64 576460752303423487, i64 %52
@@ -10987,8 +10987,7 @@ if.then19:                                        ; preds = %if.then17
   %6 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i, label %if.then.i146.invoke, label %if.end.i
 
 if.then.i146.invoke:                              ; preds = %if.else.i.i.i.i, %if.then19, %if.else
@@ -11014,13 +11013,14 @@ for.body.i.lr.ph.i:                               ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i147, ptr %_M_finish.i.i141, align 8
   %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i147, i64 %sub.ptr.sub.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
+  %sub.ptr.div.i.i151 = lshr exact i64 %sub.ptr.sub.i, 4
   br label %for.body.i.i152
 
 for.body.i.i152:                                  ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i, %for.body.i.lr.ph.i
   %8 = phi ptr [ %call5.i.i.i.i147, %for.body.i.lr.ph.i ], [ %12, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %9 = phi ptr [ %add.ptr21.i, %for.body.i.lr.ph.i ], [ %13, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %10 = phi ptr [ %call5.i.i.i.i147, %for.body.i.lr.ph.i ], [ %14, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
-  %__n.0.i4.i = phi i64 [ %sub.ptr.div.i, %for.body.i.lr.ph.i ], [ %dec.i.i155, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
+  %__n.0.i4.i = phi i64 [ %sub.ptr.div.i.i151, %for.body.i.lr.ph.i ], [ %dec.i.i155, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %__first.addr.0.i3.i = phi ptr [ %5, %for.body.i.lr.ph.i ], [ %incdec.ptr.i.i154, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE9push_backEOSD_.exit.i.i ]
   %cmp.not.i.i.i.i = icmp eq ptr %10, %9
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
@@ -11044,7 +11044,7 @@ if.else.i.i.i.i:                                  ; preds = %for.body.i.i152
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 576460752303423487)
   %cond.i.i = select i1 %cmp7.i.i, i64 576460752303423487, i64 %11
@@ -11186,7 +11186,7 @@ if.then.i.i277:                                   ; preds = %if.else.i
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i235: ; preds = %if.else.i
   %sub.ptr.div.i.i.i236 = ashr exact i64 %sub.ptr.sub.i.i.i233, 4
   %.sroa.speculated.i.i237 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i236, i64 1)
-  %add.i.i238 = add i64 %.sroa.speculated.i.i237, %sub.ptr.div.i.i.i236
+  %add.i.i238 = add nsw i64 %.sroa.speculated.i.i237, %sub.ptr.div.i.i.i236
   %cmp7.i.i239 = icmp ult i64 %add.i.i238, %sub.ptr.div.i.i.i236
   %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i238, i64 576460752303423487)
   %cond.i.i240 = select i1 %cmp7.i.i239, i64 576460752303423487, i64 %19
@@ -11322,7 +11322,7 @@ if.then.i.i329:                                   ; preds = %if.else.i81
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i287: ; preds = %if.else.i81
   %sub.ptr.div.i.i.i288 = ashr exact i64 %sub.ptr.sub.i.i.i285, 4
   %.sroa.speculated.i.i289 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i288, i64 1)
-  %add.i.i290 = add i64 %.sroa.speculated.i.i289, %sub.ptr.div.i.i.i288
+  %add.i.i290 = add nsw i64 %.sroa.speculated.i.i289, %sub.ptr.div.i.i.i288
   %cmp7.i.i291 = icmp ult i64 %add.i.i290, %sub.ptr.div.i.i.i288
   %33 = call i64 @llvm.umin.i64(i64 %add.i.i290, i64 576460752303423487)
   %cond.i.i292 = select i1 %cmp7.i.i291, i64 576460752303423487, i64 %33
@@ -11489,7 +11489,7 @@ if.then.i.i381:                                   ; preds = %if.else.i49
 _ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonINS1_11ordered_mapES_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE12_M_check_lenEmPKc.exit.i339: ; preds = %if.else.i49
   %sub.ptr.div.i.i.i340 = ashr exact i64 %sub.ptr.sub.i.i.i337, 4
   %.sroa.speculated.i.i341 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i340, i64 1)
-  %add.i.i342 = add i64 %.sroa.speculated.i.i341, %sub.ptr.div.i.i.i340
+  %add.i.i342 = add nsw i64 %.sroa.speculated.i.i341, %sub.ptr.div.i.i.i340
   %cmp7.i.i343 = icmp ult i64 %add.i.i342, %sub.ptr.div.i.i.i340
   %50 = call i64 @llvm.umin.i64(i64 %add.i.i342, i64 576460752303423487)
   %cond.i.i344 = select i1 %cmp7.i.i343, i64 576460752303423487, i64 %50
@@ -12909,7 +12909,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonINS9_11ordered_mapES_S6_blmdSaNS9_14adl_serializerES_IhSaIhEEvEEESaISG_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
   %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2

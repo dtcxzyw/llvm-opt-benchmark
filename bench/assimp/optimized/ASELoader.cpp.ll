@@ -1980,8 +1980,7 @@ if.then.i246:                                     ; preds = %if.then107
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i17.i = ashr exact i64 %sub.ptr.sub.i16.i, 3
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i251, %sub.ptr.div.i17.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i250, %sub.ptr.sub.i16.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i253
 
 cond.true.i.i.i:                                  ; preds = %if.then.i246
@@ -2030,8 +2029,7 @@ if.else.i253:                                     ; preds = %if.then.i246
   %63 = load ptr, ptr %_M_finish.i19.i, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %63 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i23.i, %sub.ptr.div.i.i251
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %sub.ptr.sub.i.i250
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i253
@@ -2055,11 +2053,12 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then27.i, %for.b
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end69.i, !llvm.loop !21
 
 if.else49.i:                                      ; preds = %if.else.i253
-  %cmp6.i.i.i.i.i35.i = icmp sgt i64 %sub.ptr.div.i23.i, 0
+  %sub.ptr.div.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
+  %cmp6.i.i.i.i.i35.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i34.i, 0
   br i1 %cmp6.i.i.i.i.i35.i, label %for.body.i.i.i.i.i37.i, label %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.i
 
 for.body.i.i.i.i.i37.i:                           ; preds = %if.else49.i, %for.body.i.i.i.i.i37.i
-  %__n.09.i.i.i.i.i38.i = phi i64 [ %dec.i.i.i.i.i45.i, %for.body.i.i.i.i.i37.i ], [ %sub.ptr.div.i23.i, %if.else49.i ]
+  %__n.09.i.i.i.i.i38.i = phi i64 [ %dec.i.i.i.i.i45.i, %for.body.i.i.i.i.i37.i ], [ %sub.ptr.div.i.i.i.i.i34.i, %if.else49.i ]
   %__result.addr.08.i.i.i.i.i39.i = phi ptr [ %incdec.ptr1.i.i.i.i.i44.i, %for.body.i.i.i.i.i37.i ], [ %58, %if.else49.i ]
   %__first.addr.07.i.i.i.i.i40.i = phi ptr [ %incdec.ptr.i.i.i.i.i43.i, %for.body.i.i.i.i.i37.i ], [ %56, %if.else49.i ]
   %66 = load i32, ptr %__first.addr.07.i.i.i.i.i40.i, align 4
@@ -7241,18 +7240,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 12
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 768614336404564650
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i
 
@@ -7294,8 +7292,7 @@ if.else:                                          ; preds = %if.then
   %9 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = sdiv exact i64 %sub.ptr.sub.i22, 12
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -7364,19 +7361,17 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseI9aiColor4tIfESaIS1_EE11_M_allocateEm.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -7415,8 +7410,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

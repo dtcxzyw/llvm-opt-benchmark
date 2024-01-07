@@ -1248,7 +1248,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i
   %4 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %4
@@ -1323,7 +1323,7 @@ if.then.i.i.i113:                                 ; preds = %if.else.i91
 _ZNKSt6vectorIP6aiNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i91
   %sub.ptr.div.i.i.i.i96 = ashr exact i64 %sub.ptr.sub.i.i.i.i94, 3
   %.sroa.speculated.i.i.i97 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i96, i64 1)
-  %add.i.i.i98 = add i64 %.sroa.speculated.i.i.i97, %sub.ptr.div.i.i.i.i96
+  %add.i.i.i98 = add nsw i64 %.sroa.speculated.i.i.i97, %sub.ptr.div.i.i.i.i96
   %cmp7.i.i.i99 = icmp ult i64 %add.i.i.i98, %sub.ptr.div.i.i.i.i96
   %5 = call i64 @llvm.umin.i64(i64 %add.i.i.i98, i64 1152921504606846975)
   %cond.i.i.i100 = select i1 %cmp7.i.i.i99, i64 1152921504606846975, i64 %5
@@ -1701,7 +1701,7 @@ if.then.i.i.i200.cont:                            ; preds = %if.then.i.i.i200.in
 _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i182
   %sub.ptr.div.i.i.i.i187 = sdiv exact i64 %sub.ptr.sub.i.i.i.i185, 12
   %.sroa.speculated.i.i.i188 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i187, i64 1)
-  %add.i.i.i189 = add i64 %.sroa.speculated.i.i.i188, %sub.ptr.div.i.i.i.i187
+  %add.i.i.i189 = add nsw i64 %.sroa.speculated.i.i.i188, %sub.ptr.div.i.i.i.i187
   %cmp7.i.i.i190 = icmp ult i64 %add.i.i.i189, %sub.ptr.div.i.i.i.i187
   %24 = call i64 @llvm.umin.i64(i64 %add.i.i.i189, i64 768614336404564650)
   %cond.i.i.i191 = select i1 %cmp7.i.i.i190, i64 768614336404564650, i64 %24
@@ -1772,7 +1772,7 @@ if.then.i.i.i241:                                 ; preds = %if.else.i210
 _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i215: ; preds = %if.else.i210
   %sub.ptr.div.i.i.i.i216 = sdiv exact i64 %sub.ptr.sub.i.i.i.i213, 12
   %.sroa.speculated.i.i.i217 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i216, i64 1)
-  %add.i.i.i218 = add i64 %.sroa.speculated.i.i.i217, %sub.ptr.div.i.i.i.i216
+  %add.i.i.i218 = add nsw i64 %.sroa.speculated.i.i.i217, %sub.ptr.div.i.i.i.i216
   %cmp7.i.i.i219 = icmp ult i64 %add.i.i.i218, %sub.ptr.div.i.i.i.i216
   %25 = call i64 @llvm.umin.i64(i64 %add.i.i.i218, i64 768614336404564650)
   %cond.i.i.i220 = select i1 %cmp7.i.i.i219, i64 768614336404564650, i64 %25
@@ -1843,7 +1843,7 @@ if.then.i.i.i283:                                 ; preds = %if.else.i252
 _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i257: ; preds = %if.else.i252
   %sub.ptr.div.i.i.i.i258 = sdiv exact i64 %sub.ptr.sub.i.i.i.i255, 12
   %.sroa.speculated.i.i.i259 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i258, i64 1)
-  %add.i.i.i260 = add i64 %.sroa.speculated.i.i.i259, %sub.ptr.div.i.i.i.i258
+  %add.i.i.i260 = add nsw i64 %.sroa.speculated.i.i.i259, %sub.ptr.div.i.i.i.i258
   %cmp7.i.i.i261 = icmp ult i64 %add.i.i.i260, %sub.ptr.div.i.i.i.i258
   %26 = call i64 @llvm.umin.i64(i64 %add.i.i.i260, i64 768614336404564650)
   %cond.i.i.i262 = select i1 %cmp7.i.i.i261, i64 768614336404564650, i64 %26
@@ -1969,7 +1969,7 @@ if.else.i304:                                     ; preds = %invoke.cont134
 _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i309: ; preds = %if.else.i304
   %sub.ptr.div.i.i.i.i310 = sdiv exact i64 %sub.ptr.sub.i.i.i.i307, 12
   %.sroa.speculated.i.i.i311 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i310, i64 1)
-  %add.i.i.i312 = add i64 %.sroa.speculated.i.i.i311, %sub.ptr.div.i.i.i.i310
+  %add.i.i.i312 = add nsw i64 %.sroa.speculated.i.i.i311, %sub.ptr.div.i.i.i.i310
   %cmp7.i.i.i313 = icmp ult i64 %add.i.i.i312, %sub.ptr.div.i.i.i.i310
   %30 = call i64 @llvm.umin.i64(i64 %add.i.i.i312, i64 768614336404564650)
   %cond.i.i.i314 = select i1 %cmp7.i.i.i313, i64 768614336404564650, i64 %30
@@ -2133,6 +2133,7 @@ if.end180:                                        ; preds = %invoke.cont177, %fo
   %sub.ptr.sub.i366 = sub i64 %sub.ptr.lhs.cast.i364, %sub.ptr.rhs.cast.i365
   %sub.ptr.div.i367 = sdiv exact i64 %sub.ptr.sub.i366, 12
   %rem = urem i64 %sub.ptr.div.i367, 3
+  %div201 = udiv i64 %sub.ptr.div.i367, 3
   %cmp182.not = icmp eq i64 %rem, 0
   br i1 %cmp182.not, label %if.end188, label %if.then183
 
@@ -2152,8 +2153,7 @@ if.end188:                                        ; preds = %if.end180
   %sub.ptr.lhs.cast.i369 = ptrtoint ptr %normalBuffer.sroa.17.2 to i64
   %sub.ptr.rhs.cast.i370 = ptrtoint ptr %normalBuffer.sroa.0.4 to i64
   %sub.ptr.sub.i371 = sub i64 %sub.ptr.lhs.cast.i369, %sub.ptr.rhs.cast.i370
-  %sub.ptr.div.i372 = sdiv exact i64 %sub.ptr.sub.i371, 12
-  %cmp191.not = icmp eq i64 %sub.ptr.div.i372, %sub.ptr.div.i367
+  %cmp191.not = icmp eq i64 %sub.ptr.sub.i371, %sub.ptr.sub.i366
   br i1 %cmp191.not, label %if.end197, label %if.then192
 
 if.then192:                                       ; preds = %if.end188
@@ -2172,12 +2172,11 @@ if.end197:                                        ; preds = %if.end188
   br i1 %cmp.i.i362, label %if.end231, label %if.then199
 
 if.then199:                                       ; preds = %if.end197
-  %div201 = udiv i64 %sub.ptr.div.i372, 3
   %conv202 = trunc i64 %div201 to i32
   store i32 %conv202, ptr %mNumFaces.i, align 8
-  %conv205 = trunc i64 %sub.ptr.div.i372 to i32
+  %conv205 = trunc i64 %sub.ptr.div.i367 to i32
   store i32 %conv205, ptr %mNumVertices.i, align 4
-  %conv207 = and i64 %sub.ptr.div.i372, 4294967295
+  %conv207 = and i64 %sub.ptr.div.i367, 4294967295
   %38 = mul nuw nsw i64 %conv207, 12
   %call209 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #19
           to label %invoke.cont208 unwind label %ehcleanup.thread631.loopexit.split-lp.loopexit.split-lp.loopexit
